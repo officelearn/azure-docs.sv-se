@@ -5,17 +5,17 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/22/2020
 ms.author: baanders
-ms.openlocfilehash: 230304677b78f00b2d1288c846f8bf704cd8a497
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c2668bdda5002ebd2a34b8a2ffa5885263aec0c9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407574"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009683"
 ---
-Det är möjligt att organisationen kräver ytterligare åtgärder från prenumerations ägare för att kunna konfigurera en registrering av appen (och därmed slutföra konfigurationen av en användbar Azure Digital-instans). De steg som krävs kan variera beroende på organisationens aktuella inställningar.
+Det är möjligt att organisationen kräver ytterligare åtgärder från prenumerations ägare/-administratörer för att kunna konfigurera en registrering av appen (och därmed slutföra konfigurationen av en användbar Azure Digital-instans). De steg som krävs kan variera beroende på organisationens aktuella inställningar.
 
-Här följer några vanliga potentiella aktiviteter som en ägare kan behöva utföra. Dessa och andra åtgärder kan utföras från sidan [*Azure AD App registreringar*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i Azure Portal.
-* Bevilja administrativt medgivande för appens registrering. Din organisation kan ha ett *administrativt medgivande som måste* aktive ras globalt i Azure AD för alla app-registreringar i din prenumeration. I så fall måste ägaren välja den här knappen för ditt företag på registrerings sidan för appens *API-behörigheter* för att appen ska vara giltig:
+Här följer några vanliga potentiella aktiviteter som en ägare/administratör kan behöva utföra. Dessa och andra åtgärder kan utföras från sidan [*Azure AD App registreringar*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i Azure Portal.
+* Bevilja administrativt medgivande för appens registrering. Din organisation kan ha ett *administrativt medgivande som måste* aktive ras globalt i Azure AD för alla app-registreringar i din prenumeration. I så fall måste ägaren/administratören välja den här knappen för ditt företag på registrerings sidan för appens *API-behörigheter* för att appen ska vara giltig:
 
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Portal visning av knappen bevilja administrativt medgivande under API-behörigheter":::
   - Om medgivande har beviljats, bör posten för Azure Digital-dubbla, Visa ett *status* värde för _beviljat **(ditt företag)** _

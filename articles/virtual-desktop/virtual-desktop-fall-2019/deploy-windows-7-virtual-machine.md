@@ -1,19 +1,17 @@
 ---
 title: Distribuera Windows 7 Virtual Machine Windows Virtual Desktop (klassisk) – Azure
 description: Så här konfigurerar och distribuerar du en virtuell Windows 7-dator på Windows Virtual Desktop (klassisk).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99c82f63e88815edba13bf88ba23c18493649dd9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 259e49fbdd6a0eb392ddf6a3cd3c318798cfabd0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285092"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005060"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop-classic"></a>Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop (klassisk)
 
@@ -22,7 +20,7 @@ ms.locfileid: "87285092"
 
 Processen för att distribuera en virtuell Windows 7-dator (VM) på virtuella Windows-datorer skiljer sig något från för virtuella datorer som kör senare versioner av Windows. I den här guiden får du lära dig hur du distribuerar Windows 7.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell-2019.md) för att skapa en adresspool. Efter det följer du instruktionerna i [skapa lagringspooler på Azure Marketplace](create-host-pools-azure-marketplace-2019.md#optional-assign-additional-users-to-the-desktop-application-group) för att tilldela en eller flera användare till program gruppen Skriv bord.
 

@@ -1,21 +1,19 @@
 ---
 title: Ta bort Windows virtuell Skriv bords värd pool – Azure
 description: Så här tar du bort en adresspool i det virtuella Windows-skrivbordet.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced0d7513524758975919fad90f19581d15d95f4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dfc9858bea468389d8ce90677f048e5d1fd3bb82
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100512"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007598"
 ---
-# <a name="delete-a-host-pool"></a>Ta bort en värdbaserad pool
+# <a name="delete-a-host-pool"></a>Ta bort en värdpool
 
 Alla lagringspooler som har skapats i Windows Virtual Desktop är kopplade till sessionsbaserade värdar och app-grupper. Om du vill ta bort en adresspool måste du ta bort dess tillhör ande app-grupper och-värd. Det är ganska enkelt att ta bort en app-grupp, men det är mer komplicerat att ta bort en sessions värd. När du tar bort en sessions värd måste du kontrol lera att den inte har några aktiva användarsessioner. Alla användarsessioner på sessionen måste loggas ut för att hindra användare från att förlora data.
 

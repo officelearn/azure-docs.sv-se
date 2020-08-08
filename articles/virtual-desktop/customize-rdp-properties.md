@@ -1,19 +1,17 @@
 ---
 title: Anpassa RDP-egenskaper med PowerShell – Azure
 description: Anpassa RDP-egenskaperna för virtuella Windows-datorer med PowerShell-cmdletar.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 630f2a7fe2e95992cb7724a7906a0949ffcea784
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 439f009d70775428a00f627160bf4d6b8ab9b089
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271118"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009111"
 ---
 # <a name="customize-remote-desktop-protocol-rdp-properties-for-a-host-pool"></a>Anpassa Remote Desktop Protocol egenskaper (RDP) för en värd pool
 
@@ -24,7 +22,7 @@ Genom att anpassa en värd Pools egenskaper för Remote Desktop Protocol (RDP), 
 
 Se [Inställningar för RDP-filer som stöds](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context) för en fullständig lista över vilka egenskaper som stöds och deras standardvärden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar följer du anvisningarna i [Konfigurera Windows Virtual Desktop PowerShell-modulen](powershell-module.md) för att konfigurera din PowerShell-modul och logga in på Azure.
 

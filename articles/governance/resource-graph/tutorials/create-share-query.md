@@ -3,16 +3,16 @@ title: 'Självstudie: hantera frågor i Azure Portal'
 description: I den här självstudien skapar du en resurs diagram fråga och delar den nya frågan med andra i Azure Portal.
 ms.date: 06/29/2020
 ms.topic: tutorial
-ms.openlocfilehash: c3da623e8bea44cc49e4ef46517ce461459405a9
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970594"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005181"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
 
-Med Azure Resource Graph Explorer kan du spara dina resurs diagram frågor direkt i Azure Portal. Det finns två typer av frågor: _privata_ och _delade_. En privat fråga sparas i Azure Portal inställningar. En delad fråga är en Azure Resource Manager-resurs som kan hanteras med rollbaserad åtkomst kontroll (RBAC) och skyddas med resurs lås. Båda typerna av frågor är krypterade i vila.
+Med Azure Resource Graph Explorer kan du spara dina resurs diagram frågor direkt i Azure Portal. Det finns två typer av frågor: _privata_ och _delade_. En privat fråga sparas i Azure Portal inställningar. En delad fråga är en Azure Resource Manager-resurs som kan hanteras med rollbaserad åtkomst kontroll i Azure (Azure RBAC) och skyddas med resurs lås. Båda typerna av frågor är krypterade i vila.
 
 Genom att spara frågor i Azure Portal sparar du tiden som du kan lägga på på annat sätt för dina favorit frågor eller vanliga frågor. När du delar frågor hjälper du ditt team att realisera målen för konsekvens och effektivitet genom upprepning.
 
@@ -60,7 +60,7 @@ Privata frågor är tillgängliga och endast synliga för det konto som skapar d
 
 ## <a name="create-a-shared-query"></a>Skapa en delad fråga
 
-Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta faktum innebär att frågan sparas i en resurs grupp, kan hanteras och kontrol leras med RBAC och kan även skyddas med resurs lås. Som en resurs kan alla som har rätt behörigheter Se och använda den.
+Till skillnad från en privat fråga är en delad fråga en Resource Manager-resurs. Detta faktum innebär att frågan sparas i en resurs grupp, kan hanteras och kontrol leras med Azure RBAC och kan även skyddas med resurs lås. Som en resurs kan alla som har rätt behörigheter Se och använda den.
 Följ dessa steg om du vill skapa en ny delad fråga:
 
 1. Välj **alla tjänster**på menyn portal eller Använd Azure Search-rutan längst upp på alla sidor för att söka efter och välja **resurs diagram Utforskaren**.

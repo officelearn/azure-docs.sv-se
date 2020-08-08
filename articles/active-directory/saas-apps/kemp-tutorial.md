@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a0afdecfcab9cc1ab3903429b197fe859d40a7f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: cd436462d157a7e416f0f6a468edd33520ccec7d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424883"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009946"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Självstudie: Azure Active Directory SSO-integrering med Kemp: LoadMaster Azure AD-integrering
 
@@ -44,7 +44,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Kemp: LoadMaster Azure AD-integration stöder **IDP** INITIERAd SSO
-* När du har konfigurerat Kemp: LoadMaster Azure AD-integrering kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat Kemp: LoadMaster Azure AD-integrering kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-kemp-loadmaster-azure-ad-integration-from-the-gallery"></a>Lägga till Kemp: LoadMaster Azure AD-integrering från galleriet
 
@@ -115,7 +115,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -317,7 +317,7 @@ Du bör se din klient inloggnings sida i stället för oautentiserad åtkomst ti
 
     ![Kemp: LoadMaster Azure AD integration-webbserver](./media/kemp-tutorial/kemp-11.png)
 
-    a. Välj lita endast på den här användaren för delegering till angivna tjänster.
+    a. Välj Den här användaren är endast betrodd för delegering till de tjänster som anges.
 
     b. Välj Använd valfritt autentiseringsprotokoll.
 

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: ad0079a0a48178f1e662e2fdf1daa685ae768857
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024201"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002981"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Lägg till hanterade instanser av den hanterade Azure SQL-instansen i en redunda
   > [!NOTE]
   > - När du går igenom den här självstudien kontrollerar du att du konfigurerar dina resurser med [förutsättningarna för att ställa in redundans för SQL-hanterad instans](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Det kan ta lång tid att skapa en hanterad instans. Därför kan det ta flera timmar att slutföra den här självstudien. Mer information om etablerings tider finns i [hanterings åtgärder för SQL-hanterade instanser](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Hanterade instanser som ingår i en failover-grupp kräver antingen [Azure-ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
+  > - Hanterade instanser som ingår i en failover-grupp kräver antingen [Azure-ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Global VNet-peering stöds inte. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -384,7 +384,7 @@ Skapa din resurs grupp och den primära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -714,7 +714,7 @@ Skapa den sekundära hanterade instansen med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |
@@ -817,7 +817,7 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -898,7 +898,7 @@ Skapa gatewayen för det virtuella nätverket för den sekundära hanterade inst
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar ett virtuellt nätverk i en resursgrupp. |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en under näts konfiguration i ett virtuellt nätverk. | 
@@ -963,7 +963,7 @@ Anslut de två gatewayerna med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Skapar en anslutning mellan de två virtuella Nätverksgatewayen.   |
 
@@ -1005,7 +1005,7 @@ Skapa gruppen för växling vid fel med hjälp av PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Skapar en ny failover-grupp för Azure SQL-hanterad instans.  |
 
@@ -1071,7 +1071,7 @@ Testa redundans med PowerShell.
 
 I den här delen av självstudien används följande PowerShell-cmdletar:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Hämtar eller listar redundans grupper för SQL-hanterade instanser.| 
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Kör en redundansväxling av en failover-grupp med SQL-hanterad instans. | 
@@ -1103,7 +1103,7 @@ Write-host "Removing residual resources and resource group..."
 
 I den här delen av självstudien används följande PowerShell-cmdlet:
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resurs grupp. |
 
@@ -1116,7 +1116,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en Azure-resursgrupp.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk.  |

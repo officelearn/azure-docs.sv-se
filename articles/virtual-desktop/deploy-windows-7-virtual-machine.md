@@ -1,19 +1,17 @@
 ---
 title: Distribuera Windows 7 virtuell dator Windows Virtual Desktop – Azure
 description: Så här konfigurerar och distribuerar du en virtuell Windows 7-dator på Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6cb4a31e3360f3f9f8c9ed4684c30295489d27d8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285165"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007581"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
 
@@ -22,9 +20,9 @@ ms.locfileid: "87285165"
 
 Processen för att distribuera en virtuell Windows 7-dator (VM) på virtuella Windows-datorer skiljer sig något från för virtuella datorer som kör senare versioner av Windows. I den här guiden får du lära dig hur du distribuerar Windows 7.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) för att skapa en adresspool. Om du använder portalen följer du anvisningarna i steg 1 till 9 i [skapa en värdbaserad pool med hjälp av Azure Portal](create-host-pools-azure-marketplace.md). Sedan väljer du **Granska + skapa** för att skapa en tom adresspool. 
+Innan du börjar följer du anvisningarna i [skapa en adresspool med PowerShell](create-host-pools-powershell.md) för att skapa en adresspool. Om du använder portalen följer du anvisningarna i steg 1 till 9 i [skapa en värdbaserad pool med hjälp av Azure Portal](create-host-pools-azure-marketplace.md). Sedan väljer du **Granska + skapa** för att skapa en tom adresspool.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Konfigurera en virtuell Windows 7-dator
 
@@ -49,9 +47,9 @@ Konfigurera en virtuell Windows 7-dator på Windows Virtual Desktop:
      ```
 
 12. Följ anvisningarna [här](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) för att hämta en registrerings-token.
-      
+
       - Om du hellre vill använda Azure Portal kan du också gå till sidan Översikt för den värddator som du vill lägga till den virtuella datorn i och skapa en token där.
-  
+
 13. [Hämta Windows Virtual Desktop-agenten för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Ladda ned Windows Virtual Desktop Agent Manager för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Öppna installations programmet för Windows Virtual Desktop agent och följ instruktionerna. När du uppmanas till det, ger du registrerings nyckeln som du skapade i steg 12.

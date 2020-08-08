@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4882fadcc2f05e4047366d8d097a3918091035bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281573"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005320"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Metod tips för programutvecklare för att hantera resurser i Azure Kubernetes service (AKS)
 
@@ -74,7 +74,7 @@ Mer information om resurs mått och tilldelningar finns i [hantera beräknings r
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Utveckla och felsöka program mot ett AKS-kluster
 
-**Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av dev Spaces. Den här utvecklings modellen ser till att rollbaserade åtkomst kontroller, nätverk eller lagrings behov implementeras innan appen distribueras till produktion.
+**Vägledning för bästa praxis** – utvecklings team bör distribuera och felsöka mot ett AKS-kluster med hjälp av dev Spaces. Den här utvecklings modellen ser till att rollbaserad åtkomst kontroll (RBAC), nätverk eller lagrings behov implementeras innan appen distribueras till produktion.
 
 Med Azure dev Spaces kan du utveckla, felsöka och testa program direkt mot ett AKS-kluster. Utvecklare i en grupp arbetar tillsammans för att bygga och testa under hela programmets livs cykel. Du kan fortsätta att använda befintliga verktyg som Visual Studio eller Visual Studio Code. Ett tillägg installeras för dev Spaces som ger ett alternativ för att köra och felsöka programmet i ett AKS-kluster.
 

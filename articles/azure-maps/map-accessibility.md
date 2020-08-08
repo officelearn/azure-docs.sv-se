@@ -1,6 +1,6 @@
 ---
 title: Skapa ett tillgängligt kart program med Azure Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du skapar ett program med hjälpmedels funktioner med hjälp av Microsoft Azure Maps.
+description: Lär dig mer om tillgänglighets aspekter i Azure Maps. Se vilka funktioner som är tillgängliga för att göra kart program tillgängliga och Visa hjälpmedels tips.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: febfdf5405038e5b60a3133a554eba7a756f617d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ec88437a0fad3a6bd94a67a5ef5c75b3e506f9e8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242380"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006221"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
@@ -94,7 +94,7 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Nyckel      | Åtgärd                            |
+| Nyckel      | Action                            |
 |----------|-----------------------------------|
 | `Tab` | Navigera bland kontrollerna och popup-fönster i kartan. |
 | `ESC` | Flytta fokus från valfritt element i kartan till kart elementet på översta nivån. |

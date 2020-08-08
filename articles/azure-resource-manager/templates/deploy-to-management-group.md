@@ -3,16 +3,16 @@ title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a17387aef4d35c042d1fe0b02f1c6fd447e4a918
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 992882859ed1c67cf66c31f69f21e151081cf087
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321810"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002902"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
-När din organisation är vuxen kan du distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa resurser på hanterings grupps nivå. Du kan till exempel behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
+När din organisation är vuxen kan du distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa resurser på hanterings grupps nivå. Du kan till exempel behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) för en hanterings grupp. Med mallar för hanterings grupps nivåer kan du tillämpa principer och tilldela roller på hanterings grupps nivån.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
@@ -357,6 +357,6 @@ Från en distribution på hanterings grupp nivå kan du rikta en prenumeration i
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
+* Information om hur du tilldelar roller finns i [lägga till Azure-roll tilldelningar med hjälp av Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 * Ett exempel på hur du distribuerar inställningar för arbets ytan för Azure Security Center finns [deployASCwithWorkspaceSettings.jspå](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Du kan också distribuera mallar på [prenumerations nivå](deploy-to-subscription.md) och [klient nivå](deploy-to-tenant.md).

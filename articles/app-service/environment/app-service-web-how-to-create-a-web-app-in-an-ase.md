@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba94f15f21696c87b336dc1f17b6f9f9def75c6c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220702"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007071"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -28,7 +28,7 @@ I den här självstudien visas hur du skapar webbappar och App Service-planer i 
 > 
 > 
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien förutsätter vi att du har skapat en App Service-miljön. Om du inte har gjort det ännu kan du läsa [skapa en app service-miljön](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
@@ -40,7 +40,7 @@ I den här självstudien förutsätter vi att du har skapat en App Service-milj�
     Om du har flera prenumerationer som är medvetna om att du ska skapa en app i App Service-miljön måste du använda samma prenumeration som du använde när du skapade miljön. 
 3. Välj eller skapa en Resursgrupp.
    
-    Med *resurs grupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när du skapar regler för *rollbaserad åtkomst kontroll* (RBAC) för dina appar. Mer information finns i [Översikt över Azure Resource Manager][ResourceGroups]. 
+    Med *resurs grupper* kan du hantera relaterade Azure-resurser som en enhet och är användbara när du etablerar *Azure-rollbaserad åtkomst kontroll (Azure RBAC)* regler för dina appar. Mer information finns i [Översikt över Azure Resource Manager][ResourceGroups]. 
 4. Välj eller skapa en App Service plan.
    
     *App Service planer* är hanterade uppsättningar av Web Apps.  Normalt när du väljer prissättning tillämpas det pris som debiteras för App Service plan snarare än till de enskilda apparna. I en ASE betalar du för de beräknings instanser som allokeras till ASE i stället för det som du har listat med din ASP.  För att skala upp antalet instanser av en webbapp skalar du upp instanserna av din App Service plan och påverkar alla webbappar i planen.  Vissa funktioner som webbplats platser eller VNET-integration också har begränsningar i planen.  Mer information finns i [Översikt över Azure App Service planer](../overview-hosting-plans.md)

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 0aa688d6e56629ca376844ce2d0669197b1bb2b7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 83fbf6fa9190953d902ab60a8a5ce131f1fd8a0e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531353"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006425"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Så här skyddar du ett enda sid program med icke-interaktiv inloggning
 
@@ -102,12 +102,12 @@ Skapa ett skyddat webb tjänst program som ansvarar för autentisering till Azur
 
 ## <a name="grant-role-based-access"></a>Bevilja rollbaserad åtkomst
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
+Du ger åtkomst till Azure-rollbaserad *åtkomst kontroll (Azure RBAC)* genom att tilldela den systemtilldelade identiteten till en eller flera roll definitioner för Azure. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
 
 1. Gå till ditt **Azure Maps-konto**. Välj roll tilldelningen **åtkomst kontroll (IAM)**  >  **Role assignment**.
 
     > [!div class="mx-imgBorder"]
-    > ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Bevilja åtkomst med Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. På fliken **roll tilldelningar** under **roll**väljer du en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Funktionsapp**. Välj huvudobjektet efter namn. Välj sedan **Spara**.
 

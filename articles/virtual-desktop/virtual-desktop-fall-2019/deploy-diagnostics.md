@@ -1,19 +1,17 @@
 ---
 title: Distribuera diagnostikverktyget för Windows Virtual Desktop (klassisk) – Azure
 description: Distribuera verktyget Diagnostics UX för Windows Virtual Desktop (klassisk).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bf05d495442a39b42fddf5f373fb2616bf0c6fbe
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285109"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009196"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuera diagnostikverktyget för Windows Virtual Desktop (klassiskt)
 
@@ -34,7 +32,7 @@ Så här kan du använda diagnostikverktyget för virtuella Windows-datorer:
 - Skicka meddelande till aktiva användare på en angiven värd för sessionen.
 - Logga ut användare från en sessions värd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste skapa en Azure Active Directory app-registrering och en Log Analytics arbets yta innan du kan distribuera Azure Resource Manager-mallen för verktyget. Du eller administratören behöver dessa behörigheter för att göra det:
 

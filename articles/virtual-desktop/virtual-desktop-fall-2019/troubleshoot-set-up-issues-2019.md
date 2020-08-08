@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (klassisk) skapande av klient värd pool – Azure
 description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows Virtual Desktop (klassisk) klient miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd9a6dd5d11ab69635d610eee3f92a90e942b576
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: eed1b0e1b01d5d13330b927429eca9a28ff80658
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269605"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009264"
 ---
 # <a name="tenant-and-host-pool-creation-in-windows-virtual-desktop-classic"></a>Skapande av innehavare och värddator i Windows Virtual Desktop (klassisk)
 
@@ -43,9 +41,9 @@ Exempel på RAW-fel:
 
 ```Error
 AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
-\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the
 configuration of your service subscriptions.650052 Message The app needs access to a service
-(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled.
 Contact your IT Admin to review the configuration of your service subscriptions.
 ```
 
@@ -124,12 +122,12 @@ Så här visar du felet i aktivitets loggen:
 1. Avsluta det aktuella distributions erbjudandet för Azure Marketplace.
 2. I det övre Sök fältet söker du efter och väljer **aktivitets logg**.
 3. Hitta en aktivitet med namnet **validate Deployment** som har statusen **misslyckad** och välj aktiviteten.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Skärm bild av enskild * * verifiera distribution * * aktivitet med en * * misslyckad * *-status](../media/troubleshooting-marketplace-validation-error-activity-summary.png)
 
 4. Välj JSON och bläddra sedan ned längst ned på skärmen tills du ser fältet "statusMessage".
-   
+
    > [!div class="mx-imgBorder"]
    > ![Skärm bild av misslyckad aktivitet, med en röd ruta runt statusMessage-egenskapen för JSON-texten.](../media/troubleshooting-marketplace-validation-error-json-boxed.png)
 
@@ -260,7 +258,7 @@ Exempel på RAW-fel:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

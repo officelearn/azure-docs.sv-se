@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: yegu
-ms.openlocfilehash: 3f5cfccd1f85f68c619192496c62bf80ea8d4785
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170185"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008567"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Migrera från Managed Cache Service till Azure cache för Redis (inaktuell)
 Migrering av program som använder Azure Managed Cache Service till Azure cache för Redis kan utföras med minimala ändringar i programmet, beroende på vilka Managed Cache Service funktioner som används i ditt caching-program. Även om API: erna inte är exakt samma som de är lika, och mycket av din befintliga kod som använder Managed Cache Service för att komma åt en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör nödvändiga konfigurations-och program ändringar för att migrera dina Managed Cache Service-program till att använda Azure cache för Redis och visar hur vissa av funktionerna i Azure cache för Redis kan användas för att implementera funktionerna i en Managed Cache Service cache.
@@ -39,7 +40,7 @@ Azure Managed Cache Service och Azure cache för Redis är likartade men impleme
 
 | Managed Cache Service funktion | Managed Cache Service support | Azure cache för Redis-support |
 | --- | --- | --- |
-| Namngivna cacheminnen |En standardcache har kon figurer ATS och i erbjudandena för standard-och Premium-cache kan upp till nio ytterligare namngivna cacheminnen konfigureras om det behövs. |Azure cache för Redis har ett konfigurerbart antal databaser (standard 16) som kan användas för att implementera en liknande funktion i namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
+| Namngivna cacheminnen |En standardcache har kon figurer ATS och i erbjudandena för standard-och Premium-cache kan upp till nio ytterligare namngivna cacheminnen konfigureras om det behövs. |Azure cache för Redis har ett konfigurerbart antal databaser (standard 16) som kan användas för att implementera en liknande funktion i namngivna cacheminnen. Mer information finns i [What are Redis databases?](cache-development-faq.md#what-are-redis-databases) (Vad är Redis-databaser?) och [Default Redis server configuration](cache-configure.md#default-redis-server-configuration) (Standardkonfiguration av Redis-server). |
 | Hög tillgänglighet |Ger hög tillgänglighet för objekt i cachen i standard-och Premium cache-erbjudandena. Om objekten förloras på grund av ett problem är säkerhets kopior av objekten i cachen fortfarande tillgängliga. Skrivningar till replik-cachen görs synkront. |Hög tillgänglighet är tillgängligt i cacheminnet för standard-och Premium-cache, som har en primär-/replik konfiguration med två noder (varje Shard i en Premium-cache har ett primärt/replik par). Skrivningar till repliken görs asynkront. Mer information finns i [Azure cache för Redis-priser](https://azure.microsoft.com/pricing/details/cache/). |
 | Meddelanden |Tillåter att klienter tar emot asynkrona meddelanden när en rad olika cache-åtgärder sker i ett namngivet cacheminne. |Klient program kan använda Redis i pub/sub eller nyckel [utrymme](cache-configure.md#keyspace-notifications-advanced-settings) för att få liknande funktioner som aviseringar. |
 | Lokal cache |Lagrar en kopia av cachelagrade objekt lokalt på klienten för extra snabb åtkomst. |Klient program måste implementera den här funktionen med hjälp av en ord lista eller liknande data struktur. |
@@ -47,7 +48,7 @@ Azure Managed Cache Service och Azure cache för Redis är likartade men impleme
 | Princip för förfallo datum |Standard principen för förfallo datum är absolut och standard intervallet för förfallo tid är 10 minuter. Principer för glidande och aldrig är också tillgängliga. |Som standard upphör objekt i cachen inte att gälla, men ett förfallo datum kan konfigureras per skrivning med hjälp av cache set Overloads. |
 | Regioner och taggning |Regioner är under grupper för cachelagrade objekt. Regioner stöder även anteckningen av cachelagrade objekt med ytterligare beskrivande strängar som kallas taggar. Regioner stöder möjligheten att utföra Sök åtgärder på alla taggade objekt i den regionen. Alla objekt inom en region finns i en enda nod i cache klustret. |en Azure-cache för Redis består av en enda nod (om inte Redis-kluster är aktiverat) så att begreppet Managed Cache Service regioner inte gäller. Redis stöder sökning och jokertecken vid hämtning av nycklar så att beskrivande taggar kan bäddas in i nyckel namnen och användas för att hämta objekten senare. Ett exempel på hur du implementerar en taggad lösning med hjälp av Redis finns i [implementera cache-taggning med Redis](https://stackify.com/implementing-cache-tagging-redis/). |
 | Serialisering |Hanterad cache stöder NetDataContractSerializer, BinaryFormatter och användning av anpassade serialiserare. Standardvärdet är NetDataContractSerializer. |Det är klient Programets ansvar att serialisera .NET-objekt innan de placeras i cachen, med valet av serialiserare till klient program utvecklaren. Mer information och exempel kod finns i [arbeta med .net-objekt i cacheminnet](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache). |
-| Cache-emulator |Hanterad cache tillhandahåller en lokal cache-emulator. |Azure cache för Redis har ingen emulator, men du kan [köra MSOpenTech-versionen av redis-server.exe lokalt](cache-faq.md#cache-emulator) för att tillhandahålla en emulator. |
+| Cache-emulator |Hanterad cache tillhandahåller en lokal cache-emulator. |Azure cache för Redis har ingen emulator, men du kan [köra Redis lokalt](cache-development-faq.md#is-there-a-local-emulator-for-azure-cache-for-redis) för att tillhandahålla en emulator. |
 
 ## <a name="choose-a-cache-offering"></a>Välj ett cache-erbjudande
 Microsoft Azure cache för Redis är tillgängligt på följande nivåer:
@@ -58,7 +59,7 @@ Microsoft Azure cache för Redis är tillgängligt på följande nivåer:
 
 Varje nivå har olika funktioner och priser. Funktionerna beskrivs senare i den här hand boken och mer information om prissättning finns i informationen om [cache-prissättning](https://azure.microsoft.com/pricing/details/cache/).
 
-En start punkt för migrering är att välja den storlek som stämmer överens med storleken på din tidigare Managed Cache Service cache och sedan skala upp eller ned beroende på programmets krav. Mer information om hur du väljer rätt Azure-cache för Redis-erbjudande finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+En start punkt för migrering är att välja den storlek som stämmer överens med storleken på din tidigare Managed Cache Service cache och sedan skala upp eller ned beroende på programmets krav. Mer information om hur du väljer rätt Azure-cache för Redis-erbjudande finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="create-a-cache"></a>Skapa en cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]

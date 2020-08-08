@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 07/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ea1504f5cb3ae405ccd22774204f898484e6876
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987128"
+ms.locfileid: "88003360"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 

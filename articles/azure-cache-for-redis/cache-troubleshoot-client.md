@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
-ms.openlocfilehash: 7d5ab5c125a8a395d1bc0139421ec804e1221e12
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 122c96c95aea794fbba9cab8a9a5b867f9f34b48
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506442"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008975"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Felsöka problem på Azure Cache for Redis-klientsidan
 
@@ -53,7 +53,7 @@ I föregående undantag finns det flera problem som är intressanta:
 - Observera att i `IOCP` avsnittet och `WORKER` avsnittet har du ett `Busy` värde som är större än `Min` värdet. Den här skillnaden innebär att `ThreadPool` inställningarna behöver justeras.
 - Du kan också se `in: 64221` . Det här värdet anger att 64 211 byte har mottagits på klientens kernel socket-lager men inte lästs av programmet. Den här skillnaden innebär vanligt vis att ditt program (t. ex. StackExchange. Redis) inte läser data från nätverket så snabbt som servern skickar det till dig.
 
-Du kan [Konfigurera dina `ThreadPool` Inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
+Du kan [Konfigurera dina `ThreadPool` Inställningar](cache-management-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
 
 ## <a name="high-client-cpu-usage"></a>Hög CPU-användning för klienter
 
@@ -109,4 +109,4 @@ Lösningar för stora svars storlekar varierar, men inkluderar:
 ## <a name="additional-information"></a>Ytterligare information
 
 - [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
-- [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

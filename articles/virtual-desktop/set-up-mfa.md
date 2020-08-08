@@ -1,19 +1,17 @@
 ---
 title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Desktop – Azure
 description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a8f5cb792f524354754b4368c0b68d5f9d40699
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291376"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009468"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
 
@@ -26,7 +24,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här behöver du för att komma igång:
 
@@ -59,7 +57,7 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 
    >[!IMPORTANT]
    > Windows-klientens appar för virtuella skriv bord används för webb klienten. Men Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
-  
+
 1. När du har valt din app väljer du **Välj**och väljer sedan **klar**.
 
    > [!div class="mx-imgBorder"]

@@ -1,23 +1,21 @@
 ---
 title: Lagring FSLogix Profile container Windows Virtual Desktop – Azure
 description: Alternativ för att lagra din Windows FSLogix-profil för virtuella skriv bord på Azure Storage.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808520"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009417"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop
 
-Azure erbjuder flera lagrings lösningar som du kan använda för att lagra din FSLogix-profil behållare. I den här artikeln jämförs de lagrings lösningar som Azure erbjuder för Windows Virtual Desktop-FSLogix användar profil behållare. Vi rekommenderar att du lagrar FSLogix profil behållare på Azure Files för de flesta av våra kunder. 
+Azure erbjuder flera lagrings lösningar som du kan använda för att lagra din FSLogix-profil behållare. I den här artikeln jämförs de lagrings lösningar som Azure erbjuder för Windows Virtual Desktop-FSLogix användar profil behållare. Vi rekommenderar att du lagrar FSLogix profil behållare på Azure Files för de flesta av våra kunder.
 
 Windows Virtual Desktop erbjuder FSLogix profil behållare som den rekommenderade användar profil lösningen. FSLogix är utformat för att roama profiler i fjärrdatormiljöer, till exempel Windows Virtual Desktop. Vid inloggning är den här behållaren dynamiskt kopplad till dator miljön med hjälp av en inbyggd virtuell hård disk som stöds och en virtuell hård disk för Hyper-V (VHDX). Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil.
 

@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0f5bc9827919c18e327dc263384f0d4b6a01c5bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530189"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004183"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till vissa användare med Azure Notification Hubs
 
@@ -50,7 +50,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
 1. Öppna den enkla sidan Visa app som du skapade i guiden [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) själv studie kursen.
 
    > [!NOTE]
-   > Det här avsnittet förutsätter att ditt projekt har kon figurer ATS med ett tomt organisations namn. Annars måste du lägga organisations namnet till alla klass namn.
+   > Det här avsnittet förutsätter att ditt projekt har kon figurer ATS med ett tomt organisations namn. Om inte, lägga du ditt organisations namn till alla klass namn.
 
 2. I `Main.storyboard` filen lägger du till de komponenter som visas i skärm bilden från objekt biblioteket.
 
@@ -66,7 +66,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
 
      Vissa komponenter har lagts till i guiden [skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs](ios-sdk-get-started.md) själv studie kursen.
 
-3. **CTRL** dra från komponenterna i vyn till `ViewController.h` och Lägg till dessa nya utsändnings möjligheter.
+3. **CTRL** dra från komponenterna i vyn till `ViewController.h` och Lägg till dessa nya utsändnings möjligheter:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -86,13 +86,13 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. I `ViewController.h` lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Enter Your Backend Endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net`.
+4. I `ViewController.h` lägger du till följande `#define` efter dina import-instruktioner. Ersätt `<Your backend endpoint>` plats hållaren med den mål-URL som du använde för att distribuera appens Server del i föregående avsnitt. Till exempel `http://your_backend.azurewebsites.net` :
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. I ditt projekt skapar du en ny enhets touch `RegisterClient` -klass med namnet till gränssnittet med ASP.net-backend som du skapade. Skapa klassen som ärver från `NSObject` . Lägg sedan till följande kod i `RegisterClient.h` .
+5. I ditt projekt skapar du en ny enhets touch `RegisterClient` -klass med namnet till gränssnittet med ASP.net-backend som du skapade. Skapa klassen som ärver från `NSObject` . Lägg sedan till följande kod i `RegisterClient.h` :
 
     ```objc
     @interface RegisterClient : NSObject
@@ -494,7 +494,7 @@ Om du vill använda Mobile Apps som backend-tjänst, se [Mobile Apps kom igång 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig mer om push-meddelanden till specifika användare som har taggar associerade med sina registreringar. Information om hur du skickar platsbaserade meddelanden finns i nästa självstudie: 
+I den här självstudien har du lärt dig mer om push-meddelanden till specifika användare som har taggar associerade med sina registreringar. Information om hur du skickar platsbaserade meddelanden finns i nästa självstudie:
 
 > [!div class="nextstepaction"]
 >[Skicka platsbaserade push-meddelanden](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

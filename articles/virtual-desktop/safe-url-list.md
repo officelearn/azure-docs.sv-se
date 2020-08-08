@@ -1,19 +1,17 @@
 ---
 title: 'Lista över säkra URL: er för Windows Virtual Desktop – Azure'
 description: 'En lista med URL: er som du bör avblockera för att se till att distributionen av Windows virtuella datorer fungerar som avsett.'
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9f7a3b51afa11562123a280da8634e100a22e6b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075606"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009485"
 ---
 # <a name="safe-url-list"></a>Lista över säkra webbadresser
 
@@ -33,7 +31,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
-| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | Ej tillämpligt |
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
@@ -44,13 +42,13 @@ I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha
 
 |Adress|Utgående TCP-port|Syfte|Service tag|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|Ingen|
-|*. events.data.microsoft.com|443|Telemetri-tjänst|Ingen|
-|www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Ingen|
-|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Ingen|
-|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|Ingen|
-|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Ingen|
-|*. digicert.com|443|Återkallnings kontroll av certifikat|Ingen|
+|*.microsoftonline.com|443|Autentisering till Microsoft Online Services|Inga|
+|*. events.data.microsoft.com|443|Telemetri-tjänst|Inga|
+|www.msftconnecttest.com|443|Identifierar om operativ systemet är anslutet till Internet|Inga|
+|*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Inga|
+|login.windows.net|443|Logga in på Microsoft Online Services, Microsoft 365|Inga|
+|*. sfx.ms|443|Uppdateringar för OneDrive-klientprogramvara|Inga|
+|*. digicert.com|443|Återkallnings kontroll av certifikat|Inga|
 
 >[!NOTE]
 >Det finns för närvarande ingen lista över IP-adressintervall som kan avblockeras för att tillåta nätverks trafik i det virtuella Windows-skrivbordet. Vi har bara stöd för att avblockera vissa URL: er just nu.

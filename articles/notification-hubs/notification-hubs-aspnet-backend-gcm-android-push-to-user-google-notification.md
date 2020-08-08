@@ -5,8 +5,6 @@ documentationcenter: android
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -15,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 27a56a45845c1515b500a71528d3449b63c3f869
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 349f8bf5c22f1e48ad733356c0e4720f5b7cd7e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323969"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004159"
 ---
 # <a name="tutorial-send-push-notification-to-specific-android-users-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: skicka push-meddelanden till vissa Android-användare med Azure Notification Hubs och Google Cloud Messaging (inaktuellt)
 
@@ -40,7 +38,7 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) innan du börjar med den här självstudien.
 
@@ -263,7 +261,7 @@ Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: P
     ```
 
     Den här komponenten implementerar de REST-anrop som krävs för att kontakta appens serverdel och registrera push-meddelanden. Den lagrar även lokalt de *registrationIds* som skapas av meddelandehubben som anges i [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den använder en autentiseringstoken som lagras i lokal lagring när du klickar på knappen **Logga in** .
-4. I klassen tar du bort eller kommenterar ut ditt privata fält för `NotificationHub`, samt lägger till ett fält för `RegisterClient`-klassen och en sträng för ASP.NET-serverdelens slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Exempelvis `http://mybackend.azurewebsites.net`.
+4. I klassen tar du bort eller kommenterar ut ditt privata fält för `NotificationHub`, samt lägger till ett fält för `RegisterClient`-klassen och en sträng för ASP.NET-serverdelens slutpunkt. Kom ihåg att ersätta `<Enter Your Backend Endpoint>` med din faktiska serverdelsslutpunkt som hämtades tidigare. Till exempel `http://mybackend.azurewebsites.net`.
 
     ```java
     //private NotificationHub hub;

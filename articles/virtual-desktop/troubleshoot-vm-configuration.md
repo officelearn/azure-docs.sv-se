@@ -1,19 +1,17 @@
 ---
 title: Felsök Windows Virtual Desktop-Session värd – Azure
 description: Så här löser du problem när du konfigurerar virtuella Windows-datorer för fjärrskrivbordssessioner-värd.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f0665aa8427371fa458039d73297fa0e02b4eb4d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286384"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005216"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -138,8 +136,8 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 
 **KORRIGERA:** Följ de här anvisningarna för att åtgärda agentens register fel.
 
-1. Om det redan finns en Registration-token tar du bort den med Remove-AzWvdRegistrationInfo. 
-2. Kör cmdleten **New-AzWvdRegistrationInfo** för att generera en ny token. 
+1. Om det redan finns en Registration-token tar du bort den med Remove-AzWvdRegistrationInfo.
+2. Kör cmdleten **New-AzWvdRegistrationInfo** för att generera en ny token.
 3. Bekräfta att parametern *-ExpriationTime* har angetts till 3 dagar.
 
 ### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-AzWvdSessionHost
@@ -305,7 +303,7 @@ Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs 
 
 Om tids gränsen löper ut visas ett fel meddelande om att "Fjärrsessionen kopplades från eftersom det inte finns några åtkomst licenser för fjärr skrivbords klienten tillgängliga för den här datorn."
 
-Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.  
+Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.
 
 >[!NOTE]
 >Windows Virtual Desktop kräver bara en klient åtkomst licens för klient organisation (CAL) när din värddator innehåller Windows Server-sessionsbaserade värdar. Information om hur du konfigurerar en klient åtkomst licens för fjärr skrivbords tjänster finns i [licens för klient åtkomst licenser](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 08/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ef70535ecd84a97bde9650eb8a3ea3b9406bd2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 291a9016c01e7d618cbfdd556a482ec77f173ab9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101735"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003599"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-intsights"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med IntSights
 
@@ -105,6 +105,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | lastName | user.surname |
     | intsightsAccountId | < intsightsAccountId > |
     | intsightsRole | < intsightsRole > |
+
+    > [!NOTE]
+    > **intsightsAccountId** och **intsightsRole** är de valfria anspråken som inte läggs till som standard och som bara ska läggas till manuellt **när användar etablering** är aktive rad.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 

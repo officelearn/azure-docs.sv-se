@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 3f0de52782694e6cbc8fdb6b55d545191dbbb350
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81010315"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009621"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -39,7 +39,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Åtkomstnycklar](#access-keys)
     * [Avancerade inställningar](#advanced-settings)
     * [Azure cache för Redis Advisor](#azure-cache-for-redis-advisor)
-    * [Skala](#scale)
+    * [Skalning](#scale)
     * [Kluster storlek](#cluster-size)
     * [Data persistens](#redis-data-persistence)
     * [Schemauppdateringar](#schedule-updates)
@@ -47,7 +47,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Virtual Network](#virtual-network)
     * [Brandvägg](#firewall)
     * [Egenskaper](#properties)
-    * [Hålls](#locks)
+    * [Lås](#locks)
     * [Automationsskript](#automation-script)
 * Administration
     * [Importera data](#importexport)
@@ -91,7 +91,7 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Åtkomstnycklar](#access-keys)
 * [Avancerade inställningar](#advanced-settings)
 * [Azure cache för Redis Advisor](#azure-cache-for-redis-advisor)
-* [Skala](#scale)
+* [Skalning](#scale)
 * [Kluster storlek](#cluster-size)
 * [Data persistens](#redis-data-persistence)
 * [Schemauppdateringar](#schedule-updates)
@@ -99,7 +99,7 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Virtual Network](#virtual-network)
 * [Brandvägg](#firewall)
 * [Egenskaper](#properties)
-* [Hålls](#locks)
+* [Lås](#locks)
 * [Automationsskript](#automation-script)
 
 
@@ -185,12 +185,12 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 
 | Azure cache för Redis-mått | Mer information |
 | --- | --- |
-| Användning av nätverksbandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-faq.md#cache-performance) |
+| Användning av nätverksbandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Anslutna klienter |[Standard konfiguration av Redis-maxclients](#maxclients) |
 | Server belastning |[Användnings diagram – redis server load](cache-how-to-monitor.md#usage-charts) |
-| Minnes användning |[Cache-prestanda-storlek](cache-faq.md#cache-performance) |
+| Minnes användning |[Cache-prestanda-storlek](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
-Uppgradera din cache genom att klicka på **Uppgradera nu** för att ändra pris nivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en pris nivå finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Uppgradera din cache genom att klicka på **Uppgradera nu** för att ändra pris nivån och [skala](#scale) cacheminnet. Mer information om hur du väljer en pris nivå finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier)
 
 
 ### <a name="scale"></a>Skala
@@ -386,7 +386,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 >
 >
 
-| Inställningen | Standardvärde | Beskrivning |
+| Inställning | Standardvärde | Beskrivning |
 | --- | --- | --- |
 | `databases` |16 |Standard antalet databaser är 16 men du kan konfigurera ett annat nummer baserat på pris nivån. <sup>1</sup> standard databasen är dB 0, du kan välja en annan per-anslutnings-basis med `connection.GetDatabase(dbid)` där `dbid` är ett tal mellan `0` och `databases - 1` . |
 | `maxclients` |Är beroende av pris nivå<sup>2</sup> |Det här värdet är det maximala antalet anslutna klienter som tillåts på samma gång. När gränsen har nåtts stänger Redis alla nya anslutningar och returnerar ett "maximalt antal klienter har nåtts"-felet. |
@@ -414,7 +414,7 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
   * P4 (53 GB-530 GB) – upp till 64 databaser
   * Alla Premium-cacheminnen med Redis Cluster Enabled-Redis Cluster stöder bara användning av databas 0, så `databases` gränsen för alla Premium-cache med Redis-klustret är effektiv 1 och [Select](https://redis.io/commands/select) -kommandot är inte tillåtet. Mer information finns i [behöver jag göra ändringar i klient programmet för att använda kluster?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)
 
-Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#what-are-redis-databases)
+Mer information om databaser finns i [Vad är Redis-databaser?](cache-development-faq.md#what-are-redis-databases)
 
 > [!NOTE]
 > `databases`Inställningen kan bara konfigureras när cachelagring skapas och bara med PowerShell, CLI eller andra hanterings klienter. Ett exempel på hur `databases` du konfigurerar under generering av cache med PowerShell finns i [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
@@ -505,4 +505,4 @@ Du kan flytta din cache till en ny prenumeration genom att klicka på **Flytta**
 Information om hur du flyttar resurser från en resurs grupp till en annan, och från en prenumeration till en annan, finns i [Flytta resurser till ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om hur du arbetar med Redis-kommandon finns i [Hur kan jag köra Redis-kommandon?](cache-faq.md#how-can-i-run-redis-commands)
+* Mer information om hur du arbetar med Redis-kommandon finns i [Hur kan jag köra Redis-kommandon?](cache-development-faq.md#how-can-i-run-redis-commands)

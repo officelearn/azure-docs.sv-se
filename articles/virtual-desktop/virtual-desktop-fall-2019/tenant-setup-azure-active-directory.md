@@ -1,19 +1,17 @@
 ---
 title: Skapa en klient i Windows Virtual Desktop (klassisk) – Azure
 description: Beskriver hur du konfigurerar Windows Virtual Desktop (klassiska) klienter i Azure Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a1f2dbf1f7cfc8fbb6a29129c7e445ffef87b070
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e2858daaa834552da5a85063fd9973d2c35209d7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286367"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005626"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en klient i Windows Virtual Desktop (klassisk)
 
@@ -82,12 +80,12 @@ Så här tilldelar du program rollen TenantCreator:
    > ![Skärm bild av sökning efter företags program i Azure Portal](../media/azure-portal-enterprise-applications.png)
 
 2. Sök efter **Windows Virtual Desktop**i **företags program**. Du ser de två program som du tillhandahöll medgivande för i föregående avsnitt. Av dessa två appar väljer du **virtuellt Windows-skrivbord**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![En skärm bild av Sök resultaten vid sökning efter "Windows Virtual Desktop" i "företags program". Appen med namnet "Windows Virtual Desktop" är markerad.](../media/tenant-enterprise-app.png)
 
 3. Välj **Användare och grupper**. Du kan se att administratören som beviljade medgivande till programmet redan visas i listan med **standard åtkomst** rollen som tilldelats. Detta är inte tillräckligt för att skapa en Windows-klient för virtuella skriv bord. Fortsätt följa dessa instruktioner för att lägga till **TenantCreator** -rollen till en användare.
-   
+
    > [!div class="mx-imgBorder"]
    > ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst".](../media/tenant-default-access.png)
 
@@ -126,13 +124,13 @@ Så här hittar du Azure Active Directory klient-ID (eller **katalog-ID**):
 
 Så här hittar du ditt Azure-prenumerations-ID:
 1. I samma [Azure Portal](https://portal.azure.com) -session söker du efter och väljer **prenumerationer**.
-   
+
    > [!div class="mx-imgBorder"]
    > ![En skärm bild av Sök resultaten för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat.](../media/tenant-search-subscription.png)
 
 2. Välj den Azure-prenumeration som du vill använda för att ta emot Windows-aviseringar för virtuella skriv bord.
 3. Leta efter **prenumerations-ID**och hovra sedan över värdet tills en urklipps ikon visas. Välj urklipps ikonen och klistra in den på en praktisk plats så att du kan använda den senare som **AzureSubscriptionId** -värde.
-   
+
    > [!div class="mx-imgBorder"]
    > ![En skärm bild av egenskaperna för Azure-prenumerationen. Musen hovrar över urklipps ikonen för "prenumerations-ID" för att kopiera och klistra in.](../media/tenant-subscription-id.png)
 

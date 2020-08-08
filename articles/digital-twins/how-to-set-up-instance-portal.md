@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c7027f474c9ff5cbd90ed1800d74e3b4ebd60b3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836946"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009686"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -24,27 +24,13 @@ Den här versionen av den här artikeln går igenom de här stegen manuellt, en 
 * Om du vill gå igenom dessa steg manuellt med hjälp av CLI, se CLI-versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md).
 * Om du vill köra en automatiserad installation med hjälp av ett skript exempel för distribution, se den skript version som beskrivs i den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
- 
-Logga sedan in på [Azure Portal](https://ms.portal.azure.com/) med dina autentiseringsuppgifter.
-
-## <a name="prerequisites-permission-requirements"></a>Krav: behörighets krav
-
-För att kunna slutföra alla steg i den här artikeln måste du klassificeras som en ägare i din Azure-prenumeration. 
-
-Du kan kontrol lera behörighets nivån på [sidan prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) i Azure Portal (du kan använda den här länken eller söka efter *prenumerationer* med Portal Sök fältet). Leta efter namnet på den prenumeration som du använder och Visa rollen för den i kolumnen *min roll* . Om du är ägare är det här värdet *ägare*:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="Vy av sidan prenumerationer i Azure Portal, som visar användare som ägare" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
-
-Om du upptäcker att värdet är *deltagare* eller något annat än *ägare*kan du fortsätta på något av följande sätt:
-* Kontakta din prenumerations ägare och be om ägaren att slutföra stegen i den här artikeln för din räkning
-* Kontakta antingen prenumerations ägaren eller någon med rollen administratör för användar åtkomst i prenumerationen och begär att du får behörighet att gå vidare till ägaren av prenumerationen. Huruvida detta är lämpligt beror på din organisation och din roll i den.
+[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Skapa Azure Digitals-instansen
 
-I det här avsnittet ska du **skapa en ny instans av Azure Digitals dubbla** med Azure Portal.
+I det här avsnittet ska du **skapa en ny instans av Azure Digitals dubbla** med [Azure Portal](https://ms.portal.azure.com/). Navigera till portalen och logga in med dina autentiseringsuppgifter.
 
-När du har loggat in på [Azure Portal](https://ms.portal.azure.com/)börjar du med att välja _skapa en resurs_ på Start sidan för Azure-tjänster.
+Börja med att välja _skapa en resurs_ på Start sidan för Azure-tjänster en gång i portalen.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
@@ -87,7 +73,7 @@ Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger d
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Välja att lägga till en roll tilldelning från sidan åtkomst kontroll (IAM)":::
 
-På följande sida för *Lägg till roll tilldelning* fyller du i värdena (måste slutföras av en ägare av Azure-prenumerationen):
+På följande sida för *Lägg till roll tilldelning* fyller du i värdena (måste slutföras av en användare med [tillräckliga behörigheter](#prerequisites-permission-requirements) i Azure-prenumerationen):
 * **Roll**: Välj *Azure Digitals flätade ägare (för hands version)* från List menyn
 * **Tilldela åtkomst till**: Välj *Azure AD-användare, grupp eller tjänstens huvud namn* i list menyn
 * **Välj**: Sök efter namnet eller e-postadressen för den användare som ska tilldelas. När du väljer resultatet visas användaren i avsnittet *markerade medlemmar* .

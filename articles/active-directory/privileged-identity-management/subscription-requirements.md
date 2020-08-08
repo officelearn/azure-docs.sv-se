@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 01/10/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d931206e99516e0320d0cbedd0812389ee41aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74c9cd1c55f1b0dde173a7ffbeac92e5518db81e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742172"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005813"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licens krav för att använda Privileged Identity Management
 
@@ -32,19 +32,19 @@ Om du vill använda Azure Active Directory (Azure AD) Privileged Identity Manage
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
+## <a name="licenses-you-must-have"></a>Licenser du måste ha
 
 Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har anställda som ska utföra följande uppgifter:
 
-- Användare som är behöriga för Azure AD-roller som hanteras med PIM
+- Användare som tilldelats som giltiga för Azure AD-eller Azure-roller som hanteras med PIM
+- Användare som har tilldelats som berättigade medlemmar eller ägare av privilegierade åtkomst grupper
 - Användare kan godkänna eller avvisa aktiverings begär anden i PIM
-- Användare som tilldelats en Azure-resurs roll med just-in-Time-eller Direct (tidsbaserad) tilldelningar  
 - Användare som tilldelats åtkomst granskning
 - Användare som utför åtkomst granskningar
 
 Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 
-- Inga licenser krävs för användare med administratörs rollerna global administratör eller privilegie rad roll som konfigurerar PIM, konfigurerar principer, tar emot aviseringar och ställer in åtkomst granskningar.
+- Inga licenser krävs för användare som konfigurerar PIM, konfigurerar principer, tar emot aviseringar och ställer in åtkomst granskningar.
 
 Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
@@ -58,7 +58,7 @@ Här följer några exempel på licens scenarier som hjälper dig att fastställ
 | Graphic Design Institute har 25 administratörer av vilka 14 hanteras via PIM. Roll aktivering kräver godkännande och det finns tre olika användare i organisationen som kan godkänna aktiveringar. | 14 licenser för berättigade roller + tre god kännare | 17 |
 | Contoso har 50 administratörer av vilka 42 hanteras via PIM. Roll aktivering kräver godkännande och det finns fem olika användare i organisationen som kan godkänna aktiveringar. Contoso visar också månads Visa de användare som har tilldelats administratörs roller och granskare, där de sex inte finns i administratörs roller som hanteras av PIM. | 42 licenser för de berättigade rollerna + fem god kännare + sex granskare | 53 |
 
-## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens upphör att gälla?
+## <a name="when-a-license-expires"></a>När en licens upphör att gälla
 
 Om en Azure AD Premium P2, EMS E5 eller utvärderings licens upphör att gälla, kommer Privileged Identity Management funktioner inte längre att vara tillgängliga i din katalog:
 

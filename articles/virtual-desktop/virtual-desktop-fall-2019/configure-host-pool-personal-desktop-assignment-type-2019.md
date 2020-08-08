@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (klassisk) egen Skriv bords tilldelning typ – Azure
 description: Så här konfigurerar du tilldelnings typen för en Windows Virtual Desktop (klassisk) egen Skriv bords värd pool.
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76b68ba0a51d250e4ce143314c9126597133e97f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 669010d2de90498c98fc685fe931b084a11cd104
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271050"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008516"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Konfigurera tilldelnings typen för den personliga Skriv bords värd för Windows Virtual Desktop (klassisk)
 

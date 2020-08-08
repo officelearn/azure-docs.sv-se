@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5d525824039c276d0bc8a63256b32afa9cb25445
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7c5164a032e77d85c995384473935b134ff528e5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851819"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009315"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.2): Funktioner och syntax som stöds
 
@@ -342,7 +342,7 @@ Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du ka
 
 ## <a name="user-and-role-management"></a>Användar- och rollhantering
 
-Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomstkontroll (RBAC) och läs- och skrivbara lösenord/nycklar som kan hämtas via [Azure-portalen](https://portal.azure.com) (sidan Anslutningssträng).
+Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomst kontroll i Azure (Azure RBAC) och skriv-och skriv skydds-och skrivskyddade lösen ord/nycklar som kan hämtas via [Azure Portal](https://portal.azure.com) (anslutnings sträng).
 
 ## <a name="replication"></a>Replikering
 

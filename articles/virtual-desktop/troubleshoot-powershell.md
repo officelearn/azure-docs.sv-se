@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop PowerShell – Azure
 description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows Virtual Desktop-miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cd34fa2bc4c1083d4bd4dda7d118e0348a1a7fd0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288718"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002280"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
@@ -33,10 +31,10 @@ Det här avsnittet innehåller PowerShell-kommandon som vanligt vis används nä
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Fel: New-AzRoleAssignment: den tillhandahållna informationen mappas inte till ett AD-objekt-ID
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Orsak:** Användaren som anges av parametern *-SignInName* går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-miljön. 
+**Orsak:** Användaren som anges av parametern *-SignInName* går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-miljön.
 
 **KORRIGERA:** Kontrol lera följande saker.
 
@@ -46,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Fel: New-AzRoleAssignment: klienten med objekt-ID har inte behörighet att utföra åtgärden över omfattning (kod: AuthorizationFailed)
 
-**Orsak 1:** Kontot som används saknar ägar behörighet för prenumerationen. 
+**Orsak 1:** Kontot som används saknar ägar behörighet för prenumerationen.
 
 **Korrigering 1:** En användare med ägar behörighet måste köra roll tilldelningen. Alternativt måste användaren tilldelas rollen administratör för användar åtkomst för att tilldela en användare till en program grupp.
 
@@ -57,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Fel: New-AzWvdHostPool--platsen är inte tillgänglig för resurs typen
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Orsak: Windows Virtual Desktop stöder val av plats för värdar, program grupper och arbets ytor som lagrar metadata för tjänsten på vissa platser. Dina alternativ är begränsade till där den här funktionen är tillgänglig. Det här felet innebär att funktionen inte är tillgänglig på den plats som du har valt.

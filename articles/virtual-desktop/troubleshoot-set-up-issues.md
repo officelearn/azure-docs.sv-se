@@ -1,19 +1,17 @@
 ---
 title: Skapa Windows-miljö för virtuella Skriv bords miljö – Azure
 description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows Virtual Desktop-miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a36e21d346e08ebe09f8c4b34f6af529d2a0f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292559"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006170"
 ---
 # <a name="host-pool-creation"></a>Skapa värdpool
 
@@ -37,13 +35,13 @@ Om du vill använda Windows 10 Enterprise multi-session-avbildningen går du til
 > [!div class="mx-imgBorder"]
 > ![En bild som visar Azure Portal som visar meddelandet "skapa ett kostnads fritt konto"](media/create-new-account.png)
 
-**Orsak**: det finns inga aktiva prenumerationer på det konto som du loggade in på Azure med, eller så har inte kontot behörighet att Visa prenumerationerna. 
+**Orsak**: det finns inga aktiva prenumerationer på det konto som du loggade in på Azure med, eller så har inte kontot behörighet att Visa prenumerationerna.
 
 **Korrigera**: Logga in på prenumerationen där du ska distribuera de virtuella datorerna för sessionens värd (VM) med ett konto som har minst åtkomst på deltagar nivå.
 
 ### <a name="error-exceeding-quota-limit"></a>Fel: "överskrider kvot gränsen"
 
-Om din åtgärd går över kvot gränsen kan du göra något av följande: 
+Om din åtgärd går över kvot gränsen kan du göra något av följande:
 
 - Skapa en ny värdbaserad pool med samma parametrar men färre virtuella datorer och virtuella dator kärnor.
 
@@ -119,9 +117,9 @@ Exempel på RAW-fel:
 Exempel på RAW-fel:
 
 ```Error
- { …{ "provisioningOperation": 
- "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": 
- "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": 
+ { …{ "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
  "The Admin Username specified is not allowed.", "target": "adminUsername" } … }
 ```
 
@@ -138,10 +136,10 @@ Exempel på RAW-fel:
 
 ```Error
 { … "code": "ResourceDeploymentFailure", "message":
- "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": 
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] … }
 ```
 
@@ -162,7 +160,7 @@ Exempel på RAW-fel:
    "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
-         { "code": "Conflict",  
+         { "code": "Conflict",
          "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
          \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
          operation completed with terminal provisioning state 'Failed'.\",\r\n

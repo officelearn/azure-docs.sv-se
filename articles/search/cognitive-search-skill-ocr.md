@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 27fbc669a81364bcb71160200504d61502169eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6902d1420090b81c933f07f7e929aa86c052404
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609358"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009247"
 ---
 # <a name="ocr-cognitive-skill"></a>Kunskap om OCR-kognitivhet
 
-Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
+Den **optiska tecken läsningen (OCR)** känner igen utskrift och handskriven text i bildfiler. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) i Cognitive Services. **OCR** -kunskapen mappar till följande funktioner:
 
-+ API: t ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) används för andra språk än engelska. 
-+ För engelska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
++ För engelska, spanska, tyska, franska, italienska, portugisiska och nederländska används det nya ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) -API: et.
++ För alla andra språk används [OCR](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api) -API: et.
 
 **OCR** -kompetensen extraherar text från bildfiler. Fil format som stöds är:
 

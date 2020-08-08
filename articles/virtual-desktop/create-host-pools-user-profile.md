@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop FSLogix profil container Share-Azure
 description: Konfigurera en FSLogix profil behållare för en Windows-pool för virtuella skriv bord med en virtuell dator baserad fil resurs.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bac0047c1eb151f38ff09092b45ca7fd86fcc65a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35b692033cc16f276b48bc6d973b27d994c1082a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211841"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002579"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profilcontainer för en värdpool med hjälp av en filresurs
 
@@ -66,7 +64,7 @@ Om du vill konfigurera de virtuella datorerna med FSLogix-programvaran gör du f
 6. Skapa en nyckel med namnet **profiler**.
 7. Skapa följande värden för profil nyckeln:
 
-| Name                | Typ               | Data/värde                        |
+| Namn                | Typ               | Data/värde                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Värde med flera strängar | "Nätverks Sök väg för fil resurs"     |

@@ -1,18 +1,16 @@
 ---
 title: Konfigurera GPU för Windows Virtual Desktop – Azure
 description: Aktivera GPU-accelererad åter givning och kodning i Windows Virtual Desktop.
-services: virtual-desktop
 author: gundarev
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a80e9940aff69d351fde7512cfc38a12d6029f74
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291492"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007784"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -58,7 +56,7 @@ Som standard återges appar och skriv bord som körs i konfigurationer med flera
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
 
 Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett om de återges med GPU eller CPU) för överföring till fjärr skrivbords klienter. När en del av skärmen uppdateras ofta kodas den här delen av skärmen med en video-codec (H. 264/AVC). Som standard utnyttjar inte fjärr skrivbord tillgängliga GPU: er för den här kodningen. Konfigurera grupprincip för sessions värden för att aktivera GPU-accelererad ram kodning. Fortsätta med stegen ovan:
- 
+
 >[!NOTE]
 >GPU-accelererad ram kodning är inte tillgänglig i virtuella datorer i NVv4-serien.
 

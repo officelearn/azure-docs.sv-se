@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: sandeo
-ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fef1870c396055cb9121aa5d8c7859440d107f98
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534744"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002330"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>För hands version: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -35,7 +35,7 @@ Det finns många fördelar med att använda Azure AD-autentisering för att logg
   - Du kan konfigurera Multi-Factor Authentication för att ytterligare säkra inloggning till virtuella Azure-datorer.
   - Möjligheten att logga in på virtuella Linux-datorer med Azure Active Directory fungerar också för kunder som använder [Federations tjänster](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Sömlöst samarbete:** Med rollbaserad Access Control (RBAC) kan du ange vem som kan logga in på en specifik virtuell dator som en vanlig användare eller med administratörs behörighet. När användarna ansluter till eller lämnar ditt team kan du uppdatera RBAC-principen för den virtuella datorn för att ge åtkomst vid behov. Den här upplevelsen är mycket enklare än att behöva radera virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När anställda lämnar din organisation och deras användar konto har inaktiverats eller tagits bort från Azure AD har de inte längre till gång till dina resurser.
+- **Sömlöst samarbete:** Med rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du ange vem som kan logga in på en specifik virtuell dator som en vanlig användare eller med administratörs behörighet. När användarna ansluter till eller lämnar ditt team kan du uppdatera Azure RBAC-principen för den virtuella datorn för att ge åtkomst vid behov. Den här upplevelsen är mycket enklare än att behöva radera virtuella datorer för att ta bort onödiga offentliga SSH-nycklar. När anställda lämnar din organisation och deras användar konto har inaktiverats eller tagits bort från Azure AD har de inte längre till gång till dina resurser.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Azure-regioner och Linux-distributioner som stöds
 
@@ -121,7 +121,7 @@ Azures rollbaserade åtkomst kontroll (Azure RBAC) policy avgör vem som kan log
 > [!NOTE]
 > Om du vill tillåta att en användare loggar in på den virtuella datorn via SSH måste du tilldela antingen rollen *Administratörs inloggning för virtuell dator* eller *användar inloggning för virtuell dator* . En Azure-användare med rollen *ägare* eller *deltagare* som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via SSH.
 
-I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den *virtuella datorns administratörs inloggnings* roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och *omfånget* ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md)
+I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den *virtuella datorns administratörs inloggnings* roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och *omfånget* ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå och normala behörigheter för Azure RBAC-arv gäller. Mer information finns i [Azure RBAC](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -136,7 +136,7 @@ az role assignment create \
 > [!NOTE]
 > Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med namnet *--* tilldelad-Object-ID, inte bara användar namnet för *--tilldelas*. Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
 
-Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i använda [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Mer information om hur du använder Azure RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i använda [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure Portal](../../role-based-access-control/role-assignments-portal.md)eller [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 Du kan också konfigurera Azure AD så att Multi-Factor Authentication krävs för att en särskild användare ska kunna logga in på den virtuella Linux-datorn. Mer information finns i [Kom igång med Azure Multi-Factor Authentication i molnet](../../active-directory/authentication/howto-mfa-getstarted.md).
 
@@ -185,7 +185,7 @@ Några vanliga fel när du försöker använda SSH med Azure AD-autentiseringsup
 
 ### <a name="access-denied-azure-role-not-assigned"></a>Åtkomst nekad: Azure-rollen har inte tilldelats
 
-Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som beviljar användaren antingen *Administratörs inloggning för den virtuella datorn* eller *användar inloggnings* rollen för den virtuella datorn:
+Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat Azure RBAC-principer för den virtuella datorn som beviljar användaren antingen *Administratörs inloggning för den virtuella datorn* eller *användar inloggnings* rollen för den virtuella datorn:
 
 ```output
 login as: azureuser@contoso.onmicrosoft.com

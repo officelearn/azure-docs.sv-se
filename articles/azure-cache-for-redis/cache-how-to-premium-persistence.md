@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 84a5b4784a36fb22ae50a7a1ec4fcb7e5ef5b7c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaee1c07f0fc8d5b0bba03550986291aea814fcb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80245284"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004801"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden som ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen.
-
-Information om andra funktioner för Premium-cache finns i [Introduktion till Azure-cache för Redis Premium-nivån](cache-premium-tier-intro.md).
 
 ## <a name="what-is-data-persistence"></a>Vad är data beständighet?
 Med [Redis beständighet](https://redis.io/topics/persistence) kan du spara data som lagras i Redis. Du kan också ta ögonblicks bilder och säkerhetskopiera data som du kan läsa in i händelse av maskin varu problem. Detta är en enorm fördel jämfört med Basic-eller standard-nivån där alla data lagras i minnet och det kan finnas potentiell data förlust vid ett haveri där cache-noderna är nere. 
@@ -179,9 +177,9 @@ Efter en omskrivning finns det två uppsättningar av AOF-filer i lagrings utrym
 
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att använda fler funktioner för Premium-cache.
+Läs mer om Azure cache för Redis-funktioner.
 
-* [Introduktion till Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md)
+* [Azure cache för Redis Premium service-nivåer](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

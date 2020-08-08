@@ -1,14 +1,14 @@
 ---
 title: För hands version – lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt. Det här är en förhandsversion av funktionen.
-ms.date: 06/12/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc81d22677eeab16ae06e782c5ae47c121af04c6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373767"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003497"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Förstå Azure Policy för Kubernetes-kluster (för hands version)
 
@@ -130,10 +130,16 @@ När ovanstående nödvändiga steg har slutförts installerar du Azure Policy-t
 
   1. På huvud sidan väljer du knappen **aktivera tillägg** .
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Aktivera Azure Policy för AKS-tillägg" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Aktivera Azure Policy för AKS-tillägg":::
 
+     <a name="migrate-from-v1"></a>
      > [!NOTE]
-     > Om knappen **aktivera tillägg** är nedtonad, har prenumerationen ännu inte lagts till i för hands versionen. Om knappen **Inaktivera tillägg** är aktive rad och ett meddelande om migrering till v2 visas, är Gatekeepver v2 fortfarande installerat och måste tas bort.
+     > Om knappen **aktivera tillägg** är nedtonad, har prenumerationen ännu inte lagts till i för hands versionen. Om knappen **Inaktivera tillägg** är aktive rad och ett meddelande om migrerings varning v2 visas, är v1-tillägget installerat och måste tas bort innan du tilldelar v2-princip definitioner. Det _inaktuella_ v1-tillägget ersätts automatiskt med v2-tillägget från 24 augusti 2020. Nya v2-versioner av princip definitionerna måste sedan tilldelas. Följ dessa steg för att uppgradera nu:
+     > 
+     > 1. Verifiera att ditt AKS-kluster har v1-tillägget installerat genom att besöka sidan **principer (förhands granskning)** på ditt AKS-kluster och har "det aktuella klustret använder Azure policy tillägg v1..." meddelande.
+     > 1. [Ta bort tillägget](#remove-the-add-on-from-aks).
+     > 1. Välj knappen **aktivera tillägg** för att installera v2-versionen av tillägget.
+     > 1. [Tilldela v2-versioner av dina v1-inbyggda princip definitioner](#assign-a-built-in-policy-definition)
 
 - Azure CLI
 

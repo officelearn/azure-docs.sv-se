@@ -1,19 +1,17 @@
 ---
 title: Hantera app-grupper för Windows Virtual Desktop Portal – Azure
 description: Hantera Windows-appar för virtuella skriv bord med Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5b0269b80cb879923f9f00861494915b6abe103e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283409"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010097"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Självstudie: hantera program grupper med Azure Portal
 
@@ -49,16 +47,16 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
     > ![En skärm bild av fliken grundläggande i Azure Portal.](media/basics-tab.png)
 
 6. Om du vill lägga till program grupper i din värddator väljer du **pooler** på menyn till vänster på skärmen.
-   
+
     Välj sedan namnet på den värddator som du vill lägga till program grupper i.
-   
+
     Sedan väljer du **program grupper** på menyn till vänster på skärmen och väljer sedan **+ Lägg till**.
 
     Välj slutligen den prenumerations grupp och resurs grupp som du vill skapa app-gruppen i. Du kan antingen välja namnet på en befintlig resurs grupp från den nedrullningsbara menyn eller välja **Skapa ny** för att skapa en ny.
 
       >[!NOTE]
       >När du lägger till program grupper i din värd pool är den värddator som är relaterad till program gruppen redan markerad eftersom du har navigerat från den.
-      > 
+      >
       > [!div class="mx-imgBorder"]
       >![En skärm bild av fliken grundläggande med förvaltad värd för poolen.](media/host-pool-selected.png)
 
@@ -80,7 +78,7 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 
 12.  Välj fliken **program** och välj sedan **+ Lägg till program**.
 
-13.  Så här lägger du till ett program på Start-menyn: 
+13.  Så här lägger du till ett program på Start-menyn:
 
       - Gå till **program källa** och välj **Start-menyn** på den nedrullningsbara menyn. Gå sedan till **program** och välj programmet i den nedrullningsbara menyn.
 
@@ -111,7 +109,7 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 16.  Om du vill registrera app-gruppen på en arbets yta går du till **Registrera program grupp** och väljer **Ja**. Om du hellre vill registrera app-gruppen vid ett senare tillfälle väljer du **Nej**.
 
 17.  Om du väljer **Ja**kan du välja en befintlig arbets yta för att registrera din app-grupp på.
-       
+
        >[!NOTE]
        >Du kan bara registrera app-gruppen på arbets ytor som har skapats på samma plats som poolen. Dessutom. Om du tidigare har registrerat en annan app-grupp från samma adresspool som den nya app-gruppen till en arbets yta, kommer den att markeras och du kan inte redigera den. Alla app-grupper från en adresspool måste vara registrerade på samma arbets yta.
 

@@ -1,19 +1,17 @@
 ---
 title: Installera språk paket på virtuella Windows 10-datorer i Windows Virtual Desktop – Azure
 description: Så här installerar du språk paket för Windows 10-virtuella datorer med flera sessioner i Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 542163511a1b4fc0acde9b44d73be6ffc042d5d3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361310"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008771"
 ---
 # <a name="install-language-packs"></a>Installera språkpaket
 
@@ -41,7 +39,7 @@ Installera språk paket:
 
 5. Sedan väljer du **språk**och sedan **Lägg till ett språk**. Välj det språk som du vill installera i listan och välj sedan **Nästa**.
 6. När fönstret **Installera språk funktioner** öppnas markerar du kryss rutan **Installera språk paket och anger som mitt visnings språk för Windows**.
-7. Välj **installera**.
+7. Välj **Installera**.
 8. Om du vill lägga till flera språk samtidigt väljer du **Lägg till ett språk**och upprepar sedan processen för att lägga till ett språk i steg 5 och 6. Upprepa processen för varje språk som du vill installera. Du kan dock bara ange ett språk som visnings språk i taget.
 
     Vi går igenom en snabb visuell demonstration. Följande bilder visar hur du installerar de franska och nederländska språk paketen och anger franska som visnings språk.

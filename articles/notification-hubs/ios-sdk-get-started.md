@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 94e930c996710c2b25d4114c7cfcb17129c5177d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fde142c76c71aa7155fd39d90f7a6c8120538141
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022437"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008669"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till iOS-appar med hjälp av Azure Notification Hubs
 
@@ -102,6 +102,9 @@ Om du vill skicka push-meddelanden till en iOS-App registrerar du ditt program m
 4. På sidan **certifikat, identifierare & profiler**   , under **identifierare**, letar du upp det ID-rads objekt för app-ID som du nyss skapade och väljer dess rad för att visa skärmen **Redigera appens ID-konfiguration**   .
 
 ## <a name="create-a-certificate-for-notification-hubs"></a>Skapa ett certifikat för Notification Hubs
+
+> [!NOTE]
+> På grund av versionerna av iOS 13 kan du bara ta emot tysta meddelanden med hjälp av tokenbaserad autentisering. Om du använder certifikatbaserad autentisering för dina APN-autentiseringsuppgifter måste du växla till med hjälp av tokenbaserad autentisering.
 
 Ett certifikat krävs för att meddelande hubben ska fungera med **APN**. Detta kan göras på ett av två sätt:
 

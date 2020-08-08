@@ -1,19 +1,17 @@
 ---
 title: Microsoft Teams på Windows Virtual Desktop – Azure
 description: Använda Microsoft Teams på Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f6185cbb871d63cfdf5a4c336944158593b63e4a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372849"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006119"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Använd Microsoft Teams på Windows Virtual Desktop
 
@@ -27,7 +25,7 @@ Microsoft Teams på Windows Virtual Desktop stöder chatt och samarbete. Med med
 
 Med medie optimering för Microsoft team, hanterar Windows Skriv bords klienten ljud och video lokalt för team-samtal och-möten. Du kan fortfarande använda Microsoft Teams på virtuella Windows-datorer med andra klienter utan optimerad samtal och möten. Teams chatt-och samarbets funktioner stöds på alla plattformar. Om du vill omdirigera lokala enheter i fjärrsessionen kan du läsa [anpassa Remote Desktop Protocol egenskaper för en adresspool](#customize-remote-desktop-protocol-properties-for-a-host-pool).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda Microsoft Teams på Windows Virtual Desktop måste du göra följande saker:
 

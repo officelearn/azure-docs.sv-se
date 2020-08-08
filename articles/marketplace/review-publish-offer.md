@@ -8,18 +8,18 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2020
-ms.openlocfilehash: 34e56e5d92526cbf46408c670127e87781e342cd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9c05753b44b0c644b121eb3ccd3316633f9e5964
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119743"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009536"
 ---
-# <a name="review-and-publish-an-offer-to-commercial-marketplace"></a>Granska och publicera ett erbjudande på kommersiell marknads plats
+# <a name="review-and-publish-an-offer-to-the-commercial-marketplace"></a>Granska och publicera ett erbjudande på den kommersiella Marketplace
 
-Den här artikeln visar hur du använder Partner Center för att skicka ditt erbjudande till för hands version, för hands version av ditt erbjudande och sedan publicera det på Microsofts kommersiella marknads plats. Vi tar också upp hur du kontrollerar publicerings statusen när den går igenom publicerings stegen. Du måste redan ha skapat ett erbjudande som du vill publicera.
+Den här artikeln visar hur du kan använda Partner Center för att skicka in ditt erbjudande till Preview, förhandsgranska ditt erbjudande och sedan publicera det på Microsofts kommersiella marknads platser. Vi tar också upp hur du kontrollerar publicerings statusen när den går igenom publicerings stegen. Du måste redan ha skapat ett erbjudande som du vill publicera.
 
-## <a name="go-to-your-offer-in-commercial-marketplace"></a>Gå till ditt erbjudande på kommersiell Marketplace
+## <a name="go-to-your-offer-in-the-commercial-marketplace"></a>Gå till ditt erbjudande på den kommersiella Marketplace
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
 1. På den vänstra navigerings menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
@@ -27,7 +27,7 @@ Den här artikeln visar hur du använder Partner Center för att skicka ditt erb
  
     | Status | Beskrivning |
     | ------------ | ------------- |
-    | Utkast | Erbjudandet har skapats men det har inte publicerats. |
+    | Draft | Erbjudandet har skapats men det har inte publicerats. |
     | Publicering pågår | Erbjudandet fungerar på ett sätt genom publicerings processen. |
     | Åtgärd krävs | Vi har identifierat ett kritiskt problem under certifieringen eller under en annan publicerings fas. |
     | Förhandsgranskning | Vi har certifierat erbjudandet, som nu väntar en slutgiltig verifiering av utgivaren. Välj **Go Live** för att publicera erbjudandet Live. |
@@ -53,7 +53,7 @@ Den här artikeln visar hur du använder Partner Center för att skicka ditt erb
 
 När du har valt **publicera**fortsätter validerings-och publicerings processerna i ordning. Den vanligaste publicerings processen visas i den här tabellen:
 
-| Fas | Vad som händer | 
+| Fas | Vad händer | 
 | ------------ | ------------- | ------------- |
 | Automatiserad verifiering | Vi bearbetar en uppsättning automatiserade verifieringar. | 
 | Certifiering | Vi utför manuella verifieringar. | 

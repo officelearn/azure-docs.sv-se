@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 09b6bf6db5927c49950fc5b2a6d1753d53364380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 09b7fe1cc4f871d1f94844a8551479fabc0e22ff
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836657"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008856"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -179,7 +179,7 @@ Azure Gallery-bilder – Microsoft publicerat | Stöds | Stöds om den virtuella
 Azure Gallery-avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar – tredje part publicerad | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Virtuella datorer som migrerats med Site Recovery | Stöds | Om en virtuell VMware-dator eller en fysisk dator har migrerats till Azure med hjälp av Site Recovery måste du avinstallera den äldre versionen av mobilitets tjänsten som körs på datorn och starta om datorn innan du replikerar den till en annan Azure-region.
-RBAC-principer | Stöds inte | Principer för rollbaserad åtkomst kontroll (RBAC) för virtuella datorer replikeras inte till den virtuella redundansväxlingen i mål regionen.
+RBAC-principer | Stöds inte | Principer för rollbaserad åtkomst kontroll (RBAC) på virtuella datorer replikeras inte till den virtuella redundansväxlingen i mål regionen.
 Tillägg | Stöds inte | Tillägg replikeras inte till den virtuella redundansväxlingen i mål regionen. Den måste installeras manuellt efter redundansväxlingen.
 Placerings grupper för närhet | Stöds | Virtuella datorer som finns inuti en närhets placerings grupp kan skyddas med hjälp av Site Recovery.
 

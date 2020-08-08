@@ -4,12 +4,12 @@ description: Överföra samlingar med avbildningar eller andra artefakter från 
 ms.topic: article
 ms.date: 05/08/2020
 ms.custom: ''
-ms.openlocfilehash: 7f63936ad8f2a97bae6ff63e783e38c15db35e13
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0bbdfc8d1586b7d71daf6d4cbfdc4288357aa45b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259451"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009162"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Överföra artefakter till ett annat register
 
@@ -30,7 +30,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 > [!IMPORTANT]
 > Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Behållar** register – du behöver ett befintligt käll register med artefakter att överföra och ett mål register. ACR-överföring är avsedd för förflyttning över fysiskt frånkopplade moln. För testning kan käll-och mål registren vara i samma eller en annan Azure-prenumeration, Active Directory klient organisation eller molnet. Om du behöver skapa ett register, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). 
 * **Lagrings konton** – skapa käll-och mål lagrings konton i en prenumeration och plats som du väljer. I test syfte kan du använda samma prenumeration eller prenumerationer som käll-och mål register. I scenarier med flera moln kan du vanligt vis skapa ett separat lagrings konto i varje moln. Om det behövs skapar du lagrings kontona med [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) eller andra verktyg. 
@@ -47,7 +47,7 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
   TARGET_SA="<target-storage-account>"
   ```
 
-## <a name="scenario-overview"></a>Scenarioöversikt
+## <a name="scenario-overview"></a>Översikt över scenario
 
 Du skapar följande tre pipeline-resurser för bild överföring mellan register. Alla skapas med hjälp av åtgärderna för att införa. Dessa resurser körs på *käll* -och *mål* register och lagrings konton. 
 
@@ -162,7 +162,7 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
-I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
+I kommandot utdata noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Till exempel:
 
 ```azurecli
 EXPORT_RES_ID=$(az group deployment show \
@@ -208,7 +208,7 @@ az deployment group create \
   --name importPipeline
 ```
 
-Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Exempel:
+Om du planerar att köra importen manuellt noterar du resurs-ID ( `id` ) för pipelinen. Du kan lagra det här värdet i en miljö variabel för senare användning genom att köra [AZ-distributions gruppen show][az-deployment-group-show]. Till exempel:
 
 ```azurecli
 IMPORT_RES_ID=$(az group deployment show \
@@ -233,6 +233,8 @@ Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 |pipelineResourceId     |  Resurs-ID för export pipelinen.<br/>Exempel: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |Målnamn     |  Namn som du väljer för artefakter som exporteras till ditt käll lagrings konto, till exempel en *BLOB*
 |artefakter | Matris med käll artefakter som ska överföras, som taggar eller manifest sammandrag<br/>Exempel: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+
+Om du omdistribuerar en PipelineRun-resurs med identiska egenskaper måste du också använda egenskapen [forceUpdateTag](#redeploy-pipelinerun-resource) .
 
 Kör [AZ Deployment Group Create][az-deployment-group-create] för att skapa PipelineRun-resursen. I följande exempel namnger distributionen *exportPipelineRun*.
 
@@ -291,6 +293,8 @@ Ange följande parameter värden i filen `azuredeploy.parameters.json` :
 |pipelineResourceId     |  Resurs-ID för import pipelinen.<br/>Exempel: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/importPipelines/myImportPipeline`       |
 |sourceName     |  Namnet på den befintliga blobben för exporterade artefakter i ditt lagrings konto, till exempel en *BLOB*
 
+Om du omdistribuerar en PipelineRun-resurs med identiska egenskaper måste du också använda egenskapen [forceUpdateTag](#redeploy-pipelinerun-resource) .
+
 Kör [AZ Deployment Group Create][az-deployment-group-create] för att köra resursen.
 
 ```azurecli
@@ -304,6 +308,23 @@ När distributionen har slutförts verifierar du artefakt import genom att lista
 
 ```azurecli
 az acr repository list --name <target-registry-name>
+```
+
+## <a name="redeploy-pipelinerun-resource"></a>Distribuera om PipelineRun-resurs
+
+Om du omdistribuerar en PipelineRun-resurs med *identiska egenskaper*måste du utnyttja egenskapen **forceUpdateTag** . Den här egenskapen anger att PipelineRun-resursen ska återskapas även om konfigurationen inte har ändrats. Kontrol lera att forceUpdateTag är olika varje gången du distribuerar om PipelineRun-resursen. Exemplet nedan återskapar en PipelineRun för export. Aktuellt datetime används för att ange forceUpdateTag, vilket säkerställer att egenskapen alltid är unik.
+
+```console
+CURRENT_DATETIME=`date +"%Y-%m-%d:%T"`
+```
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipelineRun \
+  --parameters azuredeploy.parameters.json \
+  --parameters forceUpdateTag=$CURRENT_DATETIME
 ```
 
 ## <a name="delete-pipeline-resources"></a>Ta bort pipeline-resurser

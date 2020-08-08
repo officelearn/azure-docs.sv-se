@@ -6,15 +6,15 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/23/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: bc9bc034abce789046803bbcad5b750984c905cb
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: f88fc4a1fd5c44b515ab44b604ebf9a885165ddc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809535"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008007"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -50,7 +50,9 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
 1. På sidan **generera skript** i list rutan **operativ system** väljer du det operativ system som skriptet ska köras på.
 
 1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du **Nästa: proxyserver**.
+
 1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` .
+
 1. Välj **Granska + generera**.
 
 1. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
@@ -65,7 +67,7 @@ Du kan installera den anslutna dator agenten manuellt genom att köra Windows In
 >* Du måste ha *Administratörs* behörighet för att installera eller avinstallera agenten.
 >* Du måste först hämta och kopiera installations paketet till en mapp på mål servern eller från en delad nätverksmapp. Om du kör installations paketet utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
 
-Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs senare i artikeln när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` .
+Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs i stegen nedan när du har installerat agenten. Det här kommandot anger proxy-serverns system miljö variabel `https_proxy` .
 
 Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](/windows/win32/msi/command-line-options).
 
@@ -75,13 +77,32 @@ Du kan till exempel köra installations programmet med `/?` parametern för att 
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Kör följande kommando för att installera agenten tyst och skapa en installations logg fil i den `C:\Support\Logs` mapp som finns.
+1. Kör följande kommando för att installera agenten tyst och skapa en installations logg fil i den `C:\Support\Logs` mapp som finns.
 
-```dos
-msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
-```
+    ```dos
+    msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
+    ```
 
-Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+    Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+
+2. Om datorn behöver kommunicera via en proxyserver, så kör du följande kommando för att ange miljövariabeln för proxyservern:
+
+    ```powershell
+    [Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
+    $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
+    # For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
+    Restart-Service -Name himds
+    ```
+
+    >[!NOTE]
+    >Agenten har inte stöd för att ställa in proxyautentisering i den här för hands versionen.
+    >
+
+3. När du har installerat agenten behöver du konfigurera den så att den kommunicerar med Azure Arc-tjänsten genom att köra följande kommando:
+
+    ```dos
+    "%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"
+    ```
 
 ### <a name="install-with-the-scripted-method"></a>Installera med den skriptbaserade metoden
 
@@ -97,34 +118,13 @@ Om agenten inte startar efter att installationen har slutförts, kontrollerar du
 
 Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
-### <a name="configure-the-agent-proxy-setting"></a>Konfigurera agentens proxyinställningar
-
-Kör följande kommando för att ange miljövariabeln för proxyservern:
-
-```powershell
-# If a proxy server is needed, execute these commands with the proxy URL and port.
-[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
-$env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
-# For the changes to take effect, the agent service needs to be restarted after the proxy environment variable is set.
-Restart-Service -Name himds
-```
-
->[!NOTE]
->Agenten har inte stöd för att ställa in proxyautentisering i den här för hands versionen.
->
-
-### <a name="configure-agent-communication"></a>Konfigurera agent kommunikation
-
-När du har installerat agenten måste du konfigurera agenten att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
-
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
 ## <a name="install-and-validate-the-agent-on-linux"></a>Installera och verifiera agenten på Linux
 
 Den anslutna dator agenten för Linux finns i det önskade paket formatet för distributionen (. RPM eller. DEB) som finns i Microsoft- [paketets lagrings plats](https://packages.microsoft.com/). [Gränssnitts skript paketet `Install_linux_azcmagent.sh` ](https://aka.ms/azcmagent) utför följande åtgärder:
 
 - Konfigurerar värd datorn för att ladda ned agent paketet från packages.microsoft.com.
 - Installerar hybrid resurs leverantörs paketet.
+- Registrerar datorn med Azure Arc
 
 Alternativt kan du konfigurera agenten med din proxyinformation genom att inkludera `--proxy "{proxy-url}:{proxy-port}"` parametern.
 
@@ -149,15 +149,6 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 # Install the connected machine agent. 
 bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 ```
-
-### <a name="configure-the-agent-communication"></a>Konfigurera agent kommunikation
-
-När du har installerat agenten konfigurerar du den för att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
-
-`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
-
->[!NOTE]
->Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrollera anslutningen med Azure Arc
 

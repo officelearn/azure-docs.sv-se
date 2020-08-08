@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: 36268910003c4235d7ae60d2fd68bc30d7b8b858
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe725f3e4571f5b1f646b320e8c669e663c657e0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830017"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004685"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache for Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -26,7 +26,7 @@ Du kan övervaka följande mått för att hjälpa dig att avgöra om du behöver
 * Nätverks bandbredd
 * Processoranvändning
 
-Om du fastställer att cachen inte längre uppfyller programmets krav kan du skala till en större eller mindre cache-pris nivå som passar ditt program. Mer information om hur du avgör vilken pris nivå för cache som ska användas finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use).
+Om du fastställer att cachen inte längre uppfyller programmets krav kan du skala till en större eller mindre cache-pris nivå som passar ditt program. Mer information om hur du avgör vilken pris nivå för cache som ska användas finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Skala en cache
 Om du vill skala cacheminnet [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i [Azure Portal](https://portal.azure.com) och klickar på **skala** på **resurs-menyn**.

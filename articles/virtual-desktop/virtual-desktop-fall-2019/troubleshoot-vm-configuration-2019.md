@@ -1,19 +1,17 @@
 ---
 title: Felsöka Windows Virtual Desktop (klassisk) Session Host-Azure
 description: Lösa problem när du konfigurerar virtuella Windows-sessioner för virtuella skriv bord (klassisk).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0155c9cf6b5d9df8a6a8831896093c4c6b074cd6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291253"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008635"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Konfiguration av virtuell dator för virtuella Windows-datorer (klassisk)
 
@@ -311,7 +309,7 @@ Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs 
 
 Om tids gränsen löper ut visas ett fel meddelande om att "Fjärrsessionen kopplades från eftersom det inte finns några åtkomst licenser för fjärr skrivbords klienten tillgängliga för den här datorn."
 
-Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.  
+Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.
 
 >[!NOTE]
 >Windows Virtual Desktop kräver bara en klient åtkomst licens för klient organisation (CAL) när din värddator innehåller Windows Server-sessionsbaserade värdar. Information om hur du konfigurerar en klient åtkomst licens för fjärr skrivbords tjänster finns i [licens för klient åtkomst licenser](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

@@ -1,19 +1,17 @@
 ---
 title: Felsöka tjänst anslutning Windows Virtual Desktop – Azure
 description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows-klient för virtuella skriv bord.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 875f39653c5240e3a1b571b531eb2bb08c4811d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289851"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009383"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 

@@ -1,19 +1,17 @@
 ---
 title: Skapa en Azure Files fil resurs med en domänkontrollant – Azure
 description: Konfigurera en FSLogix profil behållare på en Azure-filresurs i en befintlig Windows-adresspool för virtuella skriv bord med din Active Directory-domän.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9636a08b896cefdbec825e4979ad1ec89f8847b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87842917"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009230"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -181,7 +179,7 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Exempel:
+     Till exempel:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

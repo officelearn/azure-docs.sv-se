@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 113808a3e2bab6c4cb9d2ea5f155a027abf1b5bc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086344"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006799"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Commercial Marketplace
 
@@ -43,7 +43,7 @@ Så här lägger du till en ny plan i ett befintligt erbjudande som du redan har
 
 1. På sidan **erbjudande översikt** för det befintliga erbjudandet öppnar du sidan **plan översikt** och väljer sedan **Skapa ny plan**.
 1. Skapa en ny plan enligt [rikt linjerna](./create-new-saas-offer.md#plan-overview) genom att använda **pris modellen befintliga planer**.
-1. Välj **Spara utkast** när du har ändrat namnet på planen. 
+1. Välj **Spara utkast** när du har ändrat namnet på planen.
 1. Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och ger en slut för ande status för dina uppdateringar.
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan i ett befintligt erbjudande
@@ -55,6 +55,24 @@ För att göra ändringar i en plan i ett befintligt erbjudande som du redan har
 1. Välj **Spara utkast** när du har ändrat plan namn, beskrivning eller tillgänglighet för mål gruppen.
 1. Välj **Granska och publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och ger en slut för ande status för dina uppdateringar.
 1. Skicka in den uppdaterade planen för publicering genom att välja **publicera**. Vi skickar e-post till dig när en för hands version av det uppdaterade erbjudandet kan granskas och signeras.
+
+## <a name="offer-a-virtual-machine-plan-at-a-new-price"></a>Erbjud en virtuell dator plan till ett nytt pris
+
+När en virtuell dator plan har publicerats går det inte att ändra dess pris. Om du vill erbjuda samma plan till ett annat pris måste du dölja planen och skapa en ny med det uppdaterade priset. Börja med att dölja planen med det pris som du vill ändra:
+
+1. På sidan **erbjudande översikt** för det befintliga erbjudandet väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
+1. Markera kryss rutan **Dölj plan** . Spara utkastet innan du fortsätter.
+
+Nu när du har dolt planen med det gamla priset skapar du en kopia av planen med det uppdaterade priset:
+
+1. Gå tillbaka till **plan översikt**i Partner Center.
+2. Välj **Skapa ny plan**. Ange ett **plan-ID** och ett **plan namn**och välj sedan **skapa**.
+1. Om du vill återanvända den tekniska konfigurationen från den plan som du har dolt, markerar du kryss rutan **Återanvänd teknisk konfiguration** . Läs [plan översikten](azure-vm-create-offer.md#plan-overview) om du vill veta mer.
+    > [!IMPORTANT]
+    > Om du väljer **den här planen återanvänder teknisk konfiguration från en annan plan**kan du inte sluta sälja den överordnade planen senare. Använd inte det här alternativet om du inte vill sluta att sälja den överordnade planen.
+3. Slutför alla nödvändiga avsnitt för den nya planen, inklusive det nya priset.
+1. Välj **Spara utkast**.
+1. När du har slutfört alla nödvändiga avsnitt för den nya planen väljer du **Granska och publicera**. Detta skickar ditt erbjudande om granskning och publicering. Läs [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md) för mer information.
 
 ## <a name="compare-changes-to-marketplace-offers"></a>Jämför ändringar av Marketplace-erbjudanden
 

@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (klassisk) diagnostisera problem – Azure
 description: Så här använder du funktionen Windows Virtual Desktop (klassisk) för att diagnosticera problem.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257ad5aa11bfaece70f676b452119d7800e2d1e2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285058"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009349"
 ---
 # <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Identifiera och diagnostisera problem i Windows Virtual Desktop (klassisk)
 
@@ -25,7 +23,7 @@ Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt f
 * Flödes prenumerations aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till sina flöden via Microsoft Fjärrskrivbord-program.
 * Anslutnings aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till en stationär eller RemoteApp via Microsoft Fjärrskrivbord-program.
 * Hanterings aktiviteter: administratören utlöser dessa aktiviteter när de utför hanterings åtgärder i systemet, till exempel att skapa värdar, tilldela användare till app-grupper och skapa roll tilldelningar.
-  
+
 Anslutningar som inte når Windows Virtual Desktop visas inte i diagnostiska resultat, eftersom själva roll tjänsten för diagnostik är en del av det virtuella Windows-skrivbordet. Problem med Windows anslutning till virtuella skriv bord kan inträffa när slutanvändaren har problem med nätverks anslutningen.
 
 Kom igång genom att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i PowerShell-sessionen om du inte redan gjort det. Sedan kör du följande cmdlet för att logga in på ditt konto:
@@ -39,7 +37,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Windows Virtual Desktop Diagnostics använder bara en PowerShell-cmdlet men innehåller många valfria parametrar som hjälper dig att begränsa och isolera problem. I följande avsnitt listas de cmdlets som du kan köra för att diagnosticera problem. De flesta filter kan appliceras tillsammans. Värden som anges inom hakparenteser, till exempel `<tenantName>` , ska ersättas med de värden som gäller för din situation.
 
 >[!IMPORTANT]
->Funktionen diagnostik är för fel sökning av enskilda användare. Alla frågor som använder PowerShell måste innehålla antingen parametrarna *-username* eller *-ActivityId* . Använd Log Analytics för att övervaka funktioner. Mer information om hur du skickar diagnostikdata till din arbets yta finns i [använda Log Analytics för Diagnostics-funktionen](diagnostics-log-analytics-2019.md) . 
+>Funktionen diagnostik är för fel sökning av enskilda användare. Alla frågor som använder PowerShell måste innehålla antingen parametrarna *-username* eller *-ActivityId* . Använd Log Analytics för att övervaka funktioner. Mer information om hur du skickar diagnostikdata till din arbets yta finns i [använda Log Analytics för Diagnostics-funktionen](diagnostics-log-analytics-2019.md) .
 
 ### <a name="filter-diagnostic-activities-by-user"></a>Filtrera diagnostiska aktiviteter per användare
 

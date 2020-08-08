@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8cff5ec6886c0aceff5270418f9feeb145f6fd17
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836555"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002218"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -66,7 +66,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Azure Machine Learning åtgärder
 
-Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [Azure Resource providers-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning inbyggda åtgärder för många åtgärder och uppgifter. En fullständig lista finns i [åtgärder för Azure Resource Provider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## <a name="create-custom-role"></a>Skapa anpassad roll
 
@@ -382,9 +382,9 @@ Här är några saker som du bör känna till när du använder rollbaserad åtk
 För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Mer information om RBAC med hanterade identiteter finns [i hantera användarens tilldelade identitet](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### <a name="q-do-we-support-role-based-access-controls-on-the-studio-portal"></a>F. Stöder vi rollbaserade åtkomst kontroller på Studio-portalen?
+### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>F. Stöder vi rollbaserad åtkomst kontroll på Studio-portalen?
 
-Azure Machine Learning Studio stöder rollbaserade åtkomst kontroller. 
+Azure Machine Learning Studio stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC). 
 
 > [!IMPORTANT]
 > När du har tilldelat en anpassad roll med vissa behörigheter till en data expert i din arbets yta, döljs motsvarande åtgärder (till exempel att lägga till en beräknings knapp) automatiskt från användarna. Om du döljer dessa objekt förhindras förvirring från att se kontroller som returnerar ett meddelande om obehörig åtkomst från tjänsten när det används.

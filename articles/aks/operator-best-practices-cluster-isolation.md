@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för isolering i Azure
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 12c65f3b4241d3e732c51acb6ffa95ff314efb50
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cdeecabf569e3c6f9b280e6b0179e5378f5b1c95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077776"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003103"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metod tips för kluster isolering i Azure Kubernetes service (AKS)
 
@@ -42,7 +42,7 @@ Med logisk isolering kan ett enda AKS-kluster användas för flera arbets belast
 
 Logisk separering av kluster ger vanligt vis en högre Pod-densitet än fysiskt isolerade kluster. Det finns mindre överskott av beräknings kapaciteten som är inaktiv i klustret. När du kombineras med Kubernetes-klustret kan du skala upp eller ned antalet noder för att uppfylla kraven. Med den här bästa metoden för automatisk skalning kan du bara köra antalet noder som krävs och minimera kostnaderna.
 
-Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. I en miljö med flera klienter arbetar flera klienter på en gemensam, delad infrastruktur. Om alla klienter inte kan vara betrodda måste du göra ytterligare planeringen för att undvika att en klient som påverkar säkerheten och tjänsten för en annan. Ytterligare säkerhetsfunktioner, till exempel *Pod säkerhets policy* och mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
+Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. I en miljö med flera klienter arbetar flera klienter på en gemensam, delad infrastruktur. Om alla klienter inte kan vara betrodda måste du göra ytterligare planeringen för att undvika att en klient som påverkar säkerheten och tjänsten för en annan. Ytterligare säkerhetsfunktioner som *Pod säkerhets policy* och mer detaljerad rollbaserad åtkomst kontroll (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
 
 ## <a name="physically-isolate-clusters"></a>Isolera kluster fysiskt
 

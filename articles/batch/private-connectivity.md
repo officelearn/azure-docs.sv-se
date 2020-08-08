@@ -2,13 +2,14 @@
 title: Använd privata slutpunkter med Azure Batch-konton
 description: Lär dig hur du ansluter privat till ett Azure Batch-konto med hjälp av privata slut punkter.
 ms.topic: how-to
-ms.date: 06/12/2020
-ms.openlocfilehash: 04f52c8c58668b2978b38c65a94533a38c593888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/07/2020
+ms.custom: references_regions
+ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84754485"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004248"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Använd privata slutpunkter med Azure Batch-konton
 
@@ -16,16 +17,11 @@ ms.locfileid: "84754485"
 
 Med hjälp av en [privat Azure-länk](../private-link/private-link-overview.md)kan du ansluta till ett Azure Batch konto via en [privat slut punkt](../private-link/private-endpoint-overview.md). Den privata slut punkten är en uppsättning privata IP-adresser i ett undernät i det virtuella nätverket. Du kan sedan begränsa åtkomsten till ett Azure Batch konto över privata IP-adresser.
 
-Med privat länk kan användare komma åt ett Azure Batch konto inifrån det virtuella nätverket eller från ett peer-kopplat virtuellt nätverk. Resurser som är mappade till privat länk är också tillgängliga lokalt via privat peering via VPN eller [Azure ExpressRoute](../expressroute/expressroute-introduction.md).
+Med privat länk kan användare komma åt ett Azure Batch konto inifrån det virtuella nätverket eller från ett peer-kopplat virtuellt nätverk. Resurser som är mappade till privat länk är också tillgängliga lokalt via privat peering via VPN eller [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Du kan ansluta till ett Azure Batch-konto som kon figurer ATS med privat länk genom att använda [metoden automatisk eller manuell godkännande](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Du kan ansluta till ett Azure Batch-konto som kon figurer ATS med privat länk genom att använda [metoden automatisk eller manuell godkännande](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
+Stöd för privat anslutning i Azure Batch är för närvarande tillgängligt i följande Azure-regioner: västra centrala USA, västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona, Asien, östra, Frankrike och Storbritannien, södra.
 
 I den här artikeln beskrivs stegen för att skapa ett privat batch-konto och komma åt det med en privat slut punkt.
-
-> [!IMPORTANT]
-> Stöd för privat anslutning i Azure Batch är för närvarande en offentlig för hands version för USA, västra USA, västra USA 2, östra USA, södra centrala USA, US Gov, Virginia och US Gov, Arizona regioner.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="azure-portal"></a>Azure Portal
 

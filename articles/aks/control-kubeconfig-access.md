@@ -4,16 +4,16 @@ description: Lär dig hur du styr åtkomsten till konfigurations filen för Kube
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73c4a0ae46c3d2ac3a64543473bd6639d03b434
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501635"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009298"
 ---
-# <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd Azures rollbaserade åtkomst kontroller för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
+# <a name="use-azure-role-based-access-control-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd rollbaserad åtkomst kontroll i Azure för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
 
-Du kan interagera med Kubernetes-kluster med `kubectl` verktyget. Azure CLI är ett enkelt sätt att få åtkomst till autentiseringsuppgifter och konfigurations information för att ansluta till dina AKS-kluster med hjälp av `kubectl` . Om du vill begränsa vem som kan hämta den Kubernetes konfigurations informationen (*kubeconfig*) och begränsa behörigheterna som de har kan du använda rollbaserad åtkomst kontroll (RBAC) i Azure.
+Du kan interagera med Kubernetes-kluster med `kubectl` verktyget. Azure CLI är ett enkelt sätt att få åtkomst till autentiseringsuppgifter och konfigurations information för att ansluta till dina AKS-kluster med hjälp av `kubectl` . Om du vill begränsa vem som kan hämta den Kubernetes konfigurations informationen (*kubeconfig*) och begränsa behörigheterna som de har, kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 Den här artikeln visar hur du tilldelar RBAC-roller som begränsar vem som kan hämta konfigurations information för ett AKS-kluster.
 
@@ -27,7 +27,7 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.65 eller sena
 
 När du interagerar med ett AKS-kluster med `kubectl` verktyget används en konfigurations fil som definierar kluster anslutnings information. Den här konfigurations filen lagras vanligt vis i *~/.Kube/config*. Flera kluster kan definieras i den här *kubeconfig* -filen. Du växlar mellan kluster med kommandot [kubectl config use-context][kubectl-config-use-context] .
 
-Med kommandot [AZ AKS get-credentials][az-aks-get-credentials] kan du hämta autentiseringsuppgifter för ett AKS-kluster och slå samman dem till *kubeconfig* -filen. Du kan använda Azures rollbaserade åtkomst kontroller (RBAC) för att kontrol lera åtkomsten till dessa autentiseringsuppgifter. Med de här Azure-rollerna kan du definiera vem som kan hämta *kubeconfig* -filen och vilka behörigheter de har i klustret.
+Med kommandot [AZ AKS get-credentials][az-aks-get-credentials] kan du hämta autentiseringsuppgifter för ett AKS-kluster och slå samman dem till *kubeconfig* -filen. Du kan använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till dessa autentiseringsuppgifter. Med de här Azure-rollerna kan du definiera vem som kan hämta *kubeconfig* -filen och vilka behörigheter de har i klustret.
 
 De två inbyggda rollerna är:
 

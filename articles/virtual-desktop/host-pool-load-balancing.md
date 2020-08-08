@@ -1,19 +1,17 @@
 ---
 title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bord – Azure
 description: Lär dig mer om belastnings Utjämnings metoder för värdar för en Windows Virtual Desktop-miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 00870de007d590de33881809c57107997b531d8c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285143"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007445"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Belastningsutjämningsmetoder för värdpool
 

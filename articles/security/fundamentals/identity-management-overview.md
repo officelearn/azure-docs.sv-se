@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 9de31ba30c4599393d9127c7852cb567cf0258ef
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542084"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002675"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -41,7 +41,7 @@ Artikeln fokuserar på följande viktiga funktioner i Azure Identity Management:
 * Enkel inloggning
 * Omvänd proxy
 * Multi-Factor Authentication
-* Rollbaserad åtkomst kontroll (RBAC)
+* Rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 * Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter
 * Konsument identitets-och åtkomst hantering
 * Enhetsregistrering
@@ -87,9 +87,9 @@ Läs mer:
 * [Vad är Azure Multi-Factor Authentication?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Så fungerar Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="rbac"></a>RBAC
+## <a name="azure-rbac"></a>Azure RBAC
 
-RBAC är ett auktoriseringssystem som bygger på Azure Resource Manager som ger detaljerad åtkomsthantering av resurser i Azure. Med RBAC kan du styra den åtkomst nivå som användarna har. Du kan till exempel begränsa en användare till att endast hantera virtuella nätverk och en annan användare för att hantera alla resurser i en resurs grupp. Azure innehåller flera inbyggda roller som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
+Azure RBAC är ett auktoriserings system som bygger på Azure Resource Manager som ger detaljerad åtkomst hantering av resurser i Azure. Med Azure RBAC kan du styra den åtkomst nivå som användarna har. Du kan till exempel begränsa en användare till att endast hantera virtuella nätverk och en annan användare för att hantera alla resurser i en resurs grupp. Azure innehåller flera inbyggda roller som du kan använda. Följande listar fyra grundläggande inbyggda roller. De första tre gäller för alla resurstyper.
 
 - [Owner](/azure/role-based-access-control/built-in-roles#owner) -har fullständig åtkomst till alla resurser, inklusive rätten att delegera åtkomst till andra. 
 - [Deltagare](/azure/role-based-access-control/built-in-roles#contributor) – kan skapa och hantera alla typer av Azure-resurser, men kan inte bevilja åtkomst till andra.

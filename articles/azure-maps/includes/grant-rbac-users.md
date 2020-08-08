@@ -9,16 +9,16 @@ ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8dfc3714362b082168c32ba73e234e9b5fb43525
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 816e4e439bb98ced8bbc5b5d8a7d38ef65aee33f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545160"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011029"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Bevilja rollbaserad åtkomst för användare att Azure Maps
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen en Azure AD-grupp eller säkerhets objekt till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
+Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldela antingen en Azure AD-grupp eller säkerhets objekt till en eller flera Azure Maps roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*.
 
 * För att effektivt hantera en stor mängd användares åtkomst till Azure Maps, se [Azure AD-grupper](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups).
 * För att användarna ska kunna autentisera till programmet måste användarna skapas i Azure AD. Se [Lägg till eller ta bort användare med Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
@@ -27,7 +27,7 @@ Läs mer i [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamen
 
 1. Gå till ditt **Azure Maps-konto**. Välj roll tilldelningen **åtkomst kontroll (IAM)**  >  **Role assignment**.
 
-    ![Bevilja RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
+    ![Bevilja åtkomst med Azure RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. På fliken **roll tilldelningar** under **roll**väljer du en inbyggd Azure Maps roll definition som **Azure Maps data läsare** eller **Azure Maps data deltagare**. Under **tilldela åtkomst till**väljer du **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj huvudobjektet efter namn. Välj sedan **Spara**.
 

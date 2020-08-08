@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (klassisk) Host pool Azure Marketplace – Azure
 description: Så här skapar du en Windows Virtual Desktop (klassisk)-värd pool med hjälp av Azure Marketplace.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3f0db05459b8e81764915c5dffb373e7f19edbc4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 04184a658ae1efd03afd3e920818eb5317bc7553
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291308"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008601"
 ---
 # <a name="tutorial-create-a-host-pool-in-windows-virtual-desktop-classic"></a>Självstudie: skapa en värdbaserad pool i Windows Virtual Desktop (klassisk)
 
@@ -33,7 +31,7 @@ Uppgifterna i den här självstudien innehåller:
 > * Anslut de virtuella datorerna till Active Directory-domänen.
 > * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
 * [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
@@ -52,13 +50,13 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspool:
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 1. Ange **virtuellt Windows-skrivbord** i fönstret Marketplace search.
 1. Välj **Windows Virtual Desktop – etablera en adresspool**och välj sedan **skapa**.
 
 Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga flikar.
 
-### <a name="basics"></a>Grunderna
+### <a name="basics"></a>Grunder
 
 Det här kan du göra på fliken **grundläggande** :
 

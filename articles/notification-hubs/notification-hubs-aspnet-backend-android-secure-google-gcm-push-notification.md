@@ -5,27 +5,24 @@ documentationcenter: android
 keywords: push-meddelande, push-meddelanden, push-meddelanden, Android push-meddelanden
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: daf3de1c-f6a9-43c4-8165-a76bfaa70893
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-java
-ms.openlocfilehash: 3f31c9786a8310779d71ab0c54bddc4687f765be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f2d5d618fabbe7400ce825f984ace1622a524f05
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325244"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004025"
 ---
-# <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>Skicka säkra push-meddelanden med Azure Notification Hubs
+# <a name="send-secure-push-notifications-with-azure-notification-hubs"></a>Skicka säkra push-meddelanden med Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -43,28 +40,28 @@ På grund av regler eller säkerhets begränsningar kan ett program ibland vilja
 
 På hög nivå är flödet följande:
 
-1. Appens backend-sida:
-   * Lagrar säker nytto Last i backend-databasen.
-   * Skickar ID för det här meddelandet till Android-enheten (ingen säker information skickas).
-2. Appen på enheten när meddelandet tas emot:
-   * Android-enheten kontaktar Server dels förfrågan om säker nytto Last.
-   * Appen kan visa nytto lasten som ett meddelande på enheten.
+- Server delen för appen:
+  * Lagrar säker nytto Last i backend-databasen.
+  * Skickar ID för det här meddelandet till Android-enheten (ingen säker information skickas).
+- Appen på enheten när meddelandet tas emot:
+  * Android-enheten kontaktar Server dels förfrågan om säker nytto Last.
+  * Appen kan visa nytto lasten som ett meddelande på enheten.
 
 Det är viktigt att Observera att i föregående flöde (och i den här självstudien) förutsätts att enheten lagrar en autentiseringstoken i den lokala lagringen efter att användaren har loggat in. Den här metoden garanterar en sömlös upplevelse eftersom enheten kan hämta meddelandets säkra nytto last med denna token. Om ditt program inte lagrar autentiseringstoken på enheten, eller om dessa token kan ha upphört att gälla, bör enhetens app vid mottagandet av push-meddelandet Visa ett allmänt meddelande där användaren uppmanas att starta appen. Appen autentiserar sedan användaren och visar meddelande nytto lasten.
 
-I den här självstudien visas hur du skickar säkra push-meddelanden. Den bygger vidare på självstudien [meddela användarna](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , så du bör slutföra stegen i den själv studie kursen först om du inte redan har gjort det.
+I den här självstudien visas hur du skickar säkra push-meddelanden. Den bygger vidare på självstudien [meddela användarna](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md) , så du bör slutföra stegen i den här självstudien först.
 
 > [!NOTE]
-> I den här självstudien förutsätter vi att du har skapat och konfigurerat din Notification Hub enligt beskrivningen i [komma igång med Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> I den här självstudien förutsätter vi att du har skapat och konfigurerat din Notification Hub enligt anvisningarna i [Kom igång med Notification Hubs (Android)](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## <a name="modify-the-android-project"></a>Ändra Android-projektet
 
-Nu när du ändrade appens Server del för att skicka bara *ID: t* för ett push-meddelande måste du ändra din Android-app för att hantera meddelandet och anropa Server delen för att hämta det säkra meddelandet som ska visas.
+Nu när du ändrade appens Server del för att skicka bara ID: t för ett push-meddelande, måste du ändra din Android-app för att hantera meddelandet och anropa tillbaka till Server delen för att hämta det säkra meddelandet som ska visas.
 För att uppnå det här målet måste du se till att din Android-app vet hur de autentiseras med Server delen när de tar emot push-meddelanden.
 
-Ändra nu *inloggnings* flödet för att spara värdet för Authentication-huvudet i appens delade inställningar. Analoga mekanismer kan användas för att lagra alla autentiseringstoken (t. ex. OAuth-token) som appen måste använda utan att kräva användarautentiseringsuppgifter.
+Ändra nu inloggnings flödet för att spara värdet för Authentication-huvudet i appens delade inställningar. Analoga mekanismer kan användas för att lagra alla autentiseringstoken (t. ex. OAuth-token) som appen måste använda utan att kräva användarautentiseringsuppgifter.
 
 1. I ditt Android-Apps lägger du till följande konstanter högst upp i `MainActivity` klassen:
 
@@ -72,6 +69,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
     public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
     public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
     ```
+
 2. `MainActivity`Uppdatera-metoden i-klassen `getAuthorizationHeader()` så att den innehåller följande kod:
 
     ```java
@@ -87,6 +85,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         return basicAuthHeader;
     }
     ```
+
 3. Lägg till följande- `import` uttryck högst upp i `MainActivity` filen:
 
     ```java
@@ -104,6 +103,7 @@ För att uppnå det här målet måste du se till att din Android-app vet hur de
         retrieveNotification(secureMessageId);
     }
     ```
+
 2. Lägg sedan till `retrieveNotification()` -metoden och ersätt plats hållaren `{back-end endpoint}` med backend-slutpunkten som hämtades när du distribuerade Server delen:
 
     ```java

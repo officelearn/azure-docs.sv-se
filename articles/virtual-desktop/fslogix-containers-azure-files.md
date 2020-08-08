@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop FSLogix profil behållare filer – Azure
 description: I den här artikeln beskrivs FSLogix profil behållare i Windows Virtual Desktop och Azure Files.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7728ff96ccc3da5a36d919e61518a3ce3d13581c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 669f4baa723b78b8933f3a75fc361c468f9e2df9
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611984"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002395"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -47,17 +45,17 @@ Befintliga och äldre Microsoft-lösningar för användar profiler följde med o
 
 I följande tabell visas fördelarna och begränsningarna för tidigare användar profil tekniker.
 
-| Teknologi | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på Server-SKU: n | Server dels lagring på Azure | Server dels lagring lokalt | Versions stöd | Efterföljande inloggnings tid |Anteckningar|
+| Teknik | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på Server-SKU: n | Server dels lagring på Azure | Server dels lagring lokalt | Versions stöd | Efterföljande inloggnings tid |Anteckningar|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Användar profil diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Nej | Ja | Win 7 + | Ja | |
-| **Central användar profil (RUP), underhålls läge** | Nej | Ja | Ja | Ja | Ja| Nej | Ja | Win 7 + | Nej | |
-| **Enterprise State Roaming (ESR)** | Ja | Nej | Ja | Nej | Se kommentarer | Ja | Nej | Win 10 | Nej | Funktioner på Server-SKU men saknar stöd för användar gränssnitt |
-| **User Experience Virtualization (UE-V)** | Ja | Ja | Ja | Nej | Ja | Nej | Ja | Win 7 + | Nej |  |
-| **OneDrive-molnappar** | Nej | Nej | Nej | Ja | Se kommentarer | Se kommentarer  | Se kommentarer | Win 10-RS3 | Nej | Inte testat på Server-SKU. Backend-lagring på Azure är beroende av Sync-klienten. Backend-lokal kräver en sync-klient. |
+| **Användar profil diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Inga | Ja | Win 7 + | Ja | |
+| **Central användar profil (RUP), underhålls läge** | Inga | Ja | Ja | Ja | Ja| Inga | Ja | Win 7 + | Inga | |
+| **Enterprise State Roaming (ESR)** | Ja | Inga | Ja | Inga | Se kommentarer | Ja | Inga | Win 10 | Inga | Funktioner på Server-SKU men saknar stöd för användar gränssnitt |
+| **User Experience Virtualization (UE-V)** | Ja | Ja | Ja | Inga | Ja | Inga | Ja | Win 7 + | Inga |  |
+| **OneDrive-molnappar** | Inga | Inga | Inga | Ja | Se kommentarer | Se kommentarer  | Se kommentarer | Win 10-RS3 | Inga | Inte testat på Server-SKU. Backend-lagring på Azure är beroende av Sync-klienten. Backend-lokal kräver en sync-klient. |
 
 #### <a name="performance"></a>Prestanda
 
-UPD kräver [Lagringsdirigering (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D är den lösning som vi rekommenderar för Windows Virtual Desktop.  
+UPD kräver [Lagringsdirigering (S2D)](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D är den lösning som vi rekommenderar för Windows Virtual Desktop.
 
 #### <a name="cost"></a>Kostnad
 

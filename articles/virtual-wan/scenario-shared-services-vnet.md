@@ -6,25 +6,61 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 64bb4c85399f811c0ab7ff84b297b64734efc491
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 6045c491ea68d759b2a1739e20aa2f12b8520c87
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569259"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006493"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: dirigera till delade tjänster virtuella nätverk
 
-När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I det här scenariot är målet att ställa in vägar för att få åtkomst till en **delad tjänst-** VNet med arbets belastningar som du vill att varje VNet och gren (VPN/er/P2s) ska ha åtkomst till. Information om virtuell hubb routning finns i [om virtuell nav-routning](about-virtual-hub-routing.md).
+När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I det här scenariot är målet att ställa in vägar för att få åtkomst till en **delad tjänst-** VNet med arbets belastningar som du vill att varje VNet och gren (VPN/er/P2s) ska ha åtkomst till. Exempel på dessa delade arbets belastningar kan vara Virtual Machines med tjänster som domänkontrollanter eller fil resurser eller Azure-tjänster som exponeras internt via [privata Azure-slutpunkter](../private-link/private-endpoint-overview.md).
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Scenario arbets flöde
+Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
 
-För att konfigurera det här scenariot vidtar du följande steg för att överväga:
+## <a name="design"></a><a name="design"></a>Utforma
+
+Vi kan använda en anslutnings mat ris för att sammanfatta kraven i det här scenariot. I matrisen beskriver varje cell om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde.
+
+**Anslutnings mat ris**
+
+| Från             | Till:   |*Isolerade virtuella nätverk*|*Delat VNet*|*Grenar*|
+|---|---|---|---|---|
+|**Isolerade virtuella nätverk**|&#8594;|                |        X        |       X      |
+|**Delade virtuella nätverk**  |&#8594;|       X        |        X        |       X      |
+|**Grenar**      |&#8594;|       X        |        X        |       X      |
+
+I likhet med det [isolerade VNet-scenariot](scenario-isolate-vnets.md)ger den här anslutnings matrisen två olika rad mönster, som översätts till två väg tabeller (de delade tjänsterna virtuella nätverk och grenarna har samma anslutnings krav). Det virtuella WAN-nätverket har redan en standard väg tabell, så vi behöver en annan anpassad routningstabell som vi ska anropa **RT_SHARED** i det här exemplet.
+
+Virtuella nätverk kommer att kopplas till tabellen **RT_SHARED** väg. Eftersom de behöver anslutning till grenar och till den delade tjänsten virtuella nätverk måste den delade tjänsten VNet och grenarna spridas till **RT_SHARED** (annars skulle virtuella nätverk inte lära sig att lära sig grenen och delade VNet-prefix). Eftersom grenarna alltid är kopplade till standard väg tabellen, och anslutnings kraven är desamma för delade tjänster virtuella nätverk, kommer vi att associera den delade tjänsten virtuella nätverk till standard väg tabellen.
+
+Därför är detta den slutliga designen:
+
+* Isolerade virtuella nätverk:
+  * Associerad routningstabell: **RT_SHARED**
+  * Sprider till routningstabeller: **standard**
+* Delade tjänster, virtuella nätverk:
+  * Associerad routningstabell: **standard**
+  * Sprider till routningstabeller: **RT_SHARED** och **standard**
+* Delar
+  * Associerad routningstabell: **standard**
+  * Sprider till routningstabeller: **RT_SHARED** och **standard**
+
+> [!NOTE]
+> Om ditt virtuella WAN-nätverk har distribuerats över flera regioner måste du skapa **RT_SHARED** routningstabellen i varje hubb, och vägar från alla delade tjänster VNet-och gren anslutning måste spridas till routningstabellen i varje virtuellt nav som använder spridnings etiketter.
+
+Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-virtual-hub-routing.md).
+
+## <a name="workflow"></a><a name="workflow"></a>Arbetsflöde
+
+Tänk på följande när du konfigurerar scenariot:
 
 1. Identifiera de **delade tjänsternas** VNet.
-2. Skapa en anpassad routningstabell. I exemplet refererar vi till den här routningstabellen som **RT_SHARED**. Anvisningar för hur du skapar en routningstabell finns i [så här konfigurerar du routning av virtuell hubb](how-to-virtual-hub-routing.md). Använd följande värden som en rikt linje:
+2. Skapa en anpassad routningstabell. I exemplet refererar vi till routningstabellen som **RT_SHARED**. Anvisningar för hur du skapar en routningstabell finns i [så här konfigurerar du routning av virtuell hubb](how-to-virtual-hub-routing.md). Använd följande värden som en rikt linje:
 
    * **Föreningar**
      * För **virtuella nätverk *utom* de delade tjänsterna VNet**väljer du den virtuella nätverk som ska isoleras. Detta innebär att alla dessa virtuella nätverk (förutom det virtuella nätverket för delade tjänster) kan komma åt målet baserat på vägar i RT_SHARED Route-tabellen.
@@ -33,9 +69,9 @@ För att konfigurera det här scenariot vidtar du följande steg för att överv
       * För **grenar**sprider du vägar till den här routningstabellen, förutom andra routningstabeller som du kanske redan har valt. På grund av det här steget kommer RT_SHARED Route-tabellen att lära sig vägar från alla förgrenings anslutningar (VPN/ER/användare VPN).
       * För **virtuella nätverk**väljer du **delade tjänster VNet**. På grund av det här steget kommer RT_SHARED Route-tabellen att lära sig vägar från VNet-anslutningen för delade tjänster.
 
-     Detta leder till att konfigurations konfigurationen ändras så som visas i figuren nedan
+Detta leder till att konfigurationen för routning visas i följande figur:
 
-   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="VNet för delade tjänster":::
+   :::image type="content" source="./media/routing-scenarios/shared-service-vnet/shared-services.png" alt-text="VNet för delade tjänster" lightbox="./media/routing-scenarios/shared-service-vnet/shared-services.png":::
 
 ## <a name="next-steps"></a>Nästa steg
 

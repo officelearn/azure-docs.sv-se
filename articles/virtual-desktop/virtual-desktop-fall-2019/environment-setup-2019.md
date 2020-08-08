@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop (klassisk)-miljö – Azure
 description: De grundläggande elementen i en Windows Virtual Desktop-miljö (klassisk).
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2c019dd187c0ccd7a63f71c0373a0388135afda9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4fa281f6435013e9feb6808aab04ffa69c5f96c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285024"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008618"
 ---
 # <a name="windows-virtual-desktop-classic-environment"></a>Windows Virtual Desktop-miljö (klassisk)
 

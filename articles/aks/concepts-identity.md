@@ -6,30 +6,30 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498131"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007088"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Åtkomst och identitetsalternativ för Azure Kubernetes Service (AKS)
 
-Det finns olika sätt att autentisera, kontrol lera åtkomst/auktorisera och säkra Kubernetes-kluster. Med hjälp av Kubernetes-rollbaserade åtkomst kontroller (RBAC) kan du ge användare, grupper och tjänst konton åtkomst till enbart de resurser de behöver. Med Azure Kubernetes service (AKS) kan du ytterligare förbättra strukturen för säkerhet och behörighet genom att använda Azure Active Directory och Azure RBAC. De här metoderna hjälper dig att skydda kluster åtkomsten och ger endast de behörigheter som krävs för utvecklare och operatörer.
+Det finns olika sätt att autentisera, kontrol lera åtkomst/auktorisera och säkra Kubernetes-kluster. Med hjälp av Kubernetes rollbaserad åtkomst kontroll (RBAC) kan du ge användare, grupper och tjänst konton åtkomst till enbart de resurser de behöver. Med Azure Kubernetes service (AKS) kan du ytterligare förbättra strukturen för säkerhet och behörighet genom att använda Azure Active Directory och Azure RBAC. De här metoderna hjälper dig att skydda kluster åtkomsten och ger endast de behörigheter som krävs för utvecklare och operatörer.
 
 Den här artikeln beskriver de viktigaste begreppen som hjälper dig att autentisera och tilldela behörigheter i AKS:
 
-- [Kubernetes-rollbaserad åtkomst kontroller (RBAC)](#kubernetes-role-based-access-controls-rbac)
+- [Kubernetes-rollbaserad åtkomst kontroll (RBAC)](#kubernetes-role-based-access-control-rbac)
   - [Roller och ClusterRoles](#roles-and-clusterroles)
   - [RoleBindings och ClusterRoleBindings](#rolebindings-and-clusterrolebindings) 
   - [Kubernetes tjänst konton](#kubernetes-service-accounts)
 - [Azure Active Directory-integrering](#azure-active-directory-integration)
-- [Azure RBAC](#azure-role-based-access-controls-rbac)
+- [Azure RBAC](#azure-role-based-access-control-azure-rbac)
   - [Azure RBAC för att ge åtkomst till AKS-resursen](#azure-rbac-to-authorize-access-to-the-aks-resource)
   - [Azure RBAC för Kubernetes-auktorisering (för hands version)](#azure-rbac-for-kubernetes-authorization-preview)
 
 
-## <a name="kubernetes-role-based-access-controls-rbac"></a>Kubernetes-rollbaserad åtkomst kontroller (RBAC)
+## <a name="kubernetes-role-based-access-control-rbac"></a>Kubernetes-rollbaserad åtkomst kontroll (RBAC)
 
 För att ge detaljerad filtrering av de åtgärder som användarna kan utföra, använder Kubernetes rollbaserad åtkomst kontroll (RBAC). Med den här kontrollen kan du tilldela användare eller grupper av användare behörighet att göra saker som att skapa eller ändra resurser, eller Visa loggar från att köra program arbets belastningar. Dessa behörigheter kan begränsas till ett enda namn område eller beviljas i hela AKS-klustret. Med Kubernetes RBAC skapar du *roller* för att definiera behörigheter och tilldelar sedan rollerna till användare med *roll bindningar*.
 
@@ -95,7 +95,7 @@ Som du ser i bilden ovan anropar API-servern AKS-webhook-servern och utför föl
  
 **Lär dig hur du integrerar AKS med AAD [här](managed-aad.md).**
 
-## <a name="azure-role-based-access-controls-rbac"></a>Rollbaserad åtkomst kontroll i Azure (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 
 Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) som ger detaljerad åtkomst hantering av Azure-resurser.
 
@@ -107,7 +107,7 @@ Mer information finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBA
 
 Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda ett AKS-kluster: 
 1. [Få åtkomst till AKS-resursen i din Azure-prenumeration](#azure-rbac-to-authorize-access-to-the-aks-resource). Med den här processen kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
-2. Åtkomst till Kubernetes-API: et. Den här åtkomsten styrs antingen av [KUBERNETES RBAC](#kubernetes-role-based-access-controls-rbac) (traditionellt) eller genom att [integrera Azure RBAC med AKS för Kubernetes-auktorisering](#azure-rbac-for-kubernetes-authorization-preview)
+2. Åtkomst till Kubernetes-API: et. Den här åtkomsten styrs antingen av [KUBERNETES RBAC](#kubernetes-role-based-access-control-rbac) (traditionellt) eller genom att [integrera Azure RBAC med AKS för Kubernetes-auktorisering](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC för att ge åtkomst till AKS-resursen
 

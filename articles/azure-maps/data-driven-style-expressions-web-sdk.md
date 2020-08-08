@@ -1,6 +1,6 @@
 ---
 title: Data drivna format uttryck i Azure Maps Web SDK | Microsoft Azure Maps
-description: 'I den här artikeln får du lära dig mer om hur du använder data drivna format uttryck i Microsoft Azure Maps-webbsdk: n.'
+description: Lär dig mer om data drivna format uttryck. Se hur du använder dessa uttryck i Azure Maps Web SDK för att justera formaten i Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 54477bd74df660edb12f6daffbaa2a7390f9516a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285721"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009145"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 

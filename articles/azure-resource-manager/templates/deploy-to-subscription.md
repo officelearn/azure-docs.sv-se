@@ -3,16 +3,16 @@ title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321776"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002782"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
-För att förenkla hanteringen av resurser kan du använda en Azure Resource Manager mall (ARM-mall) för att distribuera resurser på nivån i din Azure-prenumeration. Du kan till exempel distribuera [principer](../../governance/policy/overview.md) och [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) till din prenumeration, som tillämpar dem i din prenumeration. Du kan också skapa resurs grupper i prenumerationen och distribuera resurser till resurs grupper i prenumerationen.
+För att förenkla hanteringen av resurser kan du använda en Azure Resource Manager mall (ARM-mall) för att distribuera resurser på nivån i din Azure-prenumeration. Du kan t. ex. distribuera [principer](../../governance/policy/overview.md) och [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/overview.md) till din prenumeration, som tillämpar dem i din prenumeration. Du kan också skapa resurs grupper i prenumerationen och distribuera resurser till resurs grupper i prenumerationen.
 
 > [!NOTE]
 > Du kan distribuera till 800 olika resurs grupper i en distribution på prenumerations nivå.
@@ -473,7 +473,7 @@ New-AzSubscriptionDeployment `
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
+Information om hur du tilldelar roller finns i [lägga till Azure-roll tilldelningar med hjälp av Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 
 I följande exempel skapas en resurs grupp, ett lås till den och tilldelas en roll till ett huvud konto.
 

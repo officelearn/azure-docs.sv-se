@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ce816b74c12333477203cce690c955d5aaf1cda
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3a197c879e4c091c9b421c194e1f6a50b91d24bb
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101738"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007405"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egress"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med utgående trafik
 
@@ -45,7 +45,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Utgående stöder **SP-och IDP** -INITIERAd SSO
 * Utgående stöder **just-in-Time** User-etablering
-* När du har konfigurerat utgående kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat utgående kan du framtvinga sessionshantering, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-egress-from-the-gallery"></a>Lägga till utgående data från galleriet
 
@@ -130,7 +130,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Utför följande steg på följande sida.
 
-    ![Utgående konfiguration](./media/egress-tutorial/configure1.PNG)
+    ![Utgående konfiguration](./media/egress-tutorial/configure-1.PNG)
 
     a. På den vänstra menyn klickar du på **SSO-konfiguration**.
 
@@ -150,11 +150,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **Bjud in användare** på vänster sida-menyn och klicka på **Bjud in en enskild användare** för att lägga till användaren.
 
-    ![Utgående skapa test användare](./media/egress-tutorial/createuser1.PNG)
+    ![Utgående skapa test användare](./media/egress-tutorial/create-user-1.PNG)
 
 1. Fyll i de obligatoriska fälten och klicka på **Bjud in**.
 
-    ![Utgående skapa test användare](./media/egress-tutorial/createuser2.PNG)
+    ![Utgående skapa test användare](./media/egress-tutorial/create-user-2.PNG)
 
 ## <a name="test-sso"></a>Testa SSO 
 

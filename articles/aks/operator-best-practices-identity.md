@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c7e8cd28380a86a671c74af03fa479abce5cfe25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0e11f345bfed287be3170df38a909ed24149b754
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107146"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010267"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Metod tips för autentisering och auktorisering i Azure Kubernetes service (AKS)
 
@@ -23,7 +23,7 @@ Den här tips artikeln fokuserar på hur en kluster operatör kan hantera åtkom
 > [!div class="checklist"]
 >
 > * Autentisera AKS-kluster användare med Azure Active Directory
-> * Kontrol lera åtkomst till resurser med hjälp av Kubernetes-rollbaserade åtkomst kontroller (RBAC)
+> * Kontrol lera åtkomst till resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) för Kubernetes
 > * Använd Azure RBAC för att styra åtkomsten till AKS-resursen och Kubernetes-API i skala, samt till kubeconfig.
 > * Använd en hanterad identitet för att autentisera poddar med andra tjänster
 
@@ -33,7 +33,7 @@ Den här tips artikeln fokuserar på hur en kluster operatör kan hantera åtkom
 
 Utvecklare och program ägare av ditt Kubernetes-kluster behöver åtkomst till olika resurser. Kubernetes tillhandahåller inte en identitets hanterings lösning som styr vilka användare som kan interagera med vilka resurser. I stället integrerar du normalt klustret med en befintlig identitets lösning. Azure Active Directory (AD) tillhandahåller en företags klar identitets hanterings lösning som kan integreras med AKS-kluster.
 
-Med Azure AD-integrerade kluster i AKS skapar du *roller* eller *ClusterRoles* som definierar åtkomst behörigheter till resurser. Du kan sedan *binda* rollerna till användare eller grupper från Azure AD. De här Kubernetes-rollbaserade åtkomst kontrollerna (RBAC) beskrivs i nästa avsnitt. Integreringen av Azure AD och hur du styr åtkomsten till resurser kan visas i följande diagram:
+Med Azure AD-integrerade kluster i AKS skapar du *roller* eller *ClusterRoles* som definierar åtkomst behörigheter till resurser. Du kan sedan *binda* rollerna till användare eller grupper från Azure AD. Dessa Kubernetes-rollbaserade åtkomst kontroll (RBAC) beskrivs i nästa avsnitt. Integreringen av Azure AD och hur du styr åtkomsten till resurser kan visas i följande diagram:
 
 ![Autentisering på kluster nivå för Azure Active Directory integrering med AKS](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 
@@ -46,7 +46,7 @@ Med Azure AD-integrerade kluster i AKS skapar du *roller* eller *ClusterRoles* s
 
 Om du vill skapa ett AKS-kluster som använder Azure AD kan du läsa [integrera Azure Active Directory med AKS][aks-aad].
 
-## <a name="use-kubernetes-role-based-access-controls-rbac"></a>Använda Kubernetes-rollbaserad åtkomst kontroll (RBAC)
+## <a name="use-kubernetes-role-based-access-control-rbac"></a>Använda Kubernetes-rollbaserad åtkomst kontroll (RBAC)
 
 **Vägledning för bästa praxis** – Använd Kubernetes RBAC för att definiera de behörigheter som användare eller grupper måste ha till gång till i klustret. Skapa roller och bindningar som tilldelar minst den mängd behörigheter som krävs. Integrera med Azure AD så att alla ändringar i användar status eller grupp medlemskap uppdateras automatiskt och åtkomst till kluster resurser är aktuell.
 
@@ -86,7 +86,7 @@ roleRef:
 
 När *developer1 \@ contoso.com* autentiseras mot AKS-klustret har de fullständig behörighet till resurser i namn området *ekonomi-app* . På så sätt kan du logiskt separera och kontrol lera åtkomsten till resurser. Kubernetes RBAC bör användas tillsammans med Azure AD-integration, enligt beskrivningen i föregående avsnitt.
 
-Om du vill se hur du använder Azure AD-grupper för att kontrol lera åtkomsten till Kubernetes-resurser med RBAC, se [kontrol lera åtkomst till kluster resurser med hjälp av rollbaserade åtkomst kontroller och Azure Active Directory identiteter i AKS][azure-ad-rbac].
+Om du vill se hur du använder Azure AD-grupper för att kontrol lera åtkomsten till Kubernetes-resurser med RBAC, se [kontrol lera åtkomst till kluster resurser med hjälp av rollbaserad åtkomst kontroll och Azure Active Directory identiteter i AKS][azure-ad-rbac].
 
 ## <a name="use-azure-rbac"></a>Använda Azure RBAC 
 **Vägledning för bästa praxis** – Använd Azure RBAC för att definiera minimi kravet på nödvändiga behörigheter som användare eller grupper måste AKS resurser i en eller flera prenumerationer.
@@ -95,7 +95,7 @@ Det finns två åtkomst nivåer som krävs för att fullständigt kunna använda
 1. Få åtkomst till AKS-resursen på din Azure-prenumeration. Med den här åtkomst nivån kan du styra sakernas skalning eller uppgradera klustret med hjälp av AKS-API: er samt hämta din kubeconfig.
 Information om hur du styr åtkomsten till AKS-resursen och kubeconfig finns i [begränsa åtkomsten till kluster konfigurations filen](control-kubeconfig-access.md).
 
-2. Åtkomst till Kubernetes-API: et. Den här åtkomst nivån styrs antingen av [KUBERNETES RBAC](#use-kubernetes-role-based-access-controls-rbac) (traditionellt) eller genom att integrera Azure RBAC med AKS för Kubernetes-auktorisering.
+2. Åtkomst till Kubernetes-API: et. Den här åtkomst nivån styrs antingen av [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-rbac) (traditionellt) eller genom att integrera Azure RBAC med AKS för Kubernetes-auktorisering.
 Om du vill se hur detaljerad information ska ges till Kubernetes-API: et med Azure RBAC ser du [använda Azure RBAC för Kubernetes-auktorisering](manage-azure-rbac.md).
 
 ## <a name="use-pod-identities"></a>Använda Pod identiteter

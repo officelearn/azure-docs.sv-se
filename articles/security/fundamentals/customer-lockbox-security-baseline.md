@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1e8fd08a22d5d243f404a12ff96c1a8797b97f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1cf4af12b9ef912d37014215e422d5b9c73903f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485674"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007887"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Azures säkerhets bas linje för Customer Lockbox för Microsoft Azure
 
@@ -222,13 +222,13 @@ Publicera aktivitets loggarna som genererats av Customer Lockbox till Azure Sent
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: underhålla en inventering av de användar konton som har administrativ åtkomst till dina Customer lockbox begär Anden. Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll (RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Azure Active Directory.
+**Vägledning**: underhålla en inventering av de användar konton som har administrativ åtkomst till dina Customer lockbox begär Anden. Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Azure Active Directory.
 
 Vid kund organisationen får användaren som har ägar rollen för Azure-prenumerationen ett e-postmeddelande från Microsoft för att meddela dem om eventuella väntande åtkomst begär Anden. Den här personen är utsedd god kännare för Customer Lockbox begär Anden.
 
 * [Förstå anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Konfigurera RBAC för arbets böcker](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Så här konfigurerar du Azure RBAC för arbets böcker](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Förstå behörigheter för åtkomst begär anden i Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
@@ -527,7 +527,7 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 
 * [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-* [Förstå Azures rollbaserade åtkomst kontroller](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Förstå rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

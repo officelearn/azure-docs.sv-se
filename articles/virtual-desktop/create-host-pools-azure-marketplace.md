@@ -1,19 +1,17 @@
 ---
 title: Windows-pool för virtuella skriv bord Azure Portal – Azure
 description: Så här skapar du en Windows-pool för virtuella skriv bord med hjälp av Azure Portal.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e27bbdcec9b0c9e2bcabf4228a19d87e263d60f4
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291450"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002665"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -24,7 +22,7 @@ Lagringspooler är en samling av en eller flera identiska virtuella datorer (VM)
 
 Den här artikeln vägleder dig genom installations processen för att skapa en adresspool för en Windows Virtual Desktop-miljö via Azure Portal. Den här metoden ger ett webbläsarbaserat användar gränssnitt för att skapa en adresspool i Windows Virtual Desktop, skapa en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluta de virtuella datorerna till den Azure Active Directory AD-domänen och registrera de virtuella datorerna med Windows Virtual Desktop.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ange följande parametrar för att skapa en värdbaserad pool:
 
@@ -61,7 +59,7 @@ För att börja skapa den nya poolen:
 6. Ange ett unikt namn för din värd bassäng.
 
 7. I fältet plats väljer du den region där du vill skapa fakturapoolen från den nedrullningsbara menyn.
-   
+
    Azure-geografin som är associerad med de regioner som du har valt är där metadata för den här poolen och dess relaterade objekt kommer att lagras. Se till att du väljer de regioner i geografin som du vill att tjänstens metadata ska lagras i.
 
      > [!div class="mx-imgBorder"]
@@ -140,7 +138,7 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
 
     > [!div class="mx-imgBorder"]
     > ![En skärm bild av sidan säkerhets grupp som visar en lista över tillgängliga portar i en nedrullningsbar meny.](media/available-ports.png)
-    
+
     Om du väljer **Avancerat**väljer du en befintlig nätverks säkerhets grupp som du redan har konfigurerat.
 
 10. Efter det väljer du om du vill att de virtuella datorerna ska vara anslutna till en speciell domän och organisationsenhet. Om du väljer **Ja**anger du domänen som ska anslutas. Du kan också lägga till en speciell organisationsenhet som du vill att de virtuella datorerna ska finnas i.
@@ -153,7 +151,7 @@ Vi är nu redo att starta nästa steg i konfigurationen av din värddator: regis
 
 ## <a name="workspace-information"></a>Arbetsyteinformation
 
-Installations processen för fakturapoolen skapar en program grupp för skriv bord som standard. För att värddatorn ska fungera som avsett måste du publicera den här program gruppen till användare eller användar grupper och du måste registrera app-gruppen på en arbets yta. 
+Installations processen för fakturapoolen skapar en program grupp för skriv bord som standard. För att värddatorn ska fungera som avsett måste du publicera den här program gruppen till användare eller användar grupper och du måste registrera app-gruppen på en arbets yta.
 
 Registrera Skriv bords gruppen på en arbets yta:
 
@@ -167,10 +165,10 @@ Registrera Skriv bords gruppen på en arbets yta:
 
     Här kan du lägga till taggar så att du kan gruppera objekten med metadata för att göra det enklare för dina administratörer.
 
-4. När du är klar väljer du **Granska + skapa**. 
+4. När du är klar väljer du **Granska + skapa**.
 
      >[!NOTE]
-     >Verifierings processen för att granska och skapa kontrollerar inte om ditt lösen ord uppfyller säkerhets standarderna eller om arkitekturen är korrekt, så du måste kontrol lera eventuella problem med någon av dessa saker. 
+     >Verifierings processen för att granska och skapa kontrollerar inte om ditt lösen ord uppfyller säkerhets standarderna eller om arkitekturen är korrekt, så du måste kontrol lera eventuella problem med någon av dessa saker.
 
 5. Granska informationen om distributionen för att kontrol lera att allting ser korrekt ut. När du är färdig väljer du **Skapa**. Detta startar distributions processen, som skapar följande objekt:
 

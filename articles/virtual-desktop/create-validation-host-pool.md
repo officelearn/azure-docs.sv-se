@@ -1,19 +1,17 @@
 ---
 title: Uppdateringar av tjänsten Host pool i Windows virtuella skriv bord – Azure
 description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 177763e7939de082faa0c83d2ab661292f0758b2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8eac40ad958a10b8c853304ee2be8b2dc27af1a2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292652"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008720"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudie: skapa en adresspool för att verifiera tjänst uppdateringar
 
@@ -32,7 +30,7 @@ Du kan felsöka problem i poolen för validering av värdar med hjälp [av en di
 >[!IMPORTANT]
 >Windows Virtual Desktop med Azure Resource Management-integrering har för närvarande problem med att aktivera och inaktivera validerings miljöer. Vi uppdaterar den här artikeln när vi har löst problemet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar följer du anvisningarna i [Konfigurera Windows Virtual Desktop PowerShell-modulen](powershell-module.md) för att konfigurera din PowerShell-modul och logga in på Azure.
 
@@ -62,7 +60,7 @@ Resultatet från cmdleten bör likna följande utdata:
     HostPoolName        : hostpoolname
     FriendlyName        :
     Description         :
-    Persistent          : False 
+    Persistent          : False
     CustomRdpProperty   : use multimon:i:0;
     MaxSessionLimit     : 10
     LoadBalancerType    : BreadthFirst
@@ -77,7 +75,7 @@ Om det finns några tjänst uppdateringar kontrollerar du att du har minst en li
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har skapat en pool för validerings värdar kan du lära dig hur du använder Azure Service Health för att övervaka distributionen av virtuella Windows-datorer. 
+Nu när du har skapat en pool för validerings värdar kan du lära dig hur du använder Azure Service Health för att övervaka distributionen av virtuella Windows-datorer.
 
 > [!div class="nextstepaction"]
 > [Konfigurera tjänstaviseringar](./set-up-service-alerts.md)

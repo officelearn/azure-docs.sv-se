@@ -10,27 +10,27 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17847546ace558d367aed6d935db0fed6d817f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95f8991d5ba9efb8e3223dd44a8d037acf2de849
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742206"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009570"
 ---
-# <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>Ge åtkomst till andra administratörer för att hantera Privileged Identity Management
+# <a name="delegate-access-to-privileged-identity-management"></a>Delegera åtkomst till Privileged Identity Management
 
-Den globala administratören som gör det möjligt för Privileged Identity Management (PIM) för en organisation att automatiskt hämta roll tilldelningar och åtkomst till Privileged Identity Management. Ingen annan i din Azure Active Directory (Azure AD)-organisation får skriv åtkomst som standard, men även andra globala administratörer. Andra globala administratörer, säkerhets administratörer och säkerhets läsare har skrivskyddad åtkomst till Privileged Identity Management. För att bevilja åtkomst till Privileged Identity Management kan den första användaren tilldela andra till rollen **administratör för privilegie rad roll** .
+För att kunna delegera åtkomst till Privileged Identity Management (PIM) kan en global administratör tilldela andra användare till rollen privilegie rad roll administratör. Som standard har säkerhets administratörer och säkerhets läsare skrivskyddad åtkomst till Privileged Identity Management. För att bevilja åtkomst till Privileged Identity Management kan den första användaren tilldela andra till rollen **administratör för privilegie rad roll** . Rollen administratör för privilegie rad roll krävs endast för hantering av Azure AD-roller. Administratörs behörighet för privilegierade roller krävs inte för att hantera inställningar för Azure-resurser.
 
 > [!NOTE]
 > Hantering av Privileged Identity Management kräver Azure Multi-Factor Authentication. Eftersom Microsoft-konton inte kan registreras för Azure Multi-Factor Authentication kan en användare som loggar in med ett Microsoft-konto inte komma åt Privileged Identity Management.
 
 Se till att det alltid finns minst två användare i rollen administratör för privilegierad roll, om en användare är utelåst eller om kontot har tagits bort.
 
-## <a name="grant-access-to-manage-pim"></a>Bevilja åtkomst till hantera PIM
+## <a name="delegate-access-to-manage-pim"></a>Delegera åtkomst för att hantera PIM
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -46,9 +46,9 @@ Se till att det alltid finns minst två användare i rollen administratör för 
 
     ![Privilegie rad roll administratör – medlemmar](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
 
-1. Välj **Lägg till medlem** för att öppna fönstret Lägg till hanterade medlemmar.
+1. Välj **Lägg till medlem** för att öppna fönstret **Lägg till hanterade medlemmar** .
 
-1. Välj **Välj medlemmar** för att öppna fönstret Välj medlemmar.
+1. Välj **Välj medlemmar** för att öppna fönstret **Välj medlemmar** .
 
     ![Administratör för privilegie rad roll – Välj medlemmar](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
 

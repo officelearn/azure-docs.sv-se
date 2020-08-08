@@ -1,33 +1,31 @@
 ---
 title: Konfigurera Microsoft Endpoint Configuration Manager – Azure
 description: Så här konfigurerar du Microsoft Endpoint Configuration Manager att distribuera program uppdateringar till Windows 10 Enterprise multi-session på virtuella Windows-datorer.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr
 manager: lizross
-ms.openlocfilehash: 100e269bb995f86d0721cd6de28cd4b933b58ecd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bfc797e0c11a1804d27c6c97fea8cb2ba62dca7a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204395"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010131"
 ---
 # <a name="configure-microsoft-endpoint-configuration-manager"></a>Konfigurera Microsoft Endpoint Configuration Manager
 
 Den här artikeln förklarar hur du konfigurerar Microsoft Endpoint Configuration Manager att automatiskt tillämpa uppdateringar på en Windows-värd för virtuella skriv bord som kör Windows 10 Enterprise multi-session.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera den här inställningen behöver du följande saker:
 
    - Kontrol lera att du har installerat Microsoft Endpoint Configuration Manager-agenten på dina virtuella datorer.
    - Kontrol lera att din version av Microsoft Endpoint Configuration Manager är minst på grennivå 1906. För bästa resultat bör du använda grennivå 1910 eller högre.
 
-## <a name="configure-the-software-update-point"></a>Konfigurera program uppdaterings platsen
+## <a name="configure-the-software-update-point"></a>Konfigurera programuppdateringsplatsen
 
 För att få uppdateringar för Windows 10 Enterprise multi-session måste du aktivera Windows Server, version 1903 och senare som en produkt i Microsoft Endpoint Configuration Manager. Den här produkt inställningen gäller även om du använder Windows Server Update-tjänsten för att distribuera uppdateringar till dina system.
 

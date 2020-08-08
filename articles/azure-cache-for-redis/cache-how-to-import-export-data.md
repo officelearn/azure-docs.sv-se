@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: 84abbe8d9958bf41768f3706a700ae0ecad6b44f
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a89acb73ea5c78c9f82758e0a322fb9001698c24
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857002"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004326"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure cache för Redis
 Import/export är en Azure-cache för Redis data hanterings åtgärd, som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto.
@@ -24,7 +24,7 @@ Genom att importera/exportera kan du migrera mellan olika Azure cache för Redis
 Den här artikeln innehåller en guide för att importera och exportera data med Azure cache för Redis och ger svar på vanliga frågor.
 
 > [!IMPORTANT]
-> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) .
+> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-overview.md#service-tiers) .
 >
 >
 
@@ -152,6 +152,6 @@ Lös problemet genom att starta import-eller export åtgärden innan 15 minuter 
 Export fungerar endast med RDB-filer som lagras som Page blobbar. Andra BLOB-typer stöds inte för närvarande, inklusive Blob Storage-konton med frekventa och låg frekventa nivåer. Mer information finns i [kontoöversikten för Azure Storage](../storage/common/storage-account-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att använda fler funktioner för Premium-cache.
+Läs mer om Azure cache för Redis-funktioner.
 
-* [Introduktion till Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md)
+* [Azure cache för Redis-tjänst nivåer](cache-overview.md#service-tiers)

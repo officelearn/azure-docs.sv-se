@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 554724c334cb6c51b8744de0eedd4d6815d707b5
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172614"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009587"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrera till Azure Cache for Redis
 Den här artikeln beskriver ett antal metoder för att migrera en befintlig Redis-cache som körs lokalt eller i en annan moln tjänst till Azure cache för Redis.
@@ -51,7 +51,7 @@ Allmänna steg för att implementera det här alternativet är:
 
 ### <a name="export-data-to-an-rdb-file-and-import-it-into-azure-cache-for-redis"></a>Exportera data till en RDB-fil och importera den till Azure cache för Redis
 
-Redis med öppen källkod definierar en standardmekanism för att ta en ögonblicks bild av en caches minnes intern data uppsättning och spara den i en fil. Den här filen, som kallas RDB, kan läsas av en annan Redis-cache. [Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md) stöder import av data till en cache-instans via RDB-filer. Du kan använda en RDB-fil för att överföra data från ett befintligt cacheminne till Azure cache för Redis.
+Redis med öppen källkod definierar en standardmekanism för att ta en ögonblicks bild av en caches minnes intern data uppsättning och spara den i en fil. Den här filen, som kallas RDB, kan läsas av en annan Redis-cache. [Azure cache för Redis Premium-nivån](cache-overview.md#service-tiers) stöder import av data till en cache-instans via RDB-filer. Du kan använda en RDB-fil för att överföra data från ett befintligt cacheminne till Azure cache för Redis.
 
 > [!IMPORTANT]
 > RDB-filformatet kan ändras mellan Redis-versioner och kan inte upprätthålla bakåtkompatibilitet. Redis-versionen för det cacheminne som du exporterar från måste vara lika med eller lägre än den version som tillhandahålls av Azure cache för Redis.
@@ -114,5 +114,5 @@ Allmänna steg för att implementera det här alternativet är:
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om Azure cache för Redis-funktioner.
 
-* [Introduktion till Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md)
+* [Azure cache för Redis-tjänst nivåer](cache-overview.md#service-tiers)
 * [Importera data](cache-how-to-import-export-data.md#import)

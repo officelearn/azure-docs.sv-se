@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 07/31/2020
+ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: a6d5c7e06ed59ab76b15f4f8ae880408dc6f7835
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ec3896b85f825b22dc9b57d4220e1cdcdf3e390
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500886"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003618"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -33,7 +33,9 @@ Azure Lighthouse ger större flexibilitet för att hantera resurser för flera k
 
 Du kan utföra hanterings uppgifter för delegerade resurser antingen direkt i portalen eller med hjälp av API: er och hanterings verktyg (till exempel Azure CLI och Azure PowerShell). Alla befintliga API: er kan användas när du arbetar med delegerade resurser, så länge som funktionerna stöds för hantering av flera innehavare och användaren har rätt behörigheter.
 
-Azure CLI-kommandon som [AZ-konto lista](/cli/azure/account?view=azure-cli-latest#az-account-list) visar **HomeTenantId** -och **managedByTenants** -attribut för varje prenumeration, så att du kan identifiera om en returnerad prenumeration hör till din tjänst leverantörs klient eller till en hanterad kund klient.
+[Cmdleten Azure PowerShell get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) visar `HomeTenantId` och `ManagedByTenantIds` attributen för varje prenumeration, så att du kan identifiera om en returnerad prenumeration tillhör en hanterad kund klient eller till din hanterings klient.
+
+På samma sätt visar Azure CLI-kommandon som [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) `homeTenantId` `managedByTenants` attributen och.
 
 > [!TIP]
 > Om du inte ser dessa värden när du använder Azure CLI kan du försöka rensa cacheminnet genom att köra `az account clear` följt av `az login --identity` .

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 42dcbf693b6ec685849b1523480506e9c8f5b54b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8afe6ad23f0e23e2b9ab772f5526c63d307fa88b
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202885"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003246"
 ---
 # <a name="how-to-write-expressions-for-attribute-mappings-in-azure-ad"></a>Instruktion: skriva uttryck för mappningar av attribut i Azure AD
 
@@ -27,13 +27,14 @@ Syntaxen för-uttryck för attributmappning är reminiscent av Visual Basic for 
 
 * Hela uttrycket måste definieras i termer av functions, som består av ett namn följt av argument inom parentes: <br>
   *FunctionName ( `<<argument 1>>` , `<<argument N>>` )*
-* Du kan kapsla funktioner i varandra. Exempel: <br> *FunctionOne (FunctionTwo ( `<<argument1>>` ))*
+* Du kan kapsla funktioner i varandra. Till exempel: <br> *FunctionOne (FunctionTwo ( `<<argument1>>` ))*
 * Du kan skicka tre olika typer av argument till funktioner:
   
   1. Attribut, som måste omges av hakparenteser. Exempel: [attributeName]
   2. Strängkonstant, som måste omges av dubbla citat tecken. Till exempel: "USA"
   3. Andra funktioner. Till exempel: FunctionOne ( `<<argument1>>` , FunctionTwo ( `<<argument2>>` ))
 * Om du behöver ett omvänt snedstreck (\) eller citat tecken (") i strängen för sträng konstanter måste det föregås av ett omvänt snedstreck (\). Exempel: "företags namn: \\ " contoso \\ "
+* Syntaxen är Skift läges känslig, som måste beaktas när du skriver dem som strängar i en funktion vs Copy klistrar in dem direkt härifrån. 
 
 ## <a name="list-of-functions"></a>Lista över funktioner
 
@@ -174,7 +175,7 @@ Returnerar "CN = Johan, DC = contoso, DC = com"
 
 | Namn | Krävs/upprepas | Typ | Anteckningar |
 | --- | --- | --- | --- |
-| **värde** |Krävs | Datum | AD-datum som ska konverteras till DateTime-typ |
+| **värde** |Krävs | Date | AD-datum som ska konverteras till DateTime-typ |
 
 **Exempel:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
@@ -521,7 +522,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 | **källicensservern** |Krävs |Sträng |**käll** värde att uppdatera. |
 
 ---
-### <a name="switch"></a>Växel
+### <a name="switch"></a>Switch
 **Funktioner**<br> Switch (källa, defaultValue, KEY1, värde1, key2, värde2,...)
 
 **Beskrivning:**<br> Returnerar **värdet** för den **nyckeln**när **källobjektet** matchar en **nyckel**. Om **käll** värde inte matchar några nycklar returnerar **DefaultValue**.  **Nyckel** -och **värde** parametrar måste alltid komma in i par. Funktionen förväntar sig alltid ett jämnt antal parametrar. Funktionen ska inte användas för referensbaserade attribut som chef. 
@@ -532,7 +533,7 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på vilka 
 | --- | --- | --- | --- |
 | **källicensservern** |Krävs |Sträng |**Käll** värde att uppdatera. |
 | **Standar** |Valfritt |Sträng |Standardvärdet som ska användas när källan inte matchar några nycklar. Kan vara en tom sträng (""). |
-| **knapp** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
+| **key** |Krävs |Sträng |**Nyckel** att jämföra **käll** värde med. |
 | **värde** |Krävs |Sträng |Ersättnings värde för den **källa** som matchar nyckeln. |
 
 ---

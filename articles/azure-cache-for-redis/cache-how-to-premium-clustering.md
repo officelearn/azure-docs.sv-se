@@ -6,17 +6,15 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: 4f200457bd327a6f2ce74794bb28dd16c38e6fdd
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856319"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004766"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.
-
-Information om andra funktioner för Premium-cache finns i [Introduktion till Azure-cache för Redis Premium-nivån](cache-premium-tier-intro.md).
 
 ## <a name="what-is-redis-cluster"></a>Vad är Redis-kluster?
 Azure cache för Redis erbjuder Redis-kluster som [implementerat i Redis](https://redis.io/topics/cluster-tutorial). Med Redis-kluster får du följande fördelar: 
@@ -26,7 +24,7 @@ Azure cache för Redis erbjuder Redis-kluster som [implementerat i Redis](https:
 * Mer data flöde: data flödet ökar linjärt när du ökar antalet Shards. 
 * Mer minnes storlek: ökar linjärt när du ökar antalet Shards.  
 
-Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad cache. Mer information om storlek, data flöde och bandbredd med Premium-cacheminnen finns i [vad Azure cache för Redis-erbjudande och storlek ska jag använda?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+Klustring ökar inte antalet anslutningar som är tillgängliga för en klustrad cache. Mer information om storlek, data flöde och bandbredd med Premium-cacheminnen finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier)
 
 I Azure erbjuds Redis-kluster som en primär modell där varje Shard har ett primärt/replik par med replikering där replikeringen hanteras av Azure cache för Redis-tjänsten. 
 
@@ -91,7 +89,7 @@ Följande lista innehåller svar på vanliga frågor om Azure cache för Redis-k
   Mer information finns i [Redis Cluster Specification-Implemented delmängd](https://redis.io/topics/cluster-spec#implemented-subset).
 * Om du använder [stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/)måste du använda 1.0.481 eller senare. Du ansluter till cachen med samma [slut punkter, portar och nycklar](cache-configure.md#properties) som du använder när du ansluter till ett cacheminne som inte har kluster aktiverat. Den enda skillnaden är att alla läsningar och skrivningar måste göras till databas 0.
   
-  * Andra klienter kan ha olika krav. Se att [alla Redis-klienter stöder klustring?](#do-all-redis-clients-support-clustering)
+  Andra klienter kan ha olika krav. Se att [alla Redis-klienter stöder klustring?](#do-all-redis-clients-support-clustering)
 * Om programmet använder flera viktiga operationer i ett enda kommando, måste alla nycklar finnas i samma Shard. Information om hur du hittar nycklar i samma Shard finns i [hur är nycklar distribuerade i ett kluster?](#how-are-keys-distributed-in-a-cluster)
 * Om du använder Redis ASP.NET-providern för sessionstillstånd måste du använda 2.0.1 eller senare. Se [kan jag använda kluster med Redis ASP.net och providers för cachelagring av utdata?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
@@ -156,9 +154,9 @@ Klustring är bara tillgängligt för Premium-cacheminnen.
 Om du använder StackExchange. Redis och får `MOVE` undantag när du använder kluster bör du kontrol lera att du använder [stackexchange. Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) eller senare. Anvisningar om hur du konfigurerar dina .NET-program för att använda StackExchange. Redis finns i [Konfigurera cache-klienter](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att använda fler funktioner för Premium-cache.
+Läs mer om Azure cache för Redis-funktioner.
 
-* [Introduktion till Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md)
+* [Azure cache för Redis Premium service-nivåer](cache-overview.md#service-tiers)
 
 <!-- IMAGES -->
 

@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett symbol lager till en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om hur du använder symbol lagret för att anpassa en symbol och hur du lägger till symboler på en karta med hjälp av Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du lägger till anpassade symboler, till exempel text eller ikoner, till kartor. Se hur du använder data källor och symbol lager i Azure Maps Web SDK för det här ändamålet.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c10e47ea10939b60c6c334229fb18ec2702af11f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d705a43da2b2db37c6601f5865ad6e569688b2a7
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286923"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010199"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 

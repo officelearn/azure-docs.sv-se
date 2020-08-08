@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 9a2ec2e60ae38506d716a244872baddbbdf570e7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184981"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003696"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Så här konfigurerar du geo-replikering för Azure cache för Redis
 
@@ -24,7 +24,7 @@ Geo-replikering är en mekanism för att länka två Premium-nivåer i Azure-cac
 
 Om du vill konfigurera geo-replikering mellan två cacheminnen måste följande krav uppfyllas:
 
-- Båda cacheminnena är cacheminnen på [Premium-nivå](cache-premium-tier-intro.md) .
+- Båda cacheminnena är cacheminnen på [Premium-nivå](cache-overview.md#service-tiers) .
 - Båda cacheminnena finns i samma Azure-prenumeration.
 - Den sekundära länkade cachen har antingen samma cachestorlek eller större cachestorlek än den primära länkade cachen.
 - Båda cacheminnena skapas och körs i ett körnings läge.
@@ -186,5 +186,6 @@ Automatisk redundans i Azure-regioner stöds inte för geo-replikerade cacheminn
 Om du vill starta en redundansväxling som initieras av en kund måste du först ta bort kopplingen till cacheminnet. Ändra sedan din Redis-klient så att den använder anslutnings slut punkten för den sekundära cachen (tidigare länkade). När de två cacheminnena är olänkade blir den sekundära cachen en vanlig read-write-cache igen och accepterar begär Anden direkt från Redis-klienter.
 
 ## <a name="next-steps"></a>Nästa steg
+Läs mer om Azure cache för Redis-funktioner.
 
-Läs mer om [Azure cache för Redis Premium-nivån](cache-premium-tier-intro.md).
+* [Azure cache för Redis-tjänst nivåer](cache-overview.md#service-tiers)

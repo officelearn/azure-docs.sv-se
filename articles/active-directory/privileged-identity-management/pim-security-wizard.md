@@ -1,6 +1,6 @@
 ---
-title: Guiden Azure AD-roller säkerhet i PIM-Azure Active Directory | Microsoft Docs
-description: Beskriver säkerhets guiden som du kan använda för att konvertera permanenta privilegierade Azure AD-roll tilldelningar till kvalificerade med Azure AD Privileged Identity Management (PIM).
+title: Identifiering och insikter för Azure AD-roller (för hands version) i Privileged Identity Management tidigare säkerhets guide – Azure Active Directory
+description: Identifiering och insikter (tidigare säkerhets guide) hjälper dig att konvertera permanenta Azure AD-roll tilldelningar till just-in-Time-tilldelningar med Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,65 +10,60 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/21/2020
+ms.date: 08/07/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cc7aed1cc79a8c08a7ff11382a1c7a51455d5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743668"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005979"
 ---
-# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Säkerhets guiden för Azure AD-roller i Privileged Identity Management
+# <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Identifiering och insikter (för hands version) för Azure AD-roller (tidigare säkerhets guide)
 
-Om du är den första personen som använder Privileged Identity Management (PIM) i din Azure Active Directory (Azure AD)-organisation visas en guide för att komma igång. Guiden hjälper dig att förstå säkerhets riskerna med privilegierade identiteter och hur du använder Privileged Identity Management för att minska riskerna. Du behöver inte göra några ändringar i de befintliga roll tilldelningarna i guiden, om du vill göra det senare.
+Om du börjar med Privileged Identity Management (PIM) i din Azure Active Directory (Azure AD)-organisation kan du komma igång med hjälp av sidan **identifiering och insikter (för hands version)** . Den här funktionen visar vem som har tilldelats privilegierade roller i din organisation och hur du använder PIM för att snabbt ändra permanenta roll tilldelningar till just-in-Time-tilldelningar. Du kan visa eller göra ändringar i dina permanenta privilegierade roll tilldelningar i **identifiering och insikter (för hands version)**. Det är ett analys verktyg och ett åtgärds verktyg.
 
-> [!Important]
-> Säkerhets guiden är inte tillgänglig för tillfället. Tack för ditt tålamod.
+## <a name="discovery-and-insights-preview"></a>Identifiering och insikter (för hands version)
 
-## <a name="wizard-overview"></a>Översikt över guiden
+Innan organisationen börjar använda Privileged Identity Management, är alla roll tilldelningar permanenta. Användarna är alltid i tilldelade roller även om de inte behöver sina privilegier. Identifiering och insikter (för hands version), som ersätter den tidigare säkerhets guiden, visar en lista över privilegierade roller och hur många användare som för närvarande finns i dessa roller. Du kan lista ut tilldelningar för en roll för att lära dig mer om de tilldelade användarna om en eller flera av dem är okända.
 
-Innan organisationen börjar använda Privileged Identity Management, är alla roll tilldelningar permanenta: användarna är alltid i dessa roller, även om de inte redan för närvarande behöver sina privilegier. Det första steget i guiden visar en lista över privilegierade roller och hur många användare som för närvarande finns i dessa roller. Du kan gå vidare till en viss roll för att lära dig mer om användare om en eller flera av dem är okända.
+: heavy_check_mark: **Microsoft rekommenderar** att du behåller 2 Bryt glas konton som är permanent tilldelade till den globala administratörs rollen som inte kräver Multi-Factor Authentication vid inloggning. Du kan använda dessa i ett scenario för rast glas eller om det inte går att göra en höjning till den globala administratörs rollen.
 
-I det andra steget i guiden får du möjlighet att ändra administratörs roll tilldelningar.  
+Håll också roll tilldelningar permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype eller Outlook.com). Om du behöver Multi-Factor Authentication för att aktive ras i en sådan roll kommer användaren att låsas ute.
 
-> [!WARNING]
-> Det är viktigt att du har minst en global administratör och fler än en privilegie rad roll administratör med ett arbets-eller skol konto (inte en Microsoft-konto). Om det bara finns en privilegie rad roll administratör kan organisationen inte hantera Privileged Identity Management om kontot tas bort.
-> Håll också roll tilldelningarna permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva Multi-Factor Authentication för aktivering för den rollen kommer användaren att låsas upp.
-
-## <a name="run-the-wizard"></a>Kör guiden
+## <a name="open-discovery-and-insights-preview"></a>Öppna identifiering och insikter (för hands version)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Välj **Azure AD-roller** och välj sedan **Guide**.
+1. Välj **Azure AD-roller** och välj sedan **identifiering och insikter (för hands version)**. Om du öppnar sidan påbörjas identifierings processen för att hitta relevanta roll tilldelningar.
 
-    ![Azure AD-roller – guide sidan visar de tre stegen för att köra guiden](./media/pim-security-wizard/wizard-start.png)
+    ![Sidan Azure AD-roller – identifiering och insikter som visar de tre alternativen](./media/pim-security-wizard/new-preview-link.png)
 
-1. Välj **1 identifiera privilegierade roller**.
+1. Välj **minska globala administratörer**.
 
-1. Granska listan över privilegierade roller för att se vilka användare som är permanenta eller berättigade.
+    ![Minska globala administratörer – roll fönstret visar alla medlemmar](./media/pim-security-wizard/new-preview-page.png)
 
-    ![Identifiera privilegierade roller – roll fönstret som visar permanenta och berättigade medlemmar](./media/pim-security-wizard/discover-privileged-roles-users.png)
+1. Granska listan med roll tilldelningar för global administratör.
 
-1. Välj **Nästa** för att välja de användare eller grupper som du vill göra berättigade.
+    ![Minska globala administratörer – roll fönstret visar alla medlemmar](./media/pim-security-wizard/new-global-administrator-list.png)
 
-    ![Konvertera medlemmar till berättigade sidor med alternativ för att välja medlemmar som du vill ska vara berättigade till roller](./media/pim-security-wizard/convert-members-eligible.png)
+1. Välj **Nästa** för att välja de användare eller grupper som du vill göra berättigade och välj sedan **gör giltig** eller **ta bort tilldelning**.
 
-1. När du har valt användare eller grupper väljer du **Nästa**.
+    ![Konvertera medlemmar till berättigade sidor med alternativ för att välja medlemmar som du vill ska vara berättigade till roller](./media/pim-security-wizard/new-global-administrator-buttons.png)
 
-    ![Sidan granska ändringar som visar medlemmar med permanenta roll tilldelningar som kommer att konverteras](./media/pim-security-wizard/review-changes.png)
+1. Du kan också kräva att alla globala administratörer ska granska sin egen åtkomst.
 
-1. Välj **OK** för att konvertera de permanenta tilldelningarna till stödberättigade.
+    ![Sidan globala administratörer med avsnittet åtkomst granskningar](./media/pim-security-wizard/new-global-administrator-access-review.png)
 
-    När konverteringen är klar visas ett meddelande.
+1. När du har valt någon av dessa ändringar visas ett Azure-meddelande.
 
-    ![Meddelande som visar status för en konvertering](./media/pim-security-wizard/notification-completion.png)
+1. Du kan sedan välja **eliminera ständig åtkomst** eller **Granska tjänstens huvud namn** för att upprepa stegen ovan i andra privilegierade roller och roll tilldelningar för tjänstens huvud namn. För roll tilldelningar för tjänstens huvud namn kan du bara ta bort roll tilldelningar.
 
-Om du behöver konvertera andra privilegierade roll tilldelningar till giltig kan du köra guiden igen. Om du vill använda Privileged Identity Management-gränssnittet i stället för guiden, se [tilldela Azure AD-roller i Privileged Identity Management](pim-how-to-add-role-to-user.md).
+    ![Ytterligare insikts alternativ för att eliminera ständig åtkomst och granskning av tjänstens huvud namn ](./media/pim-security-wizard/new-preview-page-service-principals.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

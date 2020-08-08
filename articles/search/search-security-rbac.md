@@ -1,32 +1,32 @@
 ---
 title: Ange Azure-roller för administrativ åtkomst till Azure
 titleSuffix: Azure Cognitive Search
-description: Rollbaserad administrativ kontroll (RBAC) i Azure Portal för att kontrol lera och delegera administrativa uppgifter för hantering av Azure-Kognitiv sökning.
+description: Rollbaserad åtkomst kontroll (RBAC) i Azure Portal för att kontrol lera och delegera administrativa uppgifter för hantering av Azure-Kognitiv sökning.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: d1b2576eb42cbe25919eb77fc30e2720ed812ca4
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c01806194156fb43524e2db5f4c9bf636186de95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534438"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009213"
 ---
 # <a name="set-azure-roles-for-administrative-access-to-azure-cognitive-search"></a>Ange Azure-roller för administrativ åtkomst till Azure Kognitiv sökning
 
 Azure tillhandahåller en [Global rollbaserad verifierings modell](../role-based-access-control/role-assignments-portal.md) för alla tjänster som hanteras via portalen eller Resource Manager-API: er. Rollerna ägare, deltagare och läsare bestämmer vilken *tjänst administrations* nivå som Active Directory användare, grupper och säkerhets objekt som tilldelas till varje roll. 
 
 > [!Note]
-> Det finns inga rollbaserade åtkomst kontroller för att skydda delar av ett index eller en delmängd av dokument. För identitets-baserad åtkomst över Sök resultat kan du skapa säkerhets filter för att trimma resultat efter identitet, ta bort dokument som beställaren inte ska ha åtkomst till. Mer information finns i [säkerhets filter](search-security-trimming-for-azure-search.md) och [säkra med Active Directory](search-security-trimming-for-azure-search-with-aad.md).
+> Det finns ingen rollbaserad åtkomst kontroll (RBAC) för att skydda delar av ett index eller en delmängd av dokument. För identitets-baserad åtkomst över Sök resultat kan du skapa säkerhets filter för att trimma resultat efter identitet, ta bort dokument som beställaren inte ska ha åtkomst till. Mer information finns i [säkerhets filter](search-security-trimming-for-azure-search.md) och [säkra med Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 ## <a name="management-tasks-by-role"></a>Hanterings aktiviteter efter roll
 
 För Azure Kognitiv sökning associeras roller med behörighets nivåer som stöder följande hanterings aktiviteter:
 
-| Roll | Aktivitet |
+| Role | Aktivitet |
 | --- | --- |
 | Ägare |Skapa eller ta bort tjänsten eller ett objekt på tjänsten, inklusive API-nycklar, index, indexerare, data källor för indexerare och index scheman.<p>Visa tjänst status, inklusive antal och lagrings storlek.<p>Lägg till eller ta bort roll medlemskap (endast ägaren kan hantera roll medlemskap).<p>Prenumerations administratörer och tjänst ägare har automatiskt medlemskap i rollen ägare. |
 | Deltagare |Samma åtkomst nivå som ägare, minus hantering av Azure-roller. En deltagare kan till exempel skapa eller ta bort objekt, eller Visa och återskapa [API-nycklar](search-security-api-keys.md), men kan inte ändra roll medlemskap. |

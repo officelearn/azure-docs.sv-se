@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/11/2020
-ms.openlocfilehash: 6bbdd3eb62229c3f8f180d2618dd25062ff0c1e9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 235b7946fbcfc2322878428cce72e77ecceb9cfc
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86062686"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011005"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisering via Azure Active Directory
 
@@ -17,7 +17,7 @@ ms.locfileid: "86062686"
 > 1. För närvarande är det **bara** API för visuellt innehåll, Ansikts-API, API för textanalys, fördjupad läsare, formulär igenkänning, avvikelse detektor och alla Bing-tjänster utom anpassad sökning i Bing stöd för autentisering med Azure Active Directory (AAD).
 > 2. AAD-autentisering måste alltid användas tillsammans med det anpassade under domän namnet för din Azure-resurs. [Regionala slut punkter](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) stöder inte AAD-autentisering.
 
-I föregående avsnitt visade vi dig hur du autentiserar mot Azure Cognitive Services med en prenumerations nyckel för en enda tjänst eller flera tjänster. Även om dessa nycklar ger en snabb och enkel väg för att börja utveckla, är de korta i mer komplexa scenarier som kräver rollbaserade åtkomst kontroller. Låt oss ta en titt på vad som krävs för att autentisera med hjälp av Azure Active Directory (AAD).
+I föregående avsnitt visade vi dig hur du autentiserar mot Azure Cognitive Services med en prenumerations nyckel för en enda tjänst eller flera tjänster. Även om dessa nycklar ger en snabb och enkel väg för att börja utveckla, är de korta i mer komplexa scenarier som kräver rollbaserad åtkomst kontroll i Azure (Azure RBAC). Låt oss ta en titt på vad som krävs för att autentisera med hjälp av Azure Active Directory (AAD).
 
 I följande avsnitt använder du antingen Azure Cloud Shells miljön eller Azure CLI för att skapa en under domän, tilldela roller och hämta en Bearer-token för att anropa Azure-Cognitive Services. Om du får fastnat finns länkar i varje avsnitt med alla tillgängliga alternativ för varje kommando i Azure Cloud Shell/Azure CLI.
 
@@ -45,7 +45,7 @@ Det första steget är att skapa en anpassad under domän. Om du vill använda e
 Nu när du har en anpassad under domän som är kopplad till din resurs, kommer du att behöva tilldela en roll till ett huvud namn för tjänsten.
 
 > [!NOTE]
-> Tänk på att AAD-roll tilldelningar kan ta upp till fem minuter innan de sprids.
+> Tänk på att det kan ta upp till fem minuter för Azure Role-tilldelningar att spridas.
 
 1. Först ska vi registrera ett [AAD-program](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzADApplication?view=azps-1.8.0).
 

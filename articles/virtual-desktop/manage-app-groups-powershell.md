@@ -1,19 +1,17 @@
 ---
 title: Hantera app-grupper för Windows Virtual Desktop PowerShell – Azure
 description: Hantera Windows-appar för virtuella skriv bord med PowerShell.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 186c6e455fa4d2ab578d6ab2a37f8f8f0d038e02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a6f24dea00a174aa0276a9b30add0854c3694056
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291429"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008652"
 ---
 # <a name="manage-app-groups-using-powershell"></a>Hantera program grupper med PowerShell
 
@@ -28,7 +26,7 @@ I den här självstudiekursen får du lära du dig att:
 > * Skapa en RemoteApp-grupp.
 > * Bevilja åtkomst till RemoteApp-program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har följt anvisningarna i [Konfigurera PowerShell-modulen](powershell-module.md) för att konfigurera din PowerShell-modul och logga in på ditt Azure-konto.
 

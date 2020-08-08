@@ -1,19 +1,17 @@
 ---
 title: Konfigurera belastnings utjämning för Windows Virtual Desktop – Azure
 description: Så här konfigurerar du belastnings Utjämnings metoden för en Windows Virtual Desktop-miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d5c39ff867add80833ee522ef173506fa1c642c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204361"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010114"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
@@ -22,7 +20,7 @@ Genom att konfigurera belastnings Utjämnings metoden för en värddator kan du 
 >[!NOTE]
 > Detta gäller inte för en beständig Skriv bords värd eftersom användarna alltid har en 1:1-mappning till en sessionsnyckel i poolen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har följt anvisningarna i [Konfigurera Windows Virtual Desktop PowerShell-modulen](powershell-module.md) för att ladda ned och installera PowerShell-modulen och logga in på ditt Azure-konto.
 

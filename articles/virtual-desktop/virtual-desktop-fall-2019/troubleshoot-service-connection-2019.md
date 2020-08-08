@@ -1,19 +1,17 @@
 ---
 title: Felsöka tjänst anslutning Windows Virtual Desktop (klassisk) – Azure
 description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows Virtual Desktop (klassisk) klient miljö.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 213f7843e4896f8c7c9234e2c94433afbed1d565
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a034cb8371972c2c7908cdba4dd491c17d8cc9f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292520"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008550"
 ---
 # <a name="windows-virtual-desktop-classic-service-connections"></a>Windows Virtual Desktop (klassiska) tjänst anslutningar
 

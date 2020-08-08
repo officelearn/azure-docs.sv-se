@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 6db83d17a9e6f3df6d691d6de616ead5407e3f5f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 89da86d753f746774737c248ee318c7a377dd7a0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133052"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007105"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Azures säkerhets bas linje för Virtual Machine Scale Sets
 
@@ -576,11 +576,11 @@ Microsoft använder TLS-protokollet (Transport Layer Security) för att skydda d
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: med hjälp av rollbaserad åtkomst kontroll (RBAC) kan du åtskilja uppgifter i teamet och endast bevilja åtkomst till användare på den virtuella datorn (VM) som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i Azure Portal, med hjälp av Azure CLI eller Azure PowerShell.
+**Vägledning**: med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) kan du åtskilja uppgifter i teamet och endast bevilja åtkomst till användare på den virtuella datorn (VM) som de behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter på den virtuella datorn kan du bara tillåta vissa åtgärder. Du kan konfigurera åtkomst kontroll för den virtuella datorn i Azure Portal, med hjälp av Azure CLI eller Azure PowerShell.
 
-* [Rollbaserad åtkomstkontroll (RBAC) för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * [Inbyggda roller i Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)
 
@@ -916,11 +916,11 @@ I de flesta fall kan de virtuella bas-VM-mallarna tillsammans med Azure Automati
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: om du använder anpassade avbildningar (t. ex. virtuell hård disk) använder du Azures rollbaserade åtkomst kontroller för att se till att endast behöriga användare får åtkomst till avbildningarna.
+**Vägledning**: om du använder anpassade avbildningar (t. ex. virtuell hård disk) använder du rollbaserad åtkomst kontroll i Azure (t. ex. virtuell hård disk) för att säkerställa att endast behöriga användare får åtkomst till avbildningarna.
 
-* [Förstå RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Konfigurera RBAC i Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

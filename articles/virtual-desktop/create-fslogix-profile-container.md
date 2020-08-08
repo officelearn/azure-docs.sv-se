@@ -1,19 +1,17 @@
 ---
 title: FSLogix profil behållare NetApp Windows Virtual Desktop – Azure
 description: Så här skapar du en FSLogix profil behållare med hjälp av Azure NetApp Files i det virtuella Windows-skrivbordet.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a9f2c62d8e7f17f6ea8377982c79fef3dfbb97c
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362993"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002824"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Skapa en profil behållare med Azure NetApp Files och AD DS
 
@@ -33,7 +31,7 @@ Anvisningarna i den här hand boken är specifika för användare av virtuella W
 >[!NOTE]
 >Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan skapa en FSLogix profil behållare för en adresspool måste du:
 
@@ -168,7 +166,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 5. Markera kryss rutan bredvid **Jag accepterar licens villkoren**.
 
-6. Välj **installera**.
+6. Välj **Installera**.
 
 7. Gå till **C: \\ Program Files \\ FSLogix- \\ appar** för att bekräfta att agenten är installerad.
 

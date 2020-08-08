@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: cc39f8250ddc1b2fb1baaf073969f6aab5b1372c
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b09163137bbfb6b8a7b0e2b8ddd6d7cccc52cc5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531379"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006646"
 ---
 # <a name="secure-a-daemon-application"></a>Skydda ett daemon-program
 
 Följande guide gäller bakgrunds processer, timers och jobb som finns i en betrodd och säker miljö. Exempel är Azure-webbjobb, Azure Function-appar, Windows-tjänster och annan tillförlitlig bakgrunds tjänst.
 
 > [!Tip]
-> Microsoft rekommenderar att du implementerar Azure Active Directory (Azure AD) och rollbaserad åtkomst kontroll (RBAC) för produktions program. En översikt över begrepp finns i [Azure Maps autentisering](./azure-maps-authentication.md).
+> Microsoft rekommenderar att du implementerar Azure Active Directory (Azure AD) och rollbaserad åtkomst kontroll i Azure (Azure RBAC) för produktions program. En översikt över begrepp finns i [Azure Maps autentisering](./azure-maps-authentication.md).
 
 [!INCLUDE [authentication details](./includes/view-authentication-details.md)]
 
@@ -46,7 +46,7 @@ Följande steg beskriver den här processen:
 > [!Tip]
 > Om appen finns i Azure-miljö bör du implementera en hanterad identitet för att minska kostnaderna och komplexiteten med att hantera en hemlighet för att autentisera till Azure Key Vault. Se följande Azure Key Vault [själv studie kurs för att ansluta via hanterad identitet](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app).
 
-Daemon-programmet ansvarar för att hämta den delade nyckeln från en säker lagrings plats. Implementeringen med Azure Key Vault kräver autentisering via Azure AD för att få åtkomst till hemligheten. I stället uppmuntrar vi direkt Azure AD RBAC-autentisering till Azure Maps till följd av de ytterligare komplexitets-och drifts kraven för att använda autentisering med delad nyckel.
+Daemon-programmet ansvarar för att hämta den delade nyckeln från en säker lagrings plats. Implementeringen med Azure Key Vault kräver autentisering via Azure AD för att få åtkomst till hemligheten. I stället uppmuntrar vi direkt Azure AD-autentisering till Azure Maps till följd av de ytterligare komplexitets-och drifts kraven för att använda autentisering med delad nyckel.
 
 > [!IMPORTANT]
 > För att förenkla skapandet av nycklar rekommenderar vi att program använder en nyckel i taget. Programmen kan sedan återskapa den oanvända nyckeln och distribuera den nya återskapade nyckeln till en säker hemlig lagrings plats, till exempel Azure Key Vault.
@@ -107,9 +107,9 @@ När det körs på en icke-Azure-miljö hanterade identiteter är inte tillgäng
         > [!div class="mx-imgBorder"]
         > ![Lägg till en klient hemlighet](./media/how-to-manage-authentication/add-key.png)
 
-### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Bevilja rollbaserad åtkomst till daemon-programmet för att Azure Maps
+### <a name="grant-role-based-access-for-the-daemon-application-to-azure-maps"></a>Bevilja rollbaserad åtkomst för daemon-programmet till Azure Maps
 
-Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps åtkomst kontroll roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
+Du beviljar *Azure rollbaserad åtkomst kontroll (Azure RBAC)* genom att tilldela antingen den skapade hanterade identiteten eller tjänstens huvud namn till en eller flera Azure Maps roll definitioner. Om du vill visa de roll definitioner för Azure som är tillgängliga för Azure Maps går du till **åtkomst kontroll (IAM)**. Välj **roller**och Sök sedan efter roller som börjar med *Azure Maps*. Dessa Azure Maps roller är de roller som du kan bevilja åtkomst till.
 
 > [!div class="mx-imgBorder"]
 > ![Visa tillgängliga roller](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
@@ -117,7 +117,7 @@ Du beviljar *rollbaserad åtkomst kontroll* (RBAC) genom att tilldela antingen d
 1. Gå till ditt **Azure Maps-konto**. Välj **Åtkomstkontroll (IAM)** > **Rolltilldelningar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Bevilja RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
+    > ![Bevilja åtkomst med Azure RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. **Lägg till** en roll tilldelning på fliken **roll tilldelningar** . 
     

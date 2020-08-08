@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för att hantera klust
 services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: c4f56cf4e04b9df31c8c4204d396ead8073ec526
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c2734aa8e4ebf0bdb693a49c3ba785dd134e8c83
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244216"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003056"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metod tips för kluster säkerhet och uppgraderingar i Azure Kubernetes service (AKS)
 
@@ -19,7 +19,7 @@ När du hanterar kluster i Azure Kubernetes service (AKS) är säkerheten för d
 Den här artikeln fokuserar på hur du skyddar ditt AKS-kluster. Lär dig att:
 
 > [!div class="checklist"]
-> * Använd Azure Active Directory-och rollbaserade åtkomst kontroller för att skydda åtkomst till API-servern
+> * Använd Azure Active Directory-och rollbaserad åtkomst kontroll (RBAC) för att skydda åtkomst till API-servern
 > * Skydda container åtkomst till nod resurser
 > * Uppgradera ett AKS-kluster till den senaste Kubernetes-versionen
 > * Håll noderna aktuella och tillämpa säkerhets korrigeringar automatiskt
@@ -53,7 +53,7 @@ På samma sätt som du vill ge användare eller grupper det lägsta antalet beh�
 Om du vill ha mer detaljerad kontroll över container åtgärder kan du också använda inbyggda Linux-säkerhetsfunktioner som *apparmor* och *seccomp*. Dessa funktioner definieras på nodnivå och implementeras sedan via ett Pod-manifest. Inbyggda Linux-säkerhetsfunktioner är bara tillgängliga på Linux-noder och poddar.
 
 > [!NOTE]
-> Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. Ytterligare säkerhetsfunktioner som *apparmor*, *Seccomp*, *Pod Security Policies*eller mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
+> Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. Ytterligare säkerhetsfunktioner som *apparmor*, *Seccomp*, *Pod Security Policies*eller mer detaljerad rollbaserad åtkomst kontroll (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
 
 ### <a name="app-armor"></a>App-skydd
 

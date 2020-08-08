@@ -8,16 +8,17 @@ ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 6660f413c741b36f4dd28f6e1bcf83873e4f5c26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1428df124272816927c6bbbc4a242170c7f46c00
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483932"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008533"
 ---
-# <a name="export-iot-data-to-destinations-in-azure"></a>Exportera IoT-data till destinationer i Azure
+# <a name="export-iot-data-to-destinations-in-azure-using-data-export-legacy"></a>Exportera IoT-data till destinationer i Azure med hjälp av data export (bakåtkompatibelt)
 
-*Det här avsnittet gäller för administratörer.*
+> [!Note]
+> Det finns ett nytt sätt att exportera data i IoT Central. Du kan använda den nya data exporten för att filtrera och utöka dina exporterade data och exportera dem till nya destinationer som webhook-slutpunkter. Du kan lära dig mer om de nya data exporten [här](./howto-use-data-export.md). Mer information om skillnaderna mellan den nya data exporten och äldre data export finns i [jämförelse tabellen](./howto-use-data-export.md#comparison-of-legacy-data-export-and-new-data-export).
 
 Den här artikeln beskriver hur du använder funktionen för data export i Azure IoT Central. Med den här funktionen kan du exportera dina data kontinuerligt till **azure Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** -instanser. Data export använder JSON-formatet och kan omfatta telemetri, enhets information och information om enhets mal len. Använd exporterade data för:
 
@@ -27,7 +28,7 @@ Den här artikeln beskriver hur du använder funktionen för data export i Azure
 > [!Note]
 > När du aktiverar data export får du bara data från dessa tidpunkter. För närvarande går det inte att hämta data under en tid då data exporten var avstängd. Aktivera data export tidigt om du vill behålla mer historiska data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 

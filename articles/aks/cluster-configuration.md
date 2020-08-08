@@ -3,15 +3,15 @@ title: Kluster konfiguration i Azure Kubernetes Services (AKS)
 description: Lär dig hur du konfigurerar ett kluster i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1329aa056e8d1db951e01555634cf1ea709608b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252019"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008805"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -233,6 +233,67 @@ az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myR
 
 Om du vill skapa gen1 för vanliga noder kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen.
 
+
+## <a name="ephemeral-os-preview"></a>Tillfälligt operativ system (för hands version)
+
+Som standard replikeras operativ system disken för en virtuell Azure-dator automatiskt till Azure Storage för att undvika data förlust om den virtuella datorn måste flyttas till en annan värd. Eftersom behållarna inte har utformats för att ha ett lokalt tillstånd, erbjuder det här beteendet ett begränsat värde och ger vissa nack delar, inklusive långsammare etablering av noder och lägre Läs-och skriv fördröjning.
+
+Tillfälliga OS-diskar lagras däremot bara på värddatorn, precis som en tillfällig disk. Detta ger lägre Läs-och skriv fördröjning, tillsammans med snabbare nod skalning och kluster uppgraderingar.
+
+Precis som den temporära disken ingår en tillfällig OS-disk i priset på den virtuella datorn, så du debiteras inga ytterligare lagrings kostnader.
+
+Registrera `EnableEphemeralOSDiskPreview` funktionen:
+
+```azurecli
+az feature register --name EnableEphemeralOSDiskPreview --namespace Microsoft.ContainerService
+```
+
+Det kan ta flera minuter innan statusen visas som **registrerad**. Du kan kontrol lera registrerings statusen med hjälp av kommandot [AZ feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
+
+```azurecli
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEphemeralOSDiskPreview')].{Name:name,State:properties.state}"
+```
+
+När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```
+
+För att installera AKS-Preview CLI-tillägget använder du följande Azure CLI-kommandon:
+
+```azurecli
+az extension add --name aks-preview
+```
+
+För att uppdatera AKS-Preview CLI-tillägget använder du följande Azure CLI-kommandon:
+
+```azurecli
+az extension update --name aks-preview
+```
+
+### <a name="use-ephemeral-os-on-new-clusters-preview"></a>Använd tillfälliga operativ system på nya kluster (förhands granskning)
+
+Konfigurera klustret så att det använder tillfälliga OS-diskar när klustret skapas. Använd `--aks-custom-headers` flaggan för att ange ett tillfälligt operativ system som OS-disktyp för det nya klustret.
+
+```azure-cli
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+Om du vill skapa ett vanligt kluster med nätverks anslutna OS-diskar kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen. Du kan också välja att lägga till fler tillfälliga OS-nodkonfigurationer enligt nedan.
+
+### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>Använd tillfälliga operativ system på befintliga kluster (förhands granskning)
+Konfigurera en ny Node-pool så att den använder tillfälliga OS-diskar. Använd `--aks-custom-headers` flaggan för att ange som OS-disktyp som typ av operativ system disk för den noden.
+
+```azure-cli
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+```
+
+> [!IMPORTANT]
+> Med ett tillfälligt operativ system kan du distribuera VM-och instans avbildningar upp till storleken på VM-cachen. I AKS-fallet använder standardnodens operativ system disk konfiguration 100GiB, vilket innebär att du behöver en VM-storlek som har ett cacheminne som är större än 100 GiB. Standard Standard_DS2_v2 har cache-storleken 86 GiB, vilket inte är tillräckligt stort. Standard_DS3_v2 har cache-storleken 172 GiB, vilket är tillräckligt stort. Du kan också minska standard storleken på OS-disken med hjälp av `--node-osdisk-size` . Den minsta storleken för AKS-avbildningar är 30GiB. 
+
+Om du vill skapa resurspooler med nätverksanslutna OS-diskar kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen.
+
 ## <a name="custom-resource-group-name"></a>Namn på anpassad resurs grupp
 
 När du distribuerar ett Azure Kubernetes service-kluster i Azure skapas en andra resurs grupp för arbetsnoderna. Som standard namnger AKS resurs gruppen för noden `MC_resourcegroupname_clustername_location` , men du kan också ange ett eget namn.
@@ -259,6 +320,7 @@ När du arbetar med resurs gruppen för noden bör du tänka på att du inte kan
 - Se [uppgradera ett Azure Kubernetes service (AKS)-kluster](upgrade-cluster.md) för att lära dig hur du uppgraderar klustret till den senaste versionen av Kubernetes.
 - Läs mer om [ `containerd` och Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - I listan med [vanliga frågor och svar om AKS](faq.md) hittar du svar på några vanliga frågor om AKS.
+- Läs mer om [tillfälliga OS-diskar](../virtual-machines/ephemeral-os-disks.md).
 
 
 <!-- LINKS - internal -->

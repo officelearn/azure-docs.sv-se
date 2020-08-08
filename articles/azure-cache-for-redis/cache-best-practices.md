@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 0ed0009bce18e2b0970b425c31d2f38cef387187
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87008327"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007921"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Bästa praxis för Azure Cache for Redis 
 Genom att följa dessa rekommendationer kan du maximera prestanda och kostnads effektiv användning av Azure-cachen för Redis-instansen.
@@ -55,13 +55,13 @@ Det finns flera saker som rör minnes användningen i Redis-serverinstansen som 
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
- * [Provider för Asp.Net-sessionstillstånd](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+ * [Provider för ASP.NET-sessionstillstånd](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 
 ## <a name="when-is-it-safe-to-retry"></a>När är det säkert att försöka igen?
 Tyvärr finns det inget enkelt svar.  Varje program måste bestämma vilka åtgärder som kan göras om och vilket inte kan göras.  Varje åtgärd har olika krav och beroenden mellan nycklar.  Här följer några saker som du kan tänka på:
 
- * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Exempel:
+ * Du kan få fel på klient sidan även om Redis har kört kommandot som du bad om att köra.  Till exempel:
      - Tids gränser är ett koncept på klient sidan.  Om åtgärden har nått servern kör servern kommandot även om klienten ger väntande svar.  
      - När ett fel uppstår på socket-anslutningen är det inte möjligt att veta om åtgärden faktiskt kördes på servern.  Anslutnings felet kan till exempel inträffa efter att servern bearbetat begäran, men innan klienten får svaret.
  *  Hur reagerar mitt program om jag råkar köra samma åtgärd två gånger?  Vad händer om jag exempelvis ökar ett heltal två gånger i stället för en gång?  Skrivs mitt program till samma nyckel från flera platser?  Vad händer om min omprövnings logik skriver över ett värde som har angetts av någon annan del av min app?
@@ -79,7 +79,7 @@ Om du vill testa hur koden fungerar under fel tillstånd, kan du överväga att 
  * **Överväg att använda Redis-instanser på Premium-nivå**.  Dessa cachestorlek har bättre nätverks svars tid och data flöde eftersom de körs på bättre maskin vara för både processor och nätverk.
  
      > [!NOTE]
-     > Våra observerade prestanda resultat [publiceras här](cache-faq.md#azure-cache-for-redis-performance) för din referens.   Tänk också på att SSL/TLS lägger till viss overhead, så att du kan få olika fördröjningar och/eller data flöden om du använder transport kryptering.
+     > Våra observerade prestanda resultat [publiceras här](cache-planning-faq.md#azure-cache-for-redis-performance) för din referens.   Tänk också på att SSL/TLS lägger till viss overhead, så att du kan få olika fördröjningar och/eller data flöden om du använder transport kryptering.
  
 ### <a name="redis-benchmark-examples"></a>Redis – benchmark-exempel
 **Före test konfiguration**: Förbered cache-instansen med data som krävs för svar på svars tid och data flöde som visas nedan.

@@ -10,15 +10,15 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 08/01/2020
+ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: dfa1c790dc0f2e229b3bfa19616e5760c3d3d02e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825148"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006612"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurera och optimera virtuella datorer
 
@@ -27,9 +27,18 @@ Den här artikeln delar kända tekniker för att konfigurera och optimera Infini
 ## <a name="vm-images"></a>VM-avbildningar
 På InfiniBand-aktiverade virtuella datorer krävs lämpliga driv rutiner för att aktivera RDMA. På Linux förkonfigureras de virtuella CentOS-HPC-avbildningarna på Marketplace för förkonfigurerade med lämpliga driv rutiner. De virtuella Ubuntu-avbildningarna kan konfigureras med rätt driv rutiner med hjälp av [instruktionerna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). Vi rekommenderar också att du skapar [anpassade VM-avbildningar](../../linux/tutorial-custom-images.md) med lämpliga driv rutiner och konfiguration och återanvänder dem på ett återkommande sätt.
 
+> [!NOTE]
+> På GPU-aktiverade virtuella datorer i [N-serien](../../sizes-gpu.md) krävs dessutom lämpliga GPU-drivrutiner som kan läggas till via [VM-tilläggen](../../extensions/hpccompute-gpu-linux.md) eller [manuellt](../../linux/n-series-driver-setup.md). Vissa VM-avbildningar på Marketplace levereras också som förinstallerade med nVidia GPU-drivrutinerna.
+
 ### <a name="centos-hpc-vm-images"></a>CentOS-HPC VM-avbildningar
+
+#### <a name="non-sr-iov-enabled-vms"></a>Ej SR-IOV-aktiverade virtuella datorer
 För icke-SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances), CENTOS-HPC version 6,5 eller en senare version, är upp till 7,5 på Marketplace lämplig. För [virtuella datorer i H16-serien](../../h-series.md)rekommenderas till exempel version 7,1 till 7,5. De här VM-avbildningarna levereras i förväg med nätverks Direct-drivrutinerna för RDMA och Intel MPI version 5,1.
 
+> [!NOTE]
+> På dessa CentOS-baserade HPC-avbildningar för virtuella datorer som inte är SR-IOV-aktiverade, inaktive ras kernel-uppdateringar i **yum** -konfigurationsfilen. Detta beror på att NetworkDirect Linux RDMA-drivrutinerna distribueras som ett RPM-paket, och driv rutins uppdateringar kanske inte fungerar om kerneln uppdateras.
+
+#### <a name="sr-iov-enabled-vms"></a>SR-IOV-aktiverade virtuella datorer
   För SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances)är [CentOS-HPC version 7,6 eller en senare](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) version av VM-avbildningar på Marketplace lämplig. De här VM-avbildningarna är optimerade och förinstallerade med OFED-drivrutinerna för RDMA och olika vanliga MPI-bibliotek och vetenskapliga data behandlings paket och är det enklaste sättet att komma igång.
 
   Exempel på skript som används för att skapa CentOS-HPC version 7,6 och senare VM-avbildningar från en CentOS Marketplace-avbildning finns på [azhpc-images lagrings platsen](https://github.com/Azure/azhpc-images/tree/master/centos).

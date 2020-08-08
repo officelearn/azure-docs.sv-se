@@ -1,19 +1,17 @@
 ---
 title: Vad är Windows Virtual Desktop? – Azure
 description: En översikt över virtuella Windows-datorer.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ff1f20314d79c507c696325d19c83e10ec4513f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386583"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002375"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
@@ -133,13 +131,13 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|
+|Windows 10 multi-session, version 1809|Ja|Ja|Inga|Inga|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
-|Windows Server 2019|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Inga|Inga|
+|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
+|Windows Server 2019|Ja|Ja|Inga|Inga|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
+|Windows Server 2012 R2|Ja|Ja|Inga|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

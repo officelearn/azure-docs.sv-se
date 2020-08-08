@@ -1,19 +1,17 @@
 ---
 title: Logg analys för Windows Virtual Desktop-diagnostik – Azure
 description: Så här använder du Log Analytics med funktionen Windows-diagnostik för virtuella skriv bord.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85cd94c9ba0cf8909e2013a49d43a473a313db8b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292596"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005115"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -134,7 +132,7 @@ Till exempel frågor via Azure Monitor Log Analytics användar gränssnitt:
 1. Gå till din Log Analytics arbets yta och välj sedan **loggar**. Exempel frågans användar gränssnitt visas automatiskt.
 1. Ändra filtret till **kategori**.
 1. Välj **virtuellt Windows-skrivbord** för att granska tillgängliga frågor.
-1. Välj **Kör** för att köra den valda frågan. 
+1. Välj **Kör** för att köra den valda frågan.
 
 Läs mer om exempel fråga-gränssnittet i [sparade frågor i Azure Monitor Log Analytics](../azure-monitor/log-query/saved-queries.md).
 

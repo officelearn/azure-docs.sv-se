@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9bd0f1cbe1f4797a0187952b94ca48077bb3134c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0809c9eb1f64dc6a505ef50e25f973aa041d186d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854414"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004491"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azures säkerhets bas linje för Security Center
 
@@ -190,7 +190,7 @@ Du kan också aktivera och anställa data som rör och tillverkas av Azure Secur
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: Azure rollbaserad åtkomst kontroll (RBAC) gör att du kan hantera åtkomst till Azure-resurser via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, Azure PowerShell eller Azure Portal. Azure Security Center har inbyggda roller för "Security Reader" eller "Security admin" som gör det möjligt för användare att läsa eller uppdatera säkerhets principer och ignorera aviseringar och rekommendationer.
+**Vägledning**: Azure rollbaserad åtkomst kontroll (Azure RBAC) gör att du kan hantera åtkomst till Azure-resurser via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, Azure PowerShell eller Azure Portal. Azure Security Center har inbyggda roller för "Security Reader" eller "Security admin" som gör det möjligt för användare att läsa eller uppdatera säkerhets principer och ignorera aviseringar och rekommendationer.
 
 - [Behörigheter i Azure Security Center](security-center-permissions.md)
 
@@ -344,7 +344,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning**: implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure Active Directory RBAC.
+**Vägledning**: implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure RBAC.
 
 Som standard lagras Azure Security Center data i Security Center backend-tjänsten. Om din organisation har lagt till krav för att lagra dessa data i dina egna resurser kan du konfigurera en Log Analytics arbets yta för att lagra Security Center data, aviseringar och rekommendationer. När du använder din egen arbets yta kan du lägga till ytterligare separering genom att konfigurera olika arbets ytor enligt vilken miljö data kommer från.
 
@@ -376,15 +376,15 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-controls-to-control-access-to-resources"></a>4,6: Använd rollbaserade åtkomst kontroller för att kontrol lera åtkomst till resurser 
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser 
 
-**Vägledning**: Använd Azures rollbaserade åtkomst kontroller för att hantera åtkomst till Azure Security Center relaterade data och resurser. Azure Security Center har inbyggda roller för "Security Reader" eller "Security admin" som gör det möjligt för användare att läsa eller uppdatera säkerhets principer och ignorera aviseringar och rekommendationer. Log Analytics arbets ytan som lagrar data som samlas in av Security Center har också inbyggda roller som du kan tilldela som "Log Analytics läsare", "Log Analytics bidrag" och andra. Tilldela den minst behörighets rollen som krävs för att användarna ska kunna slutföra de uppgifter som krävs. Du kan till exempel tilldela rollen läsare till användare som bara behöver visa information om säkerhets hälso tillståndet för en resurs men inte vidta åtgärder, till exempel att tillämpa rekommendationer eller redigera principer.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till Azure Security Center relaterade data och resurser. Azure Security Center har inbyggda roller för "Security Reader" eller "Security admin" som gör det möjligt för användare att läsa eller uppdatera säkerhets principer och ignorera aviseringar och rekommendationer. Log Analytics arbets ytan som lagrar data som samlas in av Security Center har också inbyggda roller som du kan tilldela som "Log Analytics läsare", "Log Analytics bidrag" och andra. Tilldela den minst behörighets rollen som krävs för att användarna ska kunna slutföra de uppgifter som krävs. Du kan till exempel tilldela rollen läsare till användare som bara behöver visa information om säkerhets hälso tillståndet för en resurs men inte vidta åtgärder, till exempel att tillämpa rekommendationer eller redigera principer.
 
 - [Behörigheter för Azure Log Analytics-arbetsytan](../role-based-access-control/built-in-roles.md#log-analytics-reader)
 
 - [Behörigheter i Azure Security Center](security-center-permissions.md)
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

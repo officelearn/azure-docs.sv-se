@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/28/2020
+ms.date: 08/06/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c0fbb62f411ccc3056d782518c6c3b570106d2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9e8250661fdbd6c67faade31caaed61ee8a399fe
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828633"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008106"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -27,9 +27,9 @@ Den här steg-för-steg-guiden beskriver hur du planerar distributionen av Privi
 
 > [!TIP]
 > I den här artikeln visas objekt som är markerade som:
-> 
+>
 > : heavy_check_mark: **Microsoft rekommenderar**
-> 
+>
 > Detta är allmänna rekommendationer och du bör bara implementera om de gäller för dina företags behov.
 
 ## <a name="learn-about-privileged-identity-management"></a>Läs mer om Privileged Identity Management
@@ -142,9 +142,9 @@ Följ dessa steg om du vill framtvinga principen om minsta behörighet för dina
 
 1. Förstå rollernas granularitet genom att läsa och förstå de [tillgängliga administratörs rollerna för Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Du och ditt team bör också referera till [Administratörs roller efter identitets uppgift i Azure AD](../users-groups-roles/roles-delegate-by-task.md), som förklarar den minst privilegierade rollen för särskilda uppgifter.
 
-1. Lista med privilegierade roller i din organisation. Du kan använda [guiden Privileged Identity Management](pim-security-wizard.md#run-the-wizard) för att komma till en sida som liknar följande.
+1. Lista med privilegierade roller i din organisation. Du kan använda Privileged Identity Management [identifiering och insikter (för hands version)](pim-security-wizard.md) för att komma till en sida som liknar följande.
 
-    ![Fönstret identifiera privilegierade roller som visar vem som har privilegierade roller](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Sidan identifiering och insikter (för hands version) för att minska exponeringen via privilegierade roller](./media/pim-deployment-plan/new-preview-page.png)
 
 1. Ta reda på varför de behöver rollen för alla globala administratörer i din organisation. Baserat på att läsa den tidigare dokumentationen, om personens jobb kan utföras av en eller flera olika administratörs roller, bör du ta bort dem från den globala administratörs rollen och göra tilldelningar i enlighet med Azure Active Directory (som referens: Microsoft har för närvarande bara ca 10 administratörer med rollen global administratör. Läs mer om [hur Microsoft använder Privileged Identity Management](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 

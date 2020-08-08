@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: f07b71bf8996612798b87d32a21a15ec72db0b32
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140959"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010954"
 ---
 Den här enhets kategorin innehåller finansiell information och officiella formulär för identifiering. Tillgängligt från och med modell version `2019-10-01` . Under typer visas nedan. 
 
 ### <a name="financial-account-identification"></a>Identifiering av finansiella konton
 
-| Under typs namn               | Description                                                                |
+| Under typs namn               | Beskrivning                                                                |
 |----------------------------|----------------------------------------------------------------------------|
 | ABA-nummer        | ABA-flöde (American Banks Association).                  |
 | SWIFT-kod                 | SWIFT-koder för information om betalnings instruktioner.                           |
@@ -39,28 +39,39 @@ Entiteterna nedan grupperas och listas efter land:
 Argentina
 * DNI-nummer (Argentina National Identity)
 
+Österrike
+* ID-kort för Österrike
+* Skatte identifierings nummer för Österrike
+* Österrike Value Added Tax (moms) nummer
+
 Australien
-* Australien Passport-nummer
-* Australien, skatte fil nummer
+* Bank konto nummer för Australien
+* Australiensiskt företags nummer
+* Australiensiskt företags nummer
 * Enhets licens nummer för Australien
 * Australien, medicin konto nummer
-* Bank konto nummer för Australien
+* Australien Passport-nummer
+* Australien, skatte fil nummer
 
 Belgien
 * Belgien National Number
+* Tilläggs skatte nummer för Belgien
 
 Brasilien 
 * Brasilien juridisk enhets nummer (CNPJ)
 * Brasilien CPF-nummer
 * Brasilien National ID-kort (RG)
 
+Bulgarien
+* Bulgarien, enhetligt civil nummer
+
 Kanada
-* Kanadas sociala försäkrings nummer
-* Licens nummer för Kanadas driv rutin
 * Bank konto nummer för Kanada
+* Licens nummer för Kanadas driv rutin
+* Kanada Hälsotjänst nummer
 * Canada Passport-nummer
 * Canada personal Health Identification Number (PHIN)
-* Kanada Hälsotjänst nummer
+* Kanadas sociala försäkrings nummer
 
 Chile
 * Identitets korts nummer 
@@ -70,7 +81,12 @@ Kina
 
 Kroatien
 * Nummer för Kroatien identitets kort
+* Nationellt ID-kort nummer för Kroatien
 * OIB-nummer (Kroatien personal Identification)
+
+Cypern
+* Kort nummer för Cypern identitet
+* Identifierings nummer för Cypern skatt
 
 Tjeckien
 * Tjeckiska personal Identity Number
@@ -78,34 +94,49 @@ Tjeckien
 Danmark
 * Danmark personal identifikations nummer
 
+Estland
+* Estland personal identifikations kod
+
 Europeiska unionen (EU)
+* EU betalkort nummer
+* Licens nummer för EU-drivrutin
 * EU: s nationella identifierings nummer
 * EU Passport-nummer
-* Licens nummer för EU-drivrutin
 * EU: s socialförsäkrings nummer (SSN) eller motsvarande ID
 * EU: s skatte identifierings nummer (TIN)
-* EU betalkort nummer
 
 Finland
+* Europeiskt hälso försäkrings nummer för Finland
 * Nationella ID för Finland
 * Nummer för Finland Passport
 
 Frankrike
-* Franskt nationellt ID-kort (CNI)
-* Frankrike, socialförsäkrings nummer (INSEE)
-* Franskt Passport-nummer
 * Fransk driv Rutins licens nummer
+* Franskt hälso försäkrings nummer
+* Franskt nationellt ID-kort (CNI)
+* Franskt Passport-nummer
+* Frankrike, socialförsäkrings nummer (INSEE)
+* Frankrikes skatte identifierings nummer (Numéro SPI.)
+* Frankrike mervärdes skatte nummer
 
 Tyskland
+* Tysk kör korts nummer
 * Kort nummer för Tyskland-identitet
 * Tyskt Passport-nummer
-* Tysk kör korts nummer
+* Skatte identifikations nummer för Tyskland
+* Mervärdes skatte nummer för Tyskland
 
 Grekland 
 * Kort nummer för nationella Grekland-ID
+* Skatte identifikations nummer för Grekland
 
 Hongkong
 * HKID-nummer (Hong Kong Identity Card)
+
+Ungern
+* Ungern National Identification Number
+* Ungern skatte identifierings nummer
+* Ungern mervärdes skatte nummer
 
 Indien
 * Permanent konto nummer för Indien (PAN)
@@ -123,23 +154,47 @@ Israel
 
 Italien
 * Italien-driv Rutinens licens-ID
+* Italiensk räkenskaps kod
+* Italienskt mervärdes skatte nummer
 
 Japan
+* Japanskt bank konto nummer
+* Japansk driv Rutins licens nummer
+* Japanska mina siffror, personliga
+* Japanskt mitt nummer företag
 * Japan, inhemskt registrerings nummer
 * Japanskt boende korts nummer
-* Japansk driv Rutins licens nummer
-* Socialt försäkrings nummer (SIN)
+* Japan, sociala försäkrings nummer (SIN)
 * Japanskt Passport-nummer
-* Japanskt bank konto nummer
+
+Lettland
+* Personlig kod för Lettland
+
+Litauen
+* Information om Litauen-personliga kod
+
+Luxemburg
+* Luxemburg National Identification Number (fysiska personer)
+* Luxemburg National Identification Number (icke-fysiska personer)
 
 Malaysia
 * Kort nummer för Malaysia-ID
 
+Malta
+* Nummer för Malta-identitets kort
+* Nummer på Malta skatte identifikation
+
 Nederländerna
 * Nederländskt BSN-nummer (Nederländernas unionsmedborgare)
+* Nederländernas skatte identifierings nummer
+* Nederländernas mervärdes skatte nummer
 
 Nya Zeeland
+* Nya Zeeland bank konto nummer
+* Ny Zeelands driv Rutins licens nummer
+* Nya Zeeland, inre intäkts nummer
 * New Zeelands ministeriet för hälso tillstånd
+* Nya Zeeland, sociala välfärd-nummer
 
 Norge
 * ID-nummer för Norge
@@ -150,16 +205,33 @@ Filippinerna
 Polen
 * Kort för Polen-identitet
 * Polen National ID (PESEL)
-* Polen Passport
+* Polen Passport-nummer
+* Polen REGON-nummer
+* Skatte identifierings nummer för Polen
 
 Portugal 
 * Kort nummer för Portugal, unionsmedborgare
+* Skatte identifikations nummer för Portugal
+
+Rumänien
+* Rumänien, personlig numerisk kod (CNP)
+
+Ryssland
+* Ryskt Passport-nummer (inhemskt)
+* Ryskt Passport-nummer (internationellt)
 
 Saudiarabien
 * Nationellt ID för Saudiarabien
 
 Singapore
 * NRIC-nummer (National registration ID Card) i Singapore
+
+Slovakien 
+* Privat Slovakien-nummer
+
+Slovenien
+* Skatte identifierings nummer för Slovenien
+* Slovenien Unique Master medborgarnas nummer
 
 Sydafrika
 * FN-nummer för Sydafrika
@@ -168,11 +240,17 @@ Sydkorea
 * Sydkorea, inhemskt registrerings nummer
 
 Spanien 
+* Spansk DNI
 * Spaniens person nummer (SSN)
+* Spaniens skatte identifierings nummer
 
 Sverige
 * National Sverige-ID
 * Sverige Passport-nummer
+* Svensk skatte identifierings nummer
+
+Schweiz
+* Schweiziska socialförsäkrings nummer AHV
 
 Taiwan 
 * Nationella ID för Taiwan
@@ -182,18 +260,25 @@ Taiwan
 Thailand
 * Identifierings kod för Thai-population
 
+Turkiet
+* Turkisk National Identification Number
+
+Ukraina
+* Ukraina Passport-nummer (inhemsk)
+* Ukraina Passport-nummer (internationell)
+
 Storbritannien
-* Passport-ID
 * engelska Kör korts nummer
-* engelska Nationellt försäkrings nummer (NINO)
-* engelska National Hälsotjänst Number
 * engelska Nummer för val av rulle
-* USA/STORBRITANNIEN Passport-nummer
+* engelska NHS-nummer (National Hälsotjänst)
+* engelska Nationellt försäkrings nummer (NINO)
+* engelska Passport-nummer
+* engelska Unikt Taxpayer Reference Number
 
 USA
 * Amerikanskt socialförsäkrings nummer (SSN)
 * Amerikansk kör korts nummer
-* USA/STORBRITANNIEN Passport-nummer
+* Amerikanskt Passport-nummer
 * Amerikanskt individuellt Taxpayer Identification Number (ITIN)
-* Nummer för verk ställande av narkotika (DIETANOLAMIN)
+* Nummer för USA: s narkotika verk ställande byrå (DIETANOLAMIN)
 * Konto nummer för amerikansk bank

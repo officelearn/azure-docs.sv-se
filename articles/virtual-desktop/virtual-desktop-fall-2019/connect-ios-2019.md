@@ -1,19 +1,17 @@
 ---
 title: Ansluta till Windows Virtual Desktop (klassisk) från iOS – Azure
 description: Så här ansluter du till Windows Virtual Desktop (klassisk) med iOS-klienten.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 06de85e23b1d6350a48735506c8931922d40b799
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c7efedadbba196223db2ad5700035e27d37fb414
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270744"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008465"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-ios-client"></a>Ansluta till Windows Virtual Desktop (klassisk) med iOS-klienten
 

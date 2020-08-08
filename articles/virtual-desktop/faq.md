@@ -1,19 +1,17 @@
 ---
 title: Vanliga frågor och svar om Windows Virtual Desktop – Azure
 description: Vanliga frågor och rekommendationer för virtuella Windows-datorer.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6867d24d84f6dfb51b2ca7b86ec882102b96552b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504423"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007496"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Vanliga frågor och svar om Windows Virtual Desktop
 
@@ -25,7 +23,7 @@ Om du vill skapa värdar för pooler och andra objekt måste du tilldelas deltag
 
 Du måste vara tilldelad rollen administratör för användar åtkomst i en app-grupp för att publicera program grupper till användare eller användar grupper.
 
-För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Exempel: 
+För att begränsa en administratör till att endast hantera användarsessioner, till exempel skicka meddelanden till användare, logga ut användare och så vidare, kan du skapa anpassade roller. Till exempel:
 
 ```powershell
 "actions": [
@@ -62,7 +60,7 @@ Arbets ytor måste också finnas på samma plats som deras app-grupper. När arb
 
 När du kör en PowerShell-cmdlet visas bara resursens namn och plats.
 
-Exempel:
+Till exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -74,7 +72,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Om du vill se alla egenskaper för en resurs lägger du till antingen `format-list` eller `fl` i slutet av cmdleten.
 
-Exempel:
+Till exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -82,7 +80,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Om du vill se vissa egenskaper lägger du till de angivna egenskaps namnen efter `format-list` eller `fl` .
 
-Exempel:
+Till exempel:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -116,7 +114,7 @@ När du har skapat en värdbaserad pool kan du inte ändra dess typ. Du kan dock
 
 Begränsningar eller kvoter i FSLogix är beroende av den lagrings infrastruktur som används för att lagra filer med VHD (X) för användar profiler.
 
-Följande tabell innehåller ett exempel på hur resurser en FSLogix-profil måste ha stöd för varje användare. Kraven kan variera mycket beroende på användare, program och aktivitet på varje profil. 
+Följande tabell innehåller ett exempel på hur resurser en FSLogix-profil måste ha stöd för varje användare. Kraven kan variera mycket beroende på användare, program och aktivitet på varje profil.
 
 | Resurs | Krav |
 |---|---|

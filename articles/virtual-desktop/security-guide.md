@@ -1,21 +1,19 @@
 ---
 title: Bästa praxis för Windows Virtual Desktop-säkerhet – Azure
 description: Metod tips för att skydda din Windows-miljö för virtuella skriv bord.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736680"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002287"
 ---
-# <a name="security-best-practices"></a>Metodtips för säkerhet
+# <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
 
 Windows Virtual Desktop är en hanterad virtuell Skriv bords tjänst som innehåller många säkerhetsfunktioner för att hålla organisationen säker. I en distribution av virtuella Windows-datorer hanterar Microsoft delar av tjänsterna för kundens räkning. Tjänsten har många inbyggda avancerade säkerhetsfunktioner, till exempel omvänd anslutning, vilket minskar risken för att fjärrskrivbord är åtkomligt från var som helst.
 
@@ -37,10 +35,10 @@ Här är de säkerhets behov som du är ansvarig för i distributionen av Window
 |Sessionens värd operativ system|Ja|
 |Distributions konfiguration|Ja|
 |Nätverkskontroller|Ja|
-|Kontroll plan för nätverksvirtualisering|No|
-|Fysiska värdar|No|
-|Fysiskt nätverk|No|
-|Fysiskt Data Center|No|
+|Kontroll plan för nätverksvirtualisering|Inga|
+|Fysiska värdar|Inga|
+|Fysiskt nätverk|Inga|
+|Fysiskt Data Center|Inga|
 
 Säkerheten behöver kunden är inte ansvarig för hanteras av Microsoft.
 
@@ -103,7 +101,7 @@ Sessions-värdar är virtuella datorer som körs i en Azure-prenumeration och et
 
 ### <a name="enable-endpoint-protection"></a>Aktivera Endpoint Protection
 
-För att skydda din distribution från känd skadlig program vara rekommenderar vi att du aktiverar Endpoint Protection på alla värdar i sessionen. Du kan använda antingen Windows Defender Antivirus eller ett program från tredje part. Mer information finns i [distributions guide för Windows Defender Antivirus i en VDI-miljö](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+För att skydda din distribution från känd skadlig program vara rekommenderar vi att du aktiverar Endpoint Protection på alla värdar i sessionen. Du kan använda antingen Windows Defender Antivirus eller ett program från tredje part. Mer information finns i [distributions guide för Windows Defender Antivirus i en VDI-miljö](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 För profil lösningar som FSLogix eller andra lösningar som monterar VHD-filer rekommenderar vi att du undantar fil namns tillägg för virtuella hård diskar.
 

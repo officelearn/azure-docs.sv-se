@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02661ff3c21fa27367cc9f2c399341ed2b86db3f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809620"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003892"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
 
@@ -49,7 +49,7 @@ Med hjälp av [Windows PowerShell Desired State Configuration](/powershell/scrip
 
 Resurserna i den här modulen är utformade för att hantera konfigurationen av Azure-anslutna dator agenter. Det finns också ett PowerShell `AzureConnectedMachineAgent.ps1` -skript som finns i `AzureConnectedMachineDsc\examples` mappen. Den använder community-resurser för att automatisera nedladdning och installation och upprätta en anslutning till Azure-bågen. Det här skriptet utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln.
 
-Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs [här](onboard-portal.md#configure-the-agent-proxy-setting)när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` . I stället för att köra kommandot manuellt kan du utföra det här steget med DSC genom att använda [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) -modulen.
+Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs [här](manage-agent.md#update-or-remove-proxy-settings)när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` . I stället för att köra kommandot manuellt kan du utföra det här steget med DSC genom att använda [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0) -modulen.
 
 >[!NOTE]
 >För att DSC ska kunna köras måste Windows konfigureras för att ta emot PowerShell-fjärrkommandon även när du kör en localhost-konfiguration. För att enkelt konfigurera din miljö på rätt sätt kan du bara köra `Set-WsManQuickConfig -Force` i en upphöjd PowerShell-Terminal.

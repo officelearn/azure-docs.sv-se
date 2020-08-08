@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett värme kart skikt i en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du lägger till ett termiskt kart skikt till en karta med hjälp av Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du skapar en värme karta. Se hur du använder Azure Maps Web SDK för att lägga till ett värme kart skikt till en karta. Lär dig hur du anpassar värme kart skikt.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 2558f30c0d2d1e9d652efec1693e7f056426255b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a6235ee6bbb476c69114e6895403f05e69fd6e19
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282916"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010250"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 

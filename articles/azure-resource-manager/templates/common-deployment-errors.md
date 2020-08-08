@@ -3,21 +3,19 @@ title: Felsök vanliga distributionsfel
 description: Beskriver hur du löser vanliga fel när du distribuerar resurser till Azure med hjälp av Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 06/25/2020
-ms.openlocfilehash: dad80cf4230c3c6b4d7d97b21d155f6e755c2ab9
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/07/2020
+ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446608"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008176"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga fel i Azure-distributioner med Azure Resource Manager
 
 Den här artikeln beskriver några vanliga problem med Azure-distribution och innehåller information om hur du löser felen. Om du inte hittar felkoden för ditt distributionsfel läser du [Hitta felkod](#find-error-code).
 
 Om du letar efter information om en felkod och informationen inte finns i den här artikeln kan du berätta för oss. Längst ned på den här sidan kan du lämna feedback. Feedbacken spåras med GitHub-problem.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="error-codes"></a>Felkoder
 
@@ -76,6 +74,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | StorageAccountAlreadyTaken | Ange ett unikt namn för lagringskontot. | [Matcha lagrings konto namn](error-storage-account-name.md) |
 | StorageAccountNotFound | Kontrol lera prenumerationen, resurs gruppen och namnet på det lagrings konto som du försöker använda. | |
 | SubnetsNotInSameVnet | En virtuell dator kan bara ha ett virtuellt nätverk. När du distribuerar flera nätverkskort ser du till att de tillhör samma virtuella nätverk. | [Flera nätverkskort](../../virtual-machines/windows/multiple-nics.md) |
+| SubscriptionNotFound | Det går inte att komma åt en angiven prenumeration för distribution. Det kan bero på att prenumerations-ID: t är felaktigt, att användaren som distribuerar mallen inte har tillräcklig behörighet för att distribuera till prenumerationen, eller att prenumerations-ID: t har fel format. När du använder kapslade distributioner för att [distribuera mellan omfattningar](cross-scope-deployment.md)anger du GUID för prenumerationen. | |
 | SubscriptionNotRegistered | När du distribuerar nätverks resurser registreras Microsoft. Network Resource-providern automatiskt i prenumerationen. Ibland slutförs inte den automatiska registreringen i tid. För att undvika det här tillfälliga felet registrerar du Microsoft. Network Resource-providern innan du distribuerar. | [Lös registrering](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Ta bort onödiga beroenden. | [Lös cirkulära beroenden](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Minska antalet resurs grupper för en enskild distribution. | [Distribution över omfång](cross-scope-deployment.md) |

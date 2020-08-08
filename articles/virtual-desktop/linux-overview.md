@@ -1,19 +1,17 @@
 ---
 title: Windows Virtual Desktop Linux Support – Azure
 description: En kort översikt av Linux-stöd för virtuella Windows-datorer.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f91e130bfa83c6a9b116c05d7293aa70945e2dc2
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: bd3cc6c5220e2e84cbbd30b29b8034f53c813f1e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903552"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008703"
 ---
 # <a name="linux-support"></a>Linux-support
 

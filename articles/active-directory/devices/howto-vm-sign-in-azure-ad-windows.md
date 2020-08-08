@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcd1c3a9fd3e4be22e4057eb2cfc9a71d09d558
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529117"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005018"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -174,7 +174,7 @@ Efter en liten stund tilldelas säkerhets objekt rollen i det valda omfånget.
 
 ### <a name="using-the-azure-cloud-shell-experience"></a>Använda Azure Cloud Shell upplevelse
 
-I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../virtual-machines/linux/login-using-aad.md).
+I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den virtuella datorns administratörs inloggnings roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå och normala behörigheter för Azure RBAC-arv gäller. Mer information finns i [Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering](../../virtual-machines/linux/login-using-aad.md).
 
 ```   AzureCLI
 username=$(az account show --query user.name --output tsv)
@@ -189,11 +189,11 @@ az role assignment create \
 > [!NOTE]
 > Om din AAD-domän och inloggnings användar domän inte matchar, måste du ange objekt-ID: t för ditt användar konto med `--assignee-object-id` , inte bara användar namnet för `--assignee` . Du kan hämta objekt-ID: t för ditt användar konto med [AZ AD User List](/cli/azure/ad/user#az-ad-user-list).
 
-Mer information om hur du använder RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
+Mer information om hur du använder Azure RBAC för att hantera åtkomst till dina Azure-prenumerations resurser finns i följande artiklar:
 
-- [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](/azure/role-based-access-control/role-assignments-cli)
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
-- [Hantera åtkomst till Azure-resurser med RBAC och Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](/azure/role-based-access-control/role-assignments-cli)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](/azure/role-based-access-control/role-assignments-portal)
+- [Lägg till eller ta bort Azure Role-tilldelningar med Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
 ## <a name="using-conditional-access"></a>Använda villkorlig åtkomst
 

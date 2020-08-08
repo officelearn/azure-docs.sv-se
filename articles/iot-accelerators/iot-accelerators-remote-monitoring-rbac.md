@@ -9,16 +9,16 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: e41d3b47408d29a0463eed5f23117801be107c27
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 397e7cfbc2599d2a259f55a5f465d51cd1fe54a8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85920720"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008992"
 ---
-# <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomst kontroller i Solution Accelerator för fjärr styrning
+# <a name="configure-role-based-access-control-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserad åtkomst kontroll i Solution Accelerator för fjärr styrning
 
-Den här artikeln innehåller information om hur du konfigurerar rollbaserade åtkomst kontroller i lösnings acceleratorn för fjärrövervakning. Med rollbaserade åtkomst kontroller kan du begränsa åtkomsten för enskilda användare till specifika funktioner i lösningen.
+Den här artikeln innehåller information om hur du konfigurerar rollbaserad åtkomst kontroll i Solution Accelerator för fjärr styrning. Med rollbaserad åtkomst kontroll kan du begränsa åtkomsten för enskilda användare till specifika funktioner i lösningen.
 
 ## <a name="default-settings"></a>Standardinställningar
 
@@ -26,22 +26,22 @@ När du först distribuerar lösningen för fjärrövervakning finns det två ro
 
 Alla användare i **Administratörs** rollen har fullständig åtkomst till lösningen, inklusive följande behörigheter nedan. En användare i den **skrivskyddade** rollen har bara åtkomst för att Visa lösningen.
 
-| Behörighet            | Admin | Skrivskydd |
+| Behörighet            | Administratör | Skrivskydd |
 |----------------       |-------|-----------|
 | Visa lösning         | Ja   | Ja       |
-| Uppdatera larm         | Ja   | Nej        |
-| Ta bort larm         | Ja   | Nej        |
-| Skapa enheter        | Ja   | Nej        |
-| Uppdatera enheter        | Ja   | Nej        |
-| Ta bort enheter        | Ja   | Nej        |
-| Skapa enhets grupper  | Ja   | Nej        |
-| Uppdatera enhets grupper  | Ja   | Nej        |
-| Ta bort enhets grupper  | Ja   | Nej        |
-| Skapa regler          | Ja   | Nej        |
-| Uppdatera regler          | Ja   | Nej        |
-| Ta bort regler          | Ja   | Nej        |
-| Skapa jobb           | Ja   | Nej        |
-| Uppdatera SIM-hantering | Ja   | Nej        |
+| Uppdatera larm         | Ja   | Inga        |
+| Ta bort larm         | Ja   | Inga        |
+| Skapa enheter        | Ja   | Inga        |
+| Uppdatera enheter        | Ja   | Inga        |
+| Ta bort enheter        | Ja   | Inga        |
+| Skapa enhets grupper  | Ja   | Inga        |
+| Uppdatera enhets grupper  | Ja   | Inga        |
+| Ta bort enhets grupper  | Ja   | Inga        |
+| Skapa regler          | Ja   | Inga        |
+| Uppdatera regler          | Ja   | Inga        |
+| Ta bort regler          | Ja   | Inga        |
+| Skapa jobb           | Ja   | Inga        |
+| Uppdatera SIM-hantering | Ja   | Inga        |
 
 Som standard tilldelas den användare som distribuerade lösningen automatiskt **Administratörs** rollen och är en Azure Active Directory program ägare. Som program ägare kan du tilldela roller till andra användare via Azure Portal. Om du vill att en annan användare ska tilldela roller i lösningen måste de också anges som en program ägare i Azure Portal.
 
@@ -244,7 +244,7 @@ public async Task DeleteAsync(string id)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du implementerar rollbaserade åtkomst kontroller i lösnings acceleratorn för fjärrövervakning.
+I den här artikeln har du lärt dig hur rollbaserad åtkomst kontroll implementeras i lösnings acceleratorn för fjärrövervakning.
 
 Se [Konfigurera åtkomst kontroller för Time Series Insights Explorer](iot-accelerators-remote-monitoring-rbac-tsi.md) för information om hur du hanterar åtkomst till Time Series Insights Explorer i Solution Accelerator för fjärr övervakning.
 

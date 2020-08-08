@@ -1,25 +1,23 @@
 ---
 title: Skapa FSLogix Profile container Azure Files Active Directory Domain Services – Azure
 description: Den här artikeln beskriver hur du skapar en FSLogix profil behållare med Azure Files och Azure Active Directory Domain Services.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362449"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007717"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
 I den här artikeln visas hur du skapar en FSLogix profil behållare med Azure Files och Azure Active Directory Domain Services (AD DS).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan har konfigurerat en Azure AD DS-instans. Om du inte har en ännu, följ instruktionerna i [skapa en grundläggande hanterad domän](../active-directory-domain-services/tutorial-create-instance.md) först och gå sedan tillbaka hit.
 
@@ -109,7 +107,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Ett exempel:
+    Till exempel:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -124,7 +122,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du vill att användaren ska använda.
     - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
 
-    Ett exempel:
+    Till exempel:
 
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -142,7 +140,7 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 3. När installations programmet har startat väljer **du jag accepterar licens villkoren.** Ange en ny nyckel om det är tillämpligt.
 
-4. Välj **installera**.
+4. Välj **Installera**.
 
 5. Öppna **enhet C**och gå sedan till **program filer**  >  **FSLogix**-  >  **appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
 
@@ -202,7 +200,7 @@ Så här tilldelar du användare:
 
     Precis som de tidigare cmdletarna, se till att ersätta `<your-wvd-tenant>` , `<wvd-pool>` och `<user-principal>` med relevanta värden.
 
-    Ett exempel:
+    Till exempel:
 
      ```powershell
      $pool1 = "contoso"

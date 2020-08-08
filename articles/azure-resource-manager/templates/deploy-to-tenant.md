@@ -3,16 +3,16 @@ title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 3fbf869e371f385a335e4a154bc811a6fc8cab97
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2f5249eb54a62e4df082a18b22625bb93a0f09f8
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922531"
+ms.locfileid: "88002769"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
-När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md) i Azure AD-klienten. Med mallar för klient organisations nivå kan du tillämpa principer och tilldela roller på global nivå.
+När din organisation är vuxen kan du behöva definiera och tilldela [principer](../../governance/policy/overview.md) eller [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../../role-based-access-control/overview.md) i Azure AD-klienten. Med mallar för klient organisations nivå kan du tillämpa principer och tilldela roller på global nivå.
 
 ## <a name="supported-resources"></a>Resurser som stöds
 
@@ -251,5 +251,5 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du tilldelar roller finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
+* Information om hur du tilldelar roller finns i [lägga till Azure-roll tilldelningar med hjälp av Azure Resource Manager mallar](../../role-based-access-control/role-assignments-template.md).
 * Du kan också distribuera mallar på [prenumerations nivå](deploy-to-subscription.md) eller på [hanterings grupps nivå](deploy-to-management-group.md).

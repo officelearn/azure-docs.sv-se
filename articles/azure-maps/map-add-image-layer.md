@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett bild lager till en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du lägger till en bild på en karta med hjälp av Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du lägger till avbildningar till en karta. Se hur du använder Azure Maps Web SDK för att anpassa bild lager och överläggs bilder på fasta uppsättningar koordinater.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 6ffec1afc44c6b920a64b4b92b384b6ce3829488
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286951"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88010233"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Lägga till ett bild lager till en karta
 

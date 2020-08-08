@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 74308ae79b899a55db4682474e3dcd9dab26db98
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c51e67dcc3536a3083179451743b1c97cf618dae
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856932"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004877"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell kommando tolken.
 
 ```azurepowershell
@@ -139,10 +139,10 @@ Mer information om Microsoft Azure Tyskland finns i [Microsoft Azure Tyskland](h
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Egenskaper som används för Azure cache för Redis PowerShell
 Följande tabell innehåller egenskaper och beskrivningar för vanliga parametrar när du skapar och hanterar Azure-cache för Redis-instanser med hjälp av Azure PowerShell.
 
-| Parameter | Beskrivning | Default |
+| Parameter | Beskrivning | Standardvärde |
 | --- | --- | --- |
-| Name |Namn på cacheminnet | |
-| Location |Plats för cachen | |
+| Namn |Namn på cacheminnet | |
+| Plats |Plats för cachen | |
 | ResourceGroupName |Resurs grupp namn som cachen ska skapas i | |
 | Storlek |Storleken på cacheminnet. Giltiga värden är: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 GB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |MINNE |
 | ShardCount |Antalet Shards som ska skapas när du skapar en Premium-cache med klustrad aktive rad. Giltiga värden är: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
@@ -655,7 +655,7 @@ I följande exempel tas cachen med namnet `myCache` bort.
 Du kan importera data till en Azure-cache för Redis-instansen med hjälp av `Import-AzRedisCache` cmdleten.
 
 > [!IMPORTANT]
-> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) . Mer information om import/export finns i [Importera och exportera data i Azure cache för Redis](cache-how-to-import-export-data.md).
+> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-overview.md#service-tiers) . Mer information om import/export finns i [Importera och exportera data i Azure cache för Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -719,7 +719,7 @@ Följande kommando importerar data från den blob som anges av SAS-URI: n till A
 Du kan exportera data från en Azure-cache för Redis-instansen med hjälp av `Export-AzRedisCache` cmdleten.
 
 > [!IMPORTANT]
-> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) . Mer information om import/export finns i [Importera och exportera data i Azure cache för Redis](cache-how-to-import-export-data.md).
+> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-overview.md#service-tiers) . Mer information om import/export finns i [Importera och exportera data i Azure cache för Redis](cache-how-to-import-export-data.md).
 > 
 > 
 
@@ -784,7 +784,7 @@ Följande kommando exporterar data från en Azure-cache för Redis-instansen til
 Du kan starta om Azure-cachen för Redis-instansen med hjälp av `Reset-AzRedisCache` cmdleten.
 
 > [!IMPORTANT]
-> Omstart är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) . Mer information om hur du startar om cacheminnet finns i [cache-administration-starta om](cache-administration.md#reboot).
+> Omstart är endast tillgängligt för cacheminnen på [Premium-nivån](cache-overview.md#service-tiers) . Mer information om hur du startar om cacheminnet finns i [cache-administration-starta om](cache-administration.md#reboot).
 > 
 > 
 

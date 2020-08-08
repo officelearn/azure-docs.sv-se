@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: ba0430461df5ce1a2d615b819dbe5e8a36ae52b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184539"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008958"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka dataförlust i Azure Cache for Redis
 
@@ -119,6 +119,6 @@ Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning 
 ## <a name="additional-information"></a>Ytterligare information
 
 - [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
-- [Vad ska jag använda Azure cache för Redis-erbjudande och storlek?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Välja rätt nivå](cache-overview.md#choosing-the-right-tier)
 - [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
-- [Hur kan jag köra Redis-kommandon?](cache-faq.md#how-can-i-run-redis-commands)
+- [Hur kan jag köra Redis-kommandon?](cache-development-faq.md#how-can-i-run-redis-commands)

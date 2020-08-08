@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a43e7d1d97196afdad0a1e451b0c1618f0ea3a16
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a006988049925d2d81c3f15fe24cfe60205b5789
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809192"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006340"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -45,7 +45,7 @@ Information om lagrings konton:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Om du vill återställa en virtuell dator (skapa en ny virtuell dator) kontrollerar du att du har rätt [behörighet](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för rollbaserad åtkomst kontroll (RBAC) för åtgärden Återställ virtuell dator.
+Om du vill återställa en virtuell dator (skapa en ny virtuell dator) ser du till att du har rätt [behörighet](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för Azure-rollbaserad åtkomst kontroll (Azure RBAC) för den ÅTERSTÄLLda VM-åtgärden.
 
 Om du inte har behörighet kan du [återställa en disk](#restore-disks)och sedan kan du [använda mallen](#use-templates-to-customize-a-restored-vm) som har genererats som en del av återställnings åtgärden för att skapa en ny virtuell dator när disken har återställts.
 
@@ -173,7 +173,7 @@ Användar upplevelsen för sekundär regions återställning liknar den primära
 >
 >- Återställnings jobbet kan inte avbrytas när återställningen har utlösts och i data överförings fasen.
 >- Funktionen för återställning av kors region återställer CMK (Kundhanterade nycklar) aktiverade virtuella Azure-datorer, som inte säkerhets kopie ras i en CMK som är aktive rad Recovery Services valvet som icke-CMK aktiverade virtuella datorer i den sekundära regionen.
->- De RBAC-roller (rollbaserade åtkomst kontroller) som krävs för att återställa i den sekundära regionen är samma som de i den primära regionen.
+>- De Azure-roller som krävs för att återställa i den sekundära regionen är desamma som de i den primära regionen.
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Övervaka återställnings jobb för sekundär region
 

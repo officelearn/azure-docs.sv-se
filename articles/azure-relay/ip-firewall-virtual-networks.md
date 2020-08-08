@@ -3,12 +3,12 @@ title: Congigure IP-brandvägg för Azure Relay namnrymd
 description: Den här artikeln beskriver hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Relay namn områden.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 8cd788475ebe54c0316b8c37bd00aa186123fbf1
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2b8d1adef30eea0af9efdb51c31390c33a14b62e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533069"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009026"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurera IP-brandvägg för ett Azure Relay-namnområde
 Som standard är relä namn rymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
@@ -33,7 +33,6 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
 1. Om du vill begränsa åtkomsten till vissa nätverk och IP-adresser väljer du alternativet **valda nätverk** . I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
-    3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. 
 
         ![Brand vägg – alternativet alla nätverk är valt](./media/ip-firewall/selected-networks-trusted-access-disabled.png)
 3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.

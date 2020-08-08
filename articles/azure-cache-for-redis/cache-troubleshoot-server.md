@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: a68c27de304a0da6470745ee4abf69590d9bf78c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698086"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008924"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Felsöka problem på Azure Cache for Redis-serversidan
 
@@ -76,7 +76,7 @@ För att undvika situationer där bandbredds användningen för nätverk är nä
 ## <a name="additional-information"></a>Ytterligare information
 
 - [Felsöka problem på Azure Cache for Redis-klientsidan](cache-troubleshoot-client.md)
-- [Vad ska jag använda Azure cache för Redis-erbjudande och storlek?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
-- [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Välja rätt nivå](cache-overview.md#choosing-the-right-tier)
+- [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-management-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [Så här övervakar du Azure cache för Redis](cache-how-to-monitor.md)
-- [Hur kan jag köra Redis-kommandon?](cache-faq.md#how-can-i-run-redis-commands)
+- [Hur kan jag köra Redis-kommandon?](cache-development-faq.md#how-can-i-run-redis-commands)

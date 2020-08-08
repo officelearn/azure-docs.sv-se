@@ -1,19 +1,17 @@
 ---
 title: Ansluta till Windows Virtual Desktop (klassisk) Windows 10 eller 7 – Azure
 description: Så här ansluter du till Windows Virtual Desktop (klassisk) med hjälp av Windows Skriv bords klienten.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d420927727c2d2209c00f4852188c4a2d8e4342d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 420c507361e3e2437366e6ccf2d46a8b78684e59
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87270336"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008372"
 ---
 # <a name="connect-with-the-windows-desktop-classic-client"></a>Ansluta till Windows Desktop-klienten (klassisk)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090169"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035815"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för åtkomst Media Services-API  
 
@@ -45,7 +45,7 @@ I den här artikeln beskrivs steg för att få åtkomst till Media Services API.
 På sidan **API-åtkomst** kan du välja den autentiseringsmetod som du vill använda för att ansluta till API: et. Sidan innehåller också de värden som du behöver för att ansluta till API: et.
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt Media Services-konto.
-2. Välj hur du vill ansluta till Media Services API.
+2. Välj bladet **API-åtkomst (nytt)** i det vänstra navigerings fältet.
 3. Under **Anslut till Media Services-API**väljer du den Media Services API-version som du vill ansluta till (v3 är den senaste versionen av tjänsten).
 
 ### <a name="service-principal-authentication--recommended"></a>Autentisering av tjänstens huvud namn (rekommenderas)

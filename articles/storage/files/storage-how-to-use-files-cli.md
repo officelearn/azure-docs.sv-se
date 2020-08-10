@@ -1,6 +1,6 @@
 ---
 title: Snabbstart för hantering av Azure-filresurser med hjälp av Azure CLI
-description: I den här snabbstarten lär du dig hur du använder Azure CLI till att hantera Azure Files.
+description: I den här snabb starten får du lära dig hur du använder Azure CLI för att hantera Azure Files. Skapa en resurs grupp och ett lagrings konto och skapa och Använd sedan en Azure-filresurs.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
@@ -8,12 +8,12 @@ ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9d0bad982a12e3b96bdbe4f680f2501b33ec67
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 149481f9cae535fa53f94a876e1f52e813b3838b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495783"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034591"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Snabbstart: Skapa och hantera Azure-filresurser med hjälp av Azure CLI
 Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med hjälp av Azure CLI. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 

@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449128"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037039"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -39,7 +39,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
@@ -205,7 +205,23 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 > [!IMPORTANT]
 > Som standard skapar version 2. x och senare versioner av kärn verktygen Function app-projekt för .NET-körningen som [C#-klass projekt](functions-dotnet-class-library.md) (. CSPROJ). Dessa C#-projekt, som kan användas med Visual Studio eller Visual Studio Code, kompileras under testning och vid publicering till Azure. Om du i stället vill skapa och arbeta med samma C#-skript (. CSX) som skapats i version 1. x och i portalen måste du inkludera `--csx` parametern när du skapar och distribuerar funktioner.
 
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+## <a name="register-extensions"></a>Registrera tillägg
+
+Med undantag för HTTP-och timer-utlösare, är funktions bindningar i körnings version 2. x och högre implementerade som tilläggs paket. HTTP-bindningar och timer-utlösare kräver inte tillägg. 
+
+För att minska inkompatibilitet mellan de olika paketen med tillägg kan du referera till ett tilläggs paket i host.jsi projekt filen. Om du väljer att inte använda paket för tillägg måste du också installera .NET Core 2. x SDK lokalt och underhålla ett tillägg. CSPROJ med ditt Functions-projekt.  
+
+I version 2. x och senare av Azure Functions runtime måste du explicit registrera tilläggen för de bindnings typer som används i funktionerna. Du kan välja att installera bindnings tillägg individuellt, eller så kan du lägga till en tilläggs paket referens till host.jsi projekt filen. Paket för tillägg tar bort risken för problem med att paketera kompatibilitetsproblem när du använder flera bindnings typer. Det är den rekommenderade metoden för att registrera bindnings tillägg. Tilläggs paketen tar också bort kravet på att installera .NET Core 2. x SDK. 
+
+### <a name="use-extension-bundles"></a>Använda tilläggs paket
+
+[!INCLUDE [Register extensions](../../includes/functions-extension-bundles.md)]
+
+Läs mer i [registrera Azure Functions bindnings tillägg](functions-bindings-register.md#extension-bundles). Du bör lägga till paket för tillägg i host.jsinnan du lägger till bindningar i function.jsfilen.
+
+### <a name="explicitly-install-extensions"></a>Installera tillägg uttryckligen
+
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
@@ -512,7 +528,7 @@ Följande publicerings alternativ stöds bara för version 2. x och senare versi
 | **`--nozip`** | Stänger av standard `Run-From-Package` läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
 | **`--build`**, **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local` . |
-| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Exempel: `python3-dev libevent-dev`. |
+| **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C#-skript (. CSX)-projekt. |
 | **`--no-build`** | Projektet har inte skapats under publiceringen. För python `pip install` utförs inte. |

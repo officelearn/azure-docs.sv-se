@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: c562b8a82ef21e78eccad2c2ed6159251056f4fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24a214d63fd01fc4353be6563d18f9e28b820c6f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392700"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036529"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för databas motorn MySQL.
@@ -43,7 +43,7 @@ Vid den första distributionen innehåller en Azure för MySQL-server system tab
 - DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen. 
 - SUPER Privilege: liknande [superbehörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
 - Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
-
+- System databaser: i Azure Database for MySQL är [MySQL system-databasen](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html) skrivskyddad eftersom den används för att stödja olika PaaS-tjänst funktioner. Observera att du inte kan ändra något i `mysql` system-databasen.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
 

@@ -1,6 +1,6 @@
 ---
 title: Komma igång med Microsoft Azure Maps-kontrollen för webb kartan
-description: Lär dig hur du använder den Microsoft Azure Maps-kontrollen på klient sidans JavaScript-bibliotek för att återge kartor och inbäddade Azure Maps-funktioner i ditt webb-eller mobil program.
+description: Ta reda på hur du lägger till kartor i webb program och mobilappar med hjälp av Kartkontroll JavaScript-biblioteket för klient sidan i Azure Maps. Se så här lokaliserar du kartor.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 40ae1492084430f7dbca331d1439b4ded099c866
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e4309b3fdda1296aade19de2874e7f3423b9fc0f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287078"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035968"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Använda kartkontrollen i Azure Maps
 
 Med Kartkontroll på klient sidans JavaScript-bibliotek kan du återge kartor och inbäddade Azure Maps funktioner i ditt webb-eller mobil program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Kartkontroll på en webb sida måste du ha något av följande krav:
 
@@ -34,22 +34,22 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
 
 1. Skapa en ny HTML-fil.
 
-2. Läs in Azure Maps Web SDK. Du kan välja ett av två alternativ.
+2. Läs in Azure Maps Web SDK. Du kan välja ett av två alternativ:
 
     * Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till referenser till Java Script och StyleSheet i `<head>` HTML-filens element:
 
-        ```HTML
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-        ```
+      ```html
+      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+      <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+      ```
 
     * Läs in Azure Maps Web SDK-källkod lokalt med [Azure-Maps-Control NPM-](https://www.npmjs.com/package/azure-maps-control) paketet och var värd för den med din app. Det här paketet innehåller även TypeScript-definitioner.
 
-    > **NPM installera Azure-Maps-Control**
+      > **NPM installera Azure-Maps-Control**
 
     Lägg sedan till referenser till Azure Maps-formatmallen i `<head>` filens element:
 
-    ```HTML
+    ```html
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
      ```
 

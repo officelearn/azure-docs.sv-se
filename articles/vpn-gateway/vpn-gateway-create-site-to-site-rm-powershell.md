@@ -1,6 +1,6 @@
 ---
 title: 'Ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk: plats-till-plats-VPN: PowerShell'
-description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN Gateway med hjälp av PowerShell.
+description: Skapa en IPsec plats-till-plats-VPN Gateway anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via det offentliga Internet med PowerShell.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -8,19 +8,19 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: dd246e4e6a59637c720cbaddf1258b6e01f709b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2abbab0d6a0fd39b2adf0eade77d355c18b3cc03
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84986121"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036087"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Skapa ett VNet med en VPN-anslutning för plats-till-plats med hjälp av PowerShell
 
 Den här artikeln visar hur du kan använda PowerShell för att skapa en VPN-gatewayanslutning från plats till plats från ditt lokala nätverk till det virtuella nätverket. Anvisningarna i den här artikeln gäller för Resource Manager-distributionsmodellen. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -133,7 +133,7 @@ Använd stegen i det här avsnittet om du redan har ett virtuellt nätverk, men 
 
 Den lokala Nätverksgatewayen (LNG) refererar vanligt vis till din lokala plats. Den är inte samma som en virtuell nätverksgateway. Du namnger webbplatsen så att Azure kan referera till den och sedan anger du IP-adressen för den lokala VPN-enhet som du skapar en anslutning till. Du anger också IP-adressprefixen som ska dirigeras via VPN-gatewayen till VPN-enheten. Adressprefixen du anger är de prefix som finns på det lokala nätverket. Det är enkelt att uppdatera dessa prefix om det lokala nätverket ändras.
 
-Ange följande värden:
+Använd följande värden:
 
 * *GatewayIPAddress* är IP-adressen för din lokala VPN-enhet.
 * *AddressPrefix* är ditt lokala adressutrymme.
@@ -182,7 +182,7 @@ $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig1 -SubnetId $s
 
 Skapa den virtuella VPN-nätverksgatewayen.
 
-Ange följande värden:
+Använd följande värden:
 
 * *-GatewayType* för en plats-till-plats-konfiguration är *VPN*. Gateway-typen gäller alltid den konfiguration som du implementerar. Andra gateway-konfigurationer kan kräva -GatewayType ExpressRoute.
 * *-VpnType* kan vara *RouteBased* (kallas en dynamisk gateway i viss dokumentation) eller *PolicyBased* (kallas en statisk gateway i viss dokumentation). Mer information om VPN Gateway-typer finns i [Om VPN Gateway](vpn-gateway-about-vpngateways.md).

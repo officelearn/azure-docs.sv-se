@@ -1,19 +1,19 @@
 ---
 title: Felsök problem med Azure punkt-till-plats-anslutning
 titleSuffix: Azure VPN Gateway
-description: Lär dig hur du felsöker vanliga problem med punkt-till-plats-anslutning som du kan uppleva i Azure, inklusive olika VPN-klient fel.
+description: Lär dig att felsöka och lösa vanliga problem med punkt-till-plats-anslutning och andra problem och problem med virtuella privata nätverk.
 services: vpn-gateway
 author: chadmath
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: genli
-ms.openlocfilehash: 8fd32cb99db115484c913e1a0f00b038b62367e9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: dbf0d096827ec1af16e6d38d405709e48175ae89
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920661"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035961"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Fel sökning: problem med Azure punkt-till-plats-anslutning
 
@@ -71,7 +71,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
 
 1. Installera uppdateringen.
 
-   | OS-version | Date | Antal/länk |
+   | OS-version | Datum | Antal/länk |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10, version 1607 | 17 januari 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10, version 1703 | 17 januari 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |

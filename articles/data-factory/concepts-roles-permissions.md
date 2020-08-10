@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 923b3fbb617f46ba0551f6b21c384331559da2f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40fa6bce67aa6c5643e4a153da610dce65907b56
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263262"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036359"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -26,17 +26,17 @@ Den här artikeln beskriver de roller som krävs för att skapa och hantera Azur
 
 ## <a name="roles-and-requirements"></a>Roller och krav
 
-Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna *deltagare* eller *ägare*, eller vara *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. 
+För att skapa Data Factory-instanser måste det användar konto som du använder för att logga in på Azure vara medlem i rollen *deltagare* , *ägar* rollen eller en *administratör* för Azure-prenumerationen. Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och väljer sedan **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. 
 
 För att skapa och hantera underordnade resurser för Data Factory – inklusive datauppsättningar, länkade tjänster, pipelines, utlösare och integreringskörningar – gäller följande krav:
-- För att kunna skapa och hantera underordnade resurser i Azure-portalen måste du tillhöra rollen **Data Factory-deltagare** på resursgruppsnivå eller högre.
+- Om du vill skapa och hantera underordnade resurser i Azure Portal måste du tillhöra rollen **Data Factory Contributor** på **resurs grupps** nivå eller högre.
 - För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare** på resursnivå eller högre.
 
 För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Konfigurera behörigheter
 
-När du har skapat en Data Factory kanske du vill låta andra användare arbeta med data fabriken. För att ge den här åtkomsten till andra användare måste du lägga till dem i den inbyggda **Data Factory deltagar** rollen i resurs gruppen som innehåller data fabriken.
+När du har skapat en Data Factory kanske du vill låta andra användare arbeta med data fabriken. För att ge den här åtkomsten till andra användare måste du lägga till dem i den inbyggda **Data Factory deltagar** rollen i **resurs gruppen** som innehåller data Factory.
 
 ### <a name="scope-of-the-data-factory-contributor-role"></a>Omfattningen av rollen Data Factory Contributor
 
@@ -50,7 +50,7 @@ Mer information om den här rollen finns i [Data Factory Contributor-rollen](../
 
 ### <a name="resource-manager-template-deployment"></a>Distribution av Resource Manager-mall
 
-Rollen **Data Factory Contributor** , på resurs grupps nivå eller över, låter användare distribuera Resource Manager-mallar. Till följd av detta kan medlemmar i rollen använda Resource Manager-mallar för att distribuera både data fabriker och deras underordnade resurser, inklusive data uppsättningar, länkade tjänster, pipelines, utlösare och integrerings körningar. Medlemskap i den här rollen låter inte användaren skapa andra resurser, men.
+Rollen **Data Factory Contributor** , på resurs grupps nivå eller över, låter användare distribuera Resource Manager-mallar. Till följd av detta kan medlemmar i rollen använda Resource Manager-mallar för att distribuera både data fabriker och deras underordnade resurser, inklusive data uppsättningar, länkade tjänster, pipelines, utlösare och integrerings körningar. Medlemskap i den här rollen låter inte användaren skapa andra resurser.
 
 Behörigheter för Azure databaser och GitHub är oberoende av Data Factory behörigheter. Därför kan en användare med lagrings platsen-behörigheter som bara är en medlem i rollen läsare redigera Data Factory underordnade resurser och genomföra ändringar i lagrings platsen, men inte publicera ändringarna.
 

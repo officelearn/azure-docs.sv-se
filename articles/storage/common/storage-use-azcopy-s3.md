@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy | Microsoft Docs
-description: Överföra data med AzCopy och Amazon S3-buckets
+description: Använd AzCopy för att kopiera data från Amazon S3 till Azure Storage. AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar eller filer till eller från ett lagringskonto.
 services: storage
 author: normesta
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281896"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037124"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy
 
@@ -34,7 +34,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta A
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> Till exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>Auktorisera med AWS S3
 

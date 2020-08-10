@@ -3,12 +3,12 @@ title: Priser för Azure Backup
 description: Lär dig hur du beräknar kostnader för budgetering Azure Backup prissättning.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391119"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035764"
 ---
 # <a name="azure-backup-pricing"></a>Priser för Azure Backup
 
@@ -58,7 +58,7 @@ För att beräkna kostnaderna för att säkerhetskopiera virtuella Azure-datorer
 
   - Hur lång tid kommer du att behålla "omedelbar Restore-ögonblicksbilder"? (1-5 dagar)
 
-    - Med det här alternativet kan du återställa från så långt tillbaka till sju dagar på ett snabbt sätt med hjälp av ögonblicks bilder som lagras på diskar
+    - Med det här alternativet kan du återställa från så långt tillbaka till sju dagar på ett snabbt sätt med hjälp av ögonblicks bilder som lagras på diskar.
 
 - **Valfri** – selektiv säkerhets kopiering av disk
 
@@ -129,6 +129,7 @@ För att beräkna kostnaderna för att säkerhetskopiera SAP HANA servrar som k�
 - Total storlek för de SAP HANA-databaser som du försöker säkerhetskopiera. Detta bör vara summan av den fullständiga säkerhets kopierings storleken för varje databas, som rapporteras av SAP HANA.
 - Antal SAP HANA-servrar med ovanstående storlek
 - Vilken är den förväntade storleken på logg säkerhets kopior?
+  
   - Den genomsnittliga logg storleken per dag i procent är en% av den totala storleken på SAP HANA databaser som du säkerhetskopierar på SAP HANA-servern
 - Vad är den förväntade mängden daglig data omsättning på dessa servrar?
   - Den genomsnittliga omsättnings storleken per dag i procent är en% av den totala storleken på SAP HANA databaser som du säkerhetskopierar på SAP HANA-servern
@@ -144,10 +145,38 @@ För att beräkna kostnaderna för att säkerhetskopiera SAP HANA servrar som k�
   - Hur länge förväntar du dig att behålla "månatliga" säkerhets kopior? (i månader)
   - Hur lång tid förväntar du dig att spara "årliga" säkerhets kopior? (i år)
 - **Valfritt** – redundans för lagring av säkerhets kopior
+  
   - Detta anger redundansen för lagrings kontot som dina säkerhets kopierings data hamnar i. Vi rekommenderar att du använder **GRS** för högsta tillgänglighet. Eftersom det säkerställer att en kopia av dina säkerhetskopierade data behålls i en annan region, hjälper det dig att uppfylla flera krav för efterlevnad. Ändra redundansen till **LRS** om du säkerhetskopierar utvecklings-eller test miljöer som inte behöver en säkerhets kopia på företags nivå.
 - **Valfritt** – ändra regional prissättning eller Använd rabatterade kostnader
+  
   - Om du vill kontrol lera dina uppskattningar för en annan region eller rabatterad taxa väljer du **Ja** för alternativet **testa uppskattningar för en annan region?** och anger de priser som du vill köra uppskattningarna med.
+  
+## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Beräkna kostnader för säkerhets kopiering av Azure-filresurser
+
+För att beräkna kostnaderna för att säkerhetskopiera Azure-filresurser med den [ögonblicks bildbaserade säkerhets kopierings lösningen](azure-file-share-backup-overview.md) som erbjuds av Azure Backup behöver du följande parametrar:
+
+- Storlek (**i GB**) för de fil resurser som du vill säkerhetskopiera.
+
+- Om du vill säkerhetskopiera fil resurser uppslag över flera lagrings konton anger du antalet lagrings konton som är värd för fil resurserna med ovanstående storlek.
+
+- Förväntad mängd data omsättning på de fil resurser som du vill säkerhetskopiera. <br>Omsättning syftar på mängden ändring i data och det påverkar direkt storleken för ögonblicks bild lagringen. Om du till exempel har en fil resurs med 200 GB data som ska säkerhets kopie ras och 10 GB IT-ändringar varje dag, är den dagliga omsättningen 5%.
+  - Högre omsättning innebär att mängden data som ändras i fil resurs innehållet varje dag är hög och att den stegvisa ögonblicks bilden (endast fångar data ändringar) också skulle vara mer.
+  - Välj låg (1%), måttlig (3%) eller hög (5%) baserat på din fil resurs egenskaper och användning.
+  - Om du känner till den exakta **omsättningen%** för din fil resurs kan du välja alternativet **Ange ditt eget%** i list rutan. Ange värdena (i%) för varje dag, varje vecka, varje månad och per år omsättning.
+
+- Typ av lagrings konto (standard eller Premium) och inställningen lagrings redundans för det lagrings konto som är värd för den säkerhetskopierade fil resursen. <br>I den aktuella säkerhets kopierings lösningen för Azure-filresurser lagras ögonblicks bilder i samma lagrings konto som den säkerhetskopierade fil resursen. Lagrings kostnaden som är kopplad till ögonblicks bilder faktureras som en del av dina Azure Files-fakturor, baserat på priserna för ögonblicks bilder för konto typen och redundans inställningen för det lagrings konto som är värd för den säkerhetskopierade fil resursen och ögonblicks bilderna.
+
+- Kvarhållning för olika säkerhets kopior
+  - Hur länge förväntar du dig att behålla "dagliga" säkerhets kopieringar? (i dagar)
+  - Hur länge förväntar du dig att behålla "veckovis" säkerhets kopieringar? (i veckor)
+  - Hur länge förväntar du dig att behålla "månatliga" säkerhets kopior? (i månader)
+  - Hur lång tid förväntar du dig att spara "årliga" säkerhets kopior? (i år)
+
+  Läs [support matrisen för Azure-filresursen](azure-file-share-support-matrix.md#retention-limits) om du vill ha maximalt antal tillåtna kvarhållning värden i varje kategori.
+
+- **Valfritt** – ändra regional prissättning eller Använd rabatterade kostnader.
+  - Standardvärdena som är inställda för kostnad för lagring av ögonblicks bilder per GB och skyddad instans kostnad i uppskattningen är för regionen USA, östra. Om du vill kontrol lera dina uppskattningar för en annan region eller rabatterad taxa väljer du **Ja** för alternativet **testa uppskattningar för en annan region?** och anger de priser som du vill köra uppskattningarna med.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Vad är tjänsten Azure Backup?](backup-overview.md)
+[Vad är Azure Backup-tjänsten?](backup-overview.md)

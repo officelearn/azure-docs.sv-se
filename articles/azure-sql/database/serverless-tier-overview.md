@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 7/9/2020
-ms.openlocfilehash: 38ca6528b77d9f36c84f5aacaa34a64d113b5978
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 8/7/2020
+ms.openlocfilehash: 518d3880a740de2cda4f01e362d8a5ef7865b361
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206934"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037311"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 | | **Serverlös databearbetning** | **Allokerad beräkning** |
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. | Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
-| **Prestanda hanterings ansträngning** |Lower|Högre|
+| **Prestanda hanterings ansträngning** |Lägre|Högre|
 |**Beräknings skalning**|Automatiskt|Manuell|
 |**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
 |**Fakturerings precision**|Per sekund|Per timme|
@@ -88,7 +88,7 @@ Minne för serverbaserade databaser frigörs oftare än för etablerade beräkni
 
 #### <a name="cache-reclamation"></a>Cache regenering
 
-Till skillnad från etablerade data bearbetnings databaser frigörs minne från SQL-cachen från en server lös databas när CPU eller aktiv cache-användning är låg.  Observera att användningen av aktiva cacheminnen kan vara hög beroende på användnings mönstret och förhindra minnes regenerering när processor användningen är låg.
+Till skillnad från etablerade data bearbetnings databaser frigörs minne från SQL-cachen från en server lös databas när CPU eller aktiv cache-användning är låg.
 
 - Användningen av aktiva cacheminnen anses låg när den totala storleken på de senast använda cacheposter unders tiger ett tröskelvärde under en viss tids period.
 - När cache regenering utlöses, minskas storleken på målets cachestorlek stegvis till en bråkdel av den tidigare storleken och återställningen fortsätter bara om användningen är låg.
@@ -96,6 +96,8 @@ Till skillnad från etablerade data bearbetnings databaser frigörs minne från 
 - Cachestorleken minskas aldrig under den minsta minnes gränsen som definieras av den minsta virtuella kärnor som kan konfigureras.
 
 I både server lösa och etablerade beräknings databaser kan cacheposter avlägsnas om allt tillgängligt minne används.
+
+Observera att användningen av aktiva cacheminnen kan vara hög beroende på användnings mönstret och förhindra minnes regenerering när processor användningen är låg.  Det kan också finnas ytterligare fördröjning efter att en användar aktivitet stoppas innan återtagning av minne sker på grund av regelbundna bakgrunds processer som svarar på tidigare användar aktiviteter.  Ta bort åtgärder genererar till exempel Ghost-poster som marker ATS för borttagning, men tas inte bort fysiskt förrän rensnings processen körs, vilket kan innebära att läsning av data sidor cachelagras.
 
 #### <a name="cache-hydration"></a>Cachelagra hydrering
 
@@ -129,7 +131,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |---|---|
 |Autentisering och auktorisering|Inloggning|
 |Hotidentifiering|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
-|Identifiering och klassificering av data|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
+|Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
 |Datamaskning|Lägga till, ändra, ta bort eller Visa regler för data maskering|
 |Transparent datakryptering|Visa status eller status för transparent data kryptering|

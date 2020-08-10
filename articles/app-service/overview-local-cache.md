@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: d1595354803b0625137dd1ac45d17962063ce4e0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562454"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034965"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -36,7 +36,7 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Hur den lokala cachen ändrar beteendet för App Service
 * _D:\home_ pekar på det lokala cacheminnet som skapas på den virtuella dator instansen när appen startas. _D:\Local_ fortsätter att peka på den temporära VM-angivna lagringen.
-* Den lokala cachen innehåller en engångs kopia av _/installation_ -och _/siteextensions_ -mapparna i det delade innehålls arkivet, på _D:\home\site_ respektive _D:\home\siteextensions_. Filerna kopieras till den lokala cachen när appen startar. Storleken på de två mapparna för varje app är begränsad till 1 GB som standard, men den kan ökas till 2 GB. Observera att om cachestorleken ökar, tar det längre tid att läsa in cacheminnet. Om de kopierade filerna överskrider storleken på den lokala cachen, ignorerar App Service i tysthet den lokala cachen och läser från fjär fil resursen.
+* Den lokala cachen innehåller en engångs kopia av _/installation_ -och _/siteextensions_ -mapparna i det delade innehålls arkivet, på _D:\home\site_ respektive _D:\home\siteextensions_. Filerna kopieras till den lokala cachen när appen startar. Storleken på de två mapparna för varje app är begränsad till 1 GB som standard, men den kan ökas till 2 GB. Observera att om cachestorleken ökar, tar det längre tid att läsa in cacheminnet. Om du har ökat gränsen för den lokala cachen till 2 GB och de kopierade filerna överskrider den maximala storleken på 2 GB, ignorerar App Service tyst den lokala cachen och läser från den fjärranslutna fil resursen. Om det inte finns någon gräns definierad eller om gränsen har angetts till något lägre än 2 GB och de kopierade filerna överskrider gränsen, kan distributionen eller växlingen Miss lyckas med ett fel.
 * Den lokala cachen har Läs-och Skriv behörighet. Alla ändringar tas dock bort när appen flyttar virtuella datorer eller startas om. Använd inte det lokala cacheminnet för appar som lagrar verksamhets kritiska data i innehålls lagringen.
 * _D:\home\LogFiles_ och _D:\home\Data_ innehåller loggfiler och appdata. De två undermapparna lagras lokalt på den virtuella dator instansen och kopieras till den delade innehålls lagringen med jämna mellanrum. Appar kan spara loggfiler och data genom att skriva dem till dessa mappar. Kopieringen till den delade innehålls lagringen är dock bästa möjliga, så det är möjligt att loggfiler och data går förlorade på grund av en plötslig krasch i en VM-instans.
 * [Logg strömning](troubleshoot-diagnostic-logs.md#stream-logs) påverkas av den bästa kopieringen. Du kan se en fördröjning på en minut i strömmarna loggar.
@@ -94,7 +94,7 @@ Vi rekommenderar att du använder lokal cache tillsammans med funktionen för [m
 * När du är klar utfärdar du en [växlings åtgärd](../app-service/deploy-staging-slots.md#Swap) mellan dina mellanlagrings-och produktions platser.  
 * Tröga inställningar är namn och fästis till en plats. Så när mellanlagringsplatsen har växlats till produktion, ärver den de lokala cache-apparna. Den nyligen utbytta produktions platsen kommer att köras mot den lokala cachen efter några minuter och kommer att värmas upp som en del av plats uppvärmnings efter växling. När plats växlingen är klar körs din produktions plats mot det lokala cacheminnet.
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Hur kan jag se om det lokala cacheminnet gäller för min app?
 Om din app behöver ett högpresterande, tillförlitligt innehålls lager, använder inte innehålls lagringen för att skriva kritiska data vid körning och är mindre än 2 GB i Total storlek, och svaret är "Ja"! Om du vill få Total storlek på dina/installation-och/siteextensions-mappar kan du använda webbplats tillägget "Azure Web Apps disk Usage".

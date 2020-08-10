@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 072beb4f6bd8f823b150a6e81f4308bdd6b29402
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0d1845c06c1f0373ffd4be43c104889a7327c3ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852250"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035781"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 |---|---|
 |**SDK-hämtning**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
 |**API-dokumentation** | [Referens dokumentation för Java API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
-|**Bidra till SDK** | [Azure SDK för Java Central lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
+|**Bidra till SDK** | [Azure SDK för Java Central lagrings platsen på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos) | 
 |**Komma igång** | [Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) <br> [GitHub lagrings platsen med snabb starts kod](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Grundläggande kod exempel** | [Azure Cosmos DB: Java-exempel för SQL API](sql-api-java-sdk-samples.md) <br> [GitHub lagrings platsen med exempel kod](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
 |**Konsol program med ändrings flöde**| [Ändra feed-Java SDK v4-exempel](create-sql-api-java-changefeed.md) <br> [GitHub lagrings platsen med exempel kod](https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example)| 
@@ -175,7 +175,7 @@ Azure Cosmos DB Java SDK v4 for Core (SQL) kombinerar ett asynkront API och ett 
 * `ChangeFeedProcessor`fel korrigering vid synkronisering av låne uppdateringar mellan olika trådar.
 * Fast konkurrens tillstånd `ArrayIndexOutOfBound` som orsakar undantag i StoreReader
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Nästa steg

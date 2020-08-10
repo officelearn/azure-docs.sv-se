@@ -1,6 +1,6 @@
 ---
 title: Välj rätt pris nivå för Microsoft Azure Maps
-description: I den här artikeln får du lära dig om pris nivåer som erbjuds av Microsoft Azure Maps.
+description: Läs mer om pris nivåer för Azure Maps. Se vilka funktioner som erbjuds på vilka nivåer och se viktiga överväganden för att välja en pris nivå.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/27/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 359c2270f3de269adae13ce976cedeb4248935d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30507b289a0ae4f831c8bcf4e038049301da7981
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285772"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036784"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välj rätt pris nivå i Azure Maps
 
@@ -29,11 +29,11 @@ Om de grundläggande geospatiala API: erna uppfyller tjänst kraven väljer du p
 
 ### <a name="pricing-tier-capabilities"></a>Pris nivå funktioner
 
-| Funktion                              |        S0           |  S1      |
+| Kapacitet                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
 | Mappa åter givning                              | ✓                   | ✓       |
 | Satellit bilder                       |                     | ✓        |
-| Search                                  | ✓                    | ✓        |
+| Sök                                  | ✓                    | ✓        |
 | Batch-sökning                            |                     | ✓        |
 | Väg                                   | ✓                    |✓        |
 | Batchbearbetning                            |                    | ✓        |

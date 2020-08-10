@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 657c41fbcda30ffb5af4c5a27d58ef17c02a46bc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798264"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036648"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Skapa ett erbjudande för Dynamics 365 for Operations
 
@@ -136,7 +136,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 9. Skärm bilder/videor
 10. Beskrivning
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -186,25 +186,25 @@ Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, til
 
 I det här avsnittet kan du ange logo typer och avbildningar som ska användas när du visar ditt erbjudande för kunden. Alla bilder måste vara i PNG-format.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
-
-Båda logo typ storlekarna krävs för användning på olika platser i listan:
+Ange ditt erbjudandes logo typ i två pixel storlekar:
 
 - **Liten** (48 x 48)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+- **Stor** (216 x 216)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 

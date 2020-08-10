@@ -1,17 +1,17 @@
 ---
 title: Vad är Azure Cosmos DB Analytical Store (för hands version)?
 description: Lär dig mer om Azure Cosmos DB transaktionell (rad-och kolumnbaserade) och analys (kolumnbaserade). Fördelar med analytisk lagring, prestanda påverkan för storskaliga arbets belastningar och automatisk synkronisering av data från transaktions lagring till analytisk lagring
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116034"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037107"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -94,7 +94,7 @@ Ett väldefinierat schema för analys definieras med följande överväganden:
 
   * Ett objekt med 201 egenskaper på den översta nivån har inte ett väldefinierat schema.
 
-  * Ett objekt med fler än fem kapslade nivåer i schemat har inte heller ett väldefinierat schema. Till exempel, `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+  * Ett objekt med fler än fem kapslade nivåer i schemat har inte heller ett väldefinierat schema. Till exempel `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
 
 * Egenskaps namn är unika när de jämförs i ett skift läges okänsligt sätt
 

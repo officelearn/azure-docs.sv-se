@@ -1,6 +1,6 @@
 ---
 title: 'BGP och Azure VPN Gateway: översikt'
-description: Lär dig mer om Azure VPN Gateway stöder Border Gateway Protocol, standard Dirigerings protokollet som används för att utbyta routnings-och tillgänglighets information.
+description: Lär dig mer om Border Gateway Protocol (BGP) i Azure VPN, standard-Internet protokollet för att utbyta Routning och tillgänglighets information mellan nätverk.
 services: vpn-gateway
 author: yushwang
 manager: rossort
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: yushwang
-ms.openlocfilehash: f514c2708c3a81ff56c6029d5e43df43ad503036
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 368532eb05ade95a979029871733e057cbdcd6d6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924707"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035560"
 ---
 # <a name="about-bgp-with-azure-vpn-gateway"></a>Om BGP med Azure VPN Gateway
 Den här artikeln innehåller en översikt över BGP (Border Gateway Protocol)-stöd i Azure VPN Gateway.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/21/2020
+ms.date: 08/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8fa775ab4d183d75fef41529a95555fe3bcdc91c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827851"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034472"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -55,7 +55,9 @@ Med ZRS är dina data fortfarande tillgängliga för både Läs-och skriv åtgä
 
 En Skriv förfrågan till ett lagrings konto som använder ZRS sker synkront. Skriv åtgärden returneras bara efter att data har skrivits till alla repliker i de tre tillgänglighets zonerna.
 
-Microsoft rekommenderar att du använder ZRS i den primära regionen för scenarier som kräver konsekvens, hållbarhet och hög tillgänglighet. ZRS tillhandahåller utmärkta prestanda, låg latens och återhämtning för dina data om de blir tillfälligt otillgängliga. Men ZRS i sig kanske inte skyddar dina data mot en regional katastrof där flera zoner ständigt påverkas. För skydd mot regionala katastrofer rekommenderar Microsoft att använda [geo-Zone-redundant lagring](#geo-zone-redundant-storage) (GZRS), som använder ZRS i den primära regionen och även geo-replikerar dina data till en sekundär region.
+Microsoft rekommenderar att du använder ZRS i den primära regionen för scenarier som kräver konsekvens, hållbarhet och hög tillgänglighet. Vi rekommenderar också att du använder ZRS om du vill begränsa ett program till att bara replikera data inom ett land eller en region på grund av data styrnings krav.
+
+ZRS tillhandahåller utmärkta prestanda, låg latens och återhämtning för dina data om de blir tillfälligt otillgängliga. Men ZRS i sig kanske inte skyddar dina data mot en regional katastrof där flera zoner ständigt påverkas. För skydd mot regionala katastrofer rekommenderar Microsoft att använda [geo-Zone-redundant lagring](#geo-zone-redundant-storage) (GZRS), som använder ZRS i den primära regionen och även geo-replikerar dina data till en sekundär region.
 
 Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka regioner:
 
@@ -164,9 +166,9 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | En nod i ett Data Center blir otillgänglig | Ja | Ja | Ja | Ja |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Nej | Ja | Ja<sup>1</sup> | Ja |
-| Ett områdes omfattande avbrott uppstår i den primära regionen | Nej | Nej | Ja<sup>1</sup> | Ja<sup>1</sup> |
-| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Nej | Nej | Ja (med RA-GRS) | Ja (med RA-GZRS) |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Inga | Ja | Ja<sup>1</sup> | Yes |
+| Ett områdes omfattande avbrott uppstår i den primära regionen | Inga | Inga | Ja<sup>1</sup> | Ja<sup>1</sup> |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga | Inga | Ja (med RA-GRS) | Ja (med RA-GZRS) |
 
 <sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 

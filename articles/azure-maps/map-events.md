@@ -1,6 +1,6 @@
 ---
 title: Hantera kart händelser | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du skapar en interaktiv Web SDK-mappning med kart händelser med hjälp av Microsoft Azure Maps-webbsdk.
+description: Lär dig vilka händelser som utlöses när användarna interagerar med Maps. Visa en lista över alla mappnings händelser som stöds. Se hur du använder Azure Maps Web SDK för att hantera händelser.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 667ab684ef4a453d210af36c0221d350b25c9829
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282899"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036450"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
 

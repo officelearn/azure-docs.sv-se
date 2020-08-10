@@ -5,21 +5,21 @@ keywords: lokal inloggning för Azure Key-valv-autentisering
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 06/30/2020
+ms.date: 08/08/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 6edb6f026f3062dfb2beafd863cf090519f6b66a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d48e9ac71ba12ecd2eaadb8ba333f5440c68af4b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875991"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034795"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
 > [!NOTE]
-> **Microsoft. Azure. Services. AppAuthentication** rekommenderas inte längre att använda med New Key Vault SDK. Den ersätts av wit nya **DefaultAzureCredentials** för Azure Identity Library som är tillgängliga för .net, Java, typescript och python och som ska användas för all ny utveckling. Mer information hittar du här: [autentisering och Azure SDK](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
+> **Microsoft. Azure. Services. AppAuthentication** rekommenderas inte längre att använda med New Key Vault SDK. Den ersätts av wit nya **DefaultAzureCredentials** för Azure Identity Library som är tillgängliga för .net, Java, typescript och python och som ska användas för all ny utveckling. Mer information hittar du här: [autentisering och Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
 
 För att kunna autentisera till Azure Key Vault behöver du en Azure Active Directory (Azure AD)-autentiseringsuppgift, antingen en delad hemlighet eller ett certifikat.
 

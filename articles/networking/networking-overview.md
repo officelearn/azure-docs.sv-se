@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Networking Services
-description: Lär dig om nätverks tjänster i Azure, inklusive anslutnings tjänster, program skydds tjänster, program leverans tjänster och nätverks övervakning.
+description: Lär dig om nätverks tjänster i Azure, inklusive anslutning, program skydd, program leverans och tjänster för nätverks övervakning.
 services: networking
 documentationcenter: na
 author: KumudD
@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 5b32f6b368af62bad13a505472a9ddd4709c032c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1110199a8c02b29d70f0c12e1ed1a6341c44e403
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282168"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037260"
 ---
 # <a name="azure-networking-services-overview"></a>Översikt över Azure Networking Services
 
@@ -34,7 +34,7 @@ I det här avsnittet beskrivs tjänster som ger anslutning mellan Azure-resurser
 |[Virtuellt nätverk](#vnet)|Gör det möjligt för Azure-resurser att kommunicera på ett säkert sätt med varandra, Internet och lokala nätverk.| <p>[Filtrering av nätverkstrafik](../virtual-network/tutorial-filter-network-traffic.md)</p> <p>[Dirigering av nätverkstrafik](../virtual-network/tutorial-create-route-table-portal.md)</p> <p>[Begränsa nätverksåtkomst till resurser](../virtual-network/tutorial-restrict-network-access-to-resources.md)</p> <p>[Anslutning till virtuella nätverk](../virtual-network/tutorial-connect-virtual-networks-portal.md)</p>|
 |[ExpressRoute](#expressroute)|Utökar dina lokala nätverk till Microsoft-molnet via en privat anslutning som under lättas av en anslutnings leverantör.|<p>[Skapa och ändra en ExpressRoute-krets](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)</p> <p>[Skapa och ändra peering för en ExpressRoute-krets](../expressroute/expressroute-howto-routing-portal-resource-manager.md)</p> <p>[Länka ett VNet till en ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)</p> <p>[Konfigurera och hantera väg filter för ExpressRoute-kretsar](../expressroute/how-to-routefilter-portal.md)</p>|
 |[VPN Gateway](#vpngateway)|Skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.|<p>[Plats-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)</p> <p>[Anslutningar mellan virtuella nätverk](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)</p> <p>[Punkt-till-plats-anslutningar](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)</p>|
-|[Virtuellt WAN](#virtualwan)|Optimerar och automatiserar gren anslutningen till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar till.|<p>[Plats-till-plats-anslutningar](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-anslutningar](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
+|[Virtual WAN](#virtualwan)|Optimerar och automatiserar gren anslutningen till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar till.|<p>[Plats-till-plats-anslutningar](../virtual-wan/virtual-wan-site-to-site-portal.md), [ExpressRoute-anslutningar](../virtual-wan/virtual-wan-expressroute-portal.md)</p>|
 |[Azure DNS](#dns)|Är värd för DNS-domäner som tillhandahåller namn matchning med hjälp av Microsoft Azure-infrastrukturen.|<p>[Använd Azure DNS som värd för din domän](../dns/dns-delegate-domain-azure-dns.md)</p><p>[Skapa DNS-poster för en webbapp](../dns/dns-web-sites-custom-domain.md)</p> <p>[Skapa en aliasresurspost för Traffic Manager](../dns/tutorial-alias-tm.md)</p> <p>[Skapa en aliasresurspost för offentlig IP-adress](../dns/tutorial-alias-pip.md)</p> <p>[Skapa en aliasresurspost för zon resurs posten](../dns/tutorial-alias-rr.md)</p>|
 |[Azure Bastion](#bastion)|Konfigurera säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure Portal via TLS. När du ansluter via Azure skydds behöver inte dina virtuella datorer en offentlig IP-adress|<p>[Skapa en Azure Bastion-värd](../bastion/bastion-create-host-portal.md)</p><p>[Ansluta med SSH till en virtuell Linux-dator](../bastion/bastion-connect-vm-ssh.md)</p><p>[Ansluta via RDP till en virtuell Windows-dator](../bastion/bastion-connect-vm-rdp.md)</p>|
 |[NAT-gateway för virtuellt nätverk](#nat)|Skapa en NAT-gateway för att tillhandahålla utgående anslutning för en virtuell dator.|<p>[Skapa en NAT-gateway](../virtual-network/quickstart-create-nat-gateway-portal.md)</p>|
@@ -65,7 +65,7 @@ Följande diagram illustrerar flera plats-till-plats-VPN-anslutningar till samma
 
 Mer information om olika typer av VPN-anslutningar finns [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtuellt WAN
+### <a name="virtual-wan"></a><a name="virtualwan"></a>Virtual WAN
 Azure Virtual WAN är en nätverks tjänst som tillhandahåller optimerad och automatiserad gren anslutning till och via Azure. Azure-regioner fungerar som hubbar som du kan välja att ansluta dina grenar till. Du kan använda Azures stamnät för att även ansluta grenar och dra nytta av anslutningar från förgrening till VNet. Azure Virtual WAN ger tillsammans många Azure-tjänster för moln anslutning, till exempel VPN för plats till plats, ExpressRoute, punkt-till-plats-VPN för användare i ett enda drift gränssnitt. Anslutning till Azure-virtuella nätverk upprättas med hjälp av virtuella nätverks anslutningar. Mer information finns i [Vad är Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md).
 
 ![Virtual WAN-diagram](./media/networking-overview/virtualwan1.png)
@@ -144,7 +144,7 @@ I det här avsnittet beskrivs nätverks tjänster i Azure som hjälper dig att l
 |[Content Delivery Network](#cdn)|Levererar innehåll med hög bandbredd till användare. CDN lagrar cachelagrat innehåll på gräns servrar i lager platser som ligger nära slutanvändare, för att minimera svars tiden|<p>[Lägg till CDN i en webbapp](../cdn/cdn-add-to-web-app.md)</p> <p>[-Åtkomst till Storage-blobbar med en Azure CDN anpassad domän över HTTPS](..//cdn/cdn-storage-custom-domain-https.md)</p> <p>[Lägga till en anpassad domän i din Azure CDN-slutpunkt](../cdn/cdn-map-content-to-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Azure CDN-domän](../cdn/cdn-custom-ssl.md?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate)</p>|
 |[Azure Front Door Service](#frontdoor)|Med kan du definiera, hantera och övervaka den globala routningen för din webb trafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet.|<p>[Lägga till en anpassad domän i din Azure Front Door Service](../frontdoor/front-door-custom-domain.md)</p> <p>[Konfigurera HTTPS på en anpassad Front Door-domän](../frontdoor/front-door-custom-domain-https.md)</p><p>[Konfigurera geo-filtrering av brand Väggs princip för webb program](../frontdoor/front-door-tutorial-geo-filtering.md)|
 |[Traffic Manager](#trafficmanager)|Distribuerar trafik baserat på DNS till tjänster i globala Azure-regioner och ger hög tillgänglighet och svars tid|<p> [Dirigera trafik för låg latens](../traffic-manager/tutorial-traffic-manager-improve-website-response.md)</p><p>[Dirigera trafik till en slutpunkt för prioritet](../traffic-manager/traffic-manager-configure-priority-routing-method.md)</p><p> [Styra trafiken med viktade slutpunkter](../traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing.md)</p><p>[Dirigera trafik baserat på slut punktens geografiska plats](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)</p> <p> [Dirigera trafik utifrån användarens undernät](../traffic-manager/tutorial-traffic-manager-subnet-routing.md)</p>|
-|[Lastbalanserare](#loadbalancer)|Tillhandahåller regional belastnings utjämning genom att dirigera trafik mellan tillgänglighets zoner och till din virtuella nätverk. Tillhandahåller intern belastnings utjämning genom att dirigera trafik mellan och mellan dina resurser för att bygga ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Port vidarebefordra trafik till en angiven port på vissa virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera belastnings utjämning och utgående regler](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
+|[Load Balancer](#loadbalancer)|Tillhandahåller regional belastnings utjämning genom att dirigera trafik mellan tillgänglighets zoner och till din virtuella nätverk. Tillhandahåller intern belastnings utjämning genom att dirigera trafik mellan och mellan dina resurser för att bygga ditt regionala program.|<p> [Belastningsutjämna Internettrafik till virtuella datorer](../load-balancer/tutorial-load-balancer-standard-manage-portal.md)</p> <p>[Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk](../load-balancer/tutorial-load-balancer-standard-internal-portal.md)<p>[Port vidarebefordra trafik till en angiven port på vissa virtuella datorer](../load-balancer/tutorial-load-balancer-port-forwarding-portal.md)</p><p> [Konfigurera belastnings utjämning och utgående regler](../load-balancer/configure-load-balancer-outbound-cli.md)</p>|
 |[Application Gateway](#applicationgateway)|Azure Application Gateway är en lastbalanserare för webbtrafik som gör det möjligt för dig att hantera trafik till dina webbappar.|<p>[Dirigera webbtrafik med Azure Application Gateway](../application-gateway/quick-create-portal.md)</p><p>[Självstudie: Konfigurera en Programgateway med TLS-avslutning med hjälp av Azure Portal](../application-gateway/create-ssl-portal.md)</p><p>[Skapa en programgateway med webbadressbaserad omdirigering](../application-gateway/create-url-route-portal.md) </p>|
 |
 
@@ -167,7 +167,7 @@ Följande diagram visar den slut punkts prioritetbaserade routningen med Traffic
 
 Mer information om Traffic Manager finns i [Vad är Azure Traffic Manager?](../traffic-manager/traffic-manager-overview.md)
 
-### <a name="load-balancer"></a><a name="loadbalancer"></a>Lastbalanserare
+### <a name="load-balancer"></a><a name="loadbalancer"></a>Load Balancer
 Azure Load Balancer ger hög prestanda, låg latens Layer 4-belastnings utjämning för alla UDP-och TCP-protokoll. Den hanterar inkommande och utgående anslutningar. Du kan konfigurera offentliga och interna belastningsutjämnade slut punkter. Du kan definiera regler för att mappa inkommande anslutningar till backend-platser genom att använda TCP-och HTTP-hälsohälso-/Bing-alternativ för att hantera tjänstens tillgänglighet. Läs mer om Load Balancer i artikeln [Load Balancer översikt](../load-balancer/load-balancer-overview.md) .
 
 Följande bild visar ett Internet-riktat program på flera nivåer som använder både externa och interna belastningsutjämnare:

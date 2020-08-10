@@ -1,6 +1,6 @@
 ---
 title: Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
-description: Lär dig mer om VPN-och ExpressRoute-gatewayer i Azure-tillgänglighetszoner, att lägga till återhämtning, skalbarhet och högre tillgänglighet för VNet-gatewayer.
+description: Distribuera VPN-och ExpressRoute-gatewayer i Azure-tillgänglighetszoner för att få återhämtning, skalbarhet och högre tillgänglighet till virtuella nätverksgateway.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -9,12 +9,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a0a3d59477511ebf019e2c2019786788a92ad70
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 3aed75c26880ae2c3e31b412496655e5225b2edc
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922701"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035458"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner
 
@@ -63,7 +63,7 @@ När du skapar en offentlig IP-adress med hjälp av **standard** -offentliga IP-
 
 När du skapar en offentlig IP-adress med hjälp av den **grundläggande** offentliga IP-SKU: n distribueras gatewayen som en regional gateway och har ingen zon-redundans inbyggd i gatewayen.
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad kommer att ändras när jag distribuerar dessa nya SKU: er?
 

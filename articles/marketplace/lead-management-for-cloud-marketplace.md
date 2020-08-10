@@ -1,5 +1,5 @@
 ---
-title: Lead-hantering för kommersiell marknads plats | Azure Marketplace och AppSource
+title: Hantering av leads för den kommersiella marknads platsen | Azure Marketplace och AppSource
 description: En översikt över olika avsnitt om publicering av erbjudanden och tekniska artefakter till Azure Marketplace och AppSource
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 2abbef88ed7bac41b84eb06c8c0ec9c8a906b2f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119455"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035186"
 ---
-# <a name="lead-management-for-commercial-marketplace"></a>Lead-hantering för kommersiell marknads plats
+# <a name="lead-management-for-the-commercial-marketplace"></a>Lead-hantering för den kommersiella marknaden
 
 Kunderna är i mitten av en eventuell verksamhet. I transformeringen av dagens produkt förvärv måste marknads förare fokusera på att ansluta till kunder direkt och skapa en relation. Detta är anledningen till att generera högkvalitativa leads är ett viktigt verktyg för din sälj cykel. När du har angett ditt erbjudande i [partner Center](https://partner.microsoft.com/), finns det verktyg som har Aktiver ATS för att du ska få kontakt information via programmering direkt efter att en kund uttrycker intresse eller distribuerar produkten på Marketplace. 
 

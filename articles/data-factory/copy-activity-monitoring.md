@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249728"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036376"
 ---
 # <a name="monitor-copy-activity"></a>Övervaka kopieringsaktivitet
 
@@ -56,6 +56,8 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | dataWritten | Den faktiska monteringen av skrivna data som skrivs/allokeras till mottagaren. Storleken kan skilja sig från `dataRead` storlek, eftersom den relaterar hur varje data lager lagrar data. | Int64-värde, i byte |
 | filesRead | Antalet filer som lästs från filbaserad källa. | Int64-värde (ingen enhet) |
 | filesWritten | Antalet filer som skrivits/allokerats till filbaserad mottagare. | Int64-värde (ingen enhet) |
+| filesSkipped | Antalet filer som hoppades över från den filbaserade källan. | Int64-värde (ingen enhet) |
+| dataConsistencyVerification | Information om verifiering av data konsekvens där du kan se om dina kopierade data har verifierats för att vara konsekventa mellan käll-och mål lagret. Läs mer i [den här artikeln](copy-activity-data-consistency.md#monitoring). | Matris |
 | sourcePeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till käll data lagret under kopierings aktivitets körningen. | Int64-värde (ingen enhet) |
 | sinkPeakConnections | Det högsta antalet samtidiga anslutningar som upprättats till mottagar data lagret under kopierings aktiviteten. | Int64-värde (ingen enhet) |
 | rowsRead | Antalet rader som har lästs från källan. Måttet gäller inte när du kopierar filer som-är utan att parsa dem, till exempel när data uppsättningarna källa och mottagare är binärformat, eller annan format typ med identiska inställningar. | Int64-värde (ingen enhet) |
@@ -71,9 +73,11 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | effectiveIntegrationRuntime | Integrerings körningen (IR) eller körningar som används för att starta aktivitets körningen i formatet `<IR name> (<region if it's Azure IR>)` . | Text (sträng) |
 | usedDataIntegrationUnits | De effektiva enheterna för data integrering under kopiering. | Int32-värde |
 | usedParallelCopies | Det effektiva parallelCopies under kopieringen. | Int32-värde |
-| redirectRowPath | Sökväg till loggen över inkompatibla rader i blob-lagringen som du konfigurerar i `redirectIncompatibleRowSettings` egenskapen. Se [fel tolerans](copy-activity-overview.md#fault-tolerance). | Text (sträng) |
+| logPath | Sökväg till sessionen över överhoppade data i blob-lagringen. Se [fel tolerans](copy-activity-overview.md#fault-tolerance). | Text (sträng) |
 | executionDetails | Mer information om de steg som kopierings aktiviteten går igenom och motsvarande steg, varaktigheter, konfigurationer och så vidare. Vi rekommenderar inte att du analyserar det här avsnittet eftersom det kan ändras. För att bättre förstå hur det hjälper dig att förstå och felsöka kopierings prestanda, se avsnittet [övervaka visuellt](#monitor-visually) objekt. | Matris |
 | perfRecommendation | Kopiera optimerings tips för prestanda. Se [tips för prestanda justering](copy-activity-performance-troubleshooting.md#performance-tuning-tips) för mer information. | Matris |
+| billingReference | Fakturerings förbrukningen för den aktuella körningen. Lär dig mer om att [övervaka förbrukningen på aktivitetens körnings nivå](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Objekt |
+| durationInQueue | Köns varaktighet i sekunder innan kopierings aktiviteten börjar köras. | Objekt |
 
 **Exempel:**
 
@@ -83,6 +87,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
     "dataWritten": 1180089300500,
     "filesRead": 110,
     "filesWritten": 110,
+    "filesSkipped": 0,
     "sourcePeakConnections": 640,
     "sinkPeakConnections": 1024,
     "copyDuration": 388,
@@ -92,6 +97,11 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
     "usedDataIntegrationUnits": 128,
     "billingReference": "{\"activityType\":\"DataMovement\",\"billableDuration\":[{\"Managed\":11.733333333333336}]}",
     "usedParallelCopies": 64,
+    "dataConsistencyVerification": 
+    { 
+        "VerificationResult": "Verified", 
+        "InconsistentData": "None" 
+    },
     "executionDetails": [
         {
             "source": {

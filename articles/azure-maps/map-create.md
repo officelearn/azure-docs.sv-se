@@ -1,6 +1,6 @@
 ---
 title: Skapa en karta med Azure Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du återger en karta på en webb sida med hjälp av Microsoft Azure Maps-webbsdk.
+description: Ta reda på hur du lägger till kartor på webb sidor med hjälp av Azure Maps Web SDK. Lär dig mer om alternativ för animering, format, kamera, tjänster och användar interaktioner.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 77eaa3e1f4390182ad210ae3aa2ce6a1427d8b0f
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 9566bcc329b4d148fe9454fe70b556a9010fc4ac
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551905"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036478"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -130,7 +130,7 @@ I följande kod skapar det första kod blocket en karta och anger kart formaten 
 
 ## <a name="request-transforms"></a>Begär transformeringar
 
-Ibland är det praktiskt att kunna ändra HTTP-begäranden som görs av kart kontrollen. Exempel:
+Ibland är det praktiskt att kunna ändra HTTP-begäranden som görs av kart kontrollen. Ett exempel:
 
 - Lägg till ytterligare rubriker i panel begär Anden. Detta görs ofta för lösenordsskyddade tjänster.
 - Ändra URL: er för att köra begär Anden via en proxy-tjänst.

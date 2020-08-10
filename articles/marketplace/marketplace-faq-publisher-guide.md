@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 93366bf963350bf9cbdbda15ec4070c21a1dc975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090152"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036580"
 ---
-# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
+# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
 Den här artikeln besvarar vanliga frågor om den kommersiella Marketplace.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-is-microsoft-commercial-marketplace"></a>Vad är Microsoft Commercial Marketplace?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknads plats?
 
 Den kommersiella marknads platsen ansluter affärs-och myndighets myndigheter med lösningar som skapats av våra partner. Våra partner skapar och hanterar erbjudanden i Partner Center och kunder kan upptäcka och köpa lösningar via produkt upplevelser, till exempel Microsoft AppSource, Azure Marketplace, åter försäljare i Cloud Solution Provider-programmet och våra sälj team via programmet för medfinansiering.
 
@@ -60,7 +60,7 @@ De sätt som kunder kan använda ditt kommersiella Marketplace-erbjudande beror 
 
 - För lösningar som du tillhandahåller automatiskt, oavsett om de är betalda, BYOL eller kostnads fri, uppmanas kunderna att *Skaffa det nu*.
 - Erbjudanden som stöder en testenhet (demo) begär att kunden ska *testa enheten*. 
-- SaaS (Software as a Service) erbjuder en utvärderings version utanför vår kommersiella marknads plats, till exempel en *kostnads fri utvärderings version*.
+- SaaS-erbjudanden (Software as a Service) tillhandahåller en utvärderings version utanför den kommersiella Marketplace- *versionen*.
 - Med enkla listor kan *kunden be om hjälp.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Hur gör jag för att skapa erbjudanden för den kommersiella marknads platsen?
@@ -77,7 +77,7 @@ Du kan också [ansluta till vårt aktiva community-forum](https://www.microsoftp
 
 ### <a name="what-analytics-are-available-to-my-organization-from-the-commercial-marketplace"></a>Vilka analyser är tillgängliga för min organisation från den kommersiella marknads platsen?
 
-Vi tillhandahåller rapportering om dina erbjudanden i vår kommersiella marknads plats. För att komma åt data på kunder, beställningar, lagra engagemang och mer, går du till [analys för den kommersiella Marketplace i Partner Center](partner-center-portal/analytics.md).
+Vi tillhandahåller rapportering om dina erbjudanden i den kommersiella marknads platsen. För att komma åt data på kunder, beställningar, lagra engagemang och mer, går du till [analys för den kommersiella Marketplace i Partner Center](partner-center-portal/analytics.md).
 
 ### <a name="what-is-microsofts-relationship-with-my-customers"></a>Vad är Microsofts relation med mina kunder?
 
@@ -124,7 +124,7 @@ För att kunna slutföra ett köp till ett mycket lågt pris, rekommenderar vi a
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Vad är leads från den kommersiella Marketplace och vad ska jag göra med dem?
 
-När kunderna använder dina erbjudanden på Microsoft AppSource och Azure Marketplace-butiker samlas information. När kunderna har visat tillräckligt mycket intresse skapas ett lead och en affärs möjlighet skickas till det system du önskar. Utgivare som har till gång till vår kommersiella Marketplace arbetar ofta med leads, utvecklar relationer och ger dig till gång till avtal.
+När kunderna använder dina erbjudanden på Microsoft AppSource och Azure Marketplace-butiker samlas information. När kunderna har visat tillräckligt mycket intresse skapas ett lead och en affärs möjlighet skickas till det system du önskar. Utgivare som har till gång till den kommersiella Marketplace arbetar ofta med leads, utvecklar relationer och ger dig intresse av att göra affärer.
 
 Mer information finns i [kund ledare från Marketplace-erbjudandet](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -285,7 +285,7 @@ Mer information finns i avsnittet om [betalnings trösklar, metoder och tids ram
 
 ### <a name="in-what-countriesregions-are-taxes-managed-on-my-behalf"></a>I vilka länder/regioner hanteras skatter åt mig?
 
-Kunder kan hitta lösningar från vår kommersiella marknads plats runtom i världen och vi hanterar skatter på många platser. 
+Kunder kan hitta lösningar från den kommersiella marknaden runtom i världen och vi hanterar skatter på många platser. 
 
 Om du vill granska den fullständiga listan över platser går du till [skatte information för kommersiella Marketplace-utgivare](partner-center-portal/tax-details-paid-transactions.md).
 
@@ -340,7 +340,7 @@ Information om Microsoft administrations Center finns i [hantera program prenume
 ### <a name="where-can-i-learn-about-azure-government-and-the-azure-government-marketplace"></a>Var kan jag läsa om Azure Government och Azure Government Marketplace?
 
 - [Azure Government](https://azure.microsoft.com/global-infrastructure/government)
-- [Säkerhetscenter](https://www.microsoft.com/trust-center)
+- [Microsoft Säkerhetscenter](https://www.microsoft.com/trust-center)
 - [Dokumentation om Azure Government](../azure-government/index.yml)
 - [Azure Government Marketplace](../azure-government/documentation-government-manage-marketplace.md)
 - [Azure Government efterlevnad](../azure-government/documentation-government-plan-compliance.md)

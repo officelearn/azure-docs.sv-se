@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 2df7d8273b2b25cd0171b38e5cc0ada557ea9a2d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325363"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035033"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ansluta ITSM-produkter/-tjänster med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 Den här artikeln innehåller information om hur du konfigurerar anslutningen mellan din ITSM-produkt/-tjänst och Anslutningsprogram för hantering av IT-tjänster (ITSM) (ITSMC) i Log Analytics för att centralt hantera dina arbets uppgifter. Mer information om ITSMC finns i [Översikt](./itsmc-overview.md).
@@ -31,7 +31,7 @@ Följande ITSM-produkter/-tjänster stöds. Välj produkten om du vill visa deta
 
 I följande avsnitt finns information om hur du ansluter System Center Service Manager-produkten till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -97,7 +97,7 @@ Kör skriptet genom att ange följande obligatoriska information:
 
 - Information om Azure-prenumeration
 - Namn på resursgrupp
-- Position
+- Plats
 - Service Manager Server information (Server namn, domän, användar namn och lösen ord)
 - Prefix för webbplats namn för din webbapp
 - Service Bus-namnrymd.
@@ -176,16 +176,17 @@ Följande exempel bild visar information om en lyckad anslutning:
 
 Följande avsnitt innehåller information om hur du ansluter din ServiceNow-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Se till att följande krav är uppfyllda:
 - ITSMC installerad. Mer information: [Lägg till anslutningsprogram för hantering av IT-tjänster (ITSM)-lösningen](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow-versioner som stöds: New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
+- ServiceNow-versioner som stöds: Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsingfors, Genève.
 > [!NOTE]
 > ITSMC stöder bara det officiella SaaS-erbjudandet från tjänsten nu. Privata distributioner av service stöds nu inte. 
 
 **ServiceNow-administratörer måste göra följande i sin ServiceNow-instans**:
 - Generera klient-ID och klient hemlighet för ServiceNow-produkten. Information om hur du genererar klient-ID och hemlighet finns i följande information som krävs:
 
+    - [Konfigurera OAuth för Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Konfigurera OAuth för London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -298,7 +299,7 @@ När användaren har skapats flyttas statusen för **kontrol lera installations 
 Följande avsnitt innehåller information om hur du ansluter din bestyrkande produkt till ITSMC i Azure.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 
@@ -351,7 +352,7 @@ Läs mer: [skapa ITSM arbets objekt från Azure-aviseringar](./itsmc-overview.md
 
 Följande avsnitt innehåller information om hur du ansluter din Cherwell-produkt till ITSMC i Azure.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Se till att följande krav är uppfyllda:
 

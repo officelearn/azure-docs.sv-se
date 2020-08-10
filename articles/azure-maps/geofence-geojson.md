@@ -1,6 +1,6 @@
 ---
 title: Geografiskt JSON-dataformat för geografiskt avgränsnings tecken | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du förbereder de avgränsnings data som kan användas i Microsoft Azure Maps GET-och POST-API.
+description: 'Lär dig mer om Azure Maps av gräns data. Se hur du använder API: erna Hämta polystängsel och POST-polystängsel när du hämtar koordinaternas placering i förhållande till ett geografiskt avgränsnings tecken.'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 924c23f0fb0156ff585872dded72932a1574a12d
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131313"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037413"
 ---
 # <a name="geofencing-geojson-data"></a>Polystaket, polyjson-data
 

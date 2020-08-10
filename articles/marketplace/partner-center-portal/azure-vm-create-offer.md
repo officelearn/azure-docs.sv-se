@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 07/28/2020
-ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: 8d27594b33db72303c71ceb39de92b1d4340b9be
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798077"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037277"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -180,7 +180,7 @@ På sidan **erbjudande lista** definierar du erbjudande information, till exempe
 
 ### <a name="marketplace-details"></a>Information om Marketplace
 
-#### <a name="name"></a>Namn
+#### <a name="name"></a>Name
 
 Namnet som du anger här visas för kunder som titel på din erbjudande lista. Det här fältet fylls i automatiskt med det namn som du angav i rutan för **erbjudet alias** när du skapade erbjudandet. Du kan ändra det här namnet senare. Namnet:
 
@@ -226,7 +226,7 @@ Ange support webbplatsen där kunderna kan kontakta support teamet.
 
 Ange kontakt information för Microsoft-partner som ska användas när kunderna öppnar ett support ärende. Den här informationen visas inte på Azure Marketplace.
 
-- Namn
+- Name
 - E-post
 - Telefon
 
@@ -234,7 +234,7 @@ Ange kontakt information för Microsoft-partner som ska användas när kunderna 
 
 Ange kontakt information för Microsoft som ska användas när det finns problem med erbjudandet, inklusive problem med certifieringen. Den här informationen visas inte på Azure Marketplace.
 
-- Namn
+- Name
 - E-post
 - Telefon
 
@@ -242,26 +242,29 @@ Ange kontakt information för Microsoft som ska användas när det finns problem
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder gör att ditt bidrag avvisas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att det lokala nätverket inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
-#### <a name="store-logos"></a>Butiks logo typer
+#### <a name="azure-marketplace-logos"></a>Logo typer för Azure Marketplace
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar.
+Ange PNG-filer för ditt erbjudandes logo typ med följande fyra bild dimensioner:
 
-Alla tre logo typ storlekarna krävs för användning på olika platser i listan:
+- **Liten** (48 &times; 48 bild punkter)
+- **Medel** (90 &times; 90 bild punkter)
+- **Stor** (216 &times; 216 bild punkter)
+- **Bred** (255 &times; 115 bild punkter)
 
-- **Liten** (48 x 48)
-- **Medel** (90 x 90)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+Alla fyra logo typer krävs och de visas i olika Azure Marketplace-listor.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+[!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
@@ -566,7 +569,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Namn
+1. Name
 2. Beskrivning
 3. Användbara länkar
 4. Skärm bilder/videor

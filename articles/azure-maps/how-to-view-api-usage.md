@@ -1,6 +1,6 @@
 ---
 title: Visa Azure Maps användnings statistik för API | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du visar måtten för dina Microsoft Azure Maps API-anrop i Azure Portal.
+description: Lär dig hur du visar Azure Maps användnings statistik för API, till exempel totalt antal förfrågningar, totala fel och tillgänglighet. Se filtrera data och dela resultat.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57fb699a7225a53af1f093520855e8e2ef132f42
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 766bb2eaf6878a8d7261472ba11ea7acd46de92e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130740"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036495"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Visa användningsstatistik för Azure Maps API
 
@@ -42,7 +42,7 @@ Fortsätt till nästa avsnitt om du behöver anpassa diagrammen för just din an
 
       ![Fönstret Azure Maps användnings statistik](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)**. Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Använd**.
+5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)**. Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Godkänn**.
 
     ![Tidsintervallet Azure Maps mått](media/how-to-view-api-usage/time-range.png)
 

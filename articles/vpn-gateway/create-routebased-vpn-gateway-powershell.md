@@ -1,18 +1,18 @@
 ---
 title: 'Azure VPN Gateway: skapa en Route-baserad Gateway: PowerShell'
-description: Lär dig hur du skapar en Route-baserad Azure VPN-gateway med PowerShell. Använd en VPN-gateway för att ansluta till ditt lokala nätverk.
+description: Använd PowerShell för att snabbt skapa en Route-baserad Azure VPN-gateway, för en VPN-anslutning till ditt lokala nätverk eller för att ansluta virtuella nätverk.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5e6c8ec12927afbabd6c6d41ab348bad9814e82c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 686732716b26e8e82aa98d445cd04b0d311cf23a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923211"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035543"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Skapa en Route-baserad VPN-gateway med PowerShell
 
@@ -20,7 +20,7 @@ Den här artikeln hjälper dig att snabbt skapa en Route-baserad Azure VPN-gatew
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 

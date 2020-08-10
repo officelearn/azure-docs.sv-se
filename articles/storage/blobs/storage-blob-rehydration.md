@@ -1,6 +1,6 @@
 ---
 title: Dehydratisera BLOB-data från Arkiv lag rings nivå
-description: Gör om dina blobbar från Arkiv lag ring så att du kan komma åt data.
+description: Gör om Blobbarna från Arkiv lag ring så att du kan komma åt BLOB-data. Kopiera en arkiverad blob till en onlinenivå.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 9d1d663dce8791b70b9fd8679730d5681d66013a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a416c22c5b8e09104b20a17bc5042302fa56d8ba
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282474"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035152"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
@@ -120,7 +120,7 @@ $ctx = $storageAccount.Context
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName -SrcBlob $srcBlobName -DestContainer $destContainerName -DestBlob $destBlobName -StandardBlobTier Hot -RehydratePriority Standard -Context $ctx
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Lär dig mer om Blob Storage nivåer](storage-blob-storage-tiers.md)
 * [Kontrollera priser för frekvent/lågfrekvent lagring och arkivlagring i Blob Storage-/GPv2-konton efter region](https://azure.microsoft.com/pricing/details/storage/)

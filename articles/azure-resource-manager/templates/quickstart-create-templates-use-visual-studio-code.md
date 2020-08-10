@@ -2,15 +2,15 @@
 title: Skapa mall – Visual Studio Code
 description: Använd Visual Studio Code och Azure Resource Manager-malltillägget för att arbeta med Resource Manager-mallar.
 author: neilpeterson
-ms.date: 04/17/2020
+ms.date: 08/09/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5375fedcd05aefa5d23ee872325373ce631d43bb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040515"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034997"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Snabb start: Skapa Azure Resource Manager mallar med Visual Studio Code
 
@@ -26,7 +26,7 @@ Skapa och öppna med Visual Studio Code en ny fil med namnet *azuredeploy.jspå*
 
 Välj `arm!` om du vill skapa en mall för en Azure-resurs grupps distribution.
 
-![Bild som visar Azure Resource Manager ramverk](./media/quickstart-create-templates-use-visual-studio-code/1.png)
+![Bild som visar Azure Resource Manager ramverk-kodfragment](./media/quickstart-create-templates-use-visual-studio-code/1.png)
 
 Det här kodfragmentet skapar de grundläggande Bygg stenarna för en ARM-mall.
 
@@ -68,7 +68,7 @@ Om du vill använda slut för ande funktioner tar du bort `megaStorage` , placer
 
 Skapa och Använd en parameter för att ange lagrings kontots namn.
 
-Placera markören i parameter block, Lägg till en vagn retur, Skriv `par` och välj sedan `arm-param-value` kodfragmentet. Den här åtgärden lägger till en allmän parameter till mallen.
+Placera markören i parameter block, Lägg till en vagn retur, Skriv `"` och välj sedan `new-parameter` kodfragmentet. Den här åtgärden lägger till en allmän parameter till mallen.
 
 ![Bild som visar en parameter som läggs till i ARM-mallen](./media/quickstart-create-templates-use-visual-studio-code/9.png)
 

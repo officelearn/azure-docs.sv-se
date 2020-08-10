@@ -1,6 +1,6 @@
 ---
 title: Om Azure VPN Gateway
-description: Läs mer om vad en VPN-gateway är och hur du kan använda en VPN-gateway för anslutning till ett virtuellt Azure-nätverk. Du kan bland annat använda IPsec/IKE-lösningar mellan olika platser eller VNet, eller från punkter till lokala VPN.
+description: Lär dig mer om vad en VPN Gateway är och hur du använder en VPN Gateway för att ansluta till IPsec IKE-plats-till-plats-, VNet-till-VNet-och punkt-till-plats VPN-virtuella nätverk.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
@@ -8,16 +8,16 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ec008fa97c75f5ae7c79e2b98efc9005df1014f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300055"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036886"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
-En VPN-gateway är en viss typ av virtuell nätverksgateway som används till att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via internet. Du kan också använda en VPN-gateway till att skicka krypterad trafik mellan virtuella Azure-nätverk via Microsofts nätverk. Varje virtuellt nätverk kan bara ha en VPN-gateway. Du kan dock skapa flera anslutningar till samma VPN-gateway. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar på den tillgängliga bandbredden.
+En VPN-gateway är en viss typ av virtuell nätverksgateway som används till att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via internet. Du kan också använda en VPN-gateway till att skicka krypterad trafik mellan virtuella Azure-nätverk via Microsofts nätverk. Ett virtuellt nätverk kan endast ha en VPN-gateway. Du kan dock skapa flera anslutningar till samma VPN-gateway. När du skapar flera anslutningar till samma VPN-gateway delar alla VPN-tunnlar på den tillgängliga bandbredden.
 
 VPN-gatewayer kan distribueras i Azure-tillgänglighetszoner. Det ger flexibilitet, skalbarhet och högre tillgänglighet för virtuella nätverksgatewayer. Distribution av gatewayer i Azure-tillgänglighetszoner skiljer gatewayerna åt fysiskt och logiskt i en region, samtidigt som din lokala nätverksanslutning till Azure skyddas mot fel på zonnivå. Se [om zoner – redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner](about-zone-redundant-vnet-gateways.md).
 
@@ -37,7 +37,7 @@ En anslutning för VPN-gateway är beroende av flera resurser som är konfigurer
 
 Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. Till exempel har punkt-till-plats-, plats-till-plats-och sambefintliga ExpressRoute/plats-till-plats-anslutningar alla olika instruktioner och konfigurations krav. Information om diagram för design-och anslutnings topologi finns i [design](design.md).
 
-### <a name="settings"></a><a name="settings"></a>Inställningar
+### <a name="settings"></a><a name="settings"></a>Autentiseringsinställningar
 
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN Gateway finns [Om inställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, gateway-SKU:er, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 
@@ -68,7 +68,7 @@ När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du v
 
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN Gateway.
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 Vanliga frågor om VPN Gateway finns i [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
 

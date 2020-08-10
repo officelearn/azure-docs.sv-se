@@ -1,18 +1,18 @@
 ---
 title: Överföra data till eller från Azure Files med AzCopy v10 | Microsoft Docs
-description: Överföra data med AzCopy och fil lagring.
+description: Överföra data med AzCopy och fil lagring. AzCopy är ett kommando rads verktyg för att kopiera blobbar eller filer till eller från ett lagrings konto. Använd AzCopy med Azure Files.
 author: normesta
 ms.service: storage
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7123a90505e5068422d76f22042deac46e721218
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292716"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037158"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 

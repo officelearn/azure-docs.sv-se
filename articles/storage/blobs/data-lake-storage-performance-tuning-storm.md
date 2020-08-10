@@ -1,6 +1,6 @@
 ---
 title: 'Justera prestanda: storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: Rikt linjer för prestanda justering Azure Data Lake Storage Gen2 Storm
+description: Förstå rikt linjerna för att justera prestanda för en Azure Storm-topologi i ett Azure HDInsight-kluster och Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85499839992f872896153e360507d7d1ba7fea38
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465940"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037209"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Justera prestanda: storm, HDInsight & Azure Data Lake Storage Gen2
 
 Förstå faktorerna som bör övervägas när du justerar prestandan för en Azure Storm-topologi. Det är till exempel viktigt att förstå egenskaperna hos det arbete som utförs av kanaler och bultarna (oavsett om arbetet är I/O eller minnes krävande). Den här artikeln beskriver ett antal rikt linjer för prestanda justering, inklusive fel sökning av vanliga problem.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: skapa ett lagrings konto för analys](data-lake-storage-quickstart-create-account.md).

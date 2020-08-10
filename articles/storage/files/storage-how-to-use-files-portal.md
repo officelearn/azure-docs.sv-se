@@ -1,23 +1,23 @@
 ---
 title: Snabbstart för hantering av Azure-filresurser med Azure-portalen
-description: I den här snabbstarten lär du dig hur du använder Azure-portalen till att hantera Azure Files.
+description: Se hur du skapar och hanterar Azure-filresurser i Azure Portal. Skapa ett lagrings konto, skapa en Azure-filresurs och Använd Azure-filresursen.
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fef3daf6e9e535736002e309e3d27491364dc553
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f68d9f620b686ab20e93584bdd7c024d8a943577
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71260293"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036546"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-the-azure-portal"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure-portalen 
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Windows, Linux och macOS. Den här guiden vägleder dig igenom grunderna i att arbeta med Azure-filresurser med [Azure Portal](https://portal.azure.com/).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 [!INCLUDE [storage-files-create-storage-account-portal](../../../includes/storage-files-create-storage-account-portal.md)]
@@ -63,7 +63,7 @@ Skapa en ny katalog med namnet *myDirectory* vid roten på Azure-filresursen:
 2. På menyn överst på sidan väljer du **+ Lägg till katalog**. Sidan **Ny katalog** rullas ned.
 3. Skriv *myDirectory* och klicka sedan på **OK**.
 
-#### <a name="upload-a-file"></a>Överför en fil 
+#### <a name="upload-a-file"></a>Ladda upp en fil 
 För att ladda upp en fil, måste du först skapa eller välja en fil som ska laddas upp. Du kan göra detta på det sätt du känner är lämpligt. När du har valt den fil som du vill ladda upp:
 
 1. Klicka på katalogen **myDirectory**. Panelen **myDirectory** öppnas.
@@ -75,7 +75,7 @@ För att ladda upp en fil, måste du först skapa eller välja en fil som ska la
 5. På sidan **Ladda upp filer**, kontrollera filnamnet och klicka sedan på **Ladda upp**.
 6. När du är klar ska filen visas i listan på sidan **myDirectory**.
 
-#### <a name="download-a-file"></a>Hämta en fil
+#### <a name="download-a-file"></a>Ladda ned en fil
 Du kan ladda ned en kopia av filen du överförde genom att högerklicka på filen. När du klickar på knappen ladda ner, beror den exakta upplevelsen på det operativsystem och den webbläsare du använder.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

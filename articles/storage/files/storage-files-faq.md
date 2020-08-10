@@ -1,18 +1,18 @@
 ---
 title: Vanliga frågor och svar (FAQ) för Azure Files | Microsoft Docs
-description: Få svar på vanliga frågor om Azure Files.
+description: Få svar på Azure Files vanliga frågor och svar. Du kan montera Azure-filresurser samtidigt i molnet eller lokala Windows-, Linux-eller macOS-distributioner.
 author: roygara
 ms.service: storage
 ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 87c1aa4d65b313f4c068ef11c9d2209e9318ef02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482878"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037141"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -428,4 +428,4 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 ## <a name="see-also"></a>Se även
 * [Felsöka Azure Files i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Felsöka Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)
-* [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)
+* [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)

@@ -8,12 +8,12 @@ ms.date: 08/04/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 737fe4b334e60f1b51e8f60f39e8821588a6841c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f51630154b77233aeb2587ac3a2d603c1da6fa4f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010335"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036563"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportera IoT-data till moln mål med hjälp av data export (för hands version)
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du använder de nya funktionerna för för hands
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
+Om du vill använda data export (för hands version) måste du ha ett v3-program och du måste ha behörighet för data export.
 
 ## <a name="set-up-export-destination"></a>Konfigurera export mål
 
@@ -150,15 +150,22 @@ Skapa ett nytt mål eller Lägg till ett mål som du redan har skapat.
 
 ## <a name="export-contents-and-format"></a>Exportera innehåll och format
 
-För Event Hubs och Service Bus destinationer exporteras data i nära real tid. Informationen finns i meddelande texten och är i JSON-format kodad som UTF-8. Se nedan för exempel.
+### <a name="azure-blob-storage-destination"></a>Azure Blob Storage-mål
 
-För Blob Storage exporteras data en gång per minut, med varje fil som innehåller ändrings gruppen sedan den senaste exporterade filen. Exporterade data placeras i tre mappar i JSON-format. Standard Sök vägarna i ditt lagrings konto är:
+Data exporteras en gång per minut, med varje fil som innehåller grupp ändringar sedan den senaste exporterade filen. Exporterade data placeras i tre mappar i JSON-format. Standard Sök vägarna i ditt lagrings konto är:
 
 - Telemetri: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{DD}/{hh}/{mm}/{filename}_
 - Egenskaps ändringar: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{DD}/{hh}/{mm}/{filename}_
 
 Om du vill bläddra bland de exporterade filerna i Azure Portal navigerar du till filen och väljer fliken **Redigera BLOB** .
 
+### <a name="azure-event-hubs-and-azure-service-bus-destinations"></a>Azure Event Hubs och Azure Service Bus destinationer
+
+Data exporteras i nära real tid. Informationen finns i meddelande texten och är i JSON-format kodad som UTF-8. 
+
+I meddelandets anteckningar eller system egenskaper kan du hitta `iotcentral-device-id` , `iotcentral-application-id` , `iotcentral-message-source` och `iotcentral-message-type` som har samma värden som motsvarande fält i meddelande texten.
+
+### <a name="webhook-destination"></a>Webhook-mål
 För Webhooks-mål exporteras även data i nära real tid. Informationen är i samma format som i meddelande texten för Event Hubs och Service Bus.
 
 
@@ -251,9 +258,10 @@ Det här är en tabell som framhäver skillnaderna mellan äldre data export och
 | Funktioner  | Äldre data export | Ny data export |
 | :------------- | :---------- | :----------- |
 | Tillgängliga data typer | Telemetri, enheter, enhetsspecifika mallar | Telemetri, egenskaps ändringar |
-| Filtrering | Inga | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
-| Berikningar | Inga | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
+| Filtrering | Ingen | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
+| Berikningar | Ingen | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
 | Mål | Azure Event Hubs, Azure Service Bus köer och ämnen, Azure Blob Storage | Samma som för äldre data export och Webhooks| 
+| Appar som stöds | V2, V3 | Endast v3 |
 | Viktiga begränsningar | 5 exporter per app, 1 mål per export | 10 exporter – mål anslutningar per app | 
 
 ## <a name="next-steps"></a>Nästa steg

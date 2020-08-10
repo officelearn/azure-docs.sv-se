@@ -1,18 +1,18 @@
 ---
 title: 'Azure-VPN Gateway: konfigurations inställningar'
-description: Lär dig mer om konfigurationen av en VPN gateway-anslutning i Azure, som förlitar sig på flera resurser, som var och en innehåller konfigurerbara inställningar.
+description: Lär dig mer om VPN Gateway-resurser och inställningar för ett virtuellt nätverk som skapats i distributions modellen för Resource Manager.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5fef54e4fff442f1c9eae523d7d278f193b84171
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6f801b94a16ae6fcee6896dd70510469c5e20098
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926934"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036920"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 

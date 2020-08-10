@@ -1,6 +1,6 @@
 ---
-title: Azure Storage Explorer hjälpmedel (för hands version) | Microsoft Docs
-description: Azure Storage Explorer hjälpmedel (för hands version)
+title: Azure Storage Explorer hjälpmedel | Microsoft Docs
+description: Förstå tillgängligheten i Azure Storage Explorer. Granska vilka skärm läsare som är tillgängliga, zoomnings funktioner, hög kontrast teman och kortkommandon.
 services: storage
 documentationcenter: na
 author: MrayermannMSFT
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2018
 ms.author: marayerm
-ms.openlocfilehash: aa42d6b898a3cc474575f6c8dae65ff420fc8e30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca4a8d719277eaa1d853d53d282649f839256be9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60457280"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88035493"
 ---
 # <a name="storage-explorer-accessibility"></a>Storage Explorer hjälpmedel
 

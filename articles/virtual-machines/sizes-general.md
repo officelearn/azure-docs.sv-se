@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: mimckitt
-ms.openlocfilehash: 706635e019f77fe31c5efb609c6f4028a0304446
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 98bb4cb54b9e26de9f38efdb554461f265f69aa9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874308"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036903"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
 Generella storlekar för virtuella datorer ger balanserade förhållandet mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om erbjudanden för generell användning av ändamål.
-
-
-Lägger till en rad för testning. Lägger till en [länk](https://aka.ms/computecontentrequest) för testning. Lägga till en **fetstils** instruktion för testning
 
 - De virtuella datorerna i [AV2-serien](av2-series.md) kan distribueras på olika typer av maskin vara och processorer. Virtuella datorer i A-serien har CPU-prestanda och minneskonfigurationer som är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning. Storleken begränsas, baserat på maskinvaran, för att erbjuda enhetliga processorprestanda på instansen som körs, oavsett vilken maskinvara instansen har distribuerats på. Du kan kontrollera vilken fysisk maskinvara som storleken har distribuerats på genom att köra en fråga mot den virtuella maskinvaran från den virtuella datorn. Exempel på användnings områden är utvecklings-och test servrar, webb servrar med låg trafik, små till medel stora databaser, koncept koncept och kod databaser.
 

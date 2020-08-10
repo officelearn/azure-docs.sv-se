@@ -1,6 +1,6 @@
 ---
 title: Lokaliserings stöd | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om språk som stöds för tjänsterna i Microsoft Azure Maps.
+description: Se vilka regioner Azure Maps stöder med tjänster som kartor, sökning, routning, väder och trafik incidenter. Lär dig hur du konfigurerar parametern View.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0d3adc4bc49379a9ec3408ab76b913a096840dbb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a6664b5a2c0c6b4de2435ee5c8bb29f63560c342
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127901"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037702"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Maps | Sök | Routning | Vädret | Trafik incidenter | JS-kart kontroll |
+| ID         | Name                   |  Maps | Sök | Routning | Vädret | Trafik incidenter | JS-kart kontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | AF – ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -110,37 +110,37 @@ Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. F�
 > Efter den 1 augusti 2019 definierar **visnings** parametern det returnerade kart innehållet för de nya regionerna/länderna som anges ovan. Azure Maps **View** -parametern (kallas även för "användar region parameter") är en ISO-3166-landskod som visar rätt kartor för landet/regionen och som anger vilken uppsättning geografi innehåll som anges av polypolitiskt som returneras via Azure Maps Services, inklusive kant linjer och etiketter som visas på kartan. 
 
 Se till att ställa in parametern **Visa** som krävs för REST-API: er och SDK: er som dina tjänster använder.
->  
->
->  **REST-API: er:**
->  
->  Se till att du har ställt in parametern Visa efter behov. Visa parameter anger vilken uppsättning av ett interpolitiskt innehåll som ska returneras via Azure Maps Services. 
->
->  Berörda Azure Maps REST-tjänster:
->    
->    * Panelen Hämta karta
->    * Hämta kart bild 
->    * Hämta en sökning i fuzzy
->    * Hämta Sök-POI
->    * Hämta Sök POI kategori
->    * Hämta Sök i närheten
->    * Hämta Sök adress
->    * Hämta Sök adressen strukturerad
->    * Hämta omvänd söknings adress
->    * Hämta Sök adress omvänt kors gatan
->    * Publicera sökning i geometri
->    * Publicera söknings adress batch för hands version
->    * Publicera söknings adress, omvänd batch-förhandsgranskning
->    * Publicera sökning längs väg
->    * Publicera sökning i fuzzy-kommando för hands version
->
->    
->  **Er**
->
->  Kontrol lera att du har ställt in parametern **Visa** efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK: er:
->
->    * Azure Maps webb-SDK
->    * Azure Maps Android SDK
+  
+
+### <a name="rest-apis"></a>REST-API: er
+  
+Se till att du har ställt in parametern Visa efter behov. Visa parameter anger vilken uppsättning av ett interpolitiskt innehåll som ska returneras via Azure Maps Services. 
+
+Berörda Azure Maps REST-tjänster:
+    
+ * Panelen Hämta karta
+ * Hämta kart bild 
+ * Hämta en sökning i fuzzy
+ * Hämta Sök-POI
+ * Hämta Sök POI kategori
+ * Hämta Sök i närheten
+ * Hämta Sök adress
+ * Hämta Sök adressen strukturerad
+ * Hämta omvänd söknings adress
+ * Hämta Sök adress omvänt kors gatan
+ * Publicera sökning i geometri
+ * Publicera söknings adress batch för hands version
+ * Publicera söknings adress, omvänd batch-förhandsgranskning
+ * Publicera sökning längs väg
+ * Publicera sökning i fuzzy-kommando för hands version
+
+ 
+### <a name="sdks"></a>SDK:er
+
+Kontrol lera att du har ställt in parametern **Visa** efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK: er:
+
+ * Azure Maps webb-SDK
+ * Azure Maps Android SDK
 
 Som standard har parametern View angetts till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för dina användare. Ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med tillämplig lagstiftning, inklusive de lagar om mappning av land/region där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
 

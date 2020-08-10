@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: skapa en inhägnad och spåra enheter på en Microsoft Azure karta'
-description: Lär dig hur du ställer in en avgränsning och spårar enheter i förhållande till den gräns som används för Microsoft Azure Maps-spatialdata.
+description: Lär dig hur du konfigurerar ett geografiskt avgränsnings tecken. Se hur du spårar enheter i förhållande till den här gränsen genom att använda tjänsten Azure Maps spatial.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/15/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517395"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037651"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
 

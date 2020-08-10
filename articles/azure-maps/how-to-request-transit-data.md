@@ -1,6 +1,6 @@
 ---
 title: Begär överförings data med Microsoft Azure mappar mobilitets tjänsten
-description: I den här artikeln får du lära dig hur du begär offentliga överförings data med hjälp av Microsoft Azure mappar mobilitets tjänsten.
+description: Lär dig hur du använder tjänsten Azure Maps mobilitet för att begära offentliga överförings data, t. ex. Metro-yt-ID, överförings stopp, vägar och väg färd vägar.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/22/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 38fc6f213cbd58fc829a6605bdbed7d25e99bb8d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0aad822f0433a161e20c520296ce9fb9eb296f7e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319022"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037753"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information med tjänsten Azure Maps Mobility
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du:
 * Fråga [Hämta API för överförings vägar](https://aka.ms/AzureMapsMobilityTransitRoute) för att planera en väg med hjälp av offentlig överföring.
 * Begär transiterings flödets geometri och ett detaljerat schema för vägen med hjälp av [API: et get transit itinerary](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).

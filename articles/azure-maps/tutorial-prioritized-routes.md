@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Sök efter flera vägar i färd läge | Microsoft Azure Maps'
-description: I den här självstudien får du lära dig hur du hittar vägar för olika färd sätt med hjälp av Microsoft Azure Maps.
+description: Lär dig hur du använder Azure Maps för att hitta vägar för specifika rese lägen till intressanta punkter. Se hur du visar flera vägar på Maps.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7d17b9474edef245f7db16f33c72d722f356f712
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289538"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037600"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Självstudie: hitta vägar för olika färd sätt med hjälp av Azure Maps
 
@@ -26,7 +26,7 @@ I den här självstudien visas hur du använder ditt Azure Maps-konto och Route 
 > * Skapa vägfrågor som deklarerar resläge
 > * Visa flera vägar på kartan
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) och väljer pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta

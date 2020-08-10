@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Microsoft Azure Maps'
-description: I den här självstudien får du lära dig hur du skapar en app Locator-webbapp med hjälp av Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du skapar webb program för Store Locator. Använd Azure Maps Web SDK för att skapa en webb sida, fråga Sök tjänsten och Visa resultat på en karta.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 4bb0a4a0a621881fe1d9a59585476baa2ce05f8e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289555"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037668"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
@@ -33,11 +33,11 @@ Den här självstudien vägleder dig genom processen med att skapa en enkel buti
 
 Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) eller [källkoden](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Design
+## <a name="design"></a>Utforma
 
 Innan du sätter igång i koden är det en bra idé att börja med en design. Din butikslokaliserare kan vara så enkel eller komplex som du vill. I den här självstudien skapar vi en enkel butikslokaliserare. Vi tar några tips på vägen för att hjälpa dig att utöka vissa funktioner om du vill. Vi skapar en butikslokaliserare för det fiktiva företaget Contoso Coffee. Följande bild visar ett trådblock i en allmän layout för butikslokaliserarestore som vi skapar i den här självstudien:
 

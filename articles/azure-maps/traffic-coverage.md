@@ -1,6 +1,6 @@
 ---
 title: Trafik täckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig mer om trafik täckning i Microsoft Azure Maps.
+description: Lär dig mer om trafik täckning i Azure Maps. Se om information om trafikflöde och incidenter är tillgänglig i olika regioner i hela världen.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/22/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 346cd13c021b70dac1501e5ca5a9e6930d407e6e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 51fdbda755b98b47b700f57bf990b5c5356854a9
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129431"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037617"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 

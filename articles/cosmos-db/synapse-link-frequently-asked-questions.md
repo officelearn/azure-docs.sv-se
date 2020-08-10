@@ -1,17 +1,17 @@
 ---
 title: Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 description: Få svar på vanliga frågor om Synapse-länken för Azure Cosmos DB i områden som fakturering, analys lager, säkerhet, tid att leva i analys lager.
-author: srchi
-ms.author: srchi
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: bead905a3bd4b1cdd46c4cd27775f9d7e03040d5
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e65838074260a4d4a9c9668fa6ac4aa2a403929b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921188"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037566"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 
@@ -108,7 +108,7 @@ Autentisering med analys lagret är detsamma som i ett transaktions lager. För 
 |---------|---------|
 |Synapse Spark-pooler | Läsa, skriva (via transaktions lager), tabell, tillfällig vy |
 |SQL Server utan Synapse    | Läsa, Visa (gated Preview)  |
-|Synapse SQL etablerad   |  Inte tillgänglig |
+|Synapse SQL etablerad   |  Inte tillgängligt |
 
 ### <a name="do-my-synapse-spark-tables-sync-with-my-synapse-sql-serverless-tables-the-same-way-they-do-with-azure-data-lake"></a>Synkronisera mina Synapse Spark-tabeller med mina Synapse SQL Server-tabeller på samma sätt som de gör med Azure Data Lake?
 Den här funktionen är för närvarande inte tillgänglig.

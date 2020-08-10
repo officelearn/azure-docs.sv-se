@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett polygon-lager till en karta | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du återger en polygon och flera polygoner på en karta i Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du lägger till polygoner eller cirklar till kartor. Se hur du använder Azure Maps Web SDK för att anpassa geometriska former och göra dem enkla att uppdatera och underhålla.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: b267109113ce4d2ec3e653fb079b760eb4a5a514
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 58262be34a716a04e9779454a30e845d691f3a6a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286873"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037719"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Lägg till ett polygon-lager till kartan
 

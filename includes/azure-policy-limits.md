@@ -4,14 +4,14 @@ description: inkludera fil
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/23/2020
+ms.date: 08/07/2020
 ms.author: dacoulte
-ms.openlocfilehash: 08183cc2cbe2fce83bc7347da22308931b99dcc1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e22594a50a9c0d814ef7d66443f8253f5832cb1d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011051"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88038502"
 ---
 Det finns ett maximalt antal för varje objekt typ för Azure Policy. En post av typen _Omfång_ betyder antingen prenumerationen eller [hanteringsgruppen](../articles/governance/management-groups/overview.md).
 
@@ -26,4 +26,4 @@ Det finns ett maximalt antal för varje objekt typ för Azure Policy. En post av
 | Initiativdefinition | Parametrar | 100 |
 | Princip-eller initiativ tilldelningar | Undantag (notScopes) | 400 |
 | Principregel | Kapslade villkor | 512 |
-| Reparations uppgift | Resurser | 500 |
+| Reparations uppgift | Resurser | 1000 |

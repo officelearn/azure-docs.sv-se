@@ -1,6 +1,6 @@
 ---
 title: Lägga till former i Android Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du återger olika former på en karta med Microsoft Azure Maps Android SDK.
+description: Lär dig hur du lägger till former i Maps. Se kod exempel som använder Azure Maps Android SDK för att lägga till en linje och en polygon till en karta.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 855a05bd228a3bf903b79522549ed519b4745e17
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127102"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037430"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 

@@ -1,6 +1,6 @@
 ---
 title: Omfattnings täckning i Microsoft Azure Maps Search-tjänsten
-description: I den här artikeln får du lära dig mer om Microsoft Azure Maps-täckning i olika länder/regioner.
+description: Se vilka regioner Azure Maps sökning omfattar. Exempel på kategorier är adress punkter, hus nummer, gatu nivå, stad och intressanta punkter.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/28/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386919"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037447"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure Maps för att avkoda täckning
 

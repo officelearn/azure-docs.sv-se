@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: hitta en väg till en plats | Microsoft Azure Maps'
-description: Den här självstudien visar hur du återger vägen till en plats (orienterings punkt) på en karta som använder Microsoft Azure Maps-routningstjänsten.
+description: Lär dig hur du hittar en väg till en orienterings punkt. Se hur du ställer in adress koordinater och skickar frågor till tjänsten Azure Maps Route för vägbeskrivning till punkten.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/14/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: d6a526e23be47c9e05de0c9064bdb4095a49d132
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 0ff604e920ca3e0708fc21a1cadfe61646f4e30b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287412"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037583"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Självstudie: dirigera till en orienterings punkt med hjälp av Azure Maps
 
@@ -25,7 +25,7 @@ Den här självstudiekursen visar hur du använder Azure Maps-kontot och Route S
 > * Ställa in adresskoordinater
 > * Fråga Route Service om vägbeskrivning till orienteringspunkt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account). du behöver en prenumeration med pris nivån S1. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 

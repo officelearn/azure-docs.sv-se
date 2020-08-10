@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 8ca3d7475472c6980be85299046624bdcf8cae11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254467"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042844"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat text format i Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Följ den här artikeln när du vill **parsa de avgränsade textfilerna eller skriva data i avgränsat text format**. 
@@ -27,10 +28,10 @@ Avgränsat text format stöds för följande anslutningar: [Amazon S3](connector
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den avgränsade text data uppsättningen.
 
-| Egenskap         | Beskrivning                                                  | Obligatorisk |
+| Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` .  | Ja      |
+| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Yes      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` .  | Yes      |
 | columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. <br>Standardvärdet är **kommatecken `,` **. När kolumn avgränsaren definieras som en tom sträng, vilket innebär att ingen avgränsare görs, tas hela raden som en enda kolumn.<br>För närvarande stöds inte kolumn avgränsare som tom sträng eller flera tecken för att mappa data flöde, men inte kopierings aktivitet.  | No       |
 | rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil. <br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När rad avgränsaren har angetts till ingen avgränsare (tom sträng), måste kolumn avgränsaren anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet ska behandlas som ett enda värde.<br>För närvarande stöds inte rad avgränsare som en tom sträng för data flöde för mappning, men inte kopierings aktivitet. | No       |
 | quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"` . <br>För att mappa data flödet `quoteChar` får inte vara en tom sträng. <br>För kopierings aktiviteten, när `quoteChar` definieras som en tom sträng, innebär det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | No       |
@@ -77,20 +78,20 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** .
 
-| Egenskap       | Beskrivning                                                  | Obligatorisk |
+| Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Ja      |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Yes      |
 | formatSettings | En grupp med egenskaper. Läs **Inställningar för avgränsad text** i tabellen nedan. | No       |
 | storeSettings  | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | No       |
 
 **Läs inställningar för avgränsad text** som stöds under `formatSettings` :
 
-| Egenskap      | Beskrivning                                                  | Obligatorisk |
+| Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSettings**. | Ja      |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSettings**. | Yes      |
 | skipLineCount | Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | No       |
 | compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties` *) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen. Om värdet är true (standard), Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` . När värdet är false skriver data Factory zippade filer direkt till `<path specified in dataset>` .  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties` *) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false**skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
 
 ```json
 "activities": [
@@ -124,18 +125,18 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* mottagare \* *** .
 
-| Egenskap       | Beskrivning                                                  | Obligatorisk |
+| Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Ja      |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Yes      |
 | formatSettings | En grupp med egenskaper. Se tabellen med **avgränsade text skriv inställningar** nedan. |          |
 | storeSettings  | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings` .  | No       |
 
 **Inställningar för avgränsad text** som stöds under `formatSettings` :
 
-| Egenskap      | Beskrivning                                                  | Obligatorisk                                              |
+| Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSettings**. | Ja                                                   |
-| fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, `.csv` t. ex.. `.txt` Det måste anges när `fileName` har inte angetts i data uppsättningen utgående DelimitedText. När fil namnet har kon figurer ATS i data uppsättningen för utdata används den som mottagar fil namn och fil namns inställningen ignoreras.  | Ja när fil namnet inte anges i data uppsättningen för utdata |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSettings**. | Yes                                                   |
+| fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, till exempel, `.csv` `.txt` . Det måste anges när `fileName` har inte angetts i data uppsättningen utgående DelimitedText. När fil namnet har kon figurer ATS i data uppsättningen för utdata används den som mottagar fil namn och fil namns inställningen ignoreras.  | Ja när fil namnet inte anges i data uppsättningen för utdata |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -145,7 +146,7 @@ I mappa data flöden kan du läsa och skriva till avgränsat text format i följ
 
 I tabellen nedan visas de egenskaper som stöds av en avgränsad text källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** .
 
-| Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | nej | Sträng [] | wildcardPaths |
 | Partitionens rot Sök väg | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | nej | Sträng | partitionRootPath |
@@ -153,7 +154,7 @@ I tabellen nedan visas de egenskaper som stöds av en avgränsad text källa. Du
 | Flera rader | Innehåller käll filen rader som sträcker sig över flera rader. Multiline-värden måste vara citat tecken. | Nej `true` eller`false` | multiLineRow |
 | Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg | nej | Sträng | rowUrlColumn |
 | Efter slut för ande | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | nej | Ta bort: `true` eller`false` <br> Fart`['<from>', '<to>']` | purgeFiles <br> moveFiles |
-| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Tidsstämpel | modifiedAfter <br> modifiedBefore |
+| Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | nej | Timestamp | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Käll exempel
 
@@ -175,7 +176,7 @@ source(
 
 I tabellen nedan visas de egenskaper som stöds av en avgränsad text mottagare. Du kan redigera dessa egenskaper på fliken **Inställningar** .
 
-| Name | Beskrivning | Obligatorisk | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Rensa mappen | Om målmappen rensas innan den skrivs | nej | `true` eller `false` | truncate |
 | Fil namns alternativ | Namngivnings formatet för de data som skrivits. Som standard är en fil per partition i format`part-#####-tid-<guid>` | nej | Mönster: sträng <br> Per partition: sträng [] <br> Som data i kolumnen: sträng <br> Utdata till en enskild fil:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

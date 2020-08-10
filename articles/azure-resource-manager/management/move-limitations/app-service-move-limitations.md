@@ -2,13 +2,13 @@
 title: Flytta Azure App Service resurser
 description: Använd Azure Resource Manager för att flytta App Service resurser till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 12/13/2019
-ms.openlocfilehash: d0ecd117bdcda9238e310a3020dba19a6871a3fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80655773"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042067"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Flytta vägledning för App Service resurser
 
@@ -23,7 +23,8 @@ När du flyttar en webbapp över prenumerationer gäller följande rikt linjer:
     - App Service-planer
     - Överförda eller importerade TLS/SSL-certifikat
     - Apptjänstmiljöer
-- Alla App Service resurser i resurs gruppen måste flyttas tillsammans. Observera att App Service miljöer inte kan flyttas till en ny resurs grupp eller till en ny prenumeration.
+- Alla App Service resurser i resurs gruppen måste flyttas tillsammans.
+- Det går inte att flytta App Service miljöer till en ny resurs grupp eller prenumeration. Du kan dock flytta en webbapp och en app service-plan till en ny prenumeration utan att flytta App Service-miljön. Efter flyttningen finns inte webbappen längre i App Service-miljön.
 - Du kan flytta ett certifikat som är bundet till en webbplats utan att ta bort TLS-bindningarna, förutsatt att certifikatet flyttas med alla andra resurser i resurs gruppen.
 - App Service resurser kan bara flyttas från resurs gruppen där de ursprungligen skapades. Om en App Service resurs inte längre finns i den ursprungliga resurs gruppen flyttar du tillbaka den till den ursprungliga resurs gruppen. Flytta sedan resursen över prenumerationer.
 

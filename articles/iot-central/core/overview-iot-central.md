@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c8cd789b16f839c60249b36f570ca1c945ef4e01
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 1af549feb551eca02bb1ef8df6481eceb959f6d1
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337185"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042725"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -34,10 +34,10 @@ Den här artikeln beskriver IoT Central:
 
 IoT Central-dokumentationen avser fyra personer som interagerar med ett IoT Central-program:
 
-- En _Solution Builder_ ansvarar för att definiera de typer av enheter som ansluter till programmet och anpassar programmet för-operatorn.
-- en _operatör_ hanterar de enheter som är anslutna till programmet
+- En _Solution Builder_ ansvarar för att [definiera de typer av enheter](howto-set-up-template.md) som ansluter till programmet och anpassar programmet för-operatorn.
+- En _operatör_ [hanterar enheterna](howto-manage-devices.md) som är anslutna till programmet.
 - En _administratör_ ansvarar för administrativa uppgifter, till exempel hantering av [användar roller och behörigheter](howto-administer.md) i programmet.
-- En _enhets utvecklare_ skapar den kod som körs på en enhet eller IoT Edge modul som är ansluten till ditt program.
+- En _enhets utvecklare_ [skapar den kod som körs på en enhet](concepts-telemetry-properties-commands.md) eller [IoT Edge modul](concepts-iot-edge.md) som är ansluten till ditt program.
 
 ## <a name="create-your-iot-central-application"></a>Skapa ditt IoT Central program
 
@@ -55,7 +55,7 @@ Som Solution Builder använder du webbaserade verktyg för att skapa en _enhets 
 - enhetsegenskaper som anges av en enhet och som är skrivskyddade i programmet.
 - Egenskaper, som en operator anger, som avgör enhetens beteende.
 
-Den här enhets mal len innehåller:
+Den här [enhets mal len](howto-set-up-template.md) innehåller:
 
 - En _modell för enhets kapacitet_ som beskriver de funktioner som en enhet ska implementera, t. ex. telemetri som skickas och de egenskaper som den rapporterar.
 - Moln egenskaper som inte lagras på enheten.
@@ -83,13 +83,13 @@ Som Solution Builder kan du också anpassa IoT Central programmets användar gr�
 
 ## <a name="manage-your-devices"></a>Hantera dina enheter
 
-Som operatör använder du IoT Central-programmet för att hantera enheterna i din IoT Central-lösning. Operatörer utför uppgifter som:
+Som operatör använder du IoT Central-programmet för att [Hantera enheterna](howto-manage-devices.md) i din IoT Central-lösning. Operatörer utför uppgifter som:
 
 - övervaka enheter som är anslutna till programmet
 - felsöka och åtgärda problem med enheter
 - etablera nya enheter.
 
-Som Solution Builder kan du definiera anpassade regler och åtgärder som körs via data strömning från anslutna enheter. En operatör kan aktivera eller inaktivera dessa regler på enhetsnivå för att kunna styra och automatisera uppgifter i programmet.
+Som Solution Builder kan du [definiera anpassade regler och åtgärder](howto-configure-rules.md) som körs via data strömning från anslutna enheter. En operatör kan aktivera eller inaktivera dessa regler på enhetsnivå för att kunna styra och automatisera uppgifter i programmet.
 
 Med en IoT-lösning som är utformad för att användas i stor skala är det viktigt med en strukturerad metod för enhets hantering. Det räcker inte bara att ansluta dina enheter till molnet, du måste hålla enheterna anslutna och felfria. En operatör kan använda följande IoT Central funktioner för att hantera dina enheter under hela programmets livs cykel:
 

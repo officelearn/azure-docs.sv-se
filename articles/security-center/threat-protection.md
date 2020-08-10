@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: e74dac779fc1eafaf33ffbc63bf997cf26b64954
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d049538653ea345935d40bd965afd7d2453b2aa2
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836810"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041994"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -114,12 +114,13 @@ Mer information om App Service-planer finns i [App Service planer](https://azure
 
 ### <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmän tillgänglighet**
-- Nödvändiga roller: **säkerhets administratören** kan stänga aviseringar. **Säkerhets läsaren** kan visa resultat.
-- Moln<br>
-    ✔ Kommersiella moln<br>
-    ✘ US Gov<br>
-    ✘ Kina gov, andra gov
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig|
+|Priset|Standard-nivå|
+|Nödvändiga roller och behörigheter:|**Säkerhets administratören** kan stänga aviseringar.<br>**Säkerhets läsaren** kan visa resultat.|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|||
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
@@ -150,14 +151,13 @@ Mer information finns i:
 
 ### <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd:
-    - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
-    - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version)
-    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (för hands version)
-- Moln<br>
-    ✔ Kommersiella moln<br>
-    ✔ US Gov<br>
-    ✘ Kina gov, andra gov
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (för hands version)|
+|Priset|Standard-nivå|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
 
 ### <a name="whats-protected"></a>Vad är skyddat?
 

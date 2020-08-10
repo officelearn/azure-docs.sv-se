@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 39dbf7d9ad933dd47f0a566f02b5e276e4b615a3
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87514445"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041756"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Skapa och lagra SSH-nycklar i Azure Portal
 
@@ -22,17 +22,17 @@ Du kan skapa en SSH-nycklar när du först skapar en virtuell dator och återanv
 
 Om du har befintliga nycklar och vill förenkla användningen av dem i portalen kan du ladda upp dem och lagra dem i Azure för åter användning.
 
-Mer detaljerad information om hur du skapar och använder SSH-nycklar med virtuella Linux-datorer finns i (använda SSH-nycklar för att ansluta till virtuella Linux-datorer) [./Linux/SSH-from-Windows.MD].
+Mer detaljerad information om hur du skapar och använder SSH-nycklar med virtuella Linux-datorer finns i [använda SSH-nycklar för att ansluta till virtuella Linux-datorer](./linux/ssh-from-windows.md).
 
 ## <a name="generate-new-keys"></a>Generera nya nycklar
 
-1. Öppna [Azure Portal] ( https://portal.azure.com .
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
 1. Skriv *SSH* att söka efter längst upp på sidan. Under **Marketplace*väljer du **SSH-nycklar**.
 
 1. På sidan **SSH-nyckel** väljer du **skapa**.
 
-:::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Skapa en ny resurs grupp och generera ett SSH-nyckelpar":::
+   :::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Skapa en ny resurs grupp och generera ett SSH-nyckelpar":::
 
 1. I **resurs grupp** väljer du **Skapa nytt** för att skapa en ny resurs grupp för att lagra dina nycklar. Skriv ett namn för resurs gruppen och välj **OK**.
 
@@ -48,7 +48,7 @@ Mer detaljerad information om hur du skapar och använder SSH-nycklar med virtue
 
 1. Sedan kan du hämta ett popup-fönster till, välja **Hämta privat nyckel och skapa resurs**. SSH-nyckeln överförs som en. PEM-fil.
 
-:::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Hämta den privata nyckeln som en. PEM-fil":::
+   :::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Hämta den privata nyckeln som en. PEM-fil":::
 
 1. När. pem-filen har hämtats kanske du vill flytta den någonstans på datorn där det är enkelt att peka på från SSH-klienten.
 
@@ -66,15 +66,15 @@ Skriv till exempel:`ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 ## <a name="upload-an-ssh-key"></a>Ladda upp en SSH-nyckel
 
-Du kan också ladda upp en offentlig SSH-nyckel för att lagra i Azure. Information om hur du skapar ett SSH-nyckelpar finns i [använda SSH-nycklar för att ansluta till virtuella Linux-datorer ](./linux/ssh-from-windows.md).
+Du kan också ladda upp en offentlig SSH-nyckel för att lagra i Azure. Information om hur du skapar ett SSH-nyckelpar finns i [använda SSH-nycklar för att ansluta till virtuella Linux-datorer](./linux/ssh-from-windows.md).
 
-1. Öppna [Azure Portal] ( https://portal.azure.com .
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
 1. Skriv *SSH* att söka efter längst upp på sidan. Under **Marketplace*väljer du **SSH-nycklar**.
 
 1. På sidan **SSH-nyckel** väljer du **skapa**.
 
-:::image type="content" source="./media/ssh-keys/upload.png" alt-text="Ladda upp en offentlig SSH-nyckel som ska lagras i Azure":::
+   :::image type="content" source="./media/ssh-keys/upload.png" alt-text="Ladda upp en offentlig SSH-nyckel som ska lagras i Azure":::
 
 1. I **resurs grupp** väljer du **Skapa nytt** för att skapa en ny resurs grupp för att lagra dina nycklar. Skriv ett namn för resurs gruppen och välj **OK**.
 
@@ -92,4 +92,4 @@ När nyckeln har laddats upp kan du välja att använda den när du skapar en vi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder SSH-nycklar med virtuella Azure-datorer finns i (använda SSH-nycklar för att ansluta till virtuella Linux-datorer) [./Linux/SSH-from-Windows.MD].
+Mer information om hur du använder SSH-nycklar med virtuella Azure-datorer finns i [använda SSH-nycklar för att ansluta till virtuella Linux-datorer](./linux/ssh-from-windows.md).

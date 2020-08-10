@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 78a0cb6217d8c1d25f08801066a970d6bc94e1b0
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562420"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042113"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -31,6 +31,9 @@ På den här sidan besvaras vanliga frågor om Azure Active Directory (Azure AD)
 ### <a name="what-license-is-required-to-use-azure-ad-application-proxy"></a>Vilken licens krävs för att använda Azure AD-programproxy?
 
 Om du vill använda Azure AD-programproxy måste du ha en Azure AD Premium P1-eller P2-licens. Mer information om licensiering finns i [Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### <a name="what-happens-to-azure-ad-application-proxy-in-my-tenant-if-my-license-expires"></a>Vad händer med Azure AD-programproxy i min klient, om min licens upphör att gälla?
+Om licensen går ut inaktive ras programproxyn automatiskt. Programinformationen sparas i upp till ett år.
 
 ### <a name="why-is-the-enable-application-proxy-button-grayed-out"></a>Varför är knappen Aktivera programproxy nedtonad?
 

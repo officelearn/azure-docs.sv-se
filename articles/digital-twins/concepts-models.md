@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4d0ed9826326256e3b91815746e43d34b6934ba0
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 1f6fc7bff31faa62c290a4c02be3e80fee6fa200
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985893"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042640"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -36,8 +36,8 @@ Azure Digitals flätar använder **DTDL _version 2_**. Mer information om den h�
 I en modell definition är kod elementet på den översta nivån ett **gränssnitt**. Detta kapslar in hela modellen och resten av modellen definieras i gränssnittet. 
 
 Ett DTDL modell gränssnitt kan innehålla noll, ett eller flera av följande fält:
-* **Egenskap** – egenskaper är data fält som representerar statusen för en entitet (som egenskaper i många objektorienterade programmeringsspråk). Till skillnad från telemetri, som är en tidsbegränsad data händelse, har egenskaper har säkerhetskopierat lagrings utrymme och kan läsas när som helst.
-* **Telemetri** – telemetri-fält representerar mått eller händelser och används ofta för att beskriva enheternas sensor läsningar. Telemetri lagras inte på ett digitalt, Det är mer precis som en data ström som är redo att skickas någonstans. 
+* **Egenskap** – egenskaper är data fält som representerar statusen för en entitet (som egenskaper i många objektorienterade programmeringsspråk). Egenskaperna har lagrings utrymme och kan läsas när som helst.
+* **Telemetri** – telemetri-fält representerar mått eller händelser och används ofta för att beskriva enheternas sensor läsningar. Till skillnad från egenskaper lagras inte telemetri på ett digitalt, Det är en serie tidsbegränsade data händelser som måste hanteras när de inträffar. Mer information om skillnaderna mellan egenskaper och telemetri finns i avsnittet om [*egenskaper och telemetri*](#properties-vs-telemetry) nedan.
 * **Komponent** – komponenter gör att du kan bygga ditt modell gränssnitt som en sammansättning av andra gränssnitt, om du vill. Ett exempel på en komponent är ett *frontCamera* -gränssnitt (och en annan *elkamera*för komponent gränssnitt) som används för att definiera en modell för en *telefon*. Du måste först definiera ett gränssnitt för *frontCamera* som om det vore en egen modell, och sedan kan du referera till det när du definierar *telefon*.
 
     Använd en komponent för att beskriva något som är en del av din lösning, men som inte behöver en separat identitet, och som inte behöver skapas, tas bort eller ordnas om i det dubbla diagrammet oberoende av varandra. Om du vill att entiteter ska ha oberoende förekomster i den dubbla grafen, representerar de som separata digitala delar av olika modeller, anslutna med *relationer* (se nästa punkt).
@@ -47,7 +47,25 @@ Ett DTDL modell gränssnitt kan innehålla noll, ett eller flera av följande f�
 * **Relations hip** -relationer gör att du kan representera hur ett digitalt garn kan användas med andra digitala dubbla. Relationer kan representera olika semantiska betydelser, till exempel *innehåller* ("golv innehåller rum"), *häftiga* ("HVAC cools Room"), *isBilledTo* ("kompressor är fakturerad till användare") osv. Relationer tillåter lösningen att tillhandahålla ett diagram över relaterade entiteter.
 
 > [!NOTE]
-> I spec for DTDL definieras även **kommandon**, som är metoder som kan köras på ett digitalt värde (som ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt). *Kommandon stöds dock inte för närvarande i Azure Digital-dubbla.*
+> I [spec for DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) definieras även **kommandon**, som är metoder som kan köras på ett digitalt värde (som ett återställnings kommando eller ett kommando för att aktivera eller inaktivera en fläkt). *Kommandon stöds dock inte för närvarande i Azure Digital-dubbla.*
+
+### <a name="properties-vs-telemetry"></a>Egenskaper kontra telemetri
+
+Här följer några ytterligare anvisningar om hur du skiljer mellan DTDL- **Egenskaper** och **telemetridata** i Azure Digitals.
+
+Skillnaden mellan egenskaper och telemetri för Azures digitala dubbla modeller är följande:
+* **Egenskaper** förväntas ha lagrings utrymme. Det innebär att du kan läsa en egenskap när som helst och hämta dess värde. Om egenskapen är skrivbar kan du också lagra ett värde i egenskapen.  
+* **Telemetri** är mer som en data ström med händelser. Det är en uppsättning data meddelanden som har korta lifespans. Om du inte konfigurerar att lyssna efter händelsen och åtgärder som ska vidtas, finns det ingen spårning av händelsen vid ett senare tillfälle. Du kan inte komma tillbaka och läsa det senare. 
+  - I C#-termer är telemetri som en C#-händelse. 
+  - I IoT-termer är telemetri vanligt vis ett enda mått som skickas av en enhet.
+
+**Telemetri** används ofta med IoT-enheter, eftersom många enheter inte kan eller är intresserade av och lagrar de mått värden som de genererar. De skickar dem bara ut som en ström av "telemetri"-händelser. I det här fallet kan du när som helst inte fråga på enheten efter det senaste värdet i fältet telemetri. I stället måste du lyssna på meddelandena från enheten och vidta åtgärder när meddelandena tas emot. 
+
+När du designar en modell i Azure Digitals, kommer du förmodligen att använda **Egenskaper** i de flesta fall för att modellera dina dubbla. På så sätt kan du använda lagrings utrymmet och kunna läsa och fråga data fälten.
+
+Telemetri och egenskaper fungerar ofta tillsammans för att hantera data från enheter. Eftersom alla ingångar till Azure Digitals dubbla är via [API: er](how-to-use-apis-sdks.md), använder du normalt din ingångs funktion för att läsa telemetri-eller egenskaps händelser från enheter och ange en egenskap i ADT som svar. 
+
+Du kan också publicera en telemetri-händelse från Azure Digitals dubbla API: er. Precis som med andra telemetri är det en kort periods händelse som kräver att en lyssnare hanterar.
 
 ### <a name="azure-digital-twins-dtdl-implementation-specifics"></a>Azure Digitals dubbla DTDL implementerings information
 

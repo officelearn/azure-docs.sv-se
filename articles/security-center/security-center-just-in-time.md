@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a077e1dfd166051ad1cf16e42d11e8eeb61d2c91
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 611124a113a0cce3ab1fb8db5969a6ab6f5f6658
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419860"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041961"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanterings portar med just-in-Time-åtkomst
 
@@ -31,21 +31,14 @@ Den här sidan lär dig hur du inkluderar JIT i ditt säkerhets program. Du lär
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmän tillgänglighet**
-- Prissättning: **Standard nivå**. [Läs mer om priser](/azure/security-center/security-center-pricing).
-- Nödvändiga roller och behörigheter:
-    - **Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.
-    - Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)
-    - Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.
-- Virtuella datorer som stöds: 
-    - ✔ Virtuella datorer som distribueras via Azure Resource Manager.
-    - Virtuella ✘-datorer som distribueras med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).
-    - Virtuella ✘-datorer som skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
-- Moln 
-    - ✔ Kommersiella moln
-    - ✔ National/suverän (US Gov, Kina gov, övrigt gov)
-
-
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmän tillgänglighet|
+|Priset|Standard-nivå|
+|Virtuella datorer som stöds:|![Ja ](./media/icons/yes-icon.png) distribuerade virtuella datorer via Azure Resource Manager.<br>![Inga ](./media/icons/yes-icon.png) virtuella datorer har distribuerats med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).<br>![Inga ](./media/icons/yes-icon.png) virtuella datorer skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Nödvändiga roller och behörigheter:|**Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.<br>Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|||
 
 
 ## <a name="enable-jit-vm-access"></a>Aktivera JIT VM-åtkomst<a name="jit-configure"></a>

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529377"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041687"
 ---
 # <a name="workflow-automation"></a>Automatisering av arbets flöde
 
@@ -28,19 +28,14 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmänt tillgängligt**
-- Nödvändiga roller och behörigheter:
-    - **Läsare** för prenumerationen som innehåller export konfigurationen
-    - **Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)
-    - Måste också ha Skriv behörighet för mål resursen
-    - För att kunna arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:
-        - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)
-        - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app
-        - Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)
-- Moln 
-    - ✔ Kommersiella moln
-    - ✔ US regering-moln
-    - ✘ Kina, myndigheter, andra gov-moln
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig|
+|Priset|Kostnadsfri nivå|
+|Nödvändiga roller och behörigheter:|**Läsare** för prenumerationen som innehåller export konfigurationen<br>**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Skapa en Logic-app och definiera när den ska köras automatiskt 

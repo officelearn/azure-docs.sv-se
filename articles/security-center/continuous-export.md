@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 7b0fbb7c4f680f9d732a63fff7b0b317c6cf1511
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3bfaa9f2961dca2b8b717b1506d112943910485a
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519705"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042334"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -31,12 +31,14 @@ Med de här verktygen kan du:
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmänt tillgängligt**
-- Nödvändiga roller och behörigheter:
-    - **Läsare** för prenumerationen som innehåller export konfigurationen
-    - **Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)
-    - Måste också ha Skriv behörighet för mål resursen
-- Moln: ✔ kommersiella moln ✔ US Gov ✘ Kina gov, övrigt gov
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig|
+|Priset|Kostnadsfri nivå|
+|Nödvändiga roller och behörigheter:|**Läsare** för prenumerationen som innehåller export konfigurationen<br>**Rollen säkerhets administratör** i resurs gruppen (eller **ägaren**)<br>Måste också ha Skriv behörighet för mål resursen|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
 
 
 ## <a name="setting-up-a-continuous-export"></a>Konfigurera en löpande export

@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d0bca2ad14216873836c751dc002ea915baa3a66
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca500401a6bff8a00dd9c51eecb29aa93fdbc82b
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800491"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042657"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrera Azure Digitals dubbla med andra tjänster
 
-Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster, till exempel [IoT Hub](../iot-hub/about-iot-hub.md), som används för att leverera telemetri och meddelanden. Azure Digitals-enheter kan också dirigera data till underordnade tjänster för lagring, arbets flödes integrering, analys och annan användning. 
+Azures digitala dubblare används vanligt vis tillsammans med andra tjänster. Med hjälp av [**händelse vägar**](concepts-route-events.md)tar Azure Digitals dubbla data från överordnade tjänster, till exempel [IoT Hub](../iot-hub/about-iot-hub.md), som används för att leverera telemetri och meddelanden. 
+
+Azure Digitals-enheter kan också dirigera data till underordnade tjänster, t. ex. Azure Maps ([*instruktioner: använda digitala Azure-enheter för att uppdatera en Azure Maps insamlad karta*](how-to-integrate-maps.md)) och Time Series Insights ([*anvisningar: integrera med Time Series Insights*](how-to-integrate-time-series-insights.md)), för lagring, arbets flödes integrering, analys med mera. 
 
 ## <a name="data-ingress"></a>Inkommande data
 

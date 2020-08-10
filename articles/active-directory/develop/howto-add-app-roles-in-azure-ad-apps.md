@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058626"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041467"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -74,7 +74,7 @@ I följande exempel visas den `appRoles` som du kan tilldela till `users` .
 ```
 
 > [!NOTE]
->`displayName`Får inte innehålla blank steg.
+>`displayName`Får innehålla blank steg.
 
 Du kan definiera app-roller som mål `users` , `applications` eller båda. När det är tillgängligt för `applications` visas app-roller som program behörigheter under **hantera** avsnitt > **API-behörigheter > lägg till en behörighet > mina API: er > Välj en API > program behörigheter**. I följande exempel visas en app-roll som är riktad mot en `Application` .
 

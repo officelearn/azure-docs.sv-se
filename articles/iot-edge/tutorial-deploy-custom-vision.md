@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5d4b87c14422744fd62d42a4d8e5b1ca0f34ffac
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439725"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042810"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -75,7 +75,7 @@ När din bildklassificerare har skapats och tränats kan du exportera den som en
    | Fält | Värde |
    | ----- | ----- |
    | Namn | Ange ett namn för projektet, till exempel **EdgeTreeClassifier**. |
-   | Description | Valfri projektbeskrivning. |
+   | Beskrivning | Valfri projektbeskrivning. |
    | Resurs | Välj en av dina Azure-resurs grupper som innehåller en Custom Vision Service resurs eller **skapa en ny** om du ännu inte har lagt till en. |
    | Projekttyper | **Klassificering** |
    | Klassificeringstyper | **Multiklass (en tagg per bild)** |
@@ -433,9 +433,9 @@ Från enheten visar du loggarna för modulen cameraCapture för att se meddeland
 Från Visual Studio Code högerklickar du på namnet på din IoT Edge enhet och väljer **starta övervakning inbyggd händelse slut punkt**. 
 
 > [!NOTE]
-> Du kan först se vissa anslutnings fel i utdata från cameraCapture-modulen. Detta beror på fördröjningen mellan moduler som distribueras och startas.
+> Inlednings vis kan du se anslutnings fel i utdata från cameraCapture-modulen. Detta beror på fördröjningen mellan moduler som distribueras och startas.
 >
-> CameraCapture-modulen kommer automatiskt att försöka ansluta igen tills den är klar. Därefter bör du börja se de förväntade bild klassificerings meddelandena som beskrivs nedan.
+> CameraCapture-modulen försöker automatiskt ansluta igen tills den är klar. När anslutningen är klar visas de förväntade bild klassificerings meddelanden som beskrivs nedan.
 
 Resultatet från Custom Vision-modulen, som skickas som meddelanden från modulen cameraCapture, innefattar sannolikheten att bilden föreställer antingen en hemlockgran eller ett körsbärsträd. Eftersom bilden föreställer en hemlockgran bör du se sannolikheten 1.0.
 

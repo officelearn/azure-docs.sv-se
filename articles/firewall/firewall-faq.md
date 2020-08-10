@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: 1ba8977272817d41334ccf0d9ad01d4d751bfb17
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439214"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041705"
 ---
 # <a name="azure-firewall-faq"></a>Vanliga frågor och svar om Azure-brandvägg
 
@@ -26,9 +26,9 @@ Information om Azure Firewall-funktioner finns i [Azure Firewall-funktioner](fea
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Vad är en typisk distributions modell för Azure-brandväggen?
 
-Du kan distribuera Azure-brandväggen på alla virtuella nätverk, men kunderna distribuerar dem vanligt vis på ett centralt virtuellt nätverk och peer-andra virtuella nätverk till den i en nav-och-eker-modell. Du kan sedan ange standard vägen från de peer-peer-virtuella nätverken så att de pekar på det här centrala brand Väggs nätverket. Global VNet-peering stöds, men det rekommenderas inte på grund av eventuella problem med prestanda och latens i flera regioner. För bästa prestanda bör du distribuera en brand vägg per region.
+Du kan distribuera Azure Firewall på alla virtuella nätverk, men det vanliga är att kunder distribuerar brandväggen på ett centralt virtuellt nätverk och peer-kopplar andra virtuella nätverk till den i en ”nav och eker”-modell. Du kan sedan ange standard vägen från de peer-peer-virtuella nätverken så att de pekar på det här centrala brand Väggs nätverket. Global VNet-peering stöds, men det rekommenderas inte på grund av eventuella problem med prestanda och latens i flera regioner. För att få bästa prestanda bör du distribuera en brandvägg per region.
 
-Fördelen med den här modellen är möjligheten att centralt utöva kontroll över flera eker-virtuella nätverk över olika prenumerationer. Det kostar också besparingar eftersom du inte behöver distribuera en brand vägg i varje VNet separat. Kostnads besparingarna bör mätas jämfört med den kopplade peering-kostnaden baserat på kundens trafik mönster.
+Fördelen med den här modellen är att du får central kontroll över flera virtuella eker-nätverk för olika prenumerationer. Det kostar också besparingar eftersom du inte behöver distribuera en brand vägg i varje VNet separat. Kostnadsbesparingarna bör ställas i jämförelse med kostnaden för peering utifrån kundens trafikmönster.
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Hur kan jag installera Azure-brandväggen?
 
@@ -123,7 +123,7 @@ Azure-brandväggen är inte SNAT när målets IP-adress är ett privat IP-interv
 
 Tvingad tunnel trafik stöds när du skapar en ny brand vägg. Du kan inte konfigurera en befintlig brand vägg för Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](forced-tunneling.md). 
 
-Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
+Azure Firewall måste ha direktanslutning till internet. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 
 Om konfigurationen kräver Tvingad tunnel trafik till ett lokalt nätverk och du kan fastställa målets IP-prefix för dina Internet-destinationer, kan du konfigurera dessa intervall med det lokala nätverket som nästa hopp via en användardefinierad väg på AzureFirewallSubnet. Du kan också använda BGP för att definiera dessa vägar.
 
@@ -137,11 +137,13 @@ Nej. NAT-regler lägger implicit till en motsvarande nätverks regel för att ti
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Hur fungerar jokertecken i en program regels mål-FQDN?
 
+Jokertecken kan för närvarande endast användas på vänster sida av FQDN. Till exempel ***. contoso.com** och ***contoso.com**.
+
 Om du konfigurerar ***. contoso.com**tillåts *anyvalue*. contoso.com, men inte contoso.com (domän Apex). Om du vill tillåta domän Apex måste du uttryckligen konfigurera den som en mål-FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>Vad är *etablerings status: misslyckades,* betyder?
 
-När en konfigurations ändring används försöker Azure-brandväggen uppdatera alla underliggande Server dels instanser. I sällsynta fall kan en av dessa Server dels instanser Miss lyckas med att uppdatera med den nya konfigurationen och uppdaterings processen stoppas med ett misslyckat etablerings tillstånd. Din Azure-brandvägg fungerar fortfarande, men den tillämpade konfigurationen kan vara i ett inkonsekvent tillstånd, där vissa instanser har den tidigare konfigurationen där andra har den uppdaterade regel uppsättningen. Om detta inträffar kan du försöka att uppdatera konfigurationen en gång tills åtgärden lyckas och brand väggen har statusen *slutförd* etablering.
+När du gör en konfigurationsändring försöker Azure Firewall uppdatera alla underliggande serverdelsinstanser. I sällsynta fall kan en av dessa Server dels instanser Miss lyckas med att uppdatera med den nya konfigurationen och uppdaterings processen stoppas med ett misslyckat etablerings tillstånd. Din Azure Firewall-instans fungerar fortfarande, men den tillämpade konfigurationen kan vara i ett inkonsekvent tillstånd där vissa instanser har den tidigare konfigurationen där andra har den uppdaterade regeluppsättningen. Om detta inträffar kan du försöka att uppdatera konfigurationen en gång tills åtgärden lyckas och brand väggen har statusen *slutförd* etablering.
 
 ## <a name="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures"></a>Hur hanterar Azure Firewall planerat underhåll och oplanerade fel?
 Azure-brandväggen består av flera backend-noder i en aktiv-aktiv-konfiguration.  För ett planerat underhåll har vi anslutning som tömmer logik för att på ett smidigt sätt uppdatera noder.  Uppdateringar planeras under icke kontors tid för var och en av Azure-regionerna för att ytterligare begränsa risken för avbrott.  Vid oplanerade problem instansierar vi en ny nod för att ersätta den felaktiga noden.  Anslutning till den nya noden återupprättas vanligt vis inom 10 sekunder från tidpunkten för det här problemet.

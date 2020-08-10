@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 5a2410a5ccaa10867e94b3a2ec10228a006fbe20
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534642"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042283"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
@@ -34,9 +34,15 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmänt tillgängligt**
-- Nödvändiga roller: **säkerhets administratör** eller **prenumerations ägare** 
-- Moln: ✔ kommersiella moln ✔ US Gov (delvis) ✘ National/suverän (Kina gov, övrigt gov)
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig|
+|Priset|Kostnadsfri nivå|
+|Nödvändiga roller och behörigheter:|**Säkerhets administratör**<br>**Prenumerations ägare** |
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov (delvis)<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
+
 
 
 ## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar<a name="email"></a>

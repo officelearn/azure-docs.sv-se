@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 2dce179365b2640ade3675f19dbacf6fc27b26c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089948"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042508"
 ---
 # <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Ignorera aviseringar från Azure Security Center hot skydd
 
@@ -21,9 +21,15 @@ På den här sidan förklaras hur du kan använda undertrycks regler för varnin
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: för **hands version**
-- Obligatoriska roller: **säkerhets administratör** och **ägare** kan skapa/ta bort regler. **Säkerhets läsare** och **läsare** kan visa regler.
-- Moln: ✔ kommersiella moln ✔ National/suverän (US Gov, Kina, gov, övrigt gov)
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Förhandsgranskning|
+|Priset|Kostnadsfri nivå<br>(De flesta säkerhets aviseringar gäller endast för standard-nivån)|
+|Nödvändiga roller och behörigheter:|**Säkerhets administratör** och **ägare** kan skapa/ta bort regler.<br>**Säkerhets läsare** och **läsare** kan visa regler.|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|||
+
+
 
 
 ## <a name="what-are-suppression-rules"></a>Vad är undertrycks regler?

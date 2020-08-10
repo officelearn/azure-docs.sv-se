@@ -7,16 +7,17 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 49c44b17247f14b8826df7652dc9eb025953b748
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6c0b03db281a054410b3c4f44e278dbccf32029f
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100415"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042691"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>XML-format i Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Följ den här artikeln när du vill **parsa XML-filerna**. 
@@ -84,9 +85,9 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 | ------------- | ------------------------------------------------------------ | -------- |
 | typ          | Typen för formatSettings måste anges till **XmlReadSettings**. | Yes      |
 | validationMode | Anger om XML-schemat ska verifieras.<br>Tillåtna värden är **ingen** (standard, ingen validering), **XSD** (validate med XSD), **DTD** (validate using DTD). | No |
-| namespacePrefixes | Namn områdes-URI till prefix-mappning som används för att parsa XML-filen.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No |
+| namespacePrefixes | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No |
 | compressionProperties | En grupp egenskaper för hur man dekomprimerar data för en angiven komprimerings-codec. | No       |
-| preserveZipFileNameAsFolder<br>(*under `compressionProperties` *) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen. Om värdet är true (standard), Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` . När värdet är false skriver data Factory zippade filer direkt till `<path specified in dataset>` .  | No |
+| preserveZipFileNameAsFolder<br>(*under `compressionProperties` *) | Gäller när indata-dataset konfigureras med **ZipDeflate** -komprimering. Anger om käll filens zip-filnamn ska bevaras som mappstruktur under kopieringen.<br>-Om värdet är **true (standard)**, Data Factory skriver zippade filer till `<path specified in dataset>/<folder named as source zip file>/` .<br>– Om värdet är **false**skriver data Factory zippade filer direkt till `<path specified in dataset>` . Se till att du inte har dubbla fil namn i olika käll-zip-filer för att undvika racing eller oväntat beteende.  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
@@ -94,9 +95,9 @@ I mappa data flöden kan du läsa och skriva till XML-format i följande data la
 
 ### <a name="source-properties"></a>Käll egenskaper
 
-I tabellen nedan visas de egenskaper som stöds av en XML-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** . Läs mer från [XML-kopplingens beteende](#xml-connector-behavior). När du använder en infogad data uppsättning visas ytterligare fil inställningar som är desamma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) . 
+I tabellen nedan visas de egenskaper som stöds av en XML-källa. Du kan redigera dessa egenskaper på fliken **käll alternativ** . Läs mer från [XML-kopplingens beteende](#xml-connector-behavior). När du använder en infogad data uppsättning visas ytterligare fil inställningar, som är samma som de egenskaper som beskrivs i avsnittet [Egenskaper för data mängd](#dataset-properties) . 
 
-| Namn | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
+| Name | Beskrivning | Krävs | Tillåtna värden | Skript egenskap för data flöde |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Jokertecken sökvägar | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | No | Sträng [] | wildcardPaths |
 | Partitionens rot Sök väg | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | No | Sträng | partitionRootPath |
@@ -106,7 +107,7 @@ I tabellen nedan visas de egenskaper som stöds av en XML-källa. Du kan rediger
 | Filtrera efter senast ändrad | Välj att filtrera filer baserat på när de senast ändrades | No | Timestamp | modifiedAfter <br>modifiedBefore |
 | Validerings läge | Anger om XML-schemat ska verifieras. | No | `None`(standard, ingen verifiering)<br>`xsd`(validera med XSD)<br>`dtd`(verifiera med hjälp av DTD). | validationMode |
 | Namnrymder | Om namn området ska aktive ras när XML-filerna parsas. | No | `true`(standard) eller`false` | namn områden |
-| Par av namnområdesprefix | Namn områdes-URI till prefix-mappning som används för att parsa XML-filen.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No | Matris med mönster`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Par av namnområdesprefix | Namn områdes-URI till prefix-mappning, som används för att namnge fält när XML-filen parsas.<br/>Om en XML-fil har namnrymd och namn område är aktiverat som standard är fält namnet detsamma som i XML-dokumentet.<br>Om ett objekt har definierats för namn områdets URI i den här kartan är fält namnet `prefix:fieldName` . | No | Matris med mönster`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 
 ### <a name="xml-source-script-example"></a>Skript exempel för XML-källa
 
@@ -137,7 +138,7 @@ Observera följande när du använder XML som källa.
 
 - XML-attribut:
 
-    - Attribut för ett element parsas som under fält för elementet i hierarkin.
+    - Attribut för ett element parsas som del fält för elementet i hierarkin.
     - Namnet på fältet attribut följer mönstret `@attributeName` .
 
 - Verifiering av XML-schema:

@@ -3,12 +3,12 @@ title: Konfigurera din egen nyckel för att kryptera Azure Service Bus data i vi
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för att kryptera Azure Service Bus data rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4eef0965f585291c31a3698d1d37abf67c6295c
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85475993"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041571"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -21,7 +21,7 @@ Att aktivera funktionen BYOK är en tids inställnings process i namn området.
 > [!NOTE]
 > Det finns vissa varningar om kundens hanterade nyckel för kryptering på tjänst sidan. 
 >   * Den här funktionen stöds av [Azure Service Bus Premium](service-bus-premium-messaging.md) -nivån. Det går inte att aktivera den för standard nivå Service Bus namn områden.
->   * Kryptering kan bara aktive ras för nya eller tomma namn områden. Om namn området innehåller data kommer krypterings åtgärden att Miss sen.
+>   * Kryptering kan bara aktive ras för nya eller tomma namn områden. Om namn området innehåller några köer eller ämnen kommer krypterings åtgärden att Miss sen.
 
 Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckel användning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 

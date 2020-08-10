@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 747729b7cbb3dcce72eb36704b5965e8427b59e1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424264"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042623"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -468,6 +468,67 @@ Följande förbrukar möjliga konfigurations alternativ i filen:
     }
 }
 ```
+
+## <a name="pin-your-app-to-a-specific-authentication-runtime-version"></a>Fästa din app till en viss Authentication runtime-version
+
+När du aktiverar autentisering/auktorisering matas plattformens mellanprogram in i pipeline för HTTP-begäran enligt beskrivningen i [funktions översikten](overview-authentication-authorization.md#how-it-works). Plattformens mellanprogram uppdateras regelbundet med nya funktioner och förbättringar som en del av rutin plattforms uppdateringar. Som standard körs din webb-eller Function-app på den senaste versionen av plattforms oberoende program varan. Dessa automatiska uppdateringar är alltid bakåtkompatibla. Men i den sällsynta händelse att den automatiska uppdateringen introducerar ett körnings problem för din webb-eller Function-app kan du tillfälligt återställa till den tidigare versionen av mellanprogram. Den här artikeln förklarar hur du tillfälligt fäster en app till en angiven version av autentisering mellanprogram.
+
+### <a name="automatic-and-manual-version-updates"></a>Automatiska och manuella versions uppdateringar 
+
+Du kan fästa din app till en speciell version av plattformens mellanprogram genom att ställa in en `runtimeVersion` inställning för appen. Appen körs alltid på den senaste versionen om du inte väljer att uttryckligen fästa den på en specifik version. Det finns ett par versioner som stöds i taget. Om du fäster på en ogiltig version som inte längre stöds använder appen den senaste versionen i stället. Om du alltid vill köra den senaste versionen väljer `runtimeVersion` du ~ 1. 
+
+### <a name="view-and-update-the-current-runtime-version"></a>Visa och uppdatera den aktuella körnings versionen
+
+Du kan ändra den körnings version som används av din app. Den nya körnings versionen börjar gälla när du startar om appen. 
+
+#### <a name="view-the-current-runtime-version"></a>Visa den aktuella körnings versionen
+
+Du kan visa den aktuella versionen av plattforms oberoende mellanprogram, antingen med hjälp av Azure CLI eller via någon av HTTP-slutpunkterna för built0-versionen i din app.
+
+##### <a name="from-the-azure-cli"></a>Från Azure CLI
+
+Använd Azure CLI för att visa den aktuella mellan versionen med kommandot [AZ webapp auth show](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-show) .
+
+```azurecli-interactive
+az webapp auth show --name <my_app_name> \
+--resource-group <my_resource_group>
+```
+
+I den här koden ersätter du `<my_app_name>` med namnet på din app. Ersätt även `<my_resource_group>` med namnet på resurs gruppen för din app.
+
+`runtimeVersion`Fältet i CLI-utdata visas. Det ser ut ungefär som i följande exempel utdata, som har trunkerats för tydlighets skull: 
+```output
+{
+  "additionalLoginParams": null,
+  "allowedAudiences": null,
+    ...
+  "runtimeVersion": "1.3.2",
+    ...
+}
+```
+
+##### <a name="from-the-version-endpoint"></a>Från versions slut punkten
+
+Du kan också trycka på/.auth/version-slutpunkten i en app för att visa den aktuella mellanprogram versionen som appen körs på. Det ser ut ungefär som i följande exempel:
+```output
+{
+"version": "1.3.2"
+}
+```
+
+#### <a name="update-the-current-runtime-version"></a>Uppdatera den aktuella körnings versionen
+
+Med Azure CLI kan du uppdatera `runtimeVersion` inställningen i appen med kommandot [AZ webapp auth Update](https://docs.microsoft.com/cli/azure/webapp/auth?view=azure-cli-latest#az-webapp-auth-update) .
+
+```azurecli-interactive
+az webapp auth update --name <my_app_name> \
+--resource-group <my_resource_group> \
+--runtime-version <version>
+```
+
+Ersätt `<my_app_name>` med namnet på din app. Ersätt även `<my_resource_group>` med namnet på resurs gruppen för din app. Ersätt också `<version>` med en giltig version av 1. x-körningsmiljön eller `~1` för den senaste versionen. Du hittar viktig information om de olika körnings versionerna [här] ( https://github.com/Azure/app-service-announcements) som hjälper dig att fastställa vilken version som ska fästas på.
+
+Du kan köra det här kommandot från [Azure Cloud Shell](../cloud-shell/overview.md) genom att välja **prova** i föregående kod exempel. Du kan också använda [Azure CLI lokalt](https://docs.microsoft.com/cli/azure/install-azure-cli) för att köra det här kommandot när du har kört [AZ-inloggning](https://docs.microsoft.com/cli/azure/reference-index#az-login) för att logga in.
 
 ## <a name="next-steps"></a>Nästa steg
 

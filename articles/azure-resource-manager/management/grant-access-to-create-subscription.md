@@ -6,12 +6,12 @@ manager: jureid
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: jureid
-ms.openlocfilehash: 7feb49266a10b7423121dc5362b0bd6bda4d0e08
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aef9c6781c87ff4e84e46de711308319755e4630
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824502"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042079"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst för att skapa Azure Enterprise-prenumerationer (för hands version)
 
@@ -180,7 +180,7 @@ För att kunna [skapa prenumerationer under ett registrerings konto](programmati
 
 Om du vill spåra de prenumerationer som skapats via detta API använder du [klient aktivitets logg-API: et](/rest/api/monitor/tenantactivitylogs). Det går för närvarande inte att använda PowerShell, CLI eller Azure Portal för att spåra skapande av prenumeration.
 
-1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
+1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../../role-based-access-control/elevate-access-global-admin.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`. Den här åtkomsten är tillgänglig i rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) , rollen [övervaknings deltagare](../../role-based-access-control/built-in-roles.md#monitoring-contributor) eller en [anpassad roll](../../role-based-access-control/custom-roles.md).
 1. Som gransknings användare anropar du [klient aktivitets logg-API: et](/rest/api/monitor/tenantactivitylogs) för att se aktiviteter för att skapa prenumerationer. Exempel:
 
     ```

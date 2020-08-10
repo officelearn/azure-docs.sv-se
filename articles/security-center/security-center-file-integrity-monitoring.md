@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 68d3646b4ebc3fc5dd5943186afdb75307dfd5ed
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519345"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042674"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -26,12 +26,16 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 
 ## <a name="availability"></a>Tillgänglighet
 
-- Versions tillstånd: **allmänt tillgängligt**
-- Nödvändiga roller: **arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure-roller för Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Läsaren** kan visa resultat.
-- Moln
-    - ✔ Kommersiella moln
-    - ✔ US Gov molnet
-    - ✘ Kina gov/övrigt gov
+|Aspekt|Information|
+|----|:----|
+|Versions tillstånd:|Allmänt tillgänglig|
+|Priset|Standard-nivå|
+|Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|||
+
+
+
 
 
 ## <a name="what-is-fim-in-security-center"></a>Vad är FIM i Security Center?

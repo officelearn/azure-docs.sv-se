@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 38a2dd42c010e5b213fd89aa046c7c5b1e1d0a7f
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758956"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88041792"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -38,6 +38,7 @@ Röst aktive rad chatt-roboten som du gör i den här självstudien följer de h
 1. Den tolkade texten skickas till eko-roboten som en bot Framework-aktivitet.
 1. Svars texten omvandlas till ljud av tjänsten text till tal (TTS) och strömmas tillbaka till klient programmet för uppspelning.
 
+<!-- svg src in User Story 1754106 -->
 ![diagram-tagg](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "Tal kanal flödet")
 
 > [!NOTE]
@@ -166,7 +167,7 @@ Nu när du har skapat några resurser är det dags att skapa en bot. Vi kommer a
 1. Installera [bot Framework-emulatorns](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 eller senare
 2. Starta bot Framework-emulatorn och öppna din robot:
    * **Fil**  ->  **Öppna bot**.
-3. Ange URL: en för din robot. Exempel:
+3. Ange URL: en för din robot. Ett exempel:
 
    ```
    http://localhost:3978/api/messages

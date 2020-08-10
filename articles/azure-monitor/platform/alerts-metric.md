@@ -4,14 +4,14 @@ description: Lär dig hur du använder Azure Portal eller CLI för att skapa, Vi
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/10/2020
 ms.subservice: alerts
-ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321130"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042742"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
 
@@ -88,6 +88,7 @@ Du kan visa och hantera mått varnings regler med hjälp av bladet hantera regle
 
 6. Klicka på **Slutför** för att spara ändringarna.
 
+
 ## <a name="with-azure-cli"></a>Med Azure CLI
 
 I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings regler för mått med hjälp av Azure Portal. Det här avsnittet beskriver hur du gör på samma sätt som med plattforms oberoende [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Det snabbaste sättet att börja använda Azure CLI är genom [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). I den här artikeln ska vi använda Cloud Shell.
@@ -133,6 +134,14 @@ I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings reg
     ```azurecli
     az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
+
+## <a name="with-powershell"></a>Med PowerShell
+
+Mått för varnings regler har dedikerade PowerShell-cmdlets tillgängliga:
+
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): skapar en ny regel för mått avisering eller uppdaterar en befintlig.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): hämtar en eller flera mått för varnings regler.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): tar bort en mått varnings regel.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032141"
+ms.locfileid: "88042487"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
@@ -68,7 +68,7 @@ Som standard gäller alla nya principer för villkorlig åtkomst för alla typer
 > Beteendet för klient programs villkoret uppdaterades i augusti 2020. Om du har befintliga principer för villkorlig åtkomst kommer de att förbli oförändrade. Om du klickar på en befintlig princip har växlingen av konfiguration tagits bort och de klient program som principen gäller för är markerade.
 
 > [!IMPORTANT]
-> Inloggningar från äldre autentiseringsbegäranden stöder inte MFA och skickar inte enhets tillstånds information till Azure AD, så de kommer att blockeras av kontroller för villkorlig åtkomst, som att kräva MFA-eller kompatibla enheter. Om du har konton som måste använda äldre autentisering kan du antingen undanta dessa konton från principen eller konfigurera principen så att den endast gäller för moderna klientautentisering.
+> Inloggningar från äldre autentiseringsbegäranden stöder inte MFA och skickar inte enhets tillstånds information till Azure AD, så de kommer att blockeras av kontroller för villkorlig åtkomst, som att kräva MFA-eller kompatibla enheter. Om du har konton som måste använda äldre autentisering måste du antingen undanta dessa konton från principen eller konfigurera principen så att den endast gäller för moderna autentiserings klienter.
 
 Alternativet **Konfigurera** växling när är inställt på **Ja** gäller för markerade objekt, om det är inställt på **Nej** gäller för alla klient program, inklusive moderna och bakåtkompatibla autentiseringsbegäranden. Den här växlingen visas inte i principer som skapats före augusti 2020.
 

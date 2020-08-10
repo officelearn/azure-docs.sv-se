@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b641437b7e15334d59c544b95d5be0f20f2a8df
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0928cb264dcff43cc0a3e45a8417dcd1e23a1ed3
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387548"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042606"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
@@ -42,7 +42,7 @@ I följande tabell sammanfattas de enkla inloggnings metoderna och länkar till 
 
 | Metod för enkel inloggning | Programtyper | När du ska använda detta |
 | :------ | :------- | :----- |
-| [OpenID Connect och OAuth](#openid-connect-and-oauth) | endast moln | Använd OpenID Connect och OAuth när du utvecklar ett nytt program. Det här protokollet fören klar program konfigurationen, har lättanvända SDK: er och gör att ditt program kan använda MS Graph.
+| [OpenID Connect och OAuth](#openid-connect-and-oauth) | molnet och lokalt | Använd OpenID Connect och OAuth när du utvecklar ett nytt program. Det här protokollet fören klar program konfigurationen, har lättanvända SDK: er och gör att ditt program kan använda MS Graph.
 | [SAML](#saml-sso) | molnet och lokalt | Välj SAML när det är möjligt för befintliga program som inte använder OpenID Connect eller OAuth. SAML fungerar för program som autentiserar med ett av SAML-protokollen.|
 | [Lösenordsbaserade](#password-based-sso) | molnet och lokalt | Välj Password-based när programmet autentiserar med användar namn och lösen ord. Lösenordsbaserad enkel inloggning möjliggör säker lagring av lösen ord för program och uppspelning med hjälp av ett webb läsar tillägg eller en mobilapp. Den här metoden använder den befintliga inloggnings processen som tillhandahålls av programmet, men gör det möjligt för en administratör att hantera lösen orden. |
 | [Länkade](#linked-sign-on) | molnet och lokalt | Välj länkad inloggning när programmet har kon figurer ATS för enkel inloggning i en annan Identity Provider-tjänst. Med det här alternativet läggs inte enkel inloggning till i programmet. Programmet kan dock redan ha enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS).|

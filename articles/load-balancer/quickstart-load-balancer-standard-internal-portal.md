@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: fb0a5c06c8b7bdbb62e937e865e6bb2fd4000f2d
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 1ec3eaac90e1d2bc24608f6cb4546d5bed859b5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87462489"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033248"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
 Kom igång med Azure Load Balancer genom att använda Azure Portal för att skapa en intern belastningsutjämnare och två virtuella datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -51,20 +51,56 @@ En privat IP-adress i det virtuella nätverket har kon figurer ATS som klient de
 
 Klient delens IP-adress kan vara **statisk** eller **dynamisk**.
 
-## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
+## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-I det här avsnittet ska du ersätta parametrarna i stegen med informationen nedan:
+I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-| Parameter                   | Värde                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa, västra      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+
+    | **Inställning**          | **Värde**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Projekt information**  |                                                                 |
+    | Prenumeration     | Välj din Azure-prenumeration                                  |
+    | Resursgrupp   | Välj **myResourceGroupLB** |
+    | **Instans information** |                                                                 |
+    | Name             | Ange **myVNet**                                    |
+    | Region           | Välj **Europa, västra** |
+
+3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
+
+4. På fliken **IP-adresser** anger du den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | IPv4-adress utrymme | Ange **10.1.0.0/16** |
+
+5. Under **under näts namn**väljer du ordet **standard**.
+
+6. I **Redigera undernät**anger du den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Namn på undernät | Ange **myBackendSubnet** |
+    | Adressintervall för undernätet | Ange **10.1.0.0/24** |
+
+7. Välj **Spara**.
+
+8. Välj fliken **säkerhet** .
+
+9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Skydds namn | Ange **myBastionHost** |
+    | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
+
+
+8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
+
+9. Välj **Skapa**.
 
 ## <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
@@ -72,7 +108,7 @@ I det här avsnittet ska du ersätta parametrarna i stegen med informationen ned
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
@@ -123,7 +159,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
 
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -151,7 +187,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
 
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | IP-version | Välj **IPv4** |
@@ -164,6 +200,9 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
     | Skapa implicit utgående regler | Välj **Nej**.
 
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
+
+>[!NOTE]
+>De virtuella datorerna i backend-poolen har ingen utgående Internet anslutning med den här konfigurationen. </br> Mer information om hur du tillhandahåller utgående anslutningar finns i: </br> **[Utgående anslutningar i Azure](load-balancer-outbound-connections.md)**</br> Alternativ för att tillhandahålla anslutning: </br> **[Konfiguration av utgående belastningsutjämnare](egress-only.md)** </br> **[Vad är Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
@@ -182,7 +221,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -204,7 +243,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
@@ -223,7 +262,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 6. På fliken **hantering** väljer eller anger du:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Övervakning** |  |
     | Startdiagnostik | Välj **av** |
@@ -234,7 +273,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 9. Följ steg 1 till 8 för att skapa en ytterligare virtuell dator med följande värden och alla andra inställningar på samma sätt som **myVM1**:
 
-    | Inställningen | VM 2|
+    | Inställning | VM 2|
     | ------- | ----- |
     | Name |  **myVM2** |
     | Tillgänglighetszon | **2** |
@@ -256,20 +295,56 @@ En privat IP-adress i det virtuella nätverket har kon figurer ATS som klient de
 
 Klient delens IP-adress kan vara **statisk** eller **dynamisk**.
 
-## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
+## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
-I det här avsnittet ska du ersätta parametrarna i stegen med informationen nedan:
+I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
-| Parameter                   | Värde                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Europa, västra      |
-| **\<IPv4-address-space>**   | 10.1.0.0 \ 16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.1.0.0 \ 24          |
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs > nätverk > virtuellt nätverk** eller söker efter **virtuellt nätverk** i sökrutan.
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+
+    | **Inställning**          | **Värde**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Projekt information**  |                                                                 |
+    | Prenumeration     | Välj din Azure-prenumeration                                  |
+    | Resursgrupp   | Välj **myResourceGroupLB** |
+    | **Instans information** |                                                                 |
+    | Name             | Ange **myVNet**                                    |
+    | Region           | Välj **Europa, västra** |
+
+3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
+
+4. På fliken **IP-adresser** anger du den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | IPv4-adress utrymme | Ange **10.1.0.0/16** |
+
+5. Under **under näts namn**väljer du ordet **standard**.
+
+6. I **Redigera undernät**anger du den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Namn på undernät | Ange **myBackendSubnet** |
+    | Adressintervall för undernätet | Ange **10.1.0.0/24** |
+
+7. Välj **Spara**.
+
+8. Välj fliken **säkerhet** .
+
+9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Skydds namn | Ange **myBastionHost** |
+    | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
+
+
+8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
+
+9. Välj **Skapa**.
 
 ## <a name="create-load-balancer"></a>Skapa en lastbalanserare
 
@@ -277,7 +352,7 @@ I det här avsnittet ska du ersätta parametrarna i stegen med informationen ned
 
 2. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information: 
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
@@ -315,7 +390,7 @@ Skapa **myBackendPool** för backend-adresspoolen för att inkludera virtuella d
 
 3. På sidan **Lägg till en server dels grupp** anger eller väljer du:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myBackendPool**. |
     | Virtuellt nätverk | Välj **myVNet**. |
@@ -335,7 +410,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
 
 2. Välj **hälso avsökningar**under **Inställningar**och välj sedan **Lägg till**.
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
@@ -363,7 +438,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
 
 3. Använd de här värdena för att konfigurera belastnings Utjämnings regeln:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myHTTPRule**. |
     | IP-version | Välj **IPv4** |
@@ -398,7 +473,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -420,7 +495,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | Välj **myVNet** |
@@ -434,9 +509,10 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 5. Välj fliken **Hantering** eller **Nästa** > **Hantering**.
 
 6. På fliken **hantering** väljer eller anger du:
-    | Inställningen | Värde |
+    
+    | Inställning | Värde |
     |-|-|
-    | **Övervakning** | |
+    | **Övervakning** |  |
     | Startdiagnostik | Välj **av** |
 
 7. Välj **Granska + skapa**. 
@@ -445,7 +521,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
 9. Följ steg 1 till 8 för att skapa en ytterligare virtuell dator med följande värden och alla andra inställningar på samma sätt som **myVM1**:
 
-    | Inställningen | VM 2 |
+    | Inställning | VM 2 |
     | ------- | ----- |
     | Name |  **myVM2** |
     | Tillgänglighetsuppsättning| Välj **myAvailabilitySet** |
@@ -478,7 +554,7 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
@@ -487,7 +563,6 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
     | Namn på virtuell dator | Ange **myTestVM** |
     | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
-    | Tillgänglighetszon | Välj **zon redundant** |
     | Bild | Välj **Windows Server 2019 Data Center** |
     | Azure Spot-instans | Välj **Nej** |
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
@@ -500,12 +575,12 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
     | Undernät | **myBackendSubnet** |
-    | Offentlig IP-adress | Acceptera standardvärdet för **myTestVM-IP**. |
+    | Offentlig IP-adress | Välj **Ingen**. |
     | Nätverks säkerhets grupp för nätverkskort | Välj **Avancerat**|
     | Konfigurera nätverks säkerhets grupp | Välj **MyNSG** som skapades i föregående steg.|
     
@@ -513,7 +588,7 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
 
 6. På fliken **hantering** väljer eller anger du:
     
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Övervakning** |  |
     | Startdiagnostik | Välj **av** |
@@ -526,15 +601,15 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
 
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
 
-2. På sidan **Översikt** väljer du **Anslut** för att ladda ned RDP-filen för den virtuella datorn.
+2. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
 
-3. Öppna RDP-filen.
+4. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
 
-4. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn.
+5. Välj **Anslut**.
 
-5. Gå till **Windows administrations verktyg** > **Windows PowerShell**på server Skriv bordet.
+6. Gå till **Windows administrations verktyg**  >  **Windows PowerShell**på server Skriv bordet.
 
-6. Kör följande kommandon i PowerShell-fönstret för att:
+7. Kör följande kommandon i PowerShell-fönstret för att:
 
     * Installera IIS-servern
     * Ta bort standard iisstart.htms filen
@@ -546,14 +621,15 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # remove default htm file
-    remove-item  C:\inetpub\wwwroot\iisstart.htm
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
     
     # Add a new htm file that displays server name
-    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
    ```
-7. Stäng RDP-sessionen med **myVM1**.
+8. Stäng skydds-sessionen med **myVM1**.
 
-8. Upprepa steg 1 till 6 för att installera IIS och den uppdaterade filen iisstart.htm på **myVM2**.
+9. Upprepa steg 1 till 6 för att installera IIS och den uppdaterade filen iisstart.htm på **myVM2**.
+
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
@@ -563,15 +639,13 @@ I det här avsnittet ska du skapa en virtuell dator med namnet **myTestVM**.  De
 
 3. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myTestVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
 
-4. På sidan **Översikt** väljer du **Anslut** för att ladda ned RDP-filen för den virtuella datorn.
+4. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
 
-5. Öppna RDP-filen.
-
-6. Logga in på den virtuella datorn med de autentiseringsuppgifter som du angav när du skapade den virtuella datorn.
+6. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
 
 7. Öppna **Internet Explorer** på **myTestVM**.
 
-4. Kopiera den privata IP-adressen och klistra in den i adress fältet i webbläsaren. IIS-webbserverns standardsida visas i webbläsaren.
+8. Ange IP-adressen från föregående steg i adress fältet i webbläsaren. IIS-webbserverns standardsida visas i webbläsaren.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Skapa en intern standard belastnings utjämning" border="true":::
    
@@ -591,4 +665,5 @@ I den här snabbstarten kommer du att göra följande:
 
 Om du vill veta mer om Azure Load Balancer kan du fortsätta till [Azure Load Balancer?](load-balancer-overview.md) och [Load Balancer vanliga frågor och svar](load-balancer-faqs.md).
 
-Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
+* Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
+* Läs mer om [Azure skydds](https://docs.microsoft.com/azure/bastion/bastion-overview).

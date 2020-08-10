@@ -1,18 +1,18 @@
 ---
 title: Skapa ett Dynamics 365 Business Central-erbjudande – Microsoft Commercial Marketplace
-description: Lär dig mer om steg och överväganden för att skapa ett nytt Dynamics 365 Business Central-erbjudande i den kommersiella Marketplace-portalen i Partner Center. Du kan visa eller sälja ditt erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
+description: Lär dig mer om steg och överväganden för att skapa ett nytt Dynamics 365 Business Central-erbjudande på Microsofts kommersiella marknads plats i Partner Center. Du kan visa eller sälja ditt erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 06/17/2020
-ms.openlocfilehash: 5ec8949d1ba614ca947f9848182ae2c94e044fc3
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.date: 08/07/2020
+ms.openlocfilehash: ff93a336b50ceac1106b31726d865ed3e0b41108
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800406"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031503"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -134,7 +134,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 9. Beskrivning
 10. Skärm bilder/videor
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -180,25 +180,27 @@ I avsnittet **support kontakt** måste du också ange **Support-URL:** en där C
 
 Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, till exempel fakta blad, broschyrer, check listor eller presentationer. Dessa dokument måste vara i PDF-format.
 
-### <a name="store-logos"></a>Butiks logo typer
+### <a name="marketplace-images"></a>Marketplace-avbildningar
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
+Ange logo typer och avbildningar för ditt erbjudande. Alla bilder måste vara i PNG-format. 
 
-Båda logo typ storlekarna krävs för användning på olika platser i listan:
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
-- **Liten** (48 x 48)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+Ladda upp din erbjudande logo typ i två storlekar:
+
+* **Liten** (48 x 48 pixlar)
+* **Stor** (216 x 216 pixlar)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som `https://upload.xboxlive.com` används av Partner Center.
-
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

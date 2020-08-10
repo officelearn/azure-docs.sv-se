@@ -1,18 +1,18 @@
 ---
 title: Konfigurera aviseringar i Azure VPN Gateway mått
-description: Lär dig hur du konfigurerar aviseringar i Azure VPN Gateway mått. Använd Azure Monitor för att ställa in aviseringar för virtuella nätverksgateway för VPN-typen.
+description: Lär dig hur du använder Azure Portal för att konfigurera Azure Monitor aviseringar baserat på mått för VPN-gatewayer för virtuella nätverk.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: 3819f653cba80854a65a08f92a10f82057abb0fd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14bb407cb12e24ca789085e954aaabff2333da7b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923075"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033503"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Konfigurera aviseringar för VPN Gateway mått
 

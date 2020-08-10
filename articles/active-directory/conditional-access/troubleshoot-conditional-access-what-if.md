@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 07/03/2019
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aaab58acb00305f76b10847a0417d91d724ba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46d3b8d94148e3db163411c21cccf39c7630c6b3
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83737647"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032938"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med hjälp av What If-verktyget
 
@@ -41,7 +41,7 @@ Följande ytterligare information är valfri, men kan hjälpa dig att begränsa 
 * Enhetsplattform
 * Klient program (för hands version)
 * Enhets tillstånd (för hands version) 
-* Inloggnings risk
+* Inloggningsrisk
 
 Den här informationen kan samlas in från användaren, enheten eller inloggnings loggen för Azure AD.
 
@@ -67,7 +67,7 @@ Många organisationer skapar principer baserat på nätverks platser, som tillå
 
 För att verifiera att en konfiguration har gjorts på lämpligt sätt kan en administratör använda What If-verktyget för att efterlikna åtkomst, från en plats som ska tillåtas och från en plats som ska nekas.
 
-![What If verktyget visar resultat med blockera åtkomst](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+[![What If verktyget visar resultat med blockera åtkomst](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png#lightbox)
 
 I den här instansen skulle användaren blockeras från att komma åt en molnbaserad app i sin resa till Nord Korea eftersom contoso har blockerat åtkomst från den platsen.
 
@@ -75,7 +75,7 @@ Det här testet kan utökas för att omfatta andra data punkter för att begrän
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är villkorlig åtkomst?](overview.md)
+* [Vad är villkorsstyrd åtkomst?](overview.md)
 * [Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
 * [Vad är en enhetsidentitet?](../devices/overview.md)
 * [Så här fungerar Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

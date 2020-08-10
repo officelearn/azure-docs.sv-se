@@ -8,23 +8,20 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 9427b007bc047e2f01db2dad02e06bf0ab0f5dea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000618"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032305"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
-
-
 
 Azure IoT Central är en IoT app-plattform som minskar den börda och kostnad som är kopplad till utveckling, hantering och underhåll av IoT-lösningar i företags klass. Genom att välja att skapa med Azure IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
 
 Den här artikeln beskriver flera återförsäljar-specifika IoT Central programmallar. Som Solution Builder kan du använda de här mallarna för att skapa IoT-lösningar som optimerar leverans kedjor, förbättra i Store-upplevelser för kunder och spåra inventeringen mer effektivt.
 
-> [!div class="mx-imgBorder"]
-> ![Översikt över Azure IoT återförsäljarversion](./media/overview-iot-central-retail/retail-app-templates.png)
+:::image type="content" source="media/overview-iot-central-retail/retail-app-templates.png" alt-text="Översikt över Azure IoT återförsäljarversion":::
 
 I följande avsnitt beskrivs funktionerna i dessa programmallar:
 
@@ -44,19 +41,17 @@ Fördelarna med en ansluten logistik lösning är:
 
 Följande skärm bilder visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Ansluten logistik instrument panel":::
 
-> [!div class="mx-imgBorder"]
-> ![Ansluten logistik instrument panel](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Ansluten logistik instrument panel":::
 
 Mer information finns i själv studie kursen [distribuera och gå igenom en sammankopplad logistik-Programmall](./tutorial-iot-central-connected-logistics.md) .
 
 ## <a name="digital-distribution-center"></a>Digitalt distributionscenter
 
-När tillverkare och åter försäljare upprättar över hela världen, kan deras försörjnings kedjor förgrena ut och bli mer komplexa. Konsumenterna förväntar sig nu stora val av produkter som är tillgängliga och för de varorna att komma in inom en eller två dagars inköps dagar. Distributions Center måste anpassas till dessa trender samtidigt som du överkommer till befintliga ineffektiva. 
+När tillverkare och åter försäljare upprättar över hela världen, kan deras försörjnings kedjor förgrena ut och bli mer komplexa. Konsumenterna förväntar sig nu stora val av produkter som är tillgängliga och för de varorna att komma in inom en eller två dagars inköps dagar. Distributions Center måste anpassas till dessa trender samtidigt som du överkommer till befintliga ineffektiva.
 
-Idag innebär ett beroende av manuell arbete att plocknings-och förpacknings konton för 55-65% av distributions Center kostnaderna. Manuell plockning och paketering är också ofta långsammare än automatiserade system, och de behöver inte göra det ännu svårare att uppfylla frakt volymer. Den här säsongs variationen resulterar i hög personal omsättning och ökar risken för kostsamma fel.
+I dag innebär en manuell arbets kraft att plocknings-och förpacknings konton för 55-65% av kostnaderna för distributions Center. Manuell plockning och paketering är också ofta långsammare än automatiserade system, och de behöver inte göra det ännu svårare att uppfylla frakt volymer. Den här säsongs variationen resulterar i hög personal omsättning och ökar risken för kostsamma fel.
 
 Lösningar som baseras på IoT-aktiverade kameror kan leverera debildnings förmåner genom att aktivera en digital feedback-slinga. Data från alla distributions Center leder till användbara insikter som i sin tur resulterar i bättre data.
 
@@ -69,8 +64,7 @@ Fördelarna med en digital distributions Center är:
 
 Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
-> [!div class="mx-imgBorder"]
-> ![Instrument panel för digital distributions Center](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Instrument panel för digital distributions Center":::
 
 Mer information finns i själv studie kursen [distribuera och gå igenom en app-mall för digital distributions Center](./tutorial-iot-central-digital-distribution-center.md) .
 
@@ -82,8 +76,8 @@ Som Solution Builder kan du använda programmallen IoT Central in-Store Analytic
 
 Använd program mal len för att:
 
-* Anslut en mängd IoT-sensorer till en IoT Central program instans.
-* Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+* Anslut olika typer av IoT-sensorer till en IoT Central program instans.
+* Övervaka och hantera hälso tillståndet för sensor nätverket och eventuella gateway-enheter i miljön.
 * Skapa anpassade regler kring miljö villkoren i en butik för att utlösa aviseringar för Store-hanterare.
 * Omvandla miljö villkoren i butiken till insikter som butiks teamet kan använda för att förbättra kund upplevelsen.
 * Exportera de sammanställda insikterna till befintliga eller nya affärs program för att tillhandahålla användbar och tidsmerad information till butiks personalen.
@@ -92,8 +86,7 @@ Program mal len innehåller en uppsättning enhetsspecifika mallar och använder
 
 Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
-> [!div class="mx-imgBorder"]
-> ![Övervakning av villkor i Store Analytics](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Övervakning av villkor i Store Analytics":::
 
 Mer information finns i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -105,8 +98,8 @@ Som Solution Builder kan du använda mallen IoT Central Mall för att skapa en l
 
 Använd program mal len för att:
 
-* Anslut en mängd IoT-sensorer till en IoT Central program instans.
-* Övervaka och hantera hälso tillståndet för sensor nätverket samt alla gateway-enheter i miljön.
+* Anslut olika typer av IoT-sensorer till en IoT Central program instans.
+* Övervaka och hantera hälso tillståndet för sensor nätverket och eventuella gateway-enheter i miljön.
 * Skapa anpassade regler runt betalnings villkoret i en butik för att utlösa aviseringar för detalj handels personal.
 * Transformera arbets villkoren i butiken till insikter som butiks teamet kan använda för att förbättra kund upplevelsen.
 * Exportera de sammanställda insikterna till befintliga eller nya affärs program för att tillhandahålla användbar och tidsmerad information till butiks personalen.
@@ -115,8 +108,7 @@ Program mal len levereras med en uppsättning enhetsspecifika mallar och använd
 
 Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav: 
 
-> [!div class="mx-imgBorder"]
-> ![Checka in Store Analytics](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Checka in Store Analytics":::
 
 Mer information finns i själv studie kursen [skapa ett program för analys i Azure IoT Central](./tutorial-in-store-analytics-create-app.md) .
 
@@ -136,8 +128,7 @@ Den här program mal len fokuserar på enhets anslutningar och konfigurationen o
 
 Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
-> [!div class="mx-imgBorder"]
-> ![Hanterings instrument panel för smart inventering](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Hanterings instrument panel för smart inventering":::
 
 Mer information finns i själv studie kursen [distribuera och gå igenom en smart inventerings hantering](./tutorial-iot-central-smart-inventory-management.md) .
 
@@ -157,10 +148,32 @@ Med program mal len kan du:
 
 Följande skärm bild visar den färdiga instrument panelen i program mal len. Instrument panelen är helt anpassningsbar för att uppfylla dina särskilda lösnings krav:
 
-> [!div class="mx-imgBorder"]
-> ![Micro-uppfyllelse Center](./media/overview-iot-central-retail/MFC-Dashboard.png)
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Micro-uppfyllelse Center":::
 
 Mer information finns i själv studie kursen [distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center.md) .
+
+## <a name="video-analytics---object-and-motion-detection"></a>Video analys – identifiering av objekt och rörelse
+
+Med program mal len *IoT Central video analys – objekt och rörelse identifiering* kan du snabbt uppleva hur du distribuerar, hanterar och övervakar en lösning som använder smarta kant kameror för att identifiera objekt och rörelse.
+
+Video analys programmet använder en [lva-modul (Real Video Analytics)](#live-video-analytics) som körs i IoT Edge. LVA-modulen tillhandahåller en plattform där du kan bygga intelligenta video program som omfattar gränsen och molnet. Du kan använda plattformen för att förbättra IoT-lösningar, till exempel video analys programmet, med objekt-och rörelse identifiering.
+
+Program mal len innehåller fyra instrument paneler för program:
+
+* **Installations programmet** ger information om program designen och låter dig lägga till och ta bort kameror.
+* Med **Hantera** kan du hantera dina kameror. Du kan till exempel konfigurera kamerorna, Visa statusinformation och starta kameror som kör.
+* Med **verkliga kameror** kan du Visa information från dina riktiga kameror, till exempel identifierings antal och kamera händelser.
+* Med **övervakaren** kan du Visa detaljerad information från alla dina kameror.
+
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analys – identifiering av objekt och rörelse":::
+
+Mer information om lösningens arkitektur finns i [program arkitekturen för video analys](architecture-video-analytics.md).
+
+Information om hur du distribuerar lösningen finns i själv studie kursen [skapa ett video analys program i Azure IoT Central](tutorial-video-analytics-create-app.md) .
+
+### <a name="live-video-analytics"></a>Video analys i real tid
+
+Med Live Video Analytics får du en plattform där du kan bygga intelligenta video program som omfattar gränsen och molnet. Plattformen ger möjlighet att samla in, spela in, analysera direktsänd video och publicera resultaten, som kan vara video-eller video analyser till Azure-tjänster. Azure-tjänsterna kan köras i molnet eller på gränsen. Du kan använda plattformen för att förbättra IoT-lösningar med video analys.
 
 ## <a name="next-steps"></a>Nästa steg
 

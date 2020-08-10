@@ -4,12 +4,12 @@ description: Lär dig hur du skalar ett Service Fabric kluster genom att lägga 
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: 01f6c90f9f7d7679f5b108138e2d2318eb6b9e18
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5cabe7e377c29812252074336d7c5e9c9d3ba259
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010866"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031989"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
 Den här artikeln beskriver hur du skalar upp ett Service Fabric-klusters primära nodtyp genom att lägga till ytterligare en nodtyp i klustret. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat.
@@ -62,9 +62,6 @@ New-AzResourceGroupDeployment `
 ### <a name="add-a-new-primary-node-type-to-the-cluster"></a>Lägg till en ny typ av primär nod i klustret
 > [!Note]
 > Resurserna som skapas i följande steg blir den nya primära nodtypen i klustret när skalnings åtgärden har slutförts. Se till att du använder namn som är unika från det första under nätet, offentliga IP-adresser, Load Balancer, skalnings uppsättning för virtuella datorer och nodtypen. 
-
-> [!Note]
-> Om du redan använder en offentlig IP-adress för standard-SKU och standard-SKU LB behöver du kanske inte skapa nya nätverks resurser. 
 
 Du kan hitta en mall med alla följande steg som slutförs här: [Service Fabric – nytt kluster för nodtyp](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-2.json). Följande steg innehåller partiella resurs kods tycken som markerar ändringarna i de nya resurserna.  
 
@@ -162,7 +159,40 @@ Service Fabric klustret har nu två nodtyper när distributionen är klar.
 ### <a name="remove-the-existing-node-type"></a>Ta bort den befintliga nodtypen 
 När resurserna har distribuerats kan du börja inaktivera noderna i den ursprungliga primära nodtypen. När noderna är inaktiverade migreras system tjänsterna till den nya primära nodtypen som har distribuerats i steget ovan.
 
-1. Inaktivera noderna i nodtypen 0. 
+1. Ange egenskapen primär nodtyp i Service Fabric kluster resurs till false. 
+```json
+{
+    "name": "[variables('vmNodeType0Name')]",
+    "applicationPorts": {
+        "endPort": "[variables('nt0applicationEndPort')]",
+        "startPort": "[variables('nt0applicationStartPort')]"
+    },
+    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
+    "durabilityLevel": "Bronze",
+    "ephemeralPorts": {
+        "endPort": "[variables('nt0ephemeralEndPort')]",
+        "startPort": "[variables('nt0ephemeralStartPort')]"
+    },
+    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
+    "isPrimary": false,
+    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
+    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+}
+```
+2. Distribuera mallen med den uppdaterade isPrimary-egenskapen på den ursprungliga nodtypen. Du kan hitta en mall med den primära flaggan inställt på falskt för den ursprungliga nodtypen här: [Service Fabric-primär nodtyp false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
+
+```powershell
+# deploy the updated template files to the existing resource group
+$templateFilePath = "C:\AzureDeploy-3.json"
+$parameterFilePath = "C:\AzureDeploy.Parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+```
+
+3. Inaktivera noderna i nodtypen 0. 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterConnectionEndpoint `
     -KeepAliveIntervalInSec 10 `
@@ -196,7 +226,7 @@ foreach($node in $nodes)
 > [!Note]
 > Det här steget kan ta en stund att slutföra. 
 
-2. Stoppa data på nodtyp 0. 
+4. Stoppa data på nodtyp 0. 
 ```powershell
 foreach($node in $nodes)
 {
@@ -208,62 +238,18 @@ foreach($node in $nodes)
   }
 }
 ```
-3. Frigör noder i den ursprungliga skalnings uppsättningen för virtuella datorer 
+5. Frigör noder i den ursprungliga skalnings uppsättningen för virtuella datorer 
 ```powershell
 $scaleSetName="nt1vm"
 $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
 
 Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
 ```
+> [!Note]
+> Steg 6 och 7 är valfria om du redan använder en offentlig IP-adress för standard-SKU och en standard-SKU-belastningsutjämnare. I det här fallet kan du ha flera skalnings uppsättningar för virtuella datorer/Node-typer under samma belastningsutjämnare. 
 
-4. Ta bort nod-tillstånd från nodtyp 0.
-```powershell
-foreach($node in $nodes)
-{
-  if ($node.NodeType -eq $nodeType)
-  {
-    $node.NodeName
+6. Du kan nu ta bort den ursprungliga IP-adressen och Load Balancer resurser. I det här steget ska du också uppdatera DNS-namnet. 
 
-    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
-  }
-}
-```
-5. Ange egenskapen primär nodtyp i Service Fabric kluster resurs till false. 
-
-```json
-{
-    "name": "[variables('vmNodeType0Name')]",
-    "applicationPorts": {
-        "endPort": "[variables('nt0applicationEndPort')]",
-        "startPort": "[variables('nt0applicationStartPort')]"
-    },
-    "clientConnectionEndpointPort": "[variables('nt0fabricTcpGatewayPort')]",
-    "durabilityLevel": "Bronze",
-    "ephemeralPorts": {
-        "endPort": "[variables('nt0ephemeralEndPort')]",
-        "startPort": "[variables('nt0ephemeralStartPort')]"
-    },
-    "httpGatewayEndpointPort": "[variables('nt0fabricHttpGatewayPort')]",
-    "isPrimary": false,
-    "reverseProxyEndpointPort": "[variables('nt0reverseProxyEndpointPort')]",
-    "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-}
-```
-
-5. Distribuera mallen med den uppdaterade isPrimary-egenskapen på den ursprungliga nodtypen. Du kan hitta en mall med den primära flaggan inställt på falskt för den ursprungliga nodtypen här: [Service Fabric-primär nodtyp false](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-3.json).
-
-```powershell
-# deploy the updated template files to the existing resource group
-$templateFilePath = "C:\AzureDeploy-3.json"
-$parameterFilePath = "C:\AzureDeploy.Parameters.json"
-
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateFile $templateFilePath `
-    -TemplateParameterFile $parameterFilePath `
-```
-
-7. Du kan nu ta bort den ursprungliga IP-adressen och Load Balancer resurser. I det här steget ska du också uppdatera DNS-namnet. 
 ```powershell
 $lbname="LB-cluster-name-nt1vm"
 $lbResourceType="Microsoft.Network/loadBalancers"
@@ -283,11 +269,24 @@ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 ``` 
-6. Uppdatera hanterings slut punkten på klustret för att referera till den nya IP-adressen. 
+
+7. Uppdatera hanterings slut punkten på klustret för att referera till den nya IP-adressen. 
 ```json
   "managementEndpoint": "[concat('https://',reference(concat(variables('lbIPName'),'-',variables('vmNodeType1Name'))).dnsSettings.fqdn,':',variables('nt0fabricHttpGatewayPort'))]",
 ```
-7. Ta bort referensen till den ursprungliga nodtypen från Service Fabric resursen i ARM-mallen. 
+8. Ta bort nod-tillstånd från nodtyp 0.
+```powershell
+foreach($node in $nodes)
+{
+  if ($node.NodeType -eq $nodeType)
+  {
+    $node.NodeName
+
+    Remove-ServiceFabricNodeState -NodeName $node.NodeName -Force
+  }
+}
+```
+9. Ta bort referensen till den ursprungliga nodtypen från Service Fabric resursen i ARM-mallen. 
 ```json
 "name": "[variables('vmNodeType0Name')]",
 "applicationPorts": {
@@ -338,13 +337,10 @@ Uppdatera kluster resursen i mallen och konfigurera hälso principer för att ig
  } 
 }
 ```
+10. Ta bort alla andra resurser som är relaterade till den ursprungliga nodtypen från ARM-mallen. Se [Service Fabric-ny nodtyp kluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) för en mall med alla dessa ursprungliga resurser borttagna.
 
-8. Ta bort alla andra resurser som är relaterade till den ursprungliga nodtypen från ARM-mallen. Se [Service Fabric-ny nodtyp kluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) för en mall med alla dessa ursprungliga resurser borttagna.
-
-9. Distribuera den ändrade Azure Resource Manager-mallen. * * Detta steg tar en stund, vanligt vis upp till två timmar. Den här uppgraderingen ändrar inställningarna till InfrastructureService, vilket innebär att en omstart av noden krävs. I det här fallet ignoreras forceRestart. Parametern upgradeReplicaSetCheckTimeout anger den maximala tid som Service Fabric väntar på att en partition ska vara i ett säkert tillstånd, om den inte redan är i säkert tillstånd. När säkerhets kontrollerna har godkänts för alla partitioner på en nod fortsätter Service Fabric med uppgraderingen på noden. Värdet för parametern upgradeTimeout kan minskas till 6 timmar, men för maximal säkerhet 12 timmar bör användas.
-Kontrol lera sedan att:
-
-* Service Fabric resursen i portalen är klar.
+11. Distribuera den ändrade Azure Resource Manager-mallen. * * Detta steg tar en stund, vanligt vis upp till två timmar. Den här uppgraderingen ändrar inställningarna till InfrastructureService, vilket innebär att en omstart av noden krävs. I det här fallet ignoreras forceRestart. Parametern upgradeReplicaSetCheckTimeout anger den maximala tid som Service Fabric väntar på att en partition ska vara i ett säkert tillstånd, om den inte redan är i säkert tillstånd. När säkerhets kontrollerna har godkänts för alla partitioner på en nod fortsätter Service Fabric med uppgraderingen på noden. Värdet för parametern upgradeTimeout kan minskas till 6 timmar, men för maximal säkerhet 12 timmar bör användas.
+Kontrol lera sedan att Service Fabric resursen i portalen visas som klar. 
 
 ```powershell
 # deploy the updated template files to the existing resource group

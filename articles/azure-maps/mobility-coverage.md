@@ -1,6 +1,6 @@
 ---
 title: Täckning för mobilitet (överföring)
-description: I den här artikeln får du lära dig om offentlig överförings täckning i Microsoft Azure mappar mobilitets tjänsten.
+description: Lär dig vilken nivå av täckning Azure Maps mobilitets tjänsten tillhandahåller i vilka regioner för offentliga överförings funktioner, t. ex. Routning och tjänst aviseringar.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/23/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3cd2cc2068f1855c46bc139100006d75492632d8
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169386"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033265"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps mobilitets täckning
 
@@ -23,7 +23,7 @@ Azure Maps tillhandahåller inte samma nivå av information och noggrannhet för
 
 Följande tabell innehåller information om disponering för Azure Maps Mobility Service.
 
-| Symbol | Betydelse |
+| Symbol | Innebörd |
 |--------|---------|
 | *      |Nästan fullständig täckning för landet/regionen.|
 

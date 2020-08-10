@@ -1,17 +1,17 @@
 ---
 title: Snabb start – skapa register i portalen
-description: Lär dig snabbt att skapa ett privat Docker-register i Azure Container Registry med Azure Portal.
+description: Lär dig snabbt att skapa ett privat Azure Container Registry med hjälp av Azure Portal.
 ms.topic: quickstart
-ms.date: 06/11/2020
+ms.date: 08/04/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 82f9a6b02832b718d5b4e7b662c590f1992af595
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ace1030923ea226376369941badafafa662d25ce
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752804"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031832"
 ---
-# <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure Portal
+# <a name="quickstart-create-an-azure-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett Azure Container Registry med hjälp av Azure Portal
 
 Ett Azure Container Registry är ett privat Docker-register i Azure där du kan lagra och hantera privata Docker-behållar avbildningar och relaterade artefakter. I den här snabbstarten skapar du ett containerregister med Azure-portalen. Använd därefter Docker-kommandon för att skicka en containeravbildning till registret, och hämta och kör avbildningen slutligen från registret.
 
@@ -41,14 +41,20 @@ När meddelandet **Distribueringen lyckades** visas väljer du containerregistre
 
 :::image type="content" source="media/container-registry-get-started-portal/qs-portal-05.png" alt-text="Översikt över container registret i portalen":::
 
-Anteckna **inloggningsserverns** värde. Du använder det här värdet i följande steg när du push-överför och hämtar bilder med Docker.
+Anteckna register namnet och värdet för **inloggnings servern**. Du använder dessa värden i följande steg när du push-överför och hämtar bilder med Docker.
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 
-Innan du skickar och hämtar behållar avbildningar måste du logga in på register instansen. [Logga in på Azure CLI][get-started-with-azure-cli] på den lokala datorn och kör sedan kommandot [AZ ACR login][az-acr-login] . (Ange bara register namnet när du loggar in med Azure CLI. Ta inte med "azurecr.io"-suffixet.)
+Innan du skickar och hämtar behållar avbildningar måste du logga in på register instansen. [Logga in på Azure CLI][get-started-with-azure-cli] på den lokala datorn och kör sedan kommandot [AZ ACR login][az-acr-login] . (Ange bara register namnet när du loggar in med Azure CLI. Ta inte med domänsuffix "azurecr.io".)
 
 ```azurecli
 az acr login --name <registry-name>
+```
+
+Exempel:
+
+```azurecli
+az acr login --name mycontainerregistry
 ```
 
 Kommandot returnerar `Login Succeeded` när det har slutförts. 

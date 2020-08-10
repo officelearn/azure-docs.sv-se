@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253145"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032891"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i villkorlig åtkomst
 
@@ -32,7 +32,7 @@ Med **verktyget för what if princip för villkorlig åtkomst** kan du förstå 
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-I **What If verktyget för villkorlig åtkomst**måste du först konfigurera inställningarna för det inloggnings scenario som du vill simulera. Inställningarna omfattar:
+I **What If verktyget för villkorlig åtkomst**måste du först konfigurera inställningarna för det inloggnings scenario som du vill simulera. Några exempel på inställningar är:
 
 - Den användare som du vill testa 
 - De molnappar som användaren försöker få åtkomst till
@@ -76,13 +76,13 @@ Den här inställningen imiterar [villkoret för enhets plattformar](concept-con
 
 ### <a name="client-apps"></a>Klientappar
 
-Med den här inställningen imiteras [villkoret för klient program](concept-conditional-access-conditions.md#client-apps-preview).
+Med den här inställningen imiteras [villkoret för klient program](concept-conditional-access-conditions.md#client-apps).
 Som standard gör den här inställningen en utvärdering av alla principer som har **webbläsare** eller **mobilappar och skriv bords klienter,** antingen individuellt eller båda markerade. Den identifierar också principer som tillämpar **Exchange ActiveSync (EAS)**. Du kan begränsa den här inställningen genom att välja:
 
 - **Webbläsare** för att utvärdera alla principer som har minst **webbläsare** vald. 
 - **Mobilappar och skriv bords klienter** för att utvärdera alla principer som har minst **mobila appar och skriv bords klienter** valda. 
 
-### <a name="sign-in-risk"></a>Inloggnings risk
+### <a name="sign-in-risk"></a>Inloggningsrisk
 
 Den här inställningen imiterar [inloggnings risk villkoret](concept-conditional-access-conditions.md#sign-in-risk).   
 

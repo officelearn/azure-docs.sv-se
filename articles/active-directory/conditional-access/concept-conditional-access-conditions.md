@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a74fe2bf6b326dac782ac75418a7f4960e66501a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4b887c91a289730c3d92efe753a2df162f36a047
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275011"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032141"
 ---
 # <a name="conditional-access-conditions"></a>Villkorlig åtkomst: villkor
 
 I en princip för villkorlig åtkomst kan en administratör använda signaler från villkor som risk, enhets plattform eller plats för att förbättra sina princip beslut. 
 
-![Definiera en princip för villkorlig åtkomst och ange villkor](./media/concept-conditional-access-conditions/conditional-access-conditions.png)
+[![Definiera en princip för villkorlig åtkomst och ange villkor](./media/concept-conditional-access-conditions/conditional-access-conditions.png)](./media/concept-conditional-access-conditions/conditional-access-conditions.png#lightbox)
 
 Flera villkor kan kombineras för att skapa detaljerade och detaljerade principer för villkorlig åtkomst.
 
@@ -60,21 +60,28 @@ Vissa organisationer kan till exempel välja att inte kräva Multi-Factor Authen
 
 Mer information om platser hittar du i artikeln, [vilket är plats villkoret i Azure Active Directory villkorlig åtkomst](location-condition.md).
 
-## <a name="client-apps-preview"></a>Klient program (för hands version)
+## <a name="client-apps"></a>Klientappar
 
-Principer för villkorlig åtkomst gäller som standard för webbläsarbaserade program och program som använder moderna autentiseringsprotokoll. Förutom dessa program kan administratörer välja att inkludera Exchange ActiveSync-klienter och andra klienter som använder äldre protokoll.
+Som standard gäller alla nya principer för villkorlig åtkomst för alla typer av klient program även om klient program villkoret inte har kon figurer ATS. 
 
 > [!NOTE]
-> Det konfigurera Ja/Nej-växling i klient program villkoret har tagits bort för att göra det enklare att se vilka klient program som är valda. Detta påverkar inte vilka klient program som en befintlig princip gäller för.
+> Beteendet för klient programs villkoret uppdaterades i augusti 2020. Om du har befintliga principer för villkorlig åtkomst kommer de att förbli oförändrade. Om du klickar på en befintlig princip har växlingen av konfiguration tagits bort och de klient program som principen gäller för är markerade.
 
-- Webbläsare
-   - Detta inkluderar webbaserade program som använder protokoll som SAML, WS-Federation, OpenID Connect eller tjänster som registrerats som en OAuth-konfidentiell klient.
-- Mobilappar och skriv bords klienter
-   - Moderna autentiserade klienter
-      - Det här alternativet omfattar program som Office Desktop och Phone-program.
+> [!IMPORTANT]
+> Inloggningar från äldre autentiseringsbegäranden stöder inte MFA och skickar inte enhets tillstånds information till Azure AD, så de kommer att blockeras av kontroller för villkorlig åtkomst, som att kräva MFA-eller kompatibla enheter. Om du har konton som måste använda äldre autentisering kan du antingen undanta dessa konton från principen eller konfigurera principen så att den endast gäller för moderna klientautentisering.
+
+Alternativet **Konfigurera** växling när är inställt på **Ja** gäller för markerade objekt, om det är inställt på **Nej** gäller för alla klient program, inklusive moderna och bakåtkompatibla autentiseringsbegäranden. Den här växlingen visas inte i principer som skapats före augusti 2020.
+
+- Moderna autentiserade klienter
+   - Webbläsare
+      - Detta inkluderar webbaserade program som använder protokoll som SAML, WS-Federation, OpenID Connect eller tjänster som registrerats som en OAuth-konfidentiell klient.
+   - Mobilappar och skriv bords klienter
+      -  Det här alternativet omfattar program som Office Desktop och Phone-program.
+- Äldre autentiserings klienter
    - Exchange ActiveSync-klienter
-      - Som standard inkluderar all användning av protokollet Exchange ActiveSync (EAS). Att välja **tillämpa princip enbart på plattformar som stöds** begränsar till plattformar som stöds, t. ex. iOS, Android och Windows.
+      - Detta inkluderar all användning av protokollet Exchange ActiveSync (EAS).
       - När principen blockerar användningen av Exchange ActiveSync får den berörda användaren ett enda karantän-e-postmeddelande. Det här e-postmeddelandet med innehåller information om varför de blockeras och ta med reparations instruktioner om det går.
+      - Administratörer kan endast tillämpa principer på plattformar som stöds (t. ex. iOS, Android och Windows) via MS-Graph API för villkorlig åtkomst.
    - Övriga klienter
       - Det här alternativet omfattar klienter som använder grundläggande/äldre autentiseringsprotokoll som inte stöder modern autentisering.
          - Autentiserad SMTP – används av POP-och IMAP-klienten för att skicka e-postmeddelanden.

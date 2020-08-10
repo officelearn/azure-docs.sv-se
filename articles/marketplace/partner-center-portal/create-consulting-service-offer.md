@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798230"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032602"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -160,7 +160,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 8. Skärm bilder/videor
 9. Dokument
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -202,19 +202,22 @@ Lägg till upp till tre (men minst en) stöd för PDF-dokument för ditt erbjuda
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
+Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande pixel storlekar:
 
-Båda logo typ storlekarna krävs för användning på olika platser i listan:
+- **Liten (48 x 48)**
+- **Stor (216 x 216)**
 
-- **Liten** (48 x 48)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+Alla logo typer krävs och används på olika platser i Marketplace-listan.
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+-   Den lilla logo typen (48 x 48 pixlar) visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat. 
+-   Den stora logo typen (mellan 216 x 216 och 350 x 350 bild punkter) visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

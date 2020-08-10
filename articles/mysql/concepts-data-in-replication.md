@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 20be34191355e6ade40e0f3b218818bfa5345a28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/7/2020
+ms.openlocfilehash: a9d6c1b2438f20a06062842b96b147e094760238
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79533240"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031225"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -30,6 +30,11 @@ Använd [Azure Database migration service](https://azure.microsoft.com/services/
 ### <a name="data-not-replicated"></a>Data har inte repliker ATS
 [*MySQL system-databasen*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) på huvud servern replikeras inte. Ändringar av konton och behörigheter på huvud servern replikeras inte. Om du skapar ett konto på huvud servern och det här kontot behöver åtkomst till replik servern, skapar du samma konto manuellt på replik Server sidan. Information om vilka tabeller som finns i system-databasen finns i [hand boken för MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
+### <a name="filtering"></a>Filtrering
+Om du vill hoppa över att replikera tabeller från huvud servern (lokalt, på virtuella datorer eller en databas tjänst som hanteras av andra moln leverantörer), stöds- `replicate_wild_ignore_table` parametern. Du kan också uppdatera den här parametern på replik servern som finns i Azure med hjälp av [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
+
+Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) .
+
 ### <a name="requirements"></a>Krav
 - Huvud Server versionen måste vara minst MySQL version 5,6. 
 - Huvud-och replik Server versionerna måste vara desamma. Till exempel måste båda vara MySQL version 5,6 eller båda måste vara MySQL version 5,7.
@@ -41,7 +46,7 @@ Använd [Azure Database migration service](https://azure.microsoft.com/services/
 - Se till att datorn som är värd för huvudservern tillåter både inkommande och utgående trafik på port 3306.
 - Se till att huvud servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
-### <a name="other"></a>Annat
+### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.
 - Globala transaktions-ID: n (GTID) stöds inte.
 

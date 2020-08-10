@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Konfigurera en plats-till-plats-anslutning via VPN | Microsoft Docs
-description: Det här PowerShell-skriptet skapar en Route-baserad VPN Gateway och lägger till plats-till-plats-konfiguration. Lär dig mer om alla cmdlets i skriptet.
+description: Använd PowerShell för att skapa en Route-baserad VPN-gateway och konfigurera VPN-enheten för att lägga till plats-till-plats-anslutning.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 04/30/2018
 ms.author: alzam
-ms.openlocfilehash: e3629fd605b74edc0a274fa887f56295dcb0ab77
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: fab1f4862cd1f2907d9bdc9f989fe24f1730002c
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926985"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032449"
 ---
 # <a name="create-a-vpn-gateway-and-add-a-site-to-site-connection-using-powershell"></a>Skapa en VPN-gateway och lägga till en plats-till-plats-anslutning med hjälp av PowerShell
 
@@ -93,7 +93,7 @@ Remove-AzResourceGroup -Name TestRG1
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar information för virtuellt nätverk. |

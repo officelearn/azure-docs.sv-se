@@ -1,6 +1,6 @@
 ---
 title: Skapa en zon – redundant virtuell nätverksgateway i Azure-tillgänglighetszoner
-description: Lär dig hur du distribuerar VPN-och ExpressRoute-gatewayer i Azure-tillgänglighetszoner, hur du lägger till återhämtning, skalbarhet och högre tillgänglighet för VNet-gatewayer.
+description: Lär dig hur du distribuerar zoner – redundanta VPN-gatewayer och ExpressRoute-gatewayer i Azure-tillgänglighetszoner.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ccb6050ae4d56d2f8e57b4a590d01fb6acd9bd8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1404f5201ff5f543e34c6a4c8e5713cab3a4c51b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925165"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88033486"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Skapa en zon – redundant virtuell nätverksgateway i Azure-tillgänglighetszoner
 
@@ -126,7 +126,7 @@ New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 
 New-AzVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name $Gw1 -IpConfigurations $GwIPConf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1AZ
 ```
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 ### <a name="what-will-change-when-i-deploy-these-new-skus"></a>Vad kommer att ändras när jag distribuerar dessa nya SKU: er?
 

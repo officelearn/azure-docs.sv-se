@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283018"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032092"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: blockera äldre autentisering
 
@@ -36,8 +36,8 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**väljer du **alla molnappar**.
    1. Välj **Klar**.
-1. Under **villkor**  >  **klient program (förhands granskning)** under **Välj de klient program som den här principen ska gälla för**:
-   1. Kontrol lera endast de **mobila apparna och skriv bords klienterna**  >  **andra klienter**.
+1. **Conditions**  >  Ange **Konfigurera** till **Ja**under villkor för**klient program**.
+   1. Kontrol lera bara rutorna **Exchange ActiveSync-klienter** och **andra klienter**.
    1. Välj **Klar**.
 1. Under **åtkomst kontroller**  >  **bevilja**väljer du **blockera åtkomst**.
    1. Välj **Välj**.

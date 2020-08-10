@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 04/14/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ab729d34219c05ee76a2a14832f41342d29eab21
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c5fc239c32037354547c6818fd507a7a8cfd3657
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065795"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031446"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Marknads plats partner och kund användnings behörighet
 
@@ -82,7 +82,7 @@ När du har lagt till ett GUID i mallen eller i användar agenten och registrera
 1. Välj **Spara**.
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
-Många partner lösningar distribueras med hjälp av Azure Resource Manager mallar. Om du har en Resource Manager-mall som är tillgänglig på Azure Marketplace, på GitHub eller som en snabb start, kan processen ändra din mall för att aktivera användnings behörighet för kunder direkt.
+Många partner lösningar distribueras med hjälp av Azure Resource Manager mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en snabb start, kan du ändra mallen så att du kan göra det rakt framåt i kund användnings behörighet.
 
 > [!NOTE]
 > Mer information om hur du skapar och publicerar Solution-mallar finns i

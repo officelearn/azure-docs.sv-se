@@ -1,6 +1,6 @@
 ---
 title: Överföra avbildningsdata i molnet med Azure Storage | Microsoft Docs
-description: Använda Azure Blob Storage med ett webbprogram för att lagra appdata
+description: Använd Azure Blob Storage med Web Apps för att lagra appdata till ett lagrings konto. Den här självstudien skapar en webbapp som lagrar och visar bilder från Azure Storage.
 author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
@@ -9,12 +9,12 @@ ms.date: 06/24/2020
 ms.author: mhopkins
 ms.reviewer: dineshm
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 15d18372b9123602e6d6f05b9259e50a74f7eb39
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3ac1855c0cc72a3c4afc20598d023f0adce2bd76
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433283"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034149"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Ladda upp bilddata i molnet med Azure Storage
 

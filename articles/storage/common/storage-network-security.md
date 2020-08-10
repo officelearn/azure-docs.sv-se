@@ -1,6 +1,6 @@
 ---
 title: Konfigurera Azure Storage brand väggar och virtuella nätverk | Microsoft Docs
-description: Konfigurera skiktad nätverks säkerhet för ditt lagrings konto.
+description: Konfigurera skiktad nätverks säkerhet för ditt lagrings konto med hjälp Azure Storage brand väggar och Azure Virtual Network.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,12 +9,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9c95501c4e17e0afaa082c3e02c29934435c1a19
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534115"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032517"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage brand väggar och virtuella nätverk
 
@@ -60,7 +60,7 @@ Som standard godkänner lagringskonton anslutningar från klienter i alla nätve
 
 Du kan hantera standard regler för nätverks åtkomst för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -144,7 +144,7 @@ Lagrings kontot och de virtuella nätverk som beviljats åtkomst kan finnas i ol
 
 Du kan hantera virtuella nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -268,7 +268,7 @@ Om du använder [ExpressRoute](/azure/expressroute/expressroute-introduction) lo
 
 Du kan hantera IP-nätverks regler för lagrings konton via Azure Portal, PowerShell eller CLIv2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 
@@ -410,7 +410,7 @@ I vissa fall krävs åtkomst till läsa resurs loggar och mät värden utanför 
 
 Du kan hantera nätverks regel undantag via Azure Portal, PowerShell eller Azure CLI v2.
 
-#### <a name="azure-portal"></a>Azure-portalen
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till det lagringskonto som du vill skydda.
 

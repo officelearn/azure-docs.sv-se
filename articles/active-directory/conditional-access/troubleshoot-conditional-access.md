@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9a2ab4b1ebc1c958be9dc4bd07a010f7fef8afc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610536"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032976"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Felsöka inloggningsproblem med villkorsstyrd åtkomst
 
@@ -55,11 +55,16 @@ Så här tar du reda på vilka principer för villkorlig åtkomst som tillämpas
    1. Information på fliken **fel sökning och support** kan ge en tydlig anledning till varför en inloggning misslyckades, till exempel en enhet som inte uppfyller kraven för efterlevnad.
    1. Om du vill undersöka ytterligare kan du öka detalj nivån i konfigurationen av principerna genom att klicka på **namnet på principen**. Om du klickar på **princip namnet** visas användar gränssnittet för princip konfiguration för den valda principen för granskning och redigering.
    1. **Klientens användar** -och **enhets information** som användes för utvärderingen av principen för villkorlig åtkomst är också tillgänglig i flikarna **grundläggande information**, **plats**, **enhets information**, **autentiseringsinformation**och **Ytterligare information** för inloggnings händelsen.
-   1. När du väljer ellipsen på höger sida om principen öppnas princip information. Detta ger administratörer ytterligare information om varför en princip har tillämpats eller inte.
+
+### <a name="policy-details"></a>Princip information
+
+Om du väljer ellipsen på höger sida om principen i en inloggnings händelse öppnas princip information. Detta ger administratörer ytterligare information om varför en princip har tillämpats eller inte.
 
    ![Logga in på fliken villkorlig åtkomst för händelser](./media/troubleshoot-conditional-access/image5.png)
 
    ![Princip information (för hands version)](./media/troubleshoot-conditional-access/policy-details.png)
+
+Den vänstra sidan innehåller information som samlas in vid inloggning och den högra sidan innehåller information om huruvida dessa uppgifter uppfyller kraven för de tillämpade principerna för villkorlig åtkomst. Principer för villkorlig åtkomst gäller endast när alla villkor är uppfyllda eller inte har kon figurer ATS.
 
 Om informationen i händelsen inte räcker till för att förstå inloggnings resultatet eller justera principen för att få önskade resultat, kan en support incident öppnas. Navigera till fliken **fel sökning och support** i inloggnings händelsen och välj **skapa en ny supportbegäran**.
 

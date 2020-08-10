@@ -1,18 +1,18 @@
 ---
 title: Självstudie – Skapa och hantera en gateway med Azure VPN Gateway
-description: Använd den här självstudien för att distribuera en Azure VPN-gateway för att tillhandahålla anslutning mellan kund lokaler och Azure. Visa, ändra storlek på och Återställ en VPN-gateway.
+description: Följ den här självstudien för att lära dig att skapa, distribuera och hantera en Azure-VPN Gateway med hjälp av PowerShell.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 03/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: f423ed5ea9017d510639bbe7046a12d320cd5c7d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 38b13ddc08b08ce080f1cc9e9b30caeea3b4efdf
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920576"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031532"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
 

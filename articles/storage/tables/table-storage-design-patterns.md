@@ -1,6 +1,6 @@
 ---
 title: Design mönster för Azure Storage-tabell | Microsoft Docs
-description: Använd mönster för Azure Table service-lösningar.
+description: Granska design mönster som är lämpliga för användning med Table service lösningar i Azure. Åtgärda problem och kompromisser som beskrivs i andra artiklar.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cbafe7c3e3b76ea13a8ca7a82b2968662b43685a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081238"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88034205"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 I den här artikeln beskrivs några mönster som lämpar sig för användning med Table service lösningar. Dessutom får du se hur du praktiskt taget kan åtgärda några av de problem och kompromisser som beskrivs i andra tabell lagrings design artiklar. Följande diagram sammanfattar relationerna mellan olika mönster:  
@@ -729,7 +729,7 @@ Table service är en *schema lös* tabell lagring som innebär att en enskild ta
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -821,7 +821,7 @@ Varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestam
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>Tidsstämpel</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -838,7 +838,7 @@ Varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestam
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>
@@ -860,7 +860,7 @@ Varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestam
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>
@@ -901,7 +901,7 @@ Varje entitet måste fortfarande ha **PartitionKey**-, **RowKey**-och **timestam
 <th>E-post</th>
 </tr>
 <tr>
-<td>Anställd</td>
+<td>Medarbetare</td>
 <td></td>
 <td></td>
 <td></td>

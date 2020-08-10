@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/13/2020
+ms.date: 08/07/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3df4eee14e5ce2f0638058efde0f80d0e5b051
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f72e477d332b33b7434663fb13cb3ca4f4c2069d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275487"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032211"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -35,7 +35,7 @@ Alex Weinert, chef för identitets säkerhet på Microsoft, i den 12 mars 2020 b
 
 Om din miljö är redo att blockera äldre autentisering för att förbättra din klients skydd kan du uppnå det här målet med villkorlig åtkomst. Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som blockerar äldre autentisering för din klient.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med: 
 
@@ -49,7 +49,7 @@ Azure AD stöder flera av de vanligaste autentiseringsprotokollen för autentise
 - Äldre Microsoft Office-appar
 - Appar som använder e-postprotokoll som POP, IMAP och SMTP
 
-Autentisering med en enda faktor (till exempel användar namn och lösen ord) är inte tillräckligt för dessa dagar. Lösen orden är dåliga eftersom de är lätta att gissa och vi (människa) är felaktiga vid val av bra lösen ord. Lösen ord är också sårbara för olika attacker, t. ex. nätfiske och lösen ords spridning. Ett av de enklaste saker du kan göra för att skydda mot lösen ords hot är att implementera MFA. Med MFA, även om en angripare får till gång till en användares lösen ord, så är lösen ordet inte tillräckligt för att autentisera och komma åt data.
+Autentisering med en enda faktor (till exempel användar namn och lösen ord) är inte tillräckligt för dessa dagar. Lösen orden är dåliga eftersom de är lätta att gissa och vi (människa) är felaktiga vid val av bra lösen ord. Lösen ord är också sårbara för olika attacker, t. ex. nätfiske och lösen ords spridning. Ett av de enklaste saker du kan göra för att skydda mot lösen ords hot är att implementera Multi-Factor Authentication (MFA). Med MFA, även om en angripare får till gång till en användares lösen ord, så är lösen ordet inte tillräckligt för att autentisera och komma åt data.
 
 Hur kan du förhindra att appar använder äldre autentisering för att komma åt din klients resurser? Rekommendationen är att bara blockera dem med en princip för villkorlig åtkomst. Om det behövs kan endast vissa användare och specifika nätverks platser använda appar som baseras på äldre autentisering.
 
@@ -91,46 +91,24 @@ Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiserin
 
 I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera endast en princip för villkorlig åtkomst för dessa användare.
 
-### <a name="block-legacy-authentication"></a>Blockera äldre autentisering 
+## <a name="block-legacy-authentication"></a>Blockera äldre autentisering 
 
-I en princip för villkorlig åtkomst kan du ange ett villkor som är kopplat till de klient program som används för att komma åt dina resurser. Med villkoret klient program kan du begränsa omfattningen till appar med hjälp av äldre autentisering genom att välja **Exchange ActiveSync-klienter** och **andra klienter** under **mobilappar och skriv bords klienter**.
+Det finns två sätt att använda principer för villkorlig åtkomst för att blockera äldre autentisering.
 
-![Övriga klienter](./media/block-legacy-authentication/01.png)
-
-Om du vill blockera åtkomst för de här apparna måste du välja **blockera åtkomst**.
-
-![Blockera åtkomst](./media/block-legacy-authentication/02.png)
-
-### <a name="select-users-and-cloud-apps"></a>Välj användare och molnappar
-
-Om du vill blockera äldre autentisering för din organisation tror du förmodligen att du kan åstadkomma detta genom att välja:
-
-- Alla användare
-- Alla molnappar
-- Blockera åtkomst
-
-![Tilldelningar](./media/block-legacy-authentication/03.png)
-
-Azure har en säkerhetsfunktion som hindrar dig från att skapa en princip som detta eftersom den här konfigurationen strider mot [bästa praxis](best-practices.md) för principer för villkorlig åtkomst.
+- [Blockera äldre autentisering direkt](#directly-blocking-legacy-authentication)
+- [Indirekt blockera äldre autentisering](#indirectly-blocking-legacy-authentication)
  
-![Princip konfigurationen stöds inte](./media/block-legacy-authentication/04.png)
+### <a name="directly-blocking-legacy-authentication"></a>Blockera äldre autentisering direkt
 
-Säkerhets funktionen är nödvändig eftersom *Blockera alla användare och alla molnappar* har möjlighet att blockera hela organisationen från att logga in på din klient organisation. Du måste undanta minst en användare för att uppfylla kraven för minsta bästa praxis. Du kan också utesluta en katalog roll.
+Det enklaste sättet att blockera äldre autentisering i hela organisationen är genom att konfigurera en princip för villkorlig åtkomst som gäller specifikt för äldre autentiserings klienter och blockerar åtkomst. När du tilldelar användare och program till principen ska du se till att undanta användare och tjänst konton som fortfarande behöver logga in med äldre autentisering. Konfigurera villkoret för klient program genom att välja **Exchange ActiveSync-klienter** och **andra klienter**. Konfigurera åtkomst kontroller för att blockera åtkomst för att blockera åtkomst för dessa klient program.
 
-![Princip konfigurationen stöds inte](./media/block-legacy-authentication/05.png)
+![Villkor för klient program har kon figurer ATS för att blockera äldre autentisering](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
-Du kan utföra den här säkerhetsfunktionen genom att utesluta en användare från principen. Vi rekommenderar att du definierar några [administrativa konton för nöd administration i Azure AD](../users-groups-roles/directory-emergency-access.md) och exkluderar dem från principen.
+### <a name="indirectly-blocking-legacy-authentication"></a>Indirekt blockera äldre autentisering
 
-Genom att använda [endast rapport läge](concept-conditional-access-report-only.md) när du aktiverar principen att blockera äldre autentisering ger din organisation en möjlighet att övervaka vad som händer i principen.
+Även om din organisation inte är redo att blockera äldre autentisering i hela organisationen, bör du se till att inloggningar som använder äldre autentisering inte kringgår principer som kräver beviljande kontroller, till exempel kräver Multi-Factor Authentication eller kompatibla/hybrid Azure AD-anslutna enheter. Under autentiseringen har äldre autentiserings klienter inte stöd för att skicka MFA, enhetskompatibilitet eller ansluta statusinformation till Azure AD. Använd därför principer för att bevilja kontroller till alla klient program så att äldre autentiserings inloggningar som inte kan uppfylla tilldelnings kontrollerna blockeras. Med den allmänna tillgängligheten för klient program villkor i augusti 2020, gäller nyligen skapade principer för villkorlig åtkomst för alla klient program som standard.
 
-## <a name="policy-deployment"></a>Distribution av princip
-
-Innan du försätter din princip i produktion bör du ta hand om följande:
- 
-- **Tjänst konton** – identifiera användar konton som används som tjänst konton eller enheter, t. ex. konferens rums telefoner. Kontrol lera att dessa konton har starka lösen ord och Lägg till dem i en exkluderad grupp.
-- **Inloggnings rapporter** – granska inloggnings rapporten och leta efter **annan klient** trafik. Identifiera högsta användning och undersök varför den används. Normalt genereras trafiken av äldre Office-klienter som inte använder modern autentisering eller vissa e-postappar från tredje part. Gör en plan för att flytta användning bort från dessa appar, eller om påverkan är låg, meddela användarna att de inte kan använda dessa appar längre.
- 
-Mer information finns i [så här distribuerar du en ny princip?](best-practices.md#how-should-you-deploy-a-new-policy).
+![Standard konfiguration för klient program villkor](./media/block-legacy-authentication/client-apps-condition-configured-no.png)
 
 ## <a name="what-you-should-know"></a>Det här bör du veta
 
@@ -141,14 +119,6 @@ Att konfigurera en princip för **andra klienter** blockerar hela organisationen
 Det kan ta upp till 24 timmar innan principen börjar gälla.
 
 Du kan välja alla tillgängliga beviljade kontroller för villkoret **andra klienter** . slut användar upplevelsen är dock alltid samma blockerad åtkomst.
-
-Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan du även ange enhetens plattform och plats villkor. Om du till exempel bara vill blockera äldre autentisering för mobila enheter anger du villkor för **enhets plattformar** genom att välja:
-
-- Android
-- iOS
-- Windows Phone
-
-![Princip konfigurationen stöds inte](./media/block-legacy-authentication/06.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

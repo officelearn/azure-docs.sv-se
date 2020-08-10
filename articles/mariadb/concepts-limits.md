@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: fc5557c1b20d87d2f96559e1d41efa4576045f09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51aff856aa5bdeb042493d47f100be0ca32dfbbb
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392785"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032687"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Begränsningar i Azure Database for MariaDB
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten.
@@ -42,6 +42,7 @@ Vid den första distributionen innehåller en Azure for MariaDB-server system ta
 - DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen.
 - SUPER Privilege: liknande [superbehörighet](https://mariadb.com/kb/en/library/grant/#global-privileges) är också begränsad.
 - Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
+- System databaser: i Azure Database for MariaDB är [MySQL system-databasen](https://mariadb.com/kb/en/the-mysql-database-tables/) skrivskyddad eftersom den används för att stödja olika PaaS-tjänst funktioner. Observera att du inte kan ändra något i `mysql` system-databasen.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
 

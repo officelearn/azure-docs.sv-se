@@ -3,18 +3,18 @@ title: Skapa ett SaaS-erbjudande, Azure Marketplace och Microsoft AppSource
 description: Så här skapar du ett SaaS-erbjudande (Software as a Service) för att visa eller sälja i Microsoft AppSource, Azure Marketplace eller via program varan för Cloud Solution Provider (CSP) med Microsoft Software-programmet för kommersiella marknads platser i Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 07/22/2020
+ms.topic: how-to
+ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7fbb50308f14acbcec98c562fe72763341538df2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800379"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031038"
 ---
-# <a name="create-a-saas-offer"></a>Skapa ett SaaS-erbjudande
+# <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Skapa ett SaaS-erbjudande på den kommersiella Marketplace
 
 Om du vill börja skapa SaaS-erbjudanden (program vara som en tjänst) i den kommersiella marknads platsen, måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för extern marknads](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)plats på fliken **Översikt** .
 
@@ -62,7 +62,7 @@ Menyn **erbjudande översikt** innehåller en lista med länkar för att utföra
 
 Den här sidan ber om följande information.
 
-- **Vill du sälja via Microsoft?** (Ja/Nej)
+- **Vill du sälja via Microsoft?** (Ja/nej)
   - **Ja**, jag vill sälja via Microsoft och ha Microsoft värd transaktioner för mig
   - **Nej**, jag föredrar att bara lista mitt erbjudande via Marketplace och bearbeta transaktioner oberoende av varandra.
 
@@ -282,16 +282,18 @@ Det här fältet är obligatoriskt.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande, i PDF-format, för minst ett och upp till tre dokument per erbjudande.
-- **Avbildningar** (krävs) – det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser. Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) och en storleks logo typ ( **mellan** 90 x 90 pixlar). Du kan också ersätta dem med olika avbildningar. Att lägga till en **bred** logo typ är valfritt.
+- **Bilder** – Ladda upp logo typ bilder i PNG-format:
 
-    Tre logo typer måste användas på olika platser i listan. en är valfri:
+  - **Liten** (48 x 48 pixlar, krävs)
+  - **Medel** (90 x 90 pixlar, krävs)
+  - **Stor** (216 x 216 pixlar, krävs)
+  - **Bred** (255 x 115 pixlar) (valfritt)
 
-    - **Liten** (48 x 48)
-    - **Medel** (90 x 90)
-    - **Stor** (mellan 216 x 216 och 350 x 350)
-    - **Bred** (255 x 115), *valfritt*
+   Dessa tre logo typer används på olika platser i butiker:
 
-    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+   -   Den lilla logo typen (48 x 48 pixlar) visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat. 
+   -   Medie logo typen (90 x 90 bild punkter) visas när du skapar en ny resurs i Microsoft Azure.
+   -   Den stora logo typen (mellan 216 x 216 och 350 x 350 bild punkter) visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
 
 - **Skärm bilder** (krävs) – Lägg till högst fem skärm bilder som demonstrerar ditt erbjudande, med en storlek på 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.

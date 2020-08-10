@@ -4,15 +4,15 @@ description: Läs mer om Azure Cosmos DBs API för MongoDB (3,6-version) som st�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bd59b27b5af92d7aa90851c592ba4de495e41283
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076841"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030554"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB (version 3.6): Funktioner och syntax som stöds
 
@@ -36,7 +36,7 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 |Kommando  |Stöds |
 |---------|---------|
-|ta bort | Yes |
+|delete | Yes |
 |find | Yes     |
 |findAndModify | Yes  |
 |getLastError|   Yes |
@@ -495,10 +495,10 @@ $nearSphere |  Yes |
 $geometry |  Yes |
 $minDistance | Yes |
 $maxDistance | Yes |
-$center | Yes |
-$centerSphere | Yes |
-$box | Yes |
-$polygon |  Yes |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## <a name="cursor-methods"></a>Markör-metoder
 

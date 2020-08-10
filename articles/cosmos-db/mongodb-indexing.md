@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e47b8727eccd1b185f381ae3f8474fe13a406501
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb90390814af39b240c9a157f490ee9390afeb8f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843818"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030511"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -40,7 +40,7 @@ En fråga använder flera enstaka fält index där det är tillgängligt. Du kan
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Sammansatta index (MongoDB Server version 3,6)
 
-Azure Cosmos DBs API för MongoDB stöder sammansatta index för konton som använder version 3,6 Wire-protokollet. Du kan inkludera upp till åtta fält i ett sammansatt index. Till skillnad från MongoDB bör du endast skapa ett sammansatt index om frågan behöver sortera effektivt på flera fält samtidigt. För frågor med flera filter som inte behöver sorteras, skapar du flera fält index i stället för ett enda sammansatt index.
+Azure Cosmos DBs API för MongoDB stöder sammansatta index för konton som använder version 3,6 Wire-protokollet. Du kan inkludera upp till åtta fält i ett sammansatt index. **Till skillnad från MongoDB bör du endast skapa ett sammansatt index om frågan behöver sortera effektivt på flera fält samtidigt.** För frågor med flera filter som inte behöver sorteras, skapar du flera fält index i stället för ett enda sammansatt index.
 
 Följande kommando skapar ett sammansatt index för fälten `name` och `age` :
 
@@ -57,6 +57,9 @@ Du kan också använda föregående sammansatta index för att på ett effektivt
 Sekvensen för Sök vägarna i det sammansatta indexet måste dock exakt matcha frågan. Här är ett exempel på en fråga som kräver ett ytterligare sammansatt index:
 
 `db.coll.find().sort({age:1,name:1})`
+
+> [!NOTE]
+> Du kan inte skapa sammansatta index för kapslade egenskaper eller matriser.
 
 ### <a name="multikey-indexes"></a>MultiKey-index
 

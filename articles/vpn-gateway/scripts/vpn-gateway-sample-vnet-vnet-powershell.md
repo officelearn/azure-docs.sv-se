@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell-skriptexempel – Konfigurera en vnet-till-vnet-anslutning via VPN | Microsoft Docs
-description: Det här PowerShell-skriptet ansluter två virtuella Azure-nätverk med hjälp av anslutnings typen VNet-till-VNet. Lär dig mer om alla cmdlets i skriptet.
+description: Lär dig hur du använder ett PowerShell-skript för att konfigurera en plats-till-plats-anslutning för VNet-till-VNet VPN gateway.
 services: vpn-gateway
 documentationcenter: vpn-gateway
 author: kumudD
@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 01/09/2020
 ms.author: alzam
-ms.openlocfilehash: 9f35f4e097f6b7848c19d1d926e0896d870f3f64
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 949c2b7810bc6b4f5a80b9932427f4aa3565794e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926980"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030375"
 ---
 # <a name="use-powershell-to-configure-a-vnet-to-vnet-vpn-gateway-connection"></a>Använd PowerShell för att konfigurera en VPN gateway-anslutning mellan virtuella nätverk
 
@@ -148,7 +148,7 @@ Remove-AzResourceGroup -Name TestRG2
 
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | Lägger till en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Hämtar information för virtuellt nätverk. |

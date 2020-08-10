@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: interaktiv kart sökning med Azure Maps'
-description: Lär dig hur du skapar ett demonstrations webb program för interaktiv kart sökning genom att använda Microsoft Azure Maps-webbsdk.
+description: Lär dig hur du skapar interaktiva, sökbar Maps. Se hur du skapar ett Azure Maps konto, hämtar en primär nyckel och använder webb-SDK för att konfigurera kart program.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: bb6c5ee48e22e0c913e7fc6150d3986af805a08f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004634"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031055"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta med Azure Maps
 

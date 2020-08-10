@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1d7b29bbd508223888c6f205e25008c0b29fecea
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922942"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031089"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -81,17 +81,32 @@ Instruktioner för hur du skapar aviseringar för dessa scenarier finns i avsnit
 
 ## <a name="storage-sync-service"></a>Storage Sync Service (Tjänst för synkronisering av lagring)
 
-Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått går du till tjänsten Storage Sync i Azure Portal. Du kan visa registrerad Server hälsa på bladet **registrerade servrar** och Server slut punktens hälsa på bladet **Synkronisera grupper** .
+Om du vill visa hälso tillståndet för din Azure File Sync-distribution i **Azure Portal**går du till **tjänsten Storage Sync** och följande information är tillgänglig:
+
+- Registrerad Server hälsa
+- Server slut punkts hälsa
+    - Filer som inte synkroniseras
+    - Synkronisera aktivitet
+    - Effektiv moln nivå
+    - Filer som inte är i nivå
+    - Återkalla fel
+- Mått
 
 ### <a name="registered-server-health"></a>Registrerad Server hälsa
+
+Om du vill visa den **registrerade serverns hälso tillstånd** i portalen navigerar du till avsnittet **registrerade servrar** i **tjänsten för synkronisering av lagring**.
 
 - Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
 - Om det **registrerade Server** läget **visas offline**körs inte övervaknings processen för synkronisering av lagring (AzureStorageSyncMonitor.exe) eller så går det inte att få åtkomst till tjänsten Azure File Sync. Se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) för vägledning.
 
 ### <a name="server-endpoint-health"></a>Server slut punkts hälsa
 
-- Server slut punktens hälso tillstånd i portalen baseras på de synkroniserade händelser som loggas i händelse loggen för telemetri på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, kan synkronisering fortfarande visas felfritt i portalen så länge den aktuella synkroniseringen pågår. Händelse-ID 9302 används för att avgöra om filer tillämpas. Mer information finns i [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- Om portalen visar ett synkroniseringsfel eftersom synkroniseringen inte gör något, se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) för vägledning.
+Om du vill visa hälso tillståndet för en **Server slut punkt** i portalen går du till avsnittet **Sync-grupper** i tjänsten för synkronisering av **lagring** och väljer en Sync- **grupp**.
+
+- **Server slut punktens hälso** -och **synkroniserings aktivitet** i portalen baseras på de synkroniserings händelser som loggas i händelse loggen för TELEMETRI på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, kommer synkronisering fortfarande att visas som felfri i portalen så länge den aktuella synkroniseringen pågår (filer tillämpas). Händelse-ID 9302 är synkroniseringens förlopps händelse och händelse-ID 9102 loggas när en Sync-session har slutförts.  Mer information finns i [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Om portalen visar ett fel eftersom synkroniseringen inte gör något kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) .
+- **Filerna som inte synkroniserar** antalet i portalen baseras på händelse-ID 9121 som har loggats i händelse loggen för telemetri på servern. Den här händelsen loggas för varje per objekt-fel när synkroniseringstjänsten har slutförts. Information om hur du löser fel per objekt finns i [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+- Om du vill visa **moln nivå effektiviteten** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . De data som tillhandahålls för att effektivisera moln nivån baseras på händelse-ID 9071 som loggas i händelse loggen för telemetri på servern. Mer information finns i [Översikt över moln nivåer](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
+- Om du vill visa **filer som inte** är på nivå av och **återkalla fel** i portalen går du till **serverns slut punkts egenskaper** och navigerar till avsnittet **moln nivå** . **Filer som inte skiktas** baseras på händelse-ID 9003 som loggas i händelse loggen för telemetri på servern och **återställnings fel** baseras på händelse-ID 9006. Information om hur du undersöker filer som inte går att gå till nivån eller återkalla finns i [Felsöka filer som inte är på nivå](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) och [fel sökning av filer som inte kan återkallas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Mått diagram
 
@@ -112,13 +127,13 @@ Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått g
 
 ## <a name="windows-server"></a>Windows Server
 
-På den Windows-Server där Azure File Sync-agenten har installerats kan du Visa moln nivåer, registrerad Server och synkroniseringsstatus.
+På den **Windows-Server** där Azure File Sync-agenten har installerats kan du Visa Server slut punkternas hälso tillstånd på servern med hjälp av **händelse loggarna** och **prestanda räknarna**.
 
 ### <a name="event-logs"></a>Händelseloggar
 
 Använd händelse loggen för telemetri på-servern för att övervaka registrerad Server, synkronisering och moln nivå hälsa. Händelse loggen för telemetri finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
 
-Sync-hälsa:
+Sync-hälsa
 
 - Händelse-ID 9102 loggas när en Sync-session har slutförts. Använd den här händelsen för att avgöra om Sync-sessioner lyckas (**HResult = 0**) och om det finns synkroniseringsfel per objekt. Mer information finns i dokumentationen om [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [meddelanden per objekt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
 
@@ -129,11 +144,11 @@ Sync-hälsa:
 
 - Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att ta reda på om den pågående synkroniseringen görs (**AppliedItemCount > 0**). Om synkronisering inte sker, bör Sync-sessionen sluta att fungera och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync-förloppet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Registrerad Server hälsa:
+Registrerad Server hälsa
 
 - Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0**, kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) .
 
-Hälso tillstånd för moln nivåer:
+Hälso tillstånd för moln nivåer
 
 - Om du vill övervaka nivå aktivitet på en server använder du händelse-ID 9003, 9016 och 9029 i händelse loggen för telemetri, som finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
 

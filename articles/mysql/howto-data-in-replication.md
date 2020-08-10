@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/11/2020
-ms.openlocfilehash: d1012a2afa84270089ae44b1c5d224e65a2e01ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 8/7/2020
+ms.openlocfilehash: dbf3a13ed5a544406950dbcfb5ea8796eceb03c1
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118570"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030561"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database for MySQL Datareplikering
 
@@ -37,11 +37,11 @@ Granska [begränsningarna och kraven](concepts-data-in-replication.md#limitation
    > Azure Database for MySQL-servern måste skapas i Generell användning eller minnesoptimerade pris nivåer.
    > 
 
-2. Skapa samma användar konton och motsvarande privilegier
+1. Skapa samma användar konton och motsvarande privilegier
 
    Användar konton replikeras inte från huvud servern till replik servern. Om du planerar att ge användare åtkomst till replik servern måste du manuellt skapa alla konton och motsvarande behörigheter på den nyligen skapade Azure Database for MySQL servern.
 
-3. Lägg till huvud serverns IP-adress i replikens brand Väggs regler. 
+1. Lägg till huvud serverns IP-adress i replikens brand Väggs regler. 
 
    Uppdatera brandväggsregler med hjälp av [Azure-portalen](howto-manage-firewall-using-portal.md) eller [Azure CLI](howto-manage-firewall-using-cli.md).
 
@@ -55,7 +55,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    
    Testa anslutningen till huvud servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgänglig i Azure Portal.
 
-2. Aktivera binär loggning
+1. Aktivera binär loggning
 
    Kontrol lera om binär loggning har Aktiver ATS på huvud datorn genom att köra följande kommando: 
 
@@ -67,7 +67,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    Om `log_bin` returneras med värdet "off", aktiverar du binär loggning genom att redigera din. cnf-fil så att `log_bin=ON` och startar om servern för att ändringen ska börja gälla.
 
-3. Huvud Server inställningar
+1. Huvud Server inställningar
 
    Datareplikering kräver `lower_case_table_names` att parametern är konsekvent mellan huvud-och replik servrar. Den här parametern är 1 som standard i Azure Database for MySQL. 
 
@@ -75,7 +75,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-4. Skapa en ny roll för replikering och konfigurera behörighet
+1. Skapa en ny roll för replikering och konfigurera behörighet
 
    Skapa ett användar konto på huvud servern som har kon figurer ATS med behörighet för replikering. Detta kan göras via SQL-kommandon eller ett verktyg som MySQL Workbench. Överväg om du planerar att replikera med SSL eftersom detta måste anges när du skapar användaren. I MySQL-dokumentationen hittar du information om hur du [lägger till användar konton](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) på huvud servern. 
 
@@ -115,8 +115,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    ![Replikering slav](./media/howto-data-in-replication/replicationslave.png)
 
-
-5. Ställ in huvud servern på skrivskyddat läge
+1. Ställ in huvud servern på skrivskyddat läge
 
    Innan du börjar dumpa databasen måste servern placeras i skrivskyddat läge. I skrivskyddat läge kan inte originalet bearbeta några Skriv transaktioner. Utvärdera effekten för ditt företag och Schemalägg det skrivskyddade fönstret vid låg belastnings tid om det behövs.
 
@@ -125,7 +124,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    SET GLOBAL read_only = ON;
    ```
 
-6. Hämta binär logg fils namn och förskjutning
+1. Hämta binär logg fils namn och förskjutning
 
    Kör [`show master status`](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) kommandot för att fastställa den aktuella binära logg filens namn och offset.
     
@@ -138,11 +137,11 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
  
 ## <a name="dump-and-restore-master-server"></a>Dumpa och Återställ huvud server
 
-1. Dumpa alla databaser från huvud servern
+1. Bestäm vilka databaser och tabeller du vill replikera till Azure Database for MySQL och utför dumpen från huvud servern.
+ 
+    Du kan använda mysqldump för att dumpa databaser från din huvud server. Mer information finns i [dumpa & Restore](concepts-migrate-dump-restore.md). Det är inte nödvändigt att dumpa MySQL-biblioteket och test biblioteket.
 
-   Du kan använda mysqldump för att dumpa databaser från din huvud server. Mer information finns i [dumpa & Restore](concepts-migrate-dump-restore.md). Det är inte nödvändigt att dumpa MySQL-biblioteket och test biblioteket.
-
-2. Ange huvud server för Läs-/skriv läge
+1. Ange huvud server för Läs-/skriv läge
 
    När databasen har dump ATS ändrar du Master MySQL-servern tillbaka till Läs-/skriv läge.
 
@@ -151,7 +150,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    UNLOCK TABLES;
    ```
 
-3. Återställ dumpfilen till en ny server
+1. Återställ dumpfilen till en ny server
 
    Återställ dumpfilen till servern som skapats i Azure Database for MySQL-tjänsten. Mer information om hur du återställer en dumpfil till en MySQL-server hittar du i [dump & Restore](concepts-migrate-dump-restore.md) . Om dumpfilen är stor laddar du upp den till en virtuell dator i Azure inom samma region som replik servern. Återställ den till Azure Database for MySQL servern från den virtuella datorn.
 
@@ -175,33 +174,39 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
    - master_ssl_ca: certifikat utfärdarens kontext. Om du inte använder SSL skickar du en tom sträng.
        - Vi rekommenderar att du skickar den här parametern i som en variabel. Se följande exempel för mer information.
 
-> [!NOTE]
-> Om huvud servern finns på en virtuell Azure-dator anger du "Tillåt åtkomst till Azure-tjänster" till "på" för att tillåta att huvud-och replik servrarna kommunicerar med varandra. Den här inställningen kan ändras från **anslutnings säkerhets** alternativen. Se [Hantera brand Väggs regler med hjälp av portalen](howto-manage-firewall-using-portal.md) för mer information.
-
+   > [!NOTE]
+   > Om huvud servern finns på en virtuell Azure-dator anger du "Tillåt åtkomst till Azure-tjänster" till "på" för att tillåta att huvud-och replik servrarna kommunicerar med varandra. Den här inställningen kan ändras från **anslutnings säkerhets** alternativen. Se [Hantera brand Väggs regler med hjälp av portalen](howto-manage-firewall-using-portal.md) för mer information.
+      
    **Exempel**
-
+   
    *Replikering med SSL*
-
+   
    Variabeln `@cert` skapas genom att köra följande MySQL-kommandon: 
-
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
-
+   
+      ```sql
+      SET @cert = '-----BEGIN CERTIFICATE-----
+      PLACE YOUR PUBLIC KEY CERTIFICATE'`S CONTEXT HERE
+      -----END CERTIFICATE-----'
+      ```
+   
    Replikering med SSL konfigureras mellan en huvud server som finns i domänen "companya.com" och en replik server som är värd för Azure Database for MySQL. Den här lagrade proceduren körs på repliken. 
-
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
-   ```
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+      ```
    *Replikering utan SSL*
-
+   
    Replikering utan SSL konfigureras mellan en huvud server som finns i domänen "companya.com" och en replik server som är värd för Azure Database for MySQL. Den här lagrade proceduren körs på repliken.
+   
+      ```sql
+      CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+      ```
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
-   ```
+1. Filtrering 
+ 
+   Om du vill hoppa över replikeringen av vissa tabeller från din huvud Server uppdaterar du `replicate_wild_ignore_table` Server parametern på replik servern. Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) .
+    
+    Om du vill uppdatera parametern kan du använda [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 1. Starta replikering
 

@@ -1,18 +1,18 @@
 ---
 title: 'Azure-VPN Gateway: Felsöka punkt-till-plats-anslutningar: Mac OS X-klienter'
-description: 'Felsök punkt-till-plats-anslutning från Mac OS X. kontrol lera följande inställningar: server adress, fjärr-ID, lokalt ID, autentiseringsinställningar och OS-version.'
+description: Lär dig hur du felsöker problem med punkt-till-plats-anslutning från Mac OS X med hjälp av den inbyggda VPN-klienten och IKEv2.
 services: vpn-gateway
 author: kumudD
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: ae7ca9ad69bc5bea20fc959f86e41439bd01cd5c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 58250980081388b78ebb32fb01b84beb8d86c1c2
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920763"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030673"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Felsöka punkt-till-plats-VPN-anslutningar från Mac OS X VPN-klienter
 

@@ -1,17 +1,17 @@
 ---
 title: Verksamhets kontinuitet – Azure Database for PostgreSQL-enskild server
-description: I den här artikeln beskrivs verksamhets kontinuitet (tidpunkt för återställning, data Center avbrott, geo-återställning) när du använder Azure Database for PostgreSQL.
+description: I den här artikeln beskrivs verksamhets kontinuitet (tidpunkt för återställning, data Center avbrott, geo-återställning, repliker) när du använder Azure Database for PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: 35b2236ae6ffd3df3e458cdbd4bc01e89a1da2b2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/07/2020
+ms.openlocfilehash: b14eba63d848b5f583e16b39f3ade6bd7e7ba83f
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245314"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031208"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Översikt över affärs kontinuitet med Azure Database for PostgreSQL-enskild server
 
@@ -28,14 +28,16 @@ I följande tabell jämförs ERT och återställnings punkt för de tillgänglig
 | Återställning till tidpunkt från säkerhetskopia | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden | Alla återställnings punkter inom kvarhållningsperioden |
 | Geo-återställning från geo-replikerade säkerhets kopieringar | Stöds inte | ERT < 12 h<br/>Återställnings < 1 h | ERT < 12 h<br/>Återställnings < 1 h |
 
-> [!IMPORTANT]
-> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. Använd [Azure Resource lock](../azure-resource-manager/management/lock-resources.md) för att förhindra oavsiktlig borttagning av servern.
+Du kan också överväga att använda [Läs repliker](concepts-read-replicas.md).
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Återställa en server efter ett användar-eller program fel
 
 Du kan använda tjänstens säkerhets kopieringar för att återställa en server från olika störande händelser. En användare kan oavsiktligt ta bort vissa data, oavsiktligt släppa en viktig tabell eller till och med släppa en hel databas. Ett program kan av misstag skriva över bra data med felaktiga data på grund av ett program fel och så vidare.
 
 Du kan utföra en tidpunkts **återställning** för att skapa en kopia av servern till en känd lämplig tidpunkt. Den här tidpunkten måste ligga inom den bevarande period för säkerhets kopior som du har konfigurerat för servern. När data har återställts till den nya servern kan du antingen ersätta den ursprungliga servern med den nyligen återställda servern eller kopiera nödvändiga data från den återställda servern till den ursprungliga servern.
+
+> [!IMPORTANT]
+> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. Använd [Azure Resource lock](../azure-resource-manager/management/lock-resources.md) för att förhindra oavsiktlig borttagning av servern.
 
 ## <a name="recover-from-an-azure-data-center-outage"></a>Återställa från ett avbrott i Azure Data Center
 
@@ -53,7 +55,7 @@ Funktionen geo-Restore återställer servern med geo-redundanta säkerhets kopie
 ## <a name="cross-region-read-replicas"></a>Läs repliker i flera regioner
 Du kan använda en oberoende region för att läsa och förbättra verksamhets kontinuiteten och Disaster Recovery-planeringen. Läs repliker uppdateras asynkront med hjälp av PostgreSQL-teknik för fysisk replikering. Lär dig mer om Läs repliker, tillgängliga regioner och hur du växlar över från [artikeln Läs repliker](concepts-read-replicas.md). 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 ### <a name="where-does-azure-database-for-postgresql-store-customer-data"></a>Var lagrar Azure Database for PostgreSQL kund information?
 Som standard flyttar Azure Database for PostgreSQL eller lagrar inte kund information från den region som den distribueras i. Kunder kan dock välja att aktivera [geo-redundanta säkerhets kopieringar](concepts-backup.md#backup-redundancy-options) eller skapa en [skrivskyddad replik i flera regioner](concepts-read-replicas.md#cross-region-replication) för att lagra data i en annan region.
 

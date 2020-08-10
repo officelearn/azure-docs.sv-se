@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 07/21/2020
+ms.date: 08/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e691e3f32404af792c852636a257659b629eef4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5ea28a7a4669fd000800bf62b7b940abefcf7551
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824570"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030970"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -130,6 +130,15 @@ För att undvika att distributionen Miss fungerar när du försöker validera de
         }
 ```
 
+## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportera ARM-mallen för en mått varnings regel via Azure Portal
+
+Genom att exportera ARM-mallen för en mått varnings regel får du hjälp att förstå dess JSON-syntax och egenskaper och kan användas för att automatisera framtida distributioner.
+1. Gå till avsnittet **resurs grupper** i portalen och välj den resurs grupp som innehåller regeln.
+2. I avsnittet Översikt markerar du kryss rutan **Visa dolda typer** .
+3. I filter **typ** väljer du *Microsoft. Insights/metricalerts*.
+4. Välj den relevanta aviserings regeln om du vill visa information om den.
+5. Under **Inställningar**väljer du **Exportera mall**.
+
 ## <a name="metric-alert-rules-quota-too-small"></a>Måttet för mått för varnings regler är för litet
 
 Antalet mått för aviserings regler per prenumeration omfattas av [kvot gränser](../service-limits.md).
@@ -236,7 +245,7 @@ Tänk på följande begränsningar när du använder dimensioner i en varnings r
 - Du kan bara välja ett värde per dimension i varje villkor.
 - Du kan inte använda alternativet "Välj alla aktuella och framtida värden" (Välj \* ).
 - När mått som har kon figurer ATS på olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta villkoren).
-Exempel:
+Ett exempel:
     - Överväg en regel för mått varningar som definieras på ett lagrings konto och övervakar två villkor:
         * Totalt antal **transaktioner** > 5
         * Genomsnittlig **SuccessE2ELatency** > 250 MS

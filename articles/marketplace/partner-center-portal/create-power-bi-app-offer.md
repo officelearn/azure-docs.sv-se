@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: c464e26419648d396b39718f357bcef7e4fa5552
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800306"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030780"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
 
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -146,7 +146,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 10. Beskrivning
 11. Skärm bilder/videor
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -202,19 +202,20 @@ Ange minst ett och upp till tre relaterade marknadsförings dokument i PDF-forma
 
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som `https://upload.xboxlive.com` används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange en PNG-fil för logo typen med **stor** storlek (mellan 216 x 216 och 350 x 350 bild punkter). Partner Center använder detta för att skapa en **liten** (48 x 48 pixlar) storleks logo typ. Du kan också ersätta detta med en annan bild.
-
-Båda logo typ storlekarna krävs för användning på olika platser i listan:
-
+Ange PNG-filer för ditt erbjudandes logo typ i två bild punkter:
 - **Liten** (48 x 48)
-- **Stor** (mellan 216 x 216 och 350 x 350)
+- **Stor** (216 x 216)
 
-[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
+Båda logo typerna krävs och används på olika platser i Marketplace-listan.
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 2dde784e2f67266b2f6c6ccd7da20f01546bbda7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506493"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88031138"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
 
-I Azure Functions version 2. x är [bindningar](./functions-triggers-bindings.md) tillgängliga som separata paket från Functions-körningen. .NET-funktioner har åtkomst till bindningar via NuGet-paket, men tilläggs paket ger andra funktioner åtkomst till alla bindningar via en konfigurations inställning.
+Från och med Azure Functions version 2. x är [bindningar](./functions-triggers-bindings.md) tillgängliga som separata paket från Functions-körningen. .NET-funktioner har åtkomst till bindningar via NuGet-paket, men tilläggs paket ger andra funktioner åtkomst till alla bindningar via en konfigurations inställning.
 
 Tänk på följande saker som rör bindnings tillägg:
 
@@ -24,30 +24,38 @@ Tänk på följande saker som rör bindnings tillägg:
 
 I följande tabell visas när och hur du registrerar bindningar.
 
-| Utvecklingsmiljö |Registrering<br/> i funktioner 1. x  |Registrering<br/> i funktioner 2. x  |
+| Utvecklingsmiljö |Registrering<br/> i funktioner 1. x  |Registrering<br/> i functions 3. x/2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatiskt|Automatiskt|
+|Azure Portal|Automatiskt|Autokorrigering<sup>*</sup>|
 |Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatiskt|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
 |C#-klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
-|C#-klass bibliotek med Visual Studio Code|E.t.|[Använd .NET Core CLI](#vs-code)|
+|C#-klass bibliotek med Visual Studio Code|Ej tillämpligt|[Använd .NET Core CLI](#vs-code)|
 
-## <a name="extension-bundles-for-local-development"></a><a name="extension-bundles"></a>Tilläggs paket för lokal utveckling
+<sup>*</sup>Portalen använder tilläggs paket.
 
-Tilläggs paket är en distributions teknik som gör att du kan lägga till en kompatibel uppsättning funktions bindnings tillägg i din Function-app. En fördefinierad uppsättning tillägg läggs till när du skapar din app. Tilläggs paket som definieras i ett paket är kompatibla med varandra, vilket hjälper dig att undvika konflikter mellan paket. Du aktiverar tilläggs paket i appens host.jsfil.  
+## <a name="extension-bundles"></a><a name="extension-bundles"></a>Paket för tillägg
 
-Du kan använda tilläggs paket med version 2. x och senare versioner av Functions-körningen. När du utvecklar lokalt kontrollerar du att du använder den senaste versionen av [Azure Functions Core tools](functions-run-local.md#v2).
+Paket för tillägg är ett sätt att lägga till en kompatibel uppsättning funktions bindnings tillägg i din Function-app. När du använder paket läggs en fördefinierad uppsättning tillägg till när du skapar din app. Tilläggs paket som definieras i ett paket verifieras för att vara kompatibla med varandra, vilket hjälper dig att undvika konflikter mellan paket. Med tilläggs paket kan du undvika att behöva publicera .NET-projekt kod med ett non-.NET Functions-projekt. Du aktiverar tilläggs paket i appens host.jsfil.  
 
-Använd tilläggs paket för lokal utveckling med hjälp av Azure Functions Core Tools, Visual Studio Code och när du skapar en fjärr anslutning.
+Du kan använda tilläggs paket med version 2. x och senare versioner av Functions-körningen. 
 
-Om du inte använder tilläggs paket måste du installera .NET Core 2. x SDK på den lokala datorn innan du installerar eventuella bindnings tillägg. Paket för tillägg tar bort det här kravet för lokal utveckling. 
+Använd tilläggs paket för lokal utveckling med hjälp av Azure Functions Core Tools, Visual Studio Code och när du skapar en fjärr anslutning. När du utvecklar lokalt kontrollerar du att du använder den senaste versionen av [Azure Functions Core tools](functions-run-local.md#v2). Tilläggs paket används också när du utvecklar funktioner i Azure Portal. 
+
+Om du inte använder tilläggs paket måste du installera .NET Core 2. x SDK på den lokala datorn innan du [installerar eventuella bindnings tillägg](#explicitly-install-extensions). En Extensions. CSPROJ-fil, som uttryckligen definierar de nödvändiga tilläggen, läggs till i projektet. Paket för tillägg tar bort de här kraven för lokal utveckling. 
 
 Om du vill använda tilläggs paket uppdaterar du *host.jspå* fil för att inkludera följande post för `extensionBundle` :
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-<a name="local-csharp"></a>
+## <a name="explicitly-install-extensions"></a>Installera tillägg uttryckligen
 
-## <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>C- \# klass bibliotek med Visual Studio
+[!INCLUDE [functions-extension-register-core-tools](../../includes/functions-extension-register-core-tools.md)]
+
+## <a name="nuget-packages"></a><a name="local-csharp"></a>NuGet-paket
+
+För ett C#-program för klass biblioteks-baserade funktioner bör du installera tilläggs paket som är särskilt utformade för projekt som inte är klass 
+
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>C- \# klass bibliotek med Visual Studio
 
 I **Visual Studio**kan du installera paket från Package Manager-konsolen med kommandot [install-Package](/nuget/tools/ps-ref-install-package) , som du ser i följande exempel:
 

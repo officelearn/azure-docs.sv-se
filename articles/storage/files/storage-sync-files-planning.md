@@ -1,18 +1,18 @@
 ---
 title: Planera för distribution av Azure File Sync | Microsoft Docs
-description: Lär dig vad du ska tänka på när du planerar för en Azure Files distribution.
+description: Planera för en distribution med Azure File Sync, en tjänst som gör att du kan cachelagra ett antal Azure-filresurser på en lokal Windows Server eller virtuell dator i molnet.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036802"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030681"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 

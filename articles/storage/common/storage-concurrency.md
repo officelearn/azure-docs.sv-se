@@ -1,7 +1,7 @@
 ---
 title: Hantera samtidighet
 titleSuffix: Azure Storage
-description: Lär dig hur du hanterar samtidighet för BLOB-, kö-, tabell-och fil tjänster.
+description: Lär dig hur du hanterar samtidighet i Azure Storage för blobb-, kö-, tabell-och fil tjänster. Förstå de tre huvudsakliga data samtidighets strategierna som används.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ec7661bc2823932328bd994ec7bc7f6167f13a
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504295"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030392"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 
@@ -90,15 +90,15 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 
 | Åtgärd | Returnerar ETag-värde för behållare | Accepterar villkorliga rubriker |
 |:--- |:--- |:--- |
-| Skapa container |Ja |No |
-| Hämta egenskaper för behållare |Ja |No |
-| Hämta metadata för behållare |Ja |No |
+| Skapa container |Ja |Inga |
+| Hämta egenskaper för behållare |Ja |Inga |
+| Hämta metadata för behållare |Ja |Inga |
 | Ange metadata för behållare |Ja |Ja |
-| Hämta ACL för behållare |Ja |No |
-| Ange behållar-ACL |Ja |Ja (*) |
-| Ta bort container |No |Ja |
+| Hämta ACL för behållare |Ja |Inga |
+| Ange behållar-ACL |Yes |Ja (*) |
+| Ta bort container |Inga |Ja |
 | Lease container |Ja |Ja |
-| Lista blobbar |Nej |Nej |
+| Lista blobbar |Inga |Inga |
 
 (*) Behörigheterna som definieras av SetContainerACL cachelagras och uppdateringar av de här behörigheterna tar 30 sekunder att spridas under vilka period uppdateringar inte garanterat är konsekventa.  
 
@@ -114,12 +114,12 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Ange BLOB-metadata |Ja |Ja |
 | Låna BLOB (*) |Ja |Ja |
 | Ta ögonblicksbild av blob |Ja |Ja |
-| Kopiera blob |Ja |Ja (för käll-och mål-BLOB) |
-| Avbryt kopiering av BLOB |Nej |Nej |
-| Ta bort blob |No |Ja |
-| Spärra block |Nej |Nej |
+| Kopiera blob |Yes |Ja (för käll-och mål-BLOB) |
+| Avbryt kopiering av BLOB |Inga |Inga |
+| Ta bort blob |Inga |Ja |
+| Spärra block |Inga |Inga |
 | Lista över blockerade |Ja |Ja |
-| Hämta blockeringslistan |Ja |No |
+| Hämta blockeringslistan |Ja |Inga |
 | Placerings sida |Ja |Ja |
 | Hämta sid intervall |Ja |Ja |
 
@@ -244,13 +244,13 @@ I följande tabell sammanfattas hur tabell enhets åtgärder använder ETag-vär
 
 | Åtgärd | Returnerar ETag-värde | Kräver rubriken-match begär ande huvud |
 |:--- |:--- |:--- |
-| Fråga entiteter |Ja |Nej |
-| Infoga entitet |Ja |Nej |
+| Fråga entiteter |Ja |Inga |
+| Infoga entitet |Ja |Inga |
 | Uppdatera entitet |Ja |Ja |
 | Sammanfoga entitet |Ja |Ja |
-| Ta bort entitet |Nej |Ja |
-| Infoga eller Ersätt entitet |Ja |Nej |
-| Infoga eller sammanfoga entitet |Ja |Nej |
+| Ta bort entitet |Inga |Ja |
+| Infoga eller Ersätt entitet |Ja |Inga |
+| Infoga eller sammanfoga entitet |Ja |Inga |
 
 Observera att åtgärderna **Lägg till eller Ersätt entitet** och **Infoga eller sammanfoga entiteter** *inte* utför några samtidighets kontroller eftersom de inte skickar ett ETag-värde till tabell tjänsten.  
 

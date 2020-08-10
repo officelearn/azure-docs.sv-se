@@ -620,6 +620,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
         - name: Automatiserade skript för lokalt installerad integrationskörning (IR)
           href: self-hosted-integration-runtime-automation-scripts.md
+        - name: Köra lokalt installerad integrationskörning i Windows-container
+          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Kör SSIS-paket i Azure
       items:
         - name: Köra SSIS-paket i Azure från SSDT

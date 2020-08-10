@@ -6,15 +6,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/03/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 449f1e50bda2991db8eec15464a32d295a054c6f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cb7978dfa2c3ded2ae8e8c621bcb679f19620a2c
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286605"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553486"
 ---
 # <a name="change-the-contact-information-for-your-azure-account"></a>Ändra kontaktinformationen för ditt Azure-konto
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om att uppdatera kontaktinformationen 
 
 *Fakturera till-adress* – Såld till-adressen är adressen och kontaktinformationen för organisationen eller personen som är ansvarig för fakturorna som genereras för ett faktureringskonto. För ett faktureringskonto för ett Microsoft Online-prenumerationsprogram (MOSP) finns det en faktureringsadress som visas på alla fakturor som genereras för kontot. För ett faktureringskonto för ett Microsoft-kundavtal (MCA) finns det en faktureringsadress för varje faktureringsprofil som visas i fakturan som genereras för faktureringsprofilen.
 
-*Kontakta e-postadressen för e-post för tjänster och marknadsföring* – Du kan ange en e-postadress som skiljer sig från den e-postadress som du loggar in med för att få viktiga meddelanden om fakturering, tjänster och rekommendationer om ditt Azure-konto.  
+*Kontakta e-postadressen för e-post för tjänster och marknadsföring* – Du kan ange en e-postadress som skiljer sig från den e-postadress som du loggar in med för att få viktiga meddelanden om fakturering, tjänster och rekommendationer om ditt Azure-konto. Tjänstmeddelanden som via e-post, till exempel angående brådskande säkerhetsproblem, prisändringar eller större ändringar av tjänster som används av ditt konto, skickas alltid till din inloggningsadress.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Uppdatera en MOSP-faktureringskontoadress
 

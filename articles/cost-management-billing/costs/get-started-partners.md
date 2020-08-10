@@ -3,17 +3,17 @@ title: Kom igång med Azure Cost Management för partner
 description: I den här artikeln förklaras hur partner använder Azure Cost Management-funktioner och hur de ger Cost Management-åtkomst för sina kunder.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/28/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 25a64dd4d06c24b0f7e1f8433a1abf5f67fa6eba
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372152"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563950"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -140,7 +140,7 @@ När principen har angetts som **Nej** är Azure Cost Management inte tillgängl
 
 När kostnadsprincipen är inställd på **Ja** kan prenumerationsanvändare som är kopplade till kundklientorganisationen se användningsavgifter enligt priset för betala per användning.
 
-När principen för kostnadssynlighet är aktiverad visar alla tjänster som har prenumerationsanvändning kostnader enligt priserna för betala per användning. Reservationsanvändningen visas med noll avgifter för faktiska och periodiserade kostnader. Köp och berättiganden är inte kopplade till en specifik prenumeration. Därför visas inte inköpen i prenumerationsomfånget.
+När principen för kostnadssynlighet är aktiverad visar alla tjänster som har prenumerationsanvändning kostnader enligt priserna för betala per användning. Reservationsanvändningen visas med noll avgifter för faktiska och periodiserade kostnader. Köp och berättiganden är inte kopplade till en specifik prenumeration. Därför visas inte inköpen i prenumerationsomfånget. En global administratör/administratörsagent eller en indirekt leverantör kan också använda [API:et för kunduppdatering](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) för att ange varje kunds kostnadssynlighetsprincip i stor skala.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Visa prenumerationskostnader i kundens klientorganisation
 

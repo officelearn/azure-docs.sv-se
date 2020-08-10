@@ -8,7 +8,7 @@
   items:
     - name: Licenskrav
       href: subscription-requirements.md
-    - name: Roller som du inte kan hantera
+    - name: Roller som du inte kan hantera med PIM
       href: pim-roles.md
     - name: Säker privilegierad åtkomst
       href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -18,7 +18,7 @@
       href: pim-resource-roles-overview-dashboards.md
     - name: E-postmeddelanden
       href: pim-email-notifications.md
-    - name: 'Microsoft Graph-API:er'
+    - name: Microsoft Graph API och PIM
       href: pim-apis.md
 - name: Anvisningar
   expanded: true
@@ -33,7 +33,7 @@
           href: pim-security-wizard.md
         - name: Identifiera Azure-resurser
           href: pim-resource-roles-discover-resources.md
-        - name: Bevilja andra åtkomst att hantera PIM
+        - name: Delegera åtkomst till PIM
           href: pim-how-to-give-access-to-pim.md
         - name: Utöka åtkomst för att hantera alla prenumerationer
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json

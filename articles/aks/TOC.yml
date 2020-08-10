@@ -290,8 +290,8 @@
           href: windows-container-powershell.md
         - name: Fjärransluta
           href: rdp.md
-        - name: Kända begränsningar
-          href: windows-node-limitations.md
+        - name: Vanliga frågor och svar om Windows Server-containrar
+          href: windows-faq.md
         - name: Använda Kubernetes-instrumentpanelen
           href: kubernetes-dashboard.md
         - name: Skapa Dockerfiles för Windows Server-containrar

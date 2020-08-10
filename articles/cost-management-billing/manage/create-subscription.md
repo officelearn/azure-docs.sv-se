@@ -1,17 +1,17 @@
 ---
 title: Skapa ytterligare en Azure-prenumeration
-description: Lär dig hur du lägger till en ny Azure-prenumeration i Azure-portalen.
+description: Lär dig hur du lägger till en ny Azure-prenumeration i Azure-portalen. Se information om faktureringskontoformulär och visa fler tillgängliga resurser.
 author: amberbhargava
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: d6a8196816aaaa61458050334f605cb41afa16b9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d27120f6bd0978b69d664ab3ab2e86bfee4f1755
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200854"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460974"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
 
@@ -48,14 +48,14 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Enterprise-avtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Namn     | Visningsnamnet som gör att du enkelt kan identifiera prenumerationen i Azure-portalen.  |
 |Erbjudande     | Välj EA Dev/Test om du planerar att använda prenumerationen för utveckling eller testning. Annars väljer du Microsoft Azure Enterprise. DevTest-erbjudandet måste vara aktiverat för ditt registreringskonto om du ska kunna skapa EA Dev/Test-prenumerationer.|
 
 **Microsoft-kundavtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Faktureringsprofil     | Avgifterna för din prenumeration faktureras till den valda faktureringsprofilen. Om du bara har åtkomst till en faktureringsprofil blir valet nedtonat.     |
 |Fakturaavsnitt     | Avgifterna för din prenumeration visas i det här avsnittet på faktureringsprofilens faktura. Om du bara har åtkomst till ett enda fakturaavsnitt blir valet nedtonat.  |
@@ -64,7 +64,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 
 **Microsoft-partneravtal**
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |Kund    | Prenumerationen skapas för den kund du väljer. Om du bara har en kund är det här valet nedtonat.  |
 |Återförsäljare    | Den återförsäljare som ska tillhandahålla tjänster till kunden. Det här är ett valfritt fält som endast gäller för indirekta leverantörer i CSP-modellen med två nivåer. |

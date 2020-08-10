@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077166"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501533"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -93,8 +93,8 @@ Enterprise-avtalens faktureringskonton, som även kallas registreringar, har fö
 
 EA-faktureringsomfång stöder följande roller:
 
-- **Företagsadministratör** – Kan hantera inställningar och åtkomst för faktureringskonton, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. EA-faktureringsomfånget är i princip detsamma som [Azure RBAC-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Företagsanvändare med läsbehörighet** – Kan se inställningar för faktureringskonton, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. EA-faktureringsomfånget är i princip detsamma som [Azure RBAC-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Företagsadministratör** – Kan hantera inställningar och åtkomst för faktureringskonton, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. EA-faktureringsomfånget är i princip detsamma som [Azure-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Företagsanvändare med läsbehörighet** – Kan se inställningar för faktureringskonton, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. EA-faktureringsomfånget är i princip detsamma som [Azure-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Avdelningsadministratör** – Kan hantera avdelningsinställningar, till exempel kostnadsställe, samt kan öppna och se alla kostnader och hantera kostnadskonfigurationen. Till exempel budgetar och exporter.  Faktureringskontots inställningar för **Visa avgifter för DA** måste vara aktiverade för att avdelningsadministratörer och användare med läsbehörighet ska kunna se kostnaderna. Om **Visa avgifter för DA** har inaktiverats, kan inte avdelningsanvändarna se kostnader på någon nivå, även om de är konto- eller prenumerationsinnehavare.
 - **Avdelningsanvändare med läsbehörighet** – Kan se avdelningsinställningar, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. Om **Visa avgifter för DA** har inaktiverats, kan inte avdelningsanvändarna se kostnader på någon nivå, även om de är konto- eller prenumerationsinnehavare.
 - **Kontoinnehavare** – Kan hantera inställningar för registreringskontot (till exempel kostnadsställe), se alla kostnader och hantera kostnadskonfigurationen (till exempel budgetar och export) för registreringskontot. Faktureringskontots inställning för **Visa avgifter för AO** måste vara aktiverad för att kontoinnehavare och RBAC-användare ska kunna se kostnaderna.
@@ -141,10 +141,10 @@ Faktureringsomfången för kundavtal gäller inte för partners. Partnerroller o
 
 Faktureringsomfången för kundavtal har stöd för följande roller:
 
-- **Ägare** – Kan hantera faktureringsinställningar och åtkomst, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure RBAC-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Deltagare** – Kan hantera faktureringsinställningar förutom åtkomst, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure RBAC-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Läsare** – Kan se faktureringsinställningar, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure RBAC-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Fakturaansvarig** – Kan se och betala fakturor, samt se kostnadsdata och konfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure RBAC-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Ägare** – Kan hantera faktureringsinställningar och åtkomst, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Deltagare** – Kan hantera faktureringsinställningar förutom åtkomst, se alla kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure-rollen Cost Management-deltagare](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Läsare** – Kan se faktureringsinställningar, kostnadsdata och kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Fakturaansvarig** – Kan se och betala fakturor, samt se kostnadsdata och konfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som [Azure-rollen Cost Management-läsare](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Azure-prenumerationens skapare** – Kan skapa Azure-prenumerationer, se kostnader och hantera kostnadskonfiguration. Till exempel budgetar och exporter. Faktureringsomfånget för kundavtal är i princip detsamma som rollen som kontoinnehavare för EA-registreringskontot.
 
 Azure-prenumerationer kapslas under fakturaavsnitt, på ungefär samma sätt som i EA-registreringskonton. Faktureringsanvändare har åtkomst till kostnadsdata för de prenumerationer och resursgrupper som tillhör deras omfång. De har dock inte åtkomst att se eller hantera resurser i Azure-portalen. Faktureringsanvändare kan se kostnader genom att gå till **Cost Management och fakturering** i Azure-portalens lista med tjänster. Därefter kan de filtrera kostnaderna till de specifika prenumerationer och resursgrupper som de ska rapportera om.

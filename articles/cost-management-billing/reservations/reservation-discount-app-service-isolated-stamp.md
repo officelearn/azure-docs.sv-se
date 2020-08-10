@@ -1,18 +1,18 @@
 ---
 title: Reservationsrabatter för Azure App Service
-description: Lär dig hur reservationsrabatter tillämpas på Azure App Service Isolerad-stämplar.
+description: Lär dig hur reservationsrabatter tillämpas på Azure App Service Isolerad-stämplar. Rabatter tillämpas automatiskt för stämpelavgiften i en region.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 97a0b63200951a30d1b5576fddbb5aa044a91a62
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7a4229d60a31d61caf050dabf632c8718ef3c9f3
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200341"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460345"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Så tillämpas reservationsrabatter på Azure App Service Isolerad-stämplar
 
@@ -47,7 +47,7 @@ I följande exempel visas hur rabatten reserverad instans för isolerad stämpel
 
 - Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](manage-reserved-vm-instance.md).
 - Om du vill veta mer om förhandsköp av reserverad kapacitet för App Service Isolerad-stämpel i syfte att minska utgifterna kan du läsa [Förskottsbetala för avgiften för Azure App Service Isolerad-stämpel med reserverad kapacitet](prepay-app-service-isolated-stamp.md).
-- Du kan läsa mer om Azure-reservationer i följande artiklar:
+- Mer information om Azure-reservationer finns i följande artiklar:
   - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)
   - [Hantera reservationer i Azure](manage-reserved-vm-instance.md)
   - [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](understand-reserved-instance-usage.md)

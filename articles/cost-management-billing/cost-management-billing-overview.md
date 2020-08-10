@@ -1,29 +1,42 @@
 ---
-title: Översikt över Azure Cost Management och Azure-fakturering | Microsoft Docs
-description: Du använder funktioner i Azure Cost Management och Azure-fakturering för att utföra administrativa faktureringsuppgifter och hantera faktureringsåtkomst till kostnader. Du använder även funktionen för att övervaka och kontrollera Azure-utgifter samt optimera användningen av Azure-resurser.
+title: Översikt över Azure Cost Management + Fakturering
+description: Du använder funktioner i Azure Cost Management + Fakturering för att utföra administrativa faktureringsuppgifter och hantera faktureringsåtkomst till kostnader. Du använder även funktioner för att övervaka och kontrollera Azure-utgifter samt optimera användningen av Azure-resurser.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 07/29/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 2f96208ff3f9664d82bfc1d9ddf9bc5b9aec37c3
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 76121dd8126922de2843e430a4e01cae1c7c0d53
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879096"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87413008"
 ---
-# <a name="what-is-azure-cost-management-and-billing"></a>Vad är Azure Cost Management och Azure-fakturering?
+# <a name="what-is-azure-cost-management--billing"></a>Vad är Azure Cost Management + Fakturering?
 
-Med Azure-produkter och -tjänster betalar du bara för det du använder. När du skapar och använder Azure-resurser debiteras du för resurserna. Du använder funktioner i Azure Cost Management och Azure-fakturering för att utföra administrativa faktureringsuppgifter och hantera faktureringsåtkomst till kostnader. Du kan även använda dess funktioner för att övervaka och kontrollera Azure-utgifter samt optimera användningen av Azure-resurser.
+Genom att använda Microsoft Cloud kan du avsevärt förbättra tekniska prestanda för företagets arbetsbelastningar. Du kan också minska dina kostnader och omkostnader för att hantera organisationstillgångar. Men affärsmöjligheten medför också en risk för att det kan uppstå förlorad kapacitet och ineffektivitet i molndistributionerna. Azure Cost Management + Fakturering är en uppsättning verktyg som tillhandahålls av Microsoft och som hjälper dig att analysera, hantera och optimera kostnaderna för dina arbetsbelastningar. Med hjälp av programsviten kan du se till att din organisation drar nytta av fördelarna med molnet.
+
+Du kan se dina Azure-arbetsbelastningar som lamporna hemma. Lämnar du lamporna på när du går till jobbet? Skulle du kunna använda andra, mer strömsnåla glödlampor för att minska elräkningen? Har du fler lampor i ett rum än du behöver? Med Azure Cost Management + Fakturering kan du använda ett liknande tankesätt för företagets arbetsbelastningar.
+
+Med Azure-produkter och -tjänster betalar du bara för det du använder. När du skapar och använder Azure-resurser debiteras du för resurserna. Eftersom det är enkelt att distribuera nya resurser kan kostnaderna för arbetsbelastningarna skena utan en ordentlig analys och övervakning. Med Azure Cost Management + Fakturering kan du:
+
+- Utföra administrativa faktureringsuppgifter som att betala din faktura
+- Hantera faktureringsåtkomst till kostnader
+- Ladda ned kostnader och användningsdata som användes som underlag för att generera din månadsfaktura
+- Tillämpa dataanalys proaktivt för dina kostnader
+- Ange utgiftströsklar
+- Ta reda på om det går att göra arbetsbelastningsändringar som kan optimera dina utgifter
+
+Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](./costs/cost-mgt-best-practices.md).
 
 ## <a name="understand-azure-billing"></a>Förstå Azure-faktureringen
 
 Funktionerna i Azure-fakturering används för att granska dina fakturerade kostnader och hantera åtkomst till faktureringsinformation. I större organisationer genomförs faktureringsuppgifter vanligtvis av inköps- och ekonomiteamen.
 
-När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot för att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Därför kan du ha en enskild Azure-prenumeration med ett faktureringskonto. Du kan även ha åtkomst via organisationens Enterprise-avtal eller Microsoft-kundavtal. För varje scenario skulle du ha två separata faktureringskonton.
+När du registrerar dig för att använda Azure skapas ett faktureringskonto. Du använder faktureringskontot för att hantera fakturor och betalningar samt spåra kostnader. Du kan ha åtkomst till flera faktureringskonton. Du kan till exempel ha registrerat dig för Azure för dina personliga projekt. Därför kan du ha en enskild Azure-prenumeration med ett faktureringskonto. Du kan även ha åtkomst via organisationens Enterprise-avtal eller Microsoft-kundavtal. Du skulle ha ett separat faktureringskonto för varje scenario.
 
 ### <a name="billing-accounts"></a>Faktureringskonton
 
@@ -36,15 +49,14 @@ Azure-portalen stöder för närvarande följande typer av faktureringskonton:
 - **Microsoft-kundavtal**: Ett faktureringskonto för ett Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att teckna ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller uppgraderar sitt [kostnadsfria Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) kan även ha ett faktureringskonto för ett Microsoft-kundavtal. Mer information finns i artikeln om att [komma igång med ditt faktureringskonto för Microsoft-kundavtal](./understand/mca-overview.md).
 
 ### <a name="scopes-for-billing-accounts"></a>Omfång för faktureringskonton
-Ett omfång är en nod i ett faktureringskonto som du använder för att visa och hantera fakturering. Det är där du hanterar faktureringsdata, betalningar och fakturor samt sköter allmän kontohantering.
+Ett omfång är en nod i ett faktureringskonto som du använder för att visa och hantera fakturering. Där hanterar du faktureringsdata, betalningar, fakturor och utför vanliga kontohanteringsuppgifter.
 
 #### <a name="microsoft-online-services-program"></a>Microsoft Online Services-programmet
 
 |Omfång  |Definition  |
 |---------|---------|
-|Faktureringskonto     | Representerar en enskild ägare (kontoadministratör) för en eller flera Azure-prenumerationer. En kontoadministratör har behörighet att utföra olika faktureringsuppgifter, till exempel skapa prenumerationer, visa fakturor eller ändra faktureringen för prenumerationer.  |
+|Faktureringskonto     | Representerar en enskild ägare (kontoadministratör) för en eller flera Azure-prenumerationer. Kontoadministratörer är auktoriserade att utföra olika faktureringsuppgifter som att skapa prenumerationer, visa fakturor eller ändra faktureringen för prenumerationer.  |
 |Prenumeration     |  Representerar en gruppering av Azure-resurser. En faktura genereras i prenumerationsomfånget. Den har sina egna betalningsmetoder som används för att betala fakturan.|
-
 
 #### <a name="enterprise-agreement"></a>Enterprise-avtal
 
@@ -54,7 +66,6 @@ Ett omfång är en nod i ett faktureringskonto som du använder för att visa oc
 |Avdelning     |  Valfri gruppering av registreringskonton.      |
 |Registreringskonto     |  Representerar en enskild kontoägare. Azure-prenumerationer skapas under omfånget för registreringskonto.  |
 
-
 #### <a name="microsoft-customer-agreement"></a>Microsoft-kundavtal
 
 |Omfång  |Aktiviteter  |
@@ -63,19 +74,17 @@ Ett omfång är en nod i ett faktureringskonto som du använder för att visa oc
 |Faktureringsprofil     |  Representerar en faktura och dess betalningsmetod. Fakturan genereras i detta omfång. Faktureringsprofilen kan ha flera fakturaavsnitt.      |
 |Fakturaavsnitt     |   Representerar en grupp med kostnader i en faktura. Prenumerationer och andra inköp är associerade med omfånget för fakturaavsnitt.    |
 
-
 ## <a name="understand-azure-cost-management"></a>Förstå Azure Cost Management
-Kostnadshantering är den process där du effektivt planerar och styr kostnaderna i företaget. Kostnadshanteringsuppgifter utförs normalt av ekonomi-, hanterings- och appteam. Azure Cost Management + fakturering hjälper organisationer att planera med kostnaderna i åtanke. Det hjälper även till att effektivt analysera kostnader och vidta åtgärder för att optimera molnutgifter. Om du vill veta mer om metoder för kostnadshantering för organisationer kan du läsa artikeln om [metodtips för Azure Cost Management](./costs/cost-mgt-best-practices.md).
+
+Fakturering är relaterat till kostnadshantering men inbegriper skillnader. I faktureringsprocessen ingår att fakturera kunder för varor eller tjänster och att hantera den affärsrelationen.
+
+Kostnadshantering visar organisationens kostnader och användningsmönster med hjälp av avancerade analyser. Rapporter i Cost Management visar de användningskostnader som förbrukas av Azure-tjänster och Marketplace-erbjudanden från tredje part. Kostnaderna baseras på förhandlade priser och beaktar reservations- och Azure Hybrid-förmånsrabatter. Sammantaget visar rapporterna dina interna och externa kostnader för användning och Azure Marketplace-debiteringar. Andra debiteringar, till exempel reservationsköp, support och skatter, visas ännu inte i rapporter. Rapporterna hjälper dig att förstå dina utgifter och resursanvändningen och kan hjälpa dig hitta utgiftsavvikelser. Förutsägelseanalys är också tillgängligt. Kostnadshantering använder Azure-hanteringsgrupper, budgetar och rekommendationer för att tydligt visa hur dina utgifter organiseras och hur du kan minska kostnaderna.
+
+Du kan använda Azure-portalen eller olika API:er för exportautomatisering för att integrera kostnadsdata med externa system och processer. Automatiserad export av faktureringsdata och schemalagda rapporter är också tillgängligt.
 
 Titta på [videon med en översikt av Azure Cost Management](https://www.youtube.com/watch?v=el4yN5cHsJ0) för att få en snabb översikt över hur Azure Cost Management kan hjälpa dig att spara pengar i Azure. Om du vill titta på andra videor går du till [YouTube-kanalen för Cost Management](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
-
-Fakturering är relaterat till kostnadshantering men inbegriper skillnader. I faktureringsprocessen ingår att fakturera kunder för varor eller tjänster och att hantera den affärsrelationen.
-
-Kostnadshantering visar organisationens kostnader och användningsmönster med hjälp av avancerade analyser. Rapporter i Cost Management visar de användningskostnader som förbrukas av Azure-tjänster och Marketplace-erbjudanden från tredje part. Kostnaderna baseras på förhandlade priser och beaktar reservations- och Azure Hybrid-förmånsrabatter. Sammantaget visar rapporterna dina interna och externa kostnader för användning och Azure Marketplace-debiteringar. Andra debiteringar, till exempel köp av reservation, support och skatter visas ännu inte i rapporter. Rapporterna hjälper dig att förstå dina utgifter och resursanvändningen och kan hjälpa dig hitta utgiftsavvikelser. Förutsägelseanalys är också tillgängligt. Kostnadshantering använder Azure-hanteringsgrupper, budgetar och rekommendationer för att tydligt visa hur dina utgifter organiseras och hur du kan minska kostnaderna.
-
-Du kan använda Azure-portalen eller olika API:er för exportautomatisering för att integrera kostnadsdata med externa system och processer. Automatiserad export av faktureringsdata och schemalagda rapporter är också tillgängligt.
 
 ### <a name="plan-and-control-expenses"></a>Planering och kontrollera utgifter
 
@@ -99,17 +108,16 @@ Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/
 
 ### <a name="additional-azure-tools"></a>Ytterligare Azure-verktyg
 
-Azure har andra verktyg som inte är en del av funktionsuppsättningen i Azure Cost Management och Azure-fakturering. De spelar dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
+I Azure finns andra verktyg som inte ingår i funktionerna i Azure Cost Management + Fakturering. De spelar dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) – använd det här verktyget för att beräkna dina startkostnader för moln.
 - [Azure Migrate](../migrate/migrate-overview.md) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.
 - [Azure Advisor](../advisor/advisor-overview.md) – identifiera oanvända virtuella datorer och få rekommendationer om köp av reserverade Azure-instanser.
 - [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) – använd dina aktuella lokala Windows Server- eller SQL Server-licenser för virtuella datorer i Azure för att spara.
 
-
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med Cost Management och Azure-fakturering är nästa steg att börja använda tjänsten.
+Nu när du vet mer om Cost Management + Fakturering är nästa steg att börja använda tjänsten.
 
 - Börja använda Azure Cost Management för att [analysera kostnader](./costs/quick-acm-cost-analysis.md).
 - Du kan även läsa mer om [metodtips för Azure Cost Management](./costs/cost-mgt-best-practices.md).

@@ -105,8 +105,10 @@
           href: howto-run-a-job.md
     - name: Transformering
       items:
-        - name: Exportera data till mål i Azure
+        - name: Exportera data till mål i Azure (äldre)
           href: howto-export-data.md
+        - name: Exportera data till molnmål (förhandsversion)
+          href: howto-use-data-export.md
         - name: Skapa webhooks med regler
           href: howto-create-webhooks.md
         - name: Använd arbetsflöden för att integrera med andra tjänster

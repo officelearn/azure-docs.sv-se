@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 6d16e663626a1b19271b7d37b39202a0a9b605b9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: ddb40f470f9b951c786fdab529336af3eff38e54
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87126133"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530018"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägg till eller ändra administratörer för en Azure-prenumeration
 
@@ -33,7 +33,7 @@ Mer information finns i [Azure Resource Manager jämfört med klassisk distribut
 
 ## <a name="assign-a-subscription-administrator"></a>Tilldela en prenumerationsadministratör
 
-En administratör måste tilldela rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) (en RBAC-roll) i prenumerationsomfånget för att göra en användare till administratör för en Azure-prenumeration. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra. De här stegen är desamma som för andra rolltilldelningar.
+En administratör måste tilldela rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) (en Azure-roll) i prenumerationsomfånget för att göra en användare till administratör för en Azure-prenumeration. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra. De här stegen är desamma som för andra rolltilldelningar.
 
 Om du inte vet som är kontoadministratör för en prenumeration, tar du reda på det med hjälp av följande steg.
 

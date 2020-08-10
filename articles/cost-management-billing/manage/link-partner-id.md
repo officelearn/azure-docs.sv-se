@@ -7,28 +7,28 @@ ms.author: banders
 ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.openlocfilehash: 343db06ba658f31c258d2a63c4a52aa86993c1cd
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 5f50c63fa95018c13c48e9769f9e4049b2a81021
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281794"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529925"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
 Microsoft-partner tillhandahåller tjänster som hjälper kunder att uppnå affärs- och verksamhetsmål med produkter från Microsoft. När du på uppdrag av kunden hanterar, konfigurerar och ger support för Azure-tjänster behöver partneranvändarna åtkomst till kundens miljö. Med Partneradministratörslänk (PAL) kan partner associera sina partnernätverks-ID:n med autentiseringsuppgifterna som används för tjänstleverans.
 
-PAL gör det möjligt för Microsoft att identifiera och uppmärksamma partner som skapar kundframgång med Azure. Microsoft kan påverka och skapa Azure-relaterade intäkter för din organisation baserat på kontots behörigheter (RBAC-roll) och omfång (prenumeration, resursgrupp och resurs).
+PAL gör det möjligt för Microsoft att identifiera och uppmärksamma partner som skapar kundframgång med Azure. Microsoft kan påverka och skapa Azure-relaterade intäkter för din organisation baserat på kontots behörigheter (Azure-roll) och omfång (prenumeration, resursgrupp och resurs).
 
 ## <a name="get-access-from-your-customer"></a>Få åtkomst från kunden
 
 Innan du länkar ditt partner-ID måste kunden ge dig åtkomst till sina Azure-resurser med hjälp av något av följande alternativ:
 
-- **Gästanvändare**: Din kund kan lägga till dig som gästanvändare och tilldela valfria roller för rollbaserad åtkomstkontroll (RBAC). Mer information finns i [Lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Gästanvändare**: Din kund kan lägga till dig som gästanvändare och tilldela valfria Azure-roller. Mer information finns i [Lägga till gästanvändare från en annan katalog](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Katalogkonto**: Kunden kan skapa ett användarkonto åt dig i en egen katalog och tilldela valfri roll för rollbaserad åtkomst.
+- **Katalogkonto**: Kunden kan skapa ett användarkonto åt dig i en egen katalog och tilldela valfri Azure-roll.
 
-- **Tjänstens huvudnamn**: Kunden kan lägga till en app eller ett skript från din organisation i katalogen och tilldela en roll för rollbaserad åtkomstkontroll. Appens eller skriptets identitet kallas för tjänstens huvudnamn.
+- **Tjänstens huvudnamn**: Kunden kan lägga till en app eller ett skript från din organisation i katalogen och tilldela en Azure-roll. Appens eller skriptets identitet kallas för tjänstens huvudnamn.
 
 - **Azure Lighthouse**: Kunden kan delegera en prenumeration (eller resursgrupp) så att användarna kan arbeta med den inifrån din klientorganisation. Mer information finns i [Azure-delegerad resurshantering](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
 
@@ -168,9 +168,8 @@ Med hjälp av partneradministratörslänken (PAL) kan Microsoft identifiera och 
 
 **Vilka data samlas in av PAL?**
 
-PAL-associationen för befintliga autentiseringsuppgifter tillhandahåller inga nya kunddata till Microsoft. Den tillhandahåller helt enkelt telemetrin till Microsoft där en partner är aktivt engagerad i en kunds Azure-miljö. Microsoft kan tillräkna påverkan och Azure-intäktsförbrukning från kundmiljön till partnerorganisationen baserat på kontots behörigheter (RBAC-roll) och omfång (hanteringsgrupp, prenumeration, resursgrupp och resurs) som tillhandahålls till partnern av kunden. 
+PAL-associationen för befintliga autentiseringsuppgifter tillhandahåller inga nya kunddata till Microsoft. Den tillhandahåller helt enkelt telemetrin till Microsoft där en partner är aktivt engagerad i en kunds Azure-miljö. Microsoft kan tillräkna påverkan och Azure-intäktsförbrukning från kundmiljön till partnerorganisationen baserat på kontots behörigheter (Azure-roll) och omfång (hanteringsgrupp, prenumeration, resursgrupp och resurs) som tillhandahålls till partnern av kunden. 
 
 **Påverkar det här säkerheten i kundens Azure-miljö?**
 
-PAL-associationen lägger endast till partnerns MPN-ID till de autentiseringsuppgifter som redan registrerats och det varken ändrar behörigheter (RBAC-roll) eller tillhandahåller ytterligare Azure-tjänstdata till partnern eller Microsoft. 
-
+PAL-associationen lägger endast till partnerns MPN-ID till de autentiseringsuppgifter som redan registrerats och det varken ändrar behörigheter (Azure-roll) eller tillhandahåller ytterligare Azure-tjänstdata till partnern eller Microsoft. 

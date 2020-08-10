@@ -3,12 +3,12 @@ title: Exempel på ISO 27001 ASE/SQL-arbetsbelastningsskiss – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536841"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926101"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 
@@ -28,7 +28,7 @@ Skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning distri
 
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad arbetsbelastningsinfrastruktur för företag baserat på ISO 27001-standarder. Den här miljön består av:
 
-- En [RBAC-roll](../../../../role-based-access-control/overview.md) (rollbaserad åtkomstkontroll) med namnet DevOps som har behörighet att distribuera och hantera resurser i [Azure App Service-miljöer](../../../../app-service/environment/intro.md) som distribuerats med skissexemplet
+- En [Azure-roll](../../../../role-based-access-control/overview.md) med namnet DevOps som har behörighet att distribuera och hantera resurser i [Azure App Service-miljöer](../../../../app-service/environment/intro.md) som distribuerats med skissexemplet
 - [Azure-principer](../../../policy/overview.md) för att låsa vilka tjänster som ska kunna distribueras till miljön och avvisa skapande av offentliga IP-adressresurser (PIP)
 - Ett virtuellt nätverk som innehåller ett enskilt undernät som är peerkopplat tillbaka till en redan befintlig miljö för [delade tjänster](../iso27001-shared/index.md) och som tvingar all trafik att gå via brandväggen för [delade tjänster](../iso27001-shared/index.md). Det virtuella nätverket är värd för följande resurser:
   - En [Azure App Service-miljön](../../../../app-service/environment/intro.md) som kan användas som värd för en eller flera webbappar, webb-API:er eller funktioner

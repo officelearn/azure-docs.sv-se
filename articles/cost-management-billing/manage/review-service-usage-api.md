@@ -1,17 +1,17 @@
 ---
 title: Granska resursanvändningen i Azure-tjänster med REST API
-description: Lär dig hur du använder Azure REST-API:er för att granska resursanvändning i Azure-tjänster.
+description: Lär dig hur du använder Azure REST-API:er för att granska resursanvändning i Azure-tjänster. Skapa en kostnadshanteringsrapport och filter för specifika resurstyper.
 author: lleonard-msft
 ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 03/31/2020
 ms.author: banders
-ms.openlocfilehash: 60a9e17b16f0b539693beb987b4d0610d11a3050
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 89767ff64da0473feef9e1d340ee4046cd4a1373
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80521206"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461722"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Granska Azure-resursanvändning med hjälp av REST API
 

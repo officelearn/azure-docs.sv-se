@@ -1,6 +1,6 @@
 ---
 title: Registrera dig för Azure med ett Microsoft 365-konto
-description: Lär dig hur du skapar en Azure-prenumeration med hjälp av ett Microsoft 365-konto
+description: Lär dig hur du skapar en Azure-prenumeration med hjälp av ett Microsoft 365-konto. Du kan också associera befintliga Azure- och Microsoft 365-konton med varandra.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 2d3711e33a5fa9b95ce43b4d2f4730517df0a449
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: a0fa0ea6500cad03e4c41c8139f0bd0d7e80d4e4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810303"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461331"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Registrera dig för en Azure-prenumeration med ditt Microsoft 365-konto
 

@@ -1,6 +1,6 @@
 ---
 title: Visa och ladda ned information om användning och avgifter i Azure
-description: Här beskrivs hur du laddar ned eller visar din dagliga användning och dina avgifter i Azure.
+description: Lär dig hur du laddar ned och visar daglig användning och avgifter, och visar fler tillgängliga resurser.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
@@ -8,12 +8,12 @@ tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: bf9a98d6484e7f78a80a4e3018afdec00df51337
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322046"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460515"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visa och ladda ned information om din användning och dina avgifter i Azure
 

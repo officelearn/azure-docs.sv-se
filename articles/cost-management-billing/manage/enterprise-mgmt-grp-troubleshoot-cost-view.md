@@ -8,16 +8,16 @@ ms.topic: troubleshooting
 ms.date: 06/05/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 6c4fe563057e8d7fedbd68280bc8059867d997ed
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d96a2ed9f0aab03a0073519e08cf03d43d7ac2b7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120253"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503165"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Felsöka vyer för företagskostnader
 
-I företagsregistreringar finns det flera inställningar som kan göra att användarna i registreringen inte ser kostnader.  De här inställningarna hanteras av registreringsadministratören. Alternativt hanteras inställningarna av partnern om registreringen inte köps direkt via Microsoft.  Den här artikeln förklarar vad inställningarna är och hur de påverkar registreringen. Inställningarna är oberoende av Azure-roller för rollbaserad åtkomstkontroll (RBAC).
+I företagsregistreringar finns det flera inställningar som kan göra att användarna i registreringen inte ser kostnader.  De här inställningarna hanteras av registreringsadministratören. Alternativt hanteras inställningarna av partnern om registreringen inte köps direkt via Microsoft.  Den här artikeln förklarar vad inställningarna är och hur de påverkar registreringen. Dessa inställningar är oberoende av Azure-rollerna.
 
 ## <a name="enable-access-to-costs"></a>Aktivera åtkomst till kostnader
 

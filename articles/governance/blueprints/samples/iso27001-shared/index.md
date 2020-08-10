@@ -3,12 +3,12 @@ title: Exempel på ISO 27001-skiss för delade tjänster – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 Delade tjänster. Det här skissexemplet hjälper kunderna att utvärdera specifika ISO 27001-kontroller.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 0ef39a4e409320d08529904239dc17fc563c2044
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072870"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927359"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 Delade tjänster
 
@@ -25,7 +25,7 @@ VDC är en uppsättning beprövade referensarkitekturer, automatiseringsverktyg 
 
 Den här miljön består av flera Azure-tjänster ger en säker, fullständigt övervakad infrastruktur för delade tjänster för företag baserat på ISO 27001-standarder. Den här miljön består av:
 
-- [RBAC-roller](../../../../role-based-access-control/overview.md) (rollbaserad åtkomstkontroll) som används för ansvarsfördelning ur ett kontrollplansperspektiv. Tre roller definieras före distributionen av all infrastruktur:
+- [Azure-roller](../../../../role-based-access-control/overview.md) som används för ansvarsfördelning ur ett kontrollplansperspektiv. Tre roller definieras före distributionen av all infrastruktur:
   - NetOps-rollen har behörigheter för att hantera nätverksmiljön, inklusive brandväggsinställningar, NSG-inställningar, routning och andra nätverksfunktioner
   - SecOps-rollen har nödvändiga behörigheter för att distribuera och hantera [Azure Security Center](../../../../security-center/security-center-intro.md), definiera [Azure-principer](../../../policy/overview.md) och andra säkerhetsrelaterade behörigheter
   - SysOps-rollen har nödvändiga behörigheter för att definiera [Azure-principer](../../../policy/overview.md) i prenumerationen, hantera [Log Analytics](../../../../azure-monitor/overview.md) för hela miljön och andra behörigheter

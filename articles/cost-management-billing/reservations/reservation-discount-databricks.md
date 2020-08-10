@@ -1,18 +1,18 @@
 ---
 title: Så här tillämpas rabatter för förhandsköp av Azure Databricks
-description: Lär dig hur rabatter för förhandsköp av Azure Databricks tillämpas på din användning.
+description: Lär dig hur rabatter för förhandsköp av Azure Databricks tillämpas på din användning. Du kan använda dessa Databricks när som helst under inköpsperioden.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200324"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460328"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Så här tillämpas rabatter för förhandsköp av Azure Databricks
 
@@ -26,7 +26,7 @@ Rabatten för förhandsköp gäller endast för användning av Azure Databricks-
 
 Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande förhållande:
 
-| **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad – Premium-nivå** |
+| **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad — Premium-nivå** |
 | --- | --- | --- |
 | Dataanalys | 0,4 | 0,55 |
 | Datateknik | 0,15 | 0,30 |

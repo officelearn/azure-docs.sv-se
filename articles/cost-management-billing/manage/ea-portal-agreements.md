@@ -3,16 +3,16 @@ title: Azure EA-avtal och ändringar
 description: I den här artikeln förklaras hur Azure EA-avtal och ändringar påverkar din användning av Azure EA-portalen.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537807"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563491"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA-avtal och ändringar
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur Azure EA-avtal och ändringar kan påverka åtk
 
 ## <a name="enrollment-provisioning-status"></a>Status för registreringens etablering
 
-Startdatumet för en ny Azure-förskottsbetalning definieras som det datum då det regionala åtgärdscentret bearbetade det. Eftersom Azure-förskottsbetalningsorder via Azure EA-portalen bearbetas i UTC-tidszonen, kan det uppstå en fördröjning om din Azure-förskottsbetalningsorder bearbetades i en annan region. Startdatumet för täckningen för inköpsordern på https://www.explore.ms är startdatumet för Azure-förskottsbetalningen. Startdatumet för täckningen är det datum då Azure-förskottsbetalningen visas på Azure EA-portalen.
+Startdatumet för en ny Azure-förskottsbetalning definieras som det datum då det regionala åtgärdscentret bearbetade det. Eftersom Azure-förskottsbetalningsorder via Azure EA-portalen bearbetas i UTC-tidszonen, kan det uppstå en fördröjning om din Azure-förskottsbetalningsorder bearbetades i en annan region. Startdatumet för täckningen på inköpsordern är startdatumet för Azure-förskottsbetalningen. Startdatumet för täckningen är det datum då Azure-förskottsbetalningen visas på Azure EA-portalen.
 
 ## <a name="support-for-enterprise-customers"></a>Support för Enterprise-kunder
 
@@ -43,7 +43,7 @@ Registreringar har något av följande statusvärden. Varje värde avgör hur du
 
 **Upphört** – EA-registreringen upphör när den når Enterprise-avtalets slutdatum. EA-kunden avregistreras från den utökade giltigheten och alla tjänster inaktiveras.
 
-Från och med den 1 augusti 2019 godkänns inte nya avanmälningsformulär för Azures kommersiella kunder. I stället försätts alla registreringar i statusen Obegränsad utökad giltighet. Om du vill sluta använda Azure-tjänsterna stänger du din prenumeration i [Azure-portalen](https://portal.azure.com). Eller så kan din partner skicka en uppsägningsförfrågan till https://www.explore.ms. Kunder med avtal för myndigheter påverkas inte.
+Från och med den 1 augusti 2019 godkänns inte nya avanmälningsformulär för Azures kommersiella kunder. I stället försätts alla registreringar i statusen Obegränsad utökad giltighet. Om du vill sluta använda Azure-tjänsterna stänger du din prenumeration i [Azure-portalen](https://portal.azure.com). Eller så kan din partner skicka en begäran om uppsägning. Kunder med avtal för myndigheter påverkas inte.
 
 **Överförd** – statusen Överförd används för registreringar vars konton och tjänster har överförts till en ny registrering. Registreringar överförs inte automatiskt om ett nytt registreringsnummer genereras vid förnyandet. Det tidigare registreringsnumret måste tas med i kundens förnyelsebegäran om överföringen ska ske automatiskt.
 

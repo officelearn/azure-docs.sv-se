@@ -1,18 +1,18 @@
 ---
 title: Övervaka och spåra användning av kostnadsfria Azure-tjänster
-description: Lär dig hur du kontrollerar användningen av kostnadsfria tjänster i Azure-portalen.
+description: Lär dig hur du kontrollerar användningen av kostnadsfria tjänster i Azure-portalen. Det tillkommer ingen kostnad för tjänsterna i ett kostnadsfritt konto, såvida du inte överskrider gränserna för tjänsterna.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0a62deecc6f70bb21059ae3ddda9eea173de65fe
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03efb7e4d0aa06e4c33a94f15621d58330e52e50
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199814"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461875"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Kontrollera användningen av kostnadsfria tjänster som ingår i ditt kostnadsfria Azure-konto
 
@@ -38,9 +38,9 @@ Du debiteras inte för tjänster som ingår utan kostnad i ditt kostnadsfria Azu
 * **Användning/gräns:** Aktuell månads användning och gräns för mätaren.
 * **Status:** Användningsstatus för tjänsten. Baserat på din användning kan du ha en av följande statusar:
   * **Används inte:** Du har inte använt mätaren, eller så har användningen för mätaren inte nått faktureringssystemet.
-  * **Överskriden den \<Datum>:** Du har överskridit gränsen för mätaren på \<Datum>.
+  * **Överskrids den \<Date>:** Du har överskridit gränsen för mätaren \<Date>.
   * **Överskrider sannolikt inte:** Du överskrider sannolikt inte mätarens gräns.
-  * **Överskrids den \<Datum>:** Du överskrider sannolikt mätarens gräns den \<Datum>.
+  * **Överskrids den \<Date>:** Du överskrider sannolikt mätarens gräns den \<Date>.
 
 > [!IMPORTANT]
 >

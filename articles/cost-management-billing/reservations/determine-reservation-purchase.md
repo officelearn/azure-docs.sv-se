@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 9e5657211e640c741dbf1bf2b5473a3ea5e10487
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287291"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759909"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Välja rätt reservation
 
@@ -91,6 +91,8 @@ Observera följande punkter:
 Reservationsköp som beräknas av rekommendationsmotorn visas på fliken **Rekommenderas** på [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Här är en exempelbild.
 
 ![Bild som visar rekommendationer](./media/determine-reservation-purchase/select-product-ri.png)
+
+Läs mer om [rekommendationer](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Rekommendationer i Cost Management Power BI-appen
 

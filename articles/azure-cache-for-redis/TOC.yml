@@ -39,11 +39,11 @@
       items:
         - name: Använda Spring Boot-initiering
           href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: Använda cachelagring med rankningslistor
+    - name: Skapa rankningslistor
       href: cache-web-app-cache-aside-leaderboard.md
-    - name: Azure PowerShell
+    - name: Hantera med Azure PowerShell
       href: cache-how-to-manage-redis-cache-powershell.md
-    - name: Azure CLI
+    - name: Hantera med Azure CLI
       href: cli-samples.md
 - name: Begrepp
   items:
@@ -65,7 +65,7 @@
     - name: Planera
       items:
         - name: Välja en cache-nivå
-          href: cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use
+          href: cache-overview.md#choosing-the-right-tier
         - name: Distribuera din cache med klustring
           href: cache-how-to-premium-clustering.md
         - name: Bevara din cache med Redis-datapersistence
@@ -82,6 +82,12 @@
           href: cache-migration-guide.md
         - name: Migrera från Managed Cache Service (inaktuell)
           href: cache-migrate-to-redis.md
+        - name: Vanliga frågor och svar om planering
+          href: cache-planning-faq.md
+    - name: Skapa
+      items:
+        - name: Vanliga frågor och svar om utveckling
+          href: cache-development-faq.md
     - name: Automatisera
       items:
         - name: Distribuera och hantera med Azure PowerShell
@@ -106,12 +112,22 @@
           href: cache-how-to-redis-cli-tool.md
         - name: Ta bort TLS 1.0 och 1.1
           href: cache-remove-tls-10-11.md
+        - name: Vanliga frågor och svar om hantering
+          href: cache-management-faq.md
     - name: Övervaka
       items:
         - name: Övervaka i Azure Portal
           href: cache-how-to-monitor.md
         - name: Ställ in aviseringar för undantag
           href: cache-how-to-monitor.md#operations-and-alerts
+        - name: Vanliga frågor och svar om övervakning
+          href: cache-monitor-troubleshoot-faq.md
+    - name: Skala
+      items:
+        - name: Uppdatera till en annan storlek och nivå
+          href: cache-how-to-scale.md
+        - name: Använd Redis-kluster för att skala in och ut
+          href: cache-how-to-premium-clustering.md
     - name: Diagnostisera och felsöka
       items:
         - name: Felsöka Redis-server
@@ -122,12 +138,8 @@
           href: cache-troubleshoot-timeouts.md
         - name: Felsöka dataförlust
           href: cache-troubleshoot-data-loss.md
-    - name: Skala
-      items:
-        - name: Uppdatera till en annan storlek och nivå
-          href: cache-how-to-scale.md
-        - name: Använd Redis-kluster för att skala in och ut
-          href: cache-how-to-premium-clustering.md
+        - name: Vanliga frågor och svar om felsökning
+          href: cache-monitor-troubleshoot-faq.md
 - name: Referens
   items:
     - name: Exempel för Azure Cache for Redis

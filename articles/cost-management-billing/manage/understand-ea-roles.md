@@ -1,18 +1,18 @@
 ---
 title: Förstå administratörsroller för företag i Azure
-description: Lär dig mer om administratörsroller för Enterprise i Azure.
+description: Lär dig mer om administratörsroller för Enterprise i Azure. Du kan tilldela fem olika administratörsroller.
 author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: banders
-ms.openlocfilehash: 2cd786304180369fee39c7b362f27a44728f3ad8
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8a4705a68b0b96a8f95cc2356cda454fdef65054
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124348"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531497"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Hantera Azure Enterprise-roller
 
@@ -103,9 +103,9 @@ Du kan se olika priser i Azure-portalen beroende på din administrativa roll och
 
 Information om hur du ställer in dessa policyer finns i [Hantera åtkomst till faktureringsinformation för Azure](manage-billing-access.md).
 
-I följande tabell visas relationen mellan administratörsrollerna för Enterprise-avtal, policyn för visning av avgifter, RBAC-rollen i Azure-portalen och de priser du ser i Azure-portalen. Företagsadministratören ser alltid användningsinformation baserat på organisationens EA-prissättning. Avdelningsadministratörer och kontoägare ser däremot olika priser baserat på policyn för visning av avgifter och den tilldelade RBAC-rollen. Rollen som Avdelningsadministratör i följande tabell avser både rollen Avdelningsadministratör och Avdelningsadministratör (skrivskyddad).
+I följande tabell visas relationen mellan administratörsrollerna för Enterprise-avtal, policyn för visning av avgifter, Azure-rollen i Azure-portalen och de priser du ser i Azure-portalen. Företagsadministratören ser alltid användningsinformation baserat på organisationens EA-prissättning. Avdelningsadministratörer och kontoägare ser däremot olika priser baserat på policyn för visning av avgifter och den tilldelade Azure-rollen. Rollen som Avdelningsadministratör i följande tabell avser både rollen Avdelningsadministratör och Avdelningsadministratör (skrivskyddad).
 
-|Administratörsroll för Enterprise-avtal|Princip om visning av avgifter för rollen|RBAC-roll|Prisvisning|
+|Administratörsroll för Enterprise-avtal|Princip om visning av avgifter för rollen|Azure-roll|Prisvisning|
 |---|---|---|---|
 |Kontoägare ELLER Avdelningsadministratör|✔ Aktiverad|Ägare|Organisationens EA-prissättning|
 |Kontoägare ELLER Avdelningsadministratör|✘ Inaktiverad|Ägare|Återförsäljarpris|
@@ -113,7 +113,7 @@ I följande tabell visas relationen mellan administratörsrollerna för Enterpri
 |Kontoägare ELLER Avdelningsadministratör|✘ Inaktiverad |ingen|Inga priser|
 |Ingen|Inte tillämpligt |Ägare|Återförsäljarpris|
 
-Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. RBAC-roller kan uppdateras i Azure-portalen. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+Du ställer in administratörsroller för Enterprise och visar policyer för avgifter i Enterprise-portalen. Azure-rollen kan uppdateras i Azure-portalen. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 
 

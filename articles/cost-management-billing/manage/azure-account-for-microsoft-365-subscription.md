@@ -1,6 +1,6 @@
 ---
 title: Registrera dig för Microsoft 365 med ett Azure-konto
-description: Lär dig hur du skapar en Microsoft 365-prenumeration med hjälp av ett Azure-konto
+description: Lär dig hur du skapar en Microsoft 365-prenumeration med hjälp av ett Azure-konto. Du kan också associera befintliga Azure- och Microsoft 365-konton med varandra.
 author: JiangChen79
 ms.reviewer: adwise
 tags: billing,top-support-issue
@@ -8,14 +8,14 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: banders
-ms.openlocfilehash: 006f8edc81ec19647ff6173a4c786c6d7e93fadc
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 050bd9c420ccecdb91a6c438782d9be1c6c23b88
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810388"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461892"
 ---
-# <a name="sign-up-for-a-microsoft--365-subscription-with-your-azure-account"></a>Registrera dig för en Microsoft 365-prenumeration med ditt Azure-konto
+# <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Registrera dig för en Microsoft 365-prenumeration med ditt Azure-konto
 
 Om du är Azure-prenumerant kan du använda ditt Azure-konto för att registrera dig för en Microsoft 365-prenumeration. Om du ingår i en organisation som har en Azure-prenumeration kan du skapa Microsoft 365-prenumerationer för användare i din befintliga Azure Active Directory (Azure AD). Registrera dig för Microsoft 365 med hjälp av ett konto som har behörigheter för global administratör eller faktureringsadministratör i din Azure Active Directory-klientorganisation. Mer information finns i [Kontrollera mina kontobehörigheter i Azure AD](#RoleInAzureAD) och [Tilldela administratörsroller i Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 35e2e86f68e1f53febabc75fcc537dbdd4481882
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369041"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067162"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrera befintliga Java Message Service (JMS) 2,0-program från Apache ActiveMQ till Azure Service Bus
 
@@ -272,7 +272,7 @@ Nu när du har ändrat programmet för att börja skicka och ta emot meddelanden
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [Start Start programmet våren för Azure Service Bus JMS](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) för sömlös integrering med Service Bus.
+Använd [Start Start programmet våren för Azure Service Bus JMS](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-service-bus) för sömlös integrering med Service Bus.
 
 Mer information om Service Bus meddelande-och JMS finns i:
 

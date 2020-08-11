@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432012"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067179"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -49,6 +49,12 @@ Innehållet i filen bör uppfylla följande JSON-schema:
             },
             "minItems": 3,
             "maxItems": 3
+        },
+        "metadataKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     },
     "additionalProperties" : false
@@ -131,6 +137,12 @@ Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda k
 
 * `axis`– Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden är `["+x", "+y", "+z"]` . I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
 
+### <a name="node-meta-data"></a>Node metadata-data
+
+* `metadataKeys`– Här kan du ange nycklar för de egenskaper för Node-metadata som du vill behålla i konverterings resultatet. Du kan ange exakta nycklar eller jokertecken. Jokertecken har formatet "ABC *" och matchar alla nycklar som börjar med "ABC". De värde typer för metadata som stöds är `bool` ,, `int` `float` och `string` .
+
+    För GLTF-filer kommer dessa data från [tillägg-objektet på noderna](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). För FBX-filer kommer dessa data att hämtas från `Properties70` data på `Model nodes` . Mer information finns i dokumentationen för 3D Asset Tool.
+
 ### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formatering
 
 Det är möjligt att justera :::no-loc text="vertex"::: formatet för ett nät till handels precision för minnes besparingar. Med ett lägre minnes utrymme kan du läsa in större modeller eller få bättre prestanda. Men beroende på dina data kan fel format kraftigt påverka åter givnings kvaliteten.
@@ -182,7 +194,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Description | Byte per:::no-loc text="vertex"::: |
+| Format | Beskrivning | Byte per:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4

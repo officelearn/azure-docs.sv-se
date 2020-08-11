@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa55f864319146c4d3237eb9e6725da2a68035f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308992"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067618"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 
@@ -97,7 +97,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
 
 
-    | Konfigurations alternativ       | Standard    |
+    | Konfigurations alternativ       | Standardvärde    |
     | :------------------:       | :-----:    |
     | bufferPageSize             | 8192       |
     | connectionTimeout          | "PT1M"     |
@@ -239,28 +239,6 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
     ```
     * - nofile 100000
     ```
-
-* **Använd inbyggd TLS/SSL-implementering för nettning**
-
-    Nettning kan använda OpenSSL direkt för TLS implementation stack för att uppnå bättre prestanda. I avsaknad av denna konfigurations-nettning kommer det att gå tillbaka till java: s standard implementering av TLS.
-
-    på Ubuntu:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    och Lägg till följande beroende till dina projekt maven-beroenden:
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-För andra plattformar (Red Hat, Windows, Mac osv.), se dessa instruktionerhttps://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Indexeringsprincip
  

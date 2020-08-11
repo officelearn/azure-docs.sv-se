@@ -6,12 +6,12 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337054"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067298"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Självstudie: svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps. 
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Anslut funktionen och namnområdet via Event Grid
 > * Ta emot meddelanden med Azure Functions
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -355,10 +355,10 @@ I det här avsnittet lär du dig hur du tar emot och bearbetar meddelanden när 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Läs mer om [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Läs mer om [Logic Apps-funktionen i Azure App Service](https://docs.microsoft.com/azure/logic-apps/).
-* Läs mer om [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Läs mer om [Azure Event Grid](../event-grid/index.yml).
+* Läs mer om [Azure Functions](../azure-functions/index.yml).
+* Läs mer om [Logic Apps-funktionen i Azure App Service](../logic-apps/index.yml).
+* Läs mer om [Azure Service Bus](/azure/service-bus/).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

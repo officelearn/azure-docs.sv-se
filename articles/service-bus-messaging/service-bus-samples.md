@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: beafd0d49e8fccaef4ccc043d198875b9f1b1ebd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341025"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067536"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus meddelande exempel
 Service Bus meddelande exempel demonstrerar viktiga funktioner i [Service Bus meddelande hantering](https://azure.microsoft.com/services/service-bus/). För närvarande kan du hitta exemplen på följande platser:
@@ -30,5 +30,4 @@ Dessutom är [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBus
 I följande avsnitt hittar du konceptuella översikter över Service Bus.
 
 * [Översikt över Service Bus meddelande hantering](service-bus-messaging-overview.md)
-* [Service Bus-arkitektur](service-bus-architecture.md)
-
+* [Service Bus-arkitektur](./service-bus-messaging-overview.md)

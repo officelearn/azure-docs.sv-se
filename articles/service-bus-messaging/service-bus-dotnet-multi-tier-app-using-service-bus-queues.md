@@ -4,12 +4,12 @@ description: En .NET-självstudiekurs som hjälper dig att utveckla en flernivå
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 183f3b6e1231c843c04290024a89c270f0dd0026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083947"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067842"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>.NET-flernivåapp med hjälp av Azure Service Bus-köer
 
@@ -24,7 +24,7 @@ Du kommer att få lära dig följande:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
+I den här självstudiekursen kommer du att skapa och köra flernivåappen i en molntjänst för Azure. Klientdelen är en ASP.NET MVC-webbroll och serverdelen en arbetsroll som använder en Service Bus-kö. Du kan skapa samma flernivåapp med klientdelen som ett webbprojekt som distribueras till en Azure-webbplats i stället för till en molntjänst. Du kan också prova att gå igenom självstudiekursen [.NET-hybridapp lokalt/i molnet](../azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
 Följande skärm bild visar det färdiga programmet.
 

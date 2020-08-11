@@ -3,12 +3,12 @@ title: Konfigurera din egen nyckel för att kryptera Azure Service Bus data i vi
 description: Den här artikeln innehåller information om hur du konfigurerar din egen nyckel för att kryptera Azure Service Bus data rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a4eef0965f585291c31a3698d1d37abf67c6295c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041571"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067247"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
@@ -44,7 +44,7 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 När du har aktiverat Kundhanterade nycklar måste du associera kundens hanterade nyckel med din Azure Service Bus-namnrymd. Service Bus stöder endast Azure Key Vault. Om du aktiverar alternativet för **kryptering med kundhanterad nyckel** i föregående avsnitt måste nyckeln importeras till Azure Key Vault. Nycklarna måste också ha **mjuk borttagning** och **Rensa inte** konfigurerad för nyckeln. Dessa inställningar kan konfigureras med hjälp av [PowerShell](../key-vault/general/soft-delete-powershell.md) eller [CLI](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
 
-1. Om du vill skapa ett nytt nyckel valv följer du [snabb](../key-vault/general/overview.md)starten för Azure Key Vault. Mer information om hur du importerar befintliga nycklar finns i [om nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
+1. Om du vill skapa ett nytt nyckel valv följer du [snabb](../key-vault/general/overview.md)starten för Azure Key Vault. Mer information om hur du importerar befintliga nycklar finns i [om nycklar, hemligheter och certifikat](../key-vault/general/about-keys-secrets-certificates.md).
 1. Om du vill aktivera både mjuk borttagning och tömning av skydd när du skapar ett valv använder du kommandot AZ-kommandot för att [skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) ett valv.
 
     ```azurecli-interactive
@@ -323,5 +323,3 @@ I det här steget ska du uppdatera Service Bus-namnrymden med Key Vault-informat
 Se följande artiklar:
 - [Översikt över Service Bus](service-bus-messaging-overview.md)
 - [Översikt över Key Vault](../key-vault/general/overview.md)
-
-

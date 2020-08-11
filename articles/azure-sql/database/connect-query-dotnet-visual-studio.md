@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: 497de36d63a909d2c53374482dfe09d1f19dfded
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/10/2020
+ms.openlocfilehash: ed0ad6c5597d63c411eeb323cf00dcb7f044f667
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033129"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067825"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda .NET och C# i Visual Studio för att ansluta till och fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,12 +26,12 @@ Den här snabb starten visar hur du använder [.NET Framework](https://www.micro
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande krävs för att slutföra den här snabbstarten:
+För att slutföra den här snabbstarten behöver du:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En databas i Azure SQL Database. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  | Åtgärd | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -62,17 +62,17 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
 
 ## <a name="create-code-to-query-the-database-in-azure-sql-database"></a>Skapa kod för att köra frågor mot databasen i Azure SQL Database
 
-1. I Visual Studio väljer du **fil**  >  **nytt**  >  **projekt**. 
+1. Skapa ett nytt projekt i Visual Studio. 
    
-1. Välj **Visual C#** i dialogrutan **Nytt projekt** och välj sedan **Konsolprogram (.NET Framework)**.
+1. I dialog rutan **nytt projekt** väljer du **Visual C#**, **konsol program (.NET Framework)**.
    
 1. Ange *sqltest* som projektnamn och välj sedan **OK**. Det nya projektet skapas. 
    
 1. Välj **projekt**  >  **Hantera NuGet-paket**. 
    
-1. Välj fliken **Bläddra ** i **NuGet-pakethanteraren** och leta upp och välj **System.Data.SqlClient**.
+1. I **NuGet Package Manager**väljer du fliken **Bläddra** och sedan söker du efter och väljer **Microsoft. data. SqlClient**.
    
-1. Välj **Installera** på sidan för **System.Data.SqlClient**. 
+1. På sidan **Microsoft. data. SqlClient** väljer du **Installera**. 
    - Välj **OK** för att fortsätta med installationen om du uppmanas att göra det. 
    - Om ett fönster för **godkännande av licensen** visas väljer du **Jag accepterar**.
    
@@ -85,7 +85,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen. Du
    
    ```csharp
    using System;
-   using System.Data.SqlClient;
+   using Microsoft.Data.SqlClient;
    using System.Text;
    
    namespace sqltest

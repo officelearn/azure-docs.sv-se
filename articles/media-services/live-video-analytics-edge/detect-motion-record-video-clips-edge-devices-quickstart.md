@@ -3,12 +3,12 @@ title: Identifiera rörelse & spela in video på gräns enheter – Azure
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att analysera Live-videofeeden från en (simulerad) IP-kamera, identifiera om någon rörelse finns tillgänglig och spela in ett MP4-videoklipp i det lokala fil systemet på gräns enheten.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 14dcc7b298244a1d53a9b820c641ea87c4f9a016
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 796def7cad3632dd50184bea751dc9f348569216
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091869"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067749"
 ---
 # <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>Snabb start: identifiera rörelse-och inspelnings video på gräns enheter
  
@@ -89,11 +89,20 @@ Som en del av kraven för den här snabb starten laddade du ned exempel koden ti
 
 I steget [generera och distribuera IoT Edge distributions manifestet](detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) i Visual Studio Code, expanderar du noden **lva-Sample-Device** i **Azure IoT Hub** (i det nedre vänstra avsnittet). Du bör se följande moduler distribuerade:
 
-* Video analys-modulen i real tid med namnet **lvaEdge**
-* Modulen **rtspsim** , som simulerar en RTSP-server som fungerar som källa till en Live-videofeed
+* Modulen live video analys med namnet`lvaEdge`
+* `rtspsim`Modulen, som simulerar en RTSP-server som fungerar som källa för en Live-videofeed
 
   ![Moduler](./media/quickstarts/lva-sample-device-node.png)
 
+> [!NOTE]
+> Om du använder en egen Edge-enhet i stället för den som har skapats av vårt installations skript, går du till din Edge-enhet och kör följande kommandon med **administratörs behörighet**för att hämta och lagra exempel video filen som används för den här snabb starten:  
+
+```
+mkdir /home/lvaadmin/samples
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 
 ## <a name="review---prepare-for-monitoring-events"></a>Granska – förbereda för övervaknings händelser
 Se till att du har slutfört stegen för [att förbereda övervakningen av händelser](detect-motion-emit-events-quickstart.md#prepare-to-monitor-events).
@@ -103,56 +112,57 @@ Se till att du har slutfört stegen för [att förbereda övervakningen av händ
 ## <a name="run-the-sample-program"></a>Kör exempel programmet
 
 1. Starta en felsökningssession genom att välja F5-nyckeln. **Terminalfönstret** skriver ut vissa meddelanden.
-1. *operations.js* koden anropar de direkta metoderna `GraphTopologyList` och `GraphInstanceList` . Om du har rensat resurser efter tidigare snabb starter kommer den här processen att returnera tomma listor och sedan pausa. Välj nyckeln Enter.
+1. *operations.js* koden anropar de direkta metoderna `GraphTopologyList` och `GraphInstanceList` . Om du har rensat resurser efter tidigare snabb starter kommer den här processen att returnera tomma listor och sedan pausa. Välj Retur.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-      "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-      "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+  "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+  "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    **Terminalfönstret** visar nästa uppsättning med direkta metod anrop:
+  **Terminalfönstret** visar nästa uppsättning med direkta metod anrop:  
+  * Ett anrop till `GraphTopologySet` som använder`topologyUrl` 
+  * Ett anrop till `GraphInstanceSet` som använder följande text:
 
-     * Ett anrop till `GraphTopologySet` som använder`topologyUrl` 
-     * Ett anrop till `GraphInstanceSet` som använder följande text:
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "EVRToFilesOnMotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/lots_015.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
 
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "EVRToFilesOnMotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/lots_015.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     * Ett anrop till `GraphInstanceActivate` som startar graf-instansen och video flödet
-     * Ett andra anrop till `GraphInstanceList` som visar att graf-instansen är i körnings tillstånd
-1. Utdata i **terminalfönstret** pausas vid `Press Enter to continue` . Välj inte retur än. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder som du har anropat.
+  * Ett anrop till `GraphInstanceActivate` som startar graf-instansen och video flödet
+  * Ett andra anrop till `GraphInstanceList` som visar att graf-instansen är i körnings tillstånd  
+
+3. Utdata i **terminalfönstret** pausas vid `Press Enter to continue` . Välj inte retur än. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder som du har anropat.
 1. Växla till fönstret **utdata** i Visual Studio Code. Du ser meddelanden om att live video analys på IoT Edge modul skickas till IoT Hub. I följande avsnitt i den här snabb starten beskrivs dessa meddelanden.
 
 1. Medie diagrammet fortsätter att köra och skriva ut resultat. RTSP-simulatorn håller på att upprepa käll videon. Om du vill stoppa medie diagrammet går du tillbaka till **terminalfönstret** och väljer RETUR. 
@@ -239,7 +249,7 @@ De två händelserna genereras vanligt vis inom några sekunder.
 
 ## <a name="play-the-mp4-clip"></a>Spela upp MP4-klippet
 
-MP4-filerna skrivs till en katalog på gräns enheten som du konfigurerade i *. miljö* -filen med hjälp av OUTPUT_VIDEO_FOLDER_ON_DEVICE nyckeln. Om du använde standardvärdet ska resultaten finnas i */Home/lvaadmin/samples/output/* -mappen.
+MP4-filerna skrivs till en katalog på gräns enheten som du konfigurerade i *. miljö* -filen med hjälp av OUTPUT_VIDEO_FOLDER_ON_DEVICE nyckeln. Om du använde standardvärdet ska resultaten finnas i */var/Media/* -mappen.
 
 För att spela upp MP4-klippet:
 
@@ -250,7 +260,7 @@ För att spela upp MP4-klippet:
     ![Virtuell dator](./media/quickstarts/virtual-machine.png)
 
 1. Logga in med de autentiseringsuppgifter som genererades när du konfigurerade [dina Azure-resurser](detect-motion-emit-events-quickstart.md#set-up-azure-resources). 
-1. Gå till den relevanta katalogen i kommando tolken. Standard platsen är */Home/lvaadmin/samples/output*. Du bör se MP4-filerna i katalogen.
+1. Gå till den relevanta katalogen i kommando tolken. Standard platsen är */var/Media*. Du bör se MP4-filerna i katalogen.
 
     ![Utdata](./media/quickstarts/samples-output.png) 
 

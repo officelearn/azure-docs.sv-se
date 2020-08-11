@@ -9,18 +9,18 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
-ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535185"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067788"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen
 
 I den här snabbstarten får du lära dig att använda [Azure Portal](https://portal.azure.com/) för att skapa en container i Azure Storage, samt ladda upp och ladda ned blockblobar i den containern.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -45,7 +45,7 @@ Följ de här stegen för att ladda upp en blockblob till den nya containern i A
 
 1. Navigera till den container som du skapade i föregående avsnitt i Azure Portal.
 1. Välj containern för att visa en lista över blobar som den innehåller. Den här behållaren är ny, så den kommer ännu inte att innehålla några blobbar.
-1. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob. Du kan också expandera avsnittet Avancerat om du vill konfigurera andra inställningar för överförings åtgärden.
+1. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob. Du kan också expandera avsnittet **Avancerat** om du vill konfigurera andra inställningar för överförings åtgärden.
 
     ![Skärmbild som visar uppladdning av en blob från den lokala disken](media/storage-quickstart-blobs-portal/upload-blob.png)
 
@@ -59,9 +59,18 @@ Du kan ladda ned en blockblob som ska visas i webbläsaren eller spara den i det
 1. Gå till listan över blobar som du överförde i föregående avsnitt.
 1. Högerklicka på den blob som du vill ladda ned och välj **Ladda ned**.
 
+    ![Skärm bild som visar hur du laddar ned en BLOB](media/storage-quickstart-blobs-portal/download-blob.png)
+
+## <a name="delete-a-block-blob"></a>Ta bort en Block-Blob
+
+Du kan ladda ned en blockblob som ska visas i webbläsaren eller spara den i det lokala filsystemet. Följ de här stegen om du vill ladda ned en blockblob:
+
+1. Gå till listan över blobar som du överförde i föregående avsnitt.
+1. Välj de blobbar som du vill ta bort och välj **ta bort** i det översta åtgärds fältet.
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill ta bort de resurser du har skapat i den här snabbstarten kan du ta bort containern. Alla blobar i containern tas också bort.
+Om du vill ta bort alla resurser som du skapade i den här snabb starten kan du helt enkelt ta bort behållaren. Alla blobar i containern tas också bort.
 
 Ta bort containern:
 

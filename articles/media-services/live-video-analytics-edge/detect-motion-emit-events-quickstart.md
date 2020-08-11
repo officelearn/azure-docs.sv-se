@@ -3,12 +3,12 @@ title: Identifiera rörelse-och genererar händelser – Azure
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse-och utsändnings händelser genom att programmatiskt anropa direkta metoder.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: fca773d0583bee3bef4e7254bcca95866b2205e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdc80c4d734902309e8b6dc5a6bfee38514fcdb7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091921"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067808"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Snabb start: identifiera rörelse-och genererar händelser
 
@@ -48,11 +48,11 @@ I den här snabb starten rekommenderar vi att du använder [installations skript
 
 1. Kör följande kommando.
 
-    ```
-    bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
-    ```
+```
+bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
+```
 
-    Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration.
+Om skriptet har slutförts bör du se alla nödvändiga resurser i din prenumeration.
 
 1. När skriptet har körts väljer du klammerparenteserna för att exponera mappstrukturen. Du ser några filer i katalogen *~/clouddrive/lva-Sample* . Intressanthet i den här snabb starten är:
 
@@ -72,30 +72,30 @@ Du behöver dessa filer när du konfigurerar din utvecklings miljö i Visual Stu
 
     Texten bör se ut som följande utdata.
 
-    ```
-    {  
-        "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
-        "deviceId" : "lva-sample-device",  
-        "moduleId" : "lvaEdge"  
-    }
-    ```
-1. Gå till mappen *src/Edge* och skapa en fil med namnet *. kuvert*.
+```
+{  
+    "IoThubConnectionString" : "HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX",  
+    "deviceId" : "lva-sample-device",  
+    "moduleId" : "lvaEdge"  
+}
+```
+5. Gå till mappen *src/Edge* och skapa en fil med namnet *. kuvert*.
 1. Kopiera innehållet i */clouddrive/lva-Sample/Edge-Deployment/.env* -filen. Texten bör se ut som i följande kod.
 
-    ```
-    SUBSCRIPTION_ID="<Subscription ID>"  
-    RESOURCE_GROUP="<Resource Group>"  
-    AMS_ACCOUNT="<AMS Account ID>"  
-    IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
-    AAD_TENANT_ID="<AAD Tenant ID>"  
-    AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
-    AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
-    OUTPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"
-    APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
-    CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
-    CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry username>"      
-    ```
+```
+SUBSCRIPTION_ID="<Subscription ID>"  
+RESOURCE_GROUP="<Resource Group>"  
+AMS_ACCOUNT="<AMS Account ID>"  
+IOTHUB_CONNECTION_STRING="HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx"  
+AAD_TENANT_ID="<AAD Tenant ID>"  
+AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
+AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
+INPUT_VIDEO_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+OUTPUT_VIDEO_FOLDER_ON_DEVICE="/var/media"
+APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
+CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  
+CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"      
+```
 
 ## <a name="examine-the-sample-files"></a>Granska exempelfilerna
 
@@ -141,6 +141,15 @@ Följ de här stegen för att generera manifestet från mallfilen och distribuer
 
 RTSP Simulator-modulen simulerar en real tids video ström med hjälp av en videofil som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
+> [!NOTE]
+> Om du använder en egen Edge-enhet i stället för den som har skapats av vårt installations skript, går du till din Edge-enhet och kör följande kommandon med **administratörs behörighet**för att hämta och lagra exempel video filen som används för den här snabb starten:  
+
+```
+mkdir /home/lvaadmin/samples      
+mkdir /home/lvaadmin/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+chown -R lvaadmin /home/lvaadmin/samples/  
+```
 I det här skedet distribueras modulerna men inga medie diagram är aktiva.
 
 ## <a name="prepare-to-monitor-events"></a>Förbereda övervakning av händelser
@@ -168,55 +177,54 @@ Följ de här stegen för att köra exempel koden:
 1. Starta en felsökningssession genom att välja F5-nyckeln. I **terminalfönstret** visas vissa meddelanden.
 1. *operations.jspå* filen börjar med anrop till `GraphTopologyList` och `GraphInstanceList` . Om du har rensat resurser efter att du har avslutat tidigare snabb starter, returnerar den här processen tomma listor och pausar sedan. Fortsätt genom att välja retur nyckeln.
 
-    ```
-    --------------------------------------------------------------------------
-    Executing operation GraphTopologyList
-    -----------------------  Request: GraphTopologyList  --------------------------------------------------
-    {
-        "@apiVersion": "1.0"
-    }
-    ---------------  Response: GraphTopologyList - Status: 200  ---------------
-    {
-        "value": []
-    }
-    --------------------------------------------------------------------------
-    Executing operation WaitForInput
-    Press Enter to continue
-    ```
+```
+--------------------------------------------------------------------------
+Executing operation GraphTopologyList
+-----------------------  Request: GraphTopologyList  --------------------------------------------------
+{
+    "@apiVersion": "1.0"
+}
+---------------  Response: GraphTopologyList - Status: 200  ---------------
+{
+    "value": []
+}
+--------------------------------------------------------------------------
+Executing operation WaitForInput
+Press Enter to continue
+```
 
-    **Terminalfönstret** visar nästa uppsättning med direkta metod anrop:
+**Terminalfönstret** visar nästa uppsättning med direkta metod anrop:
+ * Ett anrop till `GraphTopologySet` som använder föregående`topologyUrl`
+ * Ett anrop till `GraphInstanceSet` som använder följande text:
      
-     * Ett anrop till `GraphTopologySet` som använder föregående`topologyUrl`
-     * Ett anrop till `GraphInstanceSet` som använder följande text:
+```
+{
+  "@apiVersion": "1.0",
+  "name": "Sample-Graph",
+  "properties": {
+    "topologyName": "MotionDetection",
+    "description": "Sample graph description",
+    "parameters": [
+      {
+        "name": "rtspUrl",
+        "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+      },
+      {
+        "name": "rtspUserName",
+        "value": "testuser"
+      },
+      {
+        "name": "rtspPassword",
+        "value": "testpassword"
+      }
+    ]
+  }
+}
+```
      
-         ```
-         {
-           "@apiVersion": "1.0",
-           "name": "Sample-Graph",
-           "properties": {
-             "topologyName": "MotionDetection",
-             "description": "Sample graph description",
-             "parameters": [
-               {
-                 "name": "rtspUrl",
-                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-               },
-               {
-                 "name": "rtspUserName",
-                 "value": "testuser"
-               },
-               {
-                 "name": "rtspPassword",
-                 "value": "testpassword"
-               }
-             ]
-           }
-         }
-         ```
-     
-     * Ett anrop till `GraphInstanceActivate` som startar graf-instansen och video flödet
-     * Ett andra anrop till `GraphInstanceList` som visar att graf-instansen är i körnings tillstånd
-1. Utdata i **terminalfönstret** pausas vid `Press Enter to continue` . Välj inte retur än. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder du anropade.
+ * Ett anrop till `GraphInstanceActivate` som startar graf-instansen och video flödet
+ * Ett andra anrop till `GraphInstanceList` som visar att graf-instansen är i körnings tillstånd
+6. Utdata i **terminalfönstret** pausas vid `Press Enter to continue` . Välj inte retur än. Rulla upp för att se nytto laster för JSON-svar för de direkta metoder du anropade.
 1. Växla till fönstret **utdata** i Visual Studio Code. Du ser meddelanden om att live video analys på IoT Edge modul skickas till IoT Hub. I följande avsnitt i den här snabb starten beskrivs dessa meddelanden.
 1. Medie diagrammet fortsätter att köra och skriva ut resultat. RTSP-simulatorn håller på att upprepa käll videon. Om du vill stoppa medie diagrammet går du tillbaka till **terminalfönstret** och väljer RETUR. 
 

@@ -3,12 +3,12 @@ title: Identifiera rörelse, spela in video till Azure Media Services
 description: Den här snabb starten visar hur du använder real tids analys på IoT Edge för att identifiera rörelse i en video ström i real tid och spela in videoklipp i Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 24bf958c7a6af25d64d8c2884b9fa259c67e39c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074406"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067694"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Snabb start: identifiera rörelse, spela in video till Media Services
 
@@ -29,13 +29,13 @@ Den här artikeln bygger ovanpå [komma igång snabb start](get-started-detect-m
 
 Som en del av stegen ovan för att konfigurera Azure-resurserna kopieras en (kort) video från ett parkerings parti till den virtuella Linux-datorn i Azure som används som IoT Edge enhet. Den här video filen används för att simulera en Live-ström för den här självstudien.
 
-Du kan använda ett program som [VLC Player](https://www.videolan.org/vlc/), starta det, trycka på CTRL + N och klistra in [den här](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) länken till parkerings mediets video för att starta uppspelningen. Vid ungefär 5 sekunders märket flyttas en vit bil genom parkerings partiet.
+Du kan använda ett program som [VLC Player](https://www.videolan.org/vlc/), starta det `Ctrl+N` och klistra in [en video exempel länk för parkerings parti](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) för att starta uppspelningen. Vid ungefär 5 sekunders märket flyttas en vit bil genom parkerings partiet.
 
 När du har slutfört stegen nedan har du använt video analys i real tid för IoT Edge för att identifiera rörelsen i bilen och spela in ett videoklipp från och med det 5-andra märket. Diagrammet nedan är den visuella representationen av det övergripande flödet.
 
 ![Event-baserad videoinspelning till till gångar baserat på rörelse händelser](./media/quickstarts/topology.png)
 
-## <a name="use-direct-methods"></a>Använda direkta metoder
+## <a name="use-direct-method-calls"></a>Använd direkta metod anrop
 
 Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa direkta metoder. Läs [direkta metoder för video analys på IoT Edge](direct-methods.md) för att förstå alla direkta metoder som tillhandahålls av modulen. 
 
@@ -46,35 +46,35 @@ Det här steget räknar upp alla [Graph-topologier](media-graph-concept.md#media
 1. En redigerings ruta visas i det översta mitten av Visual Studio Code-fönstret. Ange "GraphTopologyList" i redigerings rutan och tryck på RETUR.
 1. Kopiera sedan och klistra in nedanstående JSON-nyttolast i redigerings rutan och tryck på RETUR.
     
-    ```
-    {
-        "@apiVersion" : "1.0"
-    }
-    ```
+```
+{
+    "@apiVersion" : "1.0"
+}
+```
 
-    Inom några sekunder visas UTDATAFÖNSTRET i Visual Studio Code-popup med följande svar
+Inom några sekunder visas UTDATAFÖNSTRET i Visual Studio Code-popup med följande svar
     
-    ```
-    [DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
-    [DirectMethod] Response from [lva-sample-device/lvaEdge]:
-    {
-      "status": 200,
-      "payload": {
-        "value": []
-      }
-    }
-    ```
+```
+[DirectMethod] Invoking Direct Method [GraphTopologyList] to [lva-sample-device/lvaEdge] ...
+[DirectMethod] Response from [lva-sample-device/lvaEdge]:
+{
+  "status": 200,
+  "payload": {
+    "value": []
+  }
+}
+```
     
-    Ovanstående svar förväntas eftersom inga diagram-topologier har skapats.
+Ovanstående svar förväntas eftersom inga diagram-topologier har skapats.
 
 ### <a name="invoke-graphtopologyset"></a>Anropa GraphTopologySet
 
-Med samma steg som de som beskrivs för att anropa GraphTopologyList, kan du anropa GraphTopologySet för att ange en [graf-topologi](media-graph-concept.md#media-graph-topologies-and-instances) med följande JSON som nytto lasten. Du kommer att skapa en Graph-topologi med namnet "EVRtoAssetsOnMotionDetecion".
+Med samma steg som de som beskrivs för att anropa GraphTopologyList, kan du anropa GraphTopologySet för att ange en [graf-topologi](media-graph-concept.md#media-graph-topologies-and-instances) med följande JSON som nytto lasten. Du kommer att skapa en Graph-topologi med namnet "EVRtoAssetsOnMotionDetection".
 
 ```
 {
     "@apiVersion": "1.0",
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
       "parameters": [
@@ -195,7 +195,7 @@ Inom några sekunder visas följande svar i fönstret utdata.
       "createdAt": "2020-05-12T22:05:31.603Z",
       "lastModifiedAt": "2020-05-12T22:05:31.603Z"
     },
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to assets based on motion events",
       "parameters": [
@@ -312,7 +312,7 @@ Statusen som returneras är 201, vilket indikerar att en ny graf-topologi har sk
 
 * Anropa GraphTopologySet igen och kontrol lera att den returnerade status koden är 200. Status kod 200 anger att en befintlig graf-topologi har uppdaterats.
 * Anropa GraphTopologySet igen men ändra beskrivnings strängen. Kontrol lera att status koden i svaret är 200 och att beskrivningen uppdateras till det nya värdet.
-* Anropa GraphTopologyList enligt beskrivningen i föregående avsnitt och kontrol lera att du nu kan se diagram sto pol Ogin "EVRtoAssetsOnMotionDetecion" i den returnerade nytto lasten.
+* Anropa GraphTopologyList enligt beskrivningen i föregående avsnitt och kontrol lera att du nu kan se diagram sto pol Ogin "EVRtoAssetsOnMotionDetection" i den returnerade nytto lasten.
 
 ### <a name="invoke-graphtopologyget"></a>Anropa GraphTopologyGet
 
@@ -321,7 +321,7 @@ Anropar nu GraphTopologyGet med följande nytto Last
 
 {
     "@apiVersion" : "1.0",
-    "name" : "EVRtoAssetsOnMotionDetecion"
+    "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
 
@@ -337,7 +337,7 @@ Inom några sekunder bör du se följande svar i fönstret utdata
       "createdAt": "2020-05-12T22:05:31.603Z",
       "lastModifiedAt": "2020-05-12T22:05:31.603Z"
     },
-    "name": "EVRtoAssetsOnMotionDetecion",
+    "name": "EVRtoAssetsOnMotionDetection",
     "properties": {
       "description": "Event-based video recording to Assets based on motion events",
       "parameters": [
@@ -466,7 +466,7 @@ Anropa nu metoden GraphInstanceSet Direct med följande nytto last:
     "@apiVersion" : "1.0",
     "name" : "Sample-Graph-2",
     "properties" : {
-        "topologyName" : "EVRtoAssetsOnMotionDetecion",
+        "topologyName" : "EVRtoAssetsOnMotionDetection",
         "description" : "Sample graph description",
         "parameters" : [
             { "name" : "rtspUrl", "value" : "rtsp://rtspsim:554/media/lots_015.mkv" }
@@ -477,7 +477,7 @@ Anropa nu metoden GraphInstanceSet Direct med följande nytto last:
 
 Observera följande:
 
-* I nytto lasten ovan anges grafens Topology-namn (EVRtoAssetsOnMotionDetecion) som graf-instansen måste skapas för.
+* I nytto lasten ovan anges grafens Topology-namn (EVRtoAssetsOnMotionDetection) som graf-instansen måste skapas för.
 * Nytto lasten innehåller parametervärdet för "rtspUrl", som inte har något standardvärde i topologins nytto Last.
 
 Inom några sekunder visas följande svar i fönstret utdata:
@@ -496,7 +496,7 @@ Inom några sekunder visas följande svar i fönstret utdata:
     "properties": {
       "state": "Inactive",
       "description": "Sample graph description",
-      "topologyName": "EVRtoAssetsOnMotionDetecion",
+      "topologyName": "EVRtoAssetsOnMotionDetection",
       "parameters": [
         {
           "name": "rtspUrl",
@@ -531,13 +531,13 @@ Medie diagrammet som du skapade använder noden motion-identifiering för att id
     
     Inom några sekunder visas följande meddelanden i fönstret utdata:
 
-    ```
-    [IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
-    [IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
-    [IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
-    ```
+```
+[IoTHubMonitor] Start monitoring message arrived in built-in endpoint for all devices ...
+[IoTHubMonitor] Created partition receiver [0] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [1] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [2] for consumerGroup [$Default]
+[IoTHubMonitor] Created partition receiver [3] for consumerGroup [$Default]
+```
 
 ### <a name="invoke-graphinstanceactivate"></a>Anropa GraphInstanceActivate
 
@@ -590,7 +590,7 @@ Inom några sekunder bör du se följande svar i fönstret utdata
     "properties": {
       "state": "Active",
       "description": "Sample graph description",
-      "topologyName": "EVRtoAssetsOnMotionDetecion",
+      "topologyName": "EVRtoAssetsOnMotionDetection",
       "parameters": [
         {
           "name": "rtspUrl",
@@ -738,7 +738,7 @@ Om du låter graf-instansen fortsätta att köras visas det här meddelandet.
 
 Om du låter graf-instansen fortsätta att köras, kommer RTSP-simulatorn att komma fram till slutet av video filen och stoppa/koppla från. RTSP-Källnoden återansluter sedan till simulatorn och processen upprepas.
     
-## <a name="invoke-additional-direct-methods-to-clean-up"></a>Starta ytterligare direkta metoder för att rensa
+## <a name="invoke-additional-direct-method-calls-to-clean-up"></a>Anropa ytterligare direkta metod anrop för rensning
 
 Starta nu direkta metoder för att inaktivera och ta bort graf-instansen (i den ordningen).
 
@@ -801,7 +801,7 @@ Anropa metoden GraphTopologyDelete Direct med följande nytto last:
 ```
 {
     "@apiVersion" : "1.0",
-    "name" : "EVRtoAssetsOnMotionDetecion"
+    "name" : "EVRtoAssetsOnMotionDetection"
 }
 ```
 

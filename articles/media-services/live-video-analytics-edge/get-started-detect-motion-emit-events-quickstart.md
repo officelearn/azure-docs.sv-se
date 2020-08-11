@@ -3,12 +3,12 @@ title: Kom igång med live video analys på IoT Edge – Azure
 description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090084"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067719"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
@@ -84,7 +84,7 @@ Om anslutningen lyckas visas listan över gräns enheter. Du bör se minst en en
 
 ![lva-exempel-Device-nod](./media/quickstarts/lva-sample-device-node.png)
 
-## <a name="use-direct-methods"></a>Använda direkta metoder
+## <a name="use-direct-method-calls"></a>Använd direkta metod anrop
 
 Du kan använda modulen för att analysera direktuppspelade video strömmar genom att anropa direkta metoder. Mer information finns i [direkta metoder för video analys på IoT Edge](direct-methods.md). 
 

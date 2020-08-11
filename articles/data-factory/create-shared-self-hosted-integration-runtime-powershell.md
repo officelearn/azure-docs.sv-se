@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03e906d448790be8c7494e8172d02b3fc0603673
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655744"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067961"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Skapa en delad integration runtime med egen värd i Azure Data Factory
 
@@ -51,11 +51,11 @@ För att skapa en delad IR med egen värd med Azure PowerShell kan du utföra f�
 1. Skapa en länkad integration Runtime.
 1. Återkalla delningen.
 
-### <a name="prerequisites"></a>Krav 
+### <a name="prerequisites"></a>Förutsättningar 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar. 
+- **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar. 
 
 - **Azure PowerShell**. Följ instruktionerna i [installera Azure PowerShell på Windows med PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps). Du använder PowerShell för att köra ett skript för att skapa en integration runtime med egen värd som kan delas med andra data fabriker. 
 
@@ -155,7 +155,7 @@ Svaret innehåller en autentiseringsnyckel för den här integration runtime med
 #### <a name="create-another-data-factory"></a>Skapa en annan data fabrik
 
 > [!NOTE]  
-> Det här steget är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med.
+> Det här steget är valfritt. Hoppa över det här steget om du redan har den data fabrik som du vill dela med. Men i Oder för att lägga till eller ta bort roll tilldelningar till andra data fabriker måste du ha `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörighet, till exempel [administratör för användar åtkomst](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
 
 ```powershell
 $factory = Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `

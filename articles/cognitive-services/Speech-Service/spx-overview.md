@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ab019250e03feb9a776d628c06e792b884252260
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501822"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067434"
 ---
 # <a name="what-is-the-speech-cli"></a>Vad är Speech CLI?
 
 Tal-CLI är ett kommando rads verktyg för att använda tal tjänsten utan att skriva någon kod. Tal CLI kräver minimal installation, och det är enkelt att börja experimentera med viktiga funktioner i tal tjänsten för att se om dina användnings fall kan uppfyllas. Inom några minuter kan du köra enkla test arbets flöden som batch tal igenkänning från en katalog med filer eller text till tal i en samling med strängar från en fil. I många enkla arbets flöden är tal CLI produktions klart och kan skalas upp för att köra större processer med hjälp av automatiserade `.bat` eller Shell-skript.
 
-Majoriteten av de viktigaste funktionerna i talet SDK är tillgängliga i tal-CLI, men vissa avancerade funktioner och anpassningar är förenklade i tal CLI. Överväg följande rikt linjer för att bestämma när du ska använda tal-CLI eller tal-SDK.
+Majoriteten av de viktigaste funktionerna i talet SDK är tillgängliga i tal-CLI och vissa avancerade funktioner och anpassningar är förenklade i tal CLI. Överväg följande rikt linjer för att bestämma när du ska använda tal-CLI eller tal-SDK.
 
 Använd tal-CLI när:
 * Du vill experimentera med tal tjänst funktioner med minimal konfiguration och ingen kod
@@ -38,13 +38,13 @@ Använd tal-SDK: n när:
 
 * Tal syntes – konvertera text till tal med inmatade text från textfiler eller mata in direkt från kommando raden. Anpassa tal utmatnings egenskaper med [SSML-konfigurationer](speech-synthesis-markup.md)och antingen [standard-eller neurala-röster](speech-synthesis-markup.md#standard-neural-and-custom-voices).
 
-* Tal översättning – Översätt ljud på ett käll språk till text på ett mål språk.
+* Tal översättning – Översätt ljud på ett käll språk till text eller ljud på ett mål språk.
 
-* Kör på Azure Compute Resources – skicka SPX-kommandon som ska köras på en Azure-fjärrberäknings resurs med hjälp av `spx webjob` .
+* Kör på Azure Compute Resources – skicka tal CLI-kommandon som ska köras på en Azure Remote Compute-resurs med hjälp av `spx webjob` .
 
 ## <a name="get-started"></a>Kom igång
 
-Information om hur du kommer igång med tal-CLI finns i [artikeln Basics](spx-basics.md). Den här artikeln visar hur du kör några grundläggande kommandon med SPX, och visar även något mer avancerade kommandon för att köra batch-åtgärder för tal-till-text och text till tal. När du har läst grunderna i artikeln bör du ha tillräckligt med en förståelse av SPX-syntaxen för att börja skriva vissa anpassade kommandon eller automatisera enkla tal åtgärder.
+Information om hur du kommer igång med tal-CLI finns i [artikeln Basics](spx-basics.md). Den här artikeln visar hur du kör några grundläggande kommandon och visar även något mer avancerade kommandon för att köra batch-åtgärder för tal-till-text och text till tal. När du har läst grunderna i artikeln bör du ha tillräckligt med en förståelse för syntaxen för att börja skriva vissa anpassade kommandon eller automatisera enkla tal tjänst åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 

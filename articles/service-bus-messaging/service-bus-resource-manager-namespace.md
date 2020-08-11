@@ -7,16 +7,16 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 6bcbdbb72f3d26522790b769a8185138c1207a98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b7aafca331170100ce99c084a11c96c97df7781
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336833"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067400"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Skapa ett Service Bus-namnområde med hjälp av en Azure Resource Manager mall
 
-Lär dig hur du distribuerar en Azure Resource Manager-mall för att skapa ett Service Bus-namnområde. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om hur du skapar mallar finns i [Azure Resource Manager-dokumentationen](/azure/azure-resource-manager/).
+Lär dig hur du distribuerar en Azure Resource Manager-mall för att skapa ett Service Bus-namnområde. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Mer information om hur du skapar mallar finns i [Azure Resource Manager-dokumentationen](../azure-resource-manager/index.yml).
 
 Följande mallar är också tillgängliga för att skapa Service Bus namnrum:
 
@@ -27,7 +27,7 @@ Följande mallar är också tillgängliga för att skapa Service Bus namnrum:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-service-bus-namespace"></a>Skapa ett Service Bus-namnområde
 

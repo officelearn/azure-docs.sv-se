@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024001"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067638"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -87,7 +87,7 @@ Följande diagram illustrerar de olika typerna av noder i en storskalig databas:
 
 En storskalig databas innehåller följande typer av komponenter:
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Beräkning
 
 Compute-noden är där Relations motorn är i drift, så alla språk element, fråga bearbetning och så vidare inträffar. Alla användar interaktioner med en storskalig databas sker genom de här Compute-noderna. Compute-noder har SSD-baserade cacheminnen (märkta RBPEX-elastiska buffertpooltillägget i diagrammet ovan) för att minimera antalet nätverks fördröjningar som krävs för att hämta en sida med data. Det finns en primär Compute-nod där alla Läs-och skriv åtgärder och transaktioner bearbetas. Det finns en eller flera sekundära datornoder som fungerar som frekventa vänte läge för redundans, samt fungerar som skrivskyddade Compute-noder för avlastning av Läs arbets belastningar (om den här funktionen önskas).
 
@@ -224,7 +224,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | SQL-hanterad instans | Azure SQL Managed instance stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds inte för närvarande med skalning.|
 | Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.) BACPAC export/import från Azure Portal, från PowerShell med [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) eller [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), från Azure CLI med hjälp av [AZ SQL DB export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) och [az SQL DB-import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)och från [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) stöds inte. BACPAC import/export för mindre storskaliga databaser (upp till 200 GB) stöds med SSMS och [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) version 18,4 och senare. För större databaser kan BACPAC export/import ta lång tid och kan Miss lyckas av olika orsaker.|
-| Migrering av databaser med permanenta InMemory OLTP-objekt | Storskaligt stöder endast beständiga minnesbaserade OLTP-objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory OLTP-tabeller och andra objekt måste släppas och återskapas som diskbaserade objekt innan en databas migreras till den storskaliga tjänst nivån.|
+| Migrering av databaser med InMemory OLTP-objekt | Storskalig stöder en delmängd av InMemory OLTP-objekt, inklusive minnesoptimerade tabell typer, Table-variabler och internt kompilerade moduler. Men när en typ av InMemory OLTP-objekt finns i databasen som migreras, stöds inte migrering från Premium-och Affärskritisk tjänst nivåer till storskalig skalning. Om du vill migrera en sådan databas till storskalig skalning måste alla InMemory OLTP-objekt och deras beroenden släppas. När databasen har migrerats kan dessa objekt återskapas. Tåliga och icke-varaktiga minnesoptimerade tabeller stöds inte för närvarande i storskaliga och måste återskapas som disk tabeller.|
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |
 | TDE/AKV-integrering | Transparent databas kryptering med hjälp av Azure Key Vault (kallas ofta för att ta med din egen nyckel eller BYOK) är för närvarande en för hands version. |

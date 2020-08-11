@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdbde84780ed7c64f9ad3f4284a74261d2f4a728
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500478"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067621"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med CLI och ämnen/prenumerationer
 
@@ -36,7 +36,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto
 För att kunna utveckla Service Bus-appar med Java, måste du ha följande installerat:
 
 - [Java Development Kit](https://aka.ms/azure-jdks), senaste versionen.
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

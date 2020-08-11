@@ -3,12 +3,12 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074450"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067944"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
@@ -86,8 +86,8 @@ Live video analys på IoT Edge exponerar modulens dubbla egenskaper som dokument
 
 ### <a name="deploy-using-the-azure-portal"></a>Distribuera med hjälp av Azure-portalen
 
-Azure Portal vägleder dig genom att skapa ett distributions manifest och distribuera distributionen till en IoT Edge enhet.
-Välj din enhet
+Azure Portal vägleder dig genom att skapa ett distributions manifest och distribuera distributionen till en IoT Edge enhet.  
+#### <a name="select-your-device-and-set-modules"></a>Välj din enhet och ange moduler
 
 1. Logga in på [Azure Portal](https://ms.portal.azure.com/) och navigera till din IoT-hubb.
 1. Välj **IoT Edge** på menyn.
@@ -112,23 +112,12 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     > [!TIP]
     > Välj inte **Lägg till** förrän du har angett värden för **modulens inställningar**, alternativet för att **skapa behållare**och fliken **dubbla inställningar** enligt beskrivningen i den här proceduren.
     
-    > [!IMPORTANT]
+    > [!WARNING]
     > Azure IoT Edge är Skift läges känslig när du gör anrop till moduler. Anteckna den exakta strängen som du använder som modulnamn.
 
 1. Öppna fliken **miljövariabler** .
    
-   Kopiera och klistra in följande JSON i rutan för att ange användar-ID och grupp-ID som ska användas för att spara program data och video utdata.
-    ```   
-   {
-        "LOCAL_USER_ID": 
-        {
-            "value": "1010"
-        },
-        "LOCAL_GROUP_ID": {
-            "value": "1010"
-        }
-    }
-     ``` 
+   Lägg till följande värden i inmatade rutor som du ser ![ miljövariabler](./media/deploy-iot-edge-device/environment-variables.png) 
 
 1. Öppna fliken **behållare skapa alternativ** .
 
@@ -201,8 +190,8 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
-   [!Note]
-   Den dubbla egenskapen **allowUnsecuredEndpoints** anges som sant för självstudiernas syfte och snabb starter.   
+   > [!Note]
+   > Den dubbla egenskapen **allowUnsecuredEndpoints** anges som sant för självstudiernas syfte och snabb starter.   
    Du bör ange den här egenskapen till **falskt** när den körs i produktions miljön. På så sätt kan du se till att programmet blockerar alla oskyddade slut punkter och för att köra graf-topologierna krävs giltiga autentiseringsuppgifter för anslutning.  
    
     Välj Lägg till för att lägga till modulens dubbla egenskaper.
@@ -258,5 +247,7 @@ Sedan kan du testa exemplet genom att anropa en direkt metod. Läs [direkt metod
     ![Status 200-meddelande](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Nästa steg
+Prova [snabb start: kom igång – direktsända video analyser på IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
-[Snabb start: kom igång – direktsända video analyser på IoT Edge](get-started-detect-motion-emit-events-quickstart.md)
+> [!TIP]
+> I kommandot kommer du att köras härnäst, använda din `device-id` i stället för standard `lva-sample-device` .

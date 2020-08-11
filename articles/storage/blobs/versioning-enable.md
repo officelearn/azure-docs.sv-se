@@ -1,24 +1,28 @@
 ---
 title: Aktivera och hantera BLOB-versioner (för hands version)
 titleSuffix: Azure Storage
-description: Lär dig hur du aktiverar BLOB-versioner i Azure Portal eller genom att använda en Azure Resource Manager mall.
+description: Lär dig hur du aktiverar BLOB-versioner (för hands version) i Azure Portal eller genom att använda en Azure Resource Manager mall.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 85e8ccd03bd20ed9bb572d482dbc7a06b8af725c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086055"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067281"
 ---
-# <a name="enable-and-manage-blob-versioning"></a>Aktivera och hantera BLOB-versioner
+# <a name="enable-and-manage-blob-versioning-preview"></a>Aktivera och hantera BLOB-versioner (för hands version)
 
-Du kan aktivera eller inaktivera BLOB-versioner (för hands version) för lagrings kontot när som helst genom att använda Azure Portal eller en Azure Resource Manager mall.
+Du kan aktivera Blob Storage-version (för hands version) för att automatiskt underhålla tidigare versioner av ett objekt.  När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort.
+
+Den här artikeln visar hur du aktiverar eller inaktiverar BLOB-versioner för lagrings kontot med hjälp av Azure Portal eller en Azure Resource Manager mall.
+
+Du måste registrera dig för för hands versionen innan du aktiverar BLOB-versioner. Om du vill veta mer om BLOB-versioner, inklusive hur du registrerar dig för för hands versionen, se [BLOB-versioner (för hands version)](versioning-overview.md).
 
 ## <a name="enable-blob-versioning"></a>Aktivera blobversionshantering
 

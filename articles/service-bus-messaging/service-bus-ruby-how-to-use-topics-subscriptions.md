@@ -6,12 +6,12 @@ documentationcenter: ruby
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: aba326a63558632bee3bf0c48d34e471bbe30886
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85336739"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067570"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Snabb start: använda Service Bus ämnen och prenumerationer med ruby
  
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du använder Service Bus ämnen och prenumeratio
 - Ta bort ämnen och prenumerationer
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**. 
 
@@ -62,7 +62,7 @@ topic = azure_service_bus_service.create_topic(topic)
 
 Som standard är prenumerationerna permanenta. De fortsätter att finnas tills de, eller ämnet de är associerade med, tas bort. Om ditt program innehåller logik för att skapa en prenumeration bör den först kontrol lera om prenumerationen redan finns med hjälp av metoden getSubscription.
 
-Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
+Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 Om inget filter anges när en ny prenumeration skapas, används **MatchAll** -filtret (standard). När **MatchAll** -filtret används placeras alla meddelanden som publiceras till ämnet i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet "alla meddelanden" och använder standard filtret **MatchAll** .
@@ -150,7 +150,7 @@ Det finns också en tids gräns som är kopplad till ett meddelande som är lås
 I händelse av att programmet kraschar när meddelandet har bearbetats men innan `delete_subscription_message()` metoden anropas, skickas meddelandet vidare till programmet när det startas om. Det kallas ofta *minst en gång bearbetning*. det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Den här logiken uppnås ofta med hjälp av `message_id` meddelandets egenskap, som förblir konstant över leverans försök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Ämnen och prenumerationer är permanenta om inte [AutoDeleteOnIdle-egenskapen](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) har angetts. De kan tas bort antingen via [Azure Portal][Azure portal] eller program mässigt. I följande exempel visas hur du tar bort ämnet med namnet `test-topic` .
+Ämnen och prenumerationer är permanenta om inte [AutoDeleteOnIdle-egenskapen](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) har angetts. De kan tas bort antingen via [Azure Portal][Azure portal] eller program mässigt. I följande exempel visas hur du tar bort ämnet med namnet `test-topic` .
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

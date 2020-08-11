@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/25/2020
-ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 08/11/2020
+ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848914"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067859"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Videokurser för dataflödesmappning
 
@@ -36,6 +36,8 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 [Övervaka och hantera prestanda för data flödes mappning](https://www.youtube.com/watch?v=fktIWdJiqTk)
 
 [Benchmark-tider](http://youtu.be/6CSbWm4lRhw?hd=1)
+
+[Felsöka arbets flöden för data flöden](https://youtu.be/y3suL7UsWVw)
 
 ## <a name="transformation-overviews"></a>Omvandlings översikter
 
@@ -118,6 +120,8 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 [Optimera data flödets kluster storlek dynamiskt vid körning](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 [Optimera start tider för data flöde](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Azure integration runtime för data flöden](https://mssqldude.wordpress.com/)
 
 ## <a name="mapping-data-flow-scenarios"></a>Mappa data flödes scenarier
 

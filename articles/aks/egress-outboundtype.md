@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 4c5d6bf83d9aa9c3717b0f8e08785b0fc897577d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244454"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067366"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -19,7 +19,7 @@ Utgående från ett AKS-kluster kan anpassas så att de passar vissa scenarier. 
 
 Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att stödja anpassade nätverks scenarier, till exempel sådana som inte tillåter offentliga IP-adresser och kräver att klustret placeras bakom en virtuell nätverks installation (NVA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure CLI-version 2.0.81 eller senare
 * API-version av `2020-01-01` eller större
 
@@ -60,7 +60,7 @@ Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som 
 
 Om `userDefinedRouting` är inställt konfigurerar AKS inte utgående sökvägar automatiskt. Den utgående installationen måste göras av dig.
 
-AKS-klustret måste distribueras till ett befintligt virtuellt nätverk med ett undernät som tidigare har kon figurer ATS, eftersom när du använder en standard belastnings Utjämnings arkitektur (SLB) måste du upprätta explicit utgående. Därför kräver den här arkitekturen explicit sändning av utgående trafik till en enhet som en brand vägg, Gateway, proxy eller för att tillåta NAT (Network Address Translation) att utföras av en offentlig IP-adress som tilldelas till standard belastnings utjämningen eller enheten.
+AKS-klustret måste distribueras till ett befintligt virtuellt nätverk med ett undernät som tidigare har kon figurer ATS på grund av att det inte går att använda en SLB-arkitektur (standard Load Balancer). Därför kräver den här arkitekturen explicit sändning av utgående trafik till en enhet som en brand vägg, Gateway, proxy eller för att tillåta NAT (Network Address Translation) att utföras av en offentlig IP-adress som tilldelas till standard belastnings utjämningen eller enheten.
 
 AKS Resource Provider kommer att distribuera en standard Load Balancer (SLB). Belastningsutjämnaren är inte konfigurerad med några regler och [debiteras inte förrän en regel har placerats](https://azure.microsoft.com/pricing/details/load-balancer/). AKS etablerar inte automatiskt en offentlig IP-adress för SLB-klient **organisationen** eller automatiskt konfigurerar backend-poolen för belastningsutjämnare.
 

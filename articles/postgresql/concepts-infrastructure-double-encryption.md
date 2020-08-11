@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 3806135b7ed212e6eb5ea458c015ebc5810e0e80
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8468d733756ef92ffc9078e945dc46d23e1ab54a
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034965"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067502"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL infrastruktur Double Encryption
 
@@ -36,7 +36,7 @@ Implementering på infrastruktur lager har också stöd för en mångfald av nyc
 
 Infrastruktur Double Encryption för Azure Database for PostgreSQL ger följande fördelar:
 
-1. Ytterligare **variation av kryptografi implementering** – den planerade flytten till maskinvarubaserad kryptering kommer ytterligare att öka implementeringarna genom att tillhandahålla en maskinvarubaserad implementering utöver den programvarubaserad implementeringen.
+1. **Ytterligare skillnader i kryptografi implementering** – den planerade flytten till maskinvarubaserad kryptering kommer ytterligare att öka implementeringarna genom att tillhandahålla en maskinvarubaserad implementering utöver den programvarubaserad implementeringen.
 2. **Implementerings fel** – två lager av kryptering i infrastruktur lager skyddar mot fel i cachelagring eller minnes hantering i högre skikt som exponerar oformaterade data. Dessutom säkerställer de två lagren även fel i implementeringen av krypteringen i allmänhet.
 
 Kombinationen av dessa ger starkt skydd mot vanliga hot och svagheter som används för att attackera kryptografi.
@@ -45,7 +45,7 @@ Kombinationen av dessa ger starkt skydd mot vanliga hot och svagheter som använ
 
 De krypterings funktioner som tillhandahålls av Azure Database for PostgreSQL kan användas tillsammans. Nedan visas en sammanfattning av de olika scenarier som du kan använda:
 
-|  ##   | Standard kryptering | Dubbel kryptering av infrastruktur | Data kryptering med Kundhanterade nycklar  |
+|  ##   | Standard kryptering | Dubbel infrastrukturkryptering | Data kryptering med Kundhanterade nycklar  |
 |:------|:------------------:|:--------------------------------:|:--------------------------------------------:|
 | 1     | *Ja*              | *Nej*                             | *Nej*                                         |
 | 2     | *Ja*              | *Ja*                            | *Nej*                                         |
@@ -54,7 +54,7 @@ De krypterings funktioner som tillhandahålls av Azure Database for PostgreSQL k
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Scenario 2 och 4 kommer att ha betydande prestanda påverkan på Azure Database for PostgreSQL server på grund av det extra lagret av infrastruktur kryptering.
+> - Scenario 2 och 4 kommer att påverka prestandan på den Azure Database for PostgreSQL servern på grund av det extra lagret av infrastruktur kryptering.
 > - Det går bara att konfigurera infrastruktur med dubbel kryptering för Azure Database for PostgreSQL när servern skapas. När servern har allokerats kan du inte ändra lagrings krypteringen. Du kan dock fortfarande aktivera data kryptering med Kundhanterade nycklar för servern som skapats med/utan dubbel kryptering i infrastrukturen.
 
 ## <a name="limitations"></a>Begränsningar

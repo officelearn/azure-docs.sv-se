@@ -3,12 +3,12 @@ title: Azure Service Bus med .NET och AMQP 1,0 | Microsoft Docs
 description: Den här artikeln beskriver hur du använder Azure Service Bus från ett .NET-program med hjälp av AMQP (Advanced Messaging Queuing Protocol).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340183"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067111"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Använda Service Bus från .NET med AMQP 1,0
 
@@ -61,7 +61,7 @@ För att under lätta samverkan med non-.NET-klienter använder du bara .NET-typ
 | short |short |AMQP-värde |
 | int |int |AMQP-värde |
 | long |long |AMQP-värde |
-| float |float |AMQP-värde |
+| flyt |flyt |AMQP-värde |
 | double |double |AMQP-värde |
 | decimal |decimal128 |AMQP-värde |
 | char |char |AMQP-värde |
@@ -72,15 +72,15 @@ För att under lätta samverkan med non-.NET-klienter använder du bara .NET-typ
 | System. Collections. IList |lista |AMQP-värde: objekt som ingår i samlingen kan bara vara de som har definierats i den här tabellen. |
 | System. array |matris |AMQP-värde: objekt som ingår i samlingen kan bara vara de som har definierats i den här tabellen. |
 | System. Collections. IDictionary |map |AMQP-värde: objekt som ingår i samlingen kan bara vara de som har definierats i den här tabellen. Obs! endast sträng nycklar stöds. |
-| Uri |Beskrivnings sträng (se följande tabell) |AMQP-värde |
+| URI |Beskrivnings sträng (se följande tabell) |AMQP-värde |
 | DateTimeOffset |Beskrivet långt (se följande tabell) |AMQP-värde |
 | TimeSpan |Beskrivet långt (se följande) |AMQP-värde |
 | Dataström |binary |AMQP-data (kan vara flera). Data avsnitten innehåller rå byte som lästs från Stream-objektet. |
 | Annat objekt |binary |AMQP-data (kan vara flera). Innehåller den serialiserade binärfilen för det objekt som använder DataContractSerializer eller en serialiserare som tillhandahålls av programmet. |
 
-| .NET-typ | Mappad AMQP-beskrivande typ | Obs! |
+| .NET-typ | Mappad AMQP-beskrivande typ | Kommentarer |
 | --- | --- | --- |
-| Uri |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI. AbsoluteUri |
+| URI |`<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type>` |URI. AbsoluteUri |
 | DateTimeOffset |`<type name=”datetime-offset” class=restricted source=”long”> <descriptor name=”com.microsoft:datetime-offset” /></type>` |DateTimeOffset. UtcTicks |
 | TimeSpan |`<type name=”timespan” class=restricted source=”long”> <descriptor name=”com.microsoft:timespan” /></type>` |TimeSpan. Tick |
 
@@ -109,7 +109,7 @@ Vill du lära dig mer? Besök följande länkar:
 * [AMQP 1.0-protokollguide]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
-[DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
+[DataContractSerializer]: /dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
@@ -117,4 +117,3 @@ Vill du lära dig mer? Besök följande länkar:
 [Azure portal]: https://portal.azure.com
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
 [AMQP 1.0-protokollguide]: service-bus-amqp-protocol-guide.md
-

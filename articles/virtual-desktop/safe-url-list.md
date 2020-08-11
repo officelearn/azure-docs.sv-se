@@ -3,15 +3,15 @@ title: 'Lista över säkra URL: er för Windows Virtual Desktop – Azure'
 description: 'En lista med URL: er som du bör avblockera för att se till att distributionen av Windows virtuella datorer fungerar som avsett.'
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9ac147eec7004f109687a6bb0888e25d0db84448
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 37fb5ccf121fed6e772dc1cd3dcba2345d62c66f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009485"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067213"
 ---
 # <a name="safe-url-list"></a>Lista över säkra webbadresser
 
@@ -31,7 +31,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
-| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | E.t. |
+| 169.254.169.254 | 80 | [Azure instance metadata service-slutpunkt](../virtual-machines/windows/instance-metadata-service.md) | Ej tillämpligt |
 
 >[!IMPORTANT]
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
@@ -76,4 +76,6 @@ Alla fjärr skrivbords klienter som du använder måste ha åtkomst till följan
 |query.prod.cms.rt.microsoft.com|443|Klient uppdateringar|Windows-skrivbordet|
 
 >[!IMPORTANT]
->Att öppna dessa URL: er är viktigt för en tillförlitlig klient upplevelse. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara klientens platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
+>Att öppna dessa URL: er är viktigt för en tillförlitlig klient upplevelse. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna.
+>
+>Dessa URL: er motsvarar bara klient platser och resurser. Den här listan innehåller inte URL: er för andra tjänster som Azure Active Directory. Azure Active Directory-URL: er finns under ID 56 på [Office 365-URL: er och IP-adressintervall](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).

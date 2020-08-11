@@ -2,16 +2,31 @@
 title: Service Fabric program uppgradering
 description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 9e7a93dd3ef8a1adf6617dcd57887a0ce694c509
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 8/5/2020
+ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248007"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067519"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="rolling-upgrades-overview"></a>Översikt över rullande uppgraderingar
 I en uppgradering av rullande program utförs uppgraderingen i steg. I varje steg tillämpas uppgraderingen på en delmängd noder i klustret, som kallas för en uppdaterings domän. Därför förblir programmet tillgängligt under uppgraderingen. Under uppgraderingen kan klustret innehålla en blandning av de gamla och nya versionerna.

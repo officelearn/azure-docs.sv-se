@@ -16,17 +16,17 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357774"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061514"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
 
-I vissa fall är det dock nödvändigt att göra vissa ändringar i standard konfigurationen. Här följer några exempel:
+I vissa fall är det dock nödvändigt att göra vissa ändringar i standard konfigurationen. Här är några exempel:
 
 * Du planerar att använda Active [Directory-topologin för flera Azure](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). Sedan måste du använda ett filter för att styra vilka objekt som ska synkroniseras till en viss Azure AD-katalog.
 * Du kör en pilot för Azure eller Office 365 och du vill bara ha en delmängd av användarna i Azure AD. I den lilla piloten är det inte viktigt att ha en fullständig global adress lista för att demonstrera funktionerna.
@@ -47,7 +47,7 @@ Eftersom filtrering kan ta bort flera objekt samtidigt, vill du se till att dina
 
 För att skydda dig från att ta bort många objekt av misstag är funktionen "[förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md)" aktive rad som standard. Om du tar bort flera objekt på grund av filtrering (500 som standard) måste du följa stegen i den här artikeln för att tillåta borttagningarna att gå till Azure AD.
 
-Om du använder en version före november 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), gör en ändring i en filter konfiguration och använder Lösenordssynkronisering, måste du utlösa en fullständig synkronisering av alla lösen ord när du har slutfört konfigurationen. Anvisningar om hur du utlöser en fullständig synkronisering av lösen ord finns i [utlösa en fullständig synkronisering av alla lösen ord](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Om du använder build 1.0.9125 eller senare, beräknar den vanliga **fullständiga synkroniseringsåtgärden** också om lösen orden ska synkroniseras och om det extra steget inte längre krävs.
+Om du använder en version före november 2015 ([1.0.9125](reference-connect-version-history.md)), gör en ändring i en filter konfiguration och använder Lösenordssynkronisering, måste du utlösa en fullständig synkronisering av alla lösen ord när du har slutfört konfigurationen. Anvisningar om hur du utlöser en fullständig synkronisering av lösen ord finns i [utlösa en fullständig synkronisering av alla lösen ord](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Om du använder build 1.0.9125 eller senare, beräknar den vanliga **fullständiga synkroniseringsåtgärden** också om lösen orden ska synkroniseras och om det extra steget inte längre krävs.
 
 Om **användar** objekt oavsiktligt har tagits bort i Azure AD på grund av ett filtrerings fel kan du återskapa användar objekt i Azure AD genom att ta bort filtrerings konfigurationerna. Sedan kan du synkronisera dina kataloger igen. Med den här åtgärden återställs användare från pappers korgen i Azure AD. Du kan dock inte ångra borttagning av andra objekt typer. Om du till exempel råkar ta bort en säkerhets grupp och den användes för att ACL: en resurs, kan inte gruppen och dess ACL: er återställas.
 
@@ -202,7 +202,7 @@ Du kan konfigurera Synkroniseringsmotorn så att den inte synkroniserar nya orga
 Med den här konfigurationen synkroniseras inte en ny ORGANISATIONSENHET som skapades under ManagedObjects.
 
 ## <a name="attribute-based-filtering"></a>Attribut-baserad filtrering
-Se till att du använder 2015 november ([1.0.9125](reference-connect-version-history.md#1091250)) eller senare för att kunna arbeta med de här stegen.
+Se till att du använder 2015 november ([1.0.9125](reference-connect-version-history.md)) eller senare för att kunna arbeta med de här stegen.
 
 > [!IMPORTANT]
 >Microsoft rekommenderar att inte ändra standard reglerna som skapats av **Azure AD Connect**. Om du vill ändra regeln, klona den och inaktivera den ursprungliga regeln. Gör ändringar i den klonade regeln. Observera att genom att göra så (inaktivera den ursprungliga regeln) kommer du att sakna eventuella fel korrigeringar eller funktioner som aktive ras via den regeln.

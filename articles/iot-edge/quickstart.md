@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 748e31499a4aa8f1ddd2cea4e918b688426338fa
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 73d9eed757acb4c58052a34811c490a70d306995
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117257"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061497"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -65,7 +65,9 @@ IoT Edge-enhet:
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
   ```
 
-  Det kan ta några minuter att skapa och starta den nya virtuella datorn. Du kan sedan hämta en RDP-fil som ska användas vid anslutning till den virtuella datorn:
+  Det kan ta några minuter att skapa och starta den nya virtuella datorn.
+
+  När den virtuella datorn startar kan du ladda ned en RDP-fil som ska användas vid anslutning till den virtuella datorn:
 
   1. Navigera till den nya virtuella Windows-datorn i Azure Portal.
   1. Välj **Anslut**.
@@ -74,11 +76,13 @@ IoT Edge-enhet:
   Öppna den här filen med Anslutning till fjärrskrivbord för att ansluta till din virtuella Windows-dator med hjälp av det administratörs namn och lösen ord som du angav med `az vm create` kommandot.
 
 > [!NOTE]
+> Din virtuella Windows-dator startar med Windows version 1809 (build 17763), som är den senaste [versionen av Windows långsiktig support](https://docs.microsoft.com/windows/release-information/). Windows söker automatiskt efter uppdateringar var 22: e timme som standard. Efter en kontroll på den virtuella datorn push-överför Windows en versions uppdatering som är inkompatibel med IoT Edge för Windows, vilket förhindrar ytterligare användning av IoT Edge för Windows-funktioner. Vi rekommenderar att du begränsar användningen av den virtuella datorn till inom 22 timmar eller [tillfälligt pausar Windows-uppdateringar](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+>
 > Den här snabb starten använder en virtuell Windows Desktop-dator för enkelhetens skull. Information om vilka Windows-operativsystem som är allmänt tillgängliga för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md).
 >
 > Om du är redo att konfigurera en egen Windows-enhet för IoT Edge, inklusive enheter som kör IoT Core, följer du stegen i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 

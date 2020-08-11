@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 39e3e3ce0411b10b1adc89ed6e099396dfab9873
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3060e12b294531a697c1486b3a020dc1da1484c4
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085455"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077717"
 ---
-Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
+Skapa en [webbapp](../articles/app-service/overview.md#app-service-on-linux) i `myAppServicePlan` App Service plan. 
 
 I Cloud Shell kan du använda [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. 
 

@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
-ms.openlocfilehash: 7e78a8dfdf902c4c2548e0521a79d67716987791
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c1bbe48ca5205cf1db49d67a711e9a7523e1845
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832091"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077126"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Använda Node.js-moduler med Azure-program
 Det här dokumentet ger vägledning om hur du använder Node.js moduler med program som finns på Azure. Det ger vägledning om hur du säkerställer att programmet använder en specifik version av en modul samt hur du använder inbyggda moduler med Azure.
@@ -85,7 +85,7 @@ När programmet är redo för produktion kan du låsa versions kraven och skapa 
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du förstår hur du använder Node.js-moduler med Azure kan du lära dig hur du [anger Node.js version](https://github.com/squillace/nodejs-microservice), [skapar och distribuerar en Node.js-webbapp](app-service/app-service-web-get-started-nodejs.md)och [hur du använder Azures kommando rads gränssnitt för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Nu när du förstår hur du använder Node.js-moduler med Azure kan du lära dig hur du [anger Node.js version](https://github.com/squillace/nodejs-microservice), [skapar och distribuerar en Node.js-webbapp](app-service/quickstart-nodejs.md)och [hur du använder Azures kommando rads gränssnitt för Mac och Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Mer information finns i [Node.js Developer Center](/azure/developer/javascript/).
 

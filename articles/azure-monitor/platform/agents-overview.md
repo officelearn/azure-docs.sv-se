@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/14/2020
-ms.openlocfilehash: c6aea3be5782c967c5816a1e40dc5443306671b3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/05/2020
+ms.openlocfilehash: e6a4c7fe739bd517646f8401e5c812a557441e9f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445300"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88076905"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -29,22 +29,37 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 
 ### <a name="windows-agents"></a>Windows-agenter
 
-| | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
-|:---|:---|:---|:---|
-| **Miljöer som stöds** | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
-| **Agent krav**  | Ingen | Ingen | Kräver Log Analytics agent |
-| **Insamlade data** | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<IIS logs><br>Filbaserade loggar<br>Insikter och lösningar<br>Övriga tjänster | Process information och beroenden<br>Mått för nätverks anslutning |
-| **Data som skickas till** | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar |
+| | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
+|:---|:---|:---|:---|:---|
+| **Miljöer som stöds** | Azure<br>Annat moln<br>Lokal | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
+| **Agent krav**  | Inga | Inga | Inga | Kräver Log Analytics agent |
+| **Insamlade data** | Händelseloggar<br>Prestanda | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<IIS logs><br>Filbaserade loggar<br>Insikter och lösningar<br>Övriga tjänster | Process information och beroenden<br>Mått för nätverks anslutning |
+| **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått<br>Azure Storage<br>Händelsehubb | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar |
 
 
 ### <a name="linux-agents"></a>Linux-agenter
 
-| | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
-|:---|:---|:---|:---|:---|
-| **Miljöer som stöds** | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
-| **Agent krav**  | Ingen | Ingen | Ingen | Kräver Log Analytics agent |
-| **Insamlade data** | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process information och beroenden<br>Mått för nätverks anslutning |
-| **Data som skickas till** | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar |
+| | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
+|:---|:---|:---|:---|:---|:---|
+| **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
+| **Agent krav**  | Inga | Inga | Inga | Inga | Kräver Log Analytics agent |
+| **Insamlade data** | Syslog<br>Prestanda | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process information och beroenden<br>Mått för nätverks anslutning |
+| **Data som skickas till** | Azure Monitor-loggar<br>Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar |
+
+## <a name="azure-monitor-agent-preview"></a>Azure Monitor Agent (förhands granskning)
+[Azure Monitor agenten](azure-monitor-agent-overview.md) är för närvarande en för hands version och kommer att ersätta Log Analytics agent, diagnostik-tillägg och teleympkvistar-agent för både virtuella Windows-och Linux-datorer. Den kan skicka data till både Azure Monitor loggar och Azure Monitor mått och använder [data insamlings regler (DCR)](data-collection-rule-overview.md) som ger en mer skalbar metod för att konfigurera data insamling och mål för varje agent.
+
+Använd Azure Monitor-agenten om du behöver:
+
+- Samla in gäst loggar och mått från alla virtuella datorer i Azure, i andra moln eller lokalt. (Endast Azure i för hands version.)
+- Skicka data till Azure Monitor loggar och Azure Monitor mått för analys med Azure Monitor. 
+- Skicka data till Azure Storage för arkivering.
+- Skicka data till tredje parts verktyg med [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
+- Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md) eller [Azure Sentinel](../../sentinel/overview.md). (Inte tillgängligt i för hands version.)
+
+Begränsningar för Azure Monitor agenten är:
+
+- För närvarande i offentlig för hands version. Se [aktuella begränsningar](azure-monitor-agent-overview.md#current-limitations) för en lista över begränsningar under den offentliga för hands versionen.
 
 ## <a name="log-analytics-agent"></a>Log Analytics-agent
 

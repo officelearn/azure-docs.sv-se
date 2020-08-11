@@ -6,12 +6,12 @@ ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: e87e2d59dd70fbf96c04d9cd467594aa6576639b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501312"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078588"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Snabb start: bygga och skicka Java-behållar avbildningar till Azure Container Registry
 
@@ -178,4 +178,4 @@ Mer information finns i följande resurser:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Distribuera ett Spring Boot-program till Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Använda en anpassad Docker-avbildning för Azure Web App i Linux](../app-service/containers/tutorial-custom-docker-image.md)
+* [Använda en anpassad Docker-avbildning för Azure Web App i Linux](../app-service/tutorial-custom-container.md)

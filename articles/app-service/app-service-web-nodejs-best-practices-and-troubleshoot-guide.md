@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2c60e851d61a5f33e1b050412b0e91b81e20a16
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3fd9a013eb3318abc48745e163d9ee0118b52b1d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169993"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077483"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
-I den här artikeln lär du dig metod tips och fel söknings steg för [Node-program](app-service-web-get-started-nodejs.md) som körs på Azure App Service (med [iisnode](https://github.com/azure/iisnode)).
+I den här artikeln lär du dig metod tips och fel söknings steg för [Windows Node.js program](quickstart-nodejs.md?pivots=platform-windows) som körs på Azure App Service (med [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Var försiktig när du använder fel söknings steg på produktions platsen. Rekommendation är att felsöka din app på en icke-produktions-installation, till exempel mellanlagringsplatsen och när problemet är löst, byta mellanlagringsplatsen med produktions platsen.
@@ -273,7 +273,7 @@ NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES` . På Azur
 
 Följ dessa länkar om du vill veta mer om node.js program på Azure App Service.
 
-* [Kom igång med Node.js-webbappar i Azure App Service](app-service-web-get-started-nodejs.md)
+* [Kom igång med Node.js-webbappar i Azure App Service](quickstart-nodejs.md)
 * [Felsöka en Node.js-webbapp i Azure Apptjänst](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

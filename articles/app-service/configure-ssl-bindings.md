@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597903"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078639"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service
 
-Den här artikeln visar hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i din [App Service app](https://docs.microsoft.com/azure/app-service/) eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa en certifikat bindning. När du är klar kan du komma åt din App Service-app vid `https://` slut punkten för ditt anpassade DNS-namn (t `https://www.contoso.com`. ex.). 
+Den här artikeln visar hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i din [App Service app](https://docs.microsoft.com/azure/app-service/) eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa en certifikat bindning. När du är klar kan du komma åt din App Service-app vid `https://` slut punkten för ditt anpassade DNS-namn (t `https://www.contoso.com` . ex.). 
 
 ![Webbapp med anpassat TLS/SSL-certifikat](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 
@@ -52,12 +52,12 @@ För att följa den här instruktions guiden:
 
 Gör så här:
 
-I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services** > **\<App-Name>** på menyn till vänster.
+I <a href="https://portal.azure.com" target="_blank">Azure Portal</a>väljer du **app Services**på menyn till vänster  >  **\<app-name>** .
 
 Starta dialog rutan **TLS/SSL-bindning** från den vänstra navigeringen i din app genom att:
 
-- Välja **anpassade domäner** > **Lägg till bindning**
-- Välja **TLS/SSL-inställningar** > **Lägg till TLS/SSL-bindning**
+- Välja **anpassade domäner**  >  **Lägg till bindning**
+- Välja **TLS/SSL-inställningar**  >  **Lägg till TLS/SSL-bindning**
 
 ![Lägg till bindning till domän](./media/configure-ssl-bindings/secure-domain-launch.png)
 
@@ -79,7 +79,7 @@ Om din app inte har något certifikat för den valda anpassade domänen har du t
 
 Använd följande tabell som hjälp för att konfigurera TLS-bindning i dialog rutan **TLS/SSL-bindning** och klicka sedan på **Lägg till bindning**.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
 | Anpassad domän | Domän namnet som TLS/SSL-bindningen ska läggas till för. |
 | Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
@@ -102,15 +102,15 @@ Det finns två ändringar som du måste göra, eventuellt:
 
     Din apps **Anpassad domän**-sida uppdateras med den nya dedikerade IP-adressen. [Kopiera den här IP-adressen](app-service-web-tutorial-custom-domain.md#info) och [mappa om A-posten](app-service-web-tutorial-custom-domain.md#map-an-a-record) till den nya IP-adressen.
 
-- Om du har en SNI SSL bindning till `<app-name>.azurewebsites.net`, [mappa om alla CNAME-mappningar](app-service-web-tutorial-custom-domain.md#map-a-cname-record) så att de `sni.<app-name>.azurewebsites.net` pekar `sni` till i stället (Lägg till prefixet).
+- Om du har en SNI SSL bindning till `<app-name>.azurewebsites.net` , [mappa om alla CNAME-mappningar](app-service-web-tutorial-custom-domain.md#map-a-cname-record) så att de pekar till `sni.<app-name>.azurewebsites.net` i stället (Lägg till `sni` prefixet).
 
 ## <a name="test-https"></a>Testa HTTPS
 
-I olika webbläsare, bläddrar `https://<your.custom.domain>` du till för att kontrol lera att appen fungerar.
+I olika webbläsare, bläddrar du till `https://<your.custom.domain>` för att kontrol lera att appen fungerar.
 
 ![Portalnavigering till Azure-app](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
-Din program kod kan inspektera protokollet via huvudet "x-AppService-proto". Rubriken kommer att ha värdet `http` eller. `https` 
+Din program kod kan inspektera protokollet via huvudet "x-AppService-proto". Rubriken kommer att ha värdet `http` eller `https` . 
 
 > [!NOTE]
 > Om din app visar fel i certifikatverifieringen så använder du förmodligen ett självsignerat certifikat.
@@ -133,7 +133,7 @@ Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **En
 
 ![Använda HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
-När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Ett exempel:
+När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Till exempel:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -153,7 +153,7 @@ När åtgärden är klar avvisar appen alla anslutningar med lägre TLS-version.
 
 I App Service sker [TLS-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) vid utjämning av nätverks belastning, så alla HTTPS-begäranden når din app som okrypterade HTTP-förfrågningar. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
-Språkspecifika konfigurations guider, till exempel [konfigurations guiden för Linux Node. js](containers/configure-language-nodejs.md#detect-https-session) , visar hur du identifierar en https-session i program koden.
+Språkspecifika konfigurations guider, till exempel [konfigurations](configure-language-nodejs.md#detect-https-session) guiden för Linux-Node.js, visar hur du identifierar en https-session i program koden.
 
 ## <a name="automate-with-scripts"></a>Automatisera med skript
 

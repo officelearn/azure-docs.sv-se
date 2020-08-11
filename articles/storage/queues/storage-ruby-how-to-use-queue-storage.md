@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 518a1b01f52edcf5fa365e2275d4b995ffd719c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac47747f7789b23801900804522681e5a4b10e5a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805174"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078707"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bo
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
-Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-ruby).
+Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
 Om du vill använda Azure Storage måste du ladda ned och använda ruby Azure-paketet, som innehåller en uppsättning bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.
@@ -148,7 +148,7 @@ Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metode
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
 * Besök [Azure Storage teamets blogg](https://blogs.msdn.com/b/windowsazurestorage/)

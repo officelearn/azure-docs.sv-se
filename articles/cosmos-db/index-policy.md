@@ -4,18 +4,18 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 08/11/2020
 ms.author: tisande
-ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760829"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077602"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
-I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur behållarens objekt ska indexeras. Standard indexerings principen för nyskapade behållare indexerar varje egenskap för varje objekt, som framtvingar intervall index för valfri sträng eller siffra, och rums index för valfritt interjson-objekt av typen Point. På så sätt kan du få höga prestanda för frågor utan att behöva tänka på indexering och index hantering.
+I Azure Cosmos DB har varje behållare en indexerings princip som avgör hur behållarens objekt ska indexeras. Standard indexerings principen för nyligen skapade behållare indexerar varje egenskap för varje objekt och framtvingar intervall index för valfri sträng eller siffra. På så sätt kan du få höga prestanda för frågor utan att behöva tänka på indexering och index hantering.
 
 I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet så att det passar dina behov bättre. Du kan anpassa en behållares indexerings princip genom att ställa in dess *indexerings läge*och ta med eller undanta *egenskaps Sök vägar*.
 

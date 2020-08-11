@@ -18,12 +18,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8d2f96c0423b2e26c0faaf3dcc16f18bf85b8403
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: d9b914c631c829c2e3dc71940a171cdb3dc81960
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87417649"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077500"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node.js
 
@@ -84,7 +84,7 @@ Hämta anslutnings `connectionstring` värdet från [Azure portalen] genom att u
 
 1. Klicka på **Bläddra**i det vänstra navigerings fönstret.
 2. Välj **Notification Hubs**och leta upp hubben som du vill använda för exemplet. Du kan referera till [Windows Store komma igång-kursen](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) om du behöver hjälp med att skapa en ny Notification Hub.
-3. Välj **inställningar**.
+3. Välj **Inställningar**.
 4. Klicka på **åtkomst principer**. Du ser både delade och fullständiga åtkomst anslutnings strängar.
 
 ![Azure Portal-Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
@@ -196,7 +196,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 });
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för att leverera push-meddelanden till en mängd olika enheter. Nu när du har lärt dig grunderna för att använda Notification Hubs med node.js kan du följa dessa länkar för att lära dig mer om hur du kan utöka dessa funktioner ytterligare.
 
@@ -229,7 +229,7 @@ Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för at
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-[nodejswebsite]: ../app-service/app-service-web-get-started-nodejs.md
+[nodejswebsite]: ../app-service/quickstart-nodejs.md
 [webmatrix]: /aspnet/web-pages/videos/introduction/create-a-website-using-webmatrix
 [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
 [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/

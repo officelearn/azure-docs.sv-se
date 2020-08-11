@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a385a339122197b7055ef6f54b8e37edea8eae4a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760804"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078945"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integrera med Azure AD-programproxy på en server för registrerings tjänsten för nätverks enheter (NDES)
 
@@ -89,10 +89,10 @@ Azure AD-programproxy bygger på Azure. Det ger en enorm mängd nätverks bandbr
 
 1. Du bör se ett **http-fel 403 – otillåtet** svar.
 
-1. Ändra NDES-URL: en som tillhandahölls (via Microsoft Intune) till enheter, kan den här ändringen antingen vara i Microsoft Endpoint Configuration Center eller i Intune-molnet.
+1. Ändra NDES-URL: en som tillhandahölls (via Microsoft Intune) till enheter. Den här ändringen kan antingen finnas i Microsoft Endpoint Configuration Manager eller i administrations centret för Microsoft Endpoint Manager.
 
-   * För Configuration Center går du till certifikat registrerings platsen (CRP) och justerar URL: en. Den här URL: en är vilka enheter som anropar och visar sin utmaning.
-   * Endast för Intune-moln, även kallat fristående Intune, kan du antingen redigera eller skapa en ny SCEP-princip och lägga till den nya URL: en.
+   * För Configuration Manager går du till certifikat registrerings platsen och justerar URL: en. Den här URL: en är vilka enheter som anropar och visar sin utmaning.
+   * För fristående Intune kan du antingen redigera eller skapa en ny SCEP-princip och lägga till den nya URL: en.
 
 ## <a name="next-steps"></a>Nästa steg
 

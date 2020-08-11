@@ -3,12 +3,12 @@ title: Azure Service Bus – pausa meddelande enheter
 description: Den här artikeln förklarar hur du tillfälligt inaktiverar och återaktiverar Azure Service Bus meddelande enheter (köer, ämnen och prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2dad0b774f271ed719ca09b1e749559d5e1868bd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038145"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078876"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Pausa och återaktivera meddelande enheter (inaktivera)
 
@@ -18,9 +18,11 @@ Att pausa en entitet görs vanligt vis av brådskande administrativa skäl. Ett 
 
 En SUS pension eller reaktivering kan utföras antingen av användaren eller av systemet. Systemet pausar endast enheter på grund av grava administrativa skäl, till exempel genom att trycka på prenumerations utgifts gränsen. System-inaktiverade entiteter kan inte återaktiveras av användaren, men återställs när orsaken till uppskjutningen har åtgärd ATS.
 
-I portalen gör avsnittet **Egenskaper** för respektive entitet att ändra tillstånd. följande skärm bild visar växlingen för en kö:
+I portalen kan **översikts** avsnittet för respektive entitet ändra status. det aktuella tillståndet visas under **status** som en hyperlänk.
 
-![Skärm bild av Service Bus funktionen med egenskaps inställningen markerad och alternativet köläge är inställt på aktiv och beskrivs i rött.][1]
+Följande skärm bild visar tillgängliga tillstånd som entiteten kan ändras till genom att välja hyperlänken: 
+
+![Skärm bild av den Service Bus funktionen i Översikt för att ändra enhetens tillstånds alternativ.][1]
 
 Portalen tillåter bara fullständigt inaktive ring av köer. Du kan också inaktivera åtgärderna skicka och ta emot separat med Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API: er i .NET Framework SDK eller med en Azure Resource Manager-mall via Azure CLI eller Azure PowerShell.
 
@@ -55,5 +57,5 @@ Mer information om Service Bus meddelanden finns i följande avsnitt:
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[1]: ./media/entity-suspend/queue-disable.png
+[1]: ./media/entity-suspend/entity-state-change.png
 

@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 32fc57e720f9c23f6ef26f02b2cd4a82c4266984
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f547f60bf6c67b757f2e12f06f1e39100c3e76cb
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957043"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077160"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP-eller WAR-fil
 
@@ -31,7 +31,7 @@ WAR-fildistributionen distribuerar [War](https://wikipedia.org/wiki/WAR_(file_fo
 > [!NOTE]
 > När du använder så `ZipDeploy` kopieras filerna bara om deras tidsstämplar inte matchar vad som redan har distribuerats. Att generera ett zip med en Bygg process som cachelagrar utdata kan leda till snabbare distributioner. Mer information finns i [distribuera från en zip-fil eller URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln [skapar du en app service app](/azure/app-service/)eller använder en app som du har skapat för en annan själv studie kurs.
 
@@ -40,7 +40,7 @@ För att slutföra stegen i den här artikeln [skapar du en app service app](/az
 [!INCLUDE [Create a project ZIP file](../../includes/app-service-web-deploy-zip-prepare.md)]
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
-Ovanstående slut punkt fungerar inte för Linux-App Services för tillfället. Överväg att använda FTP eller [zip Deploy-API](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#continuous-integration-and-deployment) i stället.
+Ovanstående slut punkt fungerar inte för Linux-App Services för tillfället. Överväg att använda FTP eller [zip Deploy-API](faq-app-service-linux.md#continuous-integration-and-deployment) i stället.
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Distribuera ZIP-fil med Azure CLI
 

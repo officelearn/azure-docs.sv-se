@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: 32b7db234cd91aaf9fa5fcfa9b35679d32561474
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042623"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078401"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -17,8 +17,7 @@ Den här artikeln visar hur du anpassar den inbyggda [autentiseringen och auktor
 
 För att komma igång snabbt, se någon av följande Självstudier:
 
-* [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)
-* [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)
+* [Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service](tutorial-auth-aad.md)
 * [Så här konfigurerar du din app för att använda Azure Active Directory-inloggning](configure-authentication-provider-aad.md)
 * [Så här konfigurerar du din app för att använda Facebook-inloggning](configure-authentication-provider-facebook.md)
 * [Så här konfigurerar du din app för att använda Google-inloggning](configure-authentication-provider-google.md)
@@ -34,7 +33,7 @@ På sidan **autentisering/auktorisering** i Azure Portal konfigurerar du först 
 
 I **åtgärd som ska vidtas när begäran inte autentiseras**väljer du **Tillåt anonyma begär Anden (ingen åtgärd)**.
 
-På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Ett exempel:
+På inloggnings sidan eller i navigerings fältet eller på någon annan plats i appen lägger du till en inloggnings länk till alla providers som du har aktiverat ( `/.auth/login/<provider>` ). Till exempel:
 
 ```html
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -56,7 +55,7 @@ Om du vill omdirigera användaren efter inloggning till en anpassad URL, använd
 
 I en klient-riktad inloggning loggar programmet in användaren till providern manuellt och skickar sedan autentiseringstoken till App Service för verifiering (se [Authentication Flow](overview-authentication-authorization.md#authentication-flow)). Den här verifieringen ger i själva verket ingen åtkomst till de resurser som behövs, men en lyckad verifiering ger dig en sessionstoken som du kan använda för att få åtkomst till program resurser. 
 
-För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Ett exempel: 
+För att verifiera providerns token måste App Service-appen först konfigureras med önskad Provider. När du har hämtat autentiseringstoken från providern efter att du har hämtat token, kan du ställa in token `/.auth/login/<provider>` för verifiering. Till exempel: 
 
 ```
 POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
@@ -87,7 +86,7 @@ Om providerns token verifieras, returnerar API: t med en `authenticationToken` i
 }
 ```
 
-När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Ett exempel: 
+När du har denna sessionstoken kan du komma åt skyddade app-resurser genom att lägga till `X-ZUMO-AUTH` rubriken till dina HTTP-begäranden. Till exempel: 
 
 ```
 GET https://<appname>.azurewebsites.net/api/products/1
@@ -108,7 +107,7 @@ Här är en enkel utloggningslänk på en webbsida:
 <a href="/.auth/logout">Sign out</a>
 ```
 
-Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Ett exempel:
+Som standard omdirigerar en lyckad utloggning klienten till URL: en `/.auth/logout/done` . Du kan ändra omdirigerings sidan efter utloggning genom att lägga till `post_logout_redirect_uri` Frågeparametern. Till exempel:
 
 ```
 GET /.auth/logout?post_logout_redirect_uri=/index.html
@@ -270,7 +269,7 @@ För alla Windows-appar kan du definiera behörighets beteendet för IIS-webbser
 
 ### <a name="identity-provider-level"></a>Identitets leverantörs nivå
 
-Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Ett exempel:
+Identitets leverantören kan ge viss behörighet för att aktivera nycklar. Till exempel:
 
 - För [Azure App Service](configure-authentication-provider-aad.md)kan du [Hantera åtkomst på företags nivå](../active-directory/manage-apps/what-is-access-management.md) direkt i Azure AD. Instruktioner finns i [så här tar du bort en användares åtkomst till ett program](../active-directory/manage-apps/methods-for-removing-user-access.md).
 - Google [-API](configure-authentication-provider-google.md)-projekt som tillhör en [organisation](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#organizations) kan konfigureras så att de endast tillåter åtkomst till användare i din organisation (se [Google ' **Setting Up The OAuth 2,0** support Page](https://support.google.com/cloud/answer/6158849?hl=en)).
@@ -533,5 +532,4 @@ Du kan köra det här kommandot från [Azure Cloud Shell](../cloud-shell/overvie
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt (Windows)](app-service-web-tutorial-auth-aad.md) 
->  [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt (Linux)](containers/tutorial-auth-aad.md)
+> [Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt](tutorial-auth-aad.md)

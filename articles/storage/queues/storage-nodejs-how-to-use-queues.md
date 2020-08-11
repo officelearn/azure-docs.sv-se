@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 950d85f391504095ceaaa10996145ca832b6db19
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56099a7d350a29db5a57708bc87b7174cfdb3b29
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432728"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079287"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Använd Azure Queue Service för att skapa och ta bort köer från Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,7 +32,7 @@ Den här guiden visar hur du utför vanliga scenarier med hjälp av Microsoft Az
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Skapa ett Node.js program
-Skapa ett tomt Node.js-program. Instruktioner för hur du skapar ett Node.js program finns [i skapa en Node.js webbapp i Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [skapa och distribuera ett Node.js program till en Azure-moln tjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) med hjälp av Windows PowerShell eller [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+Skapa ett tomt Node.js-program. Instruktioner för hur du skapar ett Node.js program finns [i skapa en Node.js webbapp i Azure App Service](../../app-service/quickstart-nodejs.md), [skapa och distribuera ett Node.js program till en Azure-moln tjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) med hjälp av Windows PowerShell eller [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
 Om du vill använda Azure Storage behöver du Azure Storage SDK för Node.js, som innehåller en uppsättning av praktiska bibliotek som kommunicerar med lagrings REST tjänsterna.
@@ -327,7 +327,7 @@ När du har angett ACL: en, kan du skapa en SAS baserad på ID för en princip. 
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
 * Besök [Azure Storage-teamets blogg][Azure Storage Team Blog].
@@ -341,7 +341,7 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar f
 
 [Azure Portal]: https://portal.azure.com
 
-[Skapa en Node.js-webbapp i Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
+[Skapa en Node.js-webbapp i Azure App Service](../../app-service/quickstart-nodejs.md)
 
 [Skapa och distribuera en Node.js-app till en Azure-molntjänst](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 

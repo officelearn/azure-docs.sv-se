@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d40e9dbc2c4da6b298f7245318c95de983edcc
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 65aed14ec7f644f2792aaecde5c8bccfffdd8081
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530154"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078452"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)
 
@@ -53,7 +53,7 @@ Vi har utformat hur grupper tilldelas roller för att förhindra att den här ty
 Följande scenarier stöds inte just nu:  
 
 - Tilldela moln grupper till anpassade Azure AD-roller
-- Tilldela moln grupper till Azure AD-roller (inbyggda eller anpassade) över en administrativ enhet.
+- Tilldela moln grupper till Azure AD-roller (inbyggda eller anpassade) över en administrativ enhet eller ett program omfång.
 - Tilldela lokala grupper till Azure AD-roller (inbyggda eller anpassade)
 
 ## <a name="known-issues"></a>Kända problem

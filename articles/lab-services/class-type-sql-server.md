@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: a3601010eae614049b4af5aa2ddbcdc6acda21cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444887"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079030"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Konfigurera ett labb för att hantera och utveckla med SQL Server
 
@@ -20,7 +20,7 @@ I den här artikeln visar vi hur du konfigurerar en mall för virtuella datorer 
 
 ## <a name="lab-configuration"></a>Labb konfiguration
 
-För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Du kan också använda ett befintligt labb konto.
+För att kunna konfigurera det här labbet behöver du ett Azure-prenumerations-och labb konto för att komma igång. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du skapa ett nytt labb konto i Azure Lab Services. Mer information om hur du skapar ett nytt labb konto finns i [självstudier för att konfigurera ett labb konto](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account). Du kan också använda ett befintligt labb konto.
 
 ### <a name="lab-account-settings"></a>Labb konto inställningar
 
@@ -50,7 +50,7 @@ Nu när nätverks sidan av saker hanteras, kan du skapa en SQL Server databas.  
 9. Välj region för **platsen**.  Ange om möjligt samma plats som labb kontot och peer-kopplat VNet för att minimera svars tiden.
 10. Klicka på **OK** för att återgå till formuläret **skapa SQL Database** .
 11. Klicka på **Konfigurera databas** länk under **beräknings-och lagrings** inställningen.
-12. Ändra databas inställningarna efter behov för klassen.  Du kan välja mellan etablerade och Server lös alternativ.  I det här exemplet ska vi använda alternativet för autoskalad utan server med max virtuella kärnor på 4, min virtuella kärnor 1. Vi behåller inställningen AutoPause på minst 1 timme. Klicka på **Använd**.
+12. Ändra databas inställningarna efter behov för klassen.  Du kan välja mellan etablerade och Server lös alternativ.  I det här exemplet ska vi använda alternativet för autoskalad utan server med max virtuella kärnor på 4, min virtuella kärnor 1. Vi behåller inställningen AutoPause på minst 1 timme. Klicka på **Godkänn**.
 13. Klicka på **Nästa: knappen nätverk** .
 14. På fliken nätverk väljer du privat slut punkt för **anslutnings metoden**.
 15. Under avsnittet **privata slut punkter** klickar du på **Lägg till privat slut punkt**.
@@ -86,7 +86,7 @@ Bilden som du väljer ovan omfattar [Visual Studio 2019-community](https://visua
 
 Visual Studio innehåller uppsättningen **data lagring och bearbetnings** verktyg, som innehåller SQL Server Data Tools (SSDT).  Mer information om SSDT-funktionerna finns i [SQL Server Data Tools översikt](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Om du vill kontrol lera att anslutningen till den delade SQL Server för klassen kommer att lyckas, se [Anslut till en databas och bläddra bland befintliga objekt](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Om du uppmanas att lägga till mallens dator-IP i [listan över tillåtna datorer](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) som kan ansluta till din SQL Server-instans.
 
-Visual Studio stöder flera arbets belastningar, inklusive **webb & moln-** och **skriv bords & mobila** arbets belastningar.  Båda dessa arbets belastningar stöder SQL Server som en data källa. Mer information om hur du använder ASP.NET Core för att SQL Server finns i avsnittet [bygga en ASP.net Core och SQL Database app i Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb) själv studie kurs.  Använd [system. data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) -biblioteket för att ansluta till en SQL Database från en [Xamarin](https://docs.microsoft.com/xamarin) -app.
+Visual Studio stöder flera arbets belastningar, inklusive **webb & moln-** och **skriv bords & mobila** arbets belastningar.  Båda dessa arbets belastningar stöder SQL Server som en data källa. Mer information om hur du använder ASP.NET Core för att SQL Server finns i avsnittet [bygga en ASP.net Core och SQL Database app i Azure App Service](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app) själv studie kurs.  Använd [system. data. SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) -biblioteket för att ansluta till en SQL Database från en [Xamarin](https://docs.microsoft.com/xamarin) -app.
 
 ## <a name="install-azure-data-studio"></a>Installera Azure Data Studio
 

@@ -7,18 +7,18 @@ description: Den här snabb starten visar hur du använder Azure dev Spaces och 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: c0fd035a0341e5e92b2706d833b24d5e5b87e018
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 53d7b602166ae463ddb821f5a9992de39f6e1644
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371574"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078724"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes med Visual Studio Code och Java-Azure dev Spaces
 
 I den här snabb starten ställer du in Azure dev Spaces med ett hanterat Kubernetes-kluster och använder en Java-app i Visual Studio Code för att skapa och felsöka kod i behållare iterativt. Med Azure dev Spaces kan du felsöka och testa alla komponenter i ditt program i Azure Kubernetes service (AKS) med minimal utvecklings maskin installation. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
 - [Java Development Kit (JDK) 1.8.0 +](https://aka.ms/azure-jdks).
@@ -163,10 +163,10 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig mer om hur Azure dev Spaces fungerar.
 
 > [!div class="nextstepaction"]
-> [Arbeta med flera containrar och utveckling i team](multi-service-java.md)
+> [Så här fungerar Azure Dev Spaces](how-dev-spaces-works.md)
 
 
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

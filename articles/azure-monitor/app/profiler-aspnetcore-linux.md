@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f01eaf879e70406c6dbe17e6fc544f7aed367e8b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a21d48787a39c491a2ab1ace1bf42ff85bd34993
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324122"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078095"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -23,7 +23,7 @@ När du har slutfört den här genom gången kan din app samla in profiler-spår
 
 ![Profiler-spår](./media/profiler-aspnetcore-linux/profiler-traces.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings miljöer:
 
 * Installera [.net Core SDK 2.1.2 eller senare](https://dotnet.microsoft.com/download/archives).
@@ -106,7 +106,7 @@ Följande instruktioner gäller för alla Windows-, Linux-och Mac-utvecklings mi
 
     ![Konfigurera git-lagringsplatsen](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-Mer distributions alternativ finns i [den här artikeln](../../app-service/containers/choose-deployment-type.md).
+Fler distributions alternativ finns i [App Service-dokumentationen](https://docs.microsoft.com/azure/app-service).
 
 ## <a name="deploy-your-project"></a>Distribuera projektet
 

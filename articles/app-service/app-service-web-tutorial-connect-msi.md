@@ -5,19 +5,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: e38711cbb5ccd9fe4cc8584a9229a1c57550d618
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 206da4e7fe92846352120d604cd8bee578eb45dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021236"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077738"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Självstudie: Säkra Azure SQL Database-anslutningar från App Service med en hanterad identitet
 
 Med [App Service ](overview.md) får du en automatiskt uppdaterad webbvärdtjänst i Azure med hög skalbarhet. Dessutom får du en [hanterad identitet](overview-managed-identity.md) för din app. Det här är en användningsklar lösning som skyddar åtkomsten till [Azure SQL Database](/azure/sql-database/) och andra Azure-tjänster. Med hanterade identiteter i App Service blir dina appar säkrare eftersom du inte har några hemligheter i dina appar. Du har till exempel inga inloggningsuppgifter i anslutningssträngarna. I den här självstudien lägger du till hanterad identitet till den webbapp som du skapade i någon av följande själv studie kurser: 
 
 - [Självstudie: Skapa en ASP.NET-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+- [Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 När du är färdig ansluter exempelappen säkert till SQL Database utan att du behöver använda användarnamn och lösenord.
 
@@ -43,7 +43,7 @@ Vad du kommer att lära dig:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln fortsätter där du slutade i [Självstudier: Bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) eller [Självstudier: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md). Om du inte redan har gjort det följer du en av de två självstudierna först. Du kan också anpassa stegen för din egen .NET-app med SQL Database.
+Den här artikeln fortsätter där du slutade i [Självstudier: Bygg en ASP.net-app i Azure med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) eller [Självstudier: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](tutorial-dotnetcore-sqldb-app.md). Om du inte redan har gjort det följer du en av de två självstudierna först. Du kan också anpassa stegen för din egen .NET-app med SQL Database.
 
 Om du vill felsöka din app med SQL Database som Server del kontrollerar du att du har tillåtit klient anslutning från datorn. Om inte, lägger du till klientens IP-adress genom att följa stegen i [Hantera IP-brandväggens regler på server nivå med hjälp av Azure Portal](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
@@ -74,14 +74,14 @@ Mer information om hur du lägger till en Active Directory-administratör finns 
 
 ## <a name="set-up-visual-studio"></a>Konfigurera Visual Studio
 
-### <a name="windows"></a>Windows
+### <a name="windows-client"></a>Windows-klient
 Visual Studio för Windows är integrerat med Azure AD-autentisering. Om du vill aktivera utveckling och fel sökning i Visual Studio lägger du till din Azure AD-användare i Visual Studio genom att välja **fil**  >  **konto inställningar** på menyn och klicka på **Lägg till ett konto**.
 
 Om du vill ställa in Azure AD-användaren för Azure-tjänsteautentisering väljer du **verktyg**  >  **alternativ** på menyn och väljer sedan konto val för **Azure-tjänstens autentisering**  >  **Account Selection**. Välj den Azure AD-användare som du har lagt till och klicka på **OK**.
 
 Nu är du redo att utveckla och felsöka din app med SQL Database som Server del, med Azure AD-autentisering.
 
-### <a name="macos"></a>MacOS
+### <a name="macos-client"></a>macOS-klient
 
 Visual Studio för Mac är inte integrerat med Azure AD-autentisering. Men det [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -bibliotek som du kommer att använda senare kan använda tokens från Azure CLI. Om du vill aktivera utveckling och fel sökning i Visual Studio måste du först [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på den lokala datorn.
 
@@ -107,7 +107,7 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-I *Web. config*arbetar du från början av filen och gör följande ändringar:
+I *Web.config*arbetar du från början av filen och gör följande ändringar:
 
 - I `<configSections>` lägger du till följande avsnitts deklaration i den:
 
@@ -142,7 +142,7 @@ I Visual Studio öppnar du Package Manager-konsolen och lägger till NuGet-paket
 Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.4.0
 ```
 
-I [självstudierna ASP.net Core och SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md) `MyDbConnection` används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appSettings. JSON*ersätter du värdet för `MyDbConnection` anslutnings strängen med:
+I [självstudierna ASP.net Core och SQL Database](tutorial-dotnetcore-sqldb-app.md) `MyDbConnection` används inte anslutnings strängen alls eftersom den lokala utvecklings miljön använder en sqlite-databasfil och Azures produktions miljö använder en anslutnings sträng från App Service. Med Active Directory autentisering vill du att båda miljöerna ska använda samma anslutnings sträng. I *appsettings.jspå*, ersätter du värdet för `MyDbConnection` anslutnings strängen med:
 
 ```json
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
@@ -229,7 +229,7 @@ Skriv `EXIT` för att återgå till Cloud Shell-prompten.
 
 ### <a name="modify-connection-string"></a>Ändra anslutningssträngen
 
-Kom ihåg att samma ändringar som du gjorde i *Web. config* eller *appSettings. JSON* fungerar med den hanterade identiteten, så att det bara är att ta bort den befintliga anslutnings strängen i App Service, som Visual Studio skapade distributionen av appen första gången. Använd följande kommando, men Ersätt *\<app-name>* med namnet på din app.
+Kom ihåg att samma ändringar som du gjorde i *Web.config* eller *appsettings.jspå* Works med den hanterade identiteten, så att du bara behöver ta bort den befintliga anslutnings strängen i App Service, som Visual Studio skapade distributionen av appen första gången. Använd följande kommando, men Ersätt *\<app-name>* med namnet på din app.
 
 ```azurecli-interactive
 az webapp config connection-string delete --resource-group myResourceGroup --name <app-name> --setting-names MyDbConnection
@@ -245,7 +245,7 @@ Nu behöver du bara publicera ändringarna till Azure.
 
 Klicka på **Publicera** på publiceringssidan. 
 
-**Om du kom från [Självstudier: bygg en ASP.NET Core och SQL Database app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)**, publicera dina ändringar med hjälp av Git med följande kommandon:
+**Om du kom från [Självstudier: bygg en ASP.NET Core och SQL Database app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)**, publicera dina ändringar med hjälp av Git med följande kommandon:
 
 ```bash
 git commit -am "configure managed identity"

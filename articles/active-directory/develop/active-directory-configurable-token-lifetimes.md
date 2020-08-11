@@ -13,16 +13,17 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: d25c2e2603f36ff090d01f235a4c8e4a1ae12605
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d6b6e300a3bd799e94405af143d84cf9fdd8d4c1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552857"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077143"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Konfigurerbara livstider för token i Microsoft Identity Platform (för hands version)
 
-Du kan ange livs längden för en token som utfärdats av Microsoft Identity Platform. Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen.
+Du kan ange livs längden för en token som utfärdats av Microsoft Identity Platform. Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen. 
+> Observera att för närvarande inte stöder konfigurering av livs längd för token för hanterade identitets tjänstens huvud namn.
 
 > [!IMPORTANT]
 > Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 30 maj 2020 kommer ingen ny klient att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Utfasningen sker inom flera månader efter det, vilket innebär att vi slutar att respektera befintliga sessioner för session och uppdatering av token. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
@@ -83,7 +84,7 @@ Du kan använda en princip för att ställa in tiden efter att den första sessi
 En livs längds princip för token är en typ av princip objekt som innehåller livs längds regler för token. Använd egenskaperna för principen för att kontrol lera angivna livstider för token. Om ingen princip har angetts tillämpar systemet standard livstid svärdet.
 
 ### <a name="configurable-token-lifetime-properties"></a>Egenskaper för konfigurerbar token-livstid
-| Egenskap | Princip egenskaps sträng | Nätverk | Standard | Minimum | Maximal |
+| Egenskap | Princip egenskaps sträng | Nätverk | Standardvärde | Minimum | Maximal |
 | --- | --- | --- | --- | --- | --- |
 | Livstid för åtkomsttoken |AccessTokenLifetime<sup>2</sup> |Åtkomsttoken, ID-token, SAML2-token |1 timme |10 minuter |1 dag |
 | Maximal inaktiv tid för uppdateringstoken |MaxInactiveTime |Uppdatera token |90 dagar |10 minuter |90 dagar |
@@ -96,7 +97,7 @@ En livs längds princip för token är en typ av princip objekt som innehåller 
 * <sup>2</sup> För att säkerställa att Microsoft Teams webb klienten fungerar rekommenderar vi att du håller AccessTokenLifetime till mer än 15 minuter för Microsoft Teams.
 
 ### <a name="exceptions"></a>Undantag
-| Egenskap | Nätverk | Standard |
+| Egenskap | Nätverk | Standardvärde |
 | --- | --- | --- |
 | Uppdatera token max ålder (utfärdat för federerade användare som har otillräcklig åter kallelse information<sup>1</sup>) |Uppdatera tokens (utfärdat för federerade användare som har otillräcklig återkallnings information<sup>1</sup>) |12 timmar |
 | Maximal inaktiv tid för uppdateringstoken (utfärdat för konfidentiella klienter) |Uppdatera tokens (utfärdat för konfidentiella klienter) |90 dagar |

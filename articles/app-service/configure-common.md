@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389791"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077381"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -33,13 +33,13 @@ För ASP.NET-och ASP.NET Core-utvecklare ställer du in appinställningar i App 
 
 Andra språk stackar, på samma sätt, får också appens inställningar som miljövariabler vid körning. För språkspecifika steg, se:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Anpassade containrar](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Anpassade containrar](configure-custom-container.md#configure-environment-variables)
 
 Appinställningar krypteras alltid när de lagras (krypterat i vila).
 
@@ -104,13 +104,13 @@ Vid körning är anslutnings strängar tillgängliga som miljövariabler, som ha
 
 Till exempel kan en MySql-anslutningssträng med namnet *connectionstring1* nås som miljö variabel `MYSQLCONNSTR_connectionString1` . För språkspecifika steg, se:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Anpassade containrar](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Anpassade containrar](configure-custom-container.md#configure-environment-variables)
 
 Anslutnings strängar krypteras alltid när de lagras (krypterat i vila).
 
@@ -176,7 +176,7 @@ Här kan du konfigurera några vanliga inställningar för appen. Vissa inställ
     > [!NOTE]
     > De flesta moderna webbläsare stöder HTTP/2-protokoll över TLS, medan icke-krypterad trafik fortsätter att använda HTTP/1.1. För att säkerställa att klient webbläsare ansluter till din app med HTTP/2 skyddar du ditt anpassade DNS-namn. Mer information finns i [skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md).
     - **Arr-tillhörighet**: i en distribution med flera instanser kontrollerar du att klienten dirigeras till samma instans under sessionens livs längd. Du kan ställa in det här alternativet på **av** för tillstånds lösa program.
-- **Fel sökning**: Aktivera fjärrfelsökning för [ASP.net](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.net Core](/visualstudio/debugger/remote-debugging-azure)eller [Node.js](containers/configure-language-nodejs.md#debug-remotely) appar. Det här alternativet stängs av automatiskt efter 48 timmar.
+- **Fel sökning**: Aktivera fjärrfelsökning för [ASP.net](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.net Core](/visualstudio/debugger/remote-debugging-azure)eller [Node.js](configure-language-nodejs.md#debug-remotely) appar. Det här alternativet stängs av automatiskt efter 48 timmar.
 - **Inkommande klient certifikat**: Kräv klient certifikat i [ömsesidig autentisering](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Konfigurera standard dokument
@@ -215,7 +215,7 @@ Om du vill konfigurera virtuella program och kataloger anger du varje virtuell k
 
 ### <a name="containerized-apps"></a>Appar i behållare
 
-Du kan [lägga till anpassad lagring för din behållares app](containers/how-to-serve-content-from-azure-storage.md). Appar i behållare inkluderar alla Linux-appar och även anpassade Windows-och Linux-behållare som körs på App Service. Klicka på **ny Azure Storage montera** och konfigurera din anpassade lagring på följande sätt:
+Du kan [lägga till anpassad lagring för din behållares app](configure-connect-to-azure-storage.md). Appar i behållare inkluderar alla Linux-appar och även anpassade Windows-och Linux-behållare som körs på App Service. Klicka på **ny Azure Storage montera** och konfigurera din anpassade lagring på följande sätt:
 
 - **Namn**: visnings namnet.
 - **Konfigurations alternativ**: **Basic** eller **Advanced**.
@@ -228,22 +228,22 @@ Du kan [lägga till anpassad lagring för din behållares app](containers/how-to
 - **Åtkomst nyckel**: för Avancerad konfiguration är åtkomst nyckeln.
 - **Monterings Sök väg**: den absoluta sökvägen i din behållare för att montera den anpassade lagringen.
 
-Mer information finns i [Hantera innehåll från Azure Storage i App Service på Linux](containers/how-to-serve-content-from-azure-storage.md).
+Mer information finns i [åtkomst Azure Storage som en nätverks resurs från en behållare i App Service](configure-connect-to-azure-storage.md).
 
 ## <a name="configure-language-stack-settings"></a>Konfigurera språk Stacks inställningar
 
 För Linux-appar, se:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.js](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## <a name="configure-custom-containers"></a>Konfigurera anpassade behållare
 
-Se [Konfigurera en anpassad Linux-behållare för Azure App Service](containers/configure-custom-container.md)
+Se [Konfigurera en anpassad Linux-behållare för Azure App Service](configure-custom-container.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

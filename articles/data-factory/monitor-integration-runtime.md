@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/25/2020
+ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 14f9ab0b1c3b8b437e46a7b6a2d8b87f03442a02
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290462"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078212"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Övervaka en integreringskörning i Azure Data Factory
 
@@ -47,9 +47,9 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av cmdle
 
 | Egenskap | Beskrivning |
 -------- | ------------- | 
-| Namn | Namnet på Azure integration Runtime. |  
-| Tillstånd | Status för Azure integration Runtime. | 
-| Position | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
+| Name | Namnet på Azure integration Runtime. |  
+| Stat | Status för Azure integration Runtime. | 
+| Plats | Platsen för Azure integration Runtime. Mer information om platsen för en Azure integration runtime finns i [Introduktion till integration runtime](concepts-integration-runtime.md). |
 | DataFactoryName | Namnet på den data fabrik som Azure integration runtime tillhör. | 
 | ResourceGroupName | Namnet på den resurs grupp som data fabriken tillhör.  |
 | Beskrivning | Beskrivning av integrerings körningen.  |
@@ -76,7 +76,7 @@ Följande tabell innehåller beskrivningar av övervaknings egenskaper för **va
 
 | Egenskap | Beskrivning | 
 | -------- | ----------- | 
-| Namn | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
+| Name | Namnet på den egna värdbaserade integrerings körningen och noder som är kopplade till den. Node är en lokal Windows-dator som har den lokala integrerings körningen installerad. |  
 | Status | Status för den övergripande integrerings körningen med egen värd och varje nod. Exempel: online/offline/begränsat/osv. Information om dessa statusar finns i nästa avsnitt. | 
 | Version | Versionen av integration runtime med egen värd och varje nod. Versionen av den lokala integration runtime-versionen bestäms baserat på den version av majoriteten av noderna i gruppen. Om det finns noder med olika versioner i installations programmet för lokal installation av integration runtime fungerar bara noderna med samma versions nummer som den logiska integrerings körningen för egen värd. Andra är i begränsat läge och måste uppdateras manuellt (endast om automatisk uppdatering Miss lyckas). | 
 | Tillgängligt minne | Tillgängligt minne på en egen värd för integration runtime-noden. Det här värdet är en nära real tids ögonblicks bild. | 
@@ -161,7 +161,7 @@ Exempel på utdata (förutsätter att det finns två noder kopplade till den hä
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure SSIS Integration Runtime
 
-Azure-SSIS IR är ett fullständigt hanterat kluster av virtuella Azure-datorer (eller noder) som är dedikerade för att köra dina SSIS-paket. Du kan anropa SSIS-paket körningar på Azure-SSIS IR att använda olika metoder, till exempel via Azure-aktiverade SQL Server Data Tools (SSDT), AzureDTExec kommando rads verktyg, T-SQL on SQL Server Management Studio (SSMS)/SQL Server Agent och köra SSIS-paket aktiviteter i ADF-pipeline. Azure-SSIS IR kör inga andra ADF-aktiviteter. När du har upprättat kan du övervaka dess övergripande/Node-/regionsspecifika egenskaper och status via Azure PowerShell, Azure Portal och Azure Monitor.
+Azure-SSIS IR är ett fullständigt hanterat kluster av virtuella Azure-datorer (virtuella datorer eller noder) som är dedikerade att köra dina SSIS-paket. Du kan anropa SSIS-paket körningar på Azure-SSIS IR att använda olika metoder, till exempel via Azure-aktiverade SQL Server Data Tools (SSDT), AzureDTExec kommando rads verktyg, T-SQL on SQL Server Management Studio (SSMS)/SQL Server Agent och köra SSIS-paket aktiviteter i ADF-pipeline. Azure-SSIS IR kör inga andra ADF-aktiviteter. När du har upprättat kan du övervaka dess övergripande/Node-/regionsspecifika egenskaper och status via Azure PowerShell, Azure Portal och Azure Monitor.
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-powershell"></a>Övervaka Azure-SSIS integration runtime med Azure PowerShell
 
@@ -181,8 +181,8 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Noder                        | De allokerade/tillgängliga noderna i din Azure-SSIS IR med Node-/regionsspecifika status (start/tillgänglighet/åter användning/ej tillgänglig) och åtgärds bara fel. |
 | OtherErrors                  | De åtgärds bara fel som inte är noder i Azure-SSIS IR. |
 | LastOperation                | Resultatet av den senaste start-/stopp åtgärden på Azure-SSIS IR med åtgärds bara fel om det Miss lyckas. |
-| Tillstånd                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
-| Position                     | Azure-SSIS IR plats. |
+| Stat                        | Övergripande status (första/starta/starta/stoppa/stoppas) för Azure-SSIS IR. |
+| Plats                     | Azure-SSIS IR plats. |
 | NodeSize                     | Storleken på varje nod i Azure-SSIS IR. |
 | NodeCount                    | Antalet noder i Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | Det maximala antalet parallella körningar per nod i Azure-SSIS IR. |
@@ -196,7 +196,7 @@ Följande tabell innehåller beskrivningar av egenskaper som returneras av ovans
 | Typ                         | IR-typen (hanterad/egen värd) för din Azure-SSIS IR. |
 | ResourceGroupName            | Namnet på din Azure-adressresurs där ADF och Azure-SSIS IR skapades. |
 | DataFactoryName              | Namnet på din ADF. |
-| Namn                         | Namnet på din Azure-SSIS IR. |
+| Name                         | Namnet på din Azure-SSIS IR. |
 | Beskrivning                  | Beskrivning av din Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (per Azure-SSIS IR nod)
@@ -228,31 +228,55 @@ Om du vill övervaka din Azure-SSIS IR i Azure Portal går du till sidan **integ
 
 ![Övervaka alla integrerings körningar](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Välj sedan namnet på din Azure-SSIS IR för att öppna sidan övervakning där du kan se dess övergripande/Node-/regionsspecifika egenskaper och status.
+Välj sedan namnet på din Azure-SSIS IR för att öppna sidan övervakning där du kan se dess övergripande/Node-/regionsspecifika egenskaper och status. På den här sidan, beroende på hur du konfigurerar inställningarna allmänt, distribution och avancerad för din Azure-SSIS IR, hittar du olika informations-och funktions paneler.  Informations panelerna **typ** och **region** visar Azure-SSIS IRens typ och region. I informations panelen för **Node-storlek** visas SKU (SSIS edition_VM tier_VM-serien), antal processor kärnor och storleken på RAM-minne per nod för din Azure-SSIS IR. Informations panelen för att **köra/begärda noder** jämför antalet noder som för närvarande körs på det totala antalet noder som tidigare begärts för din Azure-SSIS IR. De funktionella panelerna beskrivs i mer information nedan.
 
 ![Övervaka dina Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
-På **status** panelen på sidan Azure-SSIS IR övervakning kan du se dess övergripande status, till exempel **körs** eller **stoppas**. Om du väljer **körnings** status öppnas ett fönster med knappen för att **stoppa** din Azure-SSIS IR. Om du väljer **stoppad** status öppnas ett fönster med knappen Live **Start** för att starta din Azure-SSIS IR. Popup-fönstret innehåller också knappen **kör SSIS-paket** för att automatiskt generera en ADF-pipeline med kör SSIS-paket-aktivitet som körs på din Azure-SSIS IR (se [köra SSIS-paket som kör SSIS-paket aktiviteter i ADF-pipeline](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) och en text ruta för **resurs-ID** från vilken du kan kopiera Azure-SSIS IR resurs-ID ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ) som kan användas för att köpa ytterligare Premium-/licensierade SSIS-komponenter från oberoende program varu leverantörer (isv) och binda dem till din Azure-SSIS IR (se [installera Premium/licensierade komponenter på din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
+#### <a name="status-tile"></a>STATUS panel
+
+På **status** panelen på sidan Azure-SSIS IR övervakning kan du se dess övergripande status, till exempel **körs** eller **stoppas**. Om du väljer **körnings** status öppnas ett fönster med knappen för att **stoppa** din Azure-SSIS IR. Om du väljer **stoppad** status öppnas ett fönster med knappen Live **Start** för att starta din Azure-SSIS IR. Popup-fönstret innehåller också knappen **kör SSIS-paket** för att automatiskt generera en ADF-pipeline med kör SSIS-paket-aktivitet som körs på din Azure-SSIS IR (se [köra SSIS-paket som EXECUTE SSIS-paket aktiviteter i ADF-pipeliner](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) och en text ruta för **resurs-ID** som du kan använda för att kopiera Azure-SSIS IR resurs-ID ( `/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR` ). Suffixet för Azure-SSIS IR resurs-ID som innehåller dina ADF-och Azure-SSIS IR-namn utgör ett kluster-ID som kan användas för att köpa ytterligare Premium/licensierade SSIS-komponenter från oberoende program varu leverantörer (ISV) och binda dem till din Azure-SSIS IR (se [Installera Premium/licensierade komponenter på din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
 
 ![Övervaka din Azure-SSIS IR-STATUS panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
+
+#### <a name="ssisdb-server-endpoint-tile"></a>SSISDB SERVER-slutpunkt panel
 
 Om du använder projekt distributions modell där paket lagras i SSISDB som finns på din Azure SQL Database-Server eller en hanterad instans, visas panelen **SSISDB Server Endpoint** på sidan för Azure-SSIS IR övervakning (se [konfigurera inställningarna för Azure-SSIS IR distribution](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). På den här panelen kan du välja en länk som anger din Azure SQL Database Server eller en hanterad instans för att öppna ett fönster, där du kan kopiera Server slut punkten från en text ruta och använda den när du ansluter från SSMS för att distribuera, konfigurera, köra och hantera dina paket. I popup-fönstret kan du också välja länken **Se Inställningar för Azure SQL Database eller hanterad instans** för att konfigurera om/ändra storlek på din SSISDB i Azure Portal.
 
 ![Övervaka din Azure-SSIS IR-SSISDB-panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
+#### <a name="proxy--staging-tile"></a>Panelen PROXY/mellanlagringsplats
+
+Om du laddar ned, installerar och konfigurerar SHIR (egen värd-IR) som en proxy för din Azure-SSIS IR att komma åt data lokalt, visas panelen **proxy/mellanlagringsplats** på sidan för Azure-SSIS IR övervakning (se [Konfigurera SHIR som proxy för din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)). På den här panelen kan du välja en länk som anger din SHIR för att öppna sidan övervakning. Du kan också välja en annan länk som anger Azure-Blob Storage för mellanlagring för att konfigurera om den länkade tjänsten.
+
+#### <a name="validate-vnet--subnet-tile"></a>VERIFIERA panelen VNET/SUBNET
+
 Om du ansluter din Azure-SSIS IR till ett VNet visas panelen **Verifiera VNet-/undernät** på sidan för Azure-SSIS IR övervakning (se [koppla din Azure-SSIS IR till ett VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)). På den här panelen kan du välja en länk som anger ditt VNet och undernät för att öppna ett fönster, där du kan kopiera ditt VNet-resurs-ID ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet` ) och under nätets namn från text rutor, samt verifiera dina VNet-och Subnet-konfigurationer för att säkerställa att nödvändiga inkommande/utgående nätverks trafik och hantering av Azure-SSIS IR inte blockeras.
 
 ![Övervaka din Azure-SSIS IR-VALIDATE-panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
+
+#### <a name="diagnose-connectivity-tile"></a>Panelen diagnostisera anslutning
 
 På panelen **diagnostisera anslutning** på sidan Azure-SSIS IR övervakning kan du välja länken **Testa anslutning** för att visa ett fönster, där du kan kontrol lera anslutningarna mellan din Azure-SSIS IR och relevanta paket/konfiguration/data lager, samt hanterings tjänster, via sitt fullständigt kvalificerade domän namn (FQDN)/IP-adress och avsedd port (se [testa anslutningar från din Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
 ![Övervaka din Azure-SSIS IR-diagnosticera panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
+#### <a name="static-public-ip-addresses-tile"></a>Panelen statiska offentliga IP-adresser
+
+Om du använder egna statiska offentliga IP-adresser för Azure-SSIS IR visas panelen **statiska offentliga IP-adresser** på sidan för Azure-SSIS IR övervakning (se ta [med egna statiska IP-adresser för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). På den här panelen kan du välja länkar som anger dina första/andra statiska IP-adresser för Azure-SSIS IR för att öppna ett fönster, där du kan kopiera sitt resurs-ID ( `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` ) från en text ruta. I popup-fönstret kan du också välja länken **se din första/andra statiska offentliga IP-adress inställningar** för att hantera din första/andra statiska IP-adress i Azure Portal.
+
+![Övervaka din Azure-SSIS IR-diagnosticera panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+
+#### <a name="package-stores-tile"></a>Panel för paket arkiv
+
 Om du använder paket distributions modell där paket lagras i fil systemet/Azure Files/SQL Server databas (MSDB) som hanteras av din Azure SQL-hanterade instans och hanteras via Azure-SSIS IR paket arkiv, visas panelen **paket arkiv** på din Azure-SSIS IR övervaknings sida (se [konfigurera inställningar för Azure-SSIS IR distribution](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). På den här panelen kan du välja en länk som anger hur många paket lager som är kopplade till din Azure-SSIS IR att popup-fönster visas, där du kan konfigurera om de relevanta länkade tjänsterna för dina Azure-SSIS IR-paket arkiv ovanpå fil systemet/Azure Files/MSDB som hanteras av din Azure SQL-hanterade instans.
 
 ![Övervaka din Azure-SSIS IR-paket-panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
+#### <a name="errors-tile"></a>FEL panel
+
 Om det uppstår problem med att starta/stoppa/underhålla/uppgradera Azure-SSIS IR visas en panel med ytterligare **fel** på sidan för Azure-SSIS IR övervakning. På den här panelen kan du välja en länk som anger antalet fel som har genererats av din Azure-SSIS IR att visa ett fönster, där du kan se dessa fel i mer information och kopiera dem för att hitta de rekommenderade lösningarna i vår fel söknings guide (se [fel sökning av Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)).
+
+![Övervaka din Azure-SSIS IR-diagnosticera panel](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Övervaka Azure-SSIS integration runtime med Azure Monitor
 
@@ -263,10 +287,10 @@ Information om hur du övervakar Azure-SSIS IR med Azure Monitor finns i [överv
 I följande artiklar finns mer information om Azure-SSIS integration Runtime:
 
 - [Azure-SSIS integration runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln innehåller konceptuell information om integrerings körningar i allmänhet, inklusive Azure-SSIS IR. 
-- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder SQL Database som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder SQL-hanterad instans och ansluter till IR till ett virtuellt nätverk. 
-- [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
-- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Det innehåller också anvisningar för hur du använder Azure Portal för att konfigurera det virtuella nätverket så att Azure-SSIS IR kan ansluta till det virtuella nätverket. 
+- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller steg-för-steg-instruktioner för att skapa Azure-SSIS IR och använda Azure SQL Database som värd för SSIS-katalogen (SSISDB). 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln expanderar i självstudien och innehåller instruktioner om hur du använder Azure SQL-hanterad instans som värd för SSISDB. 
+- [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du startar, stoppar eller tar bort Azure-SSIS IR. Det visar också hur du skalar ut det genom att lägga till fler noder. 
+- [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller anvisningar om hur du ansluter till Azure-SSIS IR till ett virtuellt nätverk.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar för att övervaka pipelines på olika sätt: 

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver de processer som Power Spaces för Azure dev och hur routning fungerar
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512477"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077673"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Hur routning fungerar med Azure dev Spaces
 
@@ -49,7 +49,7 @@ All annan TCP-trafik som inte är HTTP passerar genom ingångs styrenheten och d
 
 ## <a name="sharing-a-dev-space"></a>Dela ett dev-utrymme
 
-När du arbetar med ett team kan du [dela ett dev-utrymme i ett helt Team](how-to/share-dev-spaces.md) och skapa härledda dev Spaces. Ett dev-utrymme kan användas av alla med deltagar åtkomst till dev-rummets resurs grupp.
+När du arbetar med ett team kan du dela ett dev-utrymme i ett helt team och skapa härledda dev Spaces. Ett dev-utrymme kan användas av alla med deltagar åtkomst till dev-rummets resurs grupp.
 
 Du kan också skapa ett nytt dev-utrymme som härleds från ett annat dev-utrymme. När du skapar ett härlett dev-utrymme läggs etiketten *azds.io/Parent-Space=Parent-Space-Name* till i namn området för den härledda dev-ytan. Dessutom delas alla program från det överordnade dev-utrymmet med det härledda dev-utrymmet. Om du distribuerar en uppdaterad version av ett program till det härledda dev-utrymmet finns det bara i det härledda dev-utrymmet och det överordnade dev-utrymmet förblir opåverkat. Du kan ha högst tre nivåer av härledda dev Spaces och *föräldrars* utrymmen.
 

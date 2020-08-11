@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 287b58f85cad0082ac782a20cdfb0b9b9ea810e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83743625"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078316"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du använder Visual Studio 2019 för att skapa ett A
 
 Den här artikeln visar hur du distribuerar WebJobs som en .NET Core-konsolprogram. Om du vill distribuera WebJobs som en .NET Framework-konsolsession, se [WebJobs som .NET Framework-konsol program](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Om du är intresse rad av WebJobs SDK version 2. x, som endast stöder .NET Framework, se [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** . Om du redan har Visual Studio men inte har den arbets belastningen lägger du till arbets belastningen genom att välja **verktyg > hämta verktyg och funktioner**.
 
@@ -185,7 +185,7 @@ Från och med version 3. x måste du uttryckligen installera lagrings bindnings 
 
    `message`Parametern behöver inte vara en sträng. Du kan också binda till ett JSON-objekt, en byte mat ris eller ett [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) -objekt. [Se användning av kö-utlösare](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Varje bindnings typ (till exempel köer, blobbar eller tabeller) har en annan uppsättning parameter typer som du kan binda till.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Azure Storage emulatorn som körs lokalt har inte alla funktioner som WebJobs-SDK: n behöver. Så i det här avsnittet skapar du ett lagrings konto i Azure och konfigurerar projektet att använda det. Om du redan har ett lagrings konto går du vidare till steg 6.
 
@@ -310,7 +310,7 @@ I det här avsnittet ska du utföra följande åtgärder för att konfigurera Ap
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>Skapa App Service-app och Application Insights instans
 
-1. Om du inte redan har en App Service app som du kan använda [skapar du en](app-service-web-get-started-dotnet-framework.md). När du skapar din app kan du också skapa en ansluten Application Insights-resurs. När du gör det är det `APPINSIGHTS_INSTRUMENTATIONKEY` konfigurerat för dig i din app.
+1. Om du inte redan har en App Service app som du kan använda [skapar du en](quickstart-dotnet-framework.md). När du skapar din app kan du också skapa en ansluten Application Insights-resurs. När du gör det är det `APPINSIGHTS_INSTRUMENTATIONKEY` konfigurerat för dig i din app.
 
 1. Om du inte redan har en Application Insights resurs som du kan använda [skapar du en](../azure-monitor/app/create-new-resource.md ). Ange **program typen** **Allmänt**och hoppa över avsnitten som följer **Kopiera Instrumentation-nyckeln**.
 
@@ -328,7 +328,7 @@ I det här avsnittet ska du utföra följande åtgärder för att konfigurera Ap
 
    |Name  |anslutnings sträng  |Databas typ|
    |---------|---------|------|
-   |AzureWebJobsStorage | {anslutnings strängen för lagring som du kopierade tidigare}|Anpassad|
+   |AzureWebJobsStorage | {anslutnings strängen för lagring som du kopierade tidigare}|Anpassat|
 
 1. Om rutan **program inställningar** inte har en Application Insights Instrumentation-nyckel, lägger du till den som du kopierade tidigare. (Instrumentation-nyckeln kanske redan finns där, beroende på hur du skapade App Service-appen.)
 

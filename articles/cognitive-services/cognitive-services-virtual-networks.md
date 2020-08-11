@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: dapine
-ms.openlocfilehash: 6f5df14d9488f8ccb1f93c2a16ba52998f25e268
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: db1b88b9c22012cb4e6b5025dda31432c9278ff8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876588"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080906"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella nätverk för Azure Cognitive Services
 
@@ -40,10 +40,9 @@ Nätverks regler tillämpas på alla nätverks protokoll till Azure Cognitive Se
 
 ## <a name="supported-regions-and-service-offerings"></a>Regioner och tjänst erbjudanden som stöds
 
-Cognitive Services som anges nedan stöder virtuella nätverk i kommersiellt moln och US Gov molnet. Om tjänsten inte visas i listan, har den inte stöd för virtuella nätverk än.
+Virtuella nätverk (virtuella nätverk) stöds i [regioner där Cognitive Services är tillgängliga](https://azure.microsoft.com/global-infrastructure/services/). Om kognitiva tjänster inte visas i listan, har den för närvarande inte stöd för virtuella nätverk.
 
 > [!div class="checklist"]
-
 > * [Avvikelseidentifiering](./anomaly-detector/index.yml)
 > * [Visuellt innehåll](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)
@@ -59,8 +58,8 @@ Cognitive Services som anges nedan stöder virtuella nätverk i kommersiellt mol
 ## <a name="service-tags"></a>Tjänsttaggar
 
 Cognitive Services stöder service märken för konfiguration av nätverks regler. Tjänsterna i listan nedan ingår i **CognitiveServicesManagement** service tag.
-> [!div class="checklist"]
 
+> [!div class="checklist"]
 > * [Avvikelseidentifiering](./anomaly-detector/index.yml)
 > * [Visuellt innehåll](./computer-vision/index.yml)
 > * [Content Moderator](./content-moderator/index.yml)

@@ -5,12 +5,12 @@ keywords: Azure App Service, webbapp, mobilapp, API-app, Function-app, säkerhet
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a4d3518c3325eff2b3c3db111babb9e784d5e31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6c8aeeaded659fb7fd37409c3d9e495aa711fa6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649059"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080308"
 ---
 # <a name="security-in-azure-app-service"></a>Säkerhet i Azure App Service
 
@@ -56,7 +56,7 @@ App Service autentisering och auktorisering stöder flera autentiseringsprovider
 Vid autentisering mot en backend-tjänst tillhandahåller App Service två olika metoder beroende på dina behov:
 
 - **Tjänst identitet** – logga in på fjär resursen med appens identitet. Med App Service kan du enkelt skapa en [hanterad identitet](overview-managed-identity.md), som du kan använda för att autentisera med andra tjänster, till exempel [Azure SQL Database](/azure/sql-database/) eller [Azure Key Vault](/azure/key-vault/). En fullständig själv studie kurs om den här metoden finns i [säker Azure SQL Database anslutning från App Service med hjälp av en hanterad identitet](app-service-web-tutorial-connect-msi.md).
-- **På uppdrag av (OBO)** – gör delegerad åtkomst till fjär resurser åt användaren. Med Azure Active Directory som autentiseringsprovider kan App Service-appen utföra delegerad inloggning till en fjärrtjänst, till exempel [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) eller en fjärr-API-App i App Service. En fullständig själv studie kurs om den här metoden finns i [autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service](app-service-web-tutorial-auth-aad.md).
+- **På uppdrag av (OBO)** – gör delegerad åtkomst till fjär resurser åt användaren. Med Azure Active Directory som autentiseringsprovider kan App Service-appen utföra delegerad inloggning till en fjärrtjänst, till exempel [Microsoft Graph API](../active-directory/develop/microsoft-graph-intro.md) eller en fjärr-API-App i App Service. En fullständig själv studie kurs om den här metoden finns i [autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service](tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Anslutning till fjär resurser
 
@@ -94,7 +94,7 @@ Lagra inte program hemligheter, t. ex. autentiseringsuppgifter för databaser, A
 
 Du kan också integrera din App Service-app med [Azure Key Vault](/azure/key-vault/) för hantering av avancerade hemligheter. Genom att [komma åt Key Vault med en hanterad identitet](../key-vault/tutorial-web-application-keyvault.md)kan din app service-app på ett säkert sätt komma åt de hemligheter du behöver.
 
-## <a name="network-isolation"></a>Nätverksisolering
+## <a name="network-isolation"></a>Isolering av nätverk
 
 Förutom den **isolerade** pris nivån kör alla nivåer dina appar i den delade nätverks infrastrukturen i App Service. Till exempel delas offentliga IP-adresser och klient dels belastnings utjämning med andra klienter. Den **isolerade** nivån ger dig fullständig nätverks isolering genom att köra apparna i en dedikerad [app Services miljö](environment/intro.md). En App Service-miljö körs i din egen instans av [Azure Virtual Network](/azure/virtual-network/). Det gör att du kan: 
 

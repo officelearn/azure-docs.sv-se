@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254622"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079917"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Självstudie: Lägga till Azure CDN i en Azure App Service-webbapp
 
@@ -38,7 +38,7 @@ Detta får du får lära dig:
 > * Använda frågesträngar för att styra cachelagrade versioner.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -49,7 +49,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="create-the-web-app"></a>Skapa webbappen
 
-För att skapa webbappen som du ska arbeta med följer du [snabbstarten för statisk HTML](../app-service/app-service-web-get-started-html.md) via steget **Bläddra till appen**.
+För att skapa webbappen som du ska arbeta med följer du [snabbstarten för statisk HTML](../app-service/quickstart-html.md) via steget **Bläddra till appen**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -60,7 +60,7 @@ Om du vill optimera CDN-slutpunkten för acceleration av dynamisk webbplats (DSA
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Skapa en CDN-profil och en slutpunkt
 
-I det vänstra navigeringsfönstret väljer du **App Services** och sedan väljer du den app som du skapade i [static HTML quickstart](../app-service/app-service-web-get-started-html.md) (snabbstart för statisk HTML).
+I det vänstra navigeringsfönstret väljer du **App Services** och sedan väljer du den app som du skapade i [static HTML quickstart](../app-service/quickstart-html.md) (snabbstart för statisk HTML).
 
 ![Välj App Service-app i portalen](media/cdn-add-to-web-app/portal-select-app-services.png)
 
@@ -72,11 +72,11 @@ På sidan **Azure Content Delivery Network** anger du inställningarna för**Ny 
 
 ![Skapa en profil och en slutpunkt i portalen](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
-| Inställningen | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Beskrivning |
 | ------- | --------------- | ----------- |
 | **CDN-profil** | myCDNProfile | En CDN-profil är en samling CDN-slutpunkter på samma prisnivå. |
-| **Pris nivå** | Standard Akamai | [Prisnivån](cdn-features.md) anger providern och funktioner som är tillgängliga. I den här självstudien används *Standard Akamai*. |
-| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser på * &lt;domänen&gt;endpointname*. azureedge.net.
+| **Prisnivå** | Standard Akamai | [Prisnivån](cdn-features.md) anger providern och funktioner som är tillgängliga. I den här självstudien används *Standard Akamai*. |
+| **CDN-slutpunktsnamn** | Vilket namn som helst som är unikt för domänen azureedge.net | Du kommer åt dina cachelagrade resurser på domänen * &lt; endpointname &gt; *. azureedge.net.
 
 Välj **Skapa ny** för att skapa en CDN-profil.
 

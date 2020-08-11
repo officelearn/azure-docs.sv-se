@@ -4,12 +4,12 @@ description: Lär dig hur du konfigurerar en ASP.NET-app i Azure App Service. De
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1aeb243b3ff4a1e6bd2ae984510d2ec709776fa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53654520ea20bd8ee797de61449a616eadd001a5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908150"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080155"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurera en ASP.NET-app för Azure App Service
 
@@ -18,7 +18,7 @@ ms.locfileid: "84908150"
 
 ASP.NET-appar måste distribueras till Azure App Service som kompilerade binärfiler. Verktyget Visual Studio Publishing skapar lösningen och distribuerar sedan de kompilerade binärfilerna direkt, medan App Service distributions motor distribuerar kod databasen först och kompilerar sedan binärfilerna.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET-utvecklare. Om du aldrig har använt Azure App Service, följ själv studie kursen [ASP.net snabb start](app-service-web-get-started-dotnet-framework.md) och [ASP.net med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) .
+Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET-utvecklare. Om du aldrig har använt Azure App Service, följ själv studie kursen [ASP.net snabb start](quickstart-dotnet-framework.md) och [ASP.net med SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md) .
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>Visa .NET Framework runtime-versioner som stöds
 
@@ -82,7 +82,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt fel meddelande. Om du vill visa sidan detaljerad undantag i App Service öppnar du *Web.config* -filen och lägger till `<customErrors mode="Off"/>` elementet under `<system.web>` elementet. Ett exempel:
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt fel meddelande. Om du vill visa sidan detaljerad undantag i App Service öppnar du *Web.config* -filen och lägger till `<customErrors mode="Off"/>` elementet under `<system.web>` elementet. Till exempel:
 
 ```xml
 <system.web>
@@ -94,7 +94,7 @@ Distribuera om din app med den uppdaterade *Web.config*. Nu bör du se samma det
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-Du kan lägga till diagnostiska meddelanden i din program kod med hjälp av [system. Diagnostics. trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Ett exempel: 
+Du kan lägga till diagnostiska meddelanden i din program kod med hjälp av [system. Diagnostics. trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Till exempel: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

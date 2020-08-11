@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/15/2020
-ms.openlocfilehash: c59e8c9e4c756a44d7507fca328aa691ecb184da
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 48eb8674a7d3f0fbeb8cc012debfc8a08752d5ff
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447315"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080872"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -55,7 +55,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 - Loggar – tjänsten stöder diagnostikinställningar som kan samla in plattforms loggar och statistik för att Azure Monitor loggar.
 - Insight – det finns en insikt tillgänglig för tjänsten som tillhandahåller en anpassad övervaknings upplevelse för tjänsten.
 
-| Tjänst | Mått | Loggar | Insight | Anteckningar |
+| Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
 |Active Directory | Inga | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Inga | Inga | Inga |  |
@@ -120,11 +120,11 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |IoT Hub | Ja | Ja | Inga |  |
 |Key Vault | Ja | Ja | [Ja](./insights/key-vault-insights-overview.md) |  |
 |Kubernetes Service (AKS) | Inga | Inga | [Ja](insights/container-insights-overview.md)  |  |
-|Lastbalanserare | Ja | Ja | Inga |  |
+|Load Balancer | Ja | Ja | Inga |  |
 |Logic Apps | Ja | Ja | Inga |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
 |Managed Applications  | Inga | Inga | Inga |  |
-|Kartor  | Inga | Inga | Inga |  |
+|Maps  | Inga | Inga | Inga |  |
 |Media Services | Ja | Ja | Inga |  |
 |Microsoft Flow | Inga | Inga | Inga |  |
 |Microsoft Hanterat skrivbord | Inga | Inga | Inga |  |
@@ -136,7 +136,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Network Watcher | Ja | Ja | Inga |  |
 |Notification Hubs | Ja | Inga | Inga |  |
 |Open Datasets | Inga | Inga | Inga |  |
-|Princip | Inga | Inga | Nej |  |
+|Policy | Inga | Inga | Nej |  |
 |Power BI Embedded | Ja | Ja | Inga |  |
 |Private Link | Inga | Inga | Inga |  |
 |Kommunikations plattform för bufferthanterare | Inga | Inga | Inga |  |
@@ -155,7 +155,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |SQL Database | Ja | Ja | Inga |  |
 |SQL Server Stretch Database | Ja | Ja | Inga |  |
 |Stack | Inga | Inga | Inga |  |
-|Storage | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
+|Lagring | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
 |Storage cache | Inga | Inga | Inga |  |
 |Tjänster för synkronisering av lagring | Inga | Inga | Inga |  |
 |Stream Analytics | Ja | Ja | Inga |  |
@@ -220,7 +220,7 @@ Azure Monitor kan samla in data från resurser utanför Azure med hjälp av meto
 | Resurs | Metod |
 |:---|:---|
 | Program | Övervaka webb program utanför Azure med hjälp av Application Insights. Se [Vad är Application Insights?](./app/app-insights-overview.md). |
-| Virtuella datorer | Använd Log Analytics-agenten för att samla in data från gäst operativ systemet för virtuella datorer i andra moln miljöer eller lokalt. Se [samla in loggdata med Log Analytics agenten](platform/log-analytics-agent.md). |
+| Virtuella datorer | Använd agenter för att samla in data från gäst operativ systemet för virtuella datorer i andra moln miljöer eller lokalt. Se [Översikt över Azure Monitor agenter](platform/agents-overview.md). |
 | REST API-klient | Separata API: er är tillgängliga för att skriva data till Azure Monitor loggar och mått från valfri REST API-klient. Se [Skicka loggdata till Azure monitor med API: t för HTTP-datainsamling](platform/data-collector-api.md) för loggar och [skicka anpassade mått för en Azure-resurs till Azure Monitor mått lagring med hjälp av en REST API](platform/metrics-store-custom-rest-api.md) för mått. |
 
 

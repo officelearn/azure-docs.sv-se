@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056932"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079594"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Sändning av vilken typ av körning som helst | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
 | Publicera en pipeline-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
 | Distribuera en registrerad modell på en AKS/ACI-resurs | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Poäng till en distribuerad AKS-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (när du inte använder AAD-autentisering) eller `"/workspaces/read"` (när du använder token auth) |
+| Poäng till en distribuerad AKS-slutpunkt | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (när du inte använder Azure Active Directory auth) eller `"/workspaces/read"` (när du använder token auth) |
 | Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Skapa ny anpassad roll | Ägare, deltagare eller anpassad roll som tillåter`Microsoft.Authorization/roleDefinitions/write` | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/computes/write` |
 
@@ -374,10 +374,14 @@ De kan även finnas i listan över [resurs leverantörs åtgärder](/azure/role-
 Här är några saker som du bör känna till när du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC):
 
 - När du skapar en resurs i Azure, t. ex. en arbets yta, är du inte direkt ägaren till arbets ytan. Rollen ärvs från den högsta omfattnings rollen som du har behörighet för i den prenumerationen. Om du till exempel är nätverks administratör och har behörighet att skapa en Machine Learning arbets yta, kan du tilldela rollen som nätverks administratör till arbets ytan och inte till ägar rollen.
-- Om det finns två roll tilldelningar till samma AAD-användare med motstridiga avsnitt i Actions/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
-- Om du vill distribuera dina beräknings resurser i ett VNet måste du uttryckligen ha behörighet för "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
-- Det kan ibland ta upp till 1 timme innan dina nya roll tilldelningar börjar gälla för cachelagrade behörigheter i stacken.
+- Om det finns två roll tilldelningar för samma Azure Active Directory användare med motstridiga avsnitt i åtgärder/NotActions, kanske dina åtgärder som anges i NotActions från en roll inte börjar gälla om de också visas som åtgärder i en annan roll. Om du vill veta mer om hur Azure kan parsa roll tilldelningar läser du [hur Azure RBAC avgör om en användare har åtkomst till en resurs](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Om du vill distribuera dina beräknings resurser i ett VNet måste du uttryckligen ha behörighet för följande åtgärder:
+    - "Microsoft. Network/virtualNetworks/Join/Action" på VNet-resursen.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
+    
+    För ytterligare information om RBAC med nätverk, se [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking).
 
+- Det kan ibland ta upp till 1 timme innan dina nya roll tilldelningar börjar gälla för cachelagrade behörigheter i stacken.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>F. Vilka behörigheter behöver jag för att använda en användardefinierad hanterad identitet med mina Amlcompute-kluster?
 

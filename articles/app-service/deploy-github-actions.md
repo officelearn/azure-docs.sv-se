@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 51a340c2fb32de60f20c678e0bc23f2420261e44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 713f4228bc2ba968fc96668d4d5c568f33b7e786
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849887"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080291"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -28,49 +28,76 @@ För ett Azure App Service-arbetsflöde har filen tre delar:
 
 |Avsnitt  |Aktiviteter  |
 |---------|---------|
-|**Autentisering** | 1. definiera ett huvud namn för tjänsten <br /> 2. skapa en GitHub-hemlighet |
-|**Konstruktion** | 1. Konfigurera miljön <br /> 2. Bygg webb programmet |
-|**Distribuera** | 1. distribuera webbappen |
+|**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
+|**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
+|**Distribuera** | 1. distribuera webbappen. |
 
-## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
+## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution
+
+# <a name="user-level-credentials"></a>[Autentiseringsuppgifter för användar nivå](#tab/userlevel)
 
 Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor \
+                            --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
+                            --sdk-auth
 ```
 
-I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerations-ID, resurs grupp namn och app-namn. Utdata är de autentiseringsuppgifter för roll tilldelning som ger åtkomst till din App Service-app. Kopiera det här JSON-objektet, som du kan använda för att autentisera från GitHub.
+I exemplet ovan ersätter du plats hållarna med ditt prenumerations-ID, resurs grupp namn och app-namn. Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för senare.
 
-> [!NOTE]
-> Du behöver inte skapa ett huvud namn för tjänsten om du bestämmer dig för att använda publicerings profilen för autentisering.
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
 > [!IMPORTANT]
-> Det är alltid en bra idé att bevilja minimal åtkomst. Detta är anledningen till att omfånget i föregående exempel är begränsat till den särskilda App Service-appen och inte hela resurs gruppen.
+> Det är alltid en bra idé att bevilja minimal åtkomst. Omfånget i föregående exempel är begränsat till den särskilda App Service-appen och inte hela resurs gruppen.
+
+# <a name="app-level-credentials"></a>[Autentiseringsuppgifter för app-nivå](#tab/applevel)
+
+Du kan använda autentiseringsuppgifter på program nivå med hjälp av publicerings profilen för appen. Gå till appens hanterings sida i portalen. På sidan **Översikt** klickar du på alternativet **Hämta publicerings profil** .
+
+Du kommer att behöva filens innehåll senare.
+
+---
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-Du kan också använda autentiseringsuppgifter på program nivå, t. ex. publicera profil för distribution. Följ stegen för att konfigurera hemligheten:
+# <a name="user-level-credentials"></a>[Autentiseringsuppgifter för användar nivå](#tab/userlevel)
 
-1. Ladda ned publicerings profilen för App Service-appen från portalen med alternativet **Hämta publicerings profil** .
+I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
 
-2. I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**
+Om du vill använda [autentiseringsuppgifter för användar nivå](#generate-deployment-credentials)klistrar du in hela JSON-utdata från Azure CLI-kommandot till fältet hemligt värde. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-    ![secrets](media/app-service-github-actions/secrets.png)
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
 
-3. Klistra in innehållet för den hämtade publicerings profil filen i fältet hemligt värde.
+```yaml
+- uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+```
 
-4. Nu i arbets flödes filen i din gren: `.github/workflows/workflow.yml` Ersätt hemligheten för indata för `publish-profile` åtgärden Distribuera Azure Web App.
+# <a name="app-level-credentials"></a>[Autentiseringsuppgifter för app-nivå](#tab/applevel)
+
+I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställningar > hemligheter > Lägg till en ny hemlighet**.
+
+Om du vill använda [autentiseringsuppgifter för program nivå](#generate-deployment-credentials)klistrar du in innehållet i den hämtade publicerings profil filen i fältet hemligt värde. Ge hemligheten namnet som `azureWebAppPublishProfile` .
+
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `publish-profile` för åtgärden Distribuera Azure Web App. Till exempel:
     
-    ```yaml
-        - uses: azure/webapps-deploy@v2
-          with:
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-    ```
+```yaml
+- uses: azure/webapps-deploy@v2
+  with:
+    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
 
-5. Du ser hemligheten som visas nedan när den har definierats.
-
-    ![secrets](media/app-service-github-actions/app-service-secrets.png)
+---
 
 ## <a name="set-up-the-environment"></a>Konfigurera miljön
 
@@ -192,43 +219,9 @@ Om du vill distribuera din kod till en App Service-app använder du `azure/webap
 | **paketfilerna** | Valfritt Sökväg till paket eller mapp. *. zip, *. War, *. jar eller en mapp för distribution |
 | **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
 
-### <a name="deploy-using-publish-profile"></a>Distribuera med publicerings profil
+# <a name="user-level-credentials"></a>[Autentiseringsuppgifter för användar nivå](#tab/userlevel)
 
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med hjälp av publicerings profil.
-
-```yaml
-# File: .github/workflows/workflow.yml
-
-on: push
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    # checkout the repo
-    - name: 'Checkout GitHub Action' 
-      uses: actions/checkout@master
-    
-    - name: Setup Node 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-    - name: 'npm install, build, and test'
-      run: |
-        npm install
-        npm run build --if-present
-        npm run test --if-present
-       
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
-          uses: azure/webapps-deploy@v2
-          with: 
-            app-name: node-rn
-            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-```
-
-### <a name="deploy-using-azure-service-principal"></a>Distribuera med hjälp av Azure-tjänstens huvud namn
-
-Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med hjälp av ett Azure-tjänstens huvud namn.
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med hjälp av ett Azure-tjänstens huvud namn. Observera att `creds` indatamängden refererar till `AZURE_CREDENTIALS` hemligheten som du skapade tidigare.
 
 ```yaml
 on: [push]
@@ -269,11 +262,47 @@ jobs:
         az logout
 ```
 
+# <a name="app-level-credentials"></a>[Autentiseringsuppgifter för app-nivå](#tab/applevel)
+
+Nedan visas exempel arbets flödet för att bygga och distribuera en Node.js-app till Azure med appens publicerings profil. Observera att `publish-profile` indatamängden refererar till `azureWebAppPublishProfile` hemligheten som du skapade tidigare.
+
+```yaml
+# File: .github/workflows/workflow.yml
+
+on: push
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@master
+    
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: 'npm install, build, and test'
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+          uses: azure/webapps-deploy@v2
+          with: 
+            app-name: node-rn
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+```
+
+---
+
 ## <a name="next-steps"></a>Nästa steg
 
 Du hittar vår uppsättning åtgärder grupperade i olika databaser på GitHub, var och en innehåller dokumentation och exempel som hjälper dig att använda GitHub för CI/CD och distribuera dina appar till Azure.
 
-- [Åtgärds arbets flöde för distribution till Azure](https://github.com/Azure/actions-workflow-samples)
+- [Åtgärder arbets flöden att distribuera till Azure](https://github.com/Azure/actions-workflow-samples)
 
 - [Azure-inloggning](https://github.com/Azure/login)
 

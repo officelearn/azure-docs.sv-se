@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 01ddef37702cb4dedaefb3e94e488ef478f292c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520808"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080838"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -30,12 +30,12 @@ Du kan vara värd för dina API: er på [Azure App Service](../app-service/overv
 > [!TIP] 
 > Även om du kan distribuera dina API: er som webbappar, bör du överväga att distribuera dina API: er som API Apps, vilket kan göra jobbet enklare när du skapar, är värd för och använder API: er i molnet och lokalt. Du behöver inte ändra någon kod i dina API: er – distribuera bara din kod till en API-app. Lär dig till exempel hur du skapar API-appar som skapats med följande språk: 
 > 
-> * [ASP.net](../app-service/app-service-web-get-started-dotnet.md). 
-> * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
-> * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
-> * [Ruby](../app-service/containers/quickstart-ruby.md)
+> * [ASP.net](../app-service/quickstart-dotnetcore.md). 
+> * [Java](../app-service/quickstart-java.md)
+> * [Node.js](../app-service/quickstart-nodejs.md)
+> * [PHP](../app-service/quickstart-php.md)
+> * [Python](../app-service/quickstart-python.md)
+> * [Ruby](../app-service/quickstart-ruby.md)
 >
 > För API-AppData som skapats för Logic Apps, besök [Azure Logic Apps GitHub-lagringsplatsen](https://github.com/logicappsio) eller [bloggen](https://aka.ms/logicappsblog).
 
@@ -173,7 +173,7 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 
 | Förfrågan ingår `triggerState` ? | API-svar | 
 | -------------------------------- | -------------| 
-| Nej | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
+| No | Returnera en HTTP- `202 ACCEPTED` status plus ett `location` sidhuvud med `triggerState` angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
 | Ja | Kontrol lera om det finns filer som har lagts till efter for i-tjänsten `DateTime` `triggerState` . | 
 ||| 
 

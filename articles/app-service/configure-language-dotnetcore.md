@@ -1,24 +1,27 @@
 ---
-title: Konfigurera Windows ASP.NET Core-appar
-description: Lär dig hur du konfigurerar en ASP.NET Core-app i de interna Windows-instanserna av App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+title: Konfigurera ASP.NET Core appar
+description: Lär dig hur du konfigurerar en ASP.NET Core-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 5819fc5b2d6e64d1812dacd88a2a4f840f6e03c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: 77bff369e2af09921a2065a031166c017128f008
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84908149"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080172"
 ---
-# <a name="configure-a-windows-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Windows ASP.NET Core-app för Azure App Service
+# <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurera en ASP.NET Core app för Azure App Service
 
 > [!NOTE]
 > Information om ASP.NET i .NET Framework finns i [Konfigurera en ASP.net-app för Azure App Service](configure-language-dotnet-framework.md)
 
-ASP.NET Core appar måste distribueras till Azure App Service som kompilerade binärfiler. Verktyget Visual Studio Publishing skapar lösningen och distribuerar sedan de kompilerade binärfilerna direkt, medan App Service distributions motor distribuerar kod databasen först och kompilerar sedan binärfilerna. Information om Linux-appar finns i [Konfigurera en linux ASP.net Core-app för Azure App Service](containers/configure-language-dotnetcore.md).
+ASP.NET Core appar måste distribueras till Azure App Service som kompilerade binärfiler. Verktyget Visual Studio Publishing skapar lösningen och distribuerar sedan de kompilerade binärfilerna direkt, medan App Service distributions motor distribuerar kod databasen först och kompilerar sedan binärfilerna.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET Core utvecklare. Om du aldrig har använt Azure App Service ska du först följa snabb starten för [ASP.net](app-service-web-get-started-dotnet.md) och [ASP.net Core med SQL Database själv studie kursen](app-service-web-tutorial-dotnetcore-sqldb.md) .
+Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET Core utvecklare. Om du aldrig har använt Azure App Service, följer du anvisningarna [ASP.net Core snabb start](quickstart-dotnetcore.md) och [ASP.net Core med SQL Database själv studie kursen](tutorial-dotnetcore-sqldb-app.md) först.
+
+::: zone pivot="platform-windows"  
 
 ## <a name="show-supported-net-core-runtime-versions"></a>Visa de .NET Core runtime-versioner som stöds
 
@@ -28,9 +31,69 @@ I App Service har Windows-instanser redan alla .NET Core-versioner som stöds in
 dotnet --info
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="show-net-core-version"></a>Visa .NET Core-version
+
+Om du vill visa den aktuella .NET Core-versionen kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Om du vill visa alla .NET Core-versioner som stöds kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep DOTNETCORE
+```
+
+::: zone-end
+
 ## <a name="set-net-core-version"></a>Ange .NET Core-version
 
+::: zone pivot="platform-windows"  
+
 Ange mål ramverket i projekt filen för ditt ASP.NET Core-projekt. Mer information finns i [Välj den .net Core-version som ska användas](https://docs.microsoft.com/dotnet/core/versions/selection) i .net Core-dokumentationen.
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ange .net Core-versionen till 3,1:
+
+```azurecli-interactive
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|3.1"
+```
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
+
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
+
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
+1. Kör `dotnet restore` för att återställa NuGet-beroenden.
+1. Kör `dotnet publish` för att skapa en binär för produktion.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
+
+`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
+
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Mer information om hur App Service kör och skapar ASP.NET Core appar i Linux finns i [Oryx-dokumentation: hur .net Core Apps identifieras och skapas](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md).
+
+::: zone-end
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
@@ -103,7 +166,7 @@ Mer information om hur du felsöker ASP.NET Core appar i App Service finns i [fe
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När din ASP.NET Core-app genererar ett undantag i Visual Studio-felsökaren, visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller **så uppstod ett fel när din begäran bearbetades.** . Om du vill visa sidan detaljerad undantag i App Service lägger du till `ASPNETCORE_ENVIRONMENT` appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När din ASP.NET Core-app genererar ett undantag i Visual Studio-felsökaren, visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller **så uppstod ett fel när din begäran bearbetades.** som meddelande. Om du vill visa sidan detaljerad undantag i App Service lägger du till `ASPNETCORE_ENVIRONMENT` appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -115,7 +178,7 @@ I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_p
 
 - Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och- `X-Forwarded-Proto` rubrikerna i `Startup.ConfigureServices` .
 - Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.
-- Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra middlewares.
+- Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra mellanprogram.
 
 Om du placerar alla tre element tillsammans ser koden ut som i följande exempel:
 
@@ -146,7 +209,25 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar och belastningsutjämnare](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
+::: zone pivot="platform-linux"
+
+## <a name="open-ssh-session-in-browser"></a>Öppna SSH-session i webbläsare
+
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ASP.NET Core app med SQL Database](app-service-web-tutorial-dotnetcore-sqldb.md)
+> [Självstudie: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+
+::: zone-end
+

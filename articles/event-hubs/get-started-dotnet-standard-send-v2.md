@@ -3,12 +3,12 @@ title: Skicka eller ta emot händelser från Azure Event Hubs med .NET (senaste)
 description: Den här artikeln innehåller en genom gång av hur du skapar ett .NET Core-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av det senaste Azure. Messaging. EventHubs-paketet.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e7f40b0312798667b63c6cf5d02772307dbc2b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 292e6e36337f565100c25d655882e60fa2a0bb6d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537147"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080063"
 ---
 # <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Skicka händelser till och ta emot händelser från Azure Event Hubs-.NET (Azure. Messaging. EventHubs) 
 Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av **Azure. Messaging. EventHubs** .net-biblioteket. 
@@ -105,7 +105,7 @@ Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skic
     > Den fullständiga käll koden med mer informations kommentarer finns i [den här filen på GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/samples/Sample03_PublishAnEventBatch.cs)
 
 ## <a name="receive-events"></a>Ta emot händelser
-Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med en händelse processor. Händelse processorn fören klar mottagandet av händelser från Event Hub genom att hantera permanenta kontroll punkter och parallella mottaganden från dessa händelse nav. En händelse processor är associerad med en speciell händelsehubben och en konsument grupp. Den tar emot händelser från flera partitioner i händelsehubben och skickar dem till en hanterare som delegeras för bearbetning med hjälp av kod som du anger. 
+Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med en händelse processor. Händelse processorn fören klar mottagandet av händelser från Event Hub genom att hantera permanenta kontroll punkter och parallella mottagningar från dessa händelse nav. En händelse processor är associerad med en speciell händelsehubben och en konsument grupp. Den tar emot händelser från flera partitioner i händelsehubben och skickar dem till en hanterare som delegeras för bearbetning med hjälp av kod som du anger. 
 
 
 > [!NOTE]
@@ -114,7 +114,7 @@ Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot
 ### <a name="create-an-azure-storage-and-a-blob-container"></a>Skapa en Azure Storage och en BLOB-behållare
 I den här snabb starten använder du Azure Storage som kontroll punkts arkiv. Följ dessa steg om du vill skapa ett Azure Storage-konto. 
 
-1. [Skapa ett Azure Storage konto](../storage/common/storage-account-create.md?tabs=azure-portal)
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal)
 2. [Skapa en blobcontainer](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
 3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md)
 

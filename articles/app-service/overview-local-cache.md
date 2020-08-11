@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 739eb4e7968cb140e49f1baee777b48140811936
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034965"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080719"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
 > [!NOTE]
-> Local cache stöds inte i Function Apps eller i behållare App Service appar, t. ex. i [Windows-behållare](app-service-web-get-started-windows-container.md) eller på [App Service i Linux](containers/app-service-linux-intro.md).
+> Local cache stöds inte i Function Apps eller i behållare App Service appar, t. ex. i [Windows-behållare](quickstart-custom-container.md?pivots=container-windows) eller på [App Service i Linux](overview.md#app-service-on-linux).
 
 
 Azure App Service innehåll lagras på Azure Storage och finns på ett hållbart sätt som en innehålls resurs. Den här designen är avsedd att användas med en mängd olika appar och har följande attribut:  
@@ -102,7 +102,7 @@ Om din app behöver ett högpresterande, tillförlitligt innehålls lager, anvä
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Hur vet jag om min webbplats har växlat till att använda det lokala cacheminnet?
 Om du använder funktionen Local cache med mellanlagrings miljöer slutförs inte växlings åtgärden förrän den lokala cachen har värmts upp. Om du vill kontrol lera om platsen körs mot lokal cache kan du kontrol lera variabeln för arbets process miljön `WEBSITE_LOCALCACHE_READY` . Använd instruktionerna på sidan [arbets process miljö variabel](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) för att komma åt variabeln för arbets process miljön på flera instanser.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför det?
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Jag publicerade bara nya ändringar, men appen verkar inte ha dem. Varför?
 Om din app använder lokal cache måste du starta om platsen för att få de senaste ändringarna. Vill du inte publicera ändringar på en produktions plats? Se plats alternativen i avsnittet tidigare metod tips.
 
 > [!NOTE]

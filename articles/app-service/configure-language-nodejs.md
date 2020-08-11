@@ -1,29 +1,32 @@
 ---
-title: Konfigurera Windows Node.js-appar
-description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna av App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
+title: Konfigurera Node.js appar
+description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. Den här artikeln visar de vanligaste konfigurations åtgärderna.
 ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 0fc6ed5cb090653e381d82f484d355a514520c62
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+zone_pivot_groups: app-service-platform-windows-linux
+ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170916"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080121"
 ---
-# <a name="configure-a-windows-nodejs-app-for-azure-app-service"></a>Konfigurera en Windows Node.js-app för Azure App Service
+# <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurera en Node.js app för Azure App Service
 
-Node.js appar måste distribueras med alla nödvändiga NPM-beroenden. App Service distributions motorn körs automatiskt `npm install --production` åt dig när du distribuerar en [git-lagringsplats](deploy-local-git.md)eller ett [zip-paket](deploy-zip.md) med build-automatisering aktiverat. Om du distribuerar dina filer med [FTP/S](deploy-ftp.md)måste du dock ladda upp de nödvändiga paketen manuellt. Information om Linux-appar finns i [Konfigurera en Linux php-app för Azure App Service](containers/configure-language-nodejs.md).
+Node.js appar måste distribueras med alla nödvändiga NPM-beroenden. App Service distributions motorn körs automatiskt `npm install --production` åt dig när du distribuerar en [git-lagringsplats](deploy-local-git.md)eller ett [zip-paket](deploy-zip.md) med build-automatisering aktiverat. Om du distribuerar dina filer med [FTP/S](deploy-ftp.md)måste du dock ladda upp de nödvändiga paketen manuellt.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för Node.js utvecklare som distribuerar till App Service. Om du aldrig har använt Azure App Service följer du själv studie kursen [Node.js snabb start](app-service-web-get-started-nodejs.md) och [Node.js med MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md) .
+Den här guiden innehåller viktiga begrepp och instruktioner för Node.js utvecklare som distribuerar till App Service. Om du aldrig har använt Azure App Service följer du själv studie kursen [Node.js snabb start](quickstart-nodejs.md) och [Node.js med MongoDB](tutorial-nodejs-mongodb-app.md) .
 
 ## <a name="show-nodejs-version"></a>Visa Node.js version
+
+::: zone pivot="platform-windows"  
 
 Om du vill visa den aktuella Node.js versionen kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
+az webapp config appsettings list --name <app-name> --resource-group <resource-group-name> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION'].value"
 ```
 
 Om du vill visa alla Node.js-versioner som stöds kör du följande kommando i [Cloud Shell](https://shell.azure.com):
@@ -32,7 +35,27 @@ Om du vill visa alla Node.js-versioner som stöds kör du följande kommando i [
 az webapp list-runtimes | grep node
 ```
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Om du vill visa den aktuella Node.js versionen kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
+```
+
+Om du vill visa alla Node.js-versioner som stöds kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --linux | grep NODE
+```
+
+::: zone-end
+
 ## <a name="set-nodejs-version"></a>Ange Node.js version
+
+::: zone pivot="platform-windows"  
 
 Om du vill ställa in din app på en [Node.js-version som stöds](#show-nodejs-version)kör du följande kommando i [Cloud Shell](https://shell.azure.com) för att ange `WEBSITE_NODE_DEFAULT_VERSION` en version som stöds:
 
@@ -45,6 +68,135 @@ Den här inställningen anger vilken Node.js-version som ska användas, både vi
 > [!NOTE]
 > Du bör ange Node.js versionen i projektets `package.json` . Distributions motorn körs i en separat process som innehåller alla Node.js-versioner som stöds.
 
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+Om du vill ställa in appen till en [Node.js-version som stöds](#show-nodejs-version)kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
+```
+
+Den här inställningen anger vilken Node.js-version som ska användas, både vid körning och vid automatisk återställning av paketet i kudu.
+
+> [!NOTE]
+> Du bör ange Node.js versionen i projektets `package.json` . Distributions motorn körs i en separat behållare som innehåller alla Node.js-versioner som stöds.
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+## <a name="customize-build-automation"></a>Anpassa Bygg automatisering
+
+Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatisering aktiverat, App Service bygga automatiserings steg i följande ordning:
+
+1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
+1. Kör `npm install` utan några flaggor, som innehåller NPM `preinstall` och `postinstall` skript och som också installeras `devDependencies` .
+1. Kör `npm run build` om ett build-skript anges i *package.jspå*.
+1. Kör `npm run build:azure` om en version: Azure-skript anges i *package.jspå*.
+1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
+
+> [!NOTE]
+> Som beskrivs i [NPM-dokument](https://docs.npmjs.com/misc/scripts), skript som heter `prebuild` och `postbuild` körs före och efter `build` , om de anges. `preinstall`och `postinstall` Kör före respektive efter `install` .
+
+`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
+
+I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+Ytterligare miljövariabler för att anpassa Bygg automatisering finns i [Oryx-konfiguration](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md).
+
+Mer information om hur App Service kör och skapar Node.js appar i Linux finns i [Oryx-dokumentation: hur Node.js appar identifieras och skapas](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md).
+
+## <a name="configure-nodejs-server"></a>Konfigurera Node.js Server
+
+Node.js behållare levereras med [PM2](https://pm2.keymetrics.io/), en produktions process hanterare. Du kan konfigurera appen så att den startar med PM2, eller med NPM, eller med ett anpassat kommando.
+
+- [Kör anpassat kommando](#run-custom-command)
+- [Kör NPM-start](#run-npm-start)
+- [Kör med PM2](#run-with-pm2)
+
+### <a name="run-custom-command"></a>Kör anpassat kommando
+
+App Service kan starta din app med ett anpassat kommando, till exempel en körbar fil som *Run.sh*. Om du till exempel vill köra kör du `npm run start:prod` följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
+```
+
+### <a name="run-npm-start"></a>Kör NPM-start
+
+För att starta din app med `npm start` , se bara till att `start` det finns ett skript i *package.jspå* filen. Till exempel:
+
+```json
+{
+  ...
+  "scripts": {
+    "start": "gulp",
+    ...
+  },
+  ...
+}
+```
+
+Om du vill använda en anpassad *package.js* i projektet kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
+```
+
+### <a name="run-with-pm2"></a>Kör med PM2
+
+Behållaren startar automatiskt appen med PM2 när en av de vanliga Node.js-filerna finns i projektet:
+
+- *bin/www*
+- *server.js*
+- *app.js*
+- *index.js*
+- *hostingstart.js*
+- En av följande [PM2-filer](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.jspå* och *ecosystem.config.js*
+
+Du kan också konfigurera en anpassad start fil med följande fil namns tillägg:
+
+- En *. js* -fil
+- En [PM2-fil](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med fil namns tillägget *. JSON*, *.config.js*, *. yaml*eller *. yml*
+
+Om du vill lägga till en anpassad start fil kör du följande kommando i [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
+```
+
+## <a name="debug-remotely"></a>Felsöka via en fjärranslutning
+
+> [!NOTE]
+> Fjärrfelsökning är för närvarande en för hands version.
+
+Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml*.
+
+I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process.jspå* fil (standard eller anpassad), måste den ha en `script` egenskap i JSON-roten. Till exempel:
+
+```json
+{
+  "name"        : "worker",
+  "script"      : "./index.js",
+  ...
+}
+```
+
+Om du vill konfigurera Visual Studio Code för fjärrfelsökning, installerar du [App Service-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Följ instruktionerna på sidan anknytning och logga in på Azure i Visual Studio Code.
+
+I Azure Explorer letar du reda på den app som du vill felsöka, högerklickar på den och väljer **Starta fjärrfelsökning**. Klicka på **Ja** för att aktivera den för din app. App Service startar en tunnel-proxy för dig och kopplar fel söknings programmet. Du kan sedan göra förfrågningar till appen och se fel söknings verktyget pausas vid Bryt punkter.
+
+När du är färdig med fel sökningen stoppar du fel sökningen genom att välja **Koppla från**. När du uppmanas bör du klicka på **Ja** om du vill inaktivera fjärrfelsökning. Om du vill inaktivera det senare högerklickar du på din app igen i Azure Explorer och väljer **inaktivera fjärrfelsökning**.
+
+::: zone-end
+
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
 I App Service kan du [Ange inställningar för appar](configure-common.md) utanför appens kod. Sedan kan du komma åt dem med standard Node.jss mönstret. Om du till exempel vill få åtkomst till en appinställning med namnet `NODE_ENV` använder du följande kod:
@@ -55,7 +207,7 @@ process.env.NODE_ENV
 
 ## <a name="run-gruntbowergulp"></a>Kör grunt/Bower/Gulp
 
-App Service Bygg automatisering körs som standard `npm install --production` när den identifierar en Node.js-app distribueras via git (eller zip-distribution med build-automatisering aktiverat). Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
+App Service Bygg automatisering körs som standard `npm install --production` när den identifierar en Node.js-app distribueras via git eller zip-distribution med funktionen för att bygga automatisering aktive rad. Om din app kräver något av de populära automatiserings verktygen, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) för att köra det.
 
 Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Till exempel:
 
@@ -148,7 +300,17 @@ if (req.secure) {
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
+::: zone pivot="platform-windows"  
+
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
+
+::: zone-end
+
+::: zone pivot="platform-linux"
+
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+::: zone-end
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -161,8 +323,21 @@ Prova följande när en fungerande Node.js-app fungerar annorlunda i App Service
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör din app i App Service i utvecklings läge. I [MEAN.js](https://meanjs.org/)kan du till exempel ställa in appen i utvecklings läge i körningen genom [att ställa in `NODE_ENV` appens inställning](configure-common.md).
 
+::: zone pivot="platform-linux"
+
+[!INCLUDE [robots933456](../../includes/app-service-web-configure-robots933456.md)]
+
+::: zone-end
+
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Node.js app med MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+> [Självstudie: Node.js app med MongoDB](tutorial-nodejs-mongodb-app.md)
+
+::: zone pivot="platform-linux"
+
+> [!div class="nextstepaction"]
+> [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
+
+::: zone-end
 

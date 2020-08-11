@@ -7,20 +7,20 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 074010a2f3b1f4f4a58b3c4727bf4eed28402e0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed7cec34b4bca1882d069997d4f89677cda32447
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82142622"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080957"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Börja övervaka din ASP.NET-webbapp
 
 Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning.  Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem.  Med hjälp av informationen du samlar in från Application Insights om appens prestanda och effektivitet kan du göra välgrundade val för att underhålla och förbättra ditt program.
 
-Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har ett ASP.NET-webbprogram kan du skapa ett som följer snabb starten för att [skapa en ASP.NET-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md).
+Den här snabbstarten visar hur du lägger till Application Insights till en befintlig ASP.NET-webbapp och börjar analysera livestatistik. Det är bara en av de olika metoderna du kan använda för att analysera din app. Om du inte har ett ASP.NET-webbprogram kan du skapa ett som följer snabb starten för att [skapa en ASP.NET-webbapp](../../app-service/quickstart-dotnet-framework.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här snabbstarten behöver du:
 
 - Installera [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) med följande arbets belastningar:
@@ -28,7 +28,7 @@ För att slutföra den här snabbstarten behöver du:
     - Azure Development
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 4. Välj din prenumeration och klicka på **Registrera**.
 
-5. Välj **projekt** > **Hantera NuGet paket** > **Källa: NuGet.org** > **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
+5. Välj **projekt**  >  **Hantera NuGet paket**  >  **Källa: NuGet.org**  >  **Uppdatera** Application Insights SDK-paket till den senaste stabila versionen.
 
 6. Kör ditt program genom att antingen välja alternativet för att **starta felsökning** på menyn **Felsök** eller genom att trycka på tangenten F5.
 
@@ -52,7 +52,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 Application Insights samlar in telemetridata för tillämpningsprogrammet oavsett var det körs. Gör så här om du vill börja granska dessa data:
 
-1. Öppna Application Insights genom att klicka på **Visa** -> **andra Windows** -> **Application Insights Sök**.  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. Öppna Application Insights genom att klicka på **Visa**  ->  **andra Windows**  ->  **Application Insights Sök**.  Du kan se telemetrin från den aktuella sessionen.<BR><br>![Telemetri i Visual Studio](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. Klicka på den första begäran i listan (GET Home/Index i det här exemplet) för att se mer information. Observera att både statuskoden och svarstiden ingår tillsammans med annan värdefull information om begäran.<br><br>![Svarsinformation i Visual Studio](media/quick-monitor-portal/request-details.png)
 
@@ -68,7 +68,7 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
     ![Programkarta](media/quick-monitor-portal/05-appmap.png)
 
-3. Klicka på vyn program översikt](media/quick-monitor-portal/app-viewinlogs-icon.png) för ![ **app Analytics** -ikon **i loggar (Analytics)** på en av program komponenterna. Detta öppnar **loggar (analyser)**, som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Klicka på vyn program översikt för **app Analytics** -ikon ![ ](media/quick-monitor-portal/app-viewinlogs-icon.png) **i loggar (Analytics)** på en av program komponenterna. Detta öppnar **loggar (analyser)**, som innehåller ett omfattande frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
     ![Analytics](media/quick-monitor-portal/6viewanalytics.png)
 
@@ -76,7 +76,7 @@ Nu kan du öppna Application Insights i Azure-portalen för att visa olika detal
 
     ![Direktsänd ström](media/quick-monitor-portal/7livemetrics.png)
 
-    Om du är redo att vara värd för programmet i Azure kan publicera den nu. Följ stegen i informationen om att [skapa en snabbstart för ASP.NET-webbappen](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy).
+    Om du är redo att vara värd för programmet i Azure kan publicera den nu. Följ stegen i informationen om att [skapa en snabbstart för ASP.NET-webbappen](../../app-service/quickstart-dotnetcore.md#update-the-app-and-redeploy).
 
 5. Om du använder Visual Studio för att lägga till Application Insights-övervakning kan du automatiskt lägga till övervakning på klientsidan. För att lägga till övervakning på klientsidan manuellt till ett program lägger du till följande JavaScript för ditt program:
 

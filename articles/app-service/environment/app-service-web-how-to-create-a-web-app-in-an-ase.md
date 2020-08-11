@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 0407bde00c703663227230a0b6ff2de287f6650c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007071"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080617"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -24,7 +24,7 @@ ms.locfileid: "88007071"
 I den här självstudien visas hur du skapar webbappar och App Service-planer i en [App Service-miljön v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
-> Om du vill lära dig hur du skapar en webbapp men inte behöver göra det i en App Service-miljön, se [skapa en .NET-webbapp](../app-service-web-get-started-dotnet.md) eller någon av de relaterade självstudierna för andra språk och ramverk.
+> Om du vill lära dig hur du skapar en webbapp men inte behöver göra det i en App Service-miljön, se [skapa en .NET-webbapp](../quickstart-dotnetcore.md) eller någon av de relaterade självstudierna för andra språk och ramverk.
 > 
 > 
 

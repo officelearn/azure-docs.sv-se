@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74980067"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080940"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrering med tjänst slut punkter
 Det finns tre varianter av App Service som kräver något annorlunda konfiguration av integreringen med Azure Application Gateway. Varianterna omfattar vanliga App Service, även kallade flera innehavare, interna Load Balancer (ILB) App Service-miljön (ASE) och externa ASE. Den här artikeln går igenom hur du konfigurerar den med App Service (flera innehavare) och diskuterar överväganden om ILB och externa ASE.
@@ -33,7 +33,7 @@ Det finns två delar i den här konfigurationen, förutom att skapa App Service 
 
 ## <a name="using-azure-portal"></a>Använda Azure Portal
 Med Azure Portal följer du fyra steg för att etablera och konfigurera installationen. Om du har befintliga resurser kan du hoppa över de första stegen.
-1. Skapa en App Service med en av snabb starterna i App Service-dokumentationen, till exempel [.net Core snabb start](../../app-service/app-service-web-get-started-dotnet.md)
+1. Skapa en App Service med en av snabb starterna i App Service-dokumentationen, till exempel [.net Core snabb start](../quickstart-dotnetcore.md)
 2. Skapa en Application Gateway med hjälp av [portalens snabb start](../../application-gateway/quick-create-portal.md), men hoppa över avsnittet Lägg till Server dels mål.
 3. Konfigurera [app service som Server del i Application Gateway](../../application-gateway/configure-web-app-portal.md), men hoppa över avsnittet begränsa åtkomst.
 4. Skapa slutligen [åtkomst begränsningen med hjälp av tjänst slut punkter](../../app-service/app-service-ip-restrictions.md#service-endpoints).

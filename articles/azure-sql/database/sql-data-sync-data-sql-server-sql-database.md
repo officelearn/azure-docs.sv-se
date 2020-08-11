@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 0e6229e38674651f3db068d30f68ef4c7e293c0a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 7f5ce25edfc4c3afd8a30528396f1f285b9af571
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386851"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080702"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -131,6 +131,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 ### <a name="general-limitations"></a>Allmänna begränsningar
 
 - En tabell kan inte ha en identitets kolumn som inte är primär nyckel.
+- En tabell måste ha ett grupperat index för att kunna använda datasynkronisering.
 - En primär nyckel kan inte ha följande data typer: sql_variant, Binary, varbinary, image, XML.
 - Var försiktig när du använder följande data typer som primär nyckel, eftersom den precision som stöds endast är för den andra: Time, DateTime, datetime2, DateTimeOffset.
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
@@ -148,7 +149,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 
 #### <a name="unsupported-column-types"></a>Kolumn typer som inte stöds
 
-Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Ett exempel:
+Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade kolumner. Till exempel:
 
 - Beräknade kolumner.
 - Systemgenererade kolumner för temporala tabeller.
@@ -249,7 +250,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

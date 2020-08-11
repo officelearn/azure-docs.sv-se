@@ -3,12 +3,12 @@ title: Azure Windows Communication Foundation (WCF) Relay hybrid lokalt/moln pro
 description: Lär dig att göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 78d250eb2572f137df4bcfd40c5c85cee9fb61dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9ac01beb28b1246122f437bcf1c7a7be7a1dfd9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314411"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079968"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Göra en lokal WCF-tjänst tillgänglig för en webbapp i molnet med Azure Relay
 
@@ -30,7 +30,7 @@ Du utför följande uppgifter i den här självstudien:
 > * Distribuera webbappen till Azure.
 > * Kör appen på Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
@@ -244,7 +244,7 @@ I det här avsnittet skapar du ett enkelt ASP.NET-program som visar data som hä
     ![Ange autentisering][18]
 
 1. Tillbaka i **skapa ett nytt ASP.NET-webbprogram**, Välj **skapa** för att skapa MVC-appen.
-1. Konfigurera Azure-resurser för en ny webbapp. Följ stegen i [publicera din](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)webbapp. Gå sedan tillbaka till den här självstudien och fortsätt till nästa steg.
+1. Konfigurera Azure-resurser för en ny webbapp. Följ stegen i [publicera din](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)webbapp. Gå sedan tillbaka till den här självstudien och fortsätt till nästa steg.
 1. I **Solution Explorer**högerklickar du på **modeller** och väljer sedan **Lägg till**  >  **klass**.
 1. Namnge klassen *Product.cs*och välj sedan **Lägg till**.
 
@@ -427,7 +427,7 @@ Stäng båda programmen innan du fortsätter till nästa avsnitt.
 
 Nästa steg är att publicera om Azure Web App **ProductsPortal** -klient delen:
 
-1. I **Solution Explorer**högerklickar du på projektet **ProductsPortal** och väljer **publicera**. På sidan **publicera** väljer du **publicera**.
+1. I **Solution Explorer**högerklickar du på projektet **ProductsPortal** och väljer **publicera**. På sidan **Publicera** väljer du **Publicera**.
 
    > [!NOTE]
    > Du kanske får upp ett felmeddelande i webbläsarfönstret när webbprojektet **ProductsPortal** startas automatiskt efter distributionen. Detta är normalt och beror på att **ProductsServer**-programmet ännu inte körs.

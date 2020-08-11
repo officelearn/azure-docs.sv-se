@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: aae0ed4efa7f96ab6258dbf0ce4c34a6879ecbc2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832815"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080325"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
@@ -64,7 +64,7 @@ Du kan migrera dina befintliga program till App Service med hjälp av [verktyget
 
 > **När du ska använda**: Använd App Service när du migrerar befintliga webb program till Azure och när du behöver en fullständigt hanterad värd plattform för dina webb program. Du kan också använda App Service när du behöver stöd för mobila klienter eller exponera REST-API: er med din app.
 >
-> **Kom igång**: App Service gör det enkelt att skapa och distribuera din första [webbapp](../../app-service/app-service-web-get-started-dotnet.md), [mobilapp](../../app-service-mobile/app-service-mobile-ios-get-started.md)eller [API-app](../../app-service/app-service-web-tutorial-rest-api.md).
+> **Kom igång**: App Service gör det enkelt att skapa och distribuera din första [webbapp](../../app-service/quickstart-dotnetcore.md), [mobilapp](../../app-service-mobile/app-service-mobile-ios-get-started.md)eller [API-app](../../app-service/app-service-web-tutorial-rest-api.md).
 >
 > **Prova nu**: App Service gör att du kan etablera en app med kort livs längd för att testa plattformen utan att behöva registrera dig för ett Azure-konto. Testa plattformen och [skapa din Azure App Service-app](https://tryappservice.azure.com/).
 

@@ -3,12 +3,12 @@ title: Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
 description: 'Lär dig hur du använder Azure DevTest Labs i pipeline: build och release i Azure.'
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483082"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080342"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
 Den här artikeln innehåller information om hur DevTest Labs kan användas i pipeline: build och release i Azure. 
@@ -26,7 +26,7 @@ När bygget har slutförts använder **lanserings pipeline** Bygg artefakterna f
 
 En av de nödvändiga anläggningarna är att all information som behövs för att återskapa det testade eko systemet är tillgänglig i versions artefakterna, inklusive konfigurationen av Azure-resurserna. Eftersom Azure-resurser betalar en kostnad när de används vill företag antingen styra eller spåra användningen av dessa resurser. I vissa situationer kan Azure Resource Manager mallar som används för att skapa och konfigurera resurser hanteras av en annan avdelning, till exempel. Och de här mallarna kan lagras i en annan lagrings plats. Det leder till en intressant situation där en version skapas och testas, och både koden och konfigurationen måste lagras i bygg artefakterna för att återskapa systemet i produktion på rätt sätt. 
 
-Med DevTest Labs under build/test-fasen kan du lägga till Azure Resource Manager mallar och stödfiler till versions källorna så att den exakta konfigurationen som används för att testa med distribueras till produktion under den versions fas som används för att testa med. Med rätt konfiguration sparas Resource Manager-mallarna i versions artefakterna för aktiviteten **skapa Azure DevTest Labss miljö** med rätt konfiguration. I det här exemplet använder du koden från [självstudien: Bygg en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)för att distribuera och testa webbappen i Azure.
+Med DevTest Labs under build/test-fasen kan du lägga till Azure Resource Manager mallar och stödfiler till versions källorna så att den exakta konfigurationen som används för att testa med distribueras till produktion under den versions fas som används för att testa med. Med rätt konfiguration sparas Resource Manager-mallarna i versions artefakterna för aktiviteten **skapa Azure DevTest Labss miljö** med rätt konfiguration. I det här exemplet använder du koden från [självstudien: Bygg en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md)för att distribuera och testa webbappen i Azure.
 
 ![Övergripande flöde](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Det finns ett par objekt som måste skapas i förväg:
 Pipelinen build skapar en DevTest Labs-miljö och distribuerar koden för testning.
 
 ## <a name="set-up-a-build-pipeline"></a>Konfigurera en pipeline för bygge
-I Azure-pipeline skapar du en versions pipeline med hjälp av koden från [självstudien: skapa en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
+I Azure-pipeline skapar du en versions pipeline med hjälp av koden från [självstudien: skapa en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
 
 ![Välj mallen ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

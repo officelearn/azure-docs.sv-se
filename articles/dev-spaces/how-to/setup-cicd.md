@@ -8,12 +8,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Lär dig hur du konfigurerar kontinuerlig integrering/kontinuerlig distribution med Azure DevOps med Azure dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 3a5f232111bd01f707080cc1638970f8dc51e6fa
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c7b3eba0bea85082dbb4e39d108af9471d5dc45e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229337"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080274"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev Spaces
 
@@ -23,8 +23,8 @@ Den här artikeln vägleder dig genom att konfigurera kontinuerlig integrering/k
 
 Även om den här artikeln vägleder dig med Azure DevOps, gäller samma koncept för CI/CD-system som Jenkins, TeamCity osv.
 
-## <a name="prerequisites"></a>Krav
-* [Azure Kubernetes service-kluster (AKS) med Azure dev-platser aktiverat](../get-started-netcore.md)
+## <a name="prerequisites"></a>Förutsättningar
+* Azure Kubernetes service-kluster (AKS) med Azure dev-platser aktiverat
 * [Azure dev Spaces CLI installerat](upgrade-tools.md)
 * [Azure DevOps-organisation med ett projekt](/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
@@ -77,7 +77,7 @@ Så här skapar du en pipeline från den här filen:
 1. Välj alternativet för att skapa en **ny** versions pipeline.
 1. Välj **GitHub** som källa, auktorisera med ditt GitHub-konto om det behövs och välj den _azds_updates_ grenen från den förgrenade versionen av exempel program lagrings platsen för _dev-Spaces_ .
 1. Välj **konfiguration som kod**eller **yaml**som mall.
-1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Ett exempel är `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Till exempel `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Gå till fliken **variabler** .
 1. Lägg till _dockerId_ manuellt som en variabel, vilket är användar namnet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). (Anges i artikel förutsättningar)
 1. Lägg till _dockerPassword_ manuellt som en variabel, vilket är lösen ordet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). Se till att ange _dockerPassword_ som en hemlighet (genom att välja Lås ikonen) av säkerhets synpunkt.
@@ -185,5 +185,7 @@ Här är ett exempel på en namn områdes struktur som stöder funktions utveckl
 
 ## <a name="next-steps"></a>Nästa steg
 
+Lär dig mer om hur Azure dev Spaces fungerar.
+
 > [!div class="nextstepaction"]
-> [Lär dig mer om team utveckling med Azure dev Spaces](../team-development-netcore.md)
+> [Så här fungerar Azure Dev Spaces](../how-dev-spaces-works.md)

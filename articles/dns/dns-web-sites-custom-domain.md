@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a250eaeb8ac4d0c8cacfb1748855700c9986bf5
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76939103"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079492"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
-Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och låta användarna få åtkomst till den med hjälp av\.antingen www-contoso.com eller contoso.com som ett fullständigt domän namn (FQDN).
+Du kan konfigurera Azure DNS för att vara värd för en anpassad domän för dina webbprogram. Du kan till exempel skapa en Azure-webbapp och låta användarna få åtkomst till den med hjälp av antingen www \. -contoso.com eller contoso.com som ett fullständigt domän namn (FQDN).
 
 > [!NOTE]
 > Contoso.com används som exempel i den här självstudien. Använd ditt eget domännamn i stället för contoso.com.
@@ -43,12 +43,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
-* [Skapa en App Service-app](../app-service/app-service-web-get-started-html.md), eller använd en app som du har skapat för en annan kurs.
+* [Skapa en App Service-app](../app-service/quickstart-html.md), eller använd en app som du har skapat för en annan kurs.
 
 * Skapa en DNS-zon i Azure DNS och delegera zonen i registratorn till Azure DNS.
 
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > Se till att du inkluderar `http://` prefixet, annars kan webbläsaren försöka förutsäga en URL åt dig!
 
-Du bör se samma sida för båda URL:er. Ett exempel:
+Du bör se samma sida för båda URL:er. Till exempel:
 
 ![Contoso-apptjänst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

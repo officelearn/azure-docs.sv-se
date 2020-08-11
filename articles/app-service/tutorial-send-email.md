@@ -4,12 +4,12 @@ description: Lär dig hur du anropar affärs processer från din App Service-app
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 2b478ae75c8be978ea93a493b65dafdc7756c4b6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083250"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080974"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Självstudie: skicka e-post och anropa andra affärs processer från App Service
 
@@ -32,23 +32,23 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-[Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+[Självstudie: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Självstudie: Bygg en Node.js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Självstudie: Bygg en Node.js-och MongoDB-app i Azure](tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-[Självstudie: bygga en PHP-och MySQL-app i Azure](app-service-web-tutorial-php-mysql.md)
+[Självstudie: bygga en PHP-och MySQL-app i Azure](tutorial-php-mysql-app.md)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-[Självstudie: köra en python-webbapp (django) med PostgreSQL i Azure App Service](containers/tutorial-python-postgresql-app.md)
+[Självstudie: köra en python-webbapp (django) med PostgreSQL i Azure App Service](tutorial-python-postgresql-app.md)
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-[Skapa en Ruby- och Postgres-app i Azure App Service på Linux](containers/tutorial-ruby-postgres-app.md)
+[Skapa en Ruby- och Postgres-app i Azure App Service på Linux](tutorial-ruby-postgres-app.md)
 
 ---
 
@@ -152,7 +152,7 @@ Klicka på fliken föredraget språk/ramverk nedan om du vill se ett exempel.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Exempel:
+I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Till exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.ne
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Exempel:
+I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Till exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -191,7 +191,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/containers/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     
@@ -201,11 +201,11 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > Den här koden är avsedd för enkel demonstration. I praktiken ska du inte instansiera ett `HttpClient` objekt för varje begäran. Följ rikt linjerna i [använda IHttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.net Core-och SQL Database-app i Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)kan du använda den för att skicka en bekräftelse via e-post i [åtgärden Skapa](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)när `Todo` objektet har lagts till.
+Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.net Core-och SQL Database-app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)kan du använda den för att skicka en bekräftelse via e-post i [åtgärden Skapa](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)när `Todo` objektet har lagts till.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Exempel:
+I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Till exempel:
 
 ```javascript
 // Requires npm install --save axios
@@ -228,11 +228,11 @@ var jsonData = {
 
 ```
 
-Om du testar den här koden i exempel appen för [Självstudier: skapa en Node.js-och MongoDB-app i Azure](app-service-web-tutorial-nodejs-mongodb-app.md), kan du använda den för att skicka en bekräftelse via e-post i [create-funktionen](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)när [artikeln har sparats](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
+Om du testar den här koden i exempel appen för [Självstudier: skapa en Node.js-och MongoDB-app i Azure](tutorial-nodejs-mongodb-app.md), kan du använda den för att skicka en bekräftelse via e-post i [create-funktionen](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27)när [artikeln har sparats](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Exempel:
+I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Till exempel:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -260,11 +260,11 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-Om du testar den här koden i exempel appen för [Självstudier: bygga en php-och MySQL-app i Azure](app-service-web-tutorial-php-mysql.md)kan du använda den för att skicka en bekräftelse via e-post i [Route::p ost-funktionen](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), precis innan Return-instruktionen.
+Om du testar den här koden i exempel appen för [Självstudier: bygga en php-och MySQL-app i Azure](tutorial-php-mysql-app.md)kan du använda den för att skicka en bekräftelse via e-post i [Route::p ost-funktionen](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), precis innan Return-instruktionen.
 
 ### <a name="python"></a>[Python](#tab/python)
 
-I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Exempel:
+I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Till exempel:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -291,11 +291,11 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-Om du testar den här koden i exempel appen för [Självstudier: köra en python-webbapp (django) med postgresql i Azure App Service](containers/tutorial-python-postgresql-app.md)kan du använda den för att skicka en bekräftelse via e-post i [Route::p ost-funktionen](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), precis innan Return-instruktionen.
+Om du testar den här koden i exempel appen för [Självstudier: köra en python-webbapp (django) med postgresql i Azure App Service](tutorial-python-postgresql-app.md)kan du använda den för att skicka en bekräftelse via e-post i [Route::p ost-funktionen](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), precis innan Return-instruktionen.
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Exempel:
+I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Till exempel:
 
 ```ruby
 clnt = JSONClient.new
@@ -308,7 +308,7 @@ body = {
 connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-Om du testar den här koden i exempel appen för att [skapa en ruby-och postgres-app i Azure App Service på Linux](containers/tutorial-ruby-postgres-app.md), kan du använda den för att skicka en bekräftelse av e-post i åtgärden [skapa](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [när den @task.save lyckas](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
+Om du testar den här koden i exempel appen för att [skapa en ruby-och postgres-app i Azure App Service på Linux](tutorial-ruby-postgres-app.md), kan du använda den för att skicka en bekräftelse av e-post i åtgärden [skapa](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [när den @task.save lyckas](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
 
 ---
 

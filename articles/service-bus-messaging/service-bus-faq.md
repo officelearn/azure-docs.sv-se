@@ -3,12 +3,12 @@ title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 04ff12d28be1dd232c5666b17d8a121f8020ca89
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371251"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080821"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -57,7 +57,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser som ska läggas till i lista
 1. Kör följande kommando från en kommando tolk: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den här IP-adressen är statisk. Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
 
@@ -66,7 +66,7 @@ Om du använder zon redundans för ditt namn område måste du utföra några yt
 1. Först kör du nslookup i namn området.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Anteckna namnet i avsnittet **icke-auktoritativt svar** , vilket är i något av följande format: 
 

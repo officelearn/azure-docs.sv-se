@@ -4,12 +4,12 @@ description: Övervakning av program prestanda för Azure App Services. Diagramm
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6c0d99e89e17c2aad3c7dcfe0056b597aa88d2a2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: d30d5fa8532b9bdec2b231daf9a59732dc1ebce8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876401"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079713"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -401,7 +401,7 @@ Den senaste informationen om Application Insights agent/tillägg finns i [viktig
 
 När du skapar en webbapp med- `ASP.NET` eller- `.NET Core` körningarna i Azure App-tjänster distribuerar den en statisk HTML-sida som en start webbplats. Den statiska webb sidan läser också in en .NET-hanterad webbdel i IIS. Detta möjliggör testning av kod lös övervakning på Server sidan, men stöder inte automatisk övervakning på klient sidan.
 
-Om du vill testa en kod lös Server och övervakning på klient sidan för ASP.NET eller ASP.NET Core i en Azure App Services-webbapp rekommenderar vi att du följer de officiella guiderna för att [skapa en ASP.net Core webbapp](../../app-service/app-service-web-get-started-dotnet.md) och [skapar en ASP.NET Framework-webbapp](../../app-service/app-service-web-get-started-dotnet-framework.md) och använder sedan instruktionerna i den aktuella artikeln för att aktivera övervakning.
+Om du vill testa en kod lös Server och övervakning på klient sidan för ASP.NET eller ASP.NET Core i en Azure App Services-webbapp rekommenderar vi att du följer de officiella guiderna för att [skapa en ASP.net Core webbapp](../../app-service/quickstart-dotnetcore.md) och [skapar en ASP.NET Framework-webbapp](../../app-service/quickstart-dotnet-framework.md) och använder sedan instruktionerna i den aktuella artikeln för att aktivera övervakning.
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
 

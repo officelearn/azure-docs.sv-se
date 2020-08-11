@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 2c5e697f3dd67087582118fb6a6e083feecf549f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050098"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080498"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -172,6 +172,41 @@ Du kan också visa den här resursen på [Azure Portal](https://portal.azure.com
 > [!NOTE]
 > När klustret har registrerats tar det cirka 5 till 10 minuter för klustrets metadata (kluster version, agent version, antal noder) till Surface på sidan Översikt i den Azure Arc-aktiverade Kubernetes-resursen i Azure Portal.
 
+## <a name="connect-using-an-outbound-proxy-server"></a>Anslut med en utgående proxyserver
+
+Om klustret ligger bakom en utgående proxyserver, måste Azure CLI och Arc-aktiverade Kubernetes-agenter dirigera sina förfrågningar via den utgående proxyservern. Följande konfiguration hjälper till att uppnå följande:
+
+1. Kontrol lera vilken version av `connectedk8s` tillägget som är installerad på datorn genom att köra det här kommandot:
+
+    ```bash
+    az -v
+    ```
+
+    Du behöver `connectedk8s` tilläggs version >= 0.2.3 för att konfigurera agenter med utgående proxy. Om du har version < 0.2.3 på datorn följer du [uppdaterings stegen](#before-you-begin) för att hämta den senaste versionen av tillägget på din dator.
+
+2. Ange de miljövariabler som krävs för Azure CLI:
+
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
+
+3. Kör kommandot Connect med de angivna proxyadresser:
+
+    ```bash
+    az connectedk8s connect -n <cluster-name> -g <resource-group> \
+    --proxy-https https://<proxy-server-ip-address>:<port> \
+    --proxy-http http://<proxy-server-ip-address>:<port> \
+    --proxy-skip-range <excludedIP>,<excludedCIDR>
+    ```
+
+> [!NOTE]
+> 1. Att ange excludedCIDR under--proxy-Skip-Range är viktigt för att säkerställa att kommunikationen i klustret inte är bruten för agenterna.
+> 2. Ovanstående proxy-specifikation används för närvarande endast för båg agenter och inte för flödes poddar som används i sourceControlConfiguration. Arc-aktiverade Kubernetes-teamet arbetar aktivt med den här funktionen och kommer snart att vara tillgänglig.
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Azure Arc-agenter för Kubernetes
+
 Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
 
 ```console
@@ -199,8 +234,6 @@ pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
 pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
-
-## <a name="azure-arc-agents-for-kubernetes"></a>Azure Arc-agenter för Kubernetes
 
 Azure Arc-aktiverade Kubernetes består av några agenter (operatörer) som körs i ditt kluster och som har distribuerats till `azure-arc` namn området.
 

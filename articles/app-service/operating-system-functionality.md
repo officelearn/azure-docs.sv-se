@@ -5,18 +5,18 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74671614"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080206"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
 I den här artikeln beskrivs vanliga funktioner för bas linje operativ system som är tillgängliga för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen omfattar fil-, nätverks-och register åtkomst samt diagnostikloggar och händelser. 
 
 > [!NOTE] 
-> [Linux-appar](containers/app-service-linux-intro.md) i App Service köras i sina egna behållare. Ingen åtkomst till värd operativ systemet tillåts, du har rot åtkomst till behållaren. På samma sätt har du administrativ åtkomst till behållaren, men ingen åtkomst till värd operativ systemet för [appar som körs i Windows-behållare](app-service-web-get-started-windows-container.md). 
+> [Linux-appar](overview.md#app-service-on-linux) i App Service köras i sina egna behållare. Ingen åtkomst till värd operativ systemet tillåts, du har rot åtkomst till behållaren. På samma sätt har du administrativ åtkomst till behållaren, men ingen åtkomst till värd operativ systemet för [appar som körs i Windows-behållare](quickstart-custom-container.md?pivots=container-windows). 
 >
 
 <a id="tiers"></a>
@@ -51,7 +51,7 @@ På grund av detta är App Service en tjänst som körs ovanpå Azure-PaaS (plat
 - En program enhet som innehåller Azure Package cspkg-filer som används exklusivt av App Service (och inte är tillgänglig för kunder)
 - En "användar enhet" (C:\ enhet), vars storlek varierar beroende på den virtuella datorns storlek. 
 
-Det är viktigt att du övervakar disk användningen när programmet växer. Om disk kvoten har nåtts kan den ha skadlig påverkan på ditt program. Ett exempel: 
+Det är viktigt att du övervakar disk användningen när programmet växer. Om disk kvoten har nåtts kan den ha skadlig påverkan på ditt program. Till exempel: 
 
 - Appen kan utlösa ett fel som anger att det inte finns tillräckligt med utrymme på disken.
 - Du kan se disk fel när du bläddrar till kudu-konsolen.
@@ -60,7 +60,7 @@ Det är viktigt att du övervakar disk användningen när programmet växer. Om 
 
 <a id="NetworkDrives"></a>
 
-### <a name="network-drives-aka-unc-shares"></a>Nätverks enheter (aka UNC-resurser)
+### <a name="network-drives-unc-shares"></a>Nätverks enheter (UNC-resurser)
 En av de unika aspekterna av App Service som gör det enkelt att distribuera appar och underhålla är att allt användar innehåll lagras på en uppsättning UNC-resurser. Den här modellen mappar väl till det gemensamma mönstret för innehålls lagring som används av lokala webb värd miljöer som har flera belastningsutjämnade servrar. 
 
 I App Service finns ett antal UNC-resurser som skapats i varje data Center. En procent andel av användar innehållet för alla kunder i varje data Center tilldelas till varje UNC-resurs. Dessutom placeras allt fil innehåll för en enskild kunds prenumeration alltid på samma UNC-resurs. 

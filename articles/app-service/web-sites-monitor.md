@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482691"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079679"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
@@ -64,11 +64,15 @@ Du kan öka eller ta bort kvoter från din app genom att uppgradera din App Serv
 > [!IMPORTANT]
 > Den **genomsnittliga svars tiden** blir föråldrad för att undvika förvirring med mått agg regeringar. Använd **svars tid** som ersättning.
 
+> [!NOTE]
+> Mått för en app inkluderar begär anden till appens SCM-plats (kudu).  Detta inkluderar begär Anden för att Visa webbplatsens logstream med hjälp av kudu.  Logstream-begäranden kan omfatta flera minuter, vilket kommer att påverka tids måtten för begäran.  Användarna bör vara medvetna om den här relationen när de använder dessa mått med autoskalning av logik.
+> 
+
 Mått ger information om appen eller App Service plan beteendet.
 
 För en app är tillgängliga mått:
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | --- | --- |
 | **Svars tid** | Den tid det tar för appen att betjäna begär Anden, i sekunder. |
 | **Genomsnittlig svars tid (inaktuell)** | Genomsnittlig tid det tar för appen att betjäna begär Anden, i sekunder. |
@@ -112,7 +116,7 @@ För en App Service plan är tillgängliga mått:
 > App Service plan mått är bara tillgängliga för planer på nivåerna *Basic*, *standard*och *Premium* .
 > 
 
-| Metric | Beskrivning |
+| Mått | Beskrivning |
 | --- | --- |
 | **CPU-procent** | Den genomsnittliga CPU som används för alla instanser av planen. |
 | **Minnes procent** | Genomsnittligt minne som används för alla instanser av planen. |

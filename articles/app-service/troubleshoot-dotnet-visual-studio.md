@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 26746a477da301eb352f002e105e883f992aaf0a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857198"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079815"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -28,8 +28,8 @@ Du får lära dig:
 
 Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](/visualstudio/debugger/intellitrace) för fel sökning. IntelliTrace ingår inte i den här självstudien.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
-Den här självstudien fungerar med utvecklings miljön, webb projekt och App Service app som du konfigurerar i [skapa en ASP.net-app i Azure App Service](app-service-web-get-started-dotnet-framework.md). För WebJobs-avsnitten behöver du det program som du skapar i [Kom igång med Azure WEBJOBS SDK][GetStartedWJ].
+## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
+Den här självstudien fungerar med utvecklings miljön, webb projekt och App Service app som du konfigurerar i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md). För WebJobs-avsnitten behöver du det program som du skapar i [Kom igång med Azure WEBJOBS SDK][GetStartedWJ].
 
 Kod exemplen som visas i den här självstudien gäller för ett C# MVC-webbprogram, men fel söknings procedurerna är desamma för Visual Basic-och webb formulär program.
 
@@ -51,7 +51,7 @@ Visual Studio ger åtkomst till en delmängd av program hanterings funktionerna 
 
     Mer information om hur du ansluter till Azure-resurser från Visual Studio finns i [Hantera konton, prenumerationer och administrativa roller](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
 2. I **Server Explorer**expanderar du **Azure** och expanderar **App Service**.
-3. Expandera resurs gruppen som innehåller den app som du skapade i [skapa en ASP.net-app i Azure App Service](app-service-web-get-started-dotnet-framework.md)och högerklicka sedan på noden app och klicka på **Visa inställningar**.
+3. Expandera resurs gruppen som innehåller den app som du skapade i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md)och högerklicka sedan på noden app och klicka på **Visa inställningar**.
 
     ![Visa inställningar i Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -108,9 +108,9 @@ Om det detaljerade fel meddelandet inte innehåller tillräckligt med informatio
 
 Fjärrfelsökning fungerar inte i Express-versioner av Visual Studio.
 
-Det här avsnittet visar hur du felsöker fel sökning med det projekt som du skapar i [skapa en ASP.net-app i Azure App Service](app-service-web-get-started-dotnet-framework.md).
+Det här avsnittet visar hur du felsöker fel sökning med det projekt som du skapar i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md).
 
-1. Öppna det webb projekt som du skapade i [skapa en ASP.net-app i Azure App Service](app-service-web-get-started-dotnet-framework.md).
+1. Öppna det webb projekt som du skapade i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md).
 
 1. Öppna *Controllers\HomeController.cs*.
 
@@ -129,7 +129,7 @@ Det här avsnittet visar hur du felsöker fel sökning med det projekt som du sk
 
 1. I **Solution Explorer**högerklickar du på projektet och klickar på **publicera**.
 
-1. I list rutan **profil** väljer du samma profil som du använde i [skapa en ASP.net-app i Azure App Service](app-service-web-get-started-dotnet-framework.md). Klicka sedan på inställningar.
+1. I list rutan **profil** väljer du samma profil som du använde i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md). Klicka sedan på inställningar.
 
 1. I dialog rutan **publicera** klickar du på fliken **Inställningar** och ändrar sedan **konfigurationen** till **Felsök**och klickar sedan på **Spara**.
 
@@ -264,7 +264,7 @@ Loggarna skrivs till filer i en mapp för *loggfiler* i appens fil system och ä
 ## <a name="create-and-view-application-trace-logs"></a><a name="apptracelogs"></a>Skapa och Visa program spårnings loggar
 I det här avsnittet ska du utföra följande uppgifter:
 
-* Lägg till spårnings instruktioner till det webb projekt som du skapade i [Kom igång med Azure och ASP.net](app-service-web-get-started-dotnet-framework.md).
+* Lägg till spårnings instruktioner till det webb projekt som du skapade i [Kom igång med Azure och ASP.net](quickstart-dotnet-framework.md).
 * Visa loggarna när du kör projektet lokalt.
 * Visa loggarna när de genereras av programmet som körs i Azure.
 
@@ -686,5 +686,5 @@ Mer information om hur du analyserar webb server loggar finns i följande resurs
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analysera loggar för spårning av misslyckade begär Anden
 Webbplatsen för Microsoft TechNet innehåller avsnittet om [spårning av misslyckade begär Anden](https://www.iis.net/learn/troubleshoot/using-failed-request-tracing) , vilket kan vara användbart för att förstå hur du använder dessa loggar. Den här dokumentationen fokuserar dock främst på konfiguration av spårning av misslyckade begär anden i IIS, som du inte kan göra i Azure App Service.
 
-[GetStarted]: app-service-web-get-started-dotnet.md
+[GetStarted]: quickstart-dotnetcore.md?pivots=platform-windows
 [GetStartedWJ]: https://github.com/Azure/azure-webjobs-sdk/wiki

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a198456412c3146db2bc3e2a2483377e387f452d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513340"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080240"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -140,7 +140,7 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 
 ### <a name="create-a-remote-web-app"></a>Skapa en fjärran sluten webbapp
 
-Skapa en [Azure-webbapp](../../app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
+Skapa en [Azure-webbapp](../../app-service/overview.md#app-service-on-linux) i `myAppServicePlan` App Service plan. 
 
 > [!Important]
 > I likhet med Key Vault måste en Azure-webbapp ha ett unikt namn. Ersätt \<your-webapp-name\> med namnet på din webbapp med följande exempel.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: d6ab05d92ec209e10bfc4aec4e4fe2b6ea150099
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e69385d174cfb2ea3aa37867d65e0ac9eb5eaff0
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037668"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080804"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
@@ -37,7 +37,7 @@ Gå vidare till [exemplet på livebutikslokaliserare](https://azuremapscodesampl
 
 För att slutföra stegen i den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-azure-maps-account) om du vill skapa en Azure Maps konto prenumeration med pris nivån S1 och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Utforma
+## <a name="design"></a>Design
 
 Innan du sätter igång i koden är det en bra idé att börja med en design. Din butikslokaliserare kan vara så enkel eller komplex som du vill. I den här självstudien skapar vi en enkel butikslokaliserare. Vi tar några tips på vägen för att hjälpa dig att utöka vissa funktioner om du vill. Vi skapar en butikslokaliserare för det fiktiva företaget Contoso Coffee. Följande bild visar ett trådblock i en allmän layout för butikslokaliserarestore som vi skapar i den här självstudien:
 
@@ -950,7 +950,7 @@ I den här självstudien får lära du att skapa en grundläggande butikslokalis
 > * Tillåt att användaren [filtrerar på platser längs en väg](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 > * Lägg till möjligheten att [ange filter](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Lägg till stöd för att ange ett inledande sökvärde med hjälp av en frågesträng. När du inkluderar det här alternativet i butikslokaliseraren kan du skapa bokmärken och dela sökningar. Det ger också ett enkelt sätt att skicka sökningar till den här sidan från en annan sida.  
-> * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Distribuera din butikslokaliserare som en [Azure App Service-webbapp](https://docs.microsoft.com/azure/app-service/quickstart-html). 
 > * Lagra dina data i en databas och sök efter närliggande ställen. Mer information finns i [översikten över rumsliga data för SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) och [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) (Fråga rumsliga data efter den närmaste grannen).
 
 > [!div class="nextstepaction"]

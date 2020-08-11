@@ -28,7 +28,7 @@ Om du inte redan har ett containerregister följer du dessa steg för att skapa 
    | Prenumeration | Välj en prenumeration i listrutan. |
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
    | Registernamn | Ange ett unikt namn. |
-   | Location | Välj en plats i närheten av dig. |
+   | Plats | Välj en plats i närheten av dig. |
    | SKU | Välj **Grundläggande**. |
 
 3. Välj **Skapa**.

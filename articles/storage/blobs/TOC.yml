@@ -158,8 +158,10 @@
           items:
             - name: Versionshantering
               href: versioning-overview.md
-            - name: Mjuk borttagning
-              href: soft-delete-overview.md
+            - name: Mjuk borttagning för blobar
+              href: soft-delete-blob-overview.md
+            - name: Mjuk borttagning för cotainrar
+              href: soft-delete-container-overview.md
             - name: Ögonblicksbilder
               href: snapshots-overview.md
             - name: Ändringsfeed
@@ -423,8 +425,10 @@
           items:
             - name: Aktivera blobversionshantering
               href: versioning-enable.md
-            - name: Aktivera mjuk borttagning
-              href: soft-delete-enable.md
+            - name: Aktivera mjuk borttagning för blobar
+              href: soft-delete-blob-enable.md
+            - name: Aktivera mjuk borttagning för behållare
+              href: soft-delete-container-enable.md
             - name: Skapa ögonblicksbilder (.NET)
               href: snapshots-manage-dotnet.md
             - name: Bearbeta ändringsflödesloggar

@@ -128,6 +128,8 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Intern lastbalanserare – PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
+    - name: Konfiguration för lastbalanserare med ”endast utgående”
+      href: egress-only.md
 - name: Felsöka
   items:
     - name: Felsök Azure Load Balancer

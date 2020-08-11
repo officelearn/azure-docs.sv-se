@@ -374,3 +374,5 @@
       href: reference-connect-msexchuserholdpolicies.md
     - name: Förstå varför enheter försvinner i Azure AD Connect 1.4.xx.x
       href: reference-connect-device-disappearance.md
+    - name: Versionshistorikarkiv för Azure AD Connect
+      href: reference-connect-version-history-archive.md

@@ -1,6 +1,6 @@
 ---
-title: Kopiera ögonblicks bild av hanterade diskar till ett exempel på en prenumerations-CLI
-description: Skript exempel för Azure CLI – kopiera (eller flytta) ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI
+title: Kopiera ögonblicks bild av hanterade diskar till ett exempel på en prenumerations-CLI, Linux VM
+description: Skript exempel för Azure CLI – kopiera (eller flytta) ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI på en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: c17773da09b51e135e855002de7b35628c21508f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 637c8c3a2f6ba90a7a16fa375d99a7463be71270
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509774"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056099"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiera en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-linux-vm"></a>Kopiera ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI på en virtuell Linux-dator
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 
@@ -43,7 +43,7 @@ Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma ell
 
 Det här skriptet använder följande kommandon för att skapa en ögonblicksbild i målprenumerationen med källögonblicksbildens ID. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Kommentarer |
 |---|---|
 | [az snapshot show](/cli/azure/snapshot) | Hämtar alla egenskaper för en ögonblicksbild med hjälp av ögonblicksbildens namn och resursgruppsegenskaper. ID-egenskapen används för att kopiera ögonblicksbilden till en annan prenumeration.  |
 | [az snapshot create](/cli/azure/snapshot) | Kopierar en ögonblicksbild genom att skapa en ögonblicksbild i en annan prenumeration med ID och namn på den överordnade ögonblicksbilden.  |

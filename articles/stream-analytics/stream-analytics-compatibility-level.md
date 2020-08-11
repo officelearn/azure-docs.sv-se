@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087863"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056524"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivå för Azure Stream Analytics jobb
 
@@ -142,11 +142,11 @@ Följande större ändringar introduceras i kompatibilitetsnivån 1,1:
 
 **1,1-nivå:** Med CREATE TABLE kan du ange ett starkt schema. Stream Analyticss motorn verifierar att data överensstämmer med det här schemat. Med den här modellen kan kommandot filtrera händelser med NaN-värden.
 
-### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>Inaktivera automatisk uppsändning för datetime-strängar i JSON
+### <a name="disable-automatic-conversion-of-datetime-strings-to-datetime-type-at-ingress-for-json"></a>Inaktivera automatisk konvertering av datetime-strängar till DateTime-typ vid ingress för JSON
 
-**1,0-nivå:** JSON-parsern omvandlar automatiskt sträng värden med datum-/tids-/zon information till DateTime-typ och konverterar den sedan till UTC. Det här beteendet resulterade i förlust av tids zons informationen.
+**1,0-nivå:** JSON-parsern konverterar automatiskt sträng värden med datum-/tids-/zon information till DATETIME-typ vid ingångs datum så att värdet omedelbart förlorar sin ursprungliga formatering och tids zons information. Eftersom detta görs i ingress, även om fältet inte användes i frågan, konverteras det till UTC DateTime.
 
-**1,1-nivå:** Det går inte att automatiskt omvandla sträng värden automatiskt med datum-/tids-/zon information till DateTime-typen. Därför behålls timezone-informationen.
+**1,1-nivå:** Det finns ingen automatisk konvertering av sträng värden med datum-/tids-/zon information till DATETIME-typen. Därför behålls tids zons informationen och den ursprungliga formateringen. Om t. ex. fältet NVARCHAR (MAX) används i frågan som en del av ett DATETIME-uttryck (till exempel funktionen DATEADD) konverteras den till DATETIME-typ för att utföra beräkningen och den förlorar sitt ursprungliga form.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 9804992aee318fdc34815bdbe4187144704cd667
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099772"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053924"
 ---
 # <a name="what-is-batch-transcription"></a>Vad är batch-avskriftering?
 
@@ -28,12 +28,12 @@ Asynkront tal-till-text-avskrift är bara en av funktionerna. Du kan använda RE
 |    Batch-avskrifts åtgärd                                             |    Metod    |    REST API-anrop                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
 |    Skapar en ny avskrift.                                              |    POST      |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter            |
-|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    HÄMTA       |    speechtotext/v 3.0/avskrifter/språk    |
+|    Hämtar en lista över avskrifter för den autentiserade prenumerationen.    |    GET       |    speechtotext/v 3.0/avskrifter            |
+|    Hämtar en lista över språk som stöds för offline-avskrifter.              |    GET       |    speechtotext/v 3.0/avskrifter/språk    |
 |    Uppdaterar föränderligt-informationen för avskriften som identifieras av dess ID.    |    9.0a     |    speechtotext/v 3.0/avskrifter/{ID}       |
 |    Tar bort den angivna avskrifts uppgiften.                                 |    DELETE    |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}       |
-|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    HÄMTA       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
+|    Hämtar avskriften som identifieras av det angivna ID: t.                        |    GET       |    speechtotext/v 3.0/avskrifter/{ID}       |
+|    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    GET       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
 
 
 
@@ -44,7 +44,7 @@ Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. Det finns för 
 
 Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
@@ -65,9 +65,9 @@ API: et för batch-avskrift stöder följande format:
 
 | Format | ADPCM | Hastigheten | Samplings frekvens                     |
 |--------|-------|---------|---------------------------------|
-| WAV    | PCM   | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
-| MP3    | PCM   | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
-| OGG    | OPUS  | 16 bitar  | 8 kHz eller 16 kHz, mono eller stereo |
+| WAV    | PCM   | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
+| MP3    | PCM   | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
+| OGG    | OPUS  | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
 
 För stereo ljud strömmar delas vänster och höger kanaler upp under avskriften. För varje kanal skapas en JSON-resultat fil. De tidsstämplar som genereras per uttryck gör att utvecklaren kan skapa en sorterad slutlig avskrift.
 
@@ -126,7 +126,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 :::row:::
    :::column span="1":::
-      **ProfileServiceApplicationProxy**
+      **Parameter**
    :::column-end:::
    :::column span="2":::
       **Beskrivning**
@@ -346,4 +346,4 @@ Du kan hitta exemplet i `samples/batch` katalogen i [GitHub-exempel lagrings pla
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Tal till text v3 API-referens](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

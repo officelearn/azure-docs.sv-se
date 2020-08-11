@@ -10,18 +10,21 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: c6999b67a5c0a0f4ca7cb943ae8de3afd8b6a11e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099959"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056286"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Om förnyelse av Azure Key Vault certifikat
 
 Med Azure Key Vault kan du enkelt etablera, hantera och distribuera digitala certifikat för nätverket och aktivera säker kommunikation för program. Mer allmän information om certifikat finns i [Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates)
 
 Om du har ett kort levde certifikat eller ökar frekvensen för certifikat rotation begränsas angripare omfattning för skada.
+
+## <a name="certificate-expiration-notifications"></a>Meddelanden om förfallo datum för certifikat
+Börja med att lägga till en certifikat kontakt till din Key Vault för att bli informerad när certifikaten snart upphör att gälla (t. ex. Använd PowerShell [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0)) den andra, konfigurera när du vill få ett meddelande om att certifikatet upphör att gälla. Följ anvisningarna [nedan](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate) om du vill konfigurera livs längds åtgärd
 
 Det finns tre kategorier för att skapa certifikat i Key Vault. I den här guiden får du hjälp att förstå hur förnyelse av certifikat kan uppnås.
 -   Certifikat som skapats med integrerad CA (DigiCert eller GlobalSign)
@@ -53,8 +56,12 @@ Stegen påminner om hur du skapar ett nytt certifikat och har dokumenterat mer i
 
 Goda nyheter igen! Azure Key Vaults tar också hand om automatisk förnyelse av självsignerade certifikat för sina användare. Läs mer [här](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate)om du vill veta mer om hur du ändrar utgivnings principen och uppdaterar certifikatets attribut för livs längds åtgärder.
 
-### <a name="troubleshoot"></a>Felsök
+### <a name="troubleshoot"></a>Felsöka
 Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vidare och Visa certifikat åtgärden för att visa fel meddelandet för det certifikatet.
+
+### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+Kommer taggarna att replikeras efter automatisk förnyelse av certifikatet?
+Nej, Taggar replikeras inte om inte användaren manuellt kopierar taggarna.
 
 ### <a name="see-also"></a>Se även
 *   [Integrera nyckelvalv med DigiCert-certifikatutfärdare](how-to-integrate-certificate-authority.md)

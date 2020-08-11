@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cd8771afdc9c4462faaff758ffdd073382f69f53
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24118e6ae5c31399ce5d33361dd60e3a08424681
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550964"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055776"
 ---
 # <a name="blob-snapshots"></a>BLOB-ögonblicksbilder
 
@@ -33,7 +33,7 @@ En ögonblicks bild av en BLOB är identisk med dess bas-BLOB, förutom att BLOB
 > Alla ögonblicks bilder delar bas-blobens URI. Den enda skillnaden mellan bas-bloben och ögonblicks bilden är det tillagda **datetime** -värdet.
 >
 
-En BLOB kan ha valfritt antal ögonblicks bilder. Ögonblicks bilder bevaras tills de tas bort explicit, vilket innebär att en ögonblicks bild inte kan leva sin bas-blob. Du kan räkna upp ögonblicks bilderna som är kopplade till bas-bloben för att spåra dina befintliga ögonblicks bilder.
+En BLOB kan ha valfritt antal ögonblicks bilder. Ögonblicks bilder behålls tills de tas bort uttryckligen, antingen oberoende eller som en del av åtgärden ta bort BLOB för bas-bloben. Du kan räkna upp ögonblicks bilderna som är kopplade till bas-bloben för att spåra dina befintliga ögonblicks bilder.
 
 När du skapar en ögonblicks bild av en BLOB kopieras blobens system egenskaper till ögonblicks bilden med samma värden. Bas-blobens metadata kopieras också till ögonblicks bilden, om du inte anger separata metadata för ögonblicks bilden när du skapar den. När du har skapat en ögonblicks bild kan du läsa, kopiera eller ta bort den, men du kan inte ändra den.
 

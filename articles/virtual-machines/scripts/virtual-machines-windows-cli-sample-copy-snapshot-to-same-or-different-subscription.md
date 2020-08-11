@@ -1,6 +1,6 @@
 ---
-title: Kopiera ögonblicks bild av en hanterad disk till ett exempel på en prenumerations-CLI
-description: Skriptexempel för Azure CLI – Kopiera (flytta) en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
+title: Kopiera ögonblicks bild av en hanterad disk till ett exempel på en prenumerations-CLI, virtuell Windows-dator
+description: Skript exempel för Azure CLI – kopiera (flytta) ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI på en virtuell Windows-dator
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 54029e2ccbf592dfcde484728fa9cb969a668edd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 05b73bf62bfce456e65fde153379690bc9823e6a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010110"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056745"
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Kopiera en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration med CLI
+# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli-on-a-windows-vm"></a>Kopiera ögonblicks bild av en hanterad disk till samma eller en annan prenumeration med CLI på en virtuell Windows-dator
 
 Det här skriptet kopierar en ögonblicksbild av en hanterad disk till samma eller en annan prenumeration. Använd det här skriptet för följande scenarier:
 

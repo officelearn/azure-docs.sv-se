@@ -1,6 +1,6 @@
 ---
 title: Vad är enkel inloggning i Azure?
-description: Lär dig hur du väljer en enkel inloggnings metod när du konfigurerar program i Azure Active Directory (Azure AD). Använd enkel inloggning så att användarna inte behöver komma ihåg lösen ord för varje program och för att förenkla administrationen av konto hantering.
+description: Lär dig hur enkel inloggning (SSO) fungerar med Azure Active Directory. Använd SSO så att användarna inte behöver komma ihåg lösen ord för varje program. Använd också SSO för att förenkla administrationen av konto hantering.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,22 +12,31 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0928cb264dcff43cc0a3e45a8417dcd1e23a1ed3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042606"
+ms.locfileid: "88053787"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
-Enkel inloggning (SSO) ger säkerhet och bekvämlighet när användare loggar in på program i Azure Active Directory (Azure AD). I den här artikeln beskrivs metoder för enkel inloggning och det hjälper dig att välja den lämpligaste SSO-metoden när du konfigurerar dina program.
+Enkel inloggning innebär att en användare inte behöver logga in på varje program de använder. Användaren loggar in en gång och den autentiseringsuppgiften används även för andra appar.
+
+Om du är en slutanvändare behöver du förmodligen inte mer information om SSO. Du vill bara använda appar som gör dig produktiv utan att behöva ange ditt lösen ord så mycket. Du kan hitta dina appar på: https://myapps.microsoft.com .
+ 
+Om du är administratör eller IT-proffs kan du läsa vidare för att lära dig mer om hur SSO implementeras i Azure.
+
+## <a name="single-sign-on-basics"></a>Grundläggande information om enkel inloggning
+Enkel inloggning är ett stort steg framåt i hur användare loggar in och använder program. Autentisering med enkel inloggning kallas ofta "modern autentisering". Ta en titt på den här videon för att förstå vad som gör enkel inloggning möjlig.
+> [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
+
+
+## <a name="choosing-a-single-sign-on-method"></a>Välja en metod för enkel inloggning
 
 - **Med enkel inloggning**loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Azure AD-appens åtkomst panel. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
 
 - **Utan enkel inloggning**måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Office 365, Box och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
-
-## <a name="choosing-a-single-sign-on-method"></a>Välja en metod för enkel inloggning
 
 Det finns flera sätt att konfigurera ett program för enkel inloggning. Att välja en enkel inloggnings metod beror på hur programmet är konfigurerat för autentisering.
 
@@ -197,10 +206,5 @@ Eftersom det här scenariot erbjuds via ett partnerskap mellan Azure AD och Ping
 
 Mer information finns i [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md).
 
-## <a name="related-articles"></a>Relaterade artiklar
+## <a name="next-steps"></a>Nästa steg
 * [Snabb starts serie för program hantering](view-applications-portal.md)
-* [Självstudier för att integrera SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Konfigurera lösenordsbaserad enkel inloggning](configure-password-single-sign-on-non-gallery-applications.md)
-* [Konfigurera länkad inloggning](configure-linked-sign-on.md)
-* [Introduktion till hantering av åtkomst till program](what-is-access-management.md)
-* Nedladdnings länk: [distributions plan för enkel inloggning](https://aka.ms/SSODeploymentPlan).

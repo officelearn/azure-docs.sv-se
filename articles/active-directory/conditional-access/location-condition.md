@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 091555bac780f3abc7089d6214d0f9a8cfbf98cd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 08e236d798f700a3c48dd41ba61941bc0037d613
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518444"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055385"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Använda plats villkoret i en princip för villkorlig åtkomst 
 
@@ -190,7 +190,7 @@ När du skapar eller uppdaterar namngivna platser för Mass uppdateringar kan du
 
 När du använder en molnbaserad proxy eller VPN-lösning för molnet används IP-adressen för Azure AD vid utvärdering av en princip är proxyserverns IP-adress. Det X-vidarebefordrade-for-(XFF)-huvud som innehåller användarens offentliga IP-adress används inte eftersom det inte finns någon validering av att den kommer från en betrodd källa, så att det finns en metod för att Faking en IP-adress.
 
-När en molnbaserad proxy är på plats kan en princip som används för att kräva en domänansluten enhet användas, eller inifrån Corpnet-anspråk från AD FS.
+När en molnbaserad proxy är på plats kan en princip som används för att kräva en hybrid Azure AD-ansluten enhet användas, eller på den inre Corpnet-anspråket från AD FS.
 
 ### <a name="api-support-and-powershell"></a>API-stöd och PowerShell
 

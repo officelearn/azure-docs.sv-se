@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 2aacf8881a57f0677177cd341a0ddc63224b26b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 272367d5311952b45c73febe0e05b1ec2d225261
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402058"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056694"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
@@ -56,7 +56,7 @@ När du har skapat ett Azure-konto och en prenumeration på en röst tjänst må
 4. Om du vill växla till en annan tal prenumeration använder du kugg hjuls-ikonen som finns i det övre navigerings fönstret.
 
 > [!NOTE]
-> Den anpassade röst tjänsten har inte stöd för den kostnads fria utvärderings nyckeln på 30 dagar. Du måste ha en F0-eller S0-nyckel som skapats i Azure innan du kan använda tjänsten.
+> Du måste ha en F0-eller S0-nyckel som skapats i Azure innan du kan använda tjänsten.
 
 ## <a name="how-to-create-a-project"></a>Så här skapar du ett projekt
 

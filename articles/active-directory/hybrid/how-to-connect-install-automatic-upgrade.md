@@ -16,15 +16,15 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 749c97549661f2b2d647f8f7ba718d7696ef8355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359015"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053294"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
-Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md#111050).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md#115610) och stöder nu ytterligare scenarier som tidigare inte stöds.
+Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md) och stöder nu ytterligare scenarier som tidigare inte stöds.
 
 ## <a name="overview"></a>Översikt
 Att se till att din Azure AD Connect installation alltid är uppdaterad har aldrig varit enklare med funktionen för **automatisk uppgradering** . Den här funktionen är aktive rad som standard för Express installationer och DirSync-uppgraderingar. När en ny version släpps, uppgraderas installationen automatiskt.
@@ -37,11 +37,11 @@ Automatisk uppgradering är aktiverat som standard för följande:
 
 Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdleten `Get-ADSyncAutoUpgrade` . Det har följande tillstånd:
 
-| Status | Kommentar |
+| Stat | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering har Aktiver ATS. |
 | Inaktiverad |Anges endast av systemet. Systemet är **för närvarande inte** behörigt att ta emot automatiska uppgraderingar. |
-| Disabled |Automatisk uppgradering har inaktiverats. |
+| Inaktiverad |Automatisk uppgradering har inaktiverats. |
 
 Du kan ändra mellan **aktiverat** och **inaktiverat** med `Set-ADSyncAutoUpgrade` . Endast systemet bör ställa in tillståndet **inaktiverat**.  Innan 1.1.750.0-cmdleten Set-ADSyncAutoUpgrade blockeras autouppgradering om status för automatisk uppgradering var inställd på pausad. Den här funktionen har nu ändrats så att den inte blockerar autouppgradering.
 

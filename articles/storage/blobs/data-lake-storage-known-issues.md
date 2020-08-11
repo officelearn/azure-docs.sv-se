@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 44d58b4e68e9f846b6bdb87765e96bcab90274a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0309f4d07056e3986138139e10ab29faa675cfcd
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083607"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056086"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -54,8 +54,6 @@ Dessa BLOB REST-API: er stöds inte:
 * [Hämta sid intervall](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [BLOB för stegvis kopiering](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Lägg till sida från URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Lägg till BLOB (append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Lägg till block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Lägg till block från URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. Om du vill aktivera ett hierarkiskt namn område på ett lagrings konto placerar du ohanterade virtuella dator diskar i ett lagrings konto där funktionen för hierarkiskt namn område inte är aktive rad.
@@ -98,7 +96,7 @@ Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats t
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Exempel:
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
 
 ```powershell
 #To login

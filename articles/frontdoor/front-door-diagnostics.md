@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322306"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056439"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Övervaka mått och loggar i Azures front dörr
 
@@ -38,9 +38,9 @@ Mått är en funktion för vissa Azure-resurser som gör att du kan visa prestan
 | BackendRequestCount | Antal Server dels begär Anden | Antal | HttpStatus</br>HttpStatusGroup</br>Serverdel | Antalet förfrågningar som skickats från Front dörren till Server delar. |
 | BackendRequestLatency | Svars tid för Server del | Millisekunder | Serverdel | Tiden räknat från när begäran skickades av frontend till Server delen tills front dörren fick den senaste svars byten från Server delen. |
 | BackendHealthPercentage | Server delens hälso procent | Procent | Serverdel</br>BackendPool | Procent andelen lyckade hälso avsökningar från Front dörren till Server delar. |
-| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | PolicyName</br>RuleName</br>Åtgärd | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
+| WebApplicationFirewallRequestCount | Antal begär Anden om webb programs brand vägg | Antal | PolicyName</br>RuleName</br>Action | Antalet klient begär Anden som bearbetats av program nivå säkerheten för front dörren. |
 
-## <a name="activity-logs"></a><a name="activity-log"></a>Aktivitetsloggar
+## <a name="activity-logs"></a><a name="activity-log"></a>Aktivitets loggar
 
 Aktivitets loggar innehåller information om de åtgärder som utförs på front dörren. De avgör också vad, vem och när det gäller Skriv-, post-eller borttagnings åtgärder som utförs på front dörren.
 
@@ -91,7 +91,7 @@ Front dörren innehåller för närvarande diagnostikloggar (batch-varje timme).
 | RulesEngineMatchNames | Namnen på de regler som begäran matchade. |
 | SecurityProtocol | TLS/SSL-protokollets version som används av begäran eller null om ingen kryptering. |
 | SentToOriginShield | Booleskt fält som representerar om det fanns en cache missar i den första miljön och begäran skickades till den regionala cachen. Ignorera det här fältet om Routningsprincipen är en omdirigering eller om inte cachelagring är aktiverat. |
-| TimeTaken | Hur lång tid åtgärden tog, i millisekunder. |
+| TimeTaken | Tiden från första byte av begäran till front dörren till sista mottagna byte, i sekunder. |
 | TrackingReference | Den unika referens strängen som identifierar en begäran som betjänas av en front dörr, som också skickas som X-Azure-ref-huvud till klienten. Krävs för att söka efter information i åtkomst loggarna för en speciell begäran. |
 | UserAgent | Webbläsarens typ som används av klienten. |
 

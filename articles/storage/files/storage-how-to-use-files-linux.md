@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bc0390ba9bf8d0f80d1533fe6e40b42df0cb5359
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d00b0558f85e18dfb53736d89fead953cc01ee60
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835722"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053175"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner med [SMB-kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-fil resurs: på begäran med `mount` kommandot och i start genom att skapa en post i `/etc/fstab` .
@@ -26,7 +26,7 @@ Det rekommenderade sättet att montera en Azure-filresurs på Linux är att anv�
 | CentOS | 7 + |  7.5 + |
 | Debian | 8 + | 10+ |
 | openSUSE | 13.2 + | 42.3 + |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3 + |
+| SUSE Linux Enterprise Server | 12+ | 12 SP2 + |
 
 Om du använder en Linux-distribution som inte finns med i tabellen ovan kan du kontrol lera om din Linux-distribution stöder SMB 3,0 med kryptering genom att kontrol lera Linux kernel-versionen. SMB 3,0 med kryptering har lagts till i Linux-kernel-version 4,11. `uname`Kommandot returnerar den version av Linux-kärnan som används:
 
@@ -248,22 +248,22 @@ Från och med linux kernel 4,18, anropar SMB-kernel-modulen, som kallas `cifs` f
 
 | Distribution | Kan inaktivera SMB 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | Nej |
-| Ubuntu 18.04 | Ja |
-| Ubuntu 19.04 + | Ja |
-| Debian 8-9 | Nej |
-| Debian 10 + | Ja |
-| Fedora 29 + | Ja |
-| CentOS 7 | Nej | 
-| CentOS 8 + | Ja |
-| Red Hat Enterprise Linux 6. x-7. x | Nej |
-| Red Hat Enterprise Linux 8 + | Ja |
-| openSUSE skottår 15,0 | Nej |
-| openSUSE skottår 15.1 + | Ja |
-| openSUSE Tumbleweed | Ja |
-| SUSE Linux Enterprise 11. x-12. x | Nej |
-| SUSE Linux Enterprise 15 | Nej |
-| SUSE Linux Enterprise 15,1 | Nej |
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04 + | Yes |
+| Debian 8-9 | No |
+| Debian 10 + | Yes |
+| Fedora 29 + | Yes |
+| CentOS 7 | No | 
+| CentOS 8 + | Yes |
+| Red Hat Enterprise Linux 6. x-7. x | No |
+| Red Hat Enterprise Linux 8 + | Yes |
+| openSUSE skottår 15,0 | No |
+| openSUSE skottår 15.1 + | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11. x-12. x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15,1 | No |
 
 Du kan kontrol lera om din Linux-distribution stöder `disable_legacy_dialects` modulen modul via följande kommando.
 

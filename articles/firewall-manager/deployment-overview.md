@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 8cca982e291d5d4caf7856e0d807515511c41dc8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372373"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055045"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Översikt över Azure Firewall Manager-distribution
 
@@ -65,6 +65,8 @@ Det finns mer än ett sätt att distribuera Azure Firewall Manager, men följand
 > - Du kan inte ha mer än en hubb per virtuell WAN per region. Men du kan lägga till flera virtuella WAN-näti regionen för att uppnå detta.
 > - Du kan inte ha överlappande IP-utrymmen för hubbar i en vWAN.
 > - Hubbens VNet-anslutningar måste finnas i samma region som hubben.
+>
+> Mer kända problem finns i [Vad är Azure Firewall Manager?](overview.md#known-issues)
 
 ## <a name="convert-virtual-networks"></a>Konvertera virtuella nätverk
 

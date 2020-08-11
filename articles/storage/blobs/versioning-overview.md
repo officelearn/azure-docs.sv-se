@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2085f0e8a148e27914b517f25e48894009592dd2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498607"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056541"
 ---
 # <a name="blob-versioning-preview"></a>Blob-version (för hands version)
 
@@ -24,6 +24,8 @@ Du kan aktivera Blob Storage-version (för hands version) för att automatiskt u
 BLOB-versioner aktive ras på lagrings kontot och gäller för alla blobar i lagrings kontot. När du har aktiverat BLOB-versioner för ett lagrings konto behåller Azure Storage automatiskt versioner för varje BLOB i lagrings kontot.
 
 Microsoft rekommenderar att du använder BLOB-versioner för att underhålla tidigare versioner av en BLOB för överlägsen data skydd. Använd om möjligt BLOB-versioner i stället för BLOB-ögonblicksbilder för att underhålla tidigare versioner. BLOB-ögonblicksbilder ger liknande funktionalitet i att de behåller tidigare versioner av en BLOB, men ögonblicks bilder måste behållas manuellt av ditt program.
+
+Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
 
 > [!IMPORTANT]
 > BLOB-versioner kan inte hjälpa dig att återställa från oavsiktlig borttagning av ett lagrings konto eller behållare. Förhindra oavsiktlig borttagning av lagrings kontot genom att konfigurera ett **CannotDelete** -lås på lagrings konto resursen. Mer information om hur du låser Azure-resurser finns i [låsa resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md).
@@ -177,9 +179,9 @@ BLOB-versioner är utformad för att skydda dina data från oavsiktlig eller ska
 
 I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-eller BLOB-versioner.
 
-| Description | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
+| Beskrivning | Blob Service åtgärd | Åtgärd för RBAC-data krävs | Stöd för RBAC-inbyggd roll |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage BLOB data-deltagare |
+| Tar bort den aktuella versionen av blobben | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/Delete** | Storage Blob Data-deltagare |
 | Tar bort en version | Ta bort blob | **Microsoft. Storage/storageAccounts/blobServices/containers/blobbar/deleteBlobVersion/åtgärd** | Storage BLOB data-ägare |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametrar för signatur för delad åtkomst (SAS)
@@ -204,7 +206,8 @@ BLOB-versioner är tillgängliga i för hands versionen i följande regioner:
 - Kanada, östra
 - Kanada, centrala
 
-För hands versionen är endast avsedd för användning utan produktion.
+> [!IMPORTANT]
+> För hands versionen av BLOB-versioner är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
 
 Version 2019-10-10 och senare av Azure Storage REST API stöder BLOB-versioner.
 
@@ -226,7 +229,7 @@ Om du vill registrera dig för för hands versionen av BLOB-versionen använder 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Om du vill registrera dig med PowerShell anropar du kommandot [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
+Registrera med PowerShell genom att anropa kommandot [register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
 
 ```powershell
 # Register for blob versioning (preview)
@@ -242,8 +245,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 Om du vill registrera dig med Azure CLI anropar du kommandot [AZ funktions register](/cli/azure/feature#az-feature-register) .
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -266,8 +269,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 Om du vill kontrol lera statusen för registreringen med Azure CLI anropar du kommandot [AZ Feature](/cli/azure/feature#az-feature-show) .
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

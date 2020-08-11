@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7169d6ab1e6a63b7275b8b09e977117ca0f62750
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 783a61c8e2b6c60b81e31d7771d3237c93be92a8
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902702"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Darwinbox
 
@@ -30,7 +30,6 @@ I den här självstudien får du lära dig hur du integrerar Darwinbox med Azure
 * Kontroll i Azure AD som har åtkomst till Darwinbox.
 * Gör det möjligt för användarna att logga in automatiskt till Darwinbox med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
-
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -39,9 +38,9 @@ För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Darwinbox för enkel inloggning (SSO) aktive rad.
-
 > [!NOTE]
 > Den här integreringen är också tillgänglig för användning från Azure AD amerikanska myndigheters moln miljö. Du hittar det här programmet i Cloud App-galleriet för Azure AD amerikanska myndigheter och konfigurerar det på samma sätt som du gör från det offentliga molnet.
+
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -86,12 +85,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.darwinbox.in/`
+   1. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.darwinbox.in/`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
+   1. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.darwinbox.in/adfs/module.php/saml/sp/metadata.php/<CUSTOMID>`
 
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Darwinbox client support team](https://darwinbox.com/contact-us.php) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+      > [!NOTE]
+      > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Darwinbox client support team](https://darwinbox.com/contact-us.php) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -144,6 +143,28 @@ I det här avsnittet skapar du en användare som heter B. Simon i Darwinbox. Arb
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Darwinbox på åtkomst panelen, bör du loggas in automatiskt på den Darwinbox som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="test-sso-for-darwinbox-mobile"></a>Testa SSO för Darwinbox (mobil)
+
+1. Öppna Darwinbox Mobile Application. Klicka på **ange organisations-URL** nu och ange din organisations-URL i text rutan och klicka på piltangenten.
+
+    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile01.jpg)
+
+1. Om du har flera domäner klickar du på din domän.
+
+    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile02.jpg)
+
+1. Ange ditt Azure AD-e-postmeddelande i Darwinbox-programmet och klicka på **Nästa**.
+
+    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile03.jpg)
+
+1. Ange ditt Azure AD-lösenord i Darwinbox-programmet och klicka på **Logga**in.
+
+    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile04.jpg)
+
+1. När du har loggat in igen visas programmets start sida.
+
+    ![Darwinbox-mobilapp](media/darwinbox-tutorial/DarwinboxMobile05.jpg)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

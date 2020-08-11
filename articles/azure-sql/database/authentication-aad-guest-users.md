@@ -9,12 +9,12 @@ author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/27/2020
-ms.openlocfilehash: b3abda9787654734b24cc27987921ef40d8070fc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2c8aa39b6819e135181e2d153825e89686359538
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87294461"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053770"
 ---
 # <a name="create-azure-ad-guest-users-and-set-as-an-azure-ad-admin"></a>Skapa Azure AD-gästanvändare och ange som Azure AD-administratör
 
@@ -133,9 +133,9 @@ Följ dessa steg om du vill ange en Azure AD-gäst användare som Azure AD-admin
 
 ## <a name="limitations"></a>Begränsningar
 
-Det finns en begränsning på Azure Portal som förhindrar att du väljer en Azure AD-gäst användare som Azure AD-administratör för SQL Database, SQL-hanterad instans och Azure-Synapse. För gäst konton utanför Azure AD, till exempel * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*eller * \@ gmail.com*, visar AD admin-väljaren dessa konton, men de är nedtonade och kan inte väljas. Använd de PowerShell- [eller CLI-kommandon](#setting-a-guest-user-as-an-azure-ad-admin) som visas ovan för att ange Azure AD-administratören. Alternativt kan en Azure AD-grupp som innehåller gäst användaren anges som Azure AD-administratör för den logiska SQL-servern.
+Det finns en begränsning på Azure Portal som förhindrar att du väljer en Azure AD-gäst användare som Azure AD-administratör för SQL-hanterad instans. För gäst konton utanför Azure AD, till exempel * \@ Outlook.com*, * \@ hotmail.com*, * \@ Live.com*eller * \@ gmail.com*, visar AD admin-väljaren dessa konton, men de är nedtonade och kan inte väljas. Använd de PowerShell- [eller CLI-kommandon](#setting-a-guest-user-as-an-azure-ad-admin) som visas ovan för att ange Azure AD-administratören. Alternativt kan en Azure AD-grupp som innehåller gäst användaren anges som Azure AD-administratör för SQL-hanterad instans.
 
-Den här funktionen aktive ras för SQL Database och Azure-Synapse innan den här funktionen blir allmänt tillgänglig.
+Den här funktionen aktive ras för SQL-hanterad instans innan den här funktionen blir allmänt tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
 

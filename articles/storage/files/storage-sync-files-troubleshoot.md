@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d268358f2f80cc9d347fa722d5027e1a87894b20
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034404"
+ms.locfileid: "88056269"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -47,7 +47,7 @@ När du har skapat en server slut punkt på Windows Server 2012 R2 uppstår föl
 DriveLetter: \ är inte tillgänglig.  
 Parametern är felaktig.
 
-Lös problemet genom att installera de senaste uppdateringarna för Windows Server 2012 R2 och starta om servern.
+Lös problemet genom att installera [KB2919355](https://support.microsoft.com/help/2919355/windows-rt-8-1-windows-8-1-windows-server-2012-r2-update-april-2014) och starta om servern. Om den här uppdateringen inte installeras eftersom en senare uppdatering redan har installerats går du till Windows Update, installerar de senaste uppdateringarna för Windows Server 2012 R2 och startar om servern.
 
 <a id="server-registration-missing-subscriptions"></a>**Server registreringen visar inte alla Azure-prenumerationer**  
 När du registrerar en server med hjälp av ServerRegistration.exe, saknas prenumerationer när du klickar på list rutan för Azure-prenumeration.
@@ -338,7 +338,7 @@ Om du vill se de här felen kör du **FileSyncErrorsReport.ps1** PowerShell-skri
 | 0x80c80200 | – 2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Det går inte att synkronisera filen eftersom det maximala antalet konfliktskapande filer har nåtts. Azure File Sync stöder 100-konfliktskapande filer per fil. Mer information om fil konflikter finns i Azure File Sync [vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Lös problemet genom att minska antalet konfliktskapande filer. Filen kommer att synkroniseras när antalet konfliktskapande filer är mindre än 100. |
 
 #### <a name="handling-unsupported-characters"></a>Hantera tecken som inte stöds
-Om **FileSyncErrorsReport.ps1** PowerShell-skriptet visar fel som beror på tecken som inte stöds (felkod 0x8007007B eller 0x80c80255), bör du ta bort eller byta namn på tecknen vid fel från respektive fil namn. PowerShell kommer förmodligen att skriva ut dessa tecken som frågetecken eller tomma rektanglar eftersom de flesta av dessa tecken inte har någon standardiserad visuell kodning. [Utvärderings verktyget](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds.
+Om **FileSyncErrorsReport.ps1** PowerShell-skriptet visar synkroniseringsfel per objekt på grund av tecken som inte stöds (felkod 0x8007007B eller 0x80c80255), bör du ta bort eller byta namn på tecknen vid fel från respektive fil namn. PowerShell kommer förmodligen att skriva ut dessa tecken som frågetecken eller tomma rektanglar eftersom de flesta av dessa tecken inte har någon standardiserad visuell kodning. [Utvärderings verktyget](storage-sync-files-planning.md#evaluation-cmdlet) kan användas för att identifiera tecken som inte stöds. Om data uppsättningen har flera filer med ogiltiga tecken använder du [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) -skriptet för att byta namn på filer som innehåller tecken som inte stöds.
 
 Tabellen nedan innehåller alla Unicode-tecken Azure File Sync ännu inte har stöd för.
 

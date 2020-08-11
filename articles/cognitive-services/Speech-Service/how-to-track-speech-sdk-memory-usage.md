@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: da5103317a2215aca68cec14ba8a0951258c9b89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6be6ca00b2bc5d7b35fb71437809754f129df96
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456436"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054643"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Spåra minnes användning för tal-SDK
 
@@ -40,7 +40,7 @@ Här är en exempel logg:
 
 Du har möjlighet att skapa en varnings tröskel och om tröskelvärdet överskrids (förutsatt att loggning är aktiverat) loggas ett varnings meddelande. Varnings meddelandet innehåller en dumpning av alla objekt som förekommer tillsammans med antalet. Den här informationen kan användas för att bättre förstå problem. 
 
-Om du vill aktivera ett varnings tröskelvärde måste det anges för `SpeechConfig` ett objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans med `SpeechConfig` namnet: `config`
+Om du vill aktivera ett varnings tröskelvärde måste det anges för ett `SpeechConfig` objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans med `SpeechConfig` namnet `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -69,7 +69,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -102,7 +102,7 @@ class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxSpeechConfig 0
 ```
 
-Om du vill aktivera ett fel tröskelvärde måste det anges för ett `SpeechConfig` objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans med `SpeechConfig` namnet: `config`
+Om du vill aktivera ett fel tröskelvärde måste det anges för ett `SpeechConfig` objekt. Det här objektet kontrol leras när en ny tolk skapas. I följande exempel antar vi att du har skapat en instans med `SpeechConfig` namnet `config` :
 
 ::: zone pivot="programming-language-csharp"
 
@@ -131,7 +131,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -145,9 +145,8 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 ::: zone-end
 
 > [!TIP]
-> Standardvärdet för den här egenskapen är det plattformsspecifika maximala värdet för en `size_t` datatyp. En typisk igenkänning kommer att förbruka mellan 7 och 10 interna objekt.
+> Standardvärdet för den här egenskapen är det plattformsspecifika maximala värdet för en datatyp `size_t` . En typisk igenkänning kommer att förbruka mellan 7 och 10 interna objekt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta utvärderings prenumerationen för din röst tjänst](get-started.md)
-* [Lär dig att känna igen tal med en mikrofon](quickstarts/speech-to-text-from-microphone.md)
+* [Läs mer om tal-SDK](speech-sdk.md)

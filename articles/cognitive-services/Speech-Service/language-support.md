@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: c01e543b251020581d96d61434d0b3309535ef0c
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902053"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053583"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -38,16 +38,16 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Anpassningar                                    |
 |---------|-----------------------------------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Nej                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | No                                                |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Språkmodell                                    |
-| `ar-IL` | Arabiska (Israel)                   | Nej                                                |
-| `ar-JO` | Arabiska (Jordanien)                   | Nej                                                |
-| `ar-KW` | Arabiska (Kuwait)                   | Nej                                                |
-| `ar-LB` | Arabiska (Libanon)                  | Nej                                                |
-| `ar-PS` | Arabiska (Palestina)                | Nej                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Nej                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Nej                                                |
+| `ar-IL` | Arabiska (Israel)                   | No                                                |
+| `ar-JO` | Arabiska (Jordanien)                   | No                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | No                                                |
+| `ar-LB` | Arabiska (Libanon)                  | No                                                |
+| `ar-PS` | Arabiska (Palestina)                | No                                                |
+| `ar-QA` | Arabiska (Qatar)                    | No                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | No                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Språkmodell                                    |
 | `ca-ES` | Katalanska                           | Språkmodell                                    |
 | `cs-CZ` | Tjeckiska (Tjeckien)            | Språk modell                                    | 
@@ -104,7 +104,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `sv-SE` | Svenska (Sverige)                  | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Språkmodell                                    |
 | `te-IN` | Telugu (Indien)                    | Språkmodell                                    |
-| `th-TH` | Thailändska (Thailand)                   | Nej                                                |
+| `th-TH` | Thailändska (Thailand)                   | No                                                |
 | `tr-TR` | Turkiska (Turkiet)                  | Språkmodell                                    |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Språkmodell                                    |
@@ -361,20 +361,20 @@ I följande tabell visas vilka språk som stöds för de olika Talarigenkänning
 | Nationell inställning | Språk | Text beroende verifiering | Text oberoende verifiering | Text oberoende identifiering |
 |----|----|----|----|----|
 | sv-SE | Engelska (USA) | ja | ja | ja |
-|zh-CN  |Kinesiska (mandariner, förenklad)|    saknas|    ja|    ja|
-|de-DE  |Tyska (Tyskland)   |saknas    |ja    |ja|
-|en-GB  |Engelska (Storbritannien)   |saknas    |ja    |ja|
-|fr-FR  |Franska (Frankrike)    |saknas    |ja    |ja|
-|en – AU  |Engelska (Australien)    |saknas    |ja    |ja|
-|en-CA  |Engelska (Kanada)   |saknas|   ja|    ja|
-|fr-CA  |Franska (Kanada)    |saknas    |ja|   ja|
-|it-IT  |Italienska|   saknas |ja|   ja|
-|es-ES| Spanska (Spanien) |saknas    |ja|   ja|
-|ES – MX  |Spanska (Mexiko)   |saknas|   ja|    ja|
-|ja-JP| Japanska    |saknas    |ja    |ja|
-|pt-BR| Portugisiska (Brasilien)|    saknas|    ja|    ja|
+|zh-CN    |Kinesiska (mandariner, förenklad)|    saknas|    ja|    ja|
+|de-DE    |Tyska (Tyskland)    |saknas    |ja    |ja|
+|en-GB    |Engelska (Storbritannien)    |saknas    |ja    |ja|
+|fr-FR    |Franska (Frankrike)    |saknas    |ja    |ja|
+|en – AU    |Engelska (Australien)    |saknas    |ja    |ja|
+|en-CA    |Engelska (Kanada)    |saknas|    ja|    ja|
+|fr-CA    |Franska (Kanada)    |saknas    |ja|    ja|
+|it-IT    |Italienska|    saknas    |ja|    ja|
+|es-ES|    Spanska (Spanien)    |saknas    |ja|    ja|
+|ES – MX    |Spanska (Mexiko)    |saknas|    ja|    ja|
+|ja-JP|    Japanska    |saknas    |ja    |ja|
+|pt-BR|    Portugisiska (Brasilien)|    saknas|    ja|    ja|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta utvärderings prenumerationen för din röst tjänst](https://azure.microsoft.com/try/cognitive-services/)
+* [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/)
 * [Se känna igen tal i C #](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: af0065db087595167ca71bb79b968cc4ad339acd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8c452ffb40b27ed84061e93c1758b3d403052fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116850"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054446"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -25,97 +25,28 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 ## <a name="prerequisites"></a>Förutsättningar
 
 - **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual studio 2019 version 16,3** eller senare, eller **Visual Studio 2017 version 15,7** med arbets belastningen **webb utveckling** installerad. [Ladda ned det nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
-- För ASP.NET (inte kärnan) med Visual Studio 2017 behöver du .NET Framework 4.7.1 eller senare utvecklingsverktyg, som inte installeras som standard. Installera dem genom att starta Visual Studio Installer, välja **ändra**och sedan välja **enskilda komponenter**, sedan expandera **ASP.net och webb utveckling**på den högra sidan och välja **.NET Framework 4.7.1 utvecklingsverktyg**.
-- Ett ASP.NET-4.7.1 eller senare, eller ASP.NET Core 2,0 eller senare webbprojekt öppnas.
+- **Visual Studio 2019 version 16,3** eller senare [Ladda ned den nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+
 
 ## <a name="add-key-vault-support-to-your-project"></a>Lägg till Key Vault stöd för ditt projekt
 
 Innan du börjar ska du kontrol lera att du är inloggad i Visual Studio. Logga in med samma konto som du använder för din Azure-prenumeration. Öppna sedan en ASP.NET 4.7.1 eller senare eller ASP.NET Core 2,0-webbprojektet och utför följande steg:
 
-1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till**  >  **ansluten tjänst**.
+1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till**  >  **ansluten tjänst**  >  **Lägg**till.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
-1. På menyn med tillgängliga tjänster väljer du **skydda hemligheter med Azure Key Vault**.
+1. I menyn med tillgängliga tjänster väljer du **Azure Key Vault** och klickar på **Nästa**.
 
-   ![Välj "säkra hemligheter med Azure Key Vault"](../media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
+   ![Välj "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Välj den prenumeration som du vill använda och välj sedan en ny eller befintlig Key Vault. Om du väljer det nya Key Vault visas en **redigerings** länk. Välj den för att konfigurera din nya Key Vault.
+1. Välj den prenumeration som du vill använda och välj sedan en befintlig Key Vault och klicka på **Slutför**. 
 
    ![Välj din prenumeration](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
-1. I **redigera Azure Key Vault**anger du det namn som du vill använda för Key Vault.
-
-1. Välj en befintlig **resurs grupp**eller Välj att skapa en ny med ett automatiskt genererat unikt namn.  Om du vill skapa en ny grupp med ett annat namn kan du använda [Azure Portal](https://portal.azure.com)och sedan stänga sidan och starta om för att läsa in listan över resurs grupper igen.
-1. Välj den **plats** där du vill skapa Key Vault. Om ditt webb program finns i Azure väljer du den region som är värd för webb programmet för optimala prestanda.
-1. Välj en **pris nivå**. Mer information finns i [Key Vault prissättning](https://azure.microsoft.com/pricing/details/key-vault/).
-1. Välj **OK** för att acceptera konfigurations alternativen.
-1. När du har valt en befintlig Key Vault eller konfigurerat en ny Key Vault går du till fliken **Azure Key Vault** i Visual Studio och väljer **Lägg till** för att lägga till den anslutna tjänsten.
-1. Välj den **Hantera hemligheter som lagras i den här Key Vault** -länken för att öppna sidan **hemligheter** för din Key Vault. Om du stängde sidan eller projektet kan du navigera till den i [Azure Portal](https://portal.azure.com) genom att välja **alla tjänster** och under **säkerhet**väljer du **Key Vault**, och sedan väljer du Key Vault.
-1. I avsnittet Key Vault för Key Vault som du har skapat väljer du **hemligheter**och sedan **generera/importera**.
-
-   ![Generera/importera en hemlighet](../media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
-
-1. Ange en hemlighet, till exempel *hemligt* , och ge det valfritt sträng värde som ett test och välj sedan knappen **skapa** .
-
-   ![Skapa en hemlighet](../media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
-
-1. valfritt Ange en annan hemlighet, men den här gången lägger den till en kategori genom att ge den namnet *hemligheter – hemligt*. Den här syntaxen anger en kategori "hemligheter" som innehåller en hemlig "hemlig".
-
-Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om du använder ASP.NET 4.7.1 eller ASP.NET Core.
+Nu är anslutningen till Key Vault upprättad och du kan komma åt dina hemligheter i kod. Nästa steg varierar beroende på om du använder ASP.NET 4.7.1 eller ASP.NET Core.
 
 ## <a name="access-your-secrets-in-code-aspnet-core"></a>Få åtkomst till dina hemligheter i kod (ASP.NET Core)
 
-1. I Solution Explorer högerklickar du på projektet och väljer **Hantera NuGet-paket**. På fliken **Bläddra** letar du reda på och installerar dessa två NuGet-paket: [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och .net Core 2, Lägg till [Microsoft. Azure. nyckel valv](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) eller för .net Core 3, Lägg till[Microsoft. Azure. nyckel valv. Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core).
-
-1. För .NET Core 2 väljer du `Program.cs` fliken och ändrar `BuildWebHost` definitionen i program klassen till följande:
-
-   ```csharp
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-           WebHost.CreateDefaultBuilder(args)
-               .ConfigureAppConfiguration((ctx, builder) =>
-               {
-                   var keyVaultEndpoint = GetKeyVaultEndpoint();
-                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                   {
-                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                       var keyVaultClient = new KeyVaultClient(
-                           new KeyVaultClient.AuthenticationCallback(
-                               azureServiceTokenProvider.KeyVaultTokenCallback));
-                       builder.AddAzureKeyVault(
-                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                   }
-               }
-            ).UseStartup<Startup>();
-
-        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-    }
-   ```
-
-   Använd följande kod för .NET Core 3.
-
-   ```csharp
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((context, config) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        config.AddAzureKeyVault(keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                })
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-    ```
-
-1. Öppna sedan en av växlingsfilerna, till exempel *index.cshtml.cs* , och skriv följande kod:
+1. Öppna en av växlingsfilerna, till exempel *index.cshtml.cs* , och skriv följande kod:
    1. Inkludera en referens till `Microsoft.Extensions.Configuration` med hjälp av direktivet:
 
        ```csharp
@@ -142,7 +73,7 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
        ```csharp
        public void OnGet()
        {
-           ViewData["Message"] = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+           ViewData["Message"] = "My key val = " + _configuration["<YourSecretNameStoredInKeyVault>"];
        }
        ```
 
@@ -155,32 +86,44 @@ Nu kan du komma åt dina hemligheter i kod. Nästa steg varierar beroende på om
 Du kan köra appen lokalt för att kontrol lera att hemligheten har hämtats från Key Vault.
 
 ## <a name="access-your-secrets-aspnet"></a>Få åtkomst till dina hemligheter (ASP.NET)
-
 Du kan konfigurera konfigurationen så att web.config-filen har ett dummy-värde i `appSettings` elementet som ersätts av det sanna värdet vid körning. Du kan sedan komma åt det via `ConfigurationManager.AppSettings` data strukturen.
 
-1. Redigera web.config-filen.  Leta upp taggen appSettings, Lägg till ett attribut `configBuilders="AzureKeyVault"` och Lägg till en rad:
-
-   ```xml
-      <add key="mysecret" value="dummy"/>
-   ```
+1. I Solution Explorer högerklickar du på projektet och väljer Hantera NuGet-paket. Leta upp och installera [Microsoft.Configuration.ConfigurationBuilders. Azure](https://www.nuget.org/packages/Microsoft.Configuration.ConfigurationBuilders.Azure/) på fliken Bläddra.
+ 
+1. Öppna web.config-filen och skriv följande kod:
+    1. Lägg till `configSections` och `configBuilders` :
+        ```xml
+         <configSections>
+            <section
+                name="configBuilders"
+                type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                restartOnExternalChanges="false"
+                requirePermission="false" />
+         </configSections>
+         <configBuilders>
+            <builders>
+            <add
+                    name="AzureKeyVault"
+                    vaultName="vaultname"
+                    type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral"
+                    vaultUri="https://vaultname.vault.azure.net" />
+            </builders>
+         </configBuilders>
+        ```
+    1. Leta upp taggen appSettings, Lägg till ett attribut `configBuilders="AzureKeyVault"` och Lägg till en rad:
+        ```xml
+         <add key="<secretNameInYourKeyVault>" value="dummy"/>
+        ```
 
 1. Redigera `About` metoden i *HomeController.cs*för att visa värdet för bekräftelse.
 
    ```csharp
    public ActionResult About()
    {
-       ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["mysecret"];
+       ViewBag.Message = "Key vault value = " + ConfigurationManager.AppSettings["<secretNameInYourKeyVault>"];
    }
    ```
 1. Kör appen lokalt under fel söknings programmet, växla till fliken **om** och kontrol lera att värdet från Key Vault visas.
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-När den inte längre behövs tar du bort resursgruppen. Detta tar bort Key Vault och relaterade resurser. Så här tar du bort resursgruppen via portalen:
-
-1. Skriv namnet på resursgruppen i rutan Sök längst upp i portalen. När du ser resursgruppen du använde i den här snabbstarten bland sökresultaten väljer du den.
-2. Välj **Ta bort resursgrupp**.
-3. I rutan **Skriv resurs gruppens namn:** anger du namnet på resurs gruppen och väljer **ta bort**.
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -243,10 +186,9 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 
 | Typ | Referens |
 | --- | --- |
-| Nettotid NuGet | Microsoft.Azure.KeyVault |
-| Nettotid NuGet | Microsoft. Azure. WebKey |
-| Nettotid NuGet | Microsoft.Rest.ClientRuntime |
-| Nettotid NuGet | Microsoft.Rest.ClientRuntime.Azure |
+| Nettotid NuGet | Azure. Identity |
+| Nettotid NuGet | Azure. Security. nyckel valv. nycklar |
+| Nettotid NuGet | Azure. Security. nyckel valv. hemligheter |
 
 ### <a name="added-files-for-aspnet-framework"></a>Filer har lagts till för ASP.NET Framework
 
@@ -256,34 +198,6 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 
 - De anslutna tjänsterna ItemGroup och ConnectedServices.jspå filen har lagts till.
 - Referenser till .NET-sammansättningar som beskrivs i avsnittet [tillagda referenser](#added-references-for-aspnet-framework) .
-
-### <a name="webconfig-or-appconfig-changes"></a>web.config eller app.config ändringar
-
-- Följande konfigurations poster har lagts till:
-
-    ```xml
-    <configSections>
-      <section
-           name="configBuilders"
-           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
-           restartOnExternalChanges="false"
-           requirePermission="false" />
-    </configSections>
-    <configBuilders>
-      <builders>
-        <add
-             name="AzureKeyVault"
-             vaultName="vaultname"
-             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral"
-             vaultUri="https://vaultname.vault.azure.net" />
-      </builders>
-    </configBuilders>
-    ```
-
-### <a name="changes-on-azure-for-aspnet-framework"></a>Ändringar i Azure för ASP.NET Framework
-
-- Skapade en resurs grupp (eller använt en befintlig).
-- Skapade en Key Vault i den angivna resurs gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
 

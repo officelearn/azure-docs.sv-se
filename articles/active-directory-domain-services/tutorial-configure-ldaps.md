@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1164d838a45496a075d356995a60beb967cdfcca
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404182"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054348"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: Konfigurera säker LDAP för en Azure Active Directory Domain Services hanterad domän
 
@@ -224,7 +224,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
 1. Listan över befintliga inkommande och utgående säkerhets regler visas. Välj **inställningar > inkommande säkerhets regler**till vänster i fönstret nätverks säkerhets grupp.
 1. Välj **Lägg till**och skapa sedan en regel för att tillåta *TCP* -port *636*. För förbättrad säkerhet väljer du källan som *IP-adresser* och anger sedan din egen giltiga IP-adress eller intervall för din organisation.
 
-    | Inställningen                           | Värde        |
+    | Inställning                           | Värde        |
     |-----------------------------------|--------------|
     | Källa                            | IP-adresser |
     | Käll-IP-adresser/CIDR-intervall | En giltig IP-adress eller ett giltigt intervall för din miljö |
@@ -234,7 +234,7 @@ Nu ska vi skapa en regel för att tillåta inkommande säker LDAP-åtkomst via T
     | Protokoll                          | TCP          |
     | Åtgärd                            | Tillåt        |
     | Prioritet                          | 401          |
-    | Namn                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. När du är klar väljer du **Lägg till** för att spara och tillämpa regeln.
 
@@ -265,7 +265,7 @@ Om du vill ansluta och binda till din hanterade domän och söka via LDAP använ
 Bind sedan till din hanterade domän. Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM-lösenord för hash-synkronisering på din hanterade domän. Mer information om hur du inaktiverar hash-synkronisering av NTLM-lösenord finns i [skydda din hanterade domän][secure-domain].
 
 1. Välj meny alternativet **anslutning** och välj sedan **BIND...**.
-1. Ange autentiseringsuppgifterna för ett användar konto som hör till *Administratörs* gruppen för AAD-domänkontrollant, till exempel *contosoadmin*. Ange användar kontots lösen ord och ange sedan din domän, till exempel *aaddscontoso.com*.
+1. Ange autentiseringsuppgifterna för ett användar konto som tillhör den hanterade domänen. Ange användar kontots lösen ord och ange sedan din domän, till exempel *aaddscontoso.com*.
 1. För **bindnings typ**väljer du alternativet för *BIND med autentiseringsuppgifter*.
 1. Välj **OK** för att binda till din hanterade domän.
 

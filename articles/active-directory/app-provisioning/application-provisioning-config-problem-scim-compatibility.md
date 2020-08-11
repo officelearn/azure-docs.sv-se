@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 08/05/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: c54478282cb1106ae95fe1c9e3fbb15e9c37bbf9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: da458b8aaf1ace7b87e98ded59a4bf90e4158e0f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808583"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054094"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
@@ -39,47 +39,113 @@ I tabellen nedan innebär ett objekt som marker ATS som fast att du kan hitta r�
 
 | **SCIM 2,0-kompatibilitetsproblem** |  **Fastsatt?** | **Åtgärds datum**  |  **Bakåtkompatibilitet** |
 |---|---|---|
-| Azure AD kräver att "/scim" finns i roten för programmets SCIM-slutpunkts-URL  | Ja  |  18 december 2018 | nedgradera till customappSSO |
-| Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Ja  | 18 december 2018  | nedgradera till customappSSO |
-| Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Ja  |  18 december 2018  | nedgradera till customappSSO |
-| Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Ja  |  18 december 2018  |  nedgradera till customappSSO |
-| Uppdatera KORRIGERINGs beteendet för att säkerställa efterlevnad | Nej | TBD| Använd förhands gransknings flagga |
+| Azure AD kräver att "/scim" finns i roten för programmets SCIM-slutpunkts-URL  | Yes  |  18 december 2018 | nedgradera till customappSSO |
+| Attributen för tillägg använder punkt "."-notation före attributnamn i stället för kolon ":"-notation |  Yes  | 18 december 2018  | nedgradera till customappSSO |
+| Uppdaterings begär Anden för flervärdesattribut innehåller ogiltig syntax för Sök vägs filter | Yes  |  18 december 2018  | nedgradera till customappSSO |
+| Begär Anden om att skapa grupper innehåller en ogiltig schema-URI | Yes  |  18 december 2018  |  nedgradera till customappSSO |
+| Uppdatera KORRIGERINGs beteendet för att säkerställa efterlevnad | No | TBD| Använd förhands gransknings flagga |
 
 ## <a name="flags-to-alter-the-scim-behavior"></a>Flaggor för att ändra SCIM-beteendet
 Använd flaggorna nedan i klient-URL: en för ditt program för att ändra standard klient beteendet för SCIM.
 
 :::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="SCIM flaggor till ett senare beteende.":::
 
-* Uppdatera KORRIGERINGs beteendet för att säkerställa efterlevnad
+* Använd följande URL för att uppdatera KORRIGERINGs beteendet och se till att SCIM efterlevs. Det här beteendet är för närvarande endast tillgängligt när du använder-flaggan, men kommer att bli standard beteendet under de kommande månaderna.
+  * **URL (scim-kompatibel):** AzureAdScimPatch062020
   * **SCIM RFC-referenser:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **URL (scim-kompatibel):** AzureAdScimPatch062020
   * **Ovänta**
-    * De inkompatibla grupp medlemskapen tas bort:
   ```json
+   PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
-     "schemas":
-      ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"remove",
-       "path":"members[value eq \"2819c223-7f76-...413861904646\"]"
-     }]
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "remove",
+            "path": "members[value eq \"16b083c0-f1e8-4544-b6ee-27a28dc98761\"]"
+        }
+    ]
    }
+
+    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "members",
+            "value": [
+                {
+                    "value": "10263a6910a84ef9a581dd9b8dcc0eae"
+                }
+            ]
+        }
+    ]
+    } 
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "someone@contoso.com"
+        },
+        {
+            "op": "replace",
+            "path": "emails[type eq \"work\"].primary",
+            "value": true
+        },
+        {
+            "op": "replace",
+            "value": {
+                "active": false,
+                "userName": "someone"
+            }
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "replace",
+            "path": "active",
+            "value": false
+        }
+    ]
+    }
+
+    PATCH https://[...]/Users/ac56b4e5-e079-46d0-810e-85ddbd223b09
+    {
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+    ],
+    "Operations": [
+        {
+            "op": "add",
+            "path": "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department",
+            "value": "Tech Infrastructure"
+        }
+    ]
+    }
+   
   ```
-  * **URL (icke-scim kompatibel):** AzureAdScimPatch2017
-  * **Ovänta**
-    * Icke-kompatibla grupp medlemskap tas bort:
-   ```json
-   {
-     "schemas":
-     ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-     "Operations":[{
-       "op":"Remove",  
-       "path":"members",
-       "value":[{"value":"2819c223-7f76-...413861904646"}]
-     }]
-   }
-   ```
+
+  * **Nedgraderings-URL:** När det nya SCIM-kompatibla beteendet blir standardvärdet i det program som inte är galleriet kan du använda följande URL för att återställa till det gamla, icke SCIM-kompatibla beteendet: AzureAdScimPatch2017
+  
+
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>Uppgradera från det äldre customappsso-jobbet till SCIM-jobbet
 Följ stegen nedan för att ta bort ditt befintliga customappsso-jobb och skapa ett nytt scim-jobb. 
@@ -139,4 +205,3 @@ Följ stegen nedan för att ta bort ditt befintliga customappsso-jobb och skapa 
 
 ## <a name="next-steps"></a>Nästa steg
 [Lär dig mer om etablering och avetablering för SaaS-program](user-provisioning.md)
-

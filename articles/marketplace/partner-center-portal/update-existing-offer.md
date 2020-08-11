@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: 33e7a97f4b82bd3d7e82532fe2f0a5e3d80c73f5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ca106625acf28aded0009fd09022843f1016faf3
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006799"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056150"
 ---
-# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i Commercial Marketplace
+# <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i den kommersiella Marketplace
 
 Du kan visa dina befintliga erbjudanden på fliken **Översikt** i den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center.
 
-Så här uppdaterar du ett befintligt erbjudande som för närvarande är aktivt på Marketplace:
+Så här uppdaterar du ett befintligt erbjudande som för närvarande är aktivt på den kommersiella Marketplace:
 
 1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som för **hands version**, **Live**, **publicering**pågår, **utkast**, **åtgärd krävs**eller **inte tillgängligt** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
 2. Välj **Uppdatera** från kortet på sidan erbjudande översikt eller meny alternativet i det vänstra navigerings fältet för det fält som du vill uppdatera. Du kanske vill uppdatera **erbjudande konfiguration**, **Egenskaper**, **erbjudande lista**, för **hands version**, **teknisk konfiguration**, **planerings översikt**eller **test enhet**.
@@ -74,7 +74,7 @@ Nu när du har dolt planen med det gamla priset skapar du en kopia av planen med
 1. Välj **Spara utkast**.
 1. När du har slutfört alla nödvändiga avsnitt för den nya planen väljer du **Granska och publicera**. Detta skickar ditt erbjudande om granskning och publicering. Läs [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md) för mer information.
 
-## <a name="compare-changes-to-marketplace-offers"></a>Jämför ändringar av Marketplace-erbjudanden
+## <a name="compare-changes-to-commercial-marketplace-offers"></a>Jämför ändringar på kommersiella Marketplace-erbjudanden
 
 Du kan granska de ändringar du gör i ett [publicerat](#compare-changes-to-published-offer) eller [förhands gransknings](#compare-changes-to-a-preview-offer) erbjudande innan du gör dem live genom att använda **Jämför**.
 
@@ -161,11 +161,13 @@ Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publ
 
 ## <a name="stop-selling-an-offer-or-plan"></a>Sluta sälja ett erbjudande eller en plan
 
+Av olika anledningar kan du välja att ta bort erbjudande listan från Microsofts kommersiella marknads plats. Erbjudande borttagning garanterar att nya kunder inte längre kan köpa eller distribuera ditt erbjudande, men inte har någon inverkan på befintliga kunder.
+
 Om du vill sluta att sälja ett erbjudande när du har publicerat det väljer du **sluta sälja** från sidan **erbjudande översikt** .
 
-När du har bekräftat att du vill sluta sälja erbjudandet inom några timmar kommer det inte längre att synas på Marketplace och inga nya kunder kan ladda ned det.
+När du har bekräftat att du vill sluta sälja erbjudandet inom några timmar kommer det inte längre att vara synligt på den kommersiella marknads platsen och inga nya kunder kan ladda ned det.
 
-Om du vill sluta sälja en plan väljer du **sluta sälja** från sidan **plan översikt** . Alternativet att sluta sälja en plan är bara tillgängligt om du har mer än en prenumeration på erbjudandet. Du kan välja att sluta sälja en plan utan att påverka andra planer i erbjudandet. När du har bekräftat att du vill sluta sälja planen måste du publicera om erbjudandet för att ändringen ska börja gälla. När erbjudandet har återpublicerats visas inte längre planen på Marketplace och inga nya kunder kan ladda ned den.
+Om du vill sluta sälja en plan väljer du **sluta sälja** från sidan **plan översikt** . Alternativet att sluta sälja en plan är bara tillgängligt om du har mer än en prenumeration på erbjudandet. Du kan välja att sluta sälja en plan utan att påverka andra planer i erbjudandet. När du har bekräftat att du vill sluta sälja planen måste du publicera om erbjudandet för att ändringen ska börja gälla. När erbjudandet har återpublicerats visas inte längre planen på den kommersiella marknads platsen och inga nya kunder kan hämta den.
 
 Kunder som tidigare förvärvade erbjudandet eller abonnemanget kan fortfarande använda det. De kan ladda ned den igen, men de får inga uppdateringar om du uppdaterar och publicerar om erbjudandet eller planen vid ett senare tillfälle.
 

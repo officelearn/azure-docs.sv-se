@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/30/2020
+ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1e0efc2c64a1cbdcc2c83c019f7743406054afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 074171d658eb4e1e029652c9c0851e082ba043fe
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074035"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053447"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -321,6 +321,44 @@ Därför kan du överväga att distribuera liknande data flöde för de ANF-voly
 > Du kan ändra storlek på Azure NetApp Files volymer dynamiskt, utan att behöva `unmount` volymerna, stoppa de virtuella datorerna eller stoppa SAP HANA. Det gör det möjligt att uppfylla ditt program både förväntat och oförutsedda data flödes krav.
 
 Dokumentation om hur du distribuerar en SAP HANA skalbar konfiguration med en standby-nod med hjälp av NFS v 4.1-volymer som finns i ANF publiceras i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
+
+
+## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Kostnads medveten lösning med Azure Premium Storage
+Den Azure Premium Storage-lösning som beskrivs i det här dokumentet i avsnitts [lösningar med Premium Storage och azure Skrivningsaccelerator för Azure M-seriens virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines) avsåg SAP HANA produktions scenarier som stöds. En av egenskaperna för konfigurationer som stöds för produktion är separering av volymer för SAP HANA data och gör om att logga in på två olika volymer. Orsaken till en sådan separation är att arbets Belastningens egenskaper på volymerna skiljer sig åt. Med de föreslagna produktions konfigurationerna kan olika typer av cachelagring eller till och med olika typer av Azure block-lagring vara nödvändiga. Konfigurationerna för produktion som stöds med Azure block Storage Target är kompatibla med det [enda service nivå avtalet för virtuella datorer för azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/) också.  För icke-produktions scenarier kan vissa av de överväganden som vidtas för produktions system inte gälla för mer låga system som inte är för produktion. Det leder till att HANA-data och logg volymen kombineras. Även om det i vissa culprits, till exempel inte uppfyller vissa data flöden eller fördröjnings-KPI: er som krävs för produktions system. En annan aspekt för att minska kostnaderna i sådana miljöer kan vara användningen av [Azure standard SSD Storage](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage#azure-standard-ssd-storage). Det är ett alternativ som gör att du inte validerar [service avtalet för enskild virtuell dator för Azure Virtual Machines](https://azure.microsoft.com/support/legal/sla/virtual-machines/). 
+
+Ett mindre kostsamt alternativ för sådana konfigurationer kan se ut så här:
+
+
+| VM-SKU | RAM | Max. VM-I/O<br /> Dataflöde | /Hana/data och/Hana/log<br /> randigt med LVM eller MDADM | /hana/shared | /root-volym | /usr/sap | Comment |
+| --- | --- | --- | --- | --- | --- | --- | -- |
+| DS14v2 | 112 GiB | 768 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| E16v3 | 128 GiB | 384 MB/s | 4 x P6 | 1 x E10 | 1 x E6 | 1 x E6 | VM-typen inte HANA-certifierad <br /> Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| M32ts | 192 GiB | 500 MB/s | 3 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 5 000<sup>2</sup> |
+| E20ds_v4 | 160 GiB | 480 MB/s | 4 x P6 | 1 x E15 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| E32v3 | 256 GiB | 768 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | VM-typen inte HANA-certifierad <br /> Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| E32ds_v4 | 256 GiB | 768 Mbit/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| M32ls | 256 GiB | 500 MB/s | 4 x P10 | 1 x E15 | 1 x E6 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 5 000<sup>2</sup> |
+| E48ds_v4 | 384 GiB | 1 152 Mbit/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| E64v3 | 432 GiB | 1 200 MB/s | 6 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| E64ds_v4 | 504 GiB | 1200 MB/s |  7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Kommer inte att uppnå mindre än 1ms lagrings fördröjning<sup>1</sup> |
+| M64ls | 512 GiB | 1 000 MB/s | 7 x P10 | 1 x E20 | 1 x E6 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 10 000<sup>2</sup> |
+| M64s | 1 000 GiB | 1 000 MB/s | 7 x p15 | 1 x E30 | 1 x E6 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 10 000<sup>2</sup> |
+| M64ms | 1 750 GiB | 1 000 MB/s | 6 x P20 | 1 x E30 | 1 x E6 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 10 000<sup>2</sup> |
+| M128s | 2 000 GiB | 2 000 MB/s |6 x P20 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 20 000<sup>2</sup> |
+| M208s_v2 | 2 850 GiB | 1 000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 10 000<sup>2</sup> |
+| M128ms | 3 800 GiB | 2 000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 20 000<sup>2</sup> |
+| M208ms_v2 | 5 700 GiB | 1 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 10 000<sup>2</sup> |
+| M416s_v2 | 5 700 GiB | 2 000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 20 000<sup>2</sup> |
+| M416ms_v2 | 11400 GiB | 2 000 MB/s | 7 x P40 | 1 x E30 | 1 x E10 | 1 x E6 | Om du använder Skrivningsaccelerator för kombinerad data och logg volym begränsas IOPS-priset till 20 000<sup>2</sup> |
+
+
+<sup>1</sup> [Azure Skrivningsaccelerator](../../linux/how-to-enable-write-accelerator.md) kan inte användas med Ev4 och Ev4 VM-familjer. I och med att använda Azure Premium Storage är I/O-fördröjningen inte mindre än 1ms
+
+<sup>2</sup> VM-serien har stöd för [Azure Skrivningsaccelerator](../../linux/how-to-enable-write-accelerator.md), men det finns en risk att IOPS-gränsen för Write Accelerator kan begränsa disk konfigurationens IOPS-funktioner
+
+Om du kombinerar data-och logg volymen för SAP HANA bör diskarna som skapar stripe-volymen inte ha Read cache eller read/write cache aktiverat.
+
+Det finns VM-typer i listan som inte är certifierade med SAP och som inte visas i den så kallade [SAP HANA maskin varu katalog](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Kundernas feedback var att de icke-listade VM-typerna har använts för vissa icke-produktions uppgifter.
 
 
 ## <a name="next-steps"></a>Nästa steg

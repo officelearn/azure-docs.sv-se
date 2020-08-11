@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: genli
-ms.openlocfilehash: 6010c67b531d0f1ebb0ed836062cd5e323e5474c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8b5124a0336773412ae9c36a32a0f6f86da62a31
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083522"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056252"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbereda en VHD eller VHDX i Windows för överföring till Azure
 
@@ -488,6 +488,7 @@ I synnerhet kräver Sysprep att enheterna måste dekrypteras fullständigt innan
 
 1. Logga in på den virtuella Windows-datorn.
 1. Kör en PowerShell-session som administratör.
+1. Ta bort Panther-katalogen (C:\Windows\Panther).
 1. Ändra katalogen till `%windir%\system32\sysprep` . Kör sedan `sysprep.exe`.
 1. I dialog rutan **system förberedelse verktyg** väljer du **Använd OOBE (system out-of-Box Experience)** och kontrollerar att kryss rutan **generalize** är markerad.
 

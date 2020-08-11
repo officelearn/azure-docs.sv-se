@@ -1,14 +1,14 @@
 ---
 title: Utforska dina Azure-resurser
 description: Lär dig att använda det aktuella resurs diagrammets frågespråk för att utforska dina resurser och identifiera hur de är anslutna.
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 33bf457a57f7e62b9c99471bcb7676f62046f61d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2dcd27380cb67213c3c2c7a5776243b5e9a2e37f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83654499"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056592"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
@@ -207,8 +207,8 @@ Resources
 | where type =~ 'Microsoft.Compute/disks' and id == '/subscriptions/<subscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/disks/ContosoVM1_OsDisk_1_9676b7e1b3c44e2cb672338ebe6f5166'
 ```
 
-Innan du kör frågan vet vi att **typen** borde nu vara **Microsoft. Compute/disks**?
-Om du tittar på det fullständiga ID: t visas **/providers/Microsoft.Compute/disks/** som en del av strängen. Detta sträng fragment ger dig en ledtråd för vilken typ av sökning du vill söka efter. En alternativ metod är att ta bort gränsen efter typ och i stället bara söka efter fältet ID. Eftersom ID: t är unikt returneras bara en post och **typ** egenskapen i den innehåller information.
+Innan du kör frågan vet vi att **typen** borde nu vara **Microsoft. Compute/disks**? Om du tittar på det fullständiga ID: t visas **/providers/Microsoft.Compute/disks/** som en del av strängen.
+Detta sträng fragment ger dig en ledtråd för vilken typ av sökning du vill söka efter. En alternativ metod är att ta bort gränsen efter typ och i stället bara söka efter fältet ID. Eftersom ID: t är unikt returneras bara en post och **typ** egenskapen i den innehåller information.
 
 > [!NOTE]
 > För att det här exemplet ska fungera måste du ersätta ID-fältet med ett resultat från din egen miljö.

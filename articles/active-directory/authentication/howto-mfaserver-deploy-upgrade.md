@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f242b4a7e984ceeb183547cb3a949927f3c91da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80653104"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88054008"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste versionen av Azure Multi-Factor Authentication Server
 
@@ -41,7 +41,7 @@ Att snabbt uppgradera steg:
 4. Kör det nya installations programmet på varje MFA-Server. Uppgradera underordnade servrar först eftersom de kan läsa den gamla data filen som replikeras av huvud servern.
 
    > [!NOTE]
-   > När du uppgraderar en server bör den tas bort från alla LoadBalancing eller trafik delning med andra MFA-servrar.
+   > När du uppgraderar en server bör den tas bort från alla belastnings Utjämnings-eller trafik delning med andra MFA-servrar.
    >
    > Du behöver inte avinstallera din aktuella MFA-server innan du kör installations programmet. Installations programmet utför en uppgradering på plats. Installations Sök vägen hämtas från registret från den tidigare installationen, så den installeras på samma plats (t. ex. C:\Program Files\Multi-Factor Authentication Server).
   

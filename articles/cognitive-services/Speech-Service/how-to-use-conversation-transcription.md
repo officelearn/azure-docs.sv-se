@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: fc22dea201ccd19c4e7bee92a1092b4ff50117db
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f9670733f8aa040b87cec20ac28aacc636c04698
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134937"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056218"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Konversations avskrift i real tid (för hands version)
 
@@ -37,7 +37,7 @@ Tal enhets-SDK: n innehåller exempel kod i Java för ljud fångst i real tid me
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-En röst tjänst prenumeration. Du kan [få en utvärderings prenumeration för tal](https://azure.microsoft.com/try/cognitive-services/) om du inte har någon.
+En röst tjänst prenumeration. Du kan skapa [ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/) om du inte har något.
 
 ## <a name="create-voice-signatures"></a>Skapa röst under skrifter
 

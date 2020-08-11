@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 493c77a8f875018627bfe3167e66addeaf65d089
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 402672d8eeaae8a5097e2ab2905997eb1f646ad6
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445781"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056354"
 ---
 # <a name="frequently-asked-questions---azure-key-vault-certificate-import"></a>Vanliga frågor och Azure Key Vault certifikat import
 
@@ -32,6 +32,10 @@ Det överförda skyddade certifikatet efter lagring i Key Vault sparar inte lös
 ### <a name="how-can-i-resolve-bad-parameter-error-what-are-the-supported-certificate-formats-for-importing-in-key-vault"></a>Hur kan jag lösa "felaktigt parameter fel"? Vilka certifikatformat stöds för import i Key Vault?
 
 När du importerar certifikatet måste du se till att nyckeln ingår i själva filen. Om du har en privat nyckel separat i ett annat format måste du kombinera nyckeln med certifikatet. Vissa certifikat utfärdare tillhandahåller certifikat i olika format, därför innan du importerar certifikatet, se till att de är antingen i. pem eller. PFX-format och att nyckeln som används är antingen RSA eller ECC. Se dessa för att granska [certifikat krav](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#formats-of-import-we-support) och [krav på certifikat nycklar](https://docs.microsoft.com/azure/key-vault/keys/about-keys#cryptographic-protection).
+
+###  <a name="can-i-import-certificate-using-arm-template"></a>Kan jag importera certifikat med ARM-mall?
+
+Nej, det går inte att utföra certifiate-åtgärder med ARM-mallar. Rekommenderad lösning är att använda certifikat import metoderna i API: et eller CLI eller PowerShell. Om du har ett befintligt-certifikat kan du importera det som en hemlighet.
 
 ### <a name="error-when-importing-certificate-via-portal-something-went-wrong-how-can-i-investigate-further"></a>Fel när certifikat importeras via portalen ("ett fel uppstod"). Hur kan jag undersöka ytterligare?
     

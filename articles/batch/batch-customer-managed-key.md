@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 77c0489838685d65d7579f37d6a6cb922af509f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062534"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053753"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Konfigurera Kundhanterade nycklar för ditt Azure Batch-konto med Azure Key Vault och hanterad identitet
 
@@ -25,7 +25,7 @@ De nycklar som du anger måste genereras i [Azure Key Vault](../key-vault/genera
 
 ## <a name="create-a-batch-account-with-system-assigned-managed-identity"></a>Skapa ett batch-konto med systemtilldelad hanterad identitet
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 När du skapar batch-konton i [Azure Portal](https://portal.azure.com/)väljer du **system som tilldelats** i identitets typen under fliken **Avancerat** .
 
@@ -82,7 +82,7 @@ I **Välj** -fältet under **huvud namn**fyller du i den `principalId` som du ha
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generera en nyckel i Azure Key Vault
 
-I Azure Portal går du till Key Vault-instansen i avsnittet **nyckel** och väljer **generera/importera**. Välj den **nyckel typ** som ska vara `RSA` och **nyckel storleken** `2048` .
+I Azure Portal går du till Key Vault-instansen i avsnittet **nyckel** och väljer **generera/importera**. Välj den **nyckel typ** som ska vara `RSA` och **RSA-nyckel storleken** måste vara minst `2048` bitar. `EC`nyckel typer stöds för närvarande inte som en kundhanterad nyckel på ett batch-konto.
 
 ![Skapa en nyckel](./media/batch-customer-managed-key/create-key.png)
 
@@ -90,7 +90,7 @@ När nyckeln har skapats klickar du på den nya nyckeln och den aktuella version
 
 ## <a name="enable-customer-managed-keys-on-azure-batch-account"></a>Aktivera Kundhanterade nycklar på Azure Batch konto
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Gå till sidan för batch-kontot i [Azure Portal](https://portal.azure.com/). Aktivera **kundhanterad nyckel**under avsnittet **kryptering** . Du kan använda nyckel identifieraren direkt eller så kan du välja nyckel valvet och sedan klicka på **Välj ett nyckel valv och nyckel**.
 
@@ -142,6 +142,7 @@ az batch account set \
 ```
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
   * **Stöds kund hanterade nycklar för befintliga batch-konton?** Nej. Kundhanterade nycklar stöds bara för nya batch-konton.
+  * **Kan jag välja RSA-nyckel storlekar som är större än 2048 bitar?** Ja, RSA-nyckel storlekar `3072` och `4096` BITS stöds också.
   * **Vilka åtgärder är tillgängliga när en kundhanterad nyckel har återkallats?** Den enda åtgärd som tillåts är borttagning av konto om batch förlorar åtkomsten till den Kundhanterade nyckeln.
   * **Hur ska jag återställa åtkomsten till mitt batch-konto om jag råkar ta bort Key Vault nyckeln?** Eftersom rensnings skyddet och mjuk borttagning är aktiverat kan du återställa befintliga nycklar. Mer information finns i [återställa en Azure Key Vault](../key-vault/general/soft-delete-cli.md#recovering-a-key-vault).
   * **Kan jag inaktivera Kundhanterade nycklar?** Du kan när som helst ange krypterings typen för batch-kontot tillbaka till "Microsoft Managed Key". Därefter är du kostnads fri att ta bort eller ändra nyckeln.

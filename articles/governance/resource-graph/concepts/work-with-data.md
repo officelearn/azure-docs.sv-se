@@ -1,14 +1,14 @@
 ---
 title: Arbeta med stora datamängder
 description: Lär dig hur du hämtar, formaterar, visar och hoppar över poster i stora data mängder när du arbetar med Azures resurs diagram.
-ms.date: 03/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681064"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056414"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -63,10 +63,10 @@ I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/reso
 
 ## <a name="paging-results"></a>Växla resultat
 
-När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**.
-**resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
+När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+ **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**. **resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
 
- **resultTruncated** är **Sant** när växlingen är inaktive rad eller inte möjlig på grund av att det inte finns någon `id` kolumn eller om det finns mindre resurser som är tillgängliga än en fråga begär. När **resultTruncated** är **True**anges inte egenskapen **$skipToken** .
+ **resultTruncated** är **Sant** när växlingen är inaktive rad eller inte möjlig eftersom ingen `id` kolumn eller om det finns mindre resurser som är tillgängliga än en fråga begär. När **resultTruncated** är **True**anges inte egenskapen **$skipToken** .
 
 I följande exempel visas hur du **hoppar över** de första 3000 posterna och returnerar de **första** 1000 posterna när posterna hoppades över med Azure CLI och Azure PowerShell:
 

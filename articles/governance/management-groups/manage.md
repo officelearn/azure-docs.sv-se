@@ -1,14 +1,14 @@
 ---
 title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
-ms.date: 04/15/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5a0269935daedb3be478cc27d5ecaf87f3c97f7
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 43837dcaed9b9628573ee92244ede542107155f9
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535016"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055147"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
@@ -65,9 +65,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 Om du vill ta bort en hanterings grupp måste följande krav uppfyllas:
 
-1. Det finns inga underordnade hanterings grupper eller prenumerationer under hanterings gruppen.
-
-   - Om du vill flytta en prenumeration eller hanterings grupp till en annan hanterings grupp läser du [flytta hanterings grupper och prenumerationer i hierarkin](#moving-management-groups-and-subscriptions).
+1. Det finns inga underordnade hanterings grupper eller prenumerationer under hanterings gruppen. Information om hur du flyttar en prenumeration eller hanterings grupp till en annan hanterings grupp finns i [flytta hanterings grupper och prenumerationer i hierarkin](#moving-management-groups-and-subscriptions).
 
 1. Du behöver Skriv behörighet för hanterings gruppen ("ägare", "deltagare" eller "hanterings grupp deltagare"). Om du vill se vilka behörigheter du har väljer du hanterings gruppen och väljer sedan **IAM**. Mer information om Azure-roller finns i  
    [Hantera åtkomst och behörigheter med RBAC](../../role-based-access-control/overview.md).
@@ -200,7 +198,7 @@ az account management-group show --name 'Contoso' -e -r
 
 En orsak till att skapa en hanterings grupp är att bunta ihop prenumerationer. Endast hanterings grupper och prenumerationer kan göras underordnade till en annan hanterings grupp. En prenumeration som flyttas till en hanterings grupp ärver alla användares åtkomst och principer från den överordnade hanterings gruppen
 
-När du flyttar en hanterings grupp eller en prenumeration till en underordnad till en annan hanterings grupp måste tre regler utvärderas som sant.
+När en hanterings grupp eller prenumeration flyttas till en underordnad till en annan hanterings grupp måste tre regler utvärderas som sant.
 
 Om du utför flytt åtgärden behöver du: 
 

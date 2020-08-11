@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460617"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053234"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -33,7 +33,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
@@ -84,7 +84,7 @@ Följande scenarier stöds inte för stegvis distribution:
 
 - När du först lägger till en säkerhets grupp för stegvis distribution är du begränsad till 200 användare för att undvika en UX-timeout. När du har lagt till gruppen kan du lägga till fler användare direkt till den, efter behov.
 
-- Medan användarna är i steg införd, anges principen för lösen ords förfallo datum till 90 dagar utan alternativ för att anpassa den. 
+- Medan användarna är i stegvis distribution, när EnforceCloudPasswordPolicyForPasswordSyncedUsers har Aktiver ATS, anges principen för lösen ordets giltighets tid till 90 dagar utan alternativ för att anpassa den. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Kom igång med stegvis distribution

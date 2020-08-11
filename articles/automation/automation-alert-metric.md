@@ -1,71 +1,64 @@
 ---
 title: Övervaka Azure Automation runbooks med mått varningar
-description: Den här artikeln beskriver hur du övervakar Runbooks baserat på mått.
+description: Den här artikeln beskriver hur du konfigurerar en mått avisering baserat på status för Runbook-slut för ande.
 services: automation
-ms.date: 11/01/2018
+ms.date: 08/10/2020
 ms.topic: article
-ms.openlocfilehash: 20aaee5b699e9721bf9083030604df1385da1915
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83828754"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055944"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Övervaka runbook-flöden med måttaviseringar
 
-I den här artikeln får du lära dig hur du skapar aviseringar baserat på slut för ande status för Runbooks.
+I den här artikeln får du lära dig hur du skapar en [mått avisering](../azure-monitor/platform/alerts-metric-overview.md) baserat på status för Runbook-slut för ande.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in i Azure på https://portal.azure.com
+Logga in på [Azure-portalen](https://portal.azure.com)
 
 ## <a name="create-alert"></a>Skapa avisering
 
 Med aviseringar kan du definiera ett villkor för övervakning av och en åtgärd som ska vidtas när villkoret är uppfyllt.
 
-I Azure Portal navigerar du till ditt Automation-konto. Under **övervakning**väljer du **aviseringar** och klickar på **+ ny varnings regel**. Målets omfattning har redan definierats för ditt Automation-konto.
+1. Starta tjänsten Azure Automation i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Automation-konton**.
+
+2. I listan över Automation-konton väljer du det konto som du vill skapa en avisering för. 
+
+3. Under **övervakning**väljer du **aviseringar** och väljer sedan **+ ny varnings regel**. Omfattningen för målet är redan definierad och kopplad till ditt Automation-konto.
 
 ### <a name="configure-alert-criteria"></a>Konfigurera aviserings villkor
 
-1. Klicka på **+ Lägg till kriterier**. Välj **mått** för **signal typen**och välj **Totalt antal jobb** från tabellen.
+1. Klicka på **Välj villkor**. Välj **mått** för **signal typen**och välj **Total jobb** från listan.
 
 2. Sidan **Konfigurera signal logik** är den plats där du definierar den logik som utlöser aviseringen. Under det historiska diagrammet visas två dimensioner, **Runbook-namn** och **status**. Dimensioner är olika egenskaper för ett mått som kan användas för att filtrera resultat. För **Runbook-namn**väljer du den Runbook som du vill Avisera om eller lämnar tomt för aviseringar på alla Runbooks. För **status**väljer du en status från List rutan som du vill övervaka för. Runbook-namn och status värden som visas i list rutan är bara för jobb som har körts den senaste veckan.
 
-   Om du vill Avisera om en status eller Runbook som inte visas i list rutan klickar du på **\+** bredvid dimensionen. Den här åtgärden öppnar en dialog ruta där du kan ange ett anpassat värde, som inte har genererats för den dimensionen nyligen. Om du anger ett värde som inte finns för en egenskap kommer aviseringen inte att utlösas.
+   Om du vill Avisera om en status eller Runbook som inte visas i list rutan klickar du på alternativet **Lägg till anpassat värde** bredvid dimensionen. Den här åtgärden öppnar en dialog ruta där du kan ange ett anpassat värde, som inte har spridits för den dimensionen nyligen. Om du anger ett värde som inte finns för en egenskap kommer aviseringen inte att utlösas.
 
    > [!NOTE]
-   > Om du inte använder ett namn för **RunbookName** -dimensionen, kommer du att få en avisering om det finns Runbooks som uppfyller status villkoren, vilket inkluderar dolda system-Runbooks.
+   > Om du inte anger något namn på **Runbook-namn** dimensionen, om det finns Runbooks som uppfyller status villkoren, som innehåller dolda system-Runbooks, får du en avisering.
+
+    Om du till exempel vill Avisera när en Runbook returnerar en _misslyckad_ status, förutom att ange Runbook-namnet för **status** dimensionen, kan du **inte**lägga till det anpassade dimension svärdet.
+
+    :::image type="content" source="./media/automation-alert-metric/specify-dimension-custom-value.png" alt-text="Ange anpassat dimensions värde" border="false":::
 
 3. Under **aviserings logik**definierar du villkoret och tröskelvärdet för aviseringen. En för hands version av det definierade villkoret visas under.
 
-4. Under **utvärdera baserat på**väljer du TimeSpan för frågan och hur ofta du vill att frågan kördes. Om du till exempel väljer **över de senaste 5 minuterna** för **perioden** och **var 1 minut** för **frekvensen**söker aviseringen efter antalet Runbooks som uppfyller dina kriterier under de senaste 5 minuterna. Den här frågan körs varje minut och när aviserings kriterierna du definierade inte längre hittas i ett 5-minuters fönster, löses aviseringen. Klicka på **Klar** när du är klar.
+4. Under **utvärdera baserat på**väljer du TimeSpan för frågan och hur ofta du vill att frågan ska köras. Om du till exempel väljer **över de senaste 5 minuterna** för **perioden**och **var 1 minut** för **frekvens**, söker aviseringen efter antalet Runbooks som uppfyller dina kriterier under de senaste 5 minuterna. Den här frågan körs varje minut och när aviserings kriterierna du definierade inte längre hittas i ett 5-minuters fönster, löses aviseringen. Klicka på **Klar** när du är klar.
 
    ![Välj en resurs för aviseringen](./media/automation-alert-activity-log/configure-signal-logic.png)
 
-### <a name="define-alert-details"></a>Definiera aviseringsinformationen
-
-1. Under **2. Definiera aviserings information**, ge aviseringen ett eget namn och en beskrivning. Ange **allvarlighets grad** som matchar varnings villkoret. Det finns fem allvarlighets grader mellan 0 och 5. Aviseringarna behandlas oberoende av allvarlighets graden. du kan matcha allvarlighets graden så att den matchar din affärs logik.
-
-1. Längst ned i avsnittet finns en knapp som gör det möjligt att aktivera regeln när den har slutförts. Som standard är regler aktiverade när de skapas. Om du väljer Nej kan du skapa aviseringen och den skapas i ett **inaktiverat** tillstånd. På sidan **regler** i Azure Monitor kan du markera den och klicka på **Aktivera** för att aktivera aviseringen när du är klar.
-
 ### <a name="define-the-action-to-take"></a>Definiera åtgärden som ska vidtas
 
-1. Under **3. Definiera åtgärds grupp**, klicka på **+ ny åtgärds grupp**. En åtgärds grupp är en grupp med åtgärder som du kan använda i mer än en avisering. Dessa kan inkludera, men är inte begränsade till, e-postmeddelanden, Runbooks, Webhooks och många fler. Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md)
+1. Under **Åtgärds grupp**väljer du **Ange åtgärds grupp**. En åtgärds grupp är en grupp med åtgärder som du kan använda i mer än en avisering. Dessa kan inkludera, men är inte begränsade till, e-postmeddelanden, Runbooks, Webhooks och många fler. Mer information om åtgärds grupper och steg för att skapa en som skickar ett e-postmeddelande finns i [skapa och hantera åtgärds grupper](../azure-monitor/platform/action-groups.md).
 
-1. I rutan **Åtgärdsgruppnamn** ge ett eget namn och ett kort namn. Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+### <a name="define-alert-details"></a>Definiera aviseringsinformationen
 
-1. I avsnittet **åtgärder** under **Åtgärds typ**väljer du **e-post/SMS/push/röst**.
+1. Ge aviseringen ett eget namn och en beskrivning under **aviserings regel information**. Ange **allvarlighets grad** som matchar varnings villkoret. Det finns fem allvarlighets grader mellan 0 och 5. Aviseringarna behandlas oberoende av allvarlighets graden. du kan matcha allvarlighets graden så att den matchar din affärs logik.
 
-1. På sidan **e-post/SMS/Push/röst**, ge den ett namn. Markera kryssrutan **e-post** och ange en giltig e-postadress som ska användas.
-
-   ![Konfigurera e-poståtgärdsgrupp](./media/automation-alert-activity-log/add-action-group.png)
-
-1. Klicka på **OK** på sidan **e-post/SMS/Push/röst** för att stänga den och klicka på **OK** att stänga sidan **Lägg till åtgärdsgrupp**. Namnet som anges på den här sidan sparas som **Åtgärds namn**.
-
-1. Klicka på **Spara** när du är klar. Den här åtgärden skapar en regel som varnar dig när en Runbook har slutförts med en viss status.
-
-> [!NOTE]
-> När du lägger till en e-postadress i en åtgärds grupp skickas ett e-postmeddelande med information om att adressen har lagts till i en åtgärds grupp.
+1. Som standard är regler aktiverade när du skapar, om du inte väljer **Nej** för alternativet **Aktivera varnings regeln när du skapar**den. För aviseringar som har skapats i inaktiverat tillstånd kan du aktivera dem i framtiden när du är klar. Välj **skapa aviserings regel** för att spara ändringarna.
 
 ## <a name="receive-notification"></a>Ta emot meddelande
 

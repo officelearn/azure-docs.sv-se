@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 7a5e6bd262a1772356653eaaff7688ade9b4bfb7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041792"
+ms.locfileid: "88056660"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -60,7 +60,7 @@ Det här är vad du behöver för att slutföra den här kursen:
 - En Windows 10-dator med en fungerande mikrofon och högtalare (eller hörlurar)
 - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) eller högre, med arbets belastningen **ASP.net och webb utveckling** installerad
 - [.NET Framework runtime 4.6.1](https://dotnet.microsoft.com/download) eller högre
-- Ett Azure-konto. [Registrera dig kostnads fritt](https://azure.microsoft.com/free/ai/).
+- Ett Azure-konto. [Registrera dig kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 - Ett [GitHub](https://github.com/)-konto
 - [Git för Windows](https://git-scm.com/download/win)
 
@@ -83,7 +83,6 @@ Om du vill använda en annan region för den här självstudien kan de här fakt
 
 * Se till att du använder en [Azure-region som stöds](regions.md#voice-assistants).
 * Den direkta linjens tal kanal använder tjänsten för text till tal, som har standard-och neurala-röster. Neurala-röster är [begränsade till särskilda Azure-regioner](regions.md#standard-and-neural-voices).
-* De kostnads fria utvärderings nycklarna kan vara begränsade till en speciell region.
 
 Mer information om regioner finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).
 

@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7194e4553386c25691bb3ede8096da7fb63c5dc0
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073346"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88055241"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Den Azure SQL-hanterade instansen är en del av Azure SQL-produktsortimentet och är den intelligenta, skalbara moln databas tjänsten som kombinerar det bredaste SQL Servers databas motorns kompatibilitet med alla fördelar med en fullständigt hanterad och Evergreen plattform som en tjänst. SQL-hanterad instans har nära 100% kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motorn, som tillhandahåller en ursprunglig [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för befintliga SQL Server kunder. SQL-hanterad instans gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. Samtidigt bevarar SQL-hanterad instans alla PaaS-funktioner (automatisk uppdatering och versions uppdateringar, [automatiska säkerhets kopieringar](../database/automated-backups-overview.md), [hög tillgänglighet](../database/high-availability-sla.md)) som drastiskt minskar hanterings kostnader och TCO.
+Den hanterade Azure SQL-instansen är den intelligenta, skalbara moln databas tjänsten som kombinerar det bredaste SQL Servers databas motorns kompatibilitet med alla fördelar med en fullständigt hanterad och Evergreen plattform som en tjänst. SQL-hanterad instans har nära 100% kompatibilitet med den senaste SQL Server (Enterprise Edition) databas motorn, som tillhandahåller en ursprunglig [virtuell nätverks implementering (VNet)](../../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för befintliga SQL Server kunder. SQL-hanterad instans gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. Samtidigt bevarar SQL-hanterad instans alla PaaS-funktioner (automatisk uppdatering och versions uppdateringar, [automatiska säkerhets kopieringar](../database/automated-backups-overview.md), [hög tillgänglighet](../database/high-availability-sla.md)) som drastiskt minskar hanterings kostnader och TCO.
 
 > [!IMPORTANT]
 > En lista över regioner där SQL-hanterad instans är tillgänglig finns i [regioner som stöds](resource-limits.md#supported-regions).
@@ -113,7 +113,7 @@ I följande lista beskrivs viktiga egenskaper för Affärskritisk tjänst nivå:
 
 Hitta mer information om skillnaderna mellan tjänst nivåer i [resurs gränser för SQL-hanterade instanser](resource-limits.md#service-tier-characteristics).
 
-## <a name="management-operations"></a>Hanterings åtgärder
+## <a name="management-operations"></a>Hanteringsåtgärder
 
 Azure SQL-hanterad instans tillhandahåller hanterings åtgärder som du kan använda för att automatiskt distribuera nya hanterade instanser, uppdatera instans egenskaper och ta bort instanser när de inte längre behövs. Detaljerad förklaring av hanterings åtgärder finns på [översikts sidan hanterade instans hanterings åtgärder](management-operations-overview.md) .
 

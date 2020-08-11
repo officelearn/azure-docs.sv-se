@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 08/10/2020
 ms.author: victorh
-ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0fcf1c8a3800a52e8fa8659fe4bf97e83103c79d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384777"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057000"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Vad är Azure Firewall Manager?
 
@@ -66,7 +66,7 @@ Dirigera snabbt trafik till din säkra hubb för filtrering och loggning utan at
 
 Den här funktionen är endast tillgänglig med säkra virtuella nav distributioner.
 
-Du kan använda tredjepartsleverantörer för B2I-trafik (Branch to Internet), sida vid sida med Azure-brandväggen för gren till VNet (B2V), VNet till VNet (V2V) och VNet till Internet (V2I). Du kan också använda tredjepartsleverantörer för V2I-trafik filtrering så länge det inte krävs någon Azure-brandvägg för B2V eller V2V. 
+Du kan använda tredjepartsleverantörer för B2I-trafik (Branch to Internet), sida vid sida med Azure-brandväggen för gren till VNet (B2V), VNet till VNet (V2V) och VNet till Internet (V2I). Du kan också använda tredjepartsleverantörer för V2I-trafik filtrering så länge som Azure Firewall inte krävs för B2V eller V2V. 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
@@ -78,10 +78,12 @@ Azure Firewall Manager har följande kända problem:
 
 |Problem  |Beskrivning  |Åtgärd  |
 |---------|---------|---------|
-|Delning av trafik stöds inte för närvarande.|Det finns för närvarande inte stöd för att dela upp Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker delning av trafik på hubben.
-|En säker virtuell hubb per region.|Du kan inte ha mer än en säker virtuell hubb per region.|Skapa flera virtuella WAN-näti en region.|
-|Grundläggande principer måste finnas i samma region som den lokala principen.|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker|
-|Kommunikation mellan olika nav går inte via säker virtuell hubb|Skyddad virtuell hubb till skyddad virtuell hubb-kommunikation stöds inte än, men hubben till nav kommunikationen fungerar fortfarande.|Undersöker|
+|Delning av trafik|Det finns för närvarande inte stöd för att dela Office 365 och Azure offentlig PaaS-trafik. Det innebär att om du väljer en tredjeparts-Provider för V2I eller B2I skickas även all Azures offentliga PaaS och Office 365-trafik via partner tjänsten.|Undersöker delning av trafik på hubben.
+|En säker virtuell hubb per region|Du kan inte ha mer än en säker virtuell hubb per region.|Skapa flera virtuella WAN-näti en region.|
+|Bas principerna måste finnas i samma region som den lokala principen|Skapa alla lokala principer i samma region som bas principen. Du kan fortfarande använda en princip som har skapats i en region på ett skyddat nav från en annan region.|Undersöker|
+|Filtrera Inter-Hub-trafik i säkra virtuella nav distributioner|Skyddad virtuell hubb till skyddad virtuell hubb kommunikations filtrering stöds inte ännu. NAV-till-hubb-kommunikation fungerar dock fortfarande om privat trafik filtrering via Azure Firewall inte är aktive rad.|Undersöker|
+|Ekrar i annan region än den virtuella hubben|Ekrar i annan region än det virtuella navet stöds inte.|Undersöker<br><br>Skapa en hubb per region och peer-virtuella nätverk i samma region som hubben.|
+|Gren till gren trafik med privat trafik filtrering aktive rad|Trafik mellan grenar och förgreningar stöds inte när privat trafik filtrering är aktive rad. |Undersöka.<br><br>Skydda inte privat trafik om gren-till-gren-anslutningen är kritisk.|
 |Alla skyddade virtuella hubbar som delar samma virtuella WAN-nätverk måste finnas i samma resurs grupp.|Det här beteendet är justerat med virtuella WAN-hubbar idag.|Skapa flera virtuella WAN-administratörer för att kunna skapa säkra virtuella hubbar i olika resurs grupper.|
 
 ## <a name="next-steps"></a>Nästa steg

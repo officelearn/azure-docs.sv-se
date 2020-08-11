@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 0f43d1f780f838fdc49eb055536204026edcc729
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079228"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056813"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-till-tal (REST API)
 
@@ -67,7 +67,7 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 
 I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Huvud | Beskrivning | Obligatorisk/valfri |
+| Sidhuvud | Beskrivning | Obligatorisk/valfri |
 |--------|-------------|---------------------|
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
 
@@ -167,7 +167,7 @@ Dessa regioner stöds för text till tal med hjälp av REST API. Se till att du 
 
 I den här tabellen listas obligatoriska och valfria rubriker för text till tal-begäranden.
 
-| Huvud | Beskrivning | Obligatorisk/valfri |
+| Sidhuvud | Beskrivning | Obligatorisk/valfri |
 |--------|-------------|---------------------|
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Obligatorisk |
 | `Content-Type` | Anger innehålls typen för den angivna texten. Accepterat värde: `application/ssml+xml` . | Obligatorisk |
@@ -241,6 +241,6 @@ Om HTTP-statusen är `200 OK` , innehåller bröd texten i svaret en ljudfil i d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hämta en kostnadsfri utvärderingsprenumeration på Speech](https://azure.microsoft.com/try/cognitive-services)
+- [Skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynkron syntes för lång Forms ljud](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
 - [Komma igång med Custom Voice](how-to-custom-voice.md)

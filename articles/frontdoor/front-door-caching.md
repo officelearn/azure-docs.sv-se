@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: d4fed878e2c0b1430e963f43743fd772493d3270
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471752"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056966"
 ---
 # <a name="caching-with-azure-front-door"></a>Cachelagring med Azures front dörr
 Följande dokument anger beteendet för front dörren med routningsregler som har aktiverat cachelagring. Front dörren är en modern Content Delivery Network (CDN) och så vidare med dynamisk webbplats acceleration och belastnings utjämning, stöder den även cachelagring-beteenden precis som andra CDN.
@@ -111,6 +111,12 @@ Cache-Control Response-huvuden som indikerar att svaret inte cachelagras, t. ex.
 Följande begärandehuvuden kommer inte att vidarebefordras till en server del när cachelagring används.
 - Innehålls längd
 - Överförings kodning
+
+## <a name="cache-duration"></a>Varaktighet för cache
+
+Varaktigheten för cachen kan konfigureras i både front dörrs designer och i regel motorn. Varaktigheten för cachen som angetts i ytterdörr designer är den minsta cache-tiden. Den här åsidosättningen fungerar inte om Cache Control-huvudet från ursprunget har fler TTL än värdet för åsidosättning. 
+
+Varaktigheten för cachen som ställts in via regel motorn är en True cache-åsidosättning, vilket innebär att det använder värdet override, oavsett vad ursprunget svars rubrik är.
 
 ## <a name="next-steps"></a>Nästa steg
 

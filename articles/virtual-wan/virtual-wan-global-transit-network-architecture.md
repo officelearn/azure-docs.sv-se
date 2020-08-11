@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 78656b4789ea03601bc12579c391292e2f9ead9a
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c0ab2b2f61c4aa7a83d82b0300bb28cae91992d2
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856366"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056898"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -132,6 +132,9 @@ Azures virtuella WAN-hubbar sammankopplar alla nätverks slut punkter i hybrid n
 ![skyddad virtuell hubb med Azure-brandvägg](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
 **Bild 5: säker virtuell hubb med Azure-brandvägg**
+
+> [!NOTE]
+> Inter-Hub med brand vägg stöds inte för närvarande. Trafik mellan hubbar kommer att flytta direkt till Azure-brandväggen i varje hubb.
 
 Azure-brandväggen till det virtuella WAN-nätverket stöder följande anslutnings vägar för Global säker överföring. Bokstäverna i parenteser mappas till bild 5.
 

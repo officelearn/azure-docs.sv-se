@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 8c2203fec71430840e547115d24330b661bda50f
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5b454c324d475eb4f692e1715cb2ea45105f78e1
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002218"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056932"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Mac
 
 En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machine Learning-arbetsyta skapas levereras den med tre standardroller precis som andra Azure-resurser. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
 
-| Role | Åtkomstnivå |
+| Roll | Åtkomstnivå |
 | --- | --- |
 | **Läsare** | Skrivskyddade åtgärder på arbets ytan. Läsarna kan visa och Visa till gångar, inklusive autentiseringsuppgifter för [data lagret](how-to-access-data.md) , i en arbets yta. Läsarna kan inte skapa eller uppdatera dessa till gångar. |
 | **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) till gångar i en arbets yta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräkningskluster, skicka in en körning och distribuera en webbtjänst. |
@@ -146,6 +146,8 @@ Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och
 | Åtkomst till lagring med interaktiva antecknings böcker | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
 | Skapa ny anpassad roll | Ägare, deltagare eller anpassad roll som tillåter`Microsoft.Authorization/roleDefinitions/write` | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`/workspaces/computes/write` |
 
+> [!TIP]
+> Om du får ett fel när du försöker skapa en arbets yta för första gången ska du kontrol lera att din roll tillåter `Microsoft.MachineLearningServices/register/action` . Med den här åtgärden kan du registrera Azure Machine Learning Resource Provider med din Azure-prenumeration.
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>F. Publicerar vi de inbyggda Azure-rollerna för den Machine Learning tjänsten?
 

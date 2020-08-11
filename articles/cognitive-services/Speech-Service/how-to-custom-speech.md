@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b9ac473c3864b4be06c978e7d6a3555bb4550d2a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725541"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056847"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -48,7 +48,7 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 En röst tjänst prenumeration krävs innan du kan använda [Custom Speech Portal](https://speech.microsoft.com/customspeech) för att skapa en anpassad modell. Följ de här anvisningarna för att skapa en standard prenumeration för tal tjänster: [skapa en tal prenumeration](get-started.md#new-resource).
 
 > [!NOTE]
-> Se till att skapa standard prenumerationer (S0), prenumerationer för kostnads fria utvärderings versioner (F0) stöds inte.
+> Se till att skapa standard prenumerationer (S0), kostnads fria (F0) prenumerationer stöds inte.
 
 När du har skapat ett Azure-konto och en röst tjänst prenumeration måste du logga in på [Custom Speech Portal](https://speech.microsoft.com/customspeech) och ansluta din prenumeration.
 
@@ -71,5 +71,5 @@ Om du vill skapa ditt första projekt väljer du tal **-till-text/anpassad tal**
 * [Förbered och testa dina data](how-to-custom-speech-test-data.md)
 * [Inspektera dina data](how-to-custom-speech-inspect-data.md)
 * [Utvärdera dina data](how-to-custom-speech-evaluate-data.md)
-* [Träna din modell](how-to-custom-speech-train-model.md)
+* [Träna modellen](how-to-custom-speech-train-model.md)
 * [Distribuera din modell](how-to-custom-speech-deploy-model.md)

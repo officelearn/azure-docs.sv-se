@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Registrera bindningstillägg
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Binda uttrycksmönster
           href: functions-bindings-expressions-patterns.md
         - name: Använda bindningsreturvärden
@@ -272,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Ange körningsversion
           href: set-runtime-version.md
-        - name: Registrera ett tillägg manuellt
-          href: install-update-binding-extensions-manual.md
         - name: Inaktivera en funktion
           href: disable-function.md
         - name: Geohaveriberedskap

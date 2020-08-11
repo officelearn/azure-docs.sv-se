@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: cf21030fbf1aaa9f36e4d34aac918c4604066ec2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071627"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064561"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Så här integrerar du RabbitMQ med Azure Service Bus
 
@@ -20,7 +20,7 @@ I den här guiden ska vi lära dig hur du skickar meddelanden från RabbitMQ til
 
 Här är några scenarier där vi kan använda dessa funktioner:
 
-- **Edge-inställningar**: vi har en Edge-inställning där vi skickar meddelanden till rabbitmq, men vi vill vidarebefordra dessa meddelanden till [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) för ytterligare bearbetning, så vi kan använda många av funktionerna i [Azure Big data](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data).
+- **Edge-inställningar**: vi har en Edge-inställning där vi skickar meddelanden till rabbitmq, men vi vill vidarebefordra dessa meddelanden till [Azure Service Bus](./service-bus-messaging-overview.md) för ytterligare bearbetning, så vi kan använda många av funktionerna i [Azure Big data](/azure/architecture/guide/architecture-styles/big-data).
 - **Hybrid moln**: företaget förvärvade bara en tredje part som använder rabbitmq för sina meddelande behov. De finns i ett annat moln. Även om de övergår till Azure kan du redan börja dela data genom att överbrygga RabbitMQ med Azure Service Bus.
 - **Integration från tredje part**: en tredje part använder rabbitmq som en Broker och vill skicka data till oss, men de är utanför organisationen. Vi kan ge dem SAS-nyckeln som ger dem till gång till en begränsad uppsättning Azure Service Bus köer där de kan vidarebefordra sina meddelanden till.
 
@@ -28,7 +28,7 @@ Listan går vidare, men vi kan lösa de flesta av dessa användnings fall genom 
 
 Först måste du skapa ett kostnads fritt Azure-konto genom att registrera dig [här](https://azure.microsoft.com/free/)
 
-När du har loggat in på ditt konto går du till [Azure Portal](https://portal.azure.com/) och skapar ett nytt Azure Service Bus- [namnområde](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal). Namn områden är de omfångs behållare där våra meddelande komponenter är aktiva, t. ex. köer och ämnen.
+När du har loggat in på ditt konto går du till [Azure Portal](https://portal.azure.com/) och skapar ett nytt Azure Service Bus- [namnområde](./service-bus-create-namespace-portal.md). Namn områden är de omfångs behållare där våra meddelande komponenter är aktiva, t. ex. köer och ämnen.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>Lägga till ett nytt Azure Service Bus-namnområde
 
@@ -40,7 +40,7 @@ Välj sedan integrering och klicka på Azure Service Bus för att skapa ett medd
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Välj Azure Service Bus":::
 
-Du uppmanas att ange namn områdets information. Ange den prenumeration som du vill använda. Om du inte har en [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)kan du skapa en ny.
+Du uppmanas att ange namn områdets information. Ange den prenumeration som du vill använda. Om du inte har en [resurs grupp](../azure-resource-manager/management/manage-resource-groups-portal.md)kan du skapa en ny.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Skapa namnområde":::
 
@@ -76,7 +76,7 @@ Nu är det dags att hämta de autentiseringsuppgifter som krävs för att anslut
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Ansluter RabbitMQ till Azure Service Bus
 
-Du måste skapa en princip för [delad åtkomst](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) för din kö så att rabbitmq kan publicera meddelanden till den. Med en SAS-princip kan du ange vilken extern part som får göra med din resurs. Idén är att RabbitMQ kan skicka meddelanden, men inte lyssna eller hantera kön.
+Du måste skapa en princip för [delad åtkomst](../storage/common/storage-sas-overview.md) (SAS) för din kö så att rabbitmq kan publicera meddelanden till den. Med en SAS-princip kan du ange vilken extern part som får göra med din resurs. Idén är att RabbitMQ kan skicka meddelanden, men inte lyssna eller hantera kön.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Lägg till SAS-princip":::
 

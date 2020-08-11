@@ -4,14 +4,14 @@ description: Lär dig hur du använder Azure Portal eller CLI för att skapa, Vi
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 8afe62173dc0e90783c494fa51994e9ebac506f3
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042742"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065870"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
 
@@ -139,9 +139,18 @@ I föregående avsnitt beskrivs hur du skapar, visar och hanterar aviserings reg
 
 Mått för varnings regler har dedikerade PowerShell-cmdlets tillgängliga:
 
-- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): skapar en ny regel för mått avisering eller uppdaterar en befintlig.
-- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): hämtar en eller flera mått för varnings regler.
-- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): tar bort en mått varnings regel.
+- [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2): skapa en ny regel för mått varning eller uppdatera en befintlig.
+- [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2): Hämta en eller flera mått för varnings regler.
+- [Remove-AzMetricAlertRuleV2](/powershell/module/az.monitor/remove-azmetricalertrulev2): ta bort en mått regel för varningar.
+
+## <a name="with-rest-api"></a>Med REST-API
+
+- [Skapa eller uppdatera](/rest/api/monitor/metricalerts/createorupdate): skapa en ny regel för mått varning eller uppdatera en befintlig.
+- [Hämta](/rest/api/monitor/metricalerts/get): Hämta en varnings regel för en bestämd mått.
+- [Lista efter resurs grupp](/rest/api/monitor/metricalerts/listbyresourcegroup): Hämta en lista över mått varnings regler i en speciell resurs grupp.
+- [Lista efter prenumeration](/rest/api/monitor/metricalerts/listbysubscription): Hämta en lista över mått varnings regler i en speciell prenumeration.
+- [Uppdatera](/rest/api/monitor/metricalerts/update): uppdatera en varnings regel för mått.
+- [Ta bort](/rest/api/monitor/metricalerts/delete): ta bort en regel för mått varningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

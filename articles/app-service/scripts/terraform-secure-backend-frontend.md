@@ -8,12 +8,12 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: f056f685c999895e793af3eb3c6e2047c5b6dc09
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88043024"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065445"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Skapa två webbappar anslutna på ett säkert sätt med privat slut punkt och VNet-integrering
 
@@ -27,11 +27,11 @@ Den här artikeln illustrerar ett exempel på användning av [privat slut punkt]
 - Skapa backend-webbappen
 - Skapa en privat DNS-zon med namnet på den privata länk zonen för Web App-privatelink.azurewebsites.net
 - Länka den här zonen till VNet
-- Skapa den privata slut punkten för backend-webbappen i slut punkts under nätet och registrera DNS-namn i den tidigare skapade DNS-zonen
+- Skapa den privata slut punkten för backend-webbappen i slut punkts under nätet och registrera DNS-namn (webbplats och SCM) i den tidigare skapade privata DNS-zonen
 
 ## <a name="how-to-use-terraform-in-azure"></a>Så här använder du terraform i Azure
 
-Bläddra till [Azure Portal](https://docs.microsoft.com/azure/developer/terraform/) och lär dig hur du använder terraform med Azure.
+Gå till [Azure-dokumentationen](https://docs.microsoft.com/azure/developer/terraform/) och lär dig hur du använder terraform med Azure.
 
 ## <a name="the-complete-terraform-file"></a>Den fullständiga terraform-filen
 

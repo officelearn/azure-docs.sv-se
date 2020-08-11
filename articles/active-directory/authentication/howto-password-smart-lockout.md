@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6ffbd23dccd7bac03e849241866416ac07af4a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5734cb76e4ed018778c6858597ec8efe3019bf9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035425"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065989"
 ---
 # <a name="protect-user-accounts-from-attacks-with-azure-active-directory-smart-lockout"></a>Skydda användar konton mot attacker med Azure Active Directory Smart utelåsning
 
@@ -24,7 +24,7 @@ Smart utelåsning hjälper till att låsa Felaktiga aktörer som försöker giss
 
 ## <a name="how-smart-lockout-works"></a>Så här fungerar Smart utelåsning
 
-Som standard låser Smart utelåsning kontot från inloggnings försök i en minut efter 10 misslyckade försök. Kontot låser sig igen efter varje efterföljande misslyckad inloggnings försök, i en minut vid första och längre vid efterföljande försök.
+Som standard låser Smart utelåsning kontot från inloggnings försök i en minut efter 10 misslyckade försök. Kontot låser sig igen efter varje efterföljande misslyckad inloggnings försök, i en minut vid första och längre vid efterföljande försök. För att minimera de sätt som en angripare kan kringgå problemet, avslöjar vi inte den hastighet som blockeringstiden ökar vid ytterligare misslyckade inloggnings försök.
 
 Smart utelåsning spårar de tre senaste Felaktiga hasharna för lösen ord för att undvika ökning av utelåsnings räknaren för samma lösen ord. Om någon anger samma Felaktiga lösen ord flera gånger kan det här beteendet inte medföra att kontot låser sig.
 

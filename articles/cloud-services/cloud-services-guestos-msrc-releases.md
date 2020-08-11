@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/21/2020
+ms.date: 8/10/2020
 ms.author: yohaddad
-ms.openlocfilehash: 04e75d108b9f518311ad19b2f9027dd0ad7e9e88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e14295842413464ed9faced59c8bb897f192a511
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002887"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067026"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
@@ -76,24 +76,22 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 
 
 ## <a name="june-2020-guest-os"></a>Juni 2020 gäst operativ system
->[!NOTE]
->Gäst operativ systemet i juni distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i april gäst operativ system. Den här listan kan ändras.
 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561616]  |  Senaste kumulativa uppdateringen (LCU)  |  5,44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561608]  |  Senaste kumulativa uppdateringen (LCU)  |  6,20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562030]  |  Uppdatering av underhålls stack  |  2,99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561643]  |  Månatlig sammanställning  |  2,99  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562252]  |  Uppdatering av underhålls stack  |  3,86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561612]  |  Månatlig sammanställning  |  3,86  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561600]  |  Utvecklingsverktyget  |  3,86, 4,79, 5,44, 6,20  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562253]  |  Uppdatering av underhålls stack  |  4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4561666]  |  Månatlig sammanställning  |  4,79  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562561]  |  Uppdatering av underhålls stack  |  5,44  |  Jun 9, 2020  |
-|  Rel 20-06  |  [4562562]  |  Uppdatering av underhålls stack  |  6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  [2,99], [3,86], [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Senaste kumulativa uppdateringen (LCU)  |  [5,44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Senaste kumulativa uppdateringen (LCU)  |  [6,20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Uppdatering av underhålls stack  |  [2,99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Månatlig sammanställning  |  [2,99]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Uppdatering av underhålls stack  |  [3,86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Månatlig sammanställning  |  [3,86]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Utvecklingsverktyget  |  [3,86], [4,79], [5,44], [6,20]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Uppdatering av underhålls stack  |  [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Månatlig sammanställning  |  [4,79]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Uppdatering av underhålls stack  |  [5,44]  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Uppdatering av underhålls stack  |  [6,20]  |  Jun 9, 2020  |
 
 
 
@@ -109,6 +107,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4561666]: https://support.microsoft.com/kb/4561666
 [4562561]: https://support.microsoft.com/kb/4562561
 [4562562]: https://support.microsoft.com/kb/4562562
+[2,99]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,86]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,79]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,44]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,20]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="may-2020-guest-os"></a>Maj 2020 gäst operativ system
@@ -1596,7 +1599,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | MS15 – 075 |[3072633] |Säkerhets risker i OLE kan medföra utökade privilegier |4,22, 3,29, 2,41 |14 juli 2015 |
 | MS15 – 076 |[3067505] |Säkerhets problem i Windows Remote Procedure Call kan medföra behörighets höjning |4,22, 3,29, 2,41 |14 juli 2015 |
 | MS15 – 077 |[3077657] |Säkerhets problem i driv rutin för ATM-teckensnitt kan ge behörighet |4,22, 3,29, 2,41 |14 juli 2015 |
-| Ej tillämpligt |[3057154] |Uppdatera för att begränsa användningen av DES-kryptering |4,22, 3,29, 2,41 |14 juli 2015 |
+| NA |[3057154] |Uppdatera för att begränsa användningen av DES-kryptering |4,22, 3,29, 2,41 |14 juli 2015 |
 
 ## <a name="june-2015-guest-os"></a>Juni 2015 gäst operativ system
 | Bulletin-ID | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
@@ -1629,7 +1632,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | MS15 – 040 |[3045711] |Säkerhets problem i ADFS kan medföra att information avslöjas |4,20, 3,27, 2,39 |17 april 2015 |
 | MS15 – 041 |[3048010] |Säkerhets problem i .NET Framework möjliggör utlämnande av information |4,20, 3,27, 2,39 |17 april 2015 |
 | MS15 – 042 |[3047234] |Säkerhets problem i Windows Hyper-V kan möjliggöra denial of service |4,20, 3,27, 2,39 |17 april 2015 |
-| Ej tillämpligt |[3045755] |Uppdatera för att förbättra PKU2U-autentisering |4,20, 3,27, 2,39 |17 april 2015 |
+| NA |[3045755] |Uppdatera för att förbättra PKU2U-autentisering |4,20, 3,27, 2,39 |17 april 2015 |
 
 ## <a name="april-2015-guest-os"></a>Gäst operativ system april 2015
 | Bulletin-ID | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
@@ -1664,8 +1667,8 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | MS15-011 |[3000483] |Säkerhets problem i grupprincip möjliggör fjärrkörning av kod |4,17, 3,24, 2,36 |Ej tillämpligt |
 | MS15 – 014 |[3004361] |Säkerhets risker i SMB kan tillåta att säkerhetsfunktionen kringgås |4,17, 3,24, 2,36 |Ej tillämpligt |
 | MS15 – 015 |[3031432] |Säkerhets problem i Microsoft Windows kan möjliggöra behörighets höjning |4,17, 3,24, 2,36 |Ej tillämpligt |
-| MS15 – 016 |[3029944] |Säkerhets problem i Microsoft Graphics-komponenten möjliggör utlämnande av information |4,17, 3,24, 2,36 |Ej tillämpligt |
-| Ej tillämpligt |[3004375] |Uppdatera för att förbättra Windows kommando rads granskning<p/>**Obs!** det här är installerat, men register nyckeln för att aktivera den är inaktive rad |4,17, 3,24, 2,36 |Ej tillämpligt |
+| MS15 – 016 |[3029944] |Säkerhets problem i Microsoft Graphics-komponenten möjliggör utlämnande av information |4,17, 3,24, 2,36 |Saknas |
+| Saknas |[3004375] |Uppdatera för att förbättra Windows kommando rads granskning<p/>**Obs!** det här är installerat, men register nyckeln för att aktivera den är inaktive rad |4,17, 3,24, 2,36 |Ej tillämpligt |
 
 ## <a name="january-2015-guest-os"></a>Januari 2015 gäst operativ system
 | Bulletin-ID | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |

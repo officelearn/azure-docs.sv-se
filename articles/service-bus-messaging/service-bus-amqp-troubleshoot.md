@@ -3,12 +3,12 @@ title: Felsöka AMQP-fel i Azure Service Bus | Microsoft Docs
 description: Innehåller en lista med AMQP-fel som du kan få när du använder Azure Service Bus och orsaken till dessa fel.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9680e930dd8c1cb8cbd062f029af9d674d62c0e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88b10940e0b910f50e6ccf7f8c53134fa7f0ba2f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337821"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064357"
 ---
 # <a name="amqp-errors-in-azure-service-bus"></a>AMQP fel i Azure Service Bus
 Den här artikeln innehåller några av de fel som du får när du använder AMQP med Azure Service Bus. De är alla standard beteenden för tjänsten. Du kan undvika dem genom att skicka/ta emot samtal via anslutningen/länken, som automatiskt återskapar anslutningen/länken.
@@ -44,4 +44,4 @@ Om du vill veta mer om AMQP och Service Bus kan du gå till följande länkar:
 
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
 [AMQP 1.0-protokollguide]: service-bus-amqp-protocol-guide.md
-[AMQP i Service Bus för Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP i Service Bus för Windows Server]: /previous-versions/service-bus-archive/dn282144(v=azure.100)

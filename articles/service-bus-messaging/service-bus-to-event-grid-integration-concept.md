@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0d9c9c061e31ac4d3eba8d31352253bb25b62a9b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 641cae751b0b87d93235e1272bc5f46f7797d834
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503301"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065139"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -41,9 +41,9 @@ Service Bus skickar händelser för två scenarier:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * DeadletterMessagesAvailable
 
-Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](https://docs.microsoft.com/azure/event-grid/security-authentication).
+Dessutom använder Service Bus standardsäkerhet för Event Grid och [autentiseringsmekanismer](../event-grid/security-authentication.md).
 
-Mer information finns i [Azure Event Grid event schemas](https://docs.microsoft.com/azure/event-grid/event-schema) (Händelsescheman i Azure Event Grid).
+Mer information finns i [Azure Event Grid event schemas](../event-grid/event-schema.md) (Händelsescheman i Azure Event Grid).
 
 #### <a name="active-messages-available-event"></a>Aktiva meddelanden, tillgänglig händelse
 
@@ -132,7 +132,7 @@ Så här skapar du en ny Event Grid-prenumeration:
 
 ## <a name="azure-cli-instructions"></a>Azure CLI-instruktioner
 
-Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Hämta installations programmet](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X**och öppna sedan en ny PowerShell-konsol med administratörs behörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera först att du har Azure CLI version 2.0 eller senare installerad. [Hämta installations programmet](/cli/azure/install-azure-cli?view=azure-cli-latest). Välj **Windows + X**och öppna sedan en ny PowerShell-konsol med administratörs behörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 Kör följande kod:
 
@@ -150,7 +150,7 @@ Om du använder BASH
 
 ## <a name="powershell-instructions"></a>PowerShell-instruktioner
 
-Kontrollera att du har Azure PowerShell installerat. [Hämta installations programmet](https://docs.microsoft.com/powershell/azure/install-Az-ps). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
+Kontrollera att du har Azure PowerShell installerat. [Hämta installations programmet](/powershell/azure/install-Az-ps). Välj **Windows + X** och öppna sedan en ny PowerShell-konsol med administratörsbehörighet. Du kan också använda en kommandotolk i Azure Portal.
 
 ```powershell-interactive
 Connect-AzAccount
@@ -171,10 +171,10 @@ Härifrån kan du utforska andra installationsalternativ eller testa om händels
 ## <a name="next-steps"></a>Nästa steg
 
 * Hämta Service Bus- och Event Grid-[exempel](service-bus-to-event-grid-integration-example.md).
-* Läs mer om [Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Läs mer om [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Läs mer om [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
-* Läs mer om [Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Läs mer om [Event Grid](../event-grid/index.yml).
+* Läs mer om [Azure Functions](../azure-functions/index.yml).
+* Läs mer om [Logic Apps](../logic-apps/index.yml).
+* Läs mer om [Service Bus](/azure/service-bus/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19.3]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

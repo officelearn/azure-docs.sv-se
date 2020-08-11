@@ -3,12 +3,12 @@ title: Fel söknings guide för Azure Service Bus | Microsoft Docs
 description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 6071aae85daa1852c9384656d7caf5e2deffd84e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071313"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067060"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Fel söknings guide för Azure Service Bus
 Den här artikeln innehåller fel söknings tips och rekommendationer för några problem som kan uppstå när du använder Azure Service Bus. 
@@ -80,7 +80,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 Identiteten har inte behörighet att komma åt Service Bus avsnittet. 
 
 ### <a name="resolution"></a>Lösning
-Lös problemet genom att installera biblioteket [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Mer information finns i [lokal utvecklings autentisering](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+Lös problemet genom att installera biblioteket [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Mer information finns i [lokal utvecklings autentisering](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Information om hur du tilldelar behörigheter till roller finns i [autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser](service-bus-managed-service-identity.md).
 
@@ -101,5 +101,4 @@ Det finns en gräns för antalet tokens som används för att skicka och ta emot
 Se följande artiklar: 
 
 - [Azure Resource Manager undantag](service-bus-resource-manager-exceptions.md). Den visar undantag som genereras när du interagerar med Azure Service Bus att använda Azure Resource Manager (via mallar eller direkta anrop).
-- [Undantag för meddelanden](service-bus-messaging-exceptions.md). Den innehåller en lista över undantag som har genererats av .NET Framework för Azure Service Bus. 
-
+- [Undantag för meddelanden](service-bus-messaging-exceptions.md). Den innehåller en lista över undantag som har genererats av .NET Framework för Azure Service Bus.

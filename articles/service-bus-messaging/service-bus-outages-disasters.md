@@ -3,12 +3,12 @@ title: Isolera Azure Service Bus program mot avbrott och haverier
 description: De här artiklarna innehåller tekniker för att skydda program mot ett möjligt Azure Service Bus avbrott.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e6dba5e6cf4700dfab354a434ac4d48f9a95b76a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339653"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065632"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
 
@@ -72,7 +72,7 @@ När du använder passiv replikering kan meddelanden i följande scenarier gå f
 [Geo-replikering med Service Bus standard nivå][Geo-replication with Service Bus Standard Tier] exemplet visar passiv replikering av meddelande enheter.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Skydda relä slut punkter mot data Center avbrott eller katastrofer
-Med geo-replikering av [Azure Relay](../service-bus-relay/relay-what-is-it.md) -slutpunkter kan en tjänst som exponerar en Relay-slutpunkt bli nåbar i närvaro av Service Bus avbrott. För att nå geo-replikering måste tjänsten skapa två relä slut punkter i olika namn områden. Namn områdena måste finnas i olika data Center och de två slut punkterna måste ha olika namn. En primär slut punkt kan till exempel nås under **contosoPrimary.ServiceBus.Windows.net/myPrimaryService**, medan dess sekundära motsvarighet kan nås under **contosoSecondary.ServiceBus.Windows.net/mySecondaryService**.
+Med geo-replikering av [Azure Relay](../azure-relay/relay-what-is-it.md) -slutpunkter kan en tjänst som exponerar en Relay-slutpunkt bli nåbar i närvaro av Service Bus avbrott. För att nå geo-replikering måste tjänsten skapa två relä slut punkter i olika namn områden. Namn områdena måste finnas i olika data Center och de två slut punkterna måste ha olika namn. En primär slut punkt kan till exempel nås under **contosoPrimary.ServiceBus.Windows.net/myPrimaryService**, medan dess sekundära motsvarighet kan nås under **contosoSecondary.ServiceBus.Windows.net/mySecondaryService**.
 
 Tjänsten lyssnar sedan på båda slut punkterna och en klient kan anropa tjänsten via endera slut punkten. Ett klient program väljer slumpmässigt en av reläerna som den primära slut punkten och skickar sin begäran till den aktiva slut punkten. Om åtgärden Miss lyckas med en felkod anger det här felet att relä slut punkten inte är tillgänglig. Programmet öppnar en kanal till säkerhets kopierings slut punkten och skickar begäran igen. I det här fallet växlar rollerna aktiva och säkerhets kopierings slut punkter: klient programmet anser att den gamla aktiva slut punkten är den nya säkerhets kopierings slut punkten och att den gamla slut punkten för säkerhets kopieringen är den nya aktiva slut punkten. Om båda sändnings åtgärderna inte fungerar, förblir rollerna för de två entiteterna oförändrade och ett fel returneras.
 
@@ -81,7 +81,7 @@ Mer information om haveri beredskap finns i följande artiklar:
 
 * [Azure Service Bus geo-haveri beredskap](service-bus-geo-dr.md)
 * [Azure SQL Database affärs kontinuitet][Azure SQL Database Business Continuity]
-* [Designa elastiska program för Azure][Azure resiliency technical guidance]
+* [Utforma motståndskraftiga program för Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

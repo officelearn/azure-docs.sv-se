@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 6532ec33d930ab42a9aa04a92d84ab795f32ebd6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034968"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066414"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL infrastruktur Double Encryption
 
@@ -36,7 +36,7 @@ Implementering på infrastruktur lager har också stöd för en mångfald av nyc
 
 Infrastruktur Double Encryption för Azure Database for MySQL ger följande fördelar:
 
-1. Ytterligare **variation av kryptografi implementering** – den planerade flytten till maskinvarubaserad kryptering kommer ytterligare att öka implementeringarna genom att tillhandahålla en maskinvarubaserad implementering utöver den programvarubaserad implementeringen.
+1. **Ytterligare skillnader i kryptografi implementering** – den planerade flytten till maskinvarubaserad kryptering kommer ytterligare att öka implementeringarna genom att tillhandahålla en maskinvarubaserad implementering utöver den programvarubaserad implementeringen.
 2. **Implementerings fel** – två lager av kryptering i infrastruktur lager skyddar mot fel i cachelagring eller minnes hantering i högre skikt som exponerar oformaterade data. Dessutom säkerställer de två lagren även fel i implementeringen av krypteringen i allmänhet.
 
 Kombinationen av dessa ger starkt skydd mot vanliga hot och svagheter som används för att attackera kryptografi.
@@ -45,7 +45,7 @@ Kombinationen av dessa ger starkt skydd mot vanliga hot och svagheter som använ
 
 De krypterings funktioner som tillhandahålls av Azure Database for MySQL kan användas tillsammans. Nedan visas en sammanfattning av de olika scenarier som du kan använda:
 
-|  ##   | Standard kryptering | Dubbel kryptering av infrastruktur | Data kryptering med Kundhanterade nycklar  |
+|  ##   | Standard kryptering | Dubbel infrastrukturkryptering | Data kryptering med Kundhanterade nycklar  |
 |:------|:------------------:|:--------------------------------:|:--------------------------------------------:|
 | 1     | *Ja*              | *Nej*                             | *Nej*                                         |
 | 2     | *Ja*              | *Ja*                            | *Nej*                                         |
@@ -54,7 +54,7 @@ De krypterings funktioner som tillhandahålls av Azure Database for MySQL kan an
 |       |                    |                                  |                                              |
 
 > [!Important]
-> - Scenario 2 och 4 kommer att ha betydande prestanda påverkan på Azure Database for MySQL server på grund av det extra lagret av infrastruktur kryptering.
+> - Scenario 2 och 4 kan introducera 5-10 procents droppen i data flödet baserat på arbets belastnings typen för Azure Database for MySQL server på grund av det extra lagret av infrastruktur kryptering.
 > - Det går bara att konfigurera infrastruktur med dubbel kryptering för Azure Database for MySQL när servern skapas. När servern har allokerats kan du inte ändra lagrings krypteringen. Du kan dock fortfarande aktivera data kryptering med Kundhanterade nycklar för servern som skapats med/utan dubbel kryptering i infrastrukturen.
 
 ## <a name="limitations"></a>Begränsningar

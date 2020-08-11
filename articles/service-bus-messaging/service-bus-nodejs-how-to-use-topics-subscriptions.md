@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/09/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fc8b1be387446b26fca86b344a203c103068db52
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa1f6738628ed96e386186a579569170bfaac3ee
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036036"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066958"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure-SB-paketet
 I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Node.js [Azure-modulen](https://www.npmjs.com/package/azure) som använder `azure-sb` paketet internt.
@@ -20,7 +20,7 @@ I den här självstudien får du lära dig hur du skapar Node.js program för at
 > [!IMPORTANT]
 > [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). 
 > 
-> Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node.js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+> Mer information om det nya paketet finns i [så här använder du Service Bus ämnen och prenumerationer med Node.js och @azure/service-bus paket](./service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
 De scenarier som beskrivs här är:
 
@@ -142,7 +142,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > Som standard är prenumerationerna beständiga tills de eller de avsnitt som de är kopplade till tas bort. Om programmet innehåller logik för att skapa en prenumeration bör du först kontrol lera om prenumerationen finns med hjälp av- `getSubscription` metoden.
 >
-> Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
+> Du kan ta bort prenumerationerna automatiskt genom att ange [egenskapen AutoDeleteOnIdle](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Skapa en prenumeration med standardfiltret (MatchAll)
 **MatchAll** -filtret är det standard filter som används när en prenumeration skapas. När du använder **MatchAll**-filtret kommer alla meddelanden som publiceras till ämnet att placeras i prenumerationens virtuella kö. I följande exempel skapas en prenumeration med namnet AllMessages som använder standard filtret för **MatchAll** .
@@ -306,7 +306,7 @@ Det finns också en tids gräns som är kopplad till ett meddelande som är lås
 I händelse av att programmet kraschar när meddelandet har bearbetats men innan `deleteMessage` metoden anropas, skickas meddelandet vidare till programmet när det startas om. Det här beteendet kallas ofta *minst en gång*. Det vill säga att varje meddelande bearbetas minst en gång, men i vissa situationer kan samma meddelande levereras igen. Om scenariot inte kan tolerera dubbel bearbetning bör du lägga till logik till ditt program för att hantera duplicerad meddelande leverans. Du kan använda meddelandets **messageid** -egenskap, som är konstant över leverans försök.
 
 ## <a name="delete-topics-and-subscriptions"></a>Ta bort ämnen och prenumerationer
-Ämnen och prenumerationer är permanenta om inte [autoDeleteOnIdle-egenskapen](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) har angetts och måste uttryckligen tas bort antingen via [Azure Portal][Azure portal] eller program mässigt.
+Ämnen och prenumerationer är permanenta om inte [AutoDeleteOnIdle-egenskapen](/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle) har angetts och måste uttryckligen tas bort antingen via [Azure Portal][Azure portal] eller program mässigt.
 Följande exempel visar hur du tar bort ämnet med namnet `MyTopic` :
 
 ```javascript
@@ -345,4 +345,3 @@ Nu när du har lärt dig grunderna om Service Bus ämnen kan du följa dessa lä
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Skapa och distribuera ett Node.js-program till en Azure-webbplats]: ../app-service/app-service-web-get-started-nodejs.md
 [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
-

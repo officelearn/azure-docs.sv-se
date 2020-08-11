@@ -3,12 +3,12 @@ title: Analysera direktsänd video med din egen modell – Azure
 description: I den här snabb starten ska du använda dator vision för att analysera direktsända video flöden från en (simulerad) IP-kamera.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: dc8c2d1f0620a92a13cb1f4c0b83c2452f964fd6
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 75e18917b0d44dc33999d17360cd66a538c83d2b
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170622"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065207"
 ---
 # <a name="quickstart-analyze-live-video-by-using-your-own-model"></a>Snabb start: analysera direktsänd video med din egen modell
 
@@ -16,7 +16,7 @@ Den här snabb starten visar hur du använder video analys i real tid för IoT E
 
 Den här snabb starten använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -31,7 +31,7 @@ Den här snabb starten använder en virtuell Azure-dator som en IoT Edge enhet o
 ## <a name="review-the-sample-video"></a>Granska exempel videon
 När du konfigurerar Azure-resurserna kopieras en kort video med väg trafik till den virtuella Linux-dator i Azure som du använder som IoT Edge enhet. I den här snabb starten används video filen för att simulera en Live-dataström.
 
-Öppna ett program som [VLC Media Player](https://www.videolan.org/vlc/). Välj CTRL + N och klistra sedan in en länk till [videon](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) för att starta uppspelningen. Du ser hur många fordon som flyttas i väg trafiken.
+Öppna ett program som [VLC Media Player](https://www.videolan.org/vlc/). Välj `Ctrl+N` och klistra sedan in en länk till [motorväg korsnings exempel](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) för att starta uppspelningen. Du ser hur många fordon som flyttas i väg trafiken.
 
 I den här snabb starten ska du använda real tids analys på IoT Edge för att identifiera objekt som till exempel fordon och personer. Du publicerar associerade härlednings händelser till IoT Edge Hub.
 
@@ -107,9 +107,18 @@ Som en del av förutsättningarna hämtade du exempel koden till en mapp. Följ 
 1. När du uppmanas att välja en IoT Hub-enhet väljer du **lva-Sample-Device**.
 1. Efter cirka 30 sekunder, i det nedre vänstra hörnet i fönstret, uppdaterar du Azure IoT Hub. Gräns enheten visar nu följande distribuerade moduler:
 
-    * Video analys-modulen i real tid med namnet **lvaEdge**
-    * Modulen **rtspsim** , som simulerar en RTSP-server och fungerar som källa för en Live-videofeed
-    * **Yolov3** -modulen, som är den yolov3 objekt identifierings modell som tillämpar dator syn på avbildningarna och returnerar flera klasser av objekt typer
+    * Modulen live video analys med namnet`lvaEdge`
+    * `rtspsim`Modulen, som simulerar en RTSP-server och fungerar som källa för en Live-videofeed
+    > [!NOTE]
+    > Om du använder en egen Edge-enhet i stället för den som har skapats av vårt installations skript, går du till din Edge-enhet och kör följande kommandon med **administratörs behörighet**för att hämta och lagra exempel video filen som används för den här snabb starten:  
+
+    ```
+    mkdir /home/lvaadmin/samples
+    mkdir /home/lvaadmin/samples/input    
+    curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
+    chown -R lvaadmin /home/lvaadmin/samples/  
+    ```
+    * `yolov3`Modulen, som är den YoloV3 objekt identifierings modell som tillämpar dator syn på avbildningarna och returnerar flera klasser av objekt typer
  
       ![Moduler som distribueras i gräns enheten](./media/quickstarts/yolov3.png)
 
@@ -284,7 +293,7 @@ Om du tänker prova andra snabb starter behåller du de resurser som du har skap
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Prova en [säker version av YOLOv3-modellen](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) och distribuera den till IoT Edge-enheten. 
+* Prova en [säker version av YoloV3-modellen](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) och distribuera den till den IoT Edge enheten. 
 
 Granska ytterligare utmaningar för avancerade användare:
 

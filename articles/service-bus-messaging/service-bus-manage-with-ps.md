@@ -3,12 +3,12 @@ title: Använd PowerShell för att hantera Azure Service Bus-resurser | Microsof
 description: Den här artikeln förklarar hur du använder Azure PowerShell modul för att skapa och hantera Service Bus entiteter (namn områden, köer, ämnen, prenumerationer).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341744"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065751"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Använd PowerShell för att hantera Service Bus-resurser
 
@@ -18,7 +18,7 @@ Du kan också hantera Service Bus entiteter med Azure Resource Manager-mallar. M
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du följande krav:
 
@@ -159,8 +159,8 @@ Du kan använda [Service Bus PowerShell-modulen](/powershell/module/az.servicebu
 
 Det finns några alternativa sätt att hantera Service Bus entiteter, enligt beskrivningen i dessa blogg inlägg:
 
-* [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Service Bus PowerShell-skript](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

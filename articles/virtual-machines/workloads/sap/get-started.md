@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a882e3a21d5e1e99f6f9154fd2162071752b4499
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6151bb915298cc4f771b6d49628f39c8d27b62b4
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800356"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064374"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -45,6 +45,7 @@ Om du har vissa frågor ska vi peka dig på vissa dokument eller flöden i det h
     - [Scenarier som stöds för HANA stor instans](./hana-supported-scenario.md)
 - Vilka Azure-tjänster, Azure VM-typer och Azure Storage-tjänster är tillgängliga i olika Azure-regioner, kontrollerar du de plats [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) 
 - Fungerar tredje part HA-ramen, förutom Windows och pacemaker som stöds? Kontrol lera den nedre delen av [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533)
+- Vad Azure Storage passar bäst för mitt scenario? Läs [Azure Storage typer för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
 
  
 ## <a name="sap-hana-on-azure-large-instances"></a>SAP HANA på Azure (stora instanser)
@@ -59,23 +60,7 @@ I det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som
  
 
 ## <a name="sap-netweaver-deployed-on-azure-virtual-machines"></a>SAP-NetWeaver distribueras på virtuella Azure-datorer
-Det här avsnittet innehåller planerings-och distributions dokumentation för SAP NetWeaver och Business One på Azure. Dokumentationen fokuserar på grunderna och användningen av icke-HANA-databaser med en SAP-arbetsbelastning på Azure. Dokument och artiklar för hög tillgänglighet är också grunden för HANA hög tillgänglighet i Azure, till exempel:
-
-- [Azures planerings guide](./planning-guide.md). 
-- [SAP Business One på virtuella Azure-datorer](./business-one-azure.md)
-- [Skydda en SAP NetWeaver program distribution med flera nivåer med hjälp av Site Recovery](../../../site-recovery/site-recovery-sap.md)
-- [SAP LaMa-anslutning för Azure](./lama-installation.md)
-
-Information om icke-HANA-databaser under en SAP-arbets belastning på Azure finns i:
-
-- [Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](./dbms_guide_general.md)
-- [SQL Server Azure Virtual Machines DBMS-distribution för SAP NetWeaver](./dbms_guide_sqlserver.md)
-- [DBMS-distribution för SAP-arbetsbelastning för Oracle på Azure Virtual Machines](./dbms_guide_oracle.md)
-- [IBM DB2 Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](./dbms_guide_ibm.md)
-- [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](./dbms_guide_sapase.md)
-- [SAP MaxDB, Live cache och Content Server-distribution på virtuella Azure-datorer](./dbms_guide_maxdb.md)
-
-Information om SAP HANA databaser på Azure finns i avsnittet "SAP HANA på Azure Virtual Machines".
+Det här avsnittet innehåller planerings-och distributions dokumentation för SAP NetWeaver och Business One på Azure. Dokumentationen fokuserar på grunderna och användningen av icke-HANA-databaser med en SAP-arbetsbelastning på Azure. Dokument och artiklar för hög tillgänglighet är också grunden för HANA hög tillgänglighet i Azure
 
 Information om hög tillgänglighet för en SAP-arbetsbelastning i Azure finns i:
 
@@ -104,6 +89,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 08/10/2020: Vi presenterar kostnads medveten SAP HANA lagrings konfiguration i [SAP HANA konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) och gör vissa uppdateringar av [SAP-arbetsbelastningar på Azure: planering och distribution check lista](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) och konfigurera [pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att betona vikten av tillförlitlig namn matchning för pacemaker-kluster
 - 08/04/2020: ändra i [SAP NW ha på WFCS med fil resurs](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW-ha på WFCS med delad disk](./sap-high-availability-installation-wsfc-shared-disk.md), [ha för SAP NW på virtuella Azure-datorer](./high-availability-guide.md), [ha för SAP NW på Azure VM](./high-availability-guide-suse.md): ar på SLES, ha [för SAP NW på virtuella Azure-datorer på SLES med ANF](./high-availability-guide-suse-netapp-files.md), [ha för SAP NW på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel.md), [ha för SAP NW på virtuella Azure-datorer på RHEL med ANF](./high-availability-guide-rhel-netapp-files.md) och ha för SAP NW på virtuella Azure-datorer i RHEL med och [ha för SAP NW på multi](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: lade till [Spara på SAP HANA – stora instanser med en Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) -artikel som förklarar vad du behöver veta innan du köper en SAP HANA – stora instanser reservation och hur du gör köpet

@@ -1,15 +1,15 @@
 ---
 title: Resurs typer som stöds Azure Resource Manager
 description: Ange en lista över de Azure Resource Manager resurs typer som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 07/16/2020
+ms.date: 08/10/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 8ea8dff157437dd37ad178b1580eddb9d218559d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 91b8a88fd056db2fd8495c85dccbcc08f4a94fda
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087534"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066006"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -185,7 +185,6 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. desktopvirtualization/applicationgroups
 - Microsoft. desktopvirtualization/hostpools
 - Microsoft. desktopvirtualization/arbets ytor
-- Microsoft. detonationservice/detonationinstances
 - Microsoft. Devices/elasticpools
 - Microsoft. Devices/elasticpools/iothubtenants
 - Microsoft. Devices/iothubs

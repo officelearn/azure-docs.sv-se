@@ -3,12 +3,12 @@ title: Azure Service Bus åtkomst kontroll med signaturer för delad åtkomst
 description: 'Översikt över Service Bus åtkomst kontroll med signaturer för delad åtkomst: översikt, information om SAS-auktorisering med Azure Service Bus.'
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: b75f1ec3a1aac36124287523140c24d468329aaa
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460702"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066193"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -27,7 +27,7 @@ SAS skyddar åtkomsten till Service Bus baserat på auktoriseringsregler. De kon
 
 Signaturer för delad åtkomst är en anspråksbaserad mekanism för auktorisering med enkla tokens. Med SAS skickas aldrig nycklar i kabeln. Nycklar används för att signera information kryptografiskt som senare kan verifieras av tjänsten. SAS kan användas på samma sätt som användar namn och lösen ord, där klienten har omedelbar till gång till ett namn för auktoriseringsregeln och en matchande nyckel. SAS kan också användas på samma sätt som en federerad säkerhets modell, där klienten får en tidsbegränsad och signerad åtkomsttoken från en säkerhetstokentjänst utan att någonsin ha fått till gång till signerings nyckeln.
 
-SAS-autentisering i Service Bus har kon figurer ATS med namngivna [regler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) som har associerade åtkomst rättigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i base64-representation. Du kan konfigurera regler på namn områdes nivå, på Service Bus [reläer](../service-bus-relay/relay-what-is-it.md), [köer](service-bus-messaging-overview.md#queues)och [ämnen](service-bus-messaging-overview.md#topics).
+SAS-autentisering i Service Bus har kon figurer ATS med namngivna [regler för delad åtkomst](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) som har associerade åtkomst rättigheter och ett par med primära och sekundära kryptografiska nycklar. Nycklarna är 256-bitars värden i base64-representation. Du kan konfigurera regler på namn områdes nivå, på Service Bus [reläer](../azure-relay/relay-what-is-it.md), [köer](service-bus-messaging-overview.md#queues)och [ämnen](service-bus-messaging-overview.md#topics).
 
 Token för [signaturen för delad åtkomst](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) innehåller namnet på den valda AUKTORISERINGSREGELN, URI för den resurs som ska användas, ett upphör ande omedelbart och en SHA256 kryptografisk signatur som beräknas över dessa fält med antingen den primära eller sekundära kryptografiska nyckeln för den valda auktoriseringsregeln.
 
@@ -84,7 +84,7 @@ Token innehåller de värden som inte är hash-kodade, så att mottagaren kan be
 
 Resurs-URI är den fullständiga URI: n för den Service Bus resurs som åtkomst begärs till. Till exempel `http://<namespace>.servicebus.windows.net/<entityPath>` eller `sb://<namespace>.servicebus.windows.net/<entityPath>` ; det vill säga `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3` . 
 
-**URI: n måste vara i [procent kodad](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**URI: n måste vara i [procent kodad](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
 
 Den auktoriseringsregler för delad åtkomst som används för signering måste konfigureras på den entitet som anges av denna URI, eller av en av dess hierarkiska överordnade. Till exempel `http://contoso.servicebus.windows.net/contosoTopics/T1` eller `http://contoso.servicebus.windows.net` i föregående exempel.
 
@@ -276,7 +276,7 @@ Följande tabell visar de åtkomst behörigheter som krävs för olika åtgärde
 | Hämta det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Ange det tillstånd som är associerat med en Message Queue-session |Lyssna |En giltig Queue-adress |
 | Schemalägg ett meddelande för senare leverans. till exempel [ScheduleMessageAsync ()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig Queue-adress
-| **Avsnitt** | | |
+| **Ovan** | | |
 | Skapa ett ämne |Hantera |Alla namn områdes adresser |
 | Ta bort ett ämne |Hantera |En giltig ämnes adress |
 | Räkna upp ämnen |Hantera |/$Resources/topics |

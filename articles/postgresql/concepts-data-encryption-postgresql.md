@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290162"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064799"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
@@ -26,7 +26,7 @@ Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög ti
 
 ## <a name="benefits"></a>Fördelar
 
-Data kryptering för Azure Database for PostgreSQL enskild server ger följande fördelar:
+Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server ger följande fördelar:
 
 * Data åtkomsten styrs helt av dig genom möjligheten att ta bort nyckeln och göra databasen otillgänglig 
 *    Fullständig kontroll över nyckel livs cykeln, inklusive rotation av nyckeln för att passa företags principer
@@ -48,8 +48,8 @@ DEKs, som krypteras med KeyExchange, lagras separat. Endast en entitet med åtko
 För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagras i Key Vault för kryptering av DEK ger en Key Vault administratör följande åtkomst behörighet till servern:
 
 * **Hämta**: för att hämta den offentliga delen och egenskaperna i nyckel valvet.
-* **wrapKey**: för att kunna kryptera Dek.
-* **unwrapKey**: för att kunna dekryptera Dek.
+* **wrapKey**: för att kunna kryptera Dek. Den krypterade DEK lagras i Azure Database for PostgreSQL.
+* **unwrapKey**: för att kunna dekryptera Dek. Azure Database for PostgreSQL behöver det dekrypterade DEK för att kryptera/dekryptera data
 
 Nyckel valvs administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/key-vault-insights-overview.md), så att de kan granskas senare.
 
@@ -59,16 +59,16 @@ När servern har kon figurer ATS för att använda den Kundhanterade nyckeln som
 
 Följande är krav för att konfigurera Key Vault:
 
-* Key Vault och Azure Database for PostgreSQL en enskild server måste tillhöra samma Azure Active Directory-klient (Azure AD). Key Vault mellan klienter och Server interaktioner stöds inte. När du flyttar resurser måste du konfigurera om data krypteringen.
+* Key Vault och Azure Database for PostgreSQL en enskild server måste tillhöra samma Azure Active Directory-klient (Azure AD). Key Vault mellan klienter och Server interaktioner stöds inte. Om du flyttar Key Vault resursen måste du konfigurera om data krypteringen.
 * Aktivera funktionen för mjuk borttagning i nyckel valvet för att skydda mot data förlust om en oavsiktlig nyckel (eller Key Vault) tas bort. Mjuka, borttagna resurser behålls i 90 dagar, om inte användaren återställer eller tar bort dem under tiden. Åtgärder för att återställa och rensa har sina egna behörigheter som är kopplade till en Key Vault åtkomst princip. Funktionen mjuk borttagning är inaktive rad som standard, men du kan aktivera den via PowerShell eller Azure CLI (Observera att du inte kan aktivera den via Azure Portal).
-* Bevilja den Azure Database for PostgreSQL enskild server åtkomst till nyckel valvet med behörigheterna get, wrapKey och unwrapKey med hjälp av dess unika hanterade identitet. I Azure Portal skapas den unika identiteten automatiskt när data kryptering är aktiverat på den PostgreSQL enskilda servern. Se [data kryptering för Azure Database for PostgreSQL enskild server genom att använda Azure Portal](howto-data-encryption-portal.md) för detaljerade steg-för-steg-instruktioner när du använder Azure Portal.
+* Bevilja den Azure Database for PostgreSQL enskild server åtkomst till nyckel valvet med behörigheterna get, wrapKey och unwrapKey med hjälp av dess unika hanterade identitet. I Azure Portal skapas den unika tjänst identiteten automatiskt när data kryptering är aktiverat på den PostgreSQL enskilda servern. Se [data kryptering för Azure Database for PostgreSQL enskild server genom att använda Azure Portal](howto-data-encryption-portal.md) för detaljerade steg-för-steg-instruktioner när du använder Azure Portal.
 
 Följande är krav för att konfigurera den Kundhanterade nyckeln:
 
 * Den Kundhanterade nyckeln som ska användas för att kryptera DEK kan bara vara asymmetrisk, RSA 2048.
 * Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Utgångs datumet (om det är inställt) måste vara ett framtida datum och en framtida tidpunkt.
 * Nyckeln måste vara i *aktiverat* läge.
-* Om du importerar en befintlig nyckel till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
+* Om du [importerar en befintlig nyckel](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Rekommendationer
 

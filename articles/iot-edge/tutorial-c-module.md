@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4bed27654b3482300d3d102d545b44373c53dde0
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: cf9fb8a95be9a5ba025534508139a0e300036542
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439795"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064850"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Linux-enheter
 
@@ -39,7 +39,7 @@ Den här självstudien visar hur du utvecklar en modul i **C** med **Visual Stud
 
 Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Linux:
 
-| C | Visual Studio Code | Visual Studio |
+| C | Visual Studio-koden | Visual Studio |
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Använda VS Code för C-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Använda VS for C-moduler på Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Använda VS Code för C-moduler på Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Använda VS for C-moduler på Linux-ARM32](./media/tutorial-c-module/green-check.png) |
@@ -57,6 +57,8 @@ Innan du påbörjar den här självstudien bör du ha gått igenom den föregåe
 Om du vill utveckla en IoT Edge-modul i C installerar du följande ytterligare krav på utvecklings datorn:
 
 * [C/C++-tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) för Visual Studio Code.
+
+Installation av Azure IoT C SDK krävs inte för den här självstudien, men kan ge användbara funktioner som IntelliSense och läsa program definitioner. Installations information finns i SDK: er [och bibliotek för Azure IoT C](https://github.com/Azure/azure-iot-sdk-c).
 
 ## <a name="create-a-module-project"></a>Skapa ett modul-projekt
 

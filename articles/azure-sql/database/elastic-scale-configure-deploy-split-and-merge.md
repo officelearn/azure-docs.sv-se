@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 200a6b1bc2f960555fae1d910dfebde66628d13a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045650"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064952"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad sammanslagning för att flytta data mellan shardade-databaser
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,9 +37,9 @@ Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. 
 
 Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanslagna tjänster i **content\splitmerge\service** under katalog och PowerShell-skripten för delad sammanslagning (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-1. Skapa en Azure SQL Database-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure Portal](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
+1. Skapa en Azure SQL Database-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
 
 1. Kontrol lera att din server tillåter att Azure-tjänster ansluter till den. I **brand Väggs inställningarna**i portalen kontrollerar du att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på **på**. Klicka på ikonen "Spara".
 
@@ -108,7 +108,7 @@ Kör följande kommando från samma fönster där MakeCert kördes. Använd samm
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Överför PFX-filen till moln tjänsten
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 2. Välj **Cloud Services**.
 3. Välj den moln tjänst som du skapade ovan för delnings-/sammanslagnings tjänsten.
 4. Klicka på **certifikat** på den översta menyn.
@@ -173,6 +173,9 @@ Bestäm webb slut punkten för din tjänst för delad sammanslagning. Du hittar 
 ### <a name="test-with-powershell-scripts"></a>Testa med PowerShell-skript
 
 Du kan testa distributionen och din miljö genom att köra PowerShell-skript som ingår i exemplet.
+
+> [!IMPORTANT]
+> Exempel skripten körs på PowerShell 5,1. De körs för närvarande inte på PowerShell 6 eller senare.
 
 De skript filer som ingår är:
 

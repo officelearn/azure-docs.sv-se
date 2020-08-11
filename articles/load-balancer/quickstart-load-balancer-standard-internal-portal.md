@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1ec3eaac90e1d2bc24608f6cb4546d5bed859b5e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033248"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065241"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -202,7 +202,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
 >[!NOTE]
->De virtuella datorerna i backend-poolen har ingen utgående Internet anslutning med den här konfigurationen. </br> Mer information om hur du tillhandahåller utgående anslutningar finns i: </br> **[Utgående anslutningar i Azure](load-balancer-outbound-connections.md)**</br> Alternativ för att tillhandahålla anslutning: </br> **[Konfiguration av utgående belastningsutjämnare](egress-only.md)** </br> **[Vad är Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>De virtuella datorerna i backend-poolen har ingen utgående Internet anslutning med den här konfigurationen. </br> Mer information om hur du tillhandahåller utgående anslutningar finns i: </br> **[Utgående anslutningar i Azure](load-balancer-outbound-connections.md)**</br> Alternativ för att tillhandahålla anslutning: </br> **[Konfiguration för lastbalanserare med ”endast utgående”](egress-only.md)** </br> **[Vad är Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
 
@@ -500,7 +500,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | Välj **myVNet** |
     | Undernät | Välj **myBackendSubnet** |
-    | Offentlig IP-adress | Välj **Skapa ny** </br> Ange **myVM-IP** i namn. </br> Välj **OK** |
+    | Offentlig IP-adress | Välj **ingen** |
     | Nätverks säkerhets grupp för nätverkskort | Välj **Avancerat**|
     | Konfigurera nätverks säkerhets grupp | Välj **Skapa ny**. </br> I **gruppen Skapa nätverks säkerhet**anger du **myNSG** i **namn**. </br> Välj **OK** |
     | **Belastningsutjämning**  |

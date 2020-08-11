@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 63b8c33b61d6bff28eca98929e344df7ea54e779
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 5037a7a68b86828b7a96fc99222c55f0bf896380
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430681"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065700"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Snabb start: använda Service Bus köer med Node.js och Azure/Service-Bus-paketet
 I den här självstudien får du lära dig hur du skriver ett NodeJS-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö med hjälp av det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet. Det här paketet använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md) medan det äldre [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet används [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Exemplen är skrivna i Java Script.
@@ -33,7 +33,7 @@ npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
-Att interagera med en Service Bus kö börjar med att instansiera klassen [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) och att använda den för att instansiera [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) -klassen. När du har en Queue-klient kan du skapa en avsändare och använda antingen [send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) eller [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) -metoden på den för att skicka meddelanden.
+Att interagera med en Service Bus kö börjar med att instansiera klassen [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) och att använda den för att instansiera [QueueClient](/javascript/api/@azure/service-bus/queueclient) -klassen. När du har en Queue-klient kan du skapa en avsändare och använda antingen [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) eller [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) -metoden på den för att skicka meddelanden.
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa en fil med namnet `send.js` och klistra in nedanstående kod i den. Den här koden skickar 10 meddelanden till kön.
@@ -83,7 +83,7 @@ Meddelanden har några standard egenskaper som `label` och `messageId` som du ka
 Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Det finns ingen gräns för antalet meddelanden som finns i en kö, men det finns ett tak för den totala storleken på de meddelanden som innehas av en kö. Den här köstorleken definieras när kön skapas, med en övre gräns på 5 GB. Mer information om kvoter finns i [Service Bus kvoter](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
-Att interagera med en Service Bus kö börjar med att instansiera klassen [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) och att använda den för att instansiera [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) -klassen. När du har en Queue-klient kan du skapa en mottagare och använda antingen [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) eller [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) -metoden på den för att ta emot meddelanden.
+Att interagera med en Service Bus kö börjar med att instansiera klassen [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) och att använda den för att instansiera [QueueClient](/javascript/api/@azure/service-bus/queueclient) -klassen. När du har en Queue-klient kan du skapa en mottagare och använda antingen [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) eller [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) -metoden på den för att ta emot meddelanden.
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa en fil med namnet `recieve.js` och klistra in nedanstående kod i den. Den här koden kommer att försöka ta emot 10 meddelanden från kön. Det faktiska antalet du får beror på antalet meddelanden i kön och nätverks svars tiden.
@@ -119,7 +119,7 @@ Att interagera med en Service Bus kö börjar med att instansiera klassen [Servi
 
 Grattis! Du har bara tagit emot meddelanden från en Service Bus kö.
 
-Metoden [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) tar i ett `ReceiveMode` som är en Enum med värdena [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [lösa dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder `PeekLock` läget genom att använda någon av `complete()` metoderna,, `abandon()` `defer()` , eller för att ange ett `deadletter()` meddelande.
+Metoden [createReceiver](/javascript/api/@azure/service-bus/queueclient#createreceiver-receivemode-) tar i ett `ReceiveMode` som är en Enum med värdena [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) och [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Kom ihåg att [lösa dina meddelanden](message-transfers-locks-settlement.md#settling-receive-operations) om du använder `PeekLock` läget genom att använda någon av `complete()` metoderna,, `abandon()` `defer()` , eller för att ange ett `deadletter()` meddelande.
 
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
@@ -129,4 +129,3 @@ Mer information finns i följande resurser.
 - [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 - Andra [NodeJS-exempel för Service Bus på GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
-

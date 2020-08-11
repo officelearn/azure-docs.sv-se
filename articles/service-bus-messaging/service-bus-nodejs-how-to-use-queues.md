@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: 076233c52074bca646c072e9a1abe63b15412c1b
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: cebbab4045b3f8af061bfececff1af9ed70c50de
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430641"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065133"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Snabb start: Använd Service Bus köer i Azure med Node.js och Azure-SB-paketet
 I den här självstudien får du lära dig hur du skapar Node.js program för att skicka meddelanden till och ta emot meddelanden från en Azure Service Bus kö med [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet. Exemplen är skrivna i Java Script och använder Azure- [modulen](https://www.npmjs.com/package/azure) Node.js som internt använder Azure-SB-paketet.
@@ -20,7 +20,7 @@ I den här självstudien får du lära dig hur du skapar Node.js program för at
 > [!IMPORTANT]
 > [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet använder [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Du kan få en snabbare upplevelse med hjälp av den nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) som använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md). 
 > 
-> Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node.js och @azure/service-bus paket](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
+> Mer information om det nya paketet finns i [så här använder du Service Bus köer med Node.js och @azure/service-bus paket](./service-bus-nodejs-how-to-use-queues-new-package.md), annars fortsätter att läsa för att se hur du använder [Azure](https://www.npmjs.com/package/azure) -paketet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 - En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

@@ -2,13 +2,13 @@
 title: Service Fabric program uppgradering med PowerShell
 description: Den här artikeln beskriver hur du distribuerar ett Service Fabric program, ändrar koden och installerar en uppgradering med PowerShell.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: d277df6959ea3e7985514f81faed520f163c6012
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/5/2020
+ms.openlocfilehash: 2bd74d071d5dfb3385d4203704eacd5ba685917e
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82195892"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064595"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric program uppgradering med PowerShell
 > [!div class="op_single_selector"]
@@ -24,6 +24,21 @@ Den vanligaste och rekommenderade uppgraderings metoden är den övervakade löp
 En övervakad program uppgradering kan utföras med hjälp av hanterade eller inbyggda API: er, PowerShell, Azure CLI, Java eller REST. Anvisningar om hur du utför en uppgradering med Visual Studio finns i [uppgradera ditt program med Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Med Service Fabric övervakade rullande uppgraderingar kan program administratören konfigurera hälso utvärderings principen som Service Fabric använder för att avgöra om programmet är felfritt. Dessutom kan administratören konfigurera åtgärden som ska vidtas när hälso utvärderingen Miss lyckas (till exempel göra en automatisk återställning). Det här avsnittet går igenom en övervakad uppgradering för ett av SDK-exemplen som använder PowerShell. 
+
+> [!NOTE]
+> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
+```powershell
+$myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
+$appParamCollection = $myApplication.ApplicationParameters
+
+$applicationParameterMap = @{}
+foreach ($pair in $appParamCollection)
+{
+    $applicationParameterMap.Add($pair.Name, $pair.Value);
+}
+
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/myApplication -ApplicationTypeVersion 2.0.0 -ApplicationParameter $applicationParameterMap -Monitored -FailureAction Rollback
+```
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Steg 1: Bygg och distribuera exempel på visuella objekt
 Bygg och publicera programmet genom att högerklicka på programprojektet, **VisualObjectsApplication** och välja kommandot **publicera** .  Mer information finns i [självstudier för Service Fabric program uppgradering](service-fabric-application-upgrade-tutorial.md).  Du kan också använda PowerShell för att distribuera ditt program.

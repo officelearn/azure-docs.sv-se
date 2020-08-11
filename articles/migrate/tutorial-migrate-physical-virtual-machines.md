@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar fysiska datorer till A
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: MVC
-ms.openlocfilehash: 16145c5d8b2414750b6eff9669fa7cd61eb482f5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ff8ac55f129e7579b12e2102c0c6292e9030021c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165404"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066635"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrera datorer som fysiska servrar till Azure
 
@@ -40,7 +40,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
@@ -50,7 +50,7 @@ Innan du börjar de här självstudierna bör du:
 
 Förbered Azure för migrering med Server migrering.
 
-**Uppgift** | **Detaljer**
+**Aktivitet** | **Information**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -103,10 +103,13 @@ Azure Migrate: Server-migreringen använder en replikeringsfil för att repliker
 
 Förbered distribution av installationer enligt följande:
 
-- Du förbereder en dator för att vara värd för replikerings enheten. [Granska](migrate-replication-appliance.md#appliance-requirements) maskin varu kraven. Enheten bör inte installeras på en käll dator som du vill replikera.
+- Du förbereder en dator för att vara värd för replikerings enheten. [Granska](migrate-replication-appliance.md#appliance-requirements) maskin varu kraven.
 - Replikerings enheten använder MySQL. Granska [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
 - Granska de Azure-URL: er som krävs för att replikeringssystemet ska kunna komma åt [offentliga](migrate-replication-appliance.md#url-access) och [offentliga](migrate-replication-appliance.md#azure-government-url-access) moln.
 - Granska [port] (Migrate-Replication-installation. MD # port-Access) åtkomst krav för replikerings enheten.
+
+> [!NOTE]
+> Replikeringssystemet bör inte installeras på en käll dator som du vill replikera eller på Azure Migrate identifierings-och utvärderings installation som du kan ha installerat tidigare.
 
 ## <a name="add-the-server-migration-tool"></a>Lägg till Migreringsverktyg för Server
 
@@ -125,8 +128,8 @@ Konfigurera ett Azure Migrate projekt och Lägg sedan till Migreringsverktyg fö
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-migrate-physical-virtual-machines/migrate-project.png)
 
-8. I **Välj bedömnings verktyg**väljer du **hoppa över Lägg till ett bedömnings verktyg för**  >  **Nästa**gång.
-9. I **Välj Migreringsverktyg**väljer du **Azure Migrate: Server migrering**  >  **Nästa**.
+8. I **Välj utvärderingsverktyg** väljer du **Hoppa över att lägga till ett utvärderingsverktyg just nu** > **Nästa**.
+9. I **Välj migreringsverktyg** väljer du  **Azure Migrate: Servermigrering** > **Nästa**.
 10. I **Review + add tools** (Granska + lägg till verktyg)
 granskar du inställningarna och klickar på **Lägg till verktyg**
 11. När du har lagt till verktyget visas det i Azure Migrate för Project > **Server**-  >  **Migreringsverktyg**.
@@ -156,7 +159,7 @@ Det första steget i migreringen är att konfigurera replikerings enheten. Om du
     ![Hämta Provider](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 10. Kopiera installations filen för installationen och nyckel filen till Windows Server 2016-datorn som du skapade för installationen.
-11. Kör installations filen för replikeringstjänsten enligt beskrivningen i nästa procedur. När installationen är klar startas konfigurations guiden för enheten automatiskt (du kan också starta guiden manuellt genom att använda cspsconfigtool-genvägen som skapas på Skriv bordet på enheten). Använd fliken Hantera konton i guiden för att lägga till konto information som ska användas för push-installation av mobilitets tjänsten. I den här självstudien kommer vi att installera mobilitets tjänsten manuellt på datorer som ska replikeras, så skapa ett dummy-konto i det här steget och gå vidare.
+11. När installationen är klar startas konfigurations guiden för enheten automatiskt (du kan också starta guiden manuellt genom att använda cspsconfigtool-genvägen som skapas på Skriv bordet på enheten). Använd fliken Hantera konton i guiden för att lägga till konto information som ska användas för push-installation av mobilitets tjänsten. I den här självstudien kommer vi att manuellt installera mobilitets tjänsten på virtuella käll datorer som ska replikeras, så skapa ett dummy-konto i det här steget och fortsätt. Du kan ange följande information för att skapa vår dummy-konto – "gäst" som eget namn, "username" som användar namn och "lösen ord" som lösen ord för kontot. Du kommer att använda det här dummy-kontot i steget aktivera replikering. 
 
 12. När installationen har startats om efter installationen går du till **identifiera datorer**, väljer den nya installationen i **Välj konfigurations Server**och klickar på **Slutför registrering**. Genom att slutföra registreringen utförs några slutliga uppgifter för att förbereda replikeringen.
 
@@ -231,7 +234,7 @@ Välj datorer för migrering nu.
 2. I **Replikera**, > **käll inställningar**  >  **att datorerna har virtualiserats?** väljer du **inte virtualiserad/övrigt**.
 3. I **lokal**installation väljer du namnet på Azure Migrate-installationen som du konfigurerar.
 4. I **processerver**väljer du namnet på replikerings enheten.
-6. I **autentiseringsuppgifter för gäst**anger du ett dummy-konto som ska användas för att installera mobilitets tjänsten manuellt (push-installation stöds inte i fysiska). Klicka sedan på **Nästa: virtuella datorer**.
+6. I **autentiseringsuppgifter för gäst**väljer du det dummy-konto som skapades tidigare under [installationen av installations programmet för replikering](#download-the-replication-appliance-installer) för att installera mobilitets tjänsten manuellt (push-installation stöds inte). Klicka sedan på **Nästa: virtuella datorer**.   
 
     ![Replikera virtuella datorer](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)
 

@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 06/16/2020
 ms.custom: MVC
-ms.openlocfilehash: 61a7bee52179ac525b42ad696d118f4f753f6931
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534845"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066652"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -31,7 +31,7 @@ I den här självstudien får du lära dig hur man:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering till Azure.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="discover-and-assess-aws-vms"></a>Identifiera och utvärdera virtuella AWS-datorer  
 
@@ -99,7 +99,7 @@ Azure Migrate: Server-migreringen använder en replikeringsfil för att repliker
 Förbered distribution av installationer enligt följande:
 
 - Konfigurera en separat virtuell EC2-dator för att vara värd för replikerings enheten. Den här instansen måste köra Windows Server 2012 R2 eller Windows Server 2016. [Granska](./migrate-replication-appliance.md#appliance-requirements) maskin vara, program vara och nätverks krav för enheten.
-- Installationen bör inte installeras på en virtuell käll dator som du vill replikera. Den bör distribueras på en annan virtuell dator.
+- Installationen bör inte installeras på en virtuell käll dator som du vill replikera eller på Azure Migrate identifierings-och utvärderings installation som du kan ha installerat tidigare. Den bör distribueras på en annan virtuell dator.
 - De virtuella datorer som ska migreras måste ha en nätverks rad syn för AWS. Konfigurera de säkerhets grupps regler som krävs för att aktivera detta. Det rekommenderas att du distribuerar replikeringen i samma VPC som de virtuella käll datorerna som ska migreras. Om replikerings enheten måste finnas i en annan VPC måste VPCs vara ansluten via VPC-peering.
 - Den virtuella AWS-datorns virtuella datorer kommunicerar med replikeringssystemet på portarna HTTPS 443 (kontroll av kanal dirigering) och TCP 9443 (data transport) inkommande för hantering av replikering och data överföring för replikering. Replikeringssystemet i vänder sig till att dirigera och skicka replikeringsdata till Azure via port HTTPS 443 utgående. Om du vill konfigurera de här reglerna redigerar du reglerna för inkommande/utgående säkerhets grupp med lämpliga portar och käll-IP-information.
 

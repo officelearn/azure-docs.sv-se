@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427ebfe865002612be2f9aeb9db416f5c2f41e52
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82790487"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065462"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Så distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner
 
@@ -28,6 +28,9 @@ En ny Azure API Management-tjänst som ursprungligen bara innehåller en [enhet]
 
 > [!NOTE]
 > Endast Gateway-komponenten i API Management distribueras till alla regioner. Service Management-komponenten och Developer-portalen finns endast i den primära regionen. Därför kommer åtkomst till Developer-portalen och möjligheten att ändra konfigurationen (t. ex. att lägga till API: er, tillämpa principer) att frigöras tills den primära regionen är online igen, om det uppstår avbrott i den primära regionen. Även om den primära regionen är offline kan de sekundära regionerna fortsätta att betjäna API-trafik med den senaste konfigurationen som är tillgänglig för dem.
+
+>[!IMPORTANT]
+> Funktionen för att aktivera lagring av kund information i en enda region är för närvarande bara tillgänglig i Sydostasien region (Singapore) för Asien och stillahavsområdet geo. För alla andra regioner lagras kund information på Geo.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 

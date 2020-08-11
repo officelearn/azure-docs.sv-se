@@ -3,12 +3,12 @@ title: AMQP 1,0 i Azure Service Bus-och Event Hubss protokoll guide | Microsoft 
 description: Protokoll guide till uttryck och beskrivning av AMQP 1,0 i Azure Service Bus och Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ffccd49d37dbf2a8fc404e9895b648e53007675c
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511321"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064544"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 i Azure Service Bus-och Event Hubs-protokoll guide
 
@@ -73,7 +73,7 @@ Anslutningar, kanaler och sessioner är tillfälliga. Om den underliggande anslu
 
 ### <a name="amqp-outbound-port-requirements"></a>AMQP utgående port krav
 
-Klienter som använder AMQP-anslutningar via TCP kräver portarna 5671 och 5672 för att kunna öppnas i den lokala brand väggen. Tillsammans med dessa portar kan du behöva öppna ytterligare portar om [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) -funktionen är aktive rad. `EnableLinkRedirect`är en ny meddelande funktion som hjälper dig att hoppa över ett hopp medan du tar emot meddelanden, vilket hjälper till att öka data flödet. Klienten börjar kommunicera direkt med backend-tjänsten över Port intervallet 104XX, vilket visas i följande bild. 
+Klienter som använder AMQP-anslutningar via TCP kräver portarna 5671 och 5672 för att kunna öppnas i den lokala brand väggen. Tillsammans med dessa portar kan du behöva öppna ytterligare portar om [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) -funktionen är aktive rad. `EnableLinkRedirect`är en ny meddelande funktion som hjälper dig att hoppa över ett hopp medan du tar emot meddelanden, vilket hjälper till att öka data flödet. Klienten börjar kommunicera direkt med backend-tjänsten över Port intervallet 104XX, vilket visas i följande bild. 
 
 ![Lista över mål portar][4]
 
@@ -359,14 +359,14 @@ Begär ande meddelandet har följande program egenskaper:
 
 | Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| reparation |Nej |sträng |**Skicka token** |
-| typ |Nej |sträng |Typ av token som ska beställas. |
-| name |Nej |sträng |Mål gruppen som token gäller. |
+| reparation |No |sträng |**Skicka token** |
+| typ |No |sträng |Typ av token som ska beställas. |
+| name |No |sträng |Mål gruppen som token gäller. |
 | dag |Ja |timestamp |Utgångs tiden för token. |
 
 Egenskapen *Name* identifierar den entitet som token ska associeras med. I Service Bus är det sökvägen till kön, eller ämnet/prenumerationen. *Typ* egenskapen identifierar tokentypen:
 
-| Tokentyp | Beskrivning av token | Typ av brödtext | Anteckningar |
+| Tokentyp | Beskrivning av token | Typ av brödtext | Kommentarer |
 | --- | --- | --- | --- |
 | AMQP: JWT |JSON Web Token (JWT) |AMQP-värde (sträng) |Ännu inte tillgängligt. |
 | AMQP: SWT |Enkel webb-token (SWT) |AMQP-värde (sträng) |Stöds endast för SWT-token som utfärdats av AAD/ACS |
@@ -378,7 +378,7 @@ Svarsmeddelandet har följande *program egenskaps* värden
 
 | Nyckel | Valfritt | Värdetyp | Värde innehåll |
 | --- | --- | --- | --- |
-| status kod |Nej |int |HTTP-svarskod **[RFC2616]**. |
+| status kod |No |int |HTTP-svarskod **[RFC2616]**. |
 | status-Beskrivning |Ja |sträng |Beskrivning av status. |
 
 Klienten kan anropa in *-token* upprepade gånger och för alla entiteter i meddelande infrastrukturen. Token är begränsade till den aktuella klienten och fästs på den aktuella anslutningen, vilket innebär att servern släpper alla kvarhållna token när anslutningen uppkommer.
@@ -419,5 +419,5 @@ Om du vill veta mer om AMQP kan du gå till följande länkar:
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
 [Översikt över Service Bus AMQP]: service-bus-amqp-overview.md
-[AMQP 1,0-stöd för Service Bus partitionerade köer och ämnen]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP i Service Bus för Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP 1,0-stöd för Service Bus partitionerade köer och ämnen]: 
+[AMQP in Service Bus for Windows Server]: /previous-versions/service-bus-archive/dn574799(v=azure.100)

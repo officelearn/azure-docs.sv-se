@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 07/03/2020
-ms.openlocfilehash: b20cb074a21196467c0264247e8f5d885d7956a0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/11/2020
+ms.openlocfilehash: e7199b6d54a0150845bfc09c38e002e6cc298ee7
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423311"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066737"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -57,7 +57,7 @@ Varje begär ande slut punkt i en Logic app har en [signatur för delad åtkomst
 
 Varje URL innehåller `sp` Frågeparametern, `sv` och, `sig` enligt beskrivningen i den här tabellen:
 
-| Frågeparameter | Description |
+| Frågeparameter | Beskrivning |
 |-----------------|-------------|
 | `sp` | Anger behörigheter för de tillåtna HTTP-metoder som ska användas. |
 | `sv` | Anger den SAS-version som ska användas för att skapa signaturen. |
@@ -110,45 +110,9 @@ I bröd texten inkluderar du `KeyType` egenskapen som antingen `Primary` eller `
 
 ### <a name="enable-azure-active-directory-oauth"></a>Aktivera Azure Active Directory OAuth
 
-Om din Logic-app startar med en [begär ande utlösare](../connectors/connectors-native-reqres.md), kan du aktivera [Azure Active Directory öppna autentisering](../active-directory/develop/index.yml) (Azure AD OAuth) genom att skapa en auktoriseringsprincip för inkommande anrop till begär ande utlösaren. Innan du aktiverar den här autentiseringen bör du gå igenom följande överväganden:
+Om din Logic-app startar med en [begär ande utlösare](../connectors/connectors-native-reqres.md), kan du aktivera [Azure Active Directory öppna autentisering](../active-directory/develop/index.yml) (Azure AD OAuth) genom att definiera eller lägga till en auktoriseringsprincip för inkommande anrop till begär ande utlösaren. När din Logic app tar emot en inkommande begäran som innehåller en autentiseringstoken, jämför Azure Logic Apps token-anspråk mot anspråk i varje auktoriseringsprincip. Om det finns en matchning mellan token-anspråk och alla anspråk i minst en princip, lyckas auktoriseringen för den inkommande begäran. Token kan ha fler anspråk än det antal som anges av auktoriseringsprincipen.
 
-* Ett inkommande samtal till din Logi Kap par kan bara använda ett Authorization-schema, antingen Azure AD OAuth eller [signaturen för delad åtkomst (SAS)](#sas). Endast [Bearer-typ](../active-directory/develop/active-directory-v2-protocols.md#tokens) stöds för OAuth-tokens som endast stöds för begär ande utlösare.
-
-* Din Logic app är begränsad till ett maximalt antal Auktoriseringsprinciper. Varje auktoriseringsprincip har också ett maximalt antal [anspråk](../active-directory/develop/developer-glossary.md#claim). Mer information finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* En auktoriseringsprincip måste innehålla minst **utfärdarens** anspråk, som har ett värde som börjar med `https://sts.windows.net/` eller `https://login.microsoftonline.com/` (OAuth v2) som ID för Azure AD-utfärdaren. Mer information om åtkomsttoken finns i [Microsoft Identity Platform Access tokens](../active-directory/develop/access-tokens.md).
-
-Följ dessa steg om du vill lägga till en eller flera auktoriseringsprinciper i din Logic app för att aktivera Azure AD OAuth.
-
-1. I [Azure Portal](https://portal.microsoft.com)kan du söka efter och öppna din Logic app i Logic App Designer.
-
-1. På menyn Logic app, under **Inställningar**, väljer du **auktorisering**. När fönstret behörighet öppnas väljer du **Lägg till princip**.
-
-   ![Välj "auktorisering" > Lägg till princip "](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
-
-1. Ange information om auktoriseringsprincipen genom att ange de [anspråks typer](../active-directory/develop/developer-glossary.md#claim) och värden som din Logic app förväntar sig i autentiseringstoken som presenteras av varje inkommande anrop till begär ande utlösaren:
-
-   ![Ange information för auktoriseringsprincipen](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
-
-   | Egenskap | Krävs | Beskrivning |
-   |----------|----------|-------------|
-   | **Princip namn** | Yes | Det namn som du vill använda för auktoriseringsprincipen |
-   | **Anspråk** | Yes | De anspråks typer och värden som din Logic app accepterar från inkommande samtal. Här följer tillgängliga anspråks typer: <p><p>- **Utfärdare** <br>- **Filmen** <br>- **Motiv** <br>- **JWT-ID** (JSON Web token-ID) <p><p>Som minimum måste **anspråks** listan innehålla **utfärdarens** anspråk, som har ett värde som börjar med `https://sts.windows.net/` eller `https://login.microsoftonline.com/` som ID för Azure AD-utfärdaren. Mer information om dessa anspråks typer finns i [anspråk i Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)-säkerhetstoken. Du kan också ange en egen typ och värde för anspråk. |
-   |||
-
-1. Om du vill lägga till ett annat anspråk väljer du bland följande alternativ:
-
-   * Om du vill lägga till en annan anspråks typ väljer du **Lägg till standard anspråk**, väljer anspråks typ och anger anspråks värde.
-
-   * Om du vill lägga till ett eget anspråk väljer du **Lägg till anpassat anspråk**och anger det anpassade anspråks värdet.
-
-1. Om du vill lägga till en annan auktoriseringsprincip väljer du **Lägg till princip**. Upprepa föregående steg för att konfigurera principen.
-
-1. När du är klar väljer du **Spara**.
-
-Din Logic app har nu kon figurer ATS för att använda Azure AD OAuth för att auktorisera inkommande begär Anden. När din Logic app tar emot en inkommande begäran som innehåller en autentiseringstoken, jämför Azure Logic Apps token-anspråk mot anspråk i varje auktoriseringsprincip. Om det finns en matchning mellan token-anspråk och alla anspråk i minst en princip, lyckas auktoriseringen för den inkommande begäran. Token kan ha fler anspråk än det antal som anges av auktoriseringsprincipen.
-
-Anta till exempel att din Logic app har en auktoriseringsprincip som kräver två anspråks typer, utfärdare och mål grupp. Den här exempel koden för avkodad [åtkomsttoken](../active-directory/develop/access-tokens.md) innehåller båda dessa anspråks typer:
+Anta till exempel att din Logic app har en auktoriseringsprincip som kräver två anspråks typer, **utfärdare** och **mål grupp**. Den här exempel koden för avkodad [åtkomsttoken](../active-directory/develop/access-tokens.md) innehåller båda dessa anspråks typer:
 
 ```json
 {
@@ -191,6 +155,93 @@ Anta till exempel att din Logic app har en auktoriseringsprincip som kräver tv�
 }
 ```
 
+#### <a name="considerations-for-enabling-azure-oauth"></a>Att tänka på när du aktiverar Azure OAuth
+
+Innan du aktiverar den här autentiseringen bör du gå igenom följande överväganden:
+
+* Ett inkommande samtal till din Logi Kap par kan bara använda ett Authorization-schema, antingen Azure AD OAuth eller [signaturen för delad åtkomst (SAS)](#sas). Endast [Bearer-typ](../active-directory/develop/active-directory-v2-protocols.md#tokens) stöds för OAuth-tokens som endast stöds för begär ande utlösare.
+
+* Din Logic app är begränsad till ett maximalt antal Auktoriseringsprinciper. Varje auktoriseringsprincip har också ett maximalt antal [anspråk](../active-directory/develop/developer-glossary.md#claim). Mer information finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* En auktoriseringsprincip måste innehålla minst **utfärdarens** anspråk, som har ett värde som börjar med `https://sts.windows.net/` eller `https://login.microsoftonline.com/` (OAuth v2) som ID för Azure AD-utfärdaren. Mer information om åtkomsttoken finns i [Microsoft Identity Platform Access tokens](../active-directory/develop/access-tokens.md).
+
+<a name="define-authorization-policy-portal"></a>
+
+#### <a name="define-authorization-policy-in-azure-portal"></a>Definiera auktoriseringsprincipen i Azure Portal
+
+Om du vill aktivera Azure AD OAuth för din Logic-app i Azure Portal följer du dessa steg för att lägga till en eller flera auktoriseringsprinciper i din Logic app:
+
+1. I [Azure Portal](https://portal.microsoft.com)kan du söka efter och öppna din Logic app i Logic App Designer.
+
+1. På menyn Logic app, under **Inställningar**, väljer du **auktorisering**. När fönstret behörighet öppnas väljer du **Lägg till princip**.
+
+   ![Välj "auktorisering" > Lägg till princip "](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
+
+1. Ange information om auktoriseringsprincipen genom att ange de [anspråks typer](../active-directory/develop/developer-glossary.md#claim) och värden som din Logic app förväntar sig i autentiseringstoken som presenteras av varje inkommande anrop till begär ande utlösaren:
+
+   ![Ange information för auktoriseringsprincipen](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
+
+   | Egenskap | Krävs | Beskrivning |
+   |----------|----------|-------------|
+   | **Princip namn** | Ja | Det namn som du vill använda för auktoriseringsprincipen |
+   | **Anspråk** | Ja | De anspråks typer och värden som din Logic app accepterar från inkommande samtal. Här följer tillgängliga anspråks typer: <p><p>- **Utfärdare** <br>- **Filmen** <br>- **Motiv** <br>- **JWT-ID** (JSON Web token-ID) <p><p>Som minimum måste **anspråks** listan innehålla **utfärdarens** anspråk, som har ett värde som börjar med `https://sts.windows.net/` eller `https://login.microsoftonline.com/` som ID för Azure AD-utfärdaren. Mer information om dessa anspråks typer finns i [anspråk i Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)-säkerhetstoken. Du kan också ange en egen typ och värde för anspråk. |
+   |||
+
+1. Om du vill lägga till ett annat anspråk väljer du bland följande alternativ:
+
+   * Om du vill lägga till en annan anspråks typ väljer du **Lägg till standard anspråk**, väljer anspråks typ och anger anspråks värde.
+
+   * Om du vill lägga till ett eget anspråk väljer du **Lägg till anpassat anspråk**och anger det anpassade anspråks värdet.
+
+1. Om du vill lägga till en annan auktoriseringsprincip väljer du **Lägg till princip**. Upprepa föregående steg för att konfigurera principen.
+
+1. När du är klar väljer du **Spara**.
+
+<a name="define-authorization-policy-template"></a>
+
+#### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definiera auktoriseringsprincipen i Azure Resource Manager mall
+
+Om du vill aktivera Azure AD OAuth i ARM-mallen för distribution av din Logi Kap par, `properties` lägger du till ett objekt, om det finns något, som innehåller ett objekt i avsnittet för din Logi Kap [Apps resurs definition](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition) `accessControl` `triggers` . I `triggers` objektet lägger du till ett `openAuthenticationPolicies` objekt där du definierar en eller flera Auktoriseringsprinciper genom att följa den här syntaxen:
+
+```json
+"resources": [
+   {
+      // Start logic app resource definition
+      "properties": {
+         "state": "<Enabled-or-Disabled>",
+         "definition": {<workflow-definition>},
+         "parameters": {<workflow-definition-parameter-values>},
+         "accessControl": {
+            "triggers": {
+               "openAuthenticationPolicies": {
+                  "policies": {
+                     "<policy-name>": {
+                        "type": "AAD",
+                        "claims": [
+                           {
+                              "name": "<claim-name>",
+                              "values": "<claim-value>"
+                           }
+                        ]
+                     }
+                  }
+               }
+            },
+         },
+      },
+      "name": "[parameters('LogicAppName')]",
+      "type": "Microsoft.Logic/workflows",
+      "location": "[parameters('LogicAppLocation')]",
+      "apiVersion": "2016-06-01",
+      "dependsOn": [
+      ]
+   }
+   // End logic app resource definition
+],
+```
+
+Mer information om `accessControl` avsnittet finns i [begränsa inkommande IP-intervall i Azure Resource Manager mall](#restrict-inbound-ip-template) och [referens för Microsoft. Logic-arbetsflöden](/templates/microsoft.logic/2019-05-01/workflows).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Begränsa inkommande IP-adresser
@@ -213,6 +264,8 @@ Om du vill att din Logic app endast ska utlösa som en kapslad Logic-app väljer
 
 > [!NOTE]
 > Oavsett IP-adress kan du fortfarande köra en Logic-app som har en begäran-baserad utlösare med hjälp av [Logic Apps REST API: arbets flödes utlösare-kör](/rest/api/logic/workflowtriggers/run) begäran eller med hjälp av API Management. Det här scenariot kräver dock fortfarande [autentisering](../active-directory/develop/authentication-vs-authorization.md) mot Azure-REST API. Alla händelser visas i gransknings loggen i Azure. Se till att du anger principer för åtkomst kontroll i enlighet med detta.
+
+<a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Begränsa inkommande IP-intervall i Azure Resource Manager mall
 
@@ -539,7 +592,7 @@ Här är mer information om de här `parameters` avsnitten:
 
 Den här exempel mal len har flera skyddade parameter definitioner som använder `securestring` typen:
 
-| Parameternamn | Description |
+| Parameternamn | Beskrivning |
 |----------------|-------------|
 | `TemplatePasswordParam` | En mallparameter som accepterar ett lösen ord som sedan skickas till arbets flödets definitions `basicAuthPasswordParam` parameter |
 | `TemplateUsernameParam` | En mallparameter som accepterar ett användar namn som sedan skickas till arbets flödets definitions `basicAuthUserNameParam` parameter |
@@ -750,9 +803,9 @@ Om alternativet [grundläggande](../active-directory-b2c/secure-rest-api.md) är
 
 | Egenskap (designer) | Egenskap (JSON) | Obligatorisk | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Yes | Basic | Autentiseringstypen som ska användas |
-| **Användarnamn** | `username` | Yes | <*användar namn*>| Användar namnet för att autentisera åtkomsten till mål tjänstens slut punkt |
-| **Lösenord** | `password` | Yes | <*ords*> | Lösen ordet för att autentisera åtkomsten till mål tjänstens slut punkt |
+| **Autentisering** | `type` | Ja | Grundläggande | Autentiseringstypen som ska användas |
+| **Användarnamn** | `username` | Ja | <*användar namn*>| Användar namnet för att autentisera åtkomsten till mål tjänstens slut punkt |
+| **Lösenord** | `password` | Ja | <*ords*> | Lösen ordet för att autentisera åtkomsten till mål tjänstens slut punkt |
 ||||||
 
 När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `Basic` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -781,8 +834,8 @@ Om alternativet [klient certifikat](../active-directory/authentication/active-di
 
 | Egenskap (designer) | Egenskap (JSON) | Obligatorisk | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Yes | **Klient certifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas. Du kan hantera certifikat med [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Obs**: anpassade anslutningar stöder inte certifikatbaserad autentisering för både inkommande och utgående samtal. |
-| **-** | `pfx` | Yes | <*kodad-PFX-fil-innehåll*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) <p><p>Om du vill konvertera PFX-filen till Base64-kodat format kan du använda PowerShell genom att följa dessa steg: <p>1. Spara certifikat innehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. konvertera certifikat innehållet med hjälp av `ToBase64String()` funktionen och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
+| **Autentisering** | `type` | Ja | **Klient certifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas. Du kan hantera certifikat med [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Obs**: anpassade anslutningar stöder inte certifikatbaserad autentisering för både inkommande och utgående samtal. |
+| **-** | `pfx` | Ja | <*kodad-PFX-fil-innehåll*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) <p><p>Om du vill konvertera PFX-filen till Base64-kodat format kan du använda PowerShell genom att följa dessa steg: <p>1. Spara certifikat innehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. konvertera certifikat innehållet med hjälp av `ToBase64String()` funktionen och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Lösenord** | `password`| No | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||
 
@@ -820,13 +873,13 @@ I begär ande utlösare kan du använda [Azure Active Directory öppna autentise
 
 | Egenskap (designer) | Egenskap (JSON) | Obligatorisk | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Yes | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
+| **Autentisering** | `type` | Ja | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
 | **Myndighet** | `authority` | No | <*URL-för-Authority-token-Issuer*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är det här värdet `https://login.windows.net` . |
-| **Klientorganisation** | `tenant` | Yes | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
-| **Målgrupp** | `audience` | Yes | <*resurs-till-auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel`https://management.core.windows.net/` |
-| **Klient-ID** | `clientId` | Yes | <*klient-ID*> | Klient-ID för appen som begär auktorisering |
-| **Autentiseringstyp** | `credentialType` | Yes | Certifikat <br>eller <br>Hemlighet | Autentiseringstypen som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i din Logic Apps underliggande definition, men avgör vilka egenskaper som visas för den valda autentiseringstypen. |
-| **Hemlighet** | `secret` | Ja, men endast för autentiseringstypen "hemlig" | <*klient hemlighet*> | Klient hemligheten för att begära auktorisering |
+| **Klientorganisation** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
+| **Målgrupp** | `audience` | Ja | <*resurs-till-auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel`https://management.core.windows.net/` |
+| **Klient-ID** | `clientId` | Ja | <*klient-ID*> | Klient-ID för appen som begär auktorisering |
+| **Autentiseringstyp** | `credentialType` | Ja | Certifikat <br>eller <br>Hemlighet | Autentiseringstypen som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i din Logic Apps underliggande definition, men avgör vilka egenskaper som visas för den valda autentiseringstypen. |
+| **Icke** | `secret` | Ja, men endast för autentiseringstypen "hemlig" | <*klient hemlighet*> | Klient hemligheten för att begära auktorisering |
 | **-** | `pfx` | Ja, men endast för Credential-typen "certifikat" | <*kodad-PFX-fil-innehåll*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) |
 | **Lösenord** | `password` | Ja, men endast för Credential-typen "certifikat" | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||
@@ -874,8 +927,8 @@ I utlösaren eller åtgärden som stöder RAW-autentisering anger du följande e
 
 | Egenskap (designer) | Egenskap (JSON) | Obligatorisk | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Yes | Rådata | Autentiseringstypen som ska användas |
-| **Värde** | `value` | Yes | <*auktorisering – huvud värde*> | Det Authorization-huvud värde som ska användas för autentisering |
+| **Autentisering** | `type` | Ja | Rådata | Autentiseringstypen som ska användas |
+| **Värde** | `value` | Ja | <*auktorisering – huvud värde*> | Det Authorization-huvud värde som ska användas för autentisering |
 ||||||
 
 När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd anger autentiseringen `type` som `Raw` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -909,9 +962,9 @@ Om alternativet för [hanterad identitet](../active-directory/managed-identities
 
    | Egenskap (designer) | Egenskap (JSON) | Obligatorisk | Värde | Beskrivning |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Autentisering** | `type` | Yes | **Hanterad identitet** <br>eller <br>`ManagedServiceIdentity` | Autentiseringstypen som ska användas |
-   | **Hanterad identitet** | `identity` | Yes | * **Systemtilldelad hanterad identitet** <br>eller <br>`SystemAssigned` <p><p>* <*användare-tilldelad identitet-namn*> | Den hanterade identitet som ska användas |
-   | **Målgrupp** | `audience` | Yes | <*mål resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>Till exempel `https://storage.azure.com/` blir [åtkomsttoken](../active-directory/develop/access-tokens.md) för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs!** egenskapen **Audience** kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t *exakt matchar* det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. `https://storage.azure.com/`Resurs-ID för alla Azure Blob Storage-konton kräver därför ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Autentisering** | `type` | Ja | **Hanterad identitet** <br>eller <br>`ManagedServiceIdentity` | Autentiseringstypen som ska användas |
+   | **Hanterad identitet** | `identity` | Ja | * **Systemtilldelad hanterad identitet** <br>eller <br>`SystemAssigned` <p><p>* <*användare-tilldelad identitet-namn*> | Den hanterade identitet som ska användas |
+   | **Målgrupp** | `audience` | Ja | <*mål resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>Till exempel `https://storage.azure.com/` blir [åtkomsttoken](../active-directory/develop/access-tokens.md) för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs!** egenskapen **Audience** kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t *exakt matchar* det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. `https://storage.azure.com/`Resurs-ID för alla Azure Blob Storage-konton kräver därför ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ManagedServiceIdentity` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:

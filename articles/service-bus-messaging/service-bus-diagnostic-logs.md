@@ -3,12 +3,12 @@ title: Azure Service Bus diagnostikloggar | Microsoft Docs
 description: Den här artikeln innehåller en översikt över alla operativa och diagnostiska loggar som är tillgängliga för Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337535"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064442"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Aktivera diagnostikloggar för Service Bus
 
@@ -66,7 +66,7 @@ Följande hanterings åtgärder samlas in i drift loggar:
 |-------| -------- |
 | Namnområde | <ul> <li> Skapa namnrymd</li> <li> Uppdatera namnrymd </li> <li> Ta bort namnrymd </li> <li> Uppdatera namn område SharedAccess-princip </li> </ul> | 
 | Kö | <ul> <li> Skapa kö</li> <li> Uppdatera kö</li> <li> Ta bort kö </li> <li> Ta bort kön tas bort </li> </ul> | 
-| Ämne | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> <li> Ta bort ta bort ämne </li> </ul> |
+| Avsnitt | <ul> <li> Skapa ämne </li> <li> Uppdatera ämne </li> <li> Ta bort ämne </li> <li> Ta bort ta bort ämne </li> </ul> |
 | Prenumeration | <ul> <li> Skapa en prenumeration </li> <li> Uppdatera prenumeration </li> <li> Ta bort prenumeration </li> <li> Ta bort borttagnings prenumeration </li> </ul> |
 
 > [!NOTE]
@@ -101,7 +101,7 @@ Drift loggar är inaktiverade som standard. Så här aktiverar du diagnostiklogg
 
 De nya inställningarna börjar gälla om 10 minuter. Loggarna visas i det konfigurerade lagrings målet i fönstret **diagnostikloggar** .
 
-Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/diagnostic-logs-overview.md).
+Mer information om hur du konfigurerar diagnostikinställningar finns i [översikten över Azure Diagnostics-loggar](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

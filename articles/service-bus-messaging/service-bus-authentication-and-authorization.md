@@ -3,12 +3,12 @@ title: Azure Service Bus autentisering och auktorisering | Microsoft Docs
 description: Autentisera appar för att Service Bus med autentisering med signatur för delad åtkomst (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066870"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus, autentisering och auktorisering
 Det finns två sätt att autentisera och auktorisera åtkomst till Azure Service Bus resurser: Azure Activity Directory (Azure AD) och signaturer för delad åtkomst (SAS). Den här artikeln innehåller information om hur du använder dessa två typer av säkerhetsmekanismer. 
@@ -30,7 +30,7 @@ Mer information om hur du autentiserar med Azure AD finns i följande artiklar:
 ## <a name="shared-access-signature"></a>Signatur för delad åtkomst
 [SAS-autentisering](service-bus-sas.md) gör att du kan ge en användare åtkomst till Service Bus resurser med vissa rättigheter. SAS-autentisering i Service Bus inbegriper konfigurationen av en krypterings nyckel med tillhör ande rättigheter på en Service Bus resurs. Klienter kan sedan få åtkomst till den resursen genom att presentera en SAS-token som består av resurs-URI: n som används och förfallo datum signerad med den konfigurerade nyckeln.
 
-Du kan konfigurera nycklar för SAS på en Service Bus-namnrymd. Nyckeln gäller för alla meddelande enheter inom det namn området. Du kan också konfigurera nycklar i Service Bus köer och ämnen. SAS stöds också på [Azure Relay](../service-bus-relay/relay-authentication-and-authorization.md).
+Du kan konfigurera nycklar för SAS på en Service Bus-namnrymd. Nyckeln gäller för alla meddelande enheter inom det namn området. Du kan också konfigurera nycklar i Service Bus köer och ämnen. SAS stöds också på [Azure Relay](../azure-relay/relay-authentication-and-authorization.md).
 
 Om du vill använda SAS kan du konfigurera ett [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -objekt i ett namn område, en kö eller ett ämne. Den här regeln består av följande element:
 
@@ -46,7 +46,7 @@ För att få åtkomst till en entitet kräver klienten en SAS-token som generera
 Stöd för SAS-autentisering för Service Bus ingår i Azure .NET SDK-versionerna 2,0 och senare. SAS har stöd för en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Alla API: er som accepterar en anslutnings sträng som parameter är stöd för SAS-anslutningssträngar.
 
 > [!IMPORTANT]
-> Om du använder Azure Active Directory Access Control (även kallat Access Control Service eller ACS) med Service Bus, Observera att stödet för den här metoden är begränsat och du bör [migrera ditt program till att använda SAS](service-bus-migrate-acs-sas.md) eller använda OAuth 2,0-autentisering med Azure AD (rekommenderas). Mer information om utfasning av ACS finns i [det här blogg inlägget](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/).
+> Om du använder Azure Active Directory Access Control (även kallat Access Control Service eller ACS) med Service Bus, Observera att stödet för den här metoden är begränsat och du bör [migrera ditt program till att använda SAS](service-bus-migrate-acs-sas.md) eller använda OAuth 2,0-autentisering med Azure AD (rekommenderas). Mer information om utfasning av ACS finns i [det här blogg inlägget](/archive/blogs/servicebus/upcoming-changes-to-acs-enabled-namespaces).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du autentiserar med Azure AD finns i följande artiklar:

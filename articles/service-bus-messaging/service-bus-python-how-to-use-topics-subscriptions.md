@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-python
-ms.openlocfilehash: 01ed3df547a7dc02e0ca29028876eddb8be21c77
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852454"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064391"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Snabb start: använda Service Bus ämnen och prenumerationer med python
 
@@ -176,7 +176,7 @@ Om du tar bort ett ämne tas alla prenumerationer på ämnet bort. Du kan också
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-Som standard är ämnen och prenumerationer permanenta och finns tills du tar bort dem. Om du vill ta bort prenumerationer automatiskt efter att en viss tids period har gått ut kan du ange [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) parameter för prenumerationen. 
+Som standard är ämnen och prenumerationer permanenta och finns tills du tar bort dem. Om du vill ta bort prenumerationer automatiskt efter att en viss tids period har gått ut kan du ange [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) parameter för prenumerationen. 
 
 > [!TIP]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Med Service Bus Explorer kan du ansluta till ett Service Bus-namnområde och enkelt administrera meddelande enheter. Verktyget innehåller avancerade funktioner som import/export-funktioner och möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
@@ -192,4 +192,4 @@ Nu när du har lärt dig grunderna om Service Bus ämnen kan du följa dessa lä
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md

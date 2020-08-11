@@ -4,12 +4,12 @@ description: Den här artikeln förklarar hur du använder Azure Service Bus han
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341710"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066176"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus-hanteringsbibliotek
 
@@ -22,15 +22,15 @@ Azure Service Bus hanterings bibliotek kan etablera Service Bus namn områden oc
 * Att skapa, uppdatera och ta bort ämnen
 * Skapa prenumeration, uppdatera, ta bort
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång med Service Bus hanterings bibliotek måste du autentisera med tjänsten Azure Active Directory (Azure AD). Azure AD kräver att du autentiseras som tjänstens huvud namn, vilket ger åtkomst till dina Azure-resurser. Information om hur du skapar ett huvud namn för tjänsten finns i någon av följande artiklar:  
 
-* [Använd Azure Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Använd Azure Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-De här självstudierna ger dig ett `AppId` (klient-ID), `TenantId` och `ClientSecret` (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha minst [**Azure Service Bus data ägare**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) eller [**deltagar**](/azure/role-based-access-control/built-in-roles#contributor) behörighet för resurs gruppen som du vill köra.
+De här självstudierna ger dig ett `AppId` (klient-ID), `TenantId` och `ClientSecret` (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha minst [**Azure Service Bus data ägare**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) eller [**deltagar**](../role-based-access-control/built-in-roles.md#contributor) behörighet för resurs gruppen som du vill köra.
 
 ## <a name="programming-pattern"></a>Programmerings mönster
 

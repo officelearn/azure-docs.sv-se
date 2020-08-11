@@ -3,16 +3,16 @@ title: Azure Service Bus-migrera till signaturen för delad åtkomst
 description: Lär dig mer om att migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340114"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064629"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus-migrera från Azure Active Directory Access Control Service till signaturen för delad åtkomst
 
-Service Bus program har tidigare haft möjlighet att använda två olika auktoriseringsregler: den token för [signatur för delad åtkomst (SAS)](service-bus-sas.md) som tillhandahålls direkt av Service Bus och en federerad modell där hantering av auktoriseringsregler hanteras i [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) och tokens som hämtats från ACS skickas till Service Bus för att auktorisera åtkomst till de önskade funktionerna.
+Service Bus program har tidigare haft möjlighet att använda två olika auktoriseringsregler: den token för [signatur för delad åtkomst (SAS)](service-bus-sas.md) som tillhandahålls direkt av Service Bus och en federerad modell där hantering av auktoriseringsregler hanteras i [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS) och tokens som hämtats från ACS skickas till Service Bus för att auktorisera åtkomst till de önskade funktionerna.
 
 ACS-auktoriseringsregeln har länge ersatts av SAS- [auktorisering](service-bus-authentication-and-authorization.md) som önskad modell, och all dokumentation, vägledning och exempel använder bara SAS idag. Dessutom går det inte längre att skapa nya Service Bus namn rymder som är kopplade till ACS.
 
@@ -56,4 +56,3 @@ Mer information om Service Bus autentisering finns i följande avsnitt:
 
 * [Service Bus, autentisering och auktorisering](service-bus-authentication-and-authorization.md)
 * [Service Bus autentisering med signaturer för delad åtkomst](service-bus-sas.md)
-

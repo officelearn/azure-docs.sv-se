@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
-ms.openlocfilehash: aab914caa2647146639aa366f558c80bebcfde54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8e439a055b71ed291573965c561ee31610e3ed4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84810210"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121620"
 ---
 # <a name="vm-sizes"></a>VM-storlekar
 
@@ -76,7 +76,7 @@ Därför är det möjligt att skriva ett program som är riktat mot den `standar
 
 Det finns två sätt att fastställa antalet polygoner i en modell eller scen som bidrar till den `standard` virtuella datorns budget gräns:
 * På sidan modell konvertering hämtar du JSON- [filen för konvertering av utdata](../how-tos/conversion/get-information.md)och kontrollerar `numFaces` posten i [avsnittet *inputStatistics* ](../how-tos/conversion/get-information.md#the-inputstatistics-section)
-* Om ditt program hanterar dynamiskt innehåll kan antalet åter givnings bara polygoner efter frågas dynamiskt under körning. Använd en [utvärderings fråga för prestanda](../overview/features/performance-queries.md#performance-assessment-queries) och kontrol lera `polygonsRendered` medlemmen i `FrameStatistics` struct. Schack brädets bakgrund är alltid blek i en viss fördröjning för att se till att användar åtgärder kan vidtas efter den asynkrona frågan. Användar åtgärd kan till exempel dölja eller ta bort modell instanser.
+* Om ditt program hanterar dynamiskt innehåll kan antalet åter givnings bara polygoner efter frågas dynamiskt under körning. Använd en [utvärderings fråga för prestanda](../overview/features/performance-queries.md#performance-assessment-queries) och kontrol lera `polygonsRendered` medlemmen i `FrameStatistics` struct. `polygonsRendered`Fältet ställs in på `bad` när åter givningen träffar i polygonens begränsning. Schack brädets bakgrund är alltid blek i en viss fördröjning för att se till att användar åtgärder kan vidtas efter den asynkrona frågan. Användar åtgärd kan till exempel dölja eller ta bort modell instanser.
 
 ## <a name="pricing"></a>Prissättning
 

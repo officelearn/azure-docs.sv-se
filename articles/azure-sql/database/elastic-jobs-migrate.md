@@ -1,5 +1,5 @@
 ---
-title: Migrera till nya Elastic Database jobb
+title: Migrera till nya Elastic Database jobb (förhands granskning)
 description: Migrera till de nya Elastic Database jobben.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: bb5f7c441ae25e24857d0709b32e17931c3c63a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050130"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121195"
 ---
-# <a name="migrate-to-the-new-elastic-database-jobs"></a>Migrera till den nya Elastic Database-jobb
+# <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrera till den nya Elastic Database-jobb (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 En uppgraderad version av [Elastic Database jobb](elastic-jobs-overview.md) är tillgänglig.
@@ -26,7 +26,7 @@ En uppgraderad version av [Elastic Database jobb](elastic-jobs-overview.md) är 
 Om du har en befintlig version av Elastic Database jobb för en kund finns migrerings-cmdlets och skript för att enkelt migrera till den senaste versionen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 

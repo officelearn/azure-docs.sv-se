@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807629"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119716"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API: et från ett Universell Windows-plattform program (XAML)
 
@@ -27,7 +27,7 @@ Den här guiden förklarar hur ett internt Universell Windows-plattform-program 
 I slutet av den här guiden anropar programmet ett skyddat API med hjälp av personliga konton. Exempel är outlook.com, live.com och andra. Ditt program anropar också arbets-och skol konton från alla företag eller organisationer som har Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> Den här guiden kräver att Visual Studio med Universell Windows-plattform-utveckling installerat. Instruktioner för att hämta och konfigurera Visual Studio för att utveckla Universell Windows-plattform appar finns i [Hämta inställningar](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> Den här guiden kräver att Visual Studio med Universell Windows-plattform-utveckling installerat. Instruktioner för att hämta och konfigurera Visual Studio för att utveckla Universell Windows-plattform appar finns i [Hämta inställningar](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > Om du inte har använt Microsoft Identity Platform igen börjar du med att [anropa API: et för Microsoft Graph från en universell Windows-plattform (UWP) snabb start](quickstart-v2-uwp.md).

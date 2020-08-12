@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: e96442be50a075ebf2cd81bf1b6fb0f58f883bad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885590"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115483"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
@@ -28,10 +28,10 @@ Lär dig mer om användar upplevelsen för program medgivande i Azure Active Dir
 
 Samtycke är en användare som ger behörighet till ett program för att få åtkomst till skyddade resurser för deras räkning. En administratör eller användare kan be om medgivande för att tillåta åtkomst till deras organisation/individuella data.
 
-Den faktiska användar upplevelsen för godkännandet kan variera beroende på principer som anges på användarens klient organisation, användarens auktoritets område (eller roll) och vilken typ av [behörighet](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent) som begärs av klient programmet. Det innebär att program utvecklare och klient administratörer har viss kontroll över medgivande upplevelsen. Administratörer har flexibiliteten att ställa in och inaktivera principer på en klient eller app för att kontrol lera medgivande upplevelsen i sina klienter. Programutvecklare kan diktera vilka typer av behörigheter som begärs och om de vill ge användarna möjlighet att använda flödet för användarens medgivande eller det administrativa godkännande flödet.
+Den faktiska användar upplevelsen för godkännandet kan variera beroende på principer som anges på användarens klient organisation, användarens auktoritets område (eller roll) och vilken typ av [behörighet](../azuread-dev/v1-permissions-consent.md) som begärs av klient programmet. Det innebär att program utvecklare och klient administratörer har viss kontroll över medgivande upplevelsen. Administratörer har flexibiliteten att ställa in och inaktivera principer på en klient eller app för att kontrol lera medgivande upplevelsen i sina klienter. Programutvecklare kan diktera vilka typer av behörigheter som begärs och om de vill ge användarna möjlighet att använda flödet för användarens medgivande eller det administrativa godkännande flödet.
 
 - **Flöde för användar godkännande** är när en programutvecklare dirigerar användare till behörighets slut punkten med avsikt att registrera medgivande för enbart den aktuella användaren.
-- **Flöde för administratörs medgivande** är när en programutvecklare dirigerar användare till en slut punkt för administratörs medgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att det administrativa godkännande flödet fungerar korrekt måste programutvecklare lista alla behörigheter i `RequiredResourceAccess` egenskapen i program manifestet. Mer information finns i [program manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- **Flöde för administratörs medgivande** är när en programutvecklare dirigerar användare till en slut punkt för administratörs medgivande med avsikt att registrera medgivande för hela klienten. För att säkerställa att det administrativa godkännande flödet fungerar korrekt måste programutvecklare lista alla behörigheter i `RequiredResourceAccess` egenskapen i program manifestet. Mer information finns i [program manifestet](./reference-app-manifest.md).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Bygg stenar av medgivande frågan
 
@@ -81,6 +81,6 @@ Här är de medgivande upplevelser som en användare kan se i vanliga godkännan
     1. Användare som inte är administratörer ser samma skärm som 2. II som visas ovan.
 
 ## <a name="next-steps"></a>Nästa steg
-- Få en stegvis översikt över [hur Azure AD medgivande Framework implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Mer djupgående får du lära dig [hur ett program med flera klienter kan använda medgivande ramverket](active-directory-devhowto-multi-tenant-overview.md) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
+- Få en stegvis översikt över [hur Azure AD medgivande Framework implementerar medgivande](./quickstart-register-app.md).
+- Mer djupgående får du lära dig [hur ett program med flera klienter kan använda medgivande ramverket](./howto-convert-app-to-be-multi-tenant.md) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
 - Lär dig [hur du konfigurerar appens utgivare domän](howto-configure-publisher-domain.md).

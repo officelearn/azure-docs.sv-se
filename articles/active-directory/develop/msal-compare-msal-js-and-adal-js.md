@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696426"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120906"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Skillnader mellan MSAL JS och ADAL JS
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du väljer mellan Microsoft Authentication Libra
 
 I de flesta fall vill du använda Microsoft Identity Platform och MSAL.js, vilket är den senaste generationen av Microsoft Authentication Libraries. Med hjälp av MSAL.js får du token för användare som loggar in till ditt program med Azure AD (arbets-och skol konton), Microsoft (personliga) konton (MSA) eller Azure AD B2C.
 
-Om du redan är bekant med v 1.0-slutpunkten (och ADAL.js) kanske du vill läsa [vad som är annorlunda om v 2.0-slutpunkten?](active-directory-v2-compare.md).
+Om du redan är bekant med v 1.0-slutpunkten (och ADAL.js) kanske du vill läsa [vad som är annorlunda om v 2.0-slutpunkten?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Du måste dock fortfarande använda ADAL.js om ditt program behöver logga in användare med tidigare versioner av [Active Directory Federation Services (AD FS) (ADFS)](/windows-server/identity/active-directory-federation-services).
 
@@ -73,7 +73,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Dynamiska omfattningar för stegvist godkännande.
 
-    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Ett exempel:
+    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Till exempel:
 
     ```javascript
     var request = {
@@ -85,7 +85,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Omfattningar för V 1.0 API: er
 
-    När du hämtar token för V 1.0-API: er med hjälp av MSAL.js kan du begära alla statiska omfattningar som registrerats i API: et genom `.default` att lägga till i app-ID-URI: n för API: et som omfång. Ett exempel:
+    När du hämtar token för V 1.0-API: er med hjälp av MSAL.js kan du begära alla statiska omfattningar som registrerats i API: et genom `.default` att lägga till i app-ID-URI: n för API: et som omfång. Till exempel:
 
     ```javascript
     var request = {
@@ -96,4 +96,4 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
     ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [jämförelse mellan v 1.0 och v 2.0](active-directory-v2-compare.md).
+Mer information finns i [jämförelse mellan v 1.0 och v 2.0](../azuread-dev/azure-ad-endpoint-comparison.md).

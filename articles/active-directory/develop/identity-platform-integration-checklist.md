@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9a1f86a78eaac96f2a6202b4ec29e99a0a978ff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036c40395e5da5ebc09a87e420893d7dbd2ec668
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554372"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116809"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
 
@@ -25,12 +25,12 @@ I den här artikeln beskrivs bästa praxis, rekommendationer och vanliga översi
 
 Om du precis har kommit igång kan du läsa dokumentationen om autentisering i [Microsoft Identity Platform](index.yml) för att lära dig grunderna för autentisering, program scenarier i Microsofts identitets plattform med mera.
 
-Använd följande check lista för att se till att programmet är effektivt integrerat med [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
+Använd följande check lista för att se till att programmet är effektivt integrerat med [Microsoft Identity Platform](./index.yml).
 
 > [!TIP]
 > *Integrations assistenten* i Azure Portal kan hjälpa dig att använda många av de rekommenderade metoderna och rekommendationerna. Välj någon av dina [app-registreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal och välj sedan meny alternativet **integration Assistant (förhands granskning)** för att komma igång med assistenten.
 
-## <a name="basics"></a>Grunderna
+## <a name="basics"></a>Grunder
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) läsa och förstå [Microsofts plattforms principer](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Se till att ditt program följer de villkor som har utformats för att skydda användare och plattform.
 
@@ -58,9 +58,9 @@ Använd följande check lista för att se till att programmet är effektivt inte
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) Flytta bortom användar namn/lösen ord. Använd inte [ROPC (Resource Owner Password Credential Flow)](v2-oauth-ropc.md)som direkt hanterar användarnas lösen ord. Det här flödet kräver en hög grad av förtroende och användar exponering och bör endast användas när andra, säkrare flöden inte kan användas. Det här flödet behövs fortfarande i vissa scenarier (t. ex. DevOps), men tänk på att använda det för att införa begränsningar i ditt program.  För fler moderna metoder, Läs [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md).
 
-![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) skydda och hantera dina konfidentiella autentiseringsuppgifter för webb program, webb-API: er och daemon-appar. Använd [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md), inte autentiseringsuppgifter för lösen ord (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösen ord ska du inte ange det manuellt. Lagra inte autentiseringsuppgifter i koden eller config och Tillåt aldrig att de hanteras av människa. Använd om möjligt [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) för att lagra och regelbundet Rotera dina autentiseringsuppgifter.
+![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) skydda och hantera dina konfidentiella autentiseringsuppgifter för webb program, webb-API: er och daemon-appar. Använd [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md), inte autentiseringsuppgifter för lösen ord (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösen ord ska du inte ange det manuellt. Lagra inte autentiseringsuppgifter i koden eller config och Tillåt aldrig att de hanteras av människa. Använd om möjligt [hanterade identiteter för Azure-resurser](../managed-identities-azure-resources/overview.md) eller [Azure Key Vault](../../key-vault/general/basic-concepts.md) för att lagra och regelbundet Rotera dina autentiseringsuppgifter.
 
-![Markera kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) kontrol lera att ditt program begär minsta behörighet. Fråga bara efter behörigheter som programmet absolut behöver, och endast när du behöver dem. Förstå de olika [typerna av behörigheter](v2-permissions-and-consent.md#permission-types). Använd endast program behörigheter om det behövs. Använd delegerade behörigheter där det är möjligt. En fullständig lista över Microsoft Graph behörigheter finns i [referensen för behörighet](https://docs.microsoft.com/graph/permissions-reference).
+![Markera kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) kontrol lera att ditt program begär minsta behörighet. Fråga bara efter behörigheter som programmet absolut behöver, och endast när du behöver dem. Förstå de olika [typerna av behörigheter](v2-permissions-and-consent.md#permission-types). Använd endast program behörigheter om det behövs. Använd delegerade behörigheter där det är möjligt. En fullständig lista över Microsoft Graph behörigheter finns i [referensen för behörighet](/graph/permissions-reference).
 
 ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) Om du skyddar ett API med hjälp av Microsoft Identity Platform kan du noga tänka igenom de behörigheter som den ska visa. Överväg vad som är rätt kornig het för din lösning och vilka behörigheter som kräver administratörs medgivande. Sök efter förväntade behörigheter i inkommande token innan du fattar auktoriseringsbeslut.
 
@@ -68,7 +68,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) Använd moderna autentiserings lösningar (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) för att på ett säkert sätt logga in användare.
 
-![CheckBox är ](./media/active-directory-integration-checklist/checkbox-two.svg) inte ett program direkt mot protokoll som OAuth 2,0 och Open ID. Använd i stället [Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL-biblioteken kan på ett säkert sätt figursätta säkerhets protokoll i ett lättanvänt bibliotek, och du får inbyggt stöd för [villkorliga åtkomst](/azure/active-directory/conditional-access/overview) scenarier, [enkel inloggning (SSO)](/azure/active-directory/manage-apps/what-is-single-sign-on)och inbyggt stöd för cachelagring av token. Mer information finns i listan över [klient](reference-v2-libraries.md#microsoft-supported-client-libraries) bibliotek i Microsoft som stöds och [mellan bibliotek](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) och listan över [kompatibla klient bibliotek från tredje part](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Om du behöver manuell kod för autentiseringsprotokollen bör du följa en metod som [Microsoft sdl](https://www.microsoft.com/sdl/default.aspx). Var noga med säkerhets aspekterna i specifikationerna för varje protokoll.
+![CheckBox är ](./media/active-directory-integration-checklist/checkbox-two.svg) inte ett program direkt mot protokoll som OAuth 2,0 och Open ID. Använd i stället [Microsoft Authentication Library (MSAL)](msal-overview.md). MSAL-biblioteken kan på ett säkert sätt figursätta säkerhets protokoll i ett lättanvänt bibliotek, och du får inbyggt stöd för [villkorliga åtkomst](../conditional-access/overview.md) scenarier, [enkel inloggning (SSO)](../manage-apps/what-is-single-sign-on.md)och inbyggt stöd för cachelagring av token. Mer information finns i listan över [klient](reference-v2-libraries.md#microsoft-supported-client-libraries) bibliotek i Microsoft som stöds och [mellan bibliotek](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) och listan över [kompatibla klient bibliotek från tredje part](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Om du behöver manuell kod för autentiseringsprotokollen bör du följa en metod som [Microsoft sdl](https://www.microsoft.com/sdl/default.aspx). Var noga med säkerhets aspekterna i specifikationerna för varje protokoll.
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) migrera befintliga appar från [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md) till [Microsoft Authentication Library](msal-overview.md). MSAL är Microsofts senaste identitets plattforms lösning och föredras som ADAL. Den är tillgänglig på .NET, Java Script, Android, iOS, macOS och finns även i offentlig för hands version för python och Java. Läs mer om att migrera [ADAL.net](msal-net-migration.md)-, [ADAL.js](msal-compare-msal-js-and-adal-js.md)-och [ADAL.net-och iOS Broker](msal-net-migration-ios-broker.md) -appar.
 
@@ -80,7 +80,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 
 ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) Titta inte på värdet för åtkomsttoken eller försök att parsa det som en klient.  De kan ändra värden, format eller till och med bli krypterade utan varning – Använd alltid id_token om klienten behöver lära sig något om användaren eller anropa Microsoft Graph.  Endast webb-API: er ska parsa åtkomsttoken (eftersom de är de som definierar formatet och ställer in krypterings nycklarna).
 
-## <a name="end-user-experience"></a>Upplevelse för slutanvändaren
+## <a name="end-user-experience"></a>Slutanvändarens upplevelse
 
 ![kryss rutan ](./media/active-directory-integration-checklist/checkbox-two.svg) [förstå medgivande upplevelsen](application-consent-experience.md) och konfigurera delarna i appens godkännande fråga så att slutanvändare och administratörer har tillräckligt med information för att avgöra om de litar på din app.
 

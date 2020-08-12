@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 6a20bbeef83072b6fb76bd4e9214e63f094736a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: b76e77d6d8575fa086f74c956594a344076f7c74
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172617"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118849"
 ---
 # <a name="add-your-application-to-the-azure-active-directory-application-gallery"></a>Lägg till ditt program i Azure Active Directory program galleriet
 
@@ -32,7 +32,7 @@ Den här artikeln visar hur du visar en lista över ett program i program galler
 - Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
 - Kunder som använder systemet för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(Cross-Domain Identity Management) kan använda etablering för samma app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - För federerade program (öppna ID och SAML/WS-utfodras) måste programmet ha stöd för SaaS-modellen (Software-as-a-Service) för att få listas i Azure AD App-galleriet. Enterprise Gallery-programmen måste ha stöd för flera kundkonfigurationer och inte någon specifik kund.
 - För Open-ID Connect måste programmet vara Multiklient och [Azure AD medgivande Framework](consent-framework.md) måste implementeras korrekt för programmet. Användaren kan skicka inloggnings förfrågan till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra användar åtkomst baserat på klient-ID: t och användarens UPN som togs emot i token.
@@ -89,14 +89,14 @@ Gäst användaren är federerad till en hem klient, som också är en Azure AD. 
 
 Om du vill visa ett program i Azure AD App-galleriet måste du först implementera ett av följande Federations protokoll som stöds av Azure AD. Du måste också godkänna villkoren för Azure AD Application Gallery. Läs villkoren i program galleriet för Azure AD på [den här webbplatsen](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect**: om du vill integrera ditt program med Azure AD med hjälp av Open ID Connect-protokollet följer du [utvecklarnas instruktioner](v1-authentication-scenarios.md).
+- **OpenID Connect**: om du vill integrera ditt program med Azure AD med hjälp av Open ID Connect-protokollet följer du [utvecklarnas instruktioner](../azuread-dev/v1-authentication-scenarios.md).
 
     ![Visa ett OpenID Connect-program i galleriet](./media/howto-app-gallery-listing/openid.png)
 
     * Om du vill lägga till programmet i listan i galleriet med hjälp av OpenID Connect väljer du **OpenID connect & OAuth 2,0** som det visas.
     * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **Saml 2,0** eller **WS-utfodras**: om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient genom att följa [anvisningarna för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** eller **WS-utfodras**: om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient genom att följa [anvisningarna för att lägga till ett anpassat program](../manage-apps/view-applications-portal.md).
 
   ![Visar ett SAML 2,0-eller WS-utfodras program i galleriet](./media/howto-app-gallery-listing/saml.png)
 

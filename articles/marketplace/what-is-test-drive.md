@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 06/19/2020
-ms.openlocfilehash: abad72145b095b4da77ec499f936c6912fd970a6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bd3b77f80a414dd3db1d5106929fa0e215e34c1f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229456"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121875"
 ---
 # <a name="what-is-a-test-drive"></a>Vad är en provkörning?
 
@@ -44,7 +44,17 @@ Mer information om hur du konfigurerar en av dessa test enheter finns i länken 
 
 ### <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager testen het
 
-Den här distributions mal len innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser. Det här är den enda alternativet test enhet för virtuella datorer eller Azure App-erbjudanden.
+Den här distributions mal len innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser. Den Azure Resource Manager test enheten är tillgänglig för dessa erbjudande typer: 
+
+- Azure-program
+- Dynamics 365 för Business Central
+- Dynamics 365 för kund engagemang & PowerApps
+- Dynamics 365 for Operations
+- SaaS
+- Virtuella datorer
+
+>[!NOTE]
+>Detta är det enda alternativet test enhet för erbjudanden för virtuella datorer och Azure-program.
 
 ### <a name="hosted-test-drive"></a>Värdbaserad testen het
 

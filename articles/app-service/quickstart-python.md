@@ -4,12 +4,12 @@ description: Kom igång med Azure App Service genom att distribuera din första 
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: b258185d2fb7220332ee1287d399f0e49e5708a9
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 5463b23a4c19681515197f7d0cf880235ef6c0f2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085279"
+ms.locfileid: "88121552"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -63,6 +63,8 @@ Det här kommandot öppnar en webbläsare för att samla in dina autentiseringsu
 
 När du har loggat in kan du köra Azure-kommandon med Azure CLI för att arbeta med resurser i din prenumeration.
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clone-the-sample"></a>Klona exemplet
 
 Klona exempel lagrings platsen med följande kommando. ([Installera git](https://git-scm.com/downloads) om du inte redan har git.)
@@ -78,6 +80,8 @@ cd python-docs-hello-world
 ```
 
 Exempel koden innehåller en *Application.py* -fil som talar om för App Service att koden innehåller en kolv-app. Mer information finns i [behållare start process](configure-language-python.md#container-startup-process).
+
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
@@ -140,6 +144,8 @@ flask run
 
 Tryck på **CTRL** + **C** i terminalfönstret för att avsluta kolv utvecklings servern.
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="deploy-the-sample"></a>Distribuera exemplet
 
 Distribuera koden i din lokala mapp (*python-dok-Hello-World*) med hjälp av `az webapp up` kommandot:
@@ -157,6 +163,8 @@ Det kan ta några minuter att slutföra kommandot. Under körningen innehåller 
 
 ![Exempel på utdata från kommandot AZ webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 [!INCLUDE [AZ Webapp Up Note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Bläddra till appen
@@ -168,6 +176,8 @@ Python-exempel koden kör en Linux-behållare i App Service med hjälp av en inb
 ![Köra en python-app i Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Grattis!** Du har distribuerat din python-app till App Service.
+
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="redeploy-updates"></a>Distribuera om uppdateringar
 
@@ -193,6 +203,8 @@ När distributionen är klar går du tillbaka till webbläsarfönstret öppna ti
 
 ![Köra en uppdaterad exempel-python-app i Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 > [!TIP]
 > Visual Studio Code tillhandahåller kraftfulla tillägg för python och Azure App Service, vilket fören klar processen att distribuera python-webbappar till App Service. Mer information finns i [distribuera python-appar till App Service från Visual Studio Code](/azure/python/tutorial-deploy-app-service-on-linux-01).
 
@@ -212,6 +224,8 @@ Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm
 
 Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="manage-the-azure-app"></a>Hantera Azure-appen
 
 Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> för att hantera den app som du skapade. Sök efter och välj **app Services**.
@@ -228,6 +242,8 @@ När du väljer appen öppnas sidan **Översikt** där du kan utföra grundlägg
 
 App Service-menyn innehåller olika sidor för att konfigurera din app.
 
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
+
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 I de föregående stegen skapade du Azure-resurser i en resursgrupp. Resurs gruppen har ett namn som "appsvc_rg_Linux_CentralUS" beroende på din plats. Om du använder en annan App Service SKU än den kostnads fria F1-nivån medför dessa resurser kontinuerliga kostnader (se [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/linux/)).
@@ -241,6 +257,8 @@ az group delete
 Kommandot använder resurs grupps namnet cachelagrat i *. Azure/config-* filen.
 
 Det kan ta en minut att slutföra kommandot.
+
+[Har du problem? Berätta för oss.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="next-steps"></a>Nästa steg
 

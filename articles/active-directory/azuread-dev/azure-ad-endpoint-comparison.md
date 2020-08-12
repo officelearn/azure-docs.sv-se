@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 001de375edab7505ed4687d848aca0ad0965dbfb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034915"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116401"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Varför uppdatera till Microsoft-identitetsplattformen (v2.0)?
 
@@ -33,9 +33,9 @@ När du utvecklar ett nytt program är det viktigt att känna till skillnaderna 
 
 * V 1.0-slutpunkten tillåter endast arbets-och skol konton att logga in i ditt program (Azure AD)
 * Med Microsoft Identity Platform-slutpunkten kan du logga in med arbets-och skol konton från Azure AD och personliga Microsoft-konton (MSA), till exempel hotmail.com, outlook.com och msn.com.
-* Båda slut punkterna accepterar också inloggnings program för *[gäst användare](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att peka på den klient-/regionsspecifika slut punkten ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
+* Båda slut punkterna accepterar också inloggnings program för *[gäst användare](../external-identities/what-is-b2b.md)* i en Azure AD-katalog för program som kon figurer ATS som *[en enskild klient](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* eller för program *med flera klienter* som kon figurer ATS för att peka på den klient-/regionsspecifika slut punkten ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
+Med slut punkten för Microsoft Identity Platform kan du skriva appar som accepterar inloggningar från personliga Microsoft-konton och arbets-och skol konton. Det ger dig möjlighet att skriva appens fullständigt konto-oberoende. Om din app till exempel anropar [Microsoft Graph](https://graph.microsoft.io), kommer vissa ytterligare funktioner och data att vara tillgängliga för arbets konton, till exempel SharePoint-webbplatser eller katalog data. Men för många åtgärder, till exempel [läsning av en användares e-post](/graph/api/user-list-messages?view=graph-rest-1.0), kan samma kod komma åt e-postmeddelandet för både personliga konton och arbets-och skol konton.
 
 För Microsoft Identity Platform-slutpunkten kan du använda Microsoft Authentication Library (MSAL) för att få till gång till konsument-, utbildnings-och företags världar. Azure AD v 1.0-slutpunkten accepterar bara inloggningar från arbets-och skol konton.
 
@@ -141,7 +141,7 @@ Appregistreringar som har stöd för arbets-och skol konton och personliga konto
 
 ### <a name="restrictions-on-redirect-urls"></a>Begränsningar för omdirigerings-URL: er
 
-Den senaste informationen om begränsningar för omdirigerings-URL: er för appar som har registrerats för Microsoft Identity Platform finns i [OMDIRIGERA URI/svars-URL begränsningar och begränsningar](https://docs.microsoft.com/azure/active-directory/develop/reply-url) i dokumentationen för Microsoft Identity Platform.
+Den senaste informationen om begränsningar för omdirigerings-URL: er för appar som har registrerats för Microsoft Identity Platform finns i [OMDIRIGERA URI/svars-URL begränsningar och begränsningar](../develop/reply-url.md) i dokumentationen för Microsoft Identity Platform.
 
 Information om hur du registrerar en app för användning med Microsoft Identity Platform finns i [Registrera en app med hjälp av den nya Appregistreringar-upplevelsen](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

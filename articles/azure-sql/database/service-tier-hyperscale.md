@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: ca164b6ad6b5333c662a6632b27f658ab479231c
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067638"
+ms.locfileid: "88120651"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -105,7 +105,9 @@ Azure Storage innehåller alla datafiler i en databas. Sid servrar behåller dat
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Säkerhets kopior är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. Återställningar görs på samma sätt genom att återställa till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Restore är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior för utvecklings-eller testnings ändamål, även i terabyte-databaser, är doable på några minuter.
+Säkerhets kopior är fil-och ögonblicks bilder, och därför är de nästan momentant. Med lagrings-och beräknings separering kan du sänka säkerhets kopieringen/återställningen till lagrings lagret för att minska bearbetnings belastningen på den primära beräknings repliken. Det innebär att säkerhets kopieringen av databasen inte påverkar prestandan för den primära Compute-noden. På samma sätt är tidpunkten för tids återställning (PITR) gjord genom återställning till fil ögonblicks bilder och eftersom det inte är en storlek på data åtgärd. Återställning av en storskalig databas i samma Azure-region är en konstant åtgärd och även om flera terabyte-databaser kan återställas på några minuter i stället för timmar eller dagar. Att skapa nya databaser genom att återställa en befintlig säkerhets kopia drar också nytta av den här funktionen: att skapa databas kopior för utvecklings-eller testnings ändamål, även i terabyte-databaser, är doable på några minuter.
+
+För geo-återställning av storskaliga databaser, se [återställa en storskalig databas till en annan region](#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name="scale-and-performance-advantages"></a>Skalbarhet och prestanda för delar
 
@@ -156,7 +158,7 @@ Om du vill ha service avtal för storskalig skalning, se [SLA för Azure SQL Dat
 
 ## <a name="disaster-recovery-for-hyperscale-databases"></a>Haveri beredskap för storskaliga databaser
 
-### <a name="restoring-a-hyperscale-database-to-a-different-geography"></a>Återställa en storskalig databas till en annan geografi
+### <a name="restoring-a-hyperscale-database-to-a-different-region"></a>Återställa en storskalig databas till en annan region
 
 Om du behöver återställa en storskalig databas i Azure SQL Database till en annan region än den som för närvarande är värd för, som en del av en haveri beredskaps åtgärd eller en detalj nivå, en annan orsak, är den primära metoden att göra en geo-återställning av databasen. Detta innebär exakt samma steg som vad du skulle använda för att återställa andra databaser i SQL Database till en annan region:
 

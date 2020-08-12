@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: cd21ef8d697570afb2109bb56d552284c03fd9a2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 4450b0bcc06b048fd9ad42d2a7bf1c588816eae7
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552789"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115619"
 ---
 # <a name="using-directory-schema-extension-attributes-in-claims"></a>Använda attribut för katalog schema tillägg i anspråk
 
@@ -34,7 +34,7 @@ Identifieraren för ett katalog schemas tilläggs attribut är av typen *Extensi
 ## <a name="registering-and-using-directory-schema-extensions"></a>Registrera och använda katalog schema tillägg
 Attribut för katalog schema utökning kan registreras och fyllas i på något av följande sätt:
 
-- Genom att konfigurera AD Connect för att skapa dem och synkronisera data med dem från lokalt AD. Se [Azure AD Connect Sync Directory Extensions](/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions).
+- Genom att konfigurera AD Connect för att skapa dem och synkronisera data med dem från lokalt AD. Se [Azure AD Connect Sync Directory Extensions](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 - Använd Microsoft Graph för att registrera, ange värden för och läsa från tillägg för katalog schema tillägg [| Graph API koncept](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) och/eller PowerShell + [Hantera tilläggs-attribut med PowerShell-cmdletar för AzureAD](/powershell/azure/active-directory/using-extension-attributes-sample?view=azureadps-2.0).
 
 ### <a name="emitting-claims-with-data-from-directory-schema-extension-attributes-created-with-ad-connect"></a>Sändning av anspråk med data från tillägg för katalog schema som skapats med AD Connect

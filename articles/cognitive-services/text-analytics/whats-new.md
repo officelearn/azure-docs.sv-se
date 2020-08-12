@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 67850490a3c1d972d4d03eec545068b1d9eb9fff
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986306"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121858"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -23,9 +23,45 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 
 ## <a name="august-2020"></a>2020 augusti
 
+### <a name="general-api-updates"></a>Allmänna API-uppdateringar
+
 * Modell version `2020-07-01` för v3 `/keyphrases` - `/pii` och `/languages` slut punkter som lägger till:
     * Ytterligare myndigheter och landsspecifika [entiteter](named-entity-types.md?tabs=personal) för namngiven enhets igenkänning.
 * Ett HTTP 400-fel kommer nu att returneras för v3 API-begäranden som överskrider [gränserna](concepts/data-limits.md)för publicerade data. 
+
+### <a name="text-analytics-for-health-container-august-updates"></a>Textanalys för hälso tillstånds behållare augusti uppdateringar
+
+Följande uppdateringar gäller endast augusti-versionen av Textanalys endast för hälso container.
+
+* Ny modell version för Textanalys för hälso tillstånd:`2020-07-24`
+* Ny URL för att skicka Textanalys för hälso tillstånds begär Anden:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+
+Följande egenskaper i JSON-svaret har ändrats:
+
+* `type` har bytt namn till `category` 
+* `score` har bytt namn till `confidenceScore`
+* Entiteter i `category` fältet i JSON-utdata är nu i Pascal-fall. Följande entiteter har bytt namn:
+    * `EXAMINATION_RELATION`har bytt namn till `RelationalOperator` .
+    * `EXAMINATION_UNIT`har bytt namn till `MeasurementUnit` .
+    * `EXAMINATION_VALUE`har bytt namn till `MeasurementValue` .
+    * `ROUTE_OR_MODE`har bytt namn `MedicationRoute` .
+    * Relations enheten `ROUTE_OR_MODE_OF_MEDICATION` har bytt namn till `RouteOfMedication` .
+
+Följande entiteter har lagts till:
+
+* NER
+    * `AdministrativeEvent`
+    * `CareEnvironment`
+    * `HealthcareProfession`
+    * `MedicationForm` 
+
+* Relations extrahering
+    * `DirectionOfCondition`
+    * `DirectionOfExamination`
+    * `DirectionOfTreatment`
+
+> [!div class="nextstepaction"]
+> [Läs mer om Textanalys för hälso container](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>Juli 2020 
 
@@ -39,10 +75,6 @@ Behållaren erbjuder följande funktioner:
 * Relations extrahering
 * Länkning av entitet
 * Negation
-
-
-> [!div class="nextstepaction"]
-> [Läs mer om Textanalys för hälso container](how-tos/text-analytics-for-health.md)
 
 ## <a name="may-2020"></a>Maj 2020
 

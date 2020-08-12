@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308595"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119801"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure AD B2C
 
@@ -32,7 +32,7 @@ Följande avsnitt visar hur du:
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 
@@ -44,7 +44,7 @@ MSAL.js för noden håller på att utvecklas. Mer information finns i [Översikt
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 
-För att skydda ditt webb-API med Azure AD B2C måste du först registrera det. Se [Registrera ditt program](../../active-directory-b2c/add-web-application.md) för detaljerade anvisningar.
+För att skydda ditt webb-API med Azure AD B2C måste du först registrera det. Se [Registrera ditt program](../../active-directory-b2c/add-web-api-application.md) för detaljerade anvisningar.
 
 ### <a name="step-2-download-the-sample-application"></a>Steg 2: Ladda ned exempel programmet
 

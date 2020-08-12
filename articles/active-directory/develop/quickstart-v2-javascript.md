@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 787f30302d163dc0097cde1be31e745d7f29bb64
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 1e537c6f61a7c461b2a9edb4097fba95f5c66a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129788"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120532"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA
 
@@ -111,7 +111,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > Där:
 > - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
-> - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).
 > - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
 >    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
 >    - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
@@ -144,7 +144,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 > [!div renderon="docs"]
 >
 > Där:
-> - *\<Enter_the_Graph_Endpoint_Here>* är slut punkten som API-anrop görs mot. För huvud-eller global Microsoft Graph API-tjänsten anger du bara `https://graph.microsoft.com` . Mer information finns i [nationell moln distribution](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* är slut punkten som API-anrop görs mot. För huvud-eller global Microsoft Graph API-tjänsten anger du bara `https://graph.microsoft.com` . Mer information finns i [nationell moln distribution](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Steg 4: kör projektet
 
@@ -268,7 +268,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Det finns situationer där du måste tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.
 * Tvåfaktorautentisering krävs.
@@ -300,7 +300,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 En mer detaljerad steg-för-steg-guide om hur du skapar programmet för den här snabb starten finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie för att logga in och anropa MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Självstudie för att logga in och anropa MS Graph](./tutorial-v2-javascript-spa.md)
 
 Om du vill bläddra bland MSAL-lagrings platsen för dokumentation, vanliga frågor och svar, se:
 

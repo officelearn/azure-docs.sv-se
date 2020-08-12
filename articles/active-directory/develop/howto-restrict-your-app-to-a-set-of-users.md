@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6e20b2f8c0e12fdb23668d16e2cbd7936cc4e48c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a9b0090fa13a6d2f7a837a4f5ffee37d70893318
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445460"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116911"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Så här: begränsa din Azure AD-App till en uppsättning användare i en Azure AD-klient
 
@@ -39,7 +39,7 @@ Alternativet att begränsa en app till en speciell uppsättning användare eller
 - Program som byggts direkt på den Azure AD-programplattform som använder OAuth 2.0/OpenID Connect-autentisering när en användare eller administratör har samtyckt till det programmet.
 
      > [!NOTE]
-     > Den här funktionen är endast tillgänglig för webbapp/webb-API och företags program. Appar som är registrerade som [interna](quickstart-v1-integrate-apps-with-azure-ad.md) kan inte begränsas till en uppsättning användare eller säkerhets grupper i klienten.
+     > Den här funktionen är endast tillgänglig för webbapp/webb-API och företags program. Appar som är registrerade som [interna](./quickstart-register-app.md) kan inte begränsas till en uppsättning användare eller säkerhets grupper i klienten.
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>Uppdatera appen för att aktivera användar tilldelning
 
@@ -95,8 +95,8 @@ När du har konfigurerat din app för att aktivera användar tilldelning kan du 
 
 ## <a name="more-information"></a>Mer information
 
-- [Gör så här: Lägg till app-roller i ditt program](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps)
+- [Gör så här: Lägg till app-roller i ditt program](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Lägg till auktorisering med hjälp av app-roller & roller anspråk till en ASP.NET Core webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Använda säkerhets grupper och program roller i dina appar (video)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, nu med grupp anspråk och program roller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory-appmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory-appmanifest](./reference-app-manifest.md)

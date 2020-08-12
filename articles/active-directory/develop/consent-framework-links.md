@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 86b592ecf5485654ab6860addbfde48cee4df077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15270a998aff174c04acf2969d984eb022852635
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885556"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117370"
 ---
 # <a name="how-application-consent-works"></a>Så fungerar programmedgivande
 
@@ -24,10 +24,10 @@ Den här artikeln är att hjälpa dig att lära dig mer om hur Azure AD medgivan
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 
-- Få en allmän förståelse för [hur medgivande tillåter en resurs ägare att styra ett programs åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Få en stegvis översikt över [hur Azure AD medgivande Framework implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Mer djupgående får du lära dig [hur ett program med flera klienter kan använda medgivande ramverket](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
-- För mer djupgående, lär du dig [hur medgivande stöds på protokoll skiktet OAuth 2,0 under auktoriseringskod-flödet.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+- Få en allmän förståelse för [hur medgivande tillåter en resurs ägare att styra ett programs åtkomst till resurser](./developer-glossary.md#consent).
+- Få en stegvis översikt över [hur Azure AD medgivande Framework implementerar medgivande](./quickstart-register-app.md).
+- Mer djupgående får du lära dig [hur ett program med flera klienter kan använda medgivande ramverket](./howto-convert-app-to-be-multi-tenant.md) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
+- För mer djupgående, lär du dig [hur medgivande stöds på protokoll skiktet OAuth 2,0 under auktoriseringskod-flödet.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)
 
 ## <a name="next-steps"></a>Nästa steg
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 6a48467100e396ed1b43544d1b10ae5007415e3e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: d3810d3998f82127fc32327f696a2784382b4537
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201958"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117047"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -47,7 +47,7 @@ Innan ett program kan göras till flera klienter kräver Azure AD att app-ID-URI
 Som standard har appar som skapats via Azure Portal en globalt unik app-ID-URI inställd på att skapa appar, men du kan ändra det här värdet. Om namnet på din klient till exempel var contoso.onmicrosoft.com, skulle en giltig app-ID-URI vara `https://contoso.onmicrosoft.com/myapp` . Om klienten hade en verifierad domän för `contoso.com` , skulle en giltig app-ID-URI också vara `https://contoso.com/myapp` . Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
 
 > [!NOTE]
-> Interna klient registreringar samt [Microsoft Identity Platform-program](./active-directory-appmodel-v2-overview.md) är flera klienter som standard. Du behöver inte vidta några åtgärder för att göra dessa program registreringar flera klienter.
+> Interna klient registreringar samt [Microsoft Identity Platform-program](./v2-overview.md) är flera klienter som standard. Du behöver inte vidta några åtgärder för att göra dessa program registreringar flera klienter.
 
 ## <a name="update-your-code-to-send-requests-to-common"></a>Uppdatera din kod för att skicka begär anden till/vanliga
 
@@ -141,7 +141,7 @@ Ditt program kan ha flera nivåer som representeras av sin egen registrering i A
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som en `knownClientApplications` i dess [applikations manifest][AAD-App-Manifest]. Till exempel:
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -201,7 +201,7 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
+[AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
@@ -226,9 +226,9 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
+[O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
+[OAuth2-AuthZ-Code-Grant-Flow]: /previous-versions/azure/dn645542(v=azure.100)
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6

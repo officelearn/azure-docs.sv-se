@@ -12,12 +12,12 @@ ms.date: 07/19/2017
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: c2673552638c1829b1640724634e365dc6595703
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1d09355993af96e9e0cd334c57174cdaa771b388
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284429"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118271"
 ---
 # <a name="single-sign-out-saml-protocol"></a>SAML-protokoll för enkel utloggning
 
@@ -42,7 +42,7 @@ Det `LogoutRequest` element som skickas till Azure AD kräver följande attribut
 
 * `ID`-Detta identifierar utloggnings förfrågan. Värdet för `ID` får inte börja med en siffra. Den typiska metoden är att lägga till **ID** i sträng representationen av ett GUID.
 * `Version`– Ange värdet för det här elementet som **2,0**. Det här värdet är obligatoriskt.
-* `IssueInstant`– Det här är en `DateTime` sträng med ett UTC-värde (Coordination Universal Time) och tur och [RETUR-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett värde av den här typen, men tvingar inte det.
+* `IssueInstant`– Det här är en `DateTime` sträng med ett UTC-värde (Coordination Universal Time) och tur och [RETUR-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett värde av den här typen, men tvingar inte det.
 
 ### <a name="issuer"></a>Utfärdare
 `Issuer`Elementet i en `LogoutRequest` måste exakt matcha ett av **ServicePrincipalNames** i moln tjänsten i Azure AD. Detta är vanligt vis inställt på **app-ID-URI: n** som anges vid program registrering.

@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533367"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121467"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 | ---| --- |
 | Accelererad databas återställning med enkla databaser och elastiska pooler | Mer information finns i [accelererad databas återställning](../accelerated-database-recovery.md).|
 | Dataidentifiering och -klassificering  |Mer information finns i [Azure SQL Database och Azure Synapse Analytics data discovery & klassificering](data-discovery-and-classification-overview.md).|
-| Elastiska databasjobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
+| Elastic Database-jobb (för hands version) | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
 | Elastiska frågor | Mer information finns i [Översikt över elastiska frågor](elastic-query-overview.md). |
 | Elastiska transaktioner | [Distribuerade transaktioner över moln databaser](elastic-transactions-overview.md). |
 | Frågeredigeraren i Azure Portal |Mer information finns i [använda Azure Portal SQL-Frågeredigeraren för att ansluta och fråga efter data](connect-query-portal.md).|

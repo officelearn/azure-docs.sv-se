@@ -3,18 +3,18 @@ title: 'Självstudie: skapa en inhägnad och spåra enheter på en Microsoft Azu
 description: Lär dig hur du konfigurerar ett geografiskt avgränsnings tecken. Se hur du spårar enheter i förhållande till den här gränsen genom att använda tjänsten Azure Maps spatial.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 7/15/2020
+ms.date: 8/11/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 1044348e50f4208038739975e7355fb6f4873454
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037651"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121246"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geofence med hjälp av Azure Maps
 
@@ -25,7 +25,7 @@ I den här självstudien får du lära dig grunderna i hur du skapar och använd
 Azure Maps tillhandahåller ett antal tjänster för att stödja spårning av utrustning som går in och avslutar arbets ytan i scenariot ovan. I den här självstudien lär vi dig att:
 
 > [!div class="checklist"]
-> * Ladda upp [Geoencing-MULTIjson-data](geofence-geojson.md) som definierar de konstruktions plats områden som vi vill övervaka. Vi använder [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) för att överföra avgränsningar som polygon-koordinater till ditt Azure Maps-konto.
+> * Överför [polystaket av POLYjson-data](geofence-geojson.md) som definierar de konstruktions plats områden som vi vill övervaka. Vi använder [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) för att överföra avgränsningar som polygon-koordinater till ditt Azure Maps-konto.
 > * Konfigurera två [Logic-appar](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) som, när de utlöses, kommer att skicka e-postaviseringar till bygg platsen Operations Manager när utrustningen går in och avslutar området för avgränsning.
 > * Använd [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) om du vill prenumerera på Azure Mapsde gränser för att ange och avsluta en händelse. Vi kommer att konfigurera två webb-Hook-händelseloggar som anropar de HTTP-slutpunkter som definierats i dina två Logic Apps. Logic Apps skickar sedan lämpliga e-postaviseringar om utrustning som flyttas utanför eller genom att ange ett geografiskt avgränsnings tecken.
 > * Använd [Sök funktionen för att hämta API: er](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) för att ta emot meddelanden när en del av utrustningen avslutas och anger de områden som ligger utanför gränsen.

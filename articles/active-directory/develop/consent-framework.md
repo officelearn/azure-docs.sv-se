@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: e706c0eeb848b6cd14a3c14de821ca59a9c52ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611372"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117319"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory-medgivande
 
@@ -28,7 +28,7 @@ Ramverket är baserat på en användare eller en administratör som ger tillåte
 
 Godkännande ramverket bygger på OAuth 2,0 och de olika flödena, till exempel auktoriseringskod och beviljande av klientautentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2,0 gör Azure AD det möjligt att bygga många olika typer av klient program, till exempel på en telefon, surfplatta, server eller ett webb program, och få till gång till de resurser som krävs.
 
-Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v2-oauth2-auth-code-flow.md) och [autentiserings scenarier för Azure AD](authentication-scenarios.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v2-oauth2-auth-code-flow.md) och [autentiserings scenarier för Azure AD](./authentication-vs-authorization.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Godkännande upplevelse – ett exempel
 
@@ -65,4 +65,4 @@ Följande steg visar hur medgivande upplevelsen fungerar för både programutvec
 ## <a name="next-steps"></a>Nästa steg
 
 * Se så [här konverterar du en app till flera innehavare](howto-convert-app-to-be-multi-tenant.md)
-* För mer djupgående, lär du dig [hur medgivande stöds på protokoll skiktet OAuth 2,0 under auktoriseringskod-flödet.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+* För mer djupgående, lär du dig [hur medgivande stöds på protokoll skiktet OAuth 2,0 under auktoriseringskod-flödet.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)

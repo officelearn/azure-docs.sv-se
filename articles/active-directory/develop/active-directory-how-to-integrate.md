@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: 50748334a59dd6b3d7601bd8a32ac99bfe90b0fe
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552823"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115704"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integrera med Microsoft Identity Platform
 
@@ -31,15 +31,15 @@ Det finns flera sätt för ditt program att integrera med Microsoft Identity Pla
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Ge stöd för Microsoft Identity Platform som ett sätt att logga in på ditt program
 
-**Sänk in friktionen och minska support kostnaderna.** Genom att använda Microsoft Identity Platform för att logga in på ditt program får användarna inget namn och lösen ord att komma ihåg. Som utvecklare har du ett mindre lösen ord för att lagra och skydda. Att inte behöva hantera återställningar av glömt lösen ord kan vara en betydande besparing. Microsoft Identity Platform har behörighet att logga in för några av världens mest populära moln program, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljon tals organisationer är det sannolikt att användaren redan är inloggad på Microsoft Identity Platform. Läs mer om [att lägga till stöd för Microsoft Identity Platform-inloggning](authentication-scenarios.md).
+**Sänk in friktionen och minska support kostnaderna.** Genom att använda Microsoft Identity Platform för att logga in på ditt program får användarna inget namn och lösen ord att komma ihåg. Som utvecklare har du ett mindre lösen ord för att lagra och skydda. Att inte behöva hantera återställningar av glömt lösen ord kan vara en betydande besparing. Microsoft Identity Platform har behörighet att logga in för några av världens mest populära moln program, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljon tals organisationer är det sannolikt att användaren redan är inloggad på Microsoft Identity Platform. Läs mer om [att lägga till stöd för Microsoft Identity Platform-inloggning](./authentication-vs-authorization.md).
 
 **Förenkla registreringen av ditt program.**  När du registrerar dig för ditt program kan Microsoft Identity Platform skicka viktig information om en användare så att du kan fylla i ditt registrerings formulär på förhand eller ta bort det helt. Användare kan registrera sig för ditt program med hjälp av sitt Azure AD-konto via en välbekant upplevelse som liknar dem som finns i sociala medier och mobila program. Alla användare kan registrera sig och logga in i ett program som är integrerat med Microsoft Identity Platform utan att behöva delta i det. Läs mer om [att signera ditt program för inloggning med Azure AD-konto](../../app-service/configure-authentication-provider-aad.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Bläddra efter användare, hantera användar etablering och kontrol lera åtkomsten till ditt program
 
-**Bläddra efter användare i katalogen.**  Använd Microsoft Graph-API: et för att hjälpa användarna att söka efter andra personer i organisationen när de bjuder in andra eller beviljar åtkomst, i stället för att behöva skriva e-postadresser. Användare kan bläddra med hjälp av ett välbekant adress boks format gränssnitt, inklusive Visa information om organisationshierarkin. Läs mer om [Microsoft Graph-API: et](https://docs.microsoft.com/graph/overview).
+**Bläddra efter användare i katalogen.**  Använd Microsoft Graph-API: et för att hjälpa användarna att söka efter andra personer i organisationen när de bjuder in andra eller beviljar åtkomst, i stället för att behöva skriva e-postadresser. Användare kan bläddra med hjälp av ett välbekant adress boks format gränssnitt, inklusive Visa information om organisationshierarkin. Läs mer om [Microsoft Graph-API: et](/graph/overview).
 
-**Återanvända Active Directory grupper och distributions listor som kunden redan hanterar.**  Azure AD innehåller de grupper som din kund redan använder för e-postdistribution och hantering av åtkomst. Använd Microsoft Graph-API: et och Använd dessa grupper i stället för att kräva att kunden skapar och hanterar en separat uppsättning grupper i ditt program. Grupp information kan också skickas till ditt program i inloggnings-token. Läs mer om [Microsoft Graph-API: et](https://docs.microsoft.com/graph/overview).
+**Återanvända Active Directory grupper och distributions listor som kunden redan hanterar.**  Azure AD innehåller de grupper som din kund redan använder för e-postdistribution och hantering av åtkomst. Använd Microsoft Graph-API: et och Använd dessa grupper i stället för att kräva att kunden skapar och hanterar en separat uppsättning grupper i ditt program. Grupp information kan också skickas till ditt program i inloggnings-token. Läs mer om [Microsoft Graph-API: et](/graph/overview).
 
 **Använd Microsoft Identity Platform för att kontrol lera vem som har åtkomst till ditt program.**  Administratörer och program ägare i Azure AD kan tilldela åtkomst till program till specifika användare och grupper. Med hjälp av Microsoft Graph API kan du läsa den här listan och använda den för att styra etablering och avetablering av resurser och åtkomst i ditt program.
 
@@ -47,13 +47,13 @@ Det finns flera sätt för ditt program att integrera med Microsoft Identity Pla
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Få åtkomst till användarens profil, kalender, e-post, kontakter, filer med mera
 
-**Microsoft Identity Platform är auktoriseringsservern för Office 365 och andra Microsoft Business Services.**  Om du har stöd för Microsoft Identity Platform för inloggning i ditt program eller om du har stöd för att länka dina aktuella användar konton till Azure AD-användarkonton med OAuth 2,0 kan du begära Läs-och skriv åtkomst till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan skriva händelser till användarens kalender sömlöst och läsa eller skriva filer till deras OneDrive. Lär dig mer om att [komma åt Office 365-API: erna](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).
+**Microsoft Identity Platform är auktoriseringsservern för Office 365 och andra Microsoft Business Services.**  Om du har stöd för Microsoft Identity Platform för inloggning i ditt program eller om du har stöd för att länka dina aktuella användar konton till Azure AD-användarkonton med OAuth 2,0 kan du begära Läs-och skriv åtkomst till en användares profil, kalender, e-post, kontakter, filer och annan information. Du kan skriva händelser till användarens kalender sömlöst och läsa eller skriva filer till deras OneDrive. Lär dig mer om att [komma åt Office 365-API: erna](/previous-versions/office/office-365-api/).
 
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Marknadsför ditt program på Azure-och Office 365-marknads platser
 
 **Marknadsför ditt program till miljon tals organisationer som redan använder Azure AD.**  Användare som söker efter och surfar på dessa marknads platser använder redan en eller flera moln tjänster, vilket gör dem till kvalificerade moln tjänst kunder. Lär dig mer om att marknadsföra ditt program på [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**När användarna registrerar sig för ditt program visas det i Azure AD-åtkomst panelen och Office 365-program start.**  Användarna kan snabbt och enkelt återvända till ditt program senare, vilket förbättrar användar engagemanget. Läs mer om [Azure AD-åtkomst panelen](../user-help/active-directory-saas-access-panel-introduction.md).
+**När användarna registrerar sig för ditt program visas det i Azure AD-åtkomst panelen och Office 365-program start.**  Användarna kan snabbt och enkelt återvända till ditt program senare, vilket förbättrar användar engagemanget. Läs mer om [Azure AD-åtkomst panelen](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Skydda kommunikation från enheter till tjänst och tjänst till tjänst
 
@@ -73,9 +73,9 @@ Integrering med Microsoft Identity Platform levereras med fördelar som inte kr�
 
 **Multi-Factor Authentication.**  Microsoft Identity Platform tillhandahåller inbyggd Multi-Factor Authentication. IT-administratörer kan kräva Multi-Factor Authentication för att få åtkomst till ditt program, så att du inte behöver koda detta stöd själv. Läs mer om [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
-**Identifiering av avvikande inloggning.**  Microsoft Identity Platform bearbetar mer än en miljard inloggningar per dag, samtidigt som du använder Machine Learning-algoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer om möjliga problem. Genom att ge stöd för Microsoft Identity Platform-inloggning får ditt program fördelen med detta skydd. Läs mer om hur du [visar Azure Active Directory åtkomst rapporten](../active-directory-view-access-usage-reports.md).
+**Identifiering av avvikande inloggning.**  Microsoft Identity Platform bearbetar mer än en miljard inloggningar per dag, samtidigt som du använder Machine Learning-algoritmer för att identifiera misstänkt aktivitet och meddela IT-administratörer om möjliga problem. Genom att ge stöd för Microsoft Identity Platform-inloggning får ditt program fördelen med detta skydd. Läs mer om hur du [visar Azure Active Directory åtkomst rapporten](../reports-monitoring/overview-reports.md).
 
-**Villkorlig åtkomst.**  Förutom Multi-Factor Authentication kan administratörer kräva att vissa villkor uppfylls innan användarna kan logga in till ditt program. Villkor som kan ställas in inkluderar IP-adressintervallet för klient enheter, medlemskap i angivna grupper och tillståndet för enheten som används för åtkomst. Läs mer om [Azure Active Directory villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md).
+**Villkorlig åtkomst.**  Förutom Multi-Factor Authentication kan administratörer kräva att vissa villkor uppfylls innan användarna kan logga in till ditt program. Villkor som kan ställas in inkluderar IP-adressintervallet för klient enheter, medlemskap i angivna grupper och tillståndet för enheten som används för åtkomst. Läs mer om [Azure Active Directory villkorlig åtkomst](../conditional-access/overview.md).
 
 ### <a name="easy-development"></a>Enkel utveckling
 
@@ -91,5 +91,4 @@ Integrering med Microsoft Identity Platform levereras med fördelar som inte kr�
 
 [Kom igång med att skriva kod](v2-overview.md#getting-started).
 
-[Logga in användare med Microsoft Identity Platform](authentication-scenarios.md)
-
+[Logga in användare med Microsoft Identity Platform](./authentication-vs-authorization.md)

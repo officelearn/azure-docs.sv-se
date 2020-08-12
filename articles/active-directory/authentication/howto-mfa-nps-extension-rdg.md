@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21b8748cf74a5061e9dfa154047f867df4cb5428
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848762"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117030"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för fjärrskrivbordsgateway med nätverks princip Server (NPS)-tillägget och Azure AD
 
@@ -59,7 +59,7 @@ När NPS-tillägget för Azure är integrerat med NPS-och fjärr skrivbords-gate
 1. NPS-servern, där tillägget är installerat, skickar ett meddelande om RADIUS-åtkomstaccepterande för principen för fjärr skrivbords anslutning till servern för fjärrskrivbordsgateway.
 1. Användaren beviljas åtkomst till den begärda nätverks resursen via RD Gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I det här avsnittet beskrivs de nödvändiga förutsättningarna innan du integrerar Azure MFA med Fjärrskrivbordsgateway. Innan du börjar måste du ha följande krav på plats.  
 
@@ -110,6 +110,11 @@ Följ stegen i [komma igång med azure Multi-Factor Authentication i molnet](how
 När ett konto har Aktiver ATS för MFA kan du inte logga in på resurser som styrs av MFA-principen förrän du har konfigurerat en betrodd enhet som ska användas för den andra autentiserings faktorn och har autentiserats med hjälp av tvåstegsverifiering.
 
 Följ stegen i [Vad innebär Azure Multi-Factor Authentication för mig?](../user-help/multi-factor-authentication-end-user.md) för att förstå och konfigurera dina enheter korrekt för MFA med ditt användar konto.
+
+> [!IMPORTANT]
+> Inloggnings beteendet för fjärrskrivbordsgateway ger inte möjlighet att ange en verifierings kod med Azure Multi-Factor Authentication. Ett användar konto måste konfigureras för telefon verifiering eller Microsoft Authenticator-appen med push-meddelanden.
+>
+> Om någon av dessa två autentiseringsmetoder inte har kon figurer ATS för en användare kan de inte slutföra Azure Multi-Factor Authentication-utmaningen och logga in på Fjärrskrivbordsgateway.
 
 ## <a name="install-and-configure-nps-extension"></a>Installera och konfigurera NPS-tillägg
 

@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 79983678d13b810a521a00ba2c1978de92a5029f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65fff06b4a2d28bbc276920ccbaba90d814d03f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81309512"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115364"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabb start: registrera ett program med Microsoft Identity Platform
 
@@ -25,7 +25,7 @@ I den här snabb starten registrerar du ett program med hjälp av **Appregistrer
 
 Din app är integrerad med Microsoft Identity Platform genom att registrera den med en Azure Active Directory klient. Enterprise-utvecklare och SaaS-leverantörer (Software-as-a-Service) kan utveckla kommersiella moln tjänster eller branschspecifika program som kan integreras med Microsoft Identity Platform. Integrering ger säker inloggning och auktorisering för sådana tjänster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * En [Azure AD-klient](quickstart-create-new-tenant.md).
@@ -34,7 +34,7 @@ Din app är integrerad med Microsoft Identity Platform genom att registrera den 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange din portal-session till den Azure AD-klient som du vill använda.
-1. Sök efter och välj **Azure Active Directory**. Under **Hantera**väljer du **Appregistreringar**.
+1. Sök efter och välj **Azure Active Directory**. Välj **Appregistreringar** under **Hantera**.
 1. Välj **ny registrering**.
 1. I **Registrera ett program**anger du ett meningsfullt program namn som ska visas för användarna.
 1. Ange vem som kan använda programmet enligt följande:
@@ -50,7 +50,7 @@ Din app är integrerad med Microsoft Identity Platform genom att registrera den 
     * För webbappar anger du grundläggande URL för appen. Till exempel kan `https://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
     * För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `myapp://auth`.
 
-    Exempel för webb program och interna program finns i snabb starter i [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop).
+    Exempel för webb program och interna program finns i snabb starter i [Microsoft Identity Platform](./index.yml).
 
 1. När det är klart väljer du **Registrera**.
 
@@ -70,7 +70,7 @@ Azure AD tilldelar ett unikt program, eller ett klient-ID till din app. Portalen
 
 * Information om hur du hanterar konton som stöds finns i [snabb start: ändra de konton som stöds av ett program](quickstart-modify-supported-accounts.md).
 
-* Information om hur du skapar en app och lägger till funktioner finns i snabb starter i [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop).
+* Information om hur du skapar en app och lägger till funktioner finns i snabb starter i [Microsoft Identity Platform](./index.yml).
 
 * Mer information om de två Azure AD-objekt som representerar ett registrerat program och relationen mellan dem finns i [Programobjekt och tjänsthuvudnamnsobjekt](app-objects-and-service-principals.md).
 

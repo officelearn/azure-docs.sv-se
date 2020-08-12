@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 9503abf147ee89ec03e7e1317df823426ea37b1c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87758891"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120838"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 > Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När du har kopplats bort eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Vi rekommenderar att du felsökr lokalt innan du distribuerar till webb tjänsten. Mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
 > Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -63,7 +63,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 - __CLI__ -kodfragmenten i den här artikeln förutsätter att du har skapat ett `inferenceconfig.json` dokument. Mer information om hur du skapar det här dokumentet finns i [så här distribuerar du modeller](how-to-deploy-and-where.md).
 
-- Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB), skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till arbets ytan AML.
+- Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB) skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till AML-arbetsytan.
 
 - Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
 
@@ -88,7 +88,7 @@ __Authroized IP-intervall fungerar endast med Standard Load Balancer.__
 Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
  
 Azure Machine Learning har nu stöd för användning av en Azure Kubernetes-tjänst som har privat länk aktive rad.
-Så här skapar du ett privat AKS-kluster Följ dokumenten [här](https://docs.microsoft.com/azure/aks/private-clusters)
+Om du vill skapa ett privat AKS-kluster följer du dokumenten [här](https://docs.microsoft.com/azure/aks/private-clusters)
 
 > [!TIP]
 > Om du vill skydda ditt AKS-kluster med hjälp av ett Azure-Virtual Network måste du först skapa det virtuella nätverket. Mer information finns i [säker experimentering och härledning med Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
@@ -109,6 +109,13 @@ from azureml.core.compute import AksCompute, ComputeTarget
 # For example, to create a dev/test cluster, use:
 # prov_config = AksCompute.provisioning_configuration(cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST)
 prov_config = AksCompute.provisioning_configuration()
+# Example configuration to use an existing virtual network
+# prov_config.vnet_name = "mynetwork"
+# prov_config.vnet_resourcegroup_name = "mygroup"
+# prov_config.subnet_name = "default"
+# prov_config.service_cidr = "10.0.0.0/16"
+# prov_config.dns_service_ip = "10.0.0.10"
+# prov_config.docker_bridge_cidr = "172.17.0.1/16"
 
 aks_name = 'myaks'
 # Create the cluster
@@ -267,7 +274,7 @@ Information om hur du använder VS Code finns i [distribuera till AKS via vs Cod
 
 ### <a name="understand-the-deployment-processes"></a>Förstå distributions processerna
 
-Ordet "Deployment" används i både Kubernetes och Azure Machine Learning. "Distribution" har mycket olika betydelser i dessa två kontexter. I Kubernetes är en `Deployment` konkret entitet som anges med en DEKLARATIV yaml-fil. En Kubernetes `Deployment` har en definierad livs cykel och konkreta relationer till andra Kubernetes entiteter som `Pods` och `ReplicaSets` . Du kan lära dig mer om Kubernetes från dokument och videor på [Vad är Kubernetes?](https://aka.ms/k8slearning).
+Ordet "Deployment" används i både Kubernetes och Azure Machine Learning. "Distribution" har olika betydelser i dessa två kontexter. I Kubernetes är en `Deployment` konkret entitet som anges med en DEKLARATIV yaml-fil. En Kubernetes `Deployment` har en definierad livs cykel och konkreta relationer till andra Kubernetes entiteter som `Pods` och `ReplicaSets` . Du kan lära dig mer om Kubernetes från dokument och videor på [Vad är Kubernetes?](https://aka.ms/k8slearning).
 
 I Azure Machine Learning används "distribution" i den allmänna uppfattningen för att göra tillgängliga och rensa projekt resurserna. De steg som Azure Machine Learning anser en del av distributionen är:
 

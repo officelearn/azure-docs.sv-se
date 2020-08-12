@@ -7,12 +7,12 @@ ms.date: 08/06/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: a0469feed391025f8dd50a7f8b11b96265b0df29
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 09442e01fa160d3851169a51230fa4cbef7e0980
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987417"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118577"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout"></a>Diagnostisera och Felsök Azure Cosmos DB timeout för .NET SDK-begäran
 HTTP 408-felet uppstår om SDK inte kunde slutföra begäran innan tids gränsen uppnåddes.
@@ -51,6 +51,9 @@ Om du kör på virtuella Azure-datorer följer du [guiden för SNAT-portens öve
 Om du kör på Azure App Service följer du [fel söknings guiden för anslutnings fel](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#cause) och [använder App Service diagnostik](https://azure.github.io/AppService/2018/03/01/Deep-Dive-into-TCP-Connections-in-App-Service-Diagnostics.html).
 
 #### <a name="solution-3"></a>Lösning 3:
+Om du kör på Azure Functions kontrollerar du att du följer [Azure Functions rekommendationer](../azure-functions/manage-connections.md#static-clients) för att underhålla singleton/static-klienter för alla berörda tjänster (inklusive Cosmos dB) och kontrollerar [tjänst gränserna](../azure-functions/functions-scale.md#service-limits) baserat på typen av och storleken på din Funktionsapp värd.
+
+#### <a name="solution-4"></a>Lösning 4:
 Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
 Annars är det problem med ansikts anslutning.
 

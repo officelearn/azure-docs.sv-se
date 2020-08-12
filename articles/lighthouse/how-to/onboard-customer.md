@@ -1,16 +1,16 @@
 ---
-title: Publicera en kund i Azure Lighthouse
+title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
 ms.date: 05/26/2020
 ms.topic: how-to
-ms.openlocfilehash: 3cc754dba124c5f647cd4b51246ced19360c82c3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133460"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118883"
 ---
-# <a name="onboard-a-customer-to-azure-lighthouse"></a>Publicera en kund i Azure Lighthouse
+# <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
 Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure Lighthouse. När du gör det kan kundens delegerade resurser (prenumerationer och/eller resurs grupper) nås och hanteras via din egen Azure Active Directory-klient (Azure AD) med hjälp av [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
 
@@ -39,7 +39,7 @@ För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumerat
 
 Om du inte redan har dessa ID-värden kan du hämta dem på något av följande sätt. Se till att du använder de här exakta värdena i distributionen.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
@@ -86,7 +86,7 @@ För att kunna definiera auktoriseringar måste du känna till ID-värdena för 
 (Get-AzADUser -UserPrincipalName '<yourUPN>').id
 
 # To retrieve the objectId for an SPN
-(Get-AzADApplication -DisplayName '<appDisplayName>').objectId
+(Get-AzADApplication -DisplayName '<appDisplayName>' | Get-AzADServicePrincipal).Id
 
 # To retrieve role definition IDs
 (Get-AzRoleDefinition -Name '<roleName>').id
@@ -116,7 +116,7 @@ az role definition list --name "<roleName>" | grep name
 
 För att publicera kunden måste du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
 
-|Fält  |Definition  |
+|Field  |Definition  |
 |---------|---------|
 |**mspOfferName**     |Ett namn som beskriver den här definitionen. Det här värdet visas för kunden som titeln på erbjudandet.         |
 |**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel "contoso VM Management-erbjudande").      |
@@ -131,7 +131,7 @@ Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resu
 |---------|---------|---------|
 |Prenumeration   |[delegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Resursgrupp   |[rgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Flera resurs grupper i en prenumeration   |[multipleRgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Flera resursgrupper i en prenumeration   |[multipleRgDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
@@ -249,12 +249,12 @@ az deployment create --name <deploymentName> \
 
 När en kund prenumeration har publicerats till Azure-Lighthouse kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I tjänst leverantörens klient organisation:
 
 1. Gå till [sidan mina kunder](view-manage-customers.md).
-2. Välj **kunder**.
+2. Välj **Kunder**.
 3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!IMPORTANT]
@@ -263,7 +263,7 @@ I tjänst leverantörens klient organisation:
 I kundens klient organisation:
 
 1. Gå till [sidan tjänst leverantörer](view-manage-service-providers.md).
-2. Välj **Service Provider-erbjudanden**.
+2. Och sedan välja **Tjänstleverantörserbjudanden**.
 3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!NOTE]

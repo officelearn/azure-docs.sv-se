@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fc4de3ef934e2d1b9dcff46c78f45e7d0f3b6d8
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f746cc654934464d907c6ad669eb7470e4dcaeeb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845467"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117744"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -264,7 +264,7 @@ Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 - **SubjectConfirmationData för en SAML-kontroll från ett OBO-anrop**: om mål programmet kräver ett mottagar värde i **SubjectConfirmationData**måste värdet vara en svars-URL som inte är jokertecken i resurs programmets konfiguration.
 - **SubjectConfirmationData-noden**: noden får inte innehålla ett **InResponseTo** -attribut eftersom den inte är en del av ett SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-kontrollen utan ett **InResponseTo** -attribut.
 
-- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent).
+- **Medgivande**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användar data i ett OAuth-flöde. Information om behörigheter och hur du får administratörs tillstånd finns [i behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten](./v1-permissions-consent.md).
 
 ### <a name="response-with-saml-assertion"></a>Svar med SAML-kontroll
 

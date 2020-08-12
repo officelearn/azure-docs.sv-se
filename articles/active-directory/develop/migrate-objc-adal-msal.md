@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77085174"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119937"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrera program till MSAL för iOS och macOS
 
@@ -45,7 +45,7 @@ Microsoft Identity Platform har några viktiga skillnader i Azure Active Directo
 * Azure Active Directory v 1.0-slutpunkten kräver att alla behörigheter deklareras i förväg under program registreringen. Det innebär att dessa behörigheter är statiska.
 * Med Microsoft Identity Platform kan du begära behörigheter dynamiskt. Appar kan bara begära behörigheter vid behov och begära fler när appen behöver dem.
 
-Mer information om skillnader mellan Azure Active Directory v 1.0 och Microsoft Identity Platform finns i [varför uppdatera till Microsoft Identity Platform (v 2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Mer information om skillnader mellan Azure Active Directory v 1.0 och Microsoft Identity Platform finns i [varför uppdatera till Microsoft Identity Platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Skillnader mellan ADAL och MSAL-bibliotek
 
@@ -61,11 +61,11 @@ I MSAL är huvud interaktionen via ett- `MSALPublicClientApplication` objekt som
 
 I ADAL hade en app angett ett *resurs* -ID som `https://graph.microsoft.com` hämtar tokens från Azure Active Directory v 1.0-slutpunkten. En resurs kan definiera ett antal omfattningar, eller oAuth2Permissions i app-manifestet, som det förstår. De här tillåtna klient programmen begär token från den resursen för en viss uppsättning omfång som definierats i förväg under registreringen av appen.
 
-I MSAL, i stället för en enda resurs-ID, tillhandahåller appar en uppsättning omfång per begäran. Ett omfång är ett resurs-ID följt av ett behörighets namn i formatet resurs/behörighet. Till exempel, `https://graph.microsoft.com/user.read`
+I MSAL, i stället för en enda resurs-ID, tillhandahåller appar en uppsättning omfång per begäran. Ett omfång är ett resurs-ID följt av ett behörighets namn i formatet resurs/behörighet. Till exempel `https://graph.microsoft.com/user.read`
 
 Det finns två sätt att tillhandahålla omfång i MSAL:
 
-* Ange en lista över alla behörigheter som dina appar behöver. Ett exempel: 
+* Ange en lista över alla behörigheter som dina appar behöver. Till exempel: 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -75,9 +75,9 @@ Det finns två sätt att tillhandahålla omfång i MSAL:
 
 Detta är det inbyggda omfånget för varje program. Den refererar till den statiska listan med behörigheter som kon figurer ATS när programmet registrerades. Det fungerar på samma sätt som för `resource` . Detta kan vara användbart när du migrerar för att säkerställa att en liknande uppsättning omfång och användar upplevelse upprätthålls.
 
-Om du vill använda `/.default` omfånget lägger du till i `/.default` resurs identifieraren. Exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck ( `/` ) bör du fortfarande lägga till `/.default` , inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck ( `//` ).
+Om du vill använda `/.default` omfånget lägger du till i `/.default` resurs identifieraren. Till exempel: `https://graph.microsoft.com/.default`. Om resursen slutar med ett snedstreck ( `/` ) bör du fortfarande lägga till `/.default` , inklusive det inledande snedstrecket, vilket resulterar i en omfattning som har ett dubbelt snedstreck ( `//` ).
 
-Du kan läsa mer om hur du använder området "/.default" [här](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope)
+Du kan läsa mer om hur du använder området "/.default" [här](./v2-permissions-and-consent.md#the-default-scope)
 
 ### <a name="supporting-different-webview-types--browsers"></a>Stöd för olika WebView-typer & webbläsare
 
@@ -146,7 +146,7 @@ Så här aktiverar du koordinator för ditt program:
 
 1. Registrera ett Service Broker-kompatibelt omdirigerings-URI-format för programmet. URI-formatet för Broker-kompatibel omdirigering är `msauth.<app.bundle.id>://auth` . Ersätt `<app.bundle.id>` med programmets paket-ID. Om du migrerar från ADAL och ditt program redan har stöd för Service Broker behöver du inte göra något. Din tidigare omdirigerings-URI är helt kompatibel med MSAL, så du kan gå vidare till steg 3.
 
-2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>` . Ett exempel:
+2. Lägg till programmets omdirigerings-URI-schema i filen info. plist. För standard omdirigerings-URI för MSAL är formatet `msauth.<app.bundle.id>` . Till exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>
@@ -207,7 +207,7 @@ MSAL på iOS stöder också två typer av SSO:
 
 ## <a name="intune-mam-sdk"></a>Intune MAM SDK
 
-[INTUNE Mam SDK](https://docs.microsoft.com/intune/app-sdk-get-started) stöder MSAL för iOS från och med version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
+[INTUNE Mam SDK](/intune/app-sdk-get-started) stöder MSAL för iOS från och med version [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2)
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL och ADAL i samma app
 
@@ -226,7 +226,7 @@ Du behöver inte ändra ditt befintliga AAD-program för att växla till MSAL oc
 
 Omdirigerings-URI: n måste ha följande format: `msauth.<app.bundle.id>://auth` . Ersätt `<app.bundle.id>` med programmets paket-ID. Ange omdirigerings-URI i [Azure Portal](https://aka.ms/MobileAppReg).
 
-För att endast iOS ska stödja certifikatbaserad autentisering måste ytterligare en omdirigerings-URI registreras i programmet och Azure Portal i följande format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Till exempel, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+För att endast iOS ska stödja certifikatbaserad autentisering måste ytterligare en omdirigerings-URI registreras i programmet och Azure Portal i följande format: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Till exempel `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 Vi rekommenderar att alla appar registrerar båda omdirigerings-URI: er.
 

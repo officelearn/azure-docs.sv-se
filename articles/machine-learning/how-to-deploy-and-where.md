@@ -12,12 +12,12 @@ ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 5e73744f3d467d08944d0e8800dd6d8824857abd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 439bf51aac4d04ee12968588a4e38c4643b4808a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846997"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120361"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,15 +35,17 @@ Arbetsflödet är ungefär likadant var du än distribuerar din modell:
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
 
 
- 
-::: zone pivot="cli"
-[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
-::: zone-end
-
 ::: zone pivot="py-sdk"
+
 [!INCLUDE [SDK quickstart](../../includes/machine-learning-how-to-deploy-and-where-sdk.md)]
+
 ::: zone-end
 
+::: zone pivot="cli"
+
+[!INCLUDE [CLI quickstart](../../includes/machine-learning-how-to-deploy-and-where-cli.md)]
+
+::: zone-end
 
 ### <a name="understanding-service-state"></a>Förstå tjänst tillstånd
 
@@ -53,9 +55,9 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | Nej |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
+| Övergår | Tjänsten håller på att distribueras. | No |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | No |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | No |
 | Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 

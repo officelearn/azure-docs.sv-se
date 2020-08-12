@@ -12,18 +12,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ad66e0698cf0705c7a4db90a6dd515b71fed84e6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85c406fc561424d7b02d39dfd58dc3c8fe34aab2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478628"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116095"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: konfigurera det roll anspråk som utfärdats i SAML-token för företags program
 
 Genom att använda Azure Active Directory (Azure AD) kan du anpassa anspråks typen för roll anspråk i svars-token som du får när du har auktoriserat en app.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure AD-prenumeration med katalog konfiguration.
 - En prenumeration som har enkel inloggning aktive rad (SSO). Du måste konfigurera SSO med ditt program.
@@ -265,7 +265,7 @@ Utför följande steg för att ta bort en befintlig roll:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare anvisningar finns i dokumentationen till [appen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Ytterligare anvisningar finns i dokumentationen till [appen](../saas-apps/tutorial-list.md).
 
 <!--Image references-->
 <!--Image references-->

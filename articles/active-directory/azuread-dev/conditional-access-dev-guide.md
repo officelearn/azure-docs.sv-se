@@ -13,12 +13,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8895e52209622025f943aaa6a4261b68a7e2899c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034847"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116325"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Vägledning för utvecklare för funktionen Azure Active Directory villkorlig åtkomst
 
@@ -90,7 +90,7 @@ Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azu
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Du kan lära dig mer om licensierings krav i [rapporten olicensierad användning](../active-directory-conditional-access-unlicensed-usage-report.md). Utvecklare kan ansluta till [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), som innehåller en kostnads fri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
+Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](../fundamentals/active-directory-whatis.md). Du kan lära dig mer om licensierings krav i [rapporten olicensierad användning](../reports-monitoring/overview-reports.md). Utvecklare kan ansluta till [Microsoft Developer Network](/), som innehåller en kostnads fri prenumeration på Enterprise Mobility Suite, som innehåller Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Överväganden för vissa scenarier
 
@@ -177,7 +177,7 @@ Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen r�
 
 ## <a name="see-also"></a>Se även
 
-* Mer information om funktionerna finns [i villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Mer information om funktionerna finns [i villkorlig åtkomst i Azure Active Directory](../conditional-access/overview.md).
 * Fler kod exempel för Azure AD finns i [GitHub lagrings platsen of Code samples](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
 * Mer information om ADAL SDK: er och åtkomst till referens dokumentationen finns i [biblioteks guide](active-directory-authentication-libraries.md).
 * Mer information om scenarier med flera innehavare finns i [så här loggar du in användare med hjälp av mönster för flera innehavare](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

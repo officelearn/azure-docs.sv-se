@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d91fd15d7f1f5d2bb1bd97b5a28ef56f09797140
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080325"
+ms.locfileid: "88120583"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Utvecklarens startguide för Azure
 
@@ -35,7 +35,7 @@ Den här guiden är en introduktion till Azure-plattformen för programutvecklar
 
 Med alla tjänster som Azure erbjuder kan det vara en skrämma uppgift för att ta reda på vilka tjänster du behöver för att stödja din lösnings arkitektur. I det här avsnittet beskrivs de Azure-tjänster som utvecklare ofta använder. En lista över alla Azure-tjänster finns i [Azure-dokumentationen](../../index.yml).
 
-Först måste du bestämma hur du ska vara värd för ditt program i Azure. Behöver du hantera hela infrastrukturen som en virtuell dator (VM). Kan du använda de plattforms hanterings funktioner som Azure tillhandahåller? Kanske behöver du en server lös Ramverks struktur för att endast köra kod på värden?
+Först måste du bestämma hur du ska vara värd för ditt program i Azure. Behöver du hantera hela infrastrukturen som en virtuell dator (VM)? Kan du använda de plattforms hanterings funktioner som Azure tillhandahåller? Kanske behöver du en server lös Ramverks struktur för att endast köra kod på värden?
 
 Ditt program behöver moln lagring, som Azure tillhandahåller flera alternativ för. Du kan dra nytta av Azures företagsspecifika autentisering. Det finns också verktyg för molnbaserad utveckling och övervakning, och de flesta värd tjänster erbjuder DevOps-integrering.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: 6204fcefa60d1a627e6e3d4e6b799efd3ee9298b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 423ec19d249d183f8888bf9e1eb837e2c860b1ed
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505876"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117149"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Gör så här: använda Azure PowerShell för att skapa ett huvud namn för tjänsten med ett certifikat
 
@@ -36,20 +36,20 @@ Du måste ha den [senaste versionen](/powershell/azure/install-az-ps) av PowerSh
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 För att slutföra den här artikeln måste du ha tillräcklig behörighet i både din Azure AD-och Azure-prenumeration. Mer specifikt måste du kunna skapa en app i Azure AD och tilldela tjänstens huvud namn till en roll.
 
 Det enklaste sättet att kontrollera om kontot har tillräcklig behörighet är via portalen. Se [Kontrollera behörighet som krävs](howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="assign-the-application-to-a-role"></a>Tilldela programmet till en roll
-Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](/azure/role-based-access-control/built-in-roles).
+Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
 Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen *läsare* för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller. Om du vill tillåta att programmet kör åtgärder som starta om, starta och stoppa instanser väljer du *deltagar* rollen.
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Skapa huvudnamn för tjänsten med självsignerade certifikat
 
-Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela rollen [läsare](/azure/role-based-access-control/built-in-roles#reader) rollen som tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+Följande exempel visar ett enkelt scenario. Den använder [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) för att skapa ett huvud namn för tjänsten med ett självsignerat certifikat och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att tilldela rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen som tjänstens huvud namn. Rolltilldelningen är begränsad till den valda Azure-prenumerationen. Om du vill välja en annan prenumeration använder du [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > Cmdleten New-SelfSignedCertificate och PKI-modulen stöds för närvarande inte i PowerShell Core. 
@@ -224,4 +224,4 @@ Du kan få följande fel när du skapar ett huvudnamn för tjänsten:
 
 * Om du vill konfigurera ett huvudnamn för tjänsten med lösenord, se [Skapa tjänstens huvudnamn för Azure med Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 * En mer detaljerad förklaring av program och tjänstens huvudnamn finns i [Programobjekt och tjänstobjekt](app-objects-and-service-principals.md).
-* Mer information om Azure AD-autentisering finns i [autentiserings scenarier för Azure AD](authentication-scenarios.md).
+* Mer information om Azure AD-autentisering finns i [autentiserings scenarier för Azure AD](./authentication-vs-authorization.md).

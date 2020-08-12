@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82890468"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120685"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Så här konfigurerar du enkel inloggning för ett program
 
@@ -26,20 +26,20 @@ Aktivering av federerad enkel inloggning (SSO) i appen aktive ras automatiskt n�
 
 * Om du skapar en mobilapp kan du behöva ytterligare konfigurationer för att aktivera Brokered eller non-Brokered SSO.
 
-För Android, se [aktivera enkel inloggning mellan appar i Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+För Android, se [aktivera enkel inloggning mellan appar i Android](../azuread-dev/howto-v1-enable-sso-android.md).<br>
 
-För iOS, se [Aktivera Cross app SSO i iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+För iOS, se [Aktivera Cross app SSO i iOS](../azuread-dev/howto-v1-enable-sso-ios.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Enkel inloggning i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[Enkel inloggning i Azure AD](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Aktivera enkel inloggning mellan appar i Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Aktivera enkel inloggning mellan appar i Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Aktivera enkel inloggning mellan appar i iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Aktivera enkel inloggning mellan appar i iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integrera appar till AzureAD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integrera appar till AzureAD](./quickstart-register-app.md)<br>
 
-[Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform](./v2-permissions-and-consent.md)<br>
 
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

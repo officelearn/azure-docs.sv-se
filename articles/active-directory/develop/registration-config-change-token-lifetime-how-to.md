@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: fc71ebe61fba8c1bdb6b7625b16a50d8995a581a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8de6a7aafdd402e4ee75862e69ac60af3af0e041
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80883361"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114939"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Ändra standardvärdena för token för token för ett anpassat, utvecklat program
 
@@ -29,5 +29,5 @@ Den här artikeln visar hur du använder Azure AD PowerShell för att ange en li
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du konfigurerar livs längder för token som utfärdats av Azure AD, inklusive hur du ställer in livs längd för token för alla appar i din organisation, för en app med flera klienter, eller för ett särskilt tjänst huvud namn i din organisation, i [Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) . 
-* [Referens för Azure AD-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Lär dig hur du konfigurerar livs längder för token som utfärdats av Azure AD, inklusive hur du ställer in livs längd för token för alla appar i din organisation, för en app med flera klienter, eller för ett särskilt tjänst huvud namn i din organisation, i [Azure AD](./active-directory-configurable-token-lifetimes.md) . 
+* [Referens för Azure AD-token](./id-tokens.md)

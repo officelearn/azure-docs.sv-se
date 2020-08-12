@@ -12,14 +12,14 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 19c94a4807b8958fa8b1ec46ccae660c7cbe92de
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256704"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120821"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
+# <a name="quickstart-set-up-a-tenant"></a>Snabbstart: Konfigurera en klientorganisation
 
 Med Microsoft Identity-plattformen kan utvecklare skapa appar som riktar sig till flera olika anpassade Microsoft 365-miljöer och -identiteter. För att komma igång med att använda Microsoft Identity-plattform så behöver du åtkomst till en miljö, även kallad en Azure AD-klientorganisation, som kan registrera och hantera appar, ha åtkomst till Microsoft 365-data och distribuera villkorsstyrd åtkomst och klientorganisationsbegränsningar.
 
@@ -72,5 +72,5 @@ Om du vill börja skapa appar som loggar in sociala och lokala konton måste du 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Registrera en app](quickstart-register-app.md) och integrera med Microsoft Identity Platform. 
-* Lär dig [grunderna för autentisering](authentication-scenarios.md).
+* Lär dig [grunderna för autentisering](./authentication-vs-authorization.md).
 * Se [associera eller lägga till en Azure-prenumeration till din Azure Active Directory-klient](../fundamentals/active-directory-how-subscriptions-associated-directory.md) för information om relationen mellan prenumerationer och en Azure AD-klient.

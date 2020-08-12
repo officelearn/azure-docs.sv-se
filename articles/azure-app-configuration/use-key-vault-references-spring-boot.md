@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 31aaa0134ffe34d0424868221f01b68b64e4b088
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 5977aced8354694a631cce05bf6d6b913ea79118
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371166"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121603"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Självstudie: använda Key Vault referenser i en Java våren-app
 
@@ -102,7 +102,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
     Den här åtgärden returnerar en serie med nyckel/värde-par:
 
-    ```console
+    ```json
     {
     "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
     "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
@@ -118,31 +118,51 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 1. Kör följande kommando för att ge tjänstens huvud namn åtkomst till ditt nyckel valv:
 
-    ```console
+    ```azurecli
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
 
 1. Kör följande kommando för att hämta ditt objekt-ID och Lägg sedan till det i appens konfiguration.
 
-    ```console
+    ```azurecli
     az ad sp show --id <clientId-of-your-service-principal>
     az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
-1. Skapa följande miljövariabler med värdena för tjänstens huvud namn som visades i föregående steg:
+1. Skapa miljövariabler **AZURE_CLIENT_ID**, **AZURE_CLIENT_SECRET**och **AZURE_TENANT_ID**. Använd värdena för tjänstens huvud namn som visades i föregående steg. Kör följande kommandon på kommando raden och starta om kommando tolken för att ändringarna ska börja gälla:
 
-    * **AZURE_CLIENT_ID**: *clientId*
-    * **AZURE_CLIENT_SECRET**: *clientSecret*
-    * **AZURE_TENANT_ID**: *tenantId*
+    ```cmd
+    setx AZURE_CLIENT_ID "clientId"
+    setx AZURE_CLIENT_SECRET "clientSecret"
+    setx AZURE_TENANT_ID "tenantId"
+    ```
+
+    Om du använder Windows PowerShell kör du följande kommando:
+
+    ```azurepowershell
+    $Env:AZURE_CLIENT_ID = "clientId"
+    $Env:AZURE_CLIENT_SECRET = "clientSecret"
+    $Env:AZURE_TENANT_ID = "tenantId"
+    ```
+
+    Om du använder macOS eller Linux kör du följande kommando:
+
+    ```cmd
+    export AZURE_CLIENT_ID ='clientId'
+    export AZURE_CLIENT_SECRET ='clientSecret'
+    export AZURE_TENANT_ID ='tenantId'
+    ```
+
 
 > [!NOTE]
 > Dessa Key Vault autentiseringsuppgifter används bara i ditt program.  Ditt program autentiserar direkt med Key Vault med hjälp av dessa autentiseringsuppgifter utan att involvera app Configuration service.  Key Vault tillhandahåller autentisering för både ditt program och din app Configuration-tjänst utan att dela eller exponera nycklar.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Uppdatera din kod för att använda en Key Vault referens
 
-1. Skapa en miljö variabel som heter **APP_CONFIGURATION_ENDPOINT**. Ange dess värde till slut punkten för appens konfigurations lager. Du kan hitta slut punkten på bladet **åtkomst nycklar** i Azure Portal.
+1. Skapa en miljö variabel som heter **APP_CONFIGURATION_ENDPOINT**. Ange dess värde till slut punkten för appens konfigurations lager. Du kan hitta slut punkten på bladet **åtkomst nycklar** i Azure Portal. Starta om kommando tolken så att ändringen börjar gälla. 
 
-1. Öppna *bootstrap. Properties* i mappen *resurser* . Uppdatera filen så att den använder program konfigurationens slut punkt i stället för en anslutnings sträng.
+
+1. Öppna *bootstrap. Properties* i mappen *resurser* . Uppdatera den här filen så att den använder **APP_CONFIGURATION_ENDPOINT** -värdet. Ta bort alla referenser till en anslutnings sträng i den här filen. 
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].endpoint= ${APP_CONFIGURATION_ENDPOINT}
@@ -218,7 +238,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     }
     ```
 
-1. Skapa en ny fil i din resurs-META-INF-katalog med namnet *våren. factors* och Add.
+1. Skapa en ny fil i din resurs-META-INF-katalog med namnet *våren. factors* och Lägg till koden nedan.
 
     ```factories
     org.springframework.cloud.bootstrap.BootstrapConfiguration=\

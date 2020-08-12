@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 9afb5b7602b220c25d919f8fe0773d5cfa143d89
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a46cd1b916edeae8a24fb997db46e5a0651567cb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80991202"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115279"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -25,7 +25,7 @@ I den här snabb starten används ett kod exempel för att visa hur ett Android-
 Program måste representeras av ett app-objekt i Azure Active Directory så att Microsoft Identity Platform kan tillhandahålla tokens till ditt program.
 
 > [!div renderon="docs"]
-> Kod exemplet innehåller en förkonfigurerad standard `redirect_uri` i `AndroidManifest.xml` filen så att du inte behöver registrera ditt eget app-objekt först. En `redirect_uri` är delvis baserad på appens signerings nyckel. Exempelprojektet är förkonfigurerad med en signerings nyckel så att den tillhandahållna `redirect_uri` fungerar. Mer information om hur du registrerar ett app-objekt och integrerar det med ditt program finns i artikeln [Logga in användare och anropa Microsoft Graph från en Android-app](tutorial-v2-android.md) .
+> Kod exemplet innehåller en `redirect_uri` förkonfigurerad standard i `AndroidManifest.xml` filen så att du inte behöver registrera ditt eget app-objekt först. En `redirect_uri` är delvis baserad på appens signerings nyckel. Exempelprojektet är förkonfigurerad med en signerings nyckel så att den tillhandahållna `redirect_uri` fungerar. Mer information om hur du registrerar ett app-objekt och integrerar det med ditt program finns i artikeln [Logga in användare och anropa Microsoft Graph från en Android-app](tutorial-v2-android.md) .
 
 
 > [!NOTE]
@@ -102,15 +102,15 @@ Koden är indelad i fragment som visar hur du skriver en enda och flera konton M
 | MSGraphRequestWrapper  | Anropar Microsoft Graph-API med hjälp av token som tillhandahålls av MSAL |
 | MultipleAccountModeFragment  | Initierar ett program med flera konton, läser in ett användar konto och hämtar en token för att anropa API: et för Microsoft Graph |
 | SingleAccountModeFragment | Initierar ett program med en enda konto, läser in ett användar konto och hämtar en token för att anropa API: et för Microsoft Graph |
-| Res/auth_config_multiple_account. JSON  | Konfigurations filen för flera konton |
-| Res/auth_config_single_account. JSON  | Konfigurations filen för det enskilda kontot |
+| Res/auth_config_multiple_account.jspå  | Konfigurations filen för flera konton |
+| Res/auth_config_single_account.jspå  | Konfigurations filen för det enskilda kontot |
 | Gradle-skript/bygge. betyg (modul: app) | MSAL biblioteks beroenden läggs till här |
 
 Nu ska vi titta på de här filerna i detalj och anropa MSAL kod i varje.
 
 ### <a name="adding-msal-to-the-app"></a>Lägga till MSAL i appen
 
-MSAL ([com. Microsoft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Gradle 3.0 + installerar biblioteket när du lägger till följande i **Gradle-skript** > **build. Gradle (modul: app)** under **beroenden**:
+MSAL ([com. Microsoft. Identity. client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) är det bibliotek som används för att logga in användare och begära token som används för att få åtkomst till ett API som skyddas av Microsoft Identity Platform. Gradle 3.0 + installerar biblioteket när du lägger till följande i **Gradle-skript**  >  **build. Gradle (modul: app)** under **beroenden**:
 
 ```gradle  
 implementation 'com.microsoft.identity.client:msal:1.+'
@@ -130,7 +130,7 @@ Detta gör att Gradle kan hämta och bygga MSAL från maven Central.
 
 ### <a name="msal-imports"></a>MSAL importer
 
-De importer som är relevanta för MSAL-biblioteket är `com.microsoft.identity.client.*`.  Du kan till exempel se `import com.microsoft.identity.client.PublicClientApplication;` vilket är namn området för `PublicClientApplication` klassen, som representerar det offentliga klient programmet.
+De importer som är relevanta för MSAL-biblioteket är `com.microsoft.identity.client.*` .  Du kan till exempel se `import com.microsoft.identity.client.PublicClientApplication;` vilket är namn området för `PublicClientApplication` klassen, som representerar det offentliga klient programmet.
 
 ### <a name="singleaccountmodefragmentjava"></a>SingleAccountModeFragment. java
 
@@ -140,7 +140,7 @@ Appar för en enda konto används bara av en enskild användare.  Till exempel k
 
 #### <a name="single-account-msal-initialization"></a>MSAL initiering av enskilt konto
 
-I, skapas ett enda konto `PublicClientApplication` med hjälp av den konfigurations information som lagras i `auth_config_single_account.json` filen. `auth_config_single_account.json` `onCreateView()`  Så här initierar du MSAL-biblioteket för användning i en MSAL-app med ett enda konto:
+I, `auth_config_single_account.json` `onCreateView()` skapas ett enda konto `PublicClientApplication` med hjälp av den konfigurations information som lagras i `auth_config_single_account.json` filen.  Så här initierar du MSAL-biblioteket för användning i en MSAL-app med ett enda konto:
 
 ```java
 ...
@@ -167,7 +167,7 @@ PublicClientApplication.createSingleAccountPublicClientApplication(getContext(),
 
 #### <a name="sign-in-a-user"></a>Logga in en användare
 
-I `SingleAccountModeFragment.java`, finns koden för att logga in en användare i `initializeUI()`i rutan `signInButton` Klicka på hanterare.
+I `SingleAccountModeFragment.java` , finns koden för att logga in en användare i i `initializeUI()` rutan `signInButton` Klicka på hanterare.
 
 Anropa `signIn()` innan du försöker hämta tokens. `signIn()`fungerar som om `acquireToken()` kallas, vilket resulterar i en interaktiv prompt där användaren kan logga in.
 
@@ -179,7 +179,7 @@ mSingleAccountApp.signIn(getActivity(), null, getScopes(), getAuthInteractiveCal
 
 #### <a name="sign-out-a-user"></a>Logga ut en användare
 
-I `SingleAccountModeFragment.java`, finns koden för att logga ut en användare i `initializeUI()`i `signOutButton` Klicka på hanterare.  Signering av en användare är en asynkron åtgärd. Vid signering av användaren rensas även token-cachen för det kontot. Ett motanrop skapas för att uppdatera användar gränssnittet när användar kontot har loggats ut:
+I `SingleAccountModeFragment.java` , finns koden för att logga ut en användare i i `initializeUI()` `signOutButton` Klicka på hanterare.  Signering av en användare är en asynkron åtgärd. Vid signering av användaren rensas även token-cachen för det kontot. Ett motanrop skapas för att uppdatera användar gränssnittet när användar kontot har loggats ut:
 
 ```java
 mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallback() {
@@ -198,7 +198,7 @@ mSingleAccountApp.signOut(new ISingleAccountPublicClientApplication.SignOutCallb
 
 #### <a name="get-a-token-interactively-or-silently"></a>Få en token interaktivt eller tyst
 
-För att presentera det minsta antalet prompter för användaren får du vanligt vis en token i bakgrunden. Försök sedan att nå token interaktivt om ett fel uppstår. Första gången appen Anropas `signIn()`fungerar den effektivt som ett anrop till `acquireToken()`, vilket kommer att uppmana användaren att ange autentiseringsuppgifter.
+För att presentera det minsta antalet prompter för användaren får du vanligt vis en token i bakgrunden. Försök sedan att nå token interaktivt om ett fel uppstår. Första gången appen Anropas `signIn()` fungerar den effektivt som ett anrop till `acquireToken()` , vilket kommer att uppmana användaren att ange autentiseringsuppgifter.
 
 Vissa situationer när användaren kan uppmanas att välja sitt konto, ange sina autentiseringsuppgifter eller medgivande till de behörigheter som appen har begärt är:
 
@@ -209,7 +209,7 @@ Vissa situationer när användaren kan uppmanas att välja sitt konto, ange sina
 * När ditt program begär åtkomst till en resurs för första gången
 * När MFA eller andra principer för villkorlig åtkomst krävs
 
-Koden för att hämta en token interaktivt, det vill säga användar gränssnittet som involverar användaren `SingleAccountModeFragment.java`i, i `initializeUI()`, i klickar du `callGraphApiInteractiveButton` på hanteraren:
+Koden för att hämta en token interaktivt, det vill säga användar gränssnittet som involverar användaren i, i `SingleAccountModeFragment.java` `initializeUI()` , i klickar du `callGraphApiInteractiveButton` på hanteraren:
 
 ```java
 /**
@@ -224,7 +224,7 @@ Koden för att hämta en token interaktivt, det vill säga användar gränssnitt
 mSingleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Om användaren redan har loggat in, `acquireTokenSilentAsync()` tillåter appar att begära tokens i bakgrunden som visas i `initializeUI()`, i `callGraphApiSilentButton` Klicka på hanteraren:
+Om användaren redan har loggat in, `acquireTokenSilentAsync()` tillåter appar att begära tokens i bakgrunden som visas i `initializeUI()` , i `callGraphApiSilentButton` Klicka på hanteraren:
 
 ```java
 /**
@@ -236,7 +236,7 @@ Om användaren redan har loggat in, `acquireTokenSilentAsync()` tillåter appar 
 
 #### <a name="load-an-account"></a>Läs in ett konto
 
-Koden som används för att läsa in ett `SingleAccountModeFragment.java` konto `loadAccount()`finns i i.  Inläsning av användarens konto är en asynkron åtgärd, så återanrop för att hantera när kontot läses in, ändringar eller ett fel uppstår skickas till MSAL.  Följande kod hanterar `onAccountChanged()`också, som inträffar när ett konto tas bort, användaren ändras till ett annat konto och så vidare.
+Koden som används för att läsa in ett konto finns i `SingleAccountModeFragment.java` i `loadAccount()` .  Inläsning av användarens konto är en asynkron åtgärd, så återanrop för att hantera när kontot läses in, ändringar eller ett fel uppstår skickas till MSAL.  Följande kod hanterar också `onAccountChanged()` , som inträffar när ett konto tas bort, användaren ändras till ett annat konto och så vidare.
 
 ```java
 private void loadAccount() {
@@ -266,7 +266,7 @@ private void loadAccount() {
 
 #### <a name="call-microsoft-graph"></a>Anropa Microsoft Graph
 
-När en användare är inloggad görs anropet till Microsoft Graph via en HTTP-begäran `callGraphAPI()` som definieras i. `SingleAccountModeFragment.java` Den här funktionen är en omslutning som fören klar exemplet genom att utföra vissa uppgifter, till exempel hämta åtkomsttoken `authenticationResult` från och paketera anropet till MSGraphRequestWrapper och visa resultatet av anropet.
+När en användare är inloggad görs anropet till Microsoft Graph via en HTTP-begäran som `callGraphAPI()` definieras i `SingleAccountModeFragment.java` . Den här funktionen är en omslutning som fören klar exemplet genom att utföra vissa uppgifter, till exempel hämta åtkomsttoken från `authenticationResult` och paketera anropet till MSGraphRequestWrapper och visa resultatet av anropet.
 
 ```java
 private void callGraphAPI(final IAuthenticationResult authenticationResult) {
@@ -290,13 +290,13 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 }
 ```
 
-### <a name="auth_config_single_accountjson"></a>auth_config_single_account. JSON
+### <a name="auth_config_single_accountjson"></a>auth_config_single_account.jspå
 
 Det här är konfigurations filen för en MSAL-app som använder ett enda konto.
 
 Se [förstå konfigurations filen för Android-MSAL](msal-configuration.md) för en förklaring av de här fälten.
 
-Observera förekomsten av `"account_mode" : "SINGLE"`, som konfigurerar den här appen att använda ett enda konto.
+Observera förekomsten av `"account_mode" : "SINGLE"` , som konfigurerar den här appen att använda ett enda konto.
 
 `"client_id"`är förkonfigurerad för att använda en app-programobjekts registrering som Microsoft underhåller.
 `"redirect_uri"`är förkonfigurerad att använda den signerings nyckel som medföljer kod exemplet.
@@ -328,7 +328,7 @@ Ett exempel på en app med flera konton är en e-postapp som gör att du kan arb
 
 #### <a name="multiple-account-msal-initialization"></a>MSAL initiering av flera konton
 
-I `MultipleAccountModeFragment.java` `onCreateView()`-filen skapas ett program objekt för flera konton (`IMultipleAccountPublicClientApplication`) med hjälp av konfigurations informationen som lagras i: `auth_config_multiple_account.json file`
+I `MultipleAccountModeFragment.java` `onCreateView()` -filen skapas ett program objekt för flera konton ( `IMultipleAccountPublicClientApplication` ) med hjälp av konfigurations informationen som lagras i `auth_config_multiple_account.json file` :
 
 ```java
 // Creates a PublicClientApplication object with res/raw/auth_config_multiple_account.json
@@ -348,11 +348,11 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(getContext(
         });
 ```
 
-Det skapade `MultipleAccountPublicClientApplication` objektet lagras i en klass medlems variabel så att det kan användas för att INTERAGERA med MSAL-biblioteket för att hämta tokens och läsa in och ta bort användar kontot.
+Det skapade `MultipleAccountPublicClientApplication` objektet lagras i en klass medlems variabel så att det kan användas för att interagera med MSAL-biblioteket för att hämta tokens och läsa in och ta bort användar kontot.
 
 #### <a name="load-an-account"></a>Läs in ett konto
 
-Flera konto appar anropar `getAccounts()` vanligt vis för att välja det konto som ska användas för MSAL-åtgärder. Koden för att läsa in ett konto finns i `MultipleAccountModeFragment.java` filen i `loadAccounts()`.  Inläsning av användarens konto är en asynkron åtgärd. Det innebär att ett motanrop hanterar situationer när kontot läses in, ändringar eller fel uppstår.
+Flera konto appar anropar vanligt vis för `getAccounts()` att välja det konto som ska användas för MSAL-åtgärder. Koden för att läsa in ett konto finns i `MultipleAccountModeFragment.java` filen i `loadAccounts()` .  Inläsning av användarens konto är en asynkron åtgärd. Det innebär att ett motanrop hanterar situationer när kontot läses in, ändringar eller fel uppstår.
 
 ```java
 /**
@@ -390,7 +390,7 @@ Vissa situationer när användaren kan uppmanas att välja sitt konto, ange sina
 * När ditt program begär åtkomst till en resurs för första gången
 * När MFA eller andra principer för villkorlig åtkomst krävs
 
-Flera konto appar bör vanligt vis hämta token interaktivt, det vill säga med användar gränssnittet som involverar användaren, med `acquireToken()`ett anrop till.  Koden för att hämta en token interaktivt finns i `MultipleAccountModeFragment.java` filen i `initializeUI()`, i `callGraphApiInteractiveButton` Klicka på hanteraren:
+Flera konto appar bör vanligt vis hämta token interaktivt, det vill säga med användar gränssnittet som involverar användaren, med ett anrop till `acquireToken()` .  Koden för att hämta en token interaktivt finns i `MultipleAccountModeFragment.java` filen i `initializeUI()` , i `callGraphApiInteractiveButton` Klicka på hanteraren:
 
 ```java
 /**
@@ -407,7 +407,7 @@ Flera konto appar bör vanligt vis hämta token interaktivt, det vill säga med 
 mMultipleAccountApp.acquireToken(getActivity(), getScopes(), getAuthInteractiveCallback());
 ```
 
-Appar bör inte kräva att användaren loggar in varje gång de begär en token. Om användaren redan har loggat in, `acquireTokenSilentAsync()` tillåter appar att begära tokens utan att fråga användaren, som du ser i `MultipleAccountModeFragment.java` filen`initializeUI()` i `callGraphApiSilentButton` Klicka på hanteraren:
+Appar bör inte kräva att användaren loggar in varje gång de begär en token. Om användaren redan har loggat in, `acquireTokenSilentAsync()` tillåter appar att begära tokens utan att fråga användaren, som du ser i filen i `MultipleAccountModeFragment.java` `initializeUI()` `callGraphApiSilentButton` Klicka på hanteraren:
 
 ```java
 /**
@@ -424,7 +424,7 @@ mMultipleAccountApp.acquireTokenSilentAsync(getScopes(),
 
 #### <a name="remove-an-account"></a>Ta bort ett konto
 
-Koden för att ta bort ett konto och alla cachelagrade tokens för kontot finns i `MultipleAccountModeFragment.java` filen i `initializeUI()` hanteraren för knappen Ta bort konto. Innan du kan ta bort ett konto måste du ha ett konto objekt, som du får från MSAL- `getAccounts()` metoder `acquireToken()`som och. Eftersom borttagning av ett konto är en asynkron åtgärd, `onRemoved` anges återanropet för att uppdatera användar gränssnittet.
+Koden för att ta bort ett konto och alla cachelagrade tokens för kontot finns i `MultipleAccountModeFragment.java` filen i `initializeUI()` hanteraren för knappen Ta bort konto. Innan du kan ta bort ett konto måste du ha ett konto objekt, som du får från MSAL-metoder som `getAccounts()` och `acquireToken()` . Eftersom borttagning av ett konto är en asynkron åtgärd, anges `onRemoved` återanropet för att uppdatera användar gränssnittet.
 
 ```java
 /**
@@ -446,13 +446,13 @@ mMultipleAccountApp.removeAccount(accountList.get(accountListSpinner.getSelected
         });
 ```
 
-### <a name="auth_config_multiple_accountjson"></a>auth_config_multiple_account. JSON
+### <a name="auth_config_multiple_accountjson"></a>auth_config_multiple_account.jspå
 
 Det här är konfigurations filen för en MSAL-app som använder flera konton.
 
 Se [förstå konfigurations filen för Android-MSAL](msal-configuration.md) för en förklaring av de olika fälten.
 
-Till skillnad från konfigurations filen [auth_config_single_account. JSON](#auth_config_single_accountjson) , har `"account_mode" : "MULTIPLE"` den här konfigurations `"account_mode" : "SINGLE"` filen i stället för eftersom detta är en app med flera konton.
+Till skillnad från [auth_config_single_account.jsi](#auth_config_single_accountjson) konfigurations filen, har den här konfigurations filen `"account_mode" : "MULTIPLE"` i stället för `"account_mode" : "SINGLE"` eftersom detta är en app med flera konton.
 
 `"client_id"`är förkonfigurerad för att använda en app-programobjekts registrering som Microsoft underhåller.
 `"redirect_uri"`är förkonfigurerad att använda den signerings nyckel som medföljer kod exemplet.
@@ -483,7 +483,7 @@ Till skillnad från konfigurations filen [auth_config_single_account. JSON](#aut
 Testa [inloggnings användarna och anropa Microsoft Graph från en](tutorial-v2-android.md) själv studie kurs om Android-appar för en steg-för-steg-guide om hur du skapar en Android-app som hämtar en åtkomsttoken och använder den för att anropa Microsoft Graph API.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Anropa Graph API för Android](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-android)
+> [Självstudie: Anropa Graph API för Android](./tutorial-v2-android.md)
 
 ### <a name="msal-for-android-library-wiki"></a>Wiki: MSAL för Android-bibliotek
 

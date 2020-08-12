@@ -1,19 +1,14 @@
 ---
 title: Installera den anslutna dator agenten med Windows PowerShell DSC
 description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc for Servers (för hands version) med hjälp av Windows PowerShell DSC.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6448a2d449f86e93630d9d555e101291aa84c71e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cdda3e6681d3e6912d031c45f5c6da9e92814e8f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003892"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121008"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
 

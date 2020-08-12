@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: bae052e06aae4881dd7203a5616b35e9c96997fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117795"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Gör så här: Migrera från Azure-Access Control Service
 
@@ -59,7 +59,7 @@ All kommunikation med STS-och Management-åtgärderna görs på denna URL. Du an
 
 Undantaget till detta är all trafik till `https://accounts.accesscontrol.windows.net` . Trafik till denna URL hanteras redan av en annan tjänst och påverkas **inte** av Access Control-utfasningen. 
 
-Mer information om Access Control finns i [Access Control Service 2,0 (arkiverad)](https://msdn.microsoft.com/library/hh147631.aspx).
+Mer information om Access Control finns i [Access Control Service 2,0 (arkiverad)](/previous-versions/azure/azure-services/hh147631(v=azure.100)).
 
 ## <a name="find-out-which-of-your-apps-will-be-impacted"></a>Ta reda på vilka appar som kommer att påverkas
 
@@ -129,13 +129,13 @@ Varje moln tjänst från Microsoft som accepterar token som utfärdas av Access 
 
 | Tjänst | Vägledning |
 | ------- | -------- |
-| Azure Service Bus | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Service Bus relä | [Migrera till signaturer för delad åtkomst](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migrera till Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Migrera till API:er för Cognitive Services](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migrera till Logic Apps funktionen i Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus | [Migrera till signaturer för delad åtkomst](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus relä | [Migrera till signaturer för delad åtkomst](../../azure-relay/relay-migrate-acs-sas.md) |
+| Azure Managed Cache | [Migrera till Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.md) |
+| Azure DataMarket | [Migrera till API:er för Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) |
+| BizTalk Services | [Migrera till Logic Apps funktionen i Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrera till Azure AD-autentisering](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Uppgradera Azure Backup Agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Azure Backup | [Uppgradera Azure Backup Agent](../../backup/backup-azure-file-folder-backup-faq.md) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -150,10 +150,10 @@ SharePoint 2013-, 2016-och SharePoint Online-kunder har länge använt ACS för 
 
 | Funktion | Vägledning |
 | ------- | -------- |
-| Autentisera användare från Azure AD | Tidigare har Azure AD inte stöd för SAML 1,1-token som krävs av SharePoint för autentisering, och ACS användes som en mellanhand som gjorde SharePoint kompatibelt med Azure AD-tokens. Nu kan du [ansluta SharePoint direkt till Azure AD med hjälp av Azure AD App galleriet SharePoint i den lokala appen](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [App-autentisering & server-till-Server-autentisering i SharePoint lokalt](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Påverkas inte av ACS-dragande, inga ändringar krävs. | 
-| [Auktorisering med lågt förtroende för SharePoint-tillägg (providern och SharePoint som värd)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Påverkas inte av ACS-dragande, inga ändringar krävs. |
-| [Hybrid sökning för SharePoint-moln](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Påverkas inte av ACS-dragande, inga ändringar krävs. |
+| Autentisera användare från Azure AD | Tidigare har Azure AD inte stöd för SAML 1,1-token som krävs av SharePoint för autentisering, och ACS användes som en mellanhand som gjorde SharePoint kompatibelt med Azure AD-tokens. Nu kan du [ansluta SharePoint direkt till Azure AD med hjälp av Azure AD App galleriet SharePoint i den lokala appen](../saas-apps/sharepoint-on-premises-tutorial.md). |
+| [App-autentisering & server-till-Server-autentisering i SharePoint lokalt](/SharePoint/security-for-sharepoint-server/authentication-overview) | Påverkas inte av ACS-dragande, inga ändringar krävs. | 
+| [Auktorisering med lågt förtroende för SharePoint-tillägg (providern och SharePoint som värd)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Påverkas inte av ACS-dragande, inga ändringar krävs. |
+| [Hybrid sökning för SharePoint-moln](/archive/blogs/spses/cloud-hybrid-search-service-application) | Påverkas inte av ACS-dragande, inga ändringar krävs. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Webb program som använder passiv autentisering
 
@@ -214,7 +214,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 
 Om du bestämmer att Azure AD är den bästa sökvägen för migrering för dina program och tjänster, bör du vara medveten om två sätt att integrera din app med Azure AD.
 
-Om du vill använda WS-Federation eller WIF för att integrera med Azure AD rekommenderar vi att du följer metoden som beskrivs i [Konfigurera federerad enkel inloggning för ett program som inte är ett galleri program](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Artikeln handlar om hur du konfigurerar Azure AD för SAML-baserad enkel inloggning, men som även fungerar för att konfigurera WS-Federation. Följande metod kräver en Azure AD Premium-licens. Den här metoden har två fördelar:
+Om du vill använda WS-Federation eller WIF för att integrera med Azure AD rekommenderar vi att du följer metoden som beskrivs i [Konfigurera federerad enkel inloggning för ett program som inte är ett galleri program](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). Artikeln handlar om hur du konfigurerar Azure AD för SAML-baserad enkel inloggning, men som även fungerar för att konfigurera WS-Federation. Följande metod kräver en Azure AD Premium-licens. Den här metoden har två fördelar:
 
 - Du får fullständig flexibilitet för Azure AD-token-anpassning. Du kan anpassa de anspråk som utfärdas av Azure AD för att matcha de anspråk som utfärdas av Access Control. Detta omfattar särskilt användar-ID eller namn-ID-anspråk. Om du vill fortsätta att ta emot konsekventa användar identifierare för användarna när du har ändrat teknik kontrollerar du att de användar-ID: n som utfärdats av Azure AD matchar de som utfärdats av Access Control.
 - Du kan konfigurera ett certifikat för tokensignering som är specifika för ditt program och med en livs längd som du styr.
@@ -224,7 +224,7 @@ Om du vill använda WS-Federation eller WIF för att integrera med Azure AD reko
 
 En annan metod är att följa [det här kod exemplet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), vilket ger något annorlunda instruktioner för att konfigurera WS-Federation. Det här kod exemplet använder inte WIF, utan i stället ASP.NET 4,5 OWIN mellan. Instruktionerna för registrering av appar är dock giltiga för appar som använder WIF och kräver inte någon Azure AD Premium-licens. 
 
-Om du väljer den här metoden måste du förstå [förnyelse av signerings nyckel i Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). I den här metoden används den globala Azure AD-signerings nyckeln för att utfärda token. Som standard uppdaterar WIF inte signerings nycklar automatiskt. När Azure AD roterar sina globala signerings nycklar måste din WIF-implementering förberedas för att godkänna ändringarna. Mer information finns i [viktig information om förnyelse av signerings nyckel i Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+Om du väljer den här metoden måste du förstå [förnyelse av signerings nyckel i Azure AD](../develop/active-directory-signing-key-rollover.md). I den här metoden används den globala Azure AD-signerings nyckeln för att utfärda token. Som standard uppdaterar WIF inte signerings nycklar automatiskt. När Azure AD roterar sina globala signerings nycklar måste din WIF-implementering förberedas för att godkänna ändringarna. Mer information finns i [viktig information om förnyelse av signerings nyckel i Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
 Om du kan integrera med Azure AD via OpenID Connect eller OAuth-protokoll rekommenderar vi att du gör det. Vi har omfattande dokumentation och vägledning om hur du integrerar Azure AD i ditt webb program i [Azure AD Developer Guide](https://aka.ms/aaddev).
 
@@ -265,8 +265,8 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 
 Om du bestämmer att Azure AD B2C är den bästa migreringen för dina program och tjänster börjar du med följande resurser:
 
-- [Azure AD B2C dokumentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Azure AD B2C anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Azure AD B2C dokumentation](../../active-directory-b2c/overview.md)
+- [Azure AD B2C anpassade principer](../../active-directory-b2c/custom-policy-overview.md)
 - [Azure AD B2C priser](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrera till ping-identitet eller Auth0

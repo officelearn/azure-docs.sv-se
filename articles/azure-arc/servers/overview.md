@@ -1,21 +1,16 @@
 ---
 title: Översikt över Azure Arc for Servers (för hands version)
 description: Lär dig hur du använder Azure Arc för servrar för att hantera datorer som ligger utanför Azure, som om det är en Azure-resurs.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: 8c02b22d27fbae0465ed3b8c97622544256854e0
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905626"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121807"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (för hands version)?
 

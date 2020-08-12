@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 499b7348c645f4792332769ac598ffcea07ea102
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541914"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121093"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Hämta en token för en mobilapp som anropar webb-API: er
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`har endast en obligatorisk parameter: `scopes` . `scopes`Parametern räknar upp strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph kan du hitta de omfattningar som krävs i API-referensen för varje Microsoft Graph-API. I referensen går du till avsnittet "behörigheter".
 
-Om du till exempel vill [lista användarens kontakter](https://docs.microsoft.com/graph/api/user-list-contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Om du till exempel vill [lista användarens kontakter](/graph/api/user-list-contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 På Android kan du ange överordnad aktivitet när du skapar appen med hjälp av `PublicClientApplicationBuilder` . Om du inte anger den överordnade aktiviteten vid den tiden kan du senare ange den genom att använda `.WithParentActivityOrWindow` som i följande avsnitt. Om du anger en överordnad aktivitet återgår token till den överordnade aktiviteten efter interaktionen. Om du inte anger det `.ExecuteAsync()` genererar anropet ett undantag.
 
@@ -234,7 +234,7 @@ Klassen definierar följande konstanter:
 - `ForceLogin`gör att tjänsten kan fråga användaren om autentiseringsuppgifter även om frågan inte behövs.
 
     Det här alternativet kan vara användbart om hämtningen av token Miss lyckas och du vill låta användaren logga in igen. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Du kanske vill använda det här alternativet i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in varje gång de kommer åt specifika delar av programmet.
-- `Never`är endast för .NET 4,5 och Windows Runtime (WinRT). Den här konstanten kommer inte att fråga användaren, men den kommer att försöka använda den cookie som lagras i den dolda inbäddade vyn. Mer information finns i [använda webbläsare med MSAL.net](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never`är endast för .NET 4,5 och Windows Runtime (WinRT). Den här konstanten kommer inte att fråga användaren, men den kommer att försöka använda den cookie som lagras i den dolda inbäddade vyn. Mer information finns i [använda webbläsare med MSAL.net](./msal-net-web-browsers.md).
 
     Om det här alternativet Miss lyckas `AcquireTokenInteractive` utlöses ett undantag för att meddela dig att det krävs en användar gränssnitts interaktion. Sedan måste du använda en annan `Prompt` parameter.
 - `NoPrompt`skickar inte någon prompt till identitets leverantören.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: 13e4c7a981124aba22dcb324d60e075d1d552bf8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1bf080ad4c4dc665e61d1075cf22c84d4cd66648
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526808"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121399"
 ---
 # <a name="how-to-use-perfinsights"></a>Så här använder du PerfInsights
 
@@ -83,7 +83,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
   - Routningstabell för nätverk
   - Öppna portar och status
 
-- Storage
+- Lagring
   - Blockera enhets lista
   - Lista med partitioner
   - Lista över monterings punkter
@@ -99,6 +99,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
   - /var/log/boot.log
   - /var/log/yum.log
   - /var/log/dpkg.log
+  - /var/log/sysstat eller/var/log/sa [ `**` ]
   - /var/log/cloud-init.log
   - /var/log/cloud-init-output.log
   - /var/log/gpu-manager.log
@@ -112,7 +113,9 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
 - [Metadata för virtuell Azure-dator](../windows/instance-metadata-service.md)
 
 >[!Note]
->[ `*` ] PCI-information har inte samlats in på Debian-och SLES-distributioner
+>[ `*` ] PCI-information har inte samlats in på Debian-och SLES-distributioner.
+> 
+>[ `**` ]/var/log/sysstat eller/var/log/sa innehåller filer för system aktivitets rapport (SAR) som samlas in av sysstat-paketet. Om sysstat-paketet inte är installerat på den virtuella datorn, ger verktyget PerfInsights en rekommendation att installera det.
 
 ## <a name="run-the-perfinsights-linux-on-your-vm"></a>Kör PerfInsights Linux på den virtuella datorn
 
@@ -121,7 +124,7 @@ Information om den virtuella Linux-datorn, operativ systemet, blockera enheter, 
 #### <a name="tool-requirements"></a>Verktygs krav
 
 - Det här verktyget måste köras på den virtuella datorn som har prestanda problemet.
-- Python 2,7 måste vara installerat på den virtuella datorn
+- Python 3. x eller python 2,7 måste vara installerat på den virtuella datorn.
 
 - Följande distributioner stöds för närvarande:
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682438"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120787"
 ---
 # <a name="publisher-verification-preview"></a>Verifiering av utgivare (förhandsversion)
 
@@ -42,13 +42,13 @@ Det finns några krav för utgivar verifiering, varav vissa redan har slutförts
 
 -  Ett MPN-ID för ett giltigt [Microsoft Partner Network](https://partner.microsoft.com/membership) -konto som har slutfört [verifierings](/partner-center/verification-responses) processen. Det här MPN-kontot måste vara [partnerns globala konto (pga)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) för din organisation. 
 
--  En Azure AD-klient med en DNS-verifierad [domän](/azure/active-directory/fundamentals/add-custom-domain). Den anpassade domänen måste matcha domänen för den e-postadress som användes vid verifieringen i föregående steg. 
+-  En Azure AD-klient med en DNS-verifierad [domän](../fundamentals/add-custom-domain.md). Den anpassade domänen måste matcha domänen för den e-postadress som användes vid verifieringen i föregående steg. 
 
 -  En app som är registrerad i en Azure AD-klient, med en [Publisher-domän](howto-configure-publisher-domain.md) konfigurerad med samma domän som tidigare användes. 
 
 -  Den användare som utför verifieringen måste ha behörighet att göra ändringar i både appens registrering i Azure AD och MPN-kontot i Partner Center. 
 
-    -  I Azure AD måste användaren antingen vara ägare till appen eller ha en av följande [roller](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): program administratör, Cloud program admin, global administratör. 
+    -  I Azure AD måste användaren antingen vara ägare till appen eller ha en av följande [roller](../users-groups-roles/directory-assign-admin-roles.md): program administratör, Cloud program admin, global administratör. 
 
     -  Den här användaren måste ha följande [roller](/partner-center/permissions-overview)i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD).
     
@@ -67,7 +67,7 @@ Nedan visas några vanliga frågor om verifierings programmet för utgivare. Van
 
   Utvecklare som också integrerar med Microsoft 365 kan få ytterligare förmåner från dessa program. Mer information finns i [Microsoft 365 utgivarens attestering](/microsoft-365-app-certification/docs/attestation) och [Microsoft 365 certifiering av appar](/microsoft-365-app-certification/docs/certification). 
 
-- **Är det samma sak som Azure AD-programgalleriet?** Ingen-utgivar verifiering är ett komplett men separat program till [Azure Active Directory program galleriet](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Utvecklare som uppfyller ovanstående kriterier bör slutföra utgivarens verifierings process oberoende av deltagande i det programmet. 
+- **Är det samma sak som Azure AD-programgalleriet?** Ingen-utgivar verifiering är ett komplett men separat program till [Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md). Utvecklare som uppfyller ovanstående kriterier bör slutföra utgivarens verifierings process oberoende av deltagande i det programmet. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [markerar en app när utgivaren har verifierats](mark-app-as-publisher-verified.md).

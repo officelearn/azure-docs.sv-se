@@ -12,12 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b2f9fd27515e9ecda6e78ae16528a4956d3bf607
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552772"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115602"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Signering av nyckel förnyelse i Microsoft Identity Platform
 Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används av Microsoft Identity Platform för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Microsoft Identity Platform bör kunna hantera nyckel förnyelse processen program mässigt eller upprätta en periodisk manuell förnyelse process. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
@@ -148,7 +148,7 @@ Om du har skapat ett webb-API-program i Visual Studio 2013 med hjälp av webb-AP
 
 Om du har konfigurerat autentisering manuellt följer du anvisningarna nedan och lär dig hur du konfigurerar ditt webb-API för att automatiskt uppdatera dess nyckelinformation.
 
-Följande kodfragment visar hur du hämtar de senaste nycklarna från federationsmetadata och använder sedan [JWT token-hanteraren](https://msdn.microsoft.com/library/dn205065.aspx) för att validera token. Kodfragmentet förutsätter att du använder din egen caching-mekanism för att spara nyckeln för att validera framtida token från Microsoft Identity Platform, oavsett om det är en databas, en konfigurations fil eller någon annan stans.
+Följande kodfragment visar hur du hämtar de senaste nycklarna från federationsmetadata och använder sedan [JWT token-hanteraren](/previous-versions/dotnet/framework/security/json-web-token-handler) för att validera token. Kodfragmentet förutsätter att du använder din egen caching-mekanism för att spara nyckeln för att validera framtida token från Microsoft Identity Platform, oavsett om det är en databas, en konfigurations fil eller någon annan stans.
 
 ```
 using System;
@@ -239,7 +239,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2012
-Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Microsoft Identity Platform) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
+Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Microsoft Identity Platform) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
 
 Om du har skapat programmet med något av kod exemplen eller genom gångs dokumentationen från Microsoft ingår nyckel förnyelse logiken redan i projektet. Du ser att koden nedan redan finns i ditt projekt. Om programmet inte redan har den här logiken följer du stegen nedan för att lägga till den och kontrol lera att den fungerar som den ska.
 
@@ -288,14 +288,14 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
 Om du har byggt ett program på WIF v 1.0 finns det ingen funktion för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.
 
 * *Enklaste sättet* Använd FedUtil-verktyget som ingår i WIF SDK, som kan hämta det senaste Metadatadokumentet och uppdatera konfigurationen.
-* Uppdatera ditt program till .NET 4,5, som innehåller den senaste versionen av WIF som finns i systemets namnrymd. Du kan sedan använda [verifiering av utfärdarens namn register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) för att utföra automatiska uppdateringar av programmets konfiguration.
+* Uppdatera ditt program till .NET 4,5, som innehåller den senaste versionen av WIF som finns i systemets namnrymd. Du kan sedan använda [verifiering av utfärdarens namn register (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) för att utföra automatiska uppdateringar av programmets konfiguration.
 * Utför en manuell förnyelse enligt anvisningarna i slutet av det här vägledning dokumentet.
 
 Instruktioner för att använda FedUtil för att uppdatera konfigurationen:
 
 1. Kontrol lera att WIF v 1.0 SDK är installerat på utvecklings datorn för Visual Studio 2008 eller 2010. Du kan [Ladda ned det här](https://www.microsoft.com/en-us/download/details.aspx?id=4451) om du inte har installerat det än.
 2. Öppna lösningen i Visual Studio och högerklicka sedan på tillämpligt projekt och välj **Uppdatera federationsmetadata**. Om det här alternativet inte är tillgängligt är FedUtil och/eller WIF v 1.0 SDK inte installerat.
-3. I prompten väljer du **Uppdatera** för att börja uppdatera federationsmetadata. Om du har åtkomst till den server miljö där programmet finns kan du välja att använda FedUtil för [Automatisk uppdatering av metadata](https://msdn.microsoft.com/library/ee517272.aspx).
+3. I prompten väljer du **Uppdatera** för att börja uppdatera federationsmetadata. Om du har åtkomst till den server miljö där programmet finns kan du välja att använda FedUtil för [Automatisk uppdatering av metadata](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
 4. Slutför uppdaterings processen genom att klicka på **Slutför** .
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Webb program/API: er som skyddar resurser med andra bibliotek eller manuellt implementerar något av de protokoll som stöds

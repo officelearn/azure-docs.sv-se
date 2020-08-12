@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: e06a2eac5387cd02e95d8252ae04edc356683ed9
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028239"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119529"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -241,7 +241,7 @@ Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort]
 
 Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emulator.exe /?` i kommandotolken.
 
-|**Alternativ** | **Beskrivning** | **Kommandoprompt**| **Argument**|
+|**Alternativ** | **Beskrivning** | **Kommando**| **Argument**|
 |---|---|---|---|
 |[Inga argument] | Startar Azure Cosmos-emulatorn med standardinställningar. |Microsoft.Azure.Cosmos.Emulator.exe| |
 |[Hjälp] |Visar en lista över kommandoradsargument som stöds.|Microsoft.Azure.Cosmos.Emulator.exe/? | |
@@ -268,7 +268,7 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
@@ -296,7 +296,7 @@ Kör följande steg för att ändra antalet behållare som är tillgängliga i A
 2. Ta bort alla emulator-data i den här mappen `%LOCALAPPDATA%\CosmosDBEmulator` .
 3. Avsluta alla öppna instanser genom att högerklicka på ikonen för **Azure Cosmos DB-emulator** i meddelandefältet och klicka sedan på **Avsluta**. Det kan ta någon minut för alla instanser att avslutas.
 4. Installera den senaste versionen av [Azure Cosmos-emulatorn](https://aka.ms/cosmosdb-emulator).
-5. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
+5. Starta emulatorn med PartitionCount-flaggan genom att ställa in ett värde <= 250. Till exempel: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
 
 ## <a name="controlling-the-emulator"></a>Kontrollera emulatorn
 
@@ -507,6 +507,8 @@ Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmo
 - Om du stöter på problem med anslutningen [samlar du in spårningsfiler](#trace-files), komprimerar dem och öppnar ett support ärende i [Azure Portal](https://portal.azure.com).
 
 - Om du ser ett meddelande om att **tjänsten inte är tillgänglig** kanske emulatorn misslyckas med att initiera nätverksstacken. Se efter om du har Pulse Secure-klienten eller Juniper-nätverksklienten installerad, eftersom deras nätverksfilterdrivrutiner kan orsaka problemet. Avinstallation av nätverksfilterdrivrutiner från tredje part åtgärdar vanligen problemet. Du kan också starta emulatorn med/DisableRIO, som växlar kommunikationen mellan emulatorn och den vanliga Winsock-anslutningen. 
+
+- Om du stöter på **"förbjuden", "meddelande": "begäran görs med en otillåten kryptering i överförings protokoll eller Cipher. Kontrol lera kontot SSL/TLS lägsta tillåtna protokoll inställning... "** anslutnings problem, detta kan bero på globala ändringar i operativ systemet (till exempel Insider Preview version 20170) eller webb läsar inställningarna som aktiverar TLS 1,3 som standard. Liknande fel kan uppstå när du använder SDK för att köra en begäran mot Cosmos-emulatorn, till exempel **Microsoft.Azure.Documents.DocumentClientException: begäran görs med en otillåten kryptering i överförings protokoll eller chiffer. Kontrol lera konto inställningen SSL/TLS lägsta tillåtna protokoll**. Detta förväntas för tillfället eftersom Cosmos-emulatorn bara accepterar och fungerar med TLS 1,2-protokollet. Det rekommenderade arbetet är att ändra inställningarna och standardvärdet för TLS 1,2; till exempel i IIS-hanteraren navigerar du till "platser"-> "standard webbplatser" och letar upp "webbplats bindningar" för port 8081 och redigerar dem för att inaktivera TLS 1,3. Liknande-åtgärden kan utföras för webbläsaren via alternativen "Inställningar".
 
 - Om datorn försätts i viloläge eller om operativsystemet uppdateras när emulatorn körs kan du se meddelandet **Tjänsten är inte tillgänglig just nu**. Återställ emulatorns data genom att högerklicka på ikonen som visas i meddelande fältet i Windows och välj **Återställ data**.
 

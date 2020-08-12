@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ebf543a3880a4f2c8ee8c0d706c268ef3f08d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25199aeb7a3ed6332e74ad05835a8c4fca763c00
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035493"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116469"
 ---
 # <a name="troubleshoot-on-premises-azure-ad-password-protection"></a>Felsöka: lokalt Azure AD-lösenord
 
@@ -72,7 +72,20 @@ Azure AD Password Protection är ett kritiskt beroende av de krypterings-och dek
 
    En säkerhets korrigering för KDS introducerades i Windows Server 2016 som ändrar formatet på KDS-krypterade buffertar. Dessa buffertar kan ibland inte dekrypteras på Windows Server 2012 och Windows Server 2012 R2. Den motsatta riktningen är OK-buffertar som är KDS-krypterade på Windows Server 2012 och Windows Server 2012 R2 kommer alltid att kunna dekryptera på Windows Server 2016 och senare. Om domän kontrol Lanterna i Active Directory domäner kör en blandning av dessa operativ system kan tillfälliga Azure AD-dekryptering av lösen ords skydd rapporteras. Det går inte att förutsäga tiden eller symtomen på dessa problem på ett korrekt sätt med hjälp av säkerhets korrigeringens typ, och eftersom den är icke-deterministisk som DC-agenten för lösen ords skydd för Azure AD som domänkontrollanten kommer att kryptera data vid en specifik tidpunkt.
 
-   Microsoft undersöker en korrigering för det här problemet, men det finns ingen tillgänglig i ännu. Under tiden finns det ingen lösning på det här problemet än att inte köra en blandning av dessa inkompatibla operativ system i Active Directory-domänerna. Med andra ord bör du bara köra domänkontrollanter som kör Windows Server 2012 och Windows Server 2012 R2, eller så bör du bara köra Windows Server 2016 och senare domänkontrollanter.
+   Det finns ingen lösning på det här problemet än att inte köra en blandning av dessa inkompatibla operativ system i Active Directory-domänerna. Med andra ord bör du bara köra domänkontrollanter som kör Windows Server 2012 och Windows Server 2012 R2, eller så bör du bara köra Windows Server 2016 och senare domänkontrollanter.
+
+## <a name="dc-agent-thinks-the-forest-has-not-been-registered"></a>DC-agenten tror att skogen inte har registrerats
+
+Symptomet på det här problemet är 30016 händelser som registreras i Agent\Admin-kanalen för DC som står i del:
+
+```text
+The forest has not been registered with Azure. Password policies cannot be downloaded from Azure unless this is corrected.
+```
+
+Det finns två möjliga orsaker till det här problemet.
+
+1. Skogen har inte registrerats. Lös problemet genom att köra kommandot register-AzureADPasswordProtectionForest enligt beskrivningen i [distributions kraven](howto-password-ban-bad-on-premises-deploy.md).
+1. Skogen har registrerats, men DC-agenten kan inte dekryptera skogens registrerings data. Det här fallet har samma rotor saken som problem #2 som anges ovan under [DC-agenten kan inte kryptera eller dekryptera filer för lösen ords princip](howto-password-ban-bad-on-premises-troubleshoot.md#dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files). Ett enkelt sätt att bekräfta den här teorien är att du bara ser det här felet på DC-agenter som körs på Windows Server 2012 eller Windows Server 2012R2 domänkontrollanter, medan DC-agenter som körs på Windows Server 2016 och senare domänkontrollanter fungerar. Lösningen är densamma: uppgradera alla domänkontrollanter till Windows Server 2016 eller senare.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösen ord godkänns men bör inte
 

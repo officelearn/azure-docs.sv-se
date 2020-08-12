@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: how-to
+ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489613"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121280"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,6 +141,44 @@ Utdata från det här kommandot liknar följande JSON:
   "workspaceid": "<GUID>"
 }
 ```
+
+### <a name="virtual-network-and-private-endpoint"></a>Virtuellt nätverk och privat slut punkt
+
+Om du vill begränsa åtkomsten till din arbets yta till ett virtuellt nätverk kan du använda följande parametrar:
+
+* `--pe-name`: Namnet på den privata slut punkt som skapas.
+* `--pe-auto-approval`: Om de privata slut punkts anslutningarna till arbets ytan automatiskt ska godkännas.
+* `--pe-resource-group`: Resurs gruppen som den privata slut punkten ska skapas i. Måste vara samma grupp som innehåller det virtuella nätverket.
+* `--pe-vnet-name`: Det befintliga virtuella nätverket som den privata slut punkten ska skapas i.
+* `--pe-subnet-name`: Namnet på det undernät som den privata slut punkten ska skapas i. Standardvärdet är `default`.
+
+Mer information om hur du använder en privat slut punkt och ett virtuellt nätverk med din arbets yta finns i [nätverks isolering och sekretess](how-to-enable-virtual-network.md).
+
+### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Kundhanterad nyckel och arbets yta med hög arbets belastning
+
+Som standard lagras mått och metadata för arbets ytan i en Azure Cosmos DB-instans som Microsoft underhåller. Dessa data är krypterade med Microsoft-hanterade nycklar. 
+
+Om du skapar en __företags__ version av Azure Machine Learning kan du använda ange din egen nyckel. Om du gör det skapas Azure Cosmos DB-instansen som lagrar mått och metadata i din Azure-prenumeration. Använd `--cmk-keyvault` parametern för att ange Azure Key Vault som innehåller nyckeln och `--resource-cmk-uri` för att ange URL: en för nyckeln i valvet.
+
+> [!IMPORTANT]
+> Innan du använder `--cmk-keyvault` `--resource-cmk-uri` parametrarna och måste du först utföra följande åtgärder:
+>
+> 1. Auktorisera __Machine Learning-appen__ (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
+> 1. Följ stegen i [Konfigurera Kundhanterade nycklar](/azure/cosmos-db/how-to-setup-cmk) för att:
+>     * Registrera Azure Cosmos DB-providern
+>     * Skapa och konfigurera en Azure Key Vault
+>     * Generera en nyckel
+>
+>     Du behöver inte skapa Azure Cosmos DB-instansen manuellt, en skapas automatiskt när du skapar arbets ytan. Den här Azure Cosmos DB-instansen skapas i en separat resurs grupp med hjälp av ett namn baserat på det här mönstret: `<your-resource-group-name>_<GUID>` .
+>
+> Du kan inte ändra den här inställningen när du har skapat arbets ytan. Om du tar bort Azure Cosmos DB som används av din arbets yta, måste du också ta bort arbets ytan som använder den.
+
+Om du vill begränsa de data som Microsoft samlar in på din arbets yta använder du `--hbi-workspace` parametern. 
+
+> [!IMPORTANT]
+> Du kan bara välja hög påverkan på verksamheten när du skapar en arbets yta. Du kan inte ändra den här inställningen när du har skapat arbets ytan.
+
+Mer information om Kundhanterade nycklar och arbets ytan för arbets ytor med hög arbets belastning finns i [företags säkerhet för Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Använd befintliga resurser
 

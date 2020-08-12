@@ -13,12 +13,12 @@ ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea5cc53d909ed090e152af84da49c8e87907f6bf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82883234"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120617"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -78,7 +78,7 @@ I föregående kodfragment:
 
 - `policy`är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn` ).
 - `ParentActivityOrWindow`krävs för Android (aktiviteten) och är valfritt för andra plattformar som har stöd för ett överordnat användar gränssnitt som Windows på Microsoft Windows och UIViewController i iOS. Mer information om UI-dialogrutan finns i [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) på MSAL-wikin.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Ett exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Till exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -134,7 +134,7 @@ Genom att använda användar namn/lösen ord i ett ROPC-flöde kan du offra fler
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Konfigurera ROPC-flödet i Azure AD B2C
 
-Skapa ett nytt användar flöde i Azure AD B2C klient och välj Logga in **med ROPC** för att aktivera ROPC för användar flödet. Mer information finns i [Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord](/azure/active-directory-b2c/configure-ropc).
+Skapa ett nytt användar flöde i Azure AD B2C klient och välj Logga in **med ROPC** för att aktivera ROPC för användar flödet. Mer information finns i [Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication`innehåller `AcquireTokenByUsernamePassword` metoden:
 
@@ -182,7 +182,7 @@ Ett symtom på ett sådant scenario är att MSAL.NET returnerar `Missing from th
 
 Den föreslagna lösningen är att använda [cachelagring enligt princip](#acquire-a-token-to-apply-a-policy) som beskrivs ovan.
 
-Du kan också använda `tid` anspråket om du använder [anpassade principer](../../active-directory-b2c/custom-policy-get-started.md) i Azure AD B2C. Anpassade principer kan returnera ytterligare anspråk till ditt program genom att använda [anspråks omvandling](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Du kan också använda `tid` anspråket om du använder [anpassade principer](../../active-directory-b2c/custom-policy-get-started.md) i Azure AD B2C. Anpassade principer kan returnera ytterligare anspråk till ditt program genom att använda [anspråks omvandling](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Minskning av "saknas från" token Response "
 

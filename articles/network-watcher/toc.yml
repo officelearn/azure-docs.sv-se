@@ -49,6 +49,8 @@
       items:
         - name: Säkerhetsbaslinje
           href: security-baseline.md
+    - name: Dataplacering
+      href: data-residency.md
 - name: Anvisningar
   items:
     - name: Konfigurera Network Watcher

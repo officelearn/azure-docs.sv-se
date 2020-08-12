@@ -8,12 +8,12 @@ metadata:
   ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 432dfe4e7907d8599dd9655a3e3eb67987ea6f39
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "73932233"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88078027"
 landingContent:
 - title: Om Azure Database for PostgreSQL
   linkLists:
@@ -23,13 +23,13 @@ landingContent:
       url: overview.md
   - linkListType: whats-new
     links:
-    - text: Ta en titt på vår blogg
+    - text: Ta en titt på bloggen
       url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
 - title: Skapa en enkel server
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa en server med Azure-portalen
+    - text: Skapa en server med Azure Portal
       url: quickstart-create-server-database-portal.md
     - text: Skapa en server med Azure CLI
       url: quickstart-create-server-database-azure-cli.md
@@ -41,7 +41,7 @@ landingContent:
     links:
     - text: Prisnivåer
       url: concepts-pricing-tiers.md
-    - text: Begränsningar
+    - text: Gränser
       url: concepts-limits.md
     - text: PostgreSQL-versioner
       url: concepts-supported-versions.md
@@ -49,12 +49,12 @@ landingContent:
       url: concepts-extensions.md
   - linkListType: tutorial
     links:
-    - text: Utforma en databas med hjälp av Azure-portalen
+    - text: Utforma en databas med hjälp av Azure Portal
       url: tutorial-design-database-using-azure-portal.md
     - text: Utforma en databas med hjälp av Azure CLI
       url: tutorial-design-database-using-azure-cli.md
     - text: Skapa en webbapp med Python och CLI
-      url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
+      url: ../app-service/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
     - text: Övervaka och finjustera tjänsten
       url: tutorial-monitor-and-tune.md
 - title: Skapa ett Hyperskala-kluster (Citus)
@@ -107,7 +107,7 @@ landingContent:
       url: connect-csharp.md
     - text: Ansluta med Go
       url: connect-go.md
-- title: 'Kod med programmerings-API: er'
+- title: 'Skriva kod med programmerings-API: er'
   linkLists:
   - linkListType: get-started
     links:
@@ -129,7 +129,7 @@ landingContent:
       url: concepts-backup.md
   - linkListType: how-to-guide
     links:
-    - text: Återställa en server med hjälp av Azure-portalen
+    - text: Återställa en server med hjälp av Azure Portal
       url: howto-restore-server-portal.md
     - text: Återställa en server med hjälp av Azure CLI
       url: howto-restore-server-cli.md

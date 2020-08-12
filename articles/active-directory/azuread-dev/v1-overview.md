@@ -13,18 +13,18 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: db158a50cfc164a0fc839e858cc6e7c46558eb77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8cb426239fe9f3dea207df06b6f2bafbdb54058a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85551584"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117676"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Översikt över Azure Active Directory för utvecklare (v 1.0)
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
-Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](https://docs.microsoft.com/graph/overview) och anpassade API:er som bygger på Azure AD-plattformen. Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect.
+Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvecklare kan använda för att skapa appar som på ett säkert sätt kan logga in användare som har ett arbets- eller skolkonto hos Microsoft. Azure AD stöder utvecklare som skapar såväl verksamhetsspecifika appar för en klient som appar för flera klienter. Förutom grundläggande inloggning, kan Azure AD även låta appar anropa både Microsoft API:er som [Microsoft Graph](/graph/overview) och anpassade API:er som bygger på Azure AD-plattformen. Den här dokumentationen innehåller information om hur du lägger till stöd för Azure AD i ditt program med hjälp av protokoll av branschstandardtyp som OAuth2.0 och OpenID Connect.
 
 > [!NOTE]
 > Merparten av innehållet på den här sidan fokuserar på slut punkten och plattformen för v 1.0, som endast stöder Microsoft arbets-eller skol konton. Om du vill logga in på konsumenter eller personliga Microsoft-konton kan du läsa informationen på [slut punkten och plattformen för v 2.0](../develop/v2-overview.md). V 2.0-slutpunkten erbjuder en enhetlig utvecklings upplevelse för appar som vill logga in på alla Microsoft-identiteter.
@@ -48,7 +48,7 @@ Följande artiklar innehåller detaljerad information om API:er, protokollmeddel
 - [Kod exempel](sample-v1-code.md) En lista över alla kod exempel för Azure AD.
 - [Ord lista](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) Terminologi och definitioner av ord som används i den här dokumentationen.
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 Se [Azure Active Directory Developer Platform-videor](videos.md) för att hjälpa till att migrera till den nya Microsoft Identity Platform.
 

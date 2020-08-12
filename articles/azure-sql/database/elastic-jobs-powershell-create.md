@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 093214241757bdc3973d88d5a0e6f3157c6178c7
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 84f3bbc01d7161dd6d7002102cc006dfae3ce3e4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85251139"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118169"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastiska jobb](job-automation-overview.md#elastic-database-jobs-preview) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
+[Elastiska jobb (för hands version)](job-automation-overview.md#elastic-database-jobs-preview) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
 
 I den här självstudien får du lära dig de steg som krävs för att köra en fråga över flera databaser:
 
@@ -35,7 +35,7 @@ I den här självstudien får du lära dig de steg som krävs för att köra en 
 > * Starta körningen av ett jobb
 > * Övervaka ett jobb
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den uppgraderade versionen av Elastic Database-jobb har en ny uppsättning PowerShell-cmdlets som kan användas under migreringen. Dessa nya cmdletar överför alla befintliga autentiseringsuppgifter för jobb, mål (inklusive databaser, servrar, anpassade samlingar), jobb utlösare, jobb scheman, jobb innehåll och jobb till en ny elastisk jobb agent.
 
@@ -280,9 +280,9 @@ I följande tabell visas möjliga tillstånd för jobb körning:
 |**Skapad** | Jobb körningen har precis skapats och pågår ännu inte.|
 |**Pågår** | Jobb körningen pågår just nu.|
 |**WaitingForRetry** | Det gick inte att slutföra åtgärden för jobb körningen och väntar på att försöka igen.|
-|**Lyckades** | Jobb körningen har slutförts.|
+|**Brutit** | Jobb körningen har slutförts.|
 |**SucceededWithSkipped** | Jobb körningen har slutförts men vissa av dess underordnade hoppades över.|
-|**Misslyckades** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
+|**Misslyckad** | Jobb körningen har misslyckats och förbrukat sina återförsök.|
 |**Stängningsåtgärd** | Tids gränsen nåddes för jobb körningen.|
 |**Avbrutna** | Jobb körningen avbröts.|
 |**Överhoppad** | Jobb körningen hoppades över eftersom en annan körning av samma jobb steg redan kördes på samma mål.|

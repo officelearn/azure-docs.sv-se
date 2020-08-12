@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e86b89fbf325eb0af5e4127e7fe113b87b1b70c2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9ad5eeec17027b0e2891069af703c28aee9c528
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874273"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119104"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Cachelagring av token i MSAL.NET
 När en [token har hämtats](msal-acquire-cache-tokens.md)cachelagras den av Microsoft Authentication Library (MSAL).  Program koden bör försöka hämta en token från cachen innan du hämtar en token med en annan metod.  I den här artikeln beskrivs standard och anpassad serialisering för token cache i MSAL.NET.
@@ -325,7 +325,7 @@ services.AddDistributedSqlServerCache(options =>
 });
 ```
 
-Deras användning finns i [självstudierna ASP.net Core Web Apps](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/) i fas [2-2-token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
+Deras användning finns i [självstudierna ASP.net Core Web Apps](/aspnet/core/tutorials/first-mvc-app/) i fas [2-2-token cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204634"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120957"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Hantera undantag och fel i MSAL
 
@@ -76,7 +76,7 @@ MSAL exponerar ett `Classification` fält, som du kan läsa för att ge en bätt
 | UserPasswordExpired | Användarens lösen ord har upphört att gälla. | Anropa AcquireTokenInteractively () så att användaren kan återställa sina lösen ord. |
 | PromptNeverFailed| Interaktiv autentisering anropades med parameter tolken = aldrig, tvinga MSAL att förlita sig på webbläsarens cookies och inte att visa webbläsaren. Detta har misslyckats. | Anropa AcquireTokenInteractively () utan prompt. None |
 | AcquireTokenSilentFailed | MSAL SDK har inte tillräckligt med information för att hämta en token från cachen. Detta kan bero på att det inte finns några token i cachen eller om det inte gick att hitta något konto. Fel meddelandet innehåller mer information.  | Anropa AcquireTokenInteractively (). |
-| Ingen    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
+| Inga    | Det finns ingen ytterligare information. Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet. | Anropa AcquireTokenInteractively (). |
 
 ## <a name="net-code-example"></a>Exempel på .NET-kod
 
@@ -236,7 +236,7 @@ I MSAL för python förmedlas de flesta fel som ett retur värde från API-anrop
 * Ett lyckat svar innehåller `"access_token"` nyckeln. Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,1 svar](https://tools.ietf.org/html/rfc6749#section-5.1)
 * Ett fel svar innehåller `"error"` vanligt vis `"error_description"` . Svars formatet definieras av OAuth2-protokollet. Mer information finns i [5,2-fel svar](https://tools.ietf.org/html/rfc6749#section-5.2)
 
-När ett fel returneras `"error_description"` innehåller nyckeln ett läsbart meddelande, vilket i sin tur vanligt vis innehåller en felkod för Microsoft Identity Platform. Mer information om de olika fel koderna finns i [fel koder för autentisering och auktorisering](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes).
+När ett fel returneras `"error_description"` innehåller nyckeln ett läsbart meddelande, vilket i sin tur vanligt vis innehåller en felkod för Microsoft Identity Platform. Mer information om de olika fel koderna finns i [fel koder för autentisering och auktorisering](./reference-aadsts-error-codes.md).
 
 I MSAL för python är undantag sällsynt eftersom de flesta fel hanteras genom att returnera ett felvärde. `ValueError`Undantaget utlöses bara när det är problem med hur du försöker använda biblioteket, till exempel när API-parameter (s) har fel format.
 
@@ -262,7 +262,7 @@ Vissa villkor som resulterar i detta fel är lätta för användarna att lösa. 
 
 MSAL visar ett `reason` fält som du kan använda för att ge en bättre användar upplevelse. Fältet kan till exempel `reason` leda till att användaren anger att deras lösen ord har upphört att gälla eller att de måste ge tillåtelse att använda vissa resurser. De värden som stöds är en del av `InteractionRequiredExceptionReason` uppräkningen:
 
-| Anledning | Innebörd | Rekommenderad hantering |
+| Orsak | Innebörd | Rekommenderad hantering |
 |---------|-----------|-----------------------------|
 | `BasicAction` | Villkoret kan lösas genom användar interaktion under det interaktiva autentiserings flödet | Anropa `acquireToken` med interaktiva parametrar |
 | `AdditionalAction` | Villkoret kan lösas med hjälp av ytterligare återställnings interaktion med systemet utanför det interaktiva autentiserings flödet. | Anropa `acquireToken` med interaktiva parametrar för att visa ett meddelande som förklarar vilken åtgärd som ska vidtas. Den anropande appen kan välja att dölja flöden som kräver ytterligare åtgärder om användaren inte är tvungen att slutföra åtgärden. |

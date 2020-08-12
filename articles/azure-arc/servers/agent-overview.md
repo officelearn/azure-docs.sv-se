@@ -1,19 +1,14 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
 description: Den här artikeln innehåller en detaljerad översikt över agenten Azure Arc for Servers (för hands version), som har stöd för övervakning av virtuella datorer som finns i hybrid miljöer.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0337894eb0309c5be42c52233df44edcdc06f022
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904982"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121841"
 ---
 # <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Översikt över agenten för Azure Arc for Servers (för hands version)
 
@@ -179,7 +174,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -241,7 +236,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Namn |Standardvärde |Beskrivning |
+    |Name |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

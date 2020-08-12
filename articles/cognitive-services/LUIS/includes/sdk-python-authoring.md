@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: aa55a3550fbb4fcdcd97c26fca425b11ba589fcc
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 464fc5a2861287ca1d39fcd8f5062cad1e7d6902
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87369461"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122294"
 ---
 Använd det Language Understanding (LUIS) redigerings klient biblioteket för python för att:
 
@@ -26,7 +26,7 @@ Använd det Language Understanding (LUIS) redigerings klient biblioteket för py
 
 [Referens dokumentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis)  |  [Redigerings paket (pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-sdk-authoring-prediction/application_quickstart.py)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [python 3. x](https://www.python.org/).
@@ -112,6 +112,10 @@ Skapande metoder för entiteter ingår i [ModelOperations](https://docs.microsof
 [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/application_quickstart.py?name=addEntities)]
 
 ## <a name="add-example-utterance-to-intent"></a>Lägg till exempel uttryck till avsikt
+
+Definiera en hjälp funktion för att skapa data strukturen uttryck
+
+[!code-python[Create Utterance](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/application_quickstart.py?name=createUtterance)]
 
 Appen behöver exempel på yttranden för att kunna fastställa en uttryck för avsikt och extrahering av entiteter. Exemplen måste vara riktade mot en viss, enskild avsikt och ska markera alla anpassade entiteter. Fördefinierade entiteter behöver inte markeras.
 

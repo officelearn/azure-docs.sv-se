@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005221"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116707"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Vanliga frågor och svar om Azure Active Directory (AD) Domain Services
 
@@ -117,7 +117,11 @@ Nej. Schemat administreras av Microsoft för den hanterade domänen. Schema utö
 Ja. Medlemmar i gruppen *AAD DC-administratörer* har behörighet som *DNS-administratör* för att ändra DNS-poster i den hanterade domänen. Dessa användare kan använda DNS-hanterarens konsol på en dator som kör Windows Server som är ansluten till den hanterade domänen för att hantera DNS. Om du vill använda DNS-hanterarens konsol installerar du *verktyg för DNS-Server*, som är en del av den *verktyg för fjärrserveradministration* valfria funktionen på servern. Mer information finns i [Administrera DNS i en Azure AD Domain Services hanterad domän](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Vad är en princip för lösen ords livs längd på en hanterad domän?
-Standard livstiden för lösen ord för en Azure AD Domain Services hanterad domän är 90 dagar. Lösen ordets livs längd är inte synkroniserad med lösen ordets livstid som kon figurer ATS i Azure AD. Därför kan du ha en situation där användarens lösen ord upphör att gälla i din hanterade domän, men fortfarande är giltiga i Azure AD. I sådana fall måste användarna ändra sina lösen ord i Azure AD och det nya lösen ordet synkroniseras med den hanterade domänen. *Lösen ordet – fungerar inte, upphör att gälla* och *användaren måste byta lösen ord vid nästa inloggning* för användar konton synkroniseras heller inte till din hanterade domän.
+Standard livstiden för lösen ord för en Azure AD Domain Services hanterad domän är 90 dagar. Lösen ordets livs längd är inte synkroniserad med lösen ordets livstid som kon figurer ATS i Azure AD. Därför kan du ha en situation där användarens lösen ord upphör att gälla i din hanterade domän, men fortfarande är giltiga i Azure AD. I sådana fall måste användarna ändra sina lösen ord i Azure AD och det nya lösen ordet synkroniseras med den hanterade domänen. Om du vill ändra standard livstiden för lösen ord i en hanterad domän kan du [skapa och konfigurera anpassade lösen ords principer.](password-policy.md)
+
+Dessutom synkroniseras Azure AD-lösenordet för *DisablePasswordExpiration* till en hanterad domän. När *DisablePasswordExpiration* används för en användare i Azure AD, har värdet *UserAccountControl* för den synkroniserade användaren i den hanterade domänen *DONT_EXPIRE_PASSWORD* tillämpats.
+
+När användarna återställer sina lösen ord i Azure AD används attributet *forceChangePasswordNextSignIn = True* . En hanterad domän synkroniserar det här attributet från Azure AD. Om den hanterade domänen identifierar *forceChangePasswordNextSignIn* har ställts in för en synkroniserad användare från Azure AD, är *pwdLastSet* -attributet i den hanterade domänen inställt på *0*, vilket upphäver det inställda lösen ordet.
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Tillhandahåller Azure AD Domain Services AD-konto utelåsnings skydd?
 Ja. Fem ogiltiga lösen ords försök inom 2 minuter på den hanterade domänen gör att ett användar konto blir utelåst i 30 minuter. Efter 30 minuter låses användar kontot automatiskt upp. Ogiltiga lösen ords försök i den hanterade domänen låser inte användar kontot i Azure AD. Användar kontot är bara utelåst i din Azure AD Domain Services hanterade domän. Mer information finns i [principer för lösen ord och konto utelåsning på hanterade domäner](password-policy.md).

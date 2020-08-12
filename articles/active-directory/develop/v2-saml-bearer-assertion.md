@@ -12,12 +12,12 @@ ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 2d745ddcf7b1d5bd7976a0ca8461c13d8ae3c849
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282389"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114701"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform och OAuth 2,0 SAML Bearer-försäkrat flöde
 Med det försäkrade flödet av OAuth 2,0 SAML-Bearer kan du begära en OAuth-åtkomsttoken med en SAML-kontroll när en klient behöver använda en befintlig förtroende relation. Signaturen som används för SAML Assertion ger autentisering av den auktoriserade appen. En SAML-kontroll är en XML-säkerhetstoken som utfärdas av en identitetsprovider och som används av en tjänst leverantör. Tjänste leverantören förlitar sig på sitt innehåll för att identifiera kontrollens ämne för säkerhetsrelaterade orsaker.
@@ -35,9 +35,9 @@ Det beskrivande flödet för OAuth SAML-Bearer stöds också för användare som
 ## <a name="call-graph-using-saml-bearer-assertion"></a>Anropa graf med SAML Bearer-kontroll
 Nu ska vi lära oss hur vi faktiskt kan hämta SAML Assertion program mässigt. Den här metoden har testats med ADFS. Detta fungerar dock med alla identitets leverantörer som har stöd för att returnera SAML Assertion program mässigt. Den grundläggande processen är: Hämta en SAML-kontroll, hämta en åtkomsttoken och få åtkomst Microsoft Graph.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-Upprätta en förtroende relation mellan auktoriseringsservern/miljön (Microsoft 365) och identitets leverantören, eller utfärdaren av SAML 2,0 Bearer Assertion (ADFS). Om du vill konfigurera ADFS för enkel inloggning och som identitets leverantör kan du se [den här artikeln](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
+Upprätta en förtroende relation mellan auktoriseringsservern/miljön (Microsoft 365) och identitets leverantören, eller utfärdaren av SAML 2,0 Bearer Assertion (ADFS). Om du vill konfigurera ADFS för enkel inloggning och som identitets leverantör kan du se [den här artikeln](/archive/blogs/canitpro/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365).
 
 Registrera programmet i [portalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade):
 1. Logga in på [bladet program registrering i portalen](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) (Observera att vi använder v 2.0-slutpunkter för Graph API och måste därför registrera programmet i den här portalen. Annars kunde vi ha använt registreringarna i Azure Active Directory). 

@@ -14,18 +14,18 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771085"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120634"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för villkorsstyrd åtkomst i Azure Active Directory
 
 Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
 
-* [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
+* [Multifaktorautentisering](../authentication/concept-mfa-howitworks.md)
 * Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
 * Begränsa användar platser och IP-intervall
 
@@ -33,7 +33,7 @@ Mer information om alla funktioner för villkorlig åtkomst finns i artikeln [Va
 
 För utvecklare som skapar appar för Azure AD visar den här artikeln hur du kan använda villkorlig åtkomst och du får också lära dig om effekten av åtkomst till resurser som du inte har kontroll över som kan ha villkorliga åtkomst principer tillämpade. Artikeln utforskar också konsekvenserna av villkorlig åtkomst i Flow-, Web Apps-och Access-Microsoft Graph och anropar API: er.
 
-Kunskaper om appar för [en](quickstart-register-app.md) och [flera innehavare](howto-convert-app-to-be-multi-tenant.md) och [vanliga autentiserings mönster](authentication-scenarios.md) antas.
+Kunskaper om appar för [en](quickstart-register-app.md) och [flera innehavare](howto-convert-app-to-be-multi-tenant.md) och [vanliga autentiserings mönster](./authentication-vs-authorization.md) antas.
 
 > [!NOTE]
 > Om du använder den här funktionen krävs en licens för Azure AD Premium P1. Hitta rätt licens för dina behov i [Jämför allmänt tillgängliga funktioner i Free, Basic och Premium-utgåvorna](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -52,7 +52,7 @@ Mer specifikt kräver följande scenarier kod för att hantera utmaningarna för
 * Appar med en sida som använder MSAL.js
 * Web Apps att anropa en resurs
 
-Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen får åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [snabb start: KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../conditional-access/app-based-mfa.md).
+Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen får åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [snabb start: KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../authentication/tutorial-enable-azure-mfa.md).
 
 Beroende på scenariot kan en företags kund tillämpa och ta bort principer för villkorlig åtkomst när som helst. För att din app ska fortsätta att fungera när en ny princip tillämpas måste du implementera "utmanings hanteringen". I följande exempel visas utmanings hantering.
 
@@ -91,9 +91,9 @@ Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azu
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
+Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](../fundamentals/active-directory-whatis.md). Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
 
 ### <a name="considerations-for-specific-scenarios"></a>Överväganden för vissa scenarier
 
@@ -180,7 +180,7 @@ Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen r�
 
 ## <a name="see-also"></a>Se även
 
-* Mer information om funktionerna finns [i villkorlig åtkomst i Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* Mer information om funktionerna finns [i villkorlig åtkomst i Azure Active Directory](../conditional-access/overview.md).
 * Fler kod exempel för Azure AD finns i [exempel](sample-v2-code.md).
 * Mer information om MSAL SDK: er och åtkomst till referens dokumentationen finns i [Översikt över Microsoft Authentication Library](msal-overview.md).
 * Mer information om scenarier med flera innehavare finns i [så här loggar du in användare med hjälp av mönster för flera innehavare](howto-convert-app-to-be-multi-tenant.md).

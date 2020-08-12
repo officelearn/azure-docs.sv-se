@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: ff8bb1fea863c8ba08434df9c718199ad9f51652
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925795"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121535"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md).
@@ -174,7 +174,7 @@ För att säkerställa säkerheten för data som överförs till Azure Monitor l
 
 
 ## <a name="sha-2-code-signing-support-requirement-for-windows"></a>Stöd krav för SHA-2-kod signering för Windows
-Windows-agenten börjar uteslutande använda SHA-2-signering den 17 augusti 2020. Den här ändringen påverkar kunder som använder Log Analytics agenten på ett äldre operativ system som en del av en Azure-tjänst (Azure Monitor, Azure Automation, Azure Uppdateringshantering, Azure Ändringsspårning, Azure Security Center, Azure Sentinel, Windows Defender ATP). Ändringen kräver ingen kund åtgärd om du inte kör agenten på en äldre OS-version (Windows 7, Windows Server 2008 R2 och Windows Server 2008). Kunder som kör på en äldre OS-version måste vidta följande åtgärder på sina datorer före den 17 augusti 2020, annars kommer deras agenter att sluta skicka data till sina Log Analytics arbets ytor:
+Windows-agenten börjar uteslutande använda SHA-2-signering den 2 november 2020. Den här ändringen påverkar kunder som använder Log Analytics agenten på ett äldre operativ system som en del av en Azure-tjänst (Azure Monitor, Azure Automation, Azure Uppdateringshantering, Azure Ändringsspårning, Azure Security Center, Azure Sentinel, Windows Defender ATP). Ändringen kräver ingen kund åtgärd om du inte kör agenten på en äldre OS-version (Windows 7, Windows Server 2008 R2 och Windows Server 2008). Kunder som kör på en äldre OS-version måste vidta följande åtgärder på sina datorer före den 2 november 2020 eller så kommer deras agenter att sluta skicka data till sina Log Analytics arbets ytor:
 
 1. Installera den senaste Service Pack-versionen för ditt operativ system. De nödvändiga service pack versionerna är:
     - Windows 7 SP1

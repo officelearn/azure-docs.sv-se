@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: 1dabadfe30a28fdae409f8452aac2cca4b765418
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313497"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115993"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
 
@@ -69,7 +69,7 @@ I diagrammet ovan:
   - En klient profil för `tom@live.com` finns i var och en av dessa klienter.
 - Information om Tom och Bob i andra klient organisationer kan skilja sig från den i posten i systemet. De kan variera beroende på attribut som befattning, kontors plats och så vidare. De kan vara medlemmar i grupper och/eller roller inom varje organisation (Azure Active Directory klient). Vi refererar till den här informationen som bob@contoso.com klient organisations profil.
 
-I diagrammet bob@contoso.com och tom@live.com har åtkomst till resurser i olika Azure Active Directory klienter. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+I diagrammet bob@contoso.com och tom@live.com har åtkomst till resurser i olika Azure Active Directory klienter. Mer information finns i [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Konton och enkel inloggning (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Om du vill se en lista över anspråk som är tillgängliga från objektet konto, referera till [anspråk i ett id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Om du vill se en lista över anspråk som är tillgängliga från objektet konto, referera till [anspråk i ett id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Om du vill lägga till ytterligare anspråk i id_token kan du läsa mer i dokumentationen för valfria anspråk i [How to: tillhandahålla valfria anspråk till din Azure AD-App](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Om du vill lägga till ytterligare anspråk i id_token kan du läsa mer i dokumentationen för valfria anspråk i [How to: tillhandahålla valfria anspråk till din Azure AD-App](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Åtkomst till klient profil anspråk
 

@@ -12,12 +12,12 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2fe41cdc6fa1adef96568981df5bb13129fe900f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026738"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115041"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
 
@@ -49,7 +49,7 @@ Inget schemalagt för tillfället.  Se nedan för de ändringar som finns i elle
 
 Den 1 juni 2018, den officiella Azure Active Directory (AAD) som Azure Government ändrats från `https://login-us.microsoftonline.com` till `https://login.microsoftonline.us` . Den här ändringen gäller också för Microsoft 365 GCC hög och DoD, som även Azure Government AAD. Om du äger ett program inom en amerikansk myndighets klient måste du uppdatera ditt program för att logga in användare i `.us` slut punkten.  
 
-Från och med den 5 maj kommer Azure AD att börja verkställa slut punkts ändringen, vilket hindrar myndighets användare från att logga in på appar som finns i amerikanska myndighets klienter med hjälp av den offentliga slut punkten ( `microsoftonline.com` ).  Påverkade appar påbörjar ett fel `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Det här felet indikerar att appen försöker logga in hos en amerikansk myndighets användare på den offentliga moln slut punkten. Om din app finns i en offentlig moln klient och är avsedd att stödja användare av amerikanska myndigheter, måste du [Uppdatera din app så att den stöder dem uttryckligen](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Detta kan kräva att du skapar en ny app-registrering i det amerikanska myndighets molnet. 
+Från och med den 5 maj kommer Azure AD att börja verkställa slut punkts ändringen, vilket hindrar myndighets användare från att logga in på appar som finns i amerikanska myndighets klienter med hjälp av den offentliga slut punkten ( `microsoftonline.com` ).  Påverkade appar påbörjar ett fel `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Det här felet indikerar att appen försöker logga in hos en amerikansk myndighets användare på den offentliga moln slut punkten. Om din app finns i en offentlig moln klient och är avsedd att stödja användare av amerikanska myndigheter, måste du [Uppdatera din app så att den stöder dem uttryckligen](./authentication-national-cloud.md). Detta kan kräva att du skapar en ny app-registrering i det amerikanska myndighets molnet. 
 
 Verkställighet av den här ändringen görs med hjälp av en gradvis distribution baserat på hur ofta användare från molnet för amerikanska myndigheter loggar in på program-appar som loggar in i amerikanska myndighets användare som inte ofta ser tvångs tvång och appar som ofta används av amerikanska myndighets användare kommer att ha tillämpat tvång. Vi förväntar oss att tvång är slutfört för alla appar i juni 2020. 
 
@@ -98,7 +98,7 @@ När ett svar på autentisering skickas från login.microsoftonline.com till ett
 
 **Påverkade slut punkter**: både v 1.0 och v 2.0
 
-**Protokoll som påverkas**: post överallt används ([klientautentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [auktoriseringskod inlösen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)och [Refresh token inlösen](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+**Protokoll som påverkas**: post överallt används ([klientautentiseringsuppgifter](./v2-oauth2-client-creds-grant-flow.md), [auktoriseringskod inlösen](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md)och [Refresh token inlösen](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
 Med början av veckan 9/2 verifieras autentiseringsbegäranden som använder POST-metoden med strängare HTTP-standarder.  Mer specifikt kommer blank steg och dubbla citat tecken (") inte längre att tas bort från begär ande formulär värden. De här ändringarna förväntas inte bryta några befintliga klienter och säkerställer att förfrågningar som skickas till Azure AD hanteras på ett tillförlitligt sätt varje gång. I framtiden (se ovan) planerar vi att även avvisa dubbla parametrar och ignorera strukturen i begär Anden.
 
@@ -113,9 +113,9 @@ Idag `?e=    "f"&g=h` parsas de likadant som de är `?e=f&g=h` `e`  ==  `f` .  M
 
 **Gällande datum**: 26 juli 2019
 
-**Påverkade slut punkter**: både [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) och [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Påverkade slut punkter**: både [v 1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) och [v 2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protokoll som påverkas**: [klientautentiseringsuppgifter (endast app-token)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protokoll som påverkas**: [klientautentiseringsuppgifter (endast app-token)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 En säkerhets ändring förblev 26 i juli som ändrar det sätt på vilket endast app-token (via tilldelning av klientautentiseringsuppgifter) utfärdas. Tidigare har program tillåtits att hämta token för att anropa alla andra appar, oavsett närvaro i klienten eller roller som meddelats för programmet.  Det här beteendet har uppdaterats så att resurser (ibland kallade webb-API: er) är en enskild klient (standard) och att klient programmet måste finnas i resurs klienten.  Observera att befintliga medgivande mellan klienten och API: n fortfarande inte behövs, och apparna bör fortfarande utföra sina egna verifierings kontroller för att säkerställa att det finns ett `roles` anspråk och innehåller det förväntade värdet för API: et.
 

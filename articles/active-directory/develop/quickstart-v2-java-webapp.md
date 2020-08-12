@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 1474a8ad73f7deb9a7c321f7d7994a7b2b73d624
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87312409"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115228"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
@@ -24,7 +24,7 @@ I den här snabb starten får du lära dig hur du integrerar ett Java-webbprogra
 
 När du har slutfört den här snabb starten kommer ditt program att godkänna inloggningar av personliga Microsoft-konton (inklusive outlook.com, live.com och andra) och arbets-eller skol konton från alla företag eller organisationer som använder Azure Active Directory. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du:
 
@@ -212,7 +212,7 @@ Om du vill distribuera webb exemplet till Tomcat måste du göra några ändring
 
 
 > [!IMPORTANT]
-> Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klient hemligheten läggs till som oformaterad text till dina projektfiler, rekommenderar vi av säkerhets skäl att du använder ett certifikat i stället för en klient hemlighet innan du överväger programmet som produktions program. Mer information om hur du använder ett certifikat finns i [autentiseringsuppgifter för certifikat för programautentisering](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> Det här snabbstartsprogrammet använder en klienthemlighet för att identifiera sig som en konfidentiell klient. Eftersom klient hemligheten läggs till som oformaterad text till dina projektfiler, rekommenderar vi av säkerhets skäl att du använder ett certifikat i stället för en klient hemlighet innan du överväger programmet som produktions program. Mer information om hur du använder ett certifikat finns i [autentiseringsuppgifter för certifikat för programautentisering](./active-directory-certificate-credentials.md).
 
 ## <a name="more-information"></a>Mer information
 
@@ -249,16 +249,16 @@ Lägg till en referens till MSAL för Java genom att lägga till följande kod �
 import com.microsoft.aad.msal4j.*;
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig mer om behörigheter och medgivande:
 
 > [!div class="nextstepaction"]
-> [Behörigheter och tillstånd](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Behörigheter och tillstånd](./v2-permissions-and-consent.md)
 
 Om du vill veta mer om auth-flödet för det här scenariot, se OAuth 2,0 Authorization Code Flow:
 
 > [!div class="nextstepaction"]
-> [Auktoriseringskod OAuth-flöde](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Auktoriseringskod OAuth-flöde](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

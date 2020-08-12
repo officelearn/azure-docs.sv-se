@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 5abc10d149cdb2c054f4122cd805ec22b2e37e2f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099903"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114667"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Distribuera Cloud Shell till ett virtuellt Azure-nätverk
 > [!NOTE]
@@ -103,7 +103,7 @@ Navigera till reläet som skapats med ovanstående mall, välj "nätverk" i inst
 > [!NOTE]
 > Det här steget måste utföras för att varje administratör ska kunna använda Cloud Shell.
 
-När du har distribuerat klart stegen ovan navigerar du till Cloud Shell i Azure Portal eller på https://shell.azure.com .
+När du har distribuerat klart stegen ovan navigerar du till Cloud Shell i Azure Portal eller på https://shell.azure.com . En av dessa upplevelser måste användas varje gången du vill ansluta till en isolerad Cloud Shell upplevelse.
 
 > [!NOTE]
 > Om Cloud Shell har använts tidigare, måste det befintliga clouddrive demonteras. Om du vill utföra den här körningen `clouddrive unmount` från en aktiv Cloud Shell-session uppdaterar du sidan.

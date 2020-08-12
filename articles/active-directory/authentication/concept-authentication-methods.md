@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b6111529d1a3d37f08b29fb5c0751fb6a49acea5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 40ea8c3d070d8895a6da063789279895f52189e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054076"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116775"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Vilka autentiserings- och verifieringsmetoder är tillgängliga i Azure Active Directory?
 
@@ -35,9 +35,9 @@ I följande tabell beskrivs vilka metoder som är tillgängliga för primär ell
 
 | Metod | Primär autentisering | Sekundär autentisering |
 | --- | --- | --- |
-| [Lösenord](#password) | Yes | |
+| [Lösenord](#password) | Ja | |
 | [Microsoft Authenticator-appen](#microsoft-authenticator-app) | Ja (för hands version) | MFA och SSPR |
-| [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Yes | Endast MFA |
+| [Säkerhets nycklar för FIDO2 (för hands version)](#fido2-security-keys) | Ja | Endast MFA |
 | [OATH-programvaru-token](#oath-software-tokens) | No | MFA |
 | [OATH-token för maskin vara (för hands version)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Ja (för hands version) | MFA och SSPR |
@@ -45,6 +45,8 @@ I följande tabell beskrivs vilka metoder som är tillgängliga för primär ell
 | [Säkerhetsfrågor](#security-questions) | No | SSPR – endast |
 | [E-postadress](#email-address) | No | SSPR – endast |
 | [Applösenord](#app-passwords) | No | MFA i vissa fall |
+
+Dessa autentiseringsmetoder kan konfigureras i Azure Portal och i allt större användning av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 Den här artikeln beskriver dessa olika autentiserings-och verifierings metoder som är tillgängliga i Azure AD och eventuella specifika begränsningar eller begränsningar.
 
@@ -297,6 +299,8 @@ Information om hur du kommer igång finns i [självstudien för självbetjäning
 Mer information om SSPR-koncept finns i [hur Azure AD självbetjäning för återställning av lösen ord fungerar][concept-sspr].
 
 Mer information om MFA-koncept finns i [hur Azure Multi-Factor Authentication fungerar][concept-mfa].
+
+Läs mer om hur du konfigurerar autentiseringsmetoder med hjälp av [Microsoft Graph REST API beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

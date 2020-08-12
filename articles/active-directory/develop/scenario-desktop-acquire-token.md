@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 1caddf2fba8544bfbb1108865a459f4166af680b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c394a3e84982db31b5727d170c143e9c07636d62
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846079"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121076"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Obligatoriska parametrar
 
-`AcquireTokenInteractive`har endast en obligatorisk parameter, ``scopes`` som innehåller en uppräkning av strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph, finns de obligatoriska omfattningarna i API-referensen för varje Microsoft Graph-API i avsnittet med namnet "Permissions". Om du till exempel vill [Visa användarens kontakter](https://docs.microsoft.com/graph/api/user-list-contacts)måste omfattningen "User. Read", "Contacts. Read" användas. Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive`har endast en obligatorisk parameter, ``scopes`` som innehåller en uppräkning av strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph, finns de obligatoriska omfattningarna i API-referensen för varje Microsoft Graph-API i avsnittet med namnet "Permissions". Om du till exempel vill [Visa användarens kontakter](/graph/api/user-list-contacts)måste omfattningen "User. Read", "Contacts. Read" användas. Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 På Android måste du också ange den överordnade aktiviteten genom `.WithParentActivityOrWindow` att använda, som du ser, så att token återgår till den överordnade aktiviteten efter interaktionen. Om du inte anger det genereras ett undantag vid anrop `.ExecuteAsync()` .
 
@@ -278,7 +278,7 @@ MSAL.NET-teamet har skrivit om UI-testerna för att använda den här utöknings
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Få en bra upplevelse med SystemWebViewOptions
 
-Från MSAL.NET 4,1 [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) kan du ange:
+Från MSAL.NET 4,1 [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) kan du ange:
 
 - URI: n för att gå till ( `BrowserRedirectError` ) eller det HTML-fragment som ska visas ( `HtmlMessageError` ) vid inloggnings-eller medgivande fel i system webbläsare.
 - URI: n för att gå till ( `BrowserRedirectSuccess` ) eller det HTML-fragment som ska visas ( `HtmlMessageSuccess` ) i händelse av lyckat inloggnings försök eller medgivande.
@@ -433,13 +433,13 @@ Om du vill logga in en domän användare på en domän eller en Azure AD-anslute
   - Eller så måste klient administratören tidigare ha samtyckt till alla användare i klienten för att kunna använda programmet.
   - Med andra ord:
     - Antingen har du som utvecklare valt knappen **bevilja** i Azure Portal själv.
-    - Eller så har en innehavaradministratör valt knappen **bevilja/återkalla administratörs medgivande för {klient domän}** på fliken **API-behörigheter** i registreringen för programmet. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - Eller så har du gett ett sätt för användare att godkänna programmet. Mer information finns i [begära individuell användar medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - Eller så har du angett ett sätt för klient organisations administratören att samtycka till programmet. Mer information finns i [Administratörs medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - Eller så har en innehavaradministratör valt knappen **bevilja/återkalla administratörs medgivande för {klient domän}** på fliken **API-behörigheter** i registreringen för programmet. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - Eller så har du gett ett sätt för användare att godkänna programmet. Mer information finns i [begära individuell användar medgivande](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - Eller så har du angett ett sätt för klient organisations administratören att samtycka till programmet. Mer information finns i [Administratörs medgivande](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Det här flödet är aktiverat för .NET Desktop-, .NET Core-och UWP-appar.
 
-Mer information om medgivande finns i [behörigheter för Microsoft Identity Platform och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Mer information om medgivande finns i [behörigheter för Microsoft Identity Platform och medgivande](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Lär dig hur du använder den
 

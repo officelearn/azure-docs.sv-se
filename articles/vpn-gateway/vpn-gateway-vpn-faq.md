@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
-ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5d66e79e79edd98f3192d0187d6f0454c3aeffa
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708934"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121484"
 ---
 # <a name="vpn-gateway-faq"></a>Vanliga frågor och svar om VPN Gateway
 
@@ -126,6 +126,10 @@ Vi är begränsade till att använda PSK (I förväg delad nyckel) vid autentise
 ### <a name="can-i-configure-force-tunneling"></a>Kan jag konfigurera tvingad tunneltrafik?
 
 Ja. Läs avsnittet om hur du [konfigurerar tvingad tunneltrafik](vpn-gateway-about-forced-tunneling.md).
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>Kan jag använda NAT-T på mina VPN-anslutningar?
+
+Ja, NAT Traversal (NAT-T) stöds. Azure VPN Gateway kan inte utföra NAT-liknande funktioner på de inre paketen till/från IPsec-tunnlarna.  I den här konfigurationen kontrollerar du att den lokala enheten initierar IPSec-tunneln.
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>Kan jag installera min egen VPN-server i Azure och använda den för att ansluta till mitt lokala nätverk?
 

@@ -13,12 +13,12 @@ ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5742ddf9553c3ac9187dbef93fc7927564cbc095
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477812"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116979"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Hantera SameSite-cookieändringar i webbläsaren Chrome
 
@@ -59,7 +59,7 @@ I tabellen nedan presenteras de pull-begäranden som arbetade kring SameSite än
 
 Mer information om hur du hanterar SameSite cookies i ASP.NET och ASP.NET Core finns också i:
 
-- [Arbeta med SameSite cookies i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/samesite) .
+- [Arbeta med SameSite cookies i ASP.net Core](/aspnet/core/security/samesite) .
 - [ASP.NET blogg om SameSite-problem](https://devblogs.microsoft.com/aspnet/upcoming-samesite-cookie-changes-in-asp-net-and-asp-net-core/)
 
 # <a name="python"></a>[Python](#tab/python)

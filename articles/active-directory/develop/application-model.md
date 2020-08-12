@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82584316"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117489"
 ---
 # <a name="application-model"></a>Programmodell
 
@@ -86,4 +86,4 @@ Mer information om program modellen:
 
 * Se [hur och varför program läggs till i Azure AD](active-directory-how-applications-are-added.md) för mer information om program objekt och tjänst huvud namn i Microsoft Identity Platform.
 * Se [innehav i Azure Active Directory](single-and-multi-tenant-apps.md) för mer information om appar för en enda klient och appar för flera klient organisationer.
-* Se [Azure Active Directory B2C-dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c) för mer information om hur Azure AD också tillhandahåller Azure Active Directory B2C så att organisationer kan logga in användare, vanligt vis kunder, med hjälp av sociala identiteter som ett Google-konto.
+* Se [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml) för mer information om hur Azure AD också tillhandahåller Azure Active Directory B2C så att organisationer kan logga in användare, vanligt vis kunder, med hjälp av sociala identiteter som ett Google-konto.

@@ -19,18 +19,18 @@ ms.locfileid: "77619305"
 
     ![Välj Skapa](media/azure-app-configuration-create/azure-portal-app-configuration-create.png)
 
-1. I fönstret **App Configuration** > **skapa** app-konfiguration anger du följande inställningar:
+1. I fönstret **App Configuration**  >  **skapa** app-konfiguration anger du följande inställningar:
 
-    | Inställningen | Föreslaget värde | Beskrivning |
+    | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
     | **Resurs namn** | Globalt unikt namn | Ange ett unikt resurs namn som ska användas för appens konfigurations Arkiv resurs. Namnet måste vara en sträng mellan 5 och 50 tecken och får bara innehålla siffror, bokstäver och `-` tecknet. Namnet får inte börja eller sluta med `-` specialtecknet.  |
     | **Prenumeration** | Din prenumeration | Välj den Azure-prenumeration du vill använda för att testa App Configuration. Om ditt konto bara har en prenumeration väljs den automatiskt och ingen **prenumerations** lista visas. |
     | **Resursgrupp** | *AppConfigTestResources* | Välj eller skapa en resurs grupp för din app Configuration Store-resurs. Den här gruppen är användbar för att organisera flera resurser som du kanske vill ta bort samtidigt genom att ta bort resurs gruppen. Mer information finns i [använda resurs grupper för att hantera dina Azure-resurser](/azure/azure-resource-manager/resource-group-overview). |
-    | **Position** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där appkonfigurationsarkivets resurs finns. För bästa prestanda skapar du resursen i samma region som andra komponenter i ditt program. |
-    | **Pris nivå** | *Kostnadsfri* | Välj önskad pris nivå. Mer information finns på [sidan med prissättning för program konfiguration](https://azure.microsoft.com/pricing/details/app-configuration/).
+    | **Plats** | *USA, centrala* | Använd **Plats** till att ange den geografiska plats där appkonfigurationsarkivets resurs finns. För bästa prestanda skapar du resursen i samma region som andra komponenter i ditt program. |
+    | **Prisnivå** | *Kostnadsfri* | Välj önskad pris nivå. Mer information finns på [sidan med prissättning för program konfiguration](https://azure.microsoft.com/pricing/details/app-configuration/).
 
     ![Skapa en resurs för konfigurations Arkiv för app](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 
 1. Välj **Skapa**. Distributionen kan ta några minuter.
 
-1. När distributionen är klar väljer du **Inställningar** > **åtkomst nycklar**. Anteckna den primära skrivskyddade nyckel anslutnings strängen. Du kommer att använda den här anslutnings strängen senare för att konfigurera programmet för att kommunicera med det app-konfigurations lager som du har skapat.
+1. När distributionen är klar väljer du **Inställningar**  >  **åtkomst nycklar**. Anteckna den primära skrivskyddade nyckel anslutnings strängen. Du kommer att använda den här anslutnings strängen senare för att konfigurera programmet för att kommunicera med det app-konfigurations lager som du har skapat.

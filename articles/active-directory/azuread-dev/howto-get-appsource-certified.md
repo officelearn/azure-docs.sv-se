@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7654de8bf26c3eaa3c93c8efcf99577fe88e6f24
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540350"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116333"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Så här skaffar du AppSource Certified för Azure Active Directory
 
@@ -47,7 +47,7 @@ Mer information om flera innehavare finns i [så här loggar du in en Azure Acti
 
 Ett *program med en enda klient* är ett program som bara accepterar inloggningar från användare av en DEFINIERAD Azure AD-instans. Externa användare (inklusive arbets-eller skol konton från andra organisationer eller personliga konton) kan logga in i ett program med en enda klient organisation efter att ha lagt till varje användare som gäst konto i Azure AD-instansen som programmet har registrerats. 
 
-Du kan lägga till användare som gäst konton i Azure AD via [Azure AD B2B-samarbete](../b2b/what-is-b2b.md) och du kan göra detta [program mässigt](../../active-directory-b2c/code-samples.md). När du använder B2B kan du skapa en självbetjänings portal som inte kräver någon inbjudan att logga in. Mer information finns i [självbetjänings portalen för integration av Azure AD B2B-samarbete](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+Du kan lägga till användare som gäst konton i Azure AD via [Azure AD B2B-samarbete](../external-identities/what-is-b2b.md) och du kan göra detta [program mässigt](../../active-directory-b2c/code-samples.md). När du använder B2B kan du skapa en självbetjänings portal som inte kräver någon inbjudan att logga in. Mer information finns i [självbetjänings portalen för integration av Azure AD B2B-samarbete](../external-identities/self-service-portal.md).
 
 Program med en enda klient organisation kan aktivera funktionen *kontakta mig* , men om du vill aktivera den kostnads fria utvärderings versionen som AppSource rekommenderar aktiverar du flera innehavare i programmet i stället.
 
@@ -108,7 +108,7 @@ Mer information om utvärderings versionen av AppSource finns i [den här videon
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-- Mer information om hur du skapar program som stöder Azure AD-inloggningar finns i [autentiserings scenarier för Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
+- Mer information om hur du skapar program som stöder Azure AD-inloggningar finns i [autentiserings scenarier för Azure AD](./v1-authentication-scenarios.md).
 - Information om hur du listar ditt SaaS-program i AppSource finns i [AppSource partner information](https://appsource.microsoft.com/partners)
 
 ## <a name="get-support"></a>Få support

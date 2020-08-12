@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 67ce5f898f2f9b6be088a0d01aec908c93ce7418
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446898"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118305"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Självstudie: Logga in användare och anropa Microsoft Graph-API: et från ett särskilt program på en sida
 
@@ -71,7 +71,7 @@ ng generate component page-name                  # To add a new page (such as a 
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Följ [anvisningarna för att registrera ett program på en sida](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) i Azure Portal.
+Följ [anvisningarna för att registrera ett program på en sida](./scenario-spa-app-registration.md) i Azure Portal.
 
 På sidan **Översikt** över appen i registreringen noterar du **programmets (klient) ID-** värde för senare användning.
 
@@ -124,7 +124,7 @@ Registrera ditt **omdirigerings-URI** -värde som **http://localhost:4200/** och
     |Värdenamn|Om|
     |---------|---------|
     |Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
-    |Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen*ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com**). Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**. |
     |Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200** .|
 
@@ -265,14 +265,14 @@ this.authService.acquireTokenSilent(requestObj).then(function (tokenResponse) {
 
 I den koden `scopes` innehåller omfattningar som begärs att returneras i åtkomsttoken för API: et.
 
-Exempel:
+Till exempel:
 
 * `["user.read"]`för Microsoft Graph
 * `["<Application ID URL>/scope"]`för anpassade webb-API: er (dvs. `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Exempel:
+Ibland behöver du användaren för att kunna interagera med Microsoft Identity Platform-slutpunkten. Till exempel:
 
 * Användare kan behöva ange sina autentiseringsuppgifter på grund av att deras lösen ord har upphört att gälla.
 * Ditt program begär åtkomst till ytterligare resurs omfattningar som användaren behöver godkänna.

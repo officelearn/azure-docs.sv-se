@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: bd17c20707c3bf1a153e9209cd7e2ec279de0501
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 39062396e0076af5901f2fc7d76f5c989e2ccc3a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85554053"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115262"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabb start: Logga in användare och anropa Microsoft Graph API från en iOS-eller macOS-app
 
@@ -101,12 +101,12 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
-> 1. Om du skapar en app för [nationella Azure AD-moln](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints)ersätter du raden som börjar med "Låt kGraphEndpoint" och "Låt kAuthority" med rätt slut punkter. Använd standardvärden för global åtkomst:
+> 1. Om du skapar en app för [nationella Azure AD-moln](/graph/deployments#app-registration-and-token-service-root-endpoints)ersätter du raden som börjar med "Låt kGraphEndpoint" och "Låt kAuthority" med rätt slut punkter. Använd standardvärden för global åtkomst:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
-> 1. Andra slut punkter dokumenteras [här](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). Om du till exempel vill köra snabb starten med Azure AD Tyskland använder du följande:
+> 1. Andra slut punkter dokumenteras [här](/graph/deployments#app-registration-and-token-service-root-endpoints). Om du till exempel vill köra snabb starten med Azure AD Tyskland använder du följande:
 >     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
@@ -173,7 +173,7 @@ let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, r
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 ```
 
-> |Där: | Description |
+> |Där: | Beskrivning |
 > |---------|---------|
 > | `clientId` | Program-ID från den app som registrerats i *portal.azure.com* |
 > | `authority` | Slut punkten för Microsoft Identity Platform. I de flesta fall är detta *https<span/>://login.microsoftonline.com/common* |
@@ -237,7 +237,7 @@ let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParamete
 self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* Add your handling logic */}
 ```
 
-> |Där:| Description |
+> |Där:| Beskrivning |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ( `api://<Application ID>/access_as_user` ) |
 
@@ -257,7 +257,7 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 }
 ```
 
-> |Där: | Description |
+> |Där: | Beskrivning |
 > |---------|---------|
 > | `scopes` | Innehåller de omfattningar som begärs (det vill säga `[ "user.read" ]` för Microsoft Graph eller `[ "<Application ID URL>/scope" ]` för anpassade webb-API: er ( `api://<Application ID>/access_as_user` ) |
 > | `account` | Det konto som en token begärs för. Den här snabb starten är ungefär samma konto program. Om du vill skapa en app med flera konton måste du definiera logik för att identifiera vilket konto som ska användas för token-begäranden som använder `accountsFromDeviceForParameters:completionBlock:` och skickar korrekt`accountIdentifier` |
@@ -269,6 +269,6 @@ Testa själv studie kursen om iOS och macOS för en fullständig steg-för-steg-
 ### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar programmet som används i den här snabb starten
 
 > [!div class="nextstepaction"]
-> [Ring Graph API självstudie för iOS och macOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
+> [Ring Graph API självstudie för iOS och macOS](./tutorial-v2-ios.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

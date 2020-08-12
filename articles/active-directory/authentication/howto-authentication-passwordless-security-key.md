@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 300bb317d521ac9202fdd1a02328f844110a48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550410"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116605"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Aktivera inloggning med lösen ords skydd (för hands version)
 
@@ -30,7 +30,7 @@ Det här dokumentet fokuserar på att aktivera säkerhets nyckel baserad lösen 
 ## <a name="requirements"></a>Krav
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
-- [Kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
+- Aktivera [kombinerad för hands version av säkerhets informations registrering](concept-registration-mfa-sspr-combined.md)
 - Kompatibla [säkerhets nycklar för FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
 - Webauthn kräver Windows 10 version 1809 eller högre * *
 

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682264"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121178"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -83,7 +83,7 @@ Du kan se till att användarens identitet genom att verifiera ID-token med en of
 
 Om du vill se det här scenariot kan du prova någon av inloggnings kod exemplen för webbappar i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
 
-Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst, till exempel en REST API. I det här fallet deltar webb Server appen i en kombinerad OpenID Connect-och OAuth 2,0-flöde genom att använda [kod flödet för oauth 2,0-auktorisering](v2-oauth2-auth-code-flow.md). Mer information om det här scenariot finns [i komma igång med webbappar och webb-API: er](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst, till exempel en REST API. I det här fallet deltar webb Server appen i en kombinerad OpenID Connect-och OAuth 2,0-flöde genom att använda [kod flödet för oauth 2,0-auktorisering](v2-oauth2-auth-code-flow.md). Mer information om det här scenariot finns [i komma igång med webbappar och webb-API: er](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
 
 
 ## <a name="web-apis"></a>Webb-API:er

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154958"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116452"
 ---
 # <a name="application-types-in-v10"></a>Program typer i v 1.0
 
@@ -41,7 +41,7 @@ Det här är de fem primära program scenarier som stöds av Azure AD:
 Följ länkarna för att lära dig mer om varje typ av app och förstå de övergripande scenarierna innan du börjar arbeta med koden. Du kan också lära dig om skillnaderna som du behöver känna till när du skriver en viss app som fungerar med slut punkten eller v 2.0-slutpunkten för v 1.0.
 
 > [!NOTE]
-> V 2.0-slutpunkten har inte stöd för alla Azure AD-scenarier och-funktioner. Läs om [v 2.0-begränsningar](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)för att avgöra om du ska använda v 2.0-slut punkten.
+> V 2.0-slutpunkten har inte stöd för alla Azure AD-scenarier och-funktioner. Läs om [v 2.0-begränsningar](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json)för att avgöra om du ska använda v 2.0-slut punkten.
 
 Du kan utveckla alla appar och scenarier som beskrivs här med olika språk och plattformar. De backas upp av fullständiga kod exempel som finns i kod exempel guiden: [v 1.0-kod exempel enligt](sample-v1-code.md) scenariot och [v 2.0 kod exempel](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). Du kan också hämta kod exemplen direkt från motsvarande [GitHub-exempel Arkiv](https://github.com/Azure-Samples?q=active-directory).
 

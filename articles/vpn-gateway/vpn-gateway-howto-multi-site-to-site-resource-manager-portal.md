@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984145"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121433"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägga till en plats-till-plats-anslutning till ett VNet med en befintlig VPN gateway-anslutning
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 > 
@@ -43,7 +43,7 @@ Verifiera följande objekt:
 * Den virtuella Nätverksgatewayen för ditt VNet är Routningsbaserad. Om du har en principbaserad VPN-gateway måste du ta bort den virtuella Nätverksgatewayen och skapa en ny VPN-gateway som Routningsbaserad.
 * Inget av adress intervallen överlappar någon av de virtuella nätverk som det här virtuella nätverket ansluter till.
 * Du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md). Om du inte vet hur man konfigurerar VPN-enheten eller inte känner till IP-adressintervallen i din lokala nätverkskonfiguration måste du vända dig till någon som kan ge den informationen till dig.
-* Du har en extern offentlig IP-adress för VPN-enheten. Den här IP-adressen får inte finnas bakom en NAT.
+* Du har en extern offentlig IP-adress för VPN-enheten.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Del 1 – Konfigurera en anslutning
 1. Navigera till [Azure-portalen](https://portal.azure.com) från en webbläsare och logga in med ditt Azure-konto vid behov.

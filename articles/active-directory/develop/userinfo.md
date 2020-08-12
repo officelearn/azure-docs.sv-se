@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268536"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119648"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Microsoft Identity Platform UserInfo-slutpunkt
 
@@ -34,7 +34,7 @@ Som en del av OpenID Connect-specifikationen anropas UserInfo-slutpunkten ofta a
 
 Den information som är tillgänglig i ID-token som din app kan ta emot är en supermängd av den information som kan hämtas från UserInfo-slutpunkten.  Eftersom du kan hämta en ID-token samtidigt som du får en token för att anropa UserInfo-slutpunkten, rekommenderar vi att du använder denna ID-token för att hämta information om användaren i stället för att anropa UserInfo-slutpunkten.  Genom att använda ID-token elimineras en till två nätverks begär Anden från din program Start, vilket minskar svars tiden i ditt program.
 
-Om du behöver mer information om användaren ska du anropa [Microsoft Graph- `/user` API: et](https://docs.microsoft.com/graph/api/user-get) för att få information som Office-nummer eller befattning.   Du kan också använda [valfria anspråk](active-directory-optional-claims.md) för att inkludera ytterligare användar information i dina ID-och åtkomsttoken.
+Om du behöver mer information om användaren ska du anropa [Microsoft Graph- `/user` API: et](/graph/api/user-get) för att få information som Office-nummer eller befattning.   Du kan också använda [valfria anspråk](active-directory-optional-claims.md) för att inkludera ytterligare användar information i dina ID-och åtkomsttoken.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Anropar UserInfo-slutpunkten
 
@@ -48,7 +48,7 @@ Använd följande [OIDC-behörigheter](v2-permissions-and-consent.md#openid-conn
 |:--------------------|:---------------------------------------------------------|
 |Delegerat (arbets-eller skol konto) | OpenID (krävs), profil, e-post |
 |Delegerad (personlig Microsoft-konto) | OpenID (krävs), profil, e-post |
-|Program | Ej tillämpligt |
+|Program | Inte tillämpligt |
 
 > [!TIP]
 > Kopiera denna URL i webbläsaren för att hämta en token för UserInfo-slutpunkten samt en [ID-token](id-tokens.md) och ersätt klient-ID och omdirigerings-URI med din egen. Observera att den endast begär omfattningar för OpenID-eller Graph-omfattningar, och inget annat.  Detta är obligatoriskt eftersom du inte kan begära behörigheter för två olika resurser i samma token-begäran.
@@ -89,7 +89,7 @@ Anspråken som anges här, inklusive `sub` , är samma anspråk som appen ser i 
 * Det går inte att anpassa svaret från UserInfo-slutpunkten.  Om du vill anpassa anspråk använder du [anspråks mappning]( active-directory-claims-mapping.md) för att redigera informationen som returneras i tokens.
 * Det går inte att lägga till svaret från UserInfo-slutpunkten i.  Om du vill få ytterligare anspråk om användaren, Använd [valfria anspråk]( active-directory-optional-claims.md) för att lägga till nya anspråk till tokens.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Granska innehållet i ID-token](id-tokens.md)
 * [Anpassa innehållet i en ID-token med valfria anspråk](active-directory-optional-claims.md)

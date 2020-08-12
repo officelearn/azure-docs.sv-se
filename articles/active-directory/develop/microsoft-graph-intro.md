@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu
 ms.custom: aaddev
-ms.openlocfilehash: 0cdcb5287434c72bf54337611d67de8d6f65d8d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb6f5c4840f127ac174b6b60359dd52a4797b3ec
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479521"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119682"
 ---
 # <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Microsoft Graph API är ett RESTful webb-API som gör att du kan komma åt Microsoft Cloud tjänst resurser. När du har registrerat din app och get Authentication-token för en användare eller tjänst kan du göra förfrågningar till Microsoft Graph API. Mer information finns i [Översikt över Microsoft Graph](https://docs.microsoft.com/graph/overview).
+Microsoft Graph API är ett RESTful webb-API som gör att du kan komma åt Microsoft Cloud tjänst resurser. När du har registrerat din app och get Authentication-token för en användare eller tjänst kan du göra förfrågningar till Microsoft Graph API. Mer information finns i [Översikt över Microsoft Graph](/graph/overview).
 
 Microsoft Graph exponerar REST-API: er och klient bibliotek för att komma åt data på följande Microsoft 365-tjänster:
 - Office 365-tjänster: Delve, Excel, Microsoft-bokningar, Microsoft Teams, OneDrive, OneNote, Outlook/Exchange, Planner och SharePoint
@@ -30,11 +30,11 @@ Microsoft Graph exponerar REST-API: er och klient bibliotek för att komma åt d
 
 ## <a name="versions"></a>Versioner
 
-Microsoft Graph stöder för närvarande två versioner: v 1.0 och beta. V 1.0-versionen innehåller allmänt tillgängliga API: er. Använd v 1.0-versionen för alla produktions program. Beta versionen innehåller API: er som för närvarande finns i för hands version. Eftersom vi kan införa ändringar i våra beta-API: er, rekommenderar vi att du bara använder Beta versionen för att testa appar som utvecklas. Använd inte beta-API: er i dina produktions program. Mer information finns i [Versioning, support och brytande ändrings principer för Microsoft Graph](https://docs.microsoft.com/graph/versioning-and-support).
+Microsoft Graph stöder för närvarande två versioner: v 1.0 och beta. V 1.0-versionen innehåller allmänt tillgängliga API: er. Använd v 1.0-versionen för alla produktions program. Beta versionen innehåller API: er som för närvarande finns i för hands version. Eftersom vi kan införa ändringar i våra beta-API: er, rekommenderar vi att du bara använder Beta versionen för att testa appar som utvecklas. Använd inte beta-API: er i dina produktions program. Mer information finns i [Versioning, support och brytande ändrings principer för Microsoft Graph](/graph/versioning-and-support).
 
-För att börja använda beta-API: erna, se [Microsoft Graph beta slut punkts referens](https://docs.microsoft.com/graph/api/overview?view=graph-rest-beta)
+För att börja använda beta-API: erna, se [Microsoft Graph beta slut punkts referens](/graph/api/overview?view=graph-rest-beta)
 
-Om du vill börja använda v 1.0-API: erna, se [Microsoft Graph REST API v 1.0-referens](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)
+Om du vill börja använda v 1.0-API: erna, se [Microsoft Graph REST API v 1.0-referens](/graph/api/overview?view=graph-rest-1.0)
 
 ## <a name="get-started"></a>Kom igång
 
@@ -42,7 +42,7 @@ Om du vill läsa från eller skriva till en resurs, till exempel en användare e
 
 `{HTTP method} https://graph.microsoft.com/{version}/{resource}?{query-parameters}`
 
-Mer information om elementen i den konstruerade begäran finns i [använda Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)
+Mer information om elementen i den konstruerade begäran finns i [använda Microsoft Graph API](/graph/use-the-api)
 
 Snabb starts exempel finns tillgängliga för att visa hur du får åtkomst till kraften i Microsoft Graph-API: et. Exempel som är tillgängliga för åtkomst till två tjänster med en autentisering: Microsoft-konto och Outlook. Varje snabb start kommer åt information från Microsoft-konto användarnas profiler och visar händelser från deras kalender.
 Snabb starterna omfattar fyra steg:
@@ -51,7 +51,7 @@ Snabb starterna omfattar fyra steg:
 - Bygg exemplet
 - Logga in och Visa händelser i din kalender
 
-När du har slutfört snabb starten har du en app som är redo att köras. Mer information finns i [vanliga frågor och svar om Microsoft Graph snabb start](https://docs.microsoft.com/graph/quick-start-faq). Information om hur du kommer igång med exemplen finns i [Microsoft Graph snabb start](https://developer.microsoft.com/graph/quick-start).
+När du har slutfört snabb starten har du en app som är redo att köras. Mer information finns i [vanliga frågor och svar om Microsoft Graph snabb start](/graph/quick-start-faq). Information om hur du kommer igång med exemplen finns i [Microsoft Graph snabb start](https://developer.microsoft.com/graph/quick-start).
 
 ## <a name="tools"></a>Verktyg
 

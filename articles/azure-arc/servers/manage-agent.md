@@ -1,19 +1,14 @@
 ---
 title: Hantera Azure Arc for servers-agenten (för hands version)
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du normalt kommer att utföra under livs cykeln för Azure-bågen för servrar som är anslutna till dator agenten.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 73ece3f1bc8d5e88d4c1c37e1040f2494230e4ee
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809603"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121297"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 

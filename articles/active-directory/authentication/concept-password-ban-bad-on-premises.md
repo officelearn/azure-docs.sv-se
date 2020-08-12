@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: feb7c4a4417d64e039793bd96141c965f6437414
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e09ad2991d552cb9886911ac75ea23c690204a71
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050920"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116656"
 ---
 # <a name="enforce-on-premises-azure-ad-password-protection-for-active-directory-domain-services"></a>Använd lokalt Azure AD-lösenord för Active Directory Domain Services
 
@@ -87,6 +87,9 @@ De lokala Azure AD-komponenterna för lösen ords skydd fungerar på följande s
 Distribution av lösen ords skydd i Azure AD i en AD DS-skog kräver registrering av den skogen med Azure AD. Varje proxy-tjänst som distribueras måste också registreras med Azure AD. Dessa skogar och proxy-registreringar är kopplade till en särskild Azure AD-klient, som identifieras implicit av de autentiseringsuppgifter som används under registreringen.
 
 AD DS-skogen och alla distribuerade Proxy-tjänster i en skog måste registreras med samma klient organisation. Det finns inte stöd för att en AD DS-skog eller några Proxy-tjänster i skogen ska registreras på olika Azure AD-klienter. Symptom på en sådan mis-konfigurerad distribution är möjligheten att ladda ned lösen ords principer.
+
+> [!NOTE]
+> Kunder som har flera Azure AD-klienter måste därför välja en enskild klient för att registrera varje skog för lösen ords skydd i Azure AD.
 
 ## <a name="download"></a>Ladda ned
 

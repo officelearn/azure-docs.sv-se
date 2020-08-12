@@ -3,15 +3,15 @@ title: Skapa Windows-pool för virtuella Skriv bords värdar PowerShell – Azur
 description: Så här skapar du en adresspool i Windows Virtual Desktop med PowerShell-cmdletar.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a3e4b326b5a78f4b14bdd87e842d8ca485f56831
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002596"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121161"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Skapa en Windows-pool för virtuella skriv bord med PowerShell
 
@@ -116,6 +116,32 @@ Registrera Windows-agenter för virtuella skriv bord genom att göra följande p
 
 >[!IMPORTANT]
 >Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](../security-center/security-center-just-in-time.md). Vi rekommenderar också att du inte tilldelar dina virtuella datorer till en offentlig IP-adress.
+
+## <a name="update-the-agent"></a>Uppdatera agenten
+
+Du måste uppdatera agenten om du är i någon av följande situationer:
+
+- Du vill migrera en tidigare registrerad session till en ny värdbaserad pool
+- Sessionens värd visas inte i din värd-pool efter en uppdatering
+
+Så här uppdaterar du agenten:
+
+1. Logga in på den virtuella datorn som administratör.
+2. Gå till **tjänster**och stoppa **Rdagent** -och **fjärr skrivbords agentens inläsnings** processer.
+3. Leta sedan upp agenten och Start programmet MSIs. De finns antingen i mappen **C:\DeployAgent** eller på den plats där du sparade den när du installerade den.
+4. Hitta följande filer och avinstallera dem:
+     
+     - Microsoft. RDInfra. RDAgent. Installer-x64-verx. x. x
+     - Microsoft. RDInfra. RDAgentBootLoader. Installer-x64
+
+   Om du vill avinstallera filerna högerklickar du på varje fil namn och väljer sedan **Avinstallera**.
+5. Alternativt kan du också ta bort följande register inställningar:
+     
+     - Dator \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDInfraAgent
+     - Dator \ HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\RDAgentBootLoader
+
+6. När du har avinstallerat dessa objekt bör du ta bort alla associationer med den gamla poolen. Om du vill omregistrera den här värden till tjänsten följer du anvisningarna i [registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

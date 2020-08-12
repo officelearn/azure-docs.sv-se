@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: f3896bf795e3b1ca258f65fa2c6f4974f2115014
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283001"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118458"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -48,9 +48,9 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parameter | Typ | Beskrivning |
 | --- | --- | --- |
-| ID | Krävs | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
-| Version | Krävs | Den här parametern ska vara inställd på **2,0**. |
-| IssueInstant | Krävs | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
+| ID | Obligatorisk | Azure AD använder det här attributet för att fylla `InResponseTo` attributet för det returnerade svaret. ID får inte börja med en siffra, så en gemensam strategi är att lägga en sträng som "ID" till sträng representationen av ett GUID. Till exempel `id6c1c178c166d486687be4aaf5e482730` är ett giltigt ID. |
+| Version | Obligatorisk | Den här parametern ska vara inställd på **2,0**. |
+| IssueInstant | Obligatorisk | Detta är en DateTime-sträng med ett UTC-värde och [tur och retur-format ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). Azure AD förväntar sig ett DateTime-värde av den här typen, men utvärderar eller använder inte värdet. |
 | AssertionConsumerServiceUrl | Valfritt | Om den här parametern anges måste den matcha `RedirectUri` moln tjänsten i Azure AD. |
 | ForceAuthn | Valfritt | Detta är ett booleskt värde. Om värdet är true innebär det att användaren tvingas att autentiseras på nytt, även om de har en giltig session med Azure AD. |
 | IsPassive | Valfritt | Detta är ett booleskt värde som anger om Azure AD ska autentisera användaren tyst, utan användar interaktion, med hjälp av sessionens cookie om en sådan finns. Om detta är sant försöker Azure AD autentisera användaren med hjälp av sessions-cookien. |
@@ -104,7 +104,7 @@ Ett `Signature` element i `AuthnRequest` element är valfritt. Azure AD validera
 ### <a name="subject"></a>Ämne
 Ta inte med ett- `Subject` element. Azure AD har inte stöd för att ange ett ämne för en begäran och returnerar ett fel om ett sådant anges.
 
-## <a name="response"></a>Svarsåtgärder
+## <a name="response"></a>Svar
 När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tjänsten. Ett svar på ett lyckat inloggnings försök ser ut som i följande exempel:
 
 ```
@@ -150,7 +150,7 @@ När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tj
 </samlp:Response>
 ```
 
-### <a name="response"></a>Svarsåtgärder
+### <a name="response"></a>Svar
 
 `Response`Elementet innehåller resultatet av auktoriseringsbegäran. Azure AD anger `ID` - `Version` och- `IssueInstant` värden i- `Response` elementet. Dessutom anges följande attribut:
 

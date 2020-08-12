@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e758c69f91fb60a83dfcc119b2c7f7aba44384ca
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: e210c19f40ed77bd7c1bc1dcfc2f2787e3ea2087
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054669"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120294"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrera program till MSAL.NET
 
@@ -37,7 +37,7 @@ Den här artikeln beskriver skillnaderna mellan Microsoft Authentication Library
 
 I de flesta fall vill du använda MSAL.NET och slut punkten för Microsoft Identity Platform, som är den senaste generationen av Microsoft Authentication Libraries. Med MSAL.NET kan du hämta token för användare som loggar in till ditt program med Azure AD (arbets-och skol konton), Microsoft (personliga) konton (MSA) eller Azure AD B2C.
 
-Om du redan är bekant med slut punkten för Azure AD för utvecklare (v 1.0) (och ADAL.NET) kanske du vill läsa [vad som är annorlunda om slut punkten för Microsoft Identity Platform (v 2.0)?](active-directory-v2-compare.md).
+Om du redan är bekant med slut punkten för Azure AD för utvecklare (v 1.0) (och ADAL.NET) kanske du vill läsa [vad som är annorlunda om slut punkten för Microsoft Identity Platform (v 2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Du måste dock fortfarande använda ADAL.NET om ditt program behöver logga in användare med tidigare versioner av [Active Directory Federation Services (AD FS) (ADFS)](/windows-server/identity/active-directory-federation-services). Mer information finns i [ADFS-stöd](https://aka.ms/msal-net-adfs-support).
 
@@ -161,7 +161,7 @@ Mer information om v 1.0-och v 2.0-token finns i [Azure Active Directory åtkoms
 
 ## <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Omfattningar för ett webb-API som accepterar v 1.0-token
 
-OAuth2-behörigheter är behörighets omfattningar som ett v 1.0-webb-API (resurs) exponerar för klient program. Dessa behörighets omfattningar kan beviljas till klient program under medgivande. Se avsnittet om oauth2Permissions i [Azure Active Directory applikations manifest](active-directory-application-manifest.md).
+OAuth2-behörigheter är behörighets omfattningar som ett v 1.0-webb-API (resurs) exponerar för klient program. Dessa behörighets omfattningar kan beviljas till klient program under medgivande. Se avsnittet om oauth2Permissions i [Azure Active Directory applikations manifest](./reference-app-manifest.md).
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Omfattningar för att begära åtkomst till specifika OAuth2-behörigheter för ett v 1.0-program
 

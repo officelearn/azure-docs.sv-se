@@ -11,13 +11,12 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5446d945a81d2630d788a866bda00eb118382b93
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 6f3c6351a7bcd87ae25dfae53cb17f634bbef146
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053787"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121518"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Vad är enkel inloggning (SSO)?
 
@@ -31,6 +30,14 @@ Om du är administratör eller IT-proffs kan du läsa vidare för att lära dig 
 Enkel inloggning är ett stort steg framåt i hur användare loggar in och använder program. Autentisering med enkel inloggning kallas ofta "modern autentisering". Ta en titt på den här videon för att förstå vad som gör enkel inloggning möjlig.
 > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4]
 
+## <a name="understanding-where-an-app-is-hosted"></a>Förstå var en app finns
+Hur du implementerar enkel inloggning för en app har mycket att göra med var appen finns. Värd tjänster på grund av hur nätverks trafiken dirigeras för att få åtkomst till appen. Om en app finns och nås via ditt lokala nätverk, som kallas en lokal app, så behöver användarna inte komma åt Internet för att använda appen. Om appen finns någon annan stans, kallas en molnbaserad app i molnet, måste användarna ha åtkomst till Internet för att kunna använda appen.
+
+> [!TIP]
+> Molnappar kallas även SaaS-appar (program vara som en tjänst). 
+
+> [!TIP]
+> Villkoren Cloud och Internet används ofta utbytbara. Anledningen till detta är att göra med nätverks diagram. Det är vanligt att känneteckna stora dator nätverk med en moln form i ett diagram eftersom det inte är möjligt att rita varje komponent. Internet är det mest välkända nätverket och därför är det enkelt att använda de termer som är utbytbara. Alla dator nätverk kan dock vara myntade ett moln.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Välja en metod för enkel inloggning
 
@@ -55,7 +62,7 @@ I följande tabell sammanfattas de enkla inloggnings metoderna och länkar till 
 | [SAML](#saml-sso) | molnet och lokalt | Välj SAML när det är möjligt för befintliga program som inte använder OpenID Connect eller OAuth. SAML fungerar för program som autentiserar med ett av SAML-protokollen.|
 | [Lösenordsbaserade](#password-based-sso) | molnet och lokalt | Välj Password-based när programmet autentiserar med användar namn och lösen ord. Lösenordsbaserad enkel inloggning möjliggör säker lagring av lösen ord för program och uppspelning med hjälp av ett webb läsar tillägg eller en mobilapp. Den här metoden använder den befintliga inloggnings processen som tillhandahålls av programmet, men gör det möjligt för en administratör att hantera lösen orden. |
 | [Länkade](#linked-sign-on) | molnet och lokalt | Välj länkad inloggning när programmet har kon figurer ATS för enkel inloggning i en annan Identity Provider-tjänst. Med det här alternativet läggs inte enkel inloggning till i programmet. Programmet kan dock redan ha enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS).|
-| [Inaktiverad](#disabled-sso) | molnet och lokalt | Välj inaktive rad enkel inloggning när appen inte är redo att konfigureras för enkel inloggning. Det här läget är standard när du skapar appen.|
+| [Disabled](#disabled-sso) (Inaktiverat) | molnet och lokalt | Välj inaktive rad enkel inloggning när appen inte är redo att konfigureras för enkel inloggning. Det här läget är standard när du skapar appen.|
 | [Integrerad Windows-autentisering (IWA)](#integrated-windows-authentication-iwa-sso) | endast lokalt | Välj IWA enkel inloggning för program som använder [integrerad Windows-autentisering (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication)eller anspråks känsliga program. För IWA använder Application Proxy-kopplingarna Kerberos-begränsad delegering (KCD) för att autentisera användare till programmet. |
 | [Rubrik baserad](#header-based-sso) | endast lokalt | Använd sidhuvud-baserad enkel inloggning när programmet använder rubriker för autentisering. För rubrik-baserad enkel inloggning krävs PingAccess för Azure AD. Programproxyn använder Azure AD för att autentisera användaren och sedan vidarebefordra trafik via anslutnings tjänsten.  |
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/06/2020
-ms.openlocfilehash: 23b749a45e130e99b660cd5bc56349732159e340
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905504"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120770"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -302,6 +302,47 @@ time.sleep(600)
     ```
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
+* **automl_setup Miss lyckas**: 
+    * I Windows kör du automl_setup från en Anaconda-prompt. Klicka [här](https://docs.conda.io/en/latest/miniconda.html)om du vill installera Miniconda.
+    * Se till att Conda 64-bit är installerad, i stället för 32-bitars genom att köra `conda info` kommandot. `platform`Ska vara `win-64` för Windows eller `osx-64` Mac.
+    * Se till att Conda 4.4.10 eller senare är installerat. Du kan kontrol lera versionen med kommandot `conda -V` . Om du har installerat en tidigare version kan du uppdatera den med hjälp av kommandot: `conda update conda` .
+    * Linux`gcc: error trying to exec 'cc1plus'`
+      *  Om `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` felet uppstår installerar du build Essentials med kommandot nnan `sudo apt-get install build-essential` .
+      * Skicka ett nytt namn som den första parametern till automl_setup för att skapa en ny Conda-miljö. Visa befintliga Conda-miljöer med `conda env list` och ta bort dem med `conda env remove -n <environmentname>` .
+      
+* **automl_setup_linux. sh Miss lyckas**: om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet:`unable to execute 'gcc': No such file or directory`-
+  1. Se till att de utgående portarna 53 och 80 är aktiverade. På en virtuell Azure-dator kan du göra detta från Azure Portal genom att välja den virtuella datorn och klicka på nätverk.
+  2. Kör kommandot:`sudo apt-get update`
+  3. Kör kommandot:`sudo apt-get install build-essential --fix-missing`
+  4. Kör `automl_setup_linux.sh` igen
+
+* **konfiguration. ipynb Miss lyckas**:
+  * För lokala Conda bör du först se till att automl_setup har susccessfully körs.
+  * Kontrol lera att subscription_id är korrekt. Hitta subscription_id i Azure Portal genom att välja alla tjänster och sedan prenumerationer. Tecknen "<" och ">" ska inte tas med i subscription_id svärdet. Har till exempel `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` det giltiga formatet.
+  * Se till att deltagar-eller ägar åtkomst till prenumerationen.
+  * Kontrol lera att regionen är en av de regioner som stöds:,,,,,, `eastus2` `eastus` `westcentralus` `southeastasia` `westeurope` `australiaeast` `westus2` `southcentralus` .
+  * Se till att du har åtkomst till regionen med hjälp av Azure Portal.
+  
+* **import AutoMLConfig Miss lyckas**: paket ändringar i den automatiserade Machine Learning-versionen 1.0.76, som kräver att den tidigare versionen avinstallerades innan du uppdaterar till den nya versionen. Om `ImportError: cannot import name AutoMLConfig` felet inträffar efter att du har uppgraderat från en SDK-version före v-1.0.76 till v 1.0.76 eller senare, löser du felet genom att köra: `pip uninstall azureml-train automl` och sedan `pip install azureml-train-auotml` . Skriptet automl_setup. cmd gör detta automatiskt. 
+
+* **arbets ytan. from_config Miss lyckas**: om anropen WS = workspace. from_config () Miss lyckas –
+  1. Se till att konfigurationen. ipynb Notebook har körts.
+  2. Om antecknings boken körs från en mapp som inte finns under den mapp där `configuration.ipynb` kördes, kopierar du mappen aml_config och filen config.jsden innehåller till den nya mappen. Arbets ytan. from_config läser config.jsför notebook-mappen eller dess överordnade mapp.
+  3. Om en ny prenumeration, resurs grupp, arbets yta eller region används, se till att du kör `configuration.ipynb` antecknings boken igen. Att ändra config.jsdirekt fungerar bara om arbets ytan redan finns i den angivna resurs gruppen under den angivna prenumerationen.
+  4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create`kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
+  
+* **Exempel på antecknings bok Miss lyckas**: om en exempel antecknings bok Miss lyckas med ett fel som för PERT, metod eller bibliotek inte finns:
+  * Se till att correctcorrect-kärnan har marker ATS i antecknings boken Jupyter. Kerneln visas i det övre högra hörnet på antecknings sidan. Standardvärdet är azure_automl. Observera att kärnan sparas som en del av antecknings boken. Så om du växlar till en ny Conda-miljö måste du välja den nya kerneln i antecknings boken.
+      * För Azure Notebooks bör det vara python 3,6. 
+      * För lokala Conda-miljöer bör det vara det Conda envioronment-namn som du angav i automl_setup.
+  * Se till att antecknings boken är för den SDK-version som du använder. Du kan kontrol lera SDK-versionen genom att köra `azureml.core.VERSION` i en Jupyter Notebook-cell. Du kan hämta tidigare versioner av exempel antecknings böckerna från GitHub genom att klicka på `Branch` knappen, välja `Tags` fliken och sedan välja versionen.
+
+* **Numpy-importen Miss lyckas i Windows**: vissa Windows-miljöer ser ett fel vid inläsning av numpy med den senaste python-versionen 3.6.8. Om du ser det här problemet kan du prova med python version 3.6.7.
+
+* **Numpy-importen Miss lyckas**: kontrol lera tensorflow-versionen i den automatiserade ml Conda-miljön. Versioner som stöds är < 1,13. Avinstallera tensorflow från miljön om versionen är >= 1,13 du kan kontrol lera versionen av tensorflow och avinstallera enligt följande:
+  1. Starta ett kommando gränssnitt, aktivera Conda-miljön där automatiserade ml-paket är installerade.
+  2. Ange `pip freeze` och leta efter `tensorflow` , om den hittas, ska den version som visas vara < 1,13
+  3. Om den listade versionen inte är en version som stöds går du till `pip uninstall tensorflow` kommando tolken och anger y för bekräftelse.
 
 ## <a name="deploy--serve-models"></a>Distribuera och hantera modeller
 

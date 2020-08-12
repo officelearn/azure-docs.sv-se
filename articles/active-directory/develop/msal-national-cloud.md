@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81533997"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119448"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -40,7 +40,7 @@ Innan du börjar ska du kontrol lera att du uppfyller dessa krav.
 
 ### <a name="choose-the-appropriate-identities"></a>Välj lämpliga identiteter
 
-[Azure Government](https://docs.microsoft.com/azure/azure-government/) program kan använda Azure AD myndighets identiteter och offentliga Azure AD-identiteter för att autentisera användare. Eftersom du kan använda någon av dessa identiteter måste du bestämma vilken auktoritets slut punkt du ska välja för ditt scenario:
+[Azure Government](../../azure-government/index.yml) program kan använda Azure AD myndighets identiteter och offentliga Azure AD-identiteter för att autentisera användare. Eftersom du kan använda någon av dessa identiteter måste du bestämma vilken auktoritets slut punkt du ska välja för ditt scenario:
 
 - Azure AD Public: används ofta om din organisation redan har en offentlig Azure AD-klient som stöder Office 365 (offentlig eller GCC) eller något annat program.
 - Azure AD myndigheter: används ofta om din organisation redan har en Azure AD myndighets-klient som stöder Office 365 (GCC High eller DoD) eller skapar en ny klient i Azure AD myndigheter.
@@ -49,7 +49,7 @@ När du har bestämt dig är det viktigt att du utför registreringen av appen. 
 
 ### <a name="get-an-azure-government-subscription"></a>Hämta en Azure Government-prenumeration
 
-Information om hur du hämtar en Azure Government-prenumeration finns [i hantera och ansluta till din prenumeration i Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+Information om hur du hämtar en Azure Government-prenumeration finns [i hantera och ansluta till din prenumeration i Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
 
 Om du inte har en Azure Government prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/global-infrastructure/government/request/) innan du börjar.
 
@@ -127,14 +127,14 @@ I den koden:
     - Om ditt program har stöd **för konton i den här organisations katalogen**ersätter du värdet med klient-ID eller klient namn (till exempel contoso.Microsoft.com).
     - Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med `organizations` .
 
-    För att hitta autentiserings slut punkter för alla nationella moln, se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    För att hitta autentiserings slut punkter för alla nationella moln, se [Azure AD-autentiseringens slut punkter](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > Personliga Microsoft-konton stöds inte i nationella moln.
 
 - `graphEndpoint`är Microsoft Graph slut punkten för Microsoft-molnet för amerikanska myndigheter.
 
-   Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph slut punkter i nationella moln](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph slut punkter i nationella moln](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 
@@ -150,7 +150,7 @@ Så här aktiverar du din MSAL python-app för suveräna moln:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     Här är ett exempel på en diagram slut punkt med omfattningen:
 
@@ -173,7 +173,7 @@ Här är en exempel utfärdare:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- För att anropa Microsoft Graph krävs en viss URL för diagrammets slut punkt som är beroende av vilket moln du använder. Information om hur du hittar Microsoft Graph slut punkter för alla nationella moln finns i [Microsoft Graph-och diagram Explorers tjänst rot slut punkter](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 Här är ett exempel på en diagram slut punkt med omfattningen:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Läs mer om:
 
 - [Autentisering i nationella moln](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Tyskland](https://docs.microsoft.com/azure/germany/)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure Kina 21Vianet](/azure/china/)
+- [Azure Tyskland](../../germany/index.yml)

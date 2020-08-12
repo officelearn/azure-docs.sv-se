@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904770"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118152"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-eller macOS-app
 
@@ -46,7 +46,7 @@ I det här exemplet används Microsoft Authentication Library (MSAL) för att im
 
 Den här självstudien gäller för både iOS-och macOS-appar. Observera att vissa steg skiljer sig mellan de två plattformarna. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - XCode version 11. x krävs för att bygga appen i den här hand boken. Du kan ladda ned XCode från [Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Nedladdnings-URL för XCode").
 - Microsoft Authentication Library ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Du kan använda en beroende hanterare eller lägga till biblioteket manuellt. Anvisningarna nedan visar hur du gör.
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-Det enda värde som du behöver ändra ovan är det värde som tilldelas som `kClientID` [program-ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Det här värdet är en del av de konfigurations data för MSAL som du sparade under steget i början av den här självstudien för att registrera programmet i Azure Portal.
+Det enda värde som du behöver ändra ovan är det värde som tilldelas som `kClientID` [program-ID](./developer-glossary.md#application-id-client-id). Det här värdet är en del av de konfigurations data för MSAL som du sparade under steget i början av den här självstudien för att registrera programmet i Azure Portal.
 
 ## <a name="configure-xcode-project-settings"></a>Konfigurera Xcode-projekt inställningar
 
@@ -842,4 +842,4 @@ När du har loggat in visar appen de data som returneras från Microsoft Graph `
 
 ## <a name="get-help"></a>Få hjälp
 
-Gå till [Hjälp och support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) om du har problem med den här själv studie kursen eller med Microsoft Identity Platform.
+Gå till [Hjälp och support](./developer-support-help-options.md) om du har problem med den här själv studie kursen eller med Microsoft Identity Platform.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 95cb1181f841ce5f958b8a85697d7261f442b410
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 29c57411a2a35c36d0b4a9d4def931821b795094
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799607"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121144"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Ett webb-API som anropar webb-API: er kod konfiguration
 
@@ -176,7 +176,7 @@ Du kan också se ett exempel på OBO Flow-implementering i [Node.js och Azure Fu
 
 ## <a name="protocol"></a>Protokoll
 
-Mer information om OBO-protokollet finns i [Microsoft Identity Platform och OAuth 2,0 on-behalf-of Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Mer information om OBO-protokollet finns i [Microsoft Identity Platform och OAuth 2,0 on-behalf-of Flow](./v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

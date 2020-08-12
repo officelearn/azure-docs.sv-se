@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 08def16f53cb0f544513c39a85f26e97c3606a42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80154482"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117625"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten
 
@@ -33,8 +33,8 @@ Azure Active Directory (Azure AD) använder sig av behörigheter för både OAut
 
 Azure AD definierar två typer av behörigheter:
 
-* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: t kanske användaren inte kan samtycka till API: et direkt och behöver i stället [en administratör för att tillhandahålla "administrativt medgivande"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Program behörigheter kan bara [skickas till av administratörer](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant) eftersom de vanligt vis är kraftfulla och ger åtkomst till data över användar gränser eller data som annars skulle vara begränsade till administratörer. Användare som definieras som ägare av resurs programmet (t. ex. API: et som publicerar behörigheterna) tillåts också att ge program behörigheter för de API: er som de äger.
+* **Delegerade behörigheter** – Används av appar som har en inloggad användare. För dessa appar godkänner antingen användaren eller administratören de behörigheter som appen begär, och appen delegeras behörighet att agera som den inloggade användaren när ett API anropas. Beroende på API: t kanske användaren inte kan samtycka till API: et direkt och behöver i stället [en administratör för att tillhandahålla "administrativt medgivande"](../develop/howto-convert-app-to-be-multi-tenant.md).
+* **Programbehörigheter** – Används av appar som körs utan någon inloggad användare, t.ex, appar som körs som en bakgrundstjänst eller daemon. Program behörigheter kan bara [skickas till av administratörer](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) eftersom de vanligt vis är kraftfulla och ger åtkomst till data över användar gränser eller data som annars skulle vara begränsade till administratörer. Användare som definieras som ägare av resurs programmet (t. ex. API: et som publicerar behörigheterna) tillåts också att ge program behörigheter för de API: er som de äger.
 
 Gällande behörigheter är de behörigheter som din app har vid begäranden till en API. 
 
@@ -75,14 +75,14 @@ Program i Azure AD förlitar sig på godkännanden för att få åtkomst till re
 * **Statiskt användargodkännande** – Sker automatiskt under [OAuth 2.0-auktoriseringsflödet](v1-protocols-oauth-code.md#request-an-authorization-code) när du anger den resurs som din app vill interagera med. För ett statiskt användargodkännande måste din app redan ha angett alla behörigheter som behövs i appens konfiguration i Azure Portal. Om användaren (eller administratören efter behov) inte har gett sitt godkännande för den här appen, kommer Azure AD be användaren om detta nu. 
 
     Läs mer om hur du registrerar en Azure AD-app som begär åtkomst till en statisk uppsättning API:er.
-* **Dynamiskt användargodkännande** – Är en funktion i v2 Azure AD-appmodellen. I det här scenariot begär appen en uppsättning behörigheter som krävs i [OAuth 2.0-auktoriseringen av flödet för v2-appar](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Om användarna inte har godkänt detta, uppmanas de att godkänna nu. [Mer information om dynamiskt godkännande](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **Dynamiskt användargodkännande** – Är en funktion i v2 Azure AD-appmodellen. I det här scenariot begär appen en uppsättning behörigheter som krävs i [OAuth 2.0-auktoriseringen av flödet för v2-appar](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Om användarna inte har godkänt detta, uppmanas de att godkänna nu. [Mer information om dynamiskt godkännande](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > Ett dynamiskt godkännande kan vara praktiskt, men det är en utmaning för behörigheter som kräver administratörsmedgivande eftersom man inte känner till dessa behörigheter vid godkännandet. Om du behöver administratörs privilegier eller om din app använder dynamiskt medgivande måste du registrera alla behörigheter i Azure Portal (inte bara den delmängd behörigheter som kräver administratörs medgivande). Detta gör det möjligt för klient administratörer att godkänna för alla användares räkning.
   
-* **Administratörsmedgivande** – Krävs när din app behöver ha åtkomst till vissa högpriviligierade behörigheter. Administratörsmedgivande säkerställer att administratörer har vissa ytterligare kontroller innan de godkänner appar, eller att användare får åtkomst till högprivilegierade data från organisationen. [Mer information om hur du ger ett administratörsmedgivande](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **Administratörsmedgivande** – Krävs när din app behöver ha åtkomst till vissa högpriviligierade behörigheter. Administratörsmedgivande säkerställer att administratörer har vissa ytterligare kontroller innan de godkänner appar, eller att användare får åtkomst till högprivilegierade data från organisationen. [Mer information om hur du ger ett administratörsmedgivande](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="client-best-practices"></a>Metodtips för klienter
 

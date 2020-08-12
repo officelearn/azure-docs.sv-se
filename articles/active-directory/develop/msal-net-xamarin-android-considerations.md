@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652674"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118696"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Att tänka på när du använder Xamarin Android med MSAL.NET
 I den här artikeln beskrivs vad du bör tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
@@ -92,7 +92,7 @@ Den här raden säkerställer att kontrollen återgår till MSAL i slutet av den
 
 Ersätt det paket namn som du registrerade i Azure Portal för `android:host=` värdet. Ersätt den nyckel-hash som du registrerade i Azure Portal för `android:path=` värdet. Signaturens hash ska *inte* vara URL-kodad. Se till att ett inledande snedstreck ( `/` ) visas i början av signaturens hash.
 
-Du kan också [skapa aktiviteten i kod](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) i stället för att manuellt redigera *AndroidManifest.xml*. Skapa en aktivitet i kod genom att först skapa en klass som inkluderar `Activity` attributet och `IntentFilter` attributet. 
+Du kan också [skapa aktiviteten i kod](/xamarin/android/platform/android-manifest#the-basics) i stället för att manuellt redigera *AndroidManifest.xml*. Skapa en aktivitet i kod genom att först skapa en klass som inkluderar `Activity` attributet och `IntentFilter` attributet. 
 
 Här är ett exempel på en klass som representerar värdena i XML-filen:
 

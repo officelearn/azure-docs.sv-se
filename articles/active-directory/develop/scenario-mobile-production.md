@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 28ace84f9a80b71209d7963d02b66317292b151b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1a7407c947c1c5bae1eed00acb0f216722f3d09
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80882547"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121042"
 ---
 # <a name="prepare-mobile-apps-for-production"></a>Förbered mobila appar för produktion
 
@@ -36,7 +36,7 @@ För varje MSAL-typ (Microsoft Authentication Library) kan du hitta exempel kod 
 
 ## <a name="mitigate-and-investigate-issues"></a>Minimera och undersök problem
 
-För att bättre diagnostisera problem i din app, samla in data. Information om vilka typer av data som du kan samla in finns i [Logga in MSAL-program](https://docs.microsoft.com/azure/active-directory/develop/msal-logging).
+För att bättre diagnostisera problem i din app, samla in data. Information om vilka typer av data som du kan samla in finns i [Logga in MSAL-program](./msal-logging.md).
 
 Här följer några förslag på data insamling:
 

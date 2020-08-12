@@ -3,15 +3,15 @@ title: Vanliga frågor och svar om Windows Virtual Desktop – Azure
 description: Vanliga frågor och rekommendationer för virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e0e7084a00439fd9096367578f983e6b6acd1df5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 058c5778c116a9e8368049bf30046aa6b7634163
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007496"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121127"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Vanliga frågor och svar om Windows Virtual Desktop
 
@@ -47,8 +47,6 @@ För att begränsa en administratör till att endast hantera användarsessioner,
 När en användare tilldelas en app-grupp gör tjänsten en enkel roll tilldelning i Azure. Därför måste användarens Azure Active Directory (AD) och app-gruppens Azure AD finnas på samma plats. Alla tjänst objekt, till exempel värdar, app-grupper och arbets ytor, måste också finnas i samma Azure AD som användaren.
 
 Du kan skapa virtuella datorer i en annan Azure AD så länge som du synkroniserar Active Directory med användarens Azure AD i samma virtuella nätverk (VNET).
-
-Azure Lighthouse stöder inte fullständigt hantering av Windows Virtual Desktop-miljön. Eftersom Lighthouse för närvarande inte stöder hantering av användar hantering för flera Azure AD-användare måste Lighthouse-kunder fortfarande logga in på den Azure AD som kunderna använder för att hantera användare.
 
 ## <a name="what-are-location-restrictions"></a>Vad är plats begränsningar?
 
@@ -132,3 +130,11 @@ Dessa faktorer kan påverka skalnings gränsen för värdbaserade pooler:
 - Det finns begränsningar för hur många kärnor du kan skapa per region och per prenumeration. Om du till exempel har en Enterprise-avtal-prenumeration kan du skapa 350 kärnor. Du måste dividera 350 antingen med standard antalet kärnor per virtuell dator eller din egen kärn gräns för att avgöra hur många virtuella datorer du kan skapa varje gången du kör mallen. Läs mer på [Virtual Machines gränser – Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - Namnet på den virtuella datorns prefix och antalet virtuella datorer är färre än 15 tecken. Mer information finns i [namngivnings regler och begränsningar för Azure-resurser](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
+
+## <a name="can-i-manage-windows-virtual-desktop-environments-with-azure-lighthouse"></a>Kan jag hantera Windows Virtual Desktop-miljöer med Azure Lighthouse?
+
+Azure Lighthouse stöder inte fullt hantering av Windows-miljöer med virtuella skriv bord. Eftersom Lighthouse för närvarande inte stöder hantering av användar hantering för flera Azure AD-användare måste Lighthouse-kunder fortfarande logga in på den Azure AD som kunderna använder för att hantera användare.
+
+Du kan inte heller använda CSP sandbox-prenumerationer med Windows Virtual Desktop-tjänsten. Mer information finns i [konto för integration sandbox](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
+
+Slutligen, om du har aktiverat resurs leverantören från kontot för CSP-ägare, kan inte CSP-kundens kund konton ändra resurs leverantören.

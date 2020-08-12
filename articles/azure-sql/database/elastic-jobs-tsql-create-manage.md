@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera Elastic Database jobb med Transact-SQL (T-SQL)
+title: Skapa och hantera Elastic Database jobb (för hands version) med Transact-SQL (T-SQL)
 description: Kör skript över flera databaser med Elastic Database Job agent med hjälp av Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: c91f96afefe924856b7416844d37c4d7a13c794b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 339b66310d75e228bc6107635ac39b8d27d774c1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045041"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119121"
 ---
-# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb
+# <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Den här artikeln innehåller många exempel scenarier som hjälper dig att komma igång med elastiska jobb med T-SQL.
@@ -1204,7 +1204,7 @@ GO
 
 Följande vyer är tillgängliga i [jobb databasen](job-automation-overview.md#job-database).
 
-|Visa  |Beskrivning  |
+|Vy  |Beskrivning  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  Visar jobb körnings historik.      |
 |[utskrifts](#jobs-view)     |   Visar alla jobb.      |
@@ -1285,7 +1285,7 @@ Visar alla steg i den aktuella versionen av varje jobb.
 |**step_name**|nvarchar (128)|Unikt (för detta jobb) namn för steget.|
 |**command_type**|nvarchar (50)|Typ av kommando som ska köras i jobb steget. För v1 måste värdet vara lika med och standardvärdet är "TSql".|
 |**command_source**|nvarchar (50)|Kommandots plats. För v1 är ' inline ' standard och endast accepterat värde.|
-|**command**|nvarchar(max)|De kommandon som ska köras av elastiska jobb via command_type.|
+|**kommandoprompt**|nvarchar(max)|De kommandon som ska köras av elastiska jobb via command_type.|
 |**credential_name**|nvarchar (128)|Namnet på databasens begränsade autentiseringsuppgifter som används för att köra jobbet.|
 |**target_group_name**|nvarchar (128)|Mål gruppens namn.|
 |**target_group_id**|uniqueidentifier|Unikt ID för mål gruppen.|

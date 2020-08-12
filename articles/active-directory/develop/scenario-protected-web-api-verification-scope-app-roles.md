@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 005fb194a5c1539b70ccb8e8ac7d938b190ee4f5
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 204bc7dd8cc31f48fdc09eae6b00247023de64f3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563321"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120974"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>Skyddat webb-API: kontrol lera omfattningar och app-roller
 
@@ -88,7 +88,7 @@ public class TodoListController : Controller
 
 #### <a name="verify-the-scopes-more-globally"></a>Verifiera omfattningarna mer globalt
 
-Den rekommenderade metoden är att definiera detaljerade omfattningar för ditt webb-API och verifiera omfattningarna i varje kontroll enhets åtgärd. Det är dock också möjligt att verifiera omfattningarna på nivån för programmet eller en kontrollant med hjälp av ASP.NET Core. Mer information finns i [anspråksbaserad auktorisering](https://docs.microsoft.com/aspnet/core/security/authorization/claims) i ASP.net Core-dokumentationen.
+Den rekommenderade metoden är att definiera detaljerade omfattningar för ditt webb-API och verifiera omfattningarna i varje kontroll enhets åtgärd. Det är dock också möjligt att verifiera omfattningarna på nivån för programmet eller en kontrollant med hjälp av ASP.NET Core. Mer information finns i [anspråksbaserad auktorisering](/aspnet/core/security/authorization/claims) i ASP.net Core-dokumentationen.
 
 ### <a name="net-mvc"></a>.NET MVC
 
@@ -96,7 +96,7 @@ För ASP.NET ersätter du bara `HttpContext.User` med och `ClaimsPrincipal.Curre
 
 ## <a name="verify-app-roles-in-apis-called-by-daemon-apps"></a>Verifiera app-roller i API: er som anropas av daemon-appar
 
-Om ditt webb-API anropas av en [daemon-app](scenario-daemon-overview.md), bör appen kräva en program behörighet för ditt webb-API. Som det visas i [exponera program behörigheter (app-roller)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles)exponerar ditt API sådana behörigheter. Ett exempel är `access_as_application` app-rollen.
+Om ditt webb-API anropas av en [daemon-app](scenario-daemon-overview.md), bör appen kräva en program behörighet för ditt webb-API. Som det visas i [exponera program behörigheter (app-roller)](./scenario-protected-web-api-app-registration.md#exposing-application-permissions-app-roles)exponerar ditt API sådana behörigheter. Ett exempel är `access_as_application` app-rollen.
 
 Du måste nu ha ditt API för att verifiera att token som den tar emot innehåller `roles` anspråk och att detta anspråk har det förväntade värdet. Verifierings koden liknar den kod som verifierar delegerade behörigheter, förutom att styrenhets åtgärden testar för roller i stället för omfattningar:
 

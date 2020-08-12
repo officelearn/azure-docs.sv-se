@@ -1,14 +1,14 @@
 ---
 title: Övervaka Delegerings ändringar i hanterings klienten
 description: Lär dig hur du övervakar Delegerings aktivitet från kund klienter till din hanterings klient.
-ms.date: 07/10/2020
+ms.date: 08/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 63b19f56538f060a158fd665a9bef3bf43a9d087
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9842ad91c059fe4da70221d8c7c5570084bcc6b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252291"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119019"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Övervaka Delegerings ändringar i hanterings klienten
 
@@ -31,16 +31,18 @@ Om du vill tilldela en roll i rot omfånget (/) måste du ha rollen global admin
 
 Detaljerade anvisningar om hur du lägger till och tar bort höjning finns i [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](../../role-based-access-control/elevate-access-global-admin.md).
 
-När du har tilldelat åtkomsten har ditt konto rollen administratör för användar åtkomst i Azure i rot omfånget. Med den här roll tilldelningen kan du Visa alla resurser och tilldela åtkomst i alla prenumerationer eller hanterings grupper i katalogen, samt för att skapa roll tilldelningar i rot omfånget. 
+När du har tilldelat åtkomsten har ditt konto rollen administratör för användar åtkomst i Azure i rot omfånget. Med den här roll tilldelningen kan du Visa alla resurser och tilldela åtkomst i alla prenumerationer eller hanterings grupper i katalogen, samt för att skapa roll tilldelningar i rot omfånget.
 
 ### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Skapa ett nytt tjänst huvud konto för att få åtkomst till data på klient nivå
 
-När du har förhöjd åtkomst kan du tilldela rätt behörigheter till ett konto så att det kan fråga efter aktivitets logg data på klient nivå. Det här kontot måste ha den inbyggda rollen [övervaknings läsare](../../role-based-access-control/built-in-roles.md#monitoring-reader) tilldelad till rot omfånget för hanterings klienten.
+När du har förhöjd åtkomst kan du tilldela rätt behörigheter till ett konto så att det kan fråga efter aktivitets logg data på klient nivå. Det här kontot måste ha den inbyggda rollen för [övervaknings läsaren](../../role-based-access-control/built-in-roles.md#monitoring-reader) som är tilldelad till rot omfånget för hanterings klienten.
 
 > [!IMPORTANT]
 > Att bevilja en roll tilldelning i rot omfånget innebär att samma behörigheter gäller för alla resurser i klienten.
 
-Eftersom detta är en bred åtkomst nivå rekommenderar vi att du tilldelar rollen till ett huvud konto för tjänsten i stället för till en enskild användare eller till en grupp. Dessutom rekommenderar vi följande bästa praxis:
+Eftersom detta är en bred åtkomst nivå rekommenderar vi att du tilldelar rollen till ett huvud konto för tjänsten i stället för till en enskild användare eller till en grupp.
+
+ Dessutom rekommenderar vi följande bästa praxis:
 
 - [Skapa ett nytt tjänst huvud konto](../../active-directory/develop/howto-create-service-principal-portal.md) som endast ska användas för den här funktionen, i stället för att tilldela den här rollen till ett befintligt huvud namn för tjänsten som används för annan automatisering.
 - Se till att det här tjänstens huvud namn inte har åtkomst till några delegerade kund resurser.
@@ -65,13 +67,16 @@ New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName 
 az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role "Monitoring Reader" --scope "/"
 ```
 
+> [!NOTE]
+> Du kan också tilldela den inbyggda rollen för övervaknings läsaren i rot omfånget till enskilda användare eller till användar grupper. Detta kan vara användbart om du vill att en användare ska kunna [Visa Delegerings information direkt i Azure Portal](#view-delegation-changes-in-the-azure-portal). Om du gör det bör du vara medveten om att detta är en bred åtkomst nivå som bör begränsas till det minsta antalet användare som är möjliga.
+
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Ta bort utökad åtkomst för det globala administratörs kontot
 
 När du har skapat ditt tjänst huvud konto och tilldelat övervaknings läsaren rollen i rot omfånget, måste du [ta bort den utökade åtkomsten](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) för det globala administratörs kontot eftersom den här åtkomst nivån inte längre behövs.
 
 ## <a name="query-the-activity-log"></a>Fråga aktivitets loggen
 
-När du har skapat ett nytt tjänst huvud konto med övervaknings läsaren åtkomst till rot omfånget för din hanterings klient kan du använda det för att fråga efter och rapportera om Delegerings aktivitet i din klient. 
+När du har skapat ett nytt tjänst huvud konto med övervaknings läsaren åtkomst till rot omfånget för din hanterings klient kan du använda det för att fråga efter och rapportera om Delegerings aktivitet i din klient.
 
 [Det här Azure PowerShell skriptet](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/tools/monitor-delegation-changes) kan användas för att skicka frågor till den senaste 1 dagen av aktivitet och rapporter om eventuella tillagda eller borttagna delegeringar (eller försök som inte lyckades). Den frågar [klient aktivitets logg](/rest/api/monitor/TenantActivityLogs/List) data och skapar sedan följande värden för att rapportera om delegeringar som läggs till eller tas bort:
 
@@ -85,7 +90,7 @@ Tänk på följande när du frågar efter dessa data:
 
 - Om flera resurs grupper delegeras i en enda distribution returneras separata poster för varje resurs grupp.
 - Ändringar som görs i en tidigare delegering (till exempel uppdatering av behörighets strukturen) kommer att loggas som en tillagd delegering.
-- Som anges ovan måste ett konto ha den inbyggda rollen övervaknings läsare i rot omfånget (/) för att få åtkomst till dessa data på klient nivå.
+- Som nämnts ovan måste ett konto ha den inbyggda rollen för övervaknings läsaren i rot omfånget (/) för att få åtkomst till dessa data på klient nivå.
 - Du kan använda dessa data i dina egna arbets flöden och rapporter. Du kan till exempel använda [http data Collector-API: t (offentlig för hands version)](../../azure-monitor/platform/data-collector-api.md) för att logga Data till Azure Monitor från en REST API-klient och sedan använda [Åtgärds grupper](../../azure-monitor/platform/action-groups.md) för att skapa meddelanden eller aviseringar.
 
 ```azurepowershell-interactive
@@ -159,6 +164,15 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Visa Delegerings ändringar i Azure Portal
+
+Användare som har tilldelats den inbyggda rollen övervakare Azure i rot omfånget kan visa Delegerings ändringar direkt i Azure Portal.
+
+1. Gå till sidan **Mina kunder** och välj sedan **aktivitets logg** på den vänstra navigerings menyn.
+1. Se till att **katalog aktivitet** är markerad i filtret längst upp på skärmen.
+
+En lista över Delegerings ändringar kommer att visas. Du kan välja **Redigera kolumner** om du vill visa eller **dölja status**, **händelse kategori**, tid **, tidstämpel**, **prenumeration**, **händelse som initieras av**, **resurs grupp**, **resurs typ**och **resurs** värden. **Time**
 
 ## <a name="next-steps"></a>Nästa steg
 

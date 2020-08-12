@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: a7553eea8941b93e589f38f8229ef35b70361f8e
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87129193"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115245"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett angulande Enkels Ides program
 
@@ -47,7 +47,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om ditt konto har åtkomst till fler än en klient väljer du ditt konto längst upp till höger och ställer in din portal-session till den Azure AD-klient som du vill använda.
-> 1. Följ anvisningarna för att [Registrera ett program på en sida](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) i Azure Portal.
+> 1. Följ anvisningarna för att [Registrera ett program på en sida](./scenario-spa-app-registration.md) i Azure Portal.
 > 1. Lägg till en ny plattform i fönstret **verifiering** i appens registrering och registrera omdirigerings-URI: n: `http://localhost:4200/` .
 > 1. I den här snabb starten används det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md). Välj de **implicita beviljande** inställningarna för **ID-tokens** och **åtkomsttoken**. ID-token och åtkomsttoken krävs eftersom den här appen loggar in användare och anropar ett API.
 
@@ -99,7 +99,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur ett
 >|Värdenamn|Beskrivning|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|På sidan **Översikt** i program registreringen är det här ditt **program (klient) ID-** värde. |
->|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Detta är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du **https://login.microsoftonline.com** . För nationella moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Ange ett av följande alternativ: om programmet har stöd *för konton i den här organisations katalogen*ersätter du det här värdet med katalogen (klient) ID: t eller klient namnet (till exempel **contoso.Microsoft.com**). Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**. Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**. |
 >|Enter_the_Redirect_Uri_Here|Ersätt med **http://localhost:4200** .|
 >|cacheLocation  | Valfritt Ange webb läsar lagring för autentiseringens tillstånd. Standardvärdet är **SessionStorage**.   |
@@ -142,5 +142,4 @@ När webbläsaren har läst in programmet väljer du **Logga in**. Första gång
 Lär dig sedan att logga in en användare och hämta tokens i den vinkel bara självstudien:
 
 > [!div class="nextstepaction"]
-> [Vinkel kurs](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Vinkel kurs](./tutorial-v2-angular.md)

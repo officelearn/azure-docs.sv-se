@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 7075fbd098736bb297f4a2e3a93aecca5b9182a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b43029f9c955b69e91ea3a65c2b62391ec1da5b4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478866"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114633"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt WebAPI-projekt (Visual Studio Azure Active Directory Connected service)
 
@@ -127,5 +127,5 @@ När du lägger till den anslutna tjänsten säkerhetskopierar Visual Studio 201
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Autentiserings scenarier för Azure Active Directory](authentication-scenarios.md)
+- [Autentiserings scenarier för Azure Active Directory](./authentication-vs-authorization.md)
 - [Lägga till inloggning med Microsoft till en ASP.NET-webbapp](quickstart-v2-aspnet-webapp.md)

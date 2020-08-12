@@ -12,22 +12,22 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 02652243b3c25c0a02e325c8b7b1d7e7c226abcd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311950"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115194"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Snabb start: Logga in användare och hämta en åtkomsttoken i ett Java Script SPA med auth Code Flow
 
 I den här snabb starten kör du ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton med hjälp av flödet för auktoriseringskod. Kod exemplet visar också hur man hämtar en åtkomsttoken för att anropa ett webb-API, i det här fallet Microsoft Graph API. Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.
 
-I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL.js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript).
+I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En liknande snabb start som använder MSAL.js 1,0 med det implicita flödet finns i [snabb start: Logga in användare i Java Script-appar med en sida](./quickstart-v2-javascript.md).
 
 [!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en Azure-prenumeration kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/)
@@ -114,7 +114,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 > - `Enter_the_Application_Id_Here`är **program-ID: t (Client)** för det program som du har registrerat.
 > - `Enter_the_Cloud_Instance_Id_Here`är instansen av Azure-molnet. För huvud-eller globala Azure-molnet anger du `https://login.microsoftonline.com/` . För **nationella** moln (till exempel Kina), se [nationella moln](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here`är inställt på något av följande:
->   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Exempelvis `contoso.microsoft.com`.
+>   - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn**. Till exempel `contoso.microsoft.com`.
 >   - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med `organizations` .
 >   - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med `common` . **I den här snabb**starten använder du `common` .
 >   - Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med `consumers` .
@@ -152,7 +152,7 @@ I den här snabb starten används MSAL.js 2,0 med Authorization Code Flow. En li
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`är slut punkten som API-anrop görs mot. För Main (global) Microsoft Graph API-tjänsten anger `https://graph.microsoft.com/` du (ta med avslutande snedstreck). Mer information om Microsoft Graph i nationella moln finns i [nationell moln distribution](https://docs.microsoft.com/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here`är slut punkten som API-anrop görs mot. För Main (global) Microsoft Graph API-tjänsten anger `https://graph.microsoft.com/` du (ta med avslutande snedstreck). Mer information om Microsoft Graph i nationella moln finns i [nationell moln distribution](/graph/deployments).
 >
 > `graphMeEndpoint`Värdena och `graphMailEndpoint` i *graphConfig.js* -filen bör likna följande om du använder den primära (globala) Microsoft Graph API-tjänsten:
 >
@@ -202,4 +202,4 @@ npm install @azure/msal-browser
 En mer detaljerad steg-för-steg-guide om hur du skapar programmet som används i den här snabb starten finns i följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudie för att logga in och anropa MS Graph >](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-javascript-auth-code)
+> [Självstudie för att logga in och anropa MS Graph >](./tutorial-v2-javascript-auth-code.md)

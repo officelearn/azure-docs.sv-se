@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 303caf36b613e4bcd6a5c48317710b69a3ffbc0a
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875225"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118203"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script (Single-Side Application)
 
@@ -323,7 +323,7 @@ Skapa en ny. js-fil med namnet `authConfig.js` , som innehåller dina konfigurat
 
  Där:
  - *\<Enter_the_Application_Id_Here>* är **program-ID: t (Client)** för det program som du har registrerat.
- - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+ - *\<Enter_the_Cloud_Instance_Id_Here>* är instansen av Azure-molnet. För det största eller globala Azure-molnet anger du bara *https://login.microsoftonline.com* . För **nationella** moln (till exempel Kina), se [nationella moln](./authentication-national-cloud.md).
  - *\<Enter_the_Tenant_info_here>* är inställt på något av följande alternativ:
    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
    - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
@@ -447,7 +447,7 @@ När du anropar *acquireTokenPopup* öppnas ett popup-fönster (eller *acquireTo
    ```
 
    Där:
-   - *\<Enter_the_Graph_Endpoint_Here>* är instansen av MS Graph API. För den globala MS Graph API-slutpunkten ersätter du bara den här strängen med `https://graph.microsoft.com` . För nationella moln distributioner, se Graph API- [dokumentationen](https://docs.microsoft.com/graph/deployments).
+   - *\<Enter_the_Graph_Endpoint_Here>* är instansen av MS Graph API. För den globala MS Graph API-slutpunkten ersätter du bara den här strängen med `https://graph.microsoft.com` . För nationella moln distributioner, se Graph API- [dokumentationen](/graph/deployments).
 
 1. Skapa sedan en. js-fil med namnet `graph.js` , som kommer att göra ett rest-anrop till Microsoft Graph API och lägga till följande kod:
 

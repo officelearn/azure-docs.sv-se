@@ -3,15 +3,15 @@ title: Diagnostisera problem i Windows Virtual Desktop – Azure
 description: Så här använder du funktionen Windows Virtual Desktop Diagnostics för att diagnosticera problem.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a985ce4f93b04e4065b5189b2a406b54729720c3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005085"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121416"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identifiera och diagnostisera problem med virtuella Windows-datorer
 
@@ -60,6 +60,14 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 |8|ConnectionBroken|Anslutningen mellan klienten och gatewayen eller servern släpptes. Ingen åtgärd krävs om den inte sker utan förvarning.|
 |14|UnexpectedNetworkDisconnect|Anslutningen till nätverket har släppts. Be användaren att ansluta igen.|
 |24|ReverseConnectFailed|Den virtuella datorns värd har ingen direkt rad information till RD Gateway. Se till att IP-adressen för gatewayen kan matchas.|
+
+## <a name="error-cant-add-user-assignments-to-an-app-group"></a>Fel: det går inte att lägga till användar tilldelningar i en app-grupp
+
+När du har tilldelat en användare till en app-grupp, visar Azure Portal en varning om att "session avslutas" eller "problem med autentiseringsfel-tillägg Microsoft_Azure_WVD". Tilldelnings sidan läses sedan inte in och därefter slutar sidorna att läsas in i Azure Portal (till exempel Azure Monitor, Log Analytics, Service Health och så vidare).
+
+**Orsak:** Det är problem med principen för villkorlig åtkomst. Azure Portal försöker hämta en token för Microsoft Graph, som är beroende av SharePoint Online. Kunden har en princip för villkorlig åtkomst som heter "Microsoft Office 365 användnings villkor för data lagring" som kräver att användarna godkänner användnings villkoren för att få åtkomst till data lagringen. De har dock inte loggat in ännu, så Azure Portal kan inte hämta token.
+
+**KORRIGERA:** Innan du loggar in på Azure Portal måste administratören logga in på SharePoint och godkänna användnings villkoren. Därefter bör de kunna logga in på Azure Portal som normalt.
 
 ## <a name="next-steps"></a>Nästa steg
 

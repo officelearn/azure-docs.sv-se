@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383588"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116146"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Felsöka SAML-baserad enkel inloggning för program i Azure Active Directory
 
@@ -104,4 +104,4 @@ Följ dessa steg för att lösa problemet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när enkel inloggning fungerar i ditt program kan du [Automatisera användar etablering och avetablering för SaaS-program](../manage-apps/user-provisioning.md) eller [komma igång med villkorlig åtkomst](../conditional-access/app-based-conditional-access.md).
+Nu när enkel inloggning fungerar i ditt program kan du [Automatisera användar etablering och avetablering för SaaS-program](../app-provisioning/user-provisioning.md) eller [komma igång med villkorlig åtkomst](../conditional-access/app-based-conditional-access.md).

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82593173"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115653"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -154,9 +154,9 @@ Vissa scenarier, t. ex. sådana som inbegriper villkorlig åtkomst som rör ett 
 Mer information finns i [mobilapp som anropar webb-API: er](scenario-mobile-overview.md).
 
 > [!NOTE]
-> En mobilapp som använder MSAL. iOS, MSAL. Android eller MSAL.NET på Xamarin kan ha skydds principer för appar som tillämpas på den. Till exempel kan principerna hindra en användare från att kopiera skyddad text. Mobilappen hanteras av Intune och identifieras av Intune som en hanterad app. Mer information finns i [Översikt över Microsoft Intune App SDK](https://docs.microsoft.com/intune/app-sdk).
+> En mobilapp som använder MSAL. iOS, MSAL. Android eller MSAL.NET på Xamarin kan ha skydds principer för appar som tillämpas på den. Till exempel kan principerna hindra en användare från att kopiera skyddad text. Mobilappen hanteras av Intune och identifieras av Intune som en hanterad app. Mer information finns i [Översikt över Microsoft Intune App SDK](/intune/app-sdk).
 >
-> [Intune App SDK](https://docs.microsoft.com/intune/app-sdk-get-started) är separat från MSAL-bibliotek och interagerar med Azure AD på egen hand.
+> [Intune App SDK](/intune/app-sdk-get-started) är separat från MSAL-bibliotek och interagerar med Azure AD på egen hand.
 
 ### <a name="protected-web-api"></a>Skyddat webb-API
 
@@ -198,7 +198,7 @@ Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-auten
   <tr>
    <td><a href="scenario-spa-overview.md"><img alt="Single-Page App" src="media/scenarios/spa-app.svg"></a></td>
    <td><a href="scenario-spa-overview.md">Ensidesapp</a></td>
-   <td><a href="v2-oauth2-implicit-grant-flow.md">Uttrycklig</a></td>
+   <td><a href="v2-oauth2-implicit-grant-flow.md">Implicit</a></td>
    <td>Arbets-eller skol konton, personliga konton och Azure Active Directory B2C (Azure AD B2C)</td>
  </tr>
 
@@ -305,5 +305,5 @@ Mer information finns i [Microsoft-bibliotek som stöds av OS/språk](reference-
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [grundläggande autentisering](authentication-scenarios.md) och [åtkomsttoken i Microsoft Identity Platform](access-tokens.md).
+* Lär dig mer om [grundläggande autentisering](./authentication-vs-authorization.md) och [åtkomsttoken i Microsoft Identity Platform](access-tokens.md).
 * Lär dig mer om [att skydda åtkomsten till IoT-appar](/azure/architecture/example-scenario/iot-aad/iot-aad).

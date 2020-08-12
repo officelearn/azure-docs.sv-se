@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76696529"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119886"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Använda MSAL för Android med B2C
 
-Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att autentisera användare med sociala och lokala identiteter genom att använda [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C är en identitets hanterings tjänst. Använd den för att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program.
+Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att autentisera användare med sociala och lokala identiteter genom att använda [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C är en identitets hanterings tjänst. Använd den för att anpassa och styra hur kunderna registrerar sig, loggar in och hanterar sina profiler när de använder dina program.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Konfigurera kända utfärdade och omdirigerings-URI
 
@@ -54,7 +54,7 @@ Konfigurations filen för appen deklarerar två `authorities` . En för varje pr
 }
 ```
 
-`redirect_uri`Måste vara registrerad i appens konfiguration och även `AndroidManifest.xml` stöd för omdirigering under [tilldelnings flödet för auktoriseringskod](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri`Måste vara registrerad i appens konfiguration och även `AndroidManifest.xml` stöd för omdirigering under [tilldelnings flödet för auktoriseringskod](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Initiera IPublicClientApplication
 
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Ange en princip
 
-Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority` sats vid konstruktion `acquireToken` eller `acquireTokenSilent` parametrar.  Ett exempel:
+Eftersom principerna i B2C representeras som separata myndigheter, så kan du anropa en annan princip än standardvärdet genom att ange en `fromAuthority` sats vid konstruktion `acquireToken` eller `acquireTokenSilent` parametrar.  Till exempel:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -153,7 +153,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## <a name="handle-password-change-policies"></a>Hantera principer för lösen ords ändring
 
-Användar flödet för registrering av lokalt konto eller inloggnings användare visar ett**bortglömt lösen ord?** Operationsföljdslänkkod. När du klickar på den här länken utlöses inget användar flöde för lösen ords återställning automatiskt.
+Användar flödet för registrering av lokalt konto eller inloggnings användare visar ett**bortglömt lösen ord?** . När du klickar på den här länken utlöses inget användar flöde för lösen ords återställning automatiskt.
 
 I stället returneras fel koden `AADB2C90118` till din app. Din app ska hantera den här felkoden genom att köra ett speciellt användar flöde som återställer lösen ordet.
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>IdToken-anspråk
 
-Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er tillhandahåller för närvarande inte `preferred_username` anspråket. Eftersom det här anspråket används av MSAL för cachelagring, används plats hållarens värde `MISSING FROM THE TOKEN RESPONSE` i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Anspråk som returneras i IdToken fylls i av Security Token Service (STS), inte av MSAL. Beroende på vilken identitets leverantör (IdP) som används kan vissa anspråk saknas. Vissa IDP: er tillhandahåller för närvarande inte `preferred_username` anspråket. Eftersom det här anspråket används av MSAL för cachelagring, används plats hållarens värde `MISSING FROM THE TOKEN RESPONSE` i sitt ställe. Mer information om B2C IdToken-anspråk finns i [Översikt över tokens i Azure Active Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Hantera konton och principer
 
@@ -239,4 +239,4 @@ När du förnyar token för en princip med `acquireTokenSilent` , ange samma `IA
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Active Directory B2C (Azure AD B2C) i [Vad är Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+Läs mer om Azure Active Directory B2C (Azure AD B2C) i [Vad är Azure Active Directory B2C?](../../active-directory-b2c/overview.md)

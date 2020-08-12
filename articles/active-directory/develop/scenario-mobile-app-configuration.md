@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 78e3bbfe910ebc3d7f21167c2a15f0c255fdc8ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe084d931ee735f9eaecc58ca5445ae56a951cc
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84904804"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121059"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Konfigurera en mobilapp som anropar webb-API: er
 
@@ -102,9 +102,9 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="find-more-app-building-parameters"></a>Hitta fler parametrar för att skapa appar
 
-En lista över alla metoder som är tillgängliga finns i `PublicClientApplicationBuilder` [listan metoder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+En lista över alla metoder som är tillgängliga finns i `PublicClientApplicationBuilder` [listan metoder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
 
-En beskrivning av alla alternativ som visas i finns i `PublicClientApplicationOptions` [referens dokumentationen](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
+En beskrivning av alla alternativ som visas i finns i `PublicClientApplicationOptions` [referens dokumentationen](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions).
 
 ## <a name="tasks-for-xamarin-ios"></a>Uppgifter för Xamarin iOS
 

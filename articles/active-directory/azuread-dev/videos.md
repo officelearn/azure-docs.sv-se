@@ -13,12 +13,12 @@ ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
 titleSuffix: Microsoft identity platform
-ms.openlocfilehash: e71f555f7a9cefef3aeada79031db3a07e3db49a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7865fbe758b35ae9ff1ffe526da5e7100e83c966
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77202065"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117557"
 ---
 # <a name="azure-active-directory-developer-platform-videos"></a>Videor om Azure Active Directory Developer Platform
 
@@ -73,4 +73,4 @@ Lär dig mer om den nya Microsoft Identity Platform och hur du migrerar till den
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den nya [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop)
+Lär dig mer om den nya [Microsoft Identity Platform](../develop/index.yml)

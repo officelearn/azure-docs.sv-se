@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 06e1abc4f863674cc67c1a78a9f2f626565d296f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828939"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117234"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
@@ -178,7 +178,7 @@ Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlig
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomst principer för resurser
-Kom ihåg att du kan behöva konfigurera ytterligare behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
+Kom ihåg att du kan behöva konfigurera ytterligare behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
 
 1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
 1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.

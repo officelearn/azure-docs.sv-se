@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231683"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119563"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Översikt över Microsoft Identity Platform
 
@@ -42,7 +42,7 @@ Med Microsoft Identity Platform kan du skriva kod en gång och komma åt alla an
 
 Välj det [program scenario](authentication-flows-app-scenarios.md) som du vill bygga. Var och en av dessa scenarion börjar med en översikt och länkar till en snabb start för att hjälpa dig att komma igång:
 
-- [SPA (Single-Page app)](scenario-spa-overview.md)
+- [Ensidesapplikation (SPA)](scenario-spa-overview.md)
 - [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
 - [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md)
 - [Skyddat webb-API](scenario-protected-web-api-overview.md)
@@ -59,7 +59,7 @@ När du arbetar med Microsoft Identity Platform för att integrera autentisering
 
 Lär dig hur grundläggande autentisering och Azure AD-koncept gäller för Microsoft Identity Platform i följande rekommenderade artiklar:
 
-- [Grundläggande om autentisering](authentication-scenarios.md)
+- [Grundläggande om autentisering](./authentication-vs-authorization.md)
 - [Program-och tjänst huvud namn](app-objects-and-service-principals.md)
 - [Mål grupper](v2-supported-account-types.md)
 - [Behörigheter och samtycke](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Lär dig hur grundläggande autentisering och Azure AD-koncept gäller för Micr
 
 [Azure AD B2C](../../active-directory-b2c/overview.md) – Bygg kund program som användarna kan logga in på att använda sina sociala konton som Facebook eller Google, eller genom att använda en e-postadress och ett lösen ord.
 
-[Azure AD B2B](../b2b/what-is-b2b.md) – Bjud in externa användare i Azure AD-klienten som "gäst användare" och tilldela behörigheter för auktorisering medan de använder sina befintliga autentiseringsuppgifter för autentisering.
+[Azure AD B2B](../external-identities/what-is-b2b.md) – Bjud in externa användare i Azure AD-klienten som "gäst användare" och tilldela behörigheter för auktorisering medan de använder sina befintliga autentiseringsuppgifter för autentisering.
 
 > [!TIP]
 > Letar du efter dokumentation om *Azure Active Directory Developer Platform (v 1.0)* ? Se [Översikt över Azure Active Directory för utvecklare (v 1.0)](../azuread-dev/v1-overview.md).

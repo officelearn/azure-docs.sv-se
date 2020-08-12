@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 624824f5b6b8f7154ccd7b50da49f3f4bb179bb9
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 97f0412141f15ad0a72c02b92cfcf089b61db0cf
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542824"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120360"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -100,12 +100,11 @@ Mer information finns i dokumentationen för [modell klassen](https://docs.micro
 
 Mer information om hur du arbetar med modeller som har tränats utanför Azure Machine Learning finns i [distribuera en befintlig modell](../articles/machine-learning/how-to-deploy-existing-model.md).
 
-
 ## <a name="define-an-entry-script"></a>Definiera ett post skript
 
 [!INCLUDE [write entry script](machine-learning-entry-script.md)]
 
-## <a name="define-an-inference-configuration"></a>Definiera en konfiguration för en härledning
+## <a name="define-an-inferenceconfig"></a>Definiera en InferenceConfig
 
 En konfiguration för en härledning beskriver hur du konfigurerar webb tjänsten som innehåller din modell. Den används senare när du distribuerar modellen.
 
@@ -162,12 +161,9 @@ Mer information om konfiguration av konfiguration finns i [InferenceConfig](http
 
 ## <a name="choose-a-compute-target"></a>Välj ett beräknings mål
 
-
 [!INCLUDE [aml-compute-target-deploy](aml-compute-target-deploy.md)]
 
-
-
-## <a name="define-a-deployment-configuration"></a>Definiera en distributions konfiguration
+## <a name="define-a-deploymentconfiguration"></a>Definiera en DeploymentConfiguration
 
 Innan du distribuerar din modell måste du definiera distributions konfigurationen. *Distributions konfigurationen är specifika för det beräknings mål som ska vara värd för webb tjänsten.* Om du till exempel distribuerar en modell lokalt måste du ange den port där tjänsten accepterar begär Anden. Distributions konfigurationen ingår inte i ditt Entry-skript. Den används för att definiera egenskaperna för det beräknings mål som ska vara värd för modell-och registrerings skriptet.
 
@@ -187,7 +183,6 @@ Klasserna för lokala, Azure Container Instances-och AKS-webbtjänster kan impor
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
 
-
 ## <a name="deploy-your-model"></a>Distribuera din modell
 
 Nu är du redo att distribuera din modell. Exemplet nedan visar en lokal distribution. Syntaxen varierar beroende på vilket beräknings mål som du valde i föregående steg.
@@ -203,11 +198,9 @@ print(service.state)
 
 Mer information finns i dokumentationen för [LocalWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py), [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)och [WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py).
 
-
 ## <a name="delete-resources"></a>Ta bort resurser
 
 Använd om du vill ta bort en distribuerad webb tjänst `service.delete()` .
 Använd om du vill ta bort en registrerad modell `model.delete()` .
 
 Mer information finns i dokumentationen för [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) och [Model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
-

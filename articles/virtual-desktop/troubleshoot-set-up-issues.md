@@ -3,15 +3,15 @@ title: Skapa Windows-miljö för virtuella Skriv bords miljö – Azure
 description: Så här felsöker och löser du problem med klient-och värd pooler under installationen av en Windows Virtual Desktop-miljö.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 01/08/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 064cdc0189f6b85fa0e5872f49759c2ec67472e6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006170"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121382"
 ---
 # <a name="host-pool-creation"></a>Skapa värdpool
 
@@ -252,6 +252,12 @@ the VM.\\\"
 **Orsak:** Det här felet beror på en statisk väg, brand Väggs regel eller NSG blockerar hämtningen av zip-filen som är kopplad till Azure Resource Manager-mallen.
 
 **KORRIGERA:** Ta bort blockerande statisk väg, brand Väggs regel eller NSG. Du kan också öppna JSON-filen Azure Resource Manager mall i en text redigerare, ta länken till zip-filen och ladda ned resursen till en tillåten plats.
+
+### <a name="error-cant-delete-a-session-host-from-the-host-pool-after-deleting-the-vm"></a>Fel: det går inte att ta bort en sessionsvariabel från värddatorn efter att den virtuella datorn har tagits bort
+
+**Orsak:** Du måste ta bort värd för sessionen innan du tar bort den virtuella datorn.
+
+**KORRIGERA:** Placera sessionen i dränerings läge, logga ut alla användare från värd för sessionen och ta sedan bort värden.
 
 ## <a name="next-steps"></a>Nästa steg
 

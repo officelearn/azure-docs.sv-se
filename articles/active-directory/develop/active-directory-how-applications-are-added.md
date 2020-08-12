@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 01ea22af472877abe34236ec82a7750eccfcdfb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d89f0d08fec0b0f341094d422b1091de5a61055e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80884281"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115772"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
@@ -74,7 +74,7 @@ Precis som program objekt kan tjänstens huvud namn också skapas via flera väg
   * När du prenumererar på Office 365 eller startar en utvärderings version skapas ett eller flera tjänst huvud namn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
   * Vissa Office 365-tjänster som SharePoint skapar tjänstens huvud namn kontinuerligt för att tillåta säker kommunikation mellan komponenter, inklusive arbets flöden.
 * När en administratör lägger till ett program från App-galleriet (då skapas även ett underliggande app-objekt)
-* Lägg till ett program för att använda [Azure-AD-programproxy](/azure/active-directory/manage-apps/application-proxy)
+* Lägg till ett program för att använda [Azure-AD-programproxy](../manage-apps/application-proxy.md)
 * Ansluta ett program för enkel inloggning med hjälp av SAML eller lösen ord enkel inloggning (SSO)
 * Via programmering via Microsoft Graph API eller PowerShell
 
@@ -104,8 +104,8 @@ Program som du lägger till själv (representeras som **app (dina)** i diagramme
   * Omvandlings regler för anspråk
   * Mappningar av attribut (användar etablering)
 * Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Microsoft Graph API:
-  * [Program](https://docs.microsoft.com/graph/api/resources/application?view=graph-rest-1.0)
-  * [Tjänstens huvud namn](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)
+  * [Program](/graph/api/resources/application?view=graph-rest-1.0)
+  * [Tjänstens huvud namn](/graph/api/resources/serviceprincipal?view=graph-rest-beta)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?
 

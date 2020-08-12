@@ -2,14 +2,14 @@
 title: Server lös behållare i Azure
 description: Tjänsten Azure Container Instances är det snabbaste och enklaste sättet att köra isolerade behållare i Azure, utan att behöva hantera virtuella datorer och utan att behöva använda en initierare på högre nivå.
 ms.topic: overview
-ms.date: 07/28/2020
+ms.date: 08/10/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bd68fab380754eca38eebf3fd52634508f282cf6
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498692"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121671"
 ---
 # <a name="what-is-azure-container-instances"></a>Vad är Azure Container Instances?
 
@@ -35,10 +35,15 @@ Azure Container Instances också stöd för att köra ett kommando i en behålla
 > [!IMPORTANT]
 > Från och med 13 januari 2020 kräver Azure Container Instances alla säkra anslutningar från servrar och program för att använda TLS 1,2. Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka.
 
-## <a name="hypervisor-level-security"></a>Säkerhet på hypervisornivå
+## <a name="compliant-deployments"></a>Kompatibla distributioner
+
+### <a name="hypervisor-level-security"></a>Säkerhet på hypervisornivå
 
 Tidigare har containrar erbjudit isolering av programberoenden och resursstyrning men har inte ansetts vara tillräckligt strikta för fientlig användning med flera innehavare. Azure Container Instances garanterar att ditt program är lika isolerat i en behållare som i en virtuell dator.
 
+### <a name="customer-data"></a>Kundinformation
+
+ACI-tjänsten lagrar lägsta kund information som krävs för att se till att behållar grupper körs som förväntat. Att lagra kund information i en enda region är för närvarande endast tillgängligt i Sydostasien region (Singapore) för Asien och stillahavsområdet geo. För alla andra regioner lagras kund information på [geo](https://azure.microsoft.com/global-infrastructure/geographies/). Kontakta Azure-supporten för att få mer information.
 
 ## <a name="custom-sizes"></a>Anpassade storlekar
 

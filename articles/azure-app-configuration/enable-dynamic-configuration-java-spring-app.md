@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/5/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: a2864d610d71c6b3a86c131dabb3c0b9ed138bec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 653fcb6f6590fd503a97800ec8196025cf14a3b9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327930"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121569"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-java-spring-app"></a>Självstudie: Använd dynamisk konfiguration i en Java våren-app
 
@@ -36,7 +36,7 @@ Om du vill använda automatisk uppdatering börjar du med en våren Boot-app som
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.1.2</version>
+    <version>1.1.5</version>
 </dependency>
 ```
 
@@ -46,11 +46,33 @@ Om du vill använda automatisk uppdatering börjar du med en våren Boot-app som
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.7</version>
 </dependency>
 ```
 
-Spara filen och skapa och kör sedan programmet som vanligt.
+## <a name="run-and-test-the-app-locally"></a>Kör och testa appen lokalt
+
+1. Skapa Spring Boot-appen med Maven och kör den:
+
+    ```shell
+    mvn clean package
+    mvn spring-boot:run
+    ```
+
+1. Öppna ett webbläsarfönster och gå till URL: en: `http://localhost:8080` .  Du ser det meddelande som är kopplat till din nyckel. 
+
+    Du kan också använda *sväng* för att testa ditt program, till exempel: 
+    
+    ```cmd
+    curl -X GET http://localhost:8080/
+    ```
+
+1. Om du vill testa dynamisk konfiguration öppnar du Azure App konfigurations portal som är kopplad till ditt program. Välj **Configuration Explorer**och uppdatera värdet för nyckeln som visas, till exempel:
+    | Tangent | Värde |
+    |---|---|
+    | program/config. Message | Hello-uppdaterat |
+
+1. Uppdatera webb sidan för att se det nya meddelandet som visas.
 
 ## <a name="next-steps"></a>Nästa steg
 

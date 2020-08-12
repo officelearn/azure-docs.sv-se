@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bfc6b6fa6a2af8750c868aaacb289d39306ce06e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 24d50635efb4d7fe18db9836311cf0a85dfcc734
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83770984"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118628"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Autentiseringsuppgifter för Microsoft Identity Platform och OAuth 2,0-resurs ägar lösen ord
 
@@ -33,7 +33,7 @@ Microsoft Identity Platform stöder [OAuth 2,0-ROPC (Resource Owner Password Cre
 > * Personliga konton som bjuds in till en Azure AD-klient kan inte använda ROPC.
 > * Konton som inte har lösen ord kan inte logga in via ROPC. I det här scenariot rekommenderar vi att du använder ett annat flöde för appen i stället.
 > * Om användarna behöver använda [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) för att logga in i programmet kommer de att blockeras i stället.
-> * ROPC stöds inte i scenarier med [hybrid identitets Federation](/azure/active-directory/hybrid/whatis-fed) (till exempel Azure AD och ADFS som används för att autentisera lokala konton). Om användarna är fulla omdirigerade till en lokal identitets leverantör kan inte Azure AD testa användar namn och lösen ord mot identitets leverantören. [Direktautentisering](/azure/active-directory/hybrid/how-to-connect-pta) stöds med ROPC, men.
+> * ROPC stöds inte i scenarier med [hybrid identitets Federation](../hybrid/whatis-fed.md) (till exempel Azure AD och ADFS som används för att autentisera lokala konton). Om användarna är fulla omdirigerade till en lokal identitets leverantör kan inte Azure AD testa användar namn och lösen ord mot identitets leverantören. [Direktautentisering](../hybrid/how-to-connect-pta.md) stöds med ROPC, men.
 
 ## <a name="protocol-diagram"></a>Protokoll diagram
 
@@ -66,7 +66,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Obligatorisk | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers` , men den kan vara inställd på `organizations` . |
+| `tenant` | Krävs | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers` , men den kan vara inställd på `organizations` . |
 | `client_id` | Obligatorisk | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. |
 | `grant_type` | Obligatorisk | Måste anges till `password` . |
 | `username` | Obligatorisk | Användarens e-postadress. |
@@ -110,7 +110,7 @@ Om användaren inte har angett rätt användar namn eller lösen ord, eller om k
 | `invalid_grant` | Autentiseringen misslyckades | Autentiseringsuppgifterna var felaktiga eller så har klienten inte tillstånd för de begärda omfattningarna. Om omfången inte beviljas returneras ett `consent_required` fel. Om detta inträffar ska klienten skicka användaren till en interaktiv prompt med en webbvy eller webbläsare. |
 | `invalid_request` | Begäran har inte konstruerats korrekt | Anslags typen stöds inte i `/common` `/consumers` kontexterna eller.  Använd `/organizations` eller ett klient-ID i stället. |
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 * Testa ROPC för dig själv med [exempel konsol programmet](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* För att avgöra om du ska använda v 2.0-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
+* För att avgöra om du ska använda v 2.0-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](../azuread-dev/azure-ad-endpoint-comparison.md).

@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: da697ad6fac5c75faacbfb20b768a4ec96528881
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041467"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117081"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -95,7 +95,7 @@ Du kan definiera app-roller som mål `users` , `applications` eller båda. När 
 "availableToOtherTenants": false,
 ```
 
-Antalet definierade roller påverkar de gränser som applikations manifestet har. De har diskuterats i detalj på sidan [manifest gränser](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) .
+Antalet definierade roller påverkar de gränser som applikations manifestet har. De har diskuterats i detalj på sidan [manifest gränser](./reference-app-manifest.md#manifest-limits) .
 
 ### <a name="assign-users-and-groups-to-roles"></a>Tilldela roller till användare och grupper
 
@@ -128,6 +128,6 @@ När de användare som är tilldelade till de olika app-rollerna loggar in i pro
 - [Lägg till auktorisering med hjälp av app-roller & roller anspråk till en ASP.NET Core webbapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Implementera auktorisering i dina program med Microsoft Identity Platform (video)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, nu med grupp anspråk och program roller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
-- [Azure Active Directory-appmanifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
+- [Azure Active Directory-appmanifest](./reference-app-manifest.md)
 - [AAD-åtkomsttoken](access-tokens.md)
 - [AAD`id_tokens`](id-tokens.md)

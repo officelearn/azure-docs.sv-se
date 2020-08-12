@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c0d8d2b009194b58c76dbd0a171f701f90df4086
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f62f6702b36915c6a6e1350072982e231cd9c07e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058288"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118237"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Lägga till inloggning till Microsoft i en ASP.NET-webbapp
 
@@ -264,7 +264,7 @@ I Visual Studio skapar du en ny vy för att lägga till inloggnings knappen och 
     ```
 
 ### <a name="more-information"></a>Mer information
- Den här sidan lägger till en inloggningsknapp i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Riktlinjer för anpassning").
+ Den här sidan lägger till en inloggningsknapp i SVG-format med en svart bakgrund:<br/>![Logga in med Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> För fler inloggnings knappar går du till [rikt linjerna för anpassning](./howto-add-branding-in-azure-ad-apps.md "Riktlinjer för anpassning").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Lägg till en kontrollant för att Visa användarens anspråk
 Den här kontrollanten demonstrerar hur `[Authorize]`-attributet kan skydda en kontrollant. Det här attributet begränsar åtkomsten till kontrollanten genom att endast tillåta autentiserade användare. Följande kod använder attributet för att Visa användar anspråk som hämtades som en del av inloggningen:
@@ -403,7 +403,7 @@ Program som integreras med Microsoft Identity Platform följer en auktoriserings
 - Programutvecklaren lägger till ytterligare behörigheter som kräver **Administratörs medgivande**.
 - Eller klient organisationen är konfigurerad (i **företags program – > användar inställningar**) där användare inte kan godkänna appar som har åtkomst till företags data för deras räkning.
 
-Mer information finns [i behörigheter och medgivande i Microsoft Identity Platform-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Mer information finns [i behörigheter och medgivande i Microsoft Identity Platform-slutpunkten](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Visa program resultat
 
@@ -424,7 +424,7 @@ När du bläddrar till vyn kontrollant bör du se en tabell som innehåller grun
 |**Ämne** |Ämne |En sträng som unikt identifierar användaren på webben|
 |**Klientorganisations-ID** |GUID | Ett **GUID** som unikt representerar användarens Azure AD-organisation|
 
-Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en ID-token](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+Dessutom bör du se en tabell över alla anspråk som finns i autentiseringsbegäran. Mer information finns i [listan över anspråk som finns i en ID-token](./id-tokens.md).
 
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testa åtkomst till en metod som har ett auktoriserat attribut (valfritt)
 
@@ -484,6 +484,6 @@ Lär dig mer om webb program som anropar webb-API: er med Microsoft Identity Pla
 Lär dig hur du skapar webbappar som anropar Microsoft Graph:
 
 > [!div class="nextstepaction"]
-> [Själv studie kurs om Microsoft Graph ASP.NET](https://docs.microsoft.com/graph/tutorials/aspnet)
+> [Själv studie kurs om Microsoft Graph ASP.NET](/graph/tutorials/aspnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

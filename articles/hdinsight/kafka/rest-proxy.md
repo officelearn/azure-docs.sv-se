@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 660e200b673da53af1ee00e4de1e2ce3298e861d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 57c2fb125547149a7fea6643a483e29f5fecb495
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876452"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167053"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
@@ -88,9 +88,9 @@ Du kan använda python-koden nedan för att interagera med REST-proxyn på ditt 
     |Klientorganisations-ID|Azure-klienten där din prenumeration är.|
     |Klient-ID|ID för programmet som du registrerade i säkerhets gruppen.|
     |Client Secret (Klienthemlighet)|Hemligheten för det program som du registrerade i säkerhets gruppen.|
-    |Kafkarest_endpoint|Hämta det här värdet från fliken **Egenskaper** i kluster översikten enligt beskrivningen i [avsnittet distribution](#create-a-kafka-cluster-with-rest-proxy-enabled). Det ska ha följande format –`https://<clustername>-kafkarest.azurehdinsight.net`|
+    |Kafkarest_endpoint|Hämta det här värdet från fliken **Egenskaper** i kluster översikten enligt beskrivningen i [avsnittet distribution](#create-a-kafka-cluster-with-rest-proxy-enabled). Det ska ha följande format – `https://<clustername>-kafkarest.azurehdinsight.net`|
 
-1. Kör python-filen från kommando raden genom att köra`sudo python3 <filename.py>`
+1. Kör python-filen från kommando raden genom att köra `sudo python3 <filename.py>`
 
 Den här koden utför följande åtgärd:
 
@@ -104,6 +104,7 @@ Mer information om hur du hämtar OAuth-tokens i python finns i [python Authenti
 #pip3 install msal
 
 import msal
+import requests
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -140,7 +141,7 @@ getstatus = "/v1/metadata/topics"
 request_url = kafkarest_endpoint + getstatus
 
 # sending get request and saving the response as response object
-response = requests.get(request_url, headers={'Authorization': accessToken})
+response = requests.get(request_url, headers={'Authorization': 'Bearer ' + 'accessToken})
 print(response.content)
 ```
 

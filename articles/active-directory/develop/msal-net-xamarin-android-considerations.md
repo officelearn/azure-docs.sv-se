@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 601a501114d754dc82991a3c19b977c0c63c5bc0
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: aaddev
+ms.openlocfilehash: d244bbbe96bcea45da5c0860e4af52409123fb7f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165744"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118696"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Att tänka på när du använder Xamarin Android med MSAL.NET
 I den här artikeln beskrivs vad du bör tänka på när du använder Xamarin Android med Microsoft Authentication Library för .NET (MSAL.NET).
@@ -160,6 +160,6 @@ Det här exemplet innehåller en korrekt fil Sök väg:
 
 Mer information finns i exemplet på ett [Xamarin mobil program som använder Microsoft Identity Platform](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations). I följande tabell sammanfattas relevant information i README-filen.
 
-| Exempel | Plattform | Description |
+| Exempel | Plattform | Beskrivning |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin. iOS, Android, UWP | En enkel Xamarin. Forms-app som visar hur du använder MSAL för att autentisera Microsoft-personliga konton och Azure AD via Azure AD 2,0-slutpunkten. Appen visar också hur du kommer åt Microsoft Graph och visar den resulterande token. <br>![Topologi](media/msal-net-xamarin-android-considerations/topology.png) |

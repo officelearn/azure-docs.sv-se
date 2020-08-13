@@ -13,12 +13,12 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 75d848c8d4459e5534e2954a11612bdf44f6d1ce
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: fe321de279397d24e0926cf1ef26a1d66adac8c4
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141558"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117319"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory-medgivande
 
@@ -28,7 +28,7 @@ Ramverket är baserat på en användare eller en administratör som ger tillåte
 
 Godkännande ramverket bygger på OAuth 2,0 och de olika flödena, till exempel auktoriseringskod och beviljande av klientautentiseringsuppgifter, med hjälp av offentliga eller konfidentiella klienter. Med hjälp av OAuth 2,0 gör Azure AD det möjligt att bygga många olika typer av klient program, till exempel på en telefon, surfplatta, server eller ett webb program, och få till gång till de resurser som krävs.
 
-Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v2-oauth2-auth-code-flow.md) och [autentiserings scenarier för Azure AD](./authentication-vs-authorization.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](/graph/).
+Mer information om hur du använder medgivande ramverket med auktoriserings bidrag för OAuth 2.0 finns i [bevilja åtkomst till webb program med hjälp av oauth 2,0 och Azure AD](v2-oauth2-auth-code-flow.md) och [autentiserings scenarier för Azure AD](./authentication-vs-authorization.md). Information om hur du får behörighet för att få åtkomst till Office 365 via Microsoft Graph finns i [app-autentisering med Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
 ## <a name="consent-experience---an-example"></a>Godkännande upplevelse – ett exempel
 

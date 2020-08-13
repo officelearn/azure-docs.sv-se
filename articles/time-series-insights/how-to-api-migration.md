@@ -8,14 +8,14 @@ ms.author: shresha
 manager: dpalled
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 08/12/2020
 ms.custom: shresha
-ms.openlocfilehash: a74a5e2b8e80121324dc8b880d90f493d5b2ddfd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784c19844c658af6850c755244314145223c45ef
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423957"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163959"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrera till nya Azure Time Series Insights Gen2 API-versioner
 
@@ -23,7 +23,7 @@ ms.locfileid: "87423957"
 
 Om du har skapat en Azure Time Series Insights Gen2-miljö när den var i en offentlig för hands version (före den 16 juli 2020) kan du uppdatera din TSD-miljö för att använda de nya allmänt tillgängliga versionerna av API: er genom att följa stegen som beskrivs i den här artikeln.
 
-Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Den nya API-versionen är `2020-07-31` och använder en uppdaterad [syntax för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 Användare måste migrera sin Miljös [tids serie modell variabler](./concepts-variables.md), sparade frågor, Power BI frågor och eventuella anpassade verktyg som gör anrop till API-slutpunkterna. Om du har frågor eller problem med migreringsprocessen skickar du ett support ärende via Azure Portal och nämner det här dokumentet.
 
@@ -81,7 +81,7 @@ Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker 
 
 - API: er för Time Series-modellen
   - API: er för modell inställningar
-    - [Hämta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Ta](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
     - [Uppdatera](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Instans-API: er
     - [Alla batch-åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
@@ -95,7 +95,7 @@ Om det anpassade programmet gör anrop till följande REST-slutpunkter, räcker 
     - [Ta bort, Hämta åtgärder](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
     - [Lista](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
-För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+För följande REST-slutpunkter måste du uppdatera API-versionen till `2020-07-31` i URI: n och kontrol lera att alla förekomster av `tsx` egenskapen använder den uppdaterade [tids serie uttrycks syntaxen](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 - Typer av API: er
   - [Placerings åtgärd](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
@@ -355,7 +355,7 @@ Alternativt `value` kan även vara `coalesce($event['Temp'].Double, toDouble($ev
 
 #### <a name="invalidinput"></a>InvalidInput
 
-Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men TSX-syntaxen har inte uppdaterats. Kontrol lera [syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) och migrering ovan. Se till att alla `tsx` Egenskaper uppdateras korrekt innan du skickar API-begäran igen.
+Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men TSX-syntaxen har inte uppdaterats. Kontrol lera [syntaxen för Time Series-uttryck](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) och migrering ovan. Se till att alla `tsx` Egenskaper uppdateras korrekt innan du skickar API-begäran igen.
 
 ```JSON
 {
@@ -382,6 +382,6 @@ Om du ser följande fel använder du den nya API-versionen (), `2020-07-31` men 
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Testa din miljö via [Azure Time Series Insights Explorer](./concepts-ux-panels.md) eller via ditt anpassade program.

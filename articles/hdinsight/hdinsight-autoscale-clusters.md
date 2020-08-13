@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 29c04fc8f6af016200e06ad239095a3665de5869
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086440"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185816"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -39,7 +39,7 @@ Tänk på följande faktorer när du väljer en skalnings typ:
 
 Autoskalning övervakar kontinuerligt klustret och samlar in följande mått:
 
-|Metric|Beskrivning|
+|Mått|Beskrivning|
 |---|---|
 |Total väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande behållare.|
 |Totalt väntande minne|Det totala minne (i MB) som krävs för att starta körningen av alla väntande behållare.|
@@ -133,7 +133,7 @@ Mer information om hur du skapar HDInsight-kluster med hjälp av Azure Portal fi
 
 #### <a name="load-based-autoscaling"></a>Load-based autoskalning
 
-Du kan skapa ett HDInsight-kluster med belastningsutjämnad autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale` nod i `computeProfile`  >  `workernode` avsnittet med egenskaperna `minInstanceCount` och `maxInstanceCount` som visas i JSON-kodfragmentet nedan.
+Du kan skapa ett HDInsight-kluster med belastningsutjämnad autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale` nod i `computeProfile`  >  `workernode` avsnittet med egenskaperna `minInstanceCount` och `maxInstanceCount` som visas i JSON-kodfragmentet nedan. En fullständig Resource Manager-mall finns i [snabb starts mall: Distribuera Spark-kluster med Loadbased AutoScale aktiverat](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased).
 
 ```json
 {
@@ -161,7 +161,7 @@ Du kan skapa ett HDInsight-kluster med belastningsutjämnad autoskalning av en A
 
 #### <a name="schedule-based-autoscaling"></a>Schema-baserad autoskalning
 
-Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale` nod i `computeProfile`  >  `workernode` avsnittet. `autoscale`Noden innehåller en `recurrence` som har en `timezone` och `schedule` som beskriver när ändringen ska äga rum.
+Du kan skapa ett HDInsight-kluster med schemabaserade autoskalning av en Azure Resource Manager mall genom att lägga till en `autoscale` nod i `computeProfile`  >  `workernode` avsnittet. `autoscale`Noden innehåller en `recurrence` som har en `timezone` och `schedule` som beskriver när ändringen ska äga rum. En fullständig Resource Manager-mall finns i [distribuera Spark-kluster med schema-baserad autoskalning aktive rad](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased).
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: Anslut med MySQL Workbench – Azure Database for MySQL
+title: 'Snabb start: Connect-MySQL Workbench-Azure Database for MySQL'
 description: Den här snabbstarten förklarar hur du använder MySQL Workbench för att ansluta till och fråga efter data från Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,17 +7,19 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1e2dd26e2b954bebd7bac15991b2b5aef9def88d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1b1249fe7159e2a3a8d2a74d22f274a9766e7922
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870052"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185833"
 ---
-# <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Använda MySQL Workbench för att ansluta och fråga efter data
-Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program. 
+# <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd MySQL Workbench för att ansluta och fråga efter data i Azure Database for MySQL
+
+Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program.
 
 ## <a name="prerequisites"></a>Krav
+
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)

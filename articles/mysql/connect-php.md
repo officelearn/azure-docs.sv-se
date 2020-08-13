@@ -1,5 +1,5 @@
 ---
-title: Anslut med PHP-Azure Database for MySQL
+title: 'Snabb start: Anslut med PHP-Azure Database for MySQL'
 description: I den här snabbstarten finns ett kodexempel i PHP som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,14 +7,14 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ea1042d28102734429640c7e3c66fc6f1a70f950
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870133"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185884"
 ---
-# <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database för MySQL: Använda PHP för att ansluta och fråga efter data
+# <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: använda PHP för att ansluta och fråga efter data i Azure Database for MySQL
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [PHP](https://secure.php.net/manual/intro-whatis.php)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i PHP och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav

@@ -10,12 +10,12 @@ ms.date: 06/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: a08929c4affbd6eeb4d66a82d787ec5eba122e5b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: c9c267097f681a78ba940283096b2c18d692e9cc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903773"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185374"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>Skapa en lagrad åtkomst princip med .NET
 
@@ -41,7 +41,7 @@ Den underliggande REST-åtgärden för att skapa en lagrad åtkomst princip har 
 
 I följande kod exempel skapar du en lagrad åtkomst princip på en behållare. Du kan använda åtkomst principen för att ange begränsningar för en tjänst-SAS på behållaren eller dess blobbar.
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Om du vill skapa en lagrad åtkomst princip på en behållare med version 12 av .NET-klient biblioteket för Azure Storage, anropa någon av följande metoder:
 
@@ -92,7 +92,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill skapa en lagrad åtkomst princip på en behållare med version 12 av .NET-klient biblioteket för Azure Storage, anropa någon av följande metoder:
 

@@ -1,5 +1,5 @@
 ---
-title: Anslut med go-Azure Database for MySQL
+title: 'Snabb start: Anslut med go-Azure Database for MySQL'
 description: I den här snabbstarten finns flera kodexempel i Go som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,14 +8,15 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1a6942364e6f77c97c93903b25bffa130222cd59
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 154c41c6799bb251f30991fde05f6eacc5de57da
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869885"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185952"
 ---
-# <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database för MySQL: Använda språket Go för att ansluta och fråga efter data
+# <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd go-språk för att ansluta och fråga efter data i Azure Database for MySQL
+
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL från Windows, Ubuntu Linux och Apple macOS-plattformar med hjälp av kod som har skrivits på språket [Go](https://golang.org/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Go och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav

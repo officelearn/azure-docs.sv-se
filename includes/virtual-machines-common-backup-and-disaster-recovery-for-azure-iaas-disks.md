@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3a2474b491abd31b750a15aad7860666c7bd02e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84124267"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186263"
 ---
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
@@ -178,7 +178,7 @@ En ögonblicks bild är en representation av ett objekt vid en viss tidpunkt. En
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Skapa ögonblicks bilder medan den virtuella datorn körs
 
-Även om du kan ta en ögonblicks bild när som helst, om den virtuella datorn körs, finns det fortfarande data som strömmas till diskarna. Ögonblicks bilderna kan innehålla delvis utförda åtgärder i flygningen. Det kan också hända att ögonblicks bilder av olika diskar har inträffat vid olika tidpunkter, om det finns flera diskar inblandade. Dessa scenarier kan leda till att ögonblicks bilderna blir uncoordinated. Denna brist på samordning är särskilt problematisk för stripe-volymer vars filer kan vara skadade om ändringar gjordes under säkerhets kopieringen.
+Även om du kan ta en ögonblicks bild när som helst, om den virtuella datorn körs, finns det fortfarande data som strömmas till diskarna. Ögonblicks bilderna kan innehålla delvis utförda åtgärder i flygningen. Det kan också hända att ögonblicks bilder av olika diskar har inträffat vid olika tidpunkter, om det finns flera diskar inblandade. Dessa scenarier kan leda till att ögonblicks bilderna blir uncoordinated. Detta brist på samordning är särskilt problematiskt för stripe-volymer vars filer kan vara skadade om ändringar gjordes under säkerhets kopieringen.
 
 För att undvika den här situationen måste säkerhets kopierings processen implementera följande steg:
 
@@ -257,9 +257,6 @@ Den största skillnaden mellan Geo-redundant lagring och Geo-redundant lagring m
 Om det blir ett betydande avbrott kan Azure-teamet utlösa en GEO-redundans och ändra de primära DNS-posterna så att de pekar på sekundär lagring. Om du i det här läget har antingen Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet aktiverat, kan du komma åt data i den region som används som sekundär. Om ditt lagrings konto är Geo-redundant lagring och det uppstår problem kan du bara komma åt den sekundära lagringen om det finns en GEO-redundans.
 
 Mer information finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](../articles/storage/common/storage-disaster-recovery-guidance.md).
-
->[!NOTE] 
->Microsoft kontrollerar om en redundans inträffar. Redundansväxling är inte kontrollerad per lagrings konto, så det är inte bestämt av enskilda kunder. Om du vill implementera haveri beredskap för vissa lagrings konton eller virtuella dator diskar måste du använda de tekniker som beskrivs ovan i den här artikeln.
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

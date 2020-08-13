@@ -11,27 +11,27 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 8b29708dbcc6bbb0d127b4277fd4b2d962da6e6a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 08/11/2020
+ms.openlocfilehash: 3bc8458aa009920f183b076d12185295ef294e07
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986397"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186088"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Anpassa installations programmet för en Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Den anpassade installationen för en Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) i Azure Data Factory (ADF) tillhandahåller ett gränssnitt för att lägga till dina egna steg under etableringen eller omkonfigurationen av dina Azure-SSIS IR. 
+Du kan anpassa Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) i Azure Data Factory (ADF) via anpassade inställningar. Du kan lägga till egna steg under etableringen eller omkonfigurationen av din Azure-SSIS IR. 
 
-Med hjälp av den anpassade installationen kan du ändra standard konfiguration eller miljö till, till exempel starta ytterligare Windows-tjänster, bevara autentiseringsuppgifter för fil resurser eller använda starkt kryptografiskt/säkrare nätverks protokoll (TLS 1,2). Eller så kan du installera ytterligare komponenter för anpassad/tredje part, till exempel sammansättningar, driv rutiner eller tillägg, på varje nod i Azure-SSIS IR. Mer information om inbyggda/förinstallerade komponenter finns i [inbyggda/förinstallerade komponenter på Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
+Genom att använda anpassade installations program kan du ändra standard operativ konfigurationen eller miljön för Azure-SSIS IR. Om du till exempel vill starta ytterligare Windows-tjänster, spara autentiseringsuppgifter för fil resurser eller använda starkt kryptografiskt/mer säkert nätverks protokoll (TLS 1,2). Du kan också installera ytterligare komponenter, till exempel sammansättningar, driv rutiner eller tillägg, på varje nod i Azure-SSIS IR. De kan vara egna, öppen källkod eller komponenter från tredje part. Mer information om inbyggda/förinstallerade komponenter finns i [inbyggda/förinstallerade komponenter på Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
 
 Du kan göra anpassade inställningar på Azure-SSIS IR på något av två sätt: 
 * **Standard anpassad installation med ett skript**: Förbered ett skript och dess associerade filer och ladda upp dem tillsammans till en BLOB-behållare i ditt Azure Storage-konto. Du anger sedan en signatur för delad åtkomst (SAS) Uniform Resource Identifier (URI) för din behållare när du konfigurerar eller konfigurerar om Azure-SSIS IR. Varje nod i Azure-SSIS IR laddar sedan ned skriptet och dess tillhör ande filer från din behållare och kör den anpassade installationen med förhöjd behörighet. När den anpassade installationen är slutförd laddar varje nod standardutdata för körning och andra loggar till din behållare.
 * **Express anpassad installation utan skript**: kör några vanliga system konfigurationer och Windows-kommandon eller installera några populära eller rekommenderade ytterligare komponenter utan att använda några skript.
 
-Du kan installera både kostnads fria, icke-licensierade komponenter och betalda komponenter med standard-och Express-anpassade installationer. Om du är en oberoende program varu leverantör (ISV) kan du läsa mer i [utveckla betalda eller licensierade komponenter för Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
+Du kan installera både kostnads fria (olicensierade) och betalda (licensierade) komponenter med standard-och Express-anpassade installationer. Om du är en oberoende program varu leverantör (ISV) kan du läsa mer i [utveckla betalda eller licensierade komponenter för Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
 > För att kunna dra nytta av framtida förbättringar rekommenderar vi att du använder v3 eller en senare serie av noder för Azure-SSIS IR med anpassad installation.
@@ -48,7 +48,7 @@ Följande begränsningar gäller endast för anpassade standardinställningar:
 
 - IBM iSeries Access ODBC-drivrutinen stöds inte på Azure-SSIS IR. Du kan se installations fel under den anpassade installationen. Kontakta IBM-supporten om du behöver hjälp.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,12 +66,12 @@ Du kan etablera eller konfigurera om Azure-SSIS IR med anpassade inställningar 
 
 ### <a name="standard-custom-setup"></a>Anpassad standard installation
 
-Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med anpassade standard installations program.
+Utför följande steg för att etablera eller konfigurera om din Azure-SSIS IR med standard anpassade inställningar i ADF-gränssnittet.
 
 1. Förbered det anpassade installations skriptet och dess associerade filer (till exempel. bat,. cmd,. exe,. dll,. msi eller. ps1-filer).
 
    * Du måste ha en skript fil med namnet *main. cmd*, vilket är start punkten för den anpassade installationen.  
-   * För att säkerställa att skriptet kan köras i bakgrunden rekommenderar vi att du testar det på din lokala dator först.  
+   * För att säkerställa att skriptet kan köras obevakat bör du testa det på den lokala datorn först.  
    * Om du vill att ytterligare loggar som genereras av andra verktyg (till exempel *msiexec.exe*) ska överföras till din behållare anger du den fördefinierade miljövariabeln, `CUSTOM_SETUP_SCRIPT_LOG_DIR` som loggmappen i dina skript (till exempel *msiexec/i xxx.msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
 
 1. Ladda ned, installera och öppna [Azure Storage Explorer](https://storageexplorer.com/).
@@ -92,7 +92,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
 
       ![Skapa en blobcontainer](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   e. Välj den nya behållaren och ladda upp det anpassade installations skriptet och dess tillhör ande filer. Se till att ladda upp *main. cmd* på den översta nivån i din behållare, inte i någon mapp. Se också till att din behållare bara innehåller de nödvändiga anpassade installationsfilerna, så att det tar lång tid att ladda ned dem till Azure-SSIS IR senare. Maximal varaktighet för en anpassad installation är för närvarande 45 minuter innan tids gränsen uppnåddes. Detta inkluderar tiden för att ladda ned alla filer från behållaren och installera dem på Azure-SSIS IR. Om installations programmet kräver mer tid kan du generera ett support ärende.
+   e. Välj den nya behållaren och ladda upp det anpassade installations skriptet och dess tillhör ande filer. Se till att ladda upp *main. cmd* på den översta nivån i din behållare, inte i någon mapp. Din behållare får bara innehålla nödvändiga anpassade installationsfiler, så det tar längre tid att ladda ned dem till din Azure-SSIS IR. Maximal varaktighet för en anpassad installation är för närvarande 45 minuter innan tids gränsen uppnåddes. Detta inkluderar tiden för att ladda ned alla filer från behållaren och installera dem på Azure-SSIS IR. Om installations programmet kräver mer tid kan du generera ett support ärende.
 
       ![Ladda upp filer till BLOB-behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -100,7 +100,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
 
       ![Hämta signaturen för delad åtkomst för behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-   ex. Skapa SAS-URI: n för din behållare med tillräckligt lång förfallo tid och med behörigheten Läs/skriv/lista. Du behöver SAS-URI: n för att ladda ned och köra det anpassade installations skriptet och dess associerade filer när en nod i Azure-SSIS IR återställs eller startas om. Du måste ha Skriv behörighet för att överföra konfigurations körnings loggar.
+   ex. Skapa SAS-URI: n för din behållare med tillräckligt lång förfallo tid och med behörigheten Läs/skriv/lista. Du behöver SAS-URI: n för att ladda ned och köra det anpassade installations skriptet och dess tillhör ande filer. Detta inträffar när en nod i Azure-SSIS IR återställs eller startas om. Du måste också ha Skriv behörighet för att ladda upp konfigurations körnings loggar.
 
       > [!IMPORTANT]
       > Se till att SAS-URI: n inte upphör att gälla och att de anpassade installations resurserna alltid är tillgängliga under hela livs cykeln för din Azure-SSIS IR, från att skapas till borttagning, särskilt om du regelbundet stoppar och startar Azure-SSIS IR under den här perioden.
@@ -111,35 +111,49 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
 
       ![Kopiera och spara signaturen för delad åtkomst](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. När du etablerar eller omkonfigurerar ditt Azure-SSIS IR på ADF-gränssnittet, markerar du kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** och anger din behållares SAS-URI i rutan **SAS URI för den anpassade installations behållaren** .
+1. Markera kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** . Ange sedan SAS-URI: n för din behållare i text rutan **SAS-URI för anpassad installations behållare** .
 
    ![Avancerade inställningar med anpassade inställningar](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
+När den anpassade standard installationen slutförs och din Azure-SSIS IR startas kan du hitta alla anpassade installations loggar i mappen *main. cmd. log* i din behållare. De innehåller standardutdata av *main. cmd* och andra körnings loggar.
+
 ### <a name="express-custom-setup"></a>Express anpassad installation
 
-Följ stegen nedan om du vill etablera eller konfigurera om Azure-SSIS IR med anpassade installations alternativ för Express.
+Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med anpassade installations alternativ för ADF-gränssnittet.
 
-1. När du etablerar eller omkonfigurerar ditt Azure-SSIS IR på ADF-gränssnittet, markerar du kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** . 
+1. Markera kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** . 
 
-1. Välj **nytt** för att öppna fönstret **Lägg till Express anpassad installation** och välj sedan en typ i list rutan **snabb starts typ** :
+1. Välj **nytt** för att öppna fönstret **Lägg till Express anpassad installation** och välj sedan en typ i list rutan **snabb installation av snabb inställning** . Vi erbjuder för närvarande Express anpassade inställningar för att köra cmdkey-kommando, lägga till miljövariabler, installera Azure PowerShell och installera licensierade komponenter.
 
-   * Om du väljer **Kör cmdkey-kommandoraden** kan du spara autentiseringsuppgifter för dina fil resurser eller Azure Files resurser på Azure-SSIS IR genom att ange ditt mål dator namn eller domän namn, konto namn eller användar namn och konto nyckel eller lösen ord i rutorna **/Add**, **/User**och **/pass** . Detta påminner om att köra Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn.
-   
-   * Om du väljer **miljö variabel typen Lägg** till kan du lägga till Windows-miljövariabler som ska användas i dina paket som körs på Azure-SSIS IR genom att ange ditt miljö variabel namn och värde i rutorna **variabel namn** och **variabel värde** . Detta påminner om att köra Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) -kommandot på den lokala datorn.
+#### <a name="running-cmdkey-command"></a>Kör cmdkey-kommando
 
-   * Om du väljer **Installera licensierad komponent** typ kan du sedan välja en integrerad komponent från våra ISV-partner i list rutan **komponent namn** :
+Om du väljer **Kör cmdkey-kommando** typen för den anpassade snabb installationen kan du köra Windows cmdkey-kommandot på Azure-SSIS IR. Det gör du genom att ange namnet på din dator eller ditt domän namn, användar namn, konto namn och lösen ord eller konto nyckel i text rutorna **/Add**, **/User**och **/pass** . Detta gör att du kan spara autentiseringsuppgifter för SQL-servrar, fil resurser eller Azure Files på Azure-SSIS IR. Om du till exempel vill komma åt Azure Files kan du ange `YourAzureStorageAccountName.file.core.windows.net` , `azure\YourAzureStorageAccountName` och `YourAzureStorageAccountKey` för **/Add**, **/User**respektive **/pass**. Detta påminner om att köra Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) -kommandot på den lokala datorn.
 
-     * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera komponenterna i [aktivitets fabriken](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) från SentryOne på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3**.
+#### <a name="adding-environment-variables"></a>Lägga till miljövariabler
 
-     * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR efter köpet av tjänsten. Den aktuella integrerade versionen är **1.0.14**.
+Om du väljer alternativet för att **lägga till miljövariabeln** för den anpassade snabb installationen kan du lägga till en Windows-miljövariabel på din Azure-SSIS IR. Det gör du genom att ange ditt namn och värde för din miljö variabel i text rutorna **variabel namn** och **variabel värde** . Detta gör att du kan använda miljövariabeln i dina paket som körs på Azure-SSIS IR, till exempel i skript komponenter/uppgifter. Detta påminner om att köra Windows [set](https://docs.microsoft.com/windows-server/administration/windows-commands/set_1) -kommandot på den lokala datorn.
 
-     * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
+#### <a name="installing-azure-powershell"></a>Installerar Azure PowerShell
 
-     * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för CRM/ERP/Marketing/Collaboration-appar, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **2019,2**.
+Om du väljer **installations Azure PowerShell** typen för den anpassade snabb installationen kan du installera AZ-modulen för PowerShell på din Azure-SSIS IR. Det gör du genom att ange AZ-modulens versions nummer (x. y. z) som du vill använda från en [lista över de som stöds](https://www.powershellgallery.com/stats/packages/Az?groupby=Version). Detta gör att du kan köra Azure PowerShell-cmdletar/-skript i dina paket för att hantera Azure-resurser, till exempel [Azure Analysis Services (AAS)](https://docs.microsoft.com/azure/analysis-services/analysis-services-powershell).
 
-     * Om du väljer komponenten **SSIS produktivitets paket för KingswaySoft** kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR genom att ange den produkt licens nyckel som du har köpt från dem i rutan **licens nyckel** . Den aktuella integrerade versionen är **10,0**.
+#### <a name="installing-licensed-components"></a>Installera licensierade komponenter
 
-     * Om du väljer den **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR genom att dra & släppa/Ladda upp den produkt licens fil som du har köpt från dem i rutan **licens fil** . Den aktuella integrerade versionen är **6.1.1.3**.
+Om du väljer alternativet **Installera licensierad komponent** för den anpassade snabb installationen kan du välja en integrerad komponent från våra ISV-partner i list rutan **komponent namn** :
+
+   * Om du väljer **uppgifts fabriks komponenten SentryOne** kan du installera [Task Factory](https://www.sentryone.com/products/task-factory/high-performance-ssis-components) Suite-komponenter från SentryOne på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2020.1.3**.
+
+   * Om du väljer **oh22's-Hedda. I/o** -komponenten kan du installera [Hedda. IO](https://hedda.io/ssis-component/) -datakvalitet/rengörings komponent från oh22 på din Azure-SSIS IR. För att göra det måste du köpa sin tjänst i förväg. Den aktuella integrerade versionen är **1.0.14**.
+
+   * Om du väljer komponenten **oh22's SQLPhonetics.net** kan du installera [SQLPhonetics.net](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data Quality/Matching-komponenten från oh22 på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **1.0.45**.
+
+   * Om du väljer komponenten **SSIS Integration Toolkit för KingswaySoft** kan du installera [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) Suite för kopplingar för CRM/ERP/marknadsföring/samarbets program, till exempel Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce marknadsförings moln osv. från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **2019,2**.
+
+   * Om du väljer **KINGSWAYSOFT SSIS Productivity Pack** -komponenten kan du installera [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) Suite-komponenter från KingswaySoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **10,0**.
+
+   * Om du väljer **Theobald program varans xtract** -komponent kan du installera [xtract](https://theobald-software.com/en/xtract-is/) -serien för SAP-system (ERP, s/4HANA, BW) från Theobald program vara på din Azure-SSIS IR. Det gör du genom att dra & släpp/Ladda upp den produkt licens fil som du har köpt från dem i förväg i indata-rutan för **licens filen** . Den aktuella integrerade versionen är **6.1.1.3**.
+
+   * Om du väljer **integration service** -komponenten för AecorSoft kan du installera [integration service](https://www.aecorsoft.com/en/products/integrationservice) Suite för anslutnings program för SAP-och Salesforce-system från AecorSoft på din Azure-SSIS IR. Det gör du genom att ange den produkt licens nyckel som du har köpt från dem i förväg i text rutan **licens nyckel** . Den aktuella integrerade versionen är **3.0.00**.
 
 Dina anpassade installations alternativ kommer att visas på sidan **Avancerade inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort**.
 
@@ -157,7 +171,7 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
    $AzureSSISName = "[your Azure-SSIS IR name]"
    # Custom setup info: Standard/express custom setups
    $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
    # Add custom setup parameters if you use standard/express custom setups
    if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
@@ -181,6 +195,11 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
            $variableName = "YourVariableName"
            $variableValue = "YourVariableValue"
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+       }
+       if($ExpressCustomSetup -eq "InstallAzurePowerShell")
+       {
+           $moduleVersion = "YourAzModuleVersion"
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.AzPowerShellSetup($moduleVersion)
        }
        if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
        {
@@ -214,6 +233,11 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
            $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
            $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
        }
+       if($ExpressCustomSetup -eq "AecorSoft.IntegrationService")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
        # Create an array of one or more express custom setups
        $setups = New-Object System.Collections.ArrayList
        $setups.Add($setup)
@@ -229,8 +253,6 @@ Utför följande steg för att etablera eller konfigurera om Azure-SSIS IR med a
        -Force
    ```
 
-1. När den anpassade standard installationen slutförs och din Azure-SSIS IR startas, kan du hitta standardutdata för *main. cmd* och andra körnings loggar i mappen *main. cmd. log* i din behållare.
-
 ### <a name="standard-custom-setup-samples"></a>Vanliga anpassade installations exempel
 
 Utför följande steg om du vill visa och återanvända några exempel på vanliga anpassade inställningar.
@@ -241,7 +263,7 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
       ![Ansluta till Azure Storage med signaturen för delad åtkomst](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image9.png)
 
-   b. Välj **Använd en SAS-URI** och ange följande SAS-URI i rutan **URI** :
+   b. Välj **Använd en SAS-URI** och ange följande SAS-URI i text rutan **URI** :
 
       `https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
 
@@ -259,27 +281,27 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
    e. Dubbelklicka på mappen *UserScenarios* för att hitta följande objekt:
 
-      * En *.net FRAMEWORK 3,5* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera en tidigare version av .NET Framework som kan krävas för anpassade komponenter på varje nod i Azure-SSIS IR.
+      * En *.net FRAMEWORK 3,5* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera en tidigare version av .NET Framework på varje nod i Azure-SSIS IR. Den här versionen kan krävas av vissa anpassade komponenter.
 
-      * En *BCP* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera SQL Server kommando rads verktyg (*MsSqlCmdLnUtils.msi*), inklusive Mass kopierings programmet (*BCP*) på varje nod i Azure-SSIS IR.
+      * En *BCP* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera SQL Server kommando rads verktyg (*MsSqlCmdLnUtils.msi*) på varje nod i Azure-SSIS IR. Ett av dessa verktyg är*BCP*(Mass kopierings program).
 
-      * En *Excel* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera C#-sammansättningar och-bibliotek som du kan använda i skript uppgifter för att dynamiskt läsa och skriva Excel-filer på varje nod i Azure-SSIS IR. 
+      * En *Excel* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera vissa C#-sammansättningar och-bibliotek på varje nod i Azure-SSIS IR. Du kan använda dem i skript uppgifter för att dynamiskt läsa och skriva Excel-filer. 
       
-        Först laddar du ned [*ExcelDataReader.dll*](https://www.nuget.org/packages/ExcelDataReader/) och [*DocumentFormat.OpenXml.dll*](https://www.nuget.org/packages/DocumentFormat.OpenXml/)och laddar sedan upp dem tillsammans med *main. cmd* till din behållare. Alternativt, om du bara vill använda standard anslutnings hanteraren för Excel, Excel-källan och Excel-målet, är den nödvändiga åtkomsten för Access redan förinstallerad på din Azure-SSIS IR, så du behöver inte någon anpassad installation.
+        Först laddar du ned [*ExcelDataReader.dll*](https://www.nuget.org/packages/ExcelDataReader/) och [*DocumentFormat.OpenXml.dll*](https://www.nuget.org/packages/DocumentFormat.OpenXml/)och laddar sedan upp dem tillsammans med *main. cmd* till din behållare. Alternativt, om du bara vill använda standard kopplingarna för Excel (anslutnings hanteraren, källa och mål), är den Access Redistributable som innehåller dem redan förinstallerad på din Azure-SSIS IR, så du behöver inte någon anpassad installation.
       
-      * En *MySQL ODBC-* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera MySQL ODBC-drivrutinerna på varje nod i Azure-SSIS IR. Med den här installationen kan du använda ODBC-anslutnings hanteraren, källan och målet för att ansluta till MySQL-servern. 
+      * En *MySQL ODBC-* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera MySQL ODBC-drivrutinerna på varje nod i Azure-SSIS IR. Med den här installationen kan du använda ODBC-anslutningar (anslutnings hanteraren, källa och mål) för att ansluta till MySQL-servern. 
      
         Börja [med att hämta de senaste 64-bitars-och 32-bitars versionerna av installations program för MySQL ODBC-drivrutinen](https://dev.mysql.com/downloads/connector/odbc/) (till exempel *mysql-connector-odbc-8.0.13-winx64.msi* och *mysql-connector-odbc-8.0.13-win32.msi*) och överför dem sedan tillsammans med *main. cmd* till din behållare.
 
       * En *Oracle Enterprise* -mapp som innehåller ett anpassat installations skript (*main. cmd*) och tyst installations konfigurations fil (*client. rsp*) för att installera Oracle-kopplingarna och OCI-drivrutinen på varje nod i Azure-SSIS IR Enterprise-versionen. Med den här installationen kan du använda anslutnings hanteraren för Oracle, källa och mål för att ansluta till Oracle-servern. 
       
-        Först laddar du ned Microsoft Connector v 5.0 för Oracle (*AttunitySSISOraAdaptersSetup.msi* och *AttunitySSISOraAdaptersSetup64.msi*) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste Oracle-klienten (till exempel *winx64_12102_client.zip*) från [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html)och överför dem sedan tillsammans med *main. cmd* och *client. rsp* till din behållare. Om du använder TNS för att ansluta till Oracle måste du också hämta *Tnsnames. ora*, redigera den och ladda upp den till din behållare, så att den kan kopieras till mappen Oracle-installation under installationen.
+        Först laddar du ned Microsoft Connector v 5.0 för Oracle (*AttunitySSISOraAdaptersSetup.msi* och *AttunitySSISOraAdaptersSetup64.msi*) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste oracle-klienten (till exempel *winx64_12102_client.zip*) från [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html). Sedan laddar du upp dem tillsammans med *main. cmd* och *client. rsp* till din behållare. Om du använder TNS för att ansluta till Oracle måste du också hämta *Tnsnames. ora*, redigera det och ladda upp det till din behållare. På så sätt kan den kopieras till mappen Oracle-installation under installationen.
 
       * En *Oracle STANDARD ADO.net* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera Oracle ODP.net-drivrutinen på varje nod i Azure-SSIS IR. Med den här installationen kan du använda anslutnings hanteraren för ADO.NET, källa och mål för att ansluta till Oracle-servern. 
       
         Först [laddar du ned den senaste Oracle ODP.net-drivrutinen](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) (till exempel *ODP.NET_Managed_ODAC122cR1.zip*) och laddar sedan upp den tillsammans med *main. cmd* i din behållare.
        
-      * En *Oracle standard-ODBC-* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera Oracle ODBC-drivrutinen och konfigurera data källans namn (DSN) på varje nod i Azure-SSIS IR. Med den här installationen kan du använda ODBC-anslutnings hanteraren, källa och mål eller Power Query anslutnings hanteraren och källa med ODBC-datakälla för att ansluta till Oracle-servern. 
+      * En *Oracle standard-ODBC-* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera Oracle ODBC-drivrutinen på varje nod i Azure-SSIS IR. Skriptet konfigurerar också data källans namn (DSN). Med den här installationen kan du använda ODBC-anslutnings hanteraren, källa och mål eller Power Query anslutnings hanteraren och källa med ODBC-datakälla för att ansluta till Oracle-servern. 
       
         Börja med att hämta den senaste Oracle Instant-klienten (Basic-paket eller Basic lite-paket) och ODBC-paket och ladda sedan upp dem tillsammans med *main. cmd* till din behållare:
         * [Hämta 64-bitars paket](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Basic-paket: *instantclient-basic-windows.x64-18.3.0.0.0dbru.zip*; Basic lite-paket: *instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip*; ODBC-paket: *instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip*) 
@@ -293,19 +315,19 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
      
         Börja [med att hämta de senaste 64-bitars-och 32-bitars versionerna av POSTGRESQL ODBC-drivrutin installations](https://www.postgresql.org/ftp/odbc/versions/msi/) program (till exempel *psqlodbc_x64.msi* och *psqlodbc_x86.msi*) och ladda upp dem tillsammans med *main. cmd* till din behållare.
 
-      * En *SAP BW* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera SAP .net connector-sammansättningen (*librfc32.dll*) på varje nod i Azure-SSIS IR Enterprise Edition. Med den här installationen kan du använda anslutnings hanteraren för SAP Business Warehouse (BW), källan och målet för att ansluta till den SAP BW servern. 
+      * En *SAP BW* mapp som innehåller ett anpassat installations skript (*main. cmd*) för att installera SAP .net connector-sammansättningen (*librfc32.dll*) på varje nod i Azure-SSIS IR Enterprise Edition. Med den här installationen kan du använda SAP BW anslutnings hanteraren, källan och målet för att ansluta till SAP BW-servern. 
       
         Först överför du 64-bitars-eller 32-bitars versionen av *librfc32.dll* från SAP-installationsmappen tillsammans med *main. cmd* till din behållare. Skriptet kopierar sedan SAP-sammansättningen till mappen *%windir%\syswow64* eller mappen *%windir%\System32* under installationen.
 
-      * En *lagringsmapp* som innehåller ett anpassat installations skript (*main. cmd*) för att installera Azure PowerShell på varje nod i Azure-SSIS IR. Med den här installationen kan du distribuera och köra SSIS-paket som kör [PowerShell-skript för att manipulera ditt Azure Storage-konto](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). 
+      * En *lagringsmapp* som innehåller ett anpassat installations skript (*main. cmd*) för att installera Azure PowerShell på varje nod i Azure-SSIS IR. Med den här installationen kan du distribuera och köra SSIS-paket som kör [Azure PowerShell-cmdlets/skript för att hantera Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). 
       
-        Kopiera *main. cmd*, ett exempel *AzurePowerShell.msi* (eller Använd den senaste versionen) och *storage.ps1* till din behållare. Använd *PowerShell. dtsx* som en mall för dina paket. Paket mal len kombinerar en [hämtnings uppgift för Azure-Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), som laddar ned *storage.ps1* som ett ändrings Bart PowerShell-skript och en process för att [köra processer](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), som kör skriptet på varje nod.
+        Kopiera *main. cmd*, ett exempel *AzurePowerShell.msi* (eller Använd den senaste versionen) och *storage.ps1* till din behållare. Använd *PowerShell. dtsx* som en mall för dina paket. Paket mal len kombinerar en [hämtnings uppgift för Azure-Blob](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), som laddar ned ett ändrings Bart PowerShell-skript (*storage.ps1*) och en process för att [köra processer](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), som kör skriptet på varje nod.
 
       * En *TERADATA* -mapp som innehåller ett anpassat installations skript (*main. cmd*), dess associerade fil (*install. cmd*) och installations paket (*. msi*). De här filerna installerar Teradata-kopplingarna, Teradata Parallel transporter (TPT) API och ODBC-drivrutinen på varje nod i Azure-SSIS IR Enterprise Edition. Med den här installationen kan du använda Teradata anslutnings hanteraren, källa och mål för att ansluta till Teradata-servern. 
       
         Först [laddar du ned Teradata-verktyg och-verktyg 15. x zip-filen](http://partnerintelligence.teradata.com) (till exempel *TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip*) och laddar sedan upp den tillsammans med de tidigare nämnda *. cmd* -och *MSI* -filerna till din behållare.
 
-      * En *TLS 1,2* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att använda starkt kryptografiskt/säkrare nätverks protokoll (TLS 1,2) och inaktivera äldre SSL/TLS-versioner på varje nod i Azure-SSIS IR.
+      * En *TLS 1,2* -mapp som innehåller ett anpassat installations skript (*main. cmd*) för att använda stark kryptering och säkrare nätverks protokoll (TLS 1,2) på varje nod i Azure-SSIS IR. Skriptet inaktiverar även äldre SSL/TLS-versioner.
 
       * En *ZULU OPENJDK* -mapp som innehåller ett anpassat installations skript (*main. cmd*) och PowerShell-fil (*install_openjdk.ps1*) för att installera ZULU-OPENJDK på varje nod i Azure-SSIS IR. Med den här installationen kan du använda Azure Data Lake Store och flexibla fil anslutningar för att bearbeta ORC-och Parquet-filer. Mer information finns i [Azure Feature Pack för integration Services](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15#dependency-on-java). 
       
@@ -315,11 +337,11 @@ Utför följande steg om du vill visa och återanvända några exempel på vanli
 
    f. Om du vill återanvända de här standard anpassade installations exemplen kopierar du innehållet i den valda mappen till din behållare.
 
-1. När du etablerar eller omkonfigurerar ditt Azure-SSIS IR på ADF-gränssnittet, markerar du kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** och anger din behållares SAS-URI i rutan **SAS URI för den anpassade installations behållaren** .
+1. När du etablerar eller omkonfigurerar ditt Azure-SSIS IR på ADF-gränssnittet, markerar du kryss rutan **anpassa Azure-SSIS integration runtime med ytterligare system konfigurationer/komponent installationer** på sidan **Avancerade inställningar** i installations fönstret för **integration runtime** . Ange sedan SAS-URI: n för din behållare i text rutan **SAS-URI för anpassad installations behållare** .
    
 1. När du etablerar eller konfigurerar om din Azure-SSIS IR att använda Azure PowerShell stoppar du den om den redan har startats/körs, kör `Set-AzDataFactoryV2IntegrationRuntime` cmdleten med SAS-URI: n för din behållare som `SetupScriptContainerSasUri` parameter värde och startar sedan Azure-SSIS IR.
 
-1. När den anpassade standard installationen slutförs och din Azure-SSIS IR startas, kan du hitta standardutdata för *main. cmd* och andra körnings loggar i mappen *main. cmd. log* i din behållare.
+1. När den anpassade standard installationen slutförs och din Azure-SSIS IR startas kan du hitta alla anpassade installations loggar i mappen *main. cmd. log* i din behållare. De innehåller standardutdata av *main. cmd* och andra körnings loggar.
 
 ## <a name="next-steps"></a>Nästa steg
 

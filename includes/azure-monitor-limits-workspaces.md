@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 864b37c9e59786546ad2c29faf8457cfc3a21f6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6979ce65022f350a93f533951d634b8e436283bc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82161163"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88186361"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -33,7 +33,7 @@ ms.locfileid: "82161163"
 | Kostnadsfri nivå  | 10 | Det går inte att öka den här gränsen. |
 | Alla andra nivåer | Obegränsad | Du är begränsad till antalet resurser i en resurs grupp och antalet resurs grupper per prenumeration. |
 
-**Azure Portal**
+**Azure-portalen**
 
 | Kategori | Gräns | Kommentarer |
 |:---|:---|:---|
@@ -54,7 +54,7 @@ ms.locfileid: "82161163"
 | Maximalt antal poster som returneras i en enskild fråga | 500 000 | |
 | Maximal storlek för returnerade data | 64 000 000 byte (~ 61 MiB)| |
 | Maximal kör tid för fråga | 10 minuter | Se [timeout](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) för mer information.  |
-| Högsta begär ande frekvens | 200 förfrågningar per 30 sekunder per AAD-användare eller klient-IP-adress | Mer information finns i avsnittet om [hastighets begränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
+| Högsta begär ande frekvens | 200 förfrågningar per 30 sekunder per Azure AD-användare eller klient-IP-adress | Mer information finns i avsnittet om [hastighets begränsningar](https://dev.loganalytics.io/documentation/Using-the-API/Limits) . |
 
 **Gränser för allmän arbets yta**
 
@@ -66,19 +66,25 @@ ms.locfileid: "82161163"
 
 **Volym pris för data inmatning**
 
+Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Gränsen för volym hastighet avser att skydda Azure Monitor kunder från plötsliga inmatnings toppar i en miljö med flera organisationer. Ett tröskelvärde för standard inmatnings volym frekvens på 500 MB (komprimerat) gäller för arbets ytor, som är cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan olika data typer beroende på loggens längd och dess komprimerings förhållande. Detta tröskelvärde gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](../articles/azure-monitor/platform/diagnostic-settings.md), [data insamlings-API](../articles/azure-monitor/platform/data-collector-api.md) eller agenter.
 
-Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard inläsnings volymens volym hastighet för data som skickas från Azure-resurser med hjälp av [diagnostikinställningar](../articles/azure-monitor/platform/diagnostic-settings.md) är cirka **6 GB/min** per arbets yta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika data typer beroende på logg längden och dess komprimerings förhållande. Den här begränsningen gäller inte för data som skickas från agenter eller [API för data insamling](../articles/azure-monitor/platform/data-collector-api.md).
+När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inläsnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den på arbets ytan genom att öppna en support förfrågan. 
 
-Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av din arbets yta genom att skicka ett e-postmeddelande till LAIngestionRate@microsoft.com eller öppna en support förfrågan.
- 
-Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll.
+Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik Base på antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
 
-``` Kusto
+Inläsnings volymens hastighet nådde 80% av tröskelvärdet:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
 
+Inläsnings volymens hastighet nådde tröskel:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 >[!NOTE]
 >Beroende på hur länge du har använt Log Analytics kan du ha åtkomst till äldre pris nivåer. Läs mer om [Log Analytics äldre pris nivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

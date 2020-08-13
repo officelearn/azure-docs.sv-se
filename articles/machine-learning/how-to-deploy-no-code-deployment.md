@@ -9,21 +9,23 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d6c70f27eebc9d502ce7275603e99975c2efc267
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544660"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185493"
 ---
 # <a name="preview-no-code-model-deployment"></a>Förhandsgranskningsvyn Distribution utan kod modell
 
 Ingen kod modell distribution är för närvarande en för hands version och stöder följande ramverk för Machine Learning:
 
-## <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel-format
-Tensorflow-modeller måste registreras i **SavedModel-format** för att fungera med modell distribution utan kod.
+## <a name="tensorflow-savedmodel-format"></a>TensorFlow SavedModel-format
+TensorFlow-modeller måste registreras i **SavedModel-format** för att fungera med modell distribution utan kod.
 
 Se [den här länken](https://www.tensorflow.org/guide/saved_model) om du vill ha information om hur du skapar en SavedModel.
+
+Vi har stöd för alla TensorFlow-versioner som anges under "Taggar" vid [TensorFlow-servning av DockerHub](https://registry.hub.docker.com/r/tensorflow/serving/tags).
 
 ```python
 from azureml.core import Model
@@ -129,7 +131,7 @@ print(output)
 * [Felsöka en misslyckad distribution](how-to-troubleshoot-deployment.md)
 * [Distribuera till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
-* [Uppdatera webb tjänst](how-to-deploy-update-web-service.md)
+* [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)

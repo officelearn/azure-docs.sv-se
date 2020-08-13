@@ -1,5 +1,5 @@
 ---
-title: Anslut med Node.js-Azure Database for MySQL
+title: 'Snabb start: Anslut med Node.js-Azure Database for MySQL'
 description: I den här snabbstarten finns flera kodexempel i Node.js som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9d3e2d744c4800c06503483c6e7270ad1ca60e2c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423192"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185935"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd Node.js för att ansluta och fråga efter data i Azure Database for MySQL
 
@@ -21,7 +21,7 @@ I den här snabb starten ansluter du till en Azure Database for MySQL med hjälp
 
 Det här avsnittet förutsätter att du är van att utveckla med Node.js, men du är inte nybörjare på att arbeta med Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
@@ -33,11 +33,11 @@ Det här avsnittet förutsätter att du är van att utveckla med Node.js, men du
 
 Beroende på din plattform följer du anvisningarna i lämpligt avsnitt för att installera [Node.js](https://nodejs.org). Använd NPM för att installera [MySQL](https://www.npmjs.com/package/mysql) -paketet och dess beroenden i projektmappen.
 
-### <a name="windows"></a>**Windows**
+### <a name="windows"></a>Windows
 
 1. Besök [hämtningssidan för Node.js](https://nodejs.org/en/download/) och välj sedan önskat alternativ för Windows installeringsverktyg.
 2. Skapa en lokal projektmapp som till exempel `nodejsmysql`. 
-3. Öppna kommando tolken och ändra katalogen till projektmappen, till exempel`cd c:\nodejsmysql\`
+3. Öppna kommando tolken och ändra katalogen till projektmappen, till exempel `cd c:\nodejsmysql\`
 4. Kör NPM-verktyget för att installera mysql-biblioteket i projektmappen.
 
    ```cmd
@@ -48,7 +48,7 @@ Beroende på din plattform följer du anvisningarna i lämpligt avsnitt för att
 
 5. Verifiera installationen genom att kontrollera `npm list`-utdatatexten. Versionsnumret kan variera när nya korrigeringsfiler blir tillgängliga.
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
 1. Ange följande kommandon för att installera **npm** och **Node.js**, en användarvänlig pakethanterare för Node.js.
 
@@ -66,7 +66,7 @@ Beroende på din plattform följer du anvisningarna i lämpligt avsnitt för att
    ```
 3. Verifiera installationen genom att kontrollera npm-listans utdatatext. Versionsnumret kan variera när nya korrigeringsfiler blir tillgängliga.
 
-### <a name="mac-os"></a>**Mac OS**
+### <a name="mac-os"></a>Mac OS
 
 1. Ange följande kommandon för att installera **brew**, en användarvänlig pakethanterare för Mac OS X och **Node.js**.
 

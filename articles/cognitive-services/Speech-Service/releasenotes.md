@@ -11,14 +11,47 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: f2aebee24c4de8a1bd92ad3db8e5d110184cbaee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: ac4b0c59cfad3d435858e094cbcb8c9f855a0041
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415031"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185323"
 ---
 # <a name="speech-service-release-notes"></a>Viktig information om Speech service
+
+## <a name="new-speech-to-text-locales-2020-august-release"></a>Nya språk som är tal till text: 2020 – augusti version
+Inläsning av tal till text 26 nya nationella inställningar i augusti: 2 europeiska språk CS-CZ och hu-HU, 5 engelska lokala och 19 spanska språk som avser de flesta länder i södra Amerika. Nedan visas en lista över de nya språken. Se den fullständiga språk listan [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+
+| Nationell inställning  | Språk                          |
+|---------|-----------------------------------|
+| `cs-CZ` | Tjeckiska (Tjeckien)            | 
+| `en-HK` | Engelska (Hongkong)               | 
+| `en-IE` | Engelska (Irland)                 | 
+| `en-PH` | Engelska (Filippinerna)             | 
+| `en-SG` | Engelska (Singapore)               | 
+| `en-ZA` | Engelska (Sydafrika)            | 
+| `es-AR` | Spanska (Argentina)               | 
+| `es-BO` | Spanska (Bolivia)                 | 
+| `es-CL` | Spanska (Chile)                   | 
+| `es-CO` | Spanska (Colombia)                | 
+| `es-CR` | Spanska (Costa Rica)              | 
+| `es-CU` | Spanska (Kuba)                    | 
+| `es-DO` | Spanska (Dominikanska republiken)      | 
+| `es-EC` | Spanska (Ecuador)                 | 
+| `es-GT` | Spanska (Guatemala)               | 
+| `es-HN` | Spanska (Honduras)                | 
+| `es-NI` | Spanska (Nicaragua)               | 
+| `es-PA` | Spanska (Panama)                  | 
+| `es-PE` | Spanska (Peru)                    | 
+| `es-PR` | Spanska (Puerto Rico)             | 
+| `es-PY` | Spanska (Paraguay)                | 
+| `es-SV` | Spanska (El Salvador)             | 
+| `es-US` | Spanska (USA)                     | 
+| `es-UY` | Spanska (Uruguay)                 | 
+| `es-VE` | Spanska (Venezuela)               | 
+| `hu-HU` | Ungerska (Ungern)               | 
+
 
 ## <a name="speech-sdk-1130-2020-july-release"></a>Speech SDK-1.13.0:2020 – juli version
 
@@ -96,7 +129,7 @@ Håll dig frisk!
 ### <a name="bug-fixes"></a>Felkorrigeringar
 
 * Valuta läsning
-    * Har åtgärdat problemet med valuta läsning för `es-ES` och`es-MX`
+    * Har åtgärdat problemet med valuta läsning för `es-ES` och `es-MX`
      
     | Språk | Indata | Avläsning efter förbättring |
     |---|---|---|
@@ -246,11 +279,11 @@ Håll dig frisk!
 - Java Script: stöd har lagts till för `FromHost API` att under lätta användningen av lokal behållare och suveräna moln. Se dokumentationen [här](speech-container-howto.md).
 - Java Script: vi följer nu `NODE_TLS_REJECT_UNAUTHORIZED` tack vare bidrag från [orgads](https://github.com/orgads). Se information [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
-- `OpenSSL`har uppdaterats till version 1.1.1 b och är statiskt länkat till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
+- `OpenSSL` har uppdaterats till version 1.1.1 b och är statiskt länkat till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` katalogen i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
 - Vi har ändrat data typen som returnerades för C# `WordLevelTimingResult.Offset` från `int` till för `long` att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
-- `PushAudioInputStream`och `PullAudioInputStream` skickar nu information om WAV-huvud till tjänsten Speech baserat på `AudioStreamFormat` , som du kan ange när de skapades. Kunderna måste nu använda [formatet för ljud inspelning som stöds](how-to-use-audio-input-streams.md). Andra format kommer att få under optimala igenkännings resultat eller kan orsaka andra problem. 
+- `PushAudioInputStream` och `PullAudioInputStream` skickar nu information om WAV-huvud till tjänsten Speech baserat på `AudioStreamFormat` , som du kan ange när de skapades. Kunderna måste nu använda [formatet för ljud inspelning som stöds](how-to-use-audio-input-streams.md). Andra format kommer att få under optimala igenkännings resultat eller kan orsaka andra problem. 
 
 **Fel korrigeringar**
 
@@ -287,7 +320,7 @@ Håll dig frisk!
 - Stöd har lagts till `KeywordRecognizer` för Windows (UWP), Android och iOS via NuGet-och Unity-paket
 - Java API för fjärrkonversation har lagts till för att göra konversations avskrifter i asynkrona batchar.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - Konversations beskrivare-funktioner flyttas under namnrymd `Microsoft.CognitiveServices.Speech.Transcription` .
 - En del av konversations beskrivar metoderna flyttas till den nya `Conversation` klassen.
@@ -299,8 +332,8 @@ Håll dig frisk!
 
 **Exempel**
 
-- Xamarin-exempel för`KeywordRecognizer`
-- Unity-exempel för`KeywordRecognizer`
+- Xamarin-exempel för `KeywordRecognizer`
+- Unity-exempel för `KeywordRecognizer`
 - C++ och Java-exempel för automatisk käll Språkidentifiering.
 
 ## <a name="speech-sdk-170-2019-september-release"></a>1.7.0 för tal-SDK: 2019 – september version
@@ -323,9 +356,9 @@ Håll dig frisk!
 - Ett fast problem med UUID-nummer är inte unikt i vissa anslutnings egenskaper
 - Åtgärdade några varningar om specificerare för null-värden i Swift-bindningar (kan kräva små kod ändringar)
 - En bugg har åtgärd ATS som gjorde att WebSocket-anslutningar stängdes på ett smidigt sätt under nätverks belastning
-- Ett problem har åtgärd ATS på Android som ibland resulterar i dubbla exponerings-ID: n som används av`DialogServiceConnector`
-- Förbättringar av anslutningarnas stabilitet i flera olika interaktioner och rapportering av fel (via `Canceled` händelser) när de inträffar med`DialogServiceConnector`
-- `DialogServiceConnector`Sessions-starten kommer nu att tillhandahålla händelser, inklusive vid anrop `ListenOnceAsync()` under en aktiv`StartKeywordRecognitionAsync()`
+- Ett problem har åtgärd ATS på Android som ibland resulterar i dubbla exponerings-ID: n som används av `DialogServiceConnector`
+- Förbättringar av anslutningarnas stabilitet i flera olika interaktioner och rapportering av fel (via `Canceled` händelser) när de inträffar med `DialogServiceConnector`
+- `DialogServiceConnector` Sessions-starten kommer nu att tillhandahålla händelser, inklusive vid anrop `ListenOnceAsync()` under en aktiv `StartKeywordRecognitionAsync()`
 - Adresserat en krasch som är associerad med `DialogServiceConnector` aktiviteter som tas emot
 
 **Exempel**
@@ -341,14 +374,14 @@ Håll dig frisk!
 - Snabb starts exempel för text till tal på UWP och Unity
 - Snabb starts exempel för SWIFT på iOS
 - Unity-exempel för tal & Avsiktsigenkänning och översättning
-- Uppdaterade snabb starts exempel för`DialogServiceConnector`
+- Uppdaterade snabb starts exempel för `DialogServiceConnector`
 
 **Förbättringar/ändringar**
 
 - Namn område för dialog ruta:
   - `SpeechBotConnector` har bytt namn till `DialogServiceConnector`
   - `BotConfig` har bytt namn till `DialogServiceConfig`
-  - `BotConfig::FromChannelSecret()`har mappats om till`DialogServiceConfig::FromBotSecret()`
+  - `BotConfig::FromChannelSecret()` har mappats om till `DialogServiceConfig::FromBotSecret()`
   - Alla befintliga direkt linje tal klienter fortsätter att stödjas efter namnbytet
 - Uppdatera TTS-kortet till stöd för proxy, beständig anslutning
 - Förbättra fel meddelandet när en ogiltig region skickas
@@ -511,7 +544,7 @@ Detta är endast en JavaScript-version. Inga funktioner har lagts till. Följand
   - Tal-SDK för Java Script har öppnats med öppen källkod. Käll koden finns på [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
   - Vi har nu stöd för Node.js. mer information finns [här](quickstart-js-node.md).
   - Längd begränsningen för ljudsessioner har tagits bort, åter anslutning sker automatiskt under locket.
-- `Connection`jobbobjektet
+- `Connection` jobbobjektet
   - Från kan `Recognizer` du komma åt ett `Connection` objekt. Med det här objektet kan du uttryckligen initiera tjänst anslutningen och prenumerera på att ansluta och koppla från händelser.
     (Den här funktionen är inte tillgänglig ännu från Java Script och python.)
 - Stöd för Ubuntu 18,04.
@@ -594,7 +627,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 - Stöd för mål-C på iOS. Kolla vår [mål-C-snabb start för iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 - Stöd för Java Script i webbläsare. Kolla i vår [snabb start för Java Script](quickstart-js-browser.md).
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - I den här versionen introduceras ett antal avbrytande ändringar.
   Mer information finns på [den här sidan](https://aka.ms/csspeech/breakingchanges_1_0_0) .
@@ -613,7 +646,7 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 - Visa ytterligare information om fel information om anslutnings fel.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - I Java (Android) `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` kräver funktionen inte längre en Sök vägs parameter. Nu identifieras sökvägen automatiskt på alla plattformar som stöds.
 - Get-accessorn för egenskapen `EndpointUrl` i Java och C# har tagits bort.
@@ -638,11 +671,11 @@ I vår [exempel lagring](https://aka.ms/csspeech/samples)lades ett nytt exempel 
 
 **Funktionella ändringar**
 
-- `StartContinuousRecognitionAsync()`stöder tids krävande igenkänning.
+- `StartContinuousRecognitionAsync()` stöder tids krävande igenkänning.
 - Igenkännings resultatet innehåller fler fält. De är förskjutna från början och varaktigheten för ljudet (både i Ticket) för den tolkade texten och ytterligare värden som representerar igenkännings status, till exempel `InitialSilenceTimeout` och `InitialBabbleTimeout` .
 - Stöd för AuthorizationToken för att skapa fabriks instanser.
 
-**Icke-bakåtkompatibla ändringar**
+**Bryta ändringar**
 
 - Igenkännings händelser: `NoMatch` händelse typen slogs samman i `Error` händelsen.
 - SpeechOutputFormat i C# har bytt namn till `OutputFormat` för att hålla dig uppdaterad med C++.

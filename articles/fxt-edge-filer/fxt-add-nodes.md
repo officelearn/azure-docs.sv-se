@@ -1,17 +1,17 @@
 ---
 title: 'Självstudie: lägga till noder i ett Azure FXT Edge-kluster'
-description: Så här lägger du till noder i lagrings cachen för Azure FXT Edge
+description: Lär dig hur du lägger till klusternoder till lagrings-cachen i Azure FXT Edge och aktiverar funktionen för hög tillgänglighet (HA).
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 6251fe8f88b7db25e3c09898540e07754d72fb0d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5b62927930212fc7e59fc4329a29ceecbe2815e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75551955"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185340"
 ---
 # <a name="tutorial-add-cluster-nodes-to-an-azure-fxt-edge-filer-cluster"></a>Självstudie: lägga till klusternoder i ett Azure FXT Edge-kluster
 
@@ -68,7 +68,7 @@ Kolumnen **åtgärder** innehåller knappar som låter dig lägga till noden i k
 
 Alla noder i ett kluster måste använda samma version av operativ systemet, men du behöver inte uppdatera program vara innan du lägger till en nod. När du klickar på knappen **Tillåt att ansluta** , kontrollerar kluster kopplings processen automatiskt och installerar den OS-programvara som matchar versionen i klustret.
 
-Om du vill veta mer om alternativen på den här sidan kan du läsa [ **cluster** > FXT-noder](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i guiden kluster konfiguration.
+Om du vill veta mer om alternativen på den här sidan kan du läsa [ **cluster**  >  **FXT-noder** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i guiden kluster konfiguration.
 
 ## <a name="3-click-the-allow-to-join-button"></a>3. Klicka på knappen "Tillåt att ansluta" 
 

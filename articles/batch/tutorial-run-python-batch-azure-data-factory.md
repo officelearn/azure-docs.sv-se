@@ -4,15 +4,15 @@ description: Självstudie – lär dig hur du kör Python-skript som en del av e
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/12/2020
 ms.author: komammas
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f4c71cffe00faa6dd8cc440c59f94b8c2d60f712
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853321"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185119"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Självstudie: köra Python-skript via Azure Data Factory med Azure Batch
 
@@ -30,7 +30,7 @@ Exemplet nedan kör ett Python-skript som tar emot CSV-indata från en Blob Stor
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En installerad [python](https://www.python.org/downloads/) -distribution för lokal testning.
 * [Azure](https://pypi.org/project/azure/) - `pip` paketet.
@@ -67,8 +67,7 @@ Här skapar du Blob-behållare som lagrar dina indata och utdatafiler för OCR-b
 1. Logga in för att Storage Explorer med dina Azure-autentiseringsuppgifter.
 1. Skapa två BLOB-behållare (en för indatafiler, en för utdatafiler) med hjälp av det lagrings konto som är kopplat till ditt batch-konto genom att följa stegen i [skapa en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * I det här exemplet ska vi anropa vår container för indata `input` och vår behållare för utdata `output` .
-1. Ladda upp `main.py` och [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) till din indatamängd `input` med Storage Explorer genom att följa stegen i [Hantera blobbar i en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
-
+1. Överför [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) till din indatamängds behållare `input` med hjälp av Storage Explorer genom att följa stegen i [Hantera blobbar i en BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 ## <a name="develop-a-script-in-python"></a>Utveckla ett skript i python
 

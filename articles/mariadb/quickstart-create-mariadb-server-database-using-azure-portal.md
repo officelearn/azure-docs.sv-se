@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/19/2020
-ms.openlocfilehash: 698220a7f81dc5fb9d70d2aa65e96dfa199af444
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5801f46745b3fda28af19c11e323b9497ebe98a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80063848"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185255"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Skapa en Azure Database for MariaDB-server med Azure-portalen
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Snabb start: skapa en Azure Database for MariaDB-server med hjälp av Azure Portal
 
 Azure Database for MariaDB är en hanterad tjänst som du kan använda för att köra, hantera och skala högtillgängliga MariaDB-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database for MariaDB-server på ungefär fem minuter med Azure-portalen.  
 
@@ -32,7 +32,7 @@ Skapa en Azure Database for MariaDB-server:
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-2. Välj **databaser** > **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
+2. Välj **databaser**  >  **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
 
    ![Alternativet Azure Database for MariaDB](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -40,18 +40,18 @@ Skapa en Azure Database for MariaDB-server:
 
    ![Formulär för att skapa server](./media/quickstart-create-mariadb-server-database-using-azure-portal/4-create-form.png)
 
-    Inställningen | Föreslaget värde | Beskrivning
+    Inställning | Föreslaget värde | Beskrivning
     ---|---|---
-    servernamn | *ett unikt servernamn* | Välj ett unikt namn för Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+    Servernamn | *ett unikt servernamn* | Välj ett unikt namn för Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | *din prenumeration* | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | **myresourcegroup** | Ange ett nytt resursgruppsnamn eller välj en befintlig resursgrupp. 
     Välj källa | **Tom** | Välj **Tom** om du vill skapa en ny server från början. (Välj **Säkerhetskopiering** om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MariaDB-server.)
-    inloggning för serveradministratör | **myadmin** | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
+    Inloggning för serveradministratör | **myadmin** | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
     lösenordsinställning | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
     Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
-    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå** > **generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå**  >  **generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mariadb/).
@@ -91,7 +91,7 @@ Du behöver det fullständiga servernamnet och inloggningsuppgifterna för admin
 
 2. Kopiera värdena genom att placera markören över det fält du vill kopiera. Kopieringsikonen visas till höger om texten. Välj kopieringssymbolen för att kopiera värdena.
 
-I vårt exempel är Server namnet **mydemoserver.MariaDB.Database.Azure.com** och inloggnings namnet för Server administratören är **unadmin\@-mydemoserver**.
+I vårt exempel är Server namnet **mydemoserver.MariaDB.Database.Azure.com** och inloggnings namnet för Server administratören är **unadmin- \@ mydemoserver**.
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>Ansluta till Azure Database for MariaDB med hjälp av mysql-kommandoraden
 
@@ -122,8 +122,8 @@ Först använder vi [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)-
 
     mysql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    --host | *Server namn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständigt kvalificerade domän namnet (**\*. MariaDB.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.
-    --användare | *inloggnings namn för Server administratör* |Inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@Server*namn.
+    --host | *Server namn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständigt kvalificerade domän namnet (** \* . MariaDB.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.
+    --användare | *inloggnings namn för Server administratör* |Inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn \@ Server*namn.
     -p | *ditt lösen ord*<br>(vänta på uppmaning) |När du uppmanas anger du det lösenord du använde för att skapa servern. Det angivna lösenordet visas inte i bash-kommandotolken när du skriver. Tryck på RETUR när du har angett lösenordet.
 
    När mysql-verktyget är anslutet visas en `mysql>`-kommandotolk. Du kan ange kommandon i kommandotolken.
@@ -187,19 +187,19 @@ Ansluta till servern med MySQL Workbench:
 
 1. Öppna MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench i [här](https://dev.mysql.com/downloads/workbench/).
 
-2. Om du vill skapa en ny anslutning väljer du plus ikonen**+**() bredvid rubriken **MySQL-anslutningar** .
+2. Om du vill skapa en ny anslutning väljer du plus ikonen ( **+** ) bredvid rubriken **MySQL-anslutningar** .
 
 3. I dialogrutan **Konfigurera ny anslutning** anger du informationen om serveranslutningen på fliken **Parametrar**. Platshållarvärden visas som ett exempel. Ersätt **Värddatornamn**, **Användarnamn** och **Lösenord** med dina egna värden.
 
    ![Skapa en ny anslutning](./media/quickstart-create-mariadb-server-database-using-azure-portal/setup-new-connection.png)
 
-    |Inställningen |Föreslaget värde|Fältbeskrivning|
+    |Inställning |Föreslaget värde|Fältbeskrivning|
     |---|---|---|
      Anslutningsnamn | **Demoanslutning** | En etikett för anslutningen. |
     Anslutningsmetod | **Standard (TCP/IP)** | Standard (TCP/IP) är tillräckligt. |
-    Värdnamn | *Server namn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständigt kvalificerade domän namnet (**\*. MariaDB.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg servernamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen.|
+    Värdnamn | *Server namn* | Servernamnsvärdet som du använde när du skapade Azure Database for MariaDB-servern. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständigt kvalificerade domän namnet (** \* . MariaDB.Database.Azure.com**) som visas i exemplet. Om du inte kommer ihåg servernamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen.|
      Port | 3306 | Den port som ska användas när du ansluter till din Azure Database for MariaDB-server. |
-    Användarnamn |  *inloggnings namn för Server administratör* | Inloggningsinformationen för server som du använde för att skapa Azure Database for MariaDB-servern. Vårt exempel användar namn är **\@mydemoserver**. Om du inte kommer ihåg användarnamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen. Formatet är *användar namn\@Server*namn.
+    Användarnamn |  *inloggnings namn för Server administratör* | Inloggningsinformationen för server som du använde för att skapa Azure Database for MariaDB-servern. Vårt exempel användar namn är ** \@ mydemoserver**. Om du inte kommer ihåg användarnamnet slutför du stegen ovan i den här artikeln för att hämta anslutningsinformationen. Formatet är *användar namn \@ Server*namn.
     lösenordsinställning | *ditt lösen ord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
 4. Välj **Testanslutning** för att kontrollera att alla parametrar är rätt konfigurerade. Välj **OK** för att spara anslutningen. 

@@ -3,47 +3,41 @@ title: Regler för Azure Event Hubs-brandvägg | Microsoft Docs
 description: Använd brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: 7870260b77785af59f4f186274775067f2292ef6
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066057"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185136"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa IP-adresser eller intervall
 Som standard är Event Hubs-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
 Den här funktionen är användbar i scenarier där Azure Event Hubs bör endast vara tillgängligt från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Event Hubs med [Azure Express Route][express-route], kan du skapa en **brand Väggs regel** som tillåter trafik från enbart lokala infrastruktur-IP-adresser. 
 
->[!WARNING]
-> Att aktivera IP-filtrering kan förhindra att andra Azure-tjänster interagerar med Event Hubs.
+>[!IMPORTANT]
+> Genom att aktivera brand Väggs regler för Event Hubs namn området blockeras inkommande begär Anden som standard, om inte begär Anden härstammar från en tjänst som körs från tillåtna offentliga IP-adresser. Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. 
 >
-> Betrodda Microsoft-tjänster stöds inte när IP-filtrering implementeras.
+> Här följer några av de tjänster som inte har åtkomst till Event Hubs resurser när IP-filtrering är aktive rad. Observera att listan **inte** är fullständig.
 >
-> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan **inte** är fullständig) –
 > - Azure Stream Analytics
 > - Azure IoT Hub vägar
 > - Azure IoT-Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (diagnostikinställningar)
 >
-> Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
-> - Azure Web Apps
-> - Azure Functions
-> - Azure Monitor (diagnostisk inställning)
-
+> Som ett undantag kan du tillåta åtkomst till Event Hubs resurser från vissa betrodda tjänster även när IP-filtrering är aktive rad. En lista över betrodda tjänster finns i [betrodda Microsoft-tjänster](#trusted-microsoft-services).
 
 ## <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
-IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
+IP-brandväggens regler tillämpas på Event Hubs namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Alla anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Event Hubs namn området nekas som obehörig. Svaret nämns inte IP-regeln. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
 Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandvägg för ett Event Hubs namn område. 
 
 1. Navigera till **Event Hubs namn området** i [Azure Portal](https://portal.azure.com).
-4. Välj **nätverk** under **Inställningar** på den vänstra menyn. 
-
+4. Välj **nätverk** under **Inställningar** på den vänstra menyn. Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
     > [!NOTE]
-    > Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
-
-    Som standard är alternativet **valda nätverk** markerat. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås via offentliga Internet (med hjälp av åtkomst nyckeln). 
+    > Som standard är alternativet **valda nätverk** markerat som visas i följande bild. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås via **offentliga Internet** (med hjälp av åtkomst nyckeln).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Fliken nätverk – alternativet valda nätverk" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -53,13 +47,16 @@ Det här avsnittet visar hur du använder Azure Portal för att skapa IP-brandv�
 1. Om du vill begränsa åtkomsten till vissa IP-adresser kontrollerar du att alternativet **valda nätverk** är markerat. I avsnittet **brand vägg** följer du dessa steg:
     1. Välj alternativet **Lägg till klientens IP-adress** för att ge din aktuella klient-IP åtkomst till namn området. 
     2. För **adress intervall**anger du en angiven IPv4-adress eller ett intervall med IPv4-adresser i CIDR-notering. 
-    3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. 
+3. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. Se [betrodda Microsoft-tjänster](#trusted-microsoft-services) för mer information. 
 
-        ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
+      ![Brand vägg – alternativet alla nätverk är valt](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
 
     > [!NOTE]
     > Information om hur du begränsar åtkomsten till vissa virtuella nätverk finns i [Tillåt åtkomst från vissa nätverk](event-hubs-service-endpoints.md).
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 

@@ -4,15 +4,15 @@ description: Den här snabb starten hjälper dig att konfigurera en brand vägg 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 48618815519fad31bff5d6a8d2d2edc82535f437
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0bb454897a8dfa340a3586c22619723464d5ca73
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697895"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185578"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandvägg – portalen
 
@@ -22,8 +22,9 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 
 - En Analysis Services-server i din prenumeration. Mer information finns i [Snabbstart: Skapa en server – Portal](analysis-services-create-server.md) eller [Snabbstart: Skapa en server – PowerShell](analysis-services-create-powershell.md)
 - Ett eller flera IP-adressintervall för klientdatorer (om så behövs).
-- Vissa scenarier där Power BI Premium ansluter till Azure Analysis Services, inklusive data import (uppdatering) och sid brytnings rapporter, stöds för närvarande inte även om Tillåt åtkomst från Power BI har Aktiver ATS. Det vanligaste scenariot med att använda Live Connect från Power BI Premium stöds. Alla Power BI Pros scenarier stöds.
 
+> [!NOTE]
+> För Power BI Premium i Microsoft Cloud Tyskland, stöds inte data import (uppdatering) och sid brytnings rapport anslutningar för närvarande när en brand vägg är aktive rad, även om inställningen Tillåt åtkomst från Power BI är aktive rad.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal 
 
@@ -32,8 +33,8 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 ## <a name="configure-a-firewall"></a>Konfigurera en brandvägg
 
 1. Öppna sidan Översikt genom att klicka på servern. 
-2. I **Inställningar**  >  **brand vägg**  >  **Aktivera brand vägg**, klickar du på **på**.
-3. Klicka på **På** i **Tillåt åtkomst från Power BI** om du vill ge DirectQuery åtkomst från Power BI-tjänsten.  
+2. I **Inställningar**  >  **brand vägg**  >  **Aktivera brand vägg**, väljer du **på**.
+3. Om du vill aktivera alla typer av anslutningar från Power BI och Power BI Premium väljer du **på**i **tillåt åtkomst från Power BI**.  
 4. (Valfritt) Ange ett eller flera IP-adressintervall. Ange ett namn, och start- och slut-IP-adress för varje intervall. Brand Väggs regelns namn får inte vara längre än 128 tecken och får bara innehålla versaler, gemener, siffror, under streck och bindestreck. Blank steg och andra specialtecken är inte tillåtna.
 5. Klicka på **Spara**.
 

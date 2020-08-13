@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 095e837043e6322cf85aeaa732f5bcbf7c0fa098
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 13972a1afd0860202eab7a3e3f9c4b9273c44e38
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135390"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185680"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Konfigurera käll miljön för VMware till Azure-replikering
 
 Den här artikeln beskriver hur du konfigurerar din lokala lokala miljö för att replikera virtuella VMware-datorer till Azure. Artikeln innehåller steg för att välja ett scenario för replikering, konfigurera en lokal dator som Site Recovery konfigurations Server och identifiera lokala virtuella datorer automatiskt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Artikeln förutsätter att du redan har:
 
@@ -82,6 +82,18 @@ Undanta följande mappar från antivirus program
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
 7. Azure Site Recovery installations katalog för belastningsutjämnad process Server, exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
+
+## <a name="if-antivirus-software-is-active-on-the-linux-master-target"></a>Om antivirus program är aktiva på Linux-huvudmålet
+
+Undanta följande mappar från antivirus program
+
+1.  /usr/local/ASR
+2.  /usr/local/InMage
+3.  /var/log/vxlogs
+4.  /var/log
+5.  /var/log/ApplicationPolicyLogs
+6.  /var/log/ASRsetuptelemetry
+7.  /var/log/ASRsetuptelemetry_uploaded
 
 
 ## <a name="next-steps"></a>Nästa steg

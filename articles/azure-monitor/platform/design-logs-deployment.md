@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8b74fa39c47f9032e57d2b6630be1a3ef45990a3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317292"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185187"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
@@ -127,17 +127,25 @@ Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell
 
 ## <a name="ingestion-volume-rate-limit"></a>Gräns för inläsnings volym
 
-Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Standard tröskelvärdet för inmatnings frekvens är inställt på **6 GB/min** per arbets yta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika data typer beroende på logg längden och dess komprimerings förhållande. Den här begränsningen gäller inte för data som skickas från agenter eller [API för data insamling](data-collector-api.md).
+Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Gränsen för volym hastighet avser att skydda Azure Monitor kunder från plötsliga inmatnings toppar i en miljö med flera organisationer. Ett tröskelvärde för standard inmatnings volym frekvens på 500 MB (komprimerat) gäller för arbets ytor, som är cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan olika data typer beroende på loggens längd och dess komprimerings förhållande. Detta tröskelvärde gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](diagnostic-settings.md), [data insamlings-API](data-collector-api.md) eller agenter.
 
-Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av din arbets yta genom att skicka ett e-postmeddelande till LAIngestionRate@microsoft.com eller öppna en support förfrågan.
- 
-Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll.
+När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inläsnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den på arbets ytan genom att öppna en support förfrågan. 
 
-``` Kusto
+Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik Base på antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
+
+Inläsnings volymens hastighet nådde 80% av tröskelvärdet:
+```Kusto
 Operation
 |where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
+|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+```
+
+Inläsnings volymens hastighet nådde tröskel:
+```Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The data ingestion volume rate crossed the threshold"
+```
 
 
 ## <a name="recommendations"></a>Rekommendationer

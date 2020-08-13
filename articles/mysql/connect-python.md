@@ -1,5 +1,5 @@
 ---
-title: Anslut med python-Azure Database for MySQL
+title: 'Snabb start: Anslut med python-Azure Database for MySQL'
 description: I den här snabbstarten finns flera kodexempel i Python som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -11,20 +11,20 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8d417fdc604fa132e3ada5380b9e0a1f7326af04
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843240"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185918"
 ---
-# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data med Azure Database for MySQL
+# <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for MySQL
 
 I den här snabb starten ansluter du till en Azure Database for MySQL med hjälp av python. Sedan använder du SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen från Mac, Ubuntu Linux och Windows-plattformar. 
 
 Det här avsnittet förutsätter att du är bekant med att utveckla med python, men du är inte nybörjare på att arbeta med Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).

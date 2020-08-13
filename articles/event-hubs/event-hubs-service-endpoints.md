@@ -3,12 +3,12 @@ title: Virtual Network tjänst slut punkter – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller information om hur du lägger till en Microsoft. EventHub-tjänsteslutpunkt till ett virtuellt nätverk.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: cb0d9a9c4d5e2503e68620ec4e6386d8e05d471c
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554081"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185083"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder från vissa virtuella nätverk 
 
@@ -18,24 +18,20 @@ När de har kon figurer ATS för att bindas till minst en tjänst slut punkt fö
 
 Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Event Hubs-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall. Det finns ett undantag för det här beteendet. Genom att aktivera en tjänst slut punkt aktiverar som standard `denyall` regeln i [IP-brandväggen](event-hubs-ip-filtering.md) som är associerad med det virtuella nätverket. Du kan lägga till vissa IP-adresser i IP-brandväggen för att ge åtkomst till den offentliga slut punkten för Händelsehubben. 
 
->[!WARNING]
-> Genom att implementera integrering av virtuella nätverk kan du förhindra andra Azure-tjänster från att interagera med Event Hubs.
+>[!IMPORTANT]
+> Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte på **Basic** -nivån.
 >
-> Betrodda Microsoft-tjänster stöds inte när virtuella nätverk implementeras.
+> Genom att aktivera brand Väggs regler för Event Hubs namn området blockeras inkommande begär Anden som standard, om inte begär Anden härstammar från en tjänst som körs från tillåtna virtuella nätverk. Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. 
 >
-> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
+> Här följer några av de tjänster som inte har åtkomst till Event Hubs resurser när virtuella nätverk är aktiverade. Observera att listan **inte** är fullständig.
+>
 > - Azure Stream Analytics
 > - Azure IoT Hub vägar
 > - Azure IoT-Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (diagnostikinställningar)
 >
-> Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
-> - Azure Web Apps
-> - Azure Functions
-> - Azure Monitor (diagnostisk inställning)
-
-
-> [!IMPORTANT]
-> Virtuella nätverk stöds på **standardnivå** och **dedikerade** nivåer för Event Hubs. Det stöds inte på **Basic** -nivån.
+> Som ett undantag kan du tillåta åtkomst till Event Hubs resurser från vissa betrodda tjänster även när virtuella nätverk är aktiverade. En lista över betrodda tjänster finns i [betrodda tjänster](#trusted-microsoft-services).
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
@@ -57,12 +53,10 @@ Den virtuella nätverks regeln är en associering av Event Hubs-namnrymden med e
 Det här avsnittet visar hur du använder Azure Portal för att lägga till en tjänst slut punkt för virtuellt nätverk. Om du vill begränsa åtkomsten måste du integrera slut punkten för det virtuella nätverks tjänsten för Event Hubs namn området.
 
 1. Navigera till **Event Hubs namn området** i [Azure Portal](https://portal.azure.com).
-4. Välj **nätverk** under **Inställningar** på den vänstra menyn. 
+4. Välj **nätverk** under **Inställningar** på den vänstra menyn. Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
 
     > [!NOTE]
-    > Fliken **nätverk** visas endast för **standard** -eller **dedikerade** namn områden. 
-
-    Som standard är alternativet **valda nätverk** markerat. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås från alla nätverk, inklusive offentlig Internet (med hjälp av åtkomst nyckeln). 
+    > Som standard är alternativet **valda nätverk** markerat som visas i följande bild. Om du inte anger en IP-brandväggsregel eller lägger till ett virtuellt nätverk på den här sidan, kan namn området nås via **offentliga Internet** (med hjälp av åtkomst nyckeln). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Fliken nätverk – alternativet valda nätverk" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -83,12 +77,15 @@ Det här avsnittet visar hur du använder Azure Portal för att lägga till en t
 
     > [!NOTE]
     > Om du inte kan aktivera tjänstens slut punkt kan du ignorera den saknade slut punkten för virtuella nätverks tjänster med Resource Manager-mallen. Den här funktionen är inte tillgänglig i portalen.
+5. Ange om du vill **tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen**. Se [betrodda Microsoft-tjänster](#trusted-microsoft-services) för mer information. 
 6. Spara inställningarna genom att välja **Spara** i verktygsfältet. Vänta några minuter tills bekräftelsen visas på Portal meddelandena.
 
     ![Spara nätverk](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
     > [!NOTE]
     > Om du vill begränsa åtkomsten till vissa IP-adresser eller intervall, se [Tillåt åtkomst från vissa IP-adresser eller intervall](event-hubs-ip-filtering.md).
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 

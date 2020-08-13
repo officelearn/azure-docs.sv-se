@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94a4b2a44902dde798f760f970ccff2c1e8f15c5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025648"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184949"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -162,7 +162,7 @@ När BitLocker-nycklar för Windows 10-enheter har konfigurerats lagras de på e
 
 ### <a name="why-should-i-worry-about-windows-autopilot-devices"></a>Varför ska jag oroa mig för Windows autopilot-enheter?
 
-När en Azure AD-enhet är kopplad till ett Windows autopilot-objekt kan följande tre scenarier uppstå om enheten kommer att användas i framtiden:
+När du tar bort en Azure AD-enhet som är kopplad till ett Windows autopilot-objekt kan följande tre scenarier uppstå om enheten kommer att användas i framtiden:
 - Med Windows autopilot-baserade distributioner utan att använda White assisterad, skapas en ny Azure AD-enhet, men den märks inte med ZTDID.
 - Med distribution i Windows autopilot-distribution med automatisk distribution kan de Miss förfalla eftersom det inte går att hitta en associerad Azure AD-enhet.  (Det här är en säkerhetsmekanism för att se till att ingen "inposts"-enheter försöker ansluta till Azure AD utan autentiseringsuppgifter.) Felet indikerar att en ZTDID matchar inte.
 - Med Windows autopilot White assisterad-distributioner fungerar de inte eftersom det inte går att hitta en tillhör ande Azure AD-enhet. (I bakgrunden använder vita assisterad-distributioner samma process för självdistribuerande läge, så att de tvingar samma säkerhetsmekanismer.)

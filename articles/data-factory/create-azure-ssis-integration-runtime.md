@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 08/11/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6bf146f043dac4908387a4650130df76bdd07bd1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 07cfb0048e6027b0bac219b3fe28018db2d10257
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087868"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185272"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa en Azure-SSIS integration runtime i Azure Data Factory
 
@@ -83,7 +83,7 @@ I följande tabell jämförs vissa funktioner i en Azure SQL Database Server och
 |---------|--------------|------------------|
 | **Schemaläggning** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [Schemalägga en paket körning i en Data Factory pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Agenten för den hanterade instansen är tillgänglig. |
 | **Autentisering** | Du kan skapa en SSISDB-instans med en innesluten databas användare som representerar en Azure AD-grupp med den hanterade identiteten för din data fabrik som medlem i **db_owner** -rollen.<br/><br/>Se [Aktivera Azure AD-autentisering för att skapa en SSISDB i Azure SQL Database Server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan skapa en SSISDB-instans med en innesluten databas användare som representerar data fabrikens hanterade identitet. <br/><br/>Se [Aktivera Azure AD-autentisering för att skapa en SSISDB i Azure SQL-hanterad instans](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
-| **Tjänst nivå** | När du skapar en Azure-SSIS IR med din Azure SQL Database-Server kan du välja tjänst nivå för SSISDB. Det finns flera tjänst nivåer. | När du skapar en Azure-SSIS IR med din hanterade instans kan du inte välja tjänst nivå för SSISDB. Alla databaser i den hanterade instansen delar samma resurs som allokeras till den instansen. |
+| **Tjänstenivå** | När du skapar en Azure-SSIS IR med din Azure SQL Database-Server kan du välja tjänst nivå för SSISDB. Det finns flera tjänst nivåer. | När du skapar en Azure-SSIS IR med din hanterade instans kan du inte välja tjänst nivå för SSISDB. Alla databaser i den hanterade instansen delar samma resurs som allokeras till den instansen. |
 | **Virtuellt nätverk** | Din Azure-SSIS IR kan ansluta till ett Azure Resource Manager virtuellt nätverk om du använder en Azure SQL Database-Server med IP-brandväggs regler/slut punkter för virtuella nätverks tjänster. | Din Azure-SSIS IR kan ansluta till ett Azure Resource Manager virtuellt nätverk om du använder en hanterad instans med privat slut punkt. Det virtuella nätverket krävs om du inte aktiverar en offentlig slut punkt för din hanterade instans.<br/><br/>Om du ansluter din Azure-SSIS IR till samma virtuella nätverk som din hanterade instans kontrollerar du att Azure-SSIS IR finns i ett annat undernät än den hanterade instansen. Om du ansluter din Azure-SSIS IR till ett annat virtuellt nätverk från din hanterade instans, rekommenderar vi antingen en virtuell nätverks-peering eller en anslutning från nätverk till nätverk. Se [ansluta ditt program till en Azure SQL Database Hanterad instans](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Distribuerade transaktioner** | Den här funktionen stöds via elastiska transaktioner. Microsoft koordinator för distribuerad transaktion-transaktioner (MSDTC) stöds inte. Om dina SSIS-paket använder MSDTC för att koordinera distribuerade transaktioner bör du överväga att migrera till elastiska transaktioner för Azure SQL Database. Mer information finns i [distribuerade transaktioner i moln databaser](../sql-database/sql-database-elastic-transactions-overview.md). | Stöds inte. |
 | | | |
@@ -130,93 +130,99 @@ Utför följande steg på sidan **allmänna inställningar** i installations fö
 
 #### <a name="deployment-settings-page"></a>Sidan distributions inställningar
 
-Utför följande steg på sidan **distributions inställningar** i installations fönstret för **integration runtime** .
+På sidan **distributions inställningar** i **installations fönstret för integration runtime** har du möjlighet att skapa SSISDB och eller Azure-SSIS IR paket arkiv.
 
-   1. Välj kryss rutan **skapa SSIS-katalog (SSISDB) som är värd för Azure SQL Database Server/hanterad instans för att lagra dina projekt/paket/miljöer/körnings loggar** och välj om du vill distribuera paketen till SSISDB (projekt distributions modell). Du behöver inte heller skapa SSISDB, om du vill distribuera paketen till fil systemet, Azure Files eller SQL Server databasen (MSDB) som hanteras av Azure SQL-hanterad instans (paket distributions modell).
+##### <a name="creating-ssisdb"></a>Skapar SSISDB
+
+På sidan **distributions inställningar** i **installations fönstret för integration runtime** , om du vill distribuera paketen till SSISDB (projekt distributions modell), markerar du kryss rutan **skapa SSIS-katalog (SSISDB) som är värd för Azure SQL Database Server/hanterad instans för att lagra dina projekt/paket/miljöer/körnings loggar** . Alternativt kan du, om du vill distribuera paketen till fil systemet, Azure Files eller SQL Server databas (MSDB) som hanteras av Azure SQL-hanterad instans (paket distributions modell), behöver inte skapa SSISDB eller markera kryss rutan.
+
+Oavsett distributions modell kan du, om du vill använda SQL Server Agent som hanteras av en Azure SQL-hanterad instans för att dirigera/schemalägga dina paket körningar, aktive ras av SSISDB, så Markera kryss rutan ändå. Mer information finns i [Schemalägga SSIS-paket körningar via Azure SQL-hanterad instans agent](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
    
-      Oavsett distributions modell markerar du den här kryss rutan för att välja om du vill använda SQL Server Agent som hanteras av Azure SQL-hanterad instans för att dirigera/schemalägga dina paket körningar, eftersom den är aktive rad av SSISDB. Mer information finns i [Schemalägga SSIS-paket körningar via Azure SQL-hanterad instans agent](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent).
+Om du markerar kryss rutan utför du följande steg för att ta med din egen databas server som värd för SSISDB som vi ska skapa och hantera för din räkning.
+
+   ![Distributions inställningar för SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
    
-      Om du markerar den här kryss rutan måste du ta med din egen databas server som värd för SSISDB som vi ska skapa och hantera för din räkning.
+   1. Välj Azure-prenumerationen som har din databasserver som värd för SSISDB under **Prenumeration**. 
 
-      ![Distributions inställningar för SSISDB](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings.png)
+   1. Vi rekommenderar att du väljer samma **plats** för din databasserver som värd för SSISDB. Vi rekommenderar att du väljer samma plats för din integreringskörning.
+
+   1. För **Serverslutpunkt för katalogdatabas**, välj en slutpunkt på din databasserver som värd för SSISDB. 
    
-      1. Välj Azure-prenumerationen som har din databasserver som värd för SSISDB under **Prenumeration**.
+      Baserat på den valda databas servern kan SSISDB-instansen skapas för din räkning som en enda databas, som en del av en elastisk pool eller i en hanterad instans. Det kan vara tillgängligt i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. Information om hur du väljer vilken typ av databas server som ska vara värd för SSISDB finns i [jämför SQL Database och SQL-hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      1. Vi rekommenderar att du väljer samma **plats** för din databasserver som värd för SSISDB. Vi rekommenderar att du väljer samma plats för din integreringskörning. 
+      Om du väljer en Azure SQL Database-Server med IP-brandväggs regler/slut punkter för virtuella nätverks tjänster eller en hanterad instans med privat slut punkt som värd för SSISDB, eller om du behöver åtkomst till lokala data utan att konfigurera en IR med egen värd, måste du ansluta din Azure-SSIS IR till ett virtuellt nätverk. Mer information finns i [skapa en Azure-SSIS IR i ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
-      1. För **Serverslutpunkt för katalogdatabas**, välj en slutpunkt på din databasserver som värd för SSISDB. 
-    
-         Baserat på den valda databas servern kan SSISDB-instansen skapas för din räkning som en enda databas, som en del av en elastisk pool eller i en hanterad instans. Det kan vara tillgängligt i ett offentligt nätverk eller genom att ansluta till ett virtuellt nätverk. Information om hur du väljer vilken typ av databas server som ska vara värd för SSISDB finns i avsnittet [jämför SQL Database och SQL-hanterad instans](#comparison-of-sql-database-and-sql-managed-instance) i den här artikeln. 
-    
-         Om du väljer en Azure SQL Database-Server med IP-brandväggs regler/slut punkter för virtuella nätverks tjänster eller en hanterad instans med privat slut punkt som värd för SSISDB, eller om du behöver åtkomst till lokala data utan att konfigurera en IR med egen värd, måste du ansluta din Azure-SSIS IR till ett virtuellt nätverk. Mer information finns i [ansluta ett Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+   1. Markera kryss rutan **Använd Azure AD-autentisering med den hanterade identiteten för din ADF** för att välja autentiseringsmetod för din databas server som värd för SSISDB. Du väljer antingen SQL-autentisering eller Azure AD-autentisering med den hanterade identiteten för din data fabrik.
 
-      1. Markera kryss rutan **Använd AAD-autentisering med den hanterade identiteten för din ADF** för att välja autentiseringsmetod för din databas server som värd för SSISDB. Du väljer antingen SQL-autentisering eller Azure AD-autentisering med den hanterade identiteten för din data fabrik. 
-    
-         Om du markerar kryss rutan måste du lägga till den hanterade identiteten för din data fabrik i en Azure AD-grupp med åtkomst behörighet till din databas server. Mer information finns i [Aktivera Azure AD-autentisering för en Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
-
-      1. För **Administratörs användar namn**anger du användar namnet för SQL-autentisering för din databas server som värd för SSISDB. 
-
-      1. För **Administratörs lösen ord**anger du lösen ordet för SQL-autentisering för din databas server som värd för SSISDB. 
-
-      1. För **tjänst nivån katalog databas**väljer du tjänst nivå för din databas server som värd för SSISDB. Välj nivån Basic, standard eller Premium eller Välj ett namn för elastisk pool.
-
-   1. Välj kryss rutan **skapa paket Arkiv för att hantera dina paket som har distribuerats till fil systemet/Azure Files/SQL Server databas (msdb) som hanteras av den hanterade Azure SQL-instansen** för att välja om du vill hantera dina paket som har distribuerats i msdb, File system eller Azure Files (paket distributions modell) med Azure-SSIS IR paket arkiv.
+      Om du markerar kryss rutan måste du lägga till den hanterade identiteten för din data fabrik i en Azure AD-grupp med åtkomst behörighet till din databas server. Mer information finns i [skapa en Azure-SSIS IR med Azure AD-autentisering](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
    
-      Med Azure-SSIS IR Package Store kan du importera/exportera/ta bort/köra paket och övervaka/stoppa paket som körs via SSMS som liknar det [äldre SSIS-paket lagret](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Mer information finns i [Hantera SSIS-paket med Azure-SSIS IR paket lager](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
+   1. För **Administratörs användar namn**anger du användar namnet för SQL-autentisering för din databas server som värd för SSISDB. 
+
+   1. För **Administratörs lösen ord**anger du lösen ordet för SQL-autentisering för din databas server som värd för SSISDB. 
+
+   1. För **tjänst nivån katalog databas**väljer du tjänst nivå för din databas server som värd för SSISDB. Välj nivån Basic, standard eller Premium eller Välj ett namn för elastisk pool.
+
+Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **Nästa**.
+
+##### <a name="creating-azure-ssis-ir-package-stores"></a>Skapa Azure-SSIS IR paket arkiv
+
+På sidan **distributions inställningar** i **installations fönstret för integration runtime** , om du vill hantera dina paket som har distribuerats till msdb, File System eller Azure Files (paket distributions modell) med Azure-SSIS IR paket lager, väljer du kryss rutan **skapa paket lager för att hantera dina paket som har distribuerats i fil systemet/Azure Files/SQL Server databas (msdb) som hanteras av en Azure SQL-hanterad instans** .
    
-      Om du markerar den här kryss rutan kan du lägga till flera paket lager i Azure-SSIS IR genom att välja **ny**. Ett paket lager kan däremot delas av flera Azure-SSIS IRs.
-
-      ![Distributions inställningar för MSDB/File System/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
-
-      Utför följande steg i fönstret **Lägg till paket arkiv** .
+Med Azure-SSIS IR Package Store kan du importera/exportera/ta bort/köra paket och övervaka/stoppa paket som körs via SSMS som liknar det [äldre SSIS-paket lagret](https://docs.microsoft.com/sql/integration-services/service/package-management-ssis-service?view=sql-server-2017). Mer information finns i [Hantera SSIS-paket med Azure-SSIS IR paket lager](https://docs.microsoft.com/azure/data-factory/azure-ssis-integration-runtime-package-store).
    
-      1. För **paket arkivets namn**anger du namnet på paket lagret. 
+Om du markerar den här kryss rutan kan du lägga till flera paket lager i Azure-SSIS IR genom att välja **ny**. Ett paket lager kan däremot delas av flera Azure-SSIS IRs.
 
-      1. För **länkad tjänst för paket arkiv**väljer du den befintliga länkade tjänsten som lagrar åtkomst informationen för fil system/Azure Files/Azure SQL-hanterad instans där dina paket distribueras eller skapar en ny genom att välja **ny**. Utför följande steg i fönstret **ny länkad tjänst** . 
+![Distributions inställningar för MSDB/File System/Azure Files](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings2.png)
 
-         ![Distributions inställningar för länkade tjänster](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
+Utför följande steg i fönstret **Lägg till paket arkiv** .
+   
+   1. För **paket arkivets namn**anger du namnet på paket lagret. 
 
-         1. I **namn**anger du namnet på den länkade tjänsten. 
+   1. För **länkad tjänst för paket arkiv**väljer du den befintliga länkade tjänsten som lagrar åtkomst informationen för fil system/Azure Files/Azure SQL-hanterad instans där dina paket distribueras eller skapar en ny genom att välja **ny**. Utför följande steg i fönstret **ny länkad tjänst** . 
+
+      ![Distributions inställningar för länkade tjänster](./media/tutorial-create-azure-ssis-runtime-portal/deployment-settings-linked-service.png)
+
+      1. I **namn**anger du namnet på den länkade tjänsten. 
          
-         1. För **Beskrivning**anger du en beskrivning av den länkade tjänsten. 
+      1. För **Beskrivning**anger du en beskrivning av den länkade tjänsten. 
          
-         1. För **typ**väljer du **Azure File Storage**, **Azure SQL-hanterad instans**eller **fil system**.
+      1. För **typ**väljer du **Azure File Storage**, **Azure SQL-hanterad instans**eller **fil system**.
 
-         1. Du kan ignorera **Connect via integration runtime**eftersom vi alltid använder Azure-SSIS IR för att hämta åtkomst informationen för paket arkiv.
+      1. Du kan ignorera **Connect via integration runtime**eftersom vi alltid använder Azure-SSIS IR för att hämta åtkomst informationen för paket arkiv.
 
-         1. Om du väljer **Azure File Storage**slutför du följande steg. 
+      1. Om du väljer **Azure File Storage**slutför du följande steg. 
 
-            1. För **Val av konto**väljer du **från Azure-prenumeration** eller **anger manuellt**.
+         1. För **Val av konto**väljer du **från Azure-prenumeration** eller **anger manuellt**.
          
-            1. Om du väljer **från Azure-prenumeration**väljer du den **aktuella Azure-prenumerationen**, **lagrings konto namnet**och **fil resursen**.
+         1. Om du väljer **från Azure-prenumeration**väljer du den **aktuella Azure-prenumerationen**, **lagrings konto namnet**och **fil resursen**.
             
-            1. Om du väljer **ange manuellt**anger du `\\<storage account name>.file.core.windows.net\<file share name>` för **värd**, `Azure\<storage account name>` för **användar namn**och `<storage account key>` **lösen ord** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
+         1. Om du väljer **ange manuellt**anger du `\\<storage account name>.file.core.windows.net\<file share name>` för **värd**, `Azure\<storage account name>` för **användar namn**och `<storage account key>` **lösen ord** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
-         1. Om du väljer en **hanterad Azure SQL-instans**utför du följande steg. 
+      1. Om du väljer en **hanterad Azure SQL-instans**utför du följande steg. 
 
-            1. Välj **anslutnings sträng** för att ange den manuellt eller **Azure Key Vault** där den lagras som en hemlighet.
+         1. Välj **anslutnings sträng** för att ange den manuellt eller **Azure Key Vault** där den lagras som en hemlighet.
          
-            1. Om du väljer **anslutnings sträng**utför du följande steg. 
+         1. Om du väljer **anslutnings sträng**utför du följande steg. 
 
-               1. För **fullständigt kvalificerat domän namn**anger `<server name>.<dns prefix>.database.windows.net` `<server name>.public.<dns prefix>.database.windows.net,3342` du eller som den privata eller offentliga slut punkten för din Azure SQL-hanterade instans. Om du anger den privata slut punkten gäller inte **test anslutningen** eftersom ADF-gränssnittet inte kan komma åt den.
+            1. För **fullständigt kvalificerat domän namn**anger `<server name>.<dns prefix>.database.windows.net` `<server name>.public.<dns prefix>.database.windows.net,3342` du eller som den privata eller offentliga slut punkten för din Azure SQL-hanterade instans. Om du anger den privata slut punkten gäller inte **test anslutningen** eftersom ADF-gränssnittet inte kan komma åt den.
 
-               1. För **databas namn**anger du `msdb` .
+            1. För **databas namn**anger du `msdb` .
                
-               1. För **Autentiseringstyp**väljer du **SQL-autentisering**, **hanterad identitet**eller **tjänstens huvud namn**.
+            1. För **Autentiseringstyp**väljer du **SQL-autentisering**, **hanterad identitet**eller **tjänstens huvud namn**.
 
-               1. Om du väljer **SQL-autentisering**anger du relevant **användar namn** och **lösen ord** , eller så väljer du **Azure Key Vault** där det lagras som en hemlighet.
+            1. Om du väljer **SQL-autentisering**anger du relevant **användar namn** och **lösen ord** , eller så väljer du **Azure Key Vault** där det lagras som en hemlighet.
 
-               1. Om du väljer **hanterad identitet**ger du din ADF-hanterade identitets åtkomst till din Azure SQL-hanterade instans.
+            1. Om du väljer **hanterad identitet**ger du din ADF-hanterade identitets åtkomst till din Azure SQL-hanterade instans.
 
-               1. Om du väljer **tjänstens huvud namn**anger du det relevanta **tjänstens huvud namn-ID** och **tjänstens huvud** namns nyckel eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
+            1. Om du väljer **tjänstens huvud namn**anger du det relevanta **tjänstens huvud namn-ID** och **tjänstens huvud** namns nyckel eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
-         1. Om du väljer **fil system**anger du UNC-sökvägen till mappen där dina paket distribueras för **värden**, samt det relevanta **användar namnet** och **lösen ordet** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
+      1. Om du väljer **fil system**anger du UNC-sökvägen till mappen där dina paket distribueras för **värden**, samt det relevanta **användar namnet** och **lösen ordet** eller väljer din **Azure Key Vault** där den lagras som en hemlighet.
 
-         1. Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **skapa**.
+      1. Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **skapa**.
 
-      De tillagda paket arkiven visas på sidan **distributions inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort**.
+   1. De tillagda paket arkiven visas på sidan **distributions inställningar** . Om du vill ta bort dem markerar du kryss rutorna och väljer sedan **ta bort**.
 
-   1. Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **Nästa**.
+Välj **Testa anslutning** när det är tillämpligt och om det lyckas väljer du **Nästa**.
 
 #### <a name="advanced-settings-page"></a>Sida för avancerade inställningar
 
@@ -348,7 +354,7 @@ $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas 
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
@@ -527,6 +533,11 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $variableValue = "YourVariableValue"
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
     }
+    if($ExpressCustomSetup -eq "InstallAzurePowerShell")
+    {
+        $moduleVersion = "YourAzModuleVersion"
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.AzPowerShellSetup($moduleVersion)
+    }
     if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
     {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
@@ -557,6 +568,11 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $jsonData = $jsonData -replace '\s',''
         $jsonData = $jsonData.replace('"','\"')
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "AecorSoft.IntegrationService")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
     }
     # Create an array of one or more express custom setups
@@ -651,7 +667,7 @@ $AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, whereas 
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info: Standard/express custom setups
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
-$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS or leave it empty]" # OPTIONAL to configure an express custom setup without script
+$ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|InstallAzurePowerShell|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO|KingswaySoft.IntegrationToolkit|KingswaySoft.ProductivityPack|Theobald.XtractIS|AecorSoft.IntegrationService or leave it empty]" # OPTIONAL to configure an express custom setup without script
 # Virtual network info: Classic or Azure Resource Manager
 $VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 $SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
@@ -787,6 +803,11 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $variableValue = "YourVariableValue"
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
     }
+    if($ExpressCustomSetup -eq "InstallAzurePowerShell")
+    {
+        $moduleVersion = "YourAzModuleVersion"
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.AzPowerShellSetup($moduleVersion)
+    }
     if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
     {
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
@@ -817,6 +838,11 @@ if(![string]::IsNullOrEmpty($ExpressCustomSetup))
         $jsonData = $jsonData -replace '\s',''
         $jsonData = $jsonData.replace('"','\"')
         $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString($jsonData)
+        $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+    }
+    if($ExpressCustomSetup -eq "AecorSoft.IntegrationService")
+    {
+        $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
         $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
     }
     # Create an array of one or more express custom setups

@@ -1,5 +1,5 @@
 ---
-title: Anslut med Java-Azure Database for MySQL
+title: 'Snabb start: Anslut med Java-Azure Database for MySQL'
 description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från en Azure Database for MySQL databas.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, devx-track-ja
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 5/26/2020
-ms.openlocfilehash: 4da7efc40177937aad8f1a97e909d90c4cf5f466
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b6f928aba1c3abda57a8ed329c0ad4e7cdb5e881
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322864"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185901"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
 

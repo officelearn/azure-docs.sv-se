@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b2b62ac4d79964c0a597f40d8154e5f57350f0b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 737617b1fb8bd233a8747deacbbb328a02fa30ef
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031089"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185629"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
@@ -156,12 +156,13 @@ Hälso tillstånd för moln nivåer
   - Händelse-ID 9016 ger ghosting-resultat för en volym. Till exempel: ledigt utrymme i procent är, antalet filer som är avbildade i sessionen och antalet filer som misslyckades med Ghost.
   - Händelse-ID 9029 tillhandahåller ghosting-sessionsinformation för en server slut punkt. Exempel: antal filer som försökts i sessionen, antalet filer som skiktas i sessionen och antalet filer som redan har delats på nivå.
   
-- Om du vill övervaka återställnings aktivitet på en server använder du händelse-ID 9005, 9006, 9009 och 9059 i händelse loggen för telemetri, som finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
+- Om du vill övervaka återställnings aktivitet på en server använder du händelse-ID 9005, 9006, 9009, 9059 och 9071 i händelse loggen för telemetri, som finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
 
   - Händelse-ID 9005 ger åter kallelse tillförlitlighet för en server slut punkt. Till exempel: totalt antal unika filer som används och totalt antal unika filer med misslyckad åtkomst.
   - Händelse-ID 9006 ger återställnings fel distribution för en server slut punkt. Exempel: totalt antal misslyckade förfrågningar och ErrorCode. En händelse loggas per felkod.
   - Händelse-ID 9009 ger information om återkallande-sessionsinformation för en server slut punkt. Till exempel: DurationSeconds, CountFilesRecallSucceeded och CountFilesRecallFailed.
   - Händelse-ID 9059 tillhandahåller distribution av program åter användning för en server slut punkt. Till exempel: ShareId, program namn och TotalEgressNetworkBytes.
+  - Händelse-ID 9071 ger effektiv moln nivå för en server slut punkt. Till exempel: TotalDistinctFileCountCacheHit, TotalDistinctFileCountCacheMiss, TotalCacheHitBytes och TotalCacheMissBytes.
 
 ### <a name="performance-counters"></a>Prestandaräknare
 

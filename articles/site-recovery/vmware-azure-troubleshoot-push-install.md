@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 04b4feb1219f6a51a1f0a7ac0d19fc3fd70029c6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133528"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185221"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Felsöka mobilitets tjänstens push-installation
 
@@ -204,7 +204,7 @@ Innan 9,20-versionen hade en rot partition eller volym konfiguration på flera d
 
 Konfigurationsfilerna för Grand Unified startGRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan innehålla värdet för parameter **roten** och **återupptas** som faktiska enhets namn i stället för en universell unik identifierare (UUID). Site Recovery bestämmer UUID-metoden som enhets namn kan ändras för den virtuella datorn. Till exempel kanske den virtuella datorn inte är online med samma namn vid redundansväxling och som resulterar i problem.
 
-Ett exempel:
+Till exempel:
 
 - Följande rad är från GRUB-filen _/Boot/grub2/grub.cfg_:
 
@@ -223,7 +223,7 @@ Enhetsnamnen bör ersättas med motsvarande UUID.
 
 1. Hitta enhetens UUID genom att köra kommandot `blkid \<device name>` .
 
-   Ett exempel:
+   Till exempel:
 
    ```shell
    blkid /dev/sda1
@@ -257,6 +257,10 @@ Från och med [9,20-versionen](https://support.microsoft.com/help/4478871/update
 ## <a name="insufficient-space-errorid-95524"></a>Otillräckligt med utrymme (ErrorID: 95524)
 
 När mobilitets agenten kopieras till käll datorn krävs minst 100 MB ledigt utrymme. Se till att käll datorn har den nödvändiga mängden ledigt utrymme och försök igen.
+
+## <a name="low-system-resources"></a>Låga system resurser
+
+Det här problemet uppstår när systemet har ont om ledigt minne och inte kan allokera minne för mobilitets tjänst installationen. Se till att tillräckligt med minne har frigjorts för att installationen ska kunna fortsätta och slutföras.
 
 ## <a name="vss-installation-failures"></a>Installations problem med VSS
 

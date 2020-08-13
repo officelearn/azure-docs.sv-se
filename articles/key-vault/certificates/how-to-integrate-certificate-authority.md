@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 7627625a917a8f652da62d4197368f023ad8c110
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d558b414bfa27b387a559ff6c8fdb5ada32730fc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964506"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185646"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrera nyckelvalv med DigiCert-certifikatutfärdare
 
@@ -25,9 +25,9 @@ Azure Key Vault-användare kan generera DigiCert-certifikat direkt från sina Ke
 
 Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azure/key-vault/certificates/about-certificates).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här guiden måste du ha följande resurser.
 * Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
@@ -131,6 +131,16 @@ Om certifikatet som utfärdats är inaktiverat i Azure Portal kan du fortsätta 
  ![Certifikategenskaper](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+- Kan jag generera ett DigiCert-certifikat med jokertecken i ett nyckel valv? 
+   Ja. Det beror på hur du har konfigurerat ditt DigiCert-konto.
+- Hur anger vi att du vill skapa ett EV-certifikat? 
+   När du skapar ett certifikat klickar du på avancerad princip konfiguration och anger sedan certifikat typen. De värden som stöds är: OV-SSL, EV-SSL
+- Finns det en tids fördröjning i att skapa DigiCert-certifikat via integrering eller förvärva certifikat via DigiCert direkt?
+   Nej. När du skapar ett certifikat är det verifierings processen som kan ta tid och verifieringen är beroende av process DigiCert nedan.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

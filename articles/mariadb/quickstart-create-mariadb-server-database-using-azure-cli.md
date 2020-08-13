@@ -8,18 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9f20f4cced74c5607fbfea2119e22cface0a8e03
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499066"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185170"
 ---
-# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
+# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
 Du kan använda Azure CLI för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure CLI för att skapa en Azure Database for MariaDB-server i en Azure-resursgrupp på ungefär fem minuter.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -45,13 +45,13 @@ az group create --name myresourcegroup --location westus
 
 Skapa en Azure Database for MariaDB-server med hjälp av kommandot [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create). En server kan hantera flera databaser. Normalt används en separat databas för varje projekt eller för varje användare.
 
-Inställningen | Exempelvärde | Description
+Inställning | Exempelvärde | Beskrivning
 ---|---|---
 name | **mydemoserver** | Ange ett unikt namn för din Azure Database for MariaDB-server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
 resource-group | **myresourcegroup** | Ange namnet på Azure-resursgruppen.
 sku-name | **GP_Gen5_2** | Namnet på SKU:n. Efter *pris nivån*för konventions \_ *beräknings generation* \_ *virtuella kärnor* i korthet. Mer information om parametern **sku-name** finns i avsnittet efter den här tabellen.
 backup-retention | **7** | Hur länge en säkerhetskopia ska behållas. Enheten är dagar. Intervall: 7 till 35. 
-geo-redundant-backup | **Inaktiverad** | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
+geo-redundant-backup | **Disabled** (Inaktiverat) | Huruvida geo-redundanta säkerhetskopieringar ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 location | **westus** | Azure-platsen för servern.
 ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här servern. Tillåtna värden: **aktiverade**, **inaktiverade**.
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 

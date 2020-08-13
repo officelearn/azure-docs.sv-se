@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: be3d06d8ea493ab7c246ace5c49d5e5bc0036108
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9404cc8037b9cd7ef3e6f74265ce803177eb0465
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84463543"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185289"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Skapa och hantera en BLOB-ögonblicksbild i .NET
 
@@ -24,7 +24,7 @@ Mer information om BLOB-ögonblicksbilder i Azure Storage finns i [skapa och han
 
 ## <a name="create-a-snapshot"></a>Skapa en ögonblicksbild
 
-# <a name="net-version-12x"></a>[.NET version 12. x](#tab/v12)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Använd någon av följande metoder för att skapa en ögonblicks bild av en Block-Blob med version 12. x av Azure Storage klient biblioteket för .NET:
 
@@ -77,7 +77,7 @@ private static async Task CreateBlockBlobSnapshot(string accountName, string con
 }
 ```
 
-# <a name="net-version-11x"></a>[.NET version 11. x](#tab/v11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill skapa en ögonblicks bild av en Block-Blob med version 11. x av Azure Storage klient biblioteket för .NET, använder du någon av följande metoder:
 
@@ -126,7 +126,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 
 Om du vill ta bort en BLOB måste du först ta bort alla ögonblicks bilder av denna blob. Du kan ta bort en ögonblicks bild individuellt eller ange att alla ögonblicks bilder ska tas bort när käll-bloben tas bort. Om du försöker ta bort en blob som fortfarande har ögonblicks bilder, uppstår ett fel.
 
-# <a name="net-version-12x"></a>[.NET version 12. x](#tab/v12)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Om du vill ta bort en blob och dess ögonblicks bilder med version 12. x av Azure Storage klient biblioteket för .NET, använder du någon av följande metoder och inkluderar [DeleteSnapshotsOption](/dotnet/api/azure.storage.blobs.models.deletesnapshotsoption) -uppräkningen:
 
@@ -141,7 +141,7 @@ I följande kod exempel visas hur du tar bort en blob och dess ögonblicks bilde
 await blobClient.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, default);
 ```
 
-# <a name="net-version-11x"></a>[.NET version 11. x](#tab/v11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill ta bort en blob och dess ögonblicks bilder med version 11. x av Azure Storage klient biblioteket för .NET, använder du någon av följande BLOB-borttagnings metoder och inkluderar [DeleteSnapshotsOption](/dotnet/api/microsoft.azure.storage.blob.deletesnapshotsoption) -uppräkningen:
 
@@ -162,4 +162,4 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 - [BLOB-ögonblicksbilder](snapshots-overview.md)
 - [BLOB-versioner (för hands version)](versioning-overview.md)
-- [Mjuk borttagning för blobbar](storage-blob-soft-delete.md)
+- [Mjuk borttagning för blobar](storage-blob-soft-delete.md)

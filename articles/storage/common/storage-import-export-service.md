@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a43637071ec1a9962c8aa1b2262e07354293f12b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2918c5842d6470e634518ff9c12f6f04aefc920
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512438"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185391"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är Azure import/export-tjänsten?
 
@@ -120,14 +120,15 @@ Tjänsten Azure import/export stöder kopiering av data till och från alla Azur
 
 |Land/region  |Land/region  |Land/region  |Land/region  |
 |---------|---------|---------|---------|
-|USA, östra    | Europa, norra        | Indien, centrala        |USA Gov, Iowa         |
+|East US    | Norra Europa        | Central India        |USA Gov, Iowa         |
 |USA, västra     |Europa, västra         | Indien, södra        | USA DoD, östra        |
 |USA, östra 2    | Asien, östra        |  Indien, västra        | USA DoD, centrala        |
 |USA, västra 2     | Sydostasien        | Kanada, centrala        | Kina, östra         |
-|USA, centrala     | Australien, östra        | Kanada, östra        | Kina, norra        |
+|Central US     | Australien, östra        | Kanada, östra        | Kina, norra        |
 |USA, norra centrala     |  Australien, sydöstra       | Brasilien, södra        | Storbritannien, södra        |
 |USA, södra centrala     | Japan, västra        |Sydkorea, centrala         | Tyskland, centrala        |
 |USA, västra centrala     |  Japan, östra       | US Gov, Virginia        | Tyskland, nordöstra        |
+|Sydafrika, västra   |  Sydafrika, norra |
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 

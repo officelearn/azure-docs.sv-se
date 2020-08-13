@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 37106517c47c86f4a4a562eebd6d120e31e22334
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a19ced1cb9496bddd1f9aa7ea9e3eb58ba7eea3d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564530"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185697"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Anslut data från Azure Active Directory (Azure AD)
 
@@ -30,7 +30,7 @@ Med Azure Sentinel kan du samla in data från [Azure Active Directory](../active
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du vill exportera inloggnings data från Azure AD måste du ha en Azure AD P1-eller P2-licens.
+- Alla Azure AD-licenser (ledig/O365/P1/P2) kan integreras med Azure Monitor och mata in inloggnings loggar i Azure Sentinel. Ytterligare per GB-kostnader kommer att gälla för Azure Monitor eller Azure Sentinel.
 
 - Användare med behörighet som global administratör eller säkerhets administratör på den klient som du vill strömma loggarna från.
 

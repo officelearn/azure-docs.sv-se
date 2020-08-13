@@ -3,12 +3,12 @@ title: Integrera Azure Event Hubs med Azure Private Link service
 description: Lär dig hur du integrerar Azure Event Hubs med Azure Private Link service
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 66753e51fd1e918e5659e219c5ebbe471705b3ee
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421117"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185476"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder via privata slut punkter 
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
@@ -18,25 +18,23 @@ En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säke
 Mer information finns i [Vad är en privat Azure-länk?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Den här funktionen stöds för både **standard** -och **dedikerade** nivåer. 
-
->[!WARNING]
-> Att aktivera privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Event Hubs.
+> Den här funktionen stöds för både **standard** -och **dedikerade** nivåer. Det stöds inte på **Basic** -nivån.
 >
-> Betrodda Microsoft-tjänster stöds inte när du använder virtuella nätverk.
+> Att aktivera privata slut punkter kan förhindra att andra Azure-tjänster interagerar med Event Hubs.  Begär Anden som blockeras inkluderar de från andra Azure-tjänster, från Azure Portal, från loggnings-och mått tjänster och så vidare. 
+> 
+> Här följer några av de tjänster som inte har åtkomst till Event Hubs resurser när privata slut punkter har Aktiver ATS. Observera att listan **inte** är fullständig.
 >
-> Vanliga Azure-scenarier som inte fungerar med virtuella nätverk (Observera att listan **inte** är fullständig) –
 > - Azure Stream Analytics
 > - Azure IoT Hub vägar
 > - Azure IoT-Device Explorer
+> - Azure Event Grid
+> - Azure Monitor (diagnostikinställningar)
 >
-> Följande Microsoft-tjänster måste finnas i ett virtuellt nätverk
-> - Azure Web Apps
-> - Azure Functions
+> Som ett undantag kan du tillåta åtkomst till Event Hubs resurser från vissa betrodda tjänster även när privata slut punkter är aktiverade. En lista över betrodda tjänster finns i [betrodda tjänster](#trusted-microsoft-services).
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill integrera ett Event Hubs-namnområde med en privat Azure-länk behöver du följande entiteter eller behörigheter:
 
@@ -105,6 +103,10 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
 12. Bekräfta att du ser den privata slut punkts anslutningen som du skapade visas i listan över slut punkter. I det här exemplet godkänns den privata slut punkten automatiskt eftersom du anslöt till en Azure-resurs i din katalog och du har tillräcklig behörighet. 
 
     ![Den privata slut punkten har skapats](./media/private-link-service/private-endpoint-created.png)
+
+[!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
+
+Om du vill tillåta att betrodda tjänster får åtkomst till ditt namn område växlar du till fliken **brand väggar och virtuella nätverk** på sidan **nätverk** och väljer **Ja** för **Tillåt betrodda Microsoft-tjänster för att kringgå den här brand väggen?**. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>Lägg till en privat slut punkt med PowerShell
 I följande exempel visas hur du använder Azure PowerShell för att skapa en privat slut punkts anslutning. Det skapar inte ett dedikerat kluster åt dig. Följ stegen i [den här artikeln](event-hubs-dedicated-cluster-create-portal.md) för att skapa ett dedikerat Event Hubs-kluster. 
@@ -200,9 +202,9 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

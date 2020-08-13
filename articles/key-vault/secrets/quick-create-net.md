@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: a0e27927c91c8b8ed1cfca410e08a5eb90117f58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84f89b9def3fc5d98ebb669b9f5b86523854f7a8
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076721"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185731"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault klient bibliotek för .NET (SDK v4)
 
@@ -28,7 +28,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 
 [API-referens dokumentation](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Paket (NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [.Net Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/3.1).
@@ -240,7 +240,6 @@ I den här snabb starten skapade du ett nyckel valv, lagrat en hemlighet och hä
 
 Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
 
-- Implementera [tjänst-till-tjänst-autentisering för Azure Key Vault med .net](../general/service-to-service-authentication.md)
 - Läs en [Översikt över Azure Key Vault](../general/overview.md)
 - Se [Azure Key Vault Developer ' s guide](../general/developers-guide.md)
 - Granska [Azure Key Vault bästa praxis](../general/best-practices.md)

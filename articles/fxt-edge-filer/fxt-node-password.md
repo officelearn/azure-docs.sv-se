@@ -1,17 +1,17 @@
 ---
 title: 'Självstudie: initiera maskin vara – Azure FXT Edge-filer'
-description: Ange ett start lösen ord på Azure FXT Edge-noder
+description: Lär dig hur du ansluter till noden maskin vara och anger ett första lösen ord på Azure FXT Edge-noder.
 author: ekpgh
 ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fae7795cdd61e3eb465285163bcd6c0dd9f7db2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75550899"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184932"
 ---
 # <a name="tutorial-set-hardware-passwords"></a>Självstudie: Ange maskin varu lösen ord
 
@@ -80,7 +80,7 @@ Det lösen ord som du anger används för två saker:
 
 * Det är det tillfälliga rot lösen ordet för den här Azure FXT Edge-noden. 
 
-  Det här lösen ordet ändras när du skapar ett kluster med hjälp av den här noden, eller när du lägger till den här noden i klustret. Lösen ordet för kluster hantering (kopplat till användaren ``admin``) är också rot lösen ordet för alla noder i ett kluster.
+  Det här lösen ordet ändras när du skapar ett kluster med hjälp av den här noden, eller när du lägger till den här noden i klustret. Lösen ordet för kluster hantering (kopplat till användaren ``admin`` ) är också rot lösen ordet för alla noder i ett kluster.
 
 * Det är det långsiktiga lösen ordet för iDRAC/IPMI-porten för maskin varu hantering.
 

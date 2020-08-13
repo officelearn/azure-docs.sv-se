@@ -1,23 +1,23 @@
 ---
-title: Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
+title: Välj hur du vill ge åtkomst till BLOB-eller Queue-data i Azure Portal
 titleSuffix: Azure Storage
 description: När du har åtkomst till BLOB-eller Queue-data med hjälp av Azure Portal, gör portalen förfrågningar till Azure Storage under försättsblad. Dessa förfrågningar till Azure Storage kan autentiseras och auktoriseras med hjälp av antingen ditt Azure AD-konto eller lagrings kontots åtkomst nyckel.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/14/2020
+ms.date: 08/12/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: dcd1280dbe3a00a6a7cbdaaf59aa05326dfa8375
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 27c5b166565dd8f0803f3bca05d137e643325368
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534183"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185748"
 ---
-# <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Använd Azure Portal för att få åtkomst till BLOB-eller Queue-data
+# <a name="choose-how-to-authorize-access-to-blob-or-queue-data-in-the-azure-portal"></a>Välj hur du vill ge åtkomst till BLOB-eller Queue-data i Azure Portal
 
 När du har åtkomst till BLOB-eller Queue-data med hjälp av [Azure Portal](https://portal.azure.com), gör portalen förfrågningar till Azure Storage under försättsblad. En begäran till Azure Storage kan godkännas med hjälp av antingen ditt Azure AD-konto eller lagrings kontots åtkomst nyckel. Portalen visar vilken metod du använder och gör att du kan växla mellan de två om du har rätt behörighet.  
 

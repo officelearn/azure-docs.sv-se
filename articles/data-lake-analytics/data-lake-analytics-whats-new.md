@@ -1,21 +1,19 @@
 ---
 title: Data Lake Analytics senaste ändringarna
 description: Den här artikeln innehåller en kontinuerlig lista över de senaste ändringarna som görs i Data Lake Analytics.
-services: data-lake-analytics
 author: xujiang1
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: overview
 ms.author: xujiang1
 ms.date: 07/31/2020
-ms.openlocfilehash: e78389ffc06f1b4cd4e39c15ac66215d514e9bc1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 0afd37a9f80fd2778f2b7206f58cec6ff423763e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476336"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184966"
 ---
-# <a name="whats-new-in-data-lake-analytics"></a>Vad är nytt i Data Lake Analytics?
+# <a name="whats-new-in-data-lake-analytics"></a>Nyheter i Data Lake Analytics
 
 Azure Data Lake Analytics uppdateras baserat på aperiodic för vissa komponenter. För att hålla uppdaterad med den senaste uppdateringen ger den här artikeln information om:
 

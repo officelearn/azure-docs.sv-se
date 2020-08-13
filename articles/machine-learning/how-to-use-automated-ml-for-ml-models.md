@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539143"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185408"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -34,7 +34,7 @@ För ett slut punkt till slut punkts exempel kan du prova [självstudien för at
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
@@ -132,9 +132,9 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
-    Ytterligare konfigurationer|Description
+    Ytterligare konfigurationer|Beskrivning
     ------|------
-    Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
+    Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#primary-metric).
     Förklara bästa modell | Välj om du vill aktivera eller inaktivera, för att visa att den rekommenderade bästa modellen är förklarad.
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
     Avslutnings kriterium| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (timmar)*: hur lång tid det tar att köra utbildnings jobbet. <br> *Mät*värdes tröskel: minsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
@@ -154,7 +154,7 @@ Du kan få en mängd olika sammanfattnings statistik över din data uppsättning
 >[!NOTE]
 > Tomma poster visas för funktioner med irrelevanta typer.
 
-Statistik|Description
+Statistik|Beskrivning
 ------|------
 Funktion| Namn på den kolumn som sammanfattas.
 Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
@@ -162,9 +162,9 @@ Typ distribution| Antal värden i en kolumn. Nullvärden är deras egna typ, så
 Typ|Den härledda typen för kolumnen. Möjliga värden är: strängar, booleska värden, datum och decimaler.
 Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ inte har en inbyggd ordning (t. ex. booleska värden).
 Max| Max värde för kolumnen. 
-Antal| Totalt antal saknade och icke-saknade poster i kolumnen.
+Count| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
-Quantiles| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
+Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
 Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
 Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
 Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
@@ -225,7 +225,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
-    Description| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
     Compute-namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.

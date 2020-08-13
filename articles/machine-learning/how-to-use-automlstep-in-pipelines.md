@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 06/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 3973e94c9d3add25dba0af7a6b0c0deb18b77440
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 20a85c17ccd4167b29e167c55df1bd8a8cc4d56e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850448"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185663"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -328,8 +328,9 @@ automl_config = AutoMLConfig(task = 'classification',
 
 train_step = AutoMLStep(name='AutoML_Classification',
     automl_config=automl_config,
-    passthru_automl_config=False,
     outputs=[metrics_data,model_data],
+    enable_default_model_output=False,
+    enable_default_metrics_output=False,
     allow_reuse=True)
 ```
 Kodfragmentet visar en idiom som ofta används med `AutoMLConfig` . Argument som är mer flytande (ish) anges i en separat ord lista medan värdena som är mindre sannolika ändras anges direkt i `AutoMLConfig` konstruktorn. I det här fallet `automl_settings` anger du en kort körning: körningen stoppas efter bara 2 iterationer eller 15 minuter, beroende på vilket som kommer först.
@@ -346,7 +347,7 @@ Kodfragmentet visar en idiom som ofta används med `AutoMLConfig` . Argument som
 `AutoMLStep`Själva tar `AutoMLConfig` och har, som utdata, de objekt som har `PipelineData` skapats för att lagra mått och modell data. 
 
 >[!Important]
-> Du måste ange `passthru_automl_config` till `False` om du `AutoMLStep` använder `PipelineOutputTabularDataset` objekt för indatamängden.
+> Du måste ange `enable_default_model_output` och `enable_default_metrics_output` om `False` du inte använder `AutoMLStep` .
 
 I det här exemplet utför den automatiserade ML-processen kors valideringar på `training_data` . Du kan styra antalet kors valideringar med `n_cross_validations` argumentet. Om du redan har delat upp dina utbildnings data som en del av stegen för förberedelse av data, kan du ställa in `validation_data` på egen hand `Dataset` .
 

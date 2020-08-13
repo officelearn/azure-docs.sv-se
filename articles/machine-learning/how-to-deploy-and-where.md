@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e8aa87eecc29a5b664520cb1be2cbc5e65b2969e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134555"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185425"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -39,13 +39,13 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - En modell. Om du inte har en tränad modell kan du använda den modell och de beroende filer som finns i [den här självstudien](https://aka.ms/azml-deploy-cloud).
-- [Tillägget för Azure Command Line Interface (CLI) för tjänsten Machine Learning](reference-azure-machine-learning-cli.md)
+- [Tillägget för Azure Command Line Interface (CLI) för tjänsten Machine Learning](reference-azure-machine-learning-cli.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - En modell. Om du inte har en tränad modell kan du använda den modell och de beroende filer som finns i [den här självstudien](https://aka.ms/azml-deploy-cloud).
-- [Azure Machine Learning Software Development Kit (SDK) för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- [Azure Machine Learning Software Development Kit (SDK) för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ---
 
@@ -242,7 +242,7 @@ myenv = Environment.from_conda_specification(name = 'myenv',
 myenv.register(workspace=ws)
 ```
 
-En grundlig diskussion om hur du använder och anpassar python-miljöer med Azure Machine Learning finns [i skapa & använda program varu miljöer i Azure Machine Learning](how-to-use-environments.md)
+En grundlig diskussion om hur du använder och anpassar python-miljöer med Azure Machine Learning finns [i skapa & använda program varu miljöer i Azure Machine Learning](how-to-use-environments.md).
 
 Information om hur du använder en anpassad Docker-avbildning med en konfigurations konfiguration finns i [distribuera en modell med hjälp av en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md).
 
@@ -348,13 +348,13 @@ Under modell distributionen kan tjänst tillstånds ändringen visas när den di
 
 I följande tabell beskrivs de olika tjänst tillstånden:
 
-| Webservice-tillstånd | Description | Slutligt tillstånd?
+| Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
 | Övergår | Tjänsten håller på att distribueras. | Nej |
 | Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
 | Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
-| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Yes |
-| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Yes |
+| Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
+| Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a>Batch-härledning
@@ -373,7 +373,7 @@ Använd om du vill ta bort en distribuerad WebService `az ml service <name of we
 
 Om du vill ta bort en registrerad modell från din arbets yta använder du`az ml model delete <model id>`
 
-Läs mer om att [ta bort en WebService](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) och [ta bort en modell](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete)
+Läs mer om att [ta bort en WebService](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) och [ta bort en modell](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 
 # <a name="python"></a>[Python](#tab/python)
 

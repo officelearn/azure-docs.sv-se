@@ -3,7 +3,7 @@ title: Linux-distributioner som har godkänts på Azure
 description: Lär dig mer om Linux på Azure-godkända distributioner, inklusive rikt linjer för Ubuntu, CentOS, Oracle och SUSE.
 services: virtual-machines-linux
 documentationcenter: ''
-author: gbowerman
+author: danielsollondon
 manager: gwallace
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: fd21170c4edc1ed0587ea4d4e067e61590530623
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283324"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88185000"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
@@ -74,6 +74,14 @@ Microsoft har två (2) kanaler för migrering av Core-användare.
 [https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure](https://www.credativ.co.uk/credativ-blog/debian-images-microsoft-azure)
 
 Credativ är ett oberoende konsult-och tjänste företag som specialiserar sig på utveckling och implementering av yrkes lösningar med hjälp av kostnads fri program vara. Som ledande specialister med öppen källkod har credativ internationell igenkänning med många IT-avdelningar som använder sin support. Tillsammans med Microsoft förbereder credativ för närvarande motsvarande Debian-avbildningar för Debian 8 (Jessie) och Debian innan 7 (Wheezy). Båda bilderna är särskilt utformade för att köras på Azure och kan enkelt hanteras via plattformen. Credativ kommer också att ha stöd för långsiktigt underhåll och uppdatering av Debian-avbildningarna för Azure via Support Center för öppen källkod.
+
+### <a name="kinvolk"></a>Kinvolk
+[https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
+
+Kinvolk är företaget bakom Flatcar container Linux, och fortsätter med den ursprungliga kärnan i en minimal, oföränderlig och automatisk uppdatering av bas för program i behållare. Som en minimal distribution innehåller Flatcar bara de paket som krävs för att distribuera behållare. Det oföränderliga fil systemet garanterar konsekvens och säkerhet, medan funktionerna för automatisk uppdatering gör att du alltid är uppdaterad med de senaste säkerhets korrigeringarna. 
+
+Flatcar container Linux säkerhets kopie ras av Kinvolks globala team av Linux-och container Technology-experter som erbjuder en extra kommersiell support prenumeration som omfattar svar, säkerhet och tekniska aviseringar dygnet runt, och exklusiva Azure-optimerade avbildningar inklusive en långsiktig support kanal.
+
 
 ### <a name="oracle"></a>Oracle
 

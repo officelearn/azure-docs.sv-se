@@ -1,5 +1,5 @@
 ---
-title: Skapa distribuerade tabeller – storskalig (citus) – Azure Database for PostgreSQL
+title: 'Snabb start: skapa distribuerade tabeller – storskalig (citus) – Azure Database for PostgreSQL'
 description: Snabb start för att skapa och fråga distribuerade tabeller på Azure Database for PostgreSQL storskalig (citus).
 author: jonels-msft
 ms.author: jonels
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: c17018e0f2f3a7c1c23d176a441842abcf5521f4
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135631"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183929"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) i Azure Portal
 
@@ -104,7 +104,7 @@ Nu är det dags för den roliga delen, som faktiskt kör några frågor. Vi bör
 SELECT count(*) from github_events;
 ```
 
-Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent`händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
+Det fungerade snyggt. Vi kommer tillbaka till den sortens agg regering i en bit, men nu ska vi titta på några andra frågor. I kolumnen JSONB `payload` finns det en utmärkt mängd data, men den varierar beroende på händelse typ. `PushEvent` händelser innehåller en storlek som inkluderar antalet distinkta incheckningar för push. Vi kan använda den för att hitta det totala antalet incheckningar per timme:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,

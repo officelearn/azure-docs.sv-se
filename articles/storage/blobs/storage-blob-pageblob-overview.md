@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 270461ad0ba5c77f845af13d7cd4a24d0c098b31
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518715"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182467"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
@@ -50,13 +50,13 @@ Följande diagram beskriver de övergripande relationerna mellan konto, behålla
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Skapa en tom Page-BLOB med en angiven storlek
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Börja med att hämta en referens till en behållare. Om du vill skapa en sid-BLOB anropar du metoden [GetPageBlobClient](/dotnet/api/azure.storage.blobs.specialized.specializedblobextensions.getpageblobclient) och anropar sedan metoden [PageBlobClient. Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) . Överför Max storleken för blobben att skapa. Storleken måste vara en multipel av 512 byte.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto (*pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren (*testvhds*) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
 
@@ -87,13 +87,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>Ändra storlek på en sid-BLOB
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Om du vill ändra storlek på en sid-BLOB när du har skapat den använder du metoden för att [ändra storlek](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize?view=azure-dotnet) . Den begärda storleken måste vara en multipel av 512 byte.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill ändra storlek på en sid-BLOB när du har skapat den använder du metoden för att [ändra storlek](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . Den begärda storleken måste vara en multipel av 512 byte.
 
@@ -105,13 +105,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>Skriva sidor till en sid-BLOB
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Använd metoden [PageBlobClient. UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) för att skriva sidor.  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Använd metoden [CloudPageBlob. WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) för att skriva sidor.  
 
@@ -134,13 +134,13 @@ Diagrammet nedan visar 2 separata Skriv åtgärder:
 
 #### <a name="reading-pages-from-a-page-blob"></a>Läser sidor från en sid-BLOB
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 Om du vill läsa sidor använder du metoden [PageBlobClient. Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.download) för att läsa ett antal byte från Page blob. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill läsa sidor använder du metoden [CloudPageBlob. DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) för att läsa ett antal byte från Page blob. 
 
@@ -159,13 +159,13 @@ Följande bild visar en Läs åtgärd med en förskjutning på 256 och en interv
 
 Om du har en sparse-ifylld BLOB kanske du bara vill hämta giltiga sid regioner för att undvika att betala för utgående av noll byte och för att minska hämtnings fördröjningen.  
 
-# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
 För att avgöra vilka sidor som backas upp av data, Använd [PageBlobClient. GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges). Du kan sedan räkna upp de returnerade intervallen och hämta data i varje intervall. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 För att avgöra vilka sidor som backas upp av data, Använd [CloudPageBlob. GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Du kan sedan räkna upp de returnerade intervallen och hämta data i varje intervall. 
 

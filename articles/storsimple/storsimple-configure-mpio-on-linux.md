@@ -1,18 +1,18 @@
 ---
 title: Konfigurera MPIO på StorSimple Linux-värd
-description: Konfigurera MPIO på StorSimple som är anslutet till en Linux-värd som kör CentOS 6,6
+description: Lär dig de steg som krävs för att konfigurera multipath i/o (MPIO) på din StorSimple Linux-värd Server (CentOS 6,6).
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 05a67ab33c12e9f2bdbc0cd0098c39252db37e8e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187089"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183644"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurera MPIO på en StorSimple-värd som kör CentOS
 I den här artikeln beskrivs de steg som krävs för att konfigurera multipath i/o (MPIO) på din CentOS 6,6-värd Server. Värd servern är ansluten till din Microsoft Azure StorSimple enhet för hög tillgänglighet via iSCSI-initierare. Den beskriver i detalj den automatiska identifieringen av flera Sök vägs enheter och den speciella installationen enbart för StorSimple volymer.
@@ -60,7 +60,7 @@ En StorSimple-enhet som är ansluten till en Linux-värd kan konfigureras för h
 
 Följande procedur beskriver hur du konfigurerar flera sökvägar när en StorSimple-enhet med två nätverks gränssnitt är ansluten till en värd med två nätverks gränssnitt.
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 I det här avsnittet beskrivs konfigurations kraven för CentOS-servern och din StorSimple-enhet.
 
 ### <a name="on-centos-host"></a>På CentOS-värd
@@ -214,7 +214,7 @@ Enheter som stöds för flera sökvägar kan identifieras och konfigureras autom
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Steg 2: Konfigurera flera sökvägar för StorSimple-volymer
 Som standard är alla enheter svarta i listan över flera sökvägar. conf-filen och kommer att kringgås. Du måste skapa Black-undantag för att tillåta flera sökvägar för volymer från StorSimple-enheter.
 
-1. Redigera `/etc/mulitpath.conf` filen. Ange:
+1. Redigera filen `/etc/mulitpath.conf`. Ange:
    
     `vi /etc/multipath.conf`
 1. Leta upp avsnittet blacklist_exceptions i filen multipath. conf. Din StorSimple-enhet måste anges som ett svartlistat undantag i det här avsnittet. Du kan ta bort kommentaren till relevanta rader i den här filen om du vill ändra den enligt nedan (Använd endast den enhets modell som du använder):
@@ -235,7 +235,7 @@ Som standard är alla enheter svarta i listan över flera sökvägar. conf-filen
 ### <a name="step-3-configure-round-robin-multipathing"></a>Steg 3: Konfigurera resursallokering (Round-Robin) för flera sökvägar
 Den här belastnings Utjämnings algoritmen använder alla tillgängliga flera sökvägar till den aktiva styrenheten i ett balanserat, resursallokering.
 
-1. Redigera `/etc/multipath.conf` filen. Ange:
+1. Redigera filen `/etc/multipath.conf`. Ange:
    
     `vi /etc/multipath.conf`
 1. Under `defaults` avsnittet ställer du in på `path_grouping_policy` `multibus` . `path_grouping_policy`Anger den standard Sök vägs princip som ska användas för ospecificerade flera sökvägar. Standard avsnittet ser ut som visas nedan.

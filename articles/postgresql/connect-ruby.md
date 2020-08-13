@@ -1,5 +1,5 @@
 ---
-title: Ansluta till ruby – Azure Database for PostgreSQL-enskild server
+title: 'Snabb start: Anslut till ruby – Azure Database for PostgreSQL-enskild server'
 description: Den här snabb starten innehåller ett ruby-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,15 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 5dd4cfe9bee0db6f14f736c79fe91770641008fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98814060fb9ae669fc4e9a90fcda6319bbfaeacf
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74766913"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182552"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL-enskild server: Använd ruby för att ansluta och fråga efter data
+# <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd ruby för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
+
 Den här snabbstarten visar hur du ansluter till en Azure Database för PostgreSQL med hjälp av ett [Ruby](https://www.ruby-lang.org)-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. I den här artikeln förutsätter vi att du har kunskaper om Ruby och att du inte har arbetat med Azure Database for PostgreSQL tidigare.
 
 ## <a name="prerequisites"></a>Krav
@@ -37,7 +38,7 @@ Hämta den information som du behöver för att ansluta till Azure Database för
  ![Azure Database for PostgreSQL-servernamn](./media/connect-ruby/1-connection-string.png)
 
 > [!NOTE]
-> `@` Symbolen i Azure postgres-användarnamnet har varit URL-kodad som `%40` i alla anslutnings strängar. 
+> `@`Symbolen i Azure postgres-användarnamnet har varit URL-kodad som `%40` i alla anslutnings strängar. 
 
 ## <a name="connect-and-create-a-table"></a>Ansluta och skapa en tabell
 Använd följande kod för att ansluta och skapa en tabell med hjälp av **CREATE TABLE**-SQL-instruktionen följt av **INSERT INTO**-SQL-instruktioner för att lägga till rader i tabellen.

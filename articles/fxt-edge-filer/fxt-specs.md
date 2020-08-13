@@ -1,17 +1,17 @@
 ---
 title: Specifikationer för Microsoft Azure FXT Edge | Microsoft Docs
-description: Fysiska och miljömässiga specifikationer för maskin vara från Azure FXT Edge-filer
+description: Lär dig mer om de fysiska och miljömässiga specifikationerna för Microsoft Azure FXT Edge-maskin vara.
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 57e312df31682ea868443423f40d54369cab6699
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231307"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184694"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifikationer för Azure FXT Edge-filer
 

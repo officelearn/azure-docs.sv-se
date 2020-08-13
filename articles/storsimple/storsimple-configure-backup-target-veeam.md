@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000-serien som säkerhets kopierings mål med Veeam | Microsoft Docs
-description: Beskriver StorSimple-konfigurationen för säkerhets kopierings mål med Veeam.
+description: Lär dig mer om StorSimple för säkerhets kopiering med Veeam och metod tips för integrering av båda lösningarna.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 05ee60986703096c004c4d15764028b73d04c0bf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 71a5434d985aad4033e4392dd31e6b7d112692de
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077885"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183991"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple som ett säkerhets kopierings mål med Veeam
 
@@ -260,7 +260,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 | Kvarhållning av säkerhets kopierings typ | Storlek (TiB) | GFS-multiplikator\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Veckovis fullständig | 1 | 4  | 4 |
-| Daglig stegvis | 0.5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
+| Daglig stegvis | 0,5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
 | Månatlig fullständig | 1 | 12 | 12 |
 | Varje år fullständig | 1  | 10 | 10 |
 | GFS-krav |   | 38 |   |

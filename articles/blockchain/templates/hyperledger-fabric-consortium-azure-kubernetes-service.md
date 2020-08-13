@@ -1,15 +1,15 @@
 ---
 title: Ledger-konsortiet i Azure Kubernetes service (AKS)
 description: Så här distribuerar och konfigurerar du nätverk för huvud konto för infrastruktur resurser i Azure Kubernetes service
-ms.date: 07/27/2020
+ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: d6999b32224e6c41cdf9869554c884fc4779c217
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533435"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184218"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Ledger-konsortiet i Azure Kubernetes service (AKS)
 
@@ -300,7 +300,7 @@ Från peer-organisationens klient skickar du kommandot för att ställa in Ancho
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>`är en blankstegsavgränsad lista med peer-noder som ska anges som en Anchor-peer. Exempel:
+`<anchorPeersList>` är en blankstegsavgränsad lista med peer-noder som ska anges som en Anchor-peer. Exempel:
 
   - Ange `<anchorPeersList>` som "peer1" om du bara vill ange peer1 Node som Anchor-peer.
   - Ange `<anchorPeersList>` som "peer1" "peer3" om du vill ställa in både peer1-och peer3-noden som Anchor-peer.
@@ -350,10 +350,22 @@ Följ stegen:
 Från peer-klientprogrammet kör du kommandot nedan för att instansiera chaincode i kanalen.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>
 ```
 
 Skicka en lista över argument för instansiering av funktions namn och blank steg `<instantiateFunc>` `<instantiateFuncArgs>` . Till exempel, i chaincode_example02. go-chaincode, för att instansiera chaincode inställt `<instantiateFunc>` på `init` och `<instantiateFuncArgs>` till "a" "2000" "b" "1000".
+
+Du kan också skicka JSON-filen för samlings konfiguration med- `--collections-config` flaggan. Eller ange de tillfälliga argumenten med hjälp av `-t` flaggan när du instansierar ett chaincode som används för privata transaktioner.
+
+Till exempel:
+
+```bash
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>
+./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath> -t <transientArgs>
+```
+
+\<collectionConfigJSONFilePath\>Är sökvägen till den JSON-fil som innehåller samlingarna som definierats för instansiering av en privat data chaincode. Du hittar en JSON-fil med exempel samlingar i relation till katalogen azhlfTool på följande sökväg: `./samples/chaincode/src/private_marbles/collections_config.json` .
+Skicka \<transientArgs\> som giltig JSON i sträng format. Undanta specialtecken. Exempel: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Kör kommandot för en gång från en peer-organisation i kanalen. När transaktionen har skickats till ordern distribuerar beställaren transaktionen till alla peer-organisationer i kanalen. Därför instansieras chaincode på alla peer-noder på alla peer-organisationer i kanalen.  
@@ -377,8 +389,12 @@ Skicka anrops funktions namn och blank stegs lista med argument i respektive  
 Kör följande kommando för att fråga chaincode:  
 
 ```bash
-./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
+./azhlf chaincode query -o $ORGNAME -p <endorsingPeers> -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs> 
 ```
+Stödjande-peer-datorer är peer-datorer där chaincode är installerat och kallas för körning av transaktioner. Du måste ange \<endorsingPeers\> namnen på peer-noderna från den aktuella peer-organisationen. Visa en lista över stödjande-peer-datorer för den aktuella chaincode och kanal kombinationen åtskilda med blank steg. Till exempel `-p "peer1" "peer3"`.
+
+Om du använder azhlfTool för att installera chaincode skickar du alla peer-nodnamn som ett värde till stödjande-peer-argumentet. Chaincode installeras på alla peer-noder för den organisationen. 
+
 Skicka fråge funktions namn och blankstegsavgränsad lista med argument i respektive  `<queryFunction>`    `<queryFuncArgs>`   . Återigen, med chaincode_example02. go-chaincode som referens, för att ställa in värdet "a" i världs läget inställt  `<queryFunction>`   på  `query` och  `<queryArgs>` till "a".  
 
 ## <a name="troubleshoot"></a>Felsöka

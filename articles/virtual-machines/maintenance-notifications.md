@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: f7d9912686be8ba6076278f148067575a40f32f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510046"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182177"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Hantera meddelanden om planerat underhåll
 
@@ -65,7 +65,7 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 - Det krävs mer än 30 minuters återställnings tid för virtuella datorer mellan två uppdaterings domäner (UDs). Om du vill kontrol lera tiden mellan uppdaterings domäner måste du aktivera underhåll av virtuella datorer en uppdaterings domän (UD) i taget.
 
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 
 **F: Varför måste du starta om mina virtuella datorer nu?**
@@ -107,7 +107,8 @@ Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella 
 **A:** Det finns flera orsaker till varför du inte ser någon underhålls information på dina virtuella datorer:
 1.  Du använder en prenumeration som marker ATS som Microsoft Internal.
 2.  De virtuella datorerna är inte schemalagda för underhåll. Det kan vara att underhålls vågen har slutat, avbrutits eller ändrats så att dina virtuella datorer inte längre påverkas av den.
-3.  Du har inte lagt till **underhålls** kolumnen i listvyn för din VM. Vi har lagt till den här kolumnen i standardvyn, men kunder som har konfigurerat för att se kolumner som inte är standard måste manuellt lägga till **underhålls** kolumnen i sin listvy för virtuella datorer.
+3. Du har avallokerat den virtuella datorn och startat den. Detta kan leda till att den virtuella datorn flyttas till en plats som inte har planerat planerad underhålls våg. Det innebär att den virtuella datorn inte visar någon information om underhållet. 
+4.  Du har inte lagt till **underhålls** kolumnen i listvyn för din VM. Vi har lagt till den här kolumnen i standardvyn, men kunder som har konfigurerat för att se kolumner som inte är standard måste manuellt lägga till **underhålls** kolumnen i sin listvy för virtuella datorer.
 
 **F: min virtuella dator är schemalagd för underhåll för andra gången. Varför?**
 

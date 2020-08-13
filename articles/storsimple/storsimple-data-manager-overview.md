@@ -1,6 +1,6 @@
 ---
 title: Översikt över Microsoft Azure StorSimple Data Manager | Microsoft Docs
-description: Ger en översikt över den StorSimple Data Manager tjänsten
+description: Lär dig mer om StorSimple Data Manager lösning och hur du kan använda den här tjänsten för att skriva program som använder StorSimple-data och andra Azure-tjänster.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ffe17bf7ef4f01c18d2c26f4a045add7302272d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d683f49cadb384ef59d3bae819156733691813cd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67876109"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183504"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Översikt över StorSimple Data Manager lösning
 
@@ -48,11 +48,11 @@ Du kan använda Data Manager med Azure Functions, Azure Automation och Azure Dat
 StorSimple Data Manager finns i följande 7 regioner:
 
  - Sydostasien
- - USA, östra
+ - East US
  - USA, västra
  - USA, västra 2
  - USA, västra centrala
- - Europa, norra
+ - Norra Europa
  - Europa, västra
 
 StorSimple Data Manager kan dock användas för att transformera data i följande regioner. 

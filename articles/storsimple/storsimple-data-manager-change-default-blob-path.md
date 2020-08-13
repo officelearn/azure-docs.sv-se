@@ -1,19 +1,19 @@
 ---
 title: Ändra BLOB-sökväg från standard
-description: Lär dig hur du konfigurerar en Azure-funktion för att byta namn på en BLOB-fil Sök väg
+description: Lär dig hur du konfigurerar en Azure-funktion för att byta namn på en standard Sök väg för BLOB-filer och flytta Blobbarna till en annan plats.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 92925fcf13f91364619262455579392a7457f6b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7dab1129eb88d7e58bab8a827d745596bc218d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504839"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183725"
 ---
-# <a name="change-a-blob-path-from-the-default-path"></a>Ändra en BLOB-sökväg från standard Sök vägen
+# <a name="change-a-blob-path-from-the-default-path"></a>Ändra en blobsökväg från standardsökvägen
 
 När StorSimple Data Managers tjänsten transformerar data placeras omvandlade blobbar som standard i en lagrings behållare som anges under skapandet av mål lagrings platsen. När Blobbarna kommer till den här platsen kanske du vill flytta dessa blobbar till en annan plats. Den här artikeln beskriver hur du konfigurerar en Azure-funktion för att byta namn på en standard Sök väg för BLOB-filer och därmed flytta blobarna till en annan plats.
 
@@ -25,9 +25,9 @@ Kontrol lera att du har en korrekt konfigurerad jobb definition i StorSimple Dat
 
 Utför följande steg för att skapa en Azure-funktion:
 
-1. Gå till [Azure Portal](https://portal.azure.com/).
+1. Gå till [Azure-portalen](https://portal.azure.com/).
 
-2. Klicka på **+ skapa en resurs**. I rutan **Sök** skriver du **Funktionsapp** och trycker på **RETUR**. Välj och klicka på **Function app** i listan med appar som visas.
+2. Klicka på **+ Skapa en resurs**. I rutan **Sök** skriver du **Funktionsapp** och trycker på **RETUR**. Välj och klicka på **Function app** i listan med appar som visas.
 
     ![Skriv "Funktionsapp" i sökrutan](./media/storsimple-data-manager-change-default-blob-path/search-function-app.png)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 391a5f054c5d80b255fd333ea416900c8c5ab6d1
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f6420683d22488abc66b387fd44cb74cc8f8b7bd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135427"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184660"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar    
 
@@ -575,9 +575,9 @@ Följ dessa steg om du vill varna om den fakturerbara data volymen som matats in
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Om du vill ha en differetn 
+   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . 
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
-   - **Tids period** på *1440* minuter och **aviserings frekvens** till varje *1440* minutesto körs en gång om dagen.
+   - **Tids period** på *1440* minuter och **aviserings frekvens** till var *1440* minut att köras en gång om dagen.
 - **Definiera aviseringsinformation** ange följande:
    - **Namn** till *fakturerbar data volym större än 50 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*
@@ -604,7 +604,7 @@ När datainsamlingen stoppas är OperationStatus **Varning**. När datainsamling
 |Orsaks insamling stoppas| Lösning| 
 |-----------------------|---------|
 |Arbets ytans dagliga tak har uppnåtts|Vänta tills insamlingen startar om automatiskt eller öka den dagliga data volym gränsen som beskrivs i hantera den maximala dagliga data volymen. Den dagliga återställnings tiden visas på sidan för **dagligt tak** . |
-| Din arbets yta har nått [volym frekvensen för data inmatningar](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Standard inläsnings volymens volym hastighet för data som skickas från Azure-resurser med hjälp av diagnostikinställningar är cirka 6 GB/min per arbets yta. Detta är ett ungefärligt värde eftersom den faktiska storleken kan variera mellan olika data typer beroende på logg längden och dess komprimerings förhållande. Den här begränsningen gäller inte för data som skickas från agenter eller API för data insamling. Om du skickar data till ett högre pris till en enskild arbets yta, släpps vissa data och en händelse skickas till åtgärds tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym fortsätter att överskrida hastighets gränsen eller om du förväntar dig att få en stund snart, kan du begära en ökning av din arbets yta genom att skicka ett e-postmeddelande till LAIngestionRate@microsoft.com eller öppna en support förfrågan. Händelsen att söka efter som anger att en gräns för data inmatnings frekvens kan hittas av frågan `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The rate of data crossed the threshold"` . |
+| Din arbets yta har nått [volym frekvensen för data inmatningar](https://docs.microsoft.com/azure/azure-monitor/service-limits#log-analytics-workspaces) | Ett tröskelvärde för standard inmatnings volym frekvens på 500 MB (komprimerat) gäller för arbets ytor, som är cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan olika data typer beroende på loggens längd och dess komprimerings förhållande. Detta tröskelvärde gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](diagnostic-settings.md), [data insamlings-API](data-collector-api.md) eller agenter. När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inläsnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den på arbets ytan genom att öppna en support förfrågan. Om du vill bli informerad om en sådan händelse i arbets ytan skapar du en [logg aviserings regel](alerts-log.md) med hjälp av följande fråga med aviserings logik Base på antalet resultat som är högre än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter. Inmatnings volymens hastighet nådde 80% av tröskelvärdet: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"` . Inläsnings volymens hastighet nådde tröskel: `Operation | where OperationCategory == "Ingestion" | where Detail startswith "The data ingestion volume rate crossed the threshold"` . |
 |Den dagliga gränsen för den äldre kostnads fria pris nivån har uppnåtts |Vänta till följande dag för insamling av automatisk omstart eller ändra till en betald pris nivå.|
 |Azure-prenumerationen är i ett inaktiverat tillstånd på grund av:<br> Den kostnads fria utvärderingen avslutades<br> Azure-pass har gått ut<br> Månads utgifts gräns har nåtts (till exempel för en MSDN-eller Visual Studio-prenumeration)|Konvertera till en betald prenumeration<br> Ta bort gräns eller vänta tills begränsningen återställs|
 

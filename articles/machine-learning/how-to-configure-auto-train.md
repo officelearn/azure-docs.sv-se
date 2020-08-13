@@ -8,22 +8,22 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/20/2020
+ms.date: 08/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 025d3b1e0ce2f46cc689d74fe659facf026dc215
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 05a70274e075ddda8770e57c71a7f55807cf3dcc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852505"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182144"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här guiden får du lära dig hur du definierar olika konfigurations inställningar för dina automatiserade maskin inlärnings experiment med [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Automatisk maskin inlärning väljer en algoritm och sina egenskaper för dig och genererar en modell som är klar för distribution. Det finns flera alternativ som du kan använda för att konfigurera automatiserade maskin inlärnings experiment.
 
-Om du vill visa exempel på ett automatiserat maskin inlärnings experiment, se [Självstudier: träna en klassificerings modell med automatiserad maskin inlärning](tutorial-auto-train-models.md) eller [träna modeller med automatiserad maskin inlärning i molnet](how-to-auto-train-remote.md).
+Om du vill visa exempel på automatiserade Machine Learning-experiment, se [Självstudier: träna en klassificerings modell med automatiserad maskin inlärning](tutorial-auto-train-models.md) eller [träna modeller med automatiserad maskin inlärning i molnet](how-to-auto-train-remote.md).
 
 Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 
@@ -37,33 +37,22 @@ Konfigurations alternativ som är tillgängliga i Automatisk maskin inlärning:
 
 Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade maskin inlärnings experiment i Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
 
+## <a name="prerequisites"></a>Krav
+
+För den här artikeln behöver du 
+* En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
+
+* Azure Machine Learning python SDK har installerats.
+    Om du vill installera SDK kan du antingen 
+    * Skapa en beräknings instans som automatiskt installerar SDK och som är förkonfigurerat för ML-arbetsflöden. Se [Vad är en Azure Machine Learning beräknings instans?](concept-compute-instance.md#managing-a-compute-instance) för mer information. 
+
+    * [Installera SDK själv](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Se bara till att inkludera `automl` extra. 
+
 ## <a name="select-your-experiment-type"></a>Välj experimenttyp
 
-Innan du påbörjar experimentet bör du bestämma vilken typ av Machine Learning-problem som du löser. Automatisk maskin inlärning stöder aktivitets typer för klassificering, regression och Prognosticering. Läs mer om [aktivitets typer](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
+Innan du påbörjar experimentet bör du bestämma vilken typ av Machine Learning-problem som du löser. Automatiserad Machine Learning stöder aktivitets typer av `classification` , `regression` och `forecasting` . Läs mer om [aktivitets typer](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
-Automatisk Machine Learning stöder följande algoritmer under Automation-och fin justerings processen. Som användare behöver du inte ange algoritmen.
-
-> [!NOTE]
-> Om du planerar att exportera dina Auto ML-skapade modeller till en [ONNX-modell](concept-onnx.md), kan bara de algoritmer som anges med en * konverteras till ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx). <br> <br> Observera också att ONNX endast stöder klassificerings-och Regressions uppgifter för tillfället. 
-
-Klassificering | Regression | Prognostisering för tidsserier
-|-- |-- |--
-[Logistisk regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)* | [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)* | [Elastiskt nät](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Ljust GBM](https://lightgbm.readthedocs.io/en/latest/index.html)* |[Ljust GBM](https://lightgbm.readthedocs.io/en/latest/index.html)*|[Ljust GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[Tonings förstärkning](https://scikit-learn.org/stable/modules/ensemble.html#classification)* |[Tonings förstärkning](https://scikit-learn.org/stable/modules/ensemble.html#regression)* |[Tonings förstärkning](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[Besluts träd](https://scikit-learn.org/stable/modules/tree.html#decision-trees)* |[Besluts träd](https://scikit-learn.org/stable/modules/tree.html#regression)* |[Besluts träd](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K närmsta grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K närmsta grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)* |[K närmsta grannar](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linjär SVC](https://scikit-learn.org/stable/modules/svm.html#classification)* |[LARS lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)* |[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[Stöd vektor klassificering (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)* |[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)* |[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
-[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Slumpmässig skog](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremt slumpmässiga träd](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Genomsnittlig Perceptron-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Brantaste modellerings regressor för online-gradient](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[ARIMA automatiskt](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast linjär modellerings regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-[Stochastic gradient brantaste (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[Linjär SVM-klassificerare](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
-
-Använd `task` parametern i `AutoMLConfig` konstruktorn för att ange din experiment typ.
+Följande kod använder- `task` parametern i `AutoMLConfig` konstruktorn för att ange experiment typen som `classification` .
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -74,26 +63,27 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Data källa och format
 
-Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**.  [Läs mer om data uppsättningar](how-to-create-register-datasets.md).
+Automatisk Machine Learning stöder data som finns på ditt lokala skriv bord eller i molnet, till exempel Azure Blob Storage. Data kan läsas i en Pandas- **DataFrame** eller en **Azure Machine Learning TabularDataset**. [Läs mer om data uppsättningar](how-to-create-register-datasets.md).
 
 Krav för tränings data:
 - Data måste vara i tabell form.
 - Värdet som ska förutsäga, mål kolumnen, måste finnas i datan.
 
-Följande kod exempel visar hur du lagrar data i dessa format.
+**För fjärrexperiment**måste inlärnings data vara tillgängliga från fjärrdatorn. AutoML accepterar bara [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) när du arbetar med en fjärrberäkning. 
 
-* TabularDataset
+Azure Machine Learning data uppsättningar visar funktioner för att:
 
-  ```python
-  from azureml.core.dataset import Dataset
-  from azureml.opendatasets import Diabetes
-  
-  tabular_dataset = Diabetes.get_tabular_dataset()
-  train_dataset, test_dataset = tabular_dataset.random_split(percentage=0.1, seed=42)
-  label = "Y"
+* Överför enkelt data från statiska filer eller URL-källor till din arbets yta.
+* Gör dina data tillgängliga för att träna skript när de körs på moln beräknings resurser. Se [hur du tränar med data uppsättningar](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) för att få ett exempel på hur du använder `Dataset` klassen för att montera data till fjärrdatorns beräknings mål.
+
+Följande kod skapar en TabularDataset från en webb-URL. Se [skapa en TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) för kod exempel för hur du skapar data uppsättningar från andra källor som lokala filer och data lager.
+
+```python
+from azureml.core.dataset import Dataset
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-
-* Pandas dataframe
+**För lokala Compute-experiment**rekommenderar vi Pandas-dataframes för snabbare bearbetnings tider.
 
   ```python
   import pandas as pd
@@ -104,44 +94,30 @@ Följande kod exempel visar hur du lagrar data i dessa format.
   label = "label-col-name"
   ```
 
-## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Hämta data för att köra experiment på fjärrberäkning
+## <a name="training-validation-and-test-data"></a>Utbildning, verifiering och test av data
 
-För fjärrkörningar måste inlärnings data vara tillgängliga från fjärrdatorn. -Klassen [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) i SDK visar funktioner för att:
+Du kan ange separata **inlärnings-och validerings uppsättningar** direkt i `AutoMLConfig` konstruktorn. Läs mer om [hur du konfigurerar data delningar och kors validering](how-to-configure-cross-validation-data-splits.md) för dina AutoML experiment. 
 
-* överför enkelt data från statiska filer eller URL-källor till din arbets yta
-* gör dina data tillgängliga för att träna skript när de körs på moln beräknings resurser
+Om du inte uttryckligen anger en `validation_data` -eller `n_cross_validation` -parameter, använder AutoML standard tekniker för att avgöra hur valideringen utförs. Den här bestämningen beror på antalet rader i data uppsättningen som har tilldelats till din `training_data` parameter. 
 
-Se [instruktionen How-to](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) för ett exempel på hur du använder `Dataset` klassen för att montera data till beräknings målet.
+|Tränings &nbsp; data &nbsp; storlek| Verifierings teknik |
+|---|-----|
+|**Större &nbsp; än &nbsp; 20 000 &nbsp; rader**| Data delning för träna/verifiering används. Standardvärdet är att ta 10% av den inledande tränings data uppsättningen som validerings uppsättningen. I sin tur används validerings uppsättningen för mått beräkning.
+|**Mindre &nbsp; än &nbsp; 20 000 &nbsp; rader**| Metoden för kors validering används. Standard antalet vikningar beror på antalet rader. <br> **Om data uppsättningen är mindre än 1 000 rader**används 10 vikning. <br> **Om raderna är mellan 1 000 och 20 000**används tre vik.
 
-## <a name="train-and-validation-data"></a>Träna och verifiera data
-
-Du kan ange separata tåg-och validerings uppsättningar direkt i `AutoMLConfig` konstruktorn med följande alternativ. Läs mer om [hur du konfigurerar data delningar och kors validering](how-to-configure-cross-validation-data-splits.md) för dina AutoML experiment. 
-
-### <a name="k-folds-cross-validation"></a>Kors validering med K-vikning
-
-Använd `n_cross_validations` inställningen för att ange antalet kors valideringar. Träning-datauppsättningen är slumpmässigt uppdelad i `n_cross_validations` vikning av samma storlek. Under varje kors validerings avrundning används en av vik stegen för att verifiera modellen som tränas på återstående vikning. Den här processen upprepas för `n_cross_validations` avrundade tills varje vikning används en gång som validerings uppsättningen. Genomsnitts poängen för alla `n_cross_validations` avrundning rapporteras och motsvarande modell kommer att omtränas på hela inlärnings data uppsättningen.
-
-Lär dig mer om hur autoML använder kors validering för att [förhindra överanpassning av modeller](concept-manage-ml-pitfalls.md#prevent-over-fitting).
-
-### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo kors validering (upprepad slumpmässig under sampling)
-
-Används för `validation_size` att ange procent andelen av den tränings data uppsättning som ska användas för verifiering och används för `n_cross_validations` att ange antalet kors valideringar. Under varje kors validerings avrundning väljs en delmängd av storleken `validation_size` slumpmässigt för att verifiera den modell som har tränats på återstående data. Slutligen rapporteras genomsnitts poängen för alla `n_cross_validations` avrundning, och motsvarande modell kommer att omtränas på hela inlärnings data uppsättningen. Monte Carlo stöds inte för tids serie prognoser.
-
-### <a name="custom-validation-dataset"></a>Anpassad verifierings data uppsättning
-
-Använd anpassad verifierings data uppsättning om slumpmässig delning inte är acceptabelt, vanligt vis Time Series-data eller obalanserade data. Du kan ange din egen validerings data uppsättning. Modellen utvärderas mot den angivna validerings data uppsättningen i stället för slumpmässig data uppsättning. Läs mer om [hur du konfigurerar en anpassad validerings uppsättning med SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
+För tillfället måste du ange dina egna **test data** för utvärdering av modeller. Ett kod exempel på hur du får dina egna test data för modell utvärdering finns i avsnittet **test** i [den här Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
 ## <a name="compute-to-run-experiment"></a>Beräkning för att köra experiment
 
-Härnäst bestämmer var modellen ska tränas. Ett automatiskt experiment med Machine Learning-utbildning kan köras med följande beräknings alternativ:
-* Din lokala dator, till exempel ett lokalt skriv bord eller en bärbar dator – vanligt vis när du har en liten data uppsättning och du fortfarande befinner dig i utforsknings fasen.
-* En fjärrdator i molnet – [Azure Machine Learning hanterad beräkning](concept-compute-target.md#amlcompute) är en hanterad tjänst som gör det möjligt att träna maskin inlärnings modeller på kluster av virtuella Azure-datorer. 
+Härnäst bestämmer var modellen ska tränas. Ett automatiskt experiment med Machine Learning-utbildning kan köras med följande beräknings alternativ. Lär dig [om-och nack delar med lokala och fjärranslutna beräknings](concept-automated-ml.md#local-remote) alternativ. 
 
-  Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) för exempel på antecknings böcker med lokala och fjärranslutna beräknings mål.
+* Din **lokala** dator, till exempel ett lokalt skriv bord eller en bärbar dator – vanligt vis när du har en liten data uppsättning och du fortfarande befinner dig i utforsknings fasen. Se [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) för ett lokalt Compute-exempel. 
+ 
+* En **fjärrdator** i molnet – [Azure Machine Learning hanterad beräkning](concept-compute-target.md#amlcompute) är en hanterad tjänst som gör det möjligt att träna maskin inlärnings modeller på kluster av virtuella Azure-datorer. 
 
-* Ett Azure Databricks kluster i din Azure-prenumeration. Du kan hitta mer information här – [konfigurera Azure Databricks kluster för automatisk ml](how-to-configure-environment.md#azure-databricks)
+    Se [den här antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) för ett fjärrexempel med Azure Machine Learning Managed Compute. 
 
-  Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
+* Ett **Azure Databricks kluster** i din Azure-prenumeration. Du hittar mer information här – [konfigurera Azure Databricks kluster för automatisk ml](how-to-configure-environment.md#azure-databricks). Se den här [GitHub-webbplatsen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) för exempel på antecknings böcker med Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -158,99 +134,111 @@ Några exempel är:
        task='classification',
        primary_metric='AUC_weighted',
        experiment_timeout_minutes=30,
-       blacklist_models=['XGBoostClassifier'],
+       blocked_models=['XGBoostClassifier'],
        training_data=train_data,
        label_column_name=label,
        n_cross_validations=2)
    ```
-2. Nedan visas ett exempel på ett Regressions experiment som slutar efter 60 minuter med fem validerings kors vikning.
+1. I följande exempel är ett Regressions experiment inställt på att sluta efter 60 minuter med fem verifierings kors veck.
 
    ```python
       automl_regressor = AutoMLConfig(
       task='regression',
       experiment_timeout_minutes=60,
-      whitelist_models=['KNN'],
+      allowed_models=['KNN'],
       primary_metric='r2_score',
       training_data=train_data,
       label_column_name=label,
       n_cross_validations=5)
    ```
 
-De tre olika `task` parameter värdena (den tredje aktivitets typen är `forecasting` och använder en liknande algoritm som `regression` aktiviteter) för att fastställa listan över modeller som ska användas. Använd `whitelist` parametrarna eller `blacklist` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) för ([klassificering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [Prognosticering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)och [regression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
-För att undvika experiment tids gränser kräver automatisk ML-validerings tjänst att den `experiment_timeout_minutes` är minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.
+1. Prognosticering av uppgifter kräver ytterligare konfiguration. mer information finns i artikeln [Auto-träna en Time-Series prognos modell](how-to-auto-train-forecast.md) . 
+
+    ```python
+    time_series_settings = {
+        'time_column_name': time_column_name,
+        'time_series_id_column_names': time_series_id_column_names,
+        'drop_column_names': ['logQuantity'],
+        'forecast_horizon': n_test_periods
+    }
+    
+    automl_config = AutoMLConfig(task = 'forecasting',
+                                 debug_log='automl_oj_sales_errors.log',
+                                 primary_metric='normalized_root_mean_squared_error',
+                                 experiment_timeout_minutes=20,
+                                 training_data=train_data,
+                                 label_column_name=label,
+                                 n_cross_validations=5,
+                                 path=project_folder,
+                                 verbosity=logging.INFO,
+                                 **time_series_settings)
+    ```
+    
+### <a name="supported-models"></a>Modeller som stöds
+
+Automatisk Machine Learning försöker med olika modeller och algoritmer under Automation-och fin justerings processen. Som användare behöver du inte ange algoritmen. 
+
+De tre olika `task` parameter värdena (den tredje aktivitets typen är `forecasting` och använder en liknande algoritm som `regression` aktiviteter) för att fastställa listan över algoritmer, modeller, som ska användas. Använd `allowed_models` parametrarna eller `blocked_models` för att ytterligare ändra iterationer med tillgängliga modeller som ska tas med eller undantas. Listan över modeller som stöds finns i SupportedModels- [klassen](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) för [klassificering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [Prognosticering](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)och [regression](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression).
+
 
 ### <a name="primary-metric"></a>Primärt mått
-Det primära måttet avgör vilket mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
+`primary metric`Parametern bestämmer det mått som ska användas vid modell träning för optimering. Tillgängliga mått som du kan välja bestäms av den aktivitets typ som du väljer och följande tabell visar giltiga primära mått för varje aktivitets typ.
+
+Lär dig mer om de olika definitionerna av dessa mått i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
 |Klassificering | Regression | Prognostisering för tidsserier
-|-- |-- |--
+|--|--|--
 |accuracy| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
 |average_precision_score_weighted | r2_score | r2_score
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-Lär dig mer om de olika definitionerna av dessa mått i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
-
 ### <a name="data-featurization"></a>Data funktionalisering
 
-I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](how-to-configure-auto-features.md#) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer.
+I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt och normaliseras för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor. Den här skalningen och normaliseringen kallas funktionalisering. Mer information och kod exempel finns i [funktionalisering i AutoML](how-to-configure-auto-features.md#) . 
 
-När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+När du konfigurerar experiment i `AutoMLConfig` objektet kan du aktivera/inaktivera inställningen `featurization` . I följande tabell visas de accepterade inställningarna för funktionalisering i [AutoMLConfig-objektet](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 |Funktionalisering-konfiguration | Beskrivning |
 | ------------- | ------------- |
-|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**|
+|`"featurization": 'auto'`| Anger att [data guardrails och funktionalisering-steg](how-to-configure-auto-features.md#featurization) utförs automatiskt när en del av förbearbetningen. **Standardinställning**.|
 |`"featurization": 'off'`| Anger att funktionalisering-steget inte ska göras automatiskt.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-features.md#customize-featurization).|
 
 > [!NOTE]
 > Automatiserade funktionalisering-steg för Machine Learning (funktions normalisering, hantering av data som saknas, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma funktionalisering-steg som tillämpades under träningen på dina indata automatiskt.
 
-### <a name="time-series-forecasting"></a>Prognostisering för tidsserier
-Tids serie `forecasting` aktiviteten kräver ytterligare parametrar i konfigurationsobjektet:
+<a name="ensemble"></a>
 
-1. `time_column_name`: Obligatorisk parameter som definierar namnet på kolumnen i dina utbildnings data som innehåller en giltig tids serie.
-1. `forecast_horizon`: Anger hur många perioder som vidarebefordrar dig till prognos. Heltals horisonten är i enheter med timeseries frekvens. Om du till exempel har tränings data med daglig frekvens definierar du hur långt ut i dagar du vill att modellen ska träna.
-1. `time_series_id_column_names`: Definierar de kolumner som unikt identifierar tids serien i data som har flera rader med samma tidsstämpel. Om du till exempel ska prognostisera försäljning av ett visst varumärke med Store definierar du lagrings-och märkes kolumner som tids serie identifierare. Separata prognoser skapas för varje gruppering. Om Time Series-identifierarna inte har definierats antas data uppsättningen vara en tids serie.
+### <a name="ensemble-configuration"></a>Konfiguration av Ensemble
 
-Exempel på de inställningar som används nedan finns i [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+Ensemble-modeller är aktiverade som standard och visas som de slutliga körnings iterationerna i en AutoML-körning. För närvarande stöds **VotingEnsemble** och **StackEnsemble** . 
 
-```python
-# Setting Store and Brand as time series identifiers for training.
-time_series_id_column_names = ['Store', 'Brand']
-nseries = data.groupby(time_series_id_column_names).ngroups
+Röstningen implementerar mjuk röstning som använder viktade medelvärden. Stack implementeringen använder en implementering på två nivåer, där det första lagret har samma modeller som en ensemble-Ensemble, och den andra skikt modellen används för att hitta den optimala kombinationen av modeller från det första lagret. 
 
-# View the number of time series data with defined time series identifiers
-print('Data contains {0} individual time-series.'.format(nseries))
-```
+Om du använder ONNX-modeller **eller** om modell förklarande är aktiverat, är stackning inaktive rad och endast röstning används.
+
+Ensemble-utbildning kan inaktive ras `enable_voting_ensemble` med `enable_stack_ensemble` parametrarna och booleska.
 
 ```python
-time_series_settings = {
-    'time_column_name': time_column_name,
-    'time_series_id_column_names': time_series_id_column_names,
-    'drop_column_names': ['logQuantity'],
-    'forecast_horizon': n_test_periods
-}
-
-automl_config = AutoMLConfig(task = 'forecasting',
-                             debug_log='automl_oj_sales_errors.log',
-                             primary_metric='normalized_root_mean_squared_error',
-                             experiment_timeout_minutes=20,
-                             training_data=train_data,
-                             label_column_name=label,
-                             n_cross_validations=5,
-                             path=project_folder,
-                             verbosity=logging.INFO,
-                             **time_series_settings)
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        experiment_timeout_minutes=30,
+        training_data=data_train,
+        label_column_name=label,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
 ```
 
-### <a name="ensemble-configuration"></a><a name="ensemble"></a>Konfiguration av Ensemble
+Om du vill ändra standard-Ensemble-beteendet finns det flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig` objekt.
 
-Ensemble-modeller är aktiverade som standard och visas som de slutliga körnings iterationerna i en automatiserad Machine Learning-körning. Aktuella Ensemble-metoder som stöds är röstning och stackning. Röstning implementeras som mjuk röstning med viktade medelvärden och stack implementeringen använder en två lager implementering, där det första lagret har samma modeller som röstnings ensemblen och den andra skikt modellen används för att hitta den optimala kombinationen av modeller från det första lagret. Om du använder ONNX-modeller **eller** om du har aktiverat modell förklaringen inaktive ras stackning och endast röstning används.
-
-Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig` objekt för att ändra standard-Ensemble-beteendet.
+> [!IMPORTANT]
+>  Följande parametrar är inte explicita parametrar för AutoMLConfig-klassen. 
 
 * `ensemble_download_models_timeout_sec`: Vid genereringen av **VotingEnsemble** och **StackEnsemble** -modellen laddas flera monterade modeller från de tidigare underordnade körningarna ned. Om du stöter på det här felet `AutoMLEnsembleException: Could not find any models for running ensembling` kan du behöva ange mer tid för att modeller ska laddas ned. Standardvärdet är 300 sekunder för nedladdning av dessa modeller parallellt och det finns ingen maximal tids gräns. Konfigurera den här parametern med ett högre värde än 300 sekunder, om mer tid behövs. 
 
@@ -292,21 +280,6 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-Ensemble-utbildning är aktiverat som standard, men det kan inaktive ras med hjälp av `enable_voting_ensemble` `enable_stack_ensemble` parametrarna och.
-
-```python
-automl_classifier = AutoMLConfig(
-        task='classification',
-        primary_metric='AUC_weighted',
-        experiment_timeout_minutes=30,
-        training_data=data_train,
-        label_column_name=label,
-        n_cross_validations=5,
-        enable_voting_ensemble=False,
-        enable_stack_ensemble=False
-        )
-```
-
 ## <a name="run-experiment"></a>Kör experiment
 
 För automatisk ML skapar du ett `Experiment` -objekt, som är ett namngivet objekt i en som `Workspace` används för att köra experiment.
@@ -333,173 +306,30 @@ run = experiment.submit(automl_config, show_output=True)
 >Beroenden installeras först på en ny dator.  Det kan ta upp till 10 minuter innan utdata visas.
 >Inställning `show_output` till `True` resultat i utdata som visas i-konsolen.
 
-### <a name="exit-criteria"></a><a name="exit"></a>Avslutnings villkor
+ <a name="exit"></a> 
+
+### <a name="exit-criteria"></a>Avslutnings villkor
 
 Det finns några alternativ som du kan definiera för att avsluta experimentet.
-1. Inga kriterier: om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
-1. Avsluta efter en viss tid: om `experiment_timeout_minutes` du använder i dina inställningar kan du definiera hur länge i minuter som ett experiment ska fortsätta att köras.
-1. Avsluta efter att poängen har nåtts: med hjälp av `experiment_exit_score` slutförs experimentet när en primär mått har nåtts.
 
-### <a name="explore-model-metrics"></a>Utforska modell mått
+|Kriterie| beskrivning
+|----|----
+Inga &nbsp; kriterier | Om du inte definierar några avslutnings parametrar fortsätter experimentet tills inga ytterligare framsteg görs på ditt primära mått.
+Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minutes` i dina inställningar för att definiera hur lång tid, i minuter, som experimentet ska fortsätta att köras. <br><br> För att undvika tids brist på experiment, det finns minst 15 minuter eller 60 minuter om raden efter kolumn storlek överskrider 10 000 000.
+&nbsp;Poängen &nbsp; har &nbsp; &nbsp; nåtts| Använd `experiment_exit_score` Slutför experimentet när en angiven primär mått Poäng har nåtts.
+
+## <a name="explore-models-and-metrics"></a>Utforska modeller och mått
 
 Du kan visa dina utbildnings resultat i en widget eller infogad om du befinner dig i en bärbar dator. Se [spåra och utvärdera modeller](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) för mer information.
 
+Se [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md) för definitioner och exempel på prestanda diagram och mått som tillhandahålls för varje körning. 
+
+För att få en funktionalisering-Sammanfattning och förstå vilka funktioner som har lagts till i en viss modell, se [funktionalisering Transparency](how-to-configure-auto-features.md#featurization-transparency). 
+
+## <a name="register-and-deploy-models"></a>Registrera och distribuera modeller
+
 Information om hur du hämtar eller registrerar en modell för distribution till en webb tjänst finns i [hur och var du distribuerar en modell](how-to-deploy-and-where.md).
 
-## <a name="understand-automated-ml-models"></a>Förstå automatiserade ML-modeller
-
-Alla modeller som skapas med automatiserad ML innehåller följande steg:
-+ Automatiserad funktions teknik (om `"featurization": 'auto'` )
-+ Skalning/normalisering och algoritm med värden för en parameter
-
-Vi gör det transparent för att hämta den här informationen från fitted_model utdata från automatisk ML.
-
-```python
-automl_config = AutoMLConfig(…)
-automl_run = experiment.submit(automl_config …)
-best_run, fitted_model = automl_run.get_output()
-```
-
-### <a name="automated-feature-engineering"></a>Automatiserad funktions teknik
-
-Se listan över förbehandling och [automatiserad funktions teknik]() som inträffar när `"featurization": 'auto'` .
-
-Tänk på det här exemplet:
-+ Det finns fyra ingångs funktioner: A (numeriskt), B (numeriskt), C (numeriskt), D (DateTime)
-+ Numerisk funktion C ignoreras eftersom det är en ID-kolumn med alla unika värden
-+ Numeriska funktioner A och B innehåller värden som saknas och anges därför av medelvärdet
-+ DateTime-funktionen D är bearbetas till 11 olika funktioner som har utformats
-
-Använd de här två API: erna i det första steget i den monterade modellen för att förstå mer.  Se [den här exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
-
-+ API 1: `get_engineered_feature_names()` returnerar en lista med namn på de funktioner som har utvecklats.
-
-  Användning:
-  ```python
-  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
-  ```
-
-  ```
-  Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
-  ```
-
-  Den här listan innehåller alla bevarade funktions namn.
-
-  >[!Note]
-  >Använd ' timeseriestransformer ' för aktiviteten = ' Prognosticering ', Använd annars ' datatransformer ' för uppgiften ' regression ' eller ' klassificering '.
-
-+ API 2: `get_featurization_summary()` returnerar funktionalisering-Sammanfattning för alla inmatade funktioner.
-
-  Användning:
-  ```python
-  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
-  ```
-
-  >[!Note]
-  >Använd ' timeseriestransformer ' för aktiviteten = ' Prognosticering ', Använd annars ' datatransformer ' för uppgiften ' regression ' eller ' klassificering '.
-
-  Resultat:
-  ```
-  [{'RawFeatureName': 'A',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 2,
-    'Tranformations': ['MeanImputer', 'ImputationMarker']},
-   {'RawFeatureName': 'B',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 2,
-    'Tranformations': ['MeanImputer', 'ImputationMarker']},
-   {'RawFeatureName': 'C',
-    'TypeDetected': 'Numeric',
-    'Dropped': 'Yes',
-    'EngineeredFeatureCount': 0,
-    'Tranformations': []},
-   {'RawFeatureName': 'D',
-    'TypeDetected': 'DateTime',
-    'Dropped': 'No',
-    'EngineeredFeatureCount': 11,
-    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
-  ```
-
-   Där:
-
-   |Resultat|Definition|
-   |----|--------|
-   |RawFeatureName|Inmatad funktion/kolumn namn från den angivna data uppsättningen.|
-   |TypeDetected|Identifierad datatyp för indata-funktionen.|
-   |Släpper|Anger om inmatad funktion har släppts eller använts.|
-   |EngineeringFeatureCount|Antal funktioner som genererats via automatiserad funktion teknik Transforms.|
-   |Transformeringar|Lista över omvandlingar som används för inmatade funktioner för att generera funktioner som har utvecklats.|
-### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Skalning/normalisering och algoritm med värden för en valfri parameter:
-
-Om du vill förstå värdena för skalning/normalisering och algoritm/för en pipeline använder du fitted_model. steg. [Läs mer om skalning/normalisering](how-to-configure-auto-features.md). Här är exempel på utdata:
-
-```
-[('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
-```
-
-Använd den här hjälp funktionen om du vill ha mer information: 
-
-```python
-from pprint import pprint
-
-
-def print_model(model, prefix=""):
-    for step in model.steps:
-        print(prefix + step[0])
-        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(
-                e[0] for e in step[1].estimators), 'weights': step[1].weights})
-            print()
-            for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0] + ' - ')
-        else:
-            pprint(step[1].get_params())
-            print()
-
-
-print_model(model)
-```
-
-Följande exempel på utdata är för en pipeline med en speciell algoritm (LogisticRegression med RobustScalar, i det här fallet).
-
-```
-RobustScaler
-{'copy': True,
-'quantile_range': [10, 90],
-'with_centering': True,
-'with_scaling': True}
-
-LogisticRegression
-{'C': 0.18420699693267145,
-'class_weight': 'balanced',
-'dual': False,
-'fit_intercept': True,
-'intercept_scaling': 1,
-'max_iter': 100,
-'multi_class': 'multinomial',
-'n_jobs': 1,
-'penalty': 'l2',
-'random_state': None,
-'solver': 'newton-cg',
-'tol': 0.0001,
-'verbose': 0,
-'warm_start': False}
-```
-
-### <a name="predict-class-probability"></a>Sannolikhet för förutsägelse av klass
-
-Modeller som skapas med hjälp av automatiserade ML alla har wrapper-objekt som speglar funktioner från deras ursprungs klass med öppen källkod. De flesta omslutna objekt för klassificerings modell som returnerades av automatisk ML implementera `predict_proba()` funktionen, som accepterar ett mat ris data exempel för matriser eller sparse-data (X-värden) och returnerar en n-dimensionell matris av varje sampel och dess respektive klass sannolikhet.
-
-Förutsatt att du har hämtat den bästa körningen och den monterade modellen med samma anrop från ovan kan du anropa `predict_proba()` direkt från den monterade modellen och tillhandahålla ett `X_test` exempel i lämpligt format beroende på modell typen.
-
-```python
-best_run, fitted_model = automl_run.get_output()
-class_prob = fitted_model.predict_proba(X_test)
-```
-
-Om den underliggande modellen inte stöder `predict_proba()` funktionen eller om formatet är felaktigt, kommer ett modell Klasss-särskilt undantag att genereras. I referens dokumenten [RandomForestClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict_proba) och [XGBoost](https://xgboost.readthedocs.io/en/latest/python/python_api.html) finns exempel på hur funktionen implementeras för olika modell typer.
 
 <a name="explain"></a>
 
@@ -519,4 +349,5 @@ Allmän information om hur modell förklaringar och funktions prioritet kan akti
 + Läs mer om [hur och var du distribuerar en modell](how-to-deploy-and-where.md).
 
 + Lär dig mer om [hur du tränar en Regressions modell med automatisk maskin inlärning](tutorial-auto-train-models.md) eller [hur du tränar användning av automatiserad maskin inlärning på en fjär resurs](how-to-auto-train-remote.md).
-+ Lär dig hur du tränar flera modeller med autoML i [många modeller lösnings acceleratorer](https://aka.ms/many-models).
+
++ Lär dig hur du tränar flera modeller med AutoML i [många modeller lösnings acceleratorer](https://aka.ms/many-models).

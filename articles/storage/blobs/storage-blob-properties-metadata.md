@@ -4,16 +4,16 @@ description: Lär dig hur du ställer in och hämtar system egenskaper och lagra
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/09/2019
+ms.date: 08/12/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.openlocfilehash: 3d86b6e39d6199d2f0268070cfa5456e512daa49
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 29fae4ffb08aba6a45a3879ffe28bf6b90f28a0e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84465889"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182399"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Hantera BLOB-egenskaper och metadata med .NET
 
@@ -26,18 +26,21 @@ Förutom de data som de innehåller, stöder blobbar system egenskaper och anvä
 - **Användardefinierade metadata**: användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
 
 > [!NOTE]
-> BLOB index-Taggar ger också möjlighet att lagra godtyckliga användardefinierade nyckel/värde-attribut tillsammans med en Blob Storage-resurs. Även om det liknar metadata indexeras bara BLOB-taggar automatiskt och de görs i fråga om den interna Blob-tjänsten. Det går inte att indexera och fråga metadata internt om du inte använder en separat tjänst, till exempel Azure Search.
+> Taggar för BLOB index ger också möjlighet att lagra godtyckliga användardefinierade nyckel/värde-attribut tillsammans med en Azure Blob Storage-resurs. Medan det liknar metadata indexeras bara BLOB-taggar automatiskt och görs sökbara av den interna Blob-tjänsten. Metadata kan inte indexeras och frågas om du inte använder en separat tjänst, till exempel Azure Search.
 >
-> Mer information om den här funktionen finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
-
-Hämtning av metadata och egenskaps värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa `FetchAttributes` metoden eller `FetchAttributesAsync` . Undantaget till den här regeln är att `Exists` metoderna och `ExistsAsync` anropar lämplig `FetchAttributes` metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa `FetchAttributes` .
-
-> [!IMPORTANT]
-> Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att koden anropar `FetchAttributes` eller- `FetchAttributesAsync` metoden.
+> Mer information om den här funktionen finns i [Hantera och hitta data i Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ## <a name="set-and-retrieve-properties"></a>Ange och hämta egenskaper
 
 I följande kod exempel anges- `ContentType` och- `ContentLanguage` System egenskaperna för en blob.
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+Anropa [SetHttpHeaders](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheaders) eller [SetHttpHeadersAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.sethttpheadersasync)för att ange egenskaper för en blob. Alla egenskaper som inte uttryckligen anges rensas. I följande kod exempel får du först de befintliga egenskaperna i blobben och använder dem sedan för att fylla i de huvuden som inte uppdateras.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_SetBlobProperties":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -64,8 +67,22 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
-Om du vill hämta BLOB-egenskaper anropar du- `FetchAttributes` eller- `FetchAttributesAsync` metoden på blobben för att fylla i `Properties` egenskapen. I följande kod exempel hämtas system egenskaper för en blob och några av värdena visas:
+Följande kod exempel hämtar en blobs system egenskaper och visar några av värdena.
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobProperties":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
+Hämtning av metadata och egenskaps värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa `FetchAttributes` metoden eller `FetchAttributesAsync` . Undantaget till den här regeln är att `Exists` metoderna och `ExistsAsync` anropar lämplig `FetchAttributes` metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa `FetchAttributes` .
+
+> [!IMPORTANT]
+> Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att koden anropar `FetchAttributes` eller- `FetchAttributesAsync` metoden.
+
+Om du vill hämta BLOB-egenskaper anropar du- `FetchAttributes` eller- `FetchAttributesAsync` metoden på blobben för att fylla i `Properties` egenskapen.
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -91,19 +108,34 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 ## <a name="set-and-retrieve-metadata"></a>Ange och hämta metadata
 
 Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar i `Metadata` samlingen på resursen. Anropa sedan någon av följande metoder för att skriva värdena:
 
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+- [SetMetadata](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadata)
+- [SetMetadataAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.setmetadataasync)
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
+---
 
 Metadata-/värdepar är giltiga HTTP-huvuden och bör följa alla begränsningar som gäller för HTTP-huvuden. Metadata-namn måste vara giltiga HTTP-huvudnamn och giltiga C#-identifierare, får bara innehålla ASCII-tecken och bör behandlas som Skift läges okänsligt. [Base64-koda](https://docs.microsoft.com/dotnet/api/system.convert.tobase64string) eller [URL-koda metadata-](https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode) värden som innehåller icke-ASCII-tecken.
 
 Namnet på dina metadata måste följa namngivnings konventionerna för C#-identifierare. Metadata-namn upprätthåller när de skapades, men är Skift läges känsliga när de har angetts eller lästs. Om två eller flera metadata-huvuden med samma namn skickas för en resurs returnerar Azure Blob Storage HTTP-felkoden 400 (felaktig begäran).
 
 I följande kod exempel anges metadata för en blob. Ett värde anges med samlings `Add` metoden. Det andra värdet anges med implicit nyckel/värde-syntax.
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_AddBlobMetadata":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -129,6 +161,17 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
+
+Följande kod exempel läser metadata för en blob.
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+Om du vill hämta metadata anropar du metoden [GetProperties](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getproperties) eller [GetPropertiesAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.getpropertiesasync) på blobben eller behållaren för att fylla i [metadata](/dotnet/api/azure.storage.blobs.models.blobproperties.metadata) -samlingen och läser sedan värdena, som visas i exemplet nedan.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 Om du vill hämta metadata anropar du `FetchAttributes` eller- `FetchAttributesAsync` metoden på bloben eller behållaren för att fylla i `Metadata` samlingen och läser sedan värdena, som visas i exemplet nedan.
 
@@ -160,6 +203,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
     }
 }
 ```
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 

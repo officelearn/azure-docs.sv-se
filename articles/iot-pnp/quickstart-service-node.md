@@ -3,17 +3,17 @@ title: Interagera med en IoT Plug and Play förhands gransknings enhet som är a
 description: Använd Node.js för att ansluta till och interagera med en IoT Plug and Play-förhands gransknings enhet som är ansluten till din Azure IoT-lösning.
 author: elhorton
 ms.author: elhorton
-ms.date: 07/13/2020
+ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 511a61fb1069ce10e94e24ecd3ba6d60470ca40f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: fd65dcc9ce0be07daa5848a0ac583cf795150e47
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424451"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184779"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din lösning (Node.js)
 
@@ -23,7 +23,7 @@ IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabb starten behöver du Node.js på din utvecklings dator. Du kan ladda ned den senaste rekommenderade versionen för flera plattformar från [NodeJS.org](https://nodejs.org).
 
@@ -31,12 +31,6 @@ Du kan kontrollera den aktuella versionen av Node.js på utvecklingsdatorn med f
 
 ```cmd/sh
 node --version
-```
-
-Installera [Node service SDK med IoT plug and Play-support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) genom att köra följande kommando:
-
-```cmd/sh
-npm i azure-iot-digitaltwins-service
 ```
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
@@ -53,15 +47,19 @@ Kör följande kommando för att hämta _enhets anslutnings strängen_ för den 
 az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDeviceID> --output
 ```
 
+### <a name="clone-the-sdk-repository-with-the-sample-code"></a>Klona SDK-lagringsplatsen med exempel koden
+
+Service SDK är i för hands version, så du måste klona exemplen från en [förhands gransknings gren av nodens SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh). Öppna ett terminalfönster i valfri mapp. Kör följande kommando för att klona **PnP-Preview-Refresh-** grenen i [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen:
+
+```cmd/sh
+git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+```
+
 ## <a name="run-the-sample-device"></a>Kör exempel enheten
 
 I den här snabb starten kan du använda ett exempel på en termostat-enhet som är skriven i Node.js som IoT Plug and Play-enheten. Så här kör du exempel enheten:
 
-1. Öppna ett terminalfönster i valfri mapp. Kör följande kommando för att klona [Microsoft Azure IoT SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub-lagringsplatsen på den här platsen:
-
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node
-    ```
+1. Öppna ett terminalfönster och navigera till den lokala mappen som innehåller Microsoft Azure IoT SDK för Node.js lagrings plats som du har klonat från GitHub.
 
 1. Det här terminalfönstret används som **enhetens** Terminal. Gå till mappen för den klonade lagrings platsen och navigera till mappen */Azure-IoT-SDK-Node/Device/samples/PnP* . Installera alla beroenden genom att köra följande kommando:
 
@@ -90,10 +88,10 @@ I den här snabb starten använder du en exempel-IoT-lösning i Node.js för att
 1. Öppna ett annat terminalfönster som ska användas som **tjänstens** Terminal. Service SDK är i för hands version, så du måste klona exemplen från en [förhands gransknings gren av nodens SDK](https://github.com/Azure/azure-iot-sdk-node/tree/pnp-preview-refresh):
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b public-preview-pnp
+    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
     ```
 
-1. Gå till mappen för den här klonade databas grenen och navigera till mappen */Azure-IoT-samples-Node/Digital-Twins/samples/service/JavaScript* . Installera alla beroenden genom att köra följande kommando:
+1. Gå till mappen för den här klonade databas grenen och navigera till mappen */Azure-IoT-SDK-Node/digitaltwins/samples/service/JavaScript* . Installera alla beroenden genom att köra följande kommando:
 
     ```cmd/sh
     npm install
@@ -144,14 +142,14 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 
-1. Öppna filen *update_digital_twin_property.js* i en kod redigerare.
+1. Öppna filen *update_digital_twin.js* i en kod redigerare.
 
 1. Granska exempel koden. Du kan se hur du skapar en JSON-korrigering för att uppdatera enhetens digitala enhet. I det här exemplet ersätter koden termostat temperatur med värdet 42:
 
     ```javascript
     const patch = [{
         op: 'add',
-        path: 'targetTemperature',
+        path: '/targetTemperature',
         value: '42'
       }]
     ```
@@ -159,43 +157,23 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 1. I **tjänsten** Terminal använder du följande kommando för att köra exemplet för att uppdatera egenskapen:
 
     ```cmd/sh
-    node update_digital_twin_property.js
-    ```
-
-1. I **tjänstens Terminal-** utdata visas den uppdaterade enhets informationen. Bläddra till `thermostat1` komponenten för att se det nya `targetTemperature` värdet 42:
-
-    ```json
-    "modelId": "dtmi:com:example:Thermostat;1",
-        "version": 12,
-        "properties": {
-            "desired": {
-                "targetTemperature": "42",
-                "$metadata": {
-                    "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
-                    "$lastUpdatedVersion": 5,
-                    "targetTemperature": {
-                        "$lastUpdated": "2020-07-09T13:55:50.7976985Z",
-                        "$lastUpdatedVersion": 5
-                    }
-                },
-                "$version": 5
-            },
-            "reported": {
-                "serialNumber": "123abc",
-                "maxTempSinceLastReboot": 32.279942997143785,
-                "targetTemperature": {
-                    "value": "42",
-                    "ac": 200,
-                    "ad": "Successfully executed patch for targetTemperature",
-                    "av": 2
-                },
+    node update_digital_twin.js
     ```
 
 1. I **enhetens** Terminal ser du att enheten har tagit emot uppdateringen:
 
     ```cmd/sh
-    Received an update for targetTemperature: 42
+    The following properties will be updated for root interface:
+    {
+      targetTemperature: {
+        value: 42,
+        ac: 200,
+        ad: 'Successfully executed patch for targetTemperature',
+        av: 2
+      }
+    }
     updated the property
+    Properties have been reported for component
     ```
 
 1. Kör följande kommando i din **tjänst-** Terminal för att bekräfta att egenskapen har uppdaterats:
@@ -207,15 +185,7 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 1. I **tjänstens** Terminal-utdata, i det digitala dubbla svaret under `thermostat1` komponenten, ser du att den uppdaterade mål temperaturen har rapporter ATS. Det kan ta en stund innan enheten har slutfört uppdateringen. Upprepa det här steget tills enheten har bearbetat egenskaps uppdateringen:
 
     ```json
-    "$model": "dtmi:com:example:Thermostat;1",
-    "targetTemperature": {
-      "desiredValue": 42,
-      "desiredVersion": 4,
-      "ackVersion": 4,
-      "ackCode": 200,
-      "ackDescription": "Successfully executed patch for targetTemperature",
-      "lastUpdateTime": "2020-07-09T13:55:30.5062641Z"
-    }
+    targetTemperature: 42,
     ```
 
 ### <a name="invoke-a-command"></a>Anropa ett kommando
@@ -225,6 +195,8 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 1. Gå till **tjänsten** Terminal. Använd följande kommando för att köra exemplet för att anropa kommandot:
 
     ```cmd/sh
+    set IOTHUB_COMMAND_NAME=getMaxMinReport
+    set IOTHUB_COMMAND_PAYLOAD=commandpayload
     node invoke_command.js
     ```
 
@@ -245,7 +217,7 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
 1. I **enhetens** Terminal ser du att kommandot har bekräftats:
 
     ```cmd/sh
-    MaxMinReport [object Object]
+    MaxMinReport commandpayload
     Response to method 'getMaxMinReport' sent successfully.
     ```
 

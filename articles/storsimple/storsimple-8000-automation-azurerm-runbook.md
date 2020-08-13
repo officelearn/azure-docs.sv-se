@@ -1,17 +1,17 @@
 ---
 title: Använd Azure Automation Runbook för att hantera StorSimple-enheter
-description: Lär dig hur du använder Azure Automation Runbook för att automatisera StorSimple-jobb
+description: Lär dig hur du använder Azure Automation Runbook för att hantera din StorSimple 8000-serie enhet i Azure Portal.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 737533cd75ebec8d5d6c614f496e0c9b552217aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fee0837c1196adf35a956cd13df584528d46bfc0
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514163"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183487"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81f3f771987ce2ff11aab88a4d35df01b6c85941
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253332"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184354"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -92,10 +92,10 @@ När du har slutfört användnings villkoren använder du följande procedur fö
 
 1. Använd inställningarna för att **börja om från** och med **frekvensen** för att ange schemat för användnings villkor. I följande tabell visas resultatet av ett par exempel inställningar:
 
-   | Förfaller från | Frekvens | Resultat |
+   | Förfaller från | Frequency | Resultat |
    | --- | --- | --- |
-   | Dagens datum  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
-   | Datum i framtiden  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet inträffar upphör medgivanden att gälla och användarna måste sedan acceptera varje månad igen.  |
+   | Dagens datum  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
+   | Datum i framtiden  | Varje månad | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet inträffar upphör medgivanden att gälla och användarna måste sedan acceptera varje månad igen.  |
 
    Om du t. ex. ställer in sista giltighets datum till **1 januari** och frekvens till **månatlig**, så kan det uppstå förfallo datum för två användare:
 
@@ -225,7 +225,7 @@ Du kan redigera viss information om användnings villkoren, men du kan inte änd
 
    ![Redigera användnings villkors fönstret som visar namn och visnings alternativ](./media/terms-of-use/edit-tou.png)
 
-1. Klicka på **Spara** för att spara dina ändringar.
+1. Klicka på **Spara** för att spara ändringarna.
 
    När du har sparat ändringarna behöver användarna inte acceptera dessa ändringar igen.
 
@@ -363,7 +363,7 @@ A: Nej, om en administratör redigerar informationen för ett användnings villk
 A: för närvarande kan du inte uppdatera ett befintligt dokument med användnings villkor. Om du vill ändra ett användar villkor för användning måste du skapa en ny användnings villkors instans.
 
 **F: om hyperlänkarna finns i användnings villkoren för PDF-dokumentet, kommer användarna att kunna Klicka på dem?**<br />
-A: Ja, slutanvändarna kan välja hyperlänkar till ytterligare sidor, men länkar till avsnitt i dokumentet stöds inte.
+A: Ja, slutanvändarna kan välja hyperlänkar till ytterligare sidor, men länkar till avsnitt i dokumentet stöds inte. Dessutom fungerar inte hyperlänkar som använder PDF-filer vid åtkomst från portalen för Azure AD-appar/-konto.
 
 **F: Kan användningsvillkor ha stöd för flera språk?**<br />
 S: Ja. För närvarande finns det 108 olika språk som en administratör kan konfigurera för ett enda användnings villkor. En administratör kan ladda upp flera PDF-dokument och tagga dessa dokument med ett motsvarande språk (upp till 108). När slutanvändarna loggar in tittar vi på deras inställningar för webbläsarens språk och visar det matchande dokumentet. Om det inte finns någon matchning, visas standard dokumentet, vilket är det första dokument som överförs.

@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Java-Azure Database for PostgreSQL-enskild server
+title: 'Snabb start: ansluta med Java-Azure Database for PostgreSQL-enskild server'
 description: Den här snabb starten innehåller ett Java-kod exempel som du kan använda för att ansluta och fråga efter data från Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 8b11147c5266be17d188e915bf73a999ea157d24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e73cf35634b29409f8316080952e46825dd1a0d
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321419"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182858"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for PostgreSQL-enskild server
 

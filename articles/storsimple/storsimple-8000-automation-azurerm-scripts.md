@@ -1,17 +1,17 @@
 ---
 title: Använda AzureRM PowerShell-skript för att hantera StorSimple-enheter
-description: Lär dig hur du använder Azure Resource Manager skript för att automatisera StorSimple-jobb
+description: Lär dig hur du använder Azure Resource Manager SDK-baserade skript för att hantera en enhet med StorSimple 8000-serien.
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 3b9a7bf243931443b8273253dee7618c0e594aaf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a53dd803b22899b7dd15db0aa1ff411641a11dc
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020873"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183266"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Använd Azure Resource Manager SDK-baserade skript för att hantera StorSimple-enheter
 
@@ -49,7 +49,7 @@ Följande exempel skript är tillgängliga för att automatisera olika StorSimpl
 
 Det här avsnittet tar ett exempel skript och innehåller information om de olika stegen som krävs för att köra skriptet.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrol lera att du har:
 

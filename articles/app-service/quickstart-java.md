@@ -10,16 +10,19 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 8289b21da5009459d2eb7ddc8d26b549f0920317
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 274228ea5aa9ac9de9725176c8b6221ee9e9542e
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085359"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88182705"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Snabb start: skapa en Java-app på Azure App Service
 
 [Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst.  Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) med [plugin-programmet för Azure-Webbappar för maven för](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) att distribuera en War-fil (Java Web Archive).
+
+> [!NOTE]
+> I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
 
 > [!NOTE]
 > Du kan också göra samma användning av populära IDE: er som IntelliJ och Sol förmörkelse. Ta en titt på våra liknande dokument i [Azure Toolkit for IntelliJ snabb start](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) eller [Azure Toolkit for Eclipse snabb start](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
@@ -53,12 +56,12 @@ Du kan köra kommandot maven nedan för att konfigurera distributionen
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```
 
-::: zone pivot="platform-windows"  
+::: zone pivot="platform-windows" 
 Du uppmanas att välja 
 * **OS (standard: `linux` )**
 * **Java-version (standard: `1.8` )**
 * **Webb behållare (standard: `tomcat 8.5` )** 
-
+ 
 Var noga med att ange **`2`** för att välja **Windows** -operativsystem i det första steget. Övriga konfigurationer kan lämnas kvar som standard genom att trycka på **RETUR**. Klicka slutligen **`Y`** på **Bekräfta (j/N)** för att slutföra konfigurationen.
 
 En exempel process ser ut så här:
@@ -137,6 +140,13 @@ Confirm (Y/N)? :
 ```
 ::: zone-end
 ::: zone pivot="platform-linux"  
+
+Du uppmanas att välja 
+* **OS (standard: `linux` )**
+* **Java-version (standard: `Java 8` )**
+* **Webb behållare (standard: `Tomcat 8.5` )** 
+
+Alla konfigurationer kan lämnas kvar som standard genom att trycka på **RETUR**. Klicka slutligen **`Y`** på **Bekräfta (j/N)** för att slutföra konfigurationen.
 En exempel process ser ut så här:
 
 ```cmd
@@ -174,16 +184,7 @@ Confirm (Y/N)? : Y
 ```
 ::: zone-end
 
-> [!NOTE]
-> I den här artikeln arbetar vi endast med Java-appar som paketerats i WAR-filer. Plugin-programmet stöder också JAR-webbprogram. Läs informationen om att [distribuera en Java SE JAR-fil till App Service på Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) om du vill testa det.
-
-Öppna `pom.xml` om du vill se den uppdaterade konfigurationen.
-
-```bash
-code pom.xml
-```
-
-Du kan ändra konfigurationerna för App Service direkt i din Pom-fil om det behövs, några vanliga i listan nedan:
+Du kan ändra konfigurationerna för App Service direkt om det `pom.xml` behövs, några vanliga i listan nedan:
 
  Egenskap | Krävs | Beskrivning | Version
 ---|---|---|---
@@ -195,11 +196,8 @@ Du kan ändra konfigurationerna för App Service direkt i din Pom-fil om det beh
 `<runtime>` | true | Konfiguration av körnings miljön kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 `<deployment>` | true | Distributions konfigurationen kan du se informationen [här](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme). | 0.1.0 +
 
-::: zone pivot="platform-windows"
 Var försiktig med värdena i `<appName>` och `<resourceGroup>` ( `helloworld-1590394316693` och `helloworld-1590394316693-rg` därmed i demonstrationen). de kommer att användas senare.
-::: zone-end
-::: zone pivot="platform-linux"
-::: zone-end
+
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
 
@@ -216,21 +214,11 @@ Sedan kan du distribuera din Java-app till Azure med hjälp av följande kommand
 mvn package azure-webapp:deploy
 ```
 
-::: zone pivot="platform-windows"
 När distributionen är klar är ditt program klart på `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` i demonstrationen). Öppna webb adressen med din lokala webbläsare, du bör se
 
-![Exempel app som körs i Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
+![Exempel app som körs i Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
-**Grattis!** Du har distribuerat din första java-app till App Service i Windows.
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-::: zone-end
-::: zone pivot="platform-linux"
-När distributionen är klar bläddrar du till den distribuerade tillämpningen med hjälp av följande webbadress i webbläsaren, till exempel `http://<webapp>.azurewebsites.net`. 
-
-![Exempel app som körs i Azure App Service](media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Grattis!** Du har distribuerat din första Java-app till App Service på Linux.
+**Grattis!** Du har distribuerat din första java-app till App Service.
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -244,19 +232,6 @@ az group delete --name <your resource group name; for example: helloworld-155840
 ```
 
 Det kan några minuter att köra kommandot.
-::: zone-end
-
-När distributionen är klar är ditt program klart på `http://<appName>.azurewebsites.net/` ( `http://helloworld-1590394316693.azurewebsites.net` i demonstrationen). Öppna webb adressen med din lokala webbläsare, du bör se
-
-![Exempel app som körs i Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
-
-**Grattis!** Du har distribuerat din första java-app till App Service.
-
-> [!div class="nextstepaction"]
-> [Jag stötte på ett problem](https://www.research.net/r/javae2e?quickstart-java&step=deploy)
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

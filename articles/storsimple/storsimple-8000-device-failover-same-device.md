@@ -1,6 +1,6 @@
 ---
 title: Självstudie – redundansväxla StorSimple fysisk enhet till samma enhet
-description: Lär dig hur du växlar över din StorSimple-enhet till samma enhet.
+description: Lär dig de steg som krävs för att redundansväxla en fysisk enhet i StorSimple 8000-serien till sig själv om det är en katastrof.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 60bf5b593efc5a26387680c092fc972bf9274e56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c116194aa52a82246bcee9114824e8a918ebbd
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511748"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184337"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>Redundansväxla din fysiska StorSimple-enhet till samma enhet
 

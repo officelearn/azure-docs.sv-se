@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: db2e493f04d74308b21e8a63222f26b1e2af8546
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e6f3a541f1e9dbca2c9949fb0c5cde28cd43e8e5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038294"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183070"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Azure Open-datauppsättningar är granskade offentliga data uppsättningar som d
 
 Mer information finns i [Vad är öppna data uppsättningar?](overview-what-are-open-datasets.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill skapa och arbeta med data uppsättningar behöver du:
 
@@ -75,19 +75,21 @@ När du registrerar en data uppsättning som skapats från öppna data uppsättn
 
 ## <a name="create-datasets-with-the-studio"></a>Skapa data uppsättningar med Studio
 
-Du kan också skapa data uppsättningar från öppna data uppsättningar med [Azure Machine Learning Studio](https://ml.azure.com). I arbets ytan väljer du fliken **data uppsättningar** under **till gångar**. Välj **från öppna data uppsättningar**på list menyn **skapa data uppsättning** .
+Du kan också skapa data uppsättningar från öppna data uppsättningar med [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Öppna data uppsättning med användar gränssnittet](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
+1. I arbets ytan väljer du fliken **data uppsättningar** under **till gångar**. Välj **från öppna data uppsättningar**på list menyn **skapa data uppsättning** .
 
-Välj en data uppsättning genom att välja dess panel. (Du kan välja att filtrera med hjälp av Sök fältet.) Välj **Nästa**.
+    ![Öppna data uppsättning med användar gränssnittet](./media/how-to-create-dataset-from-open-dataset/open-datasets-1.png)
 
-![Välj data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
+1. Välj en data uppsättning genom att välja dess panel. (Du kan välja att filtrera med hjälp av Sök fältet.) Välj **Nästa**.
 
-Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den offentliga helgdags data uppsättningen till endast USA. Välj **Skapa**.
+    ![Välj data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-![Ange data uppsättnings parametrar och skapa data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+1. Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den **offentliga helgdags** data uppsättningen till endast USA. Välj **Skapa**.
 
-Data uppsättningen är nu tillgänglig i din arbets yta under **data uppsättningar**. Du kan använda den på samma sätt som andra data uppsättningar som du har skapat.
+    ![Ange data uppsättnings parametrar och skapa data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
+
+    Data uppsättningen är nu tillgänglig i din arbets yta under **data uppsättningar**. Du kan använda den på samma sätt som andra data uppsättningar som du har skapat.
 
 
 ## <a name="access-datasets-for-your-experiments"></a>Få åtkomst till data uppsättningar för dina experiment

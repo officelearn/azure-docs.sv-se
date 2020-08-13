@@ -1,17 +1,17 @@
 ---
 title: Microsoft Azure StorSimple Data Manager användar gränssnitt
-description: Beskriver hur du använder StorSimple Data Manager tjänstens användar gränssnitt
+description: Lär dig hur du kan använda StorSimple Data Manager användar gränssnitt för att transformera data som finns på StorSimple 8000-seriens enheter.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5d6273cbef1664984d466fb15c7f02ca505b18e2
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496448"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184555"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Hantera tjänsten StorSimple Data Manager i Azure Portal
 

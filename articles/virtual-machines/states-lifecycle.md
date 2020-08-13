@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 127604264850f9845846d0bb6a2768cac23cdc8c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0613b4c444b9eacaaf2b9d3e0795f4872cb903f3
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169161"
+ms.locfileid: "88182959"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Livscykler och tillstånd för Virtual Machines
 
@@ -23,137 +23,195 @@ Azure Virtual Machines (VM) går igenom olika tillstånd som kan kategoriseras i
 
 Energi läget motsvarar det senaste kända läget för den virtuella datorn.
 
-![Diagram över virtuellt dator energi tillstånd](./media/vm-power-states.png)
+![Diagram över virtuellt dator energi tillstånd](./media/virtual-machines-common-states-lifecycle/vm-power-states.png)
 
 <br>
 Följande tabell innehåller en beskrivning av varje instans tillstånd och indikerar om det debiteras för användning av instanser eller inte.
 
-<table>
-<tr>
-<th>
-Stat
-</th>
-<th>
-Beskrivning
-</th>
-<th>
-Fakturering av instans användning
-</th>
-</tr>
-<tr>
-<td>
-<p><b>Startar</b></p>
-</td>
-<td>
-<p>Den virtuella datorn startas.</p>
-<code>"statuses": [<br>
-   {<br>
-      "code": "PowerState/starting",<br>
-       "level": "Info",<br>
-        "displayStatus": "VM starting"<br>
-    }<br>
-    ]</code><br>
-</td>
-<td>
-<p><b>Ej fakturerat</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Körs</b></p>
-</td>
-<td>
-<p>Normalt arbets läge för en virtuell dator</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/running",<br>
- "level": "Info",<br>
- "displayStatus": "VM running"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Debiteras</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Stoppas</b></p>
-</td>
-<td>
-<p>Detta är ett över gångs tillstånd. När det är slutfört visas det som **stoppad**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopping",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopping"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Debiteras</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Stoppad</b></p>
-</td>
-<td>
-<p>Den virtuella datorn har stängts av från gäst operativ systemet eller använder avstängnings läge-API: er.</p>
-<p>Maskin varan är fortfarande allokerad till den virtuella datorn och den finns kvar på värden. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/stopped",<br>
- "level": "Info",<br>
- "displayStatus": "VM stopped"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Fakturerad&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Frigör</b></p>
-</td>
-<td>
-<p>Över gångs tillstånd. När den är klar visas den virtuella datorn som **frigjord**.</p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocating",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocating"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Ej fakturerat&#42;</b></p>
-</td>
-</tr>
-<tr>
-<td>
-<p><b>Frigjord</b></p>
-</td>
-<td>
-<p>Den virtuella datorn har stoppats och tagits bort från värden. </p>
-<code>"statuses": [<br>
- {<br>
- "code": "PowerState/deallocated",<br>
- "level": "Info",<br>
- "displayStatus": "VM deallocated"<br>
- }<br>
- ]</code><br>
-</td>
-<td>
-<p><b>Ej fakturerat</b></p>
-</td>
-</tr>
-</tbody>
-</table>
+:::row:::
+   :::column span="":::
+
+   **Låst**
+   
+   :::column-end:::
+   :::column span="":::
+
+   **Beskrivning**
+
+   :::column-end:::
+   :::column span="":::
+
+   **Användning av instans fakturerad**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Startar**
+
+   :::column-end:::
+   :::column span="":::
+
+   Den virtuella datorn startas.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/starting",
+    "level": "Info",
+    "displayStatus": "VM starting"
+    }
+   ]
+   ```
+   :::column-end:::
+   :::column span="":::
+
+   **Ej fakturerat**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Körs**
+
+   :::column-end:::
+   :::column span="":::
+
+   Normalt arbets läge för en virtuell dator
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/running",
+    "level": "Info",
+    "displayStatus": "VM running"
+    }
+  ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Debiteras**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stoppas**
+
+   :::column-end:::
+   :::column span="":::
+
+   Detta är ett över gångs tillstånd. När det är slutfört visas det som **stoppad**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopping",
+    "level": "Info",
+    "displayStatus": "VM stopping"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Debiteras**
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Stoppad**
+
+   :::column-end:::
+   :::column span="":::
+
+   Den virtuella datorn har stängts av från gäst operativ systemet eller använder avstängnings läge-API: er.
+
+   Maskin varan är fortfarande allokerad till den virtuella datorn och den finns kvar på värden.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/stopped",
+    "level": "Info",
+    "displayStatus": "VM stopped"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Debiteras***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Frigör**
+
+   :::column-end:::
+   :::column span="":::
+
+   Över gångs tillstånd. När den är klar visas den virtuella datorn som **frigjord**.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocating",
+    "level": "Info",
+    "displayStatus": "VM deallocating"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Ej fakturerat***
+
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Frigjord**
+
+   :::column-end:::
+   :::column span="":::
+
+   Den virtuella datorn har stoppats och tagits bort från värden.
+
+   ```json
+   "statuses": [
+    {
+    "code": "PowerState/deallocated",
+    "level": "Info",
+    "displayStatus": "VM deallocated"
+    }
+   ]
+  ```
+   :::column-end:::
+   :::column span="":::
+
+   **Ej fakturerat**
+
+   :::column-end:::
+:::row-end:::
 
 
-&#42;vissa Azure-resurser, till exempel diskar och nätverk, debiteras. Program varu licenser på instansen debiteras inte.
+&#42; vissa Azure-resurser, till exempel diskar och nätverk, debiteras. Program varu licenser på instansen debiteras inte.
 
 ## <a name="provisioning-states"></a>Etablerings tillstånd
 
@@ -171,86 +229,159 @@ Ett etablerings tillstånd är status för en användarinitierad, kontroll Plans
 
 Här följer över gångs åtgärds tillstånd efter att plattformen har accepterat en åtgärd som initieras av användaren:
 
-<br>
+:::row:::
+   :::column span="":::
 
-<table>
-<tbody>
-<tr>
-<td width="162">
-<p><b>Tillstånd</b></p>
-</td>
-<td width="366">
-<p>Description</p>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Skapar</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating",<br>
- "level": "Info",<br>
- "displayStatus": "Creating"<br>
- }</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Uppdatera</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/updating",<br>
- "level": "Info",<br>
- "displayStatus": "Updating"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Tas bort</b></p>
-</td>
-<td width="366">
-<code>"statuses": [<br>
- {<br>
- "code": "ProvisioningState/deleting",<br>
- "level": "Info",<br>
- "displayStatus": "Deleting"<br>
- }<br>
- ]</code><br>
-</td>
-</tr>
-<tr>
-<td width="162">
-<p><b>Etablerings tillstånd för operativ system</b></p>
-</td>
-<td width="366">
-<p>Om en virtuell dator skapas med en operativ system avbildning och inte med en specialiserad avbildning kan följande under tillstånd observeras:</p>
-<p>1. <b>OSProvisioningInprogress</b> &ndash; Den virtuella datorn körs och installationen av gäst operativ systemet pågår. <p /> 
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning In progress"<br>
- }<br>
-]</code><br>
-<p>2. <b>OSProvisioningComplete</b> &ndash; Status för kort livs längd. Den virtuella datorn övergår snabbt till **lyckad** om inga tillägg behöver installeras. Det kan ta tid att installera tillägg. <br />
-<code> "statuses": [<br>
- {<br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
- "level": "Info",<br>
- "displayStatus": "OS Provisioning Complete"<br>
- }<br>
-]</code><br>
-<p><b>Obs!</b>OS-etableringen kan övergå till **fel** om ett operativ system fel uppstår eller om operativ systemet inte installeras i tid. Kunderna debiteras för den distribuerade virtuella datorn i infrastrukturen.</p>
-</td>
-</tr>
-</table>
+   **Låst**
+   
+   :::column-end:::
+   :::column span="2":::
 
+   **Beskrivning**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Skapar**
+
+   :::column-end:::
+   :::column span="2":::
+
+  ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating",
+    "level": "Info",
+    "displayStatus": "Creating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Uppdatera**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/updating",
+    "level": "Info",
+    "displayStatus": "Updating"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Tas bort**
+
+   :::column-end:::
+   :::column span="2":::
+
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/deleting",
+    "level": "Info",
+    "displayStatus": "Deleting"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **Etablerings tillstånd för operativ system**
+   
+   :::column-end:::
+   :::column span="2":::
+
+   **Beskrivning**
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+
+
+   :::column-end:::
+   :::column span="2":::
+
+   Om en virtuell dator skapas med en operativ system avbildning och inte med en specialiserad avbildning kan följande under tillstånd observeras:
+
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningInprogress**
+
+   :::column-end:::
+   :::column span="2":::
+
+   Den virtuella datorn körs och installationen av gäst operativ systemet pågår.
+ 
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningInprogress",
+    "level": "Info",
+    "displayStatus": "OS Provisioning In progress"
+    }
+   [
+   ```
+   :::column-end:::
+
+:::row-end:::
+
+:::row:::
+   :::column span="":::
+
+   **OSProvisioningComplete**
+
+   :::column-end:::
+   :::column span="2":::
+   
+   Status för kort livs längd. Den virtuella datorn övergår snabbt till **lyckad** om inga tillägg behöver installeras. Det kan ta tid att installera tillägg.
+   
+   ```json
+   "statuses": [
+    {
+    "code": "ProvisioningState/creating/OSProvisioningComplete",
+    "level": "Info",
+    "displayStatus": "OS Provisioning Complete"
+    }
+   [
+   ```
+   
+   **Obs!** OS-etableringen kan övergå till **fel** om ett operativ system fel uppstår eller om operativ systemet inte installeras i tid. Kunderna debiteras för den distribuerade virtuella datorn i infrastrukturen.
+
+   :::column-end:::
+
+:::row-end:::
 
 När åtgärden har slutförts övergår den virtuella datorn till något av följande tillstånd:
 

@@ -1,6 +1,6 @@
 ---
 title: StorSimple 8000-serien som säkerhets kopierings mål med NetBackup | Microsoft Docs
-description: Beskriver säkerhets kopierings mål konfigurationen för StorSimple med Veritas NetBackup.
+description: Lär dig mer om StorSimple för säkerhets kopiering med Veritas NetBackup och bästa praxis för integrering av båda lösningarna.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: matd
-ms.openlocfilehash: 34c66c3d5739fdc23323a302e3bedfb1b6301d86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b186fadcc99c6cc538b61eaa94d5d84d649c233f
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077913"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184014"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple som ett säkerhets kopierings mål med NetBackup
 
@@ -253,7 +253,7 @@ Baserat på föregående antaganden skapar du en 26-TiB StorSimple-nivå volym f
 | Kvarhållning av säkerhets kopierings typ | Storlek (TiB) | GFS-multiplikator\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Veckovis fullständig | 1 | 4  | 4 |
-| Daglig stegvis | 0.5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
+| Daglig stegvis | 0,5 | 20 (cykler är lika många veckor per månad) | 12 (2 för ytterligare kvot) |
 | Månatlig fullständig | 1 | 12 | 12 |
 | Varje år fullständig | 1  | 10 | 10 |
 | GFS-krav |   | 38 |   |
@@ -472,7 +472,7 @@ När du har definierat de första disk-poolerna måste du definiera tre ytterlig
 | Kvarhållning av säkerhets kopierings typ | Storlek (TiB) | GFS-multiplikator\* | Total kapacitet (TiB)  |
 |---|---|---|---|
 | Veckovis fullständig |  1  |  4 | 4  |
-| Daglig stegvis  | 0.5  | 20 (cykler är lika med antalet veckor per månad) | 12 (2 för ytterligare kvot) |
+| Daglig stegvis  | 0,5  | 20 (cykler är lika med antalet veckor per månad) | 12 (2 för ytterligare kvot) |
 | Månatlig fullständig  | 1 | 12 | 12 |
 | Varje år fullständig | 1  | 10 | 10 |
 | GFS-krav  |     |     | 38 |

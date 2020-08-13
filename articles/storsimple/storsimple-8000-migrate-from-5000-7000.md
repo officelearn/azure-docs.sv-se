@@ -1,6 +1,6 @@
 ---
 title: Migrera data på StorSimple 5000-7000-serien till 8000 Series-enhet | Microsoft Docs
-description: Innehåller en översikt och förutsättningarna för funktionen migrering.
+description: Lär dig mer om hur du migrerar data på StorSimple 5000-7000-serien till 8000-seriens enhet och vilka krav som gäller för migreringsprocessen.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 721dffcaea64e949ac7a5230e24f3aa37261fa9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206483"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184303"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till 8000-serien het
 
@@ -136,12 +136,12 @@ Utför följande steg för att installera StorSimple Migration Tool på datorn.
     ```
 2. Redigera värdena som motsvarar nycklarna och Ersätt med:
 
-    * `UserName`– Användar namn att logga in på Azure Portal.
-    * `SubscriptionName and SubscriptionId`– Namn och ID för din Azure-prenumeration. Klicka på **Egenskaper**under **allmänt**på StorSimple Enhetshanteraren tjänstens landnings sida. Kopiera prenumerations namnet och prenumerations-ID: t som är associerat med din tjänst.
-    * `ResourceName`– Namnet på din StorSimple Enhetshanteraren-tjänst i Azure Portal. Visas också under tjänst egenskaper.
-    * `ResourceGroup`– Namnet på den resurs grupp som är kopplad till din StorSimple Enhetshanteraren-tjänst i Azure Portal. Visas också under tjänst egenskaper.
+    * `UserName` – Användar namn att logga in på Azure Portal.
+    * `SubscriptionName and SubscriptionId` – Namn och ID för din Azure-prenumeration. Klicka på **Egenskaper**under **allmänt**på StorSimple Enhetshanteraren tjänstens landnings sida. Kopiera prenumerations namnet och prenumerations-ID: t som är associerat med din tjänst.
+    * `ResourceName` – Namnet på din StorSimple Enhetshanteraren-tjänst i Azure Portal. Visas också under tjänst egenskaper.
+    * `ResourceGroup` – Namnet på den resurs grupp som är kopplad till din StorSimple Enhetshanteraren-tjänst i Azure Portal. Visas också under tjänst egenskaper.
     ![Kontrol lera tjänst egenskaperna för mål enheten](media/storsimple-8000-migrate-from-5000-7000/check-service-properties1.png)
-    * `TenantId`– Azure Active Directory klient-ID i Azure Portal. Logga in på Microsoft Azure som administratör. Klicka på **Azure Active Directory**i Microsoft Azure-portalen. Klicka på **Egenskaper** under **Hantera**. Klient-ID visas i rutan **katalog-ID** .
+    * `TenantId` – Azure Active Directory klient-ID i Azure Portal. Logga in på Microsoft Azure som administratör. Klicka på **Azure Active Directory**i Microsoft Azure-portalen. Klicka på **Egenskaper** under **Hantera**. Klient-ID visas i rutan **katalog-ID** .
     ![Kontrol lera klient-ID för Azure Active Directory](media/storsimple-8000-migrate-from-5000-7000/check-tenantid-aad.png)
 
 3.  Spara ändringarna som gjorts i konfigurations filen.

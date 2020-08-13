@@ -1,6 +1,6 @@
 ---
 title: Redundansväxling och haveri beredskap för virtuell StorSimple-matris
-description: Läs mer om hur du kan Redundansväxla din virtuella StorSimple-matris.
+description: Läs om haveri beredskap för din Microsoft Azure StorSimple virtuella matris, inklusive detaljerade steg för att redundansväxla till en annan virtuell matris.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 24eb03069689d6dc89d8e237e0e65c71af6c6173
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077781"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184728"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Haveriberedskap och redundansväxling av enhet för StorSimple Virtual Array via Azure-portalen
 
@@ -44,7 +44,7 @@ Haveri beredskap dirigeras via funktionen enhets växling vid fel och initieras 
 
 ## <a name="prerequisites-for-device-failover"></a>Förhandskrav för enhetsredundans
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Kontrol lera att följande krav är uppfyllda för en enhets växling vid fel:
 

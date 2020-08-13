@@ -5,17 +5,20 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.openlocfilehash: 913f1f2a7a03c1abb83d8daa6d4b0c3f6e77e309
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c1915d108bf9465d3e5b8d6a55053b583ee4f580
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133758"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88184626"
 ---
 # <a name="troubleshoot-azure-vm-extension-issues"></a>Felsök problem med Azure VM-tillägg
 
 Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa Azure Site Recovery fel som rör VM-agenten och tillägget.
 
+## <a name="low-system-resources"></a>Låga system resurser
+
+Det här problemet uppstår när systemet har ont om ledigt minne och inte kan allokera minne för mobilitets tjänst installationen. Se till att tillräckligt med minne har frigjorts för att installationen ska kunna fortsätta och slutföras.
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Timeout för Azure Site Recoverys tillägg  
 
@@ -102,7 +105,7 @@ Avinstallera tillägget och försök sedan igen.
 Så här avinstallerar du tillägget:
 
 1. I [Azure Portal](https://portal.azure.com/)går du till den virtuella dator som har problem med säkerhets kopieringen.
-1. Välj **inställningar**.
+1. Välj **Inställningar**.
 1. Välj **Tillägg**.
 1. Välj **Site Recovery tillägg**.
 1. Välj **Avinstallera**.

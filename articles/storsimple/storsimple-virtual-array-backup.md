@@ -1,6 +1,6 @@
 ---
 title: Självstudie för säkerhets kopiering av Microsoft Azure StorSimple virtuell matris | Microsoft Docs
-description: Beskriver hur du säkerhetskopierar StorSimple virtuella array-resurser och volymer.
+description: Skapa schemalagda och manuella säkerhets kopieringar för Microsoft Azure StorSimple virtuell matris och utför återställning på objekt nivå för att återställa en borttagen fil på den virtuella matrisen.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26bf018d8823495c00b09af3a40b39315dadb31c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41cb02e77fa77c5a7452c5e3e0d2080ee3d472d5
+ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513679"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88183232"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>Säkerhetskopiera resurser eller volymer på din virtuella StorSimple-matris
 
@@ -108,7 +108,7 @@ Om du vill visa befintliga säkerhets kopior utför du följande steg i Azure Po
    
      ![Filtrera säkerhets kopior](./media/storsimple-virtual-array-backup/viewbackups2.png)
 
-3. Klicka på **Använd**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
+3. Klicka på **Godkänn**. Den filtrerade listan med säkerhets kopior visas på bladet **säkerhets kopierings katalog** . Observera att endast 100 säkerhets kopierings element kan visas vid en specifik tidpunkt.
    
     ![Uppdaterad säkerhets kopierings katalog](./media/storsimple-virtual-array-backup/viewbackups3.png)
 

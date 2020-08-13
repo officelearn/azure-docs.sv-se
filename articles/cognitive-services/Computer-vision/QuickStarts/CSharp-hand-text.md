@@ -1,26 +1,26 @@
 ---
-title: 'Snabb start: Visuellt innehåll 2,1 och 3,0 – extrahera skriven text – vila, C #'
+title: 'Snabb start: OCR för utskrift och handskriven text med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärd och C #'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med C#.
+description: I den här snabb starten ska du använda OCR på en avbildning med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärder och C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 52cba173f7d3fe4c4d65d538fac3ef850f0491e2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 36f149019e37949445189045a8a71489f0f26418
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835416"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167835"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 3,0 REST API och C #
+# <a name="quickstart-ocr-for-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Snabb start: OCR för utskrift och handskriven text med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärd och C #
 
-I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken till en maskin läsnings bar tecken ström. 
+I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med den nya OCR-tekniken som är tillgänglig som en del av Visuellt innehåll 3,0 REST API. Med de nya metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. 
 
 > [!IMPORTANT]
 > Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.

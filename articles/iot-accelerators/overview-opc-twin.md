@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 169a3149a2d8d02d486bc126071b17e9a4f7ed72
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73826231"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167478"
 ---
 # <a name="what-is-opc-twin"></a>Vad är OPC?
 
@@ -29,7 +29,7 @@ OPC med dubbla ger fabriks operatörer möjlighet att söka igenom fabriks nätv
 OPC med dubbla ger fabriks operatörerna möjlighet att reagera på händelser och omkonfigurera sina fabriks maskiner från molnet antingen automatiskt eller manuellt i farten. OPC dubbla tillhandahåller REST-API: er för att anropa tjänster på OPC UA-servern, bläddra i adress utrymmet och läsa/skriva variabler och köra metoder. En panna använder till exempel temperatur-KPI för att kontrol lera produktions linjen. Temperatur sensorn publicerar ändringen i data med hjälp av OPC Publisher. Fabriks operatören tar emot en avisering om att temperaturen har nått tröskelvärdet. Produktions linjen svalnar automatiskt genom OPC. Fabriks operatören meddelas om den nedkylningen.
 
 ## <a name="authentication"></a>Autentisering
-Du kan använda OPC-dubbla för enkel autentisering och för en enkel utvecklare.
+Du kan använda OPC-delad för enkel autentisering och för en enkel utvecklare.
 
 ### <a name="simple-authentication"></a>Enkel autentisering 
 OPCs dubbla använder Azure Active Directory (AAD)-baserad autentisering och granskning från slut punkt till slut punkt. Till exempel kan OPC dubbla göra att programmet kan byggas ovanpå OPC, så att du kan avgöra vilken operatör som har utförts på en dator. På dator sidan är det genom OPC UA-granskning. På moln sidan är det genom att lagra en oföränderlig klient Gransknings logg och AAD-autentisering på REST API.

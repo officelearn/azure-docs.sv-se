@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: a44e7835b90ca88460d2045a5494420c6d47921b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032840"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167189"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -149,7 +149,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -235,7 +235,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Name
 7. Sammanfattning
-8. Beskrivning
+8. Description
 9. Användbara länkar
 10. Skärm bilder/videor
 
@@ -288,9 +288,11 @@ Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10
 
 Välj **Spara utkast** innan du fortsätter till nästa avsnitt, plan översikt.
 
-### <a name="plan-overview"></a>Plan översikt
+## <a name="plan-overview"></a>Plan översikt
 
 På den här fliken kan du ange olika prenumerations alternativ i samma erbjudande i Partner Center. Planer (tidigare kallade SKU: er) kan variera beroende på vilka moln som är tillgängliga, till exempel globala moln, offentliga moln och den avbildning som planen refererar till. Om du vill visa ditt erbjudande i Marketplace måste du konfigurera minst en plan.
+
+Du kan skapa upp till 100-planer för varje erbjudande: upp till 45 av dessa kan vara privata. Lär dig mer om privata planer i [privata erbjudanden på Microsofts kommersiella marknads platser](../private-offers.md).
 
 När du har skapat dina planer visas fliken **plan översikt** :
 
@@ -305,7 +307,7 @@ Vilka åtgärder som är tillgängliga i plan översikten varierar beroende på 
 - **Ta bort utkast**: om planens status är ett utkast.
 - **Stoppa Sälj plan**: om plan statusen publiceras Live.
 
-#### <a name="create-new-plan"></a>Skapa ny plan
+### <a name="create-new-plan"></a>Skapa ny plan
 
 Välj **Skapa ny plan**. Dialog rutan **nytt plan** visas.
 
@@ -337,7 +339,7 @@ Det här alternativet visas bara om **Azure Government** har valts under **Azure
 
 Azure Government Services hanterar data som omfattas av vissa myndighets bestämmelser och krav. Till exempel FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att få kännedom om dina certifieringar för dessa program kan du tillhandahålla upp till 100 länkar som beskriver dina certifieringar. Det kan vara länkar till dina program tablåer direkt eller till din egen webbplats. Dessa länkar är bara synliga för Azure Government kunder.
 
-## <a name="plan-listing"></a>Plan lista
+### <a name="plan-listing"></a>Plan lista
 
 På den här fliken visas särskild information för varje plan inom samma erbjudande.
 
@@ -377,7 +379,7 @@ Här är ett exempel på Azure Marketplace-plan information (alla noterade prise
 2. Plan namn
 3. Beskrivning av plan
 
-## <a name="availability"></a>Tillgänglighet
+### <a name="availability"></a>Tillgänglighet
 
 Om du vill dölja ditt publicerade erbjudande så att kunder inte kan söka, bläddra i eller köpa det på Marketplace, markerar du kryss rutan **Dölj plan** på fliken tillgänglighet.
 

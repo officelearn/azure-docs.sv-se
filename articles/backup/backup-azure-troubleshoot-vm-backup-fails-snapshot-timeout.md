@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 188eef5471e93661041dadfc93f561d2173ba7f2
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809773"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167937"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -23,7 +23,7 @@ De vanligaste säkerhets kopierings felen kan lösas själv genom att följa de 
 
 ### <a name="step-1-check-azure-vm-health"></a>Steg 1: kontrol lera Azure VM-hälsa
 
-- **Se till att etablerings statusen för Azure VM är igång**: om [etablerings status för virtuell dator](../virtual-machines/windows/states-lifecycle.md#provisioning-states) är i läget **stoppad/frigjord/uppdatering** störs säkerhets kopieringen. Öppna *Azure Portal > VM > översikt >* och kontrol lera VM-statusen för att kontrol lera att den **körs** och försök att säkerhetskopiera igen.
+- **Se till att etablerings statusen för Azure VM är igång**: om [etablerings status för virtuell dator](../virtual-machines/states-lifecycle.md#provisioning-states) är i läget **stoppad/frigjord/uppdatering** störs säkerhets kopieringen. Öppna *Azure Portal > VM > översikt >* och kontrol lera VM-statusen för att kontrol lera att den **körs** och försök att säkerhetskopiera igen.
 - **Granska väntande OS-uppdateringar eller omstarter**: kontrol lera att det inte finns någon VÄNTAnde OS-uppdatering eller väntande omstarter på den virtuella datorn.
 
 ### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Steg 2: kontrol lera hälsa för Azures gästa Gent tjänst
@@ -101,7 +101,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorVmProvisioningStateFailed<br>
 **Fel meddelande**: det gick inte att etablerings status för den virtuella datorn<br>
 
-Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > VM > inställningar > tillägg > tillägg status** och kontrol lera om alla tillägg är i **etablerings läget lyckades** . Mer information finns i [etablerings tillstånd](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > VM > inställningar > tillägg > tillägg status** och kontrol lera om alla tillägg är i **etablerings läget lyckades** . Mer information finns i [etablerings tillstånd](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Om VMSnapshot-tillägget är i ett felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en säkerhets kopiering på begäran. Med den här åtgärden installeras tilläggen om och säkerhets kopierings jobbet körs.  <br>
 - Om ett annat tillägg är i ett felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.

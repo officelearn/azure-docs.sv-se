@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708832"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167988"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Innehålls referens för Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -75,9 +75,17 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 - [Lagra utökade händelser i en händelse fil](../database/xevent-code-event-file.md)
 - [Lagra utökade händelser i en ringbufferten](../database/xevent-code-ring-buffer.md)
 
+### <a name="alerting"></a>Aviseringar
+
+- [Skapa aviseringar på en hanterad instans](alerts-create.md)
+
+## <a name="operations"></a>Åtgärder
+
+- [Användarinitierade manuell redundans på SQL-hanterad instans](user-initiated-failover.md)
+
 ## <a name="develop-applications"></a>Utveckla program
 
-- [Anslutningsmöjligheter](../database/connect-query-content-reference-guide.md#libraries)
+- [Anslutning](../database/connect-query-content-reference-guide.md#libraries)
 - [Använda Spark-anslutningsappen](../../cosmos-db/spark-connector.md)
 - [Autentisera en app](../database/application-authentication-get-client-id-keys.md)
 - [Använd batching för bättre prestanda](../performance-improve-use-batching.md)
@@ -99,8 +107,6 @@ I den här artikeln hittar du en innehålls referens till olika guider, skript o
 - [SaaS-designmönster](../database/saas-tenancy-app-design-patterns.md)
 - [SaaS-videoindexerare](../database/saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Säkerhet för SaaS-app](../database/saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,20 +1,23 @@
 ---
 title: Distribuera Azure Policy till delegerade prenumerationer i stor skala
 description: Lär dig hur Azure Lighthouse låter dig distribuera en princip definition och princip tilldelning över flera klienter.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 6d7c6206916f87072f68cc0fe953c8049896cd0b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111804"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167291"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Distribuera Azure Policy till delegerade prenumerationer i stor skala
 
 Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Lighthouse](../overview.md). Med Azure Lighthouse kan tjänst leverantörer utföra åtgärder i skala över flera klienter samtidigt, vilket gör hanterings uppgifter mer effektiva.
 
 Det här avsnittet visar hur du använder [Azure policy](../../governance/policy/index.yml) för att distribuera en princip definition och princip tilldelning över flera klienter med PowerShell-kommandon. I det här exemplet säkerställer princip definitionen att lagrings konton skyddas genom att endast tillåta HTTPS-trafik.
+
+> [!TIP]
+> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](../concepts/enterprise.md) använda samma processer.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Använd Azure Resource Graph för att fråga mellan kund klienter
 

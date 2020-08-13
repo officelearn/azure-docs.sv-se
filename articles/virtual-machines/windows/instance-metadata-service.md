@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: d074c3f806b36ff530396fbafcb3c7c6f9661fcf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe059f684306e2c98e625af72248f03f0932ebad
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827579"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168277"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -47,7 +47,7 @@ Nedan visas exempel koden för att hämta alla metadata för en instans, för at
 **Förfrågan**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2019-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
 ```
 
 **Response**
@@ -57,112 +57,97 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http:/
 
 ```json
 {
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
+    "compute": {
+        "azEnvironment": "AZUREPUBLICCLOUD",
+        "isHostCompatibilityLayerVm": "true",
+        "location": "westus",
+        "name": "examplevmname",
+        "offer": "Windows",
+        "osType": "linux",
+        "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+        "plan": {
+            "name": "planName",
+            "product": "planProduct",
+            "publisher": "planPublisher"
+        },
+        "platformFaultDomain": "36",
+        "platformUpdateDomain": "42",
+        "publicKeys": [{
+                "keyData": "ssh-rsa 0",
+                "path": "/home/user/.ssh/authorized_keys0"
             },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
+            {
+                "keyData": "ssh-rsa 1",
+                "path": "/home/user/.ssh/authorized_keys1"
+            }
         ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
+        "publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+        "resourceGroupName": "macikgo-test-may-23",
+        "resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+        "securityProfile": {
+            "secureBootEnabled": "true",
+            "virtualTpmEnabled": "false"
         },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.1.2.5",
-              "publicIpAddress": "X.X.X.X"
+        "sku": "Windows-Server-2012-R2-Datacenter",
+        "storageProfile": {
+            "dataDisks": [{
+                "caching": "None",
+                "createOption": "Empty",
+                "diskSizeGB": "1024",
+                "image": {
+                    "uri": ""
+                },
+                "lun": "0",
+                "managedDisk": {
+                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampledatadiskname",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
+            }],
+            "imageReference": {
+                "id": "",
+                "offer": "UbuntuServer",
+                "publisher": "Canonical",
+                "sku": "16.04.0-LTS",
+                "version": "latest"
+            },
+            "osDisk": {
+                "caching": "ReadWrite",
+                "createOption": "FromImage",
+                "diskSizeGB": "30",
+                "diffDiskSettings": {
+                    "option": "Local"
+                },
+                "encryptionSettings": {
+                    "enabled": "false"
+                },
+                "image": {
+                    "uri": ""
+                },
+                "managedDisk": {
+                    "id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                    "storageAccountType": "Standard_LRS"
+                },
+                "name": "exampleosdiskname",
+                "osType": "Linux",
+                "vhd": {
+                    "uri": ""
+                },
+                "writeAcceleratorEnabled": "false"
             }
-          ],
-          "subnet": [
-            {
-              "address": "10.1.2.0",
-              "prefix": "24"
-            }
-          ]
         },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "000D3A36DDED"
-      }
-    ]
-  }
+        "subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+        "tags": "baz:bash;foo:bar",
+        "version": "15.05.22",
+        "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+        "vmScaleSetName": "crpteste9vflji9",
+        "vmSize": "Standard_A3",
+        "zone": ""
+    }
 }
 ```
 
@@ -179,7 +164,7 @@ API | Standard data format | Andra format
 /instance | json | text
 /scheduledevents | json | inget
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -192,9 +177,26 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 
 Instance Metadata Service har versions hantering och angett att API-versionen i HTTP-begäran är obligatorisk.
 
-Följ de service versioner som stöds: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+De API-versioner som stöds är: 
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 2019-02-01
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
 
-Obs! när en ny version släpps, tar det en stund innan den distribueras till alla regioner. För närvarande är version 2019-11-01 fortfarande distribuerad och är kanske inte tillgänglig i alla regioner.
+Obs! när en ny version släpps, tar det en stund innan den distribueras till alla regioner.
 
 När nya versioner läggs till kan äldre versioner fortfarande nås för kompatibilitet om skripten har beroenden för vissa data format.
 
@@ -237,10 +239,11 @@ API | Beskrivning | Version introducerad
 
 Instans-API: t visar viktiga metadata för VM-instanser, inklusive VM, nätverk och lagring. Följande kategorier kan nås via instans/Compute:
 
-Data | Beskrivning | Version introducerad
+Data | Description | Version introducerad
 -----|-------------|-----------------------
 azEnvironment | Azure-miljö där den virtuella datorn körs i | 2018-10-01
 customData | Den här funktionen är för närvarande inaktive rad. Vi kommer att uppdatera den här dokumentationen när den blir tillgänglig | 2019-02-01
+isHostCompatibilityLayerVm | Identifierar om den virtuella datorn körs på värdens kompatibilitetsnivå | 2020-06-01
 location | Azure-regionen som den virtuella datorn körs i | 2017-04-02
 name | Namn på den virtuella datorn | 2017-04-02
 offer | Erbjudande information för den virtuella dator avbildningen och finns bara för avbildningar som distribuerats från Azures avbildnings Galleri | 2017-04-02
@@ -255,6 +258,8 @@ utgivare | Utgivare av VM-avbildningen | 2017-04-02
 resourceGroupName | [Resurs grupp](../../azure-resource-manager/management/overview.md) för den virtuella datorn | 2017-08-01
 resourceId | Resursens [fullständigt kvalificerade](/rest/api/resources/resources/getbyid) ID | 2019-03-11
 sku | En speciell SKU för VM-avbildningen | 2017-04-02
+securityProfile. secureBootEnabled | Identifierar om UEFI säker start är aktiverat på den virtuella datorn | 2020-06-01
+securityProfile.virtualTpmEnabled | Identifierar om den virtuella Trusted Platform Module (TPM) är aktive rad på den virtuella datorn | 2020-06-01
 storageProfile | Se [lagrings profil](#storage-metadata) | 2019-06-01
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
 tags | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
@@ -428,7 +433,7 @@ Molnet och värdena i Azure-miljön visas nedan.
 
 Metadata för nätverket är en del av instans-API: et. Följande nätverks kategorier är tillgängliga via instansen/nätverks slut punkten.
 
-Data | Beskrivning | Version introducerad
+Data | Description | Version introducerad
 -----|-------------|-----------------------
 IPv4/privateIpAddress | Lokal IPv4-adress för den virtuella datorn | 2017-04-02
 IPv4/publicIpAddress | Offentlig IPv4-adress för den virtuella datorn | 2017-04-02
@@ -496,7 +501,7 @@ Lagrings profilen för en virtuell dator är uppdelad i tre kategorier: avbildni
 
 Objektet bild referens innehåller följande information om operativ system avbildningen:
 
-Data    | Beskrivning
+Data    | Description
 --------|-----------------
 id      | Resurs-ID
 offer   | Erbjudande för plattformen eller Marketplace-avbildningen
@@ -506,7 +511,7 @@ version | Version av plattformen eller Marketplace-avbildningen
 
 Objektet OS-disk innehåller följande information om den OS-disk som används av den virtuella datorn:
 
-Data    | Beskrivning
+Data    | Description
 --------|-----------------
 cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
@@ -521,7 +526,7 @@ writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
 Data disks-matrisen innehåller en lista över data diskar som är anslutna till den virtuella datorn. Varje data disk objekt innehåller följande information:
 
-Data    | Beskrivning
+Data    | Description
 --------|-----------------
 cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
@@ -683,7 +688,7 @@ Nonce är en valfri sträng med 10 siffror. Om den inte anges, returnerar IMDS d
 Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, SKU, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azure Marketplace-avbildningar. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 Dokumentet innehåller följande fält:
 
-Data | Beskrivning
+Data | Description
 -----|------------
 Nnär | En sträng som kan anges med begäran. Om inget nonce angavs används den aktuella UTC-tidsstämpeln
 planera | [Avbildnings planen för Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Innehåller plan-ID (namn), produkt avbildning eller erbjudande (produkt) och utgivar-ID (utgivare).
@@ -829,7 +834,7 @@ Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="error-and-debugging"></a>Fel och fel sökning
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
 
 HTTP-statuskod | Orsak
 -----------------|-------

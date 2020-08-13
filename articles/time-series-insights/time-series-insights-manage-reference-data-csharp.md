@@ -9,30 +9,30 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: a8da2355b62d7be36b10ac9a1ce4b53e87b4b288
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2a33c701278a900e502da9e6d9520ea213ce4c3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87059218"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168107"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c"></a>Hantera referens data för en Azure Time Series Insights gen 1-miljö med C #
+# <a name="manage-reference-data-for-an-azure-time-series-insights-gen-1-environment-using-c-sharp"></a>Hantera referens data för en Azure Time Series Insights gen 1-miljö med C Sharp
 
-Den här artikeln visar hur du kombinerar C#-, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)-och Azure Active Directory för att göra API-begäranden i programmering till Azure Time Series Insights gen 1 [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+Den här artikeln visar hur du kombinerar C#-, [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)-och Azure Active Directory för att göra API-begäranden i programmering till Azure Time Series Insights gen 1 [Reference datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
 
 > [!TIP]
-> Visa GA C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
+> Visa GA C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
 
 ## <a name="summary"></a>Sammanfattning
 
 Exempel koden nedan visar följande funktioner:
 
 * Förvärva en åtkomsttoken med hjälp av [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**.
-* Sekventiella åtgärder för att skapa, läsa, uppdatera och ta bort mot den 1 [: e referens datahantering API: et](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
-* Vanliga svars koder, inklusive [vanliga felkoder](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling).
-    
+* Sekventiella åtgärder för att skapa, läsa, uppdatera och ta bort mot den 1 [: e referens datahantering API: et](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).
+* Vanliga svars koder, inklusive [vanliga felkoder](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api#validation-and-error-handling).
+
     Referens Datahanterings-API: n bearbetar varje objekt individuellt och ett fel med ett objekt förhindrar inte att andra slutförs. Om din begäran till exempel har 100 objekt och ett objekt har ett fel, så skrivs 99-objekt och ett avvisas.
 
 ## <a name="prerequisites-and-setup"></a>Krav och installation
@@ -46,7 +46,7 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 
    | Nyckelnamn | Typ |
    | --- | --- |
-   | uuid | Sträng | 
+   | uuid | Sträng |
 
 1. Konfigurera din Azure Time Series Insightss miljö för Azure Active Directory enligt beskrivningen i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md). Använd `http://localhost:8080/` som **omdirigerings-URI**.
 
@@ -54,7 +54,7 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 
 1. Redigera exempel koden nedan genom att ersätta varje **#PLACEHOLDER #** med rätt miljö identifierare.
 
-1. Kör `dotnet run` i projektets rot Katalog. När du uppmanas använder du din användar profil för att logga in på Azure. 
+1. Kör `dotnet run` i projektets rot Katalog. När du uppmanas använder du din användar profil för att logga in på Azure.
 
 ## <a name="project-dependencies"></a>Projektberoenden
 
@@ -92,6 +92,7 @@ Eller
       </ItemGroup>
     </Project>
     ```
+
 1. Kör sedan `dotnet restore`.
 
 ## <a name="c-sample-code"></a>Exempel kod för C#
@@ -114,7 +115,7 @@ namespace CsharpTsiMsalGaSample
     {
         /**
          * Review the product documentation for detailed configuration steps or skip ahead and configure your environment settings.
-         * 
+         *
          * https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
          */
 
@@ -138,7 +139,7 @@ namespace CsharpTsiMsalGaSample
 
             /**
              * MSAL.NET configuration. Review the product documentation for more information about MSAL.NET authentication options.
-             * 
+             *
              * https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/
              */
 
@@ -174,7 +175,7 @@ namespace CsharpTsiMsalGaSample
                 Path = $"referencedatasets/{EnvironmentReferenceDataSetName}/$batch",
                 Query = "api-version=2016-12-12"
              }.Uri;
-                
+
              Console.WriteLine("Making HTTP POST to URI: {0}", uri);
              Console.WriteLine("");
 
@@ -202,7 +203,7 @@ namespace CsharpTsiMsalGaSample
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + accessToken);
 
-            {   
+            {
                 // CREATE reference data
                 Console.WriteLine("CREATE reference data example...");
                 Console.WriteLine("");
@@ -309,4 +310,4 @@ namespace CsharpTsiMsalGaSample
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs referens dokumentationen för den här [datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) -referensen.
+* Läs referens dokumentationen för den här [datahantering API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) -referensen.

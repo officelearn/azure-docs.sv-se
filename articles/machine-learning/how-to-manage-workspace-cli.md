@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6c2d1b3db422a40f7bcf237c292b48183d99962b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121280"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167648"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -143,6 +143,9 @@ Utdata från det här kommandot liknar följande JSON:
 ```
 
 ### <a name="virtual-network-and-private-endpoint"></a>Virtuellt nätverk och privat slut punkt
+
+> [!IMPORTANT]
+> Att använda Azures privata länk med Azure Machine Learning-arbetsytan är för närvarande en offentlig för hands version. Den här funktionen är endast tillgänglig i regionerna **USA, östra** och USA, **västra 2** . Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Om du vill begränsa åtkomsten till din arbets yta till ett virtuellt nätverk kan du använda följande parametrar:
 

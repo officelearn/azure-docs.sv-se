@@ -4,14 +4,14 @@ description: Få svar på vanliga frågor om Tabell-API i Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392360"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167597"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om Tabell-API i Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Det finns vissa beteende skillnader som användare kommer från Azure Table Stor
   | ------------| ------------- | ---------- | ----------- |
   | HÄMTA, PLACERA | `/?restype=service@comp=properties`| [Ange tabell tjänst egenskaper](/rest/api/storageservices/set-table-service-properties) och [Hämta Table service-egenskaper](/rest/api/storageservices/get-table-service-properties) | Den här slut punkten används för att ange CORS-regler, Storage Analytics-konfiguration och loggnings inställningar. CORS stöds för närvarande inte och analys och loggning hanteras på ett annat sätt i Azure Cosmos DB än Azure Storage tabeller |
   | SÄTT | `/<table-resource-name>` | [CORS-begäran för CORS-tabellen](/rest/api/storageservices/preflight-table-request) | Detta är en del av CORS som Azure Cosmos DB för närvarande inte stöder. |
-  | HÄMTA | `/?restype=service@comp=stats` | [Hämta Table service stats](/rest/api/storageservices/get-table-service-stats) | Innehåller information om hur snabbt data replikeras mellan primär och sekundär. Detta behövs inte i Cosmos DB eftersom replikeringen är en del av skrivningar. |
+  | GET | `/?restype=service@comp=stats` | [Hämta Table service stats](/rest/api/storageservices/get-table-service-stats) | Innehåller information om hur snabbt data replikeras mellan primär och sekundär. Detta behövs inte i Cosmos DB eftersom replikeringen är en del av skrivningar. |
   | HÄMTA, PLACERA | `/mytable?comp=acl` | [Hämta tabell-ACL](/rest/api/storageservices/get-table-acl) och [Ange tabell-ACL](/rest/api/storageservices/set-table-acl) | Detta hämtar och anger de lagrade åtkomst principerna som används för att hantera signaturer för delad åtkomst (SAS). Även om SAS stöds, är de inställda och hanterade på olika sätt. |
 
 * Azure Cosmos DB Tabell-API stöder bara JSON-formatet, inte ATOM.
@@ -274,7 +274,7 @@ Azure Cosmos DB är utformat för att vara ett globalt distribuerat, SLA-baserat
 
 ### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Jag får aldrig en fullständig kvot "meddelande (som anger att en partition är full) när jag matar in data i Azure Table Storage. Med Tabell-API får jag det här meddelandet. Är det här erbjudandet som begränsar mig och tvingar mig att ändra mitt befintliga program?
 
-Azure Cosmos DB är ett SLA-baserat system som ger obegränsad skalning, med garantier för svars tid, data flöde, tillgänglighet och konsekvens. Säkerställ att data storleken och indexet kan hanteras och vara skalbart för att garantera förstklassig prestanda. Gränsen på 10 GB för antalet entiteter eller objekt per partitionsnyckel är att se till att vi ger fantastisk sökning och fråga prestanda. För att säkerställa att ditt program skalar bra, även för Azure Storage, rekommenderar vi att du *inte* skapar en aktiv partition genom att lagra all information i en partition och fråga den.
+Azure Cosmos DB är ett SLA-baserat system som ger obegränsad skalning, med garantier för svars tid, data flöde, tillgänglighet och konsekvens. Säkerställ att data storleken och indexet kan hanteras och vara skalbart för att garantera förstklassig prestanda. Gränsen på 20 GB för antalet entiteter eller objekt per partitionsnyckel är att se till att vi ger fantastisk sökning och fråga prestanda. För att säkerställa att ditt program skalar bra, även för Azure Storage, rekommenderar vi att du *inte* skapar en aktiv partition genom att lagra all information i en partition och fråga den.
 
 ### <a name="so-partitionkey-and-rowkey-are-still-required-with-the-table-api"></a>Så PartitionKey och RowKey krävs fortfarande med Tabell-API?
 

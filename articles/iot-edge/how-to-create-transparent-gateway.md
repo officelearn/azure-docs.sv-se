@@ -4,19 +4,19 @@ description: Använd en Azure IoT Edge enhet som en transparent gateway som kan 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 0155294777e1d732e5ff3874102b90049d9a123d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7147ca1295c9f2cef5d89c232f2c266075e362
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782593"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167410"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet till att fungera som en transparent gateway
 
@@ -45,7 +45,7 @@ Du kan skapa en certifikat infrastruktur som aktiverar det förtroende som kräv
 
 Följande steg vägleder dig genom processen att skapa certifikaten och installera dem på rätt plats på gatewayen. Du kan använda vilken dator som helst för att generera certifikaten och sedan kopiera dem till din IoT Edge-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Linux-eller Windows-enhet med IoT Edge installerat.
 
@@ -93,15 +93,19 @@ För produktions scenarier bör du generera dessa filer med din egen certifikat 
    * Aktivitets`Restart-Service iotedge`
    * Linux`sudo systemctl restart iotedge`
 
-## <a name="deploy-edgehub-to-the-gateway"></a>Distribuera edgeHub till gatewayen
+## <a name="deploy-edgehub-and-route-messages"></a>Distribuera edgeHub och dirigera meddelanden
 
-Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. När du har skapat den första distributionen för en enhet startas den andra-systemmodulen, IoT Edge hubben, också.
+Underordnade enheter skickar telemetri och meddelanden till gateway-enheten, där modulen IoT Edge Hub ansvarar för att vidarebefordra informationen till andra moduler eller till IoT Hub. För att förbereda din gateway-enhet för den här funktionen, se till att:
 
-IoT Edge Hub ansvarar för att ta emot inkommande meddelanden från underordnade enheter och dirigera dem till nästa mål. Om modulen **edgeHub** inte körs på enheten skapar du en första distribution för enheten. Distributionen kommer att se Tom ut eftersom du inte lägger till några moduler, men det ser till att båda systemmodulerna körs.
+* Modulen IoT Edge Hub har distribuerats till enheten.
 
-Du kan kontrol lera vilka moduler som körs på en enhet genom att kontrol lera enhets informationen i Azure Portal, Visa enhets status i Visual Studio eller Visual Studio Code eller genom att köra kommandot `iotedge list` på själva enheten.
+  Första gången du installerar IoT Edge på en enhet startar bara en systemmodul automatiskt: IoT Edge agenten. När du har skapat den första distributionen för en enhet startar den andra systemmodulen, IoT Edge hubben, också. Om modulen **edgeHub** inte körs på enheten skapar du en distribution för enheten.
 
-Om modulen **edgeAgent** körs utan modulen **edgeHub** använder du följande steg:
+* Modulen IoT Edge Hub har vägar konfigurerade för hantering av inkommande meddelanden från underordnade enheter.
+
+  Gateway-enheten måste ha en väg för att hantera meddelanden från underordnade enheter, annars kommer de inte att bearbetas. Du kan skicka meddelanden till moduler på gateway-enheten eller direkt till IoT Hub.
+
+Följ dessa steg om du vill distribuera modulen IoT Edge Hub och konfigurera den med vägar för att hantera inkommande meddelanden från underordnade enheter:
 
 1. Gå till din IoT-hubb på Azure Portal.
 
@@ -109,13 +113,27 @@ Om modulen **edgeAgent** körs utan modulen **edgeHub** använder du följande s
 
 3. Välj **Ange moduler**.
 
-4. Välj **Nästa: vägar**.
+4. På sidan **moduler** kan du lägga till alla moduler som du vill distribuera till gateway-enheten. I den här artikeln fokuserar vi på att konfigurera och distribuera edgeHub-modulen, som inte behöver anges explicit på den här sidan.
 
-5. På sidan **vägar** bör du ha en standard väg som skickar alla meddelanden, oavsett om en modul eller en underordnad enhet, ska IoT Hub. Om inte, lägger du till en ny väg med följande värden och väljer sedan **Granska + skapa**:
-   * **Namn**:`route`
-   * **Värde**:`FROM /messages/* INTO $upstream`
+5. Välj **Nästa: vägar**.
 
-6. På sidan **Granska och skapa** väljer du **skapa**.
+6. På sidan **vägar** ser du till att det finns en väg för att hantera meddelanden från underordnade enheter. Till exempel:
+
+   * En väg som skickar alla meddelanden, antingen från en modul eller från en underordnad enhet, till IoT Hub:
+       * **Namn**:`allMessagesToHub`
+       * **Värde**:`FROM /messages/* INTO $upstream`
+
+   * En väg som skickar alla meddelanden från alla underordnade enheter till IoT Hub:
+      * **Namn**:`allDownstreamToHub`
+      * **Värde**:`FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+
+      Den här vägen fungerar på grund av IoT Edge att meddelanden från underordnade enheter inte har något associerat ID för meddelanden från efterföljande enheter. Med hjälp av vägens **WHERE** -sats kan vi filtrera bort alla meddelanden med den system egenskapen.
+
+      Mer information om meddelanderoutning finns i [distribuera moduler och upprätta vägar](./module-composition.md#declare-routes).
+
+7. När du har skapat din väg eller dina vägar väljer du **Granska + skapa**.
+
+8. På sidan **Granska och skapa** väljer du **skapa**.
 
 ## <a name="open-ports-on-gateway-device"></a>Öppna portar på gateway-enhet
 
@@ -128,25 +146,6 @@ För att ett Gateway-scenario ska fungera måste minst ett av de protokoll som s
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="route-messages-from-downstream-devices"></a>Dirigera meddelanden från underordnade enheter
-
-IoT Edge runtime kan dirigera meddelanden som skickas från underordnade enheter precis som meddelanden som skickas av moduler. Med den här funktionen kan du utföra analyser i en modul som körs på gatewayen innan du skickar data till molnet.
-
-För närvarande är det hur du dirigerar meddelanden som skickas av underordnade enheter genom att skilja dem från meddelanden som skickas av moduler. Meddelanden som skickas av moduler innehåller alla system egenskaper som heter **connectionModuleId** men meddelanden som skickas av underordnade enheter gör inte det. Du kan använda WHERE-satsen för vägen för att undanta eventuella meddelanden som innehåller system egenskapen.
-
-Nedanstående väg är ett exempel som skickar meddelanden från en underordnad enhet till en modul med namnet `ai_insights` och sedan från `ai_insights` till IoT Hub.
-
-```json
-{
-    "routes":{
-        "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")",
-        "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream"
-    }
-}
-```
-
-Mer information om meddelanderoutning finns i [distribuera moduler och upprätta vägar](./module-composition.md#declare-routes).
 
 ## <a name="enable-extended-offline-operation"></a>Aktivera utökad offline-åtgärd
 

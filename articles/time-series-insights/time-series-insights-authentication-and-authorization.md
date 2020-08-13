@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: e83e6df26a2b3e8eabda142ee6cd89320c59ad8a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922650"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168039"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
@@ -46,6 +46,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 > Följ principen om **separering av problem** (beskrivs i det här scenariot ovan) när du konfigurerar din Azure Time Series Insights säkerhets princip.
 
 > [!NOTE]
+
 > * Artikeln fokuserar på ett program med en enda klient organisation där programmet endast är avsett att köras i en organisation.
 > * Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.
 
@@ -109,18 +110,19 @@ För att utföra autentiserade frågor mot [Azure Time Series Insights REST-API:
 
 Obligatoriska begärandehuvuden beskrivs nedan.
 
-| Nödvändigt begär ande huvud | Beskrivning |
+| Nödvändigt begär ande huvud | Description |
 | --- | --- |
 | Auktorisering | För att autentisera med Azure Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. |
 
 > [!IMPORTANT]
 > Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
+
 > * Din [Postman](https://www.getpostman.com/) - **AuthURL** kommer därför att vara:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
 > * `https://api.timeseries.azure.com/`är giltig men `https://api.timeseries.azure.com` inte.
 
 Valfria begärandehuvuden beskrivs nedan.
 
-| Valfritt begärandehuvud | Beskrivning |
+| Valfritt begärandehuvud | Description |
 | --- | --- |
 | Innehålls typ | `application/json`stöds endast. |
 | x-MS-client-Request-ID | En klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster. |
@@ -129,7 +131,7 @@ Valfria begärandehuvuden beskrivs nedan.
 
 Valfria men rekommenderade svarshuvuden beskrivs nedan.
 
-| Svars huvud | Beskrivning |
+| Svars huvud | Description |
 | --- | --- |
 | Innehålls typ | `application/json`Stöds endast. |
 | x-MS-Request-ID | Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran. |
@@ -155,7 +157,7 @@ Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns f
 
 | Valfri frågeparameter | Beskrivning | Version |
 | --- |  --- | --- |
-| `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s` . Standardvärdet är `30 s` . | Gen1 |
+| `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s` . Standardvärdet är `30 s` . | Gen1 |
 | `storeType=<storeType>` | För Gen2-miljöer där varm lagring är aktiverat kan frågan köras antingen på `WarmStore` eller `ColdStore` . Den här parametern i frågan definierar i vilken lagring frågan ska köras. Om den inte är definierad körs frågan på kall butiken. **StoreType** måste ställas in på för att kunna fråga det varmt arkivet `WarmStore` . Om den inte är definierad utförs frågan mot kyl lagret. | Gen2 |
 
 ## <a name="next-steps"></a>Nästa steg
@@ -164,6 +166,6 @@ Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns f
 
 * För exempel kod som anropar Gen2 Azure Time Series Insights API-kod exempel läser du [fråga Gen2 data med C#](./time-series-insights-update-query-data-csharp.md).
 
-* Information om API-referensinformation finns i [referens](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api) dokumentationen för fråge-API.
+* Information om API-referensinformation finns i [referens](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-api) dokumentationen för fråge-API.
 
 * Lär dig hur du [skapar ett huvud namn för tjänsten](../active-directory/develop/howto-create-service-principal-portal.md).

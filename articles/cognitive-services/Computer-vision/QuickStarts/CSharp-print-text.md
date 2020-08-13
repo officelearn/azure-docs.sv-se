@@ -1,29 +1,29 @@
 ---
-title: 'Snabb start: extrahera utskriven text (OCR) – REST, C #'
+title: 'Snabb start: Extrahera text med Visuellt innehåll OCR-REST API och C #'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med C#.
+description: I den här snabb starten ska du extrahera text från en avbildning med hjälp av Visuellt innehåll REST API OCR-åtgärd med C#.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4ce9e530f536893fe3d9753e43928cf53f9dde53
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ecc0ddbfa48669cad7f486e181fcdb6dbc80851e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835399"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167801"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och C #
+# <a name="quickstart-extract-text-using-the-computer-vision-ocr-rest-api-and-c"></a>Snabb start: Extrahera text med hjälp av Visuellt innehåll OCR-REST API och C #
 
-> [!NOTE]
-> Om du extraherar engelsk språk text bör du överväga att använda den nya [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [snabb start för C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) är tillgänglig. 
+> [!IMPORTANT]
+> Om du extraherar text på engelska, nederländska, franska, tyska, italienska, portugisiska, spanska eller förenklad kinesiska (för hands version) rekommenderar vi att du använder den nyare [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [snabb start för C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) är tillgänglig. 
 
-I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-funktionen kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
+I den här snabb starten ska du extrahera utskriven text från en bild med hjälp av funktionen Visuellt innehåll REST API [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -funktion. Med den här åtgärden kan du identifiera utskriven text i en bild och extrahera identifierade tecken i en maskin användbar tecken ström.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

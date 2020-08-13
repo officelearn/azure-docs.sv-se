@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 19e7a7972af55173f19d5784b2a6ac78ae14a0f0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 46d1f811593571228d21c687be0a98d413cc9854
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124977"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168158"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -50,7 +50,7 @@ Azure Private-länken ger följande fördelar:
 |Azure Cosmos DB|  Alla offentliga regioner<br/> Alla myndighets regioner | |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
 |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner <br/> Alla myndighets regioner     | Stöds för Generell användning och minnesoptimerade pris nivåer | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | Alla offentliga regioner<br/> Alla myndighets regioner      |  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure-databas för MariaDB         | Alla offentliga regioner<br/> Alla myndighets regioner     |  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  Azure Database for MariaDB         | Alla offentliga regioner<br/> Alla myndighets regioner     |  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | Alla offentliga regioner<br/> Alla myndighets regioner      |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |Azure Kubernetes-tjänst – Kubernetes-API | Alla offentliga regioner      |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/aks/private-clusters)   |
 |Azure Search | Alla offentliga regioner <br/> Alla myndighets regioner | Stöds med tjänsten i privat läge | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
@@ -62,7 +62,7 @@ Azure Private-länken ger följande fördelar:
 |Azure Relay | Alla offentliga regioner      |  | Förhandsgranskning <br/> [Läs mer](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Alla offentliga regioner<br/> Alla myndighets regioner       |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | Alla offentliga regioner      | Stöds med PremiumV2 Windows-och Linux-och elastiska Premium-funktioner  | Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |  | Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | ÖSTRA USA, VÄSTRA USA 2      |  | Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | Alla offentliga regioner |  | Förhandsgranskning | |
 | Azure IoT Hub | Alla offentliga regioner    |  | Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |  | Förhandsgranskning   <br/> [Läs mer](https://aka.ms/asrs/privatelink)   |

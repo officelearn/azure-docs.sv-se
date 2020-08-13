@@ -1,18 +1,21 @@
 ---
 title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273786"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167172"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
-Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) för att visa information om tjänst leverantörer och service provider-erbjudanden, delegera resurser till [Azure-Lighthouse](../overview.md)och shoppa för nya tjänst leverantörer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Kunder kan använda sidan **tjänst leverantörer** i [Azure Portal](https://portal.azure.com) för att visa information om tjänst leverantörer och service provider-erbjudanden, delegera resurser till [Azure-Lighthouse](../overview.md)och shoppa för nya tjänst leverantörer.
+
+> [!TIP]
+> Vi kommer att hänvisa till tjänst leverantörer och kunder här, men [företag som hanterar flera klienter](../concepts/enterprise.md) kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 För att få åtkomst till sidan **tjänst leverantörer** i Azure Portal kan kunden välja **alla tjänster**och sedan söka efter **tjänst leverantörer** och välja den. De kan också hitta den genom att ange "tjänst leverantörer" eller "Azure-Lighthouse" i sökrutan längst upp i Azure Portal.
 

@@ -1,18 +1,21 @@
 ---
 title: Visa och hantera kunder och delegerade resurser
-description: Som en tjänst leverantör som använder Azure-Lighthouse kan du Visa alla dina delegerade kund resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
-ms.date: 07/06/2020
+description: Som tjänst leverantör eller företag som använder Azure-Lighthouse kan du Visa alla delegerade resurser och prenumerationer genom att gå till mina kunder i Azure Portal.
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: f509a91d71caa3ab1ec8282f4151556f7c10d52c
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 165110556282e90bbacf4ce3b3c59e34b203a528
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133274"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167206"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 
-Tjänste leverantörer som använder [Azure Lighthouse](../overview.md) kan använda sidan **mina kunder** i [Azure Portal](https://portal.azure.com) för att Visa delegerade kund resurser och prenumerationer. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
+Tjänste leverantörer som använder [Azure Lighthouse](../overview.md) kan använda sidan **mina kunder** i [Azure Portal](https://portal.azure.com) för att Visa delegerade kund resurser och prenumerationer. 
+
+> [!TIP]
+> Vi kommer att hänvisa till tjänst leverantörer och kunder här, men [företag som hanterar flera klienter](../concepts/enterprise.md) kan använda samma process för att konsolidera sin hanterings upplevelse.
 
 Du kommer åt sidan **Mina kunder** på Azure Portal genom att välja **alla tjänster**och sedan söka efter **Mina kunder** och välja den. Du kan också hitta den genom att ange "mina kunder" i sökrutan längst upp i Azure Portal.
 
@@ -42,7 +45,7 @@ Du kan visa följande information från den här sidan:
 
 ## <a name="view-and-manage-delegations"></a>Visa och hantera delegeringar
 
-Delegeringarna visar den prenumeration/resurs grupp som har delegerats, tillsammans med de användare och behörigheter som har åtkomst till den. Om du vill visa den här informationen väljer du **delegeringar** på vänster sida av sidan **Mina kunder** .
+Delegeringarna visar den prenumeration eller resurs grupp som har delegerats, tillsammans med de användare och behörigheter som har åtkomst till den. Om du vill visa den här informationen väljer du **delegeringar** på vänster sida av sidan **Mina kunder** .
 
 Med filter överst på sidan kan du sortera och gruppera information om åtkomst tilldelning eller filtrera efter vissa kunder, erbjudanden eller nyckelord.
 

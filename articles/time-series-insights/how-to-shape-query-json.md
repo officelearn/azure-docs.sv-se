@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: diviso
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc24c1f49a48e81509961d5d7d01dba60dc50475
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1a7a88e0db38f399dc47c030f3b97f6b26f4da07
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077647"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168243"
 ---
 # <a name="shape-json-to-maximize-query-performance-in-your-gen1-environment"></a>Form-JSON för att maximera prestanda för frågor i din gen1-miljö
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller rikt linjer för hur du formar JSON för att maxim
 
 ### <a name="learn-best-practices-for-shaping-json-to-meet-your-storage-needsbr"></a>Lär dig metod tips för utformning av JSON för att uppfylla dina lagrings behov.</br>
 
-> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
+> [!VIDEO <https://www.youtube.com/embed/b2BD5hwbg5I>]
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -60,7 +60,6 @@ I följande exempel finns ett enda Azure IoT Hub-meddelande där den yttre matri
 
 Tänk på följande JSON-nyttolast som skickas till din Azure Time Series Insights GA-miljö med ett [meddelande objekt i IoT-enheten](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) som är serialiserat i JSON när det skickas till Azure-molnet:
 
-
 ```JSON
 [
     {
@@ -90,14 +89,14 @@ Tänk på följande JSON-nyttolast som skickas till din Azure Time Series Insigh
 ]
 ```
 
-* Referens data tabell som har Key Property **deviceId**:
+- Referens data tabell som har Key Property **deviceId**:
 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINJE \_ data | EU |
    | FYYY | LINJE \_ data | USA |
 
-* Azure Time Series Insights händelse tabell efter förenkling:
+- Azure Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | messageId | deviceLocation | timestamp | serien. Flödes frekvens ft3/s | serien. Motor Oil-tryck psi |
    | --- | --- | --- | --- | --- | --- |
@@ -106,6 +105,7 @@ Tänk på följande JSON-nyttolast som skickas till din Azure Time Series Insigh
    | FYYY | LINJE \_ data | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
 > [!NOTE]
+
 > - Kolumnen **deviceId** fungerar som kolumn rubrik för de olika enheterna i en flotta. Att göra **deviceId** -värdet till ett eget egenskaps namn begränsar det totala antalet enheter till 595 (för S1-miljöer) eller 795 (för S2-miljöer) med de andra fem kolumnerna.
 > - Onödiga egenskaper undviks (till exempel märke och modell information). Eftersom det inte går att fråga efter egenskaper i framtiden ger det bättre nätverks-och lagrings effektivitet.
 > - Referens data används för att minska antalet byte som överförs via nätverket. De två attributen **messageId** och **deviceLocation** kopplas ihop med nyckel egenskap **deviceId**. Dessa data är kopplade till telemetridata vid ingångs tiden och lagras sedan i Azure Time Series Insights för frågor.
@@ -160,7 +160,7 @@ Exempel på JSON-nytto last:
 ]
 ```
 
-* Referens data tabell som innehåller nyckel egenskaperna **deviceId** och **serien. tagId**:
+- Referens data tabell som innehåller nyckel egenskaperna **deviceId** och **serien. tagId**:
 
    | deviceId | serie. tagId | messageId | deviceLocation | typ | unit |
    | --- | --- | --- | --- | --- | --- |
@@ -169,18 +169,19 @@ Exempel på JSON-nytto last:
    | FYYY | pumpRate | LINJE \_ data | USA | Flödes hastighet | ft3/s |
    | FYYY | oilPressure | LINJE \_ data | USA | Motor Oil-tryck | psi |
 
-* Azure Time Series Insights händelse tabell efter förenkling:
+- Azure Time Series Insights händelse tabell efter förenkling:
 
    | deviceId | serie. tagId | messageId | deviceLocation | typ | unit | timestamp | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
    | FXXX | oilPressure | LINJE \_ data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
-   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | pumpRate | LINJE \_ data | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 |
    | FXXX | oilPressure | LINJE \_ data | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
    | FYYY | pumpRate | LINJE \_ data | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINJE \_ data | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
 
 > [!NOTE]
+
 > - Kolumnerna **deviceId** och **serien. tagId** fungerar som kolumn rubriker för de olika enheterna och taggarna i en flotta. Om du använder varje as-attribut begränsas frågan till 594 (för S1-miljöer) eller 794 (för S2-miljöer) totalt enheter med de andra sex kolumnerna.
 > - Onödiga egenskaper förhindrades, på grund av orsaken i det första exemplet.
 > - Referens data används för att minska antalet byte som överförs via nätverket genom att introducera **deviceId**, som används för det unika paret **messageId** och **deviceLocation**. Den sammansatta nyckel **serien. tagId** används för det unika paret av **typen** och **enheten**. Den sammansatta nyckeln tillåter att **tagId** -paret för **deviceId** och Series används för att referera till fyra värden: **messageId, deviceLocation, Type** och **Unit**. Dessa data är kopplade till telemetridata vid ingångs tiden. Den lagras sedan i Azure Time Series Insights för frågor.
@@ -190,13 +191,13 @@ Exempel på JSON-nytto last:
 
 För en egenskap med ett stort antal möjliga värden är det bäst att skicka som distinkta värden i en enda kolumn i stället för att skapa en ny kolumn för varje värde. Från de föregående två exemplen:
 
-  - I det första exemplet har några få egenskaper flera värden, så det är lämpligt att göra varje enskild egenskap.
-  - I det andra exemplet har måtten inte angetts som enskilda egenskaper. I stället är de en matris med värden eller mått under en gemensam serie egenskap. Den nya nyckeln **tagId** skickas, vilket skapar den nya kolumn **serien. tagId** i den sammanslagna tabellen. Den nya egenskaps **typen** och **enheten** skapas med hjälp av referens data så att egenskaps gränsen inte nås.
+- I det första exemplet har några få egenskaper flera värden, så det är lämpligt att göra varje enskild egenskap.
+- I det andra exemplet har måtten inte angetts som enskilda egenskaper. I stället är de en matris med värden eller mått under en gemensam serie egenskap. Den nya nyckeln **tagId** skickas, vilket skapar den nya kolumn **serien. tagId** i den sammanslagna tabellen. Den nya egenskaps **typen** och **enheten** skapas med hjälp av referens data så att egenskaps gränsen inte nås.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [att skicka IoT Hub enhets meddelanden till molnet](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-- Läs [Azure Time Series Insights frågesyntaxen](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) för att lära dig mer om frågesyntaxen för Azure Time Series Insights data åtkomst REST API.
+- Läs [Azure Time Series Insights frågesyntaxen](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query-syntax) för att lära dig mer om frågesyntaxen för Azure Time Series Insights data åtkomst REST API.
 
 - Lär dig [hur du formar händelser](./time-series-insights-send-events.md).

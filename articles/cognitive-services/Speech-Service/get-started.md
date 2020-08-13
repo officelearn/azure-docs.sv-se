@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: 5dc1f8ed31c8d7199a31643a76e611d828da77ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c15601b4c58ce072881b3c244f10bc196bceb853
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056473"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167818"
 ---
 # <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
@@ -87,7 +87,7 @@ Om du vill växla från en prenumeration till en annan, till exempel när din ko
 
 ## <a name="about-regions"></a>Om regioner
 
-- Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions koden, till exempel `westus` när du skapar en tal konfiguration.
+- Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions-ID: t, till exempel `westus` när du skapar en tal konfiguration.
 - Om ditt program använder en av de olika tal tjänstens [REST-API: er](rest-apis.md)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
 - Nycklar som skapats för en region är bara giltiga i den regionen. Om du försöker använda dem med andra regioner resulterar det i autentiseringsfel.
 

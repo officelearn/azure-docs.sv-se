@@ -1,20 +1,23 @@
 ---
 title: Ta bort åtkomst till en delegering
 description: Lär dig hur du tar bort åtkomst till resurser som har delegerats till en tjänst leverantör för Azure Lighthouse.
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: be1547056bc3ec387ba4cba52f6b6d6fbcaad23c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 72a2c49dde8cccfcc298d4128384a10bb7e8840f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111736"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167239"
 ---
 # <a name="remove-access-to-a-delegation"></a>Ta bort åtkomst till en delegering
 
 När en kunds prenumeration eller resurs grupp har delegerats till en tjänst leverantör för [Azure Lighthouse](../overview.md)kan delegeringen tas bort om det behövs. När en delegering har tagits bort kommer [Azure-delegerad resurs hanterings](../concepts/azure-delegated-resource-management.md) åtkomst som tidigare beviljats användare i tjänst leverantörens klient organisation inte längre att gälla.
 
 Att ta bort en delegering kan göras av en användare i antingen kund-eller tjänst leverantörs klienten, så länge användaren har rätt behörigheter.
+
+> [!TIP]
+> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](../concepts/enterprise.md) använda samma processer.
 
 ## <a name="customers"></a>Kunder
 
@@ -42,7 +45,7 @@ Den här rollen kan också väljas i en **auktorisering** när du [skapar ett ha
 
 En användare med den här behörigheten kan ta bort en delegering på något av följande sätt.
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 1. Gå till [sidan mina kunder](view-manage-customers.md).
 2. Välj **delegeringar**.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 1a8b458eb004b44d0045f36b18d88e11e019c4d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399508"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167716"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
@@ -41,13 +41,7 @@ Text till tal från tal-tjänsten gör det möjligt för program, verktyg eller 
 
 ## <a name="get-started"></a>Kom igång
 
-Tjänsten för text till tal är tillgänglig via [tal-SDK: n](speech-sdk.md). Det finns flera vanliga scenarier som snabb starter på olika språk och plattformar:
-
-* [Syntetisera tal till en ljudfil](quickstarts/text-to-speech-audio-file.md)
-* [Syntetisera tal till en högtalare](quickstarts/text-to-speech.md)
-* [Syntetiskt syntetiskt ljud för lång form](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
-
-Om du vill kan du komma åt text till tal-tjänsten via [rest](rest-text-to-speech.md).
+Se [snabb start](get-started-text-to-speech.md) för att komma igång med text till tal. Tjänsten för text till tal är tillgänglig via [talet SDK](speech-sdk.md), [REST API](rest-text-to-speech.md)och [tal-CLI](spx-overview.md)
 
 ## <a name="sample-code"></a>Exempelkod
 
@@ -65,7 +59,7 @@ Förutom standard-och neurala-röster kan du skapa och finjustera anpassade rös
 När du använder text till tal-tjänsten debiteras du för varje tecken som konverteras till tal, inklusive interpunktion. SSML-dokumentet är inte fakturerbart, valfria element som används för att justera hur texten konverteras till tal, t. ex. fonem och färgdjup, räknas som fakturerbara tecken. Här är en lista över vad som är fakturerbara:
 
 - Text som skickas till text till tal-tjänsten i SSML-delen av begäran
-- Alla markeringar i textfältet för begär ande texten i SSML-format, förutom for `<speak>` - `<voice>` och-Taggar
+- Alla markeringar i textfältet för begär ande texten i SSML-format, förutom for- `<speak>` och- `<voice>` taggar
 - Bokstäver, interpunktion, blank steg, tabbar, markeringar och alla blank stegs tecken
 - Varje kod punkt som definierats i Unicode
 

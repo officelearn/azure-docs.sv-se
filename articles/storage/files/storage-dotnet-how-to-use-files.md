@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 44602c65a08f2e76fa017022f6137a18481f2edd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbee9881addf66d762f1eadb837e5a4e41bf79de
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515376"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167903"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -99,7 +99,7 @@ Spara sedan dina autentiseringsuppgifter i projekt `App.config` filen. I **Solut
 ```
 
 > [!NOTE]
-> Den senaste versionen av Azure Storage-emulatorn har inte stöd för Azure Files. Anslutningssträngen måste peka på ett Azure Storage-konto i molnet för att fungera med Azure Files.
+> Den senaste versionen av Azure Storage emulatorn stöder inte Azure Files. Anslutningssträngen måste peka på ett Azure Storage-konto i molnet för att fungera med Azure Files.
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 

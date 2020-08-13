@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: diviso
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/12/2020
 ms.custom: dpalled
-ms.openlocfilehash: 34cf770a8ac75c2516480ec3136e61da15f4e4ff
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab7a30cf6ca71e9260a9cb6e9136f2579e51812c
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446636"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168005"
 ---
 # <a name="adding-support-for-long-data-type-in-azure-time-series-insights-gen2"></a>Lägger till stöd för lång datatyp i Azure Time Series Insights Gen2
 
@@ -66,7 +66,7 @@ Om du för närvarande skickar språktelemetri-data, delas dina data in i två k
 
 Dina heltals data skrivs till **propertyValue_long**. Tidigare inmatade numeriska data (och framtida inmatade) i **propertyValue_double** kopieras inte över.
 
-Om du vill fråga efter data över de här två kolumnerna för egenskapen **propertyValue** måste du använda den skalära funktionen **sammanslagning ()** i din TSX. Funktionen accepterar argument av samma **datatyp** och returnerar det första värdet som inte är null i argument listan. Mer information finns i [Azure Time Series Insights Gen2 Data Access Concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
+Om du vill fråga efter data över de här två kolumnerna för egenskapen **propertyValue** måste du använda den skalära funktionen **sammanslagning ()** i din TSX. Funktionen accepterar argument av samma **datatyp** och returnerar det första värdet som inte är null i argument listan. Mer information finns i [Azure Time Series Insights Gen2 Data Access Concepts](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#other-functions).
 
 #### <a name="variable-definition-in-tsx---numeric"></a>Variabel definition i TSX-numerisk
 
@@ -78,7 +78,7 @@ Om du vill fråga efter data över de här två kolumnerna för egenskapen **pro
 
 [![Ny variabel definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
-Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---numeric"></a>Infogad variabel definition med TSX-frågas-API: n-numeriskt
 
@@ -126,7 +126,7 @@ Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble
 }
 ```
 
-Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.
@@ -147,7 +147,7 @@ Om du för närvarande använder kategoriska-variabler som mappar heltals värde
 
 Du kan också använda **sammanslagning ($Event. propertyValue. Double, toDouble ($Event. propertyValue. Long))** som uttryck för anpassad [tids serie](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket.](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)
 
 #### <a name="inline-variable-definition-using-tsx-query-apis---categorical"></a>Infogad variabel definition med TSX-fråge-API: er – kategoriska
 
@@ -227,7 +227,7 @@ Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **D
 }
 ```
 
-Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Kategoriska-variabler kräver fortfarande att värdet är av en heltals typ. **Data typen** för alla argument i **sammanslagning ()** måste vara av typen **Long** i det anpassade [tids serie uttrycket](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 > [!NOTE]
 > Vi rekommenderar att du uppdaterar dessa variabler på alla platser som de kan användas. Dessa platser omfattar tids serie modellen, sparade frågor och Power BI anslutnings frågor.

@@ -9,16 +9,16 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 589dd411e3d340eb8a0bf84b21a306cabd4bb362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a5ee1cc8efead7c29dadaf64adb8e2686a10621
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495082"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168090"
 ---
-# <a name="send-events-to-a-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Skicka händelser till en Azure Time Series Insights gen1-miljö med hjälp av en Event Hub
+# <a name="send-events-to-an-azure-time-series-insights-gen1-environment-by-using-an-event-hub"></a>Skicka händelser till en Azure Time Series Insights gen1-miljö med hjälp av en Event Hub
 
 Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure Event Hubs. Det beskriver också hur du kör ett exempel program för att push-överföra händelser till Azure Time Series Insights från Event Hubs. Om du har en befintlig händelsehubben med händelser i JSON-format, hoppar du över den här självstudien och visar din miljö i [Azure Time Series Insights](./time-series-insights-update-create-environment.md).
 
@@ -55,9 +55,9 @@ Den här artikeln beskriver hur du skapar och konfigurerar en Event Hub i Azure 
 
 ## <a name="add-an-azure-time-series-insights-instance"></a>Lägg till en Azure Time Series Insights-instans
 
-I Azure Time Series Insights gen 2 kan du lägga till sammanhangsbaserade data till inkommande telemetri med tids serie modellen (TSM). I TSM refereras dina taggar eller signaler till som *instanser* och du kan lagra sammanhangsbaserade data i *instans fält.* Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs mer om hur du lagrar data i instans fält i Översikt över [Time Series-modellen](./concepts-model-overview.md) .
+I Azure Time Series Insights Gen2 kan du lägga till sammanhangsbaserade data till inkommande telemetri med Time Series-modellen (TSM). I TSM kallas taggar eller signaler som *instanser,* och du kan lagra sammanhangsbaserade data i *instans fält.* Data kopplas vid en tidpunkt med hjälp av ett **Time Series-ID**. **Time Series-ID: t** för det exempel Windmills-projekt som vi använder senare i den här artikeln är `id` . Läs mer om hur du lagrar data i instans fält i Översikt över [Time Series-modellen](./concepts-model-overview.md) .
 
-### <a name="create-a-azure-time-series-insights-event-source"></a>Skapa en händelse källa för Azure Time Series Insights
+### <a name="create-an-azure-time-series-insights-event-source"></a>Skapa en händelse källa för Azure Time Series Insights
 
 1. Om du inte har skapat en händelse källa slutför du stegen för att [skapa en händelse källa](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 
@@ -73,15 +73,15 @@ I Azure Time Series Insights gen 2 kan du lägga till sammanhangsbaserade data t
 
     [![Kopiera värdet för primär nyckelns anslutnings sträng](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Gå till https://tsiclientsample.azurewebsites.net/windFarmGen.html. URL: en skapar och kör simulerade Windmill-enheter.
+1. Gå till <https://tsiclientsample.azurewebsites.net/windFarmGen.html>. URL: en skapar och kör simulerade Windmill-enheter.
 1. I rutan **anslutnings sträng för händelsehubben** på webb sidan klistrar du in anslutnings strängen som du kopierade i fältet [Windmill](#push-events-to-windmills-sample).
   
     [![Klistra in anslutnings strängen primär nyckel i rutan anslutnings sträng för händelse hubb](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
-1. Välj **Klicka för att starta**. 
+1. Välj **Klicka för att starta**.
 
     > [!TIP]
-    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Azure Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/ga-query).
+    > Windmill-simulatorn skapar också JSON som du kan använda som en nytto last med [Azure Time Series Insights ga-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query).
 
     > [!NOTE]
     > Simulatorn fortsätter att skicka data tills fliken webbläsare stängs.
@@ -203,6 +203,6 @@ I Azure Time Series Insights gen 2 kan du lägga till sammanhangsbaserade data t
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Visa din miljö](https://insights.timeseries.azure.com) i Azure Time Series Insights Explorer.
+* [Visa din miljö](https://insights.timeseries.azure.com) i Azure Time Series Insights Explorer.
 
-- Läs mer om [IoT Hub enhets meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)
+* Läs mer om [IoT Hub enhets meddelanden](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: e92f3b5d8c48c783648285c9a03d8cb8d391a5ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: af10ec10a1622f32dbc34a607b1200cb4cff8b59
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289603"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168056"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection standard översikt
 
@@ -39,15 +39,15 @@ Azure DDoS Protection, kombinerat med bästa praxis för program design, ger fö
 |Anpassning av minsknings princip                 |Nej                                    |Engagera DDoS-experter                           |
 |Support                                         |Bästa ansträngning                           |Åtkomst till DDoS-experter under en aktiv attack|
 |SLA                                             |Azure-region                          |Program garanti & kostnads skydd       |
-|Prissättning                                         |Kostnadsfri                                  |Månatlig & användning baserat                         |
+|Prissättning                                         |Ingenting                                  |Månatlig & användning baserat                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Typer av DDoS-attacker som DDoS Protection standard åtgärder
 
 DDoS Protection standard kan minimera följande typer av attacker:
 
-- **Volym attacker**: Angreppets mål är att överbelasta nätverks lagret med stor mängd som verkar vara legitim trafik. Den innehåller UDP-översvämmare, förstärknings belastningar och andra översvämmade paket belastningar. DDoS Protection standard minskar risken för angrepp med flera gigabyte genom att absorbera och rensa dem, med Azures globala nätverks skalning automatiskt.
-- **Protokoll attacker**: dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. Den innehåller, SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik. 
-- **Resurs (program) lager attacker**: dessa attacker riktar sig mot webb program paket, för att avbryta överföringen av data mellan värdar. Vid angrepp ingår HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd en brand vägg för webbaserade program, t. ex. Azure [Application Gateway brand vägg för webbaserade program](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), samt DDoS Protection standard för att ge skydd mot dessa attacker. Det finns även brand Väggs erbjudanden från tredje part som är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
+- **Volym attacker**: de här angreppen överbelastar nätverks lagret med stor mängd som verkar vara legitim trafik. De innehåller UDP-översvämmare, förstärknings belastningar och andra falska paket belastningar. DDoS Protection standard minskar risken för angrepp med flera gigabyte genom att absorbera och rensa dem, med Azures globala nätverks skalning automatiskt.
+- **Protokoll attacker**: dessa attacker återger ett mål som inte kan nås genom att utnyttja en svaghet i skikt 3-och lager 4-protokollstacken. De omfattar SYN översvämnings attacker, reflektions attacker och andra protokoll attacker. DDoS Protection standard minimerar dessa attacker, skiljer sig från skadlig och legitim trafik, genom att interagera med klienten och blockera skadlig trafik. 
+- **Resurs (program) lager attacker**: dessa attacker riktar sig mot webb program paket, för att avbryta överföringen av data mellan värdar. De omfattar HTTP-protokollfel, SQL-inmatning, skript körning över flera webbplatser och andra nivå 7-attacker. Använd en brand vägg för webbaserade program, t. ex. Azure [Application Gateway brand vägg för webbaserade program](../application-gateway/application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), samt DDoS Protection standard för att ge skydd mot dessa attacker. Det finns även brand Väggs erbjudanden från tredje part som är tillgängliga på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).
 
 DDoS Protection standard skyddar resurser i ett virtuellt nätverk, inklusive offentliga IP-adresser som är kopplade till virtuella datorer, belastningsutjämnare och programgatewayer. När den är kopplad till Application Gateway brand vägg för webbaserade program eller en tredjeparts brand vägg för webbaserade program som distribueras i ett virtuellt nätverk med en offentlig IP-adress, kan DDoS Protection standard tillhandahålla fullständig nivå 3-till-nivå 7-reducering.
 
@@ -58,7 +58,7 @@ DDoS Protection standard skyddar resurser i ett virtuellt nätverk, inklusive of
 DDoS Protection standard funktionerna är:
 
 - **Inbyggd plattforms integrering:** Inbyggt i Azure. Inkluderar konfiguration via Azure Portal. DDoS Protection standard förstår dina resurser och resurs konfigurationen.
-- **Skydd mot nyckel:** Förenklad konfiguration skyddar omedelbart alla resurser i ett virtuellt nätverk så snart DDoS Protection standard har Aktiver ATS. Ingen åtgärd eller användar definition krävs. DDoS Protection standard och minimerar risken automatiskt när den har identifierats.
+- **Nyckel färdigt skydd:** Förenklad konfiguration skyddar omedelbart alla resurser i ett virtuellt nätverk så snart DDoS Protection standard har Aktiver ATS. Ingen åtgärd eller användar definition krävs. DDoS Protection standard och minimerar risken automatiskt när den har identifierats.
 - **Övervaka alltid trafik:** Dina program trafik mönster övervakas 24 timmar per dag, 7 dagar i veckan, och letar efter indikatorer för DDoS-attacker. Minskning utförs när skydds principerna överskrids.
 - **Anpassningsbar justering:** Intelligent trafik profilering lär sig programmets trafik över tid och väljer och uppdaterar den profil som är lämplig för din tjänst. Profilen justeras när trafiken förändras över tid.
 - **Skydd med flera skikt:** Ger fullständig stack DDoS-skydd när det används med en brand vägg för webbaserade program.

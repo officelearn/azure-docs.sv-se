@@ -1,44 +1,62 @@
 ---
 title: Optisk tecken läsning (OCR) – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp som rör optisk tecken läsning (OCR) från bilder och dokument med tryckt och handskriven text med hjälp av API för visuellt innehåll.
+description: Begrepp som rör optisk tecken läsning (OCR) av bilder och dokument med utskriven text och handskriven text med hjälp av API för visuellt innehåll.
 services: cognitive-services
-author: msbbonsu
+author: PatrickFarley
 manager: netahw
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.author: t-bebon
+ms.date: 08/11/2020
+ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2b3f9b0a4bec76f1f5f9b1f42ec33fdf5e2678bf
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760166"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167884"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
-Microsofts API för visuellt innehåll innehåller OCR-funktioner (optisk tecken läsning) som extraherar tryckt eller handskriven text från bilder och PDF-dokument. OCR-API: er extraherar text från både analoga dokument (bilder, skannade dokument) och dokument med siffror. Du kan extrahera text från bilder i jokertecken, till exempel foton av licens plattor eller behållare med serie nummer, samt från dokument fakturor, fakturor, ekonomiska rapporter, artiklar med mera. Det nya API: et för Read-OCR är tillgängligt som en del av den hanterade tjänsten i molnet eller lokalt (behållare). Det stöder också virtuella nätverk och privata slut punkter för att uppfylla behoven i företags klassens efterlevnad och sekretess.
+Azures API för visuellt innehåll innehåller OCR-funktioner (optisk tecken läsning) som extraherar tryckt eller handskriven text från bilder. Du kan extrahera text från bilder, till exempel foton av licens plattor eller behållare med serie nummer, samt från dokument fakturor, fakturor, ekonomiska rapporter, artiklar med mera. 
 
 ## <a name="read-api"></a>Läs-API 
 
-Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Microsofts senaste OCR-teknik som extraherar utskriven text på flera språk, handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från en text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av skriven och handskriven text (endast engelska) i samma bild eller dokument. Se den fullständiga listan över [språk som stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) .
-
-### <a name="how-ocr-works"></a>Så här fungerar OCR
-
-[Läsnings-API: et](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) stöder text intensiva dokument på upp till 2000 sidor och körs därför asynkront. Det första steget är att anropa Läs åtgärden. Läs åtgärden tar en bild eller ett PDF-dokument som indata och returnerar ett åtgärds-ID. 
-
-Det andra steget är att anropa åtgärden [Hämta resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden tar i det åtgärds-ID som skapades av Läs åtgärden. Den returnerar sedan det extraherade text innehållet från din avbildning eller ditt dokument i form av JSON. JSON-svaret underhåller de ursprungliga rad grupperna av identifierade ord. Den innehåller de extraherade text raderna och deras avgränsnings Rute koordinater. Varje textrad innehåller alla extraherade ord med deras koordinater och förtroende poäng.
-
-Vid behov kan du läsa korrigera rotationen för den identifierade sidan genom att returnera rotations förskjutningen i grader om den vågräta bild axeln, som visas i följande bild.
+Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) är Azures senaste OCR-teknik som extraherar tryckt text (på flera språk), handskriven text (endast engelska), siffror och valuta symboler från bilder och PDF-dokument med flera sidor. Det är optimerat för att extrahera text från text – tunga bilder och PDF-dokument med flera sidor med blandade språk. Det stöder identifiering av både skriven och handskriven text i samma bild eller dokument.
 
 ![Hur OCR konverterar bilder och dokument till strukturerade utdata med extraherad text](./Images/how-ocr-works.svg)
 
-### <a name="sample-ocr-output"></a>Exempel på OCR-utdata
+Read API tillhandahåller OCR-funktioner genom två åtgärder – **Läs** och **få Läs resultat**.
 
-Ett lyckat svar returneras i JSON-formatet som visas i följande exempel:
+## <a name="the-read-operation"></a>Läs åtgärden
+
+[Läs åtgärden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) tar en bild eller ett PDF-dokument som indata och extraherar text asynkront. Anropet returnerar med ett svars huvud fält som kallas `Operation-Location` . `Operation-Location`Värdet är en URL som innehåller det åtgärds-ID som ska användas i nästa steg.
+
+|Svars huvud| Resultat-URL |
+|:-----|:----|
+|Åtgärds plats | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+
+## <a name="the-get-read-results-operation"></a>Åtgärden hämta Läs resultat
+
+Det andra steget är att anropa åtgärden [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Den här åtgärden utförs som indatamängden för det åtgärds-ID som skapades av Läs åtgärden. Den returnerar ett JSON-svar som innehåller ett **status** fält med följande möjliga värden. Du anropar den här åtgärden iterativt tills den returnerar värdet **lyckades** . Använd ett intervall på 1 till 2 sekunder för att undvika att överskrida antalet begär Anden per sekund (RPS).
+
+|Fält| Typ | Möjliga värden |
+|:-----|:----:|:----|
+|status | sträng | notStarted: åtgärden har inte startats. |
+| |  | körs: åtgärden bearbetas. |
+| |  | misslyckades: åtgärden misslyckades. |
+| |  | lyckades: åtgärden har slutförts. |
+
+> [!NOTE]
+> Den kostnads fria nivån begränsar begär ande frekvensen till 20 anrop per minut. På den betalda nivån tillåts 10 begär Anden per sekund (RPS) som kan ökas på begäran. Använd support kanalen för Azure eller ditt konto team för att begära en högre RPS-taxa (Request/Second).
+
+När fältet **status** har värdet **lyckades** innehåller JSON-svaret det extraherade text innehållet från din avbildning eller ditt dokument. JSON-svaret underhåller de ursprungliga rad grupperna av identifierade ord. Den innehåller de extraherade text raderna och deras avgränsnings Rute koordinater. Varje textrad innehåller alla extraherade ord med deras koordinater och förtroende poäng.
+
+### <a name="sample-json-output"></a>Exempel på JSON-utdata
+
+Se följande exempel på ett lyckat JSON-svar:
 
 ```json
 {
@@ -94,57 +112,78 @@ Ett lyckat svar returneras i JSON-formatet som visas i följande exempel:
 
 Följ snabb starten för [extrahering av skrivna och handskrivna text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C# och REST API.
 
-### <a name="input-requirements"></a>Krav för indatamängd
+## <a name="input-requirements"></a>Krav för indatamängd
 
-Läs-API: et tar följande indata:
+De inmatade bilderna och dokumenten har följande krav:
 * Fil format som stöds: JPEG, PNG, BMP, PDF och TIFF
 * För PDF och TIFF bearbetas upp till 2000 sidor. För prenumeranter på den kostnads fria nivån bearbetas bara de första två sidorna.
 * Fil storleken måste vara mindre än 50 MB och dimensioner minst 50 x 50 bild punkter och högst 10000 x 10000 bild punkter.
 * PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
 
+> [!NOTE]
+> **Språk information** 
+>
+> [Läs åtgärden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) har en valfri begär ande parameter för språk. Det här är språk koden BCP-47 för texten i dokumentet. Läs stöder automatisk språk identifiering och flerspråkiga dokument, så du behöver bara ange en språkkod om du vill tvinga dokumentet att bearbetas som det specifika språket.
+
+## <a name="language-support"></a>Stöd för språk
+
+### <a name="printed-text"></a>Utskriven text
+[API: et Read 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. 
+
+Den [offentliga för hands versionen av Read 3,1 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska. Om ditt scenario kräver stöd för fler språk, se avsnittet [OCR-API](#ocr-api) . 
+
+Se de [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) för den fullständiga listan över språk som stöds av OCR.
+
+### <a name="handwritten-text"></a>Handskriven text
+Läs åtgärden stöder för närvarande extrahering av handskriven text exklusivt på engelska.
+
+## <a name="integration-options"></a>Integrations alternativ
+
+### <a name="use-the-rest-api-or-client-sdk"></a>Använd REST API-eller klient-SDK: n
+Filen [Read 3. x REST API](./QuickStarts/CSharp-hand-text.md) är det bästa alternativet för de flesta kunder på grund av enkel integrering och snabb produktivitet. Azure och Visuellt innehåll service hanterar skalning, prestanda, data säkerhet och efterlevnad för att möta kundernas behov.
+
+### <a name="use-containers-for-on-premise-deployment"></a>Använda behållare för lokal distribution
+Med den [Read 2,0 Docker-behållaren (för hands version)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) kan du distribuera de nya OCR-funktionerna i din egen lokala miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav.
+
+## <a name="read-ocr-examples"></a>Läs OCR-exempel
+
 ### <a name="text-from-images"></a>Text från bilder
 
-Följande Read API-utdata visar de extraherade text raderna och orden från en bild med text i olika vinklar, färger och teckensnitt
+Följande Read API-utdata visar den extraherade texten från en bild med olika text vinklar, färger och teckensnitt.
 
-![En bild som roteras och dess text läses och avgränsas](./Images/text-from-images-example.png)
+![En bild av flera ord med olika färger och vinklar, med extraherad text listad](./Images/text-from-images-example.png)
 
 ### <a name="text-from-documents"></a>Text från dokument
 
-Förutom bilder tar Read-API: t ett PDF-dokument som inmatade.
+Read API kan också ta PDF-dokument som inmatade.
 
-![En bild som roteras och dess text läses och avgränsas](./Images/text-from-documents-example.png)
+![Ett faktura dokument med extraherad text listad](./Images/text-from-pdf-example.png)
 
+### <a name="handwritten-text"></a>Handskriven text
 
-### <a name="handwritten-text-in-english"></a>Handskriven text på engelska
+Läs åtgärden extraherar handskriven text från bilder (för närvarande endast på engelska).
 
-Just nu stöder Läs åtgärden extrahering av handskriven text exklusivt på engelska.
+![En bild av en handskriven anteckning med extraherad text listad](./Images/handwritten-example.png)
 
-![En bild som roteras och dess text läses och avgränsas](./Images/handwritten-example.png)
+### <a name="printed-text"></a>Utskriven text
 
-### <a name="printed-text-in-supported-languages"></a>Utskriven text i språk som stöds
+Läs åtgärden kan extrahera utskriven text på flera olika språk.
 
-API: et Read 3,0 stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk. [Läs 3,1 API offentlig för hands version](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska. Om ditt scenario kräver stöd för fler språk, se Översikt över OCR API i det här dokumentet. Se listan över alla språk som [stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+![En bild av en spansk Textbook, med extraherad text listad](./Images/supported-languages-example.png)
 
-![En bild som roteras och dess text läses och avgränsas](./Images/supported-languages-example.png)
+### <a name="mixed-language-documents"></a>Dokument med blandat språk
 
-### <a name="mixed-languages-support"></a>Stöd för blandade språk
+Read API stöder bilder och dokument som innehåller flera olika språk, vanligt vis kallade blandade språk dokument. Det fungerar genom att klassificera varje text rad i dokumentet på det identifierade språket innan dess text innehåll extraheras.
 
-Read API stöder bilder och dokument med flera språk, vanligt vis kallade blandade språk dokument. Det gör det genom att klassificera varje text rad i dokumentet på det identifierade språket innan du extraherar text innehållet.
-
-![En bild som roteras och dess text läses och avgränsas](./Images/mixed-language-example.png)
-
-### <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
-
-Precis som med alla kognitiva tjänster bör utvecklare som använder Läs tjänsten vara medvetna om Microsofts principer för kund information. Mer information finns på sidan Cognitive Services på [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center/product-overview) .
-
-### <a name="containers-for-on-premise-deployment"></a>Behållare för lokal distribution
-
-Läs är även tillgänglig som en Docker-behållare (för hands version) så att du kan distribuera nya OCR-funktioner i din egen miljö. Behållare är fantastiska för särskilda säkerhets-och data styrnings krav. Se [Installera och köra Läs behållare.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
-
+![En bild av fraser på flera språk, med extraherad text listad](./Images/mixed-language-example.png)
 
 ## <a name="ocr-api"></a>OCR-API
 
-[OCR-API: t](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) använder en äldre igenkännings modell, stöder bara bilder och körs synkront, och returneras omedelbart med den identifierade texten. Se de [språk som stöds av OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) än Read API.
+[OCR-API: t](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) använder en äldre igenkännings modell, stöder bara bilder och körs synkront, och returneras omedelbart med den identifierade texten. Se de [språk som stöds för OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) och sedan Read API.
+
+## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
+Precis som med alla kognitiva tjänster bör utvecklare som använder Läs-/OCR-tjänsterna vara medvetna om Microsofts principer för kund information. Mer information finns på sidan Cognitive Services på [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview) .
 
 ## <a name="next-steps"></a>Nästa steg
 

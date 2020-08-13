@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 7e93772a77ac1edb88c8e1a56c8db216c6e9fbd3
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420115"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168022"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -35,7 +35,7 @@ Privata erbjudanden är nu tillgängliga för virtuell dator, Azure Application 
 
 ## <a name="creating-private-offers-using-plans"></a>Skapa privata erbjudanden med hjälp av planer
 
-För *nya eller befintliga erbjudanden med planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya planer (tidigare kallade SKU: er) och markera dem som privata.  
+För *nya eller befintliga erbjudanden med planer*kan utgivare enkelt skapa nya, privata variationer genom att skapa nya planer (tidigare kallade SKU: er) och markera dem som privata. Varje erbjudande kan ha upp till 45 privata planer.
 
 <!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
 

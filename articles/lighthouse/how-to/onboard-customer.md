@@ -1,30 +1,30 @@
 ---
 title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
-ms.date: 05/26/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: cac40a835ff3227a31611b31655865d43fa378ab
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118883"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167325"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
 Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure Lighthouse. När du gör det kan kundens delegerade resurser (prenumerationer och/eller resurs grupper) nås och hanteras via din egen Azure Active Directory-klient (Azure AD) med hjälp av [Azure-delegerad resurs hantering](../concepts/azure-delegated-resource-management.md).
 
-Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
-
-Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Observera att du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../cost-management-billing/manage/link-partner-id.md). 
-
-> [!NOTE]
-> Kunder kan också publiceras på Azure-Lighthouse när de köper ett erbjudande för hanterade tjänster (offentliga eller privata) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med ett erbjudande som publicerats på Azure Marketplace.
-
-Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
-
 > [!TIP]
 > Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](../concepts/enterprise.md) använda samma process för att konfigurera Azure-Lighthouse och konsolidera sina hanterings upplevelser.
+
+Du kan upprepa onboarding-processen för flera kunder. När en användare med rätt behörighet loggar in till din hanterings klient kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
+
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../cost-management-billing/manage/link-partner-id.md).
+
+> [!NOTE]
+> Kunder kan också publiceras på Azure-Lighthouse när de köper ett hanterat tjänst erbjudande (offentligt eller privat) som du [publicerar på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med erbjudanden som publicerats på Azure Marketplace.
+
+Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
 
 ## <a name="gather-tenant-and-subscription-details"></a>Samla in klient-och prenumerations information
 
@@ -65,14 +65,16 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definiera roller och behörigheter
 
-Som tjänst leverantör kanske du vill utföra flera uppgifter för en enskild kund, vilket kräver olika åtkomst för olika omfång. Du kan definiera så många auktoriseringar som du behöver för att tilldela [inbyggda roller för rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/built-in-roles.md) till användare i din klient organisation.
+Som tjänst leverantör kanske du vill utföra flera uppgifter för en enskild kund, vilket kräver olika åtkomst för olika omfång. Du kan definiera så många auktoriseringar som du behöver för att kunna tilldela de [inbyggda rollen rollbaserad åtkomst kontroll (RBAC) inbyggda roller](../../role-based-access-control/built-in-roles.md) till användare i din klient organisation.
 
-För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll, så att du kan lägga till eller ta bort enskilda användare i gruppen i stället för att tilldela behörigheter direkt till den användaren. Du kanske också vill tilldela roller till ett huvud namn för tjänsten. Se till att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra jobbet. Rekommendationer och information om vilka roller som stöds finns i [klienter, användare och roller i Azure Lighthouse-scenarier](../concepts/tenants-users-roles.md).
+För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll. Detta ger dig flexibiliteten att lägga till eller ta bort enskilda användare i gruppen som har åtkomst, så att du inte behöver upprepa onboarding-processen för att göra ändringar i användaren. Du kan tilldela roller till ett huvud namn för tjänsten, vilket kan vara användbart för automatiserings scenarier.
+
+När du definierar dina auktoriseringar måste du kontrol lera att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb. Rikt linjer och information om vilka roller som stöds finns i [klienter, användare och roller i Azure Lighthouse-scenarier](../concepts/tenants-users-roles.md).
 
 > [!IMPORTANT]
 > För att kunna lägga till behörigheter för en Azure AD-grupp måste **grupp typen** vara **säkerhet** och inte **Office 365**. Det här alternativet väljs när gruppen skapas. Mer information finns i [Skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-För att kunna definiera auktoriseringar måste du känna till ID-värdena för varje användare, användar grupp eller tjänstens huvud namn i den tjänst leverantörs klient som du vill bevilja åtkomst till. Du behöver också roll Definitions-ID: t för varje inbyggd roll som du vill tilldela. Om du inte redan har gjort det kan du hämta dem genom att köra kommandona nedan inifrån tjänst leverantörens klient organisation.
+För att definiera auktorisering måste du känna till ID-värdena för varje användare, användar grupp eller tjänstens huvud namn i den tjänst leverantörs klient organisation som du vill bevilja åtkomst till. Du behöver också roll Definitions-ID: t för varje inbyggd roll som du vill tilldela. Om du inte redan har gjort det kan du hämta dem genom att köra kommandona nedan inifrån tjänst leverantörens klient organisation.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -109,12 +111,13 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+
 > [!TIP]
 > Vi rekommenderar att du tilldelar [borttagnings rollen för hanterade tjänster för registrering av hanterade tjänster](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) när du registrerar en kund, så att användare i din klient kan [ta bort åtkomst till delegeringen](remove-delegation.md) senare om det behövs. Om den här rollen inte är tilldelad kan delegerade resurser bara tas bort av en användare i kundens klient organisation.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager mall
 
-För att publicera kunden måste du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden när du visar erbjudande information på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
+För att publicera kunden måste du skapa en [Azure Resource Manager](../../azure-resource-manager/index.yml) mall för ditt erbjudande med följande information. Värdena för **mspOfferName** och **mspOfferDescription** visas för kunden på [sidan tjänst leverantörer](view-manage-service-providers.md) i Azure Portal.
 
 |Field  |Definition  |
 |---------|---------|
@@ -196,9 +199,7 @@ Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med 
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
 
-När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera (eller för varje prenumeration som innehåller resurs grupper som du vill publicera).
-
-Eftersom det här är en distribution på prenumerations nivå kan den inte initieras i Azure Portal. Distributionen kan göras med hjälp av PowerShell eller Azure CLI, som du ser nedan.
+När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera (eller för varje prenumeration som innehåller resurs grupper som du vill publicera). Distributionen kan göras med hjälp av PowerShell eller Azure CLI, som du ser nedan.
 
 > [!IMPORTANT]
 > Den här distributionen på prenumerations nivå måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägarens inbyggda roll](../../role-based-access-control/built-in-roles.md#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har publicerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).

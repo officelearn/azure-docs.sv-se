@@ -6,13 +6,13 @@ metadata:
   description: Var värd för webbplatser, webbappar, RESTful-API:er och mobila serverdelar i Azure App Service. Hitta snabbstarter, självstudier och exempel som hjälper dig att använda App Service.
   ms.topic: landing-page
   ms.service: app-service
-  ms.date: 02/26/2020
-  ms.openlocfilehash: e8dcbe7288fb72fb5084f210bf38f7fa55f969a2
-  ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+  ms.date: 08/06/2020
+  ms.openlocfilehash: 3fc31095ec0d8e1ecdbe44c0751c55164d20e088
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/18/2020
-  ms.locfileid: "84987974"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080036"
 landingContent:
 - title: Om App Service
   linkLists:
@@ -20,8 +20,6 @@ landingContent:
     links:
     - text: Vad är App Service?
       url: overview.md
-    - text: App Service på Linux
-      url: /azure/app-service/containers/
     - text: Apptjänstmiljöer
       url: environment/intro.md
     - text: Jämför värdalternativ
@@ -35,19 +33,19 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Första ASP.NET Core-app
-      url: app-service-web-get-started-dotnet.md
-    - text: Första ASP.NET-app
-      url: app-service-web-get-started-dotnet-framework.md
+      url: quickstart-dotnetcore.md
+    - text: Första ASP.NET-app (Endast Windows)
+      url: quickstart-dotnet-framework.md
     - text: Första Node.js-app
-      url: app-service-web-get-started-nodejs.md
+      url: quickstart-nodejs.md
     - text: Första PHP-app
-      url: app-service-web-get-started-php.md
+      url: quickstart-php.md
     - text: Första Java-app
-      url: app-service-web-get-started-java.md
-    - text: Första Python-app (på Linux)
-      url: containers/quickstart-python.md
-    - text: Första Ruby-app (på Linux)
-      url: containers/quickstart-ruby.md
+      url: quickstart-java.md
+    - text: Första Python Flask-app (Endast Linux)
+      url: quickstart-python.md
+    - text: Första Ruby-app (Endast Linux)
+      url: quickstart-ruby.md
 - title: Vanliga åtgärder
   linkLists:
   - linkListType: tutorial
@@ -62,6 +60,8 @@ landingContent:
     links:
     - text: Aktivera diagnostikloggar
       url: troubleshoot-diagnostic-logs.md
+    - text: Ansluta till en Linux-container via SSH
+      url: configure-linux-open-ssh-session.md
     - text: Migrera en aktiv domän till App Service
       url: manage-custom-dns-migrate-domain.md
 - title: CRUD-app med databas
@@ -71,11 +71,17 @@ landingContent:
     - text: ASP.NET-app med SQL Database
       url: app-service-web-tutorial-dotnet-sqldatabase.md
     - text: ASP.NET Core-app med SQL Database
-      url: app-service-web-tutorial-dotnetcore-sqldb.md
+      url: tutorial-dotnetcore-sqldb-app.md
     - text: PHP (Laravel)-app med Azure MySQL
-      url: app-service-web-tutorial-php-mysql.md
+      url: tutorial-php-mysql-app.md
     - text: Node.js (MEAN.js)-app med MongoDB
-      url: app-service-web-tutorial-nodejs-mongodb-app.md
+      url: tutorial-nodejs-mongodb-app.md
+    - text: Java (Spring Boot)-app med Cosmos DB
+      url: tutorial-java-spring-cosmosdb.md
+    - text: Python (Django)-app med PostgreSQL
+      url: tutorial-python-postgresql-app.md
+    - text: Ruby (Rails)-app med PostgreSQL
+      url: tutorial-ruby-postgres-app.md
 - title: Ladda upp din kod eller ditt innehåll
   linkLists:
   - linkListType: deploy
@@ -90,20 +96,28 @@ landingContent:
       url: deploy-content-sync.md
     - text: CI/CD med GitHub, BitBucket osv.
       url: deploy-continuous-deployment.md
-- title: Köra containerbaserade Windows-appar
+    - text: Kör från paketet
+      url: deploy-run-package.md
+- title: Köra anpassade containrar
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Köra en anpassad Windows-container
-      url: app-service-web-get-started-windows-container.md
+    - text: Köra en anpassad container
+      url: quickstart-custom-container.md
   - linkListType: tutorial
     links:
-    - text: Migrera en äldre app till Azure i en Windows-container
-      url: app-service-web-tutorial-windows-containers-custom-fonts.md
+    - text: Köra en Docker Compose-app (Endast Linux)
+      url: tutorial-multi-container-app.md
+    - text: Migrera ett anpassat program till Azure i en container
+      url: tutorial-custom-container.md
   - linkListType: how-to-guide
     links:
+    - text: CI/CD till en anpassad container
+      url: deploy-ci-cd-custom-container.md
     - text: Ansluta en container till Storage Files
       url: configure-connect-to-azure-storage.md
+    - text: Distribuera med GitHub-åtgärder
+      url: deploy-container-github-action.md
 - title: Hantera och integrera
   linkLists:
   - linkListType: concept
@@ -115,7 +129,7 @@ landingContent:
     - text: Skydda åtkomst till resurser med hanterade identiteter
       url: app-service-web-tutorial-connect-msi.md
     - text: Autentisera användare
-      url: app-service-web-tutorial-auth-aad.md
+      url: tutorial-auth-aad.md
     - text: Agera värd åt RESTful-API med CORS
       url: app-service-web-tutorial-rest-api.md
     - text: Lägga till ett CDN till ditt program

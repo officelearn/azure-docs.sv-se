@@ -8,29 +8,29 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd322ce7f89be70cb7caf52b3155ba4be904ac9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488429"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080257"
 ---
 # <a name="app-service-documentation"></a>Dokumentation om App Service
 Med Azure App Service kan du skapa och vara värd för webbappar med valfritt programmeringsspråk utan att behöva hantera infrastrukturen, språket eller webbramverkskörningen. Azure Web Apps tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps Services eller valfri Git-lagringsplats. Lär dig hur du använder Azure App Service med våra snabbstarter, självstudier och exempel.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux och Docker
-[Web Apps](/app-service/overview) är App Services främsta erbjudande för att skapa och agera värd åt webbprogram med hjälp av Windows-miljöer. Utvecklare som föredrar en Linux-miljö kan välja [App Service för Linux](/app-service/containers/app-service-linux-intro). Utvecklare kan även distribuera Docker-avbildningar direkt i App Service för Linux för att distribuera anpassade körningar/ramverk.
+[Web Apps](/app-service/overview) är App Services främsta erbjudande för att skapa och agera värd åt webbprogram med hjälp av Windows-miljöer. Utvecklare som föredrar en Linux-miljö kan välja [App Service för Linux](/app-service/overview#app-service-on-linux). Utvecklare kan även distribuera Docker-avbildningar direkt i App Service för Linux för att distribuera anpassade körningar/ramverk.
 
 ## <a name="5-minute-quickstarts"></a>Snabbstarter på 5 minuter
 
 Lär dig hur du distribuerar ditt första program i molnet med hjälp av App Service för Web Apps:
 
-- [NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
-- [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/containers/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
+- [Node.js](/azure/app-service/quickstart-nodejs)
+- [PHP](/azure/app-service/quickstart-php)
+- [Java](/azure/app-service/quickstart-java)
+- [Python](/azure/app-service/quickstart-python)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## <a name="step-by-step-tutorials"></a>Steg för steg-självstudier
 
@@ -38,9 +38,9 @@ Lär dig att distribuera, hantera och övervaka säkra webbappar på Azure.
 
 - Skapa ett program med hjälp av:
   - [.NET med Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-  - [Node.js med MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Node.js med MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app)
   - [Java med MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python med PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
+  - [Python med PostgreSQL](/app-service/tutorial-python-postgresql-app)
 - [Mappa en befintlig anpassad domän till ditt program](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Binda ett SSL-certifikat till ditt program](/azure/app-service/configure-ssl-bindings)
 

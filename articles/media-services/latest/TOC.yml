@@ -290,12 +290,16 @@
                   href: customize-encoder-presets-how-to.md
                 - name: Skapa en överläggstransformering
                   href: how-to-create-overlay.md
+                - name: Skapa miniatyrer med .NET
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: Med CLI
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Med REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: Skapa miniatyrer med REST
+              href: media-services-generate-thumbnails-rest.md
         - name: Skapa underklipp i en video
           items:
             - name: Med .NET

@@ -196,7 +196,21 @@
               href: app/pricing.md
             - name: Logga dataanvändning och -kostnader
               href: platform/manage-cost-storage.md
-        - name: Log Analytics-arbetsytor
+    - name: Plattformsloggar
+      items:
+        - name: Översikt
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Aktivitetslogg
+          href: platform/activity-log.md
+        - name: Resursloggar
+          href: platform/resource-logs.md
+        - name: Diagnostikinställningar
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
+    - name: Log Analytics
+      items:
+        - name: Arbetsytor
           items:
             - name: Designa en arbetsyta för distribution
               href: platform/design-logs-deployment.md
@@ -218,119 +232,6 @@
               href: platform/service-providers.md
             - name: Hantera åtkomst
               href: platform/manage-access.md
-        - name: Agenter för virtuella datorer
-          items:
-            - name: Översikt
-              href: platform/agents-overview.md
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: faq.md#agents
-            - name: Azure Diagnostics-tillägg
-              items:
-                - name: Översikt
-                  href: platform/diagnostics-extension-overview.md
-                - name: Windows
-                  displayname: diagnostics extension
-                  items:
-                    - name: Installera och konfigurera
-                      items:
-                        - name: Installationsalternativ
-                          href: platform/diagnostics-extension-windows-install.md
-                        - name: PowerShell
-                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                        - name: Resource Manager-mall
-                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-                    - name: Skicka till Azure Monitor-mått
-                      items:
-                        - name: Virtuell dator
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                        - name: VM-skalningsuppsättning
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                        - name: 'Virtuell dator, klassisk'
-                          href: platform/collect-custom-metrics-guestos-vm-classic.md
-                        - name: Molntjänst
-                          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: Skicka till Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Skicka till loggar
-                      href: platform/diagnostics-extension-logs.md
-                    - name: Skicka till Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Versionshistorik
-                      href: platform/diagnostics-extension-versions.md
-                    - name: Felsökning
-                      href: platform/diagnostics-extension-troubleshooting.md
-                - name: Linux
-                  displayname: diagnostics extension
-                  items:
-                    - name: Översikt
-                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-                    - name: Samla in mått med Telegraf
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Log Analytics-agent
-              items:
-                - name: Översikt
-                  href: platform/log-analytics-agent.md
-                - name: Windows-agenter
-                  href: platform/agent-windows.md
-                - name: Linux-agenter
-                  href: platform/agent-linux.md
-                - name: VM-tillägg för Windows
-                  href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
-                - name: VM-tillägg för Linux
-                  href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
-                - name: Log Analytics-gatewayen
-                  href: platform/gateway.md
-                - name: Agenthantering
-                  href: platform/agent-manage.md
-                - name: Agenthälsa
-                  href: insights/solution-agenthealth.md
-                - name: Datakällor
-                  items:
-                    - name: Översikt
-                      href: platform/agent-data-sources.md
-                    - name: Windows-händelser
-                      href: platform/data-sources-windows-events.md
-                    - name: Anpassade JSON-data
-                      href: platform/data-sources-json.md
-                    - name: CollectD-prestandadata
-                      href: platform/data-sources-collectd.md
-                    - name: Syslog
-                      href: platform/data-sources-syslog.md
-                    - name: Prestandaräknare
-                      href: platform/data-sources-performance-counters.md
-                    - name: Programprestanda på Linux
-                      href: platform/data-sources-linux-applications.md
-                    - name: IIS-loggar
-                      href: platform/data-sources-iis-logs.md
-                    - name: Anpassade loggar
-                      href: platform/data-sources-custom-logs.md
-                    - name: Anpassade fält
-                      href: platform/custom-fields.md
-            - name: Felsöka
-              items:
-                - name: Log Analytics-tillägg för virtuella datorer
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/vmext-troubleshoot.md
-                - name: Windows-agenten för Log Analytics
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-windows-troubleshoot.md
-                - name: Log Analytics-agent för Linux
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-linux-troubleshoot.md
-    - name: Plattformsloggar
-      items:
-        - name: Översikt
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Aktivitetslogg
-          href: platform/activity-log.md
-        - name: Resursloggar
-          href: platform/resource-logs.md
-        - name: Diagnostikinställningar
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
         - name: Översikt över loggfråga
           displayname: 'log query, log queries, query, queries'
           href: log-query/log-query-overview.md
@@ -424,6 +325,135 @@
           href: platform/metric-chart-samples.md
         - name: Felsöka måttdiagram
           href: platform/metrics-troubleshoot.md
+    - name: Datainsamling
+      items:
+        - name: Regler för datainsamling
+          href: platform/data-collection-rule-overview.md
+        - name: Anpassade mått
+          items:
+            - name: Anpassade mått
+              href: platform/metrics-custom-overview.md
+            - name: REST-API för mått
+              href: platform/metrics-store-custom-rest-api.md
+        - name: Anpassade loggar
+          items:
+            - name: API för Log Analytics-datainsamlare
+              href: platform/data-collector-api.md
+            - name: Pipelineexempel för API för Log Analytics-datainsamlare
+              href: platform/create-pipeline-datacollector-api.md
+        - name: Logic Apps
+          items:
+            - name: Anslutningsprogram för Azure Monitor-loggar
+              href: platform/logicapp-flow-connector.md
+            - name: Application Insights-anslutningsapp
+              href: app/automate-with-logic-apps.md
+    - name: Agenter
+      items:
+        - name: Översikt
+          href: platform/agents-overview.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: faq.md#agents
+        - name: Azure Monitor-agent
+          items:
+            - name: Översikt
+              displayname: Azure Monitor agent
+              href: platform/azure-monitor-agent-overview.md
+            - name: Datainsamling
+              displayname: 'data collection rule,Azure Monitor agent'
+              href: platform/data-collection-rule-azure-monitor-agent.md
+        - name: Azure Diagnostics-tillägg
+          items:
+            - name: Översikt
+              href: platform/diagnostics-extension-overview.md
+            - name: Windows
+              displayname: diagnostics extension
+              items:
+                - name: Installera och konfigurera
+                  items:
+                    - name: Installationsalternativ
+                      href: platform/diagnostics-extension-windows-install.md
+                    - name: PowerShell
+                      href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                    - name: Resource Manager-mall
+                      href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                - name: Skicka till Azure Monitor-mått
+                  items:
+                    - name: Virtuell dator
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                    - name: VM-skalningsuppsättning
+                      href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                    - name: 'Virtuell dator, klassisk'
+                      href: platform/collect-custom-metrics-guestos-vm-classic.md
+                    - name: Molntjänst
+                      href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                - name: Skicka till Event Hubs
+                  href: platform/diagnostics-extension-stream-event-hubs.md
+                - name: Skicka till loggar
+                  href: platform/diagnostics-extension-logs.md
+                - name: Skicka till Application Insights
+                  href: platform/diagnostics-extension-to-application-insights.md
+                - name: Versionshistorik
+                  href: platform/diagnostics-extension-versions.md
+                - name: Felsökning
+                  href: platform/diagnostics-extension-troubleshooting.md
+            - name: Linux
+              displayname: diagnostics extension
+              items:
+                - name: Översikt
+                  href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                - name: Samla in mått med Telegraf
+                  href: platform/collect-custom-metrics-linux-telegraf.md
+        - name: Log Analytics-agent
+          items:
+            - name: Översikt
+              href: platform/log-analytics-agent.md
+            - name: Windows-agenter
+              href: platform/agent-windows.md
+            - name: Linux-agenter
+              href: platform/agent-linux.md
+            - name: VM-tillägg för Windows
+              href: ../virtual-machines/extensions/oms-windows.md?toc=/azure/azure-monitor/toc.json
+            - name: VM-tillägg för Linux
+              href: ../virtual-machines/extensions/oms-linux.md?toc=/azure/azure-monitor/toc.json
+            - name: Log Analytics-gatewayen
+              href: platform/gateway.md
+            - name: Agenthantering
+              href: platform/agent-manage.md
+            - name: Agenthälsa
+              href: insights/solution-agenthealth.md
+            - name: Datakällor
+              items:
+                - name: Översikt
+                  href: platform/agent-data-sources.md
+                - name: Windows-händelser
+                  href: platform/data-sources-windows-events.md
+                - name: Anpassade JSON-data
+                  href: platform/data-sources-json.md
+                - name: CollectD-prestandadata
+                  href: platform/data-sources-collectd.md
+                - name: Syslog
+                  href: platform/data-sources-syslog.md
+                - name: Prestandaräknare
+                  href: platform/data-sources-performance-counters.md
+                - name: Programprestanda på Linux
+                  href: platform/data-sources-linux-applications.md
+                - name: IIS-loggar
+                  href: platform/data-sources-iis-logs.md
+                - name: Anpassade loggar
+                  href: platform/data-sources-custom-logs.md
+                - name: Anpassade fält
+                  href: platform/custom-fields.md
+        - name: Felsöka
+          items:
+            - name: Log Analytics-tillägg för virtuella datorer
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/vmext-troubleshoot.md
+            - name: Windows-agenten för Log Analytics
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-windows-troubleshoot.md
+            - name: Log Analytics-agent för Linux
+              displayname: 'troubleshoot, troubleshooting'
+              href: platform/agent-linux-troubleshoot.md
     - name: Automatisk skalning
       items:
         - name: Översikt
@@ -1148,29 +1178,6 @@
               href: log-query/dashboard-upgrade.md
         - name: Skicka data till Grafana
           href: platform/grafana-plugin.md
-    - name: Anpassad datainsamling och analys
-      items:
-        - name: Anpassade mått
-          items:
-            - name: Anpassade mått
-              href: platform/metrics-custom-overview.md
-            - name: REST-API för mått
-              href: platform/metrics-store-custom-rest-api.md
-        - name: Anpassade loggar
-          items:
-            - name: API för Log Analytics-datainsamlare
-              href: platform/data-collector-api.md
-            - name: Pipelineexempel för API för Log Analytics-datainsamlare
-              href: platform/create-pipeline-datacollector-api.md
-        - name: Logic Apps
-          items:
-            - name: Anslutningsprogram för Azure Monitor-loggar
-              href: platform/logicapp-flow-connector.md
-            - name: Application Insights-anslutningsapp
-              href: app/automate-with-logic-apps.md
-        - name: REST-API
-          displayname: 'metrics, analyze'
-          href: platform/rest-api-walkthrough.md
     - name: System Center-integration
       items:
         - name: Ansluta Operations Manager
@@ -1274,6 +1281,9 @@
           href: /rest/api/monitor/
         - name: Azure Monitor-loggar
           href: /rest/api/loganalytics
+        - name: Genomgång av REST-API
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: Mallar för Resurshanteraren
       items:
         - name: Azure Monitor

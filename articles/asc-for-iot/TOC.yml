@@ -31,6 +31,8 @@
       href: quickstart-create-security-twin.md
     - name: Skapa anpassade säkerhetsaviseringar
       href: quickstart-create-custom-alerts.md
+    - name: Undersöka säkerhetsaviseringar
+      href: quickstart-investigate-security-alerts.md
 - name: Begrepp
   items:
     - name: Autentisering av säkerhetsagent

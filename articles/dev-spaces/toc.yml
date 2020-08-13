@@ -25,38 +25,8 @@
           href: quickstart-existing-helm-chart.md
     - name: Självstudier
       items:
-        - name: Java (VS Code och CLI)
-          items:
-            - name: 1 – Kom igång
-              href: get-started-java.md
-            - name: 2 – Utveckling för flera tjänster
-              href: multi-service-java.md
-            - name: 3 – Teamutveckling
-              href: team-development-java.md
-        - name: .NET Core (VS Code och CLI)
-          items:
-            - name: 1 – Kom igång
-              href: get-started-netcore.md
-            - name: 2 – Utveckling för flera tjänster
-              href: multi-service-netcore.md
-            - name: 3 – Teamutveckling
-              href: team-development-netcore.md
-        - name: .NET Core (Visual Studio)
-          items:
-            - name: 1 – Kom igång
-              href: get-started-netcore-visualstudio.md
-            - name: 2 – Utveckling för flera tjänster
-              href: multi-service-netcore-visualstudio.md
-            - name: 3 – Teamutveckling
-              href: team-development-netcore-visualstudio.md
-        - name: Node.js (VS Code & CLI)
-          items:
-            - name: 1 – Kom igång
-              href: get-started-nodejs.md
-            - name: 2 – Utveckling för flera tjänster
-              href: multi-service-nodejs.md
-            - name: 3 – Teamutveckling
-              href: team-development-nodejs.md
+        - name: Komma igång med Visual Studio
+          href: get-started-netcore-visualstudio.md
     - name: Begrepp
       items:
         - name: Så här fungerar Dev Spaces
@@ -83,8 +53,6 @@
           href: how-to/install-dev-spaces.md
         - name: Skapa ett Kubernetes-kluster med Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
-        - name: Dela Azure Dev Spaces
-          href: how-to/share-dev-spaces.md
         - name: Hantera hemligheter
           href: how-to/manage-secrets.md
         - name: Använda en anpassad NuGet-feed

@@ -8,12 +8,12 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e8d1498520ea0c59372ec4e1096b6f2b4bcf885f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921125"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136005"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
@@ -72,7 +72,7 @@ Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB o
 
 Med exempel seriens dokument ovan returnerar följande SQL-fråga dokument där ID-fältet matchar `WakefieldFamily` . Eftersom det är en `SELECT *`-instruktion är utdatan från frågan ett komplett JSON-dokument:
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT * 
@@ -113,9 +113,9 @@ Med exempel seriens dokument ovan returnerar följande SQL-fråga dokument där 
 
 ## <a name="example-query-2"></a>Exempelfråga 2
 
-Nästa fråga returnerar alla namn på underordnade i den familj vars ID överensstämmer `WakefieldFamily` med deras grad.
+Nästa fråga returnerar alla namn på underordnade objekt i den familj vars ID matchar `WakefieldFamily` .
 
-**Söka i data**
+**Query**
 
 ```sql
     SELECT c.givenName 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/05/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5f0d66a515ed13f96645e5916af2b01841950375
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f38b2715115efadef4e09a95e9392b1dfd4c68b0
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846606"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135750"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
 
@@ -49,6 +49,9 @@ ms.locfileid: "87846606"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="232"></a><a name="2.3.2"/>2.3.2
+* Har lagt till en låne lagrings kompatibilitet med [v3 SDK](sql-api-sdk-dotnet-standard.md) som möjliggör frekventa sökvägar. Ett program kan migrera till v3 SDK och migrera tillbaka till biblioteket Change feed processor utan att förlora något tillstånd.
 
 ### <a name="231"></a><a name="2.3.1"/>2.3.1
 * Korrigerade ett ärende när `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` stängnings orsaken skickades till `FeedProcessing.IChangeFeedObserver.CloseAsync` om det inte gick att hitta partitionen eller om mål repliken inte är uppdaterad med Read-sessionen. I dessa fall `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` används nu och stängnings orsaker.
@@ -193,6 +196,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 
 | Version | Lanserings datum | Förfallodatum |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |11 augusti 2020 |--- |
 | [2.3.1](#2.3.1) |30 juli 2020 |--- |
 | [2.3.0](#2.3.0) |2 april 2020 |--- |
 | [2.2.8](#2.2.8) |28 oktober 2019 |--- |

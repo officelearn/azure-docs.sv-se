@@ -1,6 +1,6 @@
 ---
 title: Azure VMware-lösning av CloudSimple-privata moln
-description: Lär dig mer om CloudSimple privata moln och koncept.
+description: Lär dig mer om CloudSimple-koncept och-fördelar, inklusive Complete Operations kontinuitet i VMware, kompatibilitet med befintliga verktyg, kunskaper och processer.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2096e8c0ebfb233c7449510bf0bc8e80b56231e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024966"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140725"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Översikt över CloudSimple privata moln
 
@@ -46,7 +46,7 @@ CloudSimple hanterar infrastrukturen och alla nödvändiga nätverks-och hanteri
 * Programetablering
 * Verksamhetskontinuitet
 * Support
-* Principtillämpning
+* Policyframtvingande
 
 ## <a name="private-cloud-environment-overview"></a>Översikt över privat moln miljö
 
@@ -121,7 +121,7 @@ Här är några exempel på användnings fall för distribution av privata moln.
 * Få åtkomst till offentliga moln tjänster utan att behöva expandera ditt data Center eller skapa en ny arkitektur för dina program.
 * Centralisera identiteter, åtkomst kontroll principer, loggning och övervakning av VMware-program på Azure.
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 I följande tabell visas de olika noderna för resurser i ett privat moln.
 

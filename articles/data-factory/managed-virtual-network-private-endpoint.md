@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: a4594ca1a992f158522eccb4ffa6e846a1f4f605
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406290"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135971"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory hanterad Virtual Network (förhands granskning)
 
@@ -49,7 +49,7 @@ Hanterade privata slut punkter är privata slut punkter som skapats i den Azure 
 
 ![Ny hanterad privat slut punkt](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory stöder privata länkar. Med privat länk kan du komma åt Azure-tjänster (PaaS) (till exempel Azure Storage, Azure Cosmos DB, Azure SQL Data Warehouse).
+Azure Data Factory stöder privata länkar. Med privat länk kan du komma åt Azure-tjänster (PaaS) (till exempel Azure Storage, Azure Cosmos DB Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)).
 
 När du använder en privat länk passerar trafiken mellan dina data lager och hanterade Virtual Network helt över Microsoft stamnät nätverket. Privat länk skyddar mot data exfiltrering-risker. Du upprättar en privat länk till en resurs genom att skapa en privat slut punkt.
 
@@ -79,7 +79,7 @@ Under data källor finns stöd för att ansluta via en privat länk från ADF-ha
 - Azure Files
 - Azure Data Lake Gen2
 - Azure SQL Database (inte inklusive Azure SQL-hanterad instans)
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Azure Private Link

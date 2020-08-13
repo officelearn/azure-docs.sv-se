@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/11/2020
 ms.author: b-juche
-ms.openlocfilehash: 7c792ee9c56a044942bb2249a57f2615c72badee
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 29055da1ea8093d413691a41d38d6280f43f728a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533146"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134504"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -177,6 +177,11 @@ En dual-Protocol-volym stöder både NFS-och SMB-protokollen.  När du försöke
 
 För att undvika problemet "behörighet nekad" kontrollerar du att Windows Active Directory innehåller `pcuser` innan du ansluter till monterings punkten. Om du lägger till `pcuser` efter att du har påträffat problemet "behörighet nekad" väntar du 24 timmar på att cacheposten rensas innan du försöker igen.
 
+### <a name="when-i-try-to-create-a-dual-protocol-volume-why-does-the-creation-process-fail-with-the-error-failed-to-validate-ldap-configuration-try-again-after-correcting-ldap-configuration"></a>När jag försöker skapa en volym med dubbla protokoll, varför processen att skapa Miss lyckas med felet "Det gick inte att verifiera LDAP-konfigurationen, försök igen efter att LDAP-konfigurationen har korrigerats"?  
+
+Det kan hända att ingen pekare (PTR) av AD host-datorn saknas på DNS-servern. Du måste skapa en zon för omvänd sökning på DNS-servern och sedan lägga till en PTR-post för AD host-datorn i den zonen för omvänd sökning.
+
+Anta till exempel att du använder AD-datorns IP-adress `1.1.1.1` , värd namnet för AD-datorn (som hittas med hjälp av `hostname` kommandot) `AD1` och domän namnet är `myDomain.com` .  PTR-posten som läggs till i zonen för omvänd sökning ska vara `1.1.1.1`  ->  `AD1.myDomain.com` .
 
 ## <a name="capacity-management-faqs"></a>Vanliga frågor och svar om kapacitets hantering
 

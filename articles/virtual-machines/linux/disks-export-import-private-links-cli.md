@@ -1,23 +1,23 @@
 ---
-title: Azure CLI – begränsa import/export-åtkomst till hanterade diskar med privata länkar (förhands granskning)
-description: Aktivera privata länkar (för hands version) för dina hanterade diskar med Azure CLI. Gör det möjligt att exportera och importera diskar på ett säkert sätt inom bara ditt virtuella nätverk.
+title: Azure CLI – begränsa import/export-åtkomst till hanterade diskar med privata länkar
+description: Aktivera privata Länkar för dina hanterade diskar med Azure CLI. Gör det möjligt att exportera och importera diskar på ett säkert sätt inom bara ditt virtuella nätverk.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 5df11e704987098d61ced7afbff5e6234d4d5f04
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 009f8ec69261103faaa4de1e27ae7383257a13ca
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420300"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136413"
 ---
-# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Azure CLI – begränsa import/export-åtkomst för hanterade diskar med privata länkar (förhands granskning)
+# <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI – begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
-Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) (för hands version) för att begränsa export och import av hanterade diskar och säker åtkomst till data via en [privat länk](../../private-link/private-link-overview.md) från klienter i ditt virtuella Azure-nätverk. Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för tjänsten Managed disks. Nätverks trafiken mellan klienterna på det virtuella nätverket och de hanterade diskarna passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. 
+Stöd för privata länkar med hanterade diskar är för närvarande en för hands version. Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för att begränsa exporten och importen av hanterade diskar och säker åtkomst till data via en [privat länk](../../private-link/private-link-overview.md) från klienter i ditt virtuella Azure-nätverk. Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för tjänsten Managed disks. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
 
 Om du vill använda privata Länkar för att exportera/importera hanterade diskar, skapar du först en disk åtkomst resurs och länkar den till ett virtuellt nätverk i samma prenumeration genom att skapa en privat slut punkt. Associera sedan en disk eller en ögonblicks bild med en instans av disk åtkomst. Ange slutligen egenskapen NetworkAccessPolicy för disken eller ögonblicks bilden till `AllowPrivate` . Detta begränsar åtkomsten till det virtuella nätverket. 
 

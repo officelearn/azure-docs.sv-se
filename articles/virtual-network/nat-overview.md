@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 93ce3b02ef8963a33e485b6560516e1d2b9c1ef5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424025"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135818"
 ---
 # <a name="what-is-virtual-network-nat"></a>Vad är Virtual Network NAT?
 
@@ -124,7 +124,7 @@ Du kan övervaka hur din NAT fungerar genom flerdimensionella mått som visas i 
 Vid allmän tillgänglighet är NAT-datasökvägen minst 99,9% tillgänglig.
 
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 NAT-gateway faktureras med två separata mätare:
 
@@ -153,7 +153,6 @@ Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi s
 
 * NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser. Grundläggande resurser, t. ex. Basic Load Balancer, och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
 * IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med ett IPv6-prefix.
-* NSG Flow-loggning stöds inte när NAT används.
 * NAT kan inte omfatta flera virtuella nätverk.
 
 ## <a name="next-steps"></a>Nästa steg

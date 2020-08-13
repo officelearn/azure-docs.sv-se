@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 983a3e04921bb3d8e804430948013a1b51802727
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424076"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135835"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Utforma virtuella nätverk med NAT-gateway-resurser
 
@@ -137,7 +137,7 @@ Det enda Internet-utgående scenariot som tillhandahålls av NAT-gateway kan ut�
 | Riktning | Resurs |
 |:---:|:---:|
 | Inbound (Inkommande) | Virtuell dator med offentlig IP på instans nivå |
-| Utgående | NAT Gateway |
+| Outbound (Utgående) | NAT Gateway |
 
 Den virtuella datorn kommer att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
 
@@ -152,7 +152,7 @@ Den virtuella datorn kommer att använda NAT-gateway för utgående trafik.  Ink
 | Riktning | Resurs |
 |:---:|:---:|
 | Inbound (Inkommande) | offentlig Load Balancer |
-| Utgående | NAT Gateway |
+| Outbound (Utgående) | NAT Gateway |
 
 Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Inkommande ursprungligt kommer inte att påverkas.
 
@@ -167,7 +167,7 @@ Eventuell utgående konfiguration från en belastnings Utjämnings regel eller u
 | Riktning | Resurs |
 |:---:|:---:|
 | Inbound (Inkommande) | Virtuell dator med offentlig IP på instans nivå och offentlig Load Balancer |
-| Utgående | NAT Gateway |
+| Outbound (Utgående) | NAT Gateway |
 
 Eventuell utgående konfiguration från en belastnings Utjämnings regel eller utgående regler ersätts av NAT-gatewayen.  Den virtuella datorn kommer också att använda NAT-gateway för utgående trafik.  Inkommande ursprungligt kommer inte att påverkas.
 
@@ -322,7 +322,6 @@ En SNAT-port är tillgänglig för åter användning till samma mål-IP-adress o
 
 - NAT är kompatibelt med standard-SKU offentlig IP, offentliga IP-prefix och belastnings Utjämnings resurser.   Grundläggande resurser (till exempel grundläggande belastningsutjämnare) och alla produkter som härletts från dem är inte kompatibla med NAT.  Grundläggande resurser måste placeras i ett undernät som inte har kon figurer ATS med NAT.
 - IPv4-adress familjen stöds.  NAT interagerar inte med IPv6-adress familjen.  Det går inte att distribuera NAT i ett undernät med ett IPv6-prefix.
-- NSG Flow-loggning stöds inte när NAT används.
 - NAT kan inte omfatta flera virtuella nätverk.
 
 ## <a name="suggestions"></a>Förslag

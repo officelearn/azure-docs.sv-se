@@ -1,23 +1,15 @@
 ---
 title: 'PowerShell-skript: ange tillåtna VM-storlekar i Azure Lab Services | Microsoft Docs'
-description: I den här artikeln finns ett exempel på ett PowerShell-skript som anger tillåtna storlekar för virtuella datorer i Azure Lab Services.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 50ce8034e8c028e3f385baf455c44c6ea33fe6f8
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+description: Den här artikeln innehåller ett exempel på ett PowerShell-skript som anger tillåtna storlekar för virtuella datorer i Azure Lab Services.
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+ms.openlocfilehash: 476b86b7c577db17efc39dbac64a527432c916b6
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290374"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136158"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Använd PowerShell för att ställa in tillåtna VM-storlekar i Azure Lab Services
 
@@ -27,7 +19,7 @@ Det här exemplet på PowerShell-skript anger tillåtna virtuella dator storleka
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -38,7 +30,7 @@ Det här exemplet på PowerShell-skript anger tillåtna virtuella dator storleka
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |

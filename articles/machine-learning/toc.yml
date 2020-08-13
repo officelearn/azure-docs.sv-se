@@ -161,11 +161,8 @@
             - name: Hantera användare och roller
               href: how-to-assign-roles.md
             - name: Använda virtuella nätverk
-              displayName: 'vnet, blob'
+              displayName: 'vnet, blob, private endpoint, private link'
               href: how-to-enable-virtual-network.md
-            - name: Använda Private Link
-              displayName: private endpoint
-              href: how-to-configure-private-link.md
             - name: Skydda webbtjänster med TLS
               displayName: ssl
               href: how-to-secure-web-service.md
@@ -457,8 +454,8 @@
         - name: Felsöka pipelines
           displayName: designer
           href: how-to-debug-pipelines.md
-        - name: Felsöka pipelines i Application Insights.
-          href: how-to-debug-pipelines-application-insights.md
+        - name: Logga pipelinedata i Application Insights
+          href: how-to-log-pipelines-application-insights.md
         - name: Använda parallella körningssteg
           displayName: score scoring batch consume pipeline parallelrunstep inference
           href: how-to-use-parallel-run-step.md

@@ -5,13 +5,13 @@ author: shreyasharmamsft
 ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 73d5c3abb2edc940bee9727ce1f3b0c4e8e0a62e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 08/12/2020
+ms.openlocfilehash: d0a5b48e93e839b0a0adaf185700d7f60fec7948
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289948"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140691"
 ---
 # <a name="time-series-model-variables"></a>Variabler för tids serie modell
 
@@ -27,14 +27,14 @@ I följande tabell visas vilka egenskaper som är relevanta för varje variabel 
 
 [![Tids serie modell variabel tabell](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
-#### <a name="numeric-variables"></a>Numeriska variabler
+## <a name="numeric-variables"></a>Numeriska variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetri värden som används för beräkning som kommer från enheten eller sensorer eller omvandlas med hjälp av Time Series-uttryck. Variabler av typen numerisk typ måste vara av typen *Double*.|
 | Variabel interpolation | Interpolation anger hur du återskapar en signal med hjälp av befintliga data. Alternativen för *steg* och *linjär* interpolation är tillgängliga för numeriska variabler. |
-| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för numeriska variabel typer](https://docs.microsoft.com/rest/api/time-series-insights/preview#numeric-variable-kind-1). |
+| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för numeriska variabel typer](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind). |
 
 Variabler följer följande JSON-exempel:
 
@@ -57,9 +57,9 @@ Variabler följer följande JSON-exempel:
 }
 ```
 
-#### <a name="categorical-variables"></a>Kategoriska-variabler
+## <a name="categorical-variables"></a>Kategoriska-variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
 | Variabel värde | Telemetridata som används för beräkning som kommer från enheten eller sensorer. Kategoriska-variabler måste vara antingen *långa* eller *strängar*. |
@@ -73,7 +73,7 @@ Variabler följer följande JSON-exempel:
 "Status": {
   "kind": "categorical",
   "value": {
-     "tsx": "$event.Status.Long" 
+     "tsx": "$event.Status.Long"
 },
   "interpolation": {
     "kind": "step",
@@ -97,12 +97,12 @@ Variabler följer följande JSON-exempel:
 }
 ```
 
-#### <a name="aggregate-variables"></a>Aggregera variabler
+## <a name="aggregate-variables"></a>Aggregera variabler
 
-| Variabel egenskap | Beskrivning |
+| Variabel egenskap | Description |
 | --- | ---|
 | Variabel filter | Filter är valfria villkorliga satser för att begränsa antalet rader som ska beaktas för beräkning. |
-| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för mängd varierande typer](https://docs.microsoft.com/rest/api/time-series-insights/preview#aggregate-variable-kind-1). |
+| Variabel agg regering | Utför beräkningar genom de [agg regerings funktioner som stöds för mängd varierande typer](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#aggregate-variable-kind). |
 
 Variabler följer följande JSON-exempel:
 
@@ -123,4 +123,3 @@ Variabler lagras i typ definitionen för en tids serie modell och kan anges info
 * Läs mer om [tids serie modell](./concepts-model-overview.md).
 
 * Läs mer om hur du definierar variabler i linje med [API: er för frågor](./concepts-query-overview.md).
-

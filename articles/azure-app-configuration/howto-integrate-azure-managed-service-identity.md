@@ -1,22 +1,22 @@
 ---
-title: Autentisera med hjälp av Azure Managed Identities
+title: Använda hanterade identiteter för att komma åt konfiguration av appar
 titleSuffix: Azure App Configuration
-description: Autentisera till Azure App konfiguration med hjälp av Azure Managed Identities
+description: Autentisera till Azure App konfiguration med hanterade identiteter
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 2/25/2020
-ms.openlocfilehash: bf97a1eae758778efc8d800666af4a5fcb574429
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ccf1bed3a1791f0aa172a617deab1cd192540f3
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80056829"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135478"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Integrera med hanterade Azure-identiteter
+# <a name="use-managed-identities-to-access-app-configuration"></a>Använda hanterade identiteter för att komma åt konfiguration av appar
 
-Azure Active Directory [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) fören klar hemligheter-hanteringen för ditt moln program. Med en hanterad identitet kan din kod använda tjänstens huvud namn som skapats för den Azure-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
+Azure Active Directory [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) fören klar hemligheter-hanteringen för ditt moln program. Med en hanterad identitet kan din kod använda tjänstens huvud namn som skapats för den Azure-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng.
 
 Azure App konfiguration och dess .NET Core-, .NET Framework-och Java våren-klient bibliotek har hanterat identitets stöd inbyggt i dem. Även om du inte behöver använda den, eliminerar den hanterade identiteten behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att exponera någon hemlighet.
 
@@ -84,7 +84,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. Hitta slut punkten för konfigurations lagringen för appen. URL: en visas på fliken **åtkomst nycklar** för butiken i Azure Portal.
 
-1. Öppna *appsettings.jspå*och Lägg till följande skript. Ersätt *\<service_endpoint>* , inklusive hakparenteser, med URL: en till appens konfigurations lager. 
+1. Öppna *appsettings.jspå*och Lägg till följande skript. Ersätt *\<service_endpoint>* , inklusive hakparenteser, med URL: en till appens konfigurations lager.
 
     ```json
     "AppConfig": {
@@ -183,6 +183,9 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
     Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern kommer att använda den `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
 
+> [!NOTE]
+> `ManagedIdentityCredential`har endast stöd för hanterad identitets autentisering. Den fungerar inte i lokala miljöer. Om du vill köra koden lokalt kan du överväga att använda `DefaultAzureCredential` , som även stöder tjänstens huvud namns autentisering. Mer information finns i [länken](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) .
+
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 ## <a name="deploy-from-local-git"></a>Distribuera från lokal Git
@@ -242,7 +245,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>Använd hanterad identitet på andra språk
 
-App Configuration-providrar för .NET Framework och Java Spring har också inbyggt stöd för hanterad identitet. Du kan använda butikens URL-slutpunkt i stället för dess fullständiga anslutnings sträng när du konfigurerar en av dessa providers. 
+App Configuration-providrar för .NET Framework och Java Spring har också inbyggt stöd för hanterad identitet. Du kan använda butikens URL-slutpunkt i stället för dess fullständiga anslutnings sträng när du konfigurerar en av dessa providers.
 
 Du kan till exempel uppdatera .NET Framework-konsolen som skapats i snabb starten för att ange följande inställningar i *App.config* -filen:
 

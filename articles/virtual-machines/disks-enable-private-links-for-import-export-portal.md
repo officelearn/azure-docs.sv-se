@@ -1,23 +1,23 @@
 ---
-title: Azure Portal-begränsa import/export-åtkomst till hanterade diskar med privata länkar (förhands granskning)
-description: Aktivera privata länkar (för hands version) för dina hanterade diskar med Azure Portal. Gör det möjligt att exportera och importera diskar på ett säkert sätt inom bara ditt virtuella nätverk.
+title: Azure Portal-begränsa import/export-åtkomst till hanterade diskar med privata länkar
+description: Aktivera privata Länkar för dina hanterade diskar med Azure Portal för närvarande som för hands version. Gör det möjligt att exportera och importera diskar på ett säkert sätt i det virtuella nätverket.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 07/15/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 75b5ba995ff87649ec8a7a96a7c816bf2bec7e44
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535817"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135852"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links-preview"></a>Azure Portal-begränsa import/export-åtkomst för hanterade diskar med privata länkar (förhands granskning)
+# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal-begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
-Du kan skapa en tidsbunden URL för signatur för delad åtkomst (SAS) för ej anslutna hanterade diskar och ögonblicks bilder för att exportera data till annan region för regional expansion, haveri beredskap och läsa data för kriminal tekniska-analys. Du kan också använda SAS-URI: n för att ladda upp den virtuella hård disken direkt till en tom disk från din lokala plats.  Nu kan du använda [privata länkar](../private-link/private-link-overview.md) (för hands version) för att begränsa exporten och importen till Managed disks endast från ditt virtuella Azure-nätverk. Dessutom är du försäkrad om att data aldrig överförs via det offentliga Internet och alltid skickas i det säkra Microsoft stamnät nätverket när du använder privata länkar. 
+Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och gör att du kan begränsa exporten och importen av hanterade diskar så att det bara sker i det virtuella Azure-nätverket. Du kan skapa en tidsbunden URL för signatur för delad åtkomst (SAS) för ej anslutna hanterade diskar och ögonblicks bilder för att exportera data till annan region för regional expansion, haveri beredskap och läsa data för kriminal tekniska-analys. Du kan också använda SAS-URI: n för att ladda upp den virtuella hård disken direkt till en tom disk från din lokala plats. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponeringen för det offentliga Internet.
 
 Du kan skapa en disk åtkomst resurs och länka den till ditt virtuella nätverk i samma prenumeration genom att skapa en privat slut punkt. Du måste associera en disk eller en ögonblicks bild med disk åtkomst för att exportera och importera data via privata länkar. Du måste också ange egenskapen NetworkAccessPolicy för disken eller ögonblicks bilden till `AllowPrivate` . 
 

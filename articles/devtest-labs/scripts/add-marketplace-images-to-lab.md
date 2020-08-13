@@ -1,23 +1,15 @@
 ---
 title: PowerShell – Lägg till en Marketplace-avbildning i ett labb i Azure DevTest Labs
 description: Det här PowerShell-skriptet lägger till en Marketplace-avbildning i ett labb i Azure DevTest Labs.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 1c221f86d721a14f82f75d1cd9c81e37bba32a60
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+ms.openlocfilehash: 543f20af270769dd16e4a1ecf6ee93e9259cdfd1
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282627"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136243"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att lägga till en Marketplace-avbildning i ett labb i Azure DevTest Labs
 
@@ -27,7 +19,7 @@ Det här exemplet på PowerShell-skript lägger till en Marketplace-avbildning i
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -38,7 +30,7 @@ Det här exemplet på PowerShell-skript lägger till en Marketplace-avbildning i
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | Find-AzResource | Söker efter resurser baserat på angivna parametrar. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |

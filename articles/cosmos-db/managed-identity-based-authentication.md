@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: dfce18674f382cb683fa74a1bed964e9f86d72c2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e1076c7bb480a52c9436e336a49169953d0d8285
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206103"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135778"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -40,7 +40,7 @@ I det här steget tilldelar du en systemtilldelad hanterad identitet till din Fu
 
 I det här steget ska du tilldela en roll till funktionens programs systemtilldelade hanterade identitet. Azure Cosmos DB har flera inbyggda roller som du kan tilldela till den hanterade identiteten. I den här lösningen använder du följande två roller:
 
-|Inbyggd roll  |Beskrivning  |
+|Inbyggd roll  |Description  |
 |---------|---------|
 |[DocumentDB-konto deltagare](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Kan hantera Azure Cosmos DB-konton. Tillåter hämtning av Läs-/skriv nycklar. |
 |[Cosmos DB konto läsar roll](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kan läsa Azure Cosmos DB konto data. Tillåter hämtning av Läs nycklar. |
@@ -78,9 +78,9 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
 Om du vill tilldela rollen med hjälp av Azure CLI använder du följande kommandon:
 
 ```azurecli-interactive
-$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
 
-$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)
 
 az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
 ```

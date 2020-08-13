@@ -1,23 +1,15 @@
 ---
 title: PowerShell – skapa en anpassad avbildning från VHD-filen i Azure Lab Services
 description: Det här PowerShell-skriptet skapar en anpassad avbildning från en VHD-fil i Azure Lab Services.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: ba522745aceba2b63ed8b71692f50f9a9e5ea676
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.devlang: azurecli
+ms.topic: sample
+ms.date: 08/11/2020
+ms.openlocfilehash: d22e6e1d226e826bf114a0fdb378879b828d9b4a
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282610"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136192"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Använd PowerShell för att skapa en anpassad avbildning från en VHD-fil i Azure Lab Services
 
@@ -27,7 +19,7 @@ Det här exemplet på PowerShell-skriptet skapar en anpassad avbildning från en
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Ett labb**. Skriptet kräver att du har ett befintligt labb. 
 
 ## <a name="sample-script"></a>Exempelskript
@@ -38,7 +30,7 @@ Det här exemplet på PowerShell-skriptet skapar en anpassad avbildning från en
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Hämtar resurser. |
 | [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | Hämtar åtkomstnycklarna för Azure Storage-kontot. |

@@ -2,19 +2,19 @@
 title: Azure Key Vault – använda mjuk borttagning med CLI
 description: Exempel på användnings fall av mjuk borttagning med CLI-kod klipp
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/11/2020
+ms.author: sudbalas
+ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385746"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135937"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -58,11 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Nytt nyckel valv
 
-Att aktivera mjuk borttagning för ett nytt nyckel valv görs när du skapar den genom att lägga till flaggan för borttagning av mjuk borttagning till kommandot CREATE.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+Mjuk borttagning aktive ras automatiskt på alla nyckel valv som standard. Den 31 december 2020 är det inte längre möjligt att skapa ett nytt nyckel valv utan att mjuk borttagning är aktiverat.
 
 ### <a name="verify-soft-delete-enablement"></a>Verifiera mjuk borttagnings aktivering
 

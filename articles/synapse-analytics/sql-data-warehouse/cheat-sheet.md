@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 74ffb54b13783b4945376e1717777fa1da39ab44
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543324"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136107"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Lathund-blad för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -37,13 +37,13 @@ När du vet åtgärdstyperna i förväg kan du optimera tabellernas design.
 
 ## <a name="data-migration"></a>Datamigrering
 
-Börja med att läsa in data i [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller Azure Blob Storage. Använd sedan PolyBase för att läsa in dina data i mellanlagrings tabeller. Använd följande konfiguration:
+Börja med att läsa in data i [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) eller Azure Blob Storage. Använd sedan [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (för hands versionen) för att läsa in dina data i mellanlagrings tabeller. Använd följande konfiguration:
 
-| Design | Rekommendation |
+| Utforma | Rekommendation |
 |:--- |:--- |
 | Distribution | Resursallokering (round robin) |
 | Indexering | Heap |
-| Partitionering | Inget |
+| Partitionering | Ingen |
 | Resursklass | largerc eller xlargerc |
 
 Läs mer om [datamigrering](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), [datainläsning](design-elt-data-loading.md) och [ELT-processen (Extract, Load, and Transform)](design-elt-data-loading.md).
@@ -109,7 +109,7 @@ Vi rekommenderar att du använder PolyBase och ADF v2 för att automatisera dina
 
 ## <a name="maintain-statistics"></a>Underhålla statistik
 
- Tills automatisk statistik är allmänt tillgänglig krävs manuell underhåll av statistik. Det är viktigt att uppdatera statistik när *viktiga* ändringar inträffar i dina data. Detta hjälper till att optimera dina frågeplaner. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik.
+Det är viktigt att uppdatera statistik när *viktiga* ändringar inträffar i dina data. Se [uppdaterings statistik](sql-data-warehouse-tables-statistics.md#update-statistics) för att avgöra om *betydande* ändringar har inträffat. Uppdaterad statistik optimera dina fråge planer. Om du tycker att det tar för lång tid att behålla all statistik kan du vara mer selektiv med vilka kolumner som ska ha statistik.
 
 Du kan även definiera frekvensen för uppdateringarna. Du kanske till exempel vill uppdatera datumkolumner, där nya värden kan läggas till, varje dag. Du får ut mest genom att använda statistik med kolumner som ingår i kopplingar, kolumner som används i WHERE-satsen och kolumner som finns i GROUP BY.
 

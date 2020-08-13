@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: ff0df654650bb1c32d5c3e9833ebde2a81e3d65c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 74e0a63da87a79cbd582cd6da5992251fc256504
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799964"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135444"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattforms loggar och mått till olika destinationer
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -41,34 +41,24 @@ Följande video vägleder dig genom cirkulations plattforms loggar med diagnosti
 
 
 ## <a name="destinations"></a>Mål
+Plattforms loggar och-mått kan skickas till målen i följande tabell. 
 
-Plattforms loggar och-mått kan skickas till målen i följande tabell. Följ varje länk i följande tabell om du vill ha mer information om hur du skickar data till det målet.
-
-| Mål | Beskrivning |
+| Mål | Description |
 |:---|:---|
-| [Log Analytics arbets yta](#log-analytics-workspace) | Genom att skicka loggar och mått till en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor använda kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
-| [Event Hubs](#event-hub) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar. |
-| [Azure Storage-konto](#azure-storage) | Arkivering av loggar och mått till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. Jämfört med Azure Monitor loggar och en Log Analytics arbets yta är Azure Storage billigare och loggar kan sparas där på obestämd tid. |
+| [Log Analytics arbets yta](design-logs-deployment.md) | Genom att skicka loggar och mått till en Log Analytics arbets yta kan du analysera dem med andra övervaknings data som samlas in av Azure Monitor använda kraftfulla logg frågor och även använda andra Azure Monitor funktioner, till exempel aviseringar och visualiseringar. |
+| [Event Hubs](/azure/event-hubs/) | Genom att skicka loggar och mått till Event Hubs kan du strömma data till externa system, till exempel Siem för tredje part och andra Log Analytics-lösningar.  |
+| [Azure Storage-konto](/azure/storage/blobs/) | Arkivering av loggar och mått till ett Azure Storage-konto är användbart för granskning, statisk analys eller säkerhets kopiering. Jämfört med Azure Monitor loggar och en Log Analytics arbets yta är Azure Storage billigare och loggar kan sparas där på obestämd tid.  |
 
 
-## <a name="prerequisites"></a>Förutsättningar
-Du måste skapa alla destinationer för den diagnostiska inställningen med de behörigheter som krävs. Se avsnitten nedan för krav krav för varje mål.
+### <a name="destination-requirements"></a>Mål krav
 
-### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
-[Skapa en ny arbets yta](../learn/quick-create-workspace.md) om du inte redan har en. Arbets ytan behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+Du måste skapa alla destinationer för den diagnostiska inställningen innan du skapar diagnostikinställningar. Målet behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna. Följande tabell innehåller unika krav för varje mål, inklusive eventuella regionala begränsningar.
 
-### <a name="event-hub"></a>Händelsehubb
-[Skapa en händelsehubben](../../event-hubs/event-hubs-create.md) om du inte redan har en. Event Hubs namn området behöver inte finnas i samma prenumeration som den prenumeration som avger loggar, förutsatt att den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna och båda prenumerationerna finns i samma klient organisation.
-
-Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Du kan skapa eller ändra principer för delad åtkomst i Azure Portal under fliken Konfigurera för ditt Event Hubs-namnområde. Om du vill uppdatera den diagnostiska inställningen för att inkludera strömning måste du ha ListKey-behörighet för den Event Hubs auktoriseringsregeln. 
-
-
-### <a name="azure-storage"></a>Azure-lagring
-[Skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md) om du inte redan har ett. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
-
-Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till data bättre. Om du arkiverar aktivitets loggen och resurs loggarna tillsammans kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
-
-Om du vill skicka data till oföränderligt lagrings utrymme ställer du in den oföränderliga principen för lagrings kontot enligt beskrivningen i [Ange och hantera oföränderlighets-principer för Blob Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). Du måste följa alla steg i den här artikeln, inklusive aktivera skyddade bifogade BLOB-skrivningar.
+| Mål | Krav |
+|:---|:---|
+| Log Analytics-arbetsyta | Arbets ytan behöver inte finnas i samma region som den resurs som övervakas.|
+| Händelsehubbar | Principen för delad åtkomst för namn området definierar de behörigheter som den strömmande mekanismen har. Strömning till Event Hubs kräver behörigheterna hantera, skicka och lyssna. Om du vill uppdatera den diagnostiska inställningen för att inkludera strömning måste du ha ListKey-behörighet för den Event Hubs auktoriseringsregeln.<br><br>Event Hub-namnområdet måste finnas i samma region som den resurs som övervakas om resursen är regional. |
+| Azure Storage-konto | Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till data bättre. Om du arkiverar aktivitets loggen och resurs loggarna tillsammans kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.<br><br>Om du vill skicka data till oföränderligt lagrings utrymme ställer du in den oföränderliga principen för lagrings kontot enligt beskrivningen i [Ange och hantera oföränderlighets-principer för Blob Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md). Du måste följa alla steg i den här artikeln, inklusive aktivera skyddade bifogade BLOB-skrivningar.<br><br>Lagrings kontot måste finnas i samma region som den resurs som övervakas om resursen är regional. |
 
 > [!NOTE]
 > Azure Data Lake Storage Gen2-konton stöds för närvarande inte som mål för diagnostikinställningar även om de visas som ett giltigt alternativ i Azure-portalen.

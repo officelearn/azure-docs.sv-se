@@ -13,12 +13,12 @@ ms.date: 08/05/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 800b399e73be032cfd9d2849b004018aa9d9031f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120872"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140810"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Snabb start: Konfigurera ett klient program för att få åtkomst till ett webb-API
 
@@ -148,7 +148,7 @@ Så här lägger du till en klient hemlighet:
 
 ## <a name="add-permissions-to-access-web-apis"></a>Lägga till behörigheter för att få åtkomst till webb-API:er
 
-[Behörigheten Graph API inloggning och läsa användar profil](https://developer.microsoft.com/graph/docs/concepts/permissions_reference#user-permissions) är markerad som standard. Du kan välja mellan [två typer av behörigheter](developer-glossary.md#permissions) för varje webb-API:
+[Behörigheten Graph API inloggning och läsa användar profil](/graph/permissions-reference#user-permissions) är markerad som standard. Du kan välja mellan [två typer av behörigheter](developer-glossary.md#permissions) för varje webb-API:
 
 * **Program behörigheter**. Klient programmet måste ha åtkomst till webb-API: et direkt, utan användar kontext. Den här typen av behörighet kräver administratörs medgivande. Den här behörigheten är inte tillgänglig för Skriv bords-och mobil klient program.
 * **Delegerade behörigheter**. Klientprogrammet behöver komma åt webb-API:et som den inloggade användaren men med åtkomst som begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare såvida inte behörigheten kräver administratörens godkännande.

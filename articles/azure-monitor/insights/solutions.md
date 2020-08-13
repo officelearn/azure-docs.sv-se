@@ -5,28 +5,28 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/12/2020
-ms.openlocfilehash: 406991de2441836565c911ef8a8e1402f6398eb0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/07/2020
+ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824791"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135545"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Övervaknings lösningar i Azure Monitor
 
-Övervaknings lösningar utnyttjar tjänster i Azure för att tillhandahålla ytterligare analyser av driften av ett visst program eller en viss tjänst. Den här artikeln innehåller en kort översikt över övervakning av lösningar i Azure och information om hur du använder och installerar dem. Du kan lägga till övervaknings lösningar som Azure Monitor för alla program och tjänster som du använder. De är vanligt vis tillgängliga utan kostnad utan att samla in data som kan anropa användnings kostnader.
+Övervaknings lösningar i Azure Monitor ger en analys av driften av ett visst Azure-program eller-tjänst. Den här artikeln innehåller en kort översikt över övervakning av lösningar i Azure och information om hur du använder och installerar dem. Du kan lägga till övervaknings lösningar som Azure Monitor för alla program och tjänster som du använder. De är vanligt vis tillgängliga utan kostnad utan att samla in data som kan anropa användnings kostnader.
 
 ## <a name="use-monitoring-solutions"></a>Använda övervakningslösningar
 
-Öppna sidan **Översikt** i Azure Monitor om du vill visa en panel för varje lösning som är installerad i arbets ytan.
+Sidan lösnings **Översikt** i Azure Monitor visar en panel för varje lösning som är installerad på en Log Analytics arbets yta. Om du vill öppna den här sidan går du till **Azure Monitor** i [Azure Portal](https://ms.portal.azure.com). Under menyn **insikter** väljer du **mer** för att öppna **Insights-hubben**och klickar sedan på **Log Analytics arbets ytor**.
 
-1. Öppna [Azure-portalen](https://ms.portal.azure.com). Sök efter och välj **övervakare**.
-1. Under menyn **insikter** väljer du **mer**.
-1. Använd List rutorna längst upp på skärmen för att ändra arbets ytan eller tidsintervallet som används för panelerna.
-1. Klicka på panelen för en lösning för att öppna dess vy som innehåller mer detaljerad analys av insamlade data.
+[![Insights-hubb](media/solutions/insights-hub.png)](media/solutions/insights-hub.png#lightbox)
 
-![Översikt](media/solutions/overview.png)
+
+Använd List rutorna längst upp på skärmen för att ändra arbets ytan eller tidsintervallet som används för panelerna. Klicka på panelen för en lösning för att öppna dess vy som innehåller mer detaljerad analys av insamlade data.
+
+[![Översikt](media/solutions/overview.png)](media/solutions/overview.png#lightbox)
 
 Övervaknings lösningar kan innehålla flera typer av Azure-resurser och du kan visa alla resurser som ingår i en lösning precis som andra resurser. Till exempel visas alla logg frågor som ingår i lösningen under **lösnings frågor** i [query Explorer](../log-query/get-started-portal.md#load-queries) . du kan använda dessa frågor när du utför ad hoc-analyser med [logg frågor](../log-query/log-query-overview.md).
 
@@ -36,7 +36,7 @@ ms.locfileid: "87824791"
 
 Använd följande procedur för att visa en lista över de övervaknings lösningar som är installerade i din prenumeration.
 
-1. Öppna [Azure-portalen](https://ms.portal.azure.com). Sök efter och välj **lösningar**.
+1. Gå till [Azure-portalen](https://ms.portal.azure.com). Sök efter och välj **lösningar**.
 1. Lösningar som är installerade på alla dina arbets ytor visas. Namnet på lösningen följs av namnet på arbets ytan som den är installerad i.
 1. Använd List rutorna överst på skärmen för att filtrera efter prenumeration eller resurs grupp.
 
@@ -91,7 +91,7 @@ Medlemmar i communityn kan skicka in hanterings lösningar till Azures snabb sta
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="prepare-your-environment"></a>Förbereda din miljö
+### <a name="prepare-your-environment"></a>Förbered din miljö
 
 1. Installera Azure CLI
 
@@ -103,7 +103,7 @@ Medlemmar i communityn kan skicka in hanterings lösningar till Azures snabb sta
 
 1. Logga in.
 
-   Om du använder en lokal installation av CLI loggar du in med kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa stegen som visas i terminalen.
+   Om du använder en lokal installation av CLI loggar du in med kommandot [AZ login](/cli/azure/reference-index#az-login) .  Slutför autentiseringsprocessen genom att följa anvisningarna i terminalen.
 
     ```azurecli
     az login

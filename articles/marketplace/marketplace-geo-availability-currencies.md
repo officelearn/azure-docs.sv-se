@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: bf6215bd9225292f7b85ed6d4c4566cd4ee860b7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87902107"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136345"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -50,7 +50,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kanada                              | CA        | CAD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Porslin\**                            | CN        | E.t.          |
+| Porslin\**                            | CN        | Ej tillämpligt          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -179,11 +179,7 @@ För att justera ett pris innan du publicerar, exportera bara pris kalkyl bladet
 > [!NOTE]
 > När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
 
-## <a name="rate-changes"></a>Hastighets ändringar
-
-De priser som vi använder för att beräkna lokala priser uppdateras dagligen. Den här beräkningen görs när ISV sparar sidan och de kan granska alla priser genom att exportera och granska priser innan publicering.
-
-### <a name="retrieving-currency-information-by-api"></a>Hämtar valuta information via API
+## <a name="retrieving-currency-information-by-api"></a>Hämtar valuta information via API
 
 Enskilda priser (som, beroende på hur de har ställts in, kan ha påverkats av växelkurserna på den dag då de sparades) kan hämtas med hjälp av ett API. valuta information kan inte.
 

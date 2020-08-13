@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: a1a99e9f02a25f5e1d57ea485930a4f26149b53f
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808413"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135495"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
@@ -48,37 +48,24 @@ Redigera program egenskaperna:
     - **Aktiverat för användare att logga in?** Anger om användare som är tilldelade till programmet kan logga in.
     - **Krävs användar tilldelning?** Anger om användare som inte är tilldelade till programmet kan logga in.
     - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [åtkomst panelen](https://myapps.microsoft.com) och Office 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Office 365-webbplats eller på en Microsoft 365 webbplats.)
-4. Använd följande tabeller för att hjälpa dig att välja de bästa alternativen för dina behov.
+    
+    > [!TIP]
+    > Tilldelning av användare sker i avsnittet **användare och grupper** i navigeringen.
 
-   - Beteende för *tilldelade* användare:
+    De tre alternativen kan växlas oberoende av varandra och det resulterande beteendet är inte alltid uppenbart. Här är en tabell som kan hjälpa dig:
+    
+    | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Beteende för användare som antingen har tilldelats till appen eller inte. |
+    |---|---|---|---|
+    | Ja | Ja | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Ja | Nej  | Tilldelad använder kan inte se appen, men de kan logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Ja | Nej  | Ja | Tilldelade användare kan se appen och logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Ja | Nej  | Nej  | Tilldelade användare kan inte se appen men kan logga in.<br>Otilldelade användare kan inte se appen men kan logga in. |
+    | Nej  | Ja | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Ja | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Nej  | Ja | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
+    | Nej  | Nej  | Nej  | Tilldelade användare kan inte se appen och kan inte logga in.<br>Otilldelade användare kan inte se appen och kan inte logga in. |
 
-       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för tilldelad användare | Upplevelse för tilldelad användare |
-       |---|---|---|---|---|
-       | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan tilldelade användare logga in? | Kan tilldelade användare se programmet?* |
-       | Ja | Ja | Ja | Ja | Ja  |
-       | Ja | Ja | Nej  | Ja | Nej   |
-       | Ja | Nej  | Ja | Ja | Ja  |
-       | Ja | Nej  | Nej  | Ja | Nej   |
-       | Nej  | Ja | Ja | Nej  | Nej   |
-       | Nej  | Ja | Nej  | Nej  | Nej   |
-       | Nej  | Nej  | Ja | Nej  | Nej   |
-       | Nej  | Nej  | Nej  | Nej  | Nej   |
-
-   - Beteende för *ej tilldelade* användare:
-
-       | Program egenskap | Program egenskap | Program egenskap | Upplevelse för ej tilldelade användare | Upplevelse för ej tilldelade användare |
-       |---|---|---|---|---|
-       | Aktiverat för användare att logga in? | Användartilldelning krävs? | Synlig för användare? | Kan ej tilldelade användare logga in? | Kan ej tilldelade användare se programmet?* |
-       | Ja | Ja | Ja | Nej  | Nej   |
-       | Ja | Ja | Nej  | Nej  | Nej   |
-       | Ja | Nej  | Ja | Ja | Nej   |
-       | Ja | Nej  | Nej  | Ja | Nej   |
-       | Nej  | Ja | Ja | Nej  | Nej   |
-       | Nej  | Ja | Nej  | Nej  | Nej   |
-       | Nej  | Nej  | Ja | Nej  | Nej   |
-       | Nej  | Nej  | Nej  | Nej  | Nej   |
-
-     *Kan användaren se programmet i åtkomstpanelen och Office 365-appfönstret?
+4. När du är klar väljer du **Spara**.
 
 ## <a name="use-a-custom-logo"></a>Använda en anpassad logotyp
 
@@ -102,7 +89,7 @@ Så här använder du en anpassad logotyp:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta med snabb starts serien bör du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
+Om du inte kommer att fortsätta med snabb starts serien kan du ta bort appen för att rensa test klienten. Borttagning av appen beskrivs i den senaste snabb starten i den här serien. se [ta bort en app](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

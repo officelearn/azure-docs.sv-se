@@ -1,6 +1,6 @@
 ---
 title: Azure VMware-lösning av CloudSimple-VPN-gatewayer
-description: Lär dig mer om CloudSimple för plats-till-plats-VPN och punkt-till-plats-VPN-koncept
+description: Lär dig mer om att CloudSimple plats-till-plats-och punkt-till-plats-VPN-gatewayer, som används för att skicka krypterad trafik mellan en CloudSimple region och andra resurser.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e013bb96990a8f3a0ef7d3a58529b200919e276
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024865"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140640"
 ---
 # <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
@@ -60,7 +60,7 @@ En plats-till-plats-VPN-anslutning använder följande kryptografiska standard p
 |-----------|------------|------------|------------|
 | Kryptering | AES 128 | AES 256 | AES 256 |
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
-| PFS-grupp (Perfect Forward Secrecy) | Ingen | Ingen | Ingen |
+| PFS-grupp (Perfect Forward Secrecy) | Inget | Inget | Inget |
 | Livs längd | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |
 | Data storlek | 4 GB | 4 GB | 4 GB |
 

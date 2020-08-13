@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: 4ff80330ab6244bc9d108b7f5a1d4e4e0dbd4feb
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6e03b8f89ec22b74ad7dd14d9225c11fde78ec7f
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387412"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135631"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-storskalig (citus) i Azure Portal
 
@@ -115,7 +115,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Hittills har frågorna involverade GitHub \_ -händelserna exklusivt, men vi kan kombinera den här informationen med GitHub- \_ användare. Eftersom vi shardade både användare och händelser på samma identifierare ( `user_id` ), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) på samma databasnoder och kan enkelt anslutas.
+Hittills har frågorna involverade GitHub \_ -händelserna exklusivt, men vi kan kombinera den här informationen med GitHub- \_ användare. Eftersom vi shardade både användare och händelser på samma identifierare ( `user_id` ), kommer raderna i båda tabellerna med matchande användar-ID att [samplaceras](concepts-hyperscale-colocation.md) på samma databasnoder och kan enkelt anslutas.
 
 Om vi ansluter till `user_id` kan skalningen av anslutningen gå över till Shards för körning parallellt på arbetsnoder. Vi kan till exempel hitta de användare som skapade det största antalet databaser:
 

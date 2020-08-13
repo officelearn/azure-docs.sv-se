@@ -3,15 +3,15 @@ title: Felsöka fjärr skrivbords klienten Windows Virtual Desktop – Azure
 description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows-klient för virtuella skriv bord.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac2eb2632ad96538e965e4d1057d7e4a116c05d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009400"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88134487"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Felsöka fjärr skrivbords klienten
 
@@ -41,13 +41,13 @@ nslookup rdweb.wvd.microsoft.com
 
 Försök att ansluta till en annan klient, t. ex. fjärr skrivbords klienten för Windows 7 eller Windows 10, och kontrol lera om du kan öppna webb klienten.
 
-### <a name="opening-another-site-fails"></a>Det går inte att öppna en annan webbplats
+### <a name="cant-open-other-websites-while-connected-to-the-web-client"></a>Det går inte att öppna andra webbplatser när du är ansluten till webb klienten
 
-Detta beror vanligt vis på problem med nätverks anslutningen eller ett nätverks avbrott. Vi rekommenderar att du kontaktar nätverks supporten.
+Om du inte kan öppna andra webbplatser medan du är ansluten till webb klienten, kan det uppstå problem med nätverks anslutningen eller ett nätverks avbrott. Vi rekommenderar att du kontaktar nätverks supporten.
 
-### <a name="nslookup-cannot-resolve-the-name"></a>Det går inte att matcha namnet i nslookup
+### <a name="nslookup-cant-resolve-the-name"></a>Det går inte att matcha namnet i nslookup
 
-Detta beror vanligt vis på problem med nätverks anslutningen eller ett nätverks avbrott. Vi rekommenderar att du kontaktar nätverks supporten.
+Om det inte går att matcha namnet i nslookup kan det bero på problem med nätverks anslutningen eller ett nätverks avbrott. Vi rekommenderar att du kontaktar nätverks supporten.
 
 ### <a name="your-client-cant-connect-but-other-clients-on-your-network-can-connect"></a>Klienten kan inte ansluta men andra klienter i nätverket kan ansluta
 
@@ -58,11 +58,13 @@ Om webbläsaren startar eller slutar fungera när du använder webb klienten fö
 3. Rensa webbläsarens cache. Se [Rensa webbläsarens cacheminne för webbläsaren](https://binged.it/2RKyfdU).
 4. Öppna webbläsare i privat läge.
 
-## <a name="web-client-does-not-show-my-resources"></a>Webb klienten visar inte mina resurser
+## <a name="client-doesnt-show-my-resources"></a>Klienten visar inte mina resurser
 
-Börja med att kontrol lera Azure Active Directory kontot som du använder. Om du redan har loggat in med ett annat Azure Active Directory konto än det som du vill använda för det virtuella Windows-skrivbordet, måste du antingen signera vårt eller använda ett privat webbläsarfönster.
+Börja med att kontrol lera Azure Active Directory kontot som du använder. Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.
 
-Om du använder den virtuella Windows-datorn (klassisk) använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
+Om du använder Windows Virtual Desktop (klassisk) använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
+
+Om det inte fungerar kontrollerar du att din app-grupp är kopplad till en arbets yta.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Webb klienten slutar svara eller kopplas från
 

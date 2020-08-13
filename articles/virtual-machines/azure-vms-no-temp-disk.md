@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15b9495b95ec4efb4f8e9f315595ea6bfca6cd5a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288560"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191141"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Azure VM-storlekar utan lokal temporär disk 
 Den här artikeln innehåller svar på vanliga frågor och svar om Azure VM-storlekar som inte har en lokal temporär disk (dvs. ingen lokal temporär disk). Mer information om de här VM-storlekarna finns i [specifikationer för DV4 och Dsv4-serien (generell användning arbets belastningar)](dv4-dsv4-series.md) eller [specifikationer för Ev4 och Esv4-serien (minnesoptimerade arbets belastningar)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Om den anpassade OS-avbildningen pekar på den lokala Temp-disken kanske inte av
 Fyll i [feedback-formuläret]( https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRUMzdCQkw0OVVRTldFUUtXSTlLQVBPUkVHSy4u). 
 
 ## <a name="next-steps"></a>Nästa steg 
-I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör virtuella Azure-datorer med en lokal temporär disk. Mer information om de här VM-storlekarna finns i följande artiklar:
+I det här dokumentet har du lärt dig mer om de vanligaste frågorna som rör virtuella Azure-datorer utan en lokal temporär disk. Mer information om de här VM-storlekarna finns i följande artiklar:
 
 - [Specifikationer för DV4 och Dsv4-serien (Generell användning arbets belastning)](dv4-dsv4-series.md)
 - [Specifikationer för Ev4 och Esv4-serien (Minnesoptimerade arbets belastning)](ev4-esv4-series.md)

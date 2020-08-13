@@ -1,6 +1,6 @@
 ---
 title: Åtkomst Key Vault bakom en brand vägg – Azure Key Vault | Microsoft Docs
-description: Läs om hur man kommer åt Azure Key Vault från ett program bakom en brandvägg
+description: Läs om de portar, värdar eller IP-adresser som ska öppnas för att aktivera ett nyckel valvs klient program bakom en brand vägg för att få åtkomst till ett nyckel valv.
 services: key-vault
 author: amitbapat
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: db5c35db271f84a88fdc03f4f0178ee1c35f727e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 273579fb3dee1e941e9f464a1956189c8808c694
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834330"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190463"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 

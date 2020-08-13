@@ -1,6 +1,6 @@
 ---
 title: Optimering av stor fil hämtning med Azure CDN
-description: I den här artikeln förklaras hur stora fil hämtningar kan optimeras.
+description: Lär dig hur stora fil hämtningar kan optimeras i Azure Content Delivery Network. Den här artikeln innehåller flera scenarier.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 0fb136b6c37c8ef14f85455431fea80099088936
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206705"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192641"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
 

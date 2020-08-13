@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 1ca85af86df28691e2194c40e1cdde1abd7c8a4d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542879"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192295"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -24,10 +24,13 @@ Den allmänna strategin för att uppgradera en Service Fabric klusternod till at
 
 Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
 
+> [!NOTE]
+> Begränsningarna för en Basic SKU-belastningsutjämnare förhindrar att ytterligare en skalnings uppsättning läggs till. Vi rekommenderar att du använder standard-SKU-belastningsutjämnaren i stället. Mer information finns i [jämförelse av de två SKU: erna](/azure/load-balancer/skus).
+
 > [!CAUTION]
 > Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.
 
-Här följer [mallar och cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) för Azure Resource Manager som vi använder för att slutföra uppgraderings scenariot. Mal lin liga ändringar kommer att förklaras i [distribuera en uppgraderad skalnings uppsättning för den primära nodtypen](#deploy-an-upgraded-scale-set-for-the-primary-node-type) nedan.
+Här följer [mallar och cmdlets](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) för Azure Resource Manager som vi använder för att slutföra uppgraderings scenariot. Mal lin liga ändringar kommer att förklaras i [distribuera en uppgraderad skalnings uppsättning för den primära nodtypen](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  nedan.
 
 ## <a name="set-up-the-test-cluster"></a>Konfigurera test klustret
 
@@ -44,7 +47,7 @@ Följande kommandon vägleder dig genom att skapa ett nytt självsignerat certif
 
 ### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generera ett självsignerat certifikat och distribuera klustret
 
-Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. Justera värdena för `resourceGroupName` , `certSubjectName` , `parameterFilePath` och `templateFilePath` för ditt eget konto och din miljö:
+Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. Justera värdena för `resourceGroupName` ,  `certSubjectName` , `parameterFilePath` och `templateFilePath` för ditt eget konto och din miljö:
 
 ```powershell
 # Assign deployment variables
@@ -165,7 +168,7 @@ Här är ändringar i den ursprungliga kluster distributions mal len för att l�
 
 #### <a name="parameters"></a>Parametrar
 
-Lägg till en parameter för instans namnet för den nya skalnings uppsättningen. Observera att `vmNodeType1Name` är unikt för den nya skalnings uppsättningen, medan värdena count och size är identiska med den ursprungliga skalnings uppsättningen.
+Lägg till parametrar för instans namn, antal och storlek på den nya skalnings uppsättningen. Observera att `vmNodeType1Name` är unikt för den nya skalnings uppsättningen, medan värdena count och size är identiska med den ursprungliga skalnings uppsättningen.
 
 **Mallfil**
 
@@ -174,7 +177,18 @@ Lägg till en parameter för instans namnet för den nya skalnings uppsättninge
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-}
+},
+"nt1InstanceCount": {
+    "type": "int",
+    "defaultValue": 5,
+    "metadata": {
+        "description": "Instance count for node type"
+    }
+},
+"vmNodeType1Size": {
+    "type": "string",
+    "defaultValue": "Standard_D2_v2"
+},
 ```
 
 **Parameter fil**
@@ -182,6 +196,12 @@ Lägg till en parameter för instans namnet för den nya skalnings uppsättninge
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
+},
+"nt1InstanceCount": {
+    "value": 5
+},
+"vmNodeType1Size": {
+    "value": "Standard_D2_v2"
 }
 ```
 
@@ -199,13 +219,13 @@ I `variables` avsnittet distributionsmall lägger du till en post för den inkom
 
 I avsnittet *resurser* för distributions mal len lägger du till den nya skalnings uppsättningen för virtuella datorer. Tänk på följande:
 
-* Den nya skalnings uppsättningen refererar till den nya nodtypen:
+* Den nya skalnings uppsättningen refererar till samma nodtyp som den ursprungliga:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
     ```
 
-* Den nya skalnings uppsättningen refererar till samma server och undernät som den ursprungliga belastnings Utjämnings servern, men använder en annan inkommande NAT-pool för belastningsutjämnare:
+* Den nya skalnings uppsättningen refererar till Server delen och under nätet för belastnings Utjämnings servern (men använder en annan inkommande NAT-pool för belastnings utjämning):
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -236,33 +256,6 @@ I avsnittet *resurser* för distributions mal len lägger du till den nya skalni
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
-
-Lägg sedan till en post i `nodeTypes` listan över resursen *Microsoft. ServiceFabric/Clusters* . Använd samma värden som posten för den ursprungliga nodtypen, förutom för `name` , som ska referera till den nya nodtypen (*vmNodeType1Name*).
-
-```json
-"nodeTypes": [
-    {
-        "name": "[parameters('vmNodeType0Name')]",
-        ...
-    },
-    {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
-    }
-],
-```
 
 När du har implementerat alla ändringar i mall-och frågeparametrar kan du fortsätta till nästa avsnitt för att hämta dina Key Vault referenser och distribuera uppdateringarna till klustret.
 

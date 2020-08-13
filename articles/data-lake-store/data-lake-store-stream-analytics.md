@@ -1,17 +1,17 @@
 ---
 title: Strömma data från Stream Analytics till Data Lake Storage Gen1 – Azure
-description: Använd Azure Stream Analytics för att strömma data till Azure Data Lake Storage Gen1.
+description: Lär dig hur du använder Azure Data Lake Storage Gen1 som utdata för ett Azure Stream Analytics jobb, med ett enkelt scenario som läser data från en Azure Storage-blob.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 42c7894c33fe0f09748beee20508e7670545c0ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515175"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192142"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för ett Azure Stream Analytics jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage BLOB (indata) och skriver data till Data Lake Storage Gen1 (utdata).

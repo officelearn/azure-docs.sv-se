@@ -1,6 +1,6 @@
 ---
 title: Bevilja behörighet till program för att få åtkomst till ett Azure Key Vault – Azure Key Vault | Microsoft Docs
-description: Lär dig hur du beviljar behörighet till många program för att komma åt ett nyckel valv
+description: Lär dig hur du registrerar ett huvud namn för tjänsten manuellt och ger åtkomst till Azure Key Vault med hjälp av en princip för åtkomst kontroll som kan vara nödvändig i vissa fall.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 1b3f03458211e57f51c39cb5ca8da83943280aa8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406273"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192016"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -33,7 +33,7 @@ Fullständig information om Key Vault åtkomst kontroll finns i [Azure Key Vault
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
    - [Skapa ett nyckel valv med Azure CLI](../secrets/quick-create-cli.md)

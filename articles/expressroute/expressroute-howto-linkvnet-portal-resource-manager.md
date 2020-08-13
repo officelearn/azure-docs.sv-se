@@ -1,6 +1,6 @@
 ---
 title: 'ExpressRoute: länka ett VNet till en krets: Azure Portal'
-description: Anslut ett VNet till en Azure ExpressRoute-krets. Anvisningar.
+description: Lär dig att skapa en anslutning för att länka ett virtuellt nätverk till en Azure ExpressRoute-krets med hjälp av Azure Portal.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737078"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190930"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Länka ett virtuellt nätverk till en ExpressRoute-krets med Azure-portalen
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)

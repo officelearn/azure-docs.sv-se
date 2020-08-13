@@ -1,6 +1,6 @@
 ---
 title: HTTP-variabler för Azure CDN-regel motor | Microsoft Docs
-description: Med HTTP-variabler kan du hämta metadata för HTTP-begäran och svar.
+description: Lär dig mer om HTTP-variabler, som gör att du kan hämta metadata för HTTP-begäran och svar för vissa regel motor funktioner. Använd metadata för att ändra en begäran/ett svar.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 6e601e3e06965faf8ec0fd238c54115570150b61
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a2d9fc98ba6f514afbd88e543a859a69e0fc6c6b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203567"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192670"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>HTTP-variabler för Azure CDN-regel motor
 HTTP-variabler tillhandahåller de metoder genom vilka du kan hämta metadata för HTTP-begäran och svar. Dessa metadata kan sedan användas för att dynamiskt ändra en begäran eller ett svar. Användningen av HTTP-variabler är begränsad till följande regel motor funktioner:
@@ -72,7 +72,7 @@ I följande tabell beskrivs rätt syntax för att ange en HTTP-variabel.
 | Syntax | Exempel | Beskrivning |
 | ------ | -------- | ---------- |
 | % { &lt; HTTPVariable &gt; } | % {Host} | Använd den här syntaxen för att hämta hela värdet som motsvarar det angivna &lt; HTTPVariable &gt; . |
-| % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Använd den här syntaxen för att ställa in Skift läget för hela värdet som motsvarar det angivna &lt; HTTPVariableDelimiter &gt; . |
+| % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Använd den här syntaxen för att ställa in Skift läget för hela värdet som motsvarar det angivna  &lt; HTTPVariableDelimiter &gt; . |
 | % { &lt; HTTPVariableDelimiterExpression &gt; } | % {Host/= ^ www \. ([^ \. ] +) \. ([^ \. :] +)/CDN. $2. $3:80} | Använd ett reguljärt uttryck för &lt; HTTPVariableDelimiterExpression &gt; för att ersätta, ta bort eller manipulera ett värde för en http-variabel. |
 
 HTTP-variabel namn har bara stöd för alfabetiska tecken och under streck. Konvertera tecken som inte stöds till under streck.
@@ -174,7 +174,7 @@ https: \/ /www.mydomain.com/mobile/marketing/proposal.htm
 ### <a name="pattern-removal"></a>Borttagning av mönster
 Text som matchar ett speciellt mönster kan tas bort från antingen början eller slutet av en variabels värde.
 
-| Syntax | Åtgärd |
+| Syntax | Action |
 | ------ | ------ |
 | % {Variabel # mönster} | Ta bort text när det angivna mönstret finns i början av en variabels värde. |
 | % {Variabel% Pattern} | Ta bort text när det angivna mönstret finns i slutet av en variabels värde. |
@@ -195,7 +195,7 @@ Följande tabell visar hur den här syntaxen fungerar.
 ### <a name="find-and-replace"></a>Sök och ersätt
 Syntaxen find och replace beskrivs i följande tabell.
 
-| Syntax | Åtgärd |
+| Syntax | Action |
 | ------ | ------ |
 | % {Variabel/Sök/Ersätt} | Sök efter och ersätt den första förekomsten av det angivna mönstret. |
 | % {Variabel//Sök/Ersätt} | Sök efter och Ersätt alla förekomster av det angivna mönstret. |
@@ -207,7 +207,7 @@ Syntaxen find och replace beskrivs i följande tabell.
 ### <a name="find-and-rewrite"></a>Sök och skriv om
 Om du vill ha en variation för Sök och ersätt använder du texten som matchar det angivna mönstret när du skriver om den. Syntaxen find och Write beskrivs i följande tabell.
 
-| Syntax | Åtgärd |
+| Syntax | Action |
 | ------ | ------ |
 | % {Variable/= Sök/Skriv över} | Sök, kopiera och skriv om alla förekomster av det angivna mönstret. |
 | % {Variabel/^ Sök/Skriv över} | Sök, kopiera och skriv om det angivna mönstret när det inträffar i början av variabeln. |

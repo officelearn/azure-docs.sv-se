@@ -1,18 +1,18 @@
 ---
 title: 'Azure-ExpressRoute: exempel på router-konfiguration'
-description: Den här sidan innehåller konfigurations exempel för routern för Cisco-och Juniper-routrar.
+description: Använd de här gränssnitten och konfigurations exemplen för Cisco IOS-XE-och Juniper MX-serie-routrar som exempel för att arbeta med Azure ExpressRoute.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: osamaz
-ms.openlocfilehash: 6b9db450139c22fdf2df0875f36c65cdf684dfb3
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fdf50dc6b4c0976a713a1d436ac9af7c1bd9701b
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856701"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190787"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>Konfigurations exempel för routern för att konfigurera och hantera routning
 Den här sidan innehåller konfigurations exempel för gränssnitt och routning för routrar med Cisco IOS-XE och Juniper MX-serien när du arbetar med Azure ExpressRoute.

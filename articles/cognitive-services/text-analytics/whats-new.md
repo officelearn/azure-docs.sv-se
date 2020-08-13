@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 95e9b208159e9af41563f12ce8af7892e13f6629
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1a5f7dcd37a970d5e039ebc38f1059839424ff68
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121858"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192032"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -33,18 +33,18 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 
 Följande uppdateringar gäller endast augusti-versionen av Textanalys endast för hälso container.
 
-* Ny modell version för Textanalys för hälso tillstånd:`2020-07-24`
-* Ny URL för att skicka Textanalys för hälso tillstånds begär Anden:`http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` 
+* Ny modell version för Textanalys för hälso tillstånd: `2020-07-24`
+* Ny URL för att skicka Textanalys för hälso tillstånd: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (Observera att det krävs en rensning av webbläsarens cacheminne för att kunna använda webb programmet demo som ingår i den här nya behållar avbildningen)
 
 Följande egenskaper i JSON-svaret har ändrats:
 
 * `type` har bytt namn till `category` 
 * `score` har bytt namn till `confidenceScore`
 * Entiteter i `category` fältet i JSON-utdata är nu i Pascal-fall. Följande entiteter har bytt namn:
-    * `EXAMINATION_RELATION`har bytt namn till `RelationalOperator` .
-    * `EXAMINATION_UNIT`har bytt namn till `MeasurementUnit` .
-    * `EXAMINATION_VALUE`har bytt namn till `MeasurementValue` .
-    * `ROUTE_OR_MODE`har bytt namn `MedicationRoute` .
+    * `EXAMINATION_RELATION` har bytt namn till `RelationalOperator` .
+    * `EXAMINATION_UNIT` har bytt namn till `MeasurementUnit` .
+    * `EXAMINATION_VALUE` har bytt namn till `MeasurementValue` .
+    * `ROUTE_OR_MODE` har bytt namn `MedicationRoute` .
     * Relations enheten `ROUTE_OR_MODE_OF_MEDICATION` har bytt namn till `RouteOfMedication` .
 
 Följande entiteter har lagts till:
@@ -82,7 +82,7 @@ Behållaren erbjuder följande funktioner:
 
 Text Analysis API v3 är nu allmänt tillgänglig med följande uppdateringar:
 
-* Modell version`2020-04-01`
+* Modell version `2020-04-01`
 * Nya [data begränsningar](concepts/data-limits.md) för varje funktion
 * [Språk stöd](language-support.md) för [Attitydanalys (sa) v3](how-tos/text-analytics-how-to-sentiment-analysis.md) har uppdaterats
 * Separat slut punkt för att länka entiteten 
@@ -98,13 +98,13 @@ Text Analysis API v3 är nu allmänt tillgänglig med följande uppdateringar:
    * Händelse-idrotts
 
 Följande egenskaper i JSON-svaret har lagts till:
-   * `SentenceText`i Attitydanalys
-   * `Warnings`för varje dokument 
+   * `SentenceText` i Attitydanalys
+   * `Warnings` för varje dokument 
 
 Namnen på följande egenskaper i JSON-svaret har ändrats, i tillämpliga fall:
 
 * `score` har bytt namn till `confidenceScore`
-    * `confidenceScore`har två decimal punkter av precision. 
+    * `confidenceScore` har två decimal punkter av precision. 
 * `type` har bytt namn till `category`
 * `subtype` har bytt namn till `subcategory`
 
@@ -191,7 +191,7 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 
 * [Vad är API för textanalys?](overview.md)  
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
-* [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Sentimentanalys](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Språkidentifiering](how-tos/text-analytics-how-to-language-detection.md)
+* [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Extrahering av nyckelfraser](how-tos/text-analytics-how-to-keyword-extraction.md)

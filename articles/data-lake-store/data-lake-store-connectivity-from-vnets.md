@@ -1,6 +1,6 @@
 ---
 title: Ansluta till Azure Data Lake Storage Gen1 från virtuella nätverk | Microsoft Docs
-description: Ansluta till Azure Data Lake Storage Gen1 från Azure virtuella nätverk
+description: Lär dig hur du aktiverar åtkomst till Azure Data Lake Storage Gen1 från virtuella Azure-datorer som har begränsad åtkomst till resurser.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 5793e1659f18818b85748dc0f2979895318ea913
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985415"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191395"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Åtkomst Azure Data Lake Storage Gen1 från virtuella datorer i ett Azure VNET
 Azure Data Lake Storage Gen1 är en PaaS-tjänst som körs på offentliga Internet-IP-adresser. Alla servrar som kan ansluta till det offentliga Internet kan vanligt vis ansluta till Azure Data Lake Storage Gen1 slut punkter. Som standard har alla virtuella datorer som finns i Azure virtuella nätverk åtkomst till Internet och kan därför komma åt Azure Data Lake Storage Gen1. Det är dock möjligt att konfigurera virtuella datorer i ett virtuellt nätverk till att inte ha åtkomst till Internet. För sådana virtuella datorer är även åtkomst till Azure Data Lake Storage Gen1 begränsad. Det går att blockera offentlig Internet åtkomst för virtuella datorer i Azure virtuella nätverk med någon av följande metoder:

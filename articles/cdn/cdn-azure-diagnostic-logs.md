@@ -1,7 +1,7 @@
 ---
 title: Diagnostikloggar
 titleSuffix: Azure Content Delivery Network
-description: Kunden kan aktivera logg analys för Azure CDN.
+description: Lär dig hur du använder Azure Diagnostic-loggar för att spara kärn analys, vilket gör att du kan exportera användnings statistik från din Azure Content Delivery Network-slutpunkt.
 services: cdn
 author: asudbring
 manager: KumudD
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: dbaba67a163bb0f948de5ba2ebbdba5497ad5ff9
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116977"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191288"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Diagnostikloggar – Azure Content Delivery Network
 
@@ -221,7 +221,7 @@ För att få åtkomst till Core Analytics tillhandahålls exempel kod för ett v
 
 Så här kan du använda verktyget:
 
-1.  Besök GitHub-länken:[https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.  Besök GitHub-länken: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.  Ladda ned koden.
 3.  Följ anvisningarna för att kompilera och konfigurera.
 4.  Kör verktyget.
@@ -257,27 +257,27 @@ Alla mått är inte tillgängliga från alla leverantörer, även om sådana ski
 | RequestCountHttpStatus4xx | Antal begär Anden som resulterade i en 4xx HTTP-kod (till exempel 400, 404). | Ja | Ja |Ja |
 | RequestCountHttpStatus5xx | Antal begär Anden som resulterade i en 5xx HTTP-kod (till exempel 500, 504). | Ja | Ja |Ja |
 | RequestCountHttpStatusOthers | Antal andra HTTP-koder (utanför 2xx-5xx). | Ja | Ja |Ja |
-| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Yes | Inga  |Yes |
-| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Yes | Inga  |Yes |
-| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Yes | Inga  |Yes |
-| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Yes | Inga  |Yes |
-| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Yes | Inga  |Yes |
-| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Inga  |
-| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten och hämtades från ursprunget. | Ja | Ja | Inga |
-| RequestCountCacheNoCache | Antal begär anden till en till gång som inte tillåts att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
-| RequestCountCacheUncacheable | Antalet förfrågningar till till gångar som förhindras från att cachelagras av till gångens Cache-Control-och Expires-huvuden. Det här antalet anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Inga |
-| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Inga | Yes | Inga  |
+| RequestCountHttpStatus200 | Antal begär Anden som resulterade i ett 200-HTTP-kods svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus206 | Antal begär Anden som resulterade i ett 206-HTTP-kods svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus302 | Antal begär Anden som resulterade i ett 302-HTTP-kods svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus304 | Antal begär Anden som resulterade i ett 304-HTTP-kods svar. | Ja | Nej  |Ja |
+| RequestCountHttpStatus404 | Antal begär Anden som resulterade i ett 404-HTTP-kods svar. | Ja | Nej  |Ja |
+| RequestCountCacheHit | Antal begär Anden som resulterade i en cacheträff. Till gången betjänades direkt från POP till klienten. | Ja | Ja | Nej  |
+| RequestCountCacheMiss | Antal begär Anden som resulterade i ett cache-missar. Ett cache-missar innebär att till gången inte hittades på den POP som är närmast klienten och hämtades från ursprunget. | Ja | Ja | Nej |
+| RequestCountCacheNoCache | Antal begär anden till en till gång som inte tillåts att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
+| RequestCountCacheUncacheable | Antalet förfrågningar till till gångar som förhindras från att cachelagras av till gångens Cache-Control-och Expires-huvuden. Det här antalet anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Nej |
+| RequestCountCacheOthers | Antal begär Anden med cache-status som inte omfattas av ovan. | Nej | Ja | Nej  |
 | EgressTotal | Utgående data överföring i GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Inga  |
-| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Inga  |
-| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Inga  |
-| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Inga |
-| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Inga  |
-| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Inga |
-| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Inga |
-| EgressCacheNoCache | Utgående data överföring för till gångar som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Inga |
-| EgressCacheUncacheable | Utgående data överföring för till gångar som inte kan cachelagras av till gångens Cache-Control och, eller som upphör att gälla. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Inga |
-| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Inga | Yes | Inga |
+| EgressHttpStatus2xx | Utgående data överföring * för svar med 2xx HTTP-status koder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus3xx | Utgående data överföring för svar med 3xx HTTP-status koder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus4xx | Utgående data överföring för svar med 4xx HTTP-status koder i GB. | Ja | Ja | Nej  |
+| EgressHttpStatus5xx | Utgående data överföring för svar med 5xx HTTP-status koder i GB. | Ja | Ja | Nej |
+| EgressHttpStatusOthers | Utgående data överföring för svar med andra HTTP-statuskod i GB. | Ja | Ja | Nej  |
+| EgressCacheHit | Utgående data överföring för svar som levererades direkt från CDN-cachen på CDN-pop/-kanter. | Ja | Ja | Nej |
+| EgressCacheMiss. | Utgående data överföring för svar som inte hittades på den närmaste POP-servern och som hämtats från ursprungs servern. | Ja | Ja | Nej |
+| EgressCacheNoCache | Utgående data överföring för till gångar som förhindras från att cachelagras på grund av en användar konfiguration på gränsen. | Ja | Ja | Nej |
+| EgressCacheUncacheable | Utgående data överföring för till gångar som inte kan cachelagras av till gångens Cache-Control och, eller som upphör att gälla. Anger att den inte ska cachelagras på en POP-eller HTTP-klient. | Ja | Ja | Nej |
+| EgressCacheOthers | Utgående data överföringar för andra cache-scenarier. | Nej | Ja | Nej |
 
 * Utgående data överföring avser trafik som levereras från CDN POP-servrar till klienten.
 

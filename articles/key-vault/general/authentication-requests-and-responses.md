@@ -1,6 +1,6 @@
 ---
 title: Autentisering, begäranden och svar
-description: Autentisera till AD för att använda Key Vault
+description: Lär dig hur Azure Key Vault använder JSON-formaterade begär Anden och svar och om obligatorisk autentisering för att använda ett nyckel valv.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33e3bc13e67e268b82bf517033b4b1c7c51c361f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430895"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191793"
 ---
 # <a name="authentication-requests-and-responses"></a>Autentisering, begäranden och svar
 
@@ -28,15 +28,15 @@ Det här avsnittet beskriver information om Azure Key Vault tjänsten. Allmän i
 
  Följande är exempel på webb adresser för att arbeta med objekt i Azure Key Vault:  
 
-- Så här skapar du en nyckel med namnet TESTKEY i en Key Vault use-`PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
+- Så här skapar du en nyckel med namnet TESTKEY i en Key Vault use- `PUT /keys/TESTKEY?api-version=<api_version> HTTP/1.1`  
 
-- Importera en nyckel med namnet IMPORTEDKEY till en Key Vault use-`POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
+- Importera en nyckel med namnet IMPORTEDKEY till en Key Vault use- `POST /keys/IMPORTEDKEY/import?api-version=<api_version> HTTP/1.1`  
 
-- Så här får du en hemlighet som heter hemlig i en Key Vault use-`GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
+- Så här får du en hemlighet som heter hemlig i en Key Vault use- `GET /secrets/MYSECRET?api-version=<api_version> HTTP/1.1`  
 
-- SIGNERA en sammanfattning med hjälp av en nyckel med namnet TESTKEY i en Key Vault use-`POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
+- SIGNERA en sammanfattning med hjälp av en nyckel med namnet TESTKEY i en Key Vault use- `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  Auktoriteten för en begäran till en Key Vault är alltid följande:`https://{keyvault-name}.vault.azure.net/`  
+  Auktoriteten för en begäran till en Key Vault är alltid följande:  `https://{keyvault-name}.vault.azure.net/`  
 
   Nycklar lagras alltid under/Keys sökväg, hemligheter lagras alltid under/Secrets-sökvägen.  
 

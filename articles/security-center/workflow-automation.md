@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fcefdfd163bcbd9cd2adfcba6bf6711b9bee18
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9229137c999157d2cea112ebb5e6e8b169eed96
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041687"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192779"
 ---
 # <a name="workflow-automation"></a>Automatisering av arbets flöde
 
@@ -32,8 +32,8 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Kostnadsfri nivå|
-|Nödvändiga roller och behörigheter:|**Läsare** för prenumerationen som innehåller export konfigurationen<br>**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -44,7 +44,8 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 
     [![Lista över automatiseringar av arbets flöden](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
 
-    Från den här sidan kan du skapa nya Automation-regler, samt aktivera, inaktivera eller ta bort befintliga.  
+    Från den här sidan kan du skapa nya Automation-regler, samt aktivera, inaktivera eller ta bort befintliga.
+
 1. Om du vill definiera ett nytt arbets flöde klickar du på **Lägg till arbets flödes automatisering**. 
 
     Ett fönster visas med alternativen för din nya automatisering. Här kan du ange:
@@ -86,9 +87,9 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 
 ## <a name="manually-trigger-a-logic-app"></a>Aktivera en Logic-app manuellt
 
-Du kan också köra Logic Apps manuellt när du visar en säkerhets avisering eller en rekommendation som erbjuder [snabb korrigering av åtgärder](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#quick-fix-remediation).
+Du kan också köra Logic Apps manuellt vid visning av säkerhets aviseringar eller rekommendationer.
 
-Om du vill köra en Logic-app manuellt öppnar du en avisering eller en rekommendation som stöder snabb korrigerings åtgärder och klickar på **Utlös Logic app**:
+Om du vill köra en Logic-app manuellt öppnar du en avisering eller en rekommendation och klickar på **Utlös Logic app**:
 
 [![Aktivera en Logic-app manuellt](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 

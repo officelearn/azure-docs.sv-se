@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 5ddd4fc368a4e479d3d720698c7447d2b3cdf3cc
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986570"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192330"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -380,7 +380,7 @@ Genom att ange `vnetOption` parametervärdet till antingen `new` eller `existing
 Om de associerade resurserna inte ligger bakom ett virtuellt nätverk kan du ange parametern **privateEndpointType** till `AutoAproval` eller `ManualApproval` för att distribuera arbets ytan bakom en privat slut punkt. Detta kan göras för både nya och befintliga arbets ytor. När du uppdaterar en befintlig arbets yta fyller du i mallparametrar med informationen från den befintliga arbets ytan.
 
 > [!IMPORTANT]
-> Distributionen är endast giltig i regioner som stöder privata slut punkter.
+> Använd Azures privata länk för att skapa en privat slut punkt för Azure Machine Learning arbets yta för närvarande finns i en offentlig för hands version. Den här funktionen är endast tillgänglig i regionerna **USA, östra** och USA, **västra 2** . Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

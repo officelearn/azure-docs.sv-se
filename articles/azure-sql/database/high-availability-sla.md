@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142442"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189932"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,4 +117,5 @@ Azure SQL Database och Azure SQL-hanterad instans har en inbyggd lösning för h
 - Läs mer om [Azure-tillgänglighetszoner](../../availability-zones/az-overview.md)
 - Läs mer om [Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Lär dig mer om [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)
+- Lär dig [hur du initierar en manuell redundansväxling på SQL-hanterad instans](../managed-instance/user-initiated-failover.md)
 - Fler alternativ för hög tillgänglighet och haveri beredskap finns i [verksamhets kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md)

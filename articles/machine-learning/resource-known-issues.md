@@ -3,20 +3,20 @@ title: Kända problem & fel sökning
 titleSuffix: Azure Machine Learning
 description: Få hjälp med att hitta och korrigera fel eller fel i Azure Machine Learning. Lär dig om kända problem, fel sökning och lösningar.
 services: machine-learning
-author: j-martens
-ms.author: jmartens
+author: likebupt
+ms.author: keli19
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
-ms.date: 08/06/2020
-ms.openlocfilehash: 17d6137dd243c3bce011a1841ea9bca64e0b64ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 08/13/2020
+ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120770"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190496"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -203,7 +203,7 @@ Om du använder fil resurs för andra arbets belastningar, till exempel data öv
 |När du ska granska bilder visas inte nyligen märkta bilder.     |   Om du vill läsa in alla märkta bilder väljer du den **första** knappen. Den **första** knappen tar dig tillbaka till början av listan, men läser in alla etiketterade data.      |
 |Tryck på ESC-tangenten när etiketter för objekt identifiering skapar en etikett för noll storlek i det övre vänstra hörnet. Det går inte att skicka etiketter i det här läget.     |   Ta bort etiketten genom att klicka på kryss rutan bredvid det.  |
 
-### <a name="data-drift-monitors"></a><a name="data-drift"></a>Data riktnings övervakare
+### <a name="data-drift-monitors"></a><a name="data-drift"></a> Data riktnings övervakare
 
 Begränsningar och kända problem för data avvikelse Övervakare:
 
@@ -248,6 +248,27 @@ Från modell data insamlaren kan det ta upp till (men vanligt vis mindre än) 10
 ```python
 import time
 time.sleep(600)
+```
+
+* **Logg för real tids slut punkter:**
+
+Loggar över real tids slut punkter är kund information. För fel sökning av slut punkter i real tid kan du använda följande kod för att aktivera loggar. 
+
+Se mer information om övervakning av webb tjänst slut punkter i [den här artikeln](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights#query-logs-for-deployed-models).
+
+```python
+from azureml.core import Workspace
+from azureml.core.webservice import Webservice
+
+ws = Workspace.from_config()
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+Om du har flera klient organisationer kan du behöva lägga till följande autentiserings kod innan `ws = Workspace.from_config()`
+
+```python
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in which your workspace resides")
 ```
 
 ## <a name="train-models"></a>Inlärningsmodeller
@@ -306,14 +327,14 @@ time.sleep(600)
     * I Windows kör du automl_setup från en Anaconda-prompt. Klicka [här](https://docs.conda.io/en/latest/miniconda.html)om du vill installera Miniconda.
     * Se till att Conda 64-bit är installerad, i stället för 32-bitars genom att köra `conda info` kommandot. `platform`Ska vara `win-64` för Windows eller `osx-64` Mac.
     * Se till att Conda 4.4.10 eller senare är installerat. Du kan kontrol lera versionen med kommandot `conda -V` . Om du har installerat en tidigare version kan du uppdatera den med hjälp av kommandot: `conda update conda` .
-    * Linux`gcc: error trying to exec 'cc1plus'`
+    * Linux `gcc: error trying to exec 'cc1plus'`
       *  Om `gcc: error trying to exec 'cc1plus': execvp: No such file or directory` felet uppstår installerar du build Essentials med kommandot nnan `sudo apt-get install build-essential` .
       * Skicka ett nytt namn som den första parametern till automl_setup för att skapa en ny Conda-miljö. Visa befintliga Conda-miljöer med `conda env list` och ta bort dem med `conda env remove -n <environmentname>` .
       
-* **automl_setup_linux. sh Miss lyckas**: om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet:`unable to execute 'gcc': No such file or directory`-
+* **automl_setup_linux. sh Miss lyckas**: om automl_setup_linus. sh Miss lyckas på Ubuntu Linux med felet: `unable to execute 'gcc': No such file or directory`-
   1. Se till att de utgående portarna 53 och 80 är aktiverade. På en virtuell Azure-dator kan du göra detta från Azure Portal genom att välja den virtuella datorn och klicka på nätverk.
-  2. Kör kommandot:`sudo apt-get update`
-  3. Kör kommandot:`sudo apt-get install build-essential --fix-missing`
+  2. Kör kommandot: `sudo apt-get update`
+  3. Kör kommandot: `sudo apt-get install build-essential --fix-missing`
   4. Kör `automl_setup_linux.sh` igen
 
 * **konfiguration. ipynb Miss lyckas**:
@@ -329,7 +350,7 @@ time.sleep(600)
   1. Se till att konfigurationen. ipynb Notebook har körts.
   2. Om antecknings boken körs från en mapp som inte finns under den mapp där `configuration.ipynb` kördes, kopierar du mappen aml_config och filen config.jsden innehåller till den nya mappen. Arbets ytan. from_config läser config.jsför notebook-mappen eller dess överordnade mapp.
   3. Om en ny prenumeration, resurs grupp, arbets yta eller region används, se till att du kör `configuration.ipynb` antecknings boken igen. Att ändra config.jsdirekt fungerar bara om arbets ytan redan finns i den angivna resurs gruppen under den angivna prenumerationen.
-  4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create`kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
+  4. Ändra arbets ytan, resurs gruppen eller prenumerationen om du vill ändra region. `Workspace.create` kommer inte att skapa eller uppdatera en arbets yta om den redan finns, även om den angivna regionen är annorlunda.
   
 * **Exempel på antecknings bok Miss lyckas**: om en exempel antecknings bok Miss lyckas med ett fel som för PERT, metod eller bibliotek inte finns:
   * Se till att correctcorrect-kärnan har marker ATS i antecknings boken Jupyter. Kerneln visas i det övre högra hörnet på antecknings sidan. Standardvärdet är azure_automl. Observera att kärnan sparas som en del av antecknings boken. Så om du växlar till en ny Conda-miljö måste du välja den nya kerneln i antecknings boken.
@@ -352,7 +373,7 @@ Utför följande åtgärder för följande fel:
 |---------|---------|
 |Bild skapande problem vid distribution av webb tjänst     |  Lägg till "pynacl = = 1.2.1" som ett pip-beroende till Conda-filen för avbildnings konfiguration       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Ändra SKU: n för virtuella datorer som används i distributionen till en som har mer minne. |
-|FPGA-problem     |  Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan:https://aka.ms/aml-real-time-ai       |
+|FPGA-problem     |  Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai       |
 
 ### <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Uppdatera Azure Machine Learning-komponenter i AKS-kluster
 

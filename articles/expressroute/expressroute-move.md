@@ -1,18 +1,18 @@
 ---
 title: 'ExpressRoute: flytta kretsar från klassisk till Azure Resource Manager'
-description: Översikt över hur du överbrygger de klassiska och Resource Manager-distributions modellerna.
+description: Lär dig mer om vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager distributions modellen.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: b6fb087e0faecc51b44b5b796fed29756356e669
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2fc3a72ff9d6ec4dbd2eaa33e4af3054ad2a57b9
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738828"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192382"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.

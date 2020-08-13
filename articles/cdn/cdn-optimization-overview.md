@@ -1,6 +1,6 @@
 ---
 title: Optimera Azure CDN för typen av innehålls leverans
-description: Optimera Azure CDN för typen av innehålls leverans
+description: Lär dig hur Azure Content Delivery Network kan optimera leverans baserat på typ av innehåll. Bästa metoder för optimering ger bättre prestanda och ursprunglig avlastning.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 0255d7f47c8f9c63a2943830fa323a2e11994a9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0710f2f31510ae299fafe89dc1798f40e325e8b4
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887555"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192585"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typen av innehålls leverans
 

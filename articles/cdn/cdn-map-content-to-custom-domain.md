@@ -1,6 +1,6 @@
 ---
 title: Självstudiekurs – Lägga till en anpassad domän i Azure CDN-slutpunkten | Microsoft Docs
-description: I den här kursen mappar du Azure CDN-slutpunktsinnehåll till en anpassad domän.
+description: Använd den här självstudien för att lägga till en anpassad domän i en Azure Content Delivery Network-slutpunkt så att ditt domän namn visas i din URL.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: ab4845a93771bace5bca15ea3afa7027884e36f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ca601a3f149d8287137265665379d407d10b988
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81260589"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192691"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten
 Den här självstudien visar hur du lägger till en anpassad domän till en slutpunkt i Azure Content Delivery Network (CDN). När du använder en CDN-slutpunkt för att leverera innehåll behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din URL för CDN. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte. 
@@ -45,7 +45,7 @@ Om du använder Azure som värd för dina [DNS-domäner](https://docs.microsoft.
 
 ## <a name="create-a-cname-dns-record"></a>Skapa en CNAME DNS-post
 
-Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt måste du först skapa en post för kanoniskt namn (CNAME) med din domänleverantör för att peka till din CDN-slutpunkt. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn. För Azure CDN är källdomännamnet namnet på din anpassade domän och måldomännamnet är CDN-slutpunktens värdnamn. När Azure CDN verifierar den CNAME-post som du skapar dirigeras trafiken till den anpassade käll domänen (till exempel\.www-contoso.com) till det angivna MÅLETs CDN-slutpunkts-värdnamn (till exempel contoso.azureedge.net). 
+Innan du kan använda en anpassad domän med en Azure CDN-slutpunkt måste du först skapa en post för kanoniskt namn (CNAME) med din domänleverantör för att peka till din CDN-slutpunkt. En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn. För Azure CDN är källdomännamnet namnet på din anpassade domän och måldomännamnet är CDN-slutpunktens värdnamn. När Azure CDN verifierar den CNAME-post som du skapar dirigeras trafiken till den anpassade käll domänen (till exempel www- \. contoso.com) till det angivna målets CDN-slutpunkts-värdnamn (till exempel contoso.azureedge.net). 
 
 En anpassad domän och dess underdomän kan endast associeras med en slutpunkt åt gången. Men du kan använda olika underdomäner från samma anpassade domän för olika Azure-tjänstslutpunkter genom att använda flera CNAME-poster. Du kan också mappa en anpassad domän med olika underdomäner till samma CDN-slutpunkt.
 
@@ -70,11 +70,11 @@ Skapa en CNAME-post med underdomänen cdnverify:
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - Källa: Ange ditt anpassade domän namn, inklusive under domänen cdnverify i följande format: cdnverify. &lt;eget domän namn&gt;. Till exempel cdnverify.www.contoso.com.
+    - Källa: Ange ditt anpassade domän namn, inklusive under domänen cdnverify i följande format: cdnverify. &lt; eget domän namn &gt; . Till exempel cdnverify.www.contoso.com.
 
     - Typ: Ange *CNAME*.
 
-    - Mål: Ange CDN-slutpunktens värdnamn, inklusive under domänen cdnverify i följande format: cdnverify. _slut punkts namn&gt;. azureedge.net. &lt;_ Till exempel cdnverify.contoso.azureedge.net.
+    - Mål: Ange CDN-slutpunktens värdnamn, inklusive under domänen cdnverify i följande format: cdnverify. _ &lt; slut punkts namn &gt; _. azureedge.net. Till exempel cdnverify.contoso.azureedge.net.
 
 4. Spara ändringarna.
 
@@ -125,7 +125,7 @@ När du har registrerat din anpassade domän kan du lägga till den i din CDN-sl
 
 4. För **Värdnamn för slutpunkt** är det värdnamn för slutpunkt som ska användas som måldomän för din CNAME-post ifyllt och hämtas från din URL för CDN-slutpunkt: *&lt;värdnamn för slutpunkt&gt;*.azureedge.net. Det kan inte ändras.
 
-5. För **Anpassat värdnamn** anger du din anpassade domän, inklusive underdomänen, som ska användas som källdomän för din CNAME-post. Till exempel www\.contoso.com eller CDN.contoso.com. Använd inte underdomännamnet cdnverify.
+5. För **Anpassat värdnamn** anger du din anpassade domän, inklusive underdomänen, som ska användas som källdomän för din CNAME-post. Till exempel www \. contoso.com eller CDN.contoso.com. Använd inte underdomännamnet cdnverify.
 
    ![Dialogrutan för anpassad CDN-domän](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -145,7 +145,7 @@ När du har slutfört registreringen av den anpassade domänen kan du kontroller
  
 1. Se till att du har offentligt innehåll som cachelagras på slutpunkten. Om CDN-slutpunkten till exempel är associerad med ett lagringskonto cachelagrar Azure CDN innehållet i en offentlig container. Om du vill testa den anpassade domänen kontrollerar du att containern är inställd på att tillåta offentlig åtkomst och att den innehåller minst en fil.
 
-2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Om din anpassade domän t. ex. `www.contoso.com`är, bör URL: en till den cachelagrade filen likna följande URL: `http://www.contoso.com/my-public-container/my-file.jpg`. Kontrol lera att resultatet är samma som när du får åtkomst till CDN-slutpunkten direkt vid * &lt;slut punktens värdnamn&gt;*. azureedge.net.
+2. Navigera till filens adress genom att använda den anpassade domänen i webbläsaren. Om din anpassade domän t. ex. är `www.contoso.com` , bör URL: en till den cachelagrade filen likna följande URL: `http://www.contoso.com/my-public-container/my-file.jpg` . Kontrol lera att resultatet är samma som när du får åtkomst till CDN-slutpunkten direkt vid * &lt; slut punktens värdnamn &gt; *. azureedge.net.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>Mappa den permanenta anpassade domänen
@@ -164,11 +164,11 @@ Skapa en CNAME-post för den anpassade domänen:
     |-----------------|-------|-----------------------|
     | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-   - Källa: Ange ditt anpassade domän namn (t. ex.\.www-contoso.com).
+   - Källa: Ange ditt anpassade domän namn (t. ex. www \. -contoso.com).
 
    - Typ: Ange *CNAME*.
 
-   - Mål: Ange CDN-slutpunktens värdnamn. Det måste ha följande format:_&lt;slut punktens namn&gt;_. azureedge.net. Till exempel contoso.azureedge.net.
+   - Mål: Ange CDN-slutpunktens värdnamn. Det måste ha följande format:_ &lt; slut punktens namn &gt; _. azureedge.net. Till exempel contoso.azureedge.net.
 
 4. Spara ändringarna.
 

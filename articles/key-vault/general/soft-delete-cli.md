@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault – använda mjuk borttagning med CLI
-description: Exempel på användnings fall av mjuk borttagning med CLI-kod klipp
+description: Lär dig hur du använder Azure CLI för att använda funktionen mjuk borttagning för Azure Key Vault som tillåter återställning av nyckel valv och Key Vault-objekt.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 8f32fcc319c3bffd9089d894c5376268227a0151
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3c114d3624f8cc153e8516340d474302d8655bbc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135937"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191583"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Så här använder du Key Vault mjuk borttagning med CLI
 
@@ -23,7 +23,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure CLI – om du inte har den här inställningen för din miljö kan du läsa [hantera Key Vault med Azure CLI](manage-with-cli2.md)).
 
@@ -33,7 +33,7 @@ Information om Key Vault-detaljerad referensinformation för CLI finns i [refere
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Description | Användar behörighet |
+| Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|

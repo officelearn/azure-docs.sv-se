@@ -4,14 +4,14 @@ description: Vanliga problem med Azure Monitor metriska aviseringar och möjliga
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/09/2020
+ms.date: 08/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: c6b7d1fb28e81957ded56662a06946e56c3dc00e
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114905"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190665"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -130,9 +130,9 @@ För att undvika att distributionen Miss fungerar när du försöker validera de
         }
 ```
 
-## <a name="export-the-arm-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportera ARM-mallen för en mått varnings regel via Azure Portal
+## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportera Azure Resource Manager mall för en mått varnings regel via Azure Portal
 
-Genom att exportera ARM-mallen för en mått varnings regel får du hjälp att förstå dess JSON-syntax och egenskaper och kan användas för att automatisera framtida distributioner.
+Genom att exportera Resource Manager-mallen för en mått varnings regel får du hjälp att förstå dess JSON-syntax och egenskaper och kan användas för att automatisera framtida distributioner.
 1. Gå till avsnittet **resurs grupper** i portalen och välj den resurs grupp som innehåller regeln.
 2. I avsnittet Översikt markerar du kryss rutan **Visa dolda typer** .
 3. I filter **typ** väljer du *Microsoft. Insights/metricalerts*.
@@ -207,7 +207,7 @@ Kontrol lera att du använder rätt CLI-kommandon för mått varningar:
 
    - För ett plattforms mått: kontrol lera att du använder **mått** namnet på [sidan Azure Monitor mått som stöds](./metrics-supported.md)och inte **måttets visnings namn**
 
-   - För ett anpassat mått: kontrol lera att måttet redan har skickats (du kan inte skapa en varnings regel för ett anpassat mått som ännu inte finns) och att du tillhandahåller det anpassade måttets namnrymd (se ett exempel på ARM-mall [här](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
+   - För ett anpassat mått: kontrol lera att måttet redan har skickats (du kan inte skapa en varnings regel för ett anpassat mått som ännu inte finns) och att du tillhandahåller det anpassade måttets namnrymd (se ett exempel på en Resource Manager-mall [här](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 
 - Om du skapar [mått aviseringar för loggar](./alerts-metric-logs.md)bör du se till att lämpliga beroenden ingår. Se [exempelmallen](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 

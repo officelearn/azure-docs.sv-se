@@ -1,6 +1,6 @@
 ---
 title: För inläsning av till gångar i en Azure CDN-slutpunkt | Microsoft Docs
-description: Lär dig hur du laddar upp cachelagrat innehåll i en Azure CDN slut punkt.
+description: Lär dig hur du förinstallerar cachelagrat innehåll i en Azure Content Delivery Network-slutpunkt. Den här funktionen är tillgänglig i vissa versioner av produkten.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887577"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192580"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Läsa in tillgångar för en Azure CDN-slutpunkt i förväg
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -50,8 +50,8 @@ Den här självstudien vägleder dig genom förladdningen av cachelagrat innehå
    > När du har påbörjat ange text visas text rutorna för **innehålls Sök vägen** så att du kan skapa en lista över flera till gångar. Om du vill ta bort till gångar från listan väljer du knappen med tre punkter (...) och väljer sedan **ta bort**.
    > 
    > Varje innehålls Sök väg måste vara en relativ URL som passar följande [reguljära uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
-   > - Läs in en enda fil Sök väg:`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Läs in en enda fil med frågesträng:`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Läs in en enda fil Sök väg: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Läs in en enda fil med frågesträng: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Eftersom varje till gång måste ha en egen sökväg finns det ingen jokertecken för för inläsnings till gångar.
    > 

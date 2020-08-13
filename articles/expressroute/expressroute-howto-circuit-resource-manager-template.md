@@ -1,23 +1,23 @@
 ---
 title: 'Azure ExpressRoute-mall: skapa en ExpressRoute-krets'
-description: Skapa, etablera, ta bort och avetablera en ExpressRoute-krets.
+description: Lär dig hur du skapar en Azure ExpressRoute-krets genom att distribuera en Azure Resource Manager-mall med hjälp av Azure PowerShell.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: charwen
-ms.openlocfilehash: 336337c0860ba19095665310d2c797cf10ba183f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78318726a658b6e0dc966288f386c65ee4c6f0e4
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736313"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190446"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Skapa en ExpressRoute-krets med hjälp av Azure Resource Manager mall
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
 > * [Azure Resource Manager-mall](expressroute-howto-circuit-resource-manager-template.md)

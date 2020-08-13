@@ -1,18 +1,18 @@
 ---
 title: 'Azure-ExpressRoute: Anslut till Microsoft Cloud med Global Reach'
-description: I den här artikeln beskrivs ExpressRoute Global Reach.
+description: Lär dig hur Azure ExpressRoute Global Reach kan länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5022efacf33a2c07f1388666b5de26ee86322739
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c747253a56476b0fd9431311294d487ef336e69
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636741"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190752"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. Du kan komma åt många Microsoft-molntjänster som Azure och Office 365 från ditt privata data Center eller ditt företags nätverk. Du kan till exempel ha ett avdelnings kontor i San Francisco med en ExpressRoute-krets i Silicon dal och ett annat avdelnings kontor i London med en ExpressRoute-krets i samma stad. Både avdelnings kontor kan ha snabb anslutning till Azure-resurser i västra USA och Storbritannien, södra. Avdelnings kontoren kan dock inte utbyta data direkt med varandra. Med andra ord kan 10.0.1.0/24 skicka data till 10.0.3.0/24 och 10.0.4.0/24, men inte till 10.0.2.0/24.

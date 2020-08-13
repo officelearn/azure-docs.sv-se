@@ -1,349 +1,104 @@
 ---
-title: 'Självstudie: uppdatera butiks inventerings sortiment med hjälp av publicera/prenumerera kanaler och ämnes filter med Azure CLI'
-description: 'Självstudie: i den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filter regler med hjälp av Azure CLI'
+title: Använd Azure CLI för att skapa Service Bus ämnen och prenumerationer
+description: I den här snabb starten får du lära dig hur du skapar ett Service Bus ämne och prenumerationer på det avsnittet med hjälp av Azure CLI
 ms.date: 06/23/2020
-ms.topic: tutorial
+ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 3a6535a13ab00c4e22ac4cd8c2de5a5bbb02d0a8
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067621"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189808"
 ---
-# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med CLI och ämnen/prenumerationer
+# <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Använd Azure CLI för att skapa ett Service Bus ämne och prenumerationer på ämnet
+I den här snabb starten använder du Azure CLI för att skapa ett Service Bus ämne och sedan skapa prenumerationer på det avsnittet. 
 
-Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänst. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration. Den här kursen visar hur du använder Service Bus-ämnen och prenumerationer i ett scenario med butikslager, med publicera/prenumerera kanaler med Azure CLI och Java.
+## <a name="what-are-service-bus-topics-and-subscriptions"></a>Vad är Service Bus-ämnen och -prenumerationer?
+Service Bus-ämnen och -prenumerationer stöder en *publicera/prenumerera*-modell för meddelandekommunikation. När du använder ämnen och prenumerationer så kommunicerar inte komponenterna i ett distribuerat program direkt med varandra. Istället så utbyter de meddelanden via ett ämne, som agerar mellanhand.
 
-I den här guiden får du lära dig att:
-> [!div class="checklist"]
-> * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure CLI
-> * Lägg till ämnesfilter med Azure CLI
-> * Skapa två meddelanden med olika innehåll
-> * Skicka meddelandena och verifiera att de anlände i de förväntade prenumerationerna
-> * Ta emot meddelanden från prenumerationerna
+![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
 
-Ett exempel på det här scenariot är en uppdatering av lagersortimentet för flera butiker. I det här scenariot, får varje butik eller uppsättning butiker meddelanden för att uppdatera sina sortiment. Den här självstudien visar hur du implementerar det här scenariot med prenumerationer och filter. Först skapar du ett ämne med 3 prenumerationer, lägger till några regler och filter och skickar och tar sedan emot meddelanden från ämnet och prenumerationerna.
+I motsats till Service Bus köer, där varje meddelande bearbetas av en enskild konsument, innehåller ämnen och prenumerationer en en-till-många-form av kommunikation med ett mönster för publicering/prenumeration. Det är möjligt att registrera flera prenumerationer för ett ämne. När ett meddelande skickas till ett ämne så görs det tillgängligt för varje prenumeration för oberoende hantering/bearbetning. En prenumeration på ett ämne liknar en virtuell kö som tar emot kopior av meddelanden som har skickats till ämnet. Du kan välja att registrera filter regler för ett ämne per prenumeration, vilket gör att du kan filtrera eller begränsa vilka meddelanden till ett ämne som tas emot av vilka ämnes prenumerationer.
 
-![ämne](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
+Med hjälp av Service Bus ämnen och prenumerationer kan du skala för att bearbeta ett stort antal meddelanden över ett stort antal användare och program.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][] innan du börjar.
+## <a name="prerequisites"></a>Krav
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][free account] innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+I den här snabb starten använder du Azure Cloud Shell som du kan starta när du har loggat in på Azure Portal. Mer information om Azure Cloud Shell finns i [Översikt över Azure Cloud Shell](../cloud-shell/overview.md). Du kan också [Installera](/cli/azure/install-azure-cli) och använda Azure PowerShell på din dator. 
 
-För att kunna utveckla Service Bus-appar med Java, måste du ha följande installerat:
-
-- [Java Development Kit](https://aka.ms/azure-jdks), senaste versionen.
-- [Azure CLI](/cli/azure)
-- [Apache maven](https://maven.apache.org), version 3,0 eller senare.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
-
-## <a name="service-bus-topics-and-subscriptions"></a>Service Bus-ämnen och prenumerationer
-
+## <a name="create-a-service-bus-topic-and-subscriptions"></a>Skapa ett Service Bus-ämne och prenumerationer
 Varje [prenumeration på ett ämne](service-bus-messaging-overview.md#topics) får en kopia av varje meddelande. Ämnen är fullständigt protokollmässigt och semantiskt kompatibla med Service Bus-köer. Service Bus-ämnen stöder en mängd olika urvalsregler med filtervillkor, med valfria åtgärder som anger eller ändrar meddelandeegenskaperna. Varje gång en regel matchar så genererar den ett meddelande. Mer information om regler, filter och åtgärder, finns på den här [länken](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Starta Azure Cloud Shell genom att välja ikonen som visas i följande bild. Växla till **bash** -läge om Cloud Shell är i **PowerShell** -läge. 
 
-När CLI har installerats öppnar du en kommandotolk och ger följande kommandon för att logga in på Azure. De här stegen är inte nödvändiga om du använder Cloud Shell:
+    :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Starta Cloud Shell":::
+3. Kör följande kommando för att skapa en Azure-resurs grupp. Uppdatera resurs gruppens namn och plats om du vill. 
 
-1. Om du använder Azure CLI lokalt, kör du följande kommando för att logga in på Azure. Det här inloggningssteget behövs inte om du kör de här kommandona i Cloud Shell:
+    ```azurecli-interactive
+    az group create --name MyResourceGroup --location eastus
+    ```
+4. Kör följande kommando för att skapa ett namn område för Service Bus meddelande tjänst. Uppdatera namnet på namn området som ska vara unikt. 
 
-   ```azurecli-interactive
-   az login
-   ```
+    ```azurecli-interactive
+    namespaceName=MyNameSpace$RANDOM
+    az servicebus namespace create --resource-group MyResourceGroup --name $namespaceName --location eastus
+    ```
+5. Kör följande kommando för att skapa ett ämne i namn området. 
 
-2. Ange den aktuella prenumerationskontexten till den Azure-prenumeration du vill använda:
-
-   ```azurecli-interactive
-   az account set --subscription Azure_subscription_name
-   ```
-
-## <a name="use-cli-to-provision-resources"></a>Använd CLI för att etablera resurser
-
-Utfärda följande kommandon för att etablera Service Bus-resurser. Tänk på att ersätta alla platshållare med lämpliga värden:
-
-```azurecli-interactive
-# Create a resource group
-az group create --name myResourcegroup --location eastus
-
-# Create a Service Bus messaging namespace with a unique name
-namespaceName=myNameSpace$RANDOM
-az servicebus namespace create \
-   --resource-group myResourceGroup \
-   --name $namespaceName \
-   --location eastus
-
-# Create a Service Bus topic
-az servicebus topic create --resource-group myResourceGroup \
-   --namespace-name $namespaceName \
-   --name myTopic
-
-# Create subscription 1 to the topic
-az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S1
-
-# Create filter 1 - use custom properties
-az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MyFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3')"
-
-# Create filter 2 - use custom properties
-az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MySecondFilter --filter-sql-expression "StoreId = 'Store4'"
-
-# Create subscription 2
-az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S2
-
-# Create filter 3 - use message header properties via IN list and 
-# combine with custom properties.
-az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S2 --name MyFilter --filter-sql-expression "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'"
-
-# Create subscription 3
-az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S3
-
-# Create filter 4 - Get everything except messages for subscription 1 and 2. 
-# Also modify and add an action; in this case set the label to a specified value. 
-# Assume those stores might not be part of your main store, so you only add 
-# specific items to them. For that, you flag them specifically.
-az servicebus rule create --resource-group DemoGroup --namespace-name DemoNamespaceSB --topic-name tutorialtest1
- --subscription-name S3 --name MyFilter --filter-sql-expression "sys.To NOT IN ('Store1','Store2','Store3','Store4','Sto
-re5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Stor
-e8')" --action-sql-expression "SET sys.Label = 'SalesEvent'"
-
-# Get the connection string
-connectionString=$(az servicebus namespace authorization-rule keys list \
-   --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
-   --name RootManageSharedAccessKey \
-   --query primaryConnectionString --output tsv)
-```
-
-Efter att det sista kommandot körts, kopierar och klistrar du in anslutningssträngen och det könamn som du valde till en tillfällig plats, till exempel Anteckningar. Du behöver den i nästa steg.
-
-## <a name="create-filter-rules-on-subscriptions"></a>Skapa filterregler för prenumerationer
-
-När namnområdet och ämnet/sprenumerationerna har etablerats och du har de nödvändiga behörigheterna, är du redo att skapa filterregler för prenumerationerna och sedan skicka och ta emot meddelanden. Du kan granska koden i [den här GitHub-exempelmappen](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
-
-## <a name="send-and-receive-messages"></a>Skicka och ta emot meddelanden
-
-1. Se till att Cloud Shell är öppet och visar Bash-prompten.
-
-2. Klona [Service Bus GitHub-lagringsplatsen](https://github.com/Azure/azure-service-bus/) genom att utfärda följande kommando:
-
-   ```shell
-   git clone https://github.com/Azure/azure-service-bus.git
-   ```
-
-2. Gå till exempelmappen `azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java/tutorial-topics-subscriptions-filters-java`. Observera att kommandona i Bash-gränssnittet är skiftlägeskänsliga och avgränsare måste vara snedstreck.
-
-3. Utfärda följande kommando för att skapa programmet:
-   
-   ```shell
-   mvn clean package -DskipTests
-   ```
-4. Utfärda följande kommando för att köra programmet. Se till att ersätta platshållarna med den anslutningssträng och det ämnesnamn som du fick i föregående steg:
-
-   ```shell
-   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
-   ```
-
-   Observera hur 10 meddelanden skickas till ämnet och därefter tas emot från de enskilda prenumerationerna:
-
-   ![programmets utdata](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-Kör följande kommando för att ta bort resursgruppen, namnområdet och alla relaterade resurser:
-
-```azurecli-interactive
-az group delete --resource-group my-resourcegroup
-```
-
-## <a name="understand-the-sample-code"></a>Förstå exempelkoden
-
-Det här avsnittet innehåller mer information om vad exempelkoden gör.
-
-### <a name="get-connection-string-and-queue"></a>Hämta anslutningssträngen och kön
-
-Koden deklarerar först en uppsättning variabler som driver den återstående körningen av programmet:
-
-```java
-    public String ConnectionString = null;
-    public String TopicName = null;
-    static final String[] Subscriptions = {"S1","S2","S3"};
-    static final String[] Store = {"Store1","Store2","Store3","Store4","Store5","Store6","Store7","Store8","Store9","Store10"};
-    static final String SysField = "sys.To";
-    static final String CustomField = "StoreId";
-    int NrOfMessagesPerStore = 1; // Send at least 1.
-```
-
-Anslutningssträngen och ämnesnamnet är de enda värden som läggs till via kommandoradsparametrar och skickas till `main()`. Den faktiska kodkörningen utlöses i `run()`-metoden och skickar och tar därefter emot meddelanden från ämnet:
-
-```java
-public static void main(String[] args) {
-    TutorialTopicsSubscriptionsFilters app = new TutorialTopicsSubscriptionsFilters();
-        try {
-            app.runApp(args);
-            app.run();
-        } catch (Exception e) {
-            System.out.printf("%s", e.toString());
-        }
-        System.exit(0);
-    }
-}
-
-public void run() throws Exception {
-    // Send sample messages.
-    this.sendMessagesToTopic();
-
-    // Receive messages from subscriptions.
-    this.receiveAllMessages();
-}
-```
-
-### <a name="create-topic-client-to-send-messages"></a>Skapa ämnesklient för att skicka meddelanden
-
-För att skicka och ta emot meddelanden, skapar `sendMessagesToTopic()`-metoden skapar en instans av ämnesklienten som använder anslutningssträngen och ämnesnamnet och därefter anropar en annan metod som skickar meddelandena:
-
-```java
-public void sendMessagesToTopic() throws Exception, ServiceBusException {
-    // Create client for the topic.
-    TopicClient topicClient = new TopicClient(new ConnectionStringBuilder(ConnectionString, TopicName));
-
-    // Create a message sender from the topic client.
-
-    System.out.printf("\nSending orders to topic.\n");
-
-    // Now we can start sending orders.
-    CompletableFuture.allOf(
-            SendOrders(topicClient,Store[0]),
-            SendOrders(topicClient,Store[1]),
-            SendOrders(topicClient,Store[2]),
-            SendOrders(topicClient,Store[3]),
-            SendOrders(topicClient,Store[4]),
-            SendOrders(topicClient,Store[5]),
-            SendOrders(topicClient,Store[6]),
-            SendOrders(topicClient,Store[7]),
-            SendOrders(topicClient,Store[8]),
-            SendOrders(topicClient,Store[9])
-    ).join();
-
-    System.out.printf("\nAll messages sent.\n");
-}
-
-    public CompletableFuture<Void> SendOrders(TopicClient topicClient, String store) throws Exception {
-
-        for(int i = 0;i<NrOfMessagesPerStore;i++) {
-            Random r = new Random();
-            final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));
-            IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8));
-            // We always set the Sent to field
-            message.setTo(store);
-            final String StoreId = store;
-            Double priceToString = item.getPrice();
-            final String priceForPut = priceToString.toString();
-            message.setProperties(new HashMap<String, String>() {{
-                // Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both.
-                // This is just for demo purposes.
-                put("StoreId", StoreId);
-                // Adding more potential filter / rule and action able fields
-                put("Price", priceForPut);
-                put("Color", item.getColor());
-                put("Category", item.getItemCategory());
-            }});
-
-            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());
-            topicClient.sendAsync(message);
-        }
-
-        return new CompletableFuture().completedFuture(null);
-    }
-```
-
-### <a name="receive-messages-from-the-individual-subscriptions"></a>Ta emot meddelanden från de enskilda prenumerationerna
-
-`receiveAllMessages()`-metoden anropar `receiveAllMessageFromSubscription()`-metoden, som därefter skapar en prenumerationsklient per anrop och tar emot meddelanden från de enskilda prenumerationerna:
-
-```java
-public void receiveAllMessages() throws Exception {
-    System.out.printf("\nStart Receiving Messages.\n");
-
-    CompletableFuture.allOf(
-            receiveAllMessageFromSubscription(Subscriptions[0]),
-            receiveAllMessageFromSubscription(Subscriptions[1]),
-            receiveAllMessageFromSubscription(Subscriptions[2])
-            ).join();
-}
-
-public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscription) throws Exception {
-
-    int receivedMessages = 0;
-
-    // Create subscription client.
-    IMessageReceiver subscriptionClient = ClientFactory.createMessageReceiverFromConnectionStringBuilder(new ConnectionStringBuilder(ConnectionString, TopicName+"/subscriptions/"+ subscription), ReceiveMode.PEEKLOCK);
-
-    // Create a receiver from the subscription client and receive all messages.
-    System.out.printf("\nReceiving messages from subscription %s.\n\n", subscription);
-
-    while (true)
-    {
-        // This will make the connection wait for N seconds if new messages are available.
-        // If no additional messages come we close the connection. This can also be used to realize long polling.
-        // In case of long polling you would obviously set it more to e.g. 60 seconds.
-        IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
-        if (receivedMessage != null)
-        {
-            if ( receivedMessage.getProperties() != null ) {
-                System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));
-                
-                // Show the label modified by the rule action
-                if(receivedMessage.getLabel() != null)
-                    System.out.printf("Label=%s\n", receivedMessage.getLabel());
-            }
-            
-            byte[] body = receivedMessage.getBody();
-            Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
-            System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());
-            
-            subscriptionClient.complete(receivedMessage.getLockToken());
-            receivedMessages++;
-        }
-        else
-        {
-            // No more messages to receive.
-            subscriptionClient.close();
-            break;
-        }
-    }
-    System.out.printf("\nReceived %s messages from subscription %s.\n", receivedMessages, subscription);
+    ```azurecli-interactive
+    az servicebus topic create --resource-group MyResourceGroup   --namespace-name $namespaceName --name MyTopic
+    ```
+6. Skapa den första prenumerationen på ämnet
     
-    return new CompletableFuture().completedFuture(null);
-}
-```
+    ```azurecli-interactive
+    az servicebus topic subscription create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --name S1    
+    ```
+6. Skapa den andra prenumerationen för ämnet
+    
+    ```azurecli-interactive
+    az servicebus topic subscription create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --name S2    
+    ```
+6. Skapa den tredje prenumerationen på ämnet
+    
+    ```azurecli-interactive
+    az servicebus topic subscription create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --name S3    
+    ```
+7. Skapa ett filter för den första prenumerationen med ett filter med anpassade egenskaper ( `StoreId` är en av `Store1` , `Store2` och `Store3` ).
 
-> [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+    ```azurecli-interactive
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S1 --name MyFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3')"    
+    ```
+8. Skapa ett filter för den andra prenumerationen med ett filter med kund egenskaper ( `StoreId = Store4` )
+
+    ```azurecli-interactive
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S2 --name MySecondFilter --filter-sql-expression "StoreId = 'Store4'"    
+    ```
+9. Skapa ett filter för den tredje prenumerationen med ett filter med hjälp av kund egenskaper ( `StoreId` inte i `Store1` , `Store2` , `Store3` eller `Store4` ).
+
+    ```azurecli-interactive
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    ```
+10. Kör följande kommando för att hämta den primära anslutnings strängen för namn området. Du använder den här anslutnings strängen för att ansluta till kön och skicka och ta emot meddelanden. 
+
+    ```azurecli-interactive
+    az servicebus namespace authorization-rule keys list --resource-group MyResourceGroup --namespace-name $namespaceName --name RootManageSharedAccessKey --query primaryConnectionString --output tsv    
+    ```
+
+    Anteckna anslutnings strängen och ämnes namnet. Du kan använda dem för att skicka och ta emot meddelanden. 
+    
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudien, etablerade du resurser med hjälp av Azure CLI och därefter skickade du och tog emot meddelanden från ett Service Bus-ämne och dess prenumerationer. Du har lärt dig att:
-
-> [!div class="checklist"]
-> * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure-portalen
-> * Lägg till ämnesfilter med .NET-kod
-> * Skapa två meddelanden med olika innehåll
-> * Skicka meddelandena och verifiera att de anlände i de förväntade prenumerationerna
-> * Ta emot meddelanden från prenumerationerna
-
-Om du vill ha fler exempel på att skicka och ta emot meddelanden, kan du komma igång med [Service Bus-exempel på GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
-
-Gå vidare till nästa självstudie för att läsa mer om att använda Service Bus-funktionerna publicera/prenumerera.
+Information om hur du skickar meddelanden till ett ämne och tar emot dessa meddelanden via en prenumeration finns i följande artikel: Välj programmeringsspråket i innehålls förteckningen. 
 
 > [!div class="nextstepaction"]
-> [Uppdatera lager med hjälp av PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-portal.md)
+> [Publicera och prenumerera på meddelanden](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-[kostnads fritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Install the Azure CLI]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az_group_create

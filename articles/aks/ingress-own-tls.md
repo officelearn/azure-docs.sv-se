@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress-kontr
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 7588614f615e7aa7dee00fa7553ad986f2e26b37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 070414537f203e1bcfa5de158efd2ad9f215d4bf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056964"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191080"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Skapa en inkommande styrenhet för HTTPS och använd dina egna TLS-certifikat på Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ Du kan även:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln använder [Helm 3][helm] för att installera nginx ingress-kontrollanten. Kontrol lera att du använder den senaste versionen av Helm. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
+Den här artikeln använder [Helm 3][helm] för att installera nginx ingress-kontrollanten. Kontrol lera att du använder den senaste versionen av Helm och att du har åtkomst till *stabil* Helm-lagringsplats. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
 
 Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 

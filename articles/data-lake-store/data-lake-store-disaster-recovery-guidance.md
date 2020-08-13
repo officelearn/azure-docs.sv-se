@@ -1,17 +1,17 @@
 ---
 title: Vägledning om haveri beredskap för Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Vägledning om hög tillgänglighet och haveri beredskap för Azure Data Lake Storage Gen1
+description: Lär dig mer om hur du skyddar dina data ytterligare från hela regionens avbrott eller oavsiktliga borttagningar utöver den lokalt redundanta lagringen av Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: ebcdeed608a5b9dc6202071869c4df1dcfd327a8
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: b124f828c4a6a019c45243528ed2d957e3f781f3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512762"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191412"
 ---
 # <a name="high-availability-and-disaster-recovery-guidance-for-data-lake-storage-gen1"></a>Vägledning för hög tillgänglighet och katastrof återställning för Data Lake Storage Gen1
 

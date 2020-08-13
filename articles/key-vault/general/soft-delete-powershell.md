@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault – använda mjuk borttagning med PowerShell
-description: Exempel på användnings fall av mjuk borttagning med PowerShell-kod klipp
+description: Lär dig hur du använder Azure PowerShell för att använda funktionen mjuk borttagning i Azure Key Vault som tillåter återställning av nyckel valv och Key Vault-objekt.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 55e4bd20b6cc17a5cbad620d3a404d6ada41b81a
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 094eb784244f74fe75bf456b01c9a85457b28ba3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136481"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191512"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Så här använder du Key Vault mjuk borttagning med PowerShell
 
@@ -23,7 +23,7 @@ Azure Key Vault funktionen för mjuk borttagning tillåter återställning av bo
 - Stöd för rekonstruerbar borttagning av ett nyckel valv
 - Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -40,7 +40,7 @@ Key Vault detaljerad referensinformation för PowerShell finns i [Azure Key Vaul
 
 Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Description | Användar behörighet |
+| Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
 |Lista|Visar en lista över borttagna nyckel valv.|Microsoft. nyckel valv/deletedVaults/läsa|
 |Återställ|Återställer ett borttaget nyckel valv.|Microsoft. nyckel valv/valv/Skriv|

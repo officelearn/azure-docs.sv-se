@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och Azure-dedikerad HSM | Microsoft Docs
-description: Vanliga frågor och svar som täcker olika ämnen i Azure Dedicated HSM
+description: Få svar på vanliga frågor om Azures särskilda maskinvarubaserade säkerhetsmodul, till exempel grundläggande information, interoperabilitet, hög tillgänglighet och support.
 services: dedicated-hsm
 author: johncdawson
 manager: rkarlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d3309283279c887c00a475ccedfe1edaf311ae5
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84310393"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189869"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
 
@@ -66,7 +66,7 @@ Azure Dedicated HSM-tjänsten använder SafeNet Luna Network HSM 7-enheter (mode
 
 Från och med sent mars 2019 är dedikerad HSM tillgänglig i de 14 regionerna som anges nedan. Ytterligare regioner planeras och kan diskuteras via din Microsoft-konto representant.
 
-* USA, östra
+* East US
 * USA, östra 2
 * USA, västra
 * USA, västra 2
@@ -77,7 +77,7 @@ Från och med sent mars 2019 är dedikerad HSM tillgänglig i de 14 regionerna s
 * Södra Indien
 * Japan, östra
 * Japan, västra
-* Europa, norra
+* Norra Europa
 * Europa, västra
 * Storbritannien, södra
 * Storbritannien, västra

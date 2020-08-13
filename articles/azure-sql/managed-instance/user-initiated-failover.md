@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 08/12/2020
-ms.openlocfilehash: faef8c29b2a5e75745e36c5d826b4feee2d60a98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1a5cb4a5ce02954a14a6936ec14379701354a79
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88169147"
+ms.locfileid: "88191203"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Användarinitierade manuell redundans på SQL-hanterad instans
 
@@ -31,6 +31,9 @@ Du kan överväga att köra en [manuell redundansväxling](../database/high-avai
 - Testa hur redundansväxlingen påverkar befintliga Databassessioner
 - Kontrol lera om redundansen ändras från slut punkt till slut punkt på grund av ändringar i nätverks fördröjningen
 - I vissa fall av prestanda försämringar för frågor kan manuella redundans hjälpa till att minska prestanda problemet.
+
+> [!NOTE]
+> Att se till att dina program är redundanta innan du distribuerar till produktion bidrar till att minska risken för program fel i produktionen och kommer att bidra till programmets tillgänglighet för dina kunder.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Initiera manuell redundans på SQL-hanterad instans
 

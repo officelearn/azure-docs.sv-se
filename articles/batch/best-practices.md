@@ -1,14 +1,14 @@
 ---
 title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-ms.date: 07/30/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87474911"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191815"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -57,6 +57,10 @@ Batch-pooler kan uppleva stillestånds händelser i Azure. Tänk på detta när 
 
 Om en nod Miss lyckas försöker batch automatiskt återställa de här Compute-noderna åt dig. Detta kan utlösa en omschemaläggningen av alla pågående aktiviteter på den nod som återställs. Se [utforma för nya försök](#design-for-retries-and-re-execution) för att lära dig mer om avbrutna uppgifter.
 
+### <a name="custom-image-pools"></a>Anpassade bildpooler
+
+När du skapar en Azure Batch-pool med den virtuella dator konfigurationen anger du en VM-avbildning som tillhandahåller operativ systemet för varje Compute-nod i poolen. Du kan skapa poolen med en Azure Marketplace-avbildning som stöds, eller så kan du [skapa en anpassad avbildning med en avbildning av ett delat avbildnings Galleri](batch-sig-images.md). Även om du kan använda en [hanterad avbildning](batch-custom-images.md) för att skapa en anpassad avbildning, rekommenderar vi att du skapar anpassade avbildningar med hjälp av den delade avbildnings galleriet närhelst det är möjligt. Med hjälp av den delade avbildnings galleriet kan du etablera pooler snabbare, skala större mängder virtuella datorer och förbättra tillförlitligheten vid etablering av virtuella datorer.
+
 ### <a name="third-party-images"></a>Avbildningar från tredje part
 
 Pooler kan skapas med avbildningar från tredje part som publicerats på Azure Marketplace. Med batch-konton för användar prenumerations läge kan du se felet "tilldelningen misslyckades på grund av kontroll av marknads plats inköp" när du skapar en pool med vissa avbildningar från tredje part. För att lösa det här felet accepterar du villkoren som anges av avbildningens utgivare. Du kan göra det med hjälp av [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) eller [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
@@ -83,7 +87,7 @@ Ett jobb flyttas inte automatiskt till slutfört tillstånd om det inte uttryckl
 
 Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-limit.md#resource-quotas). Jobb och jobb scheman i slutfört tillstånd räknas inte över till den här kvoten.
 
-## <a name="tasks"></a>Aktiviteter
+## <a name="tasks"></a>Uppgifter
 
 [Aktiviteter](jobs-and-tasks.md#tasks) är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skickas av användaren och schemaläggs av batch på för att beräkna noder. Det finns flera design aspekter att fatta när du skapar och kör uppgifter. I följande avsnitt beskrivs vanliga scenarier och hur du utformar dina aktiviteter för att hantera problem och utföra effektiva åtgärder.
 
@@ -169,7 +173,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 

@@ -5,14 +5,14 @@ keywords: app service, azure app service, domain mapping, domain name, existing 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 04/27/2020
+ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543577"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190073"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -83,7 +83,7 @@ Om App Service-planen inte är på nivån **F1** stänger du sidan **Skala upp**
 
 Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Använd**.
+Klicka på **Godkänn**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -125,11 +125,11 @@ Om du har en annan under domän än `www` ersätter du `www` med under domänen 
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Mappa en under domän till appens standard domän namn ( `<app_name>.azurewebsites.net` där `<app_name>` är namnet på din app). Skapa en CNAME-mappning för under `www` domänen genom att skapa två poster:
+Mappa en under domän till appens standard domän namn ( `<app-name>.azurewebsites.net` där `<app-name>` är namnet på din app). Skapa en CNAME-mappning för under `www` domänen genom att skapa två poster:
 
 | Posttyp | Värd | Värde | Kommentarer |
 | - | - | - |
-| CNAME | `www` | `<app_name>.azurewebsites.net` | Själva domän mappningen. |
+| CNAME | `www` | `<app-name>.azurewebsites.net` | Själva domän mappningen. |
 | TXT | `asuid.www` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder txt- `asuid.<subdomain>` posten för att verifiera din ägande av den anpassade domänen. |
 
 När du har lagt till CNAME-och TXT-posterna ser sidan DNS-poster ut som i följande exempel:
@@ -210,7 +210,7 @@ För att mappa en A-post till en app, vanligt vis till rot domänen, skapar du t
 > | Posttyp | Värd | Värde |
 > | - | - | - |
 > | A | `www` | IP-adress från [Kopiera appens IP-adress](#info) |
-> | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
+> | TXT | `asuid.www` | `<app-name>.azurewebsites.net` |
 >
 
 När posterna har lagts till ser sidan för DNS-poster ut som i följande exempel:
@@ -262,9 +262,14 @@ I kursexemplet mappar du ett [DNS-namn med jokertecken](https://en.wikipedia.org
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa ett jokertecken till appens standard domän namn ( `<app_name>.azurewebsites.net` ).
+Mappa ett jokertecken `*` till appens standard domän namn ( `<app-name>.azurewebsites.net` där `<app-name>` är namnet på din app). Skapa två poster för att mappa namnet på jokertecken:
 
-För `*.contoso.com`-domänexemplet mappar CNAME-posten namnet `*` till `<app_name>.azurewebsites.net`.
+| Posttyp | Värd | Värde | Kommentarer |
+| - | - | - |
+| CNAME | `*` | `<app-name>.azurewebsites.net` | Själva domän mappningen. |
+| TXT | `asuid` | [Verifierings-ID: t som du fick tidigare](#get-domain-verification-id) | App Service använder txt- `asuid` posten för att verifiera din ägande av den anpassade domänen. |
+
+För `*.contoso.com`-domänexemplet mappar CNAME-posten namnet `*` till `<app-name>.azurewebsites.net`.
 
 När CNAME har lagts till ser sidan för DNS-poster ut som i följande exempel:
 
@@ -272,7 +277,7 @@ När CNAME har lagts till ser sidan för DNS-poster ut som i följande exempel:
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Aktivera CNAME-postmappning i appen
 
-Nu kan du lägga till valfri underdomän som matchar jokernamnet i appen ( `sub1.contoso.com` och `sub2.contoso.com` matchar till exempel `*.contoso.com`).
+Nu kan du lägga till alla under domäner som matchar jokertecknets namn i appen (till exempel `sub1.contoso.com` och `sub2.contoso.com` båda matchningarna `*.contoso.com` ).
 
 Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 
@@ -342,7 +347,7 @@ Följande kommando lägger till ett konfigurerat anpassat DNS-namn i en App Serv
 
 ```bash 
 az webapp config hostname add \
-    --webapp-name <app_name> \
+    --webapp-name <app-name> \
     --resource-group <resource_group_name> \
     --hostname <fully_qualified_domain_name>
 ``` 
@@ -357,9 +362,9 @@ Följande kommando lägger till ett konfigurerat anpassat DNS-namn i en App Serv
 
 ```powershell  
 Set-AzWebApp `
-    -Name <app_name> `
+    -Name <app-name> `
     -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net")
+    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
 ```
 
 Mer information finns i [Tilldela en anpassad domän till en webbapp](scripts/powershell-configure-custom-domain.md).

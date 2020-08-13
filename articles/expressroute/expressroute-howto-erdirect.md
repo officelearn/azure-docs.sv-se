@@ -1,18 +1,18 @@
 ---
 title: 'Azure-ExpressRoute: Konfigurera ExpressRoute Direct'
-description: På den här sidan kan du konfigurera ExpressRoute Direct.
+description: Lär dig hur du använder Azure PowerShell för att konfigurera Azure ExpressRoute Direct för att ansluta direkt till Microsofts globala nätverk på peering-platser över hela världen.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: 8d028baef8898ce8d45fa8e2e142a58a1ae3300c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 42803cbc7901be01c88145e2d98f2982434710a1
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736262"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192762"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Så här konfigurerar du ExpressRoute Direct
 

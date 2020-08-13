@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault loggning | Microsoft Docs
-description: Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning.
+description: Lär dig hur du övervakar åtkomst till dina nyckel valv genom att aktivera loggning för Azure Key Vault, som sparar information i ett Azure Storage-konto som du anger.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 263568ef53ec2353bf00ebcd5b48a212f0f1eb2d
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090594"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192789"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
@@ -38,7 +38,7 @@ Den här kursen hjälper dig att komma igång med Azure Key Vault-loggning. Du s
 
 Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md)). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudiekursen behöver du följande:
 
@@ -184,13 +184,13 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSORESOURCEGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT/y=2016/m=01/d=04/h=18/m=00/PT1H.json
 ```
 
-Som du kan se från dessa utdata följer Blobbarna en namngivnings konvention:`resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+Som du kan se från dessa utdata följer Blobbarna en namngivnings konvention: `resourceId=<ARM resource ID>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 Datum- och tidsvärdena använder UTC.
 
 Eftersom du kan använda samma lagrings konto för att samla in loggar för flera resurser, är det fullständiga resurs-ID: t i BLOB-namnet användbart för att få åtkomst till eller hämta bara de blobbar som du behöver. Men innan vi gör det ska vi titta på hur du hämtar alla blobbar.
 
-Skapa en mapp för att ladda ned Blobbarna. Exempel:
+Skapa en mapp för att ladda ned Blobbarna. Till exempel:
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -210,7 +210,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 När du kör det här andra kommandot **/** skapar avgränsaren i BLOB-namnen en fullständig mappstruktur under målmappen. Du använder den här strukturen för att ladda ned och lagra Blobbarna som filer.
 
-Om du vill ladda ned blobbarna selektivt använder du jokertecken. Exempel:
+Om du vill ladda ned blobbarna selektivt använder du jokertecken. Till exempel:
 
 * Om du har flera nyckelvalv och bara vill hämta loggar för ett av dem, mer specifikt nyckelvalvet CONTOSOKEYVAULT3:
 
@@ -281,7 +281,7 @@ I följande tabell visas fält namn och beskrivningar:
 | **Autentiseringsidentitet** |Identitet från den token som angavs i REST API begäran. Detta är vanligt vis en "användare", "tjänstens huvud namn" eller kombinationen "användare + appId", som i fallet med en begäran som resulterar från en Azure PowerShell-cmdlet. |
 | **egenskaperna** |Information som varierar beroende på åtgärd (**operationName**). I de flesta fall innehåller det här fältet klient information (den användar agent sträng som skickas av klienten), exakt REST API begär ande-URI och HTTP-statuskod. När ett objekt returneras som ett resultat av en begäran (till exempel nyckel **skapa** eller **VaultGet**), innehåller det även nyckel-URI (as `id` ), valv-URI eller hemlig URI. |
 
-Värdena för **operationName** -fältet är i *ObjectVerb* -format. Exempel:
+Värdena för **operationName** -fältet är i *ObjectVerb* -format. Till exempel:
 
 * Alla Key Vault-åtgärder har `Vault<action>` formatet, till exempel `VaultGet` och `VaultCreate` .
 * Alla viktiga åtgärder har `Key<action>` formatet, till exempel `KeySign` och `KeyList` .

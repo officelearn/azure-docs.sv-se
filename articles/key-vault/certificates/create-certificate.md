@@ -1,6 +1,6 @@
 ---
 title: Metoder för att skapa certifikat
-description: Sätt att skapa ett certifikat i Key Vault.
+description: Lär dig mer om olika alternativ för att skapa eller importera ett Key Vault certifikat i Azure Key Vault. Det finns flera sätt att skapa ett Key Vault-certifikat.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7450dd79247078afe02d1bb63727cfd260d674fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 312f04ff4b1d860724640dfc9e5ea9d75bb76bae
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81866255"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189970"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 

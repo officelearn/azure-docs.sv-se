@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Key Vault – Azure Key Vault | Microsoft Docs
-description: Azure Key Vault är en molntjänst som fungerar som säkert lager för hemligheter.
+description: Azure Key Vault är en säker hemligheter-butik som ger hantering för hemligheter, nycklar och certifikat, som alla backas upp av säkerhetsmoduler för maskin vara.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ef31a11414fad1b9a3d06d00055c36c995adcce
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 98f681494ca73bd2698cd3068441cf02cd6730ac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216324"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190545"
 ---
 # <a name="about-azure-key-vault"></a>Om Azure Key Vault
 

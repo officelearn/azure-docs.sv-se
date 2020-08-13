@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en grundläggande NGIN
 services: container-service
 ms.topic: article
 ms.date: 07/20/2020
-ms.openlocfilehash: 2c75d41d827ad1838898736ba8ff41aaef0b6f13
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6a34649bba275fa4b11a4c5a0c0084235d83fd4a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927061"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190765"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Skapa en ingress-kontrollant i Azure Kubernetes service (AKS)
 
@@ -27,7 +27,7 @@ Du kan även:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln använder [Helm 3][helm] för att installera nginx ingress-kontrollanten.
+Den här artikeln använder [Helm 3][helm] för att installera nginx ingress-kontrollanten. Kontrol lera att du använder den senaste versionen av Helm och att du har åtkomst till *stabil* Helm-lagringsplats.
 
 Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 

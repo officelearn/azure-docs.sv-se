@@ -1,6 +1,6 @@
 ---
 title: Översikt över åtkomst kontroll i Data Lake Storage Gen1 | Microsoft Docs
-description: Förstå hur åtkomst kontroll fungerar i Azure Data Lake Storage Gen1
+description: Lär dig grunderna i åtkomst kontroll modellen för Azure Data Lake Storage Gen1, som härleds från HDFS.
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11629338a808ae0f83ac513b6475dce7a53814da
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847817"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190166"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Åtkomstkontroll i Azure Data Lake Storage Gen1
 
@@ -124,7 +124,7 @@ Användaren som skapade objektet är automatiskt ägande användare för objekte
 
 ### <a name="the-owning-group"></a>Ägande grupp
 
-**Bakgrund**
+**Lägg**
 
 I POSIX-ACL:er är varje användare associerad med en "primär grupp". Användaren "Alice" kan t.ex. tillhöra gruppen "Ekonomi". Alice kan också tillhöra flera grupper, men en grupp anges alltid som hennes primära grupp. När Alice skapar en fil i POSIX ställs den ägande gruppen för filen in som hennes primära grupp, som i det här fallet är "Ekonomi". Den ägande gruppen fungerar annars ungefär som tilldelade behörigheter för andra användare/grupper.
 

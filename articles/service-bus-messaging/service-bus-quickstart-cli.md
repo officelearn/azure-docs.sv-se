@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 08/12/2020
 ms.author: spelluru
-ms.openlocfilehash: d4b4ce8a19d03a0323af934eac3868fdcc8d50ff
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 201ea38c6feabbda2576d8480a9983f00d62d175
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182516"
+ms.locfileid: "88191271"
 ---
 # <a name="use-the-azure-cli-to-create-a-service-bus-namespace-and-a-queue"></a>Använd Azure CLI för att skapa ett Service Bus-namnområde och en kö
 Den här snabb starten visar hur du skapar ett Service Bus-namnområde och en kö med hjälp av Azure CLI. Det visar också hur du får autentiseringsuppgifter för auktorisering som ett klient program kan använda för att skicka/ta emot meddelanden till/från kön. 
@@ -24,7 +24,7 @@ I den här snabb starten använder du Azure Cloud Shell som du kan starta när d
 
 ## <a name="provision-resources"></a>Etablera resurser
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Starta Azure Cloud Shell genom att välja ikonen som visas i följande bild: 
+2. Starta Azure Cloud Shell genom att välja ikonen som visas i följande bild. Växla till **bash** -läge om CloudShell är i **PowerShell** -läge. 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Starta Cloud Shell":::
 3. Kör följande kommando för att skapa en Azure-resurs grupp. Uppdatera resurs gruppens namn och plats om du vill. 
@@ -37,7 +37,7 @@ I den här snabb starten använder du Azure Cloud Shell som du kan starta när d
     ```azurecli-interactive
     az servicebus namespace create --resource-group ContosoRG --name ContosoSBusNS --location eastus
     ```
-5. Kör följande kommando för att skapa en kö i namn området som du skapade i föregående steg. I det här exemplet `ContosoRG` är resurs gruppen du skapade i föregående steg. `ContosoSBusNS`är namnet på Service Bus namn området som skapas i den resurs gruppen. 
+5. Kör följande kommando för att skapa en kö i namn området som du skapade i föregående steg. I det här exemplet `ContosoRG` är resurs gruppen du skapade i föregående steg. `ContosoSBusNS` är namnet på Service Bus namn området som skapas i den resurs gruppen. 
 
     ```azurecli-interactive
     az servicebus queue create --resource-group ContosoRG --namespace-name ContosoSBusNS --name ContosoOrdersQueue

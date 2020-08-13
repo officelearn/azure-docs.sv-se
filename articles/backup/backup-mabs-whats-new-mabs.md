@@ -3,12 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032450"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88190832"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Vad är nytt i Microsoft Azure Backup Server (MABS)
 
@@ -25,7 +25,7 @@ MABS v2 introducerade [modern backup Storage](backup-mabs-add-storage.md) (MB), 
 
 För att uppnå skalning och prestanda från MB rekommenderar vi att du använder en liten procent andel (4% av det totala lagrings utrymmet) för Flash Storage (SSD) med MABS v3-UR1 som en nivå volym i kombination med DPM HDD-lagring. MABS v3-UR1 med skiktat lagring ger 50-70% snabbare säkerhets kopieringar. Mer information om hur du konfigurerar lagring på lagrings nivå hittar du i DPM-artikeln [Konfigurera MB med Tiered Storage](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) .
 
-### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Stöd för ReFS-volymer och ReFS-volymer med deduplicering aktiverat
+### <a name="support-for-refs-volumes"></a>Stöd för ReFS-volymer
 
 Med MABS v3-UR1 kan du säkerhetskopiera ReFS-volymer och arbets belastningar som har distribuerats på ReFS-volymen. Du kan säkerhetskopiera följande arbets belastningar som har distribuerats på ReFS-volymerna:
 
@@ -36,6 +36,8 @@ Med MABS v3-UR1 kan du säkerhetskopiera ReFS-volymer och arbets belastningar so
 
 >[!NOTE]
 > Säkerhets kopiering av virtuella Hyper-V-datorer som lagras på en ReFS-volym stöds med MABS v3
+
+>OVIKTIG Vi har identifierat några problem med säkerhets kopiering av deduplicerade ReFS-volymer. Vi arbetar med att åtgärda dessa och kommer att uppdatera det här avsnittet så snart vi har en tillgänglig lösning. Fram till dess tar vi bort stödet för säkerhets kopiering av deduplicerade ReFS-volymer från MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Stöd för Azure VMware-lösnings skydd
 

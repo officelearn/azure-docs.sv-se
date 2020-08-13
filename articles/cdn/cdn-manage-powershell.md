@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure CDN med PowerShell | Microsoft Docs
-description: Lär dig hur du använder Azure PowerShell-cmdletar för att hantera Azure CDN.
+description: I den här självstudien får du lära dig hur du använder PowerShell för att hantera aspekter av dina Azure Content Delivery Network slut punkts profiler och slut punkter.
 services: cdn
 documentationcenter: ''
 author: asudbring
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: e7ad3034ff3730cdadcfd55765af01c97df78028
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b5fa1cedf4cc5e87d11dc4b5c453d9cb2a307c3c
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073067"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192665"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Hantera Azure CDN med PowerShell
 PowerShell tillhandahåller en av de mest flexibla metoderna för att hantera dina Azure CDN profiler och slut punkter.  Du kan använda PowerShell interaktivt eller genom att skriva skript för att automatisera hanterings uppgifter.  Den här självstudien visar flera av de vanligaste uppgifterna som du kan utföra med PowerShell för att hantera dina Azure CDN profiler och slut punkter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -80,7 +80,7 @@ Cmdlet          Unpublish-AzCdnEndpointContent                     1.4.0      Az
 ```
 
 ## <a name="getting-help"></a>Få hjälp
-Du kan få hjälp med någon av dessa cmdlets med hjälp av `Get-Help` cmdleten.  `Get-Help`innehåller användning och syntax, och kan också visa exempel.
+Du kan få hjälp med någon av dessa cmdlets med hjälp av `Get-Help` cmdleten.  `Get-Help` innehåller användning och syntax, och kan också visa exempel.
 
 ```text
 PS C:\> Get-Help Get-AzCdnProfile
@@ -139,7 +139,7 @@ Get-AzCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 > 
 
 ## <a name="listing-existing-cdn-endpoints"></a>Visar befintliga CDN-slutpunkter
-`Get-AzCdnEndpoint`kan hämta en enskild slut punkt eller alla slut punkter i en profil.  
+`Get-AzCdnEndpoint` kan hämta en enskild slut punkt eller alla slut punkter i en profil.  
 
 ```powershell
 # Get a single endpoint.
@@ -156,7 +156,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Where-Object { $_.ResourceState -eq "Runn
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Skapa CDN-profiler och slut punkter
-`New-AzCdnProfile`och `New-AzCdnEndpoint` används för att skapa CDN-profiler och slut punkter. Följande SKU: er stöds:
+`New-AzCdnProfile` och `New-AzCdnEndpoint` används för att skapa CDN-profiler och slut punkter. Följande SKU: er stöds:
 - Standard_Verizon
 - Premium_Verizon
 - Custom_Verizon
@@ -177,7 +177,7 @@ New-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Stan
 ```
 
 ## <a name="checking-endpoint-name-availability"></a>Kontrollerar tillgänglighet för slut punkts namn
-`Get-AzCdnEndpointNameAvailability`Returnerar ett objekt som anger om ett slut punkts namn är tillgängligt.
+`Get-AzCdnEndpointNameAvailability` Returnerar ett objekt som anger om ett slut punkts namn är tillgängligt.
 
 ```powershell
 # Retrieve availability
@@ -189,7 +189,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## <a name="adding-a-custom-domain"></a>Lägga till en anpassad domän
-`New-AzCdnCustomDomain`lägger till ett anpassat domän namn i en befintlig slut punkt.
+`New-AzCdnCustomDomain` lägger till ett anpassat domän namn i en befintlig slut punkt.
 
 > [!IMPORTANT]
 > Du måste ställa in CNAME med DNS-providern enligt beskrivningen i [så här mappar du en anpassad domän till en Content Delivery Network (CDN) slut punkt](cdn-map-content-to-custom-domain.md).  Du kan testa mappningen innan du ändrar slut punkten med `Test-AzCdnCustomDomain` .
@@ -208,7 +208,7 @@ If($result.CustomDomainValidated){ New-AzCdnCustomDomain -CustomDomainName Conto
 ```
 
 ## <a name="modifying-an-endpoint"></a>Ändra en slut punkt
-`Set-AzCdnEndpoint`ändrar en befintlig slut punkt.
+`Set-AzCdnEndpoint` ändrar en befintlig slut punkt.
 
 ```powershell
 # Get an existing endpoint
@@ -223,7 +223,7 @@ Set-AzCdnEndpoint -CdnEndpoint $endpoint
 ```
 
 ## <a name="purgingpre-loading-cdn-assets"></a>Rensa/för inläsning av CDN-tillgångar
-`Unpublish-AzCdnEndpointContent`tar bort cachelagrade till gångar, samtidigt som du försätts `Publish-AzCdnEndpointContent` till gångar i slut punkter som stöds.
+`Unpublish-AzCdnEndpointContent` tar bort cachelagrade till gångar, samtidigt som du försätts `Publish-AzCdnEndpointContent` till gångar i slut punkter som stöds.
 
 ```powershell
 # Purge some assets.
@@ -237,7 +237,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Unpublish-AzCdnEndpointContent -PurgeCont
 ```
 
 ## <a name="startingstopping-cdn-endpoints"></a>Starta/stoppa CDN-slutpunkter
-`Start-AzCdnEndpoint`och `Stop-AzCdnEndpoint` kan användas för att starta och stoppa enskilda slut punkter eller grupper av slut punkter.
+`Start-AzCdnEndpoint` och `Stop-AzCdnEndpoint` kan användas för att starta och stoppa enskilda slut punkter eller grupper av slut punkter.
 
 ```powershell
 # Stop the cdndocdemo endpoint
@@ -274,7 +274,7 @@ Set-AzCdnEndpoint -CdnEndpoint $ep
 ```
 
 ## <a name="deleting-cdn-resources"></a>Ta bort CDN-resurser
-`Remove-AzCdnProfile`och `Remove-AzCdnEndpoint` kan användas för att ta bort profiler och slut punkter.
+`Remove-AzCdnProfile` och `Remove-AzCdnEndpoint` kan användas för att ta bort profiler och slut punkter.
 
 ```powershell
 # Remove a single endpoint
@@ -287,7 +287,7 @@ Get-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG | Get-AzC
 Remove-AzCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Läs mer om hur man automatiserar Azure CDN med [.NET](cdn-app-dev-net.md) eller [Node.js](cdn-app-dev-node.md).
 
 Mer information om CDN-funktioner finns i [CDN-översikt](cdn-overview.md).

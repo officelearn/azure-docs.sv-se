@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75891254"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192290"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
@@ -68,3 +68,39 @@ Nej.
 Azure SignalR Service tillhandahåller alla tre transporter som ASP.NET Core SignalR stöder som standard. Den kan inte konfigureras. SignalR Service hanterar anslutningar och transporter för alla klientanslutningar.
 
 Du kan konfigurera transporter på klientsidan enligt beskrivningen [här](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+
+## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-showed-in-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Vad är syftet med mått som antal meddelanden eller antal anslutningar som visas i Azure Portal? Vilken typ av agg regerings typ ska jag välja?
+
+Du hittar information om hur gör vi för att beräkna dessa mått [här](signalr-concept-messages-and-connections.md).
+
+I översikts bladet för Azure SignalR service-resurser har vi redan valt rätt agg regerings typ åt dig. Och om du går till bladet mått kan du använda sammansättnings typen [här](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) som en referens.
+
+## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Vad är tjänst lägets betydelse `Default` / `Serverless` / `Classic` ? Hur kan jag välja?
+
+Lägen
+* `Default` läget **kräver** NAV Server. När det inte finns någon tillgänglig server anslutning för navet försöker klienten ansluta till hubben.
+* `Serverless` -läget tillåter **inte** någon server anslutning, dvs. det kommer att neka alla Server anslutningar, alla klienter måste ha ett Server fritt läge.
+* `Classic` läge är en blandad status. När en hubb har server anslutning dirigeras den nya klienten till NAV Server, om inte, kommer klienten att övergå i ett läge utan server.
+
+  Detta kan orsaka vissa problem, till exempel om alla Server anslutningar går förlorade under en viss tid, kommer vissa klienter att övergå i ett läge utan server, i stället för att dirigera till NAV Server.
+
+Prestanda
+1. Ingen NAV Server, Välj `Serverless` .
+1. Alla hubbar har nav servrar, Välj `Default` .
+1. Vissa hubbar har hubb servrar, andra inte, Välj `Classic` , men det kan orsaka vissa problem. det bästa sättet är att skapa två instanser, en `Serverless` annan är `Default` .
+
+## <a name="any-feature-differences-when-using-azure-signalr-for-aspnet-signalr"></a>Eventuella funktions skillnader när du använder Azure SignalR för ASP.NET-Signalerare?
+När du använder Azure-Signalerare stöds inte längre vissa API: er och funktioner i ASP.NET-signaler:
+- Möjligheten att skicka godtyckligt tillstånd mellan klienter och hubben (kallas ofta `HubState` ) stöds inte när Azure-signalerare används
+- `PersistentConnection` klassen stöds ännu inte när Azure-Signaleraren används
+- För **alltid-Frame-transport** stöds inte när Azure-signalerare används
+- Azure SignalR spelar inte längre upp meddelanden som skickas till klienten när klienten är offline
+- När du använder Azure-signaler dirigeras trafiken för en klient anslutning alltid (aka. **trög**) till en app Server-instans under anslutningens varaktighet
+
+Stöd för ASP.NET-signaler är inriktad på kompatibilitet, så alla nya funktioner från ASP.NET Core SignalR stöds inte. Till exempel, **MessagePack**, **streaming**osv., är bara tillgängliga för ASP.net Core signalerare-program.
+
+SignalR-tjänsten kan konfigureras för olika tjänst lägen: `Classic` / `Default` / `Serverles` s. I det här ASP.NET-stödet `Serverless` stöds inte läget. Data Plans REST API stöds inte heller.
+
+## <a name="where-do-my-data-reside"></a>Var finns mina data?
+
+Azure SignalR service fungerar som en data processor tjänst. Det kommer inte att lagra något kund innehåll och data placering har utlovats av design. Om du använder Azure SignalR-tjänsten tillsammans med andra Azure-tjänster, t. ex. Azure Storage för diagnostik, kan du [läsa mer om](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) hur du håller data placering i Azure-regioner.

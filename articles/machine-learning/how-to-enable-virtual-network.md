@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 16065b45a6afea25615b985d3c89445dee48bd1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 947f7afba6a8b40e9b1c71ac817239dd039539f7
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167733"
+ms.locfileid: "88192405"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,13 +25,20 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
 + Allmänt fungerande kunskap om både [Azure Virtual Network-tjänsten](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) och [IP-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 
 + Ett befintligt virtuellt nätverk och undernät som ska användas med dina beräknings resurser.
+
++ För att distribuera resurser till ett virtuellt nätverk eller undernät måste ditt användar konto ha behörighet till följande åtgärder i Azure-rollbaserade åtkomst kontroller (RBAC):
+
+    - "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
+    - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
+
+    Mer information om RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
 
 ## <a name="private-endpoints"></a>Privata slut punkter
 
@@ -42,7 +49,7 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 > [!TIP]
 > Du kan kombinera virtuella nätverk och privata länkar tillsammans för att skydda kommunikationen mellan arbets ytan och andra Azure-resurser. Vissa kombinationer kräver dock en Enterprise Edition-arbetsyta. Använd följande tabell för att ta reda på vilka scenarier som kräver Enterprise Edition:
 >
-> | Scenario | Stora företag</br>Edition | Grundläggande</br>Edition |
+> | Scenario | Stora företag</br>Edition | Basic</br>Edition |
 > | ----- |:-----:|:-----:| 
 > | Inget virtuellt nätverk eller en privat länk | ✔ | ✔ |
 > | Arbets yta utan privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
@@ -97,7 +104,7 @@ När du har lagt till din arbets yta och ditt lagrings tjänst konto i det virtu
 
 1. Om du vill skapa ett nytt data lager väljer du __+ nytt data lager__. Om du vill uppdatera en befintlig väljer du data lagret och väljer __uppdatera autentiseringsuppgifter__.
 
-1. I data lager inställningarna väljer du __Ja__ för __Tillåt Azure Machine Learning-tjänst för att få åtkomst till lagringen med hanterad identitet för arbets ytan__.
+1. I data lager inställningarna väljer du __Ja__ för  __Tillåt Azure Machine Learning-tjänst för att få åtkomst till lagringen med hanterad identitet för arbets ytan__.
 
 > [!NOTE]
 > Det kan ta upp till 10 minuter innan ändringarna börjar gälla.
@@ -263,7 +270,7 @@ Om du vill använda en [hanterad Azure Machine Learning __beräknings mål__ ](c
 > Dessa resurser begränsas av prenumerationens [resurskvoter](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-### <a name="required-ports"></a><a id="mlcports"></a>Portar som krävs
+### <a name="required-ports"></a><a id="mlcports"></a> Portar som krävs
 
 Om du planerar att skydda det virtuella nätverket genom att begränsa nätverks trafiken till/från det offentliga Internet måste du tillåta inkommande kommunikation från tjänsten Azure Batch.
 
@@ -294,7 +301,7 @@ Regel konfigurationen för NSG i Azure Portal visas i följande avbildningar:
 
 ![Utgående NSG-regler för Machine Learning-beräkning](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
-### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a>Begränsa utgående anslutning från det virtuella nätverket
+### <a name="limit-outbound-connectivity-from-the-virtual-network"></a><a id="limiting-outbound-from-vnet"></a> Begränsa utgående anslutning från det virtuella nätverket
 
 Använd följande steg om du inte vill använda de utgående standard reglerna och du vill begränsa den utgående åtkomsten för ditt virtuella nätverk:
 

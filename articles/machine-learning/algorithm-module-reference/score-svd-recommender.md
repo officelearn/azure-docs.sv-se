@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/10/2020
-ms.openlocfilehash: 82c3454ad4c8db3a9b19084f5b6ece988cc86b9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/10/2020
+ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79455986"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88189814"
 ---
 # <a name="score-svd-recommender"></a>Poäng för SVD-rekommenderare
 
@@ -107,9 +107,6 @@ Den returnerade data uppsättningen som returneras av poängen SVD-rekommendatio
 
 - Den första kolumnen innehåller användar-ID: n.
 - Ett antal ytterligare kolumner genereras, beroende på vilket värde som du har angett för **maximalt antal objekt som ska rekommenderas till en användare**. Varje kolumn innehåller ett rekommenderat objekt (efter identifierare). Rekommendationerna sorteras efter mappning mellan användare och objekt. Objektet med högsta tillhörighet placeras i kolumn **objekt 1**.
-
-> [!WARNING]
-> Du kan inte utvärdera den här Poäng data uppsättningen med hjälp av modulen [utvärdera rekommenderar](evaluate-recommender.md) .
 
 
 ##  <a name="technical-notes"></a>Tekniska anteckningar

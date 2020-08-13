@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8032e8809f7849ab7497da7821788c017adff12d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212062"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192317"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resurs klasser till arbets belastnings grupper
 
@@ -44,13 +44,13 @@ Eftersom arbets belastnings grupper fungerar baserat på procent andelen av öve
 
 Med känd kan `REQUEST_MIN_RESOURCE_GRANT_PERCENT` du använda syntaxen skapa arbets belastnings grupp <link> för att skapa arbets belastnings gruppen.  Du kan också ange en `MIN_PERCENTAGE_RESOURCE` som är större än noll för att isolera resurser för arbets belastnings gruppen.  Du kan också ange `CAP_PERCENTAGE_RESOURCE` mindre än 100 för att begränsa den mängd resurser som arbets belastnings gruppen kan använda.  
 
-Exemplet nedan anger `MIN_PERCENTAGE_RESOURCE` för att tilldela 9,6% av system resurserna till `wgDataLoads` och garanterar att en fråga kan köra alla tider.  Dessutom `CAP_PERCENTAGE_RESOURCE` är inställt på 38,4% och begränsar den här arbets belastnings gruppen till fyra samtidiga begär Anden.  Genom att ange `QUERY_EXECUTION_TIMEOUT_SEC` parametern till 3600 avbryts alla frågor som körs i mer än en timme automatiskt.
+Med mediumrc som grund för ett exempel, anger koden nedan för `MIN_PERCENTAGE_RESOURCE` att tilldela 10% av system resurserna till `wgDataLoads` och garanterar att en fråga kan köra alla tider.  Dessutom `CAP_PERCENTAGE_RESOURCE` är inställt på 40% och begränsar den här arbets belastnings gruppen till fyra samtidiga begär Anden.  Genom att ange `QUERY_EXECUTION_TIMEOUT_SEC` parametern till 3600 avbryts alla frågor som körs i mer än en timme automatiskt.
 
 ```sql
 CREATE WORKLOAD GROUP wgDataLoads WITH  
-( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 9.6
- ,MIN_PERCENTAGE_RESOURCE = 9.6
- ,CAP_PERCENTAGE_RESOURCE = 38.4
+( REQUEST_MIN_RESOURCE_GRANT_PERCENT = 10
+ ,MIN_PERCENTAGE_RESOURCE = 10
+ ,CAP_PERCENTAGE_RESOURCE = 40
  ,QUERY_EXECUTION_TIMEOUT_SEC = 3600)
 ```
 
@@ -59,7 +59,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 Tidigare genomfördes mappningen av frågor till resurs klasser med [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Om du vill uppnå samma funktioner och mappa begär anden till arbets belastnings grupper använder du KLASSIFICERINGs-syntaxen [skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Med sp_addrolemember får du bara mappa resurser till en begäran baserat på en inloggning.  En klassificerare innehåller ytterligare alternativ förutom inloggning, till exempel:
     - etikett
     - session
-    - tid i exemplet nedan tilldelar frågor från `AdfLogin` inloggningen som också har [alternativ etiketten](sql-data-warehouse-develop-label.md) inställd till `factloads` den arbets belastnings grupp som du `wgDataLoads` skapade ovan.
+    - tid i exemplet nedan tilldelar frågor från `AdfLogin` inloggningen som också har [alternativ etiketten](sql-data-warehouse-develop-label.md)  inställd till `factloads` den arbets belastnings grupp som du `wgDataLoads` skapade ovan.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  

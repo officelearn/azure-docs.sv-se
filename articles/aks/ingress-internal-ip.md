@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingress Contr
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: a20ef3155e41a438aed7cea7e7d9814b3add4d14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bda90967919474af5e1317e8e88cae110b05e94a
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056981"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88191107"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Skapa en ingångs kontroll för ett internt virtuellt nätverk i Azure Kubernetes service (AKS)
 
@@ -27,7 +27,7 @@ Du kan även:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I den här artikeln används [Helm 3][helm] för att installera nginx ingress-kontrollanten och cert Manager. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
+Den här artikeln använder [Helm 3][helm] för att installera nginx ingress-kontrollanten. Kontrol lera att du använder den senaste versionen av Helm och att du har åtkomst till *stabil* Helm-lagringsplats. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
 
 Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 

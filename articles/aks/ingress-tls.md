@@ -5,12 +5,12 @@ description: Lär dig hur du installerar och konfigurerar en NGINX ingångs hant
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: b25c431c7771e3c72280e936b2275f2fd10165b0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 485fda708c089fe253ee7ae82edc14275c67b971
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056837"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192194"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -32,7 +32,7 @@ Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du beh
 
 Den här artikeln förutsätter också att du har [en anpassad domän][custom-domain] med en [DNS-zon][dns-zone] i samma resurs grupp som ditt AKS-kluster.
 
-I den här artikeln används [Helm 3][helm] för att installera nginx ingress-kontrollanten och cert Manager. Kontrol lera att du använder den senaste versionen av Helm. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
+I den här artikeln används [Helm 3][helm] för att installera nginx ingress-kontrollanten och cert Manager. Kontrol lera att du använder den senaste versionen av Helm och att du har åtkomst till de *stabila* och *jetstack* Helm-databaserna. Anvisningar om hur du uppgraderar finns i [installations dokument för Helm][helm-install]. Mer information om hur du konfigurerar och använder Helm finns i [installera program med Helm i Azure Kubernetes service (AKS)][use-helm].
 
 Den här artikeln kräver också att du kör Azure CLI-version 2.0.64 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 

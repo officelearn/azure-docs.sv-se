@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: df723824b2d80694913e32904ed81972381c5bcb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/12/2020
+ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536223"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192738"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Bedöma modulen Wide and Deep Recommender
 
@@ -33,7 +33,7 @@ När du skapar en senare typ av förutsägelser kan du använda antingen *produk
 
 - **Utvärderings läget** fungerar på en reducerad uppsättning användare eller objekt som kan utvärderas och används vanligt vis under experimentering.
 
-Mer information om den bred och den djupgående rekommendationen och dess underliggande teori finns i relevant forsknings blad: [bred & djup inlärning för rekommenderade system](https://arxiv.org/pdf/1606.07792.pdf).  
+Mer information om den bred och den djupgående rekommendationen och dess underliggande teori finns i relevant forsknings blad:  [bred & djup inlärning för rekommenderade system](https://arxiv.org/pdf/1606.07792.pdf).  
 
 ## <a name="how-to-configure-score-wide-and-deep-recommender"></a>Så här konfigurerar du poängen bred och djup rekommendation
 
@@ -147,9 +147,6 @@ Den returnerade data uppsättningen som returneras av **poängen bred och djup r
 
 - Den första kolumnen innehåller användar-ID: n.
 - Ett antal ytterligare kolumner genereras, beroende på det värde som du anger för **maximalt antal objekt för att rekommendera en användare**. Varje kolumn innehåller ett rekommenderat objekt (efter identifierare). Rekommendationerna ordnas efter mappning mellan användare och objekt, med objektet med högsta tillhörighet i kolumnen **objekt 1**.
-
-> [!WARNING]
-> Den här poängen-datamängden kan inte utvärderas med hjälp av [utvärderingen av utvärderingen](evaluate-recommender.md) .
 
 ##  <a name="technical-notes"></a>Tekniska anteckningar
 

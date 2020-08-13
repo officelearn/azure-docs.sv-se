@@ -6,6 +6,8 @@
       items:
         - name: Vad är Translator?
           href: translator-info-overview.md
+        - name: Stöd för språk
+          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
     - name: Snabbstarter
       items:
         - name: Översätt text
@@ -50,7 +52,7 @@
           href: firewalls.md
     - name: Exempel
       items:
-        - name: 'C#'
+        - name: C#
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp'
         - name: Java
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java'
@@ -92,22 +94,20 @@
               href: ctf-reporting.md
             - name: Returnera N-best-översättningar
               href: return-n-best-translations.md
+        - name: Begärandebegränsningar
+          href: request-limits.md
     - name: Resurser
       items:
         - name: Kodexempel på GitHub
           href: 'https://aka.ms/TranslatorGitHub'
         - name: VANLIGA FRÅGOR OCH SVAR
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Stöd för språk
-          href: language-support.md
         - name: Prissättning
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Regional tillgänglighet
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Efterlevnad
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Begärandebegränsningar
-          href: request-limits.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
@@ -162,8 +162,6 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Resurser
       items:
-        - name: Stöd för språk
-          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
         - name: Ordlista
           href: custom-translator/glossary.md
         - name: VANLIGA FRÅGOR OCH SVAR

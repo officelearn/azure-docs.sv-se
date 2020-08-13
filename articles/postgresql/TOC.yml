@@ -169,14 +169,16 @@
               href: howto-move-regions-portal.md
     - name: Hyperskala (Citus)
       items:
-        - name: Noder
-          href: concepts-hyperscale-nodes.md
         - name: Distribuerad data
-          href: concepts-hyperscale-distributed-data.md
-        - name: Välja en distributionskolumn
-          href: concepts-hyperscale-choose-distribution-column.md
-        - name: Tabellsamlokalisering
-          href: concepts-hyperscale-colocation.md
+          items:
+            - name: Noder och tabeller
+              href: concepts-hyperscale-nodes.md
+            - name: Fastställa programtyp
+              href: concepts-hyperscale-app-type.md
+            - name: Välja en distributionskolumn
+              href: concepts-hyperscale-choose-distribution-column.md
+            - name: Tabellsamlokalisering
+              href: concepts-hyperscale-colocation.md
         - name: Dataåtkomst och säkerhet
           items:
             - name: Brandväggsregler
@@ -341,12 +343,16 @@
       items:
         - name: Skapa användare
           href: howto-hyperscale-create-users.md
-        - name: Skala
+        - name: Servergruppstorlek
           href: howto-hyperscale-scaling.md
         - name: Hantera brandväggen
           items:
             - name: Azure Portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Distribuerad data
+          items:
+            - name: Distribuera och ändra tabeller
+              href: howto-hyperscale-modify-distributed-tables.md
         - name: Hög tillgänglighet
           href: howto-hyperscale-high-availability.md
         - name: Övervaka
@@ -361,12 +367,22 @@
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Referens
   items:
-    - name: Azure CLI
-      href: /cli/azure/postgres
-    - name: REST-API
-      href: /rest/api/postgresql
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Enskild server
+      items:
+        - name: Azure CLI
+          href: /cli/azure/postgres
+        - name: REST-API
+          href: /rest/api/postgresql
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.dbforpostgresql/allversions
+    - name: Hyperskala (Citus)
+      items:
+        - name: SQL API-funktioner
+          href: reference-hyperscale-functions.md
+        - name: Serverparametrar
+          href: reference-hyperscale-parameters.md
+        - name: Systemtabeller
+          href: reference-hyperscale-metadata.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

@@ -91,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Skydda ditt konfigurationslager med privata slutpunkter
           href: concept-private-endpoint.md
-        - name: Integrera med hanterade Azure-identitet
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Aktivera åtkomst med Azure Active Directory
           href: concept-enable-rbac.md
         - name: Tilldela en hanterad identitet i Azure
@@ -115,6 +113,8 @@
       href: howto-app-configuration-event.md
     - name: Lagra konfiguration för säkerhetskopiering automatiskt
       href: howto-backup-config-store.md
+    - name: Använda hanterade identiteter för att få åtkomst till App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Referens
   items:
     - name: Konfiguration

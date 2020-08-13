@@ -19,6 +19,8 @@
       href: terminology.md
     - name: Roller och krav
       href: concepts-roles-permissions.md
+    - name: Förstå prissättningen
+      href: concepts-pricing.md
 - name: Exempel
   items:
     - name: Kodexempel
@@ -29,12 +31,12 @@
   items:
     - name: Övervaka
       href: how-to-monitor.md
-    - name: Konfigurera datauppsättningsmappningar
-      href: how-to-configure-mapping.md
     - name: Felsöka
       href: data-share-troubleshoot.md
     - name: Lägga till datauppsättningar
       href: how-to-add-datasets.md
+    - name: Konfigurera datauppsättningsmappningar
+      href: how-to-configure-mapping.md
     - name: Lägga till mottagare
       href: how-to-add-recipients.md
     - name: Ta bort en inbjudan

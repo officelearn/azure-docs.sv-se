@@ -6,6 +6,16 @@
       href: ./kubernetes/overview.md
     - name: Om Azure Arc-aktiverade servrar
       href: ./servers/overview.md
+- name: Snabbstarter
+  items:
+    - name: Aktivera Arc för serveragenter
+      href: ./servers/learn/quick-enable-hybrid-vm.md
+- name: Självstudier
+  items:
+    - name: Tilldela principer för utvärdering av efterlevnad
+      href: ./servers/learn/tutorial-assign-policy-portal.md
+    - name: Övervaka dator
+      href: ./servers/learn/tutorial-enable-vm-insights.md
 - name: Exempel
   items:
     - name: Inbyggda Azure Policy-program

@@ -117,30 +117,16 @@
   items:
     - name: Dokumentation om text till tal
       href: index-text-to-speech.yml
-    - name: Översikt
-      items:
-        - name: Vad är text-till-tal?
-          href: text-to-speech.md
-        - name: Grunderna inom text-till-tal
-          href: text-to-speech-basics.md
-    - name: Snabbstart
-      items:
-        - name: Syntetisera tal till en högtalare
-          href: quickstarts/text-to-speech.md
-        - name: Syntetisera tal till en ljudfil
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Syntetisera tal med dikteringsljud
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: Vad är text-till-tal?
+      href: text-to-speech.md
+    - name: Snabbstart för text till tal
+      href: get-started-text-to-speech.md
     - name: Anvisningar
       items:
         - name: Förbättra syntesen med SSML
           href: speech-synthesis-markup.md
         - name: Syntetisera tal med API för långt ljud
           href: long-audio-api.md
-        - name: Hämta en lista över röster med REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Konvertera text-till-tal med REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Anpassning
       items:
         - name: Ansvarig distribution

@@ -29,6 +29,8 @@
       href: quickstart-configure-your-solution.md
     - name: Skapa en Azure Security Center for IoT-modultvilling
       href: quickstart-create-security-twin.md
+    - name: Undersöka säkerhetsrekommendationer
+      href: quickstart-investigate-security-recommendations.md
     - name: Skapa anpassade säkerhetsaviseringar
       href: quickstart-create-custom-alerts.md
     - name: Undersöka säkerhetsaviseringar

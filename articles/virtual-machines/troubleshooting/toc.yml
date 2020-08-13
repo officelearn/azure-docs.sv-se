@@ -56,7 +56,7 @@
     - name: VM-uppstarten har fastnat
       href: troubleshoot-vm-boot-configure-update.md
     - name: Livscyklar och tillstånd för virtuella datorer
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: Virtuell dator startar inte
   items:
     - name: Linux

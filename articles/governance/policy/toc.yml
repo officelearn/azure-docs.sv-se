@@ -10,16 +10,22 @@
   items:
     - name: Tilldela en princip – Portal
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: Tilldela en princip – Azure PowerShell
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: Tilldela en princip – Azure CLI
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: Tilldela en princip – Azure PowerShell
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: Tilldela en princip – Python
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: Tilldela en princip – REST
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: Tilldela en princip – ARM-mall
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: Självstudier
   items:
     - name: Skapa och hantera Azure Policy

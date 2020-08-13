@@ -935,6 +935,10 @@
               href: app/sharepoint.md
             - name: Windows-skrivbordet
               href: app/windows-desktop.md
+        - name: Andra verktyg
+          items:
+            - name: Ändra analys
+              href: app/change-analysis.md
     - name: Azure Monitor för virtuella datorer
       items:
         - name: Översikt
@@ -1062,10 +1066,6 @@
           href: insights/resource-group-insights.md
         - name: Felsöka insikter
           href: insights/troubleshoot-workbooks.md
-    - name: Ändra analys
-      items:
-        - name: Ändra analys
-          href: app/change-analysis.md
     - name: Lösningar
       items:
         - name: Översikt

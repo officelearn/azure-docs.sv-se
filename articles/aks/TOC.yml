@@ -170,6 +170,8 @@
         - name: Distribuera AKS med Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Använd visningsprogrammet för Kubernetes-resurser (förhandsversion)
+          href: kubernetes-portal.md
         - name: Använda Kubernetes-instrumentpanelen
           href: kubernetes-dashboard.md
     - name: Konfigurera datavolymer

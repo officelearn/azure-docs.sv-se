@@ -161,8 +161,11 @@
             - name: Hantera användare och roller
               href: how-to-assign-roles.md
             - name: Använda virtuella nätverk
-              displayName: 'vnet, blob, private endpoint, private link'
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
+            - name: Använda Private Link
+              displayName: private endpoint
+              href: how-to-configure-private-link.md
             - name: Skydda webbtjänster med TLS
               displayName: ssl
               href: how-to-secure-web-service.md

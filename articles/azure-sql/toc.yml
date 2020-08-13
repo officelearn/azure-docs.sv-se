@@ -72,7 +72,7 @@
               items:
                 - name: Konfigurera Azure AD-autentisering
                   href: database/authentication-aad-configure.md
-                - name: Flerfaktorautentisering för AAD
+                - name: Flerfaktorautentisering för Azure AD
                   href: database/authentication-mfa-ssms-overview.md
                 - name: Konfigurera multifaktorautentisering
                   href: database/authentication-mfa-ssms-configure.md
@@ -891,8 +891,10 @@
           href: managed-instance/threat-detection-configure.md
         - name: Anslut program
           href: managed-instance/connect-application-instance.md
-        - name: Skapa aviseringar
+        - name: Skapa aviseringar på en hanterad instans
           href: managed-instance/alerts-create.md
+        - name: Starta en redundansväxling manuellt på en hanterad instans
+          href: managed-instance/user-initiated-failover.md
     - name: Exempel
       items:
         - name: Azure CLI

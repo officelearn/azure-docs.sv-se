@@ -4,6 +4,8 @@
   items:
     - name: Om Azure API för FHIR
       href: overview.md
+    - name: Om Azure IoT-anslutningsprogram för FHIR (förhandsversion)
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Snabbstarter
   expanded: true
   items:

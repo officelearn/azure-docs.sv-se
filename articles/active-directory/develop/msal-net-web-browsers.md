@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83772054"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165829"
 ---
 # <a name="using-web-browsers-msalnet"></a>Använda webbläsare (MSAL.NET)
 
@@ -45,11 +45,11 @@ I allmänhet rekommenderar vi att du använder plattforms standarden och det är
 
 ### <a name="at-a-glance"></a>Snabbt
 
-| Ramverk        | Inbäddat | System | Default |
+| Ramverk        | Inbäddat | System | Standardvärde |
 | ------------- |-------------| -----| ----- |
 | .NET Classic     | Ja | Ja ^ | Inbäddat |
-| .NET Core     | No | Ja ^ | System |
-| .NET Standard | No | Ja ^ | System |
+| .NET Core     | Nej | Ja ^ | System |
+| .NET Standard | Nej | Ja ^ | System |
 | UWP | Ja | Nej | Inbäddat |
 | Xamarin.Android | Ja | Ja  | System |
 | Xamarin.iOS | Ja | Ja  | System |

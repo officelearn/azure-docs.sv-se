@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 53e29734095506a3f55593f938c2d9aba5903771
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100248"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164163"
 ---
 # <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Gen2 Explorer
 
@@ -28,7 +28,7 @@ För att komma igång med Azure Time Series Insights Gen2 Explorer måste du:
 * Ha en Azure Time Series Insights Gen2-miljö etablerad. Läs mer om hur du konfigurerar en instans genom att läsa självstudien om [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Ge data åtkomst](./time-series-insights-data-access.md) till den Azure Time Series Insights Gen2-miljö som du skapade för kontot. Du kan ge åtkomst till andra och dig själv.
 * Lägg till en händelse källa i Azure Time Series Insights Gen2-miljön för att skicka data till miljön:
-  * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) 
+  * Lär dig [hur du ansluter till en Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Lär dig [hur du ansluter till en IoT-hubb](./time-series-insights-how-to-add-an-event-source-iothub.md)
 
 ## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Utforska Azure Time Series Insights Gen2 Explorer
@@ -44,7 +44,6 @@ Azure Time Series Insights Gen2 Explorer består av följande sju element:
 1. [Diagram panel](#5-chart-panel): visar det aktuella arbets diagrammet.
 1. [Tids linje](#6-time-editor-panel): gör att du kan ändra din arbets tids period.
 1. [App-fältet](#7-app-bar): innehåller alternativ för användar hantering (till exempel aktuell klient) och gör att du kan ändra dem och språk inställningar.
-
 
 ## <a name="1-environment-panel"></a>1. miljö panel
 
@@ -79,19 +78,19 @@ Om du vill veta mer om tids serie modellen kan du läsa [modeller](./concepts-mo
 
 ## <a name="3-hierarchy-tree-and-search-panel"></a>3. hierarkiträdet och Sök panelen
 
-I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./concepts-model-overview.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan. 
+I hierarkiträdet och Sök panelen kan du enkelt söka efter och navigera i [tids serie modellens](./concepts-model-overview.md) hierarki för att hitta de tids serie instanser som du vill visa i diagrammet. När du väljer dina instanser, läggs de inte bara till i det aktuella diagrammet, men de läggs också till i data källan.
 
 [![Hierarkiträdet och Sök panelen](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png)](media/v2-update-explorer/tsi-preview-explorer-hierarchy-search.png#lightbox)
 
 I rutan Sök resultat kan du också visa resultaten i en hierarkisk vy eller en listvy som gör det enkelt att hitta de instanser som du vill visa.
- 
+
 ## <a name="4-time-series-well"></a>4. tids serie källa
 
-Visar instans fälten och andra metadata som är kopplade till valda tids serie modell instanser. Genom att markera kryss rutorna på höger sida kan du dölja eller visa vissa instanser från det aktuella diagrammet. 
+Visar instans fälten och andra metadata som är kopplade till valda tids serie modell instanser. Genom att markera kryss rutorna på höger sida kan du dölja eller visa vissa instanser från det aktuella diagrammet.
 
   [![Gen2-källa](media/v2-update-explorer/tsi-preview-ui-explorer-well.png)](media/v2-update-explorer/tsi-preview-ui-explorer-well.png#lightbox)
 
-Du kan ta bort vissa data element från dina aktuella data på ett bra sätt genom att välja den röda **borttagningen** (pappers korgen) på vänster sida av elementet. Med det här alternativet kan du också styra hur varje element visas i diagrammet. Du kan välja att lägga till min/högsta skuggor, data punkter, flytta elementet i tid och visualisera instansen på ett stegat sätt. 
+Du kan ta bort vissa data element från dina aktuella data på ett bra sätt genom att välja den röda **borttagningen** (pappers korgen) på vänster sida av elementet. Med det här alternativet kan du också styra hur varje element visas i diagrammet. Du kan välja att lägga till min/högsta skuggor, data punkter, flytta elementet i tid och visualisera instansen på ett stegat sätt.
 
 Dessutom kan du med utforsknings kontrollen skapa tids Skift och punkt diagram enkelt.  
 
@@ -104,7 +103,7 @@ Dessutom kan du med utforsknings kontrollen skapa tids Skift och punkt diagram e
 
 ## <a name="5-chart-panel"></a>5. diagram panel
 
-I diagrammet kan du Visa Time Series-instanser som rader. Du kan minimera kontroll panelen för miljö panelen, data modellen och tids rymden genom att klicka på webb kontrollerna för att göra diagrammet större. 
+I diagrammet kan du Visa Time Series-instanser som rader. Du kan minimera kontroll panelen för miljö panelen, data modellen och tids rymden genom att klicka på webb kontrollerna för att göra diagrammet större.
 
   [![Översikt över Gen2-diagram](media/v2-update-explorer/tsi-preview-chart-overview.png)](media/v2-update-explorer/tsi-preview-chart-overview.png#lightbox)
 
@@ -149,7 +148,7 @@ När du arbetar med Azure Time Series Insights Gen2 väljer du först ett tidsin
 > [!TIP]
 > En del av tids linjen är markerad i en gul eller orange färg för att visa vilken mängd data som är tillgängliga i varmt lager.
 
-Följande webb kontroller är tillgängliga i Azure Time Series Insights Gen2 för att välja din arbets tids period. 
+Följande webb kontroller är tillgängliga i Azure Time Series Insights Gen2 för att välja din arbets tids period.
 
   [![Bra kontroll för undersökning](media/v2-update-explorer/exploration-well-control.png)](media/v2-update-explorer/exploration-well-control.png#lightbox)
 
@@ -205,7 +204,7 @@ Azure Time Series Insights Gen2 Explorer stöder två teman:
 
 ### <a name="gen2-terms-panel"></a>Gen2 villkors panel
 
-Det här avsnittet gäller endast för befintliga gen 1-miljöer som försöker använda Utforskaren i det uppdaterade användar gränssnittet. Du kanske vill använda gen 1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen 1-miljö i den nya Azure Time Series Insights Gen2 Explorer. 
+Det här avsnittet gäller endast för befintliga gen 1-miljöer som försöker använda Utforskaren i det uppdaterade användar gränssnittet. Du kanske vill använda gen 1-produkten och Gen2-produkten i kombination. Vi har lagt till vissa funktioner från det befintliga användar gränssnittet i den uppdaterade Utforskaren, men du kan få den fullständiga användar gränssnitts upplevelsen för en gen 1-miljö i den nya Azure Time Series Insights Gen2 Explorer.
 
 I stället för-hierarkin visas panelen för Azure Time Series Insights Gen2-villkor. På panelen villkor kan du definiera frågor i din miljö. Använd den för att även filtrera data baserat på ett predikat.
 
@@ -222,7 +221,7 @@ Azure Time Series Insights Gen2 terms Editor-panelen tar följande parametrar:
 | `IN` | Sträng, bool, Double, DateTime, TimeSpan, NULL | Alla operander ska vara av samma typ eller vara NULL-konstant. |
 | `HAS` | Sträng | Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet. |
 
-Om du vill veta mer om frågor och data typer som stöds kan du läsa [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Om du vill veta mer om frågor och data typer som stöds kan du läsa [tids serie uttryck (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
 ### <a name="examples-of-where-clauses"></a>Exempel på WHERE-satser
 
@@ -240,10 +239,10 @@ Du kan visa och dölja element i diagram panelen genom att välja ikonen synlig,
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om att mata in [data](./concepts-ingestion-overview.md) i din miljö.
+* Lär dig mer om att mata in [data](./concepts-ingestion-overview.md) i din miljö.
 
-- Kolla in artikeln om [lagring](concepts-storage.md).
+* Kolla in artikeln om [lagring](concepts-storage.md).
 
-- Läs om [data modellering](./concepts-model-overview.md) i Azure Time Series Insights Gen2.
+* Läs om [data modellering](./concepts-model-overview.md) i Azure Time Series Insights Gen2.
 
-- Lär dig [hur du diagnostiserar och felsöker](./time-series-insights-update-how-to-troubleshoot.md) din miljö.
+* Lär dig [hur du diagnostiserar och felsöker](./time-series-insights-update-how-to-troubleshoot.md) din miljö.

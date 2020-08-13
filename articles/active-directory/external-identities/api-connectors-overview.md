@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cdb6e85b6d81de3d4b88ba315ddd35bd5b37ae7a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910280"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165217"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Använd API-kopplingar för att anpassa och utöka självbetjänings registrering 
 
@@ -30,7 +30,7 @@ Som utvecklare eller IT-administratör kan du använda API-kopplingar för att i
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
 - **Kör anpassad affärs logik**. Du kan utlösa underordnade händelser i moln systemen för att skicka push-meddelanden, uppdatera företags databaser, hantera behörigheter, granska databaser och utföra andra anpassade åtgärder.
 
-En API-anslutning representerar ett kontrakt mellan Azure AD och en API-slutpunkt genom att definiera HTTP-slutpunkten, autentiseringen, begäran och förväntat svar. När du har konfigurerat en API-anslutning kan du aktivera den för ett särskilt steg i ett användar flöde. När en användare når det steget i registrerings flödet anropas API-kopplingen och materialiseras som en HTTP POST-begäran, vilket skickar valda anspråk som nyckel/värde-par i en JSON-text. API-svaret kan påverka körningen av användar flödet. API-svaret kan till exempel blockera en användare från att registrera sig, be användaren att ange information igen eller skriva över och lägga till användarattribut.
+En API-anslutning ger Azure Active Directory med den information som behövs för att anropa API-slutpunkt genom att definiera HTTP-slutpunktens URL och autentisering. När du har konfigurerat en API-anslutning kan du aktivera den för ett särskilt steg i ett användar flöde. När en användare når det steget i registrerings flödet anropas API-kopplingen och materialiseras som en HTTP POST-begäran till ditt API, vilket skickar användar information ("anspråk") som nyckel/värde-par i en JSON-text. API-svaret kan påverka körningen av användar flödet. API-svaret kan till exempel blockera en användare från att registrera sig, be användaren att ange information igen eller skriva över och lägga till användarattribut.
 
 ## <a name="where-you-can-enable-an-api-connector-in-a-user-flow"></a>Där du kan aktivera en API-koppling i ett användar flöde
 
@@ -39,7 +39,8 @@ Det finns två platser i ett användar flöde där du kan aktivera en API-koppli
 - När du har loggat in med en identitets leverantör
 - Innan du skapar användaren
 
-I båda fallen anropas API-kopplingarna under registreringen, inte för inloggning.
+> [!IMPORTANT]
+> I båda fallen anropas API-kopplingarna vid användar **registrering**, inte för inloggning.
 
 ### <a name="after-signing-in-with-an-identity-provider"></a>När du har loggat in med en identitets leverantör
 

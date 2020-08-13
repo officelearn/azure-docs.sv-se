@@ -4,16 +4,16 @@ description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/24/2020
+ms.date: 08/12/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: f1e70c5b7eb4efdde1bfc20b1ec3e058bfa5b054
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 7878ecd2b1ce223a95c229b93713a875636daa09
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85918951"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164316"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -83,11 +83,12 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |---------|---------|:---------:|
 |Brasilien, södra     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Kanada, centrala    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|USA, östra     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
 |USA, norra centrala     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|USA, centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Central US     |    S8v2, S9v2     |    1     |
 |USA, södra centrala     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |USA, västra     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
@@ -99,8 +100,8 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Europa, norra     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Europa, norra     |    S8v2, S9v2      |    3     |
+|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Norra Europa     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa, västra     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Europa, västra    |   S8, S9, S8v2, S9v2  |  1  |
@@ -130,7 +131,7 @@ Du kan skapa en frågepool med upp till sju ytterligare frågerepliker (åtta to
 
 Du kan skala ut frågerepliker efter dina behov, precis som för att ändra nivån. Konfigurera skalning i portalen eller med hjälp av REST API: er. Läs mer i [Skalning av Azure Analysis Services](analysis-services-scale-out.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Totalkostnaden är beroende av ett antal faktorer. Till exempel din valda region, nivå, fråga om repliker och paus/återuppta. Använd [Azure Analysis Services pris](https://azure.microsoft.com/pricing/details/analysis-services/)-kalkylator för att fastställa vanlig prissättning för din region. Det här verktyget beräknar prissättning för en enskild serverinstans för en enskild region. Tänk på att frågerepliker debiteras med samma avgift som servern. 
 

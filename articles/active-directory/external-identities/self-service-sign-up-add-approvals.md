@@ -4,19 +4,19 @@ description: Lägg till API-kopplingar för anpassade godkännande arbets flöde
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: how-to
+ms.topic: article
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d1a4495b1d637b1cf8592f8c17e63ad456ea3c4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910038"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165264"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
 
@@ -65,7 +65,7 @@ Härnäst ska du [skapa API-kopplingarna](self-service-sign-up-add-api-connector
 
   ![Kontrol lera godkännande status API Connector-konfiguration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Begär godkännande** – skicka ett anrop till godkännande systemet när en användare har slutfört sidan för attribut samling, men innan användar kontot skapas för att begära godkännande. Begäran om godkännande kan beviljas automatiskt eller granskas manuellt. Exempel på en API-anslutning med "begär godkännande". Välj eventuella **anspråk som ska skickas** till godkännande systemet för att fatta ett godkännande beslut.
+- **Begär godkännande** – skicka ett anrop till godkännande systemet när en användare har slutfört sidan för attribut samling, men innan användar kontot skapas för att begära godkännande. Begäran om godkännande kan beviljas automatiskt eller granskas manuellt. Exempel på en API-anslutning med "begär godkännande". 
 
   ![Begär konfiguration av API-koppling för begäran](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
@@ -90,28 +90,33 @@ Nu ska du lägga till API-kopplingarna i ett användar flöde för självbetjän
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Kontrol lera registrerings flödet med API-svar
 
-Ditt godkännande system kan använda [API-svars typerna](self-service-sign-up-add-api-connector.md#expected-response-types-from-the-web-api) från de två API-slutpunkterna för att kontrol lera registrerings flödet.
+Ditt godkännande system kan använda sina svar när de anropas för att styra registrerings flödet. 
 
 ### <a name="request-and-responses-for-the-check-approval-status-api-connector"></a>Begäran och svar för API-anslutningen "kontrol lera godkännande status"
 
 Exempel på begäran som tagits emot av API: t från API-anslutningen "kontrol lera godkännande status":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
      "issuerAssignedId":"0123456789"
      }
  ],
+ "displayName": "John Smith",
+ "givenName":"John",
+ "lastName":"Smith",
  "ui_locales":"en-US"
 }
 ```
+
+De exakta anspråk som skickas till API: n beror på vilken information som identitets leverantören tillhandahåller. "e-post" skickas alltid.
 
 #### <a name="continuation-response-for-check-approval-status"></a>Fortsättnings svar för "kontrol lera godkännande status"
 
@@ -169,12 +174,12 @@ Content-type: application/json
 Exempel på en HTTP-begäran som tagits emot av API: et från API-anslutningen "begär godkännande":
 
 ```http
-POST <Approvals-API-endpoint>
+POST <API-endpoint>
 Content-type: application/json
 
 {
- "email": "johnsmith@outlook.com",
- "identities": [
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
+ "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -182,11 +187,21 @@ Content-type: application/json
      }
  ],
  "displayName": "John Smith",
- "city": "Redmond",
- "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
+ "givenName":"John",
+ "surname":"Smith",
+ "jobTitle":"Supplier",
+ "streetAddress":"1000 Microsoft Way",
+ "city":"Seattle",
+ "postalCode": "12345",
+ "state":"Washington",
+ "country":"United States",
+ "extension_<extensions-app-id>_CustomAttribute1": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute2": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
+
+De exakta anspråk som skickas till API: n beror på vilken information som samlas in från användaren eller tillhandahålls av identitets leverantören.
 
 #### <a name="continuation-response-for-request-approval"></a>Fortsättnings svar för "godkännande av begäran"
 
@@ -257,7 +272,7 @@ När du har fått manuellt godkännande skapar det anpassade godkännande system
 
 Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. Godkännande systemet tar emot HTTP-begäran från användar flödet.
+1. Godkännande systemet använder tar emot HTTP-begäran från användar flödet.
 
 ```http
 POST <Approvals-API-endpoint>

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 8e3657128ddcff7f9436398ac4bcc6e220b86168
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 94595bac2febdef1d3739703f0fa49c9ef15f218
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552490"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166628"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -45,7 +45,7 @@ För experiment som du konfigurerar med python SDK, kan du aktivera eller inakti
 
 I följande tabell visas de accepterade inställningarna för `featurization` i [klassen AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Funktionalisering-konfiguration | Beskrivning|
+|Funktionalisering-konfiguration | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Anger att steg som en del av processen för att bearbeta [data guardrails och funktionalisering](#featurization) ska göras automatiskt. Den här inställningen är standardinställningen.|
 |`"featurization": 'off'`| Anger att funktionalisering-steg inte ska göras automatiskt.|
@@ -60,7 +60,7 @@ I följande tabell sammanfattas de tekniker som automatiskt tillämpas på dina 
 > [!NOTE]
 > Om du planerar att exportera AutoML-modeller till en ONNX- [modell](concept-onnx.md)stöds bara de funktionalisering-alternativ som anges med en asterisk ("*") i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Funktionalisering- &nbsp; steg| Beskrivning |
+|Funktionalisering- &nbsp; steg| Description |
 | ------------- | ------------- |
 |**Släpp hög kardinalitet eller inga varians funktioner*** |Släpp dessa funktioner från utbildning och validerings uppsättningar. Gäller för funktioner med alla värden som saknas, med samma värde för alla rader eller med hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |**Imputerade värden som saknas*** |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det vanligaste värdet.|
@@ -106,7 +106,7 @@ Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 **Funktions värden saknas Imputation** |Parametrarna <br><br><br> Klart| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om [saknat värde för Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> De funktions värden som saknas har identifierats i dina utbildnings data och tillräknades.
 **Funktions hantering med hög kardinalitet** |Parametrarna <br><br><br> Klart| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. <br><br> Funktioner med hög kardinalitet upptäcktes i dina indata och hanterades.
 **Verifiering av delad hantering** |Klart| Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *färre än 20 000 rader*. <br> Varje iteration av den tränade modellen verifierades med hjälp av kors validering. Läs mer om [verifierings data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *mer än 20 000 rader*. <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
-**Identifiering av klass balansering** |Parametrarna <br><br><br><br><br> Aviserad <br><br><br><br> Klart| Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data). <br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
+**Identifiering av klass balansering** |Parametrarna <br><br>Aviserad <br><br>Klart | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
 **Identifiering av minnes problem** |Parametrarna <br><br><br><br> Klart |<br> De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)för tids serier. <br><br><br>De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjning eller rullande fönster har inaktiverats.
 **Frekvens identifiering** |Parametrarna <br><br><br><br> Klart |<br> Tids serien analyserades och alla data punkter justeras med den frekvens som upptäcktes. <br> <br> Tids serien analyserades och data punkter som inte överensstämmer med den identifierade frekvensen upptäcktes. Dessa data punkter togs bort från data uppsättningen. Lär dig mer om [förberedelse av data för tids serie prognoser](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 

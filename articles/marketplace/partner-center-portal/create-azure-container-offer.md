@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 77cc63945e5cfc612c074e75e38365ada26073ea
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032789"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166747"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
@@ -50,7 +50,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -151,7 +151,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -252,9 +252,11 @@ Lägg till minst ett Azure-prenumerations-ID, antingen individuellt (upp till 10
 
 Välj **Spara utkast** innan du fortsätter.
 
-### <a name="plan-overview"></a>Plan översikt
+## <a name="plan-overview"></a>Plan översikt
 
 På den här fliken kan du ange olika prenumerations alternativ i samma erbjudande. Planer (tidigare kallade SKU: er) kan variera beroende på vilka moln som är tillgängliga, till exempel globala moln, offentliga moln och den avbildning som planen refererar till. Du måste konfigurera minst en plan för att få en lista över erbjudandet i den kommersiella marknads platsen.
+
+Du kan skapa upp till 100-planer för varje erbjudande: upp till 45 av dessa kan vara privata. Lär dig mer om privata planer i [privata erbjudanden på Microsofts kommersiella marknads platser](../private-offers.md).
 
 När du har skapat dina planer visas fliken **plan översikt** :
 
@@ -269,7 +271,7 @@ Vilka åtgärder som är tillgängliga i plan översikten varierar beroende på 
 - **Ta bort utkast** – om planens status är ett utkast.
 - **Stoppa Sälj plan** – om plan statusen publiceras Live.
 
-#### <a name="create-new-plan"></a>Skapa ny plan
+### <a name="create-new-plan"></a>Skapa ny plan
 
 Välj **Skapa ny plan**. Dialog rutan **nytt plan** visas.
 
@@ -301,7 +303,7 @@ Azure Government Services hanterar data som omfattas av vissa myndighets bestäm
 
 Om du vill visa dina certifieringar för dessa program kan du ange upp till 100 länkar som beskriver dem. Det kan vara länkar till dina program tablåer direkt eller till din egen webbplats. Dessa länkar är bara synliga för Azure Government kunder.
 
-## <a name="plan-listing"></a>Plan lista
+### <a name="plan-listing"></a>Plan lista
 
 På den här fliken visas särskild information för varje plan i det aktuella erbjudandet.
 
@@ -331,7 +333,7 @@ Detta är plan information på Azure Portal:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Visar plan information på Azure Portal.":::
 
-## <a name="plan-availability"></a>Planera tillgänglighet
+### <a name="plan-availability"></a>Planera tillgänglighet
 
 Om du vill dölja ditt publicerade erbjudande så att kunder inte kan söka, bläddra i eller köpa det på Marketplace, markerar du kryss rutan **Dölj plan** på fliken **tillgänglighet** .
 

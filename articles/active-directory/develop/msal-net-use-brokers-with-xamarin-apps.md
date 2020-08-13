@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 8e19677adf5fe0f64ad9e1c845f516f81ad89512
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84692333"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166067"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Använda Microsoft Authenticator eller Intune-företagsportal på Xamarin-program
 
@@ -235,7 +235,7 @@ För att Broker-autentisering ska fungera måste du ange en aktivitet så att MS
 
 För att göra detta måste du ange aktiviteten (vanligt vis MainActivity) till `WithParentActivityOrWindow(object parent)` som överordnat objekt. 
 
-**Ett exempel:**
+**Till exempel:**
 
 I Hämta token-anrop:
 

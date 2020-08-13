@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 08/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 718d51c94d05e8e18f2b254b5e81e346a67205a1
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 422ef08995a74b172271e165c0ec7be5010969b4
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87170542"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GitHub
 
@@ -31,7 +31,7 @@ I den här självstudien får du lära dig hur du integrerar GitHub med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med GitHub behöver du följande:
 
@@ -45,7 +45,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 * GitHub stöder **IDP**-initierad enkel inloggning
 
 * GitHub stöder [ **automatiserad** användar etablering (organisatoriska inbjudningar)](github-provisioning-tutorial.md)
-* När du har konfigurerat GitHub kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat GitHub kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-github-from-the-gallery"></a>Lägga till GitHub från galleriet
 
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -138,8 +138,14 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     ![Länken Lägg till användare](common/add-assign-user.png)
 
 1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+1. Om du förväntar dig ett roll värde i SAML-kontrollen, i dialog rutan **Välj en roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+
+    ![användarroll](./media/github-tutorial/user-role.png)
+
+    > [!NOTE]
+    > **Välj ett roll** alternativ kommer att inaktive ras och standard rollen är användare för den valda användaren.
+
+7. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
 
 ## <a name="configure-github-sso"></a>Konfigurera GitHub SSO
 
@@ -147,11 +153,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Gå till **Inställningar** och klicka på **Säkerhet**
 
-    ![Inställningar](./media/github-tutorial/tutorial_github_config_github_03.png)
+    ![Inställningar](./media/github-tutorial/security.png)
 
 3. Markera rutan **Aktivera SAML-autentisering**. Då visas konfigurationsfälten för enkel inloggning. utför följande steg:
 
-    ![Inställningar](./media/github-tutorial/tutorial_github_config_github_13.png)
+    ![Inställningar](./media/github-tutorial/saml-sso.png)
 
     a. Kopiera **URL-värde för enkel inloggning** och klistra in värdet i text rutan för **inloggnings-URL** i den **grundläggande SAML-konfigurationen** i Azure Portal.
     
@@ -159,7 +165,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Konfigurera följande fält:
 
-    ![Inställningar](./media/github-tutorial/tutorial_github_config_github_051.png)
+    ![Inställningar](./media/github-tutorial/configure.png)
 
     a. I textrutan **Inloggnings-URL** klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
@@ -175,7 +181,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Klicka på **Testa SAML-konfiguration** för att bekräfta att inga verifieringsfel eller andra fel inträffade under enkel inloggning.
 
-    ![Inställningar](./media/github-tutorial/tutorial_github_config_github_06.png)
+    ![Inställningar](./media/github-tutorial/test.png)
 
 6. Klicka på **Spara**
 
@@ -192,21 +198,21 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. Klicka på **Personer**.
 
-    ![People](./media/github-tutorial/tutorial_github_config_github_08.png "People")
+    ![People](./media/github-tutorial/people.png "People")
 
 3. Klicka på **Invite member** (Bjud in medlem).
 
-    ![Bjud in användare](./media/github-tutorial/tutorial_github_config_github_09.png "Bjud in användare")
+    ![Bjud in användare](./media/github-tutorial/invite-member.png "Bjud in användare")
 
 4. På dialogrutan **Invite member** (Bjud in medlem) utför du följande steg:
 
     a. I textrutan **E-post** anger du e-postadressen för Britta Simon-kontot.
 
-    ![Bjud in personer](./media/github-tutorial/tutorial_github_config_github_10.png "Bjud in personer")
+    ![Bjud in personer](./media/github-tutorial/email-box.png "Bjud in personer")
 
     b. Klicka på **Skicka inbjudan**.
 
-    ![Bjud in personer](./media/github-tutorial/tutorial_github_config_github_11.png "Bjud in personer")
+    ![Bjud in personer](./media/github-tutorial/send-invitation.png "Bjud in personer")
 
     > [!NOTE]
     > Azure Active Directory-kontoinnehavaren får ett e-postmeddelande och följer en länk för att bekräfta kontot innan det blir aktivt.

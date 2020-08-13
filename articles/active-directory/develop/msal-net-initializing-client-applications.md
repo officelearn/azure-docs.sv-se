@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 04/12/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77083983"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166203"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initiera klient program med MSAL.NET
 I den här artikeln beskrivs hur du initierar offentlig klient och konfidentiella klient program med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Läs [översikten](msal-client-applications.md)om du vill veta mer om klient program typer och program konfigurations alternativ.
 
 Med MSAL.NET 3. x är det rekommenderade sättet att instansiera ett program med hjälp av program byggare: `PublicClientApplicationBuilder` och `ConfidentialClientApplicationBuilder` . De erbjuder en kraftfull mekanism för att konfigurera programmet antingen från koden eller från en konfigurations fil, eller till och med genom att kombinera båda metoderna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Innan du initierar ett program måste du först [registrera det](quickstart-register-app.md) så att din app kan integreras med Microsoft Identity Platform.  Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
 
 - Klient-ID (en sträng som representerar ett GUID)
@@ -96,7 +96,7 @@ I kodfragmenten med hjälp av program byggare kan ett antal `.With` metoder anv�
 
 De modifierare som du kan ställa in på en offentlig klient eller en konfidentiell klient Application Builder är:
 
-|Modifieraren | Beskrivning|
+|Modifieraren | Description|
 |--------- | --------- |
 |`.WithAuthority()`7 åsidosättningar | Ställer in program standard auktoritet till en Azure AD-auktoritet, med möjligheten att välja Azure-moln, mål grupp, klient organisation (klient-ID eller domän namn) eller tillhandahålla direkt auktoritets-URI: n.|
 |`.WithAdfsAuthority(string)` | Anger att program standard utfärdaren ska vara en ADFS-auktoritet.|
@@ -115,7 +115,7 @@ De modifierare som du kan ställa in på en offentlig klient eller en konfidenti
 
 De modifierare som du kan ställa in i en offentlig klient programs Builder på Xamarin. iOS är:
 
-|Modifieraren | Beskrivning|
+|Modifieraren | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin. iOS**: anger säkerhets gruppen för iOS-nyckelpar (för cacheminnet).|
 
@@ -123,7 +123,7 @@ De modifierare som du kan ställa in i en offentlig klient programs Builder på 
 
 De modifierare som du kan ställa in i ett konfidentiellt klient program verktyg är:
 
-|Modifieraren | Beskrivning|
+|Modifieraren | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Anger det certifikat som identifierar programmet med Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Anger klient hemligheten (app Password) som identifierar programmet med Azure AD.|

@@ -3,17 +3,17 @@ title: Välj rätt pris nivå för Microsoft Azure Maps
 description: Läs mer om pris nivåer för Azure Maps. Se vilka funktioner som erbjuds på vilka nivåer och se viktiga överväganden för att välja en pris nivå.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 30507b289a0ae4f831c8bcf4e038049301da7981
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3603a4f5d103987b25bd5f976b89f943f98565a8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036784"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163993"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Välj rätt pris nivå i Azure Maps
 
@@ -33,7 +33,7 @@ Om de grundläggande geospatiala API: erna uppfyller tjänst kraven väljer du p
 |-----------------------------------------|:-------------------:|:--------:|
 | Mappa åter givning                              | ✓                   | ✓       |
 | Satellit bilder                       |                     | ✓        |
-| Sök                                  | ✓                    | ✓        |
+| Search                                  | ✓                    | ✓        |
 | Batch-sökning                            |                     | ✓        |
 | Väg                                   | ✓                    |✓        |
 | Batchbearbetning                            |                    | ✓        |
@@ -47,6 +47,7 @@ Om de grundläggande geospatiala API: erna uppfyller tjänst kraven väljer du p
 | Azure Maps data (förhands granskning)                |                     | ✓        |
 | Mobilitet (för hands version)                       |                     | ✓        |
 | Väder (för hands version)                        |✓                    |✓        |
+|  Skapare (förhands granskning)                         |                   |✓        |
 
 Överväg följande ytterligare punkter:
 

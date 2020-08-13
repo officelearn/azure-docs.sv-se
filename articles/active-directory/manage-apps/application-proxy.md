@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 6ed9d5eb8d230b05a090424d6105865acae69e61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 96ebfecf01ff147a874674861c7cb64cb3725d52
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019360"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164928"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Fjärråtkomst till lokala program via Azure AD-programproxy
 
@@ -41,7 +41,7 @@ Application Proxy fungerar med:
 * Program som finns bakom en [fjärr skrivbords-Gateway](application-proxy-integrate-with-remote-desktop-services.md)
 * Rika klient program som är integrerade med Microsoft Authentication Library (MSAL)
 
-Application Proxy stöder enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Application Proxy stöder enkel inloggning. Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](sso-options.md#choosing-a-single-sign-on-method).
 
 Application Proxy rekommenderas för att ge fjärran vändare åtkomst till interna resurser. Programproxyn ersätter behovet av en VPN-eller omvänd proxy. Den är inte avsedd för interna användare i företags nätverket.  Dessa användare som inte nödvändigt vis använder Application Proxy kan orsaka oväntade och oönskade prestanda problem.
 

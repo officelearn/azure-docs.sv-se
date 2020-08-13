@@ -5,12 +5,12 @@ description: Lär dig hur du uppdaterar Linux-noder och startar om dem automatis
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82208082"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164248"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)
 
@@ -55,8 +55,8 @@ Du kan inte ha kvar samma Kubernetes-version under en uppgraderings händelse. D
 Om du vill distribuera `kured` DaemonSet installerar du följande officiella Kured-Helm-diagram. Detta skapar en roll och kluster roll, bindningar och ett tjänst konto och distribuerar sedan DaemonSet med hjälp av `kured` .
 
 ```console
-# Add the stable Helm repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the Kured Helm repository
+helm repo add kured https://weaveworks.github.io/kured
 
 # Update your local Helm chart repository cache
 helm repo update
@@ -65,7 +65,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 Du kan också konfigurera ytterligare parametrar för `kured` , till exempel integration med Prometheus eller slack. Mer information om ytterligare konfigurations parametrar finns i [Kured Helm-diagrammet][kured-install].
@@ -107,7 +107,7 @@ Information om AKS-kluster som använder Windows Server-noder finns i [uppgrader
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://hub.helm.sh/charts/stable/kured
+[kured-install]: https://github.com/weaveworks/kured/tree/master/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

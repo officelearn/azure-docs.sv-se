@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 75b6559117420ad75b79c58b219400690b25b4cb
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117880"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166084"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrera iOS-program som använder Microsoft Authenticator från ADAL.NET till MSAL.NET
 
@@ -49,14 +49,14 @@ De aktiverar:
 <tr><td>
 I ADAL.NET har Broker-stödet Aktiver ATS per autentisering. Den är inaktive rad som standard. Du var tvungen att ange en 
 
-`useBroker`flagga till true i `PlatformParameters` konstruktorn för att anropa Service Broker:
+`useBroker` flagga till true i `PlatformParameters` konstruktorn för att anropa Service Broker:
 
 ```csharp
 public PlatformParameters(
         UIViewController callerViewController, 
         bool useBroker)
 ```
-I det här exemplet i den plattformsspecifik koden, i det här exemplet, ställer du in följande i sid åter givningen för iOS:`useBroker` 
+I det här exemplet i den plattformsspecifik koden, i det här exemplet, ställer du in följande i sid åter givningen för iOS: `useBroker` 
 flagga till sant:
 ```csharp
 page.BrokerParameters = new PlatformParameters(
@@ -80,7 +80,7 @@ Ta sedan med parametrarna i anropet för inhämta token:
 </td><td>
 I MSAL.NET aktive ras stöd för service nivå per PublicClientApplication. Den är inaktive rad som standard. Om du vill aktivera det använder du 
 
-`WithBroker()`parameter (anges till sant som standard) för att anropa Service Broker:
+`WithBroker()` parameter (anges till sant som standard) för att anropa Service Broker:
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -104,7 +104,7 @@ I ADAL.NET angav du en UIViewController som en del av `PlatformParameters` . (Se
 <tr><td>
 En UIViewController skickas till 
 
-`PlatformParameters`i iOS-/regionsspecifika plattform.
+`PlatformParameters` i iOS-/regionsspecifika plattform.
 
 ```csharp
 page.BrokerParameters = new PlatformParameters(
@@ -115,7 +115,7 @@ page.BrokerParameters = new PlatformParameters(
 </td><td>
 I MSAL.NET gör du två saker för att ange objekt fönstret för iOS:
 
-1. I `AppDelegate.cs` anger `App.RootViewController` du till en ny `UIViewController()` . Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. I `AppDelegate.cs` anger `App.RootViewController` du till en ny `UIViewController()` . Den här tilldelningen säkerställer att det finns en UIViewController med anropet till Broker. Om den inte anges korrekt kan du få följande fel meddelande: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. På AcquireTokenInteractive-anropet använder `.WithParentActivityOrWindow(App.RootViewController)` och skickar du i referensen till objekt fönstret som du använder.
 
 **Till exempel:**
@@ -153,11 +153,11 @@ URL-schemat är unikt för din app.
 </td><td>
 Filtypen 
 
-`CFBundleURLSchemes`namnet måste innehålla 
+`CFBundleURLSchemes` namnet måste innehålla 
 
 `msauth.`
 
-som ett prefix följt av din`CFBundleURLName`
+som ett prefix följt av din `CFBundleURLName`
 
 Exempel: `$"msauth.(BundleId")`
 

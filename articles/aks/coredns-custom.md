@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: f58232eac6727f10fdccb32e7795bf12a93b7cbb
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 08d3c61ca4b5988847676b12478a5865ac319d37
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405525"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164210"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Anpassa CoreDNS med Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Eftersom AKS är en hanterad tjänst kan du inte ändra huvud konfigurationen f�
 Den här artikeln visar hur du använder ConfigMaps för grundläggande anpassnings alternativ för CoreDNS i AKS. Den här metoden skiljer sig från att konfigurera CoreDNS i andra kontexter, t. ex. genom att använda CoreFile. Kontrol lera vilken version av CoreDNS som körs eftersom konfigurations värdena kan ändras mellan olika versioner.
 
 > [!NOTE]
-> `kube-dns`Erbjud olika [anpassnings alternativ][kubednsblog] via en Kubernetes-konfigurations karta. CoreDNS är **inte** bakåtkompatibla med Kube-DNS. Alla anpassningar som du använt tidigare måste uppdateras för användning med CoreDNS.
+> `kube-dns` Erbjud olika [anpassnings alternativ][kubednsblog] via en Kubernetes-konfigurations karta. CoreDNS är **inte** bakåtkompatibla med Kube-DNS. Alla anpassningar som du använt tidigare måste uppdateras för användning med CoreDNS.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -53,6 +53,9 @@ data:
         forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
     }
 ```
+
+> [!IMPORTANT]
+> Om du omdirigerar till en DNS-server, till exempel CoreDNS-tjänstens IP-adress, måste DNS-servern kunna matcha det omskrivna domän namnet.
 
 Skapa ConfigMap med kommandot [kubectl Apply ConfigMap][kubectl-apply] och ange namnet på din yaml-manifest:
 

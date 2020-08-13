@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 9ef87027bcda6c645d1239598c849f57fb0c8992
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/12/2020
+ms.openlocfilehash: 6524128cb5bccfefe37d605b406210a91e78cac8
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491977"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163976"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Azure Time Series Insights händelse källor för Gen2
 
@@ -33,34 +33,34 @@ När du ansluter en händelse källa kommer din Azure Time Series Insights Gen2-
 
 > [!IMPORTANT]
 >
-> * Du kan få hög första svars tid när du kopplar en händelse källa till din Azure Time Series Insights Gen2-miljö.
-> Svars tiden för händelse källan beror på antalet händelser som för närvarande finns i IoT Hub eller Händelsehubben.
-> * Hög latens kommer att undertryckas när händelsens källdata först matas in. Skicka in ett support ärende via Azure Portal om du får en kontinuerlig hög latens.
+> - Du kan få hög första svars tid när du kopplar en händelse källa till din Azure Time Series Insights Gen2-miljö.
+> - Svars tiden för händelse källan beror på antalet händelser som för närvarande finns i IoT Hub eller Händelsehubben.
+> - Hög latens kommer att undertryckas när händelsens källdata först matas in. Skicka in ett support ärende via Azure Portal om du får en kontinuerlig hög latens.
 
 ## <a name="streaming-ingestion-best-practices"></a>Metod tips för strömning
 
-* Skapa alltid en unik konsument grupp för din Azure Time Series Insights Gen2-miljö för att använda data från din händelse källa. Att återanvända konsument grupper kan orsaka slumpmässiga från kopplingar och kan leda till data förlust.
+- Skapa alltid en unik konsument grupp för din Azure Time Series Insights Gen2-miljö för att använda data från din händelse källa. Att återanvända konsument grupper kan orsaka slumpmässiga från kopplingar och kan leda till data förlust.
 
-* Konfigurera din Azure Time Series Insights Gen2-miljö och din IoT Hub och/eller Event Hubs i samma Azure-region. Även om det är möjligt att konfigurera en händelse källa i en separat region, stöds inte det här scenariot och vi kan inte garantera hög tillgänglighet.
+- Konfigurera din Azure Time Series Insights Gen2-miljö och din IoT Hub och/eller Event Hubs i samma Azure-region. Även om det är möjligt att konfigurera en händelse källa i en separat region, stöds inte det här scenariot och vi kan inte garantera hög tillgänglighet.
 
-* Gå inte utöver din miljös gräns för [data flödes hastighet](./concepts-streaming-ingress-throughput-limits.md) eller per partition.
+- Gå inte utöver din miljös gräns för [data flödes hastighet](./concepts-streaming-ingress-throughput-limits.md) eller per partition.
 
-* Konfigurera en fördröjnings [avisering](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency?branch=pr-en-us-117938#monitor-latency-and-throttling-with-alerts) för att bli meddelad om din miljö har problem med att bearbeta data.
+- Konfigurera en fördröjnings [avisering](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts) för att bli meddelad om din miljö har problem med att bearbeta data.
 
-* Använd strömnings inmatning för nästan endast real tids data och senaste data, så stöds inte direkt uppspelning av historiska data.
+- Använd strömnings inmatning för nästan endast real tids data och senaste data, så stöds inte direkt uppspelning av historiska data.
 
-* Förstå hur egenskaper kommer att utjämnas och JSON- [data ska utplattas och lagras.](./concepts-json-flattening-escaping-rules.md)
+- Förstå hur egenskaper kommer att utjämnas och JSON- [data ska utplattas och lagras.](./concepts-json-flattening-escaping-rules.md)
 
-* Följ principen om minsta behörighet när du tillhandahåller anslutnings strängar för händelse källan. För Event Hubs konfigurerar du en princip för delad åtkomst med endast *Skicka* anspråk och för IoT Hub använda endast *tjänst anslutnings* behörighet.
+- Följ principen om minsta behörighet när du tillhandahåller anslutnings strängar för händelse källan. För Event Hubs konfigurerar du en princip för delad åtkomst med endast *Skicka* anspråk och för IoT Hub använda endast *tjänst anslutnings* behörighet.
 
 ### <a name="historical-data-ingestion"></a>Historisk data inmatning
 
 Det finns för närvarande inte stöd för att använda strömnings pipelinen för att importera historiska data i Azure Time Series Insights Gen2. Om du behöver importera tidigare data till din miljö följer du rikt linjerna nedan:
 
-* Strömma inte Live och historiska data parallellt. Om du matar ut data från varandra kommer du att leda till försämrade frågor.
-* Mata in historiska data i tidsordnad tid för bästa prestanda.
-* Håll koll på gräns värdena för inmatnings flödet nedan.
-* Inaktivera varmt Arkiv om data är äldre än lagrings perioden för din varma lagrings tid.
+- Strömma inte Live och historiska data parallellt. Om du matar ut data från varandra kommer du att leda till försämrade frågor.
+- Mata in historiska data i tidsordnad tid för bästa prestanda.
+- Håll koll på gräns värdena för inmatnings flödet nedan.
+- Inaktivera varmt Arkiv om data är äldre än lagrings perioden för din varma lagrings tid.
 
 ## <a name="event-source-timestamp"></a>Tids stämpling för händelse källa
 
@@ -82,10 +82,6 @@ Tids zonens förskjutning ska formateras som något av följande:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs om hur du kommer att lagra händelser genom att läsa mer om [JSON-förenkling och undantags regler](./concepts-json-flattening-escaping-rules.md) . 
+- Läs om hur du kommer att lagra händelser genom att läsa mer om [JSON-förenkling och undantags regler](./concepts-json-flattening-escaping-rules.md) .
 
-* Förstå din miljös [data flödes begränsningar](./concepts-streaming-ingress-throughput-limits.md)
-
-
-
-
+- Förstå din miljös [data flödes begränsningar](./concepts-streaming-ingress-throughput-limits.md)

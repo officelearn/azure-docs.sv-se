@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: 828c8a33315f5a76eea780705e2cdf3c2871bd14
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cc4c39cf26f3ab8d1037222f967789bfbeca05ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012815"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166781"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -94,7 +94,7 @@ För att avgöra om du ska återanvända en cachelagrad avbildning eller skapa e
  * Lista över python-paket i Conda-definitionen
  * Lista över paket i Spark-definition 
 
-Hash-värdet är inte beroende av miljö namn eller version – om du byter namn på din miljö eller skapar en ny miljö med de exakta egenskaperna och paketen för en befintlig, ändras inte hash-värdet. Miljö definitions ändringar, till exempel att lägga till eller ta bort ett python-paket eller ändra paket versionen, gör att hash-värdet ändras. Det är viktigt att Observera att alla ändringar i en granskad miljö gör att hashen ogiltig förklaras och resulterar i en ny "icke-granskad" miljö.
+Hash-värdet är inte beroende av miljö namn eller version – om du byter namn på din miljö eller skapar en ny miljö med de exakta egenskaperna och paketen för en befintlig, ändras inte hash-värdet. Miljö definitions ändringar, till exempel att lägga till eller ta bort ett python-paket eller ändra paket versionen, gör att hash-värdet ändras. Att ändra ordningen på beroenden eller kanaler i en miljö leder till en ny miljö och kräver därför att en ny avbildning skapas. Det är viktigt att Observera att alla ändringar i en granskad miljö gör att hashen ogiltig förklaras och resulterar i en ny "icke-granskad" miljö.
 
 Det beräknade hash-värdet jämförs med dem i arbets ytan och globala ACR (eller på beräknings målet för lokala körningar). Om det finns en matchning hämtas den cachelagrade avbildningen, annars utlöses en avbildnings version. Den tid det tar att hämta en cachelagrad avbildning inkluderar hämtnings tiden medan varaktigheten för att hämta en nyligen skapad avbildning inkluderar både bygg tiden och nedladdnings tiden. 
 
@@ -105,7 +105,7 @@ Följande diagram visar tre miljö definitioner. Två av dem har olika namn och 
 >[!IMPORTANT]
 > Om du skapar en miljö med ett ej fixerat paket beroende kan du till exempel ```numpy``` använda paket versionen som är installerad _när miljön skapades_. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. 
 
-Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1``` . Nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario.
+Om du vill uppdatera paketet anger du ett versions nummer som tvingar avbildnings återskapning, till exempel ```numpy==1.18.1``` . Nya beroenden, inklusive kapslade, kommer att installeras som kan bryta ett tidigare arbets scenario. 
 
 > [!WARNING]
 >  [Miljön. Build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-workspace--image-build-compute-none-) -metoden kommer att återskapa den cachelagrade avbildningen med möjlig sido effekt på att uppdatera icke-fästa paket och bryta reproducerbarhet för alla miljö definitioner som motsvarar den cachelagrade avbildningen.

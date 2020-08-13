@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 03/20/2019
+ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31388f27eddcef2c75d4ad4d2030655b35f6aa1c
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2cb5902e3bc8bbed63d7a6e074ece824e16c5609
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446965"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165166"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Versionshistorik för Azure AD Connect Health
 Azure Active Directorys teamet uppdaterar regelbundet Azure AD Connect Health med nya funktioner. Den här artikeln innehåller de versioner och funktioner som har släppts.  
@@ -31,6 +31,14 @@ Azure Active Directorys teamet uppdaterar regelbundet Azure AD Connect Health me
 >
 
 Azure AD Connect Health för synkronisering är integrerat med Azure AD Connect installationen. Läs mer om [Azure AD Connect versions historik](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) för feedback, rösta på [Connect Health User Voice Channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+
+## <a name="april-2020"></a>April 2020
+**Agent uppdatering**
+
+- Azure AD Connect Health Agent för AD FS (version 3.1.77.0)
+
+   1.   Fel korrigering för "ogiltigt SPN-namn (Service Principal Name) för AD FS tjänst" avisering, för vilken aviseringen rapporterades felaktigt.
+
 
 ## <a name="july-2019"></a>Juli 2019
 **Agent uppdatering**

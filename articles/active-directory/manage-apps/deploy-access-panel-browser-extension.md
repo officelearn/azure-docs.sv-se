@@ -15,22 +15,22 @@ ms.date: 11/08/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31235936109361f0f15a071346baee128060375a
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763439"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164996"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Gör så här: Distribuera åtkomst panels tillägget för Internet Explorer med grup princip
 
-Den här självstudien visar hur du använder grup principer för att fjärrinstallera åtkomst panel tillägget för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som kon figurer ATS med [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-sso).
+Den här självstudien visar hur du använder grup principer för att fjärrinstallera åtkomst panel tillägget för Internet Explorer på användarnas datorer. Det här tillägget krävs för Internet Explorer-användare som behöver logga in på appar som kon figurer ATS med [lösenordsbaserad enkel inloggning](sso-options.md#password-based-sso).
 
 Det rekommenderas att administratörer automatiserar distributionen av tillägget. Annars måste användarna ladda ned och installera själva tillägget, vilket är känsligt för användar fel och kräver administratörs behörighet. Den här självstudien beskriver en metod för att automatisera program varu distributioner med hjälp av en grup princip. [Läs mer om grup principer.](https://technet.microsoft.com/windowsserver/bb310732.aspx)
 
 Åtkomst panel tillägget är också tillgängligt för [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) och [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), men ingen av dem kräver administratörs behörighet för att installeras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Du har konfigurerat [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)och du har anslutit användarnas datorer till din domän.
 * Du måste ha behörigheten "Redigera inställningar" för att kunna redigera grupprincip-objektet (GPO). Som standard har medlemmar i följande säkerhets grupper den här behörigheten: domän administratörer, företags administratörer och grupprincip Skapare ägare. [Läs mer.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
@@ -114,8 +114,8 @@ Förutom att köra installations programmet måste alla tillägg för Internet E
 
 1. I fönstret **Visa innehåll** utför du följande steg:
 
-   1. För den första kolumnen (fältet **värde namn** ) kopierar du och klistrar in följande klass-ID:`{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
-   1. Ange följande värde för den andra kolumnen (fältet **värde** ):`1`
+   1. För den första kolumnen (fältet **värde namn** ) kopierar du och klistrar in följande klass-ID: `{030E9A3F-7B18-4122-9A60-B87235E4F59E}`
+   1. Ange följande värde för den andra kolumnen (fältet **värde** ): `1`
    1. Klicka på **OK** för att stänga fönstret **Visa innehåll** .
 
       ![Fyll i värdena enligt vad som anges i föregående steg](./media/deploy-access-panel-browser-extension/show-contents.png)
@@ -159,14 +159,14 @@ Användarna kommer inte längre att kunna lagra sina autentiseringsuppgifter ell
 Följ stegen nedan för att kontrol lera om tillägg distributionen lyckades:
 
 1. Om du har distribuerat med **dator konfiguration**loggar du in på en klient dator som tillhör den organisationsenhet som du valde i [steg 2: skapa Grupprincip-objektet](#step-2-create-the-group-policy-object). Om du har distribuerat med hjälp av **användar konfiguration**, måste du logga in som en användare som tillhör organisationsenheten.
-1. Det kan ta ett par inloggnings tillägg för grup princip ändringar som helt uppdateras med den här datorn. Om du vill framtvinga uppdateringen öppnar du ett **kommando tolks** fönster och kör följande kommando:`gpupdate /force`
+1. Det kan ta ett par inloggnings tillägg för grup princip ändringar som helt uppdateras med den här datorn. Om du vill framtvinga uppdateringen öppnar du ett **kommando tolks** fönster och kör följande kommando: `gpupdate /force`
 1. Du måste starta om datorn för att installationen ska kunna ske. Start kan ta betydligt längre tid än vanligt medan tillägget installeras.
 1. När du har startat om öppnar du **Internet Explorer**. I det övre högra hörnet i fönstret klickar du på **verktyg** (kugg hjuls ikonen) och väljer sedan **Hantera tillägg**.
 1. I fönstret **Hantera tillägg** kontrollerar du att **åtkomst panel tillägget** har installerats och att dess **status** har angetts till **aktive rad**.
 
    ![Kontrol lera att åtkomst panels tillägget är installerat och aktiverat](./media/deploy-access-panel-browser-extension/verify-install.png)
 
-## <a name="learn-more"></a>Läs mer
+## <a name="learn-more"></a>Mer information
 
 * [Program åtkomst och enkel inloggning med Azure Active Directory](what-is-single-sign-on.md)
 * [Felsöka åtkomst panels tillägget för Internet Explorer](manage-access-panel-browser-extension.md)

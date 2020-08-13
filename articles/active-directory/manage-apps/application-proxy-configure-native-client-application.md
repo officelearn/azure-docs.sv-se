@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f8494852bcff49602645c940470b529302f119f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764816"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165081"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Så här aktiverar du interna klient program för att interagera med proxyprogram
 
@@ -124,4 +124,4 @@ När du redigerar MSAL-koden med dessa parametrar kan användarna autentisera ti
 
 Mer information om det inbyggda program flödet finns i [interna appar i Azure Active Directory](../azuread-dev/native-app.md).
 
-Lär dig mer om [att konfigurera enkel inloggning till program i Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Lär dig mer om [att konfigurera enkel inloggning till program i Azure Active Directory](sso-options.md#choosing-a-single-sign-on-method).

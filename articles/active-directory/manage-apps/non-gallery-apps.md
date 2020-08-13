@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 300c6e268e3d2f639bf697237253d2b98e5daa15
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d4f00061664340681b365eddfa1a742795f96d99
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352492"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164690"
 ---
 # <a name="using-azure-ad-for-applications-not-listed-in-the-app-gallery"></a>Använda Azure AD för program som inte finns med i app-galleriet
 
@@ -29,9 +29,9 @@ Förutom valen i [Azure AD-programgalleriet](https://azure.microsoft.com/documen
 Du kan lägga till alla program som redan finns i din organisation eller program från tredje part från en leverantör som inte redan ingår i Azure AD-galleriet. Beroende på ditt [licens avtal](https://azure.microsoft.com/pricing/details/active-directory/)är följande funktioner tillgängliga:
 
 - Självbetjänings integrering av alla program som stöder [Security Assertion Markup Language (SAML) 2,0](https://wikipedia.org/wiki/SAML_2.0) identitets leverantörer (SP-initierad eller IDP-initierad)
-- Självbetjänings integrering av alla webb program som har en HTML-baserad inloggnings sida med [LÖSENORDSBASERAD SSO](what-is-single-sign-on.md#password-based-sso)
+- Självbetjänings integrering av alla webb program som har en HTML-baserad inloggnings sida med [LÖSENORDSBASERAD SSO](sso-options.md#password-based-sso)
 - Anslutning via självbetjäning för program som använder [systemet för scim-protokoll (Cross-Domain Identity Management) för användar etablering](../app-provisioning/use-scim-to-provision-users-and-groups.md)
-- Möjlighet att lägga till länkar till ett program i [Office 365-appens start](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) -eller [Azure AD Access-panel](what-is-single-sign-on.md#linked-sign-on)
+- Möjlighet att lägga till länkar till ett program i [Office 365-appens start](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) -eller [Azure AD Access-panel](sso-options.md#linked-sign-on)
 
 Om du vill ha råd om utvecklare om hur du integrerar anpassade appar med Azure AD, se [autentiserings scenarier för Azure AD](../develop/authentication-scenarios.md). När du utvecklar en app som använder ett modernt protokoll som [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) för att autentisera användare, kan du registrera den med Microsoft Identity Platform genom att använda [Appregistreringar](../develop/quickstart-register-app.md) upplevelse i Azure Portal.
 

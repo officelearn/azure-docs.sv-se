@@ -14,18 +14,18 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e3d08f887cc1c816dda54863c412660494418b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00b25f1b506228d2d80aecae3845467759a4bc4f
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764782"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165047"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Lösen ords valv för enkel inloggning med programproxy
 
 Azure Active Directory-programproxy hjälper dig att förbättra produktiviteten genom att publicera lokala program så att fjärranslutna anställda kan komma åt dem på ett säkert sätt. I Azure Portal kan du också konfigurera enkel inloggning (SSO) till de här apparna. Användarna behöver bara autentisera med Azure AD och de kan komma åt ditt företags program utan att behöva logga in igen.
 
-Application Proxy stöder flera [lägen för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användar namn/lösen ord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program måste användarna logga in till det lokala programmet en gång. Därefter lagrar Azure Active Directory inloggnings informationen och skickar den automatiskt till programmet när användarna kommer åt det via fjärr anslutning.
+Application Proxy stöder flera [lägen för enkel inloggning](sso-options.md#choosing-a-single-sign-on-method). Lösenordsbaserad inloggning är avsedd för program som använder en kombination av användar namn/lösen ord för autentisering. När du konfigurerar lösenordsbaserad inloggning för ditt program måste användarna logga in till det lokala programmet en gång. Därefter lagrar Azure Active Directory inloggnings informationen och skickar den automatiskt till programmet när användarna kommer åt det via fjärr anslutning.
 
 Du bör redan ha publicerat och testat din app med Application Proxy. Annars följer du stegen i [Publicera program med hjälp av Azure AD-programproxy](application-proxy-add-on-premises-application.md) och kommer tillbaka hit.
 

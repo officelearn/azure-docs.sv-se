@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4d9583e08591e8ea5792aad28e247dff178f1c08
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080668"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164588"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -99,7 +99,7 @@ App proxy stöder även följande autentiseringsprotokoll med integration från 
 * [**Formulär-eller lösenordsbaserad autentisering**](application-proxy-configure-single-sign-on-password-vaulting.md). Med den här autentiseringsmetoden loggar användare in på programmet med ett användar namn och lösen ord första gången de använder den. Efter den första inloggningen skickar Azure AD användar namn och lösen ord till programmet. I det här scenariot hanteras autentiseringen av Azure AD.
 * [**SAML-autentisering**](application-proxy-configure-single-sign-on-on-premises-apps.md). SAML-baserad enkel inloggning stöds för program som använder antingen SAML 2,0-eller WS-Federation-protokoll. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto.
 
-Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
+Mer information om metoder som stöds finns i [välja en metod för enkel inloggning](sso-options.md#choosing-a-single-sign-on-method).
 
 ### <a name="security-benefits"></a>Säkerhets förmåner
 

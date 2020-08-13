@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om Azure VMware-lösningar från CloudSimple
-description: Vanliga frågor och svar om Azure VMware-lösningen av CloudSimple
+description: Dessa vanliga frågor och svar om Azure VMware-lösningen av CloudSimple inkluderar anslutning, nätverk, säkerhet, lagring, Azure-integrering och andra.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0db8c13a7467ed864c0845319b37f958f60fa4d9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77025069"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140895"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor om VMware-lösning av CloudSimple
 

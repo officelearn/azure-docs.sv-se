@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure VMware-lösning av CloudSimple-noder
-description: Lär dig mer om CloudSimple-noder och-koncept.
+description: 'Lär dig mer om CloudSimple-koncept, inklusive noder, etablerade noder, ett privat moln och VMware-lösning av CloudSimple-noder SKU: er.'
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65afe26a98a53b00b72a1ea2b49799db2049b727
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7de4b5faa997d909089daedab7e48e5d5a6de2e7
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024933"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88140844"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Översikt över CloudSimple-noder
 
@@ -45,7 +45,7 @@ Följande typer av noder är tillgängliga för etablering eller reservation.
 | Kapacitets disk | 5,625 TB RAW                | 11,25 TB RAW                | 15,36 TB RAW                |
 | Lagringstyp  | Alla Flash                   | Alla Flash                   | Alla Flash                   |
 
-## <a name="limits"></a>Begränsningar
+## <a name="limits"></a>Gränser
 
 Följande Node-gränser gäller för privata moln.
 

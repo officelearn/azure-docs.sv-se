@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f8b532716e14a8a90b0be061f7d93abf43e55e38
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321997"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141933"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -35,7 +35,7 @@ Azure Machine Learning har varierande stöd för olika beräknings resurser.  Du
 
 Läs mer om hur du [konfigurerar och använder ett beräknings mål för modell träning](how-to-set-up-training-targets.md).
 
-## <a name="deployment-targets"></a><a name="deploy"></a>Distributions mål
+## <a name="deployment-targets"></a><a name="deploy"></a>Distributionsmål
 
 Följande beräknings resurser kan användas som värd för modell distributionen.
 
@@ -59,7 +59,7 @@ Du kan skapa Azure Machine Learning beräknings instanser eller beräknings klus
 När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
 
 
-|Funktion  |Beräknings kluster  |Beräkninsinstans  |
+|Kapacitet  |Beräknings kluster  |Beräkninsinstans  |
 |---------|---------|---------|
 |Kluster med en eller flera noder     |    **&check;**       |         |
 |Autoskalar varje gången du skickar en körning     |     **&check;**      |         |
@@ -82,17 +82,19 @@ I följande tabell finns mer information om vilka serier och begränsningar som 
 
 | **VM-serien som stöds**  | **Begränsningar** |
 |------------|------------|
-| D | Ingen |
-| Dv2 | Ingen |  
-| DSv2 | Ingen |  
-| FSv2 | Ingen |  
+| D | Inget |
+| Dv2 | Inget |  
+| DSv2 | Inget |  
+| FSv2 | Inget | 
+| HBv2 | Godkännande krävs |  
+| HCS UPPDATERINGSKLIENTEN | Godkännande krävs |  
 | M | Godkännande krävs |
-| NC | Ingen |    
+| NC | Inget |    
 | NCsv2 | Godkännande krävs |
 | NCsv3 | Godkännande krävs |  
 | NDs | Godkännande krävs |
 | NDv2 | Godkännande krävs |
-| NV | Ingen |
+| NV | Inget |
 | NVv3 | Godkännande krävs | 
 
 

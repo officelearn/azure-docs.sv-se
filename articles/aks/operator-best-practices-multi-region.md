@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285874"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142187"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 
@@ -93,7 +93,7 @@ Geo-replikering är en funktion i de register för *Premium* SKU-behållare. Inf
 
 Status kan antingen vara utlokaliserad eller befinnad med den kod som ändrar tillstånd. Normalt Externalize du tillstånd genom att använda en databas eller ett annat data lager som körs på olika datorer över nätverket eller som tar slut på samma dator.
 
-Behållare och mikrotjänster är mest elastiska när processer som körs inuti dem inte behåller sitt tillstånd. Eftersom program nästan alltid innehåller status, använder du en PaaS-lösning som Azure Database for MySQL, Azure Database for PostgreSQL eller Azure SQL Database.
+Behållare och mikrotjänster är mest elastiska när processer som körs inuti dem inte behåller sitt tillstånd. Eftersom program nästan alltid innehåller status, använder du en PaaS-lösning som Azure Cosmos DB, Azure Database for PostgreSQL, Azure Database for MySQL eller Azure SQL Database.
 
 Information om hur du skapar bärbara program finns i följande rikt linjer:
 

@@ -4,14 +4,14 @@ description: Lär dig hur du tar bort en nodtyp från ett Service Fabric kluster
 author: inputoutputcode
 manager: sridmad
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 08/11/2020
 ms.author: chrpap
-ms.openlocfilehash: 6cc7cbcc8344c5015d60d9721c682b6a856cbb6e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ede999bee9ce1a4a9dd10652a2c52a840d5b24be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247242"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163585"
 ---
 # <a name="how-to-remove-a-service-fabric-node-type"></a>Så här tar du bort en Service Fabric Node-typ
 Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att ta bort en befintlig nodtyp från ett kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att ta bort en nodtyp (skalnings uppsättning för virtuell dator) och alla dess noder.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -59,7 +59,7 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     - Klustret är felfritt.
     - Ingen av noderna som tillhör nodtypen är markerade som Seed-nod.
 
-4. Inaktivera data för nodtypen.
+4. Inaktivera varje nod i nodtypen.
 
     Anslut till klustret med PowerShell och kör sedan följande steg.
     
@@ -98,8 +98,20 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     ```
     
     Vänta till alla noder för nodtypen är markerade.
+
+6. Frigör noder i den ursprungliga skalnings uppsättningen för virtuella datorer
     
-6. Ta bort data för nodtypen.
+    Logga in på Azure-prenumerationen där skalnings uppsättningen distribuerades och ta bort skalnings uppsättningen för den virtuella datorn. 
+
+    ```powershell
+    $scaleSetName="myscaleset"
+    $scaleSetResourceType="Microsoft.Compute/virtualMachineScaleSets"
+    
+    Remove-AzResource -ResourceName $scaleSetName -ResourceType $scaleSetResourceType -ResourceGroupName $resourceGroupName -Force
+    ```
+
+    
+7. Ta bort data för nodtypen.
 
     Anslut till klustret med PowerShell och kör sedan följande steg.
     
@@ -117,7 +129,7 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
 
     Vänta till alla noder tas bort från klustret. Noderna ska inte visas i SFX.
 
-7. Ta bort nodtypen från Service Fabric-avsnittet.
+8. Ta bort nodtypen från Service Fabric-avsnittet.
 
     - Leta upp den Azure Resource Manager-mall som används för distribution.
     - Hitta avsnittet som är relaterat till nodtypen i avsnittet Service Fabric.
@@ -165,7 +177,7 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
     Kontrol lera sedan att:
     - Service Fabric resursen i portalen är klar.
 
-8. Ta bort alla referenser till resurserna som är relaterade till nodtypen.
+9. Ta bort alla referenser till resurserna som är relaterade till nodtypen från ARM-mallen.
 
     - Leta upp den Azure Resource Manager-mall som används för distribution.
     - Ta bort den virtuella datorns skalnings uppsättning och andra resurser som är relaterade till nodtypen från mallen.
@@ -173,6 +185,13 @@ När du tar bort en nodtyp som är brons går alla noder i nodtypen omedelbart n
 
     Efter det:
     - Vänta tills distributionen har slutförts.
+    
+10. Ta bort resurser som är relaterade till nodtypen som inte längre används. Exempel Load Balancer och offentlig IP-adress. 
+
+    - Om du vill ta bort dessa resurser kan du använda samma PowerShell-kommando som används i steg 6 för att ange den angivna resurs typen och API-versionen. 
+
+> [!Note]
+> Det här steget är valfritt om samma Load Balancer och IP återanvänds mellan olika nodtyper.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om klustrets [hållbarhets egenskaper](./service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster).

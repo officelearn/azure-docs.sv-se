@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 1cb3af32f1ad16218c82f91c3f28d4f4ab47e677
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 0a24339d728c43817b6a7ae6eac8782ad0e27b09
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843512"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142527"
 ---
 # <a name="features"></a>Funktioner
 
@@ -21,9 +21,9 @@ Azure API för FHIR tillhandahåller en fullständigt hanterad distribution av M
 
 ## <a name="fhir-version"></a>FHIR-version
 
-Senaste version som stöds:`4.0.1`
+Senaste version som stöds: `4.0.1`
 
-Tidigare versioner som också stöds är:`3.0.2`
+Tidigare versioner som också stöds är: `3.0.2`
 
 ## <a name="rest-api"></a>REST-API
 
@@ -35,7 +35,7 @@ Tidigare versioner som också stöds är:`3.0.2`
 | uppdatera med optimistisk låsning | Ja       | Ja       | Ja       |                                                     |
 | uppdatering (villkorligt)           | Ja       | Ja       | Ja       |                                                     |
 | 9.0a                          | Nej        | Nej        | Nej        |                                                     |
-| ta bort                         | Ja       | Ja       | Ja       |                                                     |
+| delete                         | Ja       | Ja       | Ja       |                                                     |
 | ta bort (villkorligt)           | Nej        | Nej        | Nej        |                                                     |
 | skapa                         | Ja       | Ja       | Ja       | Stöd för både efter-och-placering                               |
 | Skapa (villkorlig)           | Ja       | Ja       | Ja       |                                                     |
@@ -46,10 +46,10 @@ Tidigare versioner som också stöds är:`3.0.2`
 | batch                          | Ja       | Ja       | Ja       |                                                     |
 | transaktionen                    | Nej        | Ja       | Nej        |                                                     |
 | historik                        | Ja       | Ja       | Ja       |                                                     |
-| växlings                         | Delvis   | Delvis   | Delvis   | `self`och `next` stöds                     |
+| växlings                         | Delvis   | Delvis   | Delvis   | `self` och `next` stöds                     |
 | mellanhand                 | Nej        | Nej        | Nej        |                                                     |
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Search
 
 Alla typer av Sök parametrar stöds. 
 
@@ -72,14 +72,14 @@ Alla typer av Sök parametrar stöds.
 |`:exact`               | Ja       | Ja       | Ja       |         |
 |`:contains`            | Ja       | Ja       | Ja       |         |
 |`:text`                | Ja       | Ja       | Ja       |         |
-|`:in`åtkomsttokenbegäran          | Nej        | Nej        | Nej        |         |
-|`:below`åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
-|`:above`åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
-|`:not-in`åtkomsttokenbegäran      | Nej        | Nej        | Nej        |         |
-|`:[type]`förhållande  | Nej        | Nej        | Nej        |         |
-|`:below`URI         | Ja       | Ja       | Ja       |         |
+|`:in` åtkomsttokenbegäran          | Nej        | Nej        | Nej        |         |
+|`:below` åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
+|`:above` åtkomsttokenbegäran       | Nej        | Nej        | Nej        |         |
+|`:not-in` åtkomsttokenbegäran      | Nej        | Nej        | Nej        |         |
+|`:[type]` förhållande  | Nej        | Nej        | Nej        |         |
+|`:below` URI         | Ja       | Ja       | Ja       |         |
 |`:not`                 | Nej        | Nej        | Nej        |         |
-|`:above`URI         | Nej        | Nej        | Nej        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
+|`:above` URI         | Nej        | Nej        | Nej        | Problem [#158](https://github.com/Microsoft/fhir-server/issues/158) |
 
 | Vanlig Sök parameter | Stöds – PaaS | Support – OSS (SQL) | Support – OSS (Cosmos DB) | Kommentar |
 |-------------------------| ----------| ----------| ----------|---------|
@@ -101,9 +101,9 @@ Alla typer av Sök parametrar stöds.
 | `_sort`                 | Nej        | Nej        | Nej        |         |
 | `_score`                | Nej        | Nej        | Nej        |         |
 | `_count`                | Ja       | Ja       | Ja       |         |
-| `_summary`              | Delvis   | Delvis   | Delvis   | `_summary=count`stöds |
+| `_summary`              | Delvis   | Delvis   | Delvis   | `_summary=count` stöds |
 | `_include`              | Nej        | Ja       | Nej        |         |
-| `_revinclude`           | Nej        | Nej        | Nej        |         |
+| `_revinclude`           | Nej        | Ja       | Nej        | Inkluderade objekt är begränsade till 100. |
 | `_contained`            | Nej        | Nej        | Nej        |         |
 | `_elements`             | Nej        | Nej        | Nej        |         |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e9c4470ea16f1840274a6fa8613822b20d6772b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b867f5bcbbdc5deab2d67f356df69ee870c21f3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81310868"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142255"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Snabb start: skapa en azureiotsecurity-modul med dubbla
 
@@ -76,7 +76,7 @@ Mer information om hur du anpassar egenskaper för Azure Security Center för Io
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill lära dig hur du konfigurerar anpassade aviseringar...
+Gå vidare till nästa artikel och lär dig hur du undersöker säkerhets rekommendationer...
 
 > [!div class="nextstepaction"]
-> [Konfigurera anpassade aviseringar](quickstart-create-custom-alerts.md)
+> [Undersök säkerhets rekommendationer](quickstart-investigate-security-recommendations.md)

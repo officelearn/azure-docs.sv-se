@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 79b9be504639b35c7c15d427bd7766ed2dd15535
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121093"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141286"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Hämta en token för en mobilapp som anropar webb-API: er
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive`har endast en obligatorisk parameter: `scopes` . `scopes`Parametern räknar upp strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph kan du hitta de omfattningar som krävs i API-referensen för varje Microsoft Graph-API. I referensen går du till avsnittet "behörigheter".
 
-Om du till exempel vill [lista användarens kontakter](/graph/api/user-list-contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Om du till exempel vill [lista användarens kontakter](/graph/api/user-list-contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](/graph/permissions-reference).
 
 På Android kan du ange överordnad aktivitet när du skapar appen med hjälp av `PublicClientApplicationBuilder` . Om du inte anger den överordnade aktiviteten vid den tiden kan du senare ange den genom att använda `.WithParentActivityOrWindow` som i följande avsnitt. Om du anger en överordnad aktivitet återgår token till den överordnade aktiviteten efter interaktionen. Om du inte anger det `.ExecuteAsync()` genererar anropet ett undantag.
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: d3810d3998f82127fc32327f696a2784382b4537
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117047"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141372"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Loggar in valfri Azure Active Directory-användare med programmönstret för flera klienter
 
@@ -53,7 +53,7 @@ Som standard har appar som skapats via Azure Portal en globalt unik app-ID-URI i
 
 I ett enda klient program skickas inloggnings förfrågningar till klient organisationens inloggnings slut punkt. För contoso.onmicrosoft.com skulle till exempel slut punkten bli: `https://login.microsoftonline.com/contoso.onmicrosoft.com` . Begär Anden som skickas till en klients slut punkt kan logga in användare (eller gäster) i den klienten till program i den klient organisationen.
 
-Med ett program med flera klient organisationer vet inte programmet var den klient som användaren är från, så du kan inte skicka begär anden till en innehavares slut punkt. I stället skickas begär anden till en slut punkt som flera plexar över alla Azure AD-klienter:`https://login.microsoftonline.com/common`
+Med ett program med flera klient organisationer vet inte programmet var den klient som användaren är från, så du kan inte skicka begär anden till en innehavares slut punkt. I stället skickas begär anden till en slut punkt som flera plexar över alla Azure AD-klienter: `https://login.microsoftonline.com/common`
 
 När Microsoft Identity Platform tar emot en begäran på/vanliga-slutpunkten loggar den in användaren och, som en följd, identifierar vilken klient som användaren är från. /Vanliga-slutpunkten fungerar med alla autentiseringsprotokoll som stöds av Azure AD: OpenID Connect, OAuth 2,0, SAML 2,0 och WS-Federation.
 
@@ -204,8 +204,8 @@ I den här artikeln har du lärt dig hur du skapar ett program som kan logga in 
 [AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: /graph/
+[MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

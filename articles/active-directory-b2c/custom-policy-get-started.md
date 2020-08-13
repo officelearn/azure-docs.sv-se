@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 54d92da469625a3b81d0027558ec14166d916b80
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169437"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163194"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "87169437"
 
 [Anpassade principer](custom-policy-overview.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory B2C (Azure AD B2C)-klient. I den här artikeln skapar du en anpassad princip som stöder registrering av lokalt konto eller inloggning med hjälp av en e-postadress och ett lösen ord. Du förbereder också din miljö för att lägga till identitets leverantörer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte redan har en, [skapar du en Azure AD B2C klient](tutorial-create-tenant.md) som är länkad till din Azure-prenumeration.
 - [Registrera ditt program](tutorial-register-applications.md) i klient organisationen som du skapade så att den kan kommunicera med Azure AD B2C.
@@ -90,9 +90,9 @@ Sedan exponerar du API: et genom att lägga till ett omfång:
 1. I den vänstra menyn, under **Hantera**, väljer du **exponera ett API**.
 1. Välj **Lägg till ett omfång**och välj sedan **Spara och fortsätt** att acceptera standard-ID: t för program-ID.
 1. Ange följande värden för att skapa en omfattning som tillåter anpassad princip körning i Azure AD B2C klient organisation:
-    * **Omfattnings namn**:`user_impersonation`
-    * **Visnings namn för administratörs medgivande**:`Access IdentityExperienceFramework`
-    * **Beskrivning av administratörs medgivande**:`Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+    * **Omfattnings namn**: `user_impersonation`
+    * **Visnings namn för administratörs medgivande**: `Access IdentityExperienceFramework`
+    * **Beskrivning av administratörs medgivande**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
 1. Välj **Lägg till omfattning**
 
 * * *
@@ -213,6 +213,6 @@ Som nämnts i [förutsättningar](#prerequisites)krävs *inte* Facebook för att
 
 ## <a name="next-steps"></a>Nästa steg
 
-Försök sedan att lägga till Azure Active Directory (Azure AD) som identitets leverantör. Bas filen som används i den här guiden för att komma igång innehåller redan en del av det innehåll som du behöver för att lägga till andra identitets leverantörer som Azure AD.
+Försök sedan att lägga till Azure Active Directory (Azure AD) som identitets leverantör. Bas filen som används i den här guiden för att komma igång innehåller redan en del av det innehåll som du behöver för att lägga till andra identitets leverantörer som Azure AD. Information om hur du konfigurerar Azure AD som en identitetsprovider finns i [Konfigurera registrering och inloggning med ett Azure Active Directory konto med hjälp av anpassade principer för Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md). 
 
-Information om hur du konfigurerar Azure AD som identitets leverantör finns i [Konfigurera registrering och inloggning med ett Azure Active Directory konto med hjälp av anpassade principer för Active Directory B2C](identity-provider-azure-ad-single-tenant-custom.md).
+Besök vårt [partner Galleri](partner-gallery.md) och lär dig mer om hur du IMPLEMENTERAr ISV-integrering med anpassade principer. 

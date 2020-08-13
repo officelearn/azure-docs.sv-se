@@ -1,5 +1,5 @@
 ---
-title: Automatiserad SaaS app User-etablering i Azure AD
+title: Vad är automatiserad SaaS app User-etablering i Azure AD
 description: En introduktion till hur du kan använda Azure AD för att automatiskt etablera, avetablera och kontinuerligt uppdatera användar konton över flera SaaS-program från tredje part.
 services: active-directory
 author: kenwith
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 7f09bb42f529164ef0f5062ef801ddc7ecfef85c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781098"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163789"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatisera användar etablering och avetablering för program med Azure AD
+# <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Vad är automatiserad SaaS app User-etablering i Azure AD?
 
 I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 
@@ -94,11 +94,8 @@ För förintegrerade program som listas i galleriet finns steg-för-steg-anvisni
 För andra program som stöder SCIM 2,0 följer du stegen i artikeln [Bygg en scim-slutpunkt och konfigurerar användar etablering](use-scim-to-provision-users-and-groups.md).
 
 
-## <a name="related-articles"></a>Relaterade artiklar
+## <a name="next-steps"></a>Nästa steg
 
 - [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
 - [Anpassa mappningar av attribut för användar etablering](customize-application-attributes.md)
-- [Skriver uttryck för mappningar av attribut](../app-provisioning/functions-for-customizing-application-data.md)
-- [Omfångs filter för användar etablering](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
-- [Bygg en SCIM-slutpunkt och konfigurera användar etablering](use-scim-to-provision-users-and-groups.md)
-- [Översikt över Azure AD Synchronization API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Omfångs filter för användar etablering](define-conditional-rules-for-provisioning-user-accounts.md)

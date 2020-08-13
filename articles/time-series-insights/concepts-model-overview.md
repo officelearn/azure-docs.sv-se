@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 74a20e46858aada48151809c5bedf1f93076827e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289963"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141728"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Dessa komponenter kombineras för att ange en tids serie modell och organisera d
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -129,7 +129,7 @@ Instanserna har följande JSON-representation:
 ```
 
 > [!TIP]
-> Om du vill ha stöd för att skapa, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)API.
+> Om du vill ha stöd för att skapa, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) och [REST-API för instansen](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api)API.
 
 ## <a name="time-series-model-hierarchies"></a>Hierarkier för tids serie modell
 
@@ -186,7 +186,7 @@ I föregående JSON-exempel:
 * `ManufactureDate`definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
 
 > [!TIP]
-> För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exempel på hierarki
 
@@ -231,7 +231,7 @@ En typ kan ha en eller flera variabler. En tids serie modell instans kan till ex
 [![Exempel på tids serie modell typ](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> För typerna API: Create, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> För typerna API: Create, läsa, uppdatera och ta bort (CRUD) kan du läsa artikeln om [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [rest-dokumentation för typ-API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Typ egenskaper
 
@@ -288,7 +288,7 @@ Tids serie modell typer kan ha många variabler som anger formel-och beräknings
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/preview-model) .
+* Mer information om hur du redigerar modellen via API: er finns i referens dokumentationen för [Time Series-modellen](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) .
 
 * Utforska formler och beräkningar som du kan skapa med [tids serie modellens variabler](./concepts-variables.md)
 

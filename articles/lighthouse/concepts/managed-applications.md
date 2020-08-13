@@ -1,18 +1,21 @@
 ---
 title: Azure Lighthouse och Azure Managed Applications
-description: Azure-Lighthouse och Azure-hanterade program...
-ms.date: 05/01/2020
+description: Förstå hur Azure-Lighthouse och Azure-hanterade program kan hjälpa dig att aktivera olika scenarier och hur de kan användas tillsammans.
+ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3e1477de18b24cf5099cd4479a82169e3ecada26
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81ff61a6d1b7487d3da0643bac3987589de46c1e
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121613"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163432"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse och Azure Managed Applications
 
 Både Azure-hanterade program och Azure Lighthouse fungerar genom att tillhandahålla en tjänst leverantör för att få åtkomst till resurser som finns i kundens klient organisation. Det kan vara bra att förstå skillnaderna i hur de fungerar och de scenarier som de hjälper till att aktivera, samt hur de kan användas tillsammans.
+
+> [!TIP]
+> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet kan [företag som hanterar flera klienter](enterprise.md) använda samma processer och verktyg.
 
 ## <a name="comparing-azure-lighthouse-and-azure-managed-applications"></a>Jämför Azure-Lighthouse och Azure-hanterade program
 

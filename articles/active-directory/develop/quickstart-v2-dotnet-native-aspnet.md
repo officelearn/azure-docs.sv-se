@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 22bf7e85a48e0d138bfdbca82cf032287d982899
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 62cebb4e774e2f86ed6a4a17edd6da71f7c7cd9f
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339595"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141337"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Snabb start: anropa ett ASP.NET-webb-API som skyddas av Microsoft Identity Platform
 
@@ -24,7 +24,7 @@ I den här snabb starten exponerar du ett webb-API och skyddar det så att endas
 
 Exemplet innehåller också en Windows Desktop program-klient (WPF) som visar hur du kan begära en åtkomsttoken för att få åtkomst till ett webb-API.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra det här exemplet behöver du följande:
 
@@ -82,13 +82,14 @@ Om du vill registrera dina appar manuellt, som ett första steg, måste du:
 
 ### <a name="add-the-new-scope-to-the-todolistclients-appconfig"></a>Lägg till det nya omfånget i *TodoListClient*app.config
 
-1. Öppna den **app.config** -fil som finns i **TodoListClient** -projektets rotmapp och klistra sedan in **program-ID** från programmet som du precis registrerade för din *TodoListService* under `TodoListServiceScope` parameter, och ersätt strängen `{Enter the Application ID of your TodoListService from the app registration portal}` .
+* Öppna den **app.config** -fil som finns i **TodoListClient** -projektets rotmapp och klistra sedan in **program-ID** från programmet som du precis registrerade för din *TodoListService* under `TodoListServiceScope` parameter, och ersätt strängen `{Enter the Application ID of your TodoListService from the app registration portal}` .
 
-   > Obs: kontrol lera att den använder följande format:
-   >
-   > `api://{TodoListService-Application-ID}/access_as_user`
-   >
-   >(där {TodoListService-Application-ID} är GUID som representerar program-ID: t för din TodoListService).
+  > [!NOTE]
+  > Kontrol lera att den använder följande format:
+  >
+  > `api://{TodoListService-Application-ID}/access_as_user`
+  >
+  >(där {TodoListService-Application-ID} är GUID som representerar program-ID: t för din TodoListService).
 
 ## <a name="register-the-client-app-todolistclient"></a>Registrera klient programmet (TodoListClient)
 
@@ -102,15 +103,28 @@ I det här steget konfigurerar du ditt *TodoListClient* -projekt genom att regis
    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `NativeClient-DotNet-TodoListClient`.
    - Ändra **konto typer som stöds** till **konton i valfri organisations katalog**.
    - Välj **Registrera** för att skapa programmet.
-1. På appens översiktssida väljer du avsnittet **Autentisering**.
-   - I avsnittet **omdirigerings-URI**: er  |  **föreslagna omdirigerings-URI: er för offentliga klienter (mobil, stationär)** kontrollerar**https://login.microsoftonline.com/common/oauth2/nativeclient**
-   - Välj **Spara**.
+   
+   > [!NOTE]
+   > Standardvärdet för är inställt på i *TodoListClient* -projektets **app.config** `ida:Tenant` `common` .
+   >
+   > `common`innebär att du kan logga in med ett arbets-eller skol konto eller ett personligt Microsoft-konto (eftersom du har valt **konton i valfri organisations katalog**).
+   >
+   > `organizations`innebär att du kan logga in med ett arbets-eller skol konto.
+   >
+   > `consumers`innebär att du bara kan logga in med ett personligt Microsoft-konto.
+   >
+   
+1. På sidan Översikt för appen väljer du avsnittet **autentisering** .
+   1. Under **plattforms konfiguration**väljer du knappen **Lägg till en plattform** .
+   1. För **mobil-och skriv bords program**väljer du de **mobila och Station ära programmen**.
+   1. Markera kryss rutan för **omdirigering av URI: er** **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+   1. Välj **Konfigurera**.   
 1. Välj avsnittet **API-behörigheter**
-   - Klicka på knappen **Lägg till en behörighet** och sedan
-   - Välj fliken **Mina API: er** .
-   - I listan över API: er väljer du `AppModelv2-NativeClient-DotNet-TodoListService API` eller det namn som du angav för webb-API: et.
-   - Kontrol lera **access_as_user** behörigheten om den inte redan är markerad. Använd Sök fältet om det behövs.
-   - Välj knappen **Lägg till behörigheter**
+   1. Välj knappen **Lägg till en behörighet**.
+   1. Välj fliken **Mina API: er** .
+   1. I listan över API: er väljer du `AppModelv2-NativeClient-DotNet-TodoListService API` eller det namn som du angav för webb-API: et.
+   1. Kontrol lera **access_as_user** behörigheten om den inte redan är markerad. Använd Sök fältet om det behövs.
+   1. Välj knappen **Lägg till behörigheter** .
 
 ### <a name="configure-your-todolistclient-project"></a>Konfigurera ditt *TodoListClient* -projekt
 

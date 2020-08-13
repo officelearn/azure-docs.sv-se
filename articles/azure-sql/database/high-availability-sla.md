@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 04/02/2020
-ms.openlocfilehash: ab3d0a4b33bd2e424141adc9f6b8739380c2947b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.date: 08/12/2020
+ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542016"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142442"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -103,7 +103,7 @@ En redundansväxling kan initieras med PowerShell, REST API eller Azure CLI:
 |:---|:---|:---|:---|
 |Databas|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Redundansväxling av databas](/rest/api/sql/databases(failover)/failover/)|[AZ rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
 |Elastisk pool|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Redundans för elastisk pool](/rest/api/sql/elasticpools(failover)/failover/)|[AZ rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Hanterade instanser – redundans](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[AZ SQL mi redundans](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Hanterade instanser – redundans](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi redundans](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > Kommandot redundans är inte tillgängligt för läsbara sekundär repliker av storskaliga databaser.

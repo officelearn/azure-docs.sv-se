@@ -1,19 +1,19 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/17/2020
+ms.date: 08/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6ba9147aefb793387b429702623639bbccf0beea
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 26d6ca641c03395996fdeaa4e54d2a001cf02bef
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507237"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162799"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -53,7 +53,7 @@ Information om hur du överför din virtuella hård disk till Azure finns i [CLI
 
 ### <a name="private-links"></a>Privata länkar
 
-Managed disks stöder användning av privata Länkar för att importera eller exportera en hanterad disk internt till nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../articles/private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
+Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och kan användas för att importera eller exportera en hanterad disk internt i nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../articles/private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
 
 Information om hur du aktiverar privata Länkar för att importera eller exportera en hanterad disk finns i [CLI](../articles/virtual-machines/linux/disks-export-import-private-links-cli.md) -eller [Portal](../articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) artiklarna.
 

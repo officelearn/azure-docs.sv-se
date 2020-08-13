@@ -2,24 +2,24 @@
 title: Microsoft Azure Data Box-enhet självhanterad leverans | Microsoft Docs i data
 description: Beskriver självhanterade leverans arbets flöden för Azure Data Box enheter
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608595"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142544"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Använd självhanterad leverans för Azure Data Box i Azure Portal
 
 I den här artikeln beskrivs självhanterade leverans uppgifter för att beställa, hämta och ta bort en Azure Data Box enhet. Du kan hantera Data Box-enhet-enheten med hjälp av Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Självhanterad leverans är tillgängligt som ett alternativ när du [beställer Azure Data Box](data-box-deploy-ordered.md). Självhanterad leverans är endast tillgängligt i följande regioner:
 
@@ -28,18 +28,20 @@ Självhanterad leverans är tillgängligt som ett alternativ när du [beställer
 * Japan
 * Singapore
 * Sydkorea
+* Indien
+* Sydafrika
 
 ## <a name="use-self-managed-shipping"></a>Använd självhanterad frakt
 
 När du placerar en Data Box-enhet order kan du välja alternativet för självhanterad leverans.
 
 1. I din Azure Data Box ordning väljer du **+ Lägg till leverans adress**under **kontakt uppgifter**.
-   ![Självhanterad leverans](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Egenhanterad frakt](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. När du väljer leverans typ väljer du alternativet för **själv hantering av leverans** . Det här alternativet är bara tillgängligt om du befinner dig i en region som stöds enligt beskrivningen i kraven.
 
 3. När du har angett din leverans adress måste du verifiera den och slutföra beställningen.
-   ![Självhanterad leverans](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Egenhanterad frakt](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. När enheten har förberetts och du får ett e-postmeddelande för den kan du schemalägga en hämtning.
 

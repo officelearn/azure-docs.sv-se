@@ -14,12 +14,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9bbc90776ca007b84d5f67c50f8550ee9c881c7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 94dd5c2579eb7ce96dea70c6354df8ec84125bd9
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506048"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141677"
 ---
 # <a name="audit-activity-history-for-privileged-access-group-assignments-preview-in-privileged-identity-management"></a>Granska aktivitets historiken för grupp tilldelningar för privilegierade åtkomst (för hands version) i Privileged Identity Management
 
@@ -36,7 +36,9 @@ Följ dessa steg om du vill visa gransknings historiken för privilegierade åtk
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Välj **privilegie rad åtkomst (för hands version)**.
+1. Välj **privilegierade åtkomst grupper (förhands granskning)**.
+
+1. Välj den privilegierade åtkomst grupp som du vill visa gransknings historik för.
 
 1. Under **aktivitet**väljer du **resurs granskning**.
 
@@ -46,15 +48,15 @@ Följ dessa steg om du vill visa gransknings historiken för privilegierade åtk
 
 ## <a name="view-my-audit"></a>Visa min granskning
 
-I min granskning kan du Visa din personliga roll aktivitet.
+I **min granskning** kan du Visa din personliga roll aktivitet för en privilegie rad åtkomst grupp.
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
-1. Välj **privilegie rad åtkomst (för hands version)**.
+1. Välj **privilegierade åtkomst grupper (förhands granskning)**.
 
-1. Välj den medlem eller grupp som du vill visa gransknings historik för.
+1. Välj den privilegierade åtkomst grupp som du vill visa gransknings historik för.
 
-1. Välj **min granskning**.
+1. Under **aktivitet**väljer du **min granskning**.
 
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 

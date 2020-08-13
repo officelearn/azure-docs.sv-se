@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 332b4fdb6e0a26437edbf4309ee0b89b79f7eb23
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 04e4394e6a439c923558ef90e13c14c0adaa4020
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845807"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142119"
 ---
 # <a name="tutorial-return-azure-data-box-preview"></a>Självstudie: returnera Azure Data Box (för hands version)
 
@@ -176,7 +176,7 @@ Om du stöter på problem kan du använda e-postData Box-enhet åtgärder för A
 
 ## <a name="self-managed"></a>[Egenhanterad](#tab/in-selfmanaged)
 
-Om du använder Data Box i Japan, Singapore, Korea och Europa, västra, och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar.
+Om du använder Data Box-enhet i Japan, Singapore, Korea, Indien, Sydafrika eller Västeuropa, och har valt alternativet för självhanterad leverans under skapande av order, följer du dessa anvisningar.
 
 1. Skriv ned auktoriseringskoden på sidan Förbereda för att leverera i det lokala webbgränssnittet för Data Box efter att det här steget har slutförts.
 2. Stäng av enheten och avlägsna kablarna. Rulla ihop strömkabeln som levererades med enheten och sätt fast kabeln ordentligt på baksidan av enheten.

@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0ba348bc9c97ba8be415cac2e5fd7d102d850568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5a2acb08971bc0878c943047c42c9dc2a9525794
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117081"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141439"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -30,7 +30,7 @@ En annan metod är att använda Azure AD-grupper och grupp anspråk, som du ser 
 
 ## <a name="declare-roles-for-an-application"></a>Deklarera roller för ett program
 
-Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i programmets registrerings manifest.  När en användare loggar in i programmet, genererar Azure AD ett `roles` anspråk för varje roll som användaren har beviljats individuellt för användaren och från grupp medlemskapet.  Tilldelning av användare och grupper till roller kan göras via portalens användar gränssnitt eller program mässigt med hjälp av [Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview).
+Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i programmets registrerings manifest.  När en användare loggar in i programmet, genererar Azure AD ett `roles` anspråk för varje roll som användaren har beviljats individuellt för användaren och från grupp medlemskapet.  Tilldelning av användare och grupper till roller kan göras via portalens användar gränssnitt eller program mässigt med hjälp av [Microsoft Graph](/graph/azuread-identity-access-management-concept-overview).
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarera rollbaserade appar med hjälp av Azure Portal
 
@@ -38,7 +38,7 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält.
 1. I listan **Favoriter** eller **alla kataloger** väljer du den Active Directory klient organisation där du vill registrera programmet.
 1. I Azure Portal söker du efter och väljer **Azure Active Directory**.
-1. I fönstret **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
+1. I fönstret  **Azure Active Directory** väljer du **Appregistreringar** för att visa en lista över alla dina program.
 1. Välj det program som du vill definiera app-roller i. Välj sedan **manifest**.
 1. Redigera appens manifest genom att hitta `appRoles` inställningen och lägga till alla dina program roller.
 
@@ -130,4 +130,4 @@ När de användare som är tilldelade till de olika app-rollerna loggar in i pro
 - [Azure Active Directory, nu med grupp anspråk och program roller](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Azure Active Directory-appmanifest](./reference-app-manifest.md)
 - [AAD-åtkomsttoken](access-tokens.md)
-- [AAD`id_tokens`](id-tokens.md)
+- [AAD `id_tokens`](id-tokens.md)

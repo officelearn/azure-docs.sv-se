@@ -4,12 +4,12 @@ description: Lär dig mer om Azure Monitors partner och hur du kan komma åt dok
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 2e3fae1b942083d78798fccebd7a7f2c58f7659a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318342"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142423"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integreringar
 
@@ -138,7 +138,7 @@ LogRhythm är en ledare i NextGen SIEM och ger organisationer på sex kontinente
 
 Mikrofokus **drifts brygga** övervakar automatiskt alla hybrid IT-resurser – alla enheter, operativ system, databaser, program eller tjänster, oavsett var den körs och tillämpar AIOps för alla data typer – händelser, statistik, loggar och beroenden. Det ger en unik kombination av övervakning av tjänst kvalitet, tillsammans med djup Application Health Analytics och innehåller omfattande övervakning av prestanda och tillgänglighet för Microsoft Azure tjänster. Med drifts bryggor kan kunder tillhandahålla en enda ruta av glas, som är tillgängligt på valfri enhet med en webbläsare, på ett sätt som både företag och IT-intressenter kan förstå.
 
-Läs mer
+Mer information
 - [Översikt över OB Suite](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Ladda ned](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) – SiteScope är en komponent i Operations Bridge Suite.
@@ -183,6 +183,16 @@ OpsGenie fungerar som en dispatcher för de aviseringar som genereras av Azure. 
 PagerDuty, den ledande incident hanterings lösningen, har tillhandahållit förstklassig support för Azure-aviseringar på mått. PagerDuty har stöd för meddelanden om Azure Monitor aviseringar, autoskalning av meddelanden, aktivitets logg händelser och statistik på plattforms nivå för Azure-tjänster. Dessa förbättringar ger ökad insyn i kärnan i Azure-plattformen. Du kan dra full nytta av PagerDuty-funktionerna för incident hantering för real tids svar. Den expanderade Azure-integrationen görs möjlig via Webhooks. Med Webhooks kan du konfigurera och anpassa lösningen snabbt och enkelt.
 
 [Gå till dokumentationen.][pagerduty-doc]
+
+## <a name="promitor"></a>Promitor
+
+![Promitor-logotyp](./media/partners/promitor.png)
+
+Promitor är en Azure Monitor-kassation som gör måtten tillgängliga i system som Atlassian StatusPage, Prometheus och statistik.
+
+Skicka alla mått till Azure Monitor och Använd dem där du behöver dem.
+
+[Läs mer.][promitor-doc]
 
 ## <a name="qradar"></a>QRadar
 
@@ -293,6 +303,7 @@ Turbonomic levererar arbets belastnings automatisering för Hybrid moln genom at
 [newrelic-doc]: https://newrelic.com/azure "NewRelic-dokumentation."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie-dokumentation."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty-dokumentation."
+[promitor-doc]: https://promitor.io/ "Promitor-dokumentation."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar-dokumentation."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic-dokumentation."
 [serverless360-doc]: https://docs.serverless360.com/docs/ "Serverless360-dokumentation."

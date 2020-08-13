@@ -1,7 +1,7 @@
 ---
 title: Översikt över virtuella datorer
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Lär dig mer om CloudSimple Virtual Machines och deras fördelar.
+description: Lär dig mer om CloudSimple Virtual Machines och deras fördelar. Du kan hantera virtuella VMware-datorer från Azure Portal.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f9be035978667287b8b88ec1bb64b3882b0f929
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77024916"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141984"
 ---
 # <a name="cloudsimple-virtual-machines-overview"></a>Översikt över virtuella CloudSimple-datorer
 

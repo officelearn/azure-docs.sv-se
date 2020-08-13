@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3370a2631a81ce36fd994da73c871fb1e409c667
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dd3ede40582e8f2c71c0424df025d06ff7f0f79
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728375"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141609"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
-I Azure Active Directory (Azure AD) kan du skapa komplexa attribut-baserade regler för att aktivera dynamiska medlemskap för grupper. Medlemskap i dynamiska grupper minskar det administrativa arbetet med att lägga till och ta bort användare. I den här artikeln beskrivs egenskaper och syntax för att skapa dynamiska medlemskaps regler för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap för säkerhetsgrupper eller Office 365-grupper.
+I Azure Active Directory (Azure AD) kan du skapa komplexa attribut-baserade regler för att aktivera dynamiska medlemskap för grupper. Medlemskap i dynamiska grupper minskar det administrativa arbetet med att lägga till och ta bort användare. I den här artikeln beskrivs egenskaper och syntax för att skapa dynamiska medlemskaps regler för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap i säkerhets grupper eller Microsft 365-grupper.
 
 När alla attribut för en användare eller enhet ändras, utvärderar systemet alla dynamiska grupp regler i en katalog för att se om ändringen skulle utlösa någon grupp lägger till eller tar bort. Om en användare eller enhet uppfyller en regel i en grupp läggs de till som medlem i gruppen. Om de inte längre uppfyller regeln tas de bort. Du kan inte lägga till eller ta bort en medlem i en dynamisk grupp manuellt.
 
@@ -138,7 +138,7 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Operator | Syntax |
 | --- | --- |
 | Inte lika med |-Ne |
-| Är lika med |-EQ |
+| Lika med |-EQ |
 | Börjar inte med |-notStartsWith |
 | Börjar med |– startsWith |
 | Innehåller inte |-notContains |
@@ -269,7 +269,7 @@ assignedPlans är en egenskap med flera värden som visar alla tjänst planer so
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-En regel kan användas för att gruppera alla användare som en Office 365-funktion (eller annan Microsoft Online-tjänst) är aktive rad för. Du kan sedan använda med en uppsättning principer för gruppen.
+En regel som den här kan användas för att gruppera alla användare som har en Microsoft 365 (eller annan Microsoft Online Service)-kapacitet aktive rad. Du kan sedan använda med en uppsättning principer för gruppen.
 
 #### <a name="example-2"></a>Exempel 2
 

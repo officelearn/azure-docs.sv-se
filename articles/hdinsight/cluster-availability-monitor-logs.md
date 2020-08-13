@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/01/2020
-ms.openlocfilehash: 25bda7ed94eef20e22bcf717780d08a3ea5e6521
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/12/2020
+ms.openlocfilehash: 19e3f1a157ee2c042dfebfc96c9b51c3c4698ebc
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077226"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163738"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Övervaka kluster tillgänglighet med Azure Monitor loggar i HDInsight
 
@@ -30,6 +30,8 @@ Välj **Azure Monitor**på sidan HDInsight-kluster resurs i portalen. Välj seda
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
+Som standard installeras OMS-agenten på alla klusternoder utom för Edge-noder. Eftersom ingen OMS-agent är installerad på klustrets Edge-noder finns det ingen telemetri om Edge-noder som finns i Log Analytics som standard.
+
 ## <a name="query-metrics-and-logs-tables"></a>Fråga mått och logga tabeller
 
 När Azure Monitor logg integrering har Aktiver ATS (det här kan ta några minuter) navigerar du till din **Log Analytics arbets ytans** resurs och väljer **loggar**.
@@ -38,7 +40,7 @@ När Azure Monitor logg integrering har Aktiver ATS (det här kan ta några minu
 
 Loggar visar ett antal exempel frågor, till exempel:
 
-| Frågenamn                      | Beskrivning                                                               |
+| Frågenamn                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Tillgänglighet för datorer idag    | Rita ett diagram över antalet datorer som skickar loggar, varje timme                     |
 | Visa pulsslag                 | Visa en lista över alla dator pulsslag från den senaste timmen                           |
@@ -46,7 +48,7 @@ Loggar visar ett antal exempel frågor, till exempel:
 | Ej tillgängliga datorer           | Visa en lista med alla kända datorer som inte skickade några pulsslag under de senaste 5 timmarna |
 | Tillgänglighets hastighet               | Beräkna tillgänglighets frekvensen för varje ansluten dator                |
 
-Du kan till exempel köra frågan **tillgänglighets frekvens** genom att välja **Kör** på den frågan, som visas i skärm bilden ovan. Då visas tillgänglighets takten för varje nod i klustret i procent. Om du har aktiverat flera HDInsight-kluster för att skicka mått till samma Log Analytics arbets yta, ser du tillgänglighets takten för alla noder i de kluster som visas.
+Du kan till exempel köra frågan **tillgänglighets frekvens** genom att välja **Kör** på den frågan, som visas i skärm bilden ovan. Då visas tillgänglighets takten för varje nod i klustret i procent. Om du har aktiverat flera HDInsight-kluster för att skicka mått till samma Log Analytics arbets yta, ser du tillgänglighets takten för alla noder (exklusive Edge-noder) i de kluster som visas.
 
 ![Exempel fråga för "tillgänglighets hastighet" för Log Analytics arbets ytan](media/cluster-availability-monitor-logs/portal-availability-rate.png)
 

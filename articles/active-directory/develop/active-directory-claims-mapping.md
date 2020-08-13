@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/06/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 8923cb19c24b0e392026dc0f4b8f67c31956894a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115942"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141541"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Beskrivning |
+| Anspråks uppsättning | Description |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -286,7 +286,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Beskrivning |
+| Källa | ID | Description |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -329,7 +329,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
 | Användare | assignedroles | lista över app-roller tilldelade till användare|
 | program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
-| program, resurs, mål grupp | inobjekt | ObjectID |
+| program, resurs, mål grupp | objectID | ObjectID |
 | program, resurs, mål grupp | tags | Tjänstens huvud namns etikett |
 | Företag | tenantcountry | Innehavarens land/region |
 
@@ -361,7 +361,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|E-post eller UPN|extraherad sträng|ExtensionAttributes 1-15 eller andra schema tillägg som lagrar ett UPN-eller e-postadress värde för användaren, t. ex. johndoe@contoso.com . Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
@@ -387,7 +387,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Beskrivning|
+|Källa|ID|Description|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|UPN (User Principal Name)|
@@ -413,7 +413,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
-| ExtractMailPrefix | Inga |
+| ExtractMailPrefix | Inget |
 | Slå ihop | Det suffix som anslöts måste vara en verifierad domän för resurs klienten. |
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel

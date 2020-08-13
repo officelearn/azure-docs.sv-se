@@ -1,6 +1,6 @@
 ---
 title: Lista över uppdateringar som tillämpas på Azures gäst operativ system | Microsoft Docs
-description: Listan över uppdateringar som tillämpas på gäst operativ system versioner
+description: Den här artikeln innehåller en lista över uppdateringar av Microsoft Security Response Center som tillämpas på olika Azure gäst operativ system. Se om en uppdatering gäller för det gäst operativ system som du använder.
 services: cloud-services
 documentationcenter: na
 author: yohaddad
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 8/11/2020
 ms.author: yohaddad
-ms.openlocfilehash: a8755c593f4009d4cacc3d411eb1bc1cb8ddc50d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079166"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142357"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.

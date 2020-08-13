@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b23bed8163ffed6a610eda7677099989e966a646
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298778"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163823"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Självstudie: aktivera autentisering i ett webb program med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att logga in och registrera användare i ett ASP.NET-webbprogram. Med Azure AD B2C kan program autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med hjälp av öppna standardprotokoll.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet i Azure AD B2C
@@ -85,16 +85,16 @@ Följande två projekt finns i exempellösningen:
 * **TaskWebApp** – Skapa och redigera en uppgiftslista. Exemplet använder användar flödet för **registrering eller inloggning** för att registrera dig och logga in användare.
 * **TaskService** – Har stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. API:et skyddas av Azure AD B2C och anropas av TaskWebApp.
 
-Du ändrar exemplet till att använda det program som är registrerat i din klientorganisation, vilket innefattar det program-ID och den nyckel som du tidigare registrerade. Du konfigurerar även de användarflöden som du skapade. Exemplet definierar konfigurations värden som inställningar i filen *Web. config* .
+Du ändrar exemplet till att använda det program som är registrerat i din klientorganisation, vilket innefattar det program-ID och den nyckel som du tidigare registrerade. Du konfigurerar även de användarflöden som du skapade. Exemplet definierar konfigurations värden som inställningar i *Web.config* -filen.
 
-Uppdatera inställningarna i Web. config-filen så att de fungerar med ditt användar flöde:
+Uppdatera inställningarna i Web.config-filen så att de fungerar med ditt användar flöde:
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
 1. I projektet **TaskWebApp** öppnar du **Web.config**-filen.
     1. Uppdatera värdet för `ida:Tenant` och `ida:AadInstance` med namnet på Azure AD B2C klienten som du skapade. Ersätt till exempel `fabrikamb2c` med `contoso` .
     1. Ersätt värdet för `ida:TenantId` med katalog-ID: t, som du hittar i egenskaperna för din Azure B2C-klient (i Azure Portal under **Azure Active Directory**  >  **Egenskaper**  >  **katalog-ID**).
     1. Ersätt värdet för `ida:ClientId` med det program-ID som du har spelat in.
-    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Om klient hemligheten innehåller fördefinierade XML-entiteter, till exempel mindre än ( `<` ), större än ( `>` ), et-tecken ( `&` ) eller dubbelt citat `"` tecken (), måste du undanta dessa tecken genom XML-kodning av klient hemligheten innan du lägger till den i Web. config.
+    1. Ersätt värdet för `ida:ClientSecret` med den nyckel som du registrerade. Om klient hemligheten innehåller fördefinierade XML-entiteter, till exempel mindre än ( `<` ), större än ( `>` ), et-tecken ( `&` ) eller dubbelt citat `"` tecken (), måste du undanta dessa tecken genom XML-kodning av klient hemligheten innan du lägger till den i Web.config.
     1. Ersätt värdet för `ida:SignUpSignInPolicyId` med `b2c_1_signupsignin1` .
     1. Ersätt värdet för `ida:EditProfilePolicyId` med `b2c_1_profileediting1` .
     1. Ersätt värdet för `ida:ResetPasswordPolicyId` med `b2c_1_passwordreset1` .

@@ -3,12 +3,12 @@ title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
 ms.date: 06/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 70810ca54c62e73d5dec76495eb5179b84db60fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fc6d66a31ed46766bbe664fd8656792c97ff69fd
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105276"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163245"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
@@ -17,6 +17,9 @@ Som tjänst leverantör kan du ha registrerat flera kund klienter i [Azure-Light
 Azure Sentinel levererar säkerhets analys och hot information, som tillhandahåller en enda lösning för aviserings identifiering, Hot synlighet, proaktiv jakt och hot svar. Med Azure Lighthouse kan du hantera flera Azure Sentinel-arbetsytor mellan klienter i stor skala. Detta möjliggör scenarier som att köra frågor över flera arbets ytor eller skapa arbets böcker för att visualisera och övervaka data från dina anslutna data källor för att få insikter. IP-adresser, till exempel frågor och spel böcker finns kvar i din hanterings klient, men kan användas för att utföra säkerhets hantering i kundens klient organisation.
 
 Det här avsnittet innehåller en översikt över hur du använder [Azure Sentinel](../../sentinel/overview.md) på ett skalbart sätt för synlighet och hanterade säkerhets tjänster mellan klienter.
+
+> [!TIP]
+> Även om vi refererar till tjänst leverantörer och kunder i det här avsnittet gäller den här vägledningen även för [företag som använder Azure-Lighthouse för att hantera flera klienter](../concepts/enterprise.md).
 
 ## <a name="architectural-considerations"></a>Arkitektur överväganden
 

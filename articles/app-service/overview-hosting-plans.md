@@ -4,18 +4,18 @@ description: Lär dig hur App Service planer fungerar i Azure App Service, hur d
 keywords: App Service, Azure App Service, skalning, skalbarhet, skalbarhet, App Service-plan, App Service-kostnad
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93f823a623145f8dd8bf5118de973dfbc095bfb4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068197"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141592"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
-I App Service körs en app i en _App Service-plan_. En App Service-plan definierar en uppsättning beräkningsresurser som en webbapp ska köra. Dessa beräknings resurser är likvärdiga med [_Server gruppen_](https://wikipedia.org/wiki/Server_farm) i konventionella webb värdar. En eller flera appar kan konfigureras för att köras på samma dator resurser (eller i samma App Service plan).
+I App Service (Web Apps, API Apps eller Mobile Apps) körs en app alltid i en _App Service plan_. Dessutom har [Azure Functions](../azure-functions/functions-scale.md#app-service-plan) också möjlighet att köra i en _App Service plan_. En App Service-plan definierar en uppsättning beräkningsresurser som en webbapp ska köra. Dessa beräknings resurser är likvärdiga med [_Server gruppen_](https://wikipedia.org/wiki/Server_farm) i konventionella webb värdar. En eller flera appar kan konfigureras för att köras på samma dator resurser (eller i samma App Service plan).
 
 När du skapar en App Service plan i en viss region (till exempel Västeuropa) skapas en uppsättning beräknings resurser för den planen i den regionen. De appar du infogar i den här App Service plan köra på de här beräknings resurserna som definieras av din App Service plan. Varje App Service-plan definierar:
 

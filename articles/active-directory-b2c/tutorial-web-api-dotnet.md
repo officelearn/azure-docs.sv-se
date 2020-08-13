@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 10/14/2019
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 280a59d8c378de6b3667560a4eb2b1cf95041f8d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: bfa8943af16fe62015a4736f561875235e205fc1
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298813"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163891"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du anropar en skyddad webb-API-resurs i Azure Active Directory B2C (Azure AD B2C) från ett ASP.NET-webbprogram.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -94,7 +94,7 @@ Exempellösningen innehåller två projekt:
 ### <a name="configure-the-web-application"></a>Konfigurera webbappen
 
 1. Öppna **B2C-WebAPI-DotNet**-lösningen i Visual Studio.
-1. Öppna **Web. config**i **TaskWebApp** -projektet.
+1. Öppna **Web.config**i projektet **TaskWebApp** .
 1. Kör API:et lokalt genom att använda inställningen för lokala värden för **api:TaskServiceUrl**. Ändra Web.config enligt följande:
 
     ```csharp
@@ -111,7 +111,7 @@ Exempellösningen innehåller två projekt:
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna **Web. config**i **TaskService** -projektet.
+1. Öppna **Web.config**i projektet **TaskService** .
 1. Ställ in API:t så det använder din klientorganisation.
 
     ```csharp

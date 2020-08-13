@@ -8,12 +8,13 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 6f68fede0257086cc3a23fe6f7a0a3cc9466ad1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233196"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88163687"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Distribuera till Azure Functions med DevOps starter
 
@@ -46,7 +47,7 @@ För närvarande är de körningar som stöds för functions **.net** och **Node
 
 DevOps starter skapar en CI/CD-pipeline i Azure-pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar också Azure-resurser, till exempel en IoTHub, i den Azure-prenumeration du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)
+1. Logga in på [Azure-portalen](https://portal.azure.com)
 
 1. I rutan Sök skriver du **DevOps starter**och väljer sedan. Klicka på **Lägg till** för att skapa en ny.
 
@@ -94,7 +95,7 @@ DevOps starter konfigurerar automatiskt en CI/CD-pipeline i Azure DevOps-organis
 
 1. Klicka på hyperlänken under **bygge**. En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
-    ![Utveckla](_img/azure-devops-project-functions/build.png)
+    ![Skapa](_img/azure-devops-project-functions/build.png)
 
 1. Välj **Redigera**. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen. Versionen utför olika uppgifter, till exempel hämtning av källkod från git-lagrings platsen, skapande av program, körning av enhets test och publicering av utdata som används för distributioner.
 

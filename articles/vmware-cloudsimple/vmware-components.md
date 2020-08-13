@@ -1,7 +1,7 @@
 ---
 title: VMware-komponenter för privata moln
 titleSuffix: Azure VMware Solution by CloudSimple
-description: Beskriver hur VMware-komponenter installeras i ett privat moln
+description: Lär dig hur CloudSimple-tjänsten tillåter att du distribuerar VMware internt på Azure-platser. Privata moln är integrerade med resten av Azure-molnet.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/15/2019
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9c9b80cd4d8a7a7ac5597d10bbb87095564bd461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ff9aec1904be754990958869666e9d67038e4fb3
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702830"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142510"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
 
@@ -33,7 +33,7 @@ En VMware-stack för privata moln distribueras med följande program varu versio
 |-----------|---------|------------------|
 | ESXi | 6.7 U2 | Enterprise plus |
 | vCenter | 6.7 U2 | vCenter standard |
-| Virtuellt San | 6.7 | Enterprise |
+| Virtuellt San | 6.7 | Stora företag |
 | NSX Data Center | 2.4.1 | Avancerat |
 
 ## <a name="esxi"></a>ESXi

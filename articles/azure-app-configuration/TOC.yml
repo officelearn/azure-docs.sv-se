@@ -109,6 +109,8 @@
       href: howto-labels-aspnet-core.md
     - name: Importera eller exportera konfigurationsdata
       href: howto-import-export-data.md
+    - name: Använda innehållstypen JSON för nyckelvärden
+      href: howto-leverage-json-content-type.md
     - name: Dirigera händelser till en anpassad slutpunkt
       href: howto-app-configuration-event.md
     - name: Lagra konfiguration för säkerhetskopiering automatiskt

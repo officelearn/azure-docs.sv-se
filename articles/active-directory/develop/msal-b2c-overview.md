@@ -32,7 +32,7 @@ Följande avsnitt visar hur du:
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 

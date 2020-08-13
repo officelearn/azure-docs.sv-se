@@ -23,7 +23,7 @@ ms.locfileid: "88115245"
 
 I den här snabb starten använder du ett kod exempel för att lära dig hur ett särskilt SPA-program (Single-Side Application) kan logga in användare som har personliga Microsoft-konton, arbets konton eller skol konton. En vinkel-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.js](https://nodejs.org/en/download/).

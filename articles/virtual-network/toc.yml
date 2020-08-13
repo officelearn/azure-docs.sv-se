@@ -12,6 +12,8 @@
       href: quick-create-powershell.md
     - name: Skapa virtuellt nätverk – Azure CLI
       href: quick-create-cli.md
+    - name: Skapa virtuellt nätverk – ARM-mall
+      href: quick-create-template.md
   expanded: true
 - name: Självstudier
   items:

@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: Om ditt program
               href: howto-get-app-info.md
+            - name: Distribuera X.509-certifikat
+              href: how-to-roll-x509-certificates.md
         - name: Hantera från andra platser
           items:
             - name: Hantera från Azure-portalen

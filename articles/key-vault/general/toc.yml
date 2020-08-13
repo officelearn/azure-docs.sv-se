@@ -90,6 +90,8 @@
           href: managed-identity.md
         - name: Använda en princip för åtkomstkontroll
           href: group-permissions-for-apps.md
+        - name: Felsöka åtkomstproblem
+          href: troubleshooting-access-issues.md
     - name: Utveckla
       items:
         - name: Utvecklarguide för Azure Key Vault

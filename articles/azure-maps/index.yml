@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation för Azure Maps
-summary: Microsoft Azure Maps ger utvecklare från alla branscher med kraftfulla geospatiala funktioner. De geospatiala funktionerna är fullpackade med de senaste mappningsdata. Azure Maps finns tillgängligt för både webbprogram och mobila program. Azure Maps är en Azure One-API-kompatibel uppsättning av REST-API:er. Följande är endast en övergripande översikt över de tjänster som Azure Maps erbjuder – kartor, sökning, routning, trafik, mobilitet, väder, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder. Webb- och Android-SDK:erna gör utveckling över flera medier enkel, flexibel och portabel.
+summary: Microsoft Azure Maps ger utvecklare från alla branscher med kraftfulla geospatiala funktioner. De geospatiala funktionerna är fullpackade med de senaste mappningsdata. Azure Maps finns tillgängligt för både webbprogram och mobila program. Azure Maps är en Azure One-API-kompatibel uppsättning av REST-API:er. Följande är endast en övergripande översikt över de tjänster som Azure Maps erbjuder – kartor, sökning, routning, trafik, mobilitet, väder, tidszoner, geoplatser, geoavgränsning, kartdata, skapare och rumsliga åtgärder. Webb- och Android-SDK:erna gör utveckling över flera medier enkel, flexibel och portabel.
 metadata:
   title: Dokumentation för Azure Maps | Microsoft Docs
   description: Ta reda på mer om Azure Maps och hur du använder det för att tillhandahålla rumsliga tjänster till webben eller din mobilapp.
@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 0760dce9e64560c8ecb593f41b2d611bd059a639
-  ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+  ms.openlocfilehash: 4e95d7d9afb77dcf8e168a04c9e0f4fc3b266807
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87461756"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88121654"
 landingContent:
 - title: Om Azure Maps
   linkLists:

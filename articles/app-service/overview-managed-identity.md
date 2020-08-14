@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-python
-ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850278"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211886"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -137,7 +137,7 @@ En resurs av typen `Microsoft.Web/sites` kan skapas med en identitet genom att i
 ```
 
 > [!NOTE]
-> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara`SystemAssigned,UserAssigned`
+> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara `SystemAssigned,UserAssigned`
 
 Genom att lägga till den systemtilldelade typen kan Azure Skapa och hantera identiteten för ditt program.
 
@@ -253,7 +253,7 @@ En resurs av typen `Microsoft.Web/sites` kan skapas med en identitet genom att i
 ```
 
 > [!NOTE]
-> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara`SystemAssigned,UserAssigned`
+> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara `SystemAssigned,UserAssigned`
 
 Genom att lägga till en användardefinierad typ anger Azure att använda den användar tilldelnings identitet som angetts för ditt program.
 
@@ -330,7 +330,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare (om du inte använder Linux-förbrukning, som för närvarande bara erbjuder "2017-09-01", se kommentaren ovan).                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Sidhuvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
 > | client_id         | Söka i data  | Valfritt Klient-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `mi_res_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                             |
-> | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id`är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten. |
+> | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id` är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten. |
 > | mi_res_id         | Söka i data  | Valfritt Azure-resurs-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `client_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                      |
 
 > [!IMPORTANT]

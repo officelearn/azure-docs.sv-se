@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7738582ec2839a6fddaa01ff0f9921c276c9748d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 262a6612c50148232e814befc76707989befb18b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843121"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212132"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Service Bus utlösare för Azure Functions
 
@@ -299,7 +299,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**subscriptionName**|**SubscriptionName**|Namnet på den prenumeration som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel anger `connection` "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard Service Bus anslutnings strängen i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne. |
 |**accessRights**|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen` . Standardvärdet är `manage` , vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
-|**isSessionsEnabled**|**IsSessionsEnabled**|`true`Om du ansluter till en session som är [medveten](../service-bus-messaging/message-sessions.md) om en kö eller prenumeration. `false`Annars, vilket är standardvärdet.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` Om du ansluter till en session som är [medveten](../service-bus-messaging/message-sessions.md) om en kö eller prenumeration. `false` Annars, vilket är standardvärdet.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -309,11 +309,11 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 Följande parameter typer är tillgängliga för kön eller ämnes meddelandet:
 
-* `string`– Om meddelandet är text.
-* `byte[]`– Användbart för binära data.
+* `string` – Om meddelandet är text.
+* `byte[]` – Användbart för binära data.
 * En anpassad typ – om meddelandet innehåller JSON Azure Functions försöker deserialisera JSON-data.
-* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet)– Används för att ta emot och bekräfta meddelanden från meddelande behållaren (krävs när [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) har angetts till `false` )
+* `BrokeredMessage` – Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) – Används för att ta emot och bekräfta meddelanden från meddelande behållaren (krävs när [`autoComplete`](functions-bindings-service-bus-output.md#hostjson-settings) har angetts till `false` )
 
 Dessa parameter typer är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage` .
 
@@ -321,10 +321,10 @@ Dessa parameter typer är för Azure Functions version 1. x. för 2. x och högr
 
 Följande parameter typer är tillgängliga för kön eller ämnes meddelandet:
 
-* `string`– Om meddelandet är text.
-* `byte[]`– Användbart för binära data.
+* `string` – Om meddelandet är text.
+* `byte[]` – Användbart för binära data.
 * En anpassad typ – om meddelandet innehåller JSON Azure Functions försöker deserialisera JSON-data.
-* `BrokeredMessage`– Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
+* `BrokeredMessage` – Ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody \<T> ()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Dessa parametrar är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage` .
 

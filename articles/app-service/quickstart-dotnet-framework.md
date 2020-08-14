@@ -4,13 +4,13 @@ description: Lär dig hur du kör webbappar i Azure App Service genom att distri
 ms.assetid: 04a1becf-7756-4d4e-92d8-d9471c263d23
 ms.topic: quickstart
 ms.date: 08/06/2020
-ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: 55b8dabfb2f5b3deff8b8435f0121a41333fb655
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, mvc, devcenter, seodec18
+ms.openlocfilehash: 5bf774f2b5cf4a6275dc04248aadfd9a94f5122d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085228"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212551"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Skapa en ASP.NET Framework-webbapp i Azure
 
@@ -20,7 +20,7 @@ Den här snabbstarten visar hur du distribuerar din första ASP.NET-webbapp till
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien installerar du <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> med arbets belastningen **ASP.net och webb utveckling** .
 
@@ -29,7 +29,7 @@ Om du redan har installerat Visual Studio 2019:
 - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
 - Lägg till arbets belastningen genom att välja **verktyg**  >  **Hämta verktyg och funktioner**.
 
-## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp<a name="create-and-publish-the-web-app"></a>
+## <a name="create-an-aspnet-web-app"></a>Skapa en ASP.NET-webbapp <a name="create-and-publish-the-web-app"></a>
 
 Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
@@ -51,7 +51,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
    ![Kör appen lokalt](./media/quickstart-dotnet-framework/local-web-app.png)
 
-## <a name="publish-your-web-app"></a>Publicera din webbapp<a name="launch-the-publish-wizard"></a>
+## <a name="publish-your-web-app"></a>Publicera din webbapp <a name="launch-the-publish-wizard"></a>
 
 1. I **Solution Explorer**högerklickar du på projektet **MyFirstAzureWebApp** och väljer **publicera**.
 
@@ -84,7 +84,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
    |-|-|-|
    | Värdplan| myAppServicePlan | Namnet på App Service-planen. |
    | Plats | Europa, västra | Datacenter som är värd för webbappen. |
-   | Storlek | Kostnadsfri | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
+   | Storlek | Ingenting | [Prisnivån](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avgör tillgängliga värdfunktioner. |
 
    ![Skapa apptjänstplan](./media/quickstart-dotnet-framework/app-service-plan-framework-vs2019.png)
 

@@ -4,14 +4,15 @@ description: Aktivera och inaktivera funktioner med Azure App konfiguration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
+ms.custom: devx-track-dotnet
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 8227810c154078fc8424b2cadd373394d07e9730
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77f0063b37adbfaecaff68387e858d0077561b3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523738"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212660"
 ---
 # <a name="feature-management-overview"></a>Översikt över funktions hantering
 

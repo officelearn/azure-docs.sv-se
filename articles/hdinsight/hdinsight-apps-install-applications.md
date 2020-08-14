@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: f9eb573573ef70c8e5336ea6cca5f247e9ec0041
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: fd0d425f00e001071f5c9021068ca2f038371a36
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086525"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212834"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera Apache Hadoop program från tredje part i Azure HDInsight
 
@@ -23,7 +23,7 @@ An-HDInsight program är ett program som användare kan installera i ett HDInsig
 
 I följande lista visas de publicerade programmen:
 
-|Program |Kluster typ (er) | Description |
+|Program |Kluster typ (er) | Beskrivning |
 |---|---|---|
 |[AtScale intelligence-plattform](https://azuremarketplace.microsoft.com/marketplace/apps/atscaleinc.atscale) |Hadoop |AtScale vänder ditt HDInsight-kluster till en skalbar OLAP-server, så att du kan fråga miljarder rader med data interaktivt med de BI-verktyg som du redan känner till, äger och gillar – från Microsoft Excel, Power BI, Tableau-programvara till QlikView. |
 |[CDAP för HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/cask.cdap-for-hdinsight) |HBase |CDAP är den första enhetliga integrerings plattformen för Big data som påskyndar tiden till värde för Hadoop och gör det möjligt att tillhandahålla självbetjänings data. Öppen källkod och utöknings bar CDAP tar bort hinder för innovation. Krav: 4 regionfiler, min D3 v2. |
@@ -34,16 +34,16 @@ I följande lista visas de publicerade programmen:
 |[Striims för data integrering i real tid till HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/striim.striimbyol) |Hadoop, HBase, Storm, Spark, Kafka |Striims (uttalad "Stream") är en slut punkt till slut punkts data integrering + informations plattform, vilket möjliggör kontinuerlig inmatning, bearbetning och analys av olika data strömmar. |
 |[Jumbune Enterprise – Acceleratoring BigData Analytics](https://azuremarketplace.microsoft.com/marketplace/apps/impetus-infotech-india-pvt-ltd.impetus_jumbune) |Hadoop, Spark |På en hög nivå hjälper Jumbune företag av, 1. Accelerera tez, MapReduce & Spark Engine-baserad Hive, Java, Scala arbets belastnings prestanda. 2. Proaktiv övervakning av Hadoop-kluster, 3. Upprätta data kvalitets hantering på distribuerat fil system. |
 |[Kyligence Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence) |Hadoop, HBase, Spark |Kyligence Enterprise drivs av Apache Kylin och gör det möjligt för BI på Big data. Som en Enterprise OLAP-motor på Hadoop ger Kyligence Enterprise en affärsanalytiker som konstruerar BI på Hadoop med data lager och BI-metodik som bransch standard. |
-|[Stjärn explosion Presto för Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburst.starburst-presto) |Hadoop |Presto är en snabb och skalbar distribuerad SQL-frågemotor. Presto är perfekt för att kunna fråga data i Azure Data Lake Storage, Azure Blob Storage-, SQL-och NoSQL-databaser och andra data källor. |
+|[Stjärn explosion Presto för Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop |Presto är en snabb och skalbar distribuerad SQL-frågemotor. Presto är perfekt för att kunna fråga data i Azure Data Lake Storage, Azure Blob Storage-, SQL-och NoSQL-databaser och andra data källor. |
 |[StreamSets data insamlare för HDInsight-moln](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop, HBase, Spark, Kafka |StreamSets data Collector är en lätt, kraftfull motor som strömmar data i real tid. Använd data insamlaren för att dirigera och bearbeta data i dina data strömmar. Den levereras med en 30-dagars utvärderings licens. |
-|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise för HDInsight stöder data datatransformering i hela företaget för alla data skalor. Kostnaden för att köra Trifacta på Azure är en kombination av Trifacta prenumerations kostnader plus Azures infrastruktur kostnader för de virtuella datorerna. |
+|[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark, HBase |Trifacta Wrangler Enterprise för HDInsight stöder data datatransformering i hela företaget för alla data skalor. Kostnaden för att köra Trifacta på Azure är en kombination av Trifacta prenumerations kostnader plus Azures infrastruktur kostnader för de virtuella datorerna. |
 |[Förenar data plattform](https://unifisoftware.com/platform/) |Hadoop, HBase, Storm, Spark |Den smidiga data plattformen är ett sömlöst integrerat utbud av självbetjänings data verktyg som är utformade för att ge affärs användaren möjlighet att ta itu med data utmaningar som ökar intäkterna, minska kostnaderna eller drifts komplexiteten. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |Unravel data app för HDInsight Spark-kluster. |
 |[Vatten linje AI-driven Data Catalog](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Vatten linje kataloger, ordnar och styr data med hjälp av AI för att automatiskt tagga data med affärs villkor. Den översta kostnads fria katalogen är en viktig komponent för självbetjänings analys, efterlevnad och styrning och IT-hanterings initiativ. |
 
 I artikelns instruktioner används Azure-portalen. Du kan också exportera Azure Resource Manager-mallen från portalen eller skaffa en kopia av Resource Manager-mallen från leverantörer och använda Azure PowerShell och den klassiska Azure-CLI för att distribuera mallen.  Se [skapa Apache Hadoop kluster i HDInsight med Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill installera HDInsight-program i ett befintligt HDInsight-kluster måste du ha ett HDInsight-kluster. Om du vill skapa ett läser du [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md). Du kan även installera HDInsight-program när du skapar ett HDInsight-kluster.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installera program i befintliga kluster
@@ -89,7 +89,7 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
     |Status |Program status. |
     |Historik |URL: en för det webb program som du har distribuerat till Edge-noden. Autentiseringsuppgifterna är samma som HTTP-autentiseringsuppgifterna som du har konfigurerat för klustret. |
     |SSH-slutpunkt |Du kan använda SSH för att ansluta till Edge-noden. SSH-autentiseringsuppgifterna är samma som SSH-autentiseringsuppgifterna som du har konfigurerat för klustret. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight). |
-    |Description | Programbeskrivning. |
+    |Beskrivning | Programbeskrivning. |
 
 6. Om du vill ta bort ett program högerklickar du på programmet och klickar sedan på **ta bort** på snabb menyn.
 

@@ -9,17 +9,18 @@ editor: ''
 ms.assetid: 772bc8dd-5cda-41c4-95bf-b9f6f052bc85
 ms.service: api-management
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: a366cf6d4e17e83fd89ae21631ad5b40e8971c1b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: cf9901b4e49460dd2fb91dceaf239571058c5284
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903450"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213318"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Custom caching in Azure API Management (Anpassad cachelagring i Azure API Management)
 Azure API Management-tjänsten har inbyggt stöd för [cachelagring av HTTP-svar](api-management-howto-cache.md) med hjälp av resurs-URL som nyckel. Nyckeln kan ändras av begärandehuvuden med hjälp av `vary-by` egenskaperna. Detta är användbart för cachelagring av hela HTTP-svar (kallas även för representationer), men ibland är det praktiskt att bara cachelagra en del av en representation. De nya principerna [cache-lookup-Value](./api-management-caching-policies.md#GetFromCacheByKey) och [cache-Store-Value](./api-management-caching-policies.md#StoreToCacheByKey) ger möjlighet att lagra och hämta godtyckliga data typer från princip definitioner. Den här möjligheten lägger också till värde till den tidigare skapade principen för att [Skicka begär Anden](./api-management-advanced-policies.md#SendRequest) eftersom du nu kan cachelagra svar från externa tjänster.

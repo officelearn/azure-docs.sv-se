@@ -1,7 +1,7 @@
 ---
 title: Uppgradera till v 3.0 av API för visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du uppgraderar från v 2.0 och v 2.1 till v 3.0 i API för visuellt innehåll.
+description: Lär dig hur du uppgraderar till Visuellt innehåll v 3.0 Read API från v 2.0/v 2.1.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16add0dce88d0f809dc291d3c9de33e1a853f257
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 6e695fcfacac19ca82273d84d049bdb2afe14b54
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136507"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214184"
 ---
-# <a name="upgrade-to-v30-of-computer-vision-api-from-v20-and-v21"></a>Uppgradera till v 3.0 API för visuellt innehåll från v 2.0 och v 2.1
+# <a name="upgrade-to-computer-vision-v30-read-api-from-v20v21"></a>Uppgradera till Visuellt innehåll v 3.0 Read API från v 2.0/v 2.1
 
-Den här guiden visar hur du ändrar din befintliga kod för att migrera från v 2.0 eller v 2.1 för API för visuellt innehåll till v 3.0 för användare av REST API. 
+Den här guiden visar hur du uppgraderar din befintliga Visuellt innehåll v 2.0-eller v 2.1 REST API kod till v 3.0 Läs åtgärder. 
 
-## <a name="upgrade-batch-read-file-to-read"></a>Uppgradera `Batch Read File` till`Read`
+## <a name="upgrade-batch-read-file-to-read"></a>Uppgradera `Batch Read File` till `Read`
 
 
 1. Ändra API-sökvägen för `Batch Read File` 2. x enligt följande:
@@ -57,7 +57,7 @@ Den här guiden visar hur du ändrar din befintliga kod för att migrera från v
     - Om du vill hämta roten för sid mat ris ändrar du JSON-hierarkin från `"recognitionResults"` till `"analyzeResult"` / `"readResults"` . Rad-och ord-JSON-hierarkin är oförändrade, så inga kod ändringar krävs.
     -   Sid vinkeln `"clockwiseOrientation"` har bytt namn till `"angle"` och intervallet har ändrats från 0-360 grader till-180 till 180 grader. Beroende på din kod kan det hända att du inte behöver göra några ändringar eftersom de flesta matematik funktioner kan hantera båda områdena.
     -   V 3.0-API: et introducerar även följande förbättringar som du kan välja mellan:- `"createdDateTime"` och `"lastUpdatedDateTime"` läggs till så att du kan spåra bearbetningens längd. Mer information finns i dokumentationen. 
-        - `"version"`visar vilken version av API som används för att generera resultat
+        - `"version"` visar vilken version av API som används för att generera resultat
         - Ett per ord `"confidence"` har lagts till. Det här värdet är kalibrerat så att ett värde 0,95 innebär att det finns en chans på 95% som igenkänningen är korrekt. Förtroende poängen kan användas för att välja vilken text som ska skickas till mänsklig granskning. 
     
     
@@ -158,8 +158,8 @@ Den här guiden visar hur du ändrar din befintliga kod för att migrera från v
     }
     ```
 
-## <a name="upgrade-from-recognize-text-to-read"></a>Uppgradera från `Recognize Text` till`Read`
-`Recognize Text`är en *förhands gransknings* åtgärd som är *föråldrad i alla versioner av API för visuellt innehåll*. Du måste migrera från `Recognize Text` till `Read` (v 3.0) eller `Batch Read File` (v 2.0, v 2.1). v 3.0 av `Read` innehåller nyare, bättre modeller för text igenkänning och ytterligare funktioner, så det rekommenderas. Så här uppgraderar du från `Recognize Text` till `Read` :
+## <a name="upgrade-from-recognize-text-to-read"></a>Uppgradera från `Recognize Text` till `Read`
+`Recognize Text` är en *förhands gransknings* åtgärd som är *föråldrad i alla versioner av API för visuellt innehåll*. Du måste migrera från `Recognize Text` till `Read` (v 3.0) eller `Batch Read File` (v 2.0, v 2.1). v 3.0 av `Read` innehåller nyare, bättre modeller för text igenkänning och ytterligare funktioner, så det rekommenderas. Så här uppgraderar du från `Recognize Text` till `Read` :
 
 1. Ändra API-sökvägen för `Recognize Text` v2. x enligt följande:
 
@@ -195,12 +195,12 @@ Den här guiden visar hur du ändrar din befintliga kod för att migrera från v
     - I v2. x `"Get Read Operation Result"` returneras JSON för OCR-igenkänning när statusen är `"Succeeded"` . I v 3.0 är det här fältet `"succeeded"` .
     - Om du vill hämta roten för sid mat ris ändrar du JSON-hierarkin från `"recognitionResult"` till `"analyzeResult"` / `"readResults"` . Rad-och ord-JSON-hierarkin är oförändrade, så inga kod ändringar krävs.
     -   API: et för v 3.0 introducerar även följande förbättringar som du kan använda. Mer information finns i API-referensen:- `"createdDateTime"` och `"lastUpdatedDateTime"` läggs till så att du kan spåra bearbetningens längd. Mer information finns i dokumentationen. 
-        - `"version"`visar vilken version av API som används för att generera resultat
+        - `"version"` visar vilken version av API som används för att generera resultat
         - Ett per ord `"confidence"` har lagts till. Det här värdet är kalibrerat så att ett värde 0,95 innebär att det finns en chans på 95% som igenkänningen är korrekt. Förtroende poängen kan användas för att välja vilken text som ska skickas till mänsklig granskning. 
-        - `"angle"`den allmänna orienteringen för texten i medsols riktning, mätt i grader mellan (-180, 180].
-        -  `"width"`och ger `"height"` dig måtten för ditt dokument och `"unit"` tillhandahåller mått enheten (pixlar eller tum, beroende på dokument typ).
-        - `"page"`flersidiga dokument stöds
-        - `"language"`det inmatade språket för dokumentet (från den valfria _språk_ parametern.)
+        - `"angle"` den allmänna orienteringen för texten i medsols riktning, mätt i grader mellan (-180, 180].
+        -  `"width"` och ger `"height"` dig måtten för ditt dokument och `"unit"` tillhandahåller mått enheten (pixlar eller tum, beroende på dokument typ).
+        - `"page"` flersidiga dokument stöds
+        - `"language"` det inmatade språket för dokumentet (från den valfria _språk_ parametern.)
 
 
     I 2. X är utdataformatet följande: 

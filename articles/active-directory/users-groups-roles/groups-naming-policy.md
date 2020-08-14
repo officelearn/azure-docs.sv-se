@@ -1,6 +1,6 @@
 ---
 title: Använd grupp namngivnings princip i Azure Active Directory | Microsoft Docs
-description: Så här konfigurerar du namngivnings princip för Office 365-grupper i Azure Active Directory
+description: Så här konfigurerar du namngivnings princip för Microsoft 365 grupper i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,28 +9,28 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 08/13/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380962b71d6829b8a217a5d3038e2ae4dd7264fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497094"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213752"
 ---
-# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Office 365-grupper i Azure Active Directory
+# <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Microsoft 365 grupper i Azure Active Directory
 
-Om du vill använda konsekventa namngivnings konventioner för Office 365-grupper som skapats eller redigerats av dina användare skapar du en grupp namngivnings princip för dina organisationer i Azure Active Directory (Azure AD). Du kan till exempel använda namngivnings principen för att kommunicera funktionen i en grupp, medlemskap, geografisk region eller vem som skapade gruppen. Du kan också använda namngivnings principen för att hjälpa att kategorisera grupper i adress boken. Du kan använda principen för att blockera vissa ord från att användas i grupp namn och alias.
+Om du vill använda konsekventa namngivnings konventioner för Microsoft 365 grupper som skapats eller redigerats av dina användare skapar du en grupp namngivnings princip för dina organisationer i Azure Active Directory (Azure AD). Du kan till exempel använda namngivnings principen för att kommunicera funktionen i en grupp, medlemskap, geografisk region eller vem som skapade gruppen. Du kan också använda namngivnings principen för att hjälpa att kategorisera grupper i adress boken. Du kan använda principen för att blockera vissa ord från att användas i grupp namn och alias.
 
 > [!IMPORTANT]
-> Med hjälp av Azure AD Naming-principen för Office 365-grupper måste du ha men inte nödvändigt vis tilldela en licens för Azure Active Directory Premium P1 eller Azure AD Basic EDU-licens för varje unik användare som är medlem i en eller flera Office 365-grupper.
+> Genom att använda namngivnings principen i Azure AD för Microsoft 365 grupper måste du ha men inte nödvändigt vis tilldela en Azure Active Directory Premium P1-licens eller Azure AD Basic EDU-licens för varje unik användare som är medlem i en eller flera Microsoft 365 grupper.
 
 Namngivnings principen används för att skapa eller redigera grupper som skapats mellan arbets belastningar (till exempel Outlook, Microsoft Teams, SharePoint, Exchange eller Planner). Den används både för grupp namn och grupp-alias. Om du konfigurerar din namngivnings princip i Azure AD och du har en befintlig Exchange-grupp namngivnings princip tillämpas Azure AD-namngivnings principen i din organisation.
 
-När en grupp namngivnings princip har kon figurer ATS, kommer principen att tillämpas på nya Office 365-grupper som skapats av slutanvändare. Namngivnings principen gäller inte för vissa katalog roller, t. ex. global administratör eller användar administratör (se nedan för en fullständig lista över roller som undantas från grupp namngivnings princip). För befintliga Office 365-grupper kommer principen inte att gälla omedelbart vid tidpunkten för konfigurationen. När grupp ägaren redigerar grupp namnet för dessa grupper kommer namngivnings principen att tillämpas.
+När en grupp namngivnings princip har kon figurer ATS tillämpas principen på nya Microsoft 365 grupper som skapats av slutanvändare. Namngivnings principen gäller inte för vissa katalog roller, t. ex. global administratör eller användar administratör (se nedan för en fullständig lista över roller som undantas från grupp namngivnings princip). För befintliga Microsoft 365s grupper tillämpas principen inte omedelbart vid tidpunkten för konfigurationen. När grupp ägaren redigerar grupp namnet för dessa grupper kommer namngivnings principen att tillämpas.
 
 ## <a name="naming-policy-features"></a>Funktioner i namngivnings princip
 
@@ -253,7 +253,7 @@ Outlook-kund Manager (OCM) | Outlook kund Manager är kompatibel med namngivning
 Klass rums app | Grupper som skapats i klass rums appen följer namngivnings principen, men namngivnings principen tillämpas inte automatiskt, och för hands versionen av namngivnings principen visas inte för användarna när du anger ett grupp namn i klass rummet. Användarna måste ange namnet på den tvingade klass rummets grupp med prefix och suffix. Annars Miss lyckas klass rums gruppen Skapa eller redigera med fel.
 Power BI | Power BI-arbetsytor är kompatibla med namngivnings principen.    
 Yammer | När en användare som är inloggad på Yammer med sitt Azure Active Directory konto skapar en grupp eller redigerar ett grupp namn, kommer grupp namnet att följa namngivnings principen. Detta gäller både för Office 365-anslutna grupper och alla andra Yammer-grupper.<br>Om en Office 365-ansluten grupp skapades innan namngivnings principen är på plats, kommer grupp namnet inte automatiskt att följa namngivnings principerna. När en användare redigerar grupp namnet kommer de att uppmanas att lägga till prefixet och suffixet.
-StaffHub  | StaffHub-team följer inte namngivnings principen, men den underliggande Office 365-gruppen gör det. StaffHub-teamets namn tillämpar inte prefix och suffix och söker inte efter anpassade blockerade ord. Men StaffHub tillämpar prefixen och suffixen och tar bort blockerade ord från den underliggande Office 365-gruppen.
+StaffHub  | StaffHub-team följer inte namngivnings principen, men den underliggande Microsoft 365s gruppen gör. StaffHub-teamets namn tillämpar inte prefix och suffix och söker inte efter anpassade blockerade ord. Men StaffHub tillämpar prefixen och suffixen och tar bort blockerade ord från den underliggande Microsoft 365s gruppen.
 Exchange PowerShell | Exchange PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings principen i grupp namn och grupp Ali Aset (smek namn).
 Azure Active Directory PowerShell-cmdletar | Azure Active Directory PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och gruppalias.
 Administrations Center för Exchange | Exchange administrations Center är kompatibelt med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och alias.
@@ -264,7 +264,7 @@ Administrationscenter för Microsoft 365 | Microsoft 365 administrations Center 
 De här artiklarna innehåller ytterligare information om Azure AD-grupper.
 
 - [Se befintliga grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Princip för förfallo princip för Office 365-grupper](groups-lifecycle.md)
+- [Princip för förfallo datum för Microsoft 365 grupper](groups-lifecycle.md)
 - [Hantera inställningar för en grupp](../fundamentals/active-directory-groups-settings-azure-portal.md)
 - [Hantera medlemmar i en grupp](../fundamentals/active-directory-groups-members-azure-portal.md)
 - [Hantera medlemskap i en grupp](../fundamentals/active-directory-groups-membership-azure-portal.md)

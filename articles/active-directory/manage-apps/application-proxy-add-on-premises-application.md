@@ -11,13 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 448910453b967fb15d342c22b81dd9733d0dfeb8
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e44de0058af0210ecb42eaa4be8b55d543d66103
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165132"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212805"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -32,7 +31,7 @@ I den här självstudien:
 > * Lägger till ett lokalt program till Azure AD-klientorganisationen
 > * Verifierar att en test användare kan logga in på programmet med hjälp av ett Azure AD-konto
 
-## <a name="before-you-begin"></a>Innan du börjar
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till ett lokalt program i Azure AD behöver du:
 
@@ -234,6 +233,10 @@ Så här testar du inloggningen i programmet:
 3. Se till att först starta programmet för att testa att logga in på programmet och ladda ned den diagnostiska rapporten för att granska lösnings vägledningen för eventuella identifierade problem.
 
 Mer information om felsökning finns i [Felsöka problem med programproxyn och felmeddelanden](application-proxy-troubleshoot.md).
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort de resurser du skapade i den här självstudien när de inte längre behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 

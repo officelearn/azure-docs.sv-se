@@ -8,23 +8,34 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c9b0b34202f35babcaa3dce37331d31edf641254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557263"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214026"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
-I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex. 
+![Indexerings steg](./media/cognitive-search-output-field-mapping/indexer-stages-output-field-mapping.png "indexerings steg")
 
-Mappningar av utdatakolumner krävs för att flytta innehåll från berikade dokument till indexet.  Det förrikade dokumentet är egentligen ett träd med information, även om det finns stöd för komplexa typer i indexet, ibland kanske du vill omvandla informationen från det berikade trädet till en mer enkel typ (till exempel en sträng mat ris). Med mappningar av utdata fält kan du utföra transformeringar av data former genom att förenkla informationen.
+I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex.
+
+Mappningar av utdatakolumner krävs för att flytta innehåll från berikade dokument till indexet.  Det förrikade dokumentet är egentligen ett träd med information, även om det finns stöd för komplexa typer i indexet, ibland kanske du vill omvandla informationen från det berikade trädet till en mer enkel typ (till exempel en sträng mat ris). Med mappningar av utdata fält kan du utföra transformeringar av data former genom att förenkla informationen. Mappningar av utdatakolumner sker alltid efter färdigheter-körning, även om det är möjligt för det här steget att köras även om ingen färdigheter har definierats.
+
+Exempel på mappningar av utdata-fält:
+
+* Som en del av din färdigheter extraherade du namnen på de organisationer som anges på varje sida i ditt dokument. Nu vill du mappa vart och ett av dessa organisations namn till ett fält i indexet av typen EDM. Collection (EDM. String).
+
+* Som en del av din färdigheter skapade du en ny nod med namnet "Document/translated_text". Du vill mappa informationen på den här noden till ett särskilt fält i ditt index.
+
+* Du har inte någon färdigheter men indexerar en komplex typ från en Cosmos DB databas. Du vill komma till en nod på den komplexa typen och mappa den till ett fält i ditt index.
 
 > [!NOTE]
 > Vi har nyligen aktiverat funktionerna i mappnings funktioner för mappningar av utdatakolumner. Mer information om mappnings funktioner finns i [fält mappnings funktioner](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
+
 Om du vill mappa fält lägger `outputFieldMappings` du till den i index definitions definitionen enligt nedan:
 
 ```http

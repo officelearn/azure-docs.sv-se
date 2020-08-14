@@ -5,13 +5,13 @@ ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.custom: seodec18
-ms.openlocfilehash: f7c35fa2d69df9c900eb64f10da1948fade02b5f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079815"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211981"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -28,7 +28,7 @@ Du får lära dig:
 
 Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](/visualstudio/debugger/intellitrace) för fel sökning. IntelliTrace ingår inte i den här självstudien.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
 Den här självstudien fungerar med utvecklings miljön, webb projekt och App Service app som du konfigurerar i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md). För WebJobs-avsnitten behöver du det program som du skapar i [Kom igång med Azure WEBJOBS SDK][GetStartedWJ].
 
 Kod exemplen som visas i den här självstudien gäller för ett C# MVC-webbprogram, men fel söknings procedurerna är desamma för Visual Basic-och webb formulär program.
@@ -165,7 +165,7 @@ Det här avsnittet visar hur du felsöker fel sökning med det projekt som du sk
 
      ![Om sidan med nytt värde](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a>WebJobs för fjärrfelsökning
+## <a name="remote-debugging-webjobs"></a><a name="remotedebugwj"></a> WebJobs för fjärrfelsökning
 Det här avsnittet visar hur du felsöker fel sökning med det projekt och den app som du skapar i [Kom igång med Azure WEBJOBS SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Funktionerna som visas i det här avsnittet är endast tillgängliga i Visual Studio 2013 med uppdatering 4 eller senare.
@@ -556,7 +556,7 @@ Spårnings loggar för misslyckade förfrågningar är användbara när du behö
 
 App Service appar använder samma funktioner för spårning av misslyckade begär Anden som har varit tillgängliga i IIS 7,0 och senare. Du har inte åtkomst till de IIS-inställningar som konfigurerar vilka fel som ska loggas. Om du aktiverar spårning av misslyckade begär Anden, fångas alla fel.
 
-Du kan aktivera spårning av misslyckade förfrågningar med hjälp av Visual Studio, men du kan inte visa dem i Visual Studio. Dessa loggar är XML-filer. Den strömmande logg tjänsten övervakar bara filer som bedöms som läsbara i läget oformaterad text: *. txt*-, *. html*-och *. log* -filer.
+Du kan aktivera spårning av misslyckade förfrågningar med hjälp av Visual Studio, men du kan inte visa dem i Visual Studio. Dessa loggar är XML-filer. Den strömmande logg tjänsten övervakar bara filer som bedöms som läsbara i läget oformaterad text:  *. txt*-, *. html*-och *. log* -filer.
 
 Du kan visa spårnings loggar för misslyckade förfrågningar i en webbläsare direkt via FTP eller lokalt när du har använt ett FTP-verktyg för att ladda ned dem till den lokala datorn. I det här avsnittet ska du visa dem i en webbläsare direkt.
 

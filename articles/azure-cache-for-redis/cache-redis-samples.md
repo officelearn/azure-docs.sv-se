@@ -4,14 +4,15 @@ description: 'Lär dig hur du använder Azure cache för Redis med dessa kod exe
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
+ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 01/23/2017
-ms.openlocfilehash: 8057a7db3d1a2db0e51ec15e4966ed0b31c84226
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 553850173f463a05b13768eb3b9e17703bfa2886
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75433411"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212285"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exempel för Azure Cache for Redis
 Det här avsnittet innehåller en lista över Azure cache för Redis-exempel, som täcker scenarier som att ansluta till en cache, läsa och skriva data till och från en cache och använda ASP.NET Azure-cache för Redis-leverantörer. Några exempel är nedladdnings bara projekt och vissa innehåller stegvisa instruktioner och innehåller kodfragment, men länkar inte till ett nedladdnings Bart projekt.

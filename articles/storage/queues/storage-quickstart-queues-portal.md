@@ -3,17 +3,17 @@ title: 'Snabb start: Skapa Azure Storage köer i portalen'
 description: Använd Azure Portal för att skapa en kö. Använd sedan Azure Portal för att lägga till ett meddelande, Visa meddelande egenskaperna och ta bort kön för meddelandet.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/06/2019
+ms.date: 08/13/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: af3f812c8018f059f26c29cd373714e4ab3c8a49
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84808971"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213476"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Snabb start: skapa en kö och Lägg till ett meddelande med Azure Portal
 
@@ -40,8 +40,8 @@ Skapa en kö i Azure-portalen med hjälp av följande steg:
 Lägg sedan till ett meddelande i den nya kön. Ett meddelande kan vara upp till 64 KB stort.
 
 1. Välj den nya kön i listan över köer i lagringskontot.
-1. Välj knappen **+ Lägg till meddelande** för att lägga till ett meddelande i kön. Ange ett meddelande i fältet **Meddelandetext**. 
-1. Ange när meddelandet ska upphöra. Den maximala tid som ett meddelande kan finnas i kön är 7 dagar.
+1. Välj knappen **+ Lägg till meddelande** för att lägga till ett meddelande i kön. Ange ett meddelande i fältet **Meddelandetext**.
+1. Ange när meddelandet ska upphöra. Giltiga värden som kan anges i fältet **upphör att gälla** är mellan 1 sekund och 7 dagar. Välj **meddelande upphör aldrig att gälla** för att ange ett meddelande som ska finnas kvar i kön tills det tas bort explicit.
 1. Ange huruvida meddelandet ska kodas som Base64. Det rekommenderas att binära data kodas.
 1. Välj knappen **OK** för att lägga till meddelandet.
 
@@ -53,7 +53,7 @@ När du har lagt till ett meddelande visar Azure-portalen en lista över alla me
 
 ![Skärmbild som visar meddelandeegenskaper](media/storage-quickstart-queues-portal/view-message-properties.png)
 
-## <a name="dequeue-a-message"></a>Ta bort ett meddelande från en kö
+## <a name="dequeue-a-message"></a>Ta bort ett meddelande från kön
 
 Du kan ett meddelande ur första plats i kön från Azure-portalen. När du tar ett meddelande ur kön tas det bort. 
 

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
-ms.openlocfilehash: 37c98ca2fbffddd064b55192e9b5d83c948d88e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87041966"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214147"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB bindningar för Azure Functions 1. x
 
@@ -1152,7 +1152,7 @@ Med Azure Cosmos DB utgående bindning kan du skriva ett nytt dokument till en A
 Det här avsnittet innehåller följande exempel:
 
 * Köa utlösare, skriva ett dokument
-* Köa utlösare, skriva dokument med`IAsyncCollector`
+* Köa utlösare, skriva dokument med `IAsyncCollector`
 
 Exemplen refererar till en enkel `ToDoItem` Typ:
 
@@ -1238,7 +1238,7 @@ namespace CosmosDBSamplesV1
 Det här avsnittet innehåller följande exempel:
 
 * Köa utlösare, skriva ett dokument
-* Köa utlösare, skriva dokument med`IAsyncCollector`
+* Köa utlösare, skriva dokument med `IAsyncCollector`
 
 ### <a name="queue-trigger-write-one-doc"></a>Köa utlösare, skriva ett dokument
 

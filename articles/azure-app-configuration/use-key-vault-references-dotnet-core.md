@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4641c50f0579e2a8db514df58c0401eb2173d793
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 3e6403f41d8e4b52ca64e9fa452524fa25efe870
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81309056"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213247"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Självstudie: använda Key Vault referenser i en ASP.NET Core app
 
@@ -86,7 +86,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 1. Välj **konfigurations Utforskaren**.
 
-1. Välj **+ skapa** > **Key Vault-referens**och ange sedan följande värden:
+1. Välj **+ skapa**  >  **Key Vault-referens**och ange sedan följande värden:
     - **Nyckel**: Välj **TestApp: Settings: KeyVaultMessage**.
     - **Etikett**: lämna värdet tomt.
     - **Prenumeration**, **resurs grupp**och **nyckel valv**: Ange de värden som motsvarar dem i nyckel valvet som du skapade i föregående avsnitt.
@@ -169,7 +169,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     using Azure.Identity;
     ```
 
-1. Uppdatera `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration` anropa-metoden. Inkludera `ConfigureKeyVault` alternativet och skicka rätt autentiseringsuppgifter till Key Vault.
+1. Uppdatera `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa- `config.AddAzureAppConfiguration` metoden. Inkludera `ConfigureKeyVault` alternativet och skicka rätt autentiseringsuppgifter till Key Vault.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -216,7 +216,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
 
 1. När du har initierat anslutningen till app-konfigurationen ställer du in anslutningen till Key Vault genom att anropa `ConfigureKeyVault` metoden. Efter initieringen kan du komma åt värdena för Key Vault referenser på samma sätt som du kommer åt värdena för vanliga konfigurations nycklar för appar.
 
-    Om du vill se hur den här processen fungerar öppnar du *index. cshtml* **i mappen** **vyer** > . Ersätt innehållet med följande kod:
+    Om du vill se hur den här processen fungerar öppnar du *index. cshtml* i mappen **vyer**  >  **Home** . Ersätt innehållet med följande kod:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -252,7 +252,7 @@ Om du vill lägga till en hemlighet i valvet behöver du bara utföra några ytt
     dotnet run
     ```
 
-1. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL: en för webbappen som finns lokalt.
+1. Öppna ett webbläsarfönster och gå till `http://localhost:5000` , vilket är standard-URL: en för webbappen som finns lokalt.
 
     ![Starta start av lokal app](./media/key-vault-reference-launch-local.png)
 

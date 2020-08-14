@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316079"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213297"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
 
@@ -92,7 +93,7 @@ Konfigurera attributen med värdena från ditt cache-blad i Microsoft Azure-port
 * **applicationName** – nycklarna lagras i Redis som `{<Application Name>_<Session ID>}_Data` . Detta namngivnings schema gör att flera program kan dela samma Redis-instans. Den här parametern är valfri, och om du inte anger den används inget standardvärde.
 * **connectionTimeoutInMilliseconds** – med den här inställningen kan du åsidosätta inställningen ConnectTimeout i stackexchange. Redis-klienten. Om inget värde anges används standard connectTimeout-inställningen 5000. Mer information finns i [konfigurations modellen för stackexchange. Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **operationTimeoutInMilliseconds** – med den här inställningen kan du åsidosätta inställningen SyncTimeout i stackexchange. Redis-klienten. Om inget värde anges används standard syncTimeout-inställningen 1000. Mer information finns i [konfigurations modellen för stackexchange. Redis](https://go.microsoft.com/fwlink/?LinkId=398705).
-* **redisSerializerType** – med den här inställningen kan du ange anpassad serialisering av sessionens innehåll som skickas till Redis. Den typ som anges måste implementera `Microsoft.Web.Redis.ISerializer` och måste deklarera en offentlig parameter lös konstruktor. Som standard `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
+* **redisSerializerType** – med den här inställningen kan du ange anpassad serialisering av sessionens innehåll som skickas till Redis. Den typ som anges måste implementera `Microsoft.Web.Redis.ISerializer` och måste deklarera en offentlig parameter lös konstruktor. Som standard  `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` används.
 
 Mer information om dessa egenskaper finns i det ursprungliga blogg inlägget för att [presentera ASP.net-providern för Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 

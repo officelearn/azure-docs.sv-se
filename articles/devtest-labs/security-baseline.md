@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 158ead7531b0b3da2e495e36e40e761961bea498
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761016"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212306"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -629,8 +629,8 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
 **Vägledning:** Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, till exempel anpassade Azure-principer, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps.
 
-- [Azure databaser git-självstudie](/devops/repos/git/gitworkflow?view=azure-devops)
-- [Om behörigheter och grupper](/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure databaser git-självstudie](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
+- [Om behörigheter och grupper](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
 - [Integrering mellan Azure DevTest Labs-och Azure DevOps-arbetsflöde](devtest-lab-dev-ops.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt

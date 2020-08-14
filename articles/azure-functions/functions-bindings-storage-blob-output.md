@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: d089cb1844356032b956110a7475d839031ef006
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849836"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213070"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Azure Blob Storage utgående bindning för Azure Functions
 
@@ -355,7 +355,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**bastyp** | saknas | Måste anges till `blob` . |
 |**position** | saknas | Måste anges till `out` för en utgående bindning. Undantag anges i [användnings](#usage) avsnittet. |
 |**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden.  Ange till `$return` att referera till funktionens retur värde.|
-|**sökväg** |**BlobPath** | Sökvägen till BLOB-behållaren. |
+|**path** |**BlobPath** | Sökvägen till BLOB-behållaren. |
 |**anslutningen** |**Anslutning**| Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .<br><br>Anslutnings strängen måste vara avsedd för ett allmänt lagrings konto, inte ett [enbart BLOB-lagrings konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |saknas | **Åtkomst** | Anger om du kommer att läsa eller skriva. |
 
@@ -379,8 +379,8 @@ I Java Script får du åtkomst till BLOB-data med hjälp av `context.bindings.<n
 
 Du kan deklarera funktions parametrar som följande typer för att skriva ut till Blob Storage:
 
-* Strängar som`func.Out(str)`
-* Strömmar som`func.Out(func.InputStream)`
+* Strängar som `func.Out(str)`
+* Strömmar som `func.Out(func.InputStream)`
 
 Mer information finns i [utdata-exemplet](#example) .
 

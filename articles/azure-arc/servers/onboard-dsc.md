@@ -1,18 +1,18 @@
 ---
 title: Installera den anslutna dator agenten med Windows PowerShell DSC
-description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc for Servers (för hands version) med hjälp av Windows PowerShell DSC.
+description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar (för hands version) med Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdda3e6681d3e6912d031c45f5c6da9e92814e8f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121008"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213076"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Så här installerar du den anslutna dator agenten med hjälp av Windows PowerShell DSC
 
-Med hjälp av [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC) kan du automatisera program varu installation och konfiguration för en Windows-dator. Den här artikeln beskriver hur du använder DSC för att installera Azure-bågen för servrar som är anslutna till dator agent på Hybrid Windows-datorer.
+Med hjälp av [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC) kan du automatisera program varu installation och konfiguration för en Windows-dator. Den här artikeln beskriver hur du använder DSC för att installera Azure Arc-aktiverade servrar (förhands granskning) anslutna dator agenter på Hybrid Windows-datorer.
 
 ## <a name="requirements"></a>Krav
 
@@ -20,7 +20,7 @@ Med hjälp av [Windows PowerShell Desired State Configuration](/powershell/scrip
 
 - [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC-modulen
 
-- Ett huvud namn för tjänsten som ansluter datorerna till Azure-bågen för servrar som inte är interaktivt. Följ stegen i avsnittet [skapa ett huvud namn för tjänsten för onboarding i skala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) om du inte redan har skapat ett tjänst huvud namn för Arc för servrar.
+- Ett huvud namn för tjänsten som ansluter datorerna till Azure Arc-aktiverade servrar (förhands granskning) icke-interaktivt. Följ stegen i avsnittet [skapa ett huvud namn för tjänsten för onboarding i stor skala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) om du inte har skapat ett huvud namn för tjänsten för Arc-aktiverade servrar (för hands version).
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Installera ConnectedMachine DSC-modulen
 
@@ -76,7 +76,7 @@ Följande är de parametrar du skickar till PowerShell-skriptet som ska använda
 
 3. Då skapas en `localhost.mof file` i en ny mapp med namnet `C:\dsc` .
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Lägga till i befintliga konfigurationer
 

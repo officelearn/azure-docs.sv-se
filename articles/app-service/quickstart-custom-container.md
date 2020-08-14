@@ -5,13 +5,14 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a604772a6175f17e6ebc444b6aba126e21e8346d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085255"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212527"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -24,7 +25,7 @@ Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avb
 > App Service i Windows-behållare är i för hands version.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -189,7 +190,7 @@ Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men
 ::: zone pivot="container-linux"
 App Service på Linux ger fördefinierade program stackar i Linux med stöd för språk som .NET, PHP, Node.js och andra. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. Den här snabb starten visar hur du distribuerar en avbildning från en [Azure Container Registry](/azure/container-registry) (ACR) till App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Azure-konto](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)

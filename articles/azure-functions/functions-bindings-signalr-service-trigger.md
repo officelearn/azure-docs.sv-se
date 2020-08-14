@@ -3,14 +3,15 @@ title: Bindning för utlösare för Azure Functions SignalR-tjänst
 description: Lär dig att skicka signalerande tjänst meddelanden från Azure Functions.
 author: chenyl
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
 ms.author: chenyl
-ms.openlocfilehash: ec2952a3093661f0f6ef32908307a8a82c6367ed
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e2651afbcdc3bae71bb531aa0e821f83264c295d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540238"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212592"
 ---
 # <a name="signalr-service-trigger-binding-for-azure-functions"></a>Signalerar tjänst utlöser bindning för Azure Functions
 
@@ -53,7 +54,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Använd attributet `[SignalRParameter]` för att förenkla`ParameterNames`
+#### <a name="use-attribute-signalrparameter-to-simplify-parameternames"></a>Använd attributet `[SignalRParameter]` för att förenkla `ParameterNames`
 
 Eftersom det är lite besvärligt att `ParameterNames` använda `SignalRParameter` ges det att uppnå samma syfte.
 
@@ -196,7 +197,7 @@ InvocationContext innehåller allt innehåll i meddelandet skicka från SignalR-
 |Händelse| Händelse i meddelandet.|
 |ConnectionId| Anslutnings-ID för klienten som skickar meddelandet.|
 |UserId| Användar identiteten för klienten som skickar meddelandet.|
-|Sidhuvuden| Rubrikerna för begäran.|
+|Rubriker| Rubrikerna för begäran.|
 |Söka i data| Frågan om begäran när klienterna ansluter till tjänsten.|
 |Anspråk| Klientens anspråk.|
 
@@ -216,7 +217,7 @@ Du kan komma åt de här två argumenten från parametern samt tilldela paramete
 
 För parameter bindningen är ordnings saken. Om du använder `ParameterNames` matchar ordningen i `ParameterNames` ordningen på de argument som du anropar i klienten. Om du använder attribut `[SignalRParameter]` i C# matchar ordningen på argumenten i Azure Function-ordningen i-klienterna.
 
-`ParameterNames`det `[SignalRParameter]` **går inte** att använda attributet samtidigt, eller så får du ett undantag.
+`ParameterNames` det `[SignalRParameter]` **går inte** att använda attributet samtidigt, eller så får du ett undantag.
 
 ## <a name="send-messages-to-signalr-service-trigger-binding"></a>Skicka meddelanden till SignalR service trigger binding
 

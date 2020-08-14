@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e040f42db195760cf40f6dbdf651826b544b65a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507581"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212263"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
 
@@ -41,6 +41,9 @@ Innan du [lägger till en identitets källa](#add-an-identity-source-on-vcenter)
 * [Lägg till lokala Active Directory som en identitets källa för enkel inloggning](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Konfigurera nya Active Directory i ett privat moln](#set-up-new-active-directory-on-a-private-cloud)
 * [Konfigurera Active Directory på Azure](#set-up-active-directory-on-azure)
+
+> [!IMPORTANT]
+> **Active Directory (Windows-integrerad autentisering) stöds inte.** Endast Active Directory över LDAP-alternativ stöds som identitets källa.
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Lägg till lokala Active Directory som en identitets källa för enkel inloggning
 

@@ -3,15 +3,16 @@ title: Kom igång med WebJobs SDK
 description: 'Introduktion till WebJobs-SDK: n för händelse driven bakgrunds bearbetning. Lär dig hur du kommer åt data i Azure-tjänster och tjänster från tredje part.'
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a3b3e52b8386f212521f0fa1ca97cbd658374209
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078316"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212867"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -19,7 +20,7 @@ Den här artikeln visar hur du använder Visual Studio 2019 för att skapa ett A
 
 Den här artikeln visar hur du distribuerar WebJobs som en .NET Core-konsolprogram. Om du vill distribuera WebJobs som en .NET Framework-konsolsession, se [WebJobs som .NET Framework-konsol program](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Om du är intresse rad av WebJobs SDK version 2. x, som endast stöder .NET Framework, se [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** . Om du redan har Visual Studio men inte har den arbets belastningen lägger du till arbets belastningen genom att välja **verktyg > hämta verktyg och funktioner**.
 
@@ -139,7 +140,7 @@ Nu kan du lägga till en funktion som utlöses av meddelanden som kommer i en Az
 
 Från och med version 3. x måste du uttryckligen installera lagrings bindnings tillägget som krävs av WebJobs SDK. I tidigare versioner inkluderades lagrings bindningarna i SDK.
 
-1. Installera den senaste stabila versionen av [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3. x. 
+1. Installera den senaste stabila versionen av  [Microsoft. Azure. WebJobs. Extensions. Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet-paketet, version 3. x. 
 
     Här är kommandon för **Package Manager-konsolen** :
 
@@ -326,13 +327,13 @@ I det här avsnittet ska du utföra följande åtgärder för att konfigurera Ap
 
 1. I rutan **anslutnings strängar** lägger du till följande post.
 
-   |Name  |anslutnings sträng  |Databas typ|
+   |Namn  |anslutnings sträng  |Databas typ|
    |---------|---------|------|
    |AzureWebJobsStorage | {anslutnings strängen för lagring som du kopierade tidigare}|Anpassat|
 
 1. Om rutan **program inställningar** inte har en Application Insights Instrumentation-nyckel, lägger du till den som du kopierade tidigare. (Instrumentation-nyckeln kanske redan finns där, beroende på hur du skapade App Service-appen.)
 
-   |Name  |Värde  |
+   |Namn  |Värde  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {Instrumentation-nyckel} |
 

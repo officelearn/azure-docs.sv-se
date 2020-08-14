@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 07/27/2020
-ms.openlocfilehash: 55483b93b770687703b381366d48edbc7d48f26e
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 08/12/2020
+ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475346"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212038"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -87,7 +87,7 @@ Om du har en god förståelse för data kardinalitet kan nyckel partitionering v
 > [!TIP]
 > Genom att ange partitionerings schema manuellt kan du blanda data och förskjuta fördelarna med Spark optimering. Vi rekommenderar att du inte anger partitionering manuellt om du inte behöver det.
 
-## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a>Optimera Azure Integration Runtime
+## <a name="optimizing-the-azure-integration-runtime"></a><a name="ir"></a> Optimera Azure Integration Runtime
 
 Data flöden körs i Spark-kluster som är i körnings läge. Konfigurationen för det använda klustret definieras i aktivitetens integration Runtime (IR). Det finns tre prestanda saker att göra när du definierar integration Runtime: kluster typ, kluster storlek och tid till Live.
 
@@ -109,7 +109,7 @@ Data flöden distribuerar data bearbetningen över olika noder i ett Spark-klust
 
 Standard kluster storleken är fyra driv rutins noder och fyra arbetsnoder.  När du bearbetar mer data rekommenderas större kluster. Nedan visas möjliga alternativ för storleks ändring:
 
-| Arbets kärnor | Driv rutins kärnor | Totalt antal kärnor | Anteckningar |
+| Arbets kärnor | Driv rutins kärnor | Totalt antal kärnor | Kommentarer |
 | ------------ | ------------ | ----------- | ----- |
 | 4 | 4 | 8 | Inte tillgängligt för beräknings optimering |
 | 8 | 8 | 16 | |
@@ -273,6 +273,29 @@ Om dina data inte är jämnt partitionerade efter en omvandling kan du använda 
 
 > [!TIP]
 > Om du partitionerar om data, men har underordnade omvandlingar som blandar dina data, använder du hash-partitionering i en kolumn som används som kopplings nyckel.
+
+## <a name="using-data-flows-in-pipelines"></a>Använda data flöden i pipelines 
+
+När du skapar komplexa pipelines med flera data flöden kan ditt logiska flöde ha stor inverkan på tids inställningen och kostnaden. I det här avsnittet beskrivs effekterna av olika arkitektur strategier.
+
+### <a name="executing-data-flows-in-parallel"></a>Köra data flöden parallellt
+
+Om du kör flera data flöden parallellt, snurrar ADF upp separata Spark-kluster för varje aktivitet. Detta gör att varje jobb kan isoleras och köras parallellt, men kommer att leda till att flera kluster körs samtidigt.
+
+Om dina data flödar parallellt, rekommenderar vi att du inte aktiverar Azure IR Time to Live-egenskapen eftersom det leder till flera oanvända, varmt pooler.
+
+> [!TIP]
+> I stället för att köra samma data flöde flera gånger i en för varje aktivitet, ska du mellanlagra dina data i en data Lake och använda sökvägar för jokertecken för att bearbeta data i ett enda data flöde.
+
+### <a name="execute-data-flows-sequentially"></a>Köra data flöden sekventiellt
+
+Om du kör dina data flödes aktiviteter i följd rekommenderar vi att du anger ett TTL-värde i Azure IR-konfigurationen. ADF återanvänder beräknings resurserna som resulterar i en snabbare kluster start tid. Varje aktivitet kommer fortfarande att isoleras och ta emot en ny Spark-kontext för varje körning.
+
+Körning av jobb sekventiellt tar sannolikt den längsta tiden att köra slut punkt till slut punkt, men ger en ren separation av logiska åtgärder.
+
+### <a name="overloading-a-single-data-flow"></a>Överlagring av ett enskilt data flöde
+
+Om du ger all din logik i ett enda data flöde kör ADF hela jobbet på en enda Spark-instans. Även om det kan verka som ett sätt att minska kostnaderna, blandar man ihop olika logiska flöden och kan vara svåra att övervaka och felsöka. Om en komponent Miss lyckas kommer alla andra delar av jobbet också att Miss lyckas. Azure Data Factorys teamet rekommenderar att data flöden organiseras av oberoende affärs logik. Om ditt data flöde blir för stort och du kan dela upp det i separata komponenter gör det enklare att övervaka och felsöka. Även om det inte finns någon hård gräns för antalet omvandlingar i ett data flöde, gör jobbet komplext för många.
 
 ## <a name="next-steps"></a>Nästa steg
 

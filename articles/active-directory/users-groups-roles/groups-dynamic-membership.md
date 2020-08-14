@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: overview
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dd3ede40582e8f2c71c0424df025d06ff7f0f79
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141609"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213791"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
-I Azure Active Directory (Azure AD) kan du skapa komplexa attribut-baserade regler för att aktivera dynamiska medlemskap för grupper. Medlemskap i dynamiska grupper minskar det administrativa arbetet med att lägga till och ta bort användare. I den här artikeln beskrivs egenskaper och syntax för att skapa dynamiska medlemskaps regler för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap i säkerhets grupper eller Microsft 365-grupper.
+I Azure Active Directory (Azure AD) kan du skapa komplexa attribut-baserade regler för att aktivera dynamiska medlemskap för grupper. Medlemskap i dynamiska grupper minskar det administrativa arbetet med att lägga till och ta bort användare. I den här artikeln beskrivs egenskaper och syntax för att skapa dynamiska medlemskaps regler för användare eller enheter. Du kan skapa en regel för dynamiskt medlemskap i säkerhets grupper eller Microsoft 365 grupper.
 
 När alla attribut för en användare eller enhet ändras, utvärderar systemet alla dynamiska grupp regler i en katalog för att se om ändringen skulle utlösa någon grupp lägger till eller tar bort. Om en användare eller enhet uppfyller en regel i en grupp läggs de till som medlem i gruppen. Om de inte längre uppfyller regeln tas de bort. Du kan inte lägga till eller ta bort en medlem i en dynamisk grupp manuellt.
 
@@ -43,7 +43,7 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 - Regel med fler än fem uttryck
 - Regeln för direkt rapporter
 - Ställer in [operator prioritet](groups-dynamic-membership.md#operator-precedence)
-- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
@@ -127,7 +127,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
 | otherMails |Valfritt sträng värde |(User. otherMails-contains " alias@domain ") |
-| proxyAddresses |SMTP: alias@domain SMTP:alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain ") |
+| proxyAddresses |SMTP: alias@domain SMTP: alias@domain |(User. proxyAddresses-contains "SMTP: alias@domain ") |
 
 Information om egenskaper som används för enhets regler finns i [regler för enheter](#rules-for-devices).
 
@@ -252,7 +252,7 @@ Egenskaper för flera värden är samlingar med objekt av samma typ. De kan anv�
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
 | assignedPlans | Varje objekt i samlingen visar följande sträng egenskaper: capabilityStatus, service, servicePlanId |User. assignedPlans – any (assignedPlan. servicePlanId-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-och assignedPlan. capabilityStatus-EQ "Enabled") |
-| proxyAddresses| SMTP: alias@domain SMTP:alias@domain | (User. proxyAddresses – any ( \_ -innehåller "contoso")) |
+| proxyAddresses| SMTP: alias@domain SMTP: alias@domain | (User. proxyAddresses – any ( \_ -innehåller "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Använda operatorerna-any och-all
 

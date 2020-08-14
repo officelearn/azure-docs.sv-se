@@ -4,14 +4,14 @@ description: Lär dig hur du kör Web Apps i Azure App Service genom att distrib
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 08/01/2020
-ms.custom: mvc, devcenter, vs-azure, seodec18
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 61ab915ed709ab86e8420816b48036e915e5cfb5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085434"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212670"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -21,7 +21,7 @@ I den här snabb starten får du lära dig hur du skapar och distribuerar din f�
 
 När du är klar har du en Azure-resurs grupp som består av en App Service värd plan och en App Service med ett distribuerat webb program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
 - Den här snabb starten distribuerar en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns [i skapa en .net Core-webbapp i App Service](./quickstart-dotnetcore.md).
@@ -168,7 +168,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 

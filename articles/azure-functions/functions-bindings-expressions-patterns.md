@@ -3,14 +3,15 @@ title: Azure Functions bindnings uttryck och mönster
 description: Lär dig att skapa olika Azure Functions bindnings uttryck baserat på vanliga mönster.
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: ca3e342d42e6baf2bc4caaed07dc196203d8a032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261077"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212601"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Mönster för Azure Functions bindnings uttryck
 
@@ -132,7 +133,7 @@ public static void Run(
 
 ```
 
-Du kan också skapa uttryck för delar av fil namnet. I följande exempel utlöses funktionen endast på fil namn som matchar ett mönster:`anyname-anyfile.csv`
+Du kan också skapa uttryck för delar av fil namnet. I följande exempel utlöses funktionen endast på fil namn som matchar ett mönster: `anyname-anyfile.csv`
 
 ```json
 {

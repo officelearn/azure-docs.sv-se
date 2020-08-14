@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 271787c47b29bc713cc923c7d27852a8e05703ef
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 29ec547a6033b77d92ad7949df286dc94e3243a2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042555"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213924"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP-utlösare
 
@@ -19,8 +19,8 @@ Med HTTP-utlösaren kan du anropa en funktion med en HTTP-begäran. Du kan anvä
 
 Standard retur värdet för en HTTP-utlöst funktion är:
 
-- `HTTP 204 No Content`med en tom brödtext i funktionerna 2. x och högre
-- `HTTP 200 OK`med en tom brödtext i funktionerna 1. x
+- `HTTP 204 No Content` med en tom brödtext i funktionerna 2. x och högre
+- `HTTP 200 OK` med en tom brödtext i funktionerna 1. x
 
 Konfigurera en [utgående bindning](./functions-bindings-http-webhook-output.md)för att ändra http-svaret.
 
@@ -488,7 +488,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Bestämmer vilka nycklar, om sådana, som måste finnas på begäran för att kunna anropa funktionen. Behörighets nivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Ingen API-nyckel krävs.</li><li><code>function</code>&mdash;En Function-/regionsspecifika API-nyckel krävs. Detta är standardvärdet om inget anges.</li><li><code>admin</code>&mdash;Huvud nyckeln måste anges.</li></ul> Mer information finns i avsnittet om [auktoriseringsregler](#authorization-keys). |
 | **indatametod** |**Metoder** | En matris med de HTTP-metoder som funktionen svarar på. Om inget anges svarar funktionen på alla HTTP-metoder. Se [anpassa HTTP-slutpunkten](#customize-the-http-endpoint). |
 | **styra** | **Väg** | Definierar den vägfil som styr till vilka URL-adresser din funktion svarar. Standardvärdet om inget värde anges är `<functionname>` . Mer information finns i [anpassa HTTP-slutpunkten](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Stöds endast för version 1. x-körningsmiljön._<br/><br/>Konfigurerar HTTP-utlösaren så att den fungerar som en [webhook](https://en.wikipedia.org/wiki/Webhook) -mottagare för den angivna providern. Ange inte `methods` egenskapen om du anger den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En allmän webhook-slutpunkt utan logik för en speciell Provider. Den här inställningen begränsar begär anden till endast de som använder HTTP POST och med `application/json` innehålls typen.</li><li><code>github</code>&mdash;Funktionen svarar på GitHub- [webhookar](https://developer.github.com/webhooks/). Använd inte egenskapen _authLevel_ med GitHub-webhookar. Mer information finns i avsnittet GitHub Webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på slack- [webhookar](https://api.slack.com/outgoing-webhooks). Använd inte _authLevel_ -egenskapen med slack-webhookar. Mer information finns i avsnittet om slack-webhookar längre fram i den här artikeln.</li></ul>|
+| **webHookType** | **WebHookType** | _Stöds endast för version 1. x-körningsmiljön._<br/><br/>Konfigurerar HTTP-utlösaren så att den fungerar som en [webhook](https://en.wikipedia.org/wiki/Webhook) -mottagare för den angivna providern. Ange inte `methods` egenskapen om du anger den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En allmän webhook-slutpunkt utan logik för en speciell Provider. Den här inställningen begränsar begär anden till endast de som använder HTTP POST och med `application/json` innehålls typen.</li><li><code>github</code>&mdash;Funktionen svarar på GitHub- [webhookar](https://developer.github.com/webhooks/). Använd inte egenskapen  _authLevel_ med GitHub-webhookar. Mer information finns i avsnittet GitHub Webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på slack- [webhookar](https://api.slack.com/outgoing-webhooks). Använd inte _authLevel_ -egenskapen med slack-webhookar. Mer information finns i avsnittet om slack-webhookar längre fram i den här artikeln.</li></ul>|
 
 ## <a name="payload"></a>Innehållet
 
@@ -822,7 +822,7 @@ Att skicka binära data och formulär data till en icke-C #-funktion kräver att
 
 I icke-C #-funktioner skickas begär Anden som skickas med innehålls typen `image/jpeg` till ett `string` värde som skickas till funktionen. I sådana fall kan du manuellt konvertera `string` värdet till en byte-matris för att få åtkomst till rå binära data.
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 
 Längden på HTTP-begäran är begränsad till 100 MB (104 857 600 byte) och URL-längden är begränsad till 4 KB (4 096 byte). De här gränserna anges av `httpRuntime` elementet i körningens [Web.config fil](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/17/2020
+ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: cc14f1cd60f048ba01060b9ebdbca434af6b9751
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145621"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212625"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -34,6 +34,7 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 
 ## <a name="note-before-you-migrate"></a>Observera innan du migrerar
 
+* Du måste migrera redigerings upplevelsen med **nov, 2, 2020**. 
 * Migrering är en enkelriktad process. Du kan inte gå tillbaka när du har migrerat.
 * Program migreras automatiskt med dig om du är ägare till programmet.
 * Ägaren kan inte välja en delmängd av appar som ska migreras och processen kan inte ångras.

@@ -3,21 +3,21 @@ title: Självstudie – ny princip tilldelning med Azure Portal
 description: I den här självstudien använder du Azure Portal för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
 ms.topic: tutorial
 ms.date: 08/12/2020
-ms.openlocfilehash: cdd682e215648f1f819503ac03e15c58b32c79b5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4ba301b066137dbdb85ccea0a02ffcac88128e6b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88172971"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213242"
 ---
 # <a name="tutorial-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Självstudie: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
-Den här kursen vägleder dig genom processen med att skapa en princip tilldelning för att identifiera dina datorer i Azure Arc for Servers (för hands version) och för att identifiera datorer som inte har Log Analytics-agenten installerad på dina Azure Arc-aktiverade datorer.
+Den här kursen vägleder dig genom processen att skapa en princip tilldelning för att identifiera dina Azure Arc-aktiverade servrar (för hands versioner) och för att identifiera datorer som inte har Log Analytics-agenten installerad på dina Azure Arc-aktiverade datorer.
 
 I slutet av den här processen kommer du att kunna identifiera datorer som inte har Log Analytics agent för Windows eller Linux installerat. De är _inkompatibla_ med principtilldelningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -51,7 +51,7 @@ I den här självstudien skapar du en princip tilldelning och tilldelar princip 
 
    En lista över tillgängliga inbyggda principer finns i [Azure policy exempel](../../../governance/policy/samples/index.md).
 
-1. Sök igenom listan princip definitioner för att hitta _ \[ förhands granskningen]: Log Analytics agenten ska installeras på Windows Azure Arc Machines_ -definitionen om du har aktiverat agenten Arc for Servers (för hands version) på en Windows-baserad dator. För en Linux-baserad dator hittar du motsvarande för _ \[ hands version]: Log Analytics agenten ska installeras på princip definitionen för Linux-datorer i Linux_ . Klicka på principen och sedan på **Välj**.
+1. Sök igenom listan princip definitioner för att hitta _ \[ förhands granskningen]: Log Analytics agenten ska installeras på Windows Azure Arc Machines_ -definitionen om du har aktiverat agenten Arc-aktiverade servrar (för hands version) på en Windows-baserad dator. För en Linux-baserad dator hittar du motsvarande för _ \[ hands version]: Log Analytics agenten ska installeras på princip definitionen för Linux-datorer i Linux_ . Klicka på principen och sedan på **Välj**.
 
    :::image type="content" source="./media/tutorial-assign-policy-portal/select-available-definition.png" alt-text="Hitta rätt principdefinition" border="false":::
 
@@ -97,7 +97,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudien har du tilldelat en princip definition till ett omfång och utvärderat dess Kompatibilitetsrapport.
-Principdefinitionen kontrollerar att alla resurser i omfånget är kompatibla och identifierar vilka som inte är det. Nu är du redo att övervaka din Azure Arc for servers-dator (för hands version) med Azure Monitor for VMs.
+Principdefinitionen kontrollerar att alla resurser i omfånget är kompatibla och identifierar vilka som inte är det. Nu är du redo att övervaka dina Azure Arc-aktiverade servrar (för hands version) med Azure Monitor for VMs.
 
 Om du vill lära dig hur du övervakar och visar prestanda, kör process och deras beroenden från datorn fortsätter du till självstudien:
 

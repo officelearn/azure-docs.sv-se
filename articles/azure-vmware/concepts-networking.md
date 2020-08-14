@@ -3,14 +3,14 @@ title: Koncept – nätverks anslutning
 description: Lär dig mer om viktiga aspekter och användnings fall för nätverk och interanslutning i Azure VMware-lösning (AVS)
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: c0416da9c745ccf92970ff39f623a782d5784983
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f1f1f5a089781f1f7e882c9c8692f0c845ae485
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87062847"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214104"
 ---
-# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware-lösning (AVS) för hands version av nätverk och interanslutnings koncept
+# <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware Solution (AVS) – begrepp för förhandsversionsnätverk och sammankoppling
 
 Nätverks anslutning mellan dina privata moln i Azure VMware-lösningen (AVS) och lokala miljöer eller virtuella nätverk i Azure ger dig åtkomst till och använder ditt privata moln. I den här artikeln tar vi upp några viktiga begrepp som upprättar grunden för nätverk och anslutningar.
 
@@ -48,7 +48,7 @@ Det privata molnet logiska nätverk levereras med företablerade NSX-T. En gatew
 
 Routning är Border Gateway Protocol (BGP) baserat, som automatiskt tillhandahålls och aktive ras som standard för varje privat moln distribution. För moln privata moln måste du planera privata moln nätverks adress utrymmen med minst/22-prefixlängden för CIDR-nätverks adress block för undernät, som visas i tabellen nedan. Adress blocket får inte överlappa adress block som används i andra virtuella nätverk som finns i din prenumeration och lokala nätverk. I det här adress blocket tillhandahålls hantering, etablering och vMotion nätverk automatiskt.
 
-Exempel på `/22` CIDR-nätverks adress block:`10.10.0.0/22`
+Exempel på `/22` CIDR-nätverks adress block:  `10.10.0.0/22`
 
 Under näten:
 
@@ -77,7 +77,7 @@ I det virtuella nätverket och lokalt för att få fullständig privat moln impl
 
 I diagrammet nedan visas samanslutningen mellan lokala och privata moln, vilket möjliggör följande användnings fall:
 * Hett/kall över-vCenter-vMotion
-* Åtkomst till hantering av privata moln lokalt till AVS-plats
+* Åtkomst för hantering av privata moln lokalt till AVS
 
 :::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtuella nätverk och lokala anslutningar med fullständig privat moln" border="false":::
 

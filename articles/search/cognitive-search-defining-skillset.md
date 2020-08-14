@@ -8,16 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bdbe157198ad62578613d86f3b3a55b72ca0acf8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557448"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214068"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
-AI-anrikningen extraherar och berikar data så att det går att söka i Azure Kognitiv sökning. Vi anropar extraherings-och anriknings stegen *kognitiva färdigheter*, kombinerat med en *färdigheter* som refereras under indexeringen. En färdigheter kan använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) eller anpassade kunskaper (se [exempel: skapa en anpassad färdighet i en AI-pipeline](cognitive-search-create-custom-skill-example.md) för mer information).
+![indexerings steg](media/cognitive-search-defining-skillset/indexer-stages-skillset.png "indexerings steg")
+
+En färdigheter definierar de åtgärder som extraherar och utvärderar data så att de kan genomsökas. En färdigheter körs efter text-och bild innehållet extraheras från käll dokumenten och efter fält från käll dokumentet (valfritt) mappas till mål fälten i ett index eller kunskaps lager.
+
+En färdigheter innehåller en eller flera *kognitiva färdigheter* som representerar en bestämd anriknings åtgärd, t. ex. Översättning av text, extrahering av nyckel fraser eller att utföra optisk tecken läsning från en bildfil. Om du vill skapa en färdigheter kan du använda [inbyggda kunskaper](cognitive-search-predefined-skills.md) från Microsoft eller anpassade kunskaper som innehåller modeller eller bearbetnings logik som du tillhandahåller (se [exempel: skapa en anpassad färdighet i en AI-pipeline](cognitive-search-create-custom-skill-example.md) för mer information).
 
 I den här artikeln får du lära dig hur du skapar en rikare pipeline för de kunskaper du vill använda. En färdigheter är kopplad till en Azure Kognitiv sökning- [indexerare](search-indexer-overview.md). En del av pipeline-designen, som beskrivs i den här artikeln, konstruerar själva färdigheter. 
 
@@ -171,13 +175,13 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
 
 * Kunskapen har en utmatning som kallas ```"organizations"``` . Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du till utdata som ```"/document/organizations"``` .
 
-* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Ett exempel:
+* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Till exempel:
 
   ```json
   ["Microsoft", "LinkedIn"]
   ```
 
-Vissa situationer anropar för att referera varje element i en matris separat. Anta till exempel att du vill skicka varje element ```"/document/organizations"``` separat till en annan kunskap (till exempel den anpassade Bing-enheten Sök berikare). Du kan referera till varje element i matrisen genom att lägga till en asterisk till sökvägen:```"/document/organizations/*"``` 
+Vissa situationer anropar för att referera varje element i en matris separat. Anta till exempel att du vill skicka varje element ```"/document/organizations"``` separat till en annan kunskap (till exempel den anpassade Bing-enheten Sök berikare). Du kan referera till varje element i matrisen genom att lägga till en asterisk till sökvägen: ```"/document/organizations/*"``` 
 
 Den andra kunskapen för sentiment-extraktion följer samma mönster som den första berikaren. Den tar sig ```"/document/content"``` som inmatad och returnerar en sentiment Poäng för varje innehålls instans. Eftersom du inte har angett ```"context"``` fältet explicit är resultatet (mySentiment) nu underordnat ```"/document"``` .
 

@@ -5,13 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: efe175e4086d5273471c1b0451e4cfb28449c236
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008941"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213451"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Felsöka överskridna tidsgränser för Azure Cache for Redis
 
@@ -44,7 +45,7 @@ Det här fel meddelandet innehåller mått som kan hjälpa dig att peka på orsa
 | hanterare |Socket Manager gör `socket.select` , vilket innebär att den ber operativ systemet att ange en socket som har något att göra. Läsaren läser inte aktivt från nätverket eftersom det inte tycker att det finns något att göra |
 | kö |Det finns 73 totala pågående åtgärder |
 | qu |6 av pågående åtgärder finns i den ej skickade kön och har ännu inte skrivits till det utgående nätverket |
-| qs |67 av pågående åtgärder har skickats till servern, men ett svar är ännu inte tillgängligt. Svaret kan vara `Not yet sent by the server` eller`sent by the server but not yet processed by the client.` |
+| qs |67 av pågående åtgärder har skickats till servern, men ett svar är ännu inte tillgängligt. Svaret kan vara `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
 | KS |0 av pågående åtgärder har läst svar men har ännu inte marker ATS som slutförda eftersom de väntar på slut för ande av slut för ande |
 | WR |Det finns en aktiv skrivare (vilket innebär att 6 ej skickade förfrågningar inte ignoreras) byte/activewriters |
 | in |Det finns inga aktiva läsare och inga byte som är tillgängliga för läsning på NÄTVERKSKORTets byte/activereaders |
@@ -91,7 +92,7 @@ Du kan använda följande steg för att undersöka möjliga rotor orsaker.
 1. Hög redis server belastning kan orsaka timeout. Du kan övervaka Server belastningen genom att övervaka `Redis Server Load` [cachens prestanda mått](cache-how-to-monitor.md#available-metrics-and-reporting-intervals). En server belastning på 100 (maximalt värde) betyder att Redis-servern har varit upptagen, utan att det tar tid att bearbeta begär Anden. Om du vill se om vissa begär Anden tar upp all Server kapacitet kör du kommandot SlowLog enligt beskrivningen i föregående stycke. Mer information finns i hög CPU-användning/server belastning.
 1. Fanns det någon annan händelse på klient sidan som kunde ha orsakat ett nätverks-blip? Vanliga händelser är: skala upp eller ned antalet klient instanser, distribuera en ny version av klienten eller autoskalning aktive rad. I vår testning har vi upptäckt att automatisk skalning eller skalning upp/ned kan orsaka att utgående nätverks anslutning går förlorad i flera sekunder. StackExchange. Redis-koden är elastisk för sådana händelser och återansluter. Vid åter anslutning kan eventuella begär anden i kön vara timeout.
 1. Fanns det en stor begäran innan flera små begär anden till cachen som nådde tids gränsen? Parametern `qs` i fel meddelandet visar hur många begär Anden som skickades från klienten till servern, men inte bearbetat något svar. Det här värdet kan fortsätta att växa eftersom StackExchange. Redis använder en enda TCP-anslutning och bara kan läsa ett svar åt gången. Även om den första åtgärden uppnåddes, stoppas inte data från att skickas till eller från servern. Andra förfrågningar kommer att blockeras tills den stora begäran har avslut ATS och kan orsaka timeout. En lösning är att minimera risken för timeout genom att se till att cachen är tillräckligt stor för arbets belastningen och dela upp stora värden i mindre segment. En annan möjlig lösning är att använda en pool med `ConnectionMultiplexer` objekt i klienten och välja det lägsta som läses in `ConnectionMultiplexer` när en ny begäran skickas. Om du läser in över flera anslutnings objekt bör du förhindra att en tids gräns går ut för andra begär Anden.
-1. Om du använder `RedisSessionStateProvider` , kontrol lera att du har angett ett nytt timeout-värde på rätt sätt. `retryTimeoutInMilliseconds`måste vara högre än `operationTimeoutInMilliseconds` , annars sker inga återförsök. I följande exempel `retryTimeoutInMilliseconds` är inställt på 3000. Mer information finns i [ASP.net för session State för Azure cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurations parametrar för providern för sessionstillstånd och providern för utdatacache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
+1. Om du använder `RedisSessionStateProvider` , kontrol lera att du har angett ett nytt timeout-värde på rätt sätt. `retryTimeoutInMilliseconds` måste vara högre än `operationTimeoutInMilliseconds` , annars sker inga återförsök. I följande exempel `retryTimeoutInMilliseconds` är inställt på 3000. Mer information finns i [ASP.net för session State för Azure cache för Redis](cache-aspnet-session-state-provider.md) och [hur du använder konfigurations parametrar för providern för sessionstillstånd och providern för utdatacache](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration).
 
     ```xml
     <add

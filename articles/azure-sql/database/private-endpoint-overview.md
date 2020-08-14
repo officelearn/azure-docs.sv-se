@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063269"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213366"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure privat länk för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **priva
 > [!IMPORTANT]
 > Den här artikeln gäller både Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). För enkelhetens skull refererar termen "databas" till båda databaserna i Azure SQL Database och Azure Synapse Analytics. På samma sätt refererar alla referenser till "Server" till den [logiska SQL-Server](logical-servers.md) som är värd för Azure SQL Database och Azure Synapse Analytics. Den här artikeln gäller *inte* för **Azure SQL-hanterade instanser**.
 
-## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
+## <a name="data-exfiltration-prevention"></a>Dataexfiltreringsskydd
 
 Data exfiltrering i Azure SQL Database är när en behörig användare, till exempel en databas administratör, kan extrahera data från ett system och flytta den till en annan plats eller ett system utanför organisationen. Användaren kan till exempel flytta data till ett lagrings konto som ägs av en tredje part.
 
@@ -175,9 +175,9 @@ Om du vill upprätta en anslutning från en lokal miljö till databasen i SQL Da
 - [ExpressRoute-krets](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Ansluta från Azure Synapse Analytics till Azure Storage med PolyBase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase-and-the-copy-statement"></a>Ansluta från Azure Synapse Analytics till Azure Storage med PolyBase och KOPIERINGs instruktionen
 
-PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning virtuella nätverks under nät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase till kontot att avbrytas. Om du vill aktivera både polybases import-och export scenarier med Azure Synapse Analytics ansluter du till Azure Storage som är skyddade till ett virtuellt nätverk följer du stegen som beskrivs [här](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase och KOPIERINGs instruktionen används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning virtuella nätverks under nät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase och KOPIERINGs instruktionen till kontot att avbrytas. Om du vill aktivera både import-och export scenarier med Azure Synapse Analytics ansluter du till Azure Storage som är skyddade till ett virtuellt nätverk följer du stegen som visas [här](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Nästa steg
 

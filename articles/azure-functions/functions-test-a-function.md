@@ -3,14 +3,15 @@ title: Testa Azure Functions
 description: Skapa automatiserade tester för en C#-funktion i Visual Studio och JavaScript-funktionen i VS Code
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085086"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212889"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -31,7 +32,7 @@ I följande exempel beskrivs hur du skapar en C# Function-app i Visual Studio oc
 
 ![Testa Azure Functions med C# i Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>Konfiguration
+### <a name="setup"></a>Installation
 
 Om du vill konfigurera din miljö skapar du en funktion och testar appen. Följande steg hjälper dig att skapa appar och funktioner som krävs för att stödja testerna:
 
@@ -268,7 +269,7 @@ I följande exempel beskrivs hur du skapar en JavaScript Function-app i VS Code 
 
 ![Testa Azure Functions med Java Script i VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>Konfiguration
+### <a name="setup"></a>Installation
 
 Om du vill konfigurera din miljö initierar du en ny Node.js app i en tom mapp genom att köra `npm init` .
 

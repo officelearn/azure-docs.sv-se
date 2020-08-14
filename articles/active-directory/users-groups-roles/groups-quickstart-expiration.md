@@ -1,6 +1,6 @@
 ---
 title: Start princip för förfallo princip för grupp – Azure AD | Microsoft Docs
-description: Förfallotid för Office 365-grupper – Azure Active Directory
+description: Förfallo datum för Microsoft 365 grupper – Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,35 +9,35 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/29/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 616910eda33b3ddc49fa6233ccb3989c5e4214e2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 178f6a2c1a71d088eeb1a3ea6f7e39198d401ff4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582840"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213734"
 ---
-# <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Snabbstart: Ställ in Office 365-grupper att upphöra att gälla i Azure Active Directory
+# <a name="quickstart-set-microsoft-365-groups-to-expire-in-azure-active-directory"></a>Snabb start: ange Microsoft 365 grupper upphör att gälla i Azure Active Directory
 
-I den här snabbstarten anger du en förfalloprincip för dina Office 365-grupper. När användare kan konfigurera sina egna grupper kan det uppstå många oanvända grupper. Ett sätt att hantera oanvända grupper är att ställa in dessa grupper att upphöra, för att minska underhållet med att ta bort grupper manuellt.
+I den här snabb starten anger du förfallo principen för Microsoft 365 grupper. När användare kan konfigurera sina egna grupper kan det uppstå många oanvända grupper. Ett sätt att hantera oanvända grupper är att ställa in dessa grupper att upphöra, för att minska underhållet med att ta bort grupper manuellt.
 
 Förfalloprinciper är enkla:
 
 - Grupper med användar aktiviteter förnyas automatiskt när de upphör snart
 - Gruppägare meddelas om att förnya en grupp som håller på att upphöra
 - Grupper som inte förnyas tas bort
-- En borttagen Office 365-grupp kan återställas inom 30 dagar av en gruppägare eller en Azure AD-administratör
+- En borttagen Microsoft 365 grupp kan återställas inom 30 dagar av en grupp ägare eller av en Azure AD-administratör
 
 > [!NOTE]
 > Nu använder grupper Azure AD Intelligence för att automatiskt förnya baserat på om de har använts nyligen. Detta förnyelse beslut baseras på användar aktivitet i grupper mellan Office 365-tjänster som Outlook, SharePoint, teams, Yammer och andra.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
  Den minst privilegierade rollen som krävs för att konfigurera grupp förfallo datum är användar administratör i organisationen.
 
@@ -49,13 +49,13 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
   
    ![Sidan Inställningar för självbetjänings grupp](./media/groups-quickstart-expiration/self-service-settings.png)
 
-3. Ställ in **Användare kan skapa Office 365-grupper** till **Ja**.
+3. Ange att  **användare kan skapa Microsoft 365 grupper** till **Ja**.
 
 4. Välj **Spara** för att spara gruppinställningarna när du är klar.
 
 ## <a name="set-group-expiration"></a>Ange gruppförfallotid
 
-1. Logga in på [Azure Portal](https://portal.azure.com), Välj **Azure Active Directory** > **grupper** > **förfallo datum** för att öppna inställningarna för förfallo datum.
+1. Logga in på [Azure Portal](https://portal.azure.com), Välj **Azure Active Directory**  >  **grupper**  >  **förfallo datum** för att öppna inställningarna för förfallo datum.
   
    ![Sidan förfallo inställningar för grupp](./media/groups-quickstart-expiration/expiration-settings.png)
 
@@ -63,24 +63,24 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 3. Ange en e-postadress dit meddelanden om förfallotid ska skickas när en grupp inte har någon ägare.
 
-4. För den här snabbstarten ställer du in **Aktivera förfallotid för de här Office 365-grupperna** till **Alla**.
+4. I den här snabb starten anger du **Aktivera förfallo datum för dessa Microsoft 365 grupper** till **alla**.
 
 5. Välj **Spara** för att spara förfalloinställningarna när du är klar.
 
-Klart! I den här snabbstarten ställde du in en förfalloprincip för de valda Office 365-grupperna.
+Klart! I den här snabb starten har du ställt in utgångs principen för de valda Microsoft 365 grupperna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 ### <a name="to-remove-the-expiration-policy"></a>Så här tar du bort förfalloprincipen
 
 1. Se till att du är inloggad på [Azure Portal](https://portal.azure.com) med ett konto som är global administratör för din Azure AD-organisation.
-2. Välj **Azure Active Directory** > **grupper** > **upphör att gälla**.
-3. Ställ in **Aktivera förfallotid för de här Office 365-grupperna** på **Inga**.
+2. Välj **Azure Active Directory**  >  **grupper**  >  **upphör att gälla**.
+3. Ange **Aktivera förfallo datum för dessa Microsoft 365 grupper** till **ingen**.
 
 ### <a name="to-turn-off-user-creation-for-groups"></a>Så här stänger du av användarskapande för grupper
 
-1. Välj **Azure Active Directory** > **grupper** > **Allmänt**. 
-2. Ställ in **Användare kan skapa Office 365-grupper i Azure-portaler** till **Nej**.
+1. Välj **Azure Active Directory**  >  **grupper**  >  **Allmänt**. 
+2. Ange att **användare kan skapa Microsoft 365 grupper i Azure portaler** till **Nej**.
 
 ## <a name="next-steps"></a>Nästa steg
 

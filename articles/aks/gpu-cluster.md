@@ -4,12 +4,12 @@ description: 'Lär dig hur du använder GPU: er för beräknings-och grafik inte
 services: container-service
 ms.topic: article
 ms.date: 03/27/2020
-ms.openlocfilehash: 30cbac0984236717581c994700483b85829c4571
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ed655a6809f2932bbe8e85fb1cd9fd7996cf7647
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244301"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213178"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Använd GPU: er för beräknings intensiva arbets belastningar i Azure Kubernetes service (AKS)
 
@@ -52,7 +52,7 @@ Hämta autentiseringsuppgifterna för ditt AKS-kluster med kommandot [AZ AKS get
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="install-nvidia-drivers"></a>Installera NVIDIA-drivrutiner
+## <a name="install-nvidia-device-plugin"></a>Installera NVIDIA-enhets-plugin
 
 Innan du kan använda GPU: er i noderna måste du distribuera en DaemonSet för NVIDIA-enhetens plugin-program. Den här DaemonSet kör en POD på varje nod för att tillhandahålla nödvändiga driv rutiner för GPU: er.
 
@@ -188,7 +188,7 @@ Om du vill se hur GPU fungerar schemalägger du en GPU-aktiverad arbets belastni
 Skapa en fil med namnet *samples-TF-mnist-demo. yaml* och klistra in följande yaml-manifest. Följande jobb manifest innehåller en resurs gräns på `nvidia.com/gpu: 1` :
 
 > [!NOTE]
-> Om du får ett versions matchnings fel vid anrop till driv rutiner, till exempel om CUDA-drivrutinen inte är tillräcklig för CUDA runtime-version, går du igenom diagrammets diagram mat ris kompatibilitet för NVIDIA-drivrutinen-[https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
+> Om du får ett versions matchnings fel vid anrop till driv rutiner, till exempel om CUDA-drivrutinen inte är tillräcklig för CUDA runtime-version, går du igenom diagrammets diagram mat ris kompatibilitet för NVIDIA-drivrutinen- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

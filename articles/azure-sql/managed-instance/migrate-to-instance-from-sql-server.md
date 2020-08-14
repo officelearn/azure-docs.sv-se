@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 3ef109dc5fad73a19eabefb8eb872c02d62698ba
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087589"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209480"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server instans migrering till Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ På en hög nivå ser databasens migreringsprocessen ut så här:
 
 Kontrol lera först om SQL-hanterad instans är kompatibel med programmets databas krav. SQL-hanterad instans är utformad för att ge enkel växel och Shift-migrering för de flesta befintliga program som använder SQL Server. Du kan dock ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för hög.
 
-Använd [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på den virtuella Azure-datorn](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
+Använd [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på den virtuella Azure-datorn](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här är några exempel:
 
 - Om du behöver direkt åtkomst till operativ systemet eller fil systemet, till exempel för att installera tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikt beroende på funktioner som fortfarande inte stöds, till exempel FileStream/FileTable-, PolyBase-och kors instans transaktioner.
@@ -162,7 +162,7 @@ Vid migrering av databasen till en hanterad instans sparas databas inställninga
 Se till att du har slutfört följande aktiviteter som krav:
 
 - Justera inställningarna på den hanterade instansen med inställningarna från käll SQL Servers instansen genom att undersöka olika instanser, databas, tempdb-inställningar och konfigurationer. Se till att du inte har ändrat inställningar som kompatibilitetsnivå eller kryptering innan du kör den första prestanda jämförelsen eller godkänn risken att några av de nya funktionerna som du har aktiverat kan påverka vissa frågor. Om du vill minska riskerna för migreringen ändrar du kompatibilitetsnivån för databas efter prestanda övervakning.
-- Implementera [rikt linjer för metod tips för lagring för generell användning](https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525), till exempel för att förallokera filernas storlek för att få bättre prestanda.
+- Implementera [rikt linjer för metod tips för lagring för generell användning](https://techcommunity.microsoft.com), till exempel för att förallokera filernas storlek för att få bättre prestanda.
 - Lär dig mer om de [viktiga miljö skillnaderna som kan orsaka prestanda skillnader mellan en hanterad instans och SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/)och identifiera riskerna som kan påverka prestandan.
 - Se till att du behåller det aktiverade Frågearkivet och automatisk justering på din hanterade instans. Med de här funktionerna kan du mäta arbets belastnings prestanda och automatiskt åtgärda de potentiella prestanda problemen. Lär dig hur du använder Query Store som ett optimalt verktyg för att få information om arbets belastnings prestanda före och efter ändring av databasens kompatibilitetsnivå, enligt beskrivningen i [Behåll prestanda stabiliteten under uppgraderingen till en nyare SQL Server version](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 När du har för berett miljön som är så mycket som möjligt i din lokala miljö kan du börja köra din arbets belastning och mät prestanda. Mått processen bör inkludera samma parametrar som du mätte [när du skapade bas linje prestanda för dina arbets belastnings mått på käll SQL Servers instansen](#create-a-performance-baseline).

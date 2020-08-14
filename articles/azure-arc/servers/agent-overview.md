@@ -1,18 +1,18 @@
 ---
 title: Översikt över den anslutna datorns Windows-agent
-description: Den här artikeln innehåller en detaljerad översikt över agenten Azure Arc for Servers (för hands version), som har stöd för övervakning av virtuella datorer som finns i hybrid miljöer.
+description: Den här artikeln innehåller en detaljerad översikt över tillgängliga Azure Arc-servrar (för hands version), som har stöd för övervakning av virtuella datorer som finns i hybrid miljöer.
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e8abfcc3c6ec7b7893563c67dc6bb82ccdda850
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121841"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212980"
 ---
-# <a name="overview-of-azure-arc-for-servers-preview-agent"></a>Översikt över agenten för Azure Arc for Servers (för hands version)
+# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Översikt över Azure Arc-aktiverade servrar (för hands version)
 
-Den anslutna dator agenten i Azure Arc for Servers (för hands version) gör att du kan hantera dina Windows-och Linux-datorer utanför Azure på företagets nätverk eller någon annan moln leverantör. Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och olika distributions metoder.
+Med Azure Arc-aktiverade servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure i företags nätverket eller någon annan moln leverantör. Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och olika distributions metoder.
 
 ## <a name="agent-component-details"></a>Information om agent komponent
 
@@ -40,7 +40,7 @@ Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux fr
 
 Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. Mer information finns [här](manage-agent.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -65,7 +65,7 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 
 ### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
-Innan du konfigurerar dina datorer med Azure Arc for Servers (för hands version) granskar du Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs grupps gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
+Innan du konfigurerar dina datorer med Azure Arc-aktiverade servrar (förhands granskning) granskar du gränserna för Azure Resource Manager [prenumeration](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs grupps gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
 
 ### <a name="transport-layer-security-12-protocol"></a>Transport Layer Security 1,2-protokoll
 
@@ -76,7 +76,7 @@ För att säkerställa säkerheten för data som överförs till Azure rekommend
 |Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd. | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
 | Windows Server 2012 R2 och senare | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings).|
 
-### <a name="networking-configuration"></a>Nätverks konfiguration
+### <a name="networking-configuration"></a>Nätverkskonfiguration
 
 Den anslutna dator agenten för Linux och Windows kommunicerar på ett säkert sätt till Azure-bågen via TCP-port 443. Om datorn ansluter via en brand vägg eller proxyserver för att kommunicera via Internet kan du läsa igenom kraven nedan för att förstå kraven på nätverks konfigurationen.
 
@@ -105,7 +105,7 @@ URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP
 
 ### <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
 
-Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
+Azure Arc-aktiverade servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
 
 * **Microsoft. HybridCompute**
 * **Microsoft. GuestConfiguration**
@@ -174,7 +174,7 @@ När du har installerat den anslutna dator agenten för Windows tillämpas följ
 
 * Följande miljövariabler skapas under Agent installationen.
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -236,7 +236,7 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 * Följande miljövariabler skapas under Agent installationen. Dessa variabler anges i `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Standardvärde |Beskrivning |
+    |Namn |Standardvärde |Beskrivning |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -248,4 +248,4 @@ När du har installerat den anslutna dator agenten för Linux tillämpas följan
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill börja utvärdera Azure-bågen för servrar (för hands version) följer du artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).
+Börja utvärdera Azure Arc-aktiverade servrar (för hands version) genom att följa artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md).

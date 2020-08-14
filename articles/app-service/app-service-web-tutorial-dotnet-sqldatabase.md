@@ -5,13 +5,13 @@ ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: a1fdc9e37084b1e8064bf642ff84646149c32ee7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
+ms.openlocfilehash: fd7f860eb6e18edeb2096c12102e74c7446d050f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050665"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213757"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Självstudie: Distribuera en ASP.NET-app till Azure med Azure SQL Database
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -43,11 +43,11 @@ Om du redan har installerat Visual Studio lägger du till arbets belastningarna 
 ## <a name="download-the-sample"></a>Ladda ned exemplet
 
 * [Ladda ned exempelprojektet](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-* Extrahera (zippa upp) *dotnet-sqldb-tutorial-master.zip* -filen.
+* Extrahera (zippa upp)  *dotnet-sqldb-tutorial-master.zip* -filen.
 
 Exempelprojektet innehåller en enkel [ASP.NET MVC](https://www.asp.net/mvc) CRUD-app (create-read-update-delete) som använder [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
-### <a name="run-the-app"></a>Köra appen
+### <a name="run-the-app"></a>Kör appen
 
 Öppna filen *dotnet-sqldb-kursen-master/DotNetAppSqlDb.sln* i Visual Studio.
 
@@ -110,7 +110,7 @@ Du kan behålla det genererade webbappnamnet eller ändra det till ett annat uni
    | ----------------- | ------------ | ----|
    |**App Service-plan**| myAppServicePlan | [App Service-planer](../app-service/overview-hosting-plans.md) |
    |**Plats**| Europa, västra | [Azure-regioner](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
-   |**Storlek**| Kostnadsfri | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
+   |**Storlek**| Ingenting | [Prisnivåer](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-server"></a>Skapa en server
 

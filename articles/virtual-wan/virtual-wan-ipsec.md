@@ -1,18 +1,18 @@
 ---
 title: IPsec-standardprinciper för virtuella Azure-nätverk | Microsoft Docs
-description: Den här artikeln innehåller information om IPsec-principer för virtuellt WAN.
+description: Lär dig mer om Azures principer för virtuella WAN-nätverk, inklusive standard principer för initierare och responder och anpassade princip kombinationer.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 877a17327f13e407f86cb3a1a21f051572f74343
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 784f43cfa259ad7bdf161aea8e9b1ce559855db7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73499711"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213893"
 ---
 # <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Standard principer för virtuella WAN-nätverk för IPsec-anslutning
 

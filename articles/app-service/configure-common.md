@@ -5,13 +5,13 @@ keywords: Azure App Service, webbapp, app-inställningar, miljövariabler
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
-ms.openlocfilehash: 9371b39bd37ba2514256a3b2fa90812f45c7ce5e
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp, seodec18
+ms.openlocfilehash: 57039149afd22546bbd584db47e7a015b8b5f85c
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077381"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213580"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -96,11 +96,11 @@ För andra språk stackar är det bättre att använda [appinställningar](#conf
 
 Vid körning är anslutnings strängar tillgängliga som miljövariabler, som har prefixet till följande anslutnings typer:
 
-* SQLServer`SQLCONNSTR_`  
-* MySQL`MYSQLCONNSTR_` 
-* SQLAzure:`SQLAZURECONNSTR_` 
-* Bild`CUSTOMCONNSTR_`
-* PostgreSQL`POSTGRESQLCONNSTR_`  
+* SQLServer `SQLCONNSTR_`  
+* MySQL `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
+* Bild `CUSTOMCONNSTR_`
+* PostgreSQL `POSTGRESQLCONNSTR_`  
 
 Till exempel kan en MySql-anslutningssträng med namnet *connectionstring1* nås som miljö variabel `MYSQLCONNSTR_connectionString1` . För språkspecifika steg, se:
 

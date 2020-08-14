@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a98155e76366d0dec794acf1d65e70fa19a544e2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75550153"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208070"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med NetOp-portalen
 
@@ -92,7 +92,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig NetOp-portalen att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------| --------- |
     | NRC-ACCOUNT-ID | "adfs-demo" |
     | NRC-EMAIL | user.userprincipalname |
@@ -118,7 +118,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -142,7 +142,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-netop-portal-sso"></a>Konfigurera NetOp-portalen SSO
 
-Om du vill konfigurera enkel inloggning på **NetOp Portal** sida måste du ladda ned den hämtade **XML-koden för federationsmetadata** och inloggnings-URL: en från Azure Portal. Följ anvisningarna i steg 3 i dokumentationen [här](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) för att konfigurera NetOp-portalen för Azure AD-autentisering.
+Om du vill konfigurera enkel inloggning på **NetOp Portal** sida måste du ladda ned den hämtade **XML-koden för federationsmetadata** och inloggnings-URL: en från Azure Portal. Följ anvisningarna i steg 3 i dokumentationen [här](https://kb.netop.com/article/netop-remote-control-portal-adfs-and-azure-ad-integration-456.html) för att konfigurera NetOp-portalen för Azure AD-autentisering.
 
 ### <a name="create-netop-portal-test-user"></a>Skapa Netop Portal-testanvändare
 
@@ -156,11 +156,11 @@ När du klickar på Netop Portal-panelen i åtkomstpanelen bör du automatiskt l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova NetOp-portalen med Azure AD](https://aad.portal.azure.com/)
 

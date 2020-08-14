@@ -9,14 +9,16 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 543644495a99bacd40edc3f2d9151e4c15808c50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038435"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208760"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Fält mappningar och transformeringar med Azure Kognitiv sökning indexerare
+
+![Indexerings steg](./media/search-indexer-field-mappings/indexer-stages-field-mappings.png "indexerings steg")
 
 När du använder Azure Kognitiv sökning indexerare ser du ibland till att indata inte stämmer överens med schemat för ditt mål index. I dessa fall kan du använda **fält mappningar** för att ändra form på dina data under indexerings processen.
 
@@ -212,7 +214,7 @@ I följande tabell jämförs olika base64-kodningar för strängen `00>00?00` . 
 | Base64 med utfyllnad | `MDA+MDA/MDA=` | Använd URL-säkra tecken och ta bort utfyllnad | Använd standard base64-tecken och Lägg till utfyllnad |
 | Base64 utan utfyllnad | `MDA+MDA/MDA` | Använd URL-säkra tecken | Använd standard base64-tecken |
 | URL – säker base64 med utfyllnad | `MDA-MDA_MDA=` | Ta bort utfyllnad | Lägg till utfyllnad |
-| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Ingen | Ingen |
+| URL – säker base64 utan utfyllnad | `MDA-MDA_MDA` | Inget | Inget |
 
 <a name="extractTokenAtPositionFunction"></a>
 
@@ -275,9 +277,9 @@ Den här funktionen kan användas för att koda en sträng så att den är "säk
 
 #### <a name="example---document-key-lookup"></a>Exempel – sökning efter dokument nyckel
 
-`urlEncode`funktionen kan användas som ett alternativ till `base64Encode` funktionen, om bara URL-osäkra tecken ska konverteras, samtidigt som de behåller andra tecken.
+`urlEncode` funktionen kan användas som ett alternativ till `base64Encode` funktionen, om bara URL-osäkra tecken ska konverteras, samtidigt som de behåller andra tecken.
 
-Anta att Indatasträngen är-och `<hello>` sedan fylls mål fält av typ i `(Edm.String)` med värdet`%3chello%3e`
+Anta att Indatasträngen är-och `<hello>` sedan fylls mål fält av typ i `(Edm.String)` med värdet `%3chello%3e`
 
 När du hämtar den kodade nyckeln vid sökning kan du använda `urlDecode` funktionen för att hämta det ursprungliga nyckelvärdet och använda det för att hämta käll dokumentet.
 

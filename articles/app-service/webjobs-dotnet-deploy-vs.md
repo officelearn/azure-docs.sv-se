@@ -4,16 +4,16 @@ description: Lär dig hur du utvecklar Azure WebJobs i Visual Studio och distrib
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
-ms.custom: vs-azure
+ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: f6ebb20eb66e2449f6627b3c6ce45fd88b8640aa
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009826"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212872"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Utveckla och distribuera WebJobs med Visual Studio
 
@@ -53,11 +53,11 @@ Distribuera ett projekt som ett webb jobb eller länka det till ett webb projekt
 
 ![Diagram över projekt för webb jobb som länkar till webb projekt](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Installera Visual Studio 2017 eller Visual Studio 2019 med [arbets belastningen Azure Development](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
-### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a>Aktivera distribution av WebJobs för ett befintligt konsol program projekt
+### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Aktivera distribution av WebJobs för ett befintligt konsol program projekt
 
 Du kan välja mellan två alternativ:
 
@@ -69,7 +69,7 @@ Du kan välja mellan två alternativ:
 
   Konfigurera ett befintligt konsol program projekt som ska distribueras som ett webb jobb separat, utan en länk till ett webb projekt. Använd det här alternativet om du vill köra ett webbjobb i en webbapp med sig själv, utan att något webb program körs i webbappen. Du kanske vill göra detta för att skala dina webb jobbs resurser oberoende av dina webb programs resurser.
 
-#### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a>Aktivera automatisk distribution av WebJobs med ett webb projekt
+#### <a name="enable-automatic-webjobs-deployment-with-a-web-project"></a><a id="convertlink"></a> Aktivera automatisk distribution av WebJobs med ett webb projekt
 
 1. Högerklicka på webb projektet i **Solution Explorer**och välj sedan **Lägg till**  >  **befintligt projekt som Azure-webbjobb**.
    
@@ -81,7 +81,7 @@ Du kan välja mellan två alternativ:
     ![Välja projekt i dialog rutan Lägg till Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/aaw1.png)
 3. Slutför dialog rutan [Lägg till Azure-webbjobb](#configure) och välj sedan **OK**. 
 
-#### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a>Aktivera distribution av WebJobs utan ett webb projekt
+#### <a name="enable-webjobs-deployment-without-a-web-project"></a><a id="convertnolink"></a> Aktivera distribution av WebJobs utan ett webb projekt
 1. Högerklicka på projektet för konsol programmet i **Solution Explorer**och välj sedan **Publicera som Azure-webbjobb**. 
    
     ![Publicera som Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/paw.png)
@@ -106,12 +106,12 @@ Om du vill skapa ett nytt WebJobs-aktiverat projekt använder du projekt mal len
 > 
 > 
 
-#### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a>Använd mallen WebJobs New-Project för ett oberoende webbjobb
+#### <a name="use-the-webjobs-new-project-template-for-an-independent-webjob"></a><a id="createnolink"></a> Använd mallen WebJobs New-Project för ett oberoende webbjobb
 1. Välj **Arkiv**  >  **nytt**  >  **projekt**. I dialog rutan **Crete ett nytt projekt** söker du efter och väljer **Azure-webbjobb (.NET Framework)** för C#.
    
 2. Följ föregående anvisningar om du vill [göra ett projekt i en oberoende WebJobs](#convertnolink)-projekt.
 
-#### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a>Använd mallen WebJobs New-Project för ett webb jobb som är länkat till ett webb projekt
+#### <a name="use-the-webjobs-new-project-template-for-a-webjob-linked-to-a-web-project"></a><a id="createlink"></a> Använd mallen WebJobs New-Project för ett webb jobb som är länkat till ett webb projekt
 1. Högerklicka på webb projektet i **Solution Explorer**och välj sedan **Lägg till**  >  **nytt Azure-webbjobb-projekt**.
    
     ![Nytt projekt meny alternativ för Azure-webbjobb](./media/webjobs-dotnet-deploy-vs/nawj.png)

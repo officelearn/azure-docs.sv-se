@@ -1,24 +1,24 @@
 ---
-title: Ansluta hybrid dator med Azure Arc-aktiverade servrar
-description: Lär dig hur du ansluter och registrerar en hybrid dator med Azure-båge för servrar.
+title: Ansluta hybrid dator med Azure Arc-aktiverade servrar (förhands granskning)
+description: Lär dig hur du ansluter och registrerar en hybrid dator med Azure Arc-aktiverade servrar (för hands version).
 ms.topic: quickstart
 ms.date: 08/12/2020
-ms.openlocfilehash: 2feb9da3600ef3664b0a75bf2d985d698572ff6f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: eacf75871b1f7cc7fc3b703d8859338578e43456
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88173156"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213606"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar
+# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers-preview"></a>Snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar (förhands granskning)
 
-Med [Azure båg for-servrar (för](../overview.md) hands version) kan du hantera och styra dina Windows-och Linux-datorer som finns i miljöer med lokala nätverk, Edge och flera moln. I den här snabb starten ska du distribuera och konfigurera den anslutna dator agenten på en Windows-eller Linux-dator som finns utanför Azure för hantering efter Arc för servrar (för hands version).
+Med [Azure Arc-aktiverade servrar](../overview.md) (för hands version) kan du hantera och styra dina Windows-och Linux-datorer som finns i miljöer med lokala nätverk, Edge och flera moln. I den här snabb starten distribuerar och konfigurerar du den anslutna dator agenten på en Windows-eller Linux-dator som finns utanför Azure för hantering av Arc-aktiverade servrar (för hands version).
 
 ## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Att distribuera Arc for Servers (för hands version) den hybrid anslutna dator agenten kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, med ett konto som är medlem i den lokala gruppen Administratörer.
+* Om du distribuerar Arc-aktiverade servrar (för hands version) måste du ha administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, med ett konto som är medlem i den lokala gruppen Administratörer.
 
 * Innan du börjar måste du granska agent [kraven](../agent-overview.md#prerequisites) och kontrol lera följande:
 
@@ -28,13 +28,13 @@ Med [Azure båg for-servrar (för](../overview.md) hands version) kan du hantera
 
     * Om datorn ansluter via en brand vägg eller proxyserver för kommunikation via Internet kontrollerar du att URL: erna i [listan](../agent-overview.md#networking-configuration) inte är blockerade.
 
-    * Azure-båge för servrar (för hands version) stöder bara de regioner som anges [här](../overview.md#supported-regions).
+    * Azure Arc-aktiverade servrar (för hands version) stöder bara de regioner som anges [här](../overview.md#supported-regions).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
 
-Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
+Azure Arc-aktiverade servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
 
 * Microsoft. HybridCompute
 * Microsoft. GuestConfiguration
@@ -53,7 +53,7 @@ Skriptet för att automatisera hämtning, installation och upprättande av anslu
 
 1. Starta tjänsten Azure Arc i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **datorer – Azure-båge**.
 
-    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Sök efter Arc för servrar i alla tjänster" border="false":::
+    :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Sök efter Arc-aktiverade servrar i alla tjänster" border="false":::
 
 1. På sidan **datorer – Azure-båge** väljer du antingen **Lägg till**, längst upp till vänster eller alternativet **skapa dator-Azure-båge** längst ned i fönstret i mitten.
 
@@ -97,7 +97,7 @@ Skriptet för att automatisera hämtning, installation och upprättande av anslu
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrollera anslutningen med Azure Arc
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa datorn i [Azure Portal](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa datorn i [Azure Portal](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="En lyckad dator anslutning" border="false":::
 
@@ -105,7 +105,7 @@ När du har installerat agenten och konfigurerat den för att ansluta till Azure
 
 Nu när du har aktiverat din Linux-eller Windows hybrid-dator och har anslutit till tjänsten är du redo att aktivera Azure Policy för att förstå efterlevnad i Azure.
 
-Fortsätt till självstudien om du vill lära dig att identifiera Azure Arc for Servers (för hands version) som har Aktiver ATS för en dator som inte har installerat Log Analytics agent
+Fortsätt till självstudien om du vill lära dig att identifiera Azure Arc-aktiverade servrar (förhands granskning) som är aktive rad på datorn som inte har Log Analytics agent
 
 > [!div class="nextstepaction"]
 > [Skapa en principtilldelning för att identifiera icke-kompatibla resurser](tutorial-assign-policy-portal.md)

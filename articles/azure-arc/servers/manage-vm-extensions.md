@@ -1,24 +1,24 @@
 ---
-title: Hantering av VM-tillägg med Azure-båge för servrar
-description: Azure Arc for Servers (för hands version) kan hantera distribution av tillägg för virtuella datorer som tillhandahåller konfiguration och automatiserings uppgifter efter distributionen med icke-virtuella datorer i Azure.
+title: Hantering av VM-tillägg med Azure Arc-aktiverade servrar (förhands granskning)
+description: Azure Arc-aktiverade servrar (för hands version) kan hantera distribution av virtuella dator tillägg som tillhandahåller konfiguration och automatisering av virtuella datorer med icke-virtuella datorer i Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0319420fe528d41a23ee8fae90c4ad8c326f35a0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121314"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213109"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-for-servers-preview"></a>Hantering av virtuella dator tillägg med Azure-båge för servrar (för hands version)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Hantering av virtuella dator tillägg med Azure Arc-aktiverade servrar (förhands granskning)
 
 Tillägg för virtuella datorer (VM) är små program som ger konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Om en virtuell dator till exempel behöver programvaruinstallation, antivirusskydd eller körning av ett skript på den kan ett VM-tillägg användas.
 
-Med Azure Arc för servrar (för hands version) kan du distribuera virtuella Azure-tillägg till virtuella Windows-och Linux-datorer som inte är Azure-datorer, vilket fören klar hanteringen av din hybrid dator, Edge och andra moln miljöer genom deras livs cykel.
+Med Azure Arc-aktiverade servrar (för hands version) kan du distribuera virtuella Azure-tillägg till virtuella Windows-och Linux-datorer som inte är Azure-datorer, vilket fören klar hanteringen av hybrid datorn lokalt, i Edge och i andra moln miljöer genom deras livs cykel.
 
 ## <a name="key-benefits"></a>Viktiga fördelar
 
-Stöd för VM-tillägg i Azure Arc for Servers (för hands version) ger följande viktiga fördelar:
+Azure Arc-aktiverade servrar (för hands version) stöd för VM-tillägg ger följande viktiga fördelar:
 
 * Använd [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md) för att centralt lagra konfigurationer och upprätthålla det önskade läget för Hybrid anslutna datorer som är aktiverade via DSC VM-tillägget.
 
@@ -47,11 +47,11 @@ I den här för hands versionen har vi stöd för följande VM-tillägg på Wind
 |Log Analytics-agent |Linux |Microsoft. EnterpriseCloud. Monitoring |[Log Analytics VM-tillägg för Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Microsoft-beroende agent | Linux |Microsoft.Compute | [Tillägg för virtuell dator för beroende agent för Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal eller Azure PowerShell på Hybrid servrar som hanteras av Arc for Servers (för hands version).
+VM-tillägg kan köras med Azure Resource Manager mallar, från Azure Portal eller Azure PowerShell på Hybrid servrar som hanteras av Arc-aktiverade servrar (för hands version).
 
 Mer information om paketet för Azure Connected Machine agent och information om tilläggs Agent komponenten finns i [agent översikt](agent-overview.md#agent-component-details).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här funktionen är beroende av följande Azure-resurs leverantörer i din prenumeration:
 
@@ -98,7 +98,7 @@ VM-tillägg kan tillämpas på den hanterade datorn för Server (för hands vers
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. Med de VM-tillägg som stöds av Arc for Servers (för hands version) kan du distribuera VM-tillägget som stöds på Linux-eller Windows-datorer med Azure PowerShell. Varje exempel nedan innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
+VM-tillägg kan läggas till i en Azure Resource Manager mall och köras med mallen. Med de VM-tillägg som stöds av Arc-aktiverade servrar (för hands version) kan du distribuera VM-tillägget som stöds på Linux-eller Windows-datorer med Azure PowerShell. Varje exempel nedan innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
 
 >[!NOTE]
 >Även om flera tillägg kan grupperas tillsammans och bearbetas, installeras de seriellt. När den första tilläggs installationen har slutförts görs ett försök att installera nästa tillägg.
@@ -223,7 +223,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 Om du vill använda tillägget för anpassat skript kan du köra följande exempel på Windows och Linux. Om du inte är bekant med tillägget för anpassat skript, se tillägg [för anpassat skript för Windows](../../virtual-machines/extensions/custom-script-windows.md) eller [anpassat skript tillägg för Linux](../../virtual-machines/extensions/custom-script-linux.md). Det finns ett par olika egenskaper som du bör känna till när du använder det här tillägget med hybrid datorer:
 
-* Listan över operativ system som stöds med det anpassade skript tillägget för Azure VM kan inte användas på Azure-bågen för servrar. Du hittar en lista över vilka OSs-supportar som stöds för Arc för-servrar [här](agent-overview.md#supported-operating-systems).
+* Listan över operativ system som stöds med det anpassade skript tillägget för Azure VM kan inte tillämpas på Azure Arc-aktiverade servrar. Du hittar en lista över vilka OSs-funktioner som stöds för Arc-aktiverade servrar [här](agent-overview.md#supported-operating-systems).
 
 * Konfigurations information om Azure Virtual Machine Scale Sets eller klassiska virtuella datorer är inte tillämplig.
 
@@ -379,7 +379,7 @@ Konfigurationen för det anpassade skript tillägget anger saker som skript plat
 
 Om du vill använda PowerShell DSC-tillägget är följande exempel tillgängligt för körning på Windows och Linux. Om du inte känner till PowerShell DSC-tillägget, se [Översikt över DSC-tilläggs hanterare](../../virtual-machines/extensions/dsc-overview.md). Det finns ett par olika egenskaper som du bör känna till när du använder det här tillägget med hybrid datorer:
 
-* Listan över operativ system som stöds med Azure VM PowerShell DSC-tillägget kan inte användas på Azure-bågen för servrar. Du hittar en lista över vilka OSs-supportar som stöds för Arc för-servrar [här](agent-overview.md#supported-operating-systems).
+* Listan över operativ system som stöds med Azure VM PowerShell DSC-tillägget kan inte tillämpas på Azure Arc-aktiverade servrar. Du hittar en lista över vilka OSs-funktioner som stöds för Arc-aktiverade servrar [här](agent-overview.md#supported-operating-systems).
 
 * Om dina datorer behöver hämta ett skript externt och bara kan kommunicera via en proxyserver, måste du [Konfigurera den anslutna dator agenten](manage-agent.md#update-or-remove-proxy-settings) för att ställa in miljövariabeln för proxyservern.
 

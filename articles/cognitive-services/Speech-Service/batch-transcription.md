@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 3e7f310f37bd016a73c589db3c9a23e197465427
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053924"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214053"
 ---
 # <a name="what-is-batch-transcription"></a>Vad är batch-avskriftering?
 
@@ -44,7 +44,7 @@ Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. Det finns för 
 
 Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="subscription-key"></a>Prenumerationsnyckel
 
@@ -63,7 +63,7 @@ Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](ho
 
 API: et för batch-avskrift stöder följande format:
 
-| Format | ADPCM | Hastigheten | Samplings frekvens                     |
+| Format | ADPCM | Bitar per sampel | Samplings frekvens             |
 |--------|-------|---------|---------------------------------|
 | WAV    | PCM   | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
 | MP3    | PCM   | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
@@ -333,7 +333,7 @@ Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den s�
 
 Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under `samples/batch` katalogen.
 
-Anteckna den asynkrona konfigurationen för att skicka ljud och ta emot avskrifts status. Klienten som du skapar är en .NET HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot tillstånden. `PostTranscriptions`Returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts status.
+Anteckna den asynkrona konfigurationen för att skicka ljud och ta emot avskrifts status. Klienten som du skapar är en .NET HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot tillstånden. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts status.
 
 Den aktuella exempel koden anger inte en anpassad modell. Tjänsten använder bas linje modellen för att skriva över filen eller filerna. Om du vill ange modellen kan du överföra modell referensen för den anpassade modellen till samma metod.
 

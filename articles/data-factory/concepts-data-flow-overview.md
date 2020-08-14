@@ -6,36 +6,36 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 06/09/2020
-ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.custom: references_regions
+ms.date: 08/12/2020
+ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475574"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212054"
 ---
-# <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
+# <a name="mapping-data-flows-in-azure-data-factory"></a>Mappa data flöden i Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Mappning av data flöden är visuellt utformad med data transformationer i Azure Data Factory. Data flöden gör det möjligt för data tekniker att utveckla grafisk data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i Azure Data Factory pipelines som använder utskalade Apache Spark kluster. Data flödes aktiviteter kan användas via befintliga Data Factory schemaläggning, kontroll, flöde och övervakning.
+## <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
 
-Genom att mappa data flöden får du en helt visuell upplevelse utan kodning som krävs. Dina data flöden körs i ditt körnings kluster för att skala ut data bearbetningen. Azure Data Factory hanterar all kod översättning, Sök vägs optimering och körning av dina data flödes jobb.
+Mappning av data flöden är visuellt utformad med data transformationer i Azure Data Factory. Data flöden gör det möjligt för data tekniker att utveckla data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i Azure Data Factory pipelines som använder utskalade Apache Spark kluster. Data flödes aktiviteter kan användas med befintliga Azure Data Factory schemaläggning, kontroll, flöde och övervakning.
 
-![Arkitektur](media/data-flow/adf-data-flows.png "Arkitektur")
+Genom att mappa data flöden får du en helt visuell upplevelse utan kodning som krävs. Dina data flöden körs på ADF-hanterade körnings kluster för att skala ut data bearbetningen. Azure Data Factory hanterar all kod översättning, Sök vägs optimering och körning av dina data flödes jobb.
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du vill skapa ett data flöde väljer du plus tecknet under **fabriks resurser**och väljer sedan **data flöde**. 
+Data flöden skapas från fönstret fabriks resurser som pipelines och data uppsättningar. Om du vill skapa ett data flöde väljer du plus tecknet bredvid **fabriks resurser**och väljer sedan **data flöde**. 
 
-![Nytt data flöde](media/data-flow/newdataflow2.png "nytt data flöde")
+![Nytt data flöde](media/data-flow/new-data-flow.png "nytt data flöde")
 
 Den här åtgärden tar dig till data flödets arbets yta där du kan skapa din omvandlings logik. Välj **Lägg till källa** för att börja konfigurera din käll omvandling. Mer information finns i [käll omvandling](data-flow-source.md).
 
-## <a name="data-flow-canvas"></a>Data flödes arbets yta
+## <a name="authoring-data-flows"></a>Redigera data flöden
 
-Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
+Kart data flödet har en unik redigerings yta som är utformad för att skapa omvandlings logik enkelt. Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
 
 ![Arbetsyta](media/data-flow/canvas1.png "Arbetsyta")
 
@@ -44,40 +44,6 @@ Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen 
 I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa väljer du **Lägg till källa**. Om du vill lägga till en ny omvandling väljer du plus tecknet längst ned till höger i en befintlig omvandling.
 
 ![Arbetsyta](media/data-flow/canvas2.png "Arbetsyta")
-
-### <a name="azure-integration-runtime-data-flow-properties"></a>Data flödes egenskaper för Azure integration runtime
-
-![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
-
-När du börjar arbeta med data flöden i ADF vill du aktivera "Felsök"-växeln för data flöden överst i webb läsar gränssnittet. Detta gör att ett Spark-kluster kan användas för interaktiva fel sökning, för hands versionerna av data och pipeline-felsökning. Du kan ange storleken på det kluster som används genom att välja en anpassad [Azure integration runtime](concepts-integration-runtime.md). Felsöknings sessionen är aktiv i upp till 60 minuter efter din senaste data förhands granskning eller senaste fel söknings pipeline-körning.
-
-När du operationalisera dina pipelines med data flödes aktiviteter använder ADF den Azure Integration Runtime som är kopplad till [aktiviteten](control-flow-execute-data-flow-activity.md) i egenskapen kör på.
-
-Standard Azure Integration Runtime är ett litet 4-core-kluster med en arbets nod som gör att du kan förhandsgranska data och snabbt köra fel söknings pipeliner vid minimala kostnader. Ange en större Azure IR konfiguration om du utför åtgärder mot stora data mängder.
-
-Du kan instruera ADF att underhålla en pool med kluster resurser (VM) genom att ange ett TTL-värde i egenskaperna för Azure IR data flödet. Den här åtgärden resulterar i snabbare jobb körningar på efterföljande aktiviteter.
-
-#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Azure integration Runtime och data flödes strategier
-
-##### <a name="execute-data-flows-in-parallel"></a>Kör data flöden parallellt
-
-Om du kör data flöden i en pipeline parallellt, ökar ADF upp separata Spark-kluster för varje aktivitets körning baserat på inställningarna i Azure Integration Runtime som är kopplade till varje aktivitet. Om du vill utforma parallella körningar i ADF-pipeline lägger du till data flödes aktiviteter utan prioritets begränsningar i användar gränssnittet.
-
-Av dessa tre alternativ körs det här alternativet förmodligen på kortast möjliga tid. Alla parallella data flöden körs dock samtidigt på separata kluster, så sortering av händelser är icke-deterministisk.
-
-Om du kör dina data flödes aktiviteter parallellt i dina pipelines bör du inte använda TTL. Den här åtgärden beror på att parallella körningar av ditt data flöde samtidigt använder samma Azure Integration Runtime resulterar i flera instansen av en varm pool för din data fabrik.
-
-##### <a name="overload-single-data-flow"></a>Överlagring av ett enskilt data flöde
-
-Om du har lagt till all din logik i ett enda data flöde kör ADF samma jobb körnings kontext på en enda Spark kluster instans.
-
-Det här alternativet kan vara mer utmanande att följa och felsöka eftersom affärs regler och affärs logik kan jumbled tillsammans. Det här alternativet ger inte heller mycket åter användning.
-
-##### <a name="execute-data-flows-sequentially"></a>Köra data flöden sekventiellt
-
-Om du kör dina data flödes aktiviteter i följd i pipelinen och du har angett ett TTL-värde för Azure IR konfigurationen återanvänds beräknings resurserna (VM), vilket resulterar i snabbare efterföljande körnings tider. Du får fortfarande en ny Spark-kontext för varje körning.
-
-Av de här tre alternativen tar den här åtgärden förmodligen den längsta tiden att köra slut punkt till slut punkt. Men det ger en ren uppdelning av logiska åtgärder i varje data flödes steg.
 
 ### <a name="configuration-panel"></a>Konfigurations panel
 
@@ -111,13 +77,85 @@ Om fel söknings läget är på visar fliken **data förhands granskning** en in
 
 ### <a name="top-bar"></a>Översta fältet
 
-Det översta fältet innehåller åtgärder som påverkar hela data flödet, t. ex. Spara och verifiera. Du kan också växla mellan diagram-och konfigurations lägen med knapparna **Visa graf** och **Dölj diagram** .
+Det översta fältet innehåller åtgärder som påverkar hela data flödet, t. ex. Spara och verifiera. Du kan även visa den underliggande JSON-koden och data flödes skriptet för din omvandlings logik. Mer information finns i [data flödes skriptet](data-flow-script.md).
 
-![Dölj diagram](media/data-flow/hideg.png "Dölj diagram")
+## <a name="available-transformations"></a>Tillgängliga omvandlingar
 
-Om du döljer grafen kan du bläddra igenom dina transformationsfiler senare via knapparna **föregående** och **Nästa** .
+Visa [Översikt över mappnings data flödet](data-flow-transformation-overview.md) för att hämta en lista över tillgängliga transformeringar.
 
-![Knapparna föregående och nästa](media/data-flow/showhide.png "knapparna föregående och nästa")
+## <a name="data-flow-activity"></a>Data flödes aktivitet
+
+Mappning av data flöden fungerar i ADF-pipeline med [data flödes aktiviteten](control-flow-execute-data-flow-activity.md). Alla användare behöver göra är att ange vilken integration runtime som ska användas och skicka in parameter värden. Mer information finns i [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime).
+
+## <a name="debug-mode"></a>Felsökningsläge
+
+Fel söknings läge gör att du interaktivt kan se resultatet av varje omformnings steg medan du skapar och felsöker dina data flöden. Felsökningssessionen kan användas både i när du skapar din data flödes logik och kör fel söknings körning av pipelinen med data flödes aktiviteter. Mer information finns i dokumentationen om [fel söknings läge](concepts-data-flow-debug-mode.md).
+
+## <a name="monitoring-data-flows"></a>Övervaka data flöden
+
+Kart data flödet integreras med befintliga Azure Data Factory övervakningsfunktionerna. Information om hur du förstår utdata för data flödes övervakning finns i [övervaka mappning av data flöden](concepts-data-flow-monitoring.md).
+
+Azure Data Factorys teamet har skapat en [prestanda justerings guide](concepts-data-flow-performance.md) som hjälper dig att optimera körnings tiden för dina data flöden när du har skapat din affärs logik.
+
+## <a name="available-regions"></a>Tillgängliga regioner
+
+Mappning av data flöden är tillgängliga i följande regioner:
+
+| Azure-region | Data flöden i ADF | Data flöden i Synapse Studio |
+| ------------ | ----------------- | ---------------------------- |
+|  Australien, centrala | | |  
+| Australien, centrala 2 | | |
+| Australien, östra | ✓ |  ✓ |
+| Australien, sydöstra   | ✓ | ✓ |
+| Brasilien, södra  | ✓ |  |
+| Kanada, centrala | ✓ |  |
+| Central India | ✓ |   ✓ |
+| Central US    | ✓ |   ✓ |
+| Kina, östra |      | ✓ |
+| Kina, östra 2  |   |    |
+| Kina, icke-regional | | |
+| Kina, norra |     | |
+| Kina, norra 2 | |  |
+| Asien, östra | ✓ | |
+| East US   | ✓ | ✓ |
+| USA, östra 2 | ✓ | ✓ |
+| Frankrike, centrala | ✓ | ✓ |
+| Frankrike, södra  | | |
+| Tyskland, centrala (suverän) | | |
+| Tyskland, regionsoberoende (suverän) | | |
+| Tyskland, norra (offentlig) | | |
+| Tyskland nordöstra (suverän) | | |
+| Tyskland, västra centrala (offentlig) |  | ✓ |
+| Japan, östra | ✓ |  |
+| Japan, västra |  | |
+| Sydkorea, centrala | ✓ |  |
+| Sydkorea, södra | | |
+| USA, norra centrala  | ✓ | ✓ |
+| Norra Europa  | ✓ |    |
+| Östra Norge | | |
+| Norge, väst | | |
+| Sydafrika, norra    | ✓ | |
+| Sydafrika, västra |  |    |
+| USA, södra centrala  | | ✓ |
+| Indien, södra | | |
+| Sydostasien    | ✓ | ✓ |
+| Schweiz, norra |   |  |
+| Schweiz, västra | | |
+| Förenade Arabemiraten Central | | |
+| Förenade Arabemiraten, norra |  |    |
+| Storbritannien, södra  | ✓ |   | ✓ |
+| Storbritannien, västra |     | ✓ |
+| USA DoD, centrala | |  |
+| USA DoD, östra | |  |
+| US Gov, Arizona |      |  |
+| US Gov, regionsoberoende | |  |
+| US Gov, Texas | |  |
+| US Gov, Virginia |     |  |
+| USA, västra centrala |     | ✓ |
+| Europa, västra   | ✓ |   ✓ |
+| Indien, västra | | |
+| USA, västra   | ✓ |   |
+| USA, västra 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Nästa steg
 

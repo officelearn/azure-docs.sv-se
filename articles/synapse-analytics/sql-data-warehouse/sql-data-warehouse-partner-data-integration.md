@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c8ab5bc5072612edd3eaabbd13468567a92f42e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 354e51d529c504bd04ed40f64b3db14a06384c98
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296397"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210568"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Azure Synapse Analytics-data integrerings partner
 
@@ -43,7 +43,7 @@ Om du vill skapa en informations lager lösning med hjälp av Synapse för SQL-p
 | ![StreamSets](./media/sql-data-warehouse-partner-data-integration/streamsets_logo.png) |**StreamSets**<br>StreamSets tillhandahåller en data integrerings plattform för DataOps. Det operationalizes den fullständiga design-Deploy-driver-processen för att integrera data i ett data lager för Azure Synapse. Du kan snabbt mata in och integrera data till och från lagret, via strömnings-, batch-eller data överförings metoder för data insamling. Du kan också säkerställa kontinuerlig drift med Smart datapipelines som ger insyn och återhämtning från slut punkt till slut punkt för data flödet.|[Produkt sida](https://streamsets.com/partners/microsoft)|
 | ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Talend-moln**<br>Talend Cloud är en plattform för data integrering i företag för att ansluta, komma åt och transformera data i molnet eller lokalt. Det är en integrations plattform som en tjänst (iPaaS) som ger bred anslutning, inbyggd data kvalitet och inbyggt stöd för de senaste Big data-och moln teknikerna. |[Produkt sida](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
 | ![TimeXtender](./media/sql-data-warehouse-partner-data-integration/timextender-logo.png) |**TimeXtender**<br>TimeXtender identifierings hubb hjälper företag att skapa en modern datafastighet genom att tillhandahålla en integrerad plattform för data hantering som påskyndar tiden till data insikter med upp till 10 gånger. Gå bortom vardaglig extrahering, transformering och inläsning (ETL) eller extrahera, Läs in och transformera (ELT) genom att tillhandahålla automatisering och funktioner för data åtkomst, data modellering och efterlevnad på en enda plattform. Discovery Hub ger en sammanhängande data infrastruktur för skalnings analys i molnet, så att du kan ansluta och integrera olika datasilor, katalog-, modell-, flytt-och dokument data för analys och AI. | [Produkt sida](https://www.timextender.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=timextender&page=1) |
-| ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.tr01?source=datamarket&tab=Overview) |
+| ![Trifacta](./media/sql-data-warehouse-partner-data-integration/trifacta_logo.png) |**Trifacta Wrangler**<br> Trifacta hjälper individer och organisationer att utforska och ansluta ihop olika data för analys. Trifacta Wrangler är utformat för att hantera data datatransformering arbets belastningar som behöver stöd för data i skala och ett stort antal slutanvändare.|[Produkt sida](https://www.trifacta.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/trifactainc1587522950142.trifactaazure?tab=Overview) |
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED är en IDE som ger team med automatiserings verktyg för att effektivisera ETL-arbetsflöden. IDE ger bästa praxis och optimerad inbyggd kod för populära data mål. Använd WhereScape RED för att minska tiden för att utveckla, distribuera och driva din data infrastruktur.|[Produkt sida](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
 
 

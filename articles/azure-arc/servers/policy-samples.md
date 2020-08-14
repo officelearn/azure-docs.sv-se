@@ -1,23 +1,23 @@
 ---
-title: Inbyggda princip definitioner för Azure-båge för servrar
-description: Visar Azure Policy inbyggda princip definitioner för Azure-båge för servrar. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
+title: Inbyggda princip definitioner för Azure Arc-aktiverade servrar
+description: Visar Azure Policy inbyggda princip definitioner för Azure Arc-aktiverade servrar (för hands version). Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
 ms.date: 07/10/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 988a383d5b7f7e9dac411205d530a7caf7b8f3dd
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 8d430e741e2cdf2ed562f4a2b2a14cc64d4e5d99
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121790"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211272"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-for-servers"></a>Azure Policy inbyggda definitioner för Azure-båge för servrar
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers-preview"></a>Azure Policy inbyggda definitioner för Azure Arc-aktiverade servrar (för hands version)
 
-Den här sidan är ett index över [Azure policy](../../governance/policy/overview.md) inbyggda princip definitioner för Azure-båge för servrar. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../../governance/policy/samples/built-in-policies.md).
+Den här sidan är ett index över [Azure policy](../../governance/policy/overview.md) inbyggda princip definitioner för Azure Arc-aktiverade servrar (för hands version). Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../../governance/policy/samples/built-in-policies.md).
 
 Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i kolumnen **version** om du vill visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
-## <a name="azure-arc-for-servers"></a>Azure Arc för servrar
+## <a name="azure-arc-enabled-servers-preview"></a>Azure Arc-aktiverade servrar (förhandsversion)
 
 [!INCLUDE [azure-policy-samples-rp-arcserver](../../../includes/policy/samples/byrp/microsoft.hybridcompute.md)]
 

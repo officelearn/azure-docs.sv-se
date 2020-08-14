@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 08/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372045"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206177"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller följande självstudier:
 
 - Generera ett supportpaket
 - Stänga av eller starta om enheten
-- Ladda ned strukturlista eller manifestfiler
+- Ladda ned struktur lista (BOM) eller manifest fil
 - Visa tillgänglig kapacitet på enheten
 - Hoppa över validering av kontrollsummor
 
@@ -53,7 +53,7 @@ Om det uppstår enhetsproblem kan du skapa ett supportpaket från systemloggarna
 
 ## <a name="shut-down-or-restart-your-device"></a>Stänga av eller starta om enheten
 
-Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minskar risken för skadade data. Se till att datakopiering inte pågår när du stänger av enheten.
+Du kan stänga av eller starta om enheten med hjälp av det lokala webb gränssnittet. Innan du startar om rekommenderar vi att du tar ned resurserna offline på värden och sedan enheten. Detta minimerar risken för skadade data. Se till att datakopiering inte pågår när du stänger av enheten.
 
 Följ stegen nedan om du vill stänga av enheten.
 
@@ -62,7 +62,7 @@ Följ stegen nedan om du vill stänga av enheten.
 
     ![Stänga av dataruta 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
+3. När du uppmanas att bekräfta, väljer du **OK** för att fortsätta.
 
     ![Stänga av dataruta 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -81,33 +81,32 @@ Utför följande steg för att starta om din Data Box.
 
 ## <a name="download-bom-or-manifest-files"></a>Ladda ned strukturlista eller manifestfiler
 
-Struktur listan (BOM) eller manifest filen innehåller en lista över de filer som kopieras till Data Box-enhet eller Data Box Heavy. De här filerna genereras för en import ordning när du förbereder enheten för leverans.
+STRUKTUR listan eller manifest filen innehåller en lista över de filer som kopieras till Data Box-enhet eller Data Box Heavy. De här filerna genereras för en import ordning när du förbereder enheten för leverans.
 
-Kontrol lera att enheten har slutförts **Förbered för att skicka** steget innan du börjar. Följ de här stegen för att ladda ned STRUKTURLISTE-eller manifest fil för import ordningen:
+Innan du börjar ska du följa de här stegen för att ladda ned STRUKTURLISTE-eller manifest fil för import ordningen:
 
-1. Gå till det lokala webb gränssnittet för din enhet. Du kommer att se att enheten har slutfört förberedelsen av leverans. När enhetsförberedelserna har slutförts visas enhetens status som **Klar för leverans**.
+1. Gå till det lokala webb gränssnittet för din enhet. Kontrol lera att enheten har slutfört **Förbered för att skicka** steget. När enhetsförberedelserna har slutförts visas enhetens status som **Klar för leverans**.
 
-    ![Enheten är klar för leverans](media/data-box-portal-admin/ready-to-ship.png)
+    ![Enheten är klar för leverans](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
 2. Välj **Hämta lista med filer** för att ladda ned listan med filer som kopierades till data Box-enhet.
 
-    ![Välj Hämta lista över filer](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. I Utforskaren ser du att en separat lista över filer genereras beroende på vilket protokoll som användes för att ansluta till enheten och vilken typ av Azure Storage-lagring du använde.
 
-    ![Filer för lagringstyp och anslutningsprotokoll](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Filer för lagringstyp och anslutningsprotokoll](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
 
    Följande tabell mappar filnamnen med den typ av Azure Storage-lagring och det anslutningsprotokoll som används.
 
     |Filnamn  |Azure Storage-typ  |Anslutningsprotokoll som används |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Blockblobar         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Sidblobar         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Sidblobar         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blockblobar         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Hanterad disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Hanterad disk         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Blockblobar         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Sidblobar         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Sidblobar         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Blockblobar         |REST         |
 
 Du använder den här listan för att bekräfta överföringen av filerna till Azure Storage-kontot när Data Box returnerats till Azure-datacentret. En exempelmanifestfil visas nedan.
 
@@ -209,7 +208,7 @@ Som standard använder Azure Data Box Transport Layer Security (TLS) 1,2 för kr
 
 Mer information om TLS finns i [Azure Data Box Gateway säkerhet](../databox-online/data-box-gateway-security.md).
 
-Så här aktiverar du TLS 1,1 i Azure-enheten:
+Så här aktiverar du TLS 1,1 i din Azure-enhet:
 
 1. I det övre högra hörnet av det lokala webb gränssnittet på enheten väljer du **Inställningar**.
 

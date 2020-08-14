@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 01/07/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 383c5a0d6811b2797ecb4407e73c26752e1a5022
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 85b457b4aefee408e35fb89d46e0de0dc4e96740
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055997"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213862"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
@@ -35,7 +35,7 @@ Här följer några exempel på avancerade regler eller syntax som vi rekommende
 - Regel med fler än fem uttryck
 - Regeln för direkt rapporter
 - Ställer in [operator prioritet](groups-dynamic-membership.md#operator-precedence)
-- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [Regler med komplexa uttryck](groups-dynamic-membership.md#rules-with-complex-expressions); till exempel `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > Regel verktyget kanske inte kan visa vissa regler som skapats i text rutan. Ett meddelande kan visas om regel verktyget inte kan visa regeln. Regel verktyget ändrar inte den syntax, validering eller bearbetning av dynamiska grupp regler som stöds på något sätt.
@@ -80,7 +80,7 @@ Om regeln du angav inte är giltig visas en förklaring av varför regeln inte k
 
 ## <a name="turn-on-or-off-welcome-email"></a>Aktivera eller inaktivera välkomst meddelande
 
-När en ny Office 365-grupp skapas, skickas ett välkomst meddelande till de användare som läggs till i gruppen. Senare, om några attribut för en användare eller enhet ändras, bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+När en ny Microsoft 365-grupp skapas, skickas ett välkomst meddelande till de användare som läggs till i gruppen. Senare, om några attribut för en användare eller enhet ändras, bearbetas alla dynamiska grupp regler i organisationen för medlemskaps ändringar. Användare som läggs till får även välkomst meddelandet. Du kan inaktivera det här beteendet i [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## <a name="check-processing-status-for-a-rule"></a>Kontrol lera bearbetnings status för en regel
 

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 3fcf26670ec03b1d3a496574e58ae706acdf5c53
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 02f5399e89900a438fb94f973c497a54dc05cfee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853299"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210173"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -23,10 +23,10 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure Functions-arbetsflöde har filen tre delar: 
 
-| Avsnitt | Aktiviteter |
+| Avsnitt | Uppgifter |
 | ------- | ----- |
 | **Autentisering** | <ol><li>Definiera ett huvud namn för tjänsten.</li><li>Ladda ned publicerings profil.</li><li>Skapa en GitHub-hemlighet.</li></ol>|
-| **Konstruktion** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
+| **Skapa** | <ol><li>Konfigurera miljön.</li><li>Bygg in Function-appen.</li></ol> |
 | **Distribuera** | <ol><li>Distribuera Function-appen.</li></ol>|
 
 > [!NOTE]
@@ -119,7 +119,7 @@ I följande exempel visas den del av arbets flödet som använder `actions/setup
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel visas den del av arbets flödet som använder `actions/setup-java` åtgärden för att konfigurera miljön:
+I följande exempel visas den del av arbets flödet som använder  `actions/setup-java` åtgärden för att konfigurera miljön:
 
 ```yaml
     - name: 'Login via Azure CLI'

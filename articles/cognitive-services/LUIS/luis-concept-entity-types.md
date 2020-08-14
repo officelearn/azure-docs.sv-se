@@ -2,13 +2,13 @@
 title: Entitetstyper – LUIS
 description: En entitet hämtar data från en användare uttryck vid förutsägelse körning. Ett _valfritt_, sekundärt syfte är att öka förutsägelsen för avsikten eller andra entiteter genom att använda entiteten som en funktion.
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.date: 08/06/2020
+ms.openlocfilehash: 8751bdd52bb1c3738103dc074184a3cf72bfeb09
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337627"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207742"
 ---
 # <a name="extract-data-with-entities"></a>Extrahera data med entiteter
 
@@ -140,9 +140,16 @@ Ett mönster. alla finns bara i ett [mönster](luis-concept-patterns.md).
 
 Kontakta supporten om du behöver mer än [gränsen](luis-limits.md#model-limits). Det gör du genom att samla in detaljerad information om systemet, gå till [Luis](luis-reference-regions.md#luis-website) -webbplatsen och sedan välja **support**. Om din Azure-prenumeration innehåller support tjänster kontaktar du [teknisk support för Azure](https://azure.microsoft.com/support/options/).
 
-## <a name="entity-prediction-status"></a>Status för enhets förutsägelse
+## <a name="entity-prediction-status-and-errors"></a>Enhets förutsägelse status och fel
 
-LUIS-portalen visar när entiteten har en annan enhets förutsägelse än den entitet som du har valt för ett exempel-uttryck. Den här olika poängen baseras på den aktuella tränade modellen. Använd den här informationen för att lösa inlärnings fel med ett eller flera av följande:
+LUIS-portalen visar när entiteten har en annan enhets förutsägelse än den entitet som du har valt för ett exempel-uttryck. Den här olika poängen baseras på den aktuella tränade modellen. 
+
+:::image type="content" source="./media/luis-concept-entities/portal-entity-prediction-error.png" alt-text="LUIS-portalen visar när entiteten har en annan enhets förutsägelse än den entitet som du har valt för ett exempel-uttryck.":::
+
+Den felaktiga texten är markerad i exemplet uttryck, och exempel uttryck-raden har en fel indikator till höger, som visas som en röd triangel. 
+
+Använd den här informationen för att lösa enhets fel med hjälp av ett eller flera av följande:
+* Den markerade texten är felmärkt. För att åtgärda, granska, korrigera och träna. 
 * Skapa en [funktion](luis-concept-feature.md) för entiteten för att hjälpa till att identifiera entitetens koncept
 * Lägg till fler [exempel på yttranden](luis-concept-utterance.md) och etikett med entiteten
 * [Granska aktiva utbildnings förslag](luis-concept-review-endpoint-utterances.md) för alla yttranden som tas emot vid förutsägelse slut punkten som kan hjälpa dig att identifiera entitetens koncept.

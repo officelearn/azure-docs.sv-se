@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 28b608446c543fc568a5c322ffce1df6100d4a73
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 67e1f1dff43939ce7ef279db57bee4b18bd12dc8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852471"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213944"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Azure Blob Storage-utlösare för Azure Functions
 
@@ -280,7 +280,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**bastyp** | saknas | Måste anges till `blobTrigger` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
 |**position** | saknas | Måste anges till `in` . Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. Undantag anges i [användnings](#usage) avsnittet. |
 |**Namn** | saknas | Namnet på variabeln som representerar blobben i funktions koden. |
-|**sökväg** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |
+|**path** | **BlobPath** |Den [behållare](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) som ska övervakas.  Kan vara ett [BLOB Name-mönster](#blob-name-patterns). |
 |**anslutningen** | **Anslutning** | Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna app-inställningen `AzureWebJobsStorage` .<br><br>Anslutnings strängen måste vara för ett allmänt lagrings konto, inte ett [Blob Storage-konto](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

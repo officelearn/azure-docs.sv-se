@@ -5,14 +5,15 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ms.date: 01/30/2020
 ms.author: lcozzens
-ms.openlocfilehash: 47af78e562329a7221dcba865fc7304543a282df
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f0d1e57c7e212fefc6e17a8170e3b4537b190f60
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856770"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211648"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrera med en CI/CD-pipeline
 
@@ -32,7 +33,7 @@ I följande exempel visas hur du inkluderar konfigurations data för appar som e
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du skapar lokalt kan du hämta och installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om du inte redan gjort det.
 

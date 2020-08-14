@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5fe674fa7ab6a6a3f222a215ebc6912549776fee
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067366"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214228"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -19,7 +19,7 @@ Utgående från ett AKS-kluster kan anpassas så att de passar vissa scenarier. 
 
 Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att stödja anpassade nätverks scenarier, till exempel sådana som inte tillåter offentliga IP-adresser och kräver att klustret placeras bakom en virtuell nätverks installation (NVA).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * Azure CLI-version 2.0.81 eller senare
 * API-version av `2020-01-01` eller större
 
@@ -71,7 +71,8 @@ För att illustrera programmet för ett kluster med utgående typ med en använd
 > [!IMPORTANT]
 > Den utgående typen av UDR kräver att det finns en väg för 0.0.0.0/0 och nästa hopp mål för NVA (virtuell nätverks installation) i routningstabellen.
 > Routningstabellen har redan ett standardvärde 0.0.0.0/0 till Internet, utan en offentlig IP-adress till SNAT som du inte kommer att ange för att lägga till den här vägen. AKS validerar att du inte skapar en router med 0.0.0.0/0 som pekar på Internet utan i stället för NVA eller gateway osv.
-
+> 
+> När du använder en utgående typ av UDR, skapas ingen offentlig IP-adress för belastningsutjämnaren om inte en tjänst av typen *Loadbalancer* har kon figurer ATS.
 
 ## <a name="next-steps"></a>Nästa steg
 

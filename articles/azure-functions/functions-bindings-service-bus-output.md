@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844090"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212151"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -300,12 +300,12 @@ I Azure Functions 1. x skapar körnings kön om den inte finns och du har angett
 
 Använd följande parameter typer för utgående bindning:
 
-* `out T paramName` - `T`kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
-* `out string`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
-* `out byte[]`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
-* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
-* `out Message`– Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
-* `ICollector<T>`eller `IAsyncCollector<T>` (för asynkrona metoder) – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
+* `out T paramName` - `T` kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
+* `out string` -Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out byte[]` -Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out BrokeredMessage` -Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
+* `out Message` – Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
+* `ICollector<T>` eller `IAsyncCollector<T>` (för asynkrona metoder) – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
 
 När du arbetar med C#-funktioner:
 
@@ -317,12 +317,12 @@ När du arbetar med C#-funktioner:
 
 Använd följande parameter typer för utgående bindning:
 
-* `out T paramName` - `T`kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
-* `out string`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
-* `out byte[]`-Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
-* `out BrokeredMessage`-Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
-* `out Message`– Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
-* `ICollector<T>`eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
+* `out T paramName` - `T` kan vara valfri JSON-serialiserbar typ. Om parametervärdet är null när funktionen avslutas, skapar funktionen ett meddelande med ett null-objekt.
+* `out string` -Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out byte[]` -Om parametervärdet är null när funktionen avslutas, skapas inget meddelande i functions.
+* `out BrokeredMessage` -Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 1. x)
+* `out Message` – Om parametervärdet är null när funktionen avslutas, skapar inte Functions ett meddelande (för funktioner 2. x och högre)
+* `ICollector<T>` eller `IAsyncCollector<T>` – för att skapa flera meddelanden. Ett meddelande skapas när du anropar- `Add` metoden.
 
 När du arbetar med C#-funktioner:
 

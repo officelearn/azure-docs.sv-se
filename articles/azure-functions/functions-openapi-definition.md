@@ -4,13 +4,13 @@ description: Skapa en OpenAPI-definition som gör det möjligt för andra appar 
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.reviewer: sunayv
-ms.custom: mvc, cc996988-fb4f-47, references_regions
-ms.openlocfilehash: 87f7b47354d3d76d5185b1bf956fd0c422c092bd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47, references_regions
+ms.openlocfilehash: 9083ff7d8f65c68ce8d173973a4eda650ac355aa
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197026"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212913"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
 
@@ -136,15 +136,15 @@ Så här genererar du OpenAPI-definitionen:
 
 1. Använd API Management inställningar som anges i följande tabell:
 
-    | Inställning      | Föreslaget värde  | Description                                        |
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din Function-app. |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya resursen skapas under. |  
     | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
-    | **Position** | USA, västra | Välj platsen för västra USA. |
+    | **Plats** | USA, västra | Välj platsen för västra USA. |
     | **Organisationsnamn** | Contoso | Namnet på organisationen som används i Developer-portalen och för e-postaviseringar. |
     | **E-postadress för administratör** | din e-post | E-post som tog emot system meddelanden från API Management. |
-    | **Pris nivå** | Förbrukning | Förbruknings nivån är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Prisnivå** | Förbrukning | Förbruknings nivån är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
 
     ![Skapa ny API Management-tjänst](media/functions-openapi-definition/new-apim-service-openapi.png)
 

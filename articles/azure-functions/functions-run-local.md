@@ -4,13 +4,13 @@ description: Lär dig hur du kodar och testar Azure Functions från kommando tol
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5c6761b083200556314d7133d5040f7811066e30
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.custom: devx-track-csharp, 80e4ff38-5174-43
+ms.openlocfilehash: 18263f9e77961fb4c169559f221ab94eb4a38840
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037039"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207443"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -39,7 +39,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
@@ -189,7 +189,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 </pre>
 
-`func init`stöder följande alternativ, som är version 3. x/2. x-Only, om inget annat anges:
+`func init` stöder följande alternativ, som är version 3. x/2. x-Only, om inget annat anges:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -363,7 +363,7 @@ npm start
 > func host start
 > ```
 
-`func start`stöder följande alternativ:
+`func start` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -472,7 +472,7 @@ curl --request POST -H "Content-Type:application/json" --data "{'input':'sample 
 
 I version 1. x kan du också anropa en funktion direkt genom att använda `func run <FunctionName>` och ange indata för funktionen. Det här kommandot liknar att köra en funktion med hjälp av fliken **test** i Azure Portal.
 
-`func run`stöder följande alternativ:
+`func run` stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -547,7 +547,7 @@ Följande alternativ för distribution av anpassade behållare är tillgängliga
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | Namnet på ett Docker-register som den aktuella användaren har loggat in på. |
-| **`--platform`** | Värd plattform för Function-appen. Giltiga alternativ är`kubernetes` |
+| **`--platform`** | Värd plattform för Function-appen. Giltiga alternativ är `kubernetes` |
 | **`--name`** | Funktionens namn på appen. |
 | **`--max`**  | Om du vill kan du ange det maximala antalet funktions-App-instanser som ska distribueras till. |
 | **`--min`**  | Om du vill kan du ange det minsta antalet funktions-App-instanser som ska distribueras till. |

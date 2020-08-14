@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: Lär dig hur du konfigurerar Azure dev Spaces för att använda en anpassad NGINX ingångs kontroll och konfigurera HTTPS med den här ingångs styrenheten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 1b4bc686d0795767c259a3e0407393d7b6ebf486
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 199b077f20f396919d26b69d3fea422a8d9b4358
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420931"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212485"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Använd en anpassad NGINX ingångs kontroll och konfigurera HTTPS
 
@@ -21,7 +21,7 @@ Den här artikeln visar hur du konfigurerar Azure dev Spaces för att använda e
 
 * En Azure-prenumeration. Om du inte har någon, kan du skapa ett [kostnadsfritt konto][azure-account-create].
 * [Azure CLI installerat][az-cli].
-* [Azure Kubernetes service-kluster (AKS) med Azure dev Spaces aktiverat][qs-cli].
+* Azure Kubernetes service-kluster (AKS) med Azure dev Spaces aktiverat.
 * [kubectl][kubectl] installerad.
 * [Helm 3 är installerat][helm-installed].
 * [En anpassad domän][custom-domain] med en [DNS-zon][dns-zone].  Den här artikeln förutsätter att den anpassade domänen och DNS-zonen finns i samma resurs grupp som ditt AKS-kluster, men det går att använda en anpassad domän och DNS-zon i en annan resurs grupp.
@@ -56,7 +56,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> Exemplet ovan skapar en offentlig slut punkt för din ingångs kontroll. Om du behöver använda en privat slut punkt för din ingångs styrenhet i stället lägger du till inställningen *--set Controller. service. annotations. " service \\ . beta \\ . Kubernetes \\ . io/Azure-Load-Balancer-Internal "= true-* parameter till kommandot *Helm install* . Ett exempel:
+> Exemplet ovan skapar en offentlig slut punkt för din ingångs kontroll. Om du behöver använda en privat slut punkt för din ingångs styrenhet i stället lägger du till inställningen *--set Controller. service. annotations. " service \\ . beta \\ . Kubernetes \\ . io/Azure-Load-Balancer-Internal "= true-* parameter till kommandot *Helm install* . Till exempel:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -253,7 +253,7 @@ Uppgradera exempel programmet med `helm` :
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Ett exempel:
+Navigera till exempel programmet i det underordnade området *dev/azureuser1* och Observera att du omdirigeras till att använda https. Observera också att sidan läses in, men webbläsaren visar vissa fel. Om du öppnar webb läsar konsolen visas felet relaterar till en HTTPS-sida vid försök att läsa in HTTP-resurser. Till exempel:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -317,10 +317,10 @@ Navigera till exempel programmet i det underordnade området *dev/azureuser1* oc
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program över flera behållare och hur du kan förenkla samarbets utveckling genom att arbeta med olika versioner eller grenar av koden i olika utrymmen.
+Lär dig mer om hur Azure dev Spaces fungerar.
 
 > [!div class="nextstepaction"]
-> [Grupp utveckling i Azure dev Spaces][team-development-qs]
+> [Så här fungerar Azure Dev Spaces](../how-dev-spaces-works.md)
 
 
 [az-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
@@ -328,9 +328,6 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 [az-network-dns-record-set-a-add-record]: /cli/azure/network/dns/record-set/a?view=azure-cli-latest#az-network-dns-record-set-a-add-record
 [custom-domain]: ../../app-service/manage-custom-dns-buy-domain.md#buy-the-domain
 [dns-zone]: ../../dns/dns-getstarted-cli.md
-[qs-cli]: ../quickstart-cli.md
-[team-development-qs]: ../quickstart-team-development.md
-
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
 [cert-manager]: https://cert-manager.io/

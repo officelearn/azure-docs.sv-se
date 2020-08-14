@@ -5,15 +5,16 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 069bce6f2f8e46679cbc82dd92c9fd73bfecde85
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: fc2b5829b2978253476ad8cca1438b784c6ad10d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373529"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210003"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
@@ -63,7 +64,7 @@ Om du vill använda Secret Manager lägger du till ett- `UserSecretsId` element 
 1.  Lägg till ett- `UserSecretsId` element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
     
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
     
@@ -131,7 +132,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     > [!IMPORTANT]
     > Vissa gränssnitt kommer att trunkera anslutnings strängen om den inte omges av citat tecken. Se till att `dotnet user-secrets` kommandots utdata visar hela anslutnings strängen. Om den inte gör det kör du kommandot på nytt, så att anslutnings strängen stängs av i citat tecken.
 
-    Secret Manager används bara för att testa webbappen lokalt. När appen distribueras till [Azure App Service](https://azure.microsoft.com/services/app-service/web)kan du till exempel använda inställningen **anslutnings strängar** i App Service i stället för hemliga hanterare för att lagra anslutnings strängen.
+    Secret Manager används bara för att testa webbappen lokalt. När appen distribueras till [Azure App Service](https://azure.microsoft.com/services/app-service/web)kan du till exempel använda inställningen **anslutnings strängar**  i App Service i stället för hemliga hanterare för att lagra anslutnings strängen.
 
     Få åtkomst till den här hemligheten med Konfigurations-API: t Ett kolon (:) fungerar i konfigurations namnet med Konfigurations-API: et på alla plattformar som stöds. Se [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
@@ -144,7 +145,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 1. Uppdatera `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa- `config.AddAzureAppConfiguration()` metoden.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 

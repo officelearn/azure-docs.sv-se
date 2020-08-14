@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 8d48ea133aaabbe9fd44bda545d672e68c93c08d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81312202"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205583"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Självstudie: skapa en Programgateway med sökvägar baserade routningsregler med hjälp av Azure Portal
 
@@ -29,13 +29,13 @@ I den här artikeln kan du se hur du:
 
 ![URL-routningsexempel](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="prerequisites"></a>Krav
 
-Logga in på Azure Portal på[https://portal.azure.com](https://portal.azure.com)
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
@@ -163,7 +163,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 6. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *myHTTPSetting* som **namn på http-inställningen**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** .
 7. Under **Path-baserad routning**väljer **du Lägg till flera mål för att skapa en Sök vägs baserad regel**.
-8. För **sökväg**skriver du */images/*\*.
+8. För **sökväg**skriver du */images/* \* .
 9. För **Sök vägs regelns namn**skriver du *bilder*.
 10. För **http-inställning**väljer du **myHTTPSetting**
 11. För **Server dels mål**väljer du **bilder**.
@@ -173,7 +173,7 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 15. Välj **Nästa: Taggar** och **Nästa: granska + skapa**.
 
 > [!NOTE]
-> Du behöver inte lägga till en anpassad */** Sök vägs regel för att hantera standard fall. Detta hanteras automatiskt av standard-backend-poolen.
+> Du behöver inte lägga till en anpassad */* * Sök vägs regel för att hantera standard fall. Detta hanteras automatiskt av standard-backend-poolen.
 
 ### <a name="review--create-tab"></a>Granska + fliken Skapa
 
@@ -186,25 +186,29 @@ Granska inställningarna på fliken **Granska + skapa** och välj sedan **skapa*
 
     ![Registrera programgatewayens offentliga IP-adress](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http:\//52.188.72.175:8080.
+2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. Till exempel http: \/ /52.188.72.175:8080.
 
     ![Testa basadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
    Lyssnaren på Port 8080 dirigerar den här begäran till standard-backend-poolen.
 
-3. Ändra URL: en *till&lt;http://IP-&gt;Address: 8080/images/test.htm*, &lt;ersätta IP-&gt; adress med din IP-adress och du bör se något som liknar följande exempel:
+3. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/images/test.htm*, ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
 
     ![Testa bildadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    Lyssnaren på Port 8080 dirigerar den här begäran till *avbildningens* backend-pool.
 
-4. Ändra URL: en *till&lt;http://IP-&gt;Address: 8080/video/test.htm*, &lt;ersätta IP-&gt; adress med din IP-adress och du bör se något som liknar följande exempel:
+4. Ändra URL: en till *http:// &lt; IP-address &gt; : 8080/video/test.htm*, ersätta &lt; IP-adress &gt; med din IP-adress och du bör se något som liknar följande exempel:
 
     ![Testa videoadressen i programgatewayen](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
    Lyssnaren på Port 8080 dirigerar denna begäran till *video* -backend-poolen.
 
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Ta bort resurs gruppen och alla relaterade resurser när de inte längre behövs. Det gör du genom att markera resurs gruppen och välja **ta bort resurs grupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktiverar end to end-TLS på Azure Application Gateway](application-gateway-backend-ssl.md)
+> [!div class="nextstepaction"]
+> [Aktivera TLS från slut punkt till slut punkt på Azure Application Gateway](application-gateway-backend-ssl.md)

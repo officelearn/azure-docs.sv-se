@@ -3,13 +3,14 @@ title: Referens för PowerShell-utvecklare för Azure Functions
 description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 8b8c84583bd80a7c3cbadde1caba231eed801c1f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506136"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207412"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -113,7 +114,7 @@ param($MyFirstInputBinding, $MySecondInputBinding)
 Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 ```
 
-`Push-OutputBinding`beter sig på olika sätt baserat på det värde som har angetts för `-Name` :
+`Push-OutputBinding` beter sig på olika sätt baserat på det värde som har angetts för `-Name` :
 
 * Om det angivna namnet inte kan matchas med en giltig utgående bindning, genereras ett fel.
 
@@ -121,7 +122,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 * När bindningen för utdata bara tar emot ett singleton-värde uppstår ett fel när en sekund anropas `Push-OutputBinding` .
 
-#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding`uttryck
+#### <a name="push-outputbinding-syntax"></a>`Push-OutputBinding` uttryck
 
 Följande är giltiga parametrar för att anropa `Push-OutputBinding` :
 
@@ -175,7 +176,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Push-OutputBinding exempel: utgående bindning för kö
 
-`Push-OutputBinding`används för att skicka data till utgående bindningar, t. ex. en [Azure Queue Storage utgående bindning](functions-bindings-storage-queue-output.md). I följande exempel har meddelandet som skrivs till kön värdet "utdata #1":
+`Push-OutputBinding` används för att skicka data till utgående bindningar, t. ex. en [Azure Queue Storage utgående bindning](functions-bindings-storage-queue-output.md). I följande exempel har meddelandet som skrivs till kön värdet "utdata #1":
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -195,7 +196,7 @@ PS >Push-OutputBinding -Name outQueue -Value @("output #3", "output #4")
 
 När det skrivs till kön innehåller meddelandet följande fyra värden: "utdata #1", "utdata #2", "utdata #3" och "utdata #4".
 
-#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding`kommandon
+#### <a name="get-outputbinding-cmdlet"></a>`Get-OutputBinding` kommandon
 
 Du kan använda `Get-OutputBinding` cmdleten för att hämta de värden som för närvarande är inställda för dina utgående bindningar. Denna cmdlet hämtar en hash-tabellen som innehåller namnen på utgående bindningarna med respektive värden. 
 
@@ -212,7 +213,7 @@ MyQueue                        myData
 MyOtherQueue                   myData
 ```
 
-`Get-OutputBinding`innehåller också en parameter `-Name` som kallas, som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
+`Get-OutputBinding` innehåller också en parameter `-Name` som kallas, som kan användas för att filtrera den returnerade bindningen, som i följande exempel:
 
 ```powershell
 Get-OutputBinding -Name MyQ*
@@ -296,14 +297,14 @@ Request-objektet som skickas till skriptet är av typen `HttpRequestContext` , s
 
 | Egenskap  | Beskrivning                                                    | Typ                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body`serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | objekt |
+| **`Body`**    | Ett objekt som innehåller bröd texten i begäran. `Body` serialiseras till den bästa typen baserat på data. Om data till exempel är JSON, skickas de som en hash-tabell. Om datan är en sträng skickas den som en sträng. | objekt |
 | **`Headers`** | En ord lista som innehåller begärandehuvuden.                | Ord listans<sträng, sträng><sup>*</sup> |
 | **`Method`** | HTTP-metoden för begäran.                                | sträng                    |
 | **`Params`**  | Ett objekt som innehåller Dirigerings parametrarna för begäran. | Ord listans<sträng, sträng><sup>*</sup> |
 | **`Query`** | Ett objekt som innehåller frågeparametrarna.                  | Ord listans<sträng, sträng><sup>*</sup> |
 | **`Url`** | URL för begäran.                                        | sträng                    |
 
-<sup>*</sup>Alla `Dictionary<string,string>` nycklar är inte Skift läges känsliga.
+<sup>*</sup> Alla `Dictionary<string,string>` nycklar är inte Skift läges känsliga.
 
 #### <a name="response-object"></a>Svarsobjekt
 
@@ -422,9 +423,9 @@ Följande program inställningar kan användas för att ändra hur de hanterade 
 
 | Funktionsapp inställning              | Standardvärde             | Beskrivning                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
-| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00`(7 dagar)     | Varje PowerShell-arbetsprocess initierar sökning efter modul uppgraderingar på den PowerShell-galleriet processen startar och var `MDMaxBackgroundUpgradePeriod` som än är. När en ny version av modulen är tillgänglig i PowerShell-galleriet, installeras den på fil systemet och görs tillgänglig för PowerShell-arbetare. Genom att minska det här värdet kan din Function-app Hämta nyare modul versioner tidigare, men det ökar också resursanvändningen för appar (nätverks-I/O, CPU, lagring). Om du ökar det här värdet minskar appens resursanvändning, men det kan också dröja att leverera nya versioner av modulen till din app. | 
-| **`MDNewSnapshotCheckPeriod`**         | `01:00:00`(1 timme)       | När nya versioner av modulen har installerats i fil systemet måste varje PowerShell-arbetsprocess startas om. Att starta om PowerShell-arbetskraftar påverkar appens tillgänglighet eftersom den kan avbryta den aktuella funktions körningen. Till dess att alla PowerShell-arbetsprocesser har startats om kan funktions anrop använda antingen den gamla versionen eller de nya modulerna. Startar om alla PowerShell-anställda i `MDNewSnapshotCheckPeriod` . Om du ökar det här värdet minskas frekvensen för avbrott, men det kan också öka tids perioden när funktions anropen använder antingen den gamla eller den nya modulens versioner icke-deterministiskt. |
-| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00`(1 dag)     | För att undvika alltför stora modul uppgraderingar vid frekventa arbets starter, utförs ingen sökning efter modul uppgraderingar när en anställd redan har initierat den här kontrollen `MDMinBackgroundUpgradePeriod` . |
+| **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dagar)     | Varje PowerShell-arbetsprocess initierar sökning efter modul uppgraderingar på den PowerShell-galleriet processen startar och var `MDMaxBackgroundUpgradePeriod` som än är. När en ny version av modulen är tillgänglig i PowerShell-galleriet, installeras den på fil systemet och görs tillgänglig för PowerShell-arbetare. Genom att minska det här värdet kan din Function-app Hämta nyare modul versioner tidigare, men det ökar också resursanvändningen för appar (nätverks-I/O, CPU, lagring). Om du ökar det här värdet minskar appens resursanvändning, men det kan också dröja att leverera nya versioner av modulen till din app. | 
+| **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 timme)       | När nya versioner av modulen har installerats i fil systemet måste varje PowerShell-arbetsprocess startas om. Att starta om PowerShell-arbetskraftar påverkar appens tillgänglighet eftersom den kan avbryta den aktuella funktions körningen. Till dess att alla PowerShell-arbetsprocesser har startats om kan funktions anrop använda antingen den gamla versionen eller de nya modulerna. Startar om alla PowerShell-anställda i `MDNewSnapshotCheckPeriod` . Om du ökar det här värdet minskas frekvensen för avbrott, men det kan också öka tids perioden när funktions anropen använder antingen den gamla eller den nya modulens versioner icke-deterministiskt. |
+| **`MDMinBackgroundUpgradePeriod`**      | `1.00:00:00` (1 dag)     | För att undvika alltför stora modul uppgraderingar vid frekventa arbets starter, utförs ingen sökning efter modul uppgraderingar när en anställd redan har initierat den här kontrollen `MDMinBackgroundUpgradePeriod` . |
 
 Att dra nytta av dina egna anpassade moduler är lite annorlunda än hur du gör det normalt.
 
@@ -517,7 +518,7 @@ Azure PowerShell använder vissa kontexter och tillstånd på _processnivå_ fö
 
 Det finns stor värde i samtidighet med Azure PowerShell eftersom vissa åtgärder kan ta lång tid. Du måste dock gå vidare med försiktighet. Om du misstänker att du råkar ut för ett konkurrens tillstånd ställer du in appens PSWorkerInProcConcurrencyUpperBound till `1` och använder i stället [språket arbets process nivå isolering](functions-app-settings.md#functions_worker_process_count) för samtidighet.
 
-## <a name="configure-function-scriptfile"></a>Konfigurera funktion`scriptFile`
+## <a name="configure-function-scriptfile"></a>Konfigurera funktion `scriptFile`
 
 Som standard körs en PowerShell-funktion från `run.ps1` , en fil som delar samma överordnade katalog som dess motsvarande `function.json` .
 
@@ -595,7 +596,7 @@ När du arbetar med PowerShell-funktioner bör du vara medveten om övervägande
 
 När du utvecklar Azure Functions i den [serverbaserade värd modellen](functions-scale.md#consumption-plan)är kall start en verklighet. *Kall start* avser den tid det tar för din Function-app att börja köra för att bearbeta en begäran. Kall start sker oftare i förbruknings planen eftersom din funktions app stängs av under perioder av inaktivitet.
 
-### <a name="bundle-modules-instead-of-using-install-module"></a>Paketera moduler i stället för att använda`Install-Module`
+### <a name="bundle-modules-instead-of-using-install-module"></a>Paketera moduler i stället för att använda `Install-Module`
 
 Skriptet körs vid varje anrop. Undvik att använda `Install-Module` i skriptet. Använd i stället `Save-Module` före publicering så att din funktion inte behöver slösa tid på att ladda ned modulen. Om kall startar påverkar dina funktioner, bör du överväga att distribuera din Function-app till en [App Service plan](functions-scale.md#app-service-plan) inställd på *Always on* eller till en [Premium-plan](functions-scale.md#premium-plan).
 

@@ -6,13 +6,13 @@ ms.service: cache
 ms.topic: quickstart
 ms.date: 06/18/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: c9dfc7c9b396ec6ecd27891298ba0b0f1fc3e186
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 8bf301413abaa090682f14d1e7a6f9fa7096bd66
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117853"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209217"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Snabb start: Använd Azure cache för Redis med en ASP.NET-webbapp 
 
@@ -101,7 +101,7 @@ Eftersom *CacheSecrets.config* inte har distribuerats till Azure med din app anv
 2. Leta reda på elementet `<appSetting>` i filen *web.config*. Lägg sedan till följande `file`-attribut. Om du använder ett annat namn eller en annan plats, byter du ut dessa värden mot de som visas i exemplet.
 
 * Innan: `<appSettings>`
-* När`<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* När  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 ASP.NET-körningsmiljön sammanfogar innehållet i den externa filen med markeringen i `<appSettings>`-elementet. Vid körningen ignoreras filattributet om det inte går att hitta den angivna filen. Din hemliga information (anslutningssträngen till cachen) ingår inte i källkoden för programmet. När du distribuerar din webbapp till Azure så distribueras inte filen *CacheSecrets.config*.
 
@@ -289,7 +289,7 @@ När du har testat appen lokalt distribuerar du den till Azure och kör den i mo
 
     | Inställningen | Rekommenderat värde | Beskrivning |
     | ------- | :---------------: | ----------- |
-    | **App-namn** | Använd standardvärdet. | Appnamnet blir värdnamnet för appen när den har distribuerats till Azure. Namnet kan ha ett tidsstämpelsuffix som lagts till för att göra det unikt, om det behövs. |
+    | **Appens namn** | Använd standardvärdet. | Appnamnet blir värdnamnet för appen när den har distribuerats till Azure. Namnet kan ha ett tidsstämpelsuffix som lagts till för att göra det unikt, om det behövs. |
     | **Prenumeration** | Välj din Azure-prenumeration. | Den här prenumerationen debiteras för eventuella relaterade värdkostnader. Om du har flera Azure-prenumerationer kontrollerar du att den önskade prenumerationen har valts.|
     | **Resursgrupp** | Använd den resursgrupp som du skapade cachen i (till exempel *TestResourceGroup*). | Resursgruppen hjälper dig att hantera alla resurser som en grupp. Senare när du vill ta bort appen är det bara att ta bort gruppen. |
     | **App Service plan** | Välj **Nytt** och skapa en ny App Service-Plan med namnet *TestingPlan*. <br />Använd samma **plats** du använde när du skapade cachen. <br />Välj **Ledigt** som storlek. | En App Service-plan definierar en uppsättning beräkningsresurser för en webbapp att köra med. |

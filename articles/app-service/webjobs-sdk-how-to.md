@@ -3,15 +3,16 @@ title: Använda WebJobs SDK
 description: Läs mer om hur du skriver kod för WebJobs SDK. Skapa händelse drivna bakgrunds bearbetnings jobb som har åtkomst till data i Azure och tjänster från tredje part.
 author: ggailey777
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 97b17f7e80590b9b907b8dc25253e6d706117357
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807986"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208636"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -73,7 +74,7 @@ Du kan köra värden i utvecklings läge för att göra den lokala utvecklingen 
 
 | Egenskap | Utvecklings inställning |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose`för att maximera logg resultatet. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` för att maximera logg resultatet. |
 | `Queues.MaxPollingInterval`  | Ett lågt värde för att se till att köa metoder utlöses omedelbart.  |
 | `Singleton.ListenerLockPeriod` | 15 sekunder för att hjälpa till med snabb iterativ utveckling. |
 
@@ -470,7 +471,7 @@ static void Main(string[] args)
 }
 ```
 
-Mer information finns i [referensenhost.jspå v1. x](../azure-functions/functions-host-json-v1.md#queues).
+Mer information finns i [ referensenhost.jspå v1. x](../azure-functions/functions-host-json-v1.md#queues).
 
 ### <a name="sendgrid-binding-configuration-version-3x"></a>SendGrid bindnings konfiguration (version 3.* x*)
 
@@ -620,7 +621,7 @@ Du konfigurerar matcharen genom att använda beroende inmatning. Dessa exempel k
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-Du lägger till matcharen genom att anropa [`ConfigureServices`] tilläggs metoden på [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) , som i det här exemplet:
+Du lägger till matcharen genom att anropa [`ConfigureServices`] tilläggs metoden på  [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) , som i det här exemplet:
 
 ```cs
 static async Task Main(string[] args)
@@ -822,7 +823,7 @@ Vi rekommenderar loggnings ramverket som har utvecklats för ASP.NET. Artikeln [
 
 ### <a name="log-filtering"></a>Logg filtrering
 
-Varje logg som skapats av en `ILogger` instans har en associerad `Category` och `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)är en uppräkning och heltals koden indikerar relativ prioritet:
+Varje logg som skapats av en `ILogger` instans har en associerad `Category` och `Level` . [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltals koden indikerar relativ prioritet:
 
 |Loggnivå    |Kod|
 |------------|---|
@@ -832,7 +833,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Ingen        | 6 |
+|Inget        | 6 |
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 
@@ -840,7 +841,7 @@ Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/mic
 
 Version 3. *x* av SDK är beroende av filtreringen som är inbyggd i .net Core. Med `LogCategories` klassen kan du definiera kategorier för vissa funktioner, utlösare eller användare. Den definierar också filter för vissa värd tillstånd, t `Startup` `Results` . ex. och. På så sätt kan du finjustera loggnings resultatet. Om ingen matchning hittas inom de definierade kategorierna går filtret tillbaka till `Default` värdet när du bestämmer om meddelandet ska filtreras.
 
-`LogCategories`kräver följande användnings instruktion:
+`LogCategories` kräver följande användnings instruktion:
 
 ```cs
 using Microsoft.Azure.WebJobs.Logging; 
@@ -996,7 +997,7 @@ config.LoggerFactory = new LoggerFactory()
     .AddApplicationInsights(clientFactory);
 ```
 
-## <a name="next-steps"></a><a id="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a><a id="nextsteps"></a> Nästa steg
 
 Den här artikeln innehåller kodfragment som visar hur du hanterar vanliga scenarier för att arbeta med WebJobs SDK. Fullständiga exempel finns i [Azure-WebJobs-SDK-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 

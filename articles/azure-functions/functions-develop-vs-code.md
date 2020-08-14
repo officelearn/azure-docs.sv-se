@@ -2,13 +2,14 @@
 title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: d8ccb93013b16fc919630251aa02edf48e30ce6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083131"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206730"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -38,7 +39,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions-ti
 > [!IMPORTANT]
 > Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du installerar och kör tillägget [Azure Functions extension][Azure Functions för Visual Studio Code]måste du uppfylla följande krav:
 
@@ -330,7 +331,7 @@ Mer information finns i [arbeta med Azure Functions Core Tools][Azure Functions 
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Som standard migreras de här inställningarna inte automatiskt när projektet publiceras till Azure. När publiceringen är klar får du möjlighet att publicera inställningar från local.settings.jspå till din Function-app i Azure. Läs mer i [Publicera program inställningar](#publish-application-settings).
+Som standard migreras de här inställningarna inte automatiskt när projektet publiceras till Azure. När publiceringen är klar får du möjlighet att publicera inställningar från local.settings.jspå till din Function-app i Azure. Läs mer i  [Publicera program inställningar](#publish-application-settings).
 
 Värden i **ConnectionString** publiceras aldrig.
 

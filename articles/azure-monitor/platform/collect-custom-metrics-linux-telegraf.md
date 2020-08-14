@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 57eb005109b97a423f9218ee6a47ce5bb06c3853
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505354"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207805"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -127,7 +127,7 @@ Agenten samlar nu in mått från var och en av de angivna plugin-programmen och 
 
 ## <a name="additional-configuration"></a>Ytterligare konfiguration 
 
-Föregående genom gång innehåller information om hur du konfigurerar teleympkvistar-agenten för att samla in mått från några få grundläggande plugin-program för indata. Teleympkvistar-agenten har stöd för över 150 inmatade plugin-program, med vissa stöd för ytterligare konfigurations alternativ. InfluxData har publicerat en [lista över plugin](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) -program som stöds och instruktioner om [hur du konfigurerar dem](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/).  
+Föregående genom gång innehåller information om hur du konfigurerar teleympkvistar-agenten för att samla in mått från några få grundläggande plugin-program för indata. Teleympkvistar-agenten har stöd för över 150 inmatade plugin-program, med vissa stöd för ytterligare konfigurations alternativ. InfluxData har publicerat en [lista över plugin](https://docs.influxdata.com/telegraf/v1.15/plugins/inputs/) -program som stöds och instruktioner om [hur du konfigurerar dem](https://docs.influxdata.com/telegraf/v1.15/administration/configuration/).  
 
 I den här genom gången använde du dessutom din teleympkvistar-agent för att generera mått om den virtuella dator som agenten distribueras på. Teleympkvistar-agenten kan också användas som insamlare och vidarebefordrare av mått för andra resurser. Information om hur du konfigurerar agenten för att generera mått för andra Azure-resurser finns i [Azure Monitor anpassad mått utmatning för teleympkvistar](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 

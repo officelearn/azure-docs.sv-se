@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e2226f70ed3318bb370f0afee003fd9f91153a45
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9f9ebff77f54d86c3c4ed45fb5190de1900934e9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167884"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207232"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -28,7 +28,18 @@ Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/
 
 ![Hur OCR konverterar bilder och dokument till strukturerade utdata med extraherad text](./Images/how-ocr-works.svg)
 
-Read API tillhandahåller OCR-funktioner genom två åtgärder – **Läs** och **få Läs resultat**.
+## <a name="input-requirements"></a>Krav för indatamängd
+Läs-API: s **Läs** åtgärd tar bilder och dokument som inaktuella. De har följande krav:
+
+* Fil format som stöds: JPEG, PNG, BMP, PDF och TIFF
+* För PDF och TIFF bearbetas upp till 2000 sidor. För prenumeranter på den kostnads fria nivån bearbetas bara de första två sidorna.
+* Fil storleken måste vara mindre än 50 MB och dimensioner minst 50 x 50 bild punkter och högst 10000 x 10000 bild punkter.
+* PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
+
+> [!NOTE]
+> **Språk information** 
+>
+> [Läs åtgärden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) har en valfri begär ande parameter för språk. Det här är språk koden BCP-47 för texten i dokumentet. Läs stöder automatisk språk identifiering och flerspråkiga dokument, så du behöver bara ange en språkkod om du vill tvinga dokumentet att bearbetas som det specifika språket.
 
 ## <a name="the-read-operation"></a>Läs åtgärden
 
@@ -36,7 +47,7 @@ Read API tillhandahåller OCR-funktioner genom två åtgärder – **Läs** och 
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
-|Åtgärds plats | https://cognitiveservice/vision/v3.0-preview/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f |
+|Åtgärds plats | `https://cognitiveservice/vision/v3.0/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-read-results-operation"></a>Åtgärden hämta Läs resultat
 
@@ -112,19 +123,6 @@ Se följande exempel på ett lyckat JSON-svar:
 
 Följ snabb starten för [extrahering av skrivna och handskrivna text](./QuickStarts/CSharp-hand-text.md) för att implementera OCR med C# och REST API.
 
-## <a name="input-requirements"></a>Krav för indatamängd
-
-De inmatade bilderna och dokumenten har följande krav:
-* Fil format som stöds: JPEG, PNG, BMP, PDF och TIFF
-* För PDF och TIFF bearbetas upp till 2000 sidor. För prenumeranter på den kostnads fria nivån bearbetas bara de första två sidorna.
-* Fil storleken måste vara mindre än 50 MB och dimensioner minst 50 x 50 bild punkter och högst 10000 x 10000 bild punkter.
-* PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
-
-> [!NOTE]
-> **Språk information** 
->
-> [Läs åtgärden](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) har en valfri begär ande parameter för språk. Det här är språk koden BCP-47 för texten i dokumentet. Läs stöder automatisk språk identifiering och flerspråkiga dokument, så du behöver bara ange en språkkod om du vill tvinga dokumentet att bearbetas som det specifika språket.
-
 ## <a name="language-support"></a>Stöd för språk
 
 ### <a name="printed-text"></a>Utskriven text
@@ -184,6 +182,9 @@ Read API stöder bilder och dokument som innehåller flera olika språk, vanligt
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
 
 Precis som med alla kognitiva tjänster bör utvecklare som använder Läs-/OCR-tjänsterna vara medvetna om Microsofts principer för kund information. Mer information finns på sidan Cognitive Services på [Microsoft Trust Center](https://www.microsoft.com/trust-center/product-overview) .
+
+> [!NOTE]
+> Datorn Vison 2,0 RecognizeText-åtgärder håller på att bli föråldrad med den nya Read-API: n som beskrivs i den här artikeln. Befintliga kunder ska [övergå till att använda Läs åtgärder](upgrade-api-versions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

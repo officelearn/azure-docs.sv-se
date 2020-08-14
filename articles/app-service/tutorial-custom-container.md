@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
-ms.custom: mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c589ceecdd946b9c9ff17dd459654d066a1167e4
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084858"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88212946"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
@@ -22,7 +22,7 @@ ms.locfileid: "88084858"
 
 ![Visar den webbapp som körs i en Windows-behållare.](media/tutorial-custom-container/app-running.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -120,7 +120,7 @@ Konfigurera det nya containerregistret baserat på de föreslagna värdena i tab
 | ----------------- | ------------ | ----|
 |**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
 |**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
-|**SKU**| Grundläggande | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Europa, västra | |
 
 ![Konfigurera Azure-containerregister](./media/tutorial-custom-container/configure-registry.png)
@@ -462,9 +462,9 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
     ```
 
     Ersätt följande värden:
-    - `<principal-id>`med tjänstens huvud namn-ID från `az webapp identity assign` kommandot
-    - `<registry-name>`med namnet på ditt behållar register
-    - `<subscription-id>`med det prenumerations-ID som hämtats från `az account show` kommandot
+    - `<principal-id>` med tjänstens huvud namn-ID från `az webapp identity assign` kommandot
+    - `<registry-name>` med namnet på ditt behållar register
+    - `<subscription-id>` med det prenumerations-ID som hämtats från `az account show` kommandot
 
 Mer information om dessa behörigheter finns i [Vad är rollbaserad åtkomst kontroll i Azure](/azure/role-based-access-control/overview) och 
 

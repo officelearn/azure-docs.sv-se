@@ -3,16 +3,17 @@ title: Använd funktions filter för att aktivera en funktion för en delmängd 
 titleSuffix: Azure App Configuration
 description: Lär dig hur du använder funktions filter för att aktivera en funktion för en delmängd av användare
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 181c97615985283011834dcf9145810b1563fb4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80057006"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206766"
 ---
 # <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Använd funktions filter för att aktivera en funktion för en delmängd av användare
 
@@ -22,8 +23,8 @@ En _villkorlig funktions flagga_ gör det möjligt att aktivera eller inaktivera
 
 `Microsoft.FeatureManagement`Biblioteket innehåller två funktions filter:
 
-- `PercentageFilter`aktiverar funktions flagga baserat på en procents ATS.
-- `TimeWindowFilter`aktiverar funktions flagga under en angiven tids period.
+- `PercentageFilter` aktiverar funktions flagga baserat på en procents ATS.
+- `TimeWindowFilter` aktiverar funktions flagga under en angiven tids period.
 
 Du kan också skapa ett eget funktions filter som implementerar [gränssnittet Microsoft. FeatureManagement. IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 

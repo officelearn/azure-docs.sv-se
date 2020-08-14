@@ -3,15 +3,16 @@ title: Använda beroendeinmatning i .NET Azure Functions
 description: Lär dig hur du använder beroende inmatning för att registrera och använda tjänster i .NET Functions
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 05b845f3284ea95dd2be595c4d59767e45149306
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500472"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206111"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -21,7 +22,7 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -185,7 +186,7 @@ Följande exempel `host.json` fil lägger till logg filtret.
 
 Funktions värden registrerar många tjänster. Följande tjänster är säkra att ta med i ditt program:
 
-|Typ av tjänst|Giltighet|Description|
+|Typ av tjänst|Giltighet|Beskrivning|
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|Körnings konfiguration|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|Ansvarar för att tillhandahålla ID för värd instansen|

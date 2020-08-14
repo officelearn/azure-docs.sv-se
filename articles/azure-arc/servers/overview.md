@@ -1,20 +1,20 @@
 ---
-title: Översikt över Azure Arc for Servers (för hands version)
-description: Lär dig hur du använder Azure Arc för servrar för att hantera datorer som ligger utanför Azure, som om det är en Azure-resurs.
+title: Översikt över Azure Arc-aktiverade servrar (för hands version)
+description: Lär dig hur du använder Azure Arc-aktiverade servrar (för hands version) för att hantera datorer som ligger utanför Azure, som om det är en Azure-resurs.
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: f11eedaf5f70cb24fa6c1588b7f26b2eed4734ce
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121807"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211319"
 ---
-# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (för hands version)?
+# <a name="what-is-azure-arc-enabled-servers-preview"></a>Vad är Azure Arc-aktiverade servrar (för hands version)?
 
-Med Azure Arc för servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure på företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
+Med Azure Arc-aktiverade servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure i företags nätverket eller någon annan moln leverantör, på samma sätt som du hanterar interna virtuella Azure-datorer. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
 
 För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
 
@@ -24,7 +24,7 @@ För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Az
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-När du ansluter datorn till Azure Arc for Servers (för hands version) kan du utföra följande konfigurations hanterings aktiviteter:
+När du ansluter datorn till Azure Arc-aktiverade servrar (för hands version) gör det möjligt att utföra följande konfigurations hanterings aktiviteter:
 
 - Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer.
 
@@ -36,14 +36,14 @@ Loggdata som samlas in och lagras i en Log Analytics-arbetsyta från hybrid dato
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
+Med Azure Arc-aktiverade servrar (för hands version) stöds endast vissa regioner:
 
 - Platsen eastus
 - WestUS2
 - Västeuropa
 - Sydostasien
 
-I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. I händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
+I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. I händelse av ett regionalt avbrott, om du har flera platser som stöder en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
 
 ### <a name="agent-status"></a>Agent status
 
@@ -51,4 +51,4 @@ Den anslutna dator agenten skickar ett vanligt pulsslags meddelande till tjänst
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du utvärderar eller aktiverar båge för servrar (förhands granskning) över flera hybrid datorer kan du läsa artikeln [Översikt över anslutna dator agenter](agent-overview.md) för att förstå vad som krävs, teknisk information om agenten och distributions metoder.
+Innan du utvärderar eller aktiverar Arc-aktiverade servrar (förhands granskning) över flera hybrid datorer kan du läsa artikeln [Översikt över anslutna dator agenter](agent-overview.md) för att förstå vad som krävs, teknisk information om agenten och distributions metoder.

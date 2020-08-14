@@ -4,34 +4,37 @@ description: Azure IoT Edge använder certifikat för att verifiera enheter, mod
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 10/29/2019
+ms.date: 08/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: f9c3f8e1e37a59dc0010269c6b4c19e3a682c57e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9d7caf332239d364b5bc47b5d58a808ead70395d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247021"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210598"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
 IoT Edge certifikat används av modulerna och underordnade IoT-enheter för att verifiera identiteten och giltighet för modulen för [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -körning. Dessa kontroller aktiverar TLS (Transport Layer Security) säker anslutning mellan körning, moduler och IoT-enheter. Precis som IoT Hub behöver IoT Edge en säker och krypterad anslutning från IoT-underenheten (eller löv) och IoT Edge moduler. För att upprätta en säker TLS-anslutning visar IoT Edge Hub-modulen en server certifikat kedja för att ansluta klienter för att verifiera identiteten.
 
+>[!NOTE]
+>Den här artikeln pratar om de certifikat som används för att skydda anslutningar mellan olika komponenter på en IoT Edge enhet eller mellan en IoT Edge-enhet och eventuella löv enheter. Du kan också använda certifikat för att autentisera IoT Edge-enheten för att IoT Hub. Dessa certifikat för autentisering är olika och beskrivs inte i den här artikeln. Mer information om hur du autentiserar enheten med certifikat finns i [skapa och etablera en IoT Edge enhet med X. 509-certifikat](how-to-auto-provision-x509-certs.md).
+
 I den här artikeln förklaras hur IoT Edge certifikat kan fungera i produktions-, utvecklings-och test scenarier. Medan skripten skiljer sig (PowerShell vs. bash), är begreppen samma mellan Linux och Windows.
 
 ## <a name="iot-edge-certificates"></a>IoT Edge-certifikat
 
-Tillverkare är vanligt vis inte slutanvändare av en IoT Edge enhet. Ibland är den enda relationen mellan två när slutanvändaren eller operatören köper en generisk enhet som tillverkas av tillverkaren. Vid andra tillfällen fungerar tillverkaren enligt avtal för att bygga en anpassad enhet för operatören. IoT Edge-certifikatets design försöker göra båda scenarierna i kontot.
-
-> [!NOTE]
-> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050. Den här begränsningen gäller för enhetens CA-certifikat, alla certifikat i det betrodda paketet och de enhets-ID-certifikat som används för etablerings metoder för X. 509.
+Det finns två vanliga scenarier för att konfigurera certifikat på en IoT Edge enhet. Ibland kan slutanvändaren eller operatören av en enhet köpa en generisk enhet som tillverkas av en tillverkare och sedan hantera själva certifikaten. Vid andra tillfällen fungerar tillverkaren enligt avtal för att bygga en anpassad enhet för operatören och utför en del certifikat signering innan enheten överförs. IoT Edge-certifikatets design försöker göra båda scenarierna i kontot.
 
 Följande bild illustrerar IoT Edge användningen av certifikat. Det kan finnas noll, ett eller flera mellanliggande signerings certifikat mellan rot certifikat utfärdarens certifikat och enhetens CA-certifikat, beroende på antalet enheter som berörs. Här visar vi ett ärende.
 
 ![Diagram över typiska certifikat relationer](./media/iot-edge-certs/edgeCerts-general.png)
+
+> [!NOTE]
+> För närvarande förhindrar en begränsning i libiothsm användningen av certifikat som upphör att gälla den 1 januari 2050. Den här begränsningen gäller för enhetens CA-certifikat, alla certifikat i det betrodda paketet och de enhets-ID-certifikat som används för etablerings metoder för X. 509.
 
 ### <a name="certificate-authority"></a>Certifikatutfärdare
 
@@ -43,7 +46,7 @@ Ett rot certifikat utfärdares certifikat är roten av förtroendet för hela pr
 
 ### <a name="intermediate-certificates"></a>Mellanliggande certifikat
 
-I en typisk tillverknings process för att skapa säkra enheter används vanligt vis rotcertifikatutfärdarcertifikat i rot certifikat direkt, främst på grund av risken för läckage eller exponering. Rot-CA-certifikatet skapar och signerar ett eller flera mellanliggande CA-certifikat digitalt. Det får bara finnas en, eller så kan det finnas en kedja av dessa mellanliggande certifikat. Scenarier som kräver en kedja av mellanliggande certifikat inkluderar:
+I en typisk tillverknings process för att skapa säkra enheter används vanligt vis rotcertifikatutfärdarcertifikat i rot certifikat direkt, främst på grund av risken för läckage eller exponering. Rot-CA-certifikatet skapar och signerar ett eller flera mellanliggande CA-certifikat digitalt. Det kan bara finnas en, eller så kan det finnas en kedja av dessa mellanliggande certifikat. Scenarier som kräver en kedja av mellanliggande certifikat inkluderar:
 
 * En hierarki med avdelningar inom en tillverkare.
 
@@ -59,7 +62,7 @@ Enhetens CA-certifikat genereras från och signeras av det slutliga mellanliggan
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge arbets belastnings certifikat utfärdare
 
-[IoT Edge Security Manager](iot-edge-security-manager.md) genererar arbets Belastningens CA-certifikat, det första på "operatörs sidan" i processen, när IoT Edge startas första gången. Certifikatet skapas från och signeras av "enhetens CA-certifikat". Det här certifikatet, som bara är ett annat mellanliggande signerings certifikat, används för att generera och signera andra certifikat som används av IoT Edge Runtime. Idag är det i första hand det IoT Edge Hub-servercertifikat som diskuteras i följande avsnitt, men i framtiden kan det inkludera andra certifikat för autentisering av IoT Edge-komponenter.
+[IoT Edge Security Manager](iot-edge-security-manager.md) genererar arbets Belastningens CA-certifikat, det första på "operatörs sidan" i processen, när IoT Edge startas första gången. Certifikatet skapas från och signeras av enhetens CA-certifikat. Det här certifikatet, som bara är ett annat mellanliggande signerings certifikat, används för att generera och signera andra certifikat som används av IoT Edge Runtime. Idag är det i första hand det IoT Edge Hub-servercertifikat som diskuteras i följande avsnitt, men i framtiden kan det inkludera andra certifikat för autentisering av IoT Edge-komponenter.
 
 ### <a name="iot-edge-hub-server-certificate"></a>IoT Edge Hub-servercertifikat
 

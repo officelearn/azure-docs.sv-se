@@ -1,18 +1,18 @@
 ---
-title: Felsök problem med Azure Arc for servers agent anslutning
-description: Den här artikeln beskriver hur du felsöker och löser problem med den anslutna dator agent som uppstår med Azure Arc for Servers (för hands version) när du försöker ansluta till tjänsten.
+title: Felsök problem med Azure Arc-aktiverade servrar (för hands version)
+description: Den här artikeln beskriver hur du felsöker och löser problem med den anslutna dator agent som uppstår med Azure Arc-aktiverade servrar (för hands version) när du försöker ansluta till tjänsten.
 ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cd2560279085485a8ac7b285e4f601060a924f1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118016"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213540"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Felsök problem med anslutning till anslutna dator agenter
 
-Den här artikeln innehåller information om hur du felsöker och löser problem som kan uppstå vid försök att konfigurera Azure-bågen för servrar (för hands version) anslutna dator agenter för Windows eller Linux. Både interaktiva och storskaliga installations metoder när du konfigurerar anslutning till tjänsten ingår. Allmän information finns i [Översikt över båge för servrar](./overview.md).
+Den här artikeln innehåller information om hur du felsöker och löser problem som kan uppstå vid försök att konfigurera Azure Arc-aktiverade servrar (för hands version) anslutna dator agenter för Windows eller Linux. Både interaktiva och storskaliga installations metoder när du konfigurerar anslutning till tjänsten ingår. Allmän information finns i [Översikt över Arc-aktiverade servrar](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Utförlig logg för agent
 
@@ -22,13 +22,13 @@ Innan du följer fel söknings stegen som beskrivs längre fram i den här artik
 
 Följande är ett exempel på kommandot för att aktivera utförlig loggning med den anslutna dator agenten för Windows när du utför en interaktiv installation.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Följande är ett exempel på kommandot för att aktivera utförlig loggning med den anslutna dator agenten för Windows när du utför en storskalig installation med ett huvud namn för tjänsten.
 
-```
+```console
 & "$env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe" connect `
   --service-principal-id "{serviceprincipalAppID}" `
   --service-principal-secret "{serviceprincipalPassword}" `
@@ -46,13 +46,13 @@ Följande är ett exempel på kommandot för att aktivera utförlig loggning med
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
-```
+```bash
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
 ```
 
 Följande är ett exempel på kommandot för att aktivera utförlig loggning med den anslutna dator agenten för Linux när du utför en storskalig installation med ett huvud namn för tjänsten.
 
-```
+```bash
 azcmagent connect \
   --service-principal-id "{serviceprincipalAppID}" \
   --service-principal-secret "{serviceprincipalPassword}" \

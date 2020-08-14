@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83646300"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210364"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använd ett tangent bord för Azure Machine Learning designer (förhands granskning)
 
@@ -65,7 +65,7 @@ Så här justerar du egenskaper för modul:
 
 Använd följande kortkommandon med åtkomst nyckeln. Mer information om åtkomst nycklar finns i https://en.wikipedia.org/wiki/Access_key .
 
-| Tryck | Åtgärd |
+| Tryck | Action |
 |-|-|
 | Åtkomst nyckel + R | Kör |
 | Åtkomst nyckel + P | Publicera |
@@ -79,5 +79,5 @@ Använd följande kortkommandon med åtkomst nyckeln. Mer information om åtkoms
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera hög kontrast eller ändra tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Aktivera hög kontrast eller ändra tema](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Hjälpmedels verktyg på Microsoft](https://www.microsoft.com/accessibility)

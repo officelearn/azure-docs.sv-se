@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 06/15/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09050bc6895076994baf1c98c65aa87672a5652e
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 03a51cc8aa86f40b5333bd79e95e6d02be1adfc4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066074"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213850"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratörsrollen i Azure Active Directory
 
@@ -89,11 +89,11 @@ Rollen [Privileged Authentication Administrator](#privileged-authentication-admi
 > [!IMPORTANT]
 > Användare med den här rollen kan ändra autentiseringsuppgifter för personer som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i och utanför Azure Active Directory. Att ändra autentiseringsuppgifterna för en användare kan innebära att du förutsätter att användarens identitet och behörigheter. Till exempel:
 >
->- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
->- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
->- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
->- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
->- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
+>* Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och inte beviljas till autentiserings administratörer. Genom den här sökvägen kan en administratörs administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
+>* Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
+>* Säkerhets grupp och Microsoft 365 grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>* Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
+>* Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
 ### <a name="azure-devops-administrator"></a>[Azure DevOps-administratör](#azure-devops-administrator-permissions)
 
@@ -206,7 +206,7 @@ Användare med den här rollen har globala behörigheter inom Microsoft Dynamics
 
 ### <a name="exchange-administrator"></a>[Exchange-administratör](#exchange-service-administrator-permissions)
 
-Användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Har också möjlighet att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen har globala behörigheter inom Microsoft Exchange Online när tjänsten finns. Har också möjlighet att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > I Microsoft Graph API och Azure AD PowerShell identifieras den här rollen som "Exchange Service Administrator". Det är "Exchange-administratör" i [Azure Portal](https://portal.azure.com). Det är "Exchange Online Administrator" i [administrations centret för Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
@@ -277,7 +277,7 @@ Användare med den här rollen kan ändra lösen ord, ogiltig uppdatera tokens, 
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. De här apparna kan ha privilegierade behörigheter i Azure AD och beviljas ingen annan support administratör. Med hjälp av den här sökvägen kan IT-administratören kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare utgå från identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
->- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>- Säkerhets grupp och Microsoft 365 grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
 >- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
 >- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
@@ -331,8 +331,8 @@ Användare med en modern Commerce-användargrupp har vanligt vis administratörs
 **När tilldelas den moderna Commerce användar rollen?**
 
 * **Självbetjänings köp i Microsoft 365 administrations Center** – självbetjänings köp ger användarna möjlighet att prova nya produkter genom att köpa eller registrera sig för dem på egen hand. Dessa produkter hanteras i administrations centret. Användare som gör ett självbetjänings köp tilldelas en roll i handels systemet och den ständiga Commerce användar rollen så att de kan hantera sina inköp i administrations centret. Administratörer kan blockera självbetjänings köp (för Power BI, Power Apps, energi automatisering) via [PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Mer information finns i [Vanliga frågor och svar om självbetjäningsköp](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
-* **Köp från Microsofts kommersiella marknads platser** – på liknande sätt som självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas den moderna Commerce-användar rollen om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
-* **Förslag från Microsoft** – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och den moderna Commerce-rollen för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll.
+* **Köp från Microsofts kommersiella marknads platser**  – på liknande sätt som självbetjänings köp, när en användare köper en produkt eller tjänst från Microsoft AppSource eller Azure Marketplace, tilldelas den moderna Commerce-användar rollen om de inte har rollen som global administratör eller fakturerings administratör. I vissa fall kan användarna blockeras från att göra dessa inköp. Mer information finns på [Microsofts kommersiella marknads platser](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).
+* **Förslag från Microsoft**  – ett förslag är ett formellt erbjudande från Microsoft för din organisation att köpa produkter och tjänster från Microsoft. När den person som accepterar förslaget inte har rollen som global administratör eller fakturerings administratör i Azure AD, tilldelas de både en handelsbestämd roll för att slutföra förslaget och den moderna Commerce-rollen för att få åtkomst till administrations centret. När de får åtkomst till administrations centret kan de endast använda funktioner som har godkänts av sin handelsbestämd roll.
 * **Handelsrelaterade roller** – vissa användare har tilldelats handelsrelaterade roller. Om en användare inte är en global administratör eller fakturerings administratör får de en modern Commerce-användar roll så att de kan komma åt administrations centret.  
 
 Om den moderna Commerce-rollen är otilldelad från en användare förlorar han eller hon åtkomst till Microsoft 365 administrations Center. Om de hanterade produkter, antingen för sig själva eller för din organisation, kan de inte hantera dem. Detta kan inkludera att tilldela licenser, ändra betalnings metoder, betala fakturor eller andra aktiviteter för att hantera prenumerationer.
@@ -467,7 +467,7 @@ Användare med den här rollen kan öppna support förfrågningar med Microsoft 
 
 ### <a name="sharepoint-administrator"></a>[SharePoint-administratör](#sharepoint-service-administrator-permissions)
 
-Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns, samt möjligheten att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Användare med den här rollen har globala behörigheter inom Microsoft SharePoint Online när tjänsten finns, samt möjligheten att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa. Mer information [om administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Den här rollen identifieras som "SharePoint-tjänsteadministratör" i Microsoft Graph API och Azure AD PowerShell. Det är "SharePoint-administratör" i [Azure Portal](https://portal.azure.com).
@@ -496,7 +496,7 @@ Användare i den här rollen kan felsöka kommunikations problem i Microsoft Tea
 
 ### <a name="teams-service-administrator"></a>[Team tjänst administratör](#teams-service-administrator-permissions)
 
-Användare med den här rollen kan hantera alla aspekter av arbets belastningen Microsoft Teams via Microsoft Teams & Skype för Business administrations Center och respektive PowerShell-moduler. Detta omfattar bland annat alla hanterings verktyg som rör telefoni, meddelanden, möten och själva teamet. Den här rollen ger dessutom möjlighet att skapa och hantera alla Office 365-grupper, hantera support biljetter och övervaka tjänstens hälsa.
+Användare med den här rollen kan hantera alla aspekter av arbets belastningen Microsoft Teams via Microsoft Teams & Skype för Business administrations Center och respektive PowerShell-moduler. Detta omfattar bland annat alla hanterings verktyg som rör telefoni, meddelanden, möten och själva teamet. Den här rollen ger dessutom möjlighet att skapa och hantera alla Microsoft 365 grupper, hantera support biljetter och övervaka tjänstens hälsa.
 
 ### <a name="user-administrator"></a>[Användar administratör](#user-administrator-permissions)
 
@@ -513,7 +513,7 @@ Användare med den här rollen kan skapa användare och hantera alla aspekter av
 >
 >- Program registrering och företags program ägare, som kan hantera autentiseringsuppgifter för appar som de äger. Dessa appar kan ha privilegierade behörigheter i Azure AD och inte beviljas till användar administratörer. Genom den här sökvägen kan en användar administratör kunna ta hänsyn till identiteten för en program ägare och sedan ytterligare anta identiteten för ett privilegierat program genom att uppdatera autentiseringsuppgifterna för programmet.
 >- Azure-Prenumerationens ägare, som kan ha åtkomst till känslig eller privat information eller kritisk konfiguration i Azure.
->- Säkerhets grupp och Office 365-grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
+>- Säkerhets grupp och Microsoft 365 grupp ägare, som kan hantera grupp medlemskap. Dessa grupper kan ge åtkomst till känslig eller privat information eller kritisk konfiguration i Azure AD och någon annan stans.
 >- Administratörer i andra tjänster utanför Azure AD, till exempel Exchange Online, Office Security och Compliance Center och personal system.
 >- Icke-administratörer som chefer, juridiska konsulter och personal anställda som kan ha till gång till känslig eller privat information.
 
@@ -1030,7 +1030,6 @@ Kan läsa & skriva grundläggande katalog information. För att bevilja åtkomst
 | Microsoft. Directory/Users/reprocessLicenseAssignment | Ombearbeta licens tilldelningar för en användare i Azure Active Directory. |
 | Microsoft. Directory/Users/userPrincipalName/Update | Uppdatera egenskapen users. userPrincipalName i Azure Active Directory. |
 
-
 ### <a name="exchange-service-administrator-permissions"></a>Administratörs behörighet för Exchange-tjänst
 
 Kan hantera alla aspekter av Exchange-produkten.
@@ -1045,11 +1044,11 @@ Kan hantera alla aspekter av Exchange-produkten.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Exchange/-upplånade/allTasks | Hantera alla aspekter av Exchange Online. |
 | Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
@@ -1759,11 +1758,11 @@ Kan hantera alla aspekter av SharePoint-tjänsten.
 | Microsoft. Azure. serviceHealth/upplånade/allTasks | Läsa och konfigurera Azure Service Health. |
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
 | Microsoft. Office365. SharePoint/upplånade/allTasks | Skapa och ta bort alla resurser och läsa och uppdatera standard egenskaper i Microsoft. Office365. SharePoint. |
@@ -1834,11 +1833,11 @@ Kan hantera Microsoft Teams-tjänsten.
 | Microsoft. Azure. supportTickets/upplånade/allTasks | Skapa och hantera support biljetter för Azure. |
 | Microsoft. Directory/grupper/hiddenMembers/Read | Läs Groups. hiddenMembers-egenskapen i Azure Active Directory. |
 | Microsoft. Directory/Groups/Unified/appRoleAssignments/Update | Uppdatera Groups. Unified-egenskapen i Azure Active Directory. |
-| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap för Office 365-grupper. |
-| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Office 365-grupper. |
+| Microsoft. Directory/Groups/Unified/Basic/Update | Uppdatera grundläggande egenskaper för Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/skapa | Skapa Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ta bort | Ta bort Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/medlemmar/uppdatering | Uppdatera medlemskap i Microsoft 365 grupper. |
+| Microsoft. Directory/grupper/enhetlig/ägare/uppdatering | Uppdatera ägarskap för Microsoft 365 grupper. |
 | Microsoft. Office365. Network/Performance/allProperties/Read | Läs nätverks prestanda sidor i M365 administrations Center. |
 | Microsoft. Office365. serviceHealth/uplånar/allTasks | Läs och konfigurera Office 365 Service Health. |
 | Microsoft. Office365. supportTickets/uplånar/allTasks | Skapa och hantera Office 365-support biljetter. |

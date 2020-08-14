@@ -1,18 +1,18 @@
 ---
-title: Hantera Azure Arc for servers-agenten (för hands version)
-description: I den här artikeln beskrivs de olika hanterings aktiviteter som du normalt kommer att utföra under livs cykeln för Azure-bågen för servrar som är anslutna till dator agenten.
+title: Hantera Azure Arc-aktiverade servrar (för hands version)
+description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för de Azure Arc-aktiverade servrarna (för hands versionen) anslutna dator agenter.
 ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6066226cea224b1e13262763b626c8c646a397d7
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121297"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213139"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
-Efter den första distributionen av Azure Arc for Servers (Preview) Connected Machine agent för Windows eller Linux, kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått indragnings fasen i livs cykeln. Du kan enkelt hantera dessa rutin underhålls aktiviteter manuellt eller via Automation, vilket minskar både drift fel och kostnader.
+Efter den första distributionen av Azure Arc-aktiverade servrar (förhands granskning) anslutna dator agenter för Windows eller Linux, kan du behöva konfigurera om agenten, uppgradera den eller ta bort den från datorn om den har nått indragnings fasen i livs cykeln. Du kan enkelt hantera dessa rutin underhålls aktiviteter manuellt eller via Automation, vilket minskar både drift fel och kostnader.
 
 ## <a name="upgrading-agent"></a>Uppgraderar agent
 
@@ -120,7 +120,7 @@ Du kan hämta det senaste agent paketet från Microsofts [paket lagrings plats](
 
 ## <a name="about-the-azcmagent-tool"></a>Om verktyget Azcmagent
 
-Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure-bågen för servrar (förhands granskning) anslutna dator agenter under installationen eller ändra den inledande konfigurationen för agenten efter installationen. Azcmagent.exe tillhandahåller kommando rads parametrar för att anpassa agenten och visa dess status:
+Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure Arc-aktiverade servrar (förhands granskning) anslutna dator agenter under installationen eller ändra den inledande konfigurationen för agenten efter installationen. Azcmagent.exe tillhandahåller kommando rads parametrar för att anpassa agenten och visa dess status:
 
 * **Anslut** – för att ansluta datorn till Azure-bågen
 
@@ -136,7 +136,7 @@ Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure-bågen f
 
 * **-v eller--utförlig** -Aktivera utförlig loggning
 
-Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med en [åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc for Servers (för hands version) kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
+Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med en [åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc-aktiverade servrar (för hands version) kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
 
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
@@ -145,7 +145,7 @@ Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt 
 
 Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som skapas i Azure. Resursen är i den angivna prenumerations-och resurs gruppen och data om datorn lagras i den Azure-region som anges av `--location` inställningen. Standard resurs namnet är värd namnet för den här datorn om inget värde anges.
 
-Ett certifikat som motsvarar systemets tilldelade identitet för datorn laddas ned och lagras lokalt. När det här steget har slutförts börjar den Azure Connected Machine-Metadata Service och gäst konfigurations agenten att synkronisera med Azure Arc for Servers (för hands version).
+Ett certifikat som motsvarar systemets tilldelade identitet för datorn laddas ned och lagras lokalt. När det här steget har slutförts börjar den Azure Connected Machine-Metadata Service och gäst konfigurations agenten att synkronisera med Azure Arc-aktiverade servrar (för hands version).
 
 Om du vill ansluta med ett huvud namn för tjänsten kör du följande kommando:
 
@@ -161,7 +161,7 @@ Kör följande kommando för att ansluta till dina förhöjda inloggade autentis
 
 ### <a name="disconnect"></a>Koppla från
 
-Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som tas bort i Azure. Agenten tas inte bort från datorn. Detta måste göras som ett separat steg. När datorn har kopplats från, om du vill omregistrera den med Azure Arc for Servers (för hands version), använder du `azcmagent connect` så att en ny resurs skapas för den i Azure.
+Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som tas bort i Azure. Agenten tas inte bort från datorn. Detta måste göras som ett separat steg. När datorn har kopplats från, om du vill registrera den igen med Azure Arc-aktiverade servrar (för hands version), använder du `azcmagent connect` så att en ny resurs skapas för den i Azure.
 
 Kör följande kommando för att koppla från med ett huvud namn för tjänsten:
 
@@ -180,7 +180,7 @@ Kör följande kommando för att koppla bort med dina förhöjda inloggade auten
 > [!WARNING]
 > `reconnect`Kommandot är föråldrat och bör inte användas. Kommandot tas bort i en framtida agent version och befintliga agenter kommer inte att kunna slutföra begäran om åter anslutning. Koppla i stället [bort](#disconnect) datorn och [Anslut](#connect) den sedan igen.
 
-Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc for Servers (för hands version). Detta kan vara nödvändigt om datorn har inaktiverats, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
+Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc-aktiverade servrar (för hands version). Detta kan vara nödvändigt om datorn har inaktiverats, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
 
 Det här kommandot kräver högre privilegier än den [Azure Connected Machine onboarding](agent-overview.md#required-permissions) -rollen.
 
@@ -198,7 +198,7 @@ Kör följande kommando för att återansluta med dina förhöjda inloggade aute
 
 ## <a name="remove-the-agent"></a>Ta bort agenten
 
-Utför någon av följande metoder för att avinstallera den Windows-eller Linux-anslutna dator agenten från datorn. Att ta bort agenten avregistrerar inte datorn med ARC for Servers (för hands version), det här är en separat process som du utför när du inte längre behöver hantera datorn i Azure.
+Utför någon av följande metoder för att avinstallera den Windows-eller Linux-anslutna dator agenten från datorn. Att ta bort agenten avregistrerar inte datorn med ARC-aktiverade servrar (för hands version), det här är en separat process som du utför när du inte längre behöver hantera datorn i Azure.
 
 ### <a name="windows-agent"></a>Windows-agent
 
@@ -267,9 +267,9 @@ Om du vill avinstallera Linux-agenten är kommandot som ska användas beroende a
 
 ## <a name="unregister-machine"></a>Avregistrera datorn
 
-Om du planerar att stoppa hanteringen av datorn med stöd tjänster i Azure utför du följande steg för att avregistrera datorn med ARC for Servers (för hands version). Du kan utföra de här stegen antingen innan eller efter att du har tagit bort den anslutna dator agenten från datorn.
+Om du planerar att sluta hantera datorn med stöd tjänster i Azure utför du följande steg för att avregistrera datorn med ARC-aktiverade servrar (för hands version). Du kan utföra de här stegen antingen innan eller efter att du har tagit bort den anslutna dator agenten från datorn.
 
-1. Öppna Azure båg for Servers (för hands version) genom att gå till [Azure Portal](https://aka.ms/hybridmachineportal).
+1. Öppna Azure Arc-aktiverade servrar (för hands version) genom att gå till [Azure Portal](https://aka.ms/hybridmachineportal).
 
 2. Välj datorn i listan, Välj ellipsen (..**.**) och välj sedan **ta bort**.
 

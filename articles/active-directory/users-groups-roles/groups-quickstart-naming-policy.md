@@ -9,27 +9,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4253f5bd702abd061cf1cddd4badd68c9cd5d475
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e5b54af39401ba8c3fede4c9ad80ec8edc963b1d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582837"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213671"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>Snabbstart: Namnprincip för grupper i Azure Active Directory
 
-I den här snabb starten ska du ställa in namngivnings princip i din Azure Active Directory (Azure AD)-organisation för användardefinierade Office 365-grupper som hjälper dig att sortera och söka i organisationens grupper. Du kan till exempel använda namnprincipen till att:
+I den här snabb starten ska du ställa in namngivnings princip i din Azure Active Directory (Azure AD)-organisation för användardefinierade Microsoft 365 grupper som hjälper dig att sortera och söka i organisationens grupper. Du kan till exempel använda namnprincipen till att:
 
 * Kommunicera funktionen för en grupp, ett medlemskap, en geografisk region eller vem som har skapat gruppen.
 * Kategorisera grupper i adressboken.
 * Blockera specifika ord från att användas i gruppnamn och alias.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="configure-the-group-naming-policy-in-the-azure-portal"></a>Konfigurera grupp namngivnings principen i Azure Portal
 
@@ -55,7 +55,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 1. Ladda upp den nya listan med anpassade blockerade ord genom att välja fil ikonen.
 1. Välj **Spara** för att ändringarna i principen ska börja gälla.
 
-Klart! Du har angett en namnprincip och lagt till dina anpassade blockerade ord.
+Och sedan är du klar. Du har angett en namnprincip och lagt till dina anpassade blockerade ord.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -3,15 +3,16 @@ title: Snabb start för att lägga till funktions flaggor i ASP.NET Core
 description: Lägg till funktions flaggor i ASP.NET Core appar och hantera dem med Azure App konfiguration
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: a25a40346d588f56028bf08294b070823b729e25
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760149"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88214208"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -19,7 +20,7 @@ I den här snabb starten skapar du en end-to-end-implementering av funktions han
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.Net Core SDK](https://dotnet.microsoft.com/download).
@@ -56,7 +57,7 @@ Om du vill använda Secret Manager lägger du till ett- `UserSecretsId` element 
 1.  Lägg till ett- `UserSecretsId` element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -129,7 +130,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 1. I *program.cs*uppdaterar du `CreateWebHostBuilder` metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration()` metoden.
 
     > [!IMPORTANT]
-    > `CreateHostBuilder`ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .net Core 3,0.  Välj rätt syntax baserat på din miljö.
 
     #### <a name="net-core-2x"></a>[.NET Core 2. x](#tab/core2x)
 
@@ -186,7 +187,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
-        services.AddSingleton(Configuration).AddFeatureManagement();
+        services.AddFeatureManagement();
     }
 
     ---

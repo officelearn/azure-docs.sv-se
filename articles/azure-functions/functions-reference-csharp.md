@@ -3,14 +3,15 @@ title: Referens för Azure Functions C#-skript utvecklare
 description: Lär dig hur du utvecklar Azure Functions med C#-skript.
 author: craigshoemaker
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 177e9fcd872c594fbfb5f29077235113c6342860
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506156"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205446"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referens för Azure Functions C#-skript (. CSX)
 
@@ -210,9 +211,9 @@ public class Order
 
 Du kan använda en relativ sökväg med `#load` direktivet:
 
-* `#load "mylogger.csx"`läser in en fil som finns i Function-mappen.
-* `#load "loadedfiles\mylogger.csx"`läser in en fil som finns i en mapp i Function-mappen.
-* `#load "..\shared\mylogger.csx"`läser in en fil som finns i en mapp på samma nivå som Function-mappen, det vill säga direkt under *wwwroot*.
+* `#load "mylogger.csx"` läser in en fil som finns i Function-mappen.
+* `#load "loadedfiles\mylogger.csx"` läser in en fil som finns i en mapp i Function-mappen.
+* `#load "..\shared\mylogger.csx"` läser in en fil som finns i en mapp på samma nivå som Function-mappen, det vill säga direkt under *wwwroot*.
 
 `#load`Direktivet fungerar endast med *. CSX* -filer, inte med *. cs* -filer.
 
@@ -459,7 +460,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`är .NET-attributet som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T`kan inte vara en `out` parameter typ (till exempel `out JObject` ). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T` .
+`BindingTypeAttribute` är .NET-attributet som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T` kan inte vara en `out` parameter typ (till exempel `out JObject` ). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) for `T` .
 
 ### <a name="single-attribute-example"></a>Exempel på ett attribut
 

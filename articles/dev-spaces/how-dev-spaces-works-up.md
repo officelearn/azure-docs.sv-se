@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver processerna för att köra din kod i Azure Kubernetes service med Azure dev Spaces
 keywords: azds. yaml, Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: c343c32f0817cc922784bb25283290dc9ed88d29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9dbc1f0f21c2883e5caadbdae268a515eb94d145
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072958"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208690"
 ---
 # <a name="how-running-your-code-with-azure-dev-spaces-works"></a>Hur du kör din kod med Azure dev Spaces fungerar
 
@@ -130,7 +130,7 @@ Med egenskapen *install. Set* kan du konfigurera ett eller flera värden som du 
 
 I exemplet ovan anger egenskapen *install. Set. replicaCount* kontrollanten hur många instanser av programmet som ska köras i ditt dev-utrymme. Beroende på ditt scenario kan du öka det här värdet, men det påverkar hur du kopplar en fel sökare till programmets pod. Mer information finns i [fel söknings artikeln][troubleshooting].
 
-I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml`Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som * \<value from image.repository> : $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
+I det genererade Helm-diagrammet är behållar avbildningen inställd på *{{. Values. image. databas}}: {{. Values. image. tag}}*. `azds.yaml`Filen definierar *install. Set. image. tag* -egenskapen som *$ (tag)* som standard som används som värde för *{{. Values. image. tag}}*. Genom att ställa in egenskapen *install. Set. image. tag* på det här sättet tillåter den att behållar avbildningen för programmet taggas på ett tydligt sätt när du kör Azure dev Spaces. I det här fallet är avbildningen Taggad som * \<value from image.repository> : $ (tag)*. Du måste använda variabeln *$ (tag)* som värdet för metoden   *install. Set. image. tag* för att dev Spaces ska kunna identifiera och hitta behållaren i AKS-klustret.
 
 I ovanstående exempel `azds.yaml` definierar *install. Set. ingress. hosts*. Egenskapen *install. Set. ingress. hosts* anger ett värdnamn för offentliga slut punkter. Den här egenskapen använder också *$ (spacePrefix)*, *$ (rootSpacePrefix)* och *$ (hostSuffix)*, som är värden som tillhandahålls av kontrollanten.
 
@@ -201,14 +201,6 @@ Om du vill veta mer om nätverk och hur förfrågningar dirigeras i Azure dev-ut
 
 Om du vill veta mer om hur du använder Azure dev Spaces för att snabbt kunna hitta och utveckla, se [hur lokal process med Kubernetes fungerar][how-it-works-local-process-kubernetes] och [hur fjärrfelsökning av din kod med Azure dev Spaces fungerar][how-it-works-remote-debugging].
 
-För att komma igång med att använda Azure dev Spaces för att köra projektet, se följande snabb starter:
-
-* [Upprepa och Felsök snabbt med Visual Studio Code och Java][quickstart-java]
-* [Upprepa och Felsök snabbt med Visual Studio Code och .NET][quickstart-netcore]
-* [Upprepa och Felsök snabbt med Visual Studio Code och Node.js][quickstart-node]
-* [Upprepa och Felsök snabbt med Visual Studio och .NET Core][quickstart-vs]
-* [Använda CLI för att utveckla ett program på Kubernetes][quickstart-cli]
-
 
 [azds-yaml-section]: #how-running-your-code-is-configured
 [helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
@@ -216,10 +208,5 @@ För att komma igång med att använda Azure dev Spaces för att köra projektet
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
-[quickstart-cli]: quickstart-cli.md
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md
-[quickstart-vs]: quickstart-netcore-visualstudio.md
 [sync-section]: #file-synchronization
 [troubleshooting]: troubleshooting.md

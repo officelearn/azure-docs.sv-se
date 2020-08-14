@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 824520e04bd4a98b1a00c8369848163a38bcf54b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910006"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206292"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
@@ -72,7 +72,7 @@ Externa användare kan bara läggas till i "tilldelade" eller "säkerhets" grupp
 
 ## <a name="my-external-user-did-not-receive-an-email-to-redeem"></a>Min externa användare fick inget e-postmeddelande för att lösa in
 
-Inbjudan bör kontrol lera med Internet leverantören eller skräp post filtret för att säkerställa att följande adress tillåts:Invites@microsoft.com
+Inbjudan bör kontrol lera med Internet leverantören eller skräp post filtret för att säkerställa att följande adress tillåts: Invites@microsoft.com
 
 ## <a name="i-notice-that-the-custom-message-does-not-get-included-with-invitation-messages-at-times"></a>Jag märker att det anpassade meddelandet inte inkluderas med Inbjudnings meddelanden vid tillfällen
 
@@ -93,7 +93,7 @@ En användare som har ett gäst konto kan inte logga in och får följande fel m
 
 Användaren har ett Azure-användarkonto och är en viral-klient som har övergivits eller inte hanteras. Det finns dessutom inga globala administratörer eller företags administratörer i klient organisationen.
 
-För att lösa det här problemet måste du ta över den övergivna klienten. Se [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
+För att lösa det här problemet måste du ta över den övergivna klienten. Se  [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gäst användare med en just-in-Time-eller "viral"-klient kan inte återställa sina lösen ord
 
@@ -109,4 +109,4 @@ I Azure-molnet för amerikanska myndigheter stöds för närvarande inte B2B-sam
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få stöd för B2B-samarbete](/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md)
+[Få stöd för B2B-samarbete](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)

@@ -4,13 +4,13 @@ description: I den här snabb starten får du lära dig hur du skapar och public
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
-ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: d7cfcd02c5e6c9ff57241288bd79efb45d4ac7ab
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676462"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213985"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Snabb start: skapa din första funktion i Azure med Visual Studio
 
@@ -44,7 +44,7 @@ Visual Studio skapar ett projekt och en klass som innehåller en exempel kod fö
 
 Nu när du har bytt namn på funktionen kan du testa den på den lokala datorn.
 
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Visual Studio integreras med Azure Functions Core Tools så att du kan testa dina funktioner lokalt med den fullständiga Azure Functions-körningen.  
 

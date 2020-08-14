@@ -1,4 +1,4 @@
-- name: Dokumentation om Data Catalog
+- name: Dokumentation för Azure Data Catalog
   href: index.yml
 - name: Översikt
   items:
@@ -23,7 +23,7 @@
       href: data-catalog-adopting-data-catalog.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: data-catalog-frequently-asked-questions.md
-- name: Gör så här för att
+- name: Anvisningar
   items:
     - name: Registrera datakällor
       href: data-catalog-how-to-register.md

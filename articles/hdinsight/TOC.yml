@@ -1,3 +1,5 @@
+- name: Dokumentation om Azure HDInsight
+  href: index.yml
 - name: HDInsight-tjänsten
   expanded: true
   items:
@@ -74,7 +76,7 @@
               href: overview-data-lake-storage-gen1.md
             - name: Azure Data Lake Storage Gen2-översikt
               href: overview-data-lake-storage-gen2.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Skapa kluster
           items:
@@ -342,7 +344,7 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: Migrera till Spark 2.3 eller 2.4
           href: ./spark/migrate-versions.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Använda verktyg
           items:
@@ -471,7 +473,7 @@
           href: ./hdinsight-hadoop-create-linux-clusters-adf.md
         - name: Skicka Apache Hadoop-jobb
           href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Använda verktyg
           items:
@@ -616,7 +618,7 @@
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Vanliga frågor och svar om Kafka
           href: ./kafka/kafka-faq.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Utveckla
           items:
@@ -667,7 +669,7 @@
       items:
         - name: Använda Apache HBase i HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Utveckla
           items:
@@ -746,7 +748,7 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Storleksriktlinjer
           href: ./interactive-query/sizing-guidelines.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Utveckla
           items:
@@ -843,7 +845,7 @@
           href: ./r-server/ml-services-tutorial-spark-compute.md
         - name: Använda R Tools för Visual Studio
           href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Utveckla
           items:
@@ -875,7 +877,7 @@
           href: ./storm/apache-storm-write-data-lake-store.md
         - name: Apache Kafka och Apache Storm (Java)
           href: ./hdinsight-apache-storm-with-kafka.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Migrera Storm till Spark
           href: ./storm/migrate-storm-to-spark.md
@@ -943,7 +945,7 @@
           href: ./disk-encryption.md
         - name: LDAP-synkronisering i Ranger och Apache Ambari
           href: ./domain-joined/ldap-sync.md
-    - name: Gör så här för att
+    - name: Anvisningar
       items:
         - name: Använda ID-Broker för hantering av autentiseringsuppgifter
           href: ./domain-joined/identity-broker.md

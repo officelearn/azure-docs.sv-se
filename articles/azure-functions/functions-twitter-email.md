@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).

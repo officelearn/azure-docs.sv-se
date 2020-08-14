@@ -1,4 +1,4 @@
-- name: Stream Analytics-dokumentation
+- name: Dokumentation om Azure Stream Analytics
   href: index.yml
 - name: Översikt
   items:
@@ -122,7 +122,7 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: Felprincip
       href: stream-analytics-output-error-policy.md
-- name: Anvisningsguider
+- name: Anvisningar
   items:
     - name: Hantera
       items:

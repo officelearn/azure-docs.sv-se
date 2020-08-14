@@ -10,16 +10,17 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 08/14/2020
 ms.author: jingwang
-ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 26d52eed02c9d25ed2f18afa3a5262ba9224b0ba
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171252"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224874"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Du kan använda aktiviteten hämta metadata för att hämta metadata för alla data i Azure Data Factory. Du kan använda den här aktiviteten i följande scenarier:
@@ -58,9 +59,9 @@ Aktiviteten hämta metadata tar en data uppsättning som indata och returnerar m
 - När du använder hämta metadata-aktivitet mot en mapp kontrollerar du att du har behörigheten lista/kör till den aktuella mappen.
 - För Amazon S3 och Google Cloud Storage `lastModified` gäller Bucket och nyckeln, men inte den virtuella mappen, och gäller även för `exists` Bucket och nyckeln, men inte till prefixet eller den virtuella mappen.
 - För Azure Blob Storage `lastModified` gäller för behållaren och blobben, men inte i den virtuella mappen.
-- `lastModified`filtret används för närvarande för att filtrera underordnade objekt, men inte den angivna mappen/filen.
+- `lastModified` filtret används för närvarande för att filtrera underordnade objekt, men inte den angivna mappen/filen.
 - Wildcard-filter i mappar/filer stöds inte för aktiviteten hämta metadata.
-- `structure`och `columnCount` stöds inte när metadata hämtas från binära, JSON-eller XML-filer.
+- `structure` och `columnCount` stöds inte när metadata hämtas från binär-, JSON-eller XML-filer.
 
 **Relationsdatabas**
 
@@ -100,13 +101,36 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 
 ```json
 {
-    "name": "MyActivity",
-    "type": "GetMetadata",
-    "typeProperties": {
-        "fieldList" : ["size", "lastModified", "structure"],
-        "dataset": {
-            "referenceName": "MyDataset",
-            "type": "DatasetReference"
+    "name":"MyActivity",
+    "type":"GetMetadata",
+    "dependsOn":[
+
+    ],
+    "policy":{
+        "timeout":"7.00:00:00",
+        "retry":0,
+        "retryIntervalInSeconds":30,
+        "secureOutput":false,
+        "secureInput":false
+    },
+    "userProperties":[
+
+    ],
+    "typeProperties":{
+        "dataset":{
+            "referenceName":"MyDataset",
+            "type":"DatasetReference"
+        },
+        "fieldList":[
+            "size",
+            "lastModified",
+            "structure"
+        ],
+        "storeSettings":{
+            "type":"AzureBlobStorageReadSettings"
+        },
+        "formatSettings":{
+            "type":"JsonReadSettings"
         }
     }
 }
@@ -116,18 +140,22 @@ Du kan ange följande typer av metadata i listan Hämta metadata aktivitet fält
 
 ```json
 {
-    "name": "MyDataset",
-    "properties": {
-    "type": "AzureBlob",
-        "linkedService": {
-            "referenceName": "StorageLinkedService",
-            "type": "LinkedServiceReference"
+    "name":"MyDataset",
+    "properties":{
+        "linkedServiceName":{
+            "referenceName":"AzureStorageLinkedService",
+            "type":"LinkedServiceReference"
         },
-        "typeProperties": {
-            "folderPath":"container/folder",
-            "filename": "file.json",
-            "format":{
-                "type":"JsonFormat"
+        "annotations":[
+
+        ],
+        "type":"Json",
+        "typeProperties":{
+            "location":{
+                "type":"AzureBlobStorageLocation",
+                "fileName":"file.json",
+                "folderPath":"folder",
+                "container":"container"
             }
         }
     }
@@ -142,8 +170,8 @@ Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 Fält lista | De typer av metadatainformation som krävs. Mer information om metadata som stöds finns i avsnittet [metadata-alternativ](#metadata-options) i den här artikeln. | Ja 
 data uppsättning | Referens data uppsättningen vars metadata ska hämtas av aktiviteten hämta metadata. I avsnittet [funktioner](#capabilities) finns information om anslutnings program som stöds. Information om syntax för data uppsättning finns i specifika anslutnings avsnitt. | Ja
-formatSettings | Använd när du använder data uppsättning för format typ. | Nej
-storeSettings | Använd när du använder data uppsättning för format typ. | Nej
+formatSettings | Använd när du använder data uppsättning för format typ. | Inga
+storeSettings | Använd när du använder data uppsättning för format typ. | Inga
 
 ## <a name="sample-output"></a>Exempel på utdata
 

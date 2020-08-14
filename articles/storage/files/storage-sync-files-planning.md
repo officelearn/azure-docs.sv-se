@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: acdf830c9bf0eaedcca5bf0ffe1b2bd373750276
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 17274c2b5308b1e5069370400895c001dc03e5bb
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030681"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224449"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 
@@ -147,7 +147,7 @@ Endast NTFS-volymer stöds. ReFS, FAT, FAT32 och andra fil system stöds inte.
 
 I följande tabell visas interop-tillstånd för NTFS-fil system funktioner: 
 
-| Funktion | Supportstatus | Kommentarer |
+| Funktion | Supportstatus | Anteckningar |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Fullt stöd | Windows-typ Discretionary Access Control Lists bevaras av Azure File Sync och verkställs av Windows Server på Server slut punkter. ACL: er kan också tillämpas när du monterar Azure-filresursen direkt, men detta kräver ytterligare konfiguration. Mer information finns i [avsnittet om identiteter](#identity) . |
 | Hårda länkar | Överhoppad | |
@@ -314,7 +314,7 @@ Azure File Sync är tillgängligt i följande regioner:
 | Offentlig | Europa | Europa, västra | `westeurope` |
 | Offentlig | Frankrike | Frankrike, centrala | `francecentral` |
 | Offentlig | Frankrike | Frankrike, södra * | `francesouth` |
-| Offentlig | Indien | Indien, centrala | `centralindia` |
+| Offentlig | Indien | Central India | `centralindia` |
 | Offentlig | Indien | Indien, södra | `southindia` |
 | Offentlig | Japan | Japan, östra | `japaneast` |
 | Offentlig | Japan | Japan, västra | `japanwest` |
@@ -376,7 +376,7 @@ Om du föredrar att använda en lokal lösning för säkerhets kopiering ska sä
 > Återställning utan operativ system (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
 
 > [!Note]  
-> Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig hur](storage-files-deployment-guide.md).
+> Med version 9 av Azure File Sync agent, stöds nu VSS-ögonblicksbilder (inklusive tidigare versioner) på volymer som har aktiverat moln skikt. Du måste dock aktivera tidigare versions kompatibilitet via PowerShell. [Lär dig hur](storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

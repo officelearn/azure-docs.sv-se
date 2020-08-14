@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fd19b451638eacbf0d6174154a2688b3523ca4d2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ac9264ea8d6cc71d19d2c9bbd23b2123bdf1f924
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183878"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224364"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrera program till Microsoft Authentication Library (MSAL)
 
@@ -62,6 +62,9 @@ A: om du har käll koden för programmet kan du referera till ovanstående stöd
 
 __F: Varför bör jag investera i MSAL?__  
 A: MSAL innehåller nya funktioner som inte finns i ADAL, inklusive stegvist godkännande, enkel inloggning och hantering av token cache. Till skillnad från ADAL kommer MSAL även fortsättnings vis att få säkerhets uppdateringar utöver den 30 juni 2022. [Läs mer](msal-overview.md).
+
+__F: kommer Microsoft att uppdatera sina egna appar till MSAL?__  
+Ja. Microsoft håller på att migrera sina program till MSAL vid slut för ande av supporten, vilket garanterar att de kommer att ha nytta av säkerhets-och funktions förbättringar i MSAL.
 
 __F: kommer du att lansera ett verktyg som hjälper mig att flytta mina appar från ADAL till MSAL?__  
 S: Nej. Skillnader mellan biblioteken kräver att dedikerade resurser för utveckling och underhåll av verktyget som annars skulle ägnas åt att förbättra MSAL. Vi ger dock den föregående uppsättningen med stöd guider för att hjälpa dig att göra nödvändiga ändringar i ditt program.

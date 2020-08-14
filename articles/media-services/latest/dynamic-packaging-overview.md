@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/31/2020
+ms.date: 08/13/2020
 ms.author: juliako
-ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4f0e8822d734d3c1147eb6d5cbbc8f26a7410a01
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489783"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224075"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -80,8 +80,10 @@ Den strömmande klienten kan ange följande Smooth Streaming Format:
 
 Följande steg visar ett vanligt Media Services strömnings arbets flöde där dynamisk paketering används tillsammans med standard kodare i Azure Media Services.
 
-1. Ladda upp en indatafil, till exempel en QuickTime-/MOV-eller MXF-fil. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
+1. [Ladda upp en indatafil](manage-asset-concept.md) , till exempel en MP4-, QuickTime-/MOV-fil eller ett annat fil format som stöds. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
 1. [Koda](#encode-to-adaptive-bitrate-mp4s) din mezzaninfil-fil till en inställd H. 264/AAC MP4 anpassad bit hastighet.
+
+    Om du redan har kodade filer och bara vill kopiera och strömma filerna använder du: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) -och [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) -API: er. En ny MP4-fil med ett strömmande manifest (. ISM-fil) skapas som ett resultat.
 1. Publicera den utgående till gången som innehåller MP4-uppsättningen med anpassad bit hastighet. Du publicerar genom att skapa en [strömmande Locator](streaming-locators-concept.md).
 1. Bygg webb adresser som riktar sig mot olika format (HLS, MPEG-streck och Smooth Streaming). *Slut punkten för direkt uppspelningen* tar hand om att betjäna rätt manifest och begär Anden för alla dessa olika format.
     

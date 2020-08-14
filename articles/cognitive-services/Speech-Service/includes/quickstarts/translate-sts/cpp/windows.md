@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: erhopf
-ms.openlocfilehash: b9311d605d07bbf3844963aed97e9fc510a4897a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 472bf122288fede5cccc27f73b2e73466ef0caad
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671247"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226449"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -113,15 +113,15 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration.
 
-1. Välj **Arkiv** > **Spara alla**på Meny raden.
+1. Välj **Arkiv**  >  **Spara alla**på Meny raden.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**).
+1. Starta programmet HelloWorld genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **helloworld** **F5**).
 
 1. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsten som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsten skickar sedan det syntetiserade ljudet och texten tillbaka till programmet för visning.
 

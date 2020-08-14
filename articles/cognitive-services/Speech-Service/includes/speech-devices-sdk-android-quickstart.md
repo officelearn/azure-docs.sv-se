@@ -5,16 +5,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: abc9a42c7ced6a71f93c00968eb825f28f720843
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87375745"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226227"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
 
-Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto med en tjänst resurs för tal. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här guiden kräver ett [Azure Cognitive Services](../get-started.md) -konto med en tjänst resurs för tal.
 
 Käll koden för exempel programmet ingår i tal enheter SDK. Det finns också [på GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -126,7 +126,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `MainActivity.java` och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet kws-machine.zip:
 
-   - Kopiera nyckelords paketet till mappen "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
+   - Kopiera nyckelords paketet till mappen "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets \" .
    - Uppdatera `MainActivity.java` med nyckelordet och paket namnet:
 
      ```java
@@ -143,14 +143,14 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
 
    I den här tabellen visas de värden som stöds:
 
-   | Variabel | Betydelse | Tillgängliga värden |
+   | Variabel | Innebörd | Tillgängliga värden |
    | -------- | ------- | ---------------- |
-   | `DeviceGeometry` | Konfiguration av fysisk mikrofon | För ett cirkulärt dev-paket:`Circular6+1` |
-   |          |         | För en linjär dev-sats:`Linear4` |
-   | `SelectedGeometry` | Konfiguration av program varu MIC | För ett cirkulärt dev-paket som använder alla MICS:`Circular6+1` |
-   |          |         | För ett cirkulärt dev-paket som använder fyra MICS:`Circular3+1` |
-   |          |         | För en linjär dev-sats som använder alla MICS:`Linear4` |
-   |          |         | För en linjär dev-sats som använder två MICS:`Linear2` |
+   | `DeviceGeometry` | Konfiguration av fysisk mikrofon | För ett cirkulärt dev-paket: `Circular6+1` |
+   |          |         | För en linjär dev-sats: `Linear4` |
+   | `SelectedGeometry` | Konfiguration av program varu MIC | För ett cirkulärt dev-paket som använder alla MICS: `Circular6+1` |
+   |          |         | För ett cirkulärt dev-paket som använder fyra MICS: `Circular3+1` |
+   |          |         | För en linjär dev-sats som använder alla MICS: `Linear4` |
+   |          |         | För en linjär dev-sats som använder två MICS: `Linear2` |
 
 1. Om du vill skapa programmet väljer du **kör app**på menyn **Kör** . Dialog rutan **Välj distributions mål** visas.
 

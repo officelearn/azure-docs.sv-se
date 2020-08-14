@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 6979ce65022f350a93f533951d634b8e436283bc
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 91adafedfc8f4e6b4948b0dcfe541e2754b47556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88186361"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226231"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -64,7 +64,7 @@ ms.locfileid: "88186361"
 | Maximalt antal tecken för kolumn namn | 500 | |
 | Dataexport | Inte tillgänglig för närvarande | Använd Azure Function eller Logic app för att aggregera och exportera data. | 
 
-**Volym pris för data inmatning**
+**<a name="data-ingestion-volume-rate">Volym pris för data inmatning</a>**
 
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Gränsen för volym hastighet avser att skydda Azure Monitor kunder från plötsliga inmatnings toppar i en miljö med flera organisationer. Ett tröskelvärde för standard inmatnings volym frekvens på 500 MB (komprimerat) gäller för arbets ytor, som är cirka **6 GB/min** okomprimerad – den faktiska storleken kan variera mellan olika data typer beroende på loggens längd och dess komprimerings förhållande. Detta tröskelvärde gäller för alla inmatade data oavsett om de skickas från Azure-resurser med hjälp av [diagnostikinställningar](../articles/azure-monitor/platform/diagnostic-settings.md), [data insamlings-API](../articles/azure-monitor/platform/data-collector-api.md) eller agenter.
 

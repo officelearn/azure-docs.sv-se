@@ -7,12 +7,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 015986ffa687142cf20ca18cff175ac6c5952a11
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1999100be3dd65518db7b5496ad5aaa1a407ee9e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671859"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226440"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -199,15 +199,15 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration.
 
-1. Välj **Arkiv** > **Spara alla**på Meny raden.
+1. Välj **Arkiv**  >  **Spara alla**på Meny raden.
 
 ## <a name="build-and-run-the-application-to-create-a-new-conversation"></a>Skapa och kör programmet för att skapa en ny konversation
 
-1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
+1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på <kbd>F5</kbd>).
+1. Starta programmet HelloWorld genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **helloworld** <kbd>F5</kbd>).
 
 1. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du pratar
     - Om du delar konversations koden med de andra och de ansluter till konversationen visas även deras avskrifter.
@@ -285,9 +285,9 @@ Innan du börjar ska du se till att:
 
 4. Gå tillbaka till Visual Studio och Ersätt `YourConversationId` i din `int main()` funktion med Konversations-ID: t från föregående steg.
 
-5. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
+5. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 
-6. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller tryck på <kbd>F5</kbd>).
+6. Starta programmet HelloWorld genom att välja **Felsök**  >  **Starta fel sökning** (eller tryck på **helloworld** <kbd>F5</kbd>).
 
 7. När du ser `Started transcribing` meddelandet visas kan du börja prata. Du ser att avskrifterna visas när du talar.
     - Om du går tillbaka till din webbläsare bör du se att dina avskrifter visas där du talar också.

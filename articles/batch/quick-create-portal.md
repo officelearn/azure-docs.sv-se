@@ -1,119 +1,103 @@
 ---
-title: Azure Snabbstart – Köra Batch-jobb – Portal
+title: Azure snabb start – kör ditt första batch-jobb i Azure Portal
 description: Lär dig hur du använder Azure Portal för att skapa ett batch-konto, en pool med Compute-noder och ett jobb som kör grundläggande aktiviteter i poolen.
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 08/13/2020
 ms.custom: mvc
-ms.openlocfilehash: 4857b9ffb38cf48678f793284afaaf3bbefb7e42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9af6a2f0fbbbd799b781480d499adf124b4cb7d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114164"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225347"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Snabbstart: Kör ditt första Batch-jobb på Azure-portalen
 
-Den här snabbstarten visar hur du använder Azure-portalen för att skapa ett Batch-konto, en *pool* med beräkningsnoder (virtuella datorer) och ett *jobb* som kör grundläggande *aktiviteter* på poolen. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
+Kom igång med Azure Batch genom att använda Azure Portal för att skapa ett batch-konto, en pool med datornoder (virtuella datorer) och ett jobb som kör aktiviteter i poolen. När du har slutfört den här snabb starten förstår du viktiga begrepp i batch-tjänsten och är redo att testa batch med mer realistiska arbets belastningar i större skala.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+## <a name="prerequisites"></a>Krav
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure 
-
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-batch-account"></a>Skapa ett Batch-konto
 
 Följ dessa steg om du vill skapa ett Batch-konto som ska användas som exempel för testning. Du behöver ett Batch-konto för att skapa pooler och jobb. Som du ser här kan du länka ett Azure-lagringskonto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna.
 
+1. I Azure Portal väljer du **skapa en resurs**  >  **Compute**  >  **Batch-tjänst**. 
 
-1. Välj **skapa en resurs** > **Compute** > **Batch-tjänst**. 
+   :::image type="content" source="media/quick-create-portal/marketplace-batch.png" alt-text="Skärm bild av batch-tjänsten på Azure Marketplace.":::
 
-   ![Batch på Marketplace][marketplace_portal]
+1. I fältet **resurs grupp** väljer du **Skapa nytt** och anger ett namn för resurs gruppen.
 
-2. Ange värden för **Kontonamn** och **Resursgrupp**. Kontonamnet måste vara unikt inom den **Azureplats** som valts, får endast använda små bokstäver eller siffror och innehålla 3 till 24 tecken. 
+1. Ange ett värde för **konto namn**. Det här namnet måste vara unikt inom den valda Azure- **platsen** . Det får bara innehålla gemena bokstäver och siffror, och det måste vara mellan 3-24 tecken.
 
-3. Gå till **Lagringskonto** och välj ett befintligt lagringskonto eller skapa ett nytt.
+1. Under **lagrings konto**väljer du ett befintligt lagrings konto eller skapar ett nytt.
 
-4. Behåll standardinställningarna för återstående inställningar och välj **Skapa** för att skapa kontot.
+1. Ändra inga andra inställningar. Välj **Granska + skapa**och välj **skapa** för att skapa batch-kontot.
 
-   ![Skapa ett Batch-konto][account_portal]  
-
-När meddelandet **Distributionen lyckades** visas ska du gå till Batch-kontot i portalen.
+När meddelandet **distributionen lyckades** visas går du till det batch-konto som du skapade.
 
 ## <a name="create-a-pool-of-compute-nodes"></a>Skapa en pool med beräkningsnoder
 
-Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräkningsnoder för testning. Poolen för det här snabba exemplet består av 2 noder som kör en Windows Server 2012 R2-avbildning från Azure Marketplace.
+Nu när du har ett Batch-konto kan du skapa en exempelpool med Windows beräkningsnoder för testning. Poolen för det här snabb exemplet består av två noder som kör en Windows Server 2019-avbildning från Azure Marketplace.
 
+1. Välj **pooler**  >  **Lägg till**i batch-kontot.
 
-1. Välj **pooler** > **Lägg till**i batch-kontot.
+1. Ange ett **Pool-ID** som kallas *mypool*.
 
-2. Ange ett **Pool-ID** som kallas *mypool*. 
-
-3. Vid **Operativsystem** väljer du följande inställningar (du kan utforska andra alternativ).
+1. Vid **Operativsystem** väljer du följande inställningar (du kan utforska andra alternativ).
   
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
-   |**Avbildningstyp**|Marketplace (Linux/Windows)|
-   |**Utgivare**     |MicrosoftWindowsServer|
-   |**Erbjudande**     |WindowsServer|
-   |**SKU**     |2012-R2-Datacenter-smalldisk|
+   |**Avbildnings typ**|Marketplace|
+   |**Publisher**     |Microsoft Windows Server|
+   |**Erbjudande**     |Windows Server|
+   |**SKU**     |2019-Data Center-Core – smalldisk|
 
-   ![Välj ett pooloperativsystem][pool_os] 
-
-4. Rulla nedåt för att ange inställningar för **Nodstorlek** och **Skala**. Föreslagen nodstorlek erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
+1. Rulla nedåt för att ange inställningar för **Nodstorlek** och **Skala**. Föreslagen nodstorlek erbjuder en bra balans mellan prestanda och kostnad för det här snabba exemplet.
   
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
-   |**Nodprisnivå**     |Standard_A1|
+   |**Nodprisnivå**     |Standard a1|
    |**Reserverade målnoder**     |2|
 
-   ![Välj en poolstorlek][pool_size] 
+1. Behåll standardinställningarna för återstående inställningar och välj **OK** för att skapa poolen.
 
-5. Behåll standardinställningarna för återstående inställningar och välj **OK** för att skapa poolen.
+Batch skapar poolen omedelbart, men det tar några minuter att allokera och starta beräkningsnoderna. Under denna tid visar poolens **Allokeringstillstånd** som **Ändrar storlek**. Du kan gå vidare och skapa ett jobb och aktiviteter medan poolen ändrar storlek.
 
-Batch skapar poolen omedelbart, men det tar några minuter att allokera och starta beräkningsnoderna. Under denna tid visar poolens **Allokeringstillstånd** som **Ändrar storlek**. Du kan gå vidare och skapa ett jobb och aktiviteter medan poolen ändrar storlek. 
-
-![Pool i tillståndet Ändrar storlek][pool_resizing]
-
-Efter några minuter är tillståndet för poolen **Konstant** och noderna startar. Klicka på **Noder** för att kontrollera tillståndet för noderna. När en nods tillstånd anges som **Inaktiv** är noden redo att köra aktiviteter. 
+Efter några minuter ändras tilldelnings statusen till **stadigt**och noderna börjar. Om du vill kontrol lera nodernas status väljer du poolen och väljer sedan **noder**. När en nods tillstånd anges som **Inaktiv** är noden redo att köra aktiviteter.
 
 ## <a name="create-a-job"></a>Skapa ett jobb
 
-Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Från början har jobbet inga uppgifter. 
+Nu när du har en pool ska du skapa ett jobb att köra på den. Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Från början har jobbet inga uppgifter.
 
-1. I vyn batch-konto väljer du **jobb** > **Lägg till**. 
+1. I vyn batch-konto väljer du **jobb**  >  **Lägg till**.
 
-2. Ange ett **Jobb-ID** som kallas *myjob*. I **Pool**väljer du *mypool*. Behåll standardinställningarna för återstående inställningar och välj **OK**.
-
-   ![Skapa ett jobb][job_create]
-
-När jobbet har skapats öppnas sidan **Aktiviteter**.
+1. Ange ett **Jobb-ID** som kallas *myjob*. I **Pool**väljer du *mypool*. Behåll standardinställningarna för återstående inställningar och välj **OK**.
 
 ## <a name="create-tasks"></a>Skapa uppgifter
 
-Nu ska du skapa exempelaktiviteter som ska köras i jobbet. Vanligtvis kan du skapa flera aktiviteter som Batch köar och distribuerar för att köras på beräkningsnoderna. I det här exemplet skapar du två identiska aktiviteter. Varje aktivitet kör en kommandorad för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder. 
+Välj nu jobbet för att öppna sidan **aktiviteter** . Här skapar du exempel aktiviteter som ska köras i jobbet. Normalt skapar du flera aktiviteter som batch-köer och distribuerar för att köras på datornoderna. I det här exemplet skapar du två identiska aktiviteter. Varje aktivitet kör en kommandorad för att visa Batch-miljövariablerna på en beräkningsnod och väntar sedan i 90 sekunder.
 
-När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder. 
+När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
 Så här skapar du den första aktiviteten:
 
 1. Välj **Lägg till**.
 
-2. Ange ett **Aktivitets-ID** som kallas *mytask*. 
+1. Ange ett **Aktivitets-ID** som kallas *mytask*.
 
-3. På **Kommandoraden** anger du `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Behåll standardinställningarna för återstående inställningar och välj **OK**.
-
-   ![Skapa en uppgift][task_create]
+1. På **Kommandoraden** anger du `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Behåll standardinställningarna för återstående inställningar och välj **Skicka**.
 
 När du har skapat en aktivitet köar Batch den så att den körs på poolen. När en nod kan köra den, körs aktiviteten.
 
-Gå tillbaka till steg 1 för att skapa en till aktivitet. Ange ett annat **Aktivitets-ID**, men ange en identisk kommandorad. Om den första aktiviteten fortfarande körs startar Batch den andra aktiviteten på den andra noden i poolen.
+Upprepa stegen ovan om du vill skapa en andra uppgift. Ange ett annat **Aktivitets-ID**, men ange en identisk kommandorad. Om den första aktiviteten fortfarande körs startar Batch den andra aktiviteten på den andra noden i poolen.
 
 ## <a name="view-task-output"></a>Visa aktivitetens utdata
 
-Föregående aktivitetsexempel slutförs på ett par minuter. Om du vill visa resultatet av en slutförd aktivitet väljer du **Filer på noden** och markerar sedan filen `stdout.txt`. Den här filen innehåller standardutdata för aktiviteten. Informationen liknar följande:
+De exempel uppgifter som du har skapat kommer att slutföras på några minuter. Om du vill visa resultatet av en slutförd uppgift väljer du aktiviteten och väljer sedan **filer på noden**. Välj filen `stdout.txt` om du vill visa standardutdata för aktiviteten. Informationen liknar följande:
 
-![Visa aktivitetens utdata][task_output]
+:::image type="content" source="media/quick-create-portal/task-output.png" alt-text="Skärm bild av utdata från en slutförd uppgift.":::
 
 Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb och aktiviteter kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna.
 
@@ -121,31 +105,13 @@ Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du
 
 Om du vill fortsätta med Batch-självstudier och -exempel ska du använda Batch-kontot och det länkade lagringskontot som skapats i denna snabbstart. Själva Batch-kontot kostar ingenting.
 
-Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. I kontovyn väljer du **Pooler** och namnet på poolen. Välj sedan **Ta bort**.  När du tar bort poolen raderas alla aktivitetsutdata på noderna. 
+Du debiteras för poolen medan noderna körs, även om inga jobb är schemalagda. Ta bort poolen när du inte längre behöver den. I kontovyn väljer du **Pooler** och namnet på poolen. Välj sedan **Ta bort**.  När du tar bort poolen raderas alla aktivitetsutdata på noderna.
 
 Ta bort resursgruppen, Batch-kontot och alla relaterade resurser när de inte längre behövs. Om du vill göra det väljer du resursgruppen för Batch-kontot och sedan **Ta bort resursgrupp**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du ett Batch-konto, en Batch-pool och ett Batch-jobb. Jobbet körde exempelaktiviteter och du visade utdata som skapats på en av noderna. Nu när du förstår nyckelbegreppen för Batch-tjänsten är du redo att testa Batch med mer realistiska arbetsbelastningar i större skala. Om du vill veta mer om Azure Batch ska du fortsätta med Azure Batch-självstudierna. 
+I den här snabbstarten skapade du ett Batch-konto, en Batch-pool och ett Batch-jobb. Jobbet körde exempelaktiviteter och du visade utdata som skapats på en av noderna. Nu när du förstår nyckelbegreppen för Batch-tjänsten är du redo att testa Batch med mer realistiska arbetsbelastningar i större skala. Om du vill veta mer om Azure Batch ska du fortsätta med Azure Batch-självstudierna.
 
 > [!div class="nextstepaction"]
 > [Azure Batch-självstudier](./tutorial-parallel-dotnet.md)
-
-[marketplace_portal]: ./media/quick-create-portal/marketplace-batch.png
-
-[account_portal]: ./media/quick-create-portal/batch-account-portal.png
-
-[account_keys]: ./media/quick-create-portal/batch-account-keys.png
-
-[pool_os]: ./media/quick-create-portal/pool-operating-system.png
-
-[pool_size]: ./media/quick-create-portal/pool-size.png
-
-[pool_resizing]: ./media/quick-create-portal/pool-resizing.png
-
-[job_create]: ./media/quick-create-portal/job-create.png
-
-[task_create]: ./media/quick-create-portal/task-create.png
-
-[task_output]: ./media/quick-create-portal/task-output.png

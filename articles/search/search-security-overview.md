@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: fb265f8a8ab34972dac8529d267e41edaf0acb4c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4bf8f5d7bb8fd262fefc7cbf2f8ca906136509d5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829296"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225282"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Säkerhet i Azure Kognitiv sökning – översikt
 
@@ -36,7 +36,7 @@ Titta på den här videon med snabb takt för en översikt över säkerhets arki
 
 I Azure Kognitiv sökning börjar krypteringen med anslutningar och överföring och utökar till innehåll som lagras på disk. För Sök tjänster på det offentliga Internet lyssnar Azure Kognitiv sökning på HTTPS-port 443. Alla klient-till-tjänst-anslutningar använder TLS 1,2-kryptering. Tidigare versioner (1,0 eller 1,1) stöds inte.
 
-I följande tabell beskrivs [data krypterings modeller](../security/fundamentals/encryption-atrest.md#data-encryption-models)för data som hanteras internt av Sök tjänsten. Vissa funktioner, till exempel kunskaps lager, stegvis anrikning och indexerad indexering, läses från eller skrivs till data strukturer i andra Azure-tjänster. Dessa tjänster har sina egna nivåer av krypterings stöd separat från Azure Kognitiv sökning.
+I följande tabell beskrivs [data krypterings modeller](../security/fundamentals/encryption-models.md)för data som hanteras internt av Sök tjänsten. Vissa funktioner, till exempel kunskaps lager, stegvis anrikning och indexerad indexering, läses från eller skrivs till data strukturer i andra Azure-tjänster. Dessa tjänster har sina egna nivåer av krypterings stöd separat från Azure Kognitiv sökning.
 
 | Modell | Nyckel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Signaturkrav&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Begränsningar | Gäller för |
 |------------------|-------|-------------|--------------|------------|
@@ -54,7 +54,7 @@ Kundhanterade nycklar kräver ytterligare en fakturerings tjänst Azure Key Vaul
 
 <a name="double-encryption"></a>
 
-### <a name="double-encryption"></a>Dubbel kryptering 
+### <a name="double-encryption"></a>Dubbel kryptering
 
 I Azure Kognitiv sökning är dubbel kryptering en utökning av CMK. Det kan vara en enviknings kryptering (en gång av CMK, och återigen med tjänstens hanterade nycklar) och omfattande i omfattning, långsiktig lagring som skrivs till en data disk och kortsiktig lagring som skrivs till temporära diskar. Skillnaden mellan CMK före augusti 1 2020 och efter, och vad som gör att CMK en dubbel krypterings funktion i Azure Kognitiv sökning, är ytterligare kryptering av data i vila på temporära diskar.
 
@@ -74,7 +74,7 @@ Inkommande säkerhetsfunktioner skyddar Sök tjänstens slut punkt genom att ök
 
 ### <a name="public-access-using-api-keys"></a>Offentlig åtkomst med API-nycklar
 
-Som standard nås en Sök tjänst via det offentliga molnet med hjälp av nyckelbaserad autentisering för administratörs-eller frågans åtkomst till Sök tjänstens slut punkt. En API-nyckel är en sträng som består av slumpmässigt genererade siffror och bokstäver. Typ av nyckel (administratör eller fråga) fastställer åtkomst nivån. Inlämning av en giltig nyckel betraktas som bevis för att begäran härstammar från en betrodd entitet. 
+Som standard nås en Sök tjänst via det offentliga molnet med hjälp av nyckelbaserad autentisering för administratörs-eller frågans åtkomst till Sök tjänstens slut punkt. En API-nyckel är en sträng som består av slumpmässigt genererade siffror och bokstäver. Typ av nyckel (administratör eller fråga) fastställer åtkomst nivån. Inlämning av en giltig nyckel betraktas som bevis för att begäran härstammar från en betrodd entitet.
 
 Det finns två åtkomst nivåer till din Sök tjänst, som aktive ras med följande API-nycklar:
 
@@ -92,15 +92,15 @@ Autentisering krävs för varje begäran, där varje begäran består av en obli
 
 Om du vill kontrol lera åtkomsten till din Sök tjänst ytterligare kan du skapa ingående brand Väggs regler som tillåter åtkomst till en speciell IP-adress eller ett intervall med IP-adresser. Alla klient anslutningar måste göras via en tillåten IP-adress, annars nekas anslutningen.
 
-Du kan använda portalen för att [Konfigurera inkommande åtkomst](service-configure-firewall.md). 
+Du kan använda portalen för att [Konfigurera inkommande åtkomst](service-configure-firewall.md).
 
-Du kan också använda REST-API: er för hantering. Med hjälp av [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) -parametern i API version 2020-03-13 kan du begränsa åtkomsten till din tjänst genom att identifiera IP-adresser, individuellt eller i ett intervall, som du vill bevilja åtkomst till din Sök tjänst. 
+Du kan också använda REST-API: er för hantering. Med hjälp av [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) -parametern i API version 2020-03-13 kan du begränsa åtkomsten till din tjänst genom att identifiera IP-adresser, individuellt eller i ett intervall, som du vill bevilja åtkomst till din Sök tjänst.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Privat slut punkt (ingen Internet trafik)
 
-En [privat slut punkt](../private-link/private-endpoint-overview.md) för Azure kognitiv sökning tillåter en klient i ett [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) att säkert komma åt data i ett sökindex över en [privat länk](../private-link/private-link-overview.md). 
+En [privat slut punkt](../private-link/private-endpoint-overview.md) för Azure kognitiv sökning tillåter en klient i ett [virtuellt nätverk](../virtual-network/virtual-networks-overview.md) att säkert komma åt data i ett sökindex över en [privat länk](../private-link/private-link-overview.md).
 
-Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för anslutningar till din Sök tjänst. Nätverks trafiken mellan klienten och Sök tjänsten passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. Ett VNET möjliggör säker kommunikation mellan resurser, med ditt lokala nätverk och Internet. 
+Den privata slut punkten använder en IP-adress från det virtuella nätverkets adress utrymme för anslutningar till din Sök tjänst. Nätverks trafiken mellan klienten och Sök tjänsten passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. Ett VNET möjliggör säker kommunikation mellan resurser, med ditt lokala nätverk och Internet.
 
 Även om den här lösningen är den säkraste, är användningen av ytterligare tjänster en extra kostnad, så se till att du har en tydlig förståelse av fördelarna innan du simhopp i. eller mer information om kostnader finns på [sidan med priser](https://azure.microsoft.com/pricing/details/private-link/). Mer information om hur dessa komponenter fungerar tillsammans finns på videon överst i den här artikeln. Täckning av privat slut punkts alternativ börjar på 5:48 i videon. Instruktioner för hur du konfigurerar slut punkten finns i [skapa en privat slut punkt för Azure kognitiv sökning](service-create-private-endpoint.md).
 
@@ -140,7 +140,7 @@ Azure Kognitiv sökning har certifierats vara kompatibel för flera globala, reg
 
 Om du vill ha kompatibilitet kan du använda [Azure policy](../governance/policy/overview.md) för att implementera de bästa metoderna för säkerhet i [Azure](../security/benchmarks/introduction.md). Azure Security Benchmark är en samling säkerhets rekommendationer, som du kan använda för att mäta säkerhets kontroller som mappar till viktiga åtgärder som du bör vidta för att minimera hot mot tjänster och data. Det finns för närvarande 11 säkerhets kontroller, inklusive [nätverks säkerhet](../security/benchmarks/security-control-network-security.md), [loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md)och [data skydd](../security/benchmarks/security-control-data-protection.md) för att ge ett fåtal.
 
-Azure Policy är en inbyggd funktion i Azure som hjälper dig att hantera efterlevnad för flera standarder, inklusive de som ingår i Azures säkerhets benchmark. För välkända benchmarks kan Azure Policy tillhandahålla inbyggda definitioner som ger både kriterier och ett åtgärds bara svar som behandlar icke-efterlevnad. 
+Azure Policy är en inbyggd funktion i Azure som hjälper dig att hantera efterlevnad för flera standarder, inklusive de som ingår i Azures säkerhets benchmark. För välkända benchmarks kan Azure Policy tillhandahålla inbyggda definitioner som ger både kriterier och ett åtgärds bara svar som behandlar icke-efterlevnad.
 
 För Azure Kognitiv sökning finns det för närvarande en inbyggd definition. Det är för diagnostisk loggning. Med den här inbyggda kan du tilldela en princip som identifierar Sök tjänster som saknar diagnostikloggning och sedan aktiverar den. Mer information finns i [Azure policy regler för regelefterlevnad för Azure kognitiv sökning](security-controls-policy.md).
 

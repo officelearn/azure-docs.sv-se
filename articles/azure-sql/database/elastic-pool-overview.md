@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 07/28/2020
-ms.openlocfilehash: 33f87bf6f030adb48f2c4f8eb45027c1b298d812
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c36a8e6f2e104d91bd7738849918c46802cd0dca
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419724"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225945"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Elastiska pooler hjälper dig att hantera och skala flera databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ I poolen kan de enskilda databaserna skalas automatiskt inom fastställda parame
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>När bör du överväga en SQL Database elastisk pool
 
-Pooler lämpar sig för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar. Däremot bör flera databaser med beständig medium-hög användning inte placeras i samma elastiska pool.
+Pooler lämpar sig väl för ett stort antal databaser med specifika användningsmönster. För en viss databas kännetecknas det här mönstret av låg genomsnittlig användning med relativt ovanliga användningstoppar. Däremot bör flera databaser med beständig medium-hög användning inte placeras i samma elastiska pool.
 
 Ju fler databaser du kan lägga till i en pool desto större blir dina besparingar. Beroende på ditt användnings mönster för ditt program är det möjligt att se besparingar med så få som två S3-databaser.
 
@@ -113,11 +113,11 @@ Följande steg kan hjälpa dig att beräkna om en pool är mer kostnads effektiv
 
 För DTU-baserad inköps modell:
 
-MAX (<*Totalt antal databaser* x *genomsnittlig DTU-användning per db*>, <*antal samtidigt toppvärde databaser* X *högsta DTU-användning per databas*)
+MAX (<det *totala antalet* DTU- *användning per DB* -> för databaser x, <*antalet samtidigt toppvärde databaser* X *högsta DTU-användning per DB*>)
 
 För vCore-baserad inköps modell:
 
-MAX (<*totala antalet databaser* x *genomsnittlig vCore användning per db*>, <*antal databaser* X högsta högsta vCore-belastning *per DB*)
+MAX (<*totala antalet databaser* x *genomsnittlig vCore användning per db*>, <*antal databaser* X *högsta högsta vCore belastning per DB*>)
 
 2. Beräkna hur stort lagringsutrymme som krävs för poolen genom att lägga till antalet byte som behövs för alla databaser i poolen. Fastställ sedan den eDTU-poolstorlek som ger den här mängden lagringsutrymme.
 3. För den DTU-baserade inköps modellen tar du den större av eDTU-beräkningarna från steg 1 och steg 2. För den vCore-baserade inköps modellen ska du ta vCore uppskattningen från steg 1.

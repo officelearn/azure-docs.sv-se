@@ -1,6 +1,6 @@
 ---
 title: Store-SendGrid-Java-How-to-send-e-mail-example
-description: Skicka e-post med SendGrid från java i en Azure-distribution
+description: Skicka e-post med SendGrid från java i en Azure-distribution. Det resulterande programmet kommer att uppmana användaren att ange e-postvärden.
 services: ''
 documentationcenter: java
 author: thinkingserious
@@ -16,12 +16,12 @@ ms.date: 10/30/2014
 ms.author: erikre
 ms.reviewer: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d35937f813fb10a0c39b724b97014c02fee99f1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3957d7501634be01a978481787885ae13ad3273b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304164"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225962"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Skicka e-post med SendGrid från java i en Azure-distribution
 I följande exempel visas hur du kan använda SendGrid för att skicka e-postmeddelanden från en webb sida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange e-postvärden, som visas i följande skärm bild.
@@ -217,7 +217,7 @@ Förutom att skicka e-postmeddelandet ger emailform.jsp ett resultat för använ
 ## <a name="next-steps"></a>Nästa steg
 Distribuera ditt program till Compute-emulatorn och i en webbläsare kör emailform.jsp, ange värden i formuläret, klicka på **skicka det här e-postmeddelandet**och se resultatet i sendemail.jsp.
 
-Den här koden angavs för att visa hur du använder SendGrid i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Till exempel: 
+Den här koden angavs för att visa hur du använder SendGrid i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Ett exempel: 
 
 * Du kan använda Azure Storage-blobbar eller SQL Database för att lagra e-postadresser och e-postmeddelanden, i stället för att använda ett webb formulär. Information om hur du använder Azure Storage-blobar i Java finns i [så här använder du tjänsten Blob Storage från Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Information om hur du använder SQL Database i Java finns i [använda SQL Database i Java](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-java).
 * Mer information om hur du använder SendGrid i Java finns i [så här skickar du e-post med SendGrid från Java](store-sendgrid-java-how-to-send-email.md).

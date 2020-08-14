@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a3b3d7c0bf61ea0aa9b85965c11e572e9e2d999
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d0d86e1a9c40eb6860508cf136ab9d466cc28ecd
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085409"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225911"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LAMP-webbserver på en virtuell Linux-dator i Azure
 
-I den här artikeln får du veta hur du distribuerar en Apache-webbserver, MySQL och PHP (LAMP-stacken) på en virtuell Ubuntu-dator i Azure. Om du föredrar NGINX-webbservern finns mer information i självstudierna om [LEMP-stacken](). Om du vill se LAMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här guiden får du lära du dig hur man:
+I den här artikeln får du veta hur du distribuerar en Apache-webbserver, MySQL och PHP (LAMP-stacken) på en virtuell Ubuntu-dator i Azure. Om du vill se LAMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Ubuntu-dator (L:et i LAMP-stacken)

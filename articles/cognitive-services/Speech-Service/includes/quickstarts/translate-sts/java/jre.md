@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 8208f6bd4e41063f514d6008166bd64ce7b1cfca
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e13d6c45c57eeb641f79ad50f4c7bcf6ffd1a685
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78924706"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226377"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -27,7 +27,7 @@ Innan du börjar ska du se till att:
 
 ## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil** > **ny** > **klass**.
+1. Om du vill lägga till en ny tom klass i Java-projektet väljer du **fil**  >  **ny**  >  **klass**.
 
 1. I fönstret **New Java Class** (Ny Java-klass) anger du **speechsdk.quickstart** i fältet **Paket** och anger **Main** i fältet **Namn**.
 
@@ -134,13 +134,13 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration.
 
 1. Spara ändringarna i projektet.
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
-Tryck på F11 eller Välj **Kör** > **fel sökning**.
+Tryck på F11 eller Välj **Kör**  >  **fel sökning**.
 
 1. Säg en engelsk fras eller en mening. Programmet skickar ditt tal till tal tjänsten som översätter och omvandlar till text (i det här fallet till tyska). Tal tjänsten skickar sedan det syntetiserade ljudet och texten tillbaka till programmet för visning.
 

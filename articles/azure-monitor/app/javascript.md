@@ -4,12 +4,12 @@ description: Hämta sid visning och antal sessioner, webb klient data, enstaka s
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7c5abb109018bd8bc5b501fe728a3a0f422a3db7
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905833"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224861"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -217,8 +217,8 @@ Genom att ställa in `autoTrackPageVisitTime: true` den tid som en användare l�
 
 | Tillägg |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
+| [React](javascript-react-plugin.md)|
+| [React Native](javascript-react-native-plugin.md)|
 
 ## <a name="correlation"></a>Korrelation
 
@@ -235,7 +235,7 @@ Om du vill aktivera `CORS` korrelation måste klienten skicka två ytterligare b
 
 Beroende på `Access-Control-Allow-Headers` Server sidans konfiguration är det ofta nödvändigt att utöka listan på Server sidan genom att manuellt lägga till `Request-Id` och `Request-Context` .
 
-Åtkomst – kontroll-Tillåt-rubriker: `Request-Id` , `Request-Context` ,`<your header>`
+Åtkomst – kontroll-Tillåt-rubriker: `Request-Id` , `Request-Context` , `<your header>`
 
 Om någon av de servrar från tredje part som klienten kommunicerar med inte accepterar `Request-Id` `Request-Context` -och-rubrikerna, och du inte kan uppdatera konfigurationen, måste du lägga dem i en exkluderings lista via `correlationHeaderExcludeDomains` konfigurations egenskapen. Den här egenskapen stöder jokertecken.
 
@@ -272,7 +272,7 @@ Välj **webbläsare** och välj sedan **haverier** eller **prestanda**.
 
 ![Skärm bild av sidan prestanda i Application Insights visar bild visning av beroende mått för ett webb program.](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analytics
 
 Om du vill fråga din telemetri som samlas in av JavaScript SDK väljer du knappen **Visa i loggar (analys)** . Genom att lägga till en `where` -sats i visas `client_Type == "Browser"` endast data från Java Script SDK och all telemetri på Server sidan som samlas in av andra SDK: er.
  
@@ -302,7 +302,7 @@ Du kan länka din Application Insights-resurs till din egen Azure Blob Storage-b
 ### <a name="drag-and-drop"></a>Dra och släpp
 
 1. Välj ett objekt för telemetri av undantag i Azure Portal om du vill visa dess "transaktions information från slut punkt till slut punkt"
-2. Identifiera vilka käll mappningar som motsvarar den här anrops stacken. Käll kartan måste matcha en stack Rams käll fil, men med suffixet`.map`
+2. Identifiera vilka käll mappningar som motsvarar den här anrops stacken. Käll kartan måste matcha en stack Rams käll fil, men med suffixet `.map`
 3. Dra och släpp käll mappningarna till anrops stacken i Azure Portal ![ en animerad bild som visar hur du drar och släpper käll mappnings filer från en build-mapp till anrops stack-fönstret i Azure Portal.](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights Web Basic
@@ -377,7 +377,7 @@ Application Insights JavaScript SDK är öppen källkod för att Visa käll kode
 
 De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](./release-notes.md).
 
-## <a name="next-steps"></a><a name="next"></a>Nästa steg
+## <a name="next-steps"></a><a name="next"></a> Nästa steg
 * [Spåra användning](usage-overview.md)
 * [Anpassade händelser och mätvärden](api-custom-events-metrics.md)
 * [Skapa – mät – lär](usage-overview.md)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: 088d2c0a11f7d145f0c8a7ccb2c0aac5bd2d140d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413203"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224093"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure Database for MariaDB
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i serverns beteende.
@@ -28,17 +28,19 @@ De här måtten är tillgängliga för Azure Database for MariaDB:
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
-|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används. (Gäller inte för Basic-nivå servrar.)|
+|io_consumption_percent|I/o procent|Procent|Procent andelen av IO som används. (Gäller inte för Basic-nivå servrar)|
 |storage_percent|Lagrings procent|Procent|Procent andelen lagring som används av serverns högsta värde.|
 |storage_used|Använt lagrings utrymme|Byte|Mängden lagring som används. Lagrings utrymmet som används av tjänsten kan omfatta databasfilerna, transaktions loggarna och Server loggarna.|
 |serverlog_storage_percent|Server logg lagrings procent|Procent|Procent andelen Server logg lagring som används av serverns maximala Server logg lagring.|
 |serverlog_storage_usage|Server logg lagring används|Byte|Mängden Server logg lagring som används.|
 |serverlog_storage_limit|Server logg lagrings gräns|Byte|Den maximala Server logg lagringen för den här servern.|
 |storage_limit|Lagrings gräns|Byte|Det maximala lagrings utrymmet för den här servern.|
-|active_connections|Aktiva anslutningar|Antal|Antalet aktiva anslutningar till servern.|
-|connections_failed|Misslyckade anslutningar|Antal|Antalet misslyckade anslutningar till servern.|
+|active_connections|Aktiva anslutningar|Count|Antalet aktiva anslutningar till servern.|
+|connections_failed|Misslyckade anslutningar|Count|Antalet misslyckade anslutningar till servern.|
+|seconds_behind_master|Fördröjning för replikering på några sekunder|Count|Antalet sekunder som replik servern avbildar mot huvud servern. (Gäller inte för Basic-nivå servrar)|
 |network_bytes_egress|Nätverk – utgående|Byte|Nätverk ut över aktiva anslutningar.|
 |network_bytes_ingress|Nätverk – inkommande|Byte|Nätverk i över aktiva anslutningar.|
+|backup_storage_used|Lagring av säkerhets kopior som används|Byte|Mängden lagring av säkerhets kopior som används. Det här måttet representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopie perioden som angetts för servern. Säkerhets kopierings frekvensen är service som hanteras och beskrivs i [artikeln begrepp](concepts-backup.md). För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet.|
 
 ## <a name="server-logs"></a>Serverloggar
 

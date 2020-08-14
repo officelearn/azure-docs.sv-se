@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: a7fddffd3809dc2fc9814b0c01c12f335110aad0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: efe1706f2ea97c3eadab8deade7e13123af17752
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206950"
+ms.locfileid: "88225673"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
@@ -496,7 +496,7 @@ När du har definierat kökvoter kan du nu uppdatera din funktion för att ta em
 1. I rotmappen kör du `docker build` igen, och den här gången uppdaterar du versionen i taggen till `v1.0.1` . Som tidigare ersätter `<docker_id>` du med ditt Docker Hub-konto-ID:
 
     ```
-    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1 .
     ```
     
 1. Skicka tillbaka den uppdaterade avbildningen till lagrings platsen med `docker push` :

@@ -9,14 +9,14 @@ ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.author: jhakulin
 ms.topic: include
-ms.openlocfilehash: 08da79afa14d883c6fe21ead7b3bca5f1aac5538
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: cdc1bfcc7c2ea0cc51fe830c5218cf10cae7d990
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771224"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226572"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
@@ -42,7 +42,7 @@ Lägg nu till XAML-koden som definierar användar gränssnittet för programmet 
 
 1. `SpeechTranslationFromMicrophone_ButtonClicked`Leta upp strängen i hanteraren i den här filen `YourSubscriptionKey` och ersätt den med din prenumerations nyckel.
 
-1. `SpeechTranslationFromMicrophone_ButtonClicked`Leta upp strängen i hanteraren `YourServiceRegion` och ersätt den med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration. (Använd till exempel `westus` för den kostnads fria prov prenumerationen.)
+1. `SpeechTranslationFromMicrophone_ButtonClicked`Leta upp strängen i hanteraren `YourServiceRegion` och ersätt den med den [region](~/articles/cognitive-services/Speech-Service/regions.md) som är associerad med din prenumeration.
 
 1. Välj **Arkiv**  >  **Spara alla** på Meny raden för att spara ändringarna.
 

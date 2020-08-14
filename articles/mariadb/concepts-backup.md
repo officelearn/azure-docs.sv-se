@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/27/2020
-ms.openlocfilehash: c4d5a9ca85237bde1277904a478a0b8828fc2b08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 8/13/2020
+ms.openlocfilehash: fee1285cfb5faefbcb8f7151186d42725d34af0a
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80369229"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224517"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Säkerhets kopiering och återställning i Azure Database for MariaDB
 
@@ -25,7 +25,24 @@ De här säkerhetskopierade filerna är inte användare-exponerade och kan inte 
 
 ### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
-Fullständiga säkerhetskopior görs normalt en gång i veckan, differentiella säkerhetskopior görs två gånger per dag och säkerhetskopior av transaktionsloggen görs var femte minut. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en server har skapats. Den första säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar.
+#### <a name="servers-with-up-to-4-tb-storage"></a>Servrar med upp till 4 TB lagrings utrymme
+
+För servrar som har stöd för upp till 4 TB högsta lagrings utrymme sker fullständiga säkerhets kopieringar varje vecka. Differentiella säkerhets kopieringar sker två gånger om dagen. Säkerhets kopieringar av transaktions loggar sker var femte minut.
+
+#### <a name="servers-with-up-to-16-tb-storage"></a>Servrar med upp till 16 TB lagring
+I en delmängd av [Azure-regioner](concepts-pricing-tiers.md#storage)kan alla nyligen etablerade servrar stödja upp till 16 TB lagring. Säkerhets kopieringar på dessa stora lagrings servrar är Snapshot-baserade. Den första fullständiga säkerhets kopieringen schemaläggs omedelbart efter att en server har skapats. Den första fullständiga säkerhets kopieringen behålls som serverns grundläggande säkerhets kopiering. Efterföljande ögonblicks säkerhets kopieringar är bara differentiella säkerhets kopieringar. 
+
+Differentiella ögonblicks bild säkerhets kopieringar sker minst en gång per dag. Säkerhets kopiering av differentiella ögonblicks bilder sker inte enligt ett fast schema. Differentiella ögonblicks bilds säkerhets kopieringar sker var 24: e timme om transaktions loggen (BinLog i MariaDB) överskrider 50 GB sedan den senaste differentiella säkerhets kopieringen I en dag tillåts högst sex differentiella ögonblicks bilder. 
+
+Säkerhets kopieringar av transaktions loggar sker var femte minut. 
+
+### <a name="backup-retention"></a>Kvarhållningsperiod för säkerhetskopior
+
+Säkerhets kopior bevaras baserat på inställningen för kvarhållning av säkerhets kopior på servern. Du kan välja en kvarhållningsperiod på 7 till 35 dagar. Standard kvarhållningsperioden är 7 dagar. Du kan ställa in kvarhållningsperioden när servern skapas eller senare genom att uppdatera säkerhets kopierings konfigurationen med [Azure Portal](howto-restore-server-portal.md#set-backup-configuration) eller [Azure CLI](howto-restore-server-cli.md#set-backup-configuration). 
+
+Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden en tidpunkts återställning kan hämtas, eftersom den baseras på tillgängliga säkerhets kopior. Kvarhållningsperioden för säkerhets kopior kan också behandlas som ett återställnings fönster från ett återställnings perspektiv. Alla säkerhets kopior som krävs för att utföra en återställning efter en viss tidpunkt inom kvarhållning av säkerhets kopior bevaras i säkerhets kopierings lagringen. Om säkerhets kopierings perioden till exempel är 7 dagar, betraktas återställnings fönstret de senaste 7 dagarna. I det här scenariot behålls alla säkerhets kopior som krävs för att återställa servern under de senaste 7 dagarna. Med ett fönster för kvarhållning av säkerhets kopior av sju dagar:
+- Servrar med upp till 4 TB lagrings utrymme behåller upp till 2 fullständiga säkerhets kopieringar av databaser, alla differentiella säkerhets kopieringar och säkerhets kopieringar av transaktions loggar som utförs sedan den tidigaste fullständiga säkerhets kopieringen
+-   Servrar med upp till 16 TB lagring behåller den fullständiga ögonblicks bilden av databasen, alla differentiella ögonblicks bilder och säkerhets kopieringar av transaktions loggar de senaste 8 dagarna.
 
 ### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
@@ -36,11 +53,11 @@ Azure Database for MariaDB ger flexibiliteten att välja mellan lokalt redundant
 
 ### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
-Azure Database for MariaDB tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Detta är vanligt vis lämpligt för kvarhållning av säkerhets kopior på sju dagar. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB-månad.
+Azure Database for MariaDB tillhandahåller upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GB lagrings utrymme har du 250 GB ytterligare lagrings utrymme för Server säkerhets kopior utan extra kostnad. Förbrukad lagring för säkerhets kopieringar över 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/mariadb/). 
 
-Om du till exempel har etablerad en server med 250 GB har du 250 GB lagring av säkerhets kopior utan extra kostnad. Lagring som överstiger 250 GB debiteras.
+Du kan använda måttet [säkerhets kopierings lagring som används](concepts-monitoring.md) i Azure Monitor tillgängligt via Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för säkerhets kopierings lagring representerar summan av lagrings utrymme som förbrukas av alla fullständiga säkerhets kopior av databasen, differentiella säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden för servern. Säkerhets kopierings frekvensen är tjänsten hanterad och förklaras tidigare. Tung transaktions aktivitet på servern kan orsaka att lagrings användningen av säkerhets kopieringen ökar oberoende av databasens totala storlek. För Geo-redundant lagring är lagrings utrymmet för säkerhets kopiering två gånger för det lokalt redundanta lagrings utrymmet. 
 
-Mer information om kostnader för lagring av säkerhets kopior finns på [prissättnings sidan för MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
+Det främsta sättet att kontrol lera lagrings kostnaden för säkerhets kopiering är genom att ställa in lämplig kvarhållningsperiod för säkerhets kopior och välja rätt alternativ för säkerhets kopiering för att uppfylla önskade återställnings mål. Du kan välja en kvarhållningsperiod från mellan 7 och 35 dagar. Generell användning-och Minnesoptimerade servrar kan välja att ha Geo-redundant lagring för säkerhets kopiering.
 
 ## <a name="restore"></a>Återställ
 
@@ -66,7 +83,9 @@ Du kan behöva vänta tills nästa säkerhets kopiering av transaktions loggen t
 
 ### <a name="geo-restore"></a>Geo-återställning
 
-Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat servern för geo-redundanta säkerhets kopieringar. Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Geo-återställning använder den senaste säkerhets kopian av servern. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
+Du kan återställa en server till en annan Azure-region där tjänsten är tillgänglig om du har konfigurerat servern för geo-redundanta säkerhets kopieringar. Servrar som har stöd för upp till 4 TB lagrings utrymme kan återställas till den geo-kopplade regionen eller till en region som har stöd för upp till 16 TB lagring. För servrar som har stöd för upp till 16 TB lagrings utrymme kan geo-säkerhetskopieringar återställas i valfri region som har stöd för 16 TB-servrar. Granska [Azure Database for MariaDB pris nivåer](concepts-pricing-tiers.md) för listan över regioner som stöds.
+
+Geo-återställning är standard alternativet för återställning när servern inte är tillgänglig på grund av en incident i den region där-servern finns. Om en storskalig incident i en region resulterar i att databas programmet inte är tillgängligt, kan du återställa en server från de geo-redundanta säkerhets kopieringarna till en server i någon annan region. Geo-återställning använder den senaste säkerhets kopian av servern. Det uppstår en fördröjning mellan när en säkerhets kopia tas och när den replikeras till en annan region. Den här fördröjningen kan vara upp till en timme, så om en katastrof inträffar kan det vara upp till en timmes data förlust.
 
 Vid geo-återställning kan de serverkonfigurationer som kan ändras omfatta beräknings generering, vCore, bevarande period för säkerhets kopior och alternativ för säkerhets kopiering. Det finns inte stöd för att ändra pris nivå (Basic, Generell användning eller Minnesoptimerade) eller lagrings storlek under geo-återställning.
 

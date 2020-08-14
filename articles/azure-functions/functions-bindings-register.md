@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: a045ef0fea70347f168e8ae0cc93e0c359f31dfa
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 43bc278ea3cbd14690f1a9ac9263872536b5b174
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031138"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224789"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
 
@@ -31,7 +31,7 @@ I följande tabell visas när och hur du registrerar bindningar.
 |C#-klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
 |C#-klass bibliotek med Visual Studio Code|Ej tillämpligt|[Använd .NET Core CLI](#vs-code)|
 
-<sup>*</sup>Portalen använder tilläggs paket.
+<sup>*</sup> Portalen använder tilläggs paket.
 
 ## <a name="extension-bundles"></a><a name="extension-bundles"></a>Paket för tillägg
 
@@ -53,9 +53,9 @@ Om du vill använda tilläggs paket uppdaterar du *host.jspå* fil för att inkl
 
 ## <a name="nuget-packages"></a><a name="local-csharp"></a>NuGet-paket
 
-För ett C#-program för klass biblioteks-baserade funktioner bör du installera tilläggs paket som är särskilt utformade för projekt som inte är klass 
+För ett C#-projekt med klass biblioteks funktioner bör du installera tillägg direkt. Tilläggs paket är särskilt utformade för projekt som inte är C#-klass biblioteks-baserade.
 
-### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a>C- \# klass bibliotek med Visual Studio
+### <a name="c-class-library-with-visual-studio"></a><a name="vs"></a> C- \# klass bibliotek med Visual Studio
 
 I **Visual Studio**kan du installera paket från Package Manager-konsolen med kommandot [install-Package](/nuget/tools/ps-ref-install-package) , som du ser i följande exempel:
 
@@ -69,7 +69,7 @@ Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till ex
 
 Om du använder `Install-Package` för att referera till en bindning behöver du inte använda [tilläggs paket](#extension-bundles). Den här metoden är speciell för klass bibliotek som skapats i Visual Studio.
 
-## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a>C#-klass bibliotek med Visual Studio Code
+## <a name="c-class-library-with-visual-studio-code"></a><a name="vs-code"></a> C#-klass bibliotek med Visual Studio Code
 
 I **Visual Studio Code**installerar du paket för ett C#-klass biblioteks projekt från kommando tolken med kommandot [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) i .net Core cli. Följande exempel visar hur du lägger till en bindning:
 

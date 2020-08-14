@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 08/12/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 2f8e95826a7da3caa3edfe8ec23a6e0725b6bcba
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213216"
+ms.locfileid: "88224721"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Självstudie: använda funktions flaggor i en ASP.NET Core app
 
@@ -37,7 +37,7 @@ I den här självstudien får du lära dig hur man:
 
 ## <a name="set-up-feature-management"></a>Konfigurera funktions hantering
 
-Lägg till en referens till `Microsoft.FeatureManagement` NuGet-paketet för att använda .net Core Feature Manager.
+Lägg till en referens till `Microsoft.FeatureManagement.AspNetCore` `Microsoft.FeatureManagement` NuGet-paketen och Använd .net Core Feature Manager.
     
 .NET Core Feature Manager `IFeatureManager` hämtar funktions flaggor från ramverkets inbyggda konfigurations system. Därför kan du definiera programmets funktions flaggor genom att använda en konfigurations källa som .NET Core stöder, inklusive den lokala *appsettings.jspå* fil-eller miljövariabler. `IFeatureManager` förlitar sig på .NET Core-beroende inmatning. Du kan registrera funktions hanterings tjänsterna genom att använda standard konventioner:
 
@@ -174,7 +174,7 @@ public enum MyFeatureFlags
 
 ## <a name="feature-flag-checks"></a>Funktions flagga kontrollerar
 
-Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Till exempel:
+Det grundläggande mönstret för funktions hantering är att först kontrol lera om en funktions flagga har angetts till *på*. I så fall kör funktions hanteraren de åtgärder som funktionen innehåller. Ett exempel:
 
 ```csharp
 IFeatureManager featureManager;
@@ -206,6 +206,8 @@ public class HomeController : Controller
 I MVC-styrenheter använder du `FeatureGate` attributet för att kontrol lera om en hel kontroll enhets klass eller en speciell åtgärd är aktive rad. Följande `HomeController` styrenhet måste `FeatureA` vara *aktive* ras innan det går att utföra några åtgärder som klassen Controller innehåller kan utföra:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public class HomeController : Controller
 {
@@ -216,6 +218,8 @@ public class HomeController : Controller
 Följande `Index` åtgärd måste `FeatureA` finnas innan den *on* kan köras:
 
 ```csharp
+using Microsoft.FeatureManagement.Mvc;
+
 [FeatureGate(MyFeatureFlags.FeatureA)]
 public IActionResult Index()
 {

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 594a47f397ca78476ed987ac0e06a3cacc79ec3b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319906"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225398"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problem och lösningar under certifiering av virtuella datorer 
 
@@ -294,7 +294,7 @@ Om alla avbildningar som tas från Azure Marketplace ska återanvändas måste d
 
 * För **Linux**generaliserar följande process en virtuell Linux-dator och distribuerar den igen som en separat virtuell dator.
 
-  I SSH-fönstret anger du följande kommando:`sudo waagent -deprovision+user`
+  I SSH-fönstret anger du följande kommando: `sudo waagent -deprovision+user`
 
 * För **Windows**generaliserar du Windows-avbildningar med hjälp av `sysreptool` .
 
@@ -314,6 +314,57 @@ Använd följande tabell för lösningar på fel som är relaterade till data di
 Om alternativet Remote Desktop Protocol (RDP) inte är aktiverat för Windows-avbildningen visas det här felet. 
 
 Aktivera RDP-åtkomst för Windows-avbildningar innan du skickar dem.
+
+## <a name="bash-history-failed"></a>Bash-historik misslyckades
+
+Du ser det här felet om storleken på bash-historiken i den skickade avbildningen är större än 1 KB. Storleken är begränsad till 1 KB för att säkerställa att all potentiellt känslig information inte samlas in i din bash-historik fil.
+
+Nedan visas stegen för att ta bort "bash historik".
+
+Steg 1. Distribuera den virtuella datorn och klicka på alternativet Kör kommando på Azure Portal.
+![Kör kommandot på Azure Portal](./media/vm-certification-issues-solutions-3.png)
+
+Steg 2. Välj det första alternativet "RunShellScript" och kör kommandot nedan.
+
+Kommando: "Cat/dev/null > ~/. bash_history && historik-c" ![ bash historik kommando på Azure Portal](./media/vm-certification-issues-solutions-4.png)
+
+Steg 3. När du har kört kommandot startar du om den virtuella datorn.
+
+Steg 4. Generalisera den virtuella datorn, ta avbildningen av den virtuella hård disken och stoppa den virtuella datorn.
+
+Steg 5.     Skicka den generaliserade avbildningen igen.
+
+## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Begär undantag (anpassade mallar) på VM-avbildningar för selektiva tester
+
+Utgivare kan kontaktas för att begära undantag för få tester som utförs under en VM-certifiering. Undantag anges i ytterst sällsynta fall när Publisher tillhandahåller bevis för att stödja begäran.
+Certifierings teamet förbehåller sig rätten att neka eller godkänna undantag vid en viss tidpunkt.
+
+I avsnitten nedan kommer vi att prata om huvud scenarier där undantag begärs och hur du begär undantag.
+
+Scenarier för undantag
+
+Det finns tre scenarier/fall där utgivare vanligt vis begär dessa undantag. 
+
+* **Undantag för ett eller flera test fall:** Utgivare kan kontakta Marketplace- [support](https://aka.ms/marketplacepublishersupport) begär ande undantag för test ärenden. 
+
+* **Låst virtuella datorer/ingen rot åtkomst:** Några utgivare har scenarier där virtuella datorer måste låsas eftersom de har program vara, till exempel brand väggar som är installerade på den virtuella datorn. 
+       I det här fallet kan utgivare Ladda ned det [certifierade testverktyget](https://aka.ms/AzureCertificationTestTool) här och tillhandahålla rapporten på [Marketplace Publisher-support](https://aka.ms/marketplacepublishersupport)
+
+
+* **Anpassade mallar:** Vissa utgivare publicerar VM-avbildningar som kräver en anpassad ARM-mall för att distribuera de virtuella datorerna. I det här fallet uppmanas utgivare att tillhandahålla anpassade mallar på [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) så att samma kan användas av certifierings teamet för verifiering. 
+
+### <a name="information-to-provide-for-exception-scenarios"></a>Information som ska tillhandahållas för undantags scenarier
+
+Utgivare måste kontakta supporten på [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) för att begära undantag för scenariot ovan med ytterligare följande information:
+
+   1.   Utgivar-ID – utgivarens ID på Partner Center-portalen
+   2.   Erbjudande-ID/namn – erbjudande-ID/namn för vilket undantag begärs 
+   3.   SKU/plan-ID – plan-ID/SKU för det virtuella dator erbjudandet för vilket undantag begärs
+   4.    Version – den version av VM-erbjudandet för vilket undantag begärs
+   5.   Undantags typ – test, låst virtuell dator, anpassade mallar
+   6.   Orsak till begäran – orsak till detta undantag och information om test som ska undantas 
+   7.   Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
+
 
 ## <a name="next-steps"></a>Nästa steg
 

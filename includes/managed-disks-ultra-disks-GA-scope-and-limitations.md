@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa9327bd0ba6763aa4e89630611aabb3c5195655
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546c21802d275fe99ed2acbf00e32d37db3603f2
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85448729"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225212"
 ---
 För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
@@ -26,23 +26,32 @@ Följande tabell beskriver regionerna Ultra disks finns i, samt motsvarande till
 
 |Regioner  |Antal tillgänglighets zoner som stöder Ultra disks  |
 |---------|---------|
-|US Gov, Virginia     |Ingen         |
-|USA, södra centrala     |Ingen         |
-|USA, centrala     |Tre zoner         |
-|USA, västra     |Ingen         |
+|US Gov, Virginia     |Inget         |
+|US Gov, Arizona     |Inget         |
+|USA, södra centrala     |Inget         |
+|Central US     |Tre zoner         |
+|USA, västra     |Inget         |
 |USA, västra 2    |Tre zoner         |
-|USA, östra     |Tre zoner         |
-|USA, östra 2     |Två zoner         |
+|East US     |Tre zoner         |
+|USA, östra 2     |Tre zoner         |
 |Asien, Sydostasien     |Tre zoner         |
-|Europa, norra     |Tre zoner          |
+|Asien, östra     |Inget         |
+|Norra Europa     |Tre zoner          |
 |Europa, västra     |Tre zoner          |
 |Storbritannien, södra     |Tre zoner          |
-|Japan, östra     |Två zoner         |
+|Japan, östra     |Tre zoner         |
 |Frankrike, centrala    |Två zoner        |
+|Brasilien, södra    |Inget        |
+|Australien, östra    |Tre zoner        |
+|Kanada, centrala *    |Tre zoner        |
 
+\* Kontakta Azure-supporten för att få till gång till Tillgänglighetszoner för den här regionen.
 
 - Stöds endast i följande VM-serien:
     - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [Easv4](../articles/virtual-machines/eav4-easv4-series.md#easv4-series)
+    - [Edsv4](../articles/virtual-machines/edv4-edsv4-series.md#edsv4-series)
+    - [Esv4](../articles/virtual-machines/ev4-esv4-series.md#esv4-series)
     - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
     - [FSv2](../articles/virtual-machines/fsv2-series.md)
     - [LSv2](../articles/virtual-machines/lsv2-series.md)

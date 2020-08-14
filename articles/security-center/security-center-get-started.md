@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038553"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226028"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
 Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. Även om den kostnads fria nivån erbjuder begränsad säkerhet för dina Azure-resurser, utökar standard nivån dessa funktioner till lokala och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 I den här artikeln ska du uppgradera till standard nivån för ytterligare säkerhet och installera Log Analytics-agenten på dina virtuella datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill uppgradera en prenumeration till standard nivån måste du tilldelas rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
@@ -34,7 +34,8 @@ Om du vill uppgradera en prenumeration till standard nivån måste du tilldelas 
 ## <a name="enable-your-azure-subscription"></a>Aktivera din Azure-prenumeration
 
 1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
-2. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center översikt** öppnas.
+
+1. Välj **Security Center**på **Microsoft Azure** -menyn. **Security Center översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
@@ -49,21 +50,25 @@ Inom några minuter efter att du har startat Security Center för första gånge
 
 Om du vill dra full nytta av Security Center måste du slutföra stegen nedan för att uppgradera till standard nivån och installera Log Analytics agenten.
 
-## <a name="upgrade-to-the-standard-pricing-tier"></a>Uppgradera till standard pris nivån
-I syfte att Security Center snabb starter och självstudier måste du uppgradera till standard nivån. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
 
-1. På huvudmenyn i Security Center väljer du **Komma igång**.
+## <a name="upgrade-to-the-standard-tier"></a>Uppgradera till standardnivån
+
+Du måste uppgradera till standardnivån för att kunna använda snabbstart och självstudier i Security Center. Det finns en kostnadsfri utvärderingsversion av Security Center Standard. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/). 
+
+1. Välj **komma igång**från Security Center marginal List.
  
-   ![Kom igång][4]
+   ![Komma igång](./media/security-center-get-started/get-started-upgrade-tab.png)
 
-2. Under **Uppgradera** listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
-   - Du kan klicka på den expanderbara texten **Använd din utvärderingsversion** för att se en lista över alla prenumerationer och arbetsytor med deras berättigandestatus för utvärderingsversion.
-   -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
-   -    Du kan välja berättigade arbetsytor och prenumerationer för att påbörja din utvärderingsperiod.
-3. Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
+    På fliken **Uppgradera** visas de prenumerationer och arbets ytor som är berättigade till onboarding.
+
+1. Från listan **Välj arbets ytor för att aktivera standard nivån i** listan väljer du de arbets ytor som ska uppgraderas.
 
 
-  ![Säkerhetsaviseringar][9]
+    > [!TIP]
+    > Om du väljer en arbets yta som är berättigad till en kostnads fri utvärderings version påbörjar nästa steg en utvärderings version. Om arbets ytorna inte är berättigade till en utvärderings version kommer den att uppgraderas och kostnaderna börjar.
+
+1. Välj **Uppgradera** för att uppgradera de valda arbets ytorna till standard nivån.
+
 
 ## <a name="automate-data-collection"></a>Automatisera datainsamling
 Security Center samlar in data från dina virtuella Azure-datorer och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Som standard skapar Security Center en ny arbetsyta till dig.
@@ -73,9 +78,9 @@ När automatisk etablering har Aktiver ATS installerar Security Center Log Analy
 Så här aktiverar du automatisk etablering av Log Analytics agent:
 
 1. Under Security Center huvud menyn väljer du **pris & inställningar**.
-2. På prenumerations raden klickar du på den prenumeration som du vill ändra inställningarna för.
-3. På fliken **Datainsamling** anger du **Automatisk etablering** till **På**.
-4. Välj **Spara**.
+1. På prenumerations raden klickar du på den prenumeration som du vill ändra inställningarna för.
+1. På fliken **Datainsamling** anger du **Automatisk etablering** till **På**.
+1. Välj **Spara**.
 ---
   ![Aktivera automatisk försörjning][6]
 

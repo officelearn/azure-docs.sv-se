@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: c0f23c864430b6cb2f49f924d5aaa8bde296037c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135971"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225690"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory hanterad Virtual Network (förhands granskning)
 
@@ -82,15 +82,11 @@ Under data källor finns stöd för att ansluta via en privat länk från ADF-ha
 - Azure Synapse Analytics (tidigare Azure SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
-- Azure Private Link
+- Azure privat länk-tjänst
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Utgående kommunikation via offentlig slut punkt från ADF-hanterad Virtual Network
 - Endast port 443 är öppen för utgående kommunikation.
 - Azure Storage-och Azure Data Lake-Gen2 stöds inte för anslutning via den offentliga slut punkten från ADF-hanterad Virtual Network.
-
-### <a name="other-known-issues"></a>Andra kända problem
-Fel söknings körning för CosmosDB-anslutning fungerar inte inklusive både fel sökning av data flöde och pipeline-felsökning.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

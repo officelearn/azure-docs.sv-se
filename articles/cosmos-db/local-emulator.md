@@ -6,12 +6,12 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 7a115de449588ea69951e6d997aa5332e5d55ad1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119529"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225979"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -114,12 +114,13 @@ För att aktivera nätverks åtkomst för första gången ska användaren stäng
 
 ### <a name="sql-api"></a>API för SQL
 
-När du har Azure Cosmos-emulatorn som körs på Skriv bordet kan du använda alla [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) : er som stöds eller [Azure Cosmos DB REST API](/rest/api/cosmos-db/) för att interagera med emulatorn. Azure Cosmos-emulatorn innehåller också en inbyggd Datautforskaren som gör att du kan skapa behållare för SQL API eller Cosmos DB för mongo DB API, samt Visa och redigera objekt utan att skriva någon kod.
+När du har Azure Cosmos-emulatorn som körs på Skriv bordet kan du använda alla [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) : er som stöds eller [Azure Cosmos DB REST API](/rest/api/cosmos-db/) för att interagera med emulatorn. Azure Cosmos-emulatorn innehåller också en inbyggd Datautforskaren som gör att du kan skapa behållare för SQL API eller Cosmos DB för mongo DB API, samt Visa och redigera objekt utan att skriva någon kod.
 
 ```csharp
 // Connect to the Azure Cosmos Emulator running locally
-DocumentClient client = new DocumentClient(
-   new Uri("https://localhost:8081"), "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+CosmosClient client = new CosmosClient(
+   "https://localhost:8081", 
+    "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 ```
 
@@ -182,7 +183,7 @@ Starta emulatorn från en administratörs kommando tolk med "/EnableCassandraEnd
 
 ### <a name="gremlin-api"></a>Gremlin-API
 
-Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpoint". Alternativt kan du också ställa in miljövariabeln`AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
+Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpoint". Alternativt kan du också ställa in miljövariabeln `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
 * [Installera Apache-tinkerpop-Gremlin-Console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
@@ -268,13 +269,13 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |
 | NoExplorer | Visa inte datautforskaren vid start. |Microsoft.Azure.Cosmos.Emulator.exe/NoExplorer | | 
 | PartitionCount | Anger det högsta antalet partitionerade behållare. Mer information finns i [ändra antalet behållare](#set-partitioncount) . | Microsoft.Azure.Cosmos.Emulator.exe/PartitionCount =\<partitioncount\> | \<partitioncount\>: Maximalt antal tillåtna behållare för enskilda partitioner. Standardvärdet är 25. Maxvärdet är 250 GB.|
-| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | Microsoft.Azure.Cosmos.Emulator.exe/DefaultPartitionCount =\<defaultpartitioncount\> | \<defaultpartitioncount\>Standardvärdet är 25.|
+| DefaultPartitionCount| Anger standardvärdet för antalet partitioner för en partitionerad behållare. | Microsoft.Azure.Cosmos.Emulator.exe/DefaultPartitionCount =\<defaultpartitioncount\> | \<defaultpartitioncount\> Standardvärdet är 25.|
 | AllowNetworkAccess | Ger åtkomst till emulatorn över ett nätverk. Du måste också skicka/Key = \<key_string\> eller/KeyFile = \<file_name\> för att aktivera nätverks åtkomst. | Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/Key = \<key_string\> eller Microsoft.Azure.Cosmos.Emulator.exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
 | NoFirewall | Ändra inte brand Väggs regler när alternativet/AllowNetworkAccess används. |Microsoft.Azure.Cosmos.Emulator.exe/NoFirewall | |
 | GenKeyFile | Generera en ny auktoriseringsnyckel och spara den i den angivna filen. Den genererade nyckeln kan användas med alternativen /Key eller /KeyFile. | Microsoft.Azure.Cosmos.Emulator.exe/GenKeyFile =\<path to key file\> | |
@@ -428,7 +429,7 @@ Om du har ett .NET-klient program som körs på en Linux Docker-behållare och o
 
 ## <a name="running-on-mac-or-linux"></a>Körs på Mac eller Linux<a id="mac"></a>
 
-För närvarande kan Cosmos-emulatorn endast köras i Windows. Användare som kör Mac eller Linux kan köra emulatorn på en virtuell Windows-dator som värd för en hypervisor, till exempel paralleller eller VirtualBox. Nedan visas stegen för att aktivera detta.
+För närvarande kan Cosmos-emulatorn endast köras i Windows. Användare som kör Mac eller Linux kan köra emulatorn på en virtuell Windows-dator som finns i en hypervisor, till exempel paralleller eller VirtualBox. Nedan visas stegen för att aktivera detta.
 
 Kör kommandot nedan i den virtuella Windows-datorn och anteckna IPv4-adressen.
 
@@ -444,7 +445,36 @@ Nästa steg, från i den virtuella Windows-datorn, startar Cosmos-emulatorn frå
 Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 ```
 
-Slutligen måste vi importera emulatorns CA-certifikat till Linux-eller Mac-miljön.
+Slutligen måste vi lösa certifikat förtroende processen mellan programmet som körs på Linux-eller Mac-miljön och emulatorn. Vi har två alternativ:
+
+1. Inaktivera SSL-verifiering i programmet:
+
+# <a name="net-standard-21"></a>[.NET standard 2.1 +](#tab/ssl-netstd21)
+
+   För alla program som körs i ett ramverk som är kompatibelt med .NET standard 2,1 eller senare kan vi utnyttja `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET standard 2,0](#tab/ssl-netstd20)
+
+   För alla program som körs i ett ramverk som är kompatibelt med .NET standard 2,0 kan vi utnyttja `CosmosClientOptions.HttpClientFactory` :
+
+   [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+# <a name="nodejs"></a>[Node.js](#tab/ssl-nodejs)
+
+   För Node.js program kan du ändra `package.json` filen för att ange `NODE_TLS_REJECT_UNAUTHORIZED` när programmet startas:
+
+   ```json
+   "start": NODE_TLS_REJECT_UNAUTHORIZED=0 node app.js
+   ```
+
+--- 
+
+> [!NOTE]
+> Att inaktivera SSL-validering rekommenderas endast i utvecklings syfte och bör inte utföras när de körs i en produktions miljö.
+
+2. Importera emulatorns CA-certifikat till Linux-eller Mac-miljön:
 
 ### <a name="linux"></a>Linux
 

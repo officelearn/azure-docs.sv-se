@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: chlandsi
-ms.openlocfilehash: 03042cef3e5b5fb4360223e3c804f1ed2e24c97f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c3ba2289899206a15ace88a29cfbfdfad0f9de5
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925290"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226172"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -88,9 +88,9 @@ Innan du börjar ska du se till att:
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt strängen `YourServiceRegion` med den [region](../../../../regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Ersätt strängen `YourServiceRegion` med den [region](../../../../regions.md) som är associerad med din prenumeration.
 
-1. Spara ändringarna som du har gjort i `quickstart.py`.
+1. Spara ändringarna som du har gjort i `quickstart.py` .
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

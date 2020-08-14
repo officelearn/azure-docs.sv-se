@@ -4,15 +4,15 @@ description: Lär dig mer om datum-och tids funktioner i SQL system-funktioner i
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/09/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e3666f58b12855c19dd9b8ecf5519ab772c49743
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 460abbc0b2a2f277aaeed57c5b938de530696776
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246945"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224959"
 ---
 # <a name="date-and-time-functions-azure-cosmos-db"></a>Datum-och tids funktioner (Azure Cosmos DB)
 
@@ -24,6 +24,7 @@ Med följande skalära funktioner kan du hämta aktuellt UTC-datum och-tid i tv�
 
 * [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
 * [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
+* [GetCurrentTicks](sql-query-getcurrentticks.md)
 
 ## <a name="functions-to-work-with-datetime-values"></a>Funktioner för att arbeta med DateTime-värden
 
@@ -32,10 +33,12 @@ Med följande funktioner kan du enkelt ändra DateTime-värden:
 * [DateTimeAdd](sql-query-datetimeadd.md)
 * [DateTimeDiff](sql-query-datetimediff.md)
 * [DateTimeFromParts](sql-query-datetimefromparts.md)
+* [DateTimePart](sql-query-datetimepart.md)
+* [DateTimeToTicks](sql-query-datetimetoticks.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Användardefinierade funktioner](sql-query-udfs.md)
-- [Aggregeringar](sql-query-aggregates.md)
+- [Samlingar](sql-query-aggregates.md)

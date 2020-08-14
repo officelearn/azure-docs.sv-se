@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 48e3f895fb123429f1bedd106bd92113533c84ae
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8ed9f6565da55d3ffbe522bbdf404265c487f67c
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055810"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88225622"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Lösningsarkitekturer med Azure NetApp Files
 Den här artikeln innehåller referenser till bästa praxis som kan hjälpa dig att förstå lösnings arkitekturerna för att använda Azure NetApp Files.  
@@ -85,6 +85,7 @@ Det här avsnittet innehåller referenser till infrastruktur lösningar för vir
 
 ### <a name="windows-virtual-desktop"></a>Windows Virtual Desktop
 
+* [Använda Windows Virtual Desktop med Azure NetApp Files](solutions-windows-virtual-desktop.md)
 * [Lagrings alternativ för FSLogix profil behållare i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/store-fslogix-profile#azure-platform-details)
 * [Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
 * [Windows Virtual Desktop i företags skala](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
@@ -109,7 +110,7 @@ Det här avsnittet innehåller referenser för HPC-lösningar (data behandling m
 * [Fördelar med att använda Azure NetApp Files för elektronisk designautomatisering](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab med Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 
-### <a name="analytics"></a>Analys
+### <a name="analytics"></a>Analytics
 
 * [Azure NetApp Files: ett nytt delat fil system som ska användas med SAS-rutnät på Microsoft Azure](https://communities.sas.com/t5/Architecture/Azure-NetApp-Files-A-new-shared-file-system-to-use-with-SAS-Grid/m-p/606978)
 

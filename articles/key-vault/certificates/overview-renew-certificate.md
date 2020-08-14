@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 41085ee629189c32c1bc7196f23805c9c48d154a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056286"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224568"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Om förnyelse av Azure Key Vault certifikat
 
@@ -60,8 +60,11 @@ Goda nyheter igen! Azure Key Vaults tar också hand om automatisk förnyelse av 
 Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vidare och Visa certifikat åtgärden för att visa fel meddelandet för det certifikatet.
 
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-Kommer taggarna att replikeras efter automatisk förnyelse av certifikatet?
-Nej, Taggar replikeras inte om inte användaren manuellt kopierar taggarna.
+* Hur kan jag testa funktionen för autorotation i certifikatet?
+  Skapa ett certifikat med en giltighets tid på 1 månad och ange sedan livs cykel åtgärden för rotation vid 1%. Med den här inställningen roteras certifikatet på 7,2 timmar.
+  
+* Kommer taggarna att replikeras efter automatisk förnyelse av certifikatet?
+  Nej, Taggar replikeras inte om inte användaren manuellt kopierar taggarna.
 
 ### <a name="see-also"></a>Se även
 *   [Integrera nyckelvalv med DigiCert-certifikatutfärdare](how-to-integrate-certificate-authority.md)

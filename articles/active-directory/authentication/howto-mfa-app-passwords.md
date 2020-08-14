@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489800"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224925"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Aktivera och Använd Azure Multi-Factor Authentication med äldre program med applösenord
 
@@ -41,6 +41,8 @@ När du använder applösenord gäller följande saker:
 * Program som cachelagrar lösen ord och använder dem i lokala scenarier kan inte köras på grund av att appens lösen ord inte är känt utanför arbets-eller skol kontot. Ett exempel på det här scenariot är Exchange-e-post som är lokalt, men det arkiverade e-postmeddelandet finns i molnet. I det här scenariot fungerar inte samma lösen ord.
 * När Azure Multi-Factor Authentication har Aktiver ATS på ett användar konto kan applösenord användas med de flesta klienter som inte är webbläsare, t. ex. Outlook och Microsoft Skype för företag. Administrativa åtgärder kan dock inte utföras med hjälp av applösenord via appar som inte är webb läsar program, t. ex. Windows PowerShell. Det går inte att utföra åtgärderna även om användaren har ett administratörs konto.
     * Om du vill köra PowerShell-skript skapar du ett tjänst konto med ett starkt lösen ord och aktiverar inte kontot för tvåstegsverifiering.
+* Om du misstänker att ett användar konto har komprometterats och återkallar lösen ordet för kontot bör även applösenord uppdateras. Applösenord återkallas inte automatiskt när ett användar konto lösen ord återkallas/återställs. Användaren bör ta bort befintliga applösenord och skapa nya.
+   * Mer information finns i [skapa och ta bort applösenord från sidan ytterligare säkerhets verifiering](../user-help/multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page).
 
 >[!WARNING]
 > Applösenord fungerar inte i hybrid miljöer där klienter kommunicerar med både lokala och molnbaserade slut punkter för automatisk identifiering. Domän lösen ord krävs för autentisering lokalt. Applösenord krävs för att autentisera med molnet.

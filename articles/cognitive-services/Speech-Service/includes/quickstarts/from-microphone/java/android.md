@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2641464e52b80c59b6c6b5a123ad1605c1d41495
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81275531"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88226466"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -58,15 +58,15 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt också strängen `YourServiceRegion` med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration. Använd `westus` till exempel för den kostnads fria utvärderings prenumerationen.
+1. Ersätt också strängen `YourServiceRegion` med **regions-ID: n** från den [region](https://aka.ms/speech/sdkregion) som är associerad med din prenumeration.
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 1. Anslut din Android-enhet till utvecklingsdatorn. Se till att du har aktiverat [utvecklings läge och USB-felsökning](https://developer.android.com/studio/debug/dev-options) på enheten.
 
-1. Om du vill skapa programmet väljer du Ctrl + F9 eller väljer **skapa** > **skapa projekt** på Meny raden.
+1. Om du vill skapa programmet väljer du Ctrl + F9 eller väljer **skapa**  >  **skapa projekt** på Meny raden.
 
-1. För att starta programmet väljer du Shift + F10 eller väljer **Kör** > **Kör "app"**.
+1. För att starta programmet väljer du Shift + F10 eller väljer **Kör**  >  **Kör "app"**.
 
 1. I fönstret distributions mål som visas väljer du din Android-enhet.
 

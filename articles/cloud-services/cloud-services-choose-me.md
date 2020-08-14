@@ -1,18 +1,18 @@
 ---
 title: Vad är Azure Cloud Services | Microsoft Docs
-description: Lär dig mer om vad Azure Cloud Services är.
+description: Lär dig mer om vad Azure Cloud Services är, särskilt att det är utformat för att stödja program som är skalbara, tillförlitliga och billiga att fungera.
 services: cloud-services
 author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
+ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75386858"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88224296"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Översikt över Azure Cloud Services
 Azure Cloud Services är ett exempel på en [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Precis som [Azure App Service](../app-service/overview.md)är den här tekniken utformad för att stödja program som är skalbara, tillförlitliga och billiga att fungera. På samma sätt som App Service finns på virtuella datorer (VM: ar) så är det också för Azure Cloud Services. Men du har större kontroll över de virtuella datorerna. Du kan installera din egen program vara på virtuella datorer som använder Azure Cloud Services och du kan komma åt dem via en fjärr anslutning.

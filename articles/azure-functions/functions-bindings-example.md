@@ -3,14 +3,15 @@ title: Exempel på utlösare och bindning i Azure Functions
 description: Lär dig att konfigurera Azure Function-bindningar
 author: craigshoemaker
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8685c0fe02ad6c68918736e857c2015e2bfb4595
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c95524a5de6696bd0ffe7463451d152a9d3a19b4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74227245"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205965"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exempel på utlösare och bindning i Azure Functions
 
@@ -52,7 +53,7 @@ Om du vill visa och redigera innehållet i *function.js* i Azure Portal klickar 
 
 ## <a name="c-script-example"></a>C#-skript exempel
 
-Här är C#-skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som tillhandahåller innehållet i kön är `order` . det här namnet är obligatoriskt eftersom `name` egenskap svärdet i *function.jspå* är`order` 
+Här är C#-skript koden som fungerar med denna utlösare och bindning. Observera att namnet på parametern som tillhandahåller innehållet i kön är `order` . det här namnet är obligatoriskt eftersom `name` egenskap svärdet i *function.jspå* är `order` 
 
 ```cs
 #r "Newtonsoft.Json"

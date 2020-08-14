@@ -2,13 +2,14 @@
 title: Referens för Azure Functions C#-utvecklare
 description: Lär dig hur du utvecklar Azure Functions med C#.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 23b0961c369c21f50d9a873678a1c910385e6a91
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288203"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206212"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens för Azure Functions C#-utvecklare
 
@@ -371,7 +372,7 @@ Definiera en tvingande bindning enligt följande:
   }
   ```
 
-  `BindingTypeAttribute`är .NET-attributet som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T`kan inte vara en `out` parameter typ (till exempel `out JObject` ). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) med tvingande bindning.
+  `BindingTypeAttribute` är .NET-attributet som definierar bindningen och `T` är en indata-eller utdatatyp som stöds av den bindnings typen. `T` kan inte vara en `out` parameter typ (till exempel `out JObject` ). Till exempel stöder Mobile Apps tabellens utgående bindning [sex typer av utdata](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), men du kan bara använda [ICollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) eller [IAsyncCollector \<T> ](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) med tvingande bindning.
 
 ### <a name="single-attribute-example"></a>Exempel på ett attribut
 

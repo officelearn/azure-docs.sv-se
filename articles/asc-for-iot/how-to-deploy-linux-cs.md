@@ -10,17 +10,18 @@ editor: ''
 ms.assetid: b0982203-c3c8-4a0b-8717-5b5ac4038d8c
 ms.subservice: asc-for-iot
 ms.devlang: na
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 40c6ea91fd84a0f088ed770cd7c4c3ea7b8b1c91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 460e3f3955778945600bb3a1f9762a0ac50f5805
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311136"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205917"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center for IoT C#-baserad säkerhetsagent för Linux
 
@@ -32,7 +33,7 @@ I den här guiden får du lära du dig att:
 > * Installera
 > * Verifiera distributionen
 > * Avinstallera agenten
-> * Felsök
+> * Felsöka
 
 ## <a name="prerequisites"></a>Krav
 
@@ -50,7 +51,7 @@ Använd följande steg för att distribuera säkerhets agenten:
 
 1. Extrahera innehållet i paketet och navigera till mappen _/install_ .
 
-1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra`chmod +x InstallSecurityAgent.sh`
+1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra `chmod +x InstallSecurityAgent.sh`
 
 1. Kör sedan följande kommando med **rot privilegier**:
 
@@ -72,7 +73,7 @@ Det här skriptet utför följande åtgärder:
 
 - Konfigurerar agenten med de angivna autentiseringsinställningarna.
 
-Om du behöver ytterligare hjälp kör du skriptet med parametern – Help:`./InstallSecurityAgent.sh --help`
+Om du behöver ytterligare hjälp kör du skriptet med parametern – Help: `./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Avinstallera agenten
 
@@ -116,7 +117,7 @@ Avinstallera agenten genom att köra skriptet med parametern – u: `./InstallSe
 
    1. Visa logg filen om du vill ha mer information om det här problemet.
 
-       Logg filens plats är:`/var/ASCIoTAgent/IotAgentLog.log`
+       Logg filens plats är: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Ändra sökvägen till fil platsen enligt det namn som du valde för **logFilePath** i steg 2.
 

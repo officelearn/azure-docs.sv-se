@@ -12,15 +12,16 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: ace0ef2660a44af41d8942cfe4d225bc1a03228e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abb9cbb73f8957cec2cb3240bbf186623b9b2ef9
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254596"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205503"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Övervaka dina API: er med Azure API Management, Event Hubs och Moesif
 [Tjänsten API Management](api-management-key-concepts.md) tillhandahåller många funktioner för att förbättra bearbetningen av HTTP-begäranden som skickas till http-API: et. Förekomsten av begär Anden och svar är dock tillfällig. Begäran görs och den flödar via API Management tjänsten till Server dels-API: et. Ditt API bearbetar begäran och ett svar flödar tillbaka till API-konsumenten. I API Managements tjänsten finns viktig statistik om API: erna för visning i Azure Portals instrument panel, men utöver detta är informationen borta.
@@ -163,7 +164,7 @@ Principen för att skicka svars-HTTP-meddelandet ser ut ungefär som begäran oc
 Händelser från Azure Event Hub tas emot med [AMQP-protokollet](https://www.amqp.org/). Microsoft Service Bus-teamet har gjort klient bibliotek tillgängliga för att göra det enklare att använda händelser. Det finns två olika metoder som stöds, en är en *direkt konsument* och den andra använder- `EventProcessorHost` klassen. Exempel på dessa två metoder finns i [Event Hubs programmerings guide](../event-hubs/event-hubs-programming-guide.md). Den korta versionen av skillnaderna är, `Direct Consumer` ger dig fullständig kontroll och gör `EventProcessorHost` en del av arbetet för dig, men gör vissa antaganden om hur du behandlar dessa händelser.
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-I det här exemplet använder vi `EventProcessorHost` för enkelhetens skull, men det kanske inte är det bästa valet för just det här scenariot. `EventProcessorHost`gör det svårt att se till att du inte behöver oroa dig för problem med trådar inom en viss händelse processor klass. I vårt scenario konverterar vi dock bara meddelandet till ett annat format och skickar det till en annan tjänst med hjälp av en asynkron metod. Det finns inget behov av att uppdatera delat tillstånd och därför är risken för problem med trådar. I de flesta fall `EventProcessorHost` är det förmodligen det bästa valet och det är verkligen det enklaste alternativet.
+I det här exemplet använder vi `EventProcessorHost` för enkelhetens skull, men det kanske inte är det bästa valet för just det här scenariot. `EventProcessorHost` gör det svårt att se till att du inte behöver oroa dig för problem med trådar inom en viss händelse processor klass. I vårt scenario konverterar vi dock bara meddelandet till ett annat format och skickar det till en annan tjänst med hjälp av en asynkron metod. Det finns inget behov av att uppdatera delat tillstånd och därför är risken för problem med trådar. I de flesta fall `EventProcessorHost` är det förmodligen det bästa valet och det är verkligen det enklaste alternativet.
 
 ### <a name="ieventprocessor"></a>IEventProcessor
 Det centrala konceptet när `EventProcessorHost` du använder är att skapa en implementering av `IEventProcessor` gränssnittet, som innehåller metoden `ProcessEventAsync` . Grunden för den här metoden visas här:

@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: a7307a5ecdc5f6aa4b90480fa769f87317605a61
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 0e1976f51251913197eeec1a342eb1e891ddcaa6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168073"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206306"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c-sharp"></a>Fråga efter data från Azure Time Series Insights gen1-miljön med hjälp av C Sharp
 
 Det här C#-exemplet visar hur du använder [gen1-fråge-API: er](https://docs.microsoft.com/rest/api/time-series-insights/gen1-query) för att fråga efter data från Azure Time Series Insights gen1-miljöer.
 
 > [!TIP]
-> Visa gen1 C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) .
+> Visa gen1 C#-kod exempel på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
 
 ## <a name="summary"></a>Sammanfattning
 

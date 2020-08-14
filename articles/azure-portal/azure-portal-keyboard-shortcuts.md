@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d9bc6365070c0aec96def2f55758204925fe7ba
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75641341"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205948"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Kortkommandon i Azure-portalen
 
@@ -55,5 +55,5 @@ Den här artikeln innehåller kortkommandon som fungerar överallt i Azure Porta
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md)
-- [Webbläsare och enheter som stöds](../azure-preview-portal-supported-browsers-devices.md)
+- [Aktivera hög kontrast eller ändra tema](set-preferences.md#choose-a-theme-or-enable-high-contrast)
+- [Webbläsare och enheter som stöds](azure-portal-supported-browsers-devices.md)

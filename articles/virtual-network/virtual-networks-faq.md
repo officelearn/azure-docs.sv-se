@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 19c08029e78e68273298e76635136ff35ae724e0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c242b08c598b04c84ab330e846704eace23c4858
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924129"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205469"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -356,7 +356,7 @@ Nej, det finns ingen ytterligare kostnad för att använda VNet-tjänstens slut 
 Ja, det kan du. Virtuella nätverk och Azure Service-resurser kan vara antingen i samma eller olika prenumerationer. Det enda kravet är att både det virtuella nätverket och Azures tjänst resurser måste ligga under samma Active Directory-klient (AD).
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>Kan jag aktivera VNet-tjänstens slut punkter och konfigurera VNet ACL: er om det virtuella nätverket och Azure-tjänstens resurser tillhör olika AD-klienter?
-Nej, VNet-tjänstens slut punkter och VNet-ACL: er stöds inte över AD-klienter.
+Ja, det är möjligt när du använder tjänstens slut punkter för Azure Storage och Azure Key Vault. För resten av tjänsterna stöds inte VNet-tjänstens slut punkter och VNet-ACL: er i AD-klienter.
 
 ### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gateway-vpn-or-expressroute-gateway-access-azure-paas-service-over-vnet-service-endpoints"></a>Kan en lokal enhets IP-adress som är ansluten via Azure Virtual Network Gateway (VPN) eller ExpressRoute Gateway åtkomst till Azure PaaS-tjänsten via VNet-tjänstens slut punkter?
 Som standard kan Azure-tjänstresurser som skyddas på virtuella nätverk inte nås från lokala nätverk. Om du vill tillåta trafik från lokalt måste du också tillåta offentliga (vanligt vis NAT) IP-adresser från din lokala eller ExpressRoute. De här IP-adresserna kan läggas till via IP-brandväggens konfiguration för Azures tjänst resurser.

@@ -1,18 +1,18 @@
 ---
 title: Ansluta hybrid datorer till Azure i stor skala
-description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc for Servers (för hands version) med ett huvud namn för tjänsten.
+description: I den här artikeln får du lära dig hur du ansluter datorer till Azure med hjälp av Azure Arc-aktiverade servrar (för hands version) med ett huvud namn för tjänsten.
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0f599ae6bab8a2b1ce442df677ba5de206d11ab2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121824"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211399"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
-Du kan aktivera Azure Arc for Servers (för hands version) för flera Windows-eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av det mall-skript som vi tillhandahåller kan du automatisera alla steg i installationen, inklusive att upprätta anslutningen till Azure-bågen. Du måste dock köra det här skriptet interaktivt med ett konto som har förhöjd behörighet på mål datorn och i Azure. Om du vill ansluta datorerna till Azure-bågen för servrar kan du använda ett Azure Active Directory [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) i stället för att använda din privilegierade identitet för att [ansluta datorn interaktivt](onboard-portal.md). Ett tjänst huvud namn är en särskild begränsad hanterings identitet som endast beviljas den lägsta behörighet som krävs för att ansluta datorer till Azure med hjälp av `azcmagent` kommandot. Detta är säkrare än att använda ett högre privilegierat konto, till exempel en innehavaradministratör, och följer våra bästa metoder för åtkomst kontroll. Tjänstens huvud namn används bara vid onboarding, det används inte i något annat syfte.  
+Du kan aktivera Azure Arc-aktiverade servrar (för hands version) för flera Windows-eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av det mall-skript som vi tillhandahåller kan du automatisera alla steg i installationen, inklusive att upprätta anslutningen till Azure-bågen. Du måste dock köra det här skriptet interaktivt med ett konto som har förhöjd behörighet på mål datorn och i Azure. Om du vill ansluta datorerna till Azure Arc-aktiverade servrar (för hands version) kan du använda ett Azure Active Directory [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) i stället för att använda din privilegierade identitet för att [ansluta datorn interaktivt](onboard-portal.md). Ett tjänst huvud namn är en särskild begränsad hanterings identitet som endast beviljas den lägsta behörighet som krävs för att ansluta datorer till Azure med hjälp av `azcmagent` kommandot. Detta är säkrare än att använda ett högre privilegierat konto, till exempel en innehavaradministratör, och följer våra bästa metoder för åtkomst kontroll. Tjänstens huvud namn används bara vid onboarding, det används inte i något annat syfte.  
 
 Installations metoderna för att installera och konfigurera den anslutna dator agenten kräver att den automatiserade metoden du använder har administratörs behörighet på datorerna. I Linux, med hjälp av rot kontot och Windows, som medlem i den lokala administratörs gruppen.
 
@@ -20,7 +20,7 @@ Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumera
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-I slutet av den här processen kommer du att ha anslutit dina hybrid datorer till Azure-bågen för servrar.
+I slutet av den här processen kommer du att ha anslutit dina hybrid datorer till Azure Arc-aktiverade servrar (för hands version).
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Skapa ett huvud namn för tjänsten för onboarding i skala
 
@@ -61,7 +61,7 @@ Utför följande för att skapa tjänstens huvud namn med PowerShell.
 Värdena från följande egenskaper används med parametrar som skickas till `azcmagent` :
 
 * Värdet från egenskapen **ApplicationId** används för `--service-principal-id` parametervärdet
-* Värdet från **lösen ords** egenskapen används för den parameter som `--service-principal-secret` används för att ansluta agenten.
+* Värdet från **lösen ords** egenskapen används för den parameter som  `--service-principal-secret` används för att ansluta agenten.
 
 > [!NOTE]
 > Se till att använda egenskapen **ApplicationId** för tjänstens huvud namn, inte egenskapen **ID** .
@@ -75,11 +75,11 @@ Följande steg installerar och konfigurerar den anslutna dator agenten på dina 
 
 Följande är de inställningar som du konfigurerar `azcmagent` kommandot som ska användas för tjänstens huvud namn.
 
-* `tenant-id`: Den unika identifieraren (GUID) som representerar din dedikerade instans av Azure AD.
-* `subscription-id`: Prenumerations-ID (GUID) för den Azure-prenumeration som du vill ha datorerna i.
-* `resource-group`: Namnet på den resurs grupp där du vill att dina anslutna datorer ska tillhöra.
-* `location`: Se [Azure-regioner som stöds](overview.md#supported-regions). Den här platsen kan vara samma eller olika, som resurs gruppens plats.
-* `resource-name`: (*Valfritt*) som används för Azures resurs åter givning av din lokala dator. Om du inte anger det här värdet används datorns värdnamn.
+* `tenant-id` : Den unika identifieraren (GUID) som representerar din dedikerade instans av Azure AD.
+* `subscription-id` : Prenumerations-ID (GUID) för den Azure-prenumeration som du vill ha datorerna i.
+* `resource-group` : Namnet på den resurs grupp där du vill att dina anslutna datorer ska tillhöra.
+* `location` : Se [Azure-regioner som stöds](overview.md#supported-regions). Den här platsen kan vara samma eller olika, som resurs gruppens plats.
+* `resource-name` : (*Valfritt*) som används för Azures resurs åter givning av din lokala dator. Om du inte anger det här värdet används datorns värdnamn.
 
 Du kan lära dig mer om `azcmagent` kommando rads verktyget genom att granska [Azcmagent-referensen](./manage-agent.md).
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
-När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc for Servers (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
+När du har installerat agenten och konfigurerat den för att ansluta till Azure Arc-aktiverade servrar (för hands version) går du till Azure Portal för att kontrol lera att servern har anslutits. Visa dina datorer i [Azure-portalen](https://aka.ms/hybridmachineportal).
 
 ![En lyckad Server anslutning](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 

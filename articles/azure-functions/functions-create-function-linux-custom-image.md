@@ -3,14 +3,14 @@ title: Skapa Azure Functions på Linux med en anpassad avbildning
 description: Lär dig hur du skapar en Azure Functions som körs på en anpassad Linux-avbildning.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc, devx-track-python
+ms.custom: devx-track-csharp, mvc, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 43ca0a01cd56d63113824eccd6d9c37b225d4134
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a7fddffd3809dc2fc9814b0c01c12f335110aad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852590"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206950"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad container
 
@@ -123,7 +123,7 @@ cd fabrikam-functions
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
-Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new`skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
+Lägg till en funktion i projektet med hjälp av följande kommando, där `--name` argumentet är det unika namnet för din funktion och `--template` argumentet anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *function.jspå*.
 
 ```
 func new --name HttpExample --template "HTTP trigger"
@@ -237,7 +237,7 @@ Du kan använda Azure CLI-kommandon för att skapa dessa objekt. Varje kommando 
     > [!NOTE]
     > Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med namnet `AzureFunctionsContainers-rg` med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
     
-1. Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter `<storage_name>` du med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS`anger ett typiskt allmänt syftes konto.
+1. Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter `<storage_name>` du med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS` anger ett typiskt allmänt syftes konto.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS

@@ -3,13 +3,13 @@ title: Lagra ostrukturerade data med hjälp av Azure Cosmos DB och funktioner
 description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: mvc
-ms.openlocfilehash: 09d9bbca7119539f31a4cea056f338cf28dfcd23
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121955"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210873"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
 
@@ -48,11 +48,11 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
 
      :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-configure-cosmosdb-binding.png" alt-text="Konfigurera Azure Cosmos DB utgående bindning." border="true":::
 
-    | Inställningen      | Föreslaget värde  | Beskrivning                                |
+    | Inställning      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Bindnings typ** | Azure Cosmos DB | Namnet på den bindnings typ som ska väljas för att skapa utgående bindningen till Azure Cosmos DB. |
     | **Dokumentparameternamn** | taskDocument | Namn som refererar till Cosmos DB-objektet i koden. |
-    | **Databas namn** | taskDatabase | Namnet på databasen där dokumenten ska sparas. |
+    | **Databasnamn** | taskDatabase | Namnet på databasen där dokumenten ska sparas. |
     | **Samlingsnamn** | taskCollection | Databassamlingens namn. |
     | **Om värdet är true skapas Cosmos DB-databasen och -samlingen** | Ja | Samlingen finns inte redan, så du måste skapa den. |
     | **Cosmos DB kontoanslutning** | Ny inställning | Välj **nytt**, Välj **Azure Cosmos DB konto** och **databas konto** som du skapade tidigare och välj sedan **OK**. Skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
@@ -63,7 +63,7 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
 
 Ersätt den befintliga funktionskoden med följande kod, på ditt valda språk:
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Ersätt den befintliga C#-funktionen med följande kod:
 
@@ -150,7 +150,7 @@ Det här kodexemplet läser frågesträngarna i HTTP-begäran och tilldelar dem 
 
     :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png" alt-text="Sök efter tjänsten Cosmos DB." border="true":::
 
-1. Välj ditt Azure Cosmos DB konto och välj sedan **datautforskaren**.
+1. Välj ditt Azure Cosmos DB konto och välj sedan  **datautforskaren**.
 
 1. Expandera **TaskCollection** -noderna, Välj det nya dokumentet och bekräfta att dokumentet innehåller dina frågesträngs värden, tillsammans med ytterligare metadata.
 

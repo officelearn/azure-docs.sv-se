@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdebd8d59034bd16a3199c1304606ccf12ab2c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727678"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209475"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -130,7 +130,7 @@ Du kan använda ett PowerShell-skript för att kontrol lera om användarna har e
 
 1. Kör `connect-msolservice` cmdleten för att autentisera och ansluta till din organisation.
 
-2. `Get-MsolAccountSku`kan användas för att identifiera alla etablerade produkt licenser i Azure AD-organisationen.
+2. `Get-MsolAccountSku` kan användas för att identifiera alla etablerade produkt licenser i Azure AD-organisationen.
 
    ![Skärm bild av Get-MsolAccountSku-cmdleten](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
@@ -205,7 +205,7 @@ Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig m
 
 - Gruppbaserad licensiering stöder för närvarande inte grupper som innehåller andra grupper (kapslade grupper). Om du använder en licens för en kapslad grupp är det bara den första nivån av användarmedlemmar i gruppen som har licenser.
 
-- Funktionen kan bara användas med säkerhets grupper och Office 365-grupper som har securityEnabled = TRUE.
+- Funktionen kan bara användas med säkerhets grupper och Microsoft 365 grupper som har securityEnabled = TRUE.
 
 - [Microsoft 365 administrations Center](https://admin.microsoft.com) stöder för närvarande inte gruppbaserad licensiering. Om en användare ärver en licens från en grupp visas den här licensen i Office Admin-portalen som en vanlig användar licens. Om du försöker ändra licensen eller försöker ta bort licensen, returnerar portalen ett fel meddelande. Ärvda grupp licenser kan inte ändras direkt på en användare.
 

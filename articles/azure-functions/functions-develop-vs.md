@@ -1,15 +1,15 @@
 ---
 title: Utveckla Azure Functions med hjälp av Visual Studio
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions verktyg för Visual Studio 2019.
-ms.custom: vs-azure
+ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0df65c4cdbf40b49bc265f4accafde67f41dafb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731071"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209986"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med hjälp av Visual Studio  
 

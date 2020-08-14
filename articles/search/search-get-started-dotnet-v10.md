@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
-ms.openlocfilehash: 4d8a38666991760fbb133e617984ba23788034ca
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 4a8a2455ea3e5889293cb8285f36699942a46437
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910399"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209328"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket Microsoft. Azure. search v10
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du skapar programmet. Du kan också [Hämta och 
 > [!NOTE]
 > Demo koden i den här artikeln använder de synkrona metoderna i Azure Kognitiv sökning version 10 .NET SDK för enkelhetens skull. För produktions scenarier rekommenderar vi dock att du använder de asynkrona metoderna i dina egna program för att hålla dem skalbara och tillgängliga. Du kan till exempel använda `CreateAsync` och `DeleteAsync` i stället för `Create` och `Delete` .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
@@ -106,9 +106,9 @@ Det här steget krävs för att skapa meningsfulla utdata i-konsolen. När du sk
 
 1. Lägg till två tomma klass definitioner i projektet: Address.Methods.cs, Hotel.Methods.cs
 
-1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
+1. Skriv över standard innehållet i Address.Methods.cs med följande kod, [rader 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. Kopiera [raderna 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68)i Hotel.Methods.cs.
+1. Kopiera [raderna 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68)i Hotel.Methods.cs.
 
 ## <a name="1---create-index"></a>1 – Skapa index
 
@@ -205,7 +205,7 @@ Hotell indexet består av enkla och komplexa fält där ett enkelt fält är "Ho
 
 1. I Program.cs skapar du en instans av [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klassen för att ansluta till tjänsten med hjälp av värden som lagras i programmets konfigurations fil (appsettings.jspå). 
 
-   `SearchServiceClient`har en [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) egenskap som ger alla metoder som du behöver för att skapa, Visa, uppdatera eller ta bort Azure kognitiv sökning-index. 
+   `SearchServiceClient` har en [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) egenskap som ger alla metoder som du behöver för att skapa, Visa, uppdatera eller ta bort Azure kognitiv sökning-index. 
 
     ```csharp
     using System;
@@ -427,7 +427,7 @@ När du överför dokument måste du använda ett- [`IndexBatch`](https://docs.m
     }
     ```
 
-    När du har initierat `IndexBatch` objektet kan du skicka det till indexet genom att anropa [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) på ditt [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) objekt. `Documents`är en egenskap hos `SearchIndexClient` som tillhandahåller metoder för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
+    När du har initierat `IndexBatch` objektet kan du skicka det till indexet genom att anropa [`Documents.Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) på ditt [`SearchIndexClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) objekt. `Documents` är en egenskap hos `SearchIndexClient` som tillhandahåller metoder för att lägga till, ändra, ta bort eller fråga dokument i ditt index.
 
     Den `try` / `catch` omgivande anropet till `Index` metoden fångar upp indexerings problem, vilket kan inträffa om tjänsten är hårt belastad. I produktions kod kan du fördröja och sedan försöka indexera dokumenten som misslyckades, eller logga och fortsätta som exemplet, eller hantera det på något annat sätt som uppfyller programmets krav på data konsekvens.
 
@@ -552,7 +552,7 @@ I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

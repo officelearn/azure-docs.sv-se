@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: OCR för utskrift och handskriven text med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärd och C #'
+title: 'Snabb start: Extrahera text med Visuellt innehåll 3,0 REST API Läs åtgärd och C #'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten ska du använda OCR på en avbildning med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärder och C#.
 services: cognitive-services
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 36f149019e37949445189045a8a71489f0f26418
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ac924d6cccbc6f36afc00154c230cac118bd9257
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167835"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210152"
 ---
-# <a name="quickstart-ocr-for-printed-and-handwritten-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Snabb start: OCR för utskrift och handskriven text med hjälp av Visuellt innehåll 3,0 REST API Läs åtgärd och C #
+# <a name="quickstart-extract-text-using-the-computer-vision-30-rest-api-read-operation-and-c"></a>Snabb start: Extrahera text med Visuellt innehåll 3,0 REST API Läs åtgärd och C #
 
 I den här snabb starten ska du extrahera utskriven och handskriven text från en bild med den nya OCR-tekniken som är tillgänglig som en del av Visuellt innehåll 3,0 REST API. Med de nya metoderna [läsa](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) och [Hämta Läs resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. 
 
 > [!IMPORTANT]
 > Metoden [Read](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för att [få Read-resultat](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet av Read Method-anropet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare
@@ -68,7 +68,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0//read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0/read/analyze";
 
         // Add a local image with text here (png or jpg is OK)
         static string imageFilePath = @"my-image.png";

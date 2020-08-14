@@ -7,14 +7,15 @@ manager: gwallace
 keywords: Azure Functions, functions, Event Processing, uppvärmnings, kall start, Premium, dynamisk beräkning, Server lös arkitektur
 ms.service: azure-functions
 ms.topic: reference
+ms.custom: devx-track-csharp
 ms.date: 11/08/2019
 ms.author: cshoe
-ms.openlocfilehash: dade31fd9a5a75c875274ea45607fea81a2de027
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5523c513cc0bdd08c43bdbed5046bf662f1a3e5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383723"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206585"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
 
@@ -107,7 +108,7 @@ public static void Run(ILogger log)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en uppvärmnings-utlösare i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md) som körs på varje ny instans när den läggs till i din app.
+I följande exempel visas en uppvärmnings-utlösare i en *function.jsi* filen och en [JavaScript-funktion](functions-reference-node.md)  som körs på varje ny instans när den läggs till i din app.
 
 Funktionen måste ha namnet (inte Skift läges ```warmup``` känsligt) och det får bara finnas en uppvärmnings-funktion per app.
 
@@ -226,7 +227,7 @@ Uppvärmnings-utlösaren stöds inte i Java som ett attribut.
 
 I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i *function.js* filen och `WarmupTrigger` attributet.
 
-|function.jspå egenskap | Attributets egenskap |Description|
+|function.jspå egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 | **bastyp** | saknas| Required-måste anges till `warmupTrigger` . |
 | **position** | saknas| Required-måste anges till `in` . |

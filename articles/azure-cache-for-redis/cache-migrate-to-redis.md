@@ -4,15 +4,16 @@ description: Lär dig hur du migrerar Managed Cache Service och Cachelagring i r
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/23/2020
 ms.author: yegu
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4e867f28209230cf33b0f94e7cc8ca12d015ff15
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: beb6014a9b6d90d1bc9a3c3236877a720a44a0c4
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008567"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211117"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis-deprecated"></a>Migrera från Managed Cache Service till Azure cache för Redis (inaktuell)
 Migrering av program som använder Azure Managed Cache Service till Azure cache för Redis kan utföras med minimala ändringar i programmet, beroende på vilka Managed Cache Service funktioner som används i ditt caching-program. Även om API: erna inte är exakt samma som de är lika, och mycket av din befintliga kod som använder Managed Cache Service för att komma åt en cache kan återanvändas med minimala ändringar. Den här artikeln visar hur du gör nödvändiga konfigurations-och program ändringar för att migrera dina Managed Cache Service-program till att använda Azure cache för Redis och visar hur vissa av funktionerna i Azure cache för Redis kan användas för att implementera funktionerna i en Managed Cache Service cache.
@@ -166,7 +167,7 @@ int key2 = (int)cache.StringGet("key2");
 
 StackExchange. Redis-klienten använder `RedisKey` typerna och `RedisValue` för att komma åt och lagra objekt i cacheminnet. Dessa typer mappar till de flesta primitiva språk typer, inklusive sträng, och används ofta inte direkt. Redis-strängar är de mest grundläggande typerna av Redis-värde och kan innehålla flera typer av data, inklusive serialiserade binära data strömmar och även om du inte kan använda typen direkt, använder du metoder som innehåller `String` i namnet. För de flesta primitiva data typer lagrar och hämtar du objekt från cachen med hjälp av `StringSet` `StringGet` -och-metoderna, om du inte lagrar samlingar eller andra Redis-datatyper i cacheminnet. 
 
-`StringSet`och `StringGet` liknar Managed Cache service `Put` och `Get` metoder, med en större skillnad innan du ställer in och hämtar ett .net-objekt i cachen måste du först serialisera det. 
+`StringSet` och `StringGet` liknar Managed Cache service `Put` och `Get` metoder, med en större skillnad innan du ställer in och hämtar ett .net-objekt i cachen måste du först serialisera det. 
 
 Vid anrop returneras `StringGet` det om objektet finns, och om det inte, returneras null. I så fall kan du hämta värdet från önskad data källa och lagra det i cacheminnet för senare användning. Det här mönstret kallas för cache-undan-mönstret.
 

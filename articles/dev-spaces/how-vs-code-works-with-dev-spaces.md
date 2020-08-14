@@ -5,12 +5,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 description: Lär dig hur Visual Studio Code och Azure dev Spaces hjälper dig att felsöka och snabbt iterera dina Kubernetes-program
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 73a2ae1f603626acf7ec4d42838b301c88ee21da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: decf61bd55ed15182f030bb02a2fe9c959749556
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307358"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209878"
 ---
 # <a name="how-visual-studio-code-works-with-azure-dev-spaces"></a>Hur Visual Studio Code fungerar med Azure dev Spaces
 
@@ -43,19 +43,15 @@ För .NET Core-projekt måste du ha [C#-tillägget][csharp-extension] installera
 
 När du har lanserat ditt projekt kan du felsöka Java-, Node.js-och .NET Core-tjänster som körs i ett dev-utrymme direkt från Visual Studio Code. Start konfigurationen i `.vscode` katalogen ger ytterligare felsöknings information för att köra en tjänst med fel sökning aktiverat i ett dev-utrymme. Visual Studio Code bifogar också fel söknings processen i den behållare som körs i dina dev Spaces, så att du kan ange Bryt punkter, granska variabler och utföra andra fel söknings åtgärder.
 
-## <a name="use-visual-studio-code-with-azure-dev-spaces"></a>Använda Visual Studio Code med Azure dev Spaces
+## <a name="next-steps"></a>Nästa steg
 
-Du kan se Visual Studio Code och tillägget Azure dev Spaces Working with Azure dev Spaces i följande snabb starter:
+Lär dig mer om hur Azure dev Spaces fungerar.
 
-* [Upprepa och Felsök snabbt med Visual Studio Code och Java][quickstart-java]
-* [Upprepa och Felsök snabbt med Visual Studio Code och .NET][quickstart-netcore]
-* [Upprepa och Felsök snabbt med Visual Studio Code och Node.js][quickstart-node]
+> [!div class="nextstepaction"]
+> [Så här fungerar Azure Dev Spaces](how-dev-spaces-works.md)
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works-prep.md#prepare-your-code
 [csharp-extension]: https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp
 [java-extension]: https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debugger-azds
 [maven]: https://maven.apache.org
-[quickstart-java]: quickstart-java.md
-[quickstart-netcore]: quickstart-netcore.md
-[quickstart-node]: quickstart-nodejs.md

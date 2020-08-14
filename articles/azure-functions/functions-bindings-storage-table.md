@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: devx-track-python
-ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 2f4647f4e13677d9136ce7fdb090e809943cdf0d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853066"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206694"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table Storage-bindningar för Azure Functions
 
@@ -94,7 +94,7 @@ public class TableStorage
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en funktion som frågar en Azure Functions logg tabell:
+`IQueryable` stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en funktion som frågar en Azure Functions logg tabell:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -249,7 +249,7 @@ public class Person : TableEntity
 
 ### <a name="cloudtable"></a>CloudTable
 
-`IQueryable`stöds inte i functions-körningen för [version 2. x och högre)](functions-versions.md). Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en funktion som frågar en Azure Functions logg tabell:
+`IQueryable` stöds inte i functions-körningen för [version 2. x och högre)](functions-versions.md). Ett alternativ är att använda en `CloudTable` metod parameter för att läsa tabellen med hjälp av Azure Storage SDK. Här är ett exempel på en funktion som frågar en Azure Functions logg tabell:
 
 ```json
 {
@@ -575,27 +575,27 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 * **Läs en rad i**
 
-  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
+  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T` är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
 
 * **Läs en eller flera rader**
 
-  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
+  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T` måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
 
   > [!NOTE]
-  > `IQueryable`stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable` stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
 * **Läs en rad i**
 
-  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
+  Ange `partitionKey` och `rowKey` . Få åtkomst till tabell data med hjälp av en metod parameter `T <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T` är vanligt vis en typ som implementerar `ITableEntity` eller härleder från `TableEntity` . `filter`Egenskaperna och `take` används inte i det här scenariot.
 
 * **Läs en eller flera rader**
 
-  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T`måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
+  Få åtkomst till tabell data med hjälp av en metod parameter `IQueryable<T> <paramName>` . I C#-skript `paramName` är det värde som anges i `name` egenskapen för *function.jspå*. `T` måste vara en typ som implementerar `ITableEntity` eller härleds från `TableEntity` . Du kan använda `IQueryable` metoder för att utföra filtrering som krävs. `partitionKey`Egenskaperna, `rowKey` , `filter` och `take` används inte i det här scenariot.  
 
   > [!NOTE]
-  > `IQueryable`stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+  > `IQueryable` stöds inte i [Functions v2-körningen](functions-versions.md). Ett alternativ är att [använda en CloudTable paramName-metod parameter](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) för att läsa tabellen med hjälp av Azure Storage SDK. Om du försöker binda till `CloudTable` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -611,7 +611,7 @@ Attributet [TableInput](/java/api/com.microsoft.azure.functions.annotation.table
 
 ---
 
-## <a name="output"></a>Resultat
+## <a name="output"></a>Utdata
 
 Använd en Azure Table Storage utgående bindning för att skriva entiteter till en tabell i ett Azure Storage konto.
 
@@ -994,7 +994,7 @@ Det finns två alternativ för att lägga till en tabell lagrings rad från en f
 
 | Bindning | Referens |
 |---|---|
-| Tabeller | [Tabell fel koder](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Tabell | [Tabell fel koder](/rest/api/storageservices/fileservices/table-service-error-codes) |
 | BLOB, tabell, kö | [Lagrings fel koder](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | BLOB, tabell, kö | [Felsökning](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

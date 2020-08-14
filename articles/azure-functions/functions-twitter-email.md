@@ -6,13 +6,13 @@ ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: cshoe
-ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a7cdeb7bfde7396026b782382b34228c309b37d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
+ms.openlocfilehash: 29b35493342b92813aa808069ebdd7ca8a7bbc56
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088153"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208557"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Anslut logikappen till funktionen.
 > * Skicka ett e-postmeddelande baserat på svar från funktionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Ett aktivt [Twitter](https://twitter.com/)-konto. 
 + Ett [Outlook.com](https://outlook.com/)-konto (för att skicka meddelanden).

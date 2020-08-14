@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a05636f8e673e08bfd390aa10069da0abd561d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: b0754c8e2be62c0a5568e97e7e5cf4376fb3c593
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542067"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210921"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -72,7 +72,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 - Behandla Azure AD Connect samma som en domänkontrollant och andra nivå 0-resurser. Mer information finns i [Active Directory administrativ nivå modell](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Begränsa administrativ åtkomst till Azure AD Connect-servern till endast domän administratörer eller andra tätt kontrollerade säkerhets grupper.
 - Skapa ett [dedikerat konto för all personal med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). Administratörer bör inte surfa på webben, kontrol lera sin e-post och utföra dagliga produktivitets uppgifter med mycket privilegierade konton.
-- Följ rikt linjerna för att [skydda privilegie rad åtkomst](https://docs.microsoft.com/windows-server/security/credentials-protection-and-management/how-to-configure-protected-accounts). 
+- Följ rikt linjerna för att [skydda privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 - Se till att varje dator har ett unikt lokalt administratörs lösen ord. Mer information finns i [lokal administratör lösen ords lösning (upphörde)](https://support.microsoft.com/help/3062591/microsoft-security-advisory-local-administrator-password-solution-laps) kan konfigurera unika slumpmässiga lösen ord på varje arbets Station och Server lagra dem i Active Directory som skyddas av en ACL. Endast berättigade behöriga användare kan läsa eller begära återställning av lösen ord för det lokala administratörs kontot. Du kan få en uppgång för användning på arbets stationer och servrar från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=46899#:~:text=The%20%22Local%20Administrator%20Password%20Solution,it%20or%20request%20its%20reset.). Ytterligare vägledning för att använda en miljö med fördröjning och privilegierade åtkomst arbets stationer (Paw) finns i [operativa standarder som baseras på principen om ren källa](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#operational-standards-based-on-clean-source-principle). 
 - Implementera dedikerade [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) för all personal med privilegie rad åtkomst till din organisations informations system. 
 - Följ dessa [rikt linjer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface) för att minska angrepps ytan i Active Directorys miljön.
@@ -90,7 +90,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 * Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ. Mer information finns i [anpassade installations inställningar](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningsmöjlighet
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om din proxy eller brand vägg begränsar vilka URL: er som kan nås, måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.

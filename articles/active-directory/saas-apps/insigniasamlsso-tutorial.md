@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: c7b62a65d3f0b3b4006c55f5323b1feb69cca9f1
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 436b3d7005750c4f80e7bdd50449e36e11cee882
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85799861"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudie: Azure Active Directory integrering med Insignia SAML SSO
 
@@ -32,9 +32,9 @@ Genom att integrera Insignia SAML SSO med Azure AD får du följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med Insignia SAML SSO behöver du följande objekt:
 
@@ -116,7 +116,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med In
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Insignia för SAML SSO-klienten](https://www.insigniasoftware.com/insignia/Techsupport.aspx) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Insignia för SAML SSO-klienten](http://www.insigniasoftware.com/insignia/Techsupport.aspx) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -134,7 +134,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med In
 
 ### <a name="configure-insignia-saml-sso-single-sign-on"></a>Konfigurera Insignia SAML SSO enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **Insignia SAML SSO** måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [Insignia SAML SSO support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Insignia SAML SSO** måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -155,7 +155,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
     a. I fältet **Namn** anger du **BrittaSimon**.
   
     b. I fältet **Användarnamn** anger du `brittasimon@yourcompanydomain.extension`  
-    Till exempel, BrittaSimon@contoso.com
+    Till exempel BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -189,7 +189,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Skapa Insignia SAML SSO test User
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Insignia SAML SSO. Arbeta med [Insignia SAML SSO support team](https://www.insigniasoftware.com/insignia/Techsupport.aspx) för att lägga till användare i Insignia SAML SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Insignia SAML SSO. Arbeta med [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) för att lägga till användare i Insignia SAML SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

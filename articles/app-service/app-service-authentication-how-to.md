@@ -4,12 +4,12 @@ description: Lär dig att anpassa funktionen för autentisering och auktoriserin
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: d69a75092f4ede5d5467357a7ac254be6e7c379b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 52213999ae0ec9f6891c8ec10ab65471926e87d2
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078401"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208030"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -297,6 +297,9 @@ Inställningarna för autentisering kan alternativt konfigureras via en fil som 
     1.  Ange `enabled` till "true"
     2.  Ange `isAuthFromFile` till "true"
     3.  Ange `authFilePath` till namnet på filen (till exempel "auth.jspå")
+
+> [!NOTE]
+> Formatet `authFilePath` varierar mellan olika plattformar. I Windows stöds både relativa och absoluta sökvägar. Relativ rekommenderas. För Linux stöds endast absoluta sökvägar för närvarande, så värdet för inställningen bör vara "/Home/site/wwwroot/auth.jspå" eller liknande.
 
 När du har gjort den här konfigurations uppdateringen kommer innehållet i filen att användas för att definiera beteendet för App Service autentisering/auktorisering för platsen. Om du vill återgå till Azure Resource Manager konfiguration kan du göra det genom `isAuthFromFile` att ändra tillbaka till "false".
 

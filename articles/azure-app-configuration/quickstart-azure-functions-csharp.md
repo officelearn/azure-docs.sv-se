@@ -4,15 +4,16 @@ description: En snabbstart för användning av Azure App Configuration med Azure
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: 2f6efdad7ab0685e58d2edd73bc36b758e8dbae2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bae602bd45115fa6e199e886db0539c4f47f5180
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80245505"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210020"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>Snabb start: skapa en Azure Functions-app med Azure App konfiguration
 
@@ -28,9 +29,9 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **Configuration Explorer** > **+ skapa** > **nyckel värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **Configuration Explorer**  >  **+ skapa**  >  **nyckel värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -53,7 +54,7 @@ I den här snabb starten införlivar du Azure App konfigurations tjänsten i en 
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-3. Lägg till `static` en egenskap `Configuration` med namnet för att skapa en `IConfiguration`singleton-instans av. Lägg sedan till `static` en konstruktor för att ansluta till app- `AddAzureAppConfiguration()`konfigurationen genom att anropa. Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
+3. Lägg till en `static` egenskap med namnet `Configuration` för att skapa en singleton-instans av `IConfiguration` . Lägg sedan till en `static` konstruktor för att ansluta till app-konfigurationen genom att anropa `AddAzureAppConfiguration()` . Konfigurationen läses in en gång när programmet startas. Samma konfigurations instans kommer att användas för alla funktions anrop senare.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }

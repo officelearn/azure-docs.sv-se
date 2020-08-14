@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: ccab8014000f9f684249bf2c1f800f74c92e7369
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76899361"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209943"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Självstudie: hantera funktions flaggor i Azure App konfiguration
 
@@ -38,7 +38,7 @@ Funktions hanteraren i Azure Portal för app-konfiguration innehåller ett grän
 
 Lägga till en ny funktions flagga:
 
-1. Välj **funktions hanteraren** > **+ Lägg** till för att lägga till en funktions flagga.
+1. Välj **funktions hanteraren**  >  **+ Lägg** till för att lägga till en funktions flagga.
 
     ![Funktions flagg lista](./media/azure-app-configuration-feature-flags.png)
 
@@ -71,7 +71,7 @@ Lägga till en ny funktions flagga:
 
 ## <a name="access-feature-flags"></a>Åtkomst till funktions flaggor
 
-Funktions flaggor som skapats av funktions hanteraren lagras och hämtas som vanliga nyckel värden. De behålls under ett särskilt namnområdesprefix `.appconfig.featureflag`. Om du vill visa de underliggande nyckel värdena använder du konfigurations Utforskaren. Ditt program kan hämta dessa värden med hjälp av konfigurations leverantörerna för konfiguration av appar, SDK: er, kommando rads tillägg och REST-API: er.
+Funktions flaggor som skapats av funktions hanteraren lagras och hämtas som vanliga nyckel värden. De behålls under ett särskilt namnområdesprefix `.appconfig.featureflag` . Om du vill visa de underliggande nyckel värdena använder du konfigurations Utforskaren. Ditt program kan hämta dessa värden med hjälp av konfigurations leverantörerna för konfiguration av appar, SDK: er, kommando rads tillägg och REST-API: er.
 
 ## <a name="next-steps"></a>Nästa steg
 

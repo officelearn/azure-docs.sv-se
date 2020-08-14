@@ -5,15 +5,16 @@ services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
 ms.service: azure-app-configuration
+ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: lcozzens
-ms.openlocfilehash: cfa89a7921751541d1044d697237946cd63cbfd8
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 63b7f8b28e339abde326bf3dca34d9ee6d816a31
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732061"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209918"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabb start: skapa en .NET Framework-app med Azure App konfiguration
 
@@ -29,9 +30,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** > **skapa** > **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
+6. Välj **konfigurations Utforskaren**  >  **skapa**  >  **nyckel-värde** om du vill lägga till följande nyckel/värde-par:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -41,7 +42,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
-1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
+1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
 1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Välj **Nästa**.
 
@@ -57,7 +58,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
     System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-1. Uppdatera filen *app. config* för projektet enligt följande:
+1. Uppdatera *App.config* -filen för projektet på följande sätt:
 
     ```xml
     <configSections>
@@ -77,9 +78,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
     </appSettings>
     ```
 
-   Anslutnings strängen för appens konfigurations lager läses från miljövariabeln `ConnectionString`. Lägg till `Environment` konfigurations verktyget före `MyConfigStore` i `configBuilders` egenskapen för `appSettings` avsnittet.
+   Anslutnings strängen för appens konfigurations lager läses från miljövariabeln `ConnectionString` . Lägg till `Environment` konfigurations verktyget före `MyConfigStore` i `configBuilders` egenskapen för `appSettings` avsnittet.
 
-1. Öppna *program.cs*och uppdatera `Main` metoden för att använda app-konfiguration genom att `ConfigurationManager`anropa.
+1. Öppna *program.cs*och uppdatera `Main` metoden för att använda app-konfiguration genom att anropa `ConfigurationManager` .
 
     ```csharp
     static void Main(string[] args)
@@ -111,7 +112,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en .NET Framework-konsol-app. Värdet `AppSettings` kan `ConfigurationManager` inte ändras efter att programmet har startats. Appens konfiguration för .NET-standardkonfigurations leverantörs bibliotek, kan dock också användas i en .NET Framework app. Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar .NET Framework-appen att dynamiskt uppdatera konfigurations inställningar.
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det med en .NET Framework-konsol-app. Värdet kan `AppSettings` `ConfigurationManager` inte ändras efter att programmet har startats. Appens konfiguration för .NET-standardkonfigurations leverantörs bibliotek, kan dock också användas i en .NET Framework app. Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar .NET Framework-appen att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
 > [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-dotnet.md)

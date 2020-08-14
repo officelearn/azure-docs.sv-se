@@ -1,27 +1,22 @@
 ---
-title: 'Azure AD-programproxy: versions historik | Microsoft Docs'
+title: 'Azure AD-programproxy: versions historik'
 description: Den här artikeln innehåller en lista över alla versioner av Azure AD-programproxy och beskriver nya funktioner och problem som har åtgärd ATS
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 042509240eb2b88446d3ac1956d9056d5c39dfc8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019394"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210870"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD-programproxy: versions historik
 Den här artikeln innehåller versioner och funktioner i Azure Active Directory (Azure AD) Application Proxy som har släppts. Azure AD-teamet uppdaterar regelbundet programproxy med nya funktioner och funktioner. Application Proxy-kopplingar uppdateras automatiskt när en ny version släpps. 
@@ -68,7 +63,7 @@ Den 22 juli 2020: lanserad för nedladdning den här versionen är bara tillgän
 07, 2020: släpps för hämtning
 
 ### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
--   Kopplingar använder bara TLS 1,2 för alla anslutningar. Se [krav för anslutning](application-proxy-add-on-premises-application.md#before-you-begin) för mer information.
+-   Kopplingar använder bara TLS 1,2 för alla anslutningar. Se [krav för anslutning](application-proxy-add-on-premises-application.md#prerequisites) för mer information.
 - Förbättrad signalering mellan anslutnings tjänsten och Azure-tjänster. Detta inkluderar stöd för tillförlitliga sessioner för WCF-kommunikation mellan anslutnings-och Azure-tjänster och förbättringar av DNS-cachelagring för WebSocket-kommunikation.
 - Stöd för att konfigurera en proxy mellan anslutningen och Server dels programmet. Mer information finns i [arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md).
 

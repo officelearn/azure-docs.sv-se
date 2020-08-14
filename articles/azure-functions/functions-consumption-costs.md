@@ -3,12 +3,12 @@ title: Beräkna kostnader för förbruknings plan i Azure Functions
 description: Lär dig hur du bättre uppskattar kostnaderna som du kan stöta på när du kör din Function-app i en förbruknings plan i Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 33c892bd7904d2921039a4b2afb9c775d6a4926a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083046"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207766"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
@@ -36,6 +36,8 @@ Eftersom minnes användning ändras med tiden, är beräkningen i grunden minnes
 
 > [!NOTE]
 > Även om CPU-användningen inte direkt beaktas vid körnings kostnader kan det påverka kostnaden när den påverkar körnings tiden för funktionen.
+
+För en HTTP-utlöst funktion debiteras du inte för en körning om ett fel inträffar innan funktions koden börjar köras. Det innebär att 401 svar från plattformen på grund av API-nyckel validering eller App Service autentisering/auktorisering-funktionen inte räknas mot din körnings kostnad. På samma sätt räknas inte svar för 5xx status koder när de inträffar i plattformen innan en funktion bearbetar begäran. Ett 5XX-svar som genereras av plattformen efter att funktions koden har börjat köras räknas fortfarande som en körning, även om felet inte uppstår i funktions koden.
 
 ## <a name="other-related-costs"></a>Övriga relaterade kostnader
 
@@ -69,7 +71,7 @@ Om du vill få bättre förståelse för dina funktioner kan du använda Azure M
 
 Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) för att visa kostnads relaterade data för dina förbruknings Plans funktions program i ett grafiskt format. 
 
-1. Överst i [Azure Portal] i **Sök tjänster, resurser och dokument söker du** efter `monitor` och väljer **övervaka** under **tjänster**.
+1. Överst i [Azure Portal] i **Sök tjänster, resurser och dokument söker du**  efter `monitor` och väljer **övervaka** under **tjänster**.
 
 1. Till vänster väljer du **mått**  >  **Välj en resurs**och använder sedan inställningarna under bilden för att välja din Function-app.
 

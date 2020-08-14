@@ -1,18 +1,18 @@
 ---
 title: Automatiserings rikt linjer för Azure Virtual WAN-partners | Microsoft Docs
-description: Den här artikeln hjälper partner att konfigurera Azure Virtual WAN Automation.
+description: Konfigurera en Automation-miljö för att ansluta och konfigurera en lokal VPN-eller SD-WAN-CPE eller en gren enhet för Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 816e8843467588cbfaeb5eb6e531d2221d28656b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565950"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208349"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Automatiserings rikt linjer för virtuella WAN-partner
 

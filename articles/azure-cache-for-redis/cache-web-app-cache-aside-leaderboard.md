@@ -5,14 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 177aa42991612d8ce2e899576599aafc43015c58
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082785"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209205"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Självstudiekurs: Skapa en cache-aside-resultattavla för ASP.NET
 
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här självstudien behöver du följande:
 
@@ -652,7 +652,7 @@ I det här avsnittet ska du etablera en ny databas i SQL Database för appen att
 
 1. Använd följande inställningar för den nya SQL-databasen:
 
-   | Inställningen       | Föreslaget värde | Description |
+   | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Databasnamn** | *ContosoTeamsDatabase* | För giltiga databas namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Prenumeration** | *Din prenumeration*  | Välj samma prenumeration som du använde för att skapa cachen och vara värd för apptjänsten. |
@@ -661,12 +661,12 @@ I det här avsnittet ska du etablera en ny databas i SQL Database för appen att
 
 1. Under **Server** klickar du på **Konfigurera nödvändiga inställningar** > **Skapa en ny server** och ange följande information och klicka sedan på knappen **Välj**:
 
-   | Inställningen       | Föreslaget värde | Description |
+   | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggnings namn, se [databas identifierare](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst 8 tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-   | **Position** | *USA, östra* | Välj samma region där du skapade cachen och apptjänsten. |
+   | **Plats** | *East US* | Välj samma region där du skapade cachen och apptjänsten. |
 
 1. Klicka på **Fäst på instrumentpanelen** och sedan på **Skapa** för att skapa den nya databasen och servern.
 
@@ -701,7 +701,7 @@ I det här steget i självstudien publicerar du programuppdateringarna i Azure f
 
     I följande tabell beskrivs varje åtgärdslänk från exempelprogrammet:
 
-    | Åtgärd | Description |
+    | Åtgärd | Beskrivning |
     | --- | --- |
     | Skapa Ny |Skapa ett nytt team. |
     | Spela säsong |Spela en spelsäsong, uppdatera teamstatistiken och avmarkera inaktuell teamdata från cachen. |

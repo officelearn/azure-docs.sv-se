@@ -3,17 +3,17 @@ title: Skapa en Azure Image Builder-mall (förhands granskning)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/03/2020
+ms.date: 08/13/2020
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 2f1db4e6c45602fb7fde84079e8ef78179a4ec6b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 095aa4ddbdc9ceb04c65d8c896642a0f1a91e547
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830350"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205547"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -306,7 +306,7 @@ Anpassa egenskaper:
 - **scriptUri** -URI till filens plats 
 - **infogad** matris av Shell-kommandon, avgränsade med kommatecken.
 - **sha256Checksum** -värdet för filens SHA256-kontrollsumma, du genererar det här lokalt och sedan kontrol leras kontroll summor och Image Builder.
-    * Skapa sha256Checksum med hjälp av en terminal på Mac/Linux-körning:`sha256sum <fileName>`
+    * Skapa sha256Checksum med hjälp av en terminal på Mac/Linux-körning: `sha256sum <fileName>`
 
 
 För kommandon som ska köras med superuser-privilegier måste de föregås av `sudo` .
@@ -430,12 +430,13 @@ OS support: Windows
 ```
 
 Anpassa egenskaper:
-- **typ** – windowsupdate.
+- **typ**  – windowsupdate.
 - **searchCriteria** – valfritt, definierar vilken typ av uppdateringar som installeras (rekommenderas, viktigt osv.), BrowseOnly = 0 och IsInstalled = 0 (rekommenderas) är standardvärdet.
 - **filter** – valfritt, gör att du kan ange ett filter för att ta med eller undanta uppdateringar.
 - **updateLimit** – valfritt, definierar hur många uppdateringar som kan installeras, standard 1000.
  
- 
+> [!NOTE]
+> Windows Update anpassning kan Miss lyckas om det finns väntande Windows-omstarter eller om program installationer fortfarande körs, så det kan hända att du ofta ser det här felet i anpassningen. log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Vi rekommenderar starkt att du lägger till i en Windows-omstart och/eller gör det möjligt för program att slutföra sina installationer med [vilo läge] eller vänta-kommandon ( https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep?view=powershell-7) i de infogade kommandona eller skripten innan du kör Windows Update.
 
 ### <a name="generalize"></a>Generalisera 
 Som standard kommer Azure Image Builder också att köra "avetablering"-kod i slutet av varje bild anpassnings fas till "generalize"-avbildningen. Att generalisera är en process där avbildningen konfigureras så att den kan återanvändas för att skapa flera virtuella datorer. För virtuella Windows-datorer använder Azure Image Builder Sysprep. För Linux kör Azure Image Builder "waagent-deetablering". 
@@ -590,7 +591,7 @@ Distribuera egenskaper för delade avbildnings gallerier:
 - **typ** -sharedImage  
 - **galleryImageId** – ID för galleriet för delad avbildning, detta kan anges i två format:
     * Automatisk versions hantering – Image Builder genererar ett högfärgat versions nummer. det här är användbart när du vill fortsätta att bygga om avbildningar från samma mall: formatet är: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>` .
-    * Explicit versions hantering – du kan skicka in det versions nummer som du vill att Image Builder ska använda. Formatet är:`/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+    * Explicit versions hantering – du kan skicka in det versions nummer som du vill att Image Builder ska använda. Formatet är: `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.

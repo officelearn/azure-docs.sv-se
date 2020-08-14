@@ -3,13 +3,14 @@ title: Använd Azure Functions för att utföra en databas rensnings uppgift
 description: Använd Azure Functions för att schemalägga en aktivitet som ansluter till Azure SQL Database för att regelbundet rensa rader.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 10/02/2019
-ms.openlocfilehash: 29e90838d91de69af43ae9cf8ec0d99b534f66be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0b5e255d7d108eb063ece4e5489a8762261a0bed
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506086"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207255"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
@@ -17,7 +18,7 @@ Den här artikeln visar hur du använder Azure Functions för att skapa ett sche
 
 Om det är första gången du arbetar med C#-funktioner bör du läsa [referens för Azure Functions C#-utvecklare](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är riktad mot version 2. x eller en senare version av körnings miljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 

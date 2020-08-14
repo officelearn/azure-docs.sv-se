@@ -3,14 +3,14 @@ title: Skapa en funktion i Azure som svarar på HTTP-begäranden
 description: Lär dig hur du skapar en funktion från kommando raden och sedan publicerar det lokala projektet till Server lös värd i Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: bfe816a6e9f7cba49e13186d7b78403163b13a8f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847694"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209014"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -174,7 +174,7 @@ Archetype genererar också ett enhets test för din funktion. När du ändrar di
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
-För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. `req`är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *function.jspå*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](./functions-bindings-http-webhook.md?tabs=python).
+För en HTTP-utlösare tar funktionen emot begär ande data i variabeln `req` enligt definitionen i *function.jspå*. `req` är en instans av [klassen Azure. functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). Returvärdet, som definieras som `$return` i *function.jspå*, är en instans av [klassen Azure. functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Läs mer i [Azure Functions HTTP-utlösare och bindningar](./functions-bindings-http-webhook.md?tabs=python).
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -260,7 +260,7 @@ az group create --name AzureFunctionsQuickstart-rg --location westeurope
 > Du kan inte vara värd för Linux-och Windows-appar i samma resurs grupp. Om du har en befintlig resurs grupp med namnet `AzureFunctionsQuickstart-rg` med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
  
     
-Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter `<STORAGE_NAME>` du med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS`anger ett allmänt-syfte-konto, som [stöds av Functions](storage-considerations.md#storage-account-requirements).
+Skapa ett allmänt lagrings konto i din resurs grupp och region med hjälp av kommandot [AZ Storage Account Create](/cli/azure/storage/account#az-storage-account-create) . I följande exempel ersätter `<STORAGE_NAME>` du med ett globalt unikt namn som passar dig. Namn måste innehålla mellan 3 och 24 tecken och endast små bokstäver. `Standard_LRS` anger ett allmänt-syfte-konto, som [stöds av Functions](storage-considerations.md#storage-account-requirements).
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS

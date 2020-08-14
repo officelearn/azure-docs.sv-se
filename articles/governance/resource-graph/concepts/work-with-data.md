@@ -3,12 +3,12 @@ title: Arbeta med stora datamängder
 description: Lär dig hur du hämtar, formaterar, visar och hoppar över poster i stora data mängder när du arbetar med Azures resurs diagram.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77ec7cc342672becddcbca7e6173eb1968519f02
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 2de62af5f7a59837876ed3348bc14de232fdee38
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056414"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88206366"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -33,7 +33,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Top** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)är kontrollen **$Top** och ingår i **QueryRequestOptions**.
 
 Den kontroll som är _mest restriktiv_ är att vinna. Om din fråga till exempel använder **Top** -eller **Limit** -operatorer och skulle resultera i fler poster än den **första**, skulle de maximala poster som returneras vara lika med **först**. På samma sätt, om **Top** eller **Limit** är mindre än den **första**, skulle den returnerade post mängden vara det mindre värdet som kon figurer ATS av **Top** eller **Limit**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-I [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources)är kontrollen **$Skip** och ingår i **QueryRequestOptions**.
+I [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)är kontrollen **$Skip** och ingår i **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Växla resultat
 
-När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) 
+När det är nödvändigt att dela upp en resultat uppsättning i mindre mängder poster för bearbetning eller eftersom en resultat uppsättning skulle överskrida det högsta tillåtna värdet för _1000_ returnerade poster, använder du sid indelning. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
  **QueryResponse** innehåller värden för att indikera en resultat uppsättning har delats upp: **resultTruncated** och **$skipToken**. **resultTruncated** är ett booleskt värde som informerar konsumenten om det finns ytterligare poster som inte returneras i svaret. Det här villkoret kan också identifieras när **Count** -egenskapen är mindre än egenskapen **totalRecords** . **totalRecords** definierar hur många poster som matchar frågan.
 
  **resultTruncated** är **Sant** när växlingen är inaktive rad eller inte möjlig eftersom ingen `id` kolumn eller om det finns mindre resurser som är tillgängliga än en fråga begär. När **resultTruncated** är **True**anges inte egenskapen **$skipToken** .
@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > Frågan måste **projicera** fältet **ID** för att sid brytning ska fungera. Om det saknas i frågan, innehåller svaret inte **$skipToken**.
 
-Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) i REST API dokumenten.
+Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query) i REST API dokumenten.
 
 ## <a name="formatting-results"></a>Formatering av resultat
 

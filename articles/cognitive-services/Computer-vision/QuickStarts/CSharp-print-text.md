@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Extrahera text med Visuellt innehåll OCR-REST API och C #'
+title: 'Snabb start: Extrahera text med Visuellt innehåll 2,0 REST API OCR-åtgärd och C #'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten ska du extrahera text från en avbildning med hjälp av Visuellt innehåll REST API OCR-åtgärd med C#.
 services: cognitive-services
@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ecc0ddbfa48669cad7f486e181fcdb6dbc80851e
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 4306b82793dd62765c07dfa808add4e16dc06be5
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167801"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209182"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-ocr-rest-api-and-c"></a>Snabb start: Extrahera text med hjälp av Visuellt innehåll OCR-REST API och C #
+# <a name="quickstart-extract-text-using-the-computer-vision-20-rest-api-ocr-operation-and-c"></a>Snabb start: Extrahera text med Visuellt innehåll 2,0 REST API OCR-åtgärd och C #
 
 > [!IMPORTANT]
 > Om du extraherar text på engelska, nederländska, franska, tyska, italienska, portugisiska, spanska eller förenklad kinesiska (för hands version) rekommenderar vi att du använder den nyare [Läs åtgärden](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). En [snabb start för C#](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts/csharp-hand-text) är tillgänglig. 
 
 I den här snabb starten ska du extrahera utskriven text från en bild med hjälp av funktionen Visuellt innehåll REST API [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) -funktion. Med den här åtgärden kan du identifiera utskriven text i en bild och extrahera identifierade tecken i en maskin användbar tecken ström.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
 * Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare

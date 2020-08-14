@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Hitta svar på några vanliga frågor om Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 27e834e71f9e5cfdf3d72fb3b221c24edecab4e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 739cfdb4f930d384e180ffd0f3ce2311cd41c70a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258319"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207998"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure dev Spaces
 
@@ -37,9 +37,6 @@ När du använder ett eget Dockerfile-eller Helm-diagram finns följande begrän
 * Helm-diagrammet måste ha stöd för att skicka delar av eller hela bildtaggen som ett värde från *Values. yaml*.
 * Om du ändrar något med ingress kan du också uppdatera Helm-diagrammet för att använda den ingångs lösning som tillhandahålls av Azure dev Spaces.
 * Om du vill använda [routningsfunktioner som tillhandahålls av Azure dev Spaces][dev-spaces-routing]måste alla tjänster för ett enskilt projekt rymmas i ett enda Kubernetes-namnområde och måste distribueras med enkel namngivning, till exempel *service-a*. I standard Helm-diagram kan den här namngivnings uppdateringen göras genom att ange ett värde för egenskapen *fullnameOverride* .
-
-Om du vill jämföra ditt eget Dockerfile-eller Helm-diagram med en befintlig version som fungerar med Azure dev Spaces, granskar du filerna som genereras i [snabb][quickstart-cli]starten.
-
 
 ## <a name="can-i-modify-the-files-generated-by-azure-dev-spaces"></a>Kan jag ändra filerna som genereras av Azure dev Spaces?
 
@@ -115,7 +112,6 @@ För närvarande kan du inte använda Azure dev Spaces med service nät som [Ist
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https
 [istio]: https://istio.io/
 [linkerd]: https://linkerd.io/
-[quickstart-cli]: quickstart-cli.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [vs-code-multi-root-workspaces]: https://code.visualstudio.com/docs/editor/multi-root-workspaces
 [windows-containers]: how-to/run-dev-spaces-windows-containers.md

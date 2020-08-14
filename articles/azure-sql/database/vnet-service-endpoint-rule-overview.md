@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 880ec24c377091173202098a3c54b5776bf69a98
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 76a31b10c15f2dff3d6d9304dcff6d0fb489ea7f
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836623"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210383"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Använd tjänst slut punkter och regler för virtuella nätverk för servrar i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,15 +106,15 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 Azure Storage har implementerat samma funktion som gör att du kan begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen för ett Azure Storage-konto som används av Azure SQL Database kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
 
-### <a name="azure-synapse-polybase"></a>Azure Synapse PolyBase
+### <a name="azure-synapse-polybase-and-copy-statement"></a>Azure Synapse PolyBase och COPY-instruktion
 
-PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure Synapse Analytics som ansluter till Azure Storage som skyddas av VNet:
+PolyBase och COPY-instruktionen används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage konton för data inmatning med hög data flöde. Om Azure Storage-kontot som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen när du använder PolyBase och KOPIERINGs instruktionen till lagrings kontot att brytas. Om du vill aktivera import-och export scenarier med hjälp av kopiera och PolyBase med Azure Synapse Analytics ansluter du till Azure Storage som är säkrad till VNet, följer du stegen som anges nedan:
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 - Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du har ett konto av typen generell användning v1 eller bloblagring måste du först uppgradera till generell användning v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information finns i den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+- Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Om du aktiverar den här konfigurationen tillåts PolyBase-och COPY-instruktionen att ansluta till lagrings kontot med stark autentisering där nätverks trafiken finns kvar i Azure-stamnätet. Mer information finns i den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. AzureRM-modulen kommer att fortsätta att ta emot fel korrigeringar fram till minst december 2020.  Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska. Mer information om deras kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](/powershell/azure/new-azureps-module-az).
@@ -227,7 +227,7 @@ Internt anropar PowerShell-cmdletar för SQL VNet-åtgärder REST-API: er. Du ka
 
 - [Virtual Network regler: åtgärder][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste redan ha ett undernät som är taggat med det specifika Virtual Network tjänst slut punkts *typ namn* som är relevant för Azure SQL Database.
 

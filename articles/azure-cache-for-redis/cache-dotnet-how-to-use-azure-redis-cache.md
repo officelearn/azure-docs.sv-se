@@ -6,20 +6,20 @@ ms.author: yegu
 ms.service: cache
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b2144907c8c11e482a32121e7d7a22533a68a25e
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003803"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88211361"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabb start: använda Azure cache för Redis med ett .NET Framework-program
 
 I den här snabb starten införlivar du Azure cache för Redis i en .NET Framework-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure. Du använder särskilt [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) -klienten med C#-kod i en .net-konsol app.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/)

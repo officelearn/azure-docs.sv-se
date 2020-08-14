@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d73782d9de7da2c5daacbff5397d9a365ff9ae03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f93df91f87f8119a503f2f7c452b61e3af5924f8
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038417"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208807"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexerare i Azure Cognitive Search
 
@@ -38,7 +38,7 @@ Varje ny indexerare lanseras först som en förhandsversion av funktionen. Funkt
 
 ## <a name="permissions"></a>Behörigheter
 
-Alla åtgärder som rör indexerare, inklusive GET-begäranden för status eller definitioner, kräver en [admin-API-nyckel](search-security-api-keys.md). 
+Alla åtgärder som rör indexerare, inklusive GET-begäranden för status eller definitioner, kräver en [admin-API-nyckel](search-security-api-keys.md).
 
 <a name="supported-data-sources"></a>
 
@@ -54,7 +54,44 @@ Indexerare söker efter data lager i Azure.
 * [SQL Server på Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 * [SQL-hanterad instans](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
+## <a name="indexer-stages"></a>Indexerings steg
+
+Vid en inledande körning kommer en indexerare att läsas i alla data som anges i tabellen eller behållaren när indexet är tomt. Vid efterföljande körningar kan indexeraren vanligt vis identifiera och hämta bara de data som har ändrats. För BLOB-data är ändrings identifieringen automatisk. För andra data källor som Azure SQL eller Cosmos DB måste ändrings identifiering vara aktiverat.
+
+För varje dokument som matas in, implementerar en indexerare eller samordnar flera steg, från dokument hämtning till en sista sökmotor "leverans" för indexering. Om du vill kan en indexerare också instrumentell vid körning av färdigheter och utdata, förutsatt att en färdigheter har definierats.
+
+![Indexerings steg](./media/search-indexer-overview/indexer-stages.png "indexerings steg")
+
+### <a name="stage-1-document-cracking"></a>Steg 1: dokument sprickor
+
+Dokument sprickor är processen att öppna filer och extrahera innehåll. Beroende på typen av data källa kommer indexeraren att försöka utföra olika åtgärder för att extrahera potentiellt indexerat innehåll.  
+
+Exempel:  
+
+* När dokumentet är en post i en [Azure SQL-datakälla](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)extraherar indexeraren varje fält för posten.
+* När dokumentet är en PDF-fil i en [Azure Blob Storage data källa](search-howto-indexing-azure-blob-storage.md)extraherar indexeraren text, bilder och metadata för filen.
+* När dokumentet är en post i en [Cosmos db data källa](search-howto-index-cosmosdb.md)extraherar indexeraren fälten och under fälten från Cosmos DB dokumentet.
+
+### <a name="stage-2-field-mappings"></a>Steg 2: fält mappningar 
+
+En indexerare extraherar text från ett käll fält och skickar det till ett målfält i ett index eller kunskaps lager. När fält namn och typer är klara, är sökvägen avmarkerad. Du kan dock vilja ha olika namn eller typer i utdata, och i så fall måste du berätta för indexeraren hur fältet ska mappas. Det här steget inträffar efter dokument sprickor, men före omvandlingar när indexeraren läser från käll dokumenten. När du definierar en [fält mappning](search-indexer-field-mappings.md)skickas värdet för käll fältet som-är till mål fältet utan ändringar. Fält mappningar är valfria.
+
+### <a name="stage-3-skillset-execution"></a>Steg 3: färdigheter-körning
+
+Färdigheter-körning är ett valfritt steg som anropar inbyggd eller anpassad AI-bearbetning. Du kanske behöver det för OCR (optisk tecken läsning) i form av bild analys, eller så kan du behöva översättning av språk. Oavsett transformeringen är färdigheter-körningen där berikning sker. Om en indexerare är en pipeline kan du tänka på en [färdigheter](cognitive-search-defining-skillset.md) som en "pipeline i pipelinen". En färdigheter har en egen sekvens med steg som kallas kunskaper.
+
+### <a name="stage-4-output-field-mappings"></a>Steg 4: mappningar för utgående fält
+
+Utdatan från en färdigheter är egentligen ett träd med information som kallas för ett berikat dokument. Med mappningar av utdata fält kan du välja vilka delar av trädet som ska mappas till fält i ditt index. Lär dig hur du [definierar mappningar av utdata-fält](cognitive-search-output-field-mapping.md).
+
+Precis som fält mappningar som kopplar orda Grant-värden från käll-till mål fält, anger fält mappningar för utdata att indexerare kopplar de transformerade värdena till mål fälten i indexet. Till skillnad från fält mappningar, som betraktas som valfria, så behöver du alltid definiera en mappning av utdata fält för alla transformerat innehåll som måste finnas i ett index.
+
+Nästa bild visar en exempel på en [fel söknings session](cognitive-search-debug-session.md) för indexerare: dokument sprickor, fält mappningar, färdigheter körning och fält mappningar för utdata.
+
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="exempel på en felsökningssession" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+
 ## <a name="basic-configuration-steps"></a>Grundläggande konfigurationssteg
+
 Indexerare kan erbjuda funktioner som är unika för datakällan. I detta avseende varierar vissa aspekter av indexerarna och datakällskonfigurationen kan variera efter indexerartyp. Alla indexerare delar dock samma grundläggande sammansättning och krav. De steg som är gemensamma för alla indexerare beskrivs nedan.
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla

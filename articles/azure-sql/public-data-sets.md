@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 6e38be4a97678ce749e32ca31c0703ed9d786d76
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84046770"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88209542"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Offentliga data uppsättningar för testning och prototypering
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -33,7 +33,7 @@ Bläddra i listan över offentliga data uppsättningar för data som du kan anv�
 | [Flyg fördröjningar och andra transport data](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | "Det amerikanska departementet transport (punkt) Bureau of transport Statistics (BTS) spårar den dagliga prestandan hos inrikes flygningar som drivs av stora lufttrafik företag. Sammanfattande information om antalet försenade, annullerade och avvisade flygningar visas... i sammanfattnings tabeller som publicerats på den här webbplatsen. " | Filerna är i CSV-format. |
 | [Oåterkalleliga trafik – US oåterkalleligt analys rapporterings system (FARS)](https://www.nhtsa.gov/FARS) | "FARS är en Nationwide-räkning som tillhandahåller NHTSA, Congress och amerikanska offentliga årliga data om allvarliga skador som uppstått i motor fordons trafik krascher." | "Skapa dina egna data för allvarliga data kör online med hjälp av FARS Query system. Du kan också hämta alla FARS-data från 1975 för att presentera dem från FTP-platsen. " |
 | [Giftiga kemiska data – EPA-ToxCast (giftig information &trade; )](https://www.epa.gov/chemical-research/toxicity-forecaster-toxcasttm-data) | "EPA: s mest uppdaterade, allmänt tillgängliga data flödes toxiska data på tusentals kemikalier. Dessa data genereras via EPA: s ToxCast Research ansträngning. " | Data uppsättningar är tillgängliga i olika format, inklusive kalkyl blad, R-paket och MySQL-databasfiler. |
-| [Giftiga kemiska data – NIH Tox21 data Challenge 2014](https://tripod.nih.gov/tox21/challenge/) | "2014 Tox21-datautmaningen är utformad för att hjälpa forskare att förstå potentialen för de kemikalier och föreningar som testas genom toxikologi i ett på 2000-talet för att störa biologiska vägar på ett sätt som kan resultera i toxiska effekter." | Data uppsättningar är tillgängliga i leende-och SDF-format. Datan innehåller "analys av aktivitets data och kemiska strukturer i Tox21-samlingen på ~ 10 000-föreningar (Tox21 10K)." |
+| [Giftiga kemiska data – NIH Tox21 data Challenge 2014](https://tripod.nih.gov/tox21) | "2014 Tox21-datautmaningen är utformad för att hjälpa forskare att förstå potentialen för de kemikalier och föreningar som testas genom toxikologi i ett på 2000-talet för att störa biologiska vägar på ett sätt som kan resultera i toxiska effekter." | Data uppsättningar är tillgängliga i leende-och SDF-format. Datan innehåller "analys av aktivitets data och kemiska strukturer i Tox21-samlingen på ~ 10 000-föreningar (Tox21 10K)." |
 | [Bio teknik och-genomta data från NCBI](https://www.ncbi.nlm.nih.gov/guide/data-software/) | Flera data uppsättningar som omfattar gener, uppgifter och proteiner. | Data uppsättningar är i text-, XML-, kampanj-och andra format. En Mas-app är tillgänglig. |
 
 ## <a name="other-statistical-and-scientific-data"></a>Andra statistiska och vetenskapliga data

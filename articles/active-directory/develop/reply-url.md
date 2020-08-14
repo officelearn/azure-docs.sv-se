@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 6a8cc588ff7325242e7e010e9869eaa9a24f6fc2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033344"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88205930"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Begränsningar och begränsningar för omdirigerings-URI (svars-URL)
 
@@ -34,8 +34,8 @@ Den här tabellen visar det maximala antalet omdirigerings-URI: er som du kan l�
 
 | Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Beskrivning |
 |--------------------------|---------------------------------|-------------|
-| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience`fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
-| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience`fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
+| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience` fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
+| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience` fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Maximal URI-längd
 
@@ -51,7 +51,7 @@ Om du vill lägga till omdirigerings-URI: er med ett HTTP-schema till app-regist
 
 Enligt [RFC 8252 avsnitt 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) och [7,3](https://tools.ietf.org/html/rfc8252#section-7.3), omdirigerings-URI: er för "loopback" eller "localhost" har två särskilda överväganden:
 
-1. `http`URI-scheman är acceptabla eftersom omdirigeringen aldrig lämnar enheten. Detta gör att båda dessa är acceptabla:
+1. `http` URI-scheman är acceptabla eftersom omdirigeringen aldrig lämnar enheten. Detta gör att båda dessa är acceptabla:
     - `http://127.0.0.1/myApp`
     - `https://127.0.0.1/myApp`
 1. På grund av tillfälliga port intervall som ofta krävs av interna program, ignoreras port komponenten (till exempel `:5001` eller `:443` ) i syfte att matcha en omdirigerings-URI. Detta innebär att alla dessa betraktas som likvärdiga:
@@ -62,9 +62,9 @@ Enligt [RFC 8252 avsnitt 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) o
 
 I en utvecklings synpunkt innebär detta några saker:
 
-1. Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till den omdirigerings-URI: n (till exempel om den är `web` -, `native` -eller `spa` -typ-omdirigering).
-1. Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
-1. Enligt RFC-vägledningen bör du inte använda `localhost` den omdirigerings-URI: n. Använd i stället den faktiska loopback-IP-adressen `127.0.0.1` . Detta förhindrar att appen bryts av felkonfigurerade brand väggar eller bytt namn på nätverks gränssnitt.
+* Registrera inte flera omdirigerings-URI: er där bara porten är annorlunda. Inloggnings servern väljer en godtyckligt och använder beteendet som är kopplat till den omdirigerings-URI: n (till exempel om den är `web` -, `native` -eller `spa` -typ-omdirigering).
+* Om du behöver registrera flera omdirigerings-URI: er på localhost för att testa olika flöden under utvecklingen kan du skilja dem åt med hjälp av *Sök vägs* komponenten i URI: n. Matchar till exempel `http://127.0.0.1/MyWebApp` inte `http://127.0.0.1/MyNativeApp` .
+* Enligt RFC-vägledningen bör du inte använda `localhost` den omdirigerings-URI: n. Använd i stället den faktiska loopback-IP-adressen `127.0.0.1` . Detta förhindrar att appen bryts av felkonfigurerade brand väggar eller bytt namn på nätverks gränssnitt.
 
     IPv6 loopback-adressen ( `[::1]` ) stöds inte för närvarande.
 

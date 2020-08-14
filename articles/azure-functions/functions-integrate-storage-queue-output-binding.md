@@ -4,13 +4,13 @@ description: Använd Azure Functions för att skapa en funktion utan server som 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
-ms.custom: mvc
-ms.openlocfilehash: 5ae282750580ed5b4e53e78c52ca285e40365fd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, mvc
+ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83122060"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210841"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -40,7 +40,7 @@ I det här avsnittet använder du portalens användargränssnitt för att lägga
 
     :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-create-output-binding-details.png" alt-text="Lägg till en Queue Storage-utdatabindning i en funktion på Azure Portal." border="true":::
     
-    | Inställningen      |  Föreslaget värde   | Beskrivning                              |
+    | Inställning      |  Föreslaget värde   | Beskrivning                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Meddelandeparameternamn** | outputQueueItem | Namnet på utdatabindningsparametern. | 
     | **Könamn**   | utkö  | Namnet på kön som ska anslutas till i ditt Storage-konto. |

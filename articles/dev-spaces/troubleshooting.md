@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 7696cc8eaeef9ba5e2e0955bad6f17d28e95b5e5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e26f066294cb0a6a48c5a3299213206fe4226ad0
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077041"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88210833"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -55,8 +55,6 @@ Om du inte har installerat Azure dev Spaces CLI kan du först installera det med
 ```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
-
-Du kan återskapa kontroll enheten från CLI eller Visual Studio. Se [team utvecklingen](quickstart-team-development.md) eller [utveckla med .net Core](quickstart-netcore-visualstudio.md) -snabb starter för exempel.
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
@@ -545,7 +543,7 @@ Så här åtgärdar du problemet:
 1. Om behållaren håller på att skapas/distribueras kan du vänta 2-3 sekunder och försöka komma åt tjänsten igen. 
 1. Kontrol lera port konfigurationen i följande till gångar:
     * ** [Helm-diagram](https://docs.helm.sh):** Anges av `service.port` kommandot och `deployment.containerPort` i Values. yaml autogenererade by `azds prep` .
-    * Portar som öppnas i program kod, till exempel i Node.js:`var server = app.listen(80, function () {...}`
+    * Portar som öppnas i program kod, till exempel i Node.js: `var server = app.listen(80, function () {...}`
 
 ### <a name="the-type-or-namespace-name-mylibrary-couldnt-be-found"></a>Det gick inte att hitta typen eller namn områdets namn "Mina bibliotek"
 

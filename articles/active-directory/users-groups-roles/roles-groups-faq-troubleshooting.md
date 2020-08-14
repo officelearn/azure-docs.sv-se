@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901815ba40459bd50562e557a0a766474c731ce0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 84bf041f64a2f85f3aa3eada1dc1955c93dc034a
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476237"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88208202"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Fel söknings roller tilldelade till moln grupper
 
@@ -51,7 +51,7 @@ Här följer några vanliga frågor och fel söknings tips för att tilldela rol
 
 **A:** Ja, du kan. Global administratör och användar administratör har möjlighet att publicera en grupp i ett Access-paket. Inga ändringar för global administratör, men det finns en liten ändring av användar administratörens roll behörigheter. Om du vill ange en grupp som kan tilldelas roller i ett Access-paket måste du vara en användar administratör och även ägare till den roll tilldelnings bara gruppen. Här är en fullständig tabell som visar vem som kan skapa åtkomst paket i Enterprise License Management:
 
-Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp\* | Kan lägga till Office 365-gruppen\* | Kan lägga till app | Kan lägga till SharePoint Online-webbplats
+Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp\* | Kan lägga till Microsoft 365 grupp\* | Kan lägga till app | Kan lägga till SharePoint Online-webbplats
 ----------------------- | --------------------------- | ----------------------- | ------------------------- | ----------- |  -----------------------------
 Global administratör | saknas | ✔️ | ✔️ | ✔️  | ✔️
 Användaradministratör  | saknas  | ✔️  | ✔️  | ✔️
@@ -101,4 +101,4 @@ Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Använd moln grupper för att hantera roll tilldelningar](roles-groups-concept.md)
-- [Skapa en roll tilldelnings bara grupp](roles-groups-create-eligible.md)
+- [Skapa en rolltilldelningsbar grupp](roles-groups-create-eligible.md)

@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Beskriver hur du konfigurerar ett Azure Kubernetes service-kluster för Azure dev Spaces
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, containers
-ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41b955fac7abcc700d73d8ace601f80982b2253d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83995895"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88207962"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Så här konfigurerar du ett kluster för Azure dev Spaces
 
@@ -19,8 +19,6 @@ Med Azure dev Spaces får du flera sätt att snabbt iterera och felsöka Kuberne
 ## <a name="prepare-your-aks-cluster"></a>Förbereda ditt AKS-kluster
 
 För att förbereda ditt AKS-kluster för dev Spaces kontrollerar du att ditt AKS-kluster finns i en region [som stöds av Azure dev Spaces][supported-regions] och du kör Kubernetes 1.10.3 eller senare. Du kan aktivera Azure dev Spaces från Azure CLI genom att köra `az aks use-dev-spaces` .
-
-Ett exempel på hur du konfigurerar ett AKS-kluster för dev Spaces finns i snabb starten för [team utveckling][quickstart-team].
 
 När du har aktiverat Azure dev Spaces på ditt AKS-kluster installeras kontrollanten för klustret. Kontrollanten finns utanför ditt AKS-kluster. Det styr beteende och kommunikation mellan klient sidans verktyg och AKS-klustret. När den är aktive rad kan du interagera med kontrollanten med hjälp av verktyg på klient sidan.
 
@@ -92,10 +90,8 @@ Du kan använda klient sidans verktyg från kommando raden som en del av `azds` 
 
 Mer information om hur du använder verktyg för klient sidan för att förbereda och köra din kod i ditt utvecklings utrymme finns i [så här förbereder du ett projekt för Azure dev Spaces][how-it-works-prep].
 
-För att komma igång med Azure dev Spaces för grupp utveckling, se [team utvecklingen i snabb starten för Azure dev Spaces][quickstart-team] .
 
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md
 [how-it-works-up]: how-dev-spaces-works-up.md
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
-[quickstart-team]: quickstart-team-development.md

@@ -1,18 +1,18 @@
 ---
 title: Översikt över säkerhet i Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Förstå hur Azure Data Lake Storage Gen1 är en säkrare stor data lagring
+description: Lär dig mer om säkerhetsfunktioner i Azure Data Lake Storage Gen1, inklusive autentisering, auktorisering, nätverks isolering, data skydd och granskning.
 services: data-lake-store
 author: twooley
 ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 4992be004a4b60b7b5fb591d834e8938cf03f34f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926288"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192823"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 
@@ -20,7 +20,7 @@ Många företag drar nytta av stor data analys för affärs insikter för att hj
 
 * Autentisering
 * Auktorisering
-* Isolering av nätverk
+* Nätverksisolering
 * Dataskydd
 * Granskning
 
@@ -52,7 +52,7 @@ Observera att även om roller tilldelas för konto hantering, påverkar vissa ro
 
 | Roller | Hanterings rättigheter | Åtkomst behörigheter för data | Förklaring |
 | --- | --- | --- | --- |
-| Ingen roll har tilldelats |Inga |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
+| Ingen roll har tilldelats |Inget |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
 | Ägare |Alla |Alla |Ägar rollen är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
 | Läsare |Skrivskyddad |Styrs av ACL |Rollen läsare kan visa allt om konto hantering, till exempel vilken användare som är tilldelad till vilken roll. Rollen läsare kan inte göra några ändringar. |
 | Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Deltagar rollen kan hantera vissa aspekter av ett konto, till exempel distributioner och skapande och hantering av aviseringar. Deltagar rollen kan inte lägga till eller ta bort roller. |
@@ -68,7 +68,7 @@ Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [
 
 ![Lista åtkomst behörigheter](./media/data-lake-store-security-overview/adl.acl.2.png "Lista åtkomst behörigheter")
 
-## <a name="network-isolation"></a>Isolering av nätverk
+## <a name="network-isolation"></a>Nätverksisolering
 
 Använd Data Lake Storage Gen1 för att kontrol lera åtkomsten till ditt data lager på nätverks nivå. Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till Data Lake Storage Gen1.
 

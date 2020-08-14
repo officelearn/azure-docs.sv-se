@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 248fcdc8d57ca2408ada01db4ecf3b8ee7712e4d
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388080"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192850"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -106,11 +106,11 @@ Med den här vyn kan du identifiera de säkerhets kopierings objekt som inte har
 
 Om du vill visa inaktiva resurser går du till fliken **optimera** och klickar på panelen **inaktiva resurser** . Om du klickar på den här panelen visas ett rutnät som innehåller information om alla inaktiva resurser som finns i det valda omfånget. Som standard visar rutnätet objekt som inte har någon återställnings punkt under de senaste 7 dagarna. Om du vill hitta inaktiva resurser under ett annat tidsintervall kan du justera **tids intervalls** filtret överst på fliken.
 
-När du har identifierat en inaktiv resurs kan du undersöka problemet ytterligare genom att gå till instrument panelen för säkerhets kopierings objekt eller resurs bladet för Azure för resursen (där det är tillämpligt). Beroende på ditt scenario kan du antingen stoppa säkerhets kopieringen för datorn (om den inte finns längre), och därmed Spara på en skyddad instans kostnad, eller så kan du åtgärda problem på datorn för att säkerställa att säkerhets kopiorna görs på ett tillförlitligt sätt.
+När du har identifierat en inaktiv resurs kan du undersöka problemet ytterligare genom att gå till instrument panelen för säkerhets kopierings objekt eller resurs bladet för Azure för resursen (där det är tillämpligt). Beroende på ditt scenario kan du antingen stoppa säkerhets kopieringen för datorn (om den inte finns längre) och ta bort onödiga säkerhets kopieringar, vilket sparar på kostnaderna, eller så kan du åtgärda problem på datorn för att säkerställa att säkerhets kopiorna utförs på ett tillförlitligt sätt.
 
 ![Optimera TABB-inaktiva resurser](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
-###### <a name="backup-items-with-a-large-retention-duration"></a>Säkerhetskopiera objekt med stor kvarhållningsperiod
+###### <a name="backup-items-with-a-large-retention-duration"></a>Säkerhetskopieringsobjekt med lång kvarhållningsperiod
 I den här vyn kan du identifiera de objekt som har säkerhets kopior som behålls under en längre tid än vad som krävs av din organisation. 
 
 Om du klickar på panelen **princip optimeringar** följt av panelen **kvarhållning av kvarhållning** visas ett rutnät som innehåller alla säkerhets kopierings objekt för vilka kvarhållning av antingen dag, vecka, månad eller årlig kvarhållning (RP) är större än ett angivet värde. Som standard visar rutnätet alla säkerhets kopierings objekt i det valda omfånget. Du kan använda filtren för daglig, veckovis, månatlig och årlig RP-kvarhållning för att filtrera rutnätet ytterligare och identifiera de objekt som kvarhållning skulle kunna minska för att spara pengar på reserv lagrings kostnader.
@@ -119,7 +119,7 @@ Observera att för databas arbets belastningar som SQL och SAP HANA, motsvarar d
 
 ![Optimera optimeringar av tabbar](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
-###### <a name="databases-configured-for-daily-full-backup"></a>Databaser som kon figurer ATS för daglig fullständig säkerhets kopiering
+###### <a name="databases-configured-for-daily-full-backup"></a>Databaser som konfigurerats för fullständig säkerhetskopiering dagligen
 Med den här vyn kan du identifiera databas arbets belastningar som har kon figurer ATS för daglig fullständig säkerhets kopiering. Ofta är det kostnads effektivt att använda daglig differentiell säkerhets kopiering tillsammans med veckovis fullständig säkerhets kopiering. 
 
 Om du klickar på panelen **princip optimeringar** följt av panelen **säkerhets kopierings schema optimeringar** visas ett rutnät som innehåller alla databaser med en daglig fullständig säkerhets kopierings princip. Du kan välja att navigera till ett visst säkerhets kopierings objekt och ändra principen för att använda daglig differentiell säkerhets kopiering med varje veckovis fullständig säkerhets kopiering.

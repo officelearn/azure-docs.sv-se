@@ -1,14 +1,9 @@
 ---
 title: 'SAP på Azure: planerings-och implementerings guide'
 description: Azure Virtual Machines planera och implementera SAP-NetWeaver
-services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: ''
 author: MSSedusch
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
-ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -16,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cd335d34a67cc5a102bde11366813c53770266e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fdce2890de1594635e9302260dc4036cb7c58707
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036343"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245527"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -259,7 +254,7 @@ ms.locfileid: "87036343"
 [virtual-machines-Az-versus-azuresm]:virtual-machines-linux-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:../../virtual-machines-windows-classic-configure-oracle-data-guard.md
 [virtual-machines-linux-cli-deploy-templates]:../../linux/cli-deploy-templates.md
-[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines-windows-ps-manage.md
+[virtual-machines-deploy-rmtemplates-powershell]:../../virtual-machines/windows/index.yml
 [virtual-machines-linux-agent-user-guide]:../../extensions/agent-linux.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:../../extensions/agent-windows.md#command-line-options
 [virtual-machines-linux-capture-image]:../../linux/capture-image.md
@@ -502,7 +497,7 @@ Dessutom erbjuder Azure koncepten för en dedikerad värd. Med det dedikerade v�
 Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. Dessa format kallas **generation 1** och **generation 2**. **Generation 2** introducerades i år 2012 med Windows Server 2012 hypervisor. Azure startade med virtuella datorer i generation 1. När du distribuerar virtuella Azure-datorer är standardvärdet fortfarande att använda generation 1-formatet. Under tiden kan du även distribuera generation 2 VM-format. Artikel [stödet för virtuella datorer i generation 2 på Azure](../../windows/generation-2.md) visar en lista över virtuella Azure-datorer som kan distribueras som generation 2 VM. Den här artikeln innehåller även de viktiga funktions skillnaderna för virtuella datorer i generation 2 som kan köras i privata moln i Hyper-V och Azure. Mer viktigt den här artikeln visar även funktions skillnader mellan virtuella datorer i generation 1 och virtuella datorer i generation 2, som de körs i Azure. 
 
 > [!NOTE]
-> Det finns funktions skillnader i generation 1 och generation 2 virtuella datorer som körs i Azure. Läs artikeln [stöd för virtuella datorer i generation 2 på Azure](../../windows/generation-2.md) för att se en lista över dessa skillnader.  
+> Det finns funktions skillnader i generation 1 och generation 2 virtuella datorer som körs i Azure. Läs artikeln  [stöd för virtuella datorer i generation 2 på Azure](../../windows/generation-2.md) för att se en lista över dessa skillnader.  
  
 Det går inte att flytta en befintlig virtuell dator från en generation till den andra generationen. Om du vill ändra den virtuella datorns generation måste du distribuera en ny virtuell dator med den generation som du vill och installera om den program vara som du kör på den virtuella datorn för generationen. Den här ändringen påverkar endast den virtuella datorns virtuella hård disk avbildning och har ingen inverkan på data diskarna eller anslutna NFS-eller SMB-resurser. Data diskar, NFS-eller SMB-resurser som ursprungligen tilldelades till, till exempel, på en virtuell dator i generation 1. 
 
@@ -550,7 +545,7 @@ Strängen ovan måste vara unikt identifiera den disk/VHD som lagras på Azure S
 
 
 #### <a name="azure-persisted-storage-types"></a>Azure-sparade lagrings typer
-Azure erbjuder en mängd bestående lagrings alternativ som kan användas för SAP-arbetsbelastningar och vissa SAP stack-komponenter. Mer information finns i dokumentet [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md).
+Azure erbjuder en mängd bestående lagrings alternativ som kan användas för SAP-arbetsbelastningar och vissa SAP stack-komponenter. Mer information finns i dokumentet  [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md).
 
 
 ### <a name="microsoft-azure-networking"></a><a name="61678387-8868-435d-9f8c-450b2424f5bd"></a>Microsoft Azure nätverk
@@ -657,7 +652,7 @@ Express Route möjliggör flera Azure-prenumerationer via en ExpressRoute-krets 
 #### <a name="forced-tunneling-in-case-of-cross-premises"></a>Tvingad tunnel trafik i händelse av olika platser
 För virtuella datorer som ansluter till lokala domäner via plats-till-plats-, punkt-till-plats-eller ExpressRoute, måste du se till att Internet-proxyinställningarna inte har distribuerats för alla användare i de virtuella datorerna. Som standard skulle program som körs i de virtuella datorerna eller användare som använder en webbläsare för att komma åt Internet inte gå via företagets proxy, men skulle ansluta direkt via Azure till Internet. Men även om proxyinställningarna inte är en 100%-lösning för att dirigera trafiken via företagets proxy, eftersom det är ansvars område och tjänster för att kontrol lera proxyn. Om program som körs på den virtuella datorn inte gör det eller om en administratör ändrar inställningarna kan trafik till Internet tas ur drift direkt via Azure till Internet.
 
-För att undvika sådan direkt Internet anslutning kan du konfigurera Tvingad tunnel trafik med plats-till-plats-anslutning mellan lokalt och Azure. En detaljerad beskrivning av funktionen för Tvingad tunnel trafik publiceras här<https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
+För att undvika sådan direkt Internet anslutning kan du konfigurera Tvingad tunnel trafik med plats-till-plats-anslutning mellan lokalt och Azure. En detaljerad beskrivning av funktionen för Tvingad tunnel trafik publiceras här <https://azure.microsoft.com/documentation/articles/vpn-gateway-forced-tunneling-rm/>
 
 Tvingad tunnel trafik med ExpressRoute har Aktiver ATS av kunder som skickar en standard väg via ExpressRoute BGP-peering-sessioner.
 
@@ -700,7 +695,7 @@ Om DBMS-och SAP-programmets skikt komponenter kan köras på virtuella Azure-dat
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal är ett av tre gränssnitt för att hantera distributioner av virtuella Azure-datorer. De grundläggande hanterings aktiviteterna, t. ex. distribution av virtuella datorer från avbildningar, kan göras via Azure Portal. Dessutom är skapandet av lagrings konton, virtuella nätverk och andra Azure-komponenter också aktiviteter som Azure Portal kan hantera bra. Funktioner som att ladda upp virtuella hård diskar från lokala datorer till Azure eller kopiera en virtuell hård disk i Azure är dock aktiviteter, vilket kräver verktyg från tredje part eller administration via PowerShell eller CLI.
 
@@ -727,7 +722,7 @@ Mer detaljerade anvisningar om hur du installerar, uppdaterar och konfigurerar A
 
 Kund upplevelsen har hittills varit att PowerShell (PS) är det mest kraftfulla verktyget för att distribuera virtuella datorer och att skapa anpassade steg i distributionen av virtuella datorer. Alla kunder som kör SAP-instanser i Azure använder PS-cmdlet: ar för att komplettera de hanterings uppgifter som de gör i Azure Portal eller även använder PS-cmdlet: ar enbart för att hantera sina distributioner i Azure. Eftersom de Azure-/regionsspecifika cmdletarna delar samma namngivnings konvention som över 2000 Windows-relaterade cmdlets, är det en enkel uppgift för Windows-administratörer att utnyttja dessa cmdlets.
 
-Se följande exempel:<https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
+Se följande exempel: <https://blogs.technet.com/b/keithmayer/archive/2015/07/07/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc.aspx>
 
 
 Distribution av Azure-tillägget för SAP (se kapitel [Azure-tillägg för SAP][planning-guide-9.1] i det här dokumentet) är bara möjlig via POWERSHELL eller cli. Därför är det nödvändigt att konfigurera och konfigurera PowerShell eller CLI när du distribuerar eller administrerar ett SAP NetWeaver-system i Azure.  
@@ -886,19 +881,19 @@ I det här fallet vill vi ladda upp en virtuell hård disk, antingen med eller u
 **PowerShell**
 
 * Logga in på din prenumeration med *Connect-AzAccount*
-* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Valfritt Skapa en hanterad disk från den virtuella hård disken med *New-AzDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
-* Ange operativ system disken för en ny VM-konfiguration till den virtuella hård disken eller hanterad disk med *set-AzVMOSDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
-* Lägg till en datadisk till en ny virtuell dator med *Add-AzVMDataDisk* -se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
+* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* Valfritt Skapa en hanterad disk från den virtuella hård disken med *New-AzDisk*  -se <https://docs.microsoft.com/powershell/module/az.compute/new-Azdisk>
+* Ange operativ system disken för en ny VM-konfiguration till den virtuella hård disken eller hanterad disk med *set-AzVMOSDisk* -se <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+* Lägg till en datadisk till en ny virtuell dator med *Add-AzVMDataDisk* -se <https://docs.microsoft.com/powershell/module/az.compute/add-Azvmdatadisk>
 
 **Azure CLI**
 
 * Logga in på din prenumeration med *AZ-inloggning*
 * Välj din prenumeration med *AZ-konto uppsättning-- `<subscription name or id` > prenumeration*
 * Ladda upp den virtuella hård disken med *AZ Storage BLOB upload* -se [använda Azure CLI med Azure Storage][storage-azure-cli]
-* Valfritt Skapa en hanterad disk från den virtuella hård disken med *AZ disk Create* -sehttps://docs.microsoft.com/cli/azure/disk
+* Valfritt Skapa en hanterad disk från den virtuella hård disken med *AZ disk Create* -se https://docs.microsoft.com/cli/azure/disk
 * Skapa en ny virtuell dator som anger den överförda virtuella hård disken eller hanterade diskar som OS-disk med *AZ VM Create* och parameter *--Attach-OS-disk*
 * Lägg till en datadisk till en ny virtuell dator med *AZ VM disk Attach* och parameter *-New*
 
@@ -913,13 +908,13 @@ Om du vill överföra en befintlig virtuell dator eller virtuell hård disk frå
 
 * Använd *Sysprep* på Windows eller *waagent-deetablering* i Linux för att generalisera din virtuella dator – se [Sysprep teknisk referens](/previous-versions/windows/it-pro/windows-vista/cc766049(v=ws.10)) för Windows eller [så här avbildar du en virtuell Linux-dator som ska användas som en Resource Manager-mall][capture-image-linux-step-2-create-vm-image] för Linux
 * Logga in på din prenumeration med *Connect-AzAccount*
-* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se<https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
-* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se<https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
-* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *New-AzImage* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
+* Ange prenumerationen för din kontext med *set-AzContext* och parametern SubscriptionId eller SubscriptionName-se <https://docs.microsoft.com/powershell/module/az.accounts/set-Azcontext>
+* Ladda upp den virtuella hård disken med *Add-AzVhd* till ett Azure Storage konto – Se <https://docs.microsoft.com/powershell/module/az.compute/add-Azvhd>
+* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *New-AzImage*  -se <https://docs.microsoft.com/powershell/module/az.compute/new-Azimage>
 * Ange operativ system disken för en ny VM-konfiguration till
-  * VHD med *set-AzVMOSDisk-SourceImageUri-CreateOption fromImage* -se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
-  * Hanterad disk avbildnings *uppsättning – AzVMSourceImage* – se<https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
-* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se<https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
+  * VHD med *set-AzVMOSDisk-SourceImageUri-CreateOption fromImage* -se <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmosdisk>
+  * Hanterad disk avbildnings *uppsättning – AzVMSourceImage* – se <https://docs.microsoft.com/powershell/module/az.compute/set-Azvmsourceimage>
+* Skapa en ny virtuell dator från den virtuella dator konfigurationen med *New-AzVM* -se <https://docs.microsoft.com/powershell/module/az.compute/new-Azvm>
 
 **Azure CLI**
 
@@ -927,7 +922,7 @@ Om du vill överföra en befintlig virtuell dator eller virtuell hård disk frå
 * Logga in på din prenumeration med *AZ-inloggning*
 * Välj din prenumeration med *AZ-konto uppsättning-- `<subscription name or id` > prenumeration*
 * Ladda upp den virtuella hård disken med *AZ Storage BLOB upload* -se [använda Azure CLI med Azure Storage][storage-azure-cli]
-* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *AZ image Create* -sehttps://docs.microsoft.com/cli/azure/image
+* Valfritt Skapa en hanterad disk avbildning från den virtuella hård disken med *AZ image Create* -se https://docs.microsoft.com/cli/azure/image
 * Skapa en ny virtuell dator som anger den överförda virtuella hård disken eller hanterade disk avbildningen som en OS-disk med *AZ VM Create* och parameter *--image*
 
 **Mall**
@@ -1083,8 +1078,8 @@ Du kan också kopiera virtuella hård diskar mellan prenumerationer. Mer informa
 
 Basic-flödet för PS-cmdlet-logiken ser ut så här:
 
-* Skapa en lagrings konto kontext för **käll** lagrings kontot med *New-AzStorageContext* -se<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
-* Skapa en lagrings konto kontext för **mål** lagrings kontot med *New-AzStorageContext* -se<https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Skapa en lagrings konto kontext för **käll** lagrings kontot med *New-AzStorageContext* -se <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Skapa en lagrings konto kontext för **mål** lagrings kontot med *New-AzStorageContext* -se <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Starta kopian med
 
 ```powershell
@@ -1262,7 +1257,7 @@ Se skillnaden mellan den klassiska modellen och ARM-arkitekturen enligt beskrivn
 
 #### <a name="configuration-of-the-sap-system-and-sap-gui-connectivity-over-the-internet"></a>Konfiguration av SAP-systemet och SAP GUI-anslutning via Internet
 
-Se den här artikeln som beskriver information om det här avsnittet:<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+Se den här artikeln som beskriver information om det här avsnittet: <https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
 
 #### <a name="changing-firewall-settings-within-vm"></a>Ändra brand Väggs inställningar i VM
 
@@ -1607,7 +1602,7 @@ Konfiguration av lokala TCP/IP-baserade nätverks skrivare i en virtuell Azure-d
 > ![Linux][Logo_Linux] Linux
 >
 > * precis som för Windows följer du standard proceduren för att installera en nätverks skrivare
-> * Följ bara de offentliga Linux-guiderna för [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) eller [Red Hat och Oracle Linux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Printer_Configuration.html) om hur du lägger till en skrivare.
+> * Följ bara de offentliga Linux-guiderna för [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) eller [Red Hat och Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) om hur du lägger till en skrivare.
 >
 >
 
@@ -1638,8 +1633,8 @@ Anvisningar:
 >
 > Här följer några exempel på dokumentation om hur du konfigurerar nätverks skrivare i Linux eller inkluderar ett kapitel angående utskrift i Linux. Den fungerar på samma sätt i en virtuell Azure Linux-dator så länge den virtuella datorn ingår i ett VPN:
 >
-> * SLES<https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL eller Oracle Linux<https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
+> * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
+> * RHEL eller Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
 >
 >
 
@@ -1696,7 +1691,7 @@ För att undvika svars tid och låta systemet arbeta snabbt vid läsning eller s
 
 Anvisningar:
 
-* Konfigurera en transport domän på varje plats (lokalt och Azure) med transaktion STMS<https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
+* Konfigurera en transport domän på varje plats (lokalt och Azure) med transaktion STMS <https://help.sap.com/saphelp_nw70ehp3/helpdata/en/44/b4a0b47acc11d1899e0000e829fbbd/content.htm>
 * Länka domänerna till en domän länk och bekräfta länken mellan de två domänerna.
   <https://help.sap.com/saphelp_nw73ehp1/helpdata/en/a3/139838280c4f18e10000009b38f8cf/content.htm>
 * Distribuera konfigurationen till det länkade systemet.
@@ -1810,7 +1805,7 @@ Det finns två typer av Azure Platform-händelser som kan påverka tillgängligh
 * Planerat underhåll är periodiska uppdateringar som Microsoft utför i syfte att förbättra tillförlitligheten, prestandan och säkerheten för den plattformsinfrastruktur som dina virtuella datorer körs i.
 * Oplanerat underhåll utförs när det uppstått något fel på den underliggande maskinvaran eller fysiska infrastrukturen. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När ett sådant fel upptäcks, kommer Azure-plattformen automatiskt att migrera den virtuella datorn från den ej hälsofysiska server som är värd för den virtuella datorn till en felfri fysisk server. Den här typen av händelser kan också göra att den virtuella datorn startas om, men det är ovanligt.
 
-Mer information finns i den här dokumentationen:<https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Mer information finns i den här dokumentationen: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -1818,7 +1813,7 @@ Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerstäl
 
 Eftersom Azure Storage håller tre avbildningar av data som standard behövs inte RAID5 eller RAID1 över flera Azure-diskar.
 
-Mer information hittar du i den här artikeln:<https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Mer information hittar du i den här artikeln: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Använda en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för SAP-program
 
@@ -1877,7 +1872,7 @@ Distribution av några SAP Application Server-instanser i sina dedikerade virtue
 
 ![HA av SAP-program servrar i Azure][planning-guide-figure-3000]
 
-Mer information finns i den här dokumentationen:<https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Mer information finns i den här dokumentationen: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### <a name="high-availability-for-sap-central-services-on-azure"></a>Hög tillgänglighet för SAP Central Services på Azure
 
@@ -1953,10 +1948,10 @@ Men under de senaste åren har data Center partners utvecklat samplaceringar til
 Beroende av den valda SAP-konfigurationen (2-eller 3-skikt) kan du behöva säkerhetskopiera. Innehållet i den virtuella datorn och för att ha en säkerhets kopia av databasen. De DBMS-relaterade säkerhets kopiorna förväntas göras med databas metoder. En detaljerad beskrivning av de olika databaserna finns i DBMS- [Guide][dbms-guide]. Å andra sidan kan SAP-data säkerhets kopie ras på ett offline-sätt (inklusive databas innehållet) enligt beskrivningen i det här avsnittet eller online enligt beskrivningen i nästa avsnitt.
 
 Offline-säkerhetskopiering kräver i princip en omstart av den virtuella datorn via Azure Portal och en kopia av den virtuella bas-VM-disken plus alla anslutna diskar till den virtuella datorn. Detta bevarar en tidpunkts avbildning av den virtuella datorn och den tillhör ande disken. Vi rekommenderar att du kopierar säkerhets kopiorna till ett annat Azure Storage konto. Därför gäller proceduren som beskrivs i kapitlet [kopiera diskar mellan Azure Storage konton][planning-guide-5.4.2] i det här dokumentet.
-Förutom avstängning med Azure Portal kan du också göra det via PowerShell eller CLI enligt beskrivningen här:<https://azure.microsoft.com/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/>
+
 
 En återställning av detta tillstånd skulle bestå i att ta bort den virtuella bas datorn samt de ursprungliga diskarna för den virtuella bas datorn och monterade diskar, kopiera de sparade diskarna till det ursprungliga lagrings kontot eller resurs gruppen för hanterade diskar och sedan distribuera om systemet.
-Den här artikeln visar ett exempel på hur du skriptar den här processen i PowerShell:<http://www.westerndevs.com/azure-snapshots/>
+Den här artikeln visar ett exempel på hur du skriptar den här processen i PowerShell: <http://www.westerndevs.com/azure-snapshots/>
 
 Se till att installera en ny SAP-licens eftersom återställning av en VM-säkerhetskopiering enligt beskrivningen ovan skapar en ny maskin varu nyckel.
 
@@ -1980,7 +1975,7 @@ Andra virtuella datorer i SAP-systemet kan säkerhets kopie ras med hjälp av fu
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Det finns ingen motsvarighet till Windows VSS i Linux. Därför är bara filkonsekventa säkerhets kopieringar möjliga, men inte programkonsekventa säkerhets kopieringar. Säkerhets kopieringen av SAP-DBMS bör göras med hjälp av DBMS-funktioner. Fil systemet som innehåller SAP-relaterade data kan sparas, till exempel med hjälp av tar som beskrivs här:<https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
+> Det finns ingen motsvarighet till Windows VSS i Linux. Därför är bara filkonsekventa säkerhets kopieringar möjliga, men inte programkonsekventa säkerhets kopieringar. Säkerhets kopieringen av SAP-DBMS bör göras med hjälp av DBMS-funktioner. Fil systemet som innehåller SAP-relaterade data kan sparas, till exempel med hjälp av tar som beskrivs här: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
 >
 

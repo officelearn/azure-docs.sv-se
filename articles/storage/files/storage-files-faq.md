@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 0bdc9451f0dbc32e14197cde48a3613196b864c0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037141"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245442"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -77,13 +77,14 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
     > [!NOTE]
     > Du kan inte skapa Azure-filresurser från Blob Storage-konton eller *Premium* -GPv1-eller GPv2-lagrings konton. Standard Azure-filresurser måste skapas i *standard* konton för generell användning och endast Premium Azure-filresurser måste skapas i FileStorage lagrings konton. GPv1-och GPv2-lagrings konton ( *Premium* General Purpose) är endast för-blobar för Premium sidor. 
 
+* <a id="file-locking"></a>
+  **Stöder Azure Files fil låsning?**  
+    Ja, Azure Files fullständigt stöd för fil låsning i SMB/Windows-format, [se information](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks).
+
 * <a id="give-us-feedback"></a>
   **Jag vill verkligen se en speciell funktion som har lagts till Azure Files. Kan du lägga till det?**  
     Azure Filess teamet är intresserade av att höra och all feedback om vår tjänst. Rösta på en funktions förfrågan på [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)! Vi ser fram emot att se om det finns många nya funktioner.
 
-  **Stöder Azure Files fil låsning?**  
-    Ja, Azure Files fullständigt stöd för fil låsning i SMB/Windows-format, [se information](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks). 
-    
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 * <a id="afs-region-availability"></a>
@@ -208,6 +209,13 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 **Vilka policyer för efterlevnadsprinciper stöder Azure Files?**  
 
    Azure Files körs ovanpå samma lagrings arkitektur som används i andra lagrings tjänster i Azure Storage. Azure Files använder samma policyer för efterlevnadsprinciper som används i andra Azure Storage-tjänster. För mer information om hur du Azure Storage data, kan du referera till [Azure Storage Compliance-erbjudanden](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)och gå till [Microsoft Trust Center](https://microsoft.com/trustcenter/default.aspx).
+
+* <a id="file-auditing"></a>
+**Hur kan jag granska fil åtkomst och ändringar i Azure Files?**
+
+  Det finns två alternativ som ger gransknings funktioner för Azure Files:
+  - Om användarna använder Azure-filresursen direkt, kan [Azure Storage loggar (för hands version)](https://docs.microsoft.com/azure/storage/common/monitor-storage?tabs=azure-powershell#logs-in-azure-monitor-preview) användas för att spåra fil ändringar och användar åtkomst. De här loggarna kan användas i fel söknings syfte och förfrågningarna loggas på bästa möjliga sätt.
+  - Om användarna har åtkomst till Azure-filresursen via en Windows-Server som har den Azure File Sync-agenten installerad, använder du en [gransknings princip](https://docs.microsoft.com/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) eller en produkt från tredje part för att spåra fil ändringar och användar åtkomst på Windows Server. 
    
 ### <a name="ad-ds--azure-ad-ds-authentication"></a>AD DS & Azure AD DS-autentisering
 * <a id="ad-support-devices"></a>
@@ -274,7 +282,6 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 **Finns det REST-API: er som stöder get/set/Copy Directory/File Windows ACL: er?**
 
     Ja, vi har stöd för REST API: er som hämtar, anger eller kopierar NTFS ACL: er för kataloger eller filer när du använder REST API [2019-07-07](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-07-07) (eller senare). Vi har även stöd för att bevara Windows ACL: er i REST-baserade verktyg: [AzCopy v 10.4 +](https://github.com/Azure/azure-storage-azcopy/releases).
-
 
 ## <a name="on-premises-access"></a>Lokal åtkomst
 

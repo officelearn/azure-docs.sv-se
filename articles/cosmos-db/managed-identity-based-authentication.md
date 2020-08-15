@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: e1076c7bb480a52c9436e336a49169953d0d8285
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135778"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243725"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Använd systemtilldelade hanterade identiteter för att få åtkomst till Azure Cosmos DB data
 
@@ -40,7 +40,7 @@ I det här steget tilldelar du en systemtilldelad hanterad identitet till din Fu
 
 I det här steget ska du tilldela en roll till funktionens programs systemtilldelade hanterade identitet. Azure Cosmos DB har flera inbyggda roller som du kan tilldela till den hanterade identiteten. I den här lösningen använder du följande två roller:
 
-|Inbyggd roll  |Description  |
+|Inbyggd roll  |Beskrivning  |
 |---------|---------|
 |[DocumentDB-konto deltagare](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Kan hantera Azure Cosmos DB-konton. Tillåter hämtning av Läs-/skriv nycklar. |
 |[Cosmos DB konto läsar roll](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Kan läsa Azure Cosmos DB konto data. Tillåter hämtning av Läs nycklar. |
@@ -75,9 +75,10 @@ I det här scenariot läser Function-appen temperaturen i Aquarium och skriver s
 
 ### <a name="assign-the-role-using-azure-cli"></a>Tilldela rollen med hjälp av Azure CLI
 
-Om du vill tilldela rollen med hjälp av Azure CLI använder du följande kommandon:
+Om du vill tilldela rollen med hjälp av Azure CLI öppnar du Azure Cloud Shell och kör följande kommandon:
 
 ```azurecli-interactive
+
 scope=$(az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id)
 
 principalId=$(az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId)

@@ -9,20 +9,70 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 08/14/2020
 ms.author: iainfou
-ms.openlocfilehash: ba4761a2b7893fd894f62b7e2252005d7afd1c91
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4cd6a37ad2d5081cdc587290c361fbc992c69bfb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039984"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245174"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Vanliga användnings fall och scenarier för Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade domän tjänster som domän anslutning, grup princip, LDAP (Lightweight Directory Access Protocol) och Kerberos/NTLM-autentisering. Azure AD DS integreras med din befintliga Azure AD-klient, vilket gör det möjligt för användarna att logga in med sina befintliga autentiseringsuppgifter. Du kan använda dessa domän tjänster utan att behöva distribuera, hantera och korrigera domänkontrollanter i molnet, vilket ger en smidigare ökning och växling av lokala resurser till Azure.
 
 Den här artikeln beskriver några vanliga affärs scenarier där Azure AD DS tillhandahåller värde och uppfyller dessa krav.
+
+## <a name="common-ways-to-provide-identity-solutions-in-the-cloud"></a>Vanliga sätt att tillhandahålla identitets lösningar i molnet
+
+När du migrerar befintliga arbets belastningar till molnet kan katalog medveten program använda LDAP för Läs-eller skriv åtkomst till en lokal AD DS-katalog. Program som körs på Windows Server distribueras vanligt vis på domänanslutna virtuella datorer (VM) så att de kan hanteras på ett säkert sätt med hjälp av grupprincip. För att användarna ska kunna autentisera slutanvändare kan programmen också vara beroende av Windows-integrerad autentisering, t. ex. Kerberos eller NTLM-autentisering.
+
+IT-administratörer använder ofta en av följande lösningar för att tillhandahålla en identitets tjänst till program som körs i Azure:
+
+* Konfigurera en plats-till-plats-VPN-anslutning mellan arbets belastningar som körs i Azure och en lokal AD DS-miljö.
+    * De lokala domän kontrol Lanterna tillhandahåller sedan autentisering via VPN-anslutningen.
+* Skapa replik-domänkontrollanter med Azure Virtual Machines (VM) för att utöka AD DS-domänen/-skogen från en lokal plats.
+    * Domän kontrol Lanterna som körs på virtuella Azure-datorer tillhandahåller autentisering och replikerar katalog information mellan den lokala AD DS-miljön.
+* Distribuera en fristående AD DS-miljö i Azure med hjälp av domänkontrollanter som körs på virtuella Azure-datorer.
+    * Domän kontrol Lanterna som körs på virtuella Azure-datorer tillhandahåller autentisering, men det finns ingen katalog information som replikeras från en lokal AD DS-miljö.
+
+Med dessa metoder kan VPN-anslutningar till den lokala katalogen göra program sårbara för tillfälliga nätverks fel eller avbrott. Om du distribuerar domänkontrollanter med virtuella datorer i Azure måste IT-teamet hantera de virtuella datorerna, sedan säkra, korrigera, övervaka, säkerhetskopiera och felsöka.
+
+Azure AD DS innehåller alternativ för behovet av att skapa VPN-anslutningar tillbaka till en lokal AD DS-miljö eller köra och hantera virtuella datorer i Azure för att tillhandahålla identitets tjänster. Som en hanterad tjänst minskar Azure AD DS komplexiteten för att skapa en integrerad identitets lösning för både hybrid miljöer och moln miljöer.
+
+> [!div class="nextstepaction"]
+> [Jämför Azure AD DS med Azure AD och själv hanterad AD DS på virtuella Azure-datorer eller lokalt][compare]
+
+## <a name="azure-ad-ds-for-hybrid-organizations"></a>Azure AD DS för Hybrid organisationer
+
+Många organisationer kör en hybrid infrastruktur som omfattar både moln-och lokala program arbets belastningar. Äldre program som migrerats till Azure som en del av en hiss och Shift-strategi kan använda traditionella LDAP-anslutningar för att tillhandahålla identitets information. För att stödja den här hybrid infrastrukturen kan identitets information från en lokal AD DS-miljö synkroniseras med en Azure AD-klient. Azure AD DS tillhandahåller sedan dessa äldre program i Azure med en identitets källa, utan att du behöver konfigurera och hantera program anslutningen tillbaka till lokala katalog tjänster.
+
+Nu ska vi titta på ett exempel för Litware ' Corporation, en hybrid organisation som kör både lokala och Azure-resurser:
+
+![Azure Active Directory Domain Services för en hybrid organisation som innehåller lokal synkronisering](./media/overview/synced-tenant.png)
+
+* Program-och Server arbets belastningar som kräver domän tjänster distribueras i ett virtuellt nätverk i Azure.
+    * Detta kan inkludera äldre program som migrerats till Azure som en del av en hiss-och Shift-strategi.
+* För att synkronisera identitets information från sin lokala katalog till sin Azure AD-klient distribuerar Litware ' Corporation [Azure AD Connect][azure-ad-connect].
+    * Identitets information som synkroniseras innehåller användar konton och grupp medlemskap.
+* Litware ' IT-teamet möjliggör Azure AD DS för sin Azure AD-klient i detta eller ett peer-kopplat virtuellt nätverk.
+* Program och virtuella datorer som distribueras i det virtuella Azure-nätverket kan sedan använda Azure AD DS-funktioner som domän anslutning, LDAP Read, LDAP-bindning, NTLM-och Kerberos-autentisering och grupprincip.
+
+> [!IMPORTANT]
+> Azure AD Connect bör endast installeras och konfigureras för synkronisering med lokala AD DS-miljöer. Det finns inte stöd för att installera Azure AD Connect i en hanterad domän för att synkronisera objekt tillbaka till Azure AD.
+
+## <a name="azure-ad-ds-for-cloud-only-organizations"></a>Azure AD DS för endast moln organisationer
+
+En molnbaserad Azure AD-klient har ingen lokal identitets källa. Användar konton och grupp medlemskap skapas till exempel och hanteras direkt i Azure AD.
+
+Nu ska vi titta på ett exempel för contoso, en molnbaserad organisation som använder Azure AD för identitet. Alla användar identiteter, deras autentiseringsuppgifter och grupp medlemskap skapas och hanteras i Azure AD. Det finns ingen ytterligare konfiguration av Azure AD Connect för att synkronisera identitets information från en lokal katalog.
+
+![Azure Active Directory Domain Services för en organisation som endast är i molnet utan lokal synkronisering](./media/overview/cloud-only-tenant.png)
+
+* Program-och Server arbets belastningar som kräver domän tjänster distribueras i ett virtuellt nätverk i Azure.
+* Contosos IT-team möjliggör Azure AD DS för sin Azure AD-klient i detta eller ett peer-kopplat virtuellt nätverk.
+* Program och virtuella datorer som distribueras i det virtuella Azure-nätverket kan sedan använda Azure AD DS-funktioner som domän anslutning, LDAP Read, LDAP-bindning, NTLM-och Kerberos-autentisering och grupprincip.
 
 ## <a name="secure-administration-of-azure-virtual-machines"></a>Säker administration av virtuella Azure-datorer
 
@@ -117,6 +167,8 @@ Kom igång genom att [skapa och konfigurera en Azure Active Directory Domain Ser
 [custom-ou]: create-ou.md
 [create-gpo]: manage-group-policy.md
 [sspr]: ../active-directory/authentication/overview-authentication.md#self-service-password-reset
+[compare]: compare-identity-solutions.md
+[azure-ad-connect]: ../active-directory/hybrid/whatis-azure-ad-connect.md
 
 <!-- EXTERNAL LINKS -->
 [windows-rds]: /windows-server/remote/remote-desktop-services/rds-azure-adds

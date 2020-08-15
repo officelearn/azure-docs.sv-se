@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: df4108604c656cd6383bd57b462c0f12f31bdd7b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 68596b881ef1b62187bdb7194b364c9477b4e04d
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206874"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244779"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Använda S2S VPN som säkerhets kopiering för privat ExpressRoute-peering
 
-I artikeln [utformning för haveri beredskap med ExpressRoute privat peering][DR-PP], diskuterade vi behovet av en säkerhets kopierings lösning för en ExpressRoute privat peering-anslutning och hur du använder geo-redundanta ExpressRoute-kretsar för ändamålet. I den här artikeln ska vi fundera över hur du ska utnyttja och underhålla VPN för plats-till-plats (S2S) som bak för ExpressRoute privata peering. 
+I artikeln [utformning för haveri beredskap med ExpressRoute privat peering][DR-PP], diskuterade vi behovet av en säkerhets kopierings lösning för en ExpressRoute privat peering-anslutning och hur du använder geo-redundanta ExpressRoute-kretsar för ändamålet. I den här artikeln ska vi fundera över hur du ska utnyttja och underhålla VPN för plats-till-plats (S2S) som en säkerhets kopia för privat ExpressRoute-peering. 
 
 Till skillnad från geo-redundanta ExpressRoute-kretsar kan du bara använda ExpressRoute-VPN för haveri beredskap i aktivt-passivt läge. En stor utmaning med att använda en säkerhets kopierings nätverks anslutning i passivt läge är att den passiva anslutningen ofta kraschar vid den primära anslutningen. Den vanliga orsaken till att den passiva anslutningen Miss lyckas är inget aktivt underhåll. I den här artikeln ska vi därför fokusera på hur du verifierar och aktivt upprätthåller S2S VPN-anslutning som säkerhetskopierar en privat ExpressRoute-peering.
 
@@ -116,7 +116,7 @@ Cust11.inet.0: 14 destinations, 21 routes (14 active, 0 holddown, 0 hidden)
 
 ### <a name="configuring-for-symmetric-traffic-flow"></a>Konfigurera för symmetriskt trafikflöde
 
-Vi noterade att när en specifik väg annonseras via både ExpressRoute och S2S VPN, skulle Azure föredra ExpressRoute-sökvägen. Om du vill tvinga Azure att föredra VPN-sökväg för S2S över befintliga ExpressRoute, måste du annonsera mer om mer information (längre prefix med större nätmask) via VPN-anslutningen. Syftet med detta är att endast använda VPN-anslutningar som endast bak. Det innebär att standard beteendet för val av sökvägar i Azure är online med vårt mål. 
+Vi noterade att när en specifik väg annonseras via både ExpressRoute och S2S VPN, skulle Azure föredra ExpressRoute-sökvägen. Om du vill tvinga Azure att föredra VPN-sökväg för S2S över befintliga ExpressRoute, måste du annonsera mer om mer information (längre prefix med större nätmask) via VPN-anslutningen. Syftet med detta är att endast använda VPN-anslutningar som säkerhets kopiering. Det innebär att standard beteendet för val av sökvägar i Azure är online med vårt mål. 
 
 Det är vårt ansvar att se till att trafiken till Azure från lokala platser också föredrar ExpressRoute-sökväg via S2S VPN. Den lokala standard inställningen för CE-routrarna och brand väggarna i vår lokala installation är 100. Genom att konfigurera den lokala inställningen för de vägar som tas emot via ExpressRoute privata peering som är större än 100 (säg 150), kan vi göra trafiken till Azure föredra ExpressRoute-kretsen i stabilt tillstånd.
 

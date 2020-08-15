@@ -10,12 +10,12 @@ ms.date: 08/13/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: d4f55b9fe40afbd75875a22dcf4971e869df5691
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: eac827097f892de81bc5820994f3e2a4e0696dcb
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237413"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246353"
 ---
 Använda klient biblioteken Language Understanding (LUIS) för python för att:
 
@@ -29,7 +29,7 @@ Använda klient biblioteken Language Understanding (LUIS) för python för att:
 ## <a name="prerequisites"></a>Krav
 
 * Den aktuella versionen av [python 3. x](https://www.python.org/). 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * När du har en Azure-prenumeration [skapar du en language Understanding Authoring-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) i Azure Portal för att hämta din nyckel och slut punkt. Vänta tills den har distribuerats och klicka på knappen **gå till resurs** .
     * Du behöver nyckeln och slut punkten från den resurs som du [skapar](../luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) för att ansluta ditt program till language Understanding redigering. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten. Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten.
 

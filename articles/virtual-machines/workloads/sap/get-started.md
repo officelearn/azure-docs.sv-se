@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/14/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f13d0d2ba26f49daac49c4dd88f3bdf8621c4ad4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: f1152eb11d3452743daa5bcb39fb593dddf94452
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121501"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245935"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -88,13 +88,14 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 08/14/2020: lägga till disk konfigurations rådgivning för DB2 i artikel [IBM DB2 Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - 08/11/2020: lägger till RHEL 7,6 i [kompatibla operativ system för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) som tillgängligt operativ system för HLI-enheter av typen i
 - 08/10/2020: Vi presenterar kostnads medveten SAP HANA lagrings konfiguration i [SAP HANA konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) och gör vissa uppdateringar av [SAP-arbetsbelastningar på Azure: planering och distribution check lista](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - 08/04/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) och konfigurera [pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att betona vikten av tillförlitlig namn matchning för pacemaker-kluster
 - 08/04/2020: ändra i [SAP NW ha på WFCS med fil resurs](./sap-high-availability-installation-wsfc-file-share.md), [SAP NW-ha på WFCS med delad disk](./sap-high-availability-installation-wsfc-shared-disk.md), [ha för SAP NW på virtuella Azure-datorer](./high-availability-guide.md), [ha för SAP NW på Azure VM](./high-availability-guide-suse.md): ar på SLES, ha [för SAP NW på virtuella Azure-datorer på SLES med ANF](./high-availability-guide-suse-netapp-files.md), [ha för SAP NW på virtuella Azure-datorer på SLES multi-sid-guide](./high-availability-guide-suse-multi-sid.md), [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel.md), [ha för SAP NW på virtuella Azure-datorer på RHEL med ANF](./high-availability-guide-rhel-netapp-files.md) och ha för SAP NW på virtuella Azure-datorer i RHEL med och [ha för SAP NW på multi](./high-availability-guide-rhel-multi-sid.md)`enque/encni/set_so_keepalive`
 - 07/23/2020: lade till [Spara på SAP HANA – stora instanser med en Azure reservation](../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md) -artikel som förklarar vad du behöver veta innan du köper en SAP HANA – stora instanser reservation och hur du gör köpet
 - 07/16/2020: beskriver hur du använder Azure PowerShell för att installera nytt VM-tillägg för SAP i [distributions guiden](deployment-guide.md)
-- 7/04/2020: version av [Azure Monitor för SAP-lösningar (för hands version)](./azure-monitor-overview.md)
+- 7/04/2020: version av  [Azure Monitor för SAP-lösningar (för hands version)](./azure-monitor-overview.md)
 - 07/01/2020: föreslår billigare lagrings konfiguration baserat på Azure Premium Storage burst-funktioner i dokument [SAP HANA lagrings konfiguration för virtuella Azure-datorer](./hana-vm-operations-storage.md) 
 - 06/24/2020: ändra i [ställa in pacemaker på SLES i Azure](./high-availability-guide-suse-pacemaker.md) för att frigöra ny förbättrad Azure-stängsel och mer elastisk STONITH-konfiguration för enheter, baserat på Azure stängsel-agenten 
 - 06/24/2020: ändra i [ställa in pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att frigöra mer elastisk STONITH-konfiguration
@@ -133,7 +134,7 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 - 26 februari 2020: ändra i [SAP HANA lagrings konfiguration för Azure virtuella datorer](./hana-vm-operations-storage.md) för att klargör fil system val för Hana på Azure
 - 26 februari 2020: ändring av [arkitektur och scenarier med hög tillgänglighet för SAP](./sap-high-availability-architecture-scenarios.md) för att inkludera länken till ha för SAP NetWeaver på virtuella Azure-datorer på RHEL multi-sid-guide
 - 26 februari 2020: ändra hög [tillgänglighet för SAP NW på virtuella Azure-datorer på SLES för SAP-program](./high-availability-guide-suse.md), [hög tillgänglighet för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program](./high-availability-guide-suse-netapp-files.md), [Azure VM hög tillgänglighet för SAP NetWeaver på RHEL](./high-availability-guide-rhel.md) och [virtuella Azure-datorer hög tillgänglighet för SAP NetWeaver på RHEL med Azure NetApp Files](./high-availability-guide-rhel-netapp-files.md) för att ta bort instruktionen att flera-sid ASCS/ers-kluster inte
-- 26 februari 2020: utgåva av [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på RHEL med multi-sid-guide](./high-availability-guide-rhel-multi-sid.md) för att lägga till en länk till SUSE multi-sid-kluster guiden
+- 26 februari 2020: utgåva av  [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på RHEL med multi-sid-guide](./high-availability-guide-rhel-multi-sid.md) för att lägga till en länk till SUSE multi-sid-kluster guiden
 - 02/25/2020: ändra i [arkitektur och scenarier med hög tillgänglighet för SAP](./sap-high-availability-architecture-scenarios.md) för att lägga till länkar till nya artiklar i ha
 - 25 februari 2020: ändring i [hög tillgänglighet för IBM DB2-LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](./dbms-guide-ha-ibm.md) för att peka på dokument som beskriver åtkomst till den offentliga slut punkten med standard Azure Load Balancer
 - 21 februari 2020: fullständig revidering av artikeln [SAP ASE Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning](./dbms_guide_sapase.md)

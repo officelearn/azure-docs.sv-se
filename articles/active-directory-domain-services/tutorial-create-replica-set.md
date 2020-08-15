@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: iainfou
-ms.openlocfilehash: 69bb61012082404dfd6488b5e0606e5966c2fcef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 6f166cdcb5f3764d7b264fdb4ebc082ece4c798b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506462"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245102"
 ---
 # <a name="tutorial-create-and-use-replica-sets-for-resiliency-or-geolocation-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa och Använd replik uppsättningar för återhämtning eller geolokalisering i Azure Active Directory Domain Services (för hands version)
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande resurser och behörigheter:
 
@@ -42,11 +42,11 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-* En Azure Active Directory Domain Services hanterad domän som skapats med hjälp av replik uppsättningar och som kon figurer ATS i din Azure AD-klient.
+* En Azure Active Directory Domain Services hanterad domän som skapats med Azure Resource Manager distributions modell och som kon figurer ATS i din Azure AD-klient.
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][tutorial-create-instance].
 
     > [!IMPORTANT]
-    > Se till att du skapar en hanterad domän som använder replik uppsättningar. En befintlig hanterad domän som skapats innan den här för hands versionen stöder inte replik uppsättningar. Du måste också använda minst *företags* -SKU: er för din hanterade domän. Om det behövs [ändrar du SKU: n för en hanterad domän][howto-change-sku].
+    > Hanterade domäner som skapats med den klassiska distributions modellen kan inte använda replik uppsättningar. Du måste också använda minst *företags* -SKU: er för din hanterade domän. Om det behövs [ändrar du SKU: n för en hanterad domän][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 

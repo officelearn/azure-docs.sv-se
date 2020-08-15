@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.author: diberry
-ms.openlocfilehash: 390080fecefcc22decd8bec70d043b28311a725d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4c9dc04770e5fadd72c5460a4b44c05ffda47cb7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212625"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245459"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrera till en Azure-resurs redigerings nyckel
 
@@ -52,7 +52,7 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 
 ## <a name="migration-prerequisites"></a>Krav för migrering
 
-* Du måste vara associerad med en giltig Azure-prenumeration. Be din klient administratör att lägga till dig på prenumerationen eller [Registrera dig för en kostnads fri](https://azure.microsoft.com/free/).
+* Du måste vara associerad med en giltig Azure-prenumeration. Be din klient administratör att lägga till dig på prenumerationen eller [Registrera dig för en kostnads fri](https://azure.microsoft.com/free/cognitive-services).
 * Du måste skapa en LUIS Azure Authoring-resurs från LUIS-portalen eller från Azure Portal. Att skapa en Authoring-resurs från LUIS-portalen är en del av det migreringsjobb som beskrivs i nästa avsnitt.
 * Om du är en medarbetare i program, migreras inte programmen automatiskt. Vi rekommenderar att du säkerhetskopierar de här programmen genom att exportera dem eller genom att använda [export-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40). Du kan importera appen tillbaka till LUIS efter migreringen. Import processen skapar en ny app med ett nytt app-ID som du är ägare till.
 * Om du är ägare till programmet behöver du inte exportera dina appar eftersom de migreras automatiskt. Vi rekommenderar att du sparar varje apps samarbets lista. En e-postmall som har den här listan tillhandahålls som en del av migreringsprocessen.
@@ -60,7 +60,7 @@ Migreringen måste göras från LUIS-portalen. Om du skapar redigerings nycklarn
 
 |Portalen|Syfte|
 |--|--|
-|[Azure](https://azure.microsoft.com/free/)| Skapa förutsägelse-och redigerings resurser.<br> Tilldela deltagare i resurser.|
+|[Azure](https://azure.microsoft.com/free/cognitive-services)| Skapa förutsägelse-och redigerings resurser.<br> Tilldela deltagare i resurser.|
 |[LUIS](https://www.luis.ai)| Migrera till nya redigerings resurser.<br> Skapa nya redigerings resurser i migreringsjobbet.<br> Tilldela eller ta bort tilldelningen av prognoser och redigering av resurser till appar från sidan **Hantera**  >  **Azure-resurser** . <br> Flytta program från en redigerings resurs till en annan.  |
 
 > [!Note]

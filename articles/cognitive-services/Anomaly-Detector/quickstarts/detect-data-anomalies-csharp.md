@@ -10,14 +10,14 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.openlocfilehash: 585731212fa31be2757d5b5d4c4e0a2ef1212ca8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 86742568d8f0c7c951d872e7df23b8ce1cb0920f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980232"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244235"
 ---
-# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C # 
+# <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Snabb start: identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API och C #
 
 Använd den här snabb starten för att börja använda de två identifierings lägena för avvikelse detektor API: erna för att identifiera avvikelser i dina tids serie data. Detta C#-program skickar två API-begäranden som innehåller JSON-formaterade Time Series-data och hämtar svaren.
 
@@ -28,15 +28,15 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
  Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Du hittar käll koden för den här snabb starten på [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 - När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title=" skapar du en avvikelse detektor resurs "  target="_blank"> skapa en avvikelse <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i den Azure Portal för att hämta nyckel och slut punkt. Vänta tills den har distribuerats och klicka på knappen **gå till resurs** .
     - Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API: t för avvikelse identifiering. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 - Valfri version av [Visual Studio 2017 eller senare](https://visualstudio.microsoft.com/downloads/)
 - [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket. Så här installerar du Newtonsoft.Jspå som ett NuGet-paket i Visual Studio:
-    
+
     1. Högerklicka på ditt projekt i **Solution Explorer**.
     2. Välj **Hantera NuGet-paket**.
     3. Sök efter *Newtonsoft.Jspå* och installera paketet.
@@ -49,7 +49,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. Skapa en ny konsol lösning i Visual Studio och Lägg till följande paket. 
+1. Skapa en ny konsol lösning i Visual Studio och Lägg till följande paket.
 
     [!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=usingStatements)]
 
@@ -60,7 +60,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
     |------------------------------------|--------------------------------------------------|
     | Batch-identifiering                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Identifiering på den senaste data punkten | `/anomalydetector/v1.0/timeseries/last/detect`   |
-        
+
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
@@ -79,7 +79,7 @@ Använd den här snabb starten för att börja använda de två identifierings l
 
 2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
-3. Om fältet svar innehåller `code` skriver du ut felkoden och fel meddelandet. 
+3. Om fältet svar innehåller `code` skriver du ut felkoden och fel meddelandet.
 
 4. Annars hittar du positionerna för avvikelser i data uppsättningen. Svarets `isAnomaly` fält innehåller en matris med booleska värden, som anger om en data punkt är en avvikelse. Konvertera detta till en sträng mat ris med funktionen Response Object `ToObject<bool[]>()` . Upprepa genom matrisen och skriv ut indexet för alla `true` värden. Dessa värden motsvarar indexet för avvikande data punkter, om sådana hittades.
 
@@ -93,10 +93,10 @@ Använd den här snabb starten för att börja använda de två identifierings l
 2. Deserialisera JSON-objektet och skriv det till-konsolen.
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
- 
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Läs in dina Time Series-data och skicka begäran
 
-1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()` . 
+1. I appens huvud metod läser du in dina JSON Time Series-data med `File.ReadAllText()` .
 
 2. Anropa de funktioner för avvikelse identifiering som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
 

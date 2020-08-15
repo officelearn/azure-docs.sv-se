@@ -3,12 +3,12 @@ title: 'Snabb start: QnA Maker klient bibliotek för .NET'
 description: Den här snabb starten visar hur du kommer igång med QnA Maker-klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.  Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 0dfabfa1357543e4011412c0a9f63061e8856019
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: eecbf162f3bd043bf4aabe9796ee095667e0cc39
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87507295"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246192"
 ---
 Använd QnA Maker klient bibliotek för .NET för att:
 
@@ -25,9 +25,9 @@ Använd QnA Maker klient bibliotek för .NET för att:
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) eller aktuell version av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 * När du har en Azure-prenumeration kan du skapa en [QNA Maker resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) i Azure Portal för att hämta din redigerings nyckel och resurs namn. När den har distribuerats väljer **du gå till resurs**.
     * Du behöver nyckel-och resurs namnet från den resurs som du skapar för att ansluta ditt program till API för QnA Maker. Du kommer att klistra in nyckeln och resurs namnet i koden nedan i snabb starten.
@@ -144,9 +144,9 @@ En kunskaps bas lagrar fråge-och svars par för [CreateKbDTO](https://docs.micr
 * För **URL: er**använder du en lista med strängar som representerar offentliga tillgängliga URL: er.
 
 Steget Skapa innehåller också egenskaper för kunskaps listan:
-* `defaultAnswerUsedForExtraction`– vad som returneras när inget svar hittas
-* `enableHierarchicalExtraction`– Skapa automatiskt prompt-relationer mellan extraherade QnA-par
-* `language`– När du skapar den första kunskaps listan för en resurs ställer du in språket som ska användas i Azure Search indexet.
+* `defaultAnswerUsedForExtraction` – vad som returneras när inget svar hittas
+* `enableHierarchicalExtraction` – Skapa automatiskt prompt-relationer mellan extraherade QnA-par
+* `language` – När du skapar den första kunskaps listan för en resurs ställer du in språket som ska användas i Azure Search indexet.
 
 Anropa metoden [CreateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.createasync?view=azure-dotnet) och skicka sedan det returnerade åtgärds-ID: t till [MonitorOperation](#get-status-of-an-operation) -metoden för att avsöka efter status.
 

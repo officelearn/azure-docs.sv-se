@@ -10,22 +10,22 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 24e04e166c13f787f756c97716e2bf0143eecbdb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b53476bcb05d6e91b157c24795c963c04e6f4bb4
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87128581"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244501"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuera Textanalys språk identifierings behållare till Azure Kubernetes-tjänsten
 
 Lär dig hur du distribuerar behållaren för språk identifiering. Den här proceduren visar hur du skapar de lokala Docker-behållare, push-överför behållarna till ditt eget privata behållar register, kör behållaren i ett Kubernetes-kluster och testar det i en webbläsare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt. Använd inte Azure Cloud Shell.
 
-* Använd en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* Använd en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
 * [Git](https://git-scm.com/downloads) för ditt operativ system så att du kan klona [exemplet](https://github.com/Azure-Samples/cognitive-services-containers-samples) som används i den här proceduren.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Docker-motorn](https://www.docker.com/products/docker-engine) och kontrollerar att Docker CLI fungerar i ett konsol fönster.
@@ -313,17 +313,17 @@ I det här avsnittet används **kubectl** CLI för att kommunicera med Azure Kub
 
     Distributions inställningar för språk klient del|Syfte|
     |--|--|
-    |Rad 32<br> `image`immaterialrätt|Avbildnings plats för klient dels avbildningen i Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Rad 44<br> `name`immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
+    |Rad 32<br> `image` immaterialrätt|Avbildnings plats för klient dels avbildningen i Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
+    |Rad 44<br> `name` immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
 
 1. Ändra språk distributions raderna i `language.yml` baserat på följande tabell om du vill lägga till egna avbildnings namn, klient hemlighet och text analys inställningar för behållare.
 
     |Språk distributions inställningar|Syfte|
     |--|--|
-    |Rad 78<br> `image`immaterialrätt|Avbildnings plats för språk avbildningen i din Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Rad 95<br> `name`immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
-    |Rad 91<br> `apiKey`immaterialrätt|Din nyckel för text analys resurs|
-    |Rad 92<br> `billing`immaterialrätt|Fakturerings slut punkten för din text Analytics-resurs.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
+    |Rad 78<br> `image` immaterialrätt|Avbildnings plats för språk avbildningen i din Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
+    |Rad 95<br> `name` immaterialrätt|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett föregående avsnitt.|
+    |Rad 91<br> `apiKey` immaterialrätt|Din nyckel för text analys resurs|
+    |Rad 92<br> `billing` immaterialrätt|Fakturerings slut punkten för din text Analytics-resurs.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
     Eftersom **apiKey** och **fakturerings slut punkten** anges som en del av Kubernetes Orchestration-definitionen behöver inte webbplats behållaren känna till dessa eller skicka dem som en del av begäran. Webbplats behållaren refererar till behållaren för språk identifiering efter dess Orchestrator-namn `language` .
 
@@ -404,4 +404,4 @@ az group delete --name cogserv-container-rg
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Cognitive Services behållare](../cognitive-services-container-support.md)
+> [Cognitive Services-containrar](../cognitive-services-container-support.md)

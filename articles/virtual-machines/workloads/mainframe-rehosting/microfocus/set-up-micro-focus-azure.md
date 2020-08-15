@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: cc61d842550f82dc8b408ed5cd421af65d0e2be6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 59566fc051b1e84d8e271b3c9d061f2481dcc58f
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507904"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245323"
 ---
 # <a name="install-micro-focus-enterprise-server-50-and-enterprise-developer-50-on-azure"></a>Installera Micro Focus Enterprise Server 5,0 och Enterprise Developer 5,0 på Azure
 
@@ -29,7 +29,7 @@ Den här installationen använder virtuella Azure-datorer som kör Windows Serve
 
 Motsvarande utvecklings miljö för Enterprise Server är företags utvecklare, som körs på antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (kostnads fri att ladda ned) eller Sol förmörkelse. Den här artikeln visar hur du distribuerar den med en virtuell Windows Server 2016-dator som medföljer Visual Studio 2017 eller senare installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar bör du gå igenom följande krav:
 
@@ -67,9 +67,9 @@ Innan du börjar bör du gå igenom följande krav:
 
 8.  Läs in följande två filer från RDP-sessionen. Eftersom du använder Windows kan du dra och släppa filerna i RDP-sessionen:
 
-    -   **es \_50.exe**, installations filen för företags servern.
+    -   `es\_50.exe`, installations filen för företags servern.
 
-    -   **mflic**, motsvarande licens fil – Enterprise Server läser inte in utan den.
+    -   `mflic`, motsvarande licens fil – Enterprise Server läser inte in utan den.
 
 9.  Starta installationen genom att dubbelklicka på filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet.
 
@@ -87,11 +87,11 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
 1.  Starta licens administration för Micro Focus.
 
-2.  Välj **Starta** \> **Micro Focus License Manager** \> **License administration**och klicka sedan på fliken **Installera** . Välj vilken typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till **mflic** -filen som laddades upp tidigare till den virtuella datorn och väljer **Installera licenser**.
+2.  Välj **Starta** \> **Micro Focus License Manager** \> **License administration**och klicka sedan på fliken **Installera** . Välj vilken typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till * `mflic` filen överfördes tidigare till den virtuella datorn och väljer **Installera licenser**.
 
     ![Dialog rutan licens administration för Micro Focus](media/install-image-3.png)
 
-3.  Kontrol lera att Enterprise Server läser in. Försök att starta administrations webbplatsen för företags servern från en webbläsare med följande URL: <http://localhost:86/> . Sidan administration av företags server visas som visas.
+3.  Kontrol lera att Enterprise Server läser in. Försök att starta administrations webbplatsen för företags servern från en webbläsare med följande URL: `http://localhost:86/` . Sidan administration av företags server visas som visas.
 
     ![Sidan administration av företags server](media/install-image-4.png)
 
@@ -103,11 +103,11 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
 3.  Läs in följande två filer från RDP-sessionen (dra och släpp om du vill):
 
-    -   **edvs2017.exe**, installations filen för företags servern.
+    -   `edvs2017.exe`, installations filen för företags servern.
 
-    -   **mflic**, motsvarande licens fil (Enterprise Developer kommer inte att läsas in utan den).
+    -   `mflic`kommer motsvarande licens fil (Enterprise Developer inte att läsas in utan den).
 
-4.  Starta installationen genom att dubbelklicka på **edvs2017.exes** filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet. Om du vill kan du välja **Installera Rumba 9,5** för att installera denna termin Ale mula Tor som du förmodligen behöver.
+4.  Starta installationen genom att dubbelklicka på **edvs2017.exes ** filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet. Om du vill kan du välja **Installera Rumba 9,5** för att installera denna termin Ale mula Tor som du förmodligen behöver.
 
     ![Konfigurations dialog rutan för Micro Focus Enterprise Developer för Visual Studio 2017](media/install-image-5.png)
 
@@ -117,7 +117,7 @@ Efter installationen måste du kontrol lera om det finns fler uppdateringar som 
 
 6.  Starta Micro Focus License Manager precis som du gjorde för företags servern. Välj **Starta** \> **Micro Focus License Manager** \> **License administration**och klicka på fliken **Installera** .
 
-7.  Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till **mflic** -filen som laddades upp tidigare till den virtuella datorn och väljer **Installera licenser**.
+7.  Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till den fil som `mflic` laddats upp tidigare till den virtuella datorn och väljer  **Installera licenser**.
 
     ![Dialog rutan licens administration för Micro Focus](media/install-image-7.png)
 

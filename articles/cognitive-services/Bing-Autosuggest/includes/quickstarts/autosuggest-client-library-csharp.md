@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5d325ac8da43f020f4ab39244d2e6a7dc6ed72b7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: a6ae9d8975c36e7ffa8e3eadf880b4685390c5fc
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156488"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246328"
 ---
 Kom igång med Automatiska förslag i Bing klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
@@ -23,7 +23,7 @@ Använd Automatiska förslag i Bing klient bibliotek för .NET för att få Sök
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte redan har en Azure-prenumeration [kan du skapa en kostnads fri](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte redan har en Azure-prenumeration [kan du skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services).
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 [!INCLUDE [cognitive-services-bing-autosuggest-signup-requirements](~/includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
@@ -31,12 +31,12 @@ Använd Automatiska förslag i Bing klient bibliotek för .NET för att få Sök
 ## <a name="create-environment-variables"></a>Skapa miljövariabler
 
 >[!NOTE]
-> Slut punkterna för resurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Slut punkterna för resurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: Resurs nyckeln för autentisering av dina begär Anden.
-* `AUTOSUGGEST_ENDPOINT`: Resurs slut punkten för att skicka API-begäranden. Den bör se ut så här: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` . 
+* `AUTOSUGGEST_ENDPOINT`: Resurs slut punkten för att skicka API-begäranden. Den bör se ut så här: `https://<your-custom-subdomain>.api.cognitive.microsoft.com` .
 
 Följ anvisningarna för ditt operativ system.
 <!-- replace the below endpoint and key examples -->
@@ -72,9 +72,9 @@ När du har lagt till miljövariabeln så kör `source .bash_profile` från kons
 
 ## <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
 
-Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
+Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `bing-autosuggest-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `bing-autosuggest-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*.
 
 ```console
 dotnet new console -n bing-autosuggest-quickstart
@@ -86,7 +86,7 @@ dotnet new console -n bing-autosuggest-quickstart
 dotnet build
 ```
 
-Build-utdata får inte innehålla varningar eller fel. 
+Build-utdata får inte innehålla varningar eller fel.
 
 ```console
 ...
@@ -193,7 +193,7 @@ else
 }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet från program katalogen med `dotnet run` kommandot.
 

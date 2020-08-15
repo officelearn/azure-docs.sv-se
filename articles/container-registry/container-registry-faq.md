@@ -5,16 +5,21 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 1c2330f1ba71e2a72a1a44df7af6444181f5f9ea
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836402"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245374"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
 Den här artikeln handlar om vanliga frågor och kända problem med Azure Container Registry.
+
+Fel söknings vägledning för registret finns i:
+* [Felsöka inloggning av registret](container-registry-troubleshoot-login.md)
+* [Felsöka nätverks problem med registret](container-registry-troubleshoot-access.md)
+* [Felsöka register prestanda](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Resurshantering
 
@@ -261,10 +266,10 @@ Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkom
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
 
-- [Kontrol lera hälsa med`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Kontrol lera hälsa med `az acr check-health`](#check-health-with-az-acr-check-health)
 - [Docker-pull misslyckades med felet: net/http: begäran avbröts under väntan på anslutning (klienten. tids gränsen överskreds vid väntan på huvuden)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [Docker-push lyckades men Docker pull Miss lyckas med felet: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
-- [`az acr login`fungerar, men Docker-kommandon Miss lyckas med fel: obehörig: autentisering krävs](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` fungerar, men Docker-kommandon Miss lyckas med fel: obehörig: autentisering krävs](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [Aktivera och hämta fel söknings loggarna i Docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon)    
 - [Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
@@ -274,7 +279,7 @@ Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkom
 - [Databas formatet är ogiltigt eller stöds inte](#repository-format-is-invalid-or-unsupported)
 - [Hur gör jag för att samla in http-spårningar i Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med `az acr check-health`
 
 Information om fel sökning av vanliga problem med miljö och register finns i [kontrol lera hälso tillståndet för ett Azure Container Registry](container-registry-check-health.md).
 
@@ -316,7 +321,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Ett exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -451,10 +456,10 @@ För fullständiga namngivnings regler för databaser, se [distributions specifi
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
-- Aktivera dekryptering av https i Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Aktivera Docker att använda en proxy via Docker-gränssnittet:<https://docs.docker.com/docker-for-windows/#proxies>
+- Aktivera dekryptering av https i Fiddler:  <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Aktivera Docker att använda en proxy via Docker-gränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
 - Var noga med att återställa när du är klar.  Docker fungerar inte med den här funktionen och Fiddler körs inte.
 
 #### <a name="windows-containers"></a>Windows-containrar
@@ -471,7 +476,7 @@ Hitta IP-adressen för den virtuella växeln Docker VM:
 
 Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
 
-## <a name="tasks"></a>Aktiviteter
+## <a name="tasks"></a>Uppgifter
 
 - [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
 - [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
@@ -505,8 +510,8 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Ja |
 | Azure-lagringsplatser | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Ja | Ja |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Nej |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Nej |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Inga |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Inga |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 

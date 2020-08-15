@@ -11,16 +11,16 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: b8263e0445f7997469ba9165decbaccfa9ed2d6e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027859"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245612"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Självstudie: avvikelse identifiering vid strömmande data med Azure Databricks
 
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en snabb, enkel och gemensam Apache Spark-baserad analys tjänst. API: t för avvikelse detektor, som ingår i Azure Cognitive Services, ger ett sätt att övervaka dina tids serie data. Använd den här självstudien för att köra avvikelse identifiering på en data ström i nära real tid med hjälp av Azure Databricks. Du tar in Twitter-data med Azure Event Hubs och importerar dem till Azure Databricks med hjälp av Spark Event Hubs-anslutningen. Sedan använder du API: et för att identifiera avvikelser på strömmade data. 
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en snabb, enkel och gemensam Apache Spark-baserad analys tjänst. API: t för avvikelse detektor, som ingår i Azure Cognitive Services, ger ett sätt att övervaka dina tids serie data. Använd den här självstudien för att köra avvikelse identifiering på en data ström i nära real tid med hjälp av Azure Databricks. Du tar in Twitter-data med Azure Event Hubs och importerar dem till Azure Databricks med hjälp av Spark Event Hubs-anslutningen. Sedan använder du API: et för att identifiera avvikelser på strömmade data.
 
 Följande bild visar programflödet:
 
@@ -41,9 +41,9 @@ Den här självstudien omfattar följande uppgifter:
 
 > [!Note]
 > * Den här självstudien beskriver en metod för att implementera den rekommenderade [lösnings arkitekturen](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) för API: t för avvikelse identifiering.
-> * Den här självstudien kan inte utföras med en prenumeration på kostnads fri nivå ( `F0` ) för API: et för avvikelse detektor eller Azure Databricks. 
+> * Den här självstudien kan inte utföras med en prenumeration på kostnads fri nivå ( `F0` ) för API: et för avvikelse detektor eller Azure Databricks.
 
-Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har någon.
+Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/cognitive-services) om du inte har någon.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -51,7 +51,7 @@ Skapa en [Azure-prenumeration](https://azure.microsoft.com/free/) om du inte har
 
 - [Anslutnings strängen](../../../event-hubs/event-hubs-get-connection-string.md) som används för att komma åt Event Hubs-namnrymden. Anslutnings strängen måste ha ett liknande format för att:
 
-    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`. 
+    `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
 
 - Namnet på principen för delad åtkomst och princip nyckeln för Event Hubs.
 
@@ -73,12 +73,12 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../../../azure-resource-manager/management/overview.md). |
-    |**Position**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
-    |**Pris nivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderings version**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Plats**     | Välj **USA, östra 2** eller någon annan tillgänglig region. Se [vilka Azure-tjänster som är tillgängliga](https://azure.microsoft.com/regions/services/) för regions tillgänglighet.        |
+    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Välj inte **utvärderings version**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Välj **Skapa**.
 
-4. Det tar några minuter att skapa arbetsytan. 
+4. Det tar några minuter att skapa arbetsytan.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Skapa ett Spark-kluster i Databricks
 
@@ -98,7 +98,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med hjälp av [Azur
    * I den här artikeln skapar du ett kluster med **5,2** Runtime. Välj inte **5,3** Runtime.
    * Kontrol lera att kryss rutan **Avsluta efter \_ \_ minuter av inaktivitet** är markerad. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-     Välj **Skapa kluster**. 
+     Välj **skapa kluster**.
 4. Det tar flera minuter att skapa klustret. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 ## <a name="create-a-twitter-application"></a>Skapa ett Twitter-program
@@ -163,9 +163,9 @@ I den här självstudien använder du [Azure Cognitive Services avvikelse igenk�
 
     |Värde |Beskrivning  |
     |---------|---------|
-    |Name     | Ett namn för avvikelse detektor resursen.        |
+    |Namn     | Ett namn för avvikelse detektor resursen.        |
     |Prenumeration     | Den Azure-prenumeration som resursen ska associeras med.        |
-    |Location     | En Azure-plats.        |
+    |Plats     | En Azure-plats.        |
     |Prisnivå     | En pris nivå för tjänsten. Mer information om priser för avvikelse detektor finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resursgrupp     | Ange om du vill skapa en ny resursgrupp eller välja en befintlig.        |
 
@@ -285,7 +285,7 @@ while (!finished) {
       maxStatusId = Math.max(status.getId(), maxStatusId)
     }
   }
-  
+
   if (lowestStatusId == Long.MaxValue) {
     preMaxStatusId = maxStatusId
   }
@@ -325,7 +325,7 @@ Om du vill köra anteckningsboken trycker du på **SKIFT + RETUR**. Du ser utdat
 
 I antecknings boken **AnalyzeTweetsFromEventHub** klistrar du in följande kod och ersätter plats hållaren med värden för den avvikelse detektor resurs som du skapade tidigare. Den här anteckningsboken läser de tweets som du tidigare strömmade till Event Hubs med hjälp av anteckningsboken **SendTweetsToEventHub**.
 
-Börja med att skriva en klient för att anropa avvikelse detektor. 
+Börja med att skriva en klient för att anropa avvikelse detektor.
 ```scala
 
 //
@@ -451,25 +451,25 @@ import scala.collection.immutable.ListMap
 
 class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
   override def inputSchema: StructType = new StructType().add("timestamp", TimestampType).add("value", FloatType)
-  
+
   override def bufferSchema: StructType = new StructType().add("point", MapType(TimestampType, FloatType))
-  
+
   override def dataType: DataType = BooleanType
-  
+
   override def deterministic: Boolean = false
-  
+
   override def initialize(buffer: MutableAggregationBuffer): Unit = {
     buffer(0) = Map()
   }
-  
+
   override def update(buffer: MutableAggregationBuffer, input: Row): Unit = {
     buffer(0) = buffer.getAs[Map[java.sql.Timestamp, Float]](0) + (input.getTimestamp(0) -> input.getFloat(1))
   }
-  
+
   override def merge(buffer1: MutableAggregationBuffer, buffer2: Row): Unit = {
     buffer1(0) = buffer1.getAs[Map[java.sql.Timestamp, Float]](0) ++ buffer2.getAs[Map[java.sql.Timestamp, Float]](0)
   }
-  
+
   override def evaluate(buffer: Row): Any = {
     val points = buffer.getAs[Map[java.sql.Timestamp, Float]](0)
     if (points.size > 12) {
@@ -478,19 +478,19 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
       sorted_points.keys.foreach {
         key => detect_points = detect_points :+ new Point(key, sorted_points(key))
       }
-      
-      
+
+
       // 0.25 is maxAnomalyRatio. It represents 25%, max anomaly ratio in a time series.
       // 95 is the sensitivity of the algorithms.
       // Check Anomaly detector API reference (https://aka.ms/anomaly-detector-rest-api-ref)
-      
+
       val series: Series = new Series(detect_points.toArray, 0.25, 95, "hourly")
       val response: Option[AnomalySingleResponse] = AnomalyDetector.detectLatestPoint(series)
       if (!response.isEmpty) {
         return response.get.isAnomaly
       }
     }
-    
+
     return None
   }
 }
@@ -562,7 +562,7 @@ För att utföra avvikelse identifiering måste du först aggregera ditt mått a
 // Aggregate Metric Count by Hour
 //
 
-// If you want to change granularity, change the groupBy window. 
+// If you want to change granularity, change the groupBy window.
 val groupStream = msgStream.groupBy(window($"timestamp", "1 hour"))
   .agg(avg("favorite").alias("average"))
   .withColumn("groupTime", $"window.start")
@@ -584,7 +584,8 @@ groupTime                       average
 
 ```
 
-Hämta sedan det sammanställda resultatet till delta. Eftersom avvikelse identifiering kräver ett längre historik fönster använder vi delta för att behålla historik data för den punkt som du vill identifiera. Ersätt "[placeholder: Table Name]" med ett kvalificerat delta tabell namn som ska skapas (till exempel "tweets"). Ersätt "[placeholder: mappnamn för kontroll punkter]" med ett sträng värde som är unikt varje gången du kör den här koden (till exempel "ETL-from-eventhub-20190605").
+Hämta sedan det sammanställda resultatet till delta. Eftersom avvikelse identifiering kräver ett längre historik fönster använder vi delta för att behålla historik data för den punkt som du vill identifiera.
+Ersätt "[placeholder: Table Name]" med ett kvalificerat delta tabell namn som ska skapas (till exempel "tweets"). Ersätt "[placeholder: mappnamn för kontroll punkter]" med ett sträng värde som är unikt varje gången du kör den här koden (till exempel "ETL-from-eventhub-20190605").
 Om du vill veta mer om delta Lake på Azure Databricks, se [delta Lake-guide](https://docs.azuredatabricks.net/delta/index.html)
 
 
@@ -615,7 +616,7 @@ twitterData.show(200, false)
 
 display(twitterData)
 ```
-Följande utdata visas: 
+Följande utdata visas:
 ```
 groupTime                       average
 2019-04-08T01:00:00.000+0000    25.6
@@ -628,7 +629,8 @@ groupTime                       average
 
 ```
 
-Nu matas de sammanställda tids serie data in i delta. Sedan kan du schemalägga ett Tim jobb för att identifiera avvikelsen för den senaste punkten. Ersätt "[placeholder: Table Name]" med samma delta tabell namn som du har valt ovan.
+Nu matas de sammanställda tids serie data in i delta. Sedan kan du schemalägga ett Tim jobb för att identifiera avvikelsen för den senaste punkten.
+Ersätt "[placeholder: Table Name]" med samma delta tabell namn som du har valt ovan.
 
 ```scala
 //
@@ -667,7 +669,7 @@ spark.udf.register("anomalydetect", new AnomalyDetectorAggregationFunction)
 val adResult = spark.sql("SELECT '" + endTime.toString + "' as datetime, anomalydetect(groupTime, average) as anomaly FROM series")
 adResult.show()
 ```
-Resultat enligt nedan: 
+Resultat enligt nedan:
 
 ```
 +--------------------+-------+
@@ -678,7 +680,7 @@ Resultat enligt nedan:
 ```
 
 Klart! Med hjälp av Azure Databricks har du strömmat data till Azure Event Hubs, förbrukat data strömmen med hjälp av Event Hubs Connector och sedan kör avvikelse identifiering på strömmande data i nära real tid.
-I den här självstudien är precisionen varje timme, men du kan alltid ändra granularitet så att den passar dina behov. 
+I den här självstudien är precisionen varje timme, men du kan alltid ändra granularitet så att den passar dina behov.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -690,7 +692,7 @@ Om du inte avslutar klustret manuellt stoppas det automatiskt, förutsatt att du
 
 ## <a name="next-steps"></a>Nästa steg
 
-I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudie för att lära dig att anropa API: t för avvikelse detektor och visualisera avvikelser med Power BI Station ära datorer. 
+I självstudien har du lärt dig hur du använder Azure Databricks till att strömma data till Azure Event Hubs och sedan läsa strömmande data från Event Hubs i realtid. Gå vidare till nästa självstudie för att lära dig att anropa API: t för avvikelse detektor och visualisera avvikelser med Power BI Station ära datorer.
 
 > [!div class="nextstepaction"]
 >[Batch-avvikelse identifiering med Power BI Desktop](batch-anomaly-detection-powerbi.md)

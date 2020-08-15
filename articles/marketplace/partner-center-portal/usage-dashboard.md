@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c6964a28956230dabad007d60d84dcdd1cffab23
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9b8432a54aa90b7d500898b2f6959d075ac89460
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319923"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245340"
 ---
 # <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
 
@@ -112,10 +112,12 @@ På fliken **avgiftsbelagd fakturerings användning** visas användnings informa
 - Överförbruknings **trend med de främsta 50 kunderna**: de översta 50-erbjudandena med högst användnings timmar visas på en ***ledare*** och rangordnas med den högsta användningen av den anpassade mätaren. Välj en kund i ranknings lista om du vill visa användnings trenden för en vald mätnings dimension.
 - **Överförbruknings trend per främsta kunder**: visar de främsta kund percentilerna som bidrar till% av den övergripande användningen. Den främsta kund percentilen visas längs X-axeln och bestäms av kundens användnings antal. Y-axeln visar användnings antalet. Du kan visa information genom att hovra över punkter längs linje diagrammet.
 
+Om du har flera erbjudanden som använder anpassade mätare, visar rapporten förbrukad fakturerings användning information om alla dina erbjudanden, enligt de anpassade mätar dimensionerna.
+
 > [!NOTE]
 > Användnings informationen och alla diagram på den här sidan visas för den valda mätnings dimensionen för sid filtret.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - En översikt över analys rapporter som är tillgängliga i partner Centers kommersiella marknads platser finns i [analys för den kommersiella Marketplace i Partner Center](./analytics.md).
 - För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.

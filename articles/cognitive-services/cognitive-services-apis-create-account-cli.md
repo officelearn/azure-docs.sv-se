@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e21a131181831c2a87c0c6d2c24c9aa6e0acf7
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317135"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245017"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
-Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program. 
+Använd den här snabb starten för att komma igång med Azure Cognitive Services med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cognitive Services representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) som du skapar i din Azure-prenumeration. När du har skapat resursen använder du nycklarna och slut punkten som du skapade för att autentisera dina program.
 
 
 I den här snabb starten får du lära dig hur du registrerar dig för Azure Cognitive Services och skapar ett konto som har en tjänst prenumeration eller flera tjänster med hjälp av [kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Dessa tjänster representeras av Azure- [resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), vilket gör att du kan ansluta till en eller flera av azure-API:er för Cognitive Services.
@@ -27,10 +27,10 @@ I den här snabb starten får du lära dig hur du registrerar dig för Azure Cog
 
 ## <a name="prerequisites"></a>Krav
 
-* En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/) kostnads fri.
+* En giltig Azure-prenumeration – [skapa en](https://azure.microsoft.com/free/cognitive-services) kostnads fri.
 * [Kommando rads gränssnittet för Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="install-the-azure-cli-and-sign-in"></a>Installera Azure CLI och logga in 
+## <a name="install-the-azure-cli-and-sign-in"></a>Installera Azure CLI och logga in
 
 Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Logga in på den lokala installationen av CLI genom att köra kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) :
 
@@ -39,7 +39,7 @@ az login
 ```
 
 Du kan också använda det gröna **try** -knappen för att köra kommandona i webbläsaren.
- 
+
 ## <a name="create-a-new-azure-cognitive-services-resource-group"></a>Skapa en ny resurs grupp för Azure Cognitive Services
 
 Innan du skapar en Cognitive Services resurs måste du ha en Azure-resurs grupp som innehåller resursen. När du skapar en ny resurs har du möjlighet att antingen skapa en ny resurs grupp eller använda en befintlig. Den här artikeln visar hur du skapar en ny resurs grupp.
@@ -84,7 +84,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 > [!NOTE]
 > Många av de Cognitive Servicesna nedan har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd den kostnads fria nivån `F0` som SKU för din resurs.
 
-### <a name="vision"></a>Syn
+### <a name="vision"></a>Visuellt innehåll
 
 | Tjänst                    | Variant                      |
 |----------------------------|---------------------------|

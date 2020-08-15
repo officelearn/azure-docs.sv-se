@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2020
-ms.openlocfilehash: d4398b2bf37ad5dcf60a931f5d4991a3ad00845a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 5a7f13982de000478b14eb75d7341ed2e99c1274
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826559"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245578"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Med grupper för automatisk redundans kan du hantera replikering och redundans för en grupp databaser på en server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](active-geo-replication-overview.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till Azure-tjänsten baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av den SQL Database eller SQL-hanterade instans tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server eller instans i en annan region.
+Med funktionen för automatisk redundans grupp kan du hantera replikering och redundans för en grupp databaser på en server eller alla databaser i en hanterad instans till en annan region. Det är en deklarativ abstraktion ovanpå den befintliga funktionen [aktiv geo-replikering](active-geo-replication-overview.md) som är utformad för att förenkla distribution och hantering av geo-replikerade databaser i stor skala. Du kan initiera redundans manuellt eller så kan du delegera den till Azure-tjänsten baserat på en användardefinierad princip. Med det senare alternativet kan du automatiskt återställa flera relaterade databaser i en sekundär region efter ett oåterkalleligt fel eller annan oplanerad händelse som resulterar i fullständig eller partiell förlust av den SQL Database eller SQL-hanterade instans tillgänglighet i den primära regionen. En failover-grupp kan innehålla en eller flera databaser, som vanligt vis används av samma program. Dessutom kan du använda de läsbara sekundära databaserna för att avlasta skrivskyddade arbets belastningar. Eftersom grupper med automatisk redundans omfattar flera databaser, måste dessa databaser konfigureras på den primära servern. Grupper för automatisk redundans stöder replikering av alla databaser i gruppen till endast en sekundär server eller instans i en annan region.
 
 > [!NOTE]
 > Om du vill ha flera Azure SQL Database sekundära i samma eller olika regioner använder du [aktiv geo-replikering](active-geo-replication-overview.md).
@@ -203,7 +203,7 @@ För att illustrera ändrings ordningen kommer vi att anta att Server A är den 
 1. Utför en planerad redundansväxling för att växla mellan den primära servern och B. Server A blir den nya sekundära servern. Redundansväxlingen kan resultera i flera minuters stillestånds tid. Den faktiska tiden beror på storleken på gruppen för växling vid fel.
 2. Skapa ytterligare sekundär zoner för varje databas på Server B till Server C med hjälp av [aktiv geo-replikering](active-geo-replication-overview.md). Varje databas på Server B har två sekundära servrar, en på Server A och en på Server C. Detta garanterar att de primära databaserna förblir skyddade under över gången.
 3. Ta bort gruppen redundans. Inloggningarna fungerar inte. Detta beror på att SQL-aliasen för lyssnarna för redundansen har tagits bort och att gatewayen inte kan identifiera namnet på redundans gruppen.
-4. Återskapa redundans-gruppen med samma namn mellan servrarna A och C. Vid det här skedet slutar inloggningen att fungera.
+4. Återskapa redundans gruppen med samma namn mellan servrarna B och C. Vid det här skedet slutar inloggningen att fungera.
 5. Lägg till alla primära databaser på B i den nya gruppen för redundans.
 6. Utför en planerad redundansväxling av redundans-gruppen för att växla B och C. Nu kommer Server C att bli primär och B – den sekundära. Alla sekundära databaser på Server A kommer automatiskt att länkas till presidentval på C. Som i steg 1 kan redundansväxlingen leda till flera minuters stillestånds tid.
 7. Släpp Server A. Alla databaser på en tas bort automatiskt.
@@ -231,7 +231,7 @@ För att säkerställa icke-avbruten anslutning till den primära SQL-hanterade 
 > [!IMPORTANT]
 > Den första hanterade instans som skapas i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.
 
-Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](../managed-instance/failover-group-add-instance-tutorial.md#3---create-a-secondary-managed-instance).
+Mer information om hur du skapar den sekundära SQL-hanterade instansen i samma DNS-zon som den primära instansen finns i [skapa en sekundär hanterad instans](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Aktivera replikeringstrafik mellan två instanser
 
@@ -378,10 +378,10 @@ Den här sekvensen rekommenderas särskilt för att undvika problemet där den s
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
 
-På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system proceduren direkt efter att transaktionen har genomförts. Anrop `sp_wait_for_database_copy_sync` blockerar anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync`är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
+På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system proceduren direkt efter att transaktionen har genomförts. Anrop `sp_wait_for_database_copy_sync` blockerar anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync` är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync` procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
+> `sp_wait_for_database_copy_sync` förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync` procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Redundansväxla grupper och återställning av tidpunkt
 

@@ -3,12 +3,12 @@ title: 'Snabb start: fråga efter förutsägelse med webb läsar LUIS'
 description: I den här snabb starten använder du en tillgänglig offentlig LUIS-app för att fastställa en användares avsikt från konversations text i en webbläsare.
 ms.topic: quickstart
 ms.date: 04/21/2020
-ms.openlocfilehash: 5ba86882ebf3cb538ad6b865382342fcbd43d27c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 24c7a8aca410ad10b8a9299c4bca2f13d0feb780
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769969"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246003"
 ---
 # <a name="quickstart-query-prediction-runtime-with-user-text"></a>Snabb start: fråga förutsägelse körning med användar text
 
@@ -19,14 +19,14 @@ Om du vill förstå vad som returneras från en LUIS-slutpunkt för förutsägel
 Du behöver följande för att kunna skicka frågor till en offentlig app:
 
 * Din Language Understanding (LUIS) resurs information:
-    * **Förutsägelse nyckel** – som kan hämtas från [Luis-portalen](https://www.luis.ai/). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+    * **Förutsägelse nyckel** – som kan hämtas från [Luis-portalen](https://www.luis.ai/). Om du inte redan har en prenumeration för att skapa en nyckel kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/cognitive-services).
     * Under **domän för förutsägelse slut punkt** – under domänen är även **namnet** på din Luis-resurs.
-* Ett LUIS app-ID – Använd ID: t för `df67dcdb-c37d-46af-88e1-8b97951ca1c2`den offentliga IoT-appen. Den användar fråga som används i snabb starts koden är speciell för den appen.
+* Ett LUIS app-ID – Använd ID: t för den offentliga IoT-appen `df67dcdb-c37d-46af-88e1-8b97951ca1c2` . Den användar fråga som används i snabb starts koden är speciell för den appen.
 
 ## <a name="use-the-browser-to-see-predictions"></a>Använd webbläsaren för att se förutsägelser
 
 1. Öppna en webbläsare.
-1. Använd de fullständiga URL: erna nedan `YOUR-KEY` och Ersätt med din egen Luis-förutsägelse nyckel. Begär Anden är GET-begäranden och inkluderar auktoriseringen med LUIS-förutsägelse nyckeln som en frågesträngparametern.
+1. Använd de fullständiga URL: erna nedan och Ersätt `YOUR-KEY` med din egen Luis-förutsägelse nyckel. Begär Anden är GET-begäranden och inkluderar auktoriseringen med LUIS-förutsägelse nyckeln som en frågesträngparametern.
 
     #### <a name="v3-prediction-request"></a>[V3 förutsägelse förfrågan](#tab/V3-1-1)
 
@@ -95,7 +95,7 @@ Du behöver följande för att kunna skicka frågor till en offentlig app:
 
     #### <a name="v3-prediction-endpoint"></a>[V3 förutsägelse slut punkt](#tab/V3-3-1)
 
-    Lägg `show-all-intents=true` till i slutet av QueryString för att **Visa alla avsikter**:
+    Lägg till `show-all-intents=true` i slutet av QueryString för att **Visa alla avsikter**:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&show-all-intents=true
@@ -128,7 +128,7 @@ Du behöver följande för att kunna skicka frågor till en offentlig app:
 
     #### <a name="v2-prediction-endpoint"></a>[V2-förutsägelse slut punkt](#tab/V2)
 
-    Lägg `verbose=true` till i slutet av QueryString för att **Visa alla avsikter**:
+    Lägg till `verbose=true` i slutet av QueryString för att **Visa alla avsikter**:
 
     `
     https://YOUR-LUIS-ENDPOINT-SUBDOMAIN.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key=YOUR-LUIS-PREDICTION-KEY&verbose=true

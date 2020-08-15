@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sashan, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: 47f33d8b1a7792487491cbe7f2ddb5c7f5b087af
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c898eeaf99b8a24b992f1daa82b9149327b7a457
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002981"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245815"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Självstudie: Lägg till SQL-hanterad instans i en failover-grupp
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,7 +35,7 @@ Lägg till hanterade instanser av den hanterade Azure SQL-instansen i en redunda
   > - Hanterade instanser som ingår i en failover-grupp kräver antingen [Azure-ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) eller två anslutna VPN-gatewayer. Global VNet-peering stöds inte. Den här självstudien innehåller steg för att skapa och ansluta VPN-gatewayer. Hoppa över de här stegen om du redan har konfigurerat ExpressRoute. 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 För att kunna följa den här självstudien måste du ha: 
@@ -52,7 +52,7 @@ Kontrol lera att du har följande objekt för att slutföra självstudien:
 ---
 
 
-## <a name="1---create-a-resource-group-and-primary-managed-instance"></a>1 – Skapa en resurs grupp och en primär hanterad instans
+## <a name="create-a-resource-group-and-primary-managed-instance"></a>Skapa en resurs grupp och primär hanterad instans
 
 I det här steget ska du skapa resurs gruppen och den primära hanterade instansen för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
@@ -404,7 +404,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 
 ---
 
-## <a name="2---create-secondary-virtual-network"></a>2 – Skapa ett sekundärt virtuellt nätverk
+## <a name="create-secondary-virtual-network"></a>Skapa ett sekundärt virtuellt nätverk
 
 Om du använder Azure Portal för att skapa din hanterade instans måste du skapa det virtuella nätverket separat eftersom det finns ett krav att under nätet för den primära och sekundära hanterade instansen inte har några överlappande intervall. Om du använder PowerShell för att konfigurera din hanterade instans går du vidare till steg 3. 
 
@@ -432,7 +432,7 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk:
     | **Adressutrymme** | Adress utrymmet för det virtuella nätverket, till exempel `10.128.0.0/16` . | 
     | **Prenumeration** | Den prenumeration där den primära hanterade instansen och resurs gruppen finns. |
     | **Region** | Den plats där du ska distribuera den sekundära hanterade instansen. |
-    | **Undernät** | Namnet på under nätet. `default`tillhandahålls som standard. |
+    | **Undernät** | Namnet på under nätet. `default` tillhandahålls som standard. |
     | **Adressintervall**| Adress intervallet för ditt undernät. Detta måste vara ett annat än det under näts adress intervall som används av den primära hanterade instansens virtuella nätverk, till exempel `10.128.0.0/24` .  |
     | &nbsp; | &nbsp; |
 
@@ -444,7 +444,7 @@ Det här steget behövs bara om du använder Azure Portal för att distribuera S
 
 ---
 
-## <a name="3---create-a-secondary-managed-instance"></a>3 – skapa en sekundär hanterad instans
+## <a name="create-a-secondary-managed-instance"></a>Skapa en sekundär hanterad instans
 I det här steget ska du skapa en sekundär hanterad instans i Azure Portal, vilket även konfigurerar nätverket mellan de två hanterade instanserna. 
 
 Din andra hanterade instans måste:
@@ -734,9 +734,9 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 
 ---
 
-## <a name="4---create-a-primary-gateway"></a>4 – skapa en primär Gateway 
+## <a name="create-a-primary-gateway"></a>Skapa en primär Gateway 
 
-För två hanterade instanser att delta i en grupp för redundans måste det finnas antingen ExpressRoute eller en gateway som kon figurer ATS mellan de virtuella nätverken i de två hanterade instanserna för att tillåta nätverkskommunikation. Om du väljer att konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) i stället för att ansluta två VPN-gatewayer kan du gå vidare till [steg 7](#7---create-a-failover-group).  
+För två hanterade instanser att delta i en grupp för redundans måste det finnas antingen ExpressRoute eller en gateway som kon figurer ATS mellan de virtuella nätverken i de två hanterade instanserna för att tillåta nätverkskommunikation. Om du väljer att konfigurera [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) i stället för att ansluta två VPN-gatewayer kan du gå vidare till [steg 7](#create-a-failover-group).  
 
 Den här artikeln innehåller steg för att skapa de två VPN-gatewayerna och ansluta dem, men du kan gå vidare till att skapa en failover-grupp om du har konfigurerat ExpressRoute i stället. 
 
@@ -767,7 +767,6 @@ Skapa gatewayen för det virtuella nätverket för den primära hanterade instan
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Routningsbaserad**. |
     | **SKU**| Lämna standardvärdet `VpnGw1` . |
-    | **Plats**| Den plats där din primära hanterade instans och det primära virtuella nätverket finns.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-primary` . |
     | **Offentlig IP-adress**| Välj **Skapa ny**. |
     | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `primary-gateway-IP` . |
@@ -831,7 +830,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 ---
 
 
-## <a name="5---create-secondary-gateway"></a>5 – skapa en sekundär Gateway 
+## <a name="create-secondary-gateway"></a>Skapa en sekundär Gateway 
 I det här steget skapar du en gateway för det virtuella nätverket för den sekundära hanterade instansen med hjälp av Azure Portal. 
 
 
@@ -849,8 +848,7 @@ Använd Azure Portal och upprepa stegen i föregående avsnitt för att skapa de
    | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Routningsbaserad**. |
    | **SKU**| Lämna standardvärdet `VpnGw1` . |
-   | **Plats**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket finns.   |
-   | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
+   | **Virtuellt nätverk**| Välj det virtuella nätverket för den sekundära hanterade instansen, till exempel `vnet-sql-mi-secondary` . |
    | **Offentlig IP-adress**| Välj **Skapa ny**. |
    | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
@@ -883,7 +881,7 @@ Skapa gatewayen för det virtuella nätverket för den sekundära hanterade inst
                      -VirtualNetwork $secondaryVirtualNetwork
    $drLocation = $secondaryVirtualNetwork.Location
    
-   Write-host "Creating primary gateway..."
+   Write-host "Creating secondary gateway..."
    Write-host "This will take some time."
    $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
             -Location $drLocation -AllocationMethod Dynamic
@@ -911,7 +909,7 @@ I den här delen av självstudien används följande PowerShell-cmdletar:
 ---
 
 
-## <a name="6---connect-the-gateways"></a>6 – Anslut gatewayerna
+## <a name="connect-the-gateways"></a>Anslut gatewayerna
 I det här steget skapar du en dubbelriktad anslutning mellan de två gatewayerna för de två virtuella nätverken. 
 
 
@@ -923,21 +921,24 @@ Anslut de två gatewayerna med hjälp av Azure Portal.
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
 1. Skriv `connection` i sökrutan och tryck sedan på RETUR för att söka, som tar dig till **anslutnings** resursen som publicerats av Microsoft.
 1. Välj **skapa** för att skapa din anslutning. 
-1. På fliken **grundläggande** inställningar väljer du följande värden och väljer sedan **OK**. 
+1. På sidan **grundläggande** inställningar väljer du följande värden och väljer sedan **OK**. 
     1. Välj `VNet-to-VNet` för **anslutnings typen**. 
     1. Välj din prenumeration från listrutan. 
     1. Välj resurs grupp för SQL-hanterad instans i list rutan. 
     1. Välj platsen för din primära hanterade instans i list rutan. 
-1. På fliken **Inställningar** väljer eller anger du följande värden och väljer sedan **OK**:
-    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `Primary-Gateway` .  
-    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `Secondary-Gateway` . 
+1. På sidan **Inställningar** väljer eller anger du följande värden och väljer sedan **OK**:
+    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `primaryGateway` .  
+    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `secondaryGateway` . 
     1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning**. 
     1. Lämna antingen standard namnet för primär anslutning eller Byt namn på det till önskat värde. 
     1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk` . 
+    1. Spara inställningarna genom att välja **OK**. 
 
-   ![Skapa Gateway-anslutning](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
+    ![Skapa Gateway-anslutning](./media/failover-group-add-instance-tutorial/create-gateway-connection.png)
 
-1. På fliken **Sammanfattning** granskar du inställningarna för din dubbelriktade anslutning och väljer sedan **OK** för att skapa anslutningen. 
+    
+
+1. På sidan **Granska + skapa** granskar du inställningarna för din dubbelriktade anslutning och väljer sedan **OK** för att skapa anslutningen. 
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -970,7 +971,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 ---
 
 
-## <a name="7---create-a-failover-group"></a>7 – skapa en grupp för redundans
+## <a name="create-a-failover-group"></a>Skapa en grupp för redundans
 I det här steget skapar du gruppen redundans och lägger till båda hanterade instanser till den. 
 
 
@@ -1013,7 +1014,7 @@ I den här delen av självstudien används följande PowerShell-cmdlet:
 ---
 
 
-## <a name="8---test-failover"></a>8-testa redundans
+## <a name="test-failover"></a>Redundanstest
 I det här steget kommer du inte att kunna redundansväxla gruppen till den sekundära servern och sedan växla tillbaka med Azure Portal. 
 
 

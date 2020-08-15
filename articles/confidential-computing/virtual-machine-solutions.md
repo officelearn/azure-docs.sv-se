@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 6e853edf5b7ba756aaedceaf59b1f7d1d7e48b39
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985434"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245860"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Lösningar på virtuella Azure-datorer
 
 Den här artikeln beskriver hur du distribuerar virtuella datorer med Azure konfidentiella data bearbetning (VM) som kör Intel-processorer som backas upp av [Intel Software Guard-tillägget](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>VM-storlekar för konfidentiell databehandling i Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>VM-storlekar för Azure konfidentiella datorer
 
 Virtuella Azure-datorer med konfidentiell användning är utformade för att skydda konfidentialiteten och integriteten hos dina data och kod när de bearbetas i molnet 
 
@@ -32,41 +32,18 @@ Börja distribuera en virtuell dator med DCsv2-serien via Microsofts kommersiell
 Om du vill hämta en lista över alla allmänt tillgängliga storlekar för konfidentiell beräkning av virtuella datorer i tillgängliga regioner och tillgänglighets zoner kör du följande kommando i [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-Från och med maj 2020 är dessa SKU: er tillgängliga i följande regioner och tillgänglighets zoner:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 Om du vill ha en mer detaljerad vy över storlekarna ovan kör du följande kommando:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Krav för dedikerad värd
@@ -101,17 +78,17 @@ När du använder virtuella datorer i Azure är det du som ansvarar för att imp
 
 Azures konfidentiella data behandling har inte stöd för zon-redundans via Tillgänglighetszoner för tillfället. Använd [tillgänglighets uppsättningar](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)för högsta tillgänglighet och redundans för konfidentiell dator användning. På grund av maskin varu begränsningar kan tillgänglighets uppsättningar för konfidentiella data bearbetnings instanser bara ha högst 10 uppdaterings domäner. 
 
-## <a name="deploying-via-an-azure-resource-manager-template"></a>Distribuera via en Azure Resource Manager-mall 
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>Distribution med Azure Resource Manager-mall (ARM)
 
 Azure Resource Manager är Azures tjänst för distribution och hantering. Det tillhandahåller ett hanterings lager som gör att du kan skapa, uppdatera och ta bort resurser i din Azure-prenumeration. Du kan använda hanterings funktioner som åtkomst kontroll, lås och taggar för att skydda och organisera dina resurser efter distributionen.
 
-Mer information om Azure Resource Manager mallar finns [malldistribution översikt](../azure-resource-manager/templates/overview.md).
+Mer information om ARM-mallar finns i [malldistribution översikt](../azure-resource-manager/templates/overview.md).
 
-Om du vill distribuera en virtuell dator med DCsv2-serien i en Azure Resource Manager mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
+Om du vill distribuera en virtuell dator med DCsv2-serien i en ARM-mall använder du den [virtuella dator resursen](../virtual-machines/windows/template-description.md). Se till att du anger rätt egenskaper för **vmSize** och för din **imageReference**.
 
 ### <a name="vm-size"></a>Storlek på virtuell dator
 
-Ange en av följande storlekar i Azure Resource Manager-mallen i den virtuella dator resursen. Den här strängen anges som **vmSize** i **Egenskaper**.
+Ange en av följande storlekar i ARM-mallen i den virtuella dator resursen. Den här strängen anges som **vmSize** i **Egenskaper**.
 
 ```json
   [

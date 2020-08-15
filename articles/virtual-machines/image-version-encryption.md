@@ -3,34 +3,41 @@ title: För hands version – skapa en avbildnings version som är krypterad med
 description: Skapa en avbildnings version i ett delat avbildnings galleri med hjälp av Kundhanterade krypterings nycklar.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 469e225a1cc40dc2ecc45339d9355484e87c4af2
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223592"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245561"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
 Galleri avbildningar lagras som Managed disks, så de krypteras automatiskt med kryptering på Server sidan. Kryptering på Server sidan använder 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Mer information om de kryptografiska modulerna underliggande Azure Managed disks finns i [Cryptography-API: nästa generation](/windows/desktop/seccng/cng-portal)
 
-Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avbildningar, eller så kan du hantera kryptering med hjälp av dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar kan du ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera alla diskar i dina avbildningar. 
+Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avbildningar, använda dina egna nycklar, eller så kan du använda båda tillsammans för dubbel kryptering. Om du väljer att hantera kryptering med dina egna nycklar kan du ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera alla diskar i dina avbildningar. 
 
 Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../key-vault/keys/hsm-protected-keys.md) till Key Vault eller generera nya RSA-nycklar i Azure Key Vault.
 
-Om du vill använda Kundhanterade nycklar för avbildningar behöver du först en Azure Key Vault. Sedan skapar du en disk krypterings uppsättning. Disk krypterings uppsättningen används sedan när du skapar avbildnings versioner.
+## <a name="prerequisites"></a>Krav
 
-Mer information om hur du skapar och använder disk krypterings uppsättningar finns i [hanterade nycklar för kunder](./windows/disk-encryption.md#customer-managed-keys).
+Den här artikeln kräver att du redan har en disk krypterings uppsättning som ska användas för avbildningen.
+
+- Om du bara vill använda en kundhanterad nyckel läser du **Aktivera Kundhanterade nycklar med kryptering på Server sidan** med hjälp av [Azure Portal](./windows/disks-enable-customer-managed-keys-portal.md) eller [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+
+- Om du vill använda både plattforms-hanterade och Kundhanterade nycklar (för dubbel kryptering) kan du läsa **Aktivera dubbel kryptering i vila** med hjälp av [Azure Portal](./windows/disks-enable-double-encryption-at-rest-portal.md) eller [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+    > [!IMPORTANT]
+    > Du måste använda den här länken [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) för att få åtkomst till Azure Portal. Dubbel kryptering i vila är för närvarande inte synligt i den offentliga Azure Portal utan att använda länken.
 
 ## <a name="limitations"></a>Begränsningar
 
 Det finns flera begränsningar när du använder Kundhanterade nycklar för att kryptera delade avbildnings Galleri avbildningar:  
 
-- Krypterings nyckel uppsättningar måste finnas i samma prenumeration och region som avbildningen.
+- Krypterings nyckel uppsättningar måste vara i samma prenumeration och region som din avbildning.
 
 - Du kan inte dela avbildningar som använder Kundhanterade nycklar. 
 
@@ -72,7 +79,7 @@ Om den inte returneras `Registered` använder du följande för att registrera p
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) med `-TargetRegion` parametern. 
+Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du  [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) med `-TargetRegion` parametern. 
 
 ```azurepowershell-interactive
 
@@ -90,7 +97,7 @@ $encryption1 = @{OSDiskImage=$osDiskImageEncryption;DataDiskImages=$dataDiskImag
 
 $region1 = @{Name='West US';ReplicaCount=1;StorageAccountType=Standard_LRS;Encryption=$encryption1}
 
-$targetRegion = @{$region1}
+$targetRegion = @($region1)
 
 
 # Create the image
@@ -142,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du [AZ avbildnings Galleri skapa-avbildning-version](/cli/azure/sig/image-version#az-sig-image-version-create) med `--target-region-encryption` parametern. Formatet för `--target-region-encryption` är en blankstegsavgränsad lista över nycklar för kryptering av operativ system och data diskar. Den bör se ut så här: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
+Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du  [AZ avbildnings Galleri skapa-avbildning-version](/cli/azure/sig/image-version#az-sig-image-version-create) med `--target-region-encryption` parametern. Formatet för `--target-region-encryption` är en blankstegsavgränsad lista över nycklar för kryptering av operativ system och data diskar. Den bör se ut så här: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>` . 
 
 Om källan för OS-disken är en hanterad disk eller en virtuell dator använder `--managed-image` du för att ange källan för avbildnings versionen. I det här exemplet är källan en hanterad avbildning som har en operativ system disk och en datadisk på LUN 0. Operativ system disken kommer att krypteras med DiskEncryptionSet1 och data disken krypteras med DiskEncryptionSet2.
 
@@ -150,6 +157,7 @@ Om källan för OS-disken är en hanterad disk eller en virtuell dator använder
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus \
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
    --gallery-name MyGallery \
@@ -165,11 +173,12 @@ I det här exemplet är källorna disk ögonblicks bilder. Det finns en OS-disk 
 az sig image-version create \
    -g MyResourceGroup \
    --gallery-image-version 1.0.0 \
+   --location westus\
    --target-regions westus=2=standard_lrs \
    --target-region-encryption DiskEncryptionSet1,0,DiskEncryptionSet2 \
-   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot"
-   --data-snapshot-luns 0
-   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot"
+   --os-snapshot "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myOSSnapshot" \
+   --data-snapshot-luns 0 \
+   --data-snapshots "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/myDDSnapshot" \
    --gallery-name MyGallery \
    --gallery-image-definition MyImage 
    
@@ -182,15 +191,19 @@ Du kan skapa en virtuell dator från ett delat avbildnings galleri och använda 
 
 ## <a name="portal"></a>Portalen
 
-När du skapar din avbildnings version i portalen kan du använda fliken **kryptering** för att ange information om dina lagrings krypterings uppsättningar.
+När du skapar din avbildnings version i portalen kan du använda fliken **kryptering** för att ange tillämpa dina lagrings krypterings uppsättningar.
+
+> [!IMPORTANT]
+> Om du vill använda Double Encryption måste du använda den här länken [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) för att få åtkomst till Azure Portal. Dubbel kryptering i vila är för närvarande inte synligt i den offentliga Azure Portal utan att använda länken.
+
 
 1. På sidan **skapa en avbildnings version** väljer du fliken **kryptering** .
-2. I **krypterings typ**väljer du **kryptering i vila med en kundhanterad nyckel**. 
+2. I **krypterings typ**väljer du **kryptering i vila med en kundhanterad nyckel** eller **dubbel kryptering med plattforms hanterade och Kundhanterade nycklar**. 
 3. För varje disk i avbildningen väljer du den **disk krypterings uppsättning** som ska användas i list rutan. 
 
 ### <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Du kan skapa en virtuell dator från ett delat avbildnings galleri och använda Kundhanterade nycklar för att kryptera diskarna. När du skapar den virtuella datorn i portalen väljer du **kryptering i vila med Kundhanterade nycklar** för **krypterings typen**på fliken **diskar** . Du kan sedan välja krypterings uppsättningen i list rutan.
+Du kan skapa en virtuell dator från en avbildnings version och använda Kundhanterade nycklar för att kryptera diskarna. När du skapar den virtuella datorn i portalen **väljer du** **kryptering i vila med Kundhanterade nycklar** eller **dubbel kryptering med plattforms hanterade och Kundhanterade nycklar** för **krypterings typen**. Du kan sedan välja krypterings uppsättningen i list rutan.
 
 ## <a name="next-steps"></a>Nästa steg
 

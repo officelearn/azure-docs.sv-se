@@ -1,19 +1,19 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 07/16/2020
+ms.date: 08/14/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a924cb42ce1c5fccde3d49fa8f9c2d402997df52
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544373"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246093"
 ---
 >[!NOTE]
 >Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till läggs den till i listan.
@@ -62,7 +62,6 @@ ms.locfileid: "86544373"
 * USA DoD, centrala
 * USA DoD, östra
 * US Gov, Arizona
-* USA Gov, Iowa
 * US Gov, Texas
 * US Gov, Virginia
 

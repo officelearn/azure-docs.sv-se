@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 1bf6fefbe7d2ea3fccc393f4445fceec44ed4117
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc06f73aba216f37db570bb33b9f897fabb16cbf
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584679"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244133"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
 
@@ -33,7 +33,7 @@ Rapporterings-API: t för CTF (Collaborative Translation Framework) returnerar s
 Slut punkten för CTF repor ting API är https://api.microsofttranslator.com/v2/beta/ctfreporting.svc .
 
 ## <a name="methods"></a>Metoder
-| Name | Description|
+| Namn | Beskrivning|
 |:---|:---|
 | GetUserTranslationCounts-metod | Hämta antalet översättningar som skapas av användaren. |
 | GetUserTranslations-metod | Hämtar de översättningar som skapats av användaren. |
@@ -76,7 +76,7 @@ Den här metoden hämtar antalet översättningar som skapas av användaren. Den
 | appId | **Krävs** Om Authorization-huvudet används, lämnar du fältet AppID tomt annars anger du en sträng som innehåller "Bearer" + "" + åtkomsttoken.|
 | uriPrefix | **Valfritt** En sträng som innehåller prefixet för URI för översättningen.|
 | Från | **Valfritt** En sträng som representerar språk koden för översättnings texten. |
-| till | **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
+| på | **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
 | minRating| **Valfritt** Ett heltals värde som representerar den översatta textens minsta kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** Ett heltals värde som representerar den översatta textens maximala kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
 | användare | **Valfritt** En sträng som används för att filtrera resultatet baserat på överföringens upphovs man. |
@@ -84,7 +84,7 @@ Den här metoden hämtar antalet översättningar som skapas av användaren. Den
 | minDateUtc| **Valfritt** Det datum då du vill hämta översättningarna. Datumet måste vara i UTC-format. |
 | maxDateUtc| **Valfritt** Datumet till när du vill hämta översättningarna. Datumet måste vara i UTC-format. |
 | hoppa över| **Valfritt** Antalet resultat som du vill hoppa över på en sida. Om du till exempel vill hoppa över de första 20 raderna i resultaten och Visa från den 21: a resultat posten, anger du 20 för den här parametern. Standardvärdet för den här parametern är 0.|
-| gå | **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standardvärdet är 100.|
+| take | **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standardvärdet är 100.|
 
 > [!NOTE]
 > Parametrar för att hoppa över och utföra begär Anden möjliggör sid brytning för ett stort antal resultat poster.
@@ -93,13 +93,13 @@ Den här metoden hämtar antalet översättningar som skapas av användaren. Den
 
 Resultat uppsättningen innehåller en matris med **UserTranslationCount**. Varje UserTranslationCount har följande element:
 
-| Fält | Description |
+| Fält | Beskrivning |
 |:---|:---|
-| Antal| Antalet resultat som hämtas|
+| Count| Antalet resultat som hämtas|
 | Från | Käll språket|
 | Omdöme| Den klassificering som används av avsändaren i metod anropet AddTranslation ()|
-| Till| Mål språket|
-| Uri| Den URI som används i metod anropet AddTranslation ()|
+| Om du vill| Mål språket|
+| URI| Den URI som används i metod anropet AddTranslation ()|
 | Användare| Användar namnet|
 
 **Undantag**
@@ -113,7 +113,7 @@ Resultat uppsättningen innehåller en matris med **UserTranslationCount**. Varj
 > [!NOTE]
 > Kvoten justeras för att säkerställa skälighet mellan alla användare av tjänsten.
 
-**Visa kod exempel på GitHib**
+**Visa kod exempel på GitHub**
 * [C#](https://github.com/MicrosoftTranslator/CustomTranslator-API-CSharp)
 * [PHP](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP)
 
@@ -147,7 +147,7 @@ Den här metoden hämtar översättningarna som skapas av användaren. Den inneh
 | appId | **Krävs** Om Authorization-huvudet används, lämnar du fältet AppID tomt annars anger du en sträng som innehåller "Bearer" + "" + åtkomsttoken.|
 | uriPrefix| **Valfritt** En sträng som innehåller prefixet för URI för översättningen.|
 | Från| **Valfritt** En sträng som representerar språk koden för översättnings texten.|
-| till| **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
+| på| **Valfritt** En sträng som representerar språk koden som texten ska översättas till.|
 | minRating| **Valfritt** Ett heltals värde som representerar den översatta textens minsta kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** Ett heltals värde som representerar den översatta textens maximala kvalitets betyg. Det giltiga värdet är mellan-10 och 10. Standardvärdet är 1.|
 | användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på överföringens upphovs punkt**|
@@ -155,7 +155,7 @@ Den här metoden hämtar översättningarna som skapas av användaren. Den inneh
 | minDateUtc| **Valfritt** Det datum då du vill hämta översättningarna. Datumet måste vara i UTC-format.|
 | maxDateUtc| **Valfritt** Datumet till när du vill hämta översättningarna. Datumet måste vara i UTC-format.|
 | hoppa över| **Valfritt** Antalet resultat som du vill hoppa över på en sida. Om du till exempel vill hoppa över de första 20 raderna i resultaten och Visa från den 21: a resultat posten, anger du 20 för den här parametern. Standardvärdet för den här parametern är 0.|
-| gå| **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standard är 50.|
+| take| **Valfritt** Antalet resultat som du vill hämta. Det maximala antalet för varje begäran är 100. Standard är 50.|
 
 > [!NOTE]
 > Parametrar för att hoppa över och utföra begär Anden möjliggör sid brytning för ett stort antal resultat poster.
@@ -164,15 +164,15 @@ Den här metoden hämtar översättningarna som skapas av användaren. Den inneh
 
 Resultat uppsättningen innehåller en matris med **UserTranslation**. Varje UserTranslation har följande element:
 
-| Fält | Description |
+| Fält | Beskrivning |
 |:---|:---|
 | CreatedDateUtc| Datumet då posten skapades med AddTranslation ()|
 | Från| Käll språket|
 | OriginalText| Käll språks texten som används när begäran skickas|
 |Omdöme |Den klassificering som används av avsändaren i metod anropet AddTranslation ()|
-|Till|    Mål språket|
+|Om du vill|    Mål språket|
 |TranslatedText|    Översättningen som skickas i metod anropet AddTranslation ()|
-|Uri|   Den URI som används i metod anropet AddTranslation ()|
+|URI|   Den URI som används i metod anropet AddTranslation ()|
 |Användare   |Användar namnet|
 
 **Undantag**

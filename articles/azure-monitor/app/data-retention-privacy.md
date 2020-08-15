@@ -4,12 +4,12 @@ description: Policy för kvarhållning och sekretess policy
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 1b1a1e370d55ad58bf1468c2e8b2381b62707b6a
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372407"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245952"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -94,9 +94,6 @@ Microsoft använder endast data för att tillhandahålla tjänsten till dig.
 ## <a name="where-is-the-data-held"></a>Var lagras data?
 * Du kan välja plats när du skapar en ny Application Insights-resurs. Lär dig mer om Application Insights tillgänglighet per region [här](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Innebär det att min app måste finnas i USA, Europa eller Sydostasien?
-* Nej. Ditt program kan köras var som helst, antingen på dina egna lokala värdar eller i molnet.
-
 ## <a name="how-secure-is-my-data"></a>Hur säkert är mina data?
 Application Insights är en Azure-tjänst. Säkerhets principer beskrivs i [Azure-säkerhet, sekretess och efterlevnad White Paper](https://go.microsoft.com/fwlink/?linkid=392408).
 
@@ -129,7 +126,7 @@ Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp`används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
+`C:\Users\username\AppData\Local\Temp` används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
 ###  <a name="net"></a>.Net
 
@@ -178,7 +175,7 @@ Du `appInsights-node` kan åsidosätta mappsökvägen genom att ändra körnings
 
 Telemetri-buffertar kan inaktive ras genom att ställa in [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) på `false` . När session Storage är inaktiverat, används en lokal matris i stället som beständig lagring. Eftersom JavaScript SDK körs på en klient enhet har användaren åtkomst till den här lagrings platsen via deras utvecklarverktyg.
 
-### <a name="opencensus-python"></a>Python-räkningar
+### <a name="opencensus-python"></a>OpenCensus Python
 
 Som standard använder du python SDK för den aktuella användaren `%username%/.opencensus/.azure/` . Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina sparade data kommer att namnges efter den python-fil som skapade Telemetrin.
 
@@ -214,7 +211,7 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 | Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
 | Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
-|Windows Vista | Stöds inte. | E.t.
+|Windows Vista | Stöds inte. | Ej tillämpligt
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
 
@@ -256,7 +253,7 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Samtals spår *][api] |Händelse namn<br/>**Egenskaper** |
 | [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaper** |
-| SDK kan inte samla in data. Till exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| SDK kan inte samla in data. Ett exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 
@@ -277,7 +274,7 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 | Ajax |HTTP-anrop från webb sida till Server |
 | Begäranden |URL, varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutnings sträng eller URI, Sync/async, varaktighet, lyckades, SQL-uttryck (med Statusövervakare) |
-| **Undantag** |Typ, **meddelande**, anrops stackar, käll fil, rad nummer,`thread id` |
+| **Undantag** |Typ, **meddelande**, anrops stackar, käll fil, rad nummer, `thread id` |
 | Krascher |`Process id`, `parent process id` , `crash thread id` ; program korrigering, `id` , bygge;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
 | Spårning |**Meddelande** -och allvarlighets nivå |
 | Prestandaräknare |Processor tid, tillgängligt minne, begär ande frekvens, undantags frekvens, processens privata byte, i/o-hastighet, varaktighet för begäran, Kölängd för begäran |

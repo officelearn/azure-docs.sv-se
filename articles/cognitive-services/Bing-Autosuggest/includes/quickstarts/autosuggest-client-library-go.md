@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: ee897a22ceda4378ea9dba4579d5108a2ddf0b0d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c0129ff25f1df492ab6eba9f49add18d5321a3e8
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156638"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88246174"
 ---
-Kom igång med Automatiska förslag i Bing klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter. 
+Kom igång med Automatiska förslag i Bing klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter.
 
 Använd Automatiska förslag i Bing klient bibliotek för gå till Hämta Sök förslag baserat på ofullständiga frågesträngar.
 
@@ -23,7 +23,7 @@ Använd Automatiska förslag i Bing klient bibliotek för gå till Hämta Sök f
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte redan har en Azure-prenumeration [kan du skapa en kostnads fri](https://azure.microsoft.com/free/).
+* En Azure-prenumeration. Om du inte redan har en Azure-prenumeration [kan du skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services).
 * Den senaste versionen av [Go](https://golang.org/dl/).
 
 Börja använda Automatiska förslag i Bing klient biblioteket genom att skapa en Azure-resurs. Välj den resurs typ som passar dig bäst:
@@ -33,12 +33,12 @@ Börja använda Automatiska förslag i Bing klient biblioteket genom att skapa e
 ## <a name="create-environment-variables"></a>Skapa miljövariabler
 
 >[!NOTE]
-> Slut punkterna för resurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
+> Slut punkterna för resurser som skapats efter den 1 juli 2019 använder det anpassade under domän formatet som visas nedan. Mer information och en fullständig lista över regionala slut punkter finns i [anpassade under domän namn för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains).
 
 Med din nyckel och slut punkt från den resurs som du har skapat skapar du två miljövariabler för autentisering:
 <!-- replace the below variable names with the names expected in the code sample.-->
 * `AUTOSUGGEST_SUBSCRIPTION_KEY`: Resurs nyckeln för autentisering av dina begär Anden.
-* `AUTOSUGGEST_ENDPOINT`: Resurs slut punkten för att skicka API-begäranden. Den bör se ut så här:`https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+* `AUTOSUGGEST_ENDPOINT`: Resurs slut punkten för att skicka API-begäranden. Den bör se ut så här: `https://<your-custom-subdomain>.api.cognitive.microsoft.com`
 
 Följ anvisningarna för ditt operativ system.
 <!-- replace the below endpoint and key examples -->
@@ -74,7 +74,7 @@ När du har lagt till miljövariabeln så kör `source .bash_profile` från kons
 
 ## <a name="create-a-new-go-project"></a>Skapa ett nytt go-projekt
 
-I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt och navigerar till den. Arbets ytan kommer att innehålla tre mappar: 
+I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt och navigerar till den. Arbets ytan kommer att innehålla tre mappar:
 
 * **src**: den här katalogen innehåller käll kod och paket. Alla paket som installeras med `go get` kommandot kommer att finnas här.
 * **pkg**: den här katalogen innehåller de kompilerade go-paket-objekten. De här filerna har ett `.a` fil namns tillägg.
@@ -92,7 +92,7 @@ $ cd my-app
 
 ## <a name="install-the-client-library-for-go"></a>Installera klient biblioteket för go
 
-Nu ska vi installera klient biblioteket för Go: 
+Nu ska vi installera klient biblioteket för Go:
 
 ```bash
 $ go get -u <library-location-or-url>
@@ -154,10 +154,10 @@ Dessa kod exempel visar hur du utför grundläggande aktiviteter med hjälp av A
 
 ### <a name="authenticate-the-client"></a>Autentisera klienten
 
-> [!NOTE] 
-> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din automatiska förslags nyckel för Bing, med namnet `BING_AUTOSUGGEST_SUBSCRIPTION_KEY` och en för din slut punkt med namnet `BING_AUTOSUGGEST_ENDPOINT` .
+> [!NOTE]
+> Den här snabb starten förutsätter att du har [skapat en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)  för din automatiska förslags nyckel för Bing, med namnet `BING_AUTOSUGGEST_SUBSCRIPTION_KEY` och en för din slut punkt med namnet `BING_AUTOSUGGEST_ENDPOINT` .
 
-I `main()` funktionen instansierar du en klient med din slut punkt och nyckel. 
+I `main()` funktionen instansierar du en klient med din slut punkt och nyckel.
 
 ```go
 // Get the context, which is required by the SDK methods.
@@ -197,7 +197,7 @@ if len(groups) > 0 {
 }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet Go med `go run [arguments]` kommandot från program katalogen.
 

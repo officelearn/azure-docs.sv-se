@@ -9,15 +9,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/10/2019
+ms.date: 08/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366a302e4683c74e2ba62d76c066365a3c81b045
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ea95603ea630a1320db5698092f6748e36a9934
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051874"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245765"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>DBMS-distribution för SAP-arbetsbelastning för IBM Db2 på virtuella Azure-datorer
 
@@ -30,8 +30,8 @@ Mer information och uppdateringar om SAP på DB2 för LUW på Azure finns i SAP 
 
 Följande SAP-anteckningar är relaterade till SAP på Azure angående det utrymme som beskrivs i det här dokumentet:
 
-| Antecknings nummer | Rubrik |
-| --- | --- |
+| Antecknings nummer |Rubrik |
+| --- |--- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
 | [1999351] |Felsöka utökad Azure-övervakning för SAP |
@@ -54,10 +54,10 @@ Information om vilka SAP-produkter som stöds och Azure VM-typer finns i SAP NOT
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Konfigurations rikt linjer för IBM DB2 för Linux, UNIX och Windows för SAP-installationer i virtuella Azure-datorer
 ### <a name="storage-configuration"></a>Storage-konfiguration
-Alla databasfiler måste lagras på NTFS-filsystemet baserat på direktansluten diskar. De här diskarna monteras på den virtuella Azure-datorn och är baserade på Azure Page BLOB Storage ( <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> ) eller Managed disks ( <https://docs.microsoft.com/azure/storage/storage-managed-disks-overview> ). Alla typer av nätverks enheter eller fjär resurser som följande Azure File Services stöds **inte** för databasfiler: 
+En översikt över Azure Storage-typer för SAP-arbetsbelastningar finns i artikeln [Azure Storage typer för SAP-arbets belastning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage) alla databasfiler måste lagras på monterade diskar i Azure block Storage (Windows: NFFS, Linux: xfs, ext4 eller ext3). Alla typer av nätverks enheter eller fjär resurser som följande Azure-tjänster stöds **inte** för databasfiler: 
 
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
-* <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
+* [Microsoft Azure fil tjänst](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
 
 Med hjälp av diskar baserade på Azure Page BLOB Storage eller Managed Disks, gäller de instruktioner som gjorts i [överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) gäller även distributioner med DB2-DBMS.
 
@@ -67,7 +67,7 @@ Så länge den aktuella IOPS-kvoten per disk räcker är det möjligt att lagra 
 
 Information om prestanda finns också i kapitlet "data säkerhet och prestanda överväganden för databas kataloger" i SAP-installations guider.
 
-Du kan också använda Windows-lagringspooler (endast tillgängligt i Windows Server 2012 och senare) enligt beskrivningen [för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) för att skapa en stor logisk enhet över flera diskar.
+Du kan också använda Windows-lagringspooler (endast tillgängligt i Windows Server 2012 och senare) enligt beskrivningen [för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) eller LVM eller mdadm på Linux för att skapa en stor logisk enhet över flera diskar.
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
@@ -75,7 +75,59 @@ För de diskar som innehåller lagrings Sök vägarna för DB2 för dina sapdata
 
 För virtuella datorer i Azure M-serien kan svars tiden som skrivs till transaktions loggarna minskas med faktorer, jämfört med Azure Premium Storage prestanda, när Azure Skrivningsaccelerator används. Därför bör du Distribuera Azure-Skrivningsaccelerator för de virtuella hård diskar som utgör volymen för DB2-transaktionsloggarna. Information kan läsas i dokumentet [Skrivningsaccelerator](../../windows/how-to-enable-write-accelerator.md).
 
-### <a name="backuprestore"></a>Säkerhetskopiering/återställning
+## <a name="recommendation-on-vm-and-disk-structure-for-ibm-db2-deployment"></a>Rekommendation om VM och disk struktur för IBM DB2-distribution
+
+IBM DB2 for SAP NetWeaver-program stöds på alla VM-typer som anges i SAP support NOTE [1928533].  Rekommenderade VM-familjer för att köra IBM DB2 Database är Esd_v4/Eas_v4/Es_v3 och M/M_v2-serien för stora databaser med flera terabyte. Skriv prestanda i IBM DB2 Transaction logg disk kan förbättras genom att aktivera Skrivningsaccelerator i M-serien. 
+
+Följande är en bas linje konfiguration för olika storlekar och användning av SAP på DB2-distributioner från små till mycket stora:
+
+#### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Extra litet SAP-system: databas storlek 50-200 GB: exempel på lösnings hanteraren
+| VM-namn/storlek |DB2-monterings punkt |Azure Premium-disk |NR-diskar |IOPS |Data flöde [MB/s] |Storlek [GB] |Burst IOPS |Burst-Genoms [GB] | Rand storlek | Caching |
+| --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
+|vCPU: 4 |/DB2/ <SID> /sapdata |P6 |4 |960  |200  |256  |14,000  |680  |256 kB |ReadOnly |
+|RAM: 32 GiB |/DB2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 kB ||
+| |/DB2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 kB ||
+| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
+
+#### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Litet SAP-system: databas storlek 200-750 GB: Small Business Suite
+| VM-namn/storlek |DB2-monterings punkt |Azure Premium-disk |NR-diskar |IOPS |Data flöde [MB/s] |Storlek [GB] |Burst IOPS |Burst-Genoms [GB] | Rand storlek | Caching |
+| --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+|vCPU: 16 |/DB2/ <SID> /sapdata |P15 |4 |4,400  |500  |1,024  |14,000  |680  |256 kB |ReadOnly |
+|RAM: 128 GiB |/DB2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 kB ||
+| |/DB2/ <SID> /log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64 kB ||
+| |/DB2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
+
+#### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Medel SAP-system: databas storlek 500-1000 GB: Small Business Suite
+| VM-namn/storlek |DB2-monterings punkt |Azure Premium-disk |NR-diskar |IOPS |Data flöde [MB/s] |Storlek [GB] |Burst IOPS |Burst-Genoms [GB] | Rand storlek | Caching |
+| --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+|vCPU: 32 |/DB2/ <SID> /sapdata |P30 |2 |10,000  |400  |2,048  |10,000  |400  |256 kB |ReadOnly |
+|RAM: 256 GiB |/DB2/ <SID> /saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 kB ||
+| |/DB2/ <SID> /log_dir |P20 |2 |4,600  |300  |1,024  |7,000  |340  |64 kB ||
+| |/DB2/ <SID> /offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
+
+#### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Stort SAP-system: databas storlek 750-2000 GB: Business Suite
+| VM-namn/storlek |DB2-monterings punkt |Azure Premium-disk |NR-diskar |IOPS |Data flöde [MB/s] |Storlek [GB] |Burst IOPS |Burst-Genoms [GB] | Rand storlek | Caching |
+| --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+|vCPU: 64 |/DB2/ <SID> /sapdata |P30 |4 |20,000  |800  |4,096  |20,000  |800  |256 kB |ReadOnly |
+|RAM: 504 GiB |/DB2/ <SID> /saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128 kB ||
+| |/DB2/ <SID> /log_dir |P20 |4 |9,200  |600  |2,048  |14,000  |680  |64 kB ||
+| |/DB2/ <SID> /offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
+
+#### <a name="large-multi-terabyte-sap-system-database-size-2tb-global-business-suite-system"></a>Stort SAP-system för flera terabyte: databas storlek 2 TB +: globalt Business Suite-system
+| VM-namn/storlek |DB2-monterings punkt |Azure Premium-disk |NR-diskar |IOPS |Data flöde [MB/s] |Storlek [GB] |Burst IOPS |Burst-Genoms [GB] | Rand storlek | Caching |
+| --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+|M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
+|vCPU: 128 |/DB2/ <SID> /sapdata |P40 |4 |30,000  |1,000  |8,192  |30,000  |1,000  |256 kB |ReadOnly |
+|RAM: 2048 GiB |/DB2/ <SID> /saptmp |P20 |2 |4,600  |300  |1,024  |7,000  |340  |128 kB ||
+| |/DB2/ <SID> /log_dir |P30 |4 |20,000  |800  |4,096  |20,000  |800  |64 kB |WriteAccelerator |
+| |/DB2/ <SID> /offline_log_dir |P30 |1 |5,000  |200  |1,024  |5,000  |200  || |
+
+
+### <a name="backuprestore"></a>Säkerhetskopiera/återställa
 Säkerhets kopierings-/återställnings funktionen för IBM DB2 för LUW stöds på samma sätt som på standard operativ system för Windows Server och Hyper-V.
 
 Du måste se till att du har en giltig strategi för säkerhets kopiering av databasen. 
@@ -95,6 +147,15 @@ För att öka antalet mål som ska skrivas till kan två alternativ användas/ko
 >DB2 på Windows stöder inte Windows VSS-teknik. Det innebär att programkonsekvent säkerhets kopiering av den virtuella datorn för Azure Backup inte kan utnyttjas för virtuella datorer som DB2-DBMS distribueras i.
 
 ### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
+
+#### <a name="linux-pacemaker"></a>Linux-pacemaker
+
+Katastrof återställning av DB2-hög tillgänglighet (HADR) med pacemaker stöds. Både operativ systemen SLES och RHEL stöds. Den här konfigurationen möjliggör hög tillgänglighet för IBM DB2 för SAP. Distributions guider:
+* SLES: [hög tillgänglighet för IBM DB2 LUW på virtuella Azure-datorer på SUSE Linux Enterprise Server med pacemaker](dbms-guide-ha-ibm.md) 
+* RHEL: [hög tillgänglighet för IBM DB2 LUW på virtuella Azure-datorer på Red Hat Enterprise Linux server](high-availability-guide-rhel-ibm-db2-luw.md)
+
+#### <a name="windows-cluster-server"></a>Windows kluster Server
+
 Microsoft Cluster Server (MSCS) stöds inte.
 
 Katastrof återställning av DB2-hög tillgänglighet (HADR) stöds. Om de virtuella datorerna i HA-konfigurationen har fungerande namn matchning, skiljer sig inte installationen i Azure från alla inställningar som görs lokalt. Vi rekommenderar inte att du bara använder IP-matchning.

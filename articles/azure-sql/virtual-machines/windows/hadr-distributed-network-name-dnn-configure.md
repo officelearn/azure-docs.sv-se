@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c40f4d9f86f27af34c1bc649483810f6756c41d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 8eb9caf466148e43266c4be9cf1308da15fb67f2
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169824"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245544"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Konfigurera ett distribuerat nätverks namn för en FCI 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ På Azure Virtual Machines används det distribuerade nätverks namnet (DNN) fö
 
 I den här artikeln lär du dig att konfigurera en DNN för att dirigera trafik till din skyddas med SQL Server på virtuella Azure-datorer för hög tillgänglighet och haveri beredskap (HADR). 
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Krav
 
 Innan du slutför stegen i den här artikeln bör du redan ha:
 
@@ -156,6 +156,29 @@ Följ dessa steg om du vill testa redundans:
 Om du vill testa anslutningen loggar du in på en annan virtuell dator i samma virtuella nätverk. Öppna **SQL Server Management Studio** och anslut till SQL Server-FCI med DNS-namnet DNN.
 
 Om du behöver kan du [hämta SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
+## <a name="avoid-ip-conflict"></a>Undvik IP-konflikt
+
+Detta är ett valfritt steg för att förhindra att den virtuella IP-adressen (VIP) som används av FCI-resursen tilldelas till en annan resurs i Azure som en dubblett. 
+
+Även om kunderna nu använder DNN för att ansluta till SQL Server FCI, kan inte det virtuella nätverks namnet (VNN) och den virtuella IP-adressen tas bort eftersom de är nödvändiga komponenter i FCI-infrastrukturen. Eftersom det inte längre finns en belastningsutjämnare som reserverar den virtuella IP-adressen i Azure, finns det en risk att en annan resurs i det virtuella nätverket tilldelas samma IP-adress som den virtuella IP-adressen som används av FCI. Detta kan potentiellt leda till en dubblett av IP-konflikter. 
+
+Konfigurera en APIPA-adress eller ett dedikerat nätverkskort för att reservera IP-adressen. 
+
+### <a name="apipa-address"></a>APIPA-adress
+
+Om du vill undvika att använda dubbla IP-adresser konfigurerar du en APIPA-adress (kallas även länk lokal adress). Det gör du genom att köra följande kommando:
+
+```powershell
+Get-ClusterResource "virtual IP address" | Set-ClusterParameter 
+    –Multiple @{"Address”=”169.254.1.1”;”SubnetMask”=”255.255.0.0”;"OverrideAddressMatch"=1;”EnableDhcp”=0}
+```
+
+I det här kommandot är "virtuell IP-adress" namnet på den klustrade VIP-adressresursen och "169.254.1.1" är APIPA-adressen som valts för VIP-adressen. Välj den adress som passar din verksamhet bäst. Ange `OverrideAddressMatch=1` att IP-adressen ska tillåtas i alla nätverk, inklusive APIPA-adressutrymmet. 
+
+### <a name="dedicated-network-adapter"></a>Dedikerat nätverkskort
+
+Alternativt kan du konfigurera ett nätverkskort i Azure för att reservera IP-adressen som används av den virtuella IP-adressresursen. Detta förbrukar dock adressen i adress utrymmet för under nätet och det finns ytterligare kostnader för att säkerställa att nätverkskortet inte används i något annat syfte.
 
 ## <a name="limitations"></a>Begränsningar
 

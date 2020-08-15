@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 458cda927a6a123fcd9962efc6ab705e13f43286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878790"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88244303"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använda Docker Compose för att distribuera flera containrar
 
@@ -29,7 +29,7 @@ Det kan vara användbart att dirigera flera behållar avbildningar på en dator 
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt:
 
-* En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar.
 * [Docker-motorn](https://www.docker.com/products/docker-engine). Bekräfta att Docker CLI fungerar i ett konsol fönster.
 * En Azure-resurs med rätt pris nivå. Endast följande pris nivåer fungerar med den här behållaren:
   * **Visuellt innehåll** resurs med endast F0 eller standard pris nivå.
@@ -46,7 +46,7 @@ Slutför och skicka [formuläret Cognitive Services tal behållare för begäran
 
 ## <a name="docker-compose-file"></a>Docker Compose-fil
 
-YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen `DockerFile` en eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
+YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen en `DockerFile` eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
 
 ```yaml
 version: '3.7'
@@ -172,7 +172,7 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-containers"></a>Test behållare
 
-Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från *Docker-Compos. yaml* -filen, till exempel http://localhost:5021/swagger/index.html. Du kan till exempel använda funktionen **testa IT** i API: et för att testa formulär tolkens slut punkt. Båda behållarna Swagger Pages bör vara tillgängliga och testable.
+Öppna en webbläsare på värddatorn och gå till **localhost** genom att använda den angivna porten från *Docker-Compos. yaml* -filen, till exempel http://localhost:5021/swagger/index.html . Du kan till exempel använda funktionen **testa IT** i API: et för att testa formulär tolkens slut punkt. Båda behållarna Swagger Pages bör vara tillgängliga och testable.
 
 ![Formulär igenkännings behållare](media/form-recognizer-swagger-page.png)
 

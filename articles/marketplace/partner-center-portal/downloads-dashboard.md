@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: shganesh-dev
 ms.author: shganesh
-ms.openlocfilehash: 2bd38bc7a499aa9178d49f54e27a88a38206e521
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5b688d64641f6dd8779d699bcd1d646e40b19b87
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317577"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88245680"
 ---
 # <a name="downloads-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för nedladdningar i Commercial Marketplace-analys
 
@@ -25,9 +25,7 @@ Den här artikeln innehåller information om instrument panelen för nedladdning
 
 ## <a name="downloads-dashboard"></a>Ladda ned instrumentpanel
 
-Instrument panelen för **nedladdningar** i **analys** menyn visar begär Anden om hämtningar som innehåller över 1000 rader med kund-eller order data.
-
-Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk till instrument panelen för **nedladdningar** när du begär en nedladdning med över 1000 rader med data. Dessa data hämtningar är tillgängliga under en 30-dagarsperiod och tas sedan bort.
+Instrument panelen för **nedladdningar** i **analys** menyn visar begär Anden om hämtningar som innehåller över 1000 rader med kund-eller order data. Dessa data hämtningar är tillgängliga i 30 dagar och tas sedan bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

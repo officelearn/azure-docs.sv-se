@@ -4,12 +4,12 @@ description: Lär dig mer om nätverk i Azure Kubernetes service (AKS), inklusiv
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
+ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387769"
+ms.lasthandoff: 08/15/2020
+ms.locfileid: "88243912"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -73,6 +73,8 @@ Mer information finns i [Konfigurera Kubernetes-nätverk för ett AKS-kluster][a
 
 Med Azure CNI får varje podd en IP-adress från undernätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, som annars kan leda till IP-adressundernät eller behöver återskapa kluster i ett större undernät när ditt program kräver större belastning.
 
+Till skillnad från Kubernetes är trafik till slut punkter i samma virtuella nätverk inte NAT till nodens primära IP. Käll adressen för trafik i det virtuella nätverket är Pod IP. Trafik som är extern för det virtuella nätverket fortfarande NAT till nodens primära IP.
+
 Noder använder Kubernetes [-plugin-programmet för Azure Container Network Interface (cni)][cni-networking] .
 
 ![Diagram som visar två noder med bryggor som ansluter var och en till ett enda Azure VNet][advanced-networking-diagram]
@@ -119,7 +121,7 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Om du manuellt skapar de virtuella nätverks resurserna för ett AKS-kluster, kan du konfigurera dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.
 
-## <a name="ingress-controllers"></a>Inkommande styrenheter
+## <a name="ingress-controllers"></a>Ingress-kontroller
 
 När du skapar en LoadBalancer-typ tjänst skapas en underliggande resurs för Azure Load Balancer. Belastningsutjämnaren konfigureras för att distribuera trafik till poddar i din tjänst på en specifik port. LoadBalancer fungerar endast på nivå 4 – tjänsten är inte medveten om de faktiska programmen och kan inte göra några ytterligare Dirigerings överväganden.
 

@@ -1,6 +1,6 @@
 ---
 title: Förändringar på plats av SQL Server Edition
-description: Lär dig hur du ändrar utgåvan av din SQL Server virtuella dator i Azure.
+description: Lär dig hur du ändrar versionen av din SQL Server virtuella dator i Azure för att nedgradera för att minska kostnaderna eller uppgradera för att aktivera fler funktioner.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,14 +13,14 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60020667126fe76d33264795ddb2e17e1241a7b2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669176"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236292"
 ---
-# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Ändring på plats av SQL Server-utgåva på en virtuell Azure-dator
+# <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Förändringar på plats av SQL Server Edition på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 I den här artikeln beskrivs hur du ändrar versionen av SQL Server på en virtuell Windows-dator i Azure. 

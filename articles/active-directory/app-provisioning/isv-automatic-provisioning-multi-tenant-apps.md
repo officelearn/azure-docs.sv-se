@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 479bbe2dbef2d28a2744b667184c45e85faf9adc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283103"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235646"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -54,7 +54,7 @@ Azure AD tillhandahåller flera integrerings vägar för att aktivera automatisk
 
 * [Azure AD Provisioning-tjänsten](../app-provisioning/user-provisioning.md) hanterar etableringen och avetableringen av användare från Azure AD till ditt program (utgående etablering) och från ditt program till Azure AD (inkommande etablering). Tjänsten ansluter till systemet med API-slutpunkter för användar hantering i SCIM (Cross-Domain Identity Management) som tillhandahålls av ditt program.
 
-* När du använder [Microsoft Graph](https://docs.microsoft.com/graph/)hanterar ditt program inkommande och utgående etablering av användare och grupper från Azure AD till ditt program genom att fråga Microsoft Graph-API: et.
+* När du använder [Microsoft Graph](/graph/)hanterar ditt program inkommande och utgående etablering av användare och grupper från Azure AD till ditt program genom att fråga Microsoft Graph-API: et.
 
 * Användar etableringen för Security Assertion Markup Language just-in-Time (SAML JIT) kan aktive ras om programmet använder SAML för federation. Den använder anspråk information som skickas i SAML-token för att etablera användare.
 
@@ -72,8 +72,8 @@ För att avgöra vilket integrations alternativ som ska användas för programme
 | Stöd gäst konton (B2B)| √| √| √ |
 | Stöd för icke-Enterprise-konton (B2C)| X| √| √ |
 
-<sup>*</sup>– Azure AD Connect installationen krävs för att synkronisera användare från AD till Azure AD.  
-<sup>+</sup >– Om du använder SCIM för etablering hindras du från att integrera ditt program med MIcrosoft Graph i andra syfte.
+<sup>*</sup> – Azure AD Connect installationen krävs för att synkronisera användare från AD till Azure AD.  
+<sup>+</sup >– Om du använder SCIM för etablering hindras du från att integrera ditt program med Microsoft Graph för andra användnings sätt.
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning-tjänst (SCIM)
 
@@ -89,7 +89,7 @@ Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i:
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph för etablering
 
-När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
+När du använder Microsoft Graph för etablering har du till gång till alla omfattande användar data som är tillgängliga i Graph. Förutom information om användare och grupper kan du också hämta ytterligare information, t. ex. användarens roller, chef och direkt rapporter, ägda och registrerade enheter och hundratals andra data delar som är tillgängliga i [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
 Fler än 15 000 000 organisationer och 90% av Fortune 500-företag använder Azure AD för att prenumerera på Microsofts moln tjänster som Office 365, Microsoft Azure, Enterprise Mobility Suite eller Microsoft 365. Du kan använda Microsoft Graph för att integrera din app med administrativa arbets flöden, till exempel medarbetarnas onboarding (och terminering), profil underhåll med mera. 
 
@@ -97,9 +97,9 @@ Läs mer om hur du använder Microsoft Graph för etablering:
 
 * [Microsoft Graph start sida](https://developer.microsoft.com/graph)
 
-* [Översikt över Microsoft Graph](https://docs.microsoft.com/graph/overview)
+* [Översikt över Microsoft Graph](/graph/overview)
 
-* [Översikt över Microsoft Graph auth](https://docs.microsoft.com/graph/auth/)
+* [Översikt över Microsoft Graph auth](/graph/auth/)
 
 * [Komma igång med Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
@@ -109,7 +109,7 @@ Om du bara vill etablera användare vid första inloggningen till ditt program o
 
 SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Aktivera enkel inloggning för ditt program](../manage-apps/isv-sso-content.md)
 

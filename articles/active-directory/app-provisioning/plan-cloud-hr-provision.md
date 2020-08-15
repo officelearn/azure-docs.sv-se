@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445563"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235708"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -56,7 +56,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
-### <a name="terms"></a>Villkor
+### <a name="terms"></a>Termer
 
 I den här artikeln används följande villkor:
 
@@ -79,9 +79,9 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-- Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) för att konfigurera Azure AD Connect etablerings agenten.
+- Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  för att konfigurera Azure AD Connect etablerings agenten.
 - Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
 - En test-och produktions instans av Cloud HR-appen.
 - Administratörs behörighet i Cloud HR-appen för att skapa en system integrations användare och göra ändringar för att testa medarbetar data i test syfte.
@@ -96,10 +96,10 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| VANLIGA FRÅGOR OCH SVAR | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Vanliga frågor | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
-### <a name="solution-architecture"></a>Lösningsarkitekturen
+### <a name="solution-architecture"></a>Lösningsarkitektur
 
 I följande exempel beskrivs den kompletta lösningen för användar etablerings lösningen för vanliga hybrid miljöer och inkluderar:
 
@@ -167,7 +167,7 @@ Etableringen av integreringen mellan Cloud HR-appen och Active Directory kräver
 - Azure AD Connect etablerings agent
 - Active Directory-domän
 
-Den Azure AD Connect etablerings agentens distributions topologi beror på antalet Cloud HR app-klienter och Active Directory underordnade domäner som du planerar att integrera. Om du har flera Active Directory domäner beror det på om Active Directorys domänerna är sammanhängande eller [åtskilda](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/disjoint-namespace).
+Den Azure AD Connect etablerings agentens distributions topologi beror på antalet Cloud HR app-klienter och Active Directory underordnade domäner som du planerar att integrera. Om du har flera Active Directory domäner beror det på om Active Directorys domänerna är sammanhängande eller [åtskilda](/windows-server/identity/ad-ds/plan/disjoint-namespace).
 
 Välj ett av distributions scenarier baserat på ditt beslut:
 
@@ -313,7 +313,7 @@ Med det här uttrycket, om Orts värdet är Borås, Austin, Seattle eller London
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>Planera för lösen ords leverans för nya användar konton
 
-När du startar anslutnings processen måste du ange och leverera ett tillfälligt lösen ord för nya användar konton. Med Azure AD-användar etablering för Azure AD kan du distribuera funktionen för återställning av lösen ord för Azure AD-SSPR ( [självbetjäning](../authentication/quickstart-sspr.md) ) för användaren dag ett.
+När du startar anslutnings processen måste du ange och leverera ett tillfälligt lösen ord för nya användar konton. Med Azure AD-användar etablering för Azure AD kan du distribuera funktionen för återställning av lösen ord för Azure AD-SSPR ( [självbetjäning](../authentication/tutorial-enable-sspr.md) ) för användaren dag ett.
 
 SSPR är ett enkelt sätt för IT-administratörer att göra det möjligt för användare att återställa sina lösen ord eller låsa upp sina konton. Du kan etablera attributet **Mobile Number** från Cloud HR-appen för att Active Directory och synkronisera det med Azure AD. När attributet **Mobile Number** är i Azure AD kan du aktivera SSPR för användarens konto. Sedan på dag ett kan den nya användaren använda det registrerade och verifierade mobiltelefon numret för autentisering.
 

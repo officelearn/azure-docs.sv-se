@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: f4310350e83284d6a2839f8c3d86526d3cda74ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40809fae312401cb62fabb10140b9bb7f60e3715
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743583"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234779"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Felsöka vanliga problem med Routning
 
@@ -102,7 +102,7 @@ Det finns flera möjliga orsaker till det här problemet:
          - Exempel: om Server delen bara accepterar HTTP-förfrågningar är följande konfigurationer giltiga:
             - _Godkända protokoll_ är http och https. _Protokoll för vidarebefordran_ är http. Matchnings förfrågan fungerar inte, eftersom HTTPS är ett tillåtet protokoll och om en begäran kom in som HTTPS, försöker front dörren vidarebefordra den med hjälp av HTTPS.
 
-            - _Godkända protokoll_ är http. _Vidarebefordrande protokoll_ matchar antingen Request eller https.
+            - _Godkända protokoll_ är http. _Forwarding-protokollet_ matchar antingen Request eller http.
 
     - _URL-omskrivning_ är inaktive rad som standard och du bör endast använda det här fältet om du vill begränsa omfattningen av Server dels värd resurser som du vill göra tillgängliga. När den är inaktive rad vidarebefordrar front dörren samma sökväg för begäran som den tar emot. Det är möjligt att det här fältet är felkonfigurerat och att front dörren begär en resurs från Server delen som inte är tillgänglig, vilket returnerar en status kod för HTTP 404.
 

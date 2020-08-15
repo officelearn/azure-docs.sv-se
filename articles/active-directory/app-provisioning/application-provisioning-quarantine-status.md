@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: ac5b1f72e4c70e15ccb12ea41e5f080ca0b8a505
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203033"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234753"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -34,7 +34,7 @@ Det finns tre sätt att kontrol lera om ett program finns i karantän:
 
 - I Azure Portal navigerar du till **Azure Active Directory**  >  **gransknings loggar** > filtrera på **aktivitet: karantän** och granska karantän historiken. Vyn i förlopps indikatorn enligt beskrivningen ovan visar om etableringen för närvarande finns i karantän, men gransknings loggarna gör att du kan se karantän historiken för ett program. 
 
-- Använd Microsoft Graph begäran [Hämta synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) för att program mässigt Hämta status för etablerings jobbet:
+- Använd Microsoft Graph begäran [Hämta synchronizationJob](/graph/api/synchronization-synchronizationjob-get?tabs=http&view=graph-rest-beta) för att program mässigt Hämta status för etablerings jobbet:
 
 ```microsoft-graph
         GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
@@ -52,15 +52,15 @@ Det finns tre sätt att kontrol lera om ett program finns i karantän:
 |---|---|
 |**Problem med scim-kompatibilitet:** Ett HTTP/404-svar som inte hittades returnerades i stället för det förväntade HTTP/200 OK-svaret. I det här fallet har Azure AD Provisioning-tjänsten gjort en begäran till mål programmet och fått ett oväntat svar.|Kontrol lera avsnittet admin credentials för att se om programmet kräver att klient webb adressen anges och att webb adressen är korrekt. Om du inte ser något problem kontaktar du programutvecklaren för att se till att deras tjänster är SCIM-kompatibla. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Ogiltiga autentiseringsuppgifter:** Vid försök att bevilja åtkomst till mål programmet fick vi ett svar från mål programmet som anger att de angivna autentiseringsuppgifterna är ogiltiga.|Gå till avsnittet admin credentials i etablerings konfigurationens gränssnitt och auktorisera åtkomsten igen med giltiga autentiseringsuppgifter. Om programmet finns i galleriet läser du själv studie kursen om program konfiguration för eventuella ytterligare steg som krävs.|
-|**Dubbla roller:** Roller som importeras från vissa program som Salesforce och Zendesk måste vara unika. |Navigera till applikations [manifestet](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) i Azure Portal och ta bort den duplicerade rollen.|
+|**Dubbla roller:** Roller som importeras från vissa program som Salesforce och Zendesk måste vara unika. |Navigera till applikations [manifestet](../develop/reference-app-manifest.md) i Azure Portal och ta bort den duplicerade rollen.|
 
  En Microsoft Graph begäran om att hämta status för etablerings jobbet visar följande orsak för karantänen:
 
-- `EncounteredQuarantineException`indikerar att ogiltiga autentiseringsuppgifter har angetts. Etablerings tjänsten kan inte upprätta en anslutning mellan käll systemet och mål systemet.
+- `EncounteredQuarantineException` indikerar att ogiltiga autentiseringsuppgifter har angetts. Etablerings tjänsten kan inte upprätta en anslutning mellan käll systemet och mål systemet.
 
-- `EncounteredEscrowProportionThreshold`anger att etableringen överskred tröskelvärdet för depositions. Det här tillståndet inträffar när mer än 60% av etablerings händelserna misslyckades.
+- `EncounteredEscrowProportionThreshold` anger att etableringen överskred tröskelvärdet för depositions. Det här tillståndet inträffar när mer än 60% av etablerings händelserna misslyckades.
 
-- `QuarantineOnDemand`innebär att vi har identifierat ett problem med ditt program och har ställt in det manuellt på karantän.
+- `QuarantineOnDemand` innebär att vi har identifierat ett problem med ditt program och har ställt in det manuellt på karantän.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>Hur gör jag för att hämta mitt program från karantänen?
 
@@ -74,11 +74,10 @@ När du har löst problemet startar du om etablerings jobbet. Vissa ändringar a
 
 - Använd Azure Portal för att starta om etablerings jobbet. På programmets **etablerings** sida under **Inställningar**väljer du **Rensa tillstånd och startar om synkronisering** och ställer in **etablerings status** på **på**. Den här åtgärden startar om etablerings tjänsten helt, vilket kan ta lite tid. En fullständig första cykel körs igen, vilket rensar escrows, tar bort appen från karantänen och tar bort alla vattenstämplar.
 
-- Använd Microsoft Graph för att [starta om etablerings jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa escrows (om du vill starta om depositions-räknaren som påförs i karantäns status), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
+- Använd Microsoft Graph för att [starta om etablerings jobbet](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Du har fullständig kontroll över vad du vill starta om. Du kan välja att rensa escrows (om du vill starta om depositions-räknaren som påförs i karantäns status), rensa karantän (för att ta bort programmet från karantän) eller rensa vattenstämplar. Använd följande begäran:
  
 ```microsoft-graph
         POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
 ```
 
-Ersätt "{ID}" med värdet för program-ID: t och Ersätt "{jobId}" med [ID: t för synkroniseringsschemat](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
-
+Ersätt "{ID}" med värdet för program-ID: t och Ersätt "{jobId}" med [ID: t för synkroniseringsschemat](/graph/api/resources/synchronization-configure-with-directory-extension-attributes?tabs=http&view=graph-rest-beta#list-synchronization-jobs-in-the-context-of-the-service-principal).

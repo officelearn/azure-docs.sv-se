@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: beea6f7472d6bc871b4a2df323445b05671a621f
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bbd65cdfc7c8ebbc08b914158577337cc49ec887
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224568"
+ms.locfileid: "88236071"
 ---
 # <a name="about-azure-key-vault-certificate-renewal"></a>Om förnyelse av Azure Key Vault certifikat
 
@@ -64,7 +64,7 @@ Om certifikatet som har utfärdats är inaktiverat i Azure Portal kan du gå vid
   Skapa ett certifikat med en giltighets tid på 1 månad och ange sedan livs cykel åtgärden för rotation vid 1%. Med den här inställningen roteras certifikatet på 7,2 timmar.
   
 * Kommer taggarna att replikeras efter automatisk förnyelse av certifikatet?
-  Nej, Taggar replikeras inte om inte användaren manuellt kopierar taggarna.
+  Ja, taggarna skulle replikeras efter automatisk förnyelse.
 
 ### <a name="see-also"></a>Se även
 *   [Integrera nyckelvalv med DigiCert-certifikatutfärdare](how-to-integrate-certificate-authority.md)

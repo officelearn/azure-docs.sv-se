@@ -3,439 +3,119 @@ title: Automatisk distribution av virtuella datorer med Azure App konfigurations
 description: Den här snabb starten visar hur du använder Azure PowerShell-modulen och Azure Resource Manager mallar för att distribuera ett Azure App konfigurations lager. Använd sedan värdena i butiken för att distribuera en virtuell dator.
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 04/14/2020
+ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
 ms.custom:
 - mvc
 - subject-armqs
-ms.openlocfilehash: 96d09de73e8b904a8e26eb4f365d34fab1401203
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9b609d4571d6240f428a0210aa5108ff19dc753b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82137560"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235187"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Snabb start: automatisk distribution av virtuella datorer med app Configuration och Resource Manager-mall
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template-arm-template"></a>Snabb start: automatisk distribution av virtuella datorer med app-konfiguration och Resource Manager-mall (ARM-mall)
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser med hjälp av PowerShell-cmdletar eller -skript. Den här snabb starten visar hur du använder Azure PowerShell och Azure Resource Manager mallar för att distribuera ett Azure App konfigurations lager. Sedan får du lära dig hur du använder nyckel värden i butiken för att distribuera en virtuell dator.
-
-Du använder den nödvändiga mallen för att skapa ett konfigurations lager för appar och sedan lägga till nyckel värden i lagret med hjälp av Azure Portal eller Azure CLI. Den primära mallen refererar till befintliga nyckel värdes konfigurationer från ett befintligt konfigurations lager. De hämtade värdena används för att ange egenskaper för de resurser som skapats av mallen, t. ex. en virtuell dator i det här exemplet.
+Lär dig hur du använder Azure Resource Manager mallar och Azure PowerShell för att distribuera ett Azure App konfigurations lager, hur du lägger till nyckel värden i butiken och hur du använder nyckel värden i butiken för att distribuera en Azure-resurs, t. ex. en virtuell Azure-dator i det här exemplet.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="before-you-begin"></a>Innan du börjar
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto.](https://azure.microsoft.com/free/)
+## <a name="prerequisites"></a>Krav
 
-* Den här snabbstarten kräver Azure PowerShell-modulen. Hitta versionen som är installerad på den lokala datorn genom att köra `Get-Module -ListAvailable Az`. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+## <a name="review-the-templates"></a>Granska mallarna
 
-Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och ange dina autentiseringsuppgifter för Azure i webbläsarens popup-fönster:
+Mallarna som används i den här snabb starten är från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/). Den [första mallen](https://azure.microsoft.comresources/templates/101-app-configuration-store/) skapar ett konfigurations Arkiv för appar:
 
-```azurepowershell-interactive
-# Connect to your Azure account
-Connect-AzAccount
-```
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store/azuredeploy.json" range="1-37" highlight="27-35":::
 
-Om du har mer än en prenumeration väljer du den prenumeration som du vill använda för den här snabb starten genom att köra följande cmdlets. Glöm inte att ersätta `<your subscription name>` med namnet på din prenumeration:
+En Azure-resurs har definierats i mallen:
 
-```azurepowershell-interactive
-# List all available subscriptions.
-Get-AzSubscription
+- [Microsoft. AppConfiguration/configurationStores](/azure/templates/microsoft.appconfiguration/2019-10-01/configurationstores): skapa ett konfigurations lager för appar.
 
-# Select the Azure subscription you want to use to create the resource group and resources.
-Get-AzSubscription -SubscriptionName "<your subscription name>" | Select-AzSubscription
-```
+Den [andra mallen](https://azure.microsoft.com/resources/templates/101-app-configuration/) skapar en virtuell dator med hjälp av nyckel värden i butiken. Innan det här steget måste du lägga till nyckel värden med hjälp av portalen eller Azure CLI.
 
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+:::code language="json" source="~/quickstart-templates/101-app-configuration/azuredeploy.json" range="1-217" highlight="77, 181,189":::
 
-Skapa en Azure-resursgrupp med [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+## <a name="deploy-the-templates"></a>Distribuera mallarna
 
-```azurepowershell-interactive
-$resourceGroup = "StreamAnalyticsRG"
-$location = "WestUS2"
-New-AzResourceGroup `
-    -Name $resourceGroup `
-    -Location $location
-```
+### <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
-## <a name="deploy-an-azure-app-configuration-store"></a>Distribuera ett Azure App konfigurations lager
+1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar ett konfigurations lager för appar.
 
-Innan du kan tillämpa nyckel värden på den virtuella datorn måste du ha ett befintligt Azure App konfigurations lager. I det här avsnittet beskrivs hur du distribuerar ett Azure App konfigurations lager med hjälp av en Azure Resource Manager-mall. Om du redan har ett app config-arkiv kan du gå vidare till nästa avsnitt i den här artikeln. 
+    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store%2Fazuredeploy.json)
 
-1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *krav. azuredeploy. JSON*.
+1. Välj eller ange följande värden.
 
-   ```json
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "configStoreName": {
-        "type": "string",
-        "metadata": {
-          "description": "Specifies the name of the app configuration store."
-        }
-      },
-      "location": {
-        "type": "string",
-        "defaultValue": "[resourceGroup().location]",
-        "metadata": {
-          "description": "Specifies the Azure location where the app configuration store should be created."
-        }
-      },
-      "skuName": {
-        "type": "string",
-        "defaultValue": "standard",
-        "metadata": {
-          "description": "Specifies the SKU of the app configuration store."
-        }
-      }
-    },
-    "resources": [
-      {
-        "type": "Microsoft.AppConfiguration/configurationStores",
-        "name": "[parameters('configStoreName')]",
-        "apiVersion": "2019-10-01",
-        "location": "[parameters('location')]",
-        "sku": {
-          "name": "[parameters('skuName')]"
-        }
-      }
-    ]
-   }
-   ```
+    - **prenumeration**: Välj den Azure-prenumeration som används för att skapa appens konfigurations arkiv.
+    - **Resurs grupp**: Välj **Skapa ny** för att skapa en ny resurs grupp, om du inte vill använda en befintlig resurs grupp.
+    - **Region**: Välj en plats för resurs gruppen.  Till exempel **USA, östra**.
+    - **Namn på konfigurations Arkiv**: Ange ett nytt namn på appens konfigurations arkiv.
+    - **Plats**: Ange platsen för appens konfigurations arkiv.  Använd standardvärdet.
+    - **SKU-namn**: Ange SKU-namnet för appens konfigurations arkiv. Använd standardvärdet.
 
-1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *krav. azuredeploy. Parameters. JSON*. Ersätt **Get-Unique** med ett unikt namn för ditt konfigurations lager.
+1. Välj **Granska + skapa**.
+1. Verifiera att sidan visar att **verifieringen är klar**och välj sedan **skapa**.
 
-   ```json
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "configStoreName": {
-        "value": "GET-UNIQUE"
-      }
-    }
-   }
-   ```
+Anteckna resurs gruppens namn och namnet på appens konfigurations arkiv.  Du behöver dessa värden när du distribuerar den virtuella datorn
+### <a name="add-vm-configuration-key-values"></a>Lägg till konfigurations nyckel för virtuell dator-värden
 
-1. Kör följande kommando i PowerShell-fönstret för att distribuera Azure App konfigurations lagringen. Glöm inte att ersätta resurs gruppens namn, sökvägen till mallfilen och sökvägen till mallfilen.
+När du har skapat ett konfigurations Arkiv för appar kan du använda Azure Portal eller Azure CLI för att lägga till nyckel värden i butiken.
 
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>" `
-       -TemplateFile "<path to prereq.azuredeploy.json>" `
-       -TemplateParameterFile "<path to prereq.azuredeploy.parameters.json>"
-   ```
+1. Logga in på [Azure Portal](https://portal.azure.com)och navigera sedan till det nyligen skapade konfigurations arkivet för appen.
+1. Välj **Configuration Explorer** på den vänstra menyn.
+1. Välj **skapa** för att lägga till följande nyckel/värde-par:
 
-## <a name="add-vm-configuration-key-values"></a>Lägg till konfigurations nyckel för virtuell dator-värden
+   |Tangent|Värde|Etikett|
+   |-|-|-|
+   |windowsOsVersion|2019 – Data Center|mall|
+   |diskSizeGB|1023|mall|
 
-Du kan skapa ett konfigurations lager för appar med hjälp av en Azure Resource Manager mall, men du måste lägga till nyckel värden med hjälp av Azure Portal eller Azure CLI. I den här snabb starten lägger du till nyckel värden med hjälp av Azure Portal.
+   Behåll **innehålls typen** tom.
 
-1. När distributionen är klar navigerar du till det nyligen skapade konfigurations arkivet för appen i [Azure Portal](https://portal.azure.com).
+Information om hur du använder Azure CLI finns [i arbeta med nyckel värden i en Azure App konfigurations lager](./scripts/cli-work-with-keys.md).
 
-1. Välj **Inställningar** > **åtkomst nycklar**. Anteckna den primära skrivskyddade nyckel anslutnings strängen. Du kommer att använda den här anslutnings strängen senare för att konfigurera programmet för att kommunicera med det app-konfigurations lager som du har skapat.
-
-1. Välj konfigurations **Utforskaren** > **skapa** för att lägga till följande nyckel/värde-par:
-
-   |Nyckel|Värde|
-   |-|-|
-   |windowsOsVersion|2019 – Data Center|
-   |diskSizeGB|1023|
-  
-   Ange *mall* för **etikett**, men behåll **innehålls typen** tom.
-
-## <a name="deploy-vm-using-stored-key-values"></a>Distribuera virtuell dator med hjälp av lagrade nyckel värden
+### <a name="deploy-vm-using-stored-key-values"></a>Distribuera virtuell dator med hjälp av lagrade nyckel värden
 
 Nu när du har lagt till nyckel värden i butiken är du redo att distribuera en virtuell dator med hjälp av en Azure Resource Manager-mall. Mallen refererar till de **windowsOsVersion** -och **diskSizeGB** -nycklar som du har skapat.
 
 > [!WARNING]
 > ARM-mallar kan inte referera till nycklar i ett program konfigurations lager som har privat länk aktiverat.
 
-1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *azuredeploy. JSON*eller ladda ned filen från [Azures snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.json).
+1. Välj följande bild för att logga in på Azure och öppna en mall. Mallen skapar en virtuell dator med hjälp av lagrade nyckel värden i appens konfigurations arkiv.
 
-   ```json
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-                "description": "Admin user name."
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-                "description": "Password for the Virtual Machine."
-            }
-        },
-        "appConfigStoreName": {
-            "type": "string",
-            "metadata": {
-                "description": "App configuration store name."
-            }
-        },
-        "appConfigStoreResourceGroup": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the resource group for the app config store."
-            }
-        },
-        "domainNameLabel": {
-            "type": "string",
-            "metadata": {
-                "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$."
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        },
-        "vmSize": {
-            "type": "string",
-            "defaultValue": "Standard_D2_v3",
-            "metadata": {
-                "description": "Size of the VM"
-            }
-        },
-        "vmSkuKey": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the key in the app config store for the VM windows sku"
-            }
-        },
-        "diskSizeKey": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the key in the app config store for the VM disk size"
-            }
-        },
-        "storageAccountName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the storage account."
-            }
-        }
-    },
-    "variables": {
-        "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet",
-        "subnetPrefix": "10.0.0.0/24",
-        "publicIPAddressName": "myPublicIP",
-        "vmName": "SimpleWinVM",
-        "virtualNetworkName": "MyVNET",
-        "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-        "appConfigRef": "[resourceId(parameters('appConfigStoreResourceGroup'), 'Microsoft.AppConfiguration/configurationStores', parameters('appConfigStoreName'))]",
-        "windowsOSVersionParameters": {
-            "key": "[parameters('vmSkuKey')]",
-            "label": "template"
-        },
-        "diskSizeGBParameters": {
-            "key": "[parameters('diskSizeKey')]",
-            "label": "template"
-        }
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2018-11-01",
-            "name": "[parameters('storageAccountName')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {
-            }
-        },
-        {
-            "type": "Microsoft.Network/publicIPAddresses",
-            "apiVersion": "2018-11-01",
-            "name": "[variables('publicIPAddressName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "publicIPAllocationMethod": "Dynamic",
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('domainNameLabel')]"
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2018-11-01",
-            "name": "[variables('virtualNetworkName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Network/networkInterfaces",
-            "apiVersion": "2018-11-01",
-            "name": "[variables('nicName')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                            },
-                            "subnet": {
-                                "id": "[variables('subnetRef')]"
-                            }
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "type": "Microsoft.Compute/virtualMachines",
-            "apiVersion": "2018-10-01",
-            "name": "[variables('vmName')]",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-                "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-            ],
-            "properties": {
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "osProfile": {
-                    "computerName": "[variables('vmName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "imageReference": {
-                        "publisher": "MicrosoftWindowsServer",
-                        "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
-                        "version": "latest"
-                    },
-                    "osDisk": {
-                        "createOption": "FromImage"
-                    },
-                    "dataDisks": [
-                        {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
-                            "lun": 0,
-                            "createOption": "Empty"
-                        }
-                    ]
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
-                        {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-                        }
-                    ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))).primaryEndpoints.blob]"
-                    }
-                }
-            }
-        }
-    ],
-    "outputs": {
-        "hostname": {
-            "type": "string",
-            "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
-        }
-    }
-   }
-   ```
+    [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration%2Fazuredeploy.json)
 
-1. Kopiera och klistra in följande JSON-kod i en ny fil med namnet *azuredeploy. Parameters. JSON*eller ladda ned filen från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-app-configuration/azuredeploy.parameters.json).
+1. Välj eller ange följande värden.
 
-   ```json
-   {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "adminPassword": {
-        "value": "GEN-PASSWORD"
-      },
-      "appConfigStoreName":{
-        "value": "GEN-APPCONFIGSTORE-NAME"
-      },
-      "appConfigStoreResourceGroup": {
-         "value": "GEN-APPCONFIGSTORE-RESOURCEGROUP-NAME"
-      },
-      "vmSkuKey":{
-        "value": "GEN-APPCONFIGSTORE-WINDOWSOSVERSION"
-      },
-      "diskSizeKey" :{
-         "value": "GEN-APPCONFIGSTORE-DISKSIZEGB"
-      },
-      "adminUsername":{
-        "value": "GEN-UNIQUE"
-      },
-      "storageAccountName":{
-        "value": "GEN-UNIQUE"
-      },
-      "domainNameLabel":{
-        "value": "GEN-UNIQUE"
-      }
-    }
-   }
-   ```
+    - **prenumeration**: Välj den Azure-prenumeration som används för att skapa den virtuella datorn.
+    - **Resurs grupp**: Ange antingen samma resurs grupp som appens konfigurations arkiv eller skapa en ny resurs grupp genom att välja **Skapa ny** .
+    - **Region**: Välj en plats för resurs gruppen.  Till exempel **USA, östra**.
+    - **Plats**: Ange platsen för den virtuella datorn. Använd standardvärdet.
+    - **Admin-användar namn**: Ange ett administratörs användar namn för den virtuella datorn.
+    - **Administratörs lösen ord**: Ange ett administratörs lösen ord för den virtuella datorn.
+    - **Domän namns etikett**: Ange ett unikt domän namn.
+    - **Lagrings konto namn**: Ange ett unikt namn för ett lagrings konto som är kopplat till den virtuella datorn.
+    - **Resurs grupp för app config Store**: Ange den resurs grupp som innehåller appens konfigurations lager.
+    - **Namn på App config Store**: Ange namnet på Azure App konfigurations lagringen.
+    - **VM SKU-nyckel**: ange **windowsOsVersion**.  Detta är nyckel värdes namnet som du lade till i arkivet.
+    - **Disk storleks nyckel**: ange **diskSizeGB**. Det här är nyckel värdes namnet som du har lagt till i butiken.
 
-   Ersätt parametervärdena i mallen med följande värden:
+1. Välj **Granska + skapa**.
+1. Verifiera att sidan visar att **verifieringen är klar**och välj sedan **skapa**.
 
-   |Parameter|Värde|
-   |-|-|
-   |adminPassword|Ett administratörs lösen ord för den virtuella datorn.|
-   |appConfigStoreName|Namnet på din Azure App konfigurations lagring.|
-   |appConfigStoreResourceGroup|Resurs gruppen som innehåller appens konfigurations arkiv.|
-   |vmSkuKey|*windowsOSVersion*|
-   |diskSizeKey|*diskSizeGB*|
-   |adminUsername|Ett administratörs användar namn för den virtuella datorn.|
-   |storageAccountName|Ett unikt namn för ett lagrings konto som är kopplat till den virtuella datorn.|
-   |domainNameLabel|Ett unikt domän namn.|
+## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Kör följande kommando i PowerShell-fönstret för att distribuera den virtuella datorn. Glöm inte att ersätta resurs gruppens namn, sökvägen till mallfilen och sökvägen till mallfilen.
-
-   ```azurepowershell
-   New-AzResourceGroupDeployment `
-       -ResourceGroupName "<your resource group>"
-       -TemplateFile "<path to azuredeploy.json>" `
-       -TemplateParameterFile "<path to azuredeploy.parameters.json>"
-   ```
-
-Grattis! Du har distribuerat en virtuell dator med konfigurationer som lagras i Azure App-konfigurationen.
+1. Logga in på [Azure Portal](https://portal.azure.com)och navigera sedan till den nya virtuella datorn.
+1. Välj **Översikt** på den vänstra menyn och kontrol lera att **SKU: n** är **2019-datacenter**.
+1. Välj **diskar** på den vänstra menyn och kontrol lera att storleken på data disken är **2013**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

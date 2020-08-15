@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 33772d46f363b161c1faa5c953f48a702ae2b8bf
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1f7486f1080c0fbb25b1be6ab70bb647a546ceca
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009686"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235000"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -69,7 +69,7 @@ Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger d
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Öppna först sidan för din Azure Digital-instansen i Azure Portal. Från instansens meny väljer du *åtkomst kontroll (IAM)*. Välj knappen *Lägg till* under *Lägg till en roll tilldelning*.
+Öppna först sidan för din Azure Digital-instansen i Azure Portal. Från instansens meny väljer du *åtkomst kontroll (IAM)*. Välj knappen  *Lägg till* under *Lägg till en roll tilldelning*.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Välja att lägga till en roll tilldelning från sidan åtkomst kontroll (IAM)":::
 
@@ -126,6 +126,9 @@ Välj *API-behörigheter* på menyn på Portal sidan för din app-registrering. 
 På sidan *begär API-behörigheter* som följer växlar du till fliken *API: er som min organisation använder* och söker efter *Azure Digital-dubbla*. Välj *Azure Digitals flätar* från Sök resultaten om du vill fortsätta med att tilldela behörigheter för Azures digitala dubbla API: er.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Vy av Sök resultatet för sidan begär API-behörigheter visar Azure Digital-sidor":::
+
+>[!NOTE]
+> Om du har en befintlig Azure Digital-instansen från den tidigare offentliga för hands versionen av tjänsten (före 2020) som fortfarande finns i din prenumeration måste du leta efter *Azure Smart Spaces-tjänst* i stället. Det här är ett äldre namn för samma uppsättning API: er och kommer inte att ändra din erfarenhet utanför det här steget.
 
 Sedan väljer du vilka behörigheter som ska beviljas för dessa API: er. Expandera **Läs-(1)-** behörigheten och markera kryss rutan med texten *Read. Write* för att ge appen registrerings läsare och skrivar behörigheter.
 

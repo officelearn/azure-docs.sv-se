@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7e7f8ded24e71fec8ed6bfbc78f9057ddb98dacc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c42a83b4f7f3c6b5ff501525a04ebd96c2a692a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781998"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234847"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
 I den här artikeln beskrivs de allmänna stegen för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. *Etablering av användar konto* är en handling som används för att skapa, uppdatera och/eller inaktivera användar konto poster i ett programs lokala användar profil arkiv. De flesta moln-och SaaS-program lagrar användarens roll och behörigheter i användarens egna lokala användar profil Arkiv och förekomst av en sådan användar post i användarens lokala arkiv *krävs* för enkel inloggning och åtkomst till arbete. Läs mer om automatisk etablering av användar konton i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals förintegrerade program som har Aktiver ATS för automatisk etablering med Azure AD. Du bör börja med att hitta självstudien för etablerings installation som är specifik för ditt program i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Du kommer troligen att hitta steg-för-steg-anvisningar om hur du konfigurerar både appen och Azure AD för att skapa en etablerings anslutning.
+> Azure Active Directory (Azure AD) har ett galleri som innehåller tusentals förintegrerade program som har Aktiver ATS för automatisk etablering med Azure AD. Du bör börja med att hitta självstudien för etablerings installation som är specifik för ditt program i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md). Du kommer troligen att hitta steg-för-steg-anvisningar om hur du konfigurerar både appen och Azure AD för att skapa en etablerings anslutning.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Hitta dina appar i portalen
 
@@ -83,6 +83,6 @@ Du kan starta och stoppa Azure AD Provisioning-tjänsten för det valda programm
 
 Om etableringen aktive ras för första gången för ett program aktiverar du tjänsten genom att ändra **etablerings statusen** till **på**. Den här ändringen gör att Azure AD Provisioning-tjänsten kör en första cykel. Den läser de användare som tilldelats i avsnittet **användare och grupper** , frågar mål programmet för dem och kör sedan de etablerings åtgärder som definierats i avsnittet Azure AD- **mappningar** . Under den här processen lagrar etablerings tjänsten cachelagrade data om vilka användar konton den hanterar, så icke-hanterade konton i mål programmen som aldrig fanns i omfattningen för tilldelningen påverkas inte av inetablerings åtgärder. Efter den första cykeln synkroniserar etablerings tjänsten automatiskt användar-och grupp objekt i ett intervall om 40 minuter.
 
-Ändra **etablerings statusen** till **av** för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
+Ändra **etablerings statusen** till **av**  för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
 
-**Rensa nuvarande tillstånd och starta om synkronisering** utlöser en första cykel. Tjänsten utvärderar sedan alla användare i käll systemet igen och fastställer om de är inom omfånget för etablering. Detta kan vara användbart när ditt program är i karantän eller om du behöver göra en ändring i mappningarna för attribut. Observera att den första cykeln tar längre tid än den normala stegvisa cykeln på grund av antalet objekt som måste utvärderas. Du kan lära dig mer om prestanda för inledande och stegvisa cykler [här](application-provisioning-when-will-provisioning-finish-specific-user.md). 
+**Rensa nuvarande tillstånd och starta om synkronisering** utlöser en första cykel. Tjänsten utvärderar sedan alla användare i käll systemet igen och fastställer om de är inom omfånget för etablering. Detta kan vara användbart när ditt program är i karantän eller om du behöver göra en ändring i mappningarna för attribut. Observera att den första cykeln tar längre tid än den normala stegvisa cykeln på grund av antalet objekt som måste utvärderas. Du kan lära dig mer om prestanda för inledande och stegvisa cykler [här](application-provisioning-when-will-provisioning-finish-specific-user.md).

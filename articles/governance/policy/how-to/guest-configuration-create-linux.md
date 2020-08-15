@@ -1,22 +1,22 @@
 ---
-title: Så här skapar du principer för gäst konfiguration för Linux
+title: Skapa gästkonfigurationsprinciper för Linux
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Linux.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 5ce6dce034c9479924901e5a20b38c343dd8bac6
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fef5bdea1b7f98e19f9f8ee8bc9bce8553107fda
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026720"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236598"
 ---
-# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Så här skapar du principer för gäst konfiguration för Linux
+# <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
 Innan du skapar anpassade principer läser du översikts informationen på [Azure policy gäst konfiguration](../concepts/guest-configuration.md).
  
 Information om hur du skapar principer för gäst konfiguration för Windows finns på sidan [så här skapar du principer för gäst konfiguration för Windows](./guest-configuration-create.md)
 
-När du granskar Linux använder gäst konfigurationen [chefs INSPEC](https://www.inspec.io/). Profilen för INSPEC definierar det villkor som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
+Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.inspec.io/). InSpec-profilen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
 
@@ -25,7 +25,7 @@ Använd följande åtgärder för att skapa en egen konfiguration för att verif
 > [!IMPORTANT]
 > Anpassade principer med gäst konfiguration är en förhands gransknings funktion.
 >
-> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer.
+> Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer.
 > Om du vill distribuera tillägget i skala över alla Linux-datorer tilldelar du följande princip definition:
 >   - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
@@ -50,6 +50,10 @@ Operativ system där modulen kan installeras:
 - Linux
 - macOS
 - Windows
+
+> [!NOTE]
+> Cmdleten "test-GuestConfigurationPackage" kräver OpenSSL version 1,0, på grund av ett beroende på OMI.
+> Detta orsakar ett fel i en miljö med OpenSSL 1,1 eller senare.
 
 Resurs modulen för gäst konfiguration kräver följande program vara:
 
@@ -260,6 +264,8 @@ Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 - **Version**: princip version.
 - **Sökväg**: mål Sök väg där princip definitioner skapas.
 - **Plattform**: mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
+- **Tag** lägger till ett eller flera märkes filter i princip definitionen
+- **Kategori** anger fältet Kategori metadata i princip definitionen
 
 I följande exempel skapas princip definitionerna i en angiven sökväg från ett anpassat princip paket:
 
@@ -281,14 +287,6 @@ Följande filer skapas av `New-GuestConfigurationPolicy` :
 - **Initiative.jspå**
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
-
-> [!Note]
-> Den senaste modulen för gäst konfiguration innehåller en ny parameter:
-> - **Tag** lägger till ett eller flera märkes filter i princip definitionen
->   - Se avsnittet [filtrera gäst konfigurations principer med hjälp av Taggar](#filtering-guest-configuration-policies-using-tags).
-> - **Kategori** anger fältet Kategori metadata i princip definitionen
->   - Om parametern inte är inkluderad används gäst konfigurationen som standard.
-> Dessa funktioner finns för närvarande i för hands version och kräver version 1.20.1 som kan installeras med hjälp av modulen `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten.
 Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
@@ -404,9 +402,6 @@ Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen
 
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrera principer för gäst konfiguration med Taggar
-
-> [!Note]
-> Den här funktionen är för närvarande en för hands version och kräver version 1.20.1 som kan installeras med hjälp av modulen `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Principerna som skapats av cmdlets i modulen gäst konfiguration kan eventuellt innehålla ett filter för taggar. Parametern **-tag** i `New-GuestConfigurationPolicy` stöder en matris med hash som innehåller enskilda taggar. Taggarna läggs till i `If` avsnittet i princip definitionen och kan inte ändras av en princip tilldelning.
 

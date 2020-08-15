@@ -2,18 +2,18 @@
 title: Designa Azure Table Storage för data ändring | Microsoft Docs
 description: Design tabeller för data ändring i Azure Table Storage. Optimera åtgärderna för att infoga, uppdatera och ta bort. Se till att dina lagrade entiteter är konsekventa.
 services: storage
-author: MarkMcGeeAtAquent
 ms.service: storage
+author: tamram
+ms.author: tamram
 ms.topic: article
 ms.date: 04/23/2018
-ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 1f48cbf198e8a12d4f35293b285e6cb09bef29a1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25785bc4b945f469e67f2a71eb6676940e091d56
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826474"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236768"
 ---
 # <a name="design-for-data-modification"></a>Utforma för dataändring
 Den här artikeln fokuserar på design överväganden för att optimera infogningar, uppdateringar och borttagningar. I vissa fall måste du utvärdera de olika design modeller som optimeras för frågor mot designer som optimerar för data ändringar precis som du gör i design för Relations databaser (även om teknikerna för att hantera design kommersiella är olika i en Relations databas). Design mönstren för avsnitts tabeller beskriver några detaljerade design mönster för Table service och markerar vissa av dessa kompromisser. I praktiken kommer du att se att många design som är optimerade för att fråga entiteter också fungerar bra för att ändra entiteter.  

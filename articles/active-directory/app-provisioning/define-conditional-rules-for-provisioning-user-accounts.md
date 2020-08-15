@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
-ms.openlocfilehash: 1e858f1141ade52a1872d8a9822f515796d9182c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1765c6a7d19a11730567acd5e41deebc0a20cec2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781964"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235832"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -94,7 +94,7 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
    
    j. **Greater_Than_OR_EQUALS.** Sats returnerar true om det utvärderade attributet är större än eller lika med värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
    
-   k. **Åtgärd.** Sats returnerar true om det utvärderade attributet innehåller strängens värde (Skift läges känsligt) enligt beskrivningen [här](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
+   k. **Åtgärd.** Sats returnerar true om det utvärderade attributet innehåller strängens värde (Skift läges känsligt) enligt beskrivningen [här](/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
@@ -130,4 +130,3 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 * [Meddelanden om konto etablering](../app-provisioning/user-provisioning.md)
 * [Använd SCIM för att aktivera automatisk etablering av användare och grupper från Azure Active Directory till program](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Lista över självstudier om hur du integrerar SaaS-appar](../saas-apps/tutorial-list.md)
-

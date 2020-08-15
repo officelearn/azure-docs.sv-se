@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: e6d61e329ba91f53b11ace4d258b35950e188dcb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d38fa2afe35976283e5129eab7d7f8ef3a1103b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76771222"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236496"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
 
@@ -35,7 +35,7 @@ Den här guiden visar vanliga scenarier med hjälp av Azure Table Storage-tjäns
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+### <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
@@ -60,7 +60,7 @@ Du hittar en guide för hur du skapar käll koden och exporterar till NuGet i [R
 
 ### <a name="configure-access-to-the-table-client-library"></a>Konfigurera åtkomst till klientbiblioteket för Table Storage
 
-Om du vill använda Azure Storage-API: er för att komma `include` åt tabeller lägger du till följande-instruktioner överst i C++-filen:
+Om du vill använda Azure Storage-API: er för att komma åt tabeller lägger du till följande- `include` instruktioner överst i C++-filen:
 
 ```cpp
 #include <was/storage_account.h>
@@ -78,7 +78,7 @@ Det här exemplet visar hur du deklarerar ett statiskt fält som innehåller Azu
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Använd namnet på ditt lagrings konto för `<your_storage_account>`. För <your_storage_account_key> använder du åtkomst nyckeln för lagrings kontot som anges i [Azure Portal](https://portal.azure.com). Information om lagrings konton och åtkomst nycklar finns i [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md).
+Använd namnet på ditt lagrings konto för `<your_storage_account>` . För <your_storage_account_key> använder du åtkomst nyckeln för lagrings kontot som anges i [Azure Portal](https://portal.azure.com). Information om lagrings konton och åtkomst nycklar finns i [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Konfigurera en Azure Cosmos DB-anslutningssträng
 
@@ -89,27 +89,27 @@ Det här exemplet visar hur du deklarerar ett statiskt fält som innehåller Azu
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_cosmos_db_account>;AccountKey=<your_cosmos_db_account_key>;TableEndpoint=<your_cosmos_db_endpoint>"));
 ```
 
-Använd namnet på ditt Azure Cosmos DB konto för `<your_cosmos_db_account>`. Ange din primär nyckel för `<your_cosmos_db_account_key>`. Ange slut punkten som anges i [Azure Portal](https://portal.azure.com) för `<your_cosmos_db_endpoint>`.
+Använd namnet på ditt Azure Cosmos DB konto för `<your_cosmos_db_account>` . Ange din primär nyckel för `<your_cosmos_db_account_key>` . Ange slut punkten som anges i [Azure Portal](https://portal.azure.com) för `<your_cosmos_db_endpoint>` .
 
-Om du vill testa ditt program på den lokala Windows-baserade datorn kan du använda Azure Storage-emulatorn som installeras med [Azure SDK](https://azure.microsoft.com/downloads/). Azure Storage-emulatorn är ett verktyg som simulerar tjänsterna Azure Blob, Queue och Table som finns på den lokala utvecklingsdatorn. I följande exempel visas hur du deklarerar ett statiskt fält för att lagra anslutnings strängen till din lokala lagrings-emulator:  
+Om du vill testa programmet på din lokala Windows-baserade dator kan du använda den Azure Storage emulatorn som är installerad med [Azure SDK](https://azure.microsoft.com/downloads/). Storage-emulatorn är ett verktyg som simulerar Azure Blob-, Queue-och table-tjänsterna som finns på din lokala utvecklings dator. I följande exempel visas hur du deklarerar ett statiskt fält för att lagra anslutnings strängen till din lokala lagrings-emulator:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator*. Mer information finns i [använda Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
+Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator*. Mer information finns i [använda Azure Storage emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
 
-Du kan använda- `cloud_storage_account` klassen för att representera din lagrings konto information. Använd `parse` metoden för att hämta information om lagrings kontot från lagrings anslutnings strängen.
+Du kan använda- `cloud_storage_account` klassen för att representera din lagrings konto information. Använd metoden för att hämta information om lagrings kontot från lagrings anslutnings strängen `parse` .
 
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Hämta sedan en referens till en `cloud_table_client` klass. Med den här klassen kan du hämta referens objekt för tabeller och entiteter som lagras i tabellen Storage-tjänst. Följande kod skapar ett `cloud_table_client` -objekt med hjälp av det lagrings konto objekt som du hämtade tidigare:  
+Hämta sedan en referens till en `cloud_table_client` klass. Med den här klassen kan du hämta referens objekt för tabeller och entiteter som lagras i tabellen Storage-tjänst. Följande kod skapar ett- `cloud_table_client` objekt med hjälp av det lagrings konto objekt som du hämtade tidigare:  
 
 ```cpp
 // Create the table client.
@@ -120,7 +120,7 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 
 ### <a name="create-a-table"></a>Skapa en tabell
 
-Med `cloud_table_client` ett objekt kan du hämta referens objekt för tabeller och entiteter. Följande kod skapar ett `cloud_table_client` -objekt och använder det för att skapa en ny tabell.
+`cloud_table_client`Med ett objekt kan du hämta referens objekt för tabeller och entiteter. Följande kod skapar ett- `cloud_table_client` objekt och använder det för att skapa en ny tabell.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
-Skapa ett nytt `table_entity` objekt och skicka det till `table_operation::insert_entity`om du vill lägga till en entitet i en tabell. I följande kod används kundens förnamn som radnyckel och efternamnet som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan efter frågas snabbare än entiteter med olika partitionsnyckel. Genom att använda olika partitionstyper kan du öka skalbarheten för parallella åtgärder. Mer information finns i [checklistan för prestanda och skalbarhet i Microsoft Azure Storage](../storage/common/storage-performance-checklist.md).
+Skapa ett nytt `table_entity` objekt och skicka det till om du vill lägga till en entitet i en tabell `table_operation::insert_entity` . I följande kod används kundens förnamn som radnyckel och efternamnet som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan efter frågas snabbare än entiteter med olika partitionsnyckel. Genom att använda olika partitionstyper kan du öka skalbarheten för parallella åtgärder. Mer information finns i [checklistan för prestanda och skalbarhet i Microsoft Azure Storage](../storage/common/storage-performance-checklist.md).
 
 Följande kod skapar en ny instans av `table_entity` med viss kund information att lagra. Koden nästa anrop `table_operation::insert_entity` för att skapa ett `table_operation` objekt för att infoga en entitet i en tabell och kopplar den nya tabellen entiteten till den. Slutligen anropar koden `execute` metoden i `cloud_table` objektet. Den nya `table_operation` skickar en begäran till Table service att infoga den nya kundentiteten i `people` tabellen.  
 
@@ -173,7 +173,7 @@ azure::storage::table_result insert_result = table.execute(insert_operation);
 
 ### <a name="insert-a-batch-of-entities"></a>Infoga en batch med entiteter
 
-Du kan infoga en batch med entiteter i Table Storage i samma skrivåtgärd. Följande kod skapar ett `table_batch_operation` -objekt och lägger sedan till tre infognings åtgärder i det. Varje infognings åtgärd läggs till genom att skapa ett nytt enhets objekt, ange dess värden och sedan `insert` anropa metoden för `table_batch_operation` objektet för att associera entiteten med en ny infognings åtgärd. Sedan anropar `cloud_table.execute` koden för att köra åtgärden.  
+Du kan infoga en batch med entiteter i Table Storage i samma skrivåtgärd. Följande kod skapar ett `table_batch_operation` -objekt och lägger sedan till tre infognings åtgärder i det. Varje infognings åtgärd läggs till genom att skapa ett nytt enhets objekt, ange dess värden och sedan anropa `insert` metoden för `table_batch_operation` objektet för att associera entiteten med en ny infognings åtgärd. Sedan anropar koden `cloud_table.execute` för att köra åtgärden.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -223,7 +223,7 @@ std::vector<azure::storage::table_result> results = table.execute_batch(batch_op
 
 Några saker att tänka på när du använder batchåtgärder:
 
-* Du kan utföra upp till 100 `insert`- `delete`, `merge` `replace`-, `insert-or-merge`-, `insert-or-replace` -och-åtgärder i valfri kombination i en enda batch.  
+* Du kan utföra upp till 100-,-,-, `insert` `delete` `merge` `replace` `insert-or-merge` -och- `insert-or-replace` åtgärder i valfri kombination i en enda batch.  
 * En batch-åtgärd kan ha en Hämta-åtgärd, om det är den enda åtgärden i batchen.  
 * Alla entiteter i samma batchåtgärd måste ha samma partitionsnyckel.  
 * Batchåtgärder är begränsade till en nyttolast på 4 MB.  
@@ -232,7 +232,7 @@ Några saker att tänka på när du använder batchåtgärder:
 
 ### <a name="retrieve-all-entities-in-a-partition"></a>Hämta alla entiteter i en partition
 
-Om du vill fråga en tabell efter alla entiteter i en partition `table_query` använder du ett objekt. I följande kod exempel anges ett filter för entiteter `Smith` där är partitionsnyckel. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.  
+Om du vill fråga en tabell efter alla entiteter i en partition använder du ett `table_query` objekt. I följande kod exempel anges ett filter för entiteter där `Smith` är partitionsnyckel. Det här exemplet skriver ut fälten för varje entitet i frågeresultatet till konsolen.  
 
 > [!NOTE]
 > Dessa metoder stöds inte för närvarande för C++ i Azure Cosmos DB.
@@ -271,7 +271,7 @@ Frågan i det här exemplet returnerar alla entiteter som matchar filter kriteri
 
 ### <a name="retrieve-a-range-of-entities-in-a-partition"></a>Hämta ett intervall med enheter i en partition
 
-Om du inte vill fråga alla entiteter i en partition kan du ange ett intervall. Kombinera nyckel filtret med ett rad nyckel filter. I följande kod exempel används två filter för att hämta alla entiteter `Smith` i partitionen där rad nyckeln (förnamn) börjar med en bokstav som `E` är tidigare än i alfabetet och sedan skriver ut frågeresultaten.  
+Om du inte vill fråga alla entiteter i en partition kan du ange ett intervall. Kombinera nyckel filtret med ett rad nyckel filter. I följande kod exempel används två filter för att hämta alla entiteter i partitionen `Smith` där rad nyckeln (förnamn) börjar med en bokstav som `E` är tidigare än i alfabetet och sedan skriver ut frågeresultaten.  
 
 > [!NOTE]
 > Dessa metoder stöds inte för närvarande för C++ i Azure Cosmos DB.
@@ -312,7 +312,7 @@ for (; it != end_of_results; ++it)
 
 ### <a name="retrieve-a-single-entity"></a>Hämta en enda entitet
 
-Du kan skriva en fråga för att hämta en enda, specifik entitet. I följande kod används `table_operation::retrieve_entity` för att ange kunden `Jeff Smith`. Den här metoden returnerar bara en entitet i stället för en samling och det returnerade värdet är `table_result`i. Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är att ange både partitions- och radnycklar i en fråga.  
+Du kan skriva en fråga för att hämta en enda, specifik entitet. I följande kod används `table_operation::retrieve_entity` för att ange kunden `Jeff Smith` . Den här metoden returnerar bara en entitet i stället för en samling och det returnerade värdet är i `table_result` . Det snabbaste sättet att hämta en enskild entitet från tabelltjänsten är att ange både partitions- och radnycklar i en fråga.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -338,7 +338,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 
 ### <a name="replace-an-entity"></a>Ersätta en entitet
 
-Om du vill ersätta en entitet hämtar du den från Table Storage, ändrar entitetsobjektet och sparar sedan ändringarna till Table Storage igen. Följande kod ändrar en befintlig kunds telefonnummer och e-postadress. I stället för `table_operation::insert_entity`att anropa används `table_operation::replace_entity`den här koden. Den här metoden gör att entiteten ersätts helt på servern, om inte entiteten på servern har ändrats sedan den hämtades. Om den har ändrats, Miss lyckas åtgärden. Det här felet förhindrar att ditt program skriver över en ändring som gjorts mellan hämtningen och uppdateringen av en annan komponent. En korrekt hantering av det här felet är att hämta entiteten igen, göra dina ändringar, om de fortfarande är giltiga, och `table_operation::replace_entity` sedan utföra en annan åtgärd.  
+Om du vill ersätta en entitet hämtar du den från Table Storage, ändrar entitetsobjektet och sparar sedan ändringarna till Table Storage igen. Följande kod ändrar en befintlig kunds telefonnummer och e-postadress. I stället för att anropa `table_operation::insert_entity` används den här koden `table_operation::replace_entity` . Den här metoden gör att entiteten ersätts helt på servern, om inte entiteten på servern har ändrats sedan den hämtades. Om den har ändrats, Miss lyckas åtgärden. Det här felet förhindrar att ditt program skriver över en ändring som gjorts mellan hämtningen och uppdateringen av en annan komponent. En korrekt hantering av det här felet är att hämta entiteten igen, göra dina ändringar, om de fortfarande är giltiga, och sedan utföra en annan `table_operation::replace_entity` åtgärd.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -370,7 +370,7 @@ azure::storage::table_result replace_result = table.execute(replace_operation);
 
 ### <a name="insert-or-replace-an-entity"></a>Infoga eller ersätta en entitet
 
-`table_operation::replace_entity`Det går inte att utföra åtgärder om entiteten har ändrats sedan den hämtades från servern. Dessutom måste du hämta entiteten från servern först för `table_operation::replace_entity` att lyckas. Ibland vet du inte om entiteten finns på servern. De aktuella värdena som lagras i det är irrelevanta, eftersom din uppdatering ska skriva över alla. Använd en `table_operation::insert_or_replace_entity` åtgärd för att utföra det här resultatet. Den här åtgärden infogar entiteten om den inte finns. Åtgärden ersätter entiteten om den finns. I följande kod exempel hämtas entiteten kund för `Jeff Smith` fortfarande, men den sparas sedan tillbaka till servern med hjälp av. `table_operation::insert_or_replace_entity` Eventuella entitetsuppdateringar som görs mellan hämtnings- och uppdateringsåtgärden skrivs över.  
+`table_operation::replace_entity` Det går inte att utföra åtgärder om entiteten har ändrats sedan den hämtades från servern. Dessutom måste du hämta entiteten från servern först för `table_operation::replace_entity` att lyckas. Ibland vet du inte om entiteten finns på servern. De aktuella värdena som lagras i det är irrelevanta, eftersom din uppdatering ska skriva över alla. Använd en åtgärd för att utföra det här resultatet `table_operation::insert_or_replace_entity` . Den här åtgärden infogar entiteten om den inte finns. Åtgärden ersätter entiteten om den finns. I följande kod exempel hämtas entiteten kund för `Jeff Smith` fortfarande, men den sparas sedan tillbaka till servern med hjälp av `table_operation::insert_or_replace_entity` . Eventuella entitetsuppdateringar som görs mellan hämtnings- och uppdateringsåtgärden skrivs över.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -449,7 +449,7 @@ for (; it != end_of_results; ++it)
 
 ### <a name="delete-an-entity"></a>Ta bort en entitet
 
-Du kan ta bort en entitet när du har hämtat den. När du har hämtat en entitet anropar `table_operation::delete_entity` du den entitet som ska tas bort. Anropa sedan `cloud_table.execute` metoden. Följande kod hämtar och tar bort en entitet med en partitionsnyckel `Smith` och en rad nyckel i. `Jeff`
+Du kan ta bort en entitet när du har hämtat den. När du har hämtat en entitet anropar du `table_operation::delete_entity` den entitet som ska tas bort. Anropa sedan `cloud_table.execute` metoden. Följande kod hämtar och tar bort en entitet med en partitionsnyckel `Smith` och en rad nyckel i `Jeff` .
 
 ```cpp
 // Retrieve the storage account from the connection string.

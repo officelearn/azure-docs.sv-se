@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a7fe7ca2e439739cbdeeb626fea9d2fb3983b83
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533567"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236309"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -85,6 +85,9 @@ När du har identifierat filerna och kopierat dem till en lokal lagrings plats, 
 När diskarna har demonterats visas ett meddelande. Det kan ta några minuter innan anslutningen har uppdaterats så att du kan ta bort diskarna.
 
 I Linux tar operativ systemet inte bort motsvarande monterings Sök vägar automatiskt när anslutningen till återställnings punkten har brutits. Monterings Sök vägarna finns som "föräldralösa" volymer och är synliga, men genererar ett fel när du öppnar/skriver filerna. De kan tas bort manuellt. Skriptet, vid körning, identifierar eventuella sådana volymer som är befintliga från alla tidigare återställnings punkter och rensar dem vid medgivande.
+
+> [!NOTE]
+> Kontrol lera att anslutningen är stängd när de filer som krävs har återställts. Detta är viktigt, särskilt i scenariot där den dator där skriptet körs också har kon figurer ATS för säkerhets kopiering. Om anslutningen fortfarande är öppen kan den efterföljande säkerhets kopieringen Miss förväntas med fel meddelandet "UserErrorUnableToOpenMount". Detta beror på att de monterade enheterna/volymerna antas vara tillgängliga och när de kan komma åt dem kan Miss lyckas eftersom den underliggande lagringen, t. ex., iSCSI-målservern inte är tillgänglig. Om du rensar anslutningen tas enheterna/volymerna bort och de kommer därför inte att vara tillgängliga under säkerhets kopieringen.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Välja rätt dator för att köra skriptet
 
@@ -242,7 +245,7 @@ Följande kommando visar information om alla RAID-diskar:
 mdadm –detail –scan
 ```
 
- Den relevanta RAID-disken visas som`/dev/mdm/<RAID array name in the protected VM>`
+ Den relevanta RAID-disken visas som `/dev/mdm/<RAID array name in the protected VM>`
 
 Använd monterings kommandot om RAID-disken har fysiska volymer:
 
@@ -300,10 +303,10 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
 
 - `download.microsoft.com`
 - URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(För offentliga Azure-regioner)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(För Azure Kina-21Vianet)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.us`(För Azure amerikanska myndigheter)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.de`(För Azure Germany)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com` (För offentliga Azure-regioner)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (För Azure Kina-21Vianet)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.us` (För Azure amerikanska myndigheter)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.de` (För Azure Germany)
 - Utgående portar 53 (DNS), 443, 3260
 
 > [!NOTE]

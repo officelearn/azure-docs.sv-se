@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
-ms.openlocfilehash: 8c508e65ef2c6d62716454af151feb0a1c80bba0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 036b3af03dec2bdaa7feacc94abca930ebd9b317
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781117"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235391"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
 
@@ -211,7 +211,7 @@ Information om hur du konfigurerar ytterligare XPATHs finns i avsnittet [Självs
 ## <a name="custom-xpath-values"></a>Anpassade XPATH-värden
 Tabellen nedan innehåller en lista över andra vanliga API-uttryck för OLE som används vid etablering av arbetare från Workday till Active Directory eller Azure AD. Testa de API-uttryck för XPATH som anges här med din version av workday som hänvisar till anvisningarna i avsnitts [självstudien: hantera konfigurationen](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
 
-Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kunder som implementerar den här integreringen, lämnar du en kommentar nedan eller så [bidrar](https://docs.microsoft.com/contribute) direkt till artikeln. 
+Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kunder som implementerar den här integreringen, lämnar du en kommentar nedan eller så [bidrar](/contribute) direkt till artikeln. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Namn på Workday-attribut  | Workday API-version | XPATH API-uttryck för Workday   |
@@ -224,7 +224,7 @@ Om du vill lägga till fler attribut till XPATH-tabellen för fördelen med kund
 
 
 ## <a name="supported-xpath-functions"></a>XPATH-funktioner som stöds
-Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPath-bibliotek](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) som du kan använda när du skapar ditt XPath API-uttryck. 
+Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPath-bibliotek](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) som du kan använda när du skapar ditt XPath API-uttryck. 
 
 * name
 * pågå
@@ -235,7 +235,7 @@ Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPa
 * del sträng – efter
 * starts-with
 * sträng längd
-* innehåller
+* contains
 * translate
 * normalisering – utrymme
 * under sträng – före
@@ -248,4 +248,3 @@ Nedan visas en lista över de XPATH-funktioner som stöds av [Microsoft .net XPa
 * fordra
 * round
 * maximal
-

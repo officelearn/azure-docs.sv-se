@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
 ms.author: kenwith
-ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e34656d6ce515cabe955c101f7b52ac0f2ade8db
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781730"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235825"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Anvisningar: exportera etablerings konfigurationen och återställa till ett känt fungerande tillstånd
 
@@ -39,8 +39,8 @@ Så här exporterar du konfigurationen:
 
 Genom att exportera och spara konfigurationen kan du återställa till en tidigare version av din konfiguration. Vi rekommenderar att du exporterar etablerings konfigurationen och sparar den för senare användning när du gör en ändring i attributets mappningar eller omfångs filter. Allt du behöver göra är att öppna JSON-filen som du laddade ned i stegen ovan, kopiera hela innehållet i JSON-filen, ersätta hela innehållet i JSON-nyttolasten i schema redigeraren och sedan Spara. Om det finns en aktiv etablerings cykel slutförs den och nästa cykel kommer att använda det uppdaterade schemat. Nästa cykel kommer också att vara en första cykel som utvärderar varje användare och grupp baserat på den nya konfigurationen. Tänk på följande när du återställer till en tidigare konfiguration:
 
-- Användarna kommer att utvärderas igen för att avgöra om de ska vara i omfånget. Om omfångs filtren har ändrat att en användare inte är inom omfånget kommer de att inaktive ras. Detta är det önskade beteendet i de flesta fall, men det finns tillfällen då du kanske vill förhindra detta och kan använda funktionen [hoppa över borttagning av omfattning](https://docs.microsoft.com/azure/active-directory/app-provisioning/skip-out-of-scope-deletions) . 
-- Om du ändrar etablerings konfigurationen startas tjänsten om och en [första cykel](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#provisioning-cycles-initial-and-incremental)utlöses.
+- Användarna kommer att utvärderas igen för att avgöra om de ska vara i omfånget. Om omfångs filtren har ändrat att en användare inte är inom omfånget kommer de att inaktive ras. Detta är det önskade beteendet i de flesta fall, men det finns tillfällen då du kanske vill förhindra detta och kan använda funktionen [hoppa över borttagning av omfattning](./skip-out-of-scope-deletions.md) . 
+- Om du ändrar etablerings konfigurationen startas tjänsten om och en [första cykel](./how-provisioning-works.md#provisioning-cycles-initial-and-incremental)utlöses.
 
 ## <a name="export-and-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exportera och importera etablerings konfigurationen med hjälp av Microsoft Graph API
 

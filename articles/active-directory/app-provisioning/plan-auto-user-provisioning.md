@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445650"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235713"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -50,7 +50,7 @@ Azure AD tillhandahåller självbetjänings integrering av alla program med hjä
 
 Du behöver rätt licenser för de program som du vill etablera automatiskt. Diskutera med program ägare om de användare som har tilldelats programmet har rätt licenser för sina program roller. Om Azure AD hanterar automatisk etablering baserat på roller måste rollerna som tilldelats i Azure AD anpassas till program licenser. Felaktiga licenser som ägs i programmet kan leda till fel vid etablering/uppdatering av en användare.
 
-### <a name="terms"></a>Villkor
+### <a name="terms"></a>Termer
 
 I den här artikeln används följande villkor:
 
@@ -70,10 +70,10 @@ I den här artikeln används följande villkor:
 | - | - |
 | Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
 | Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
-| Onlinekurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
+| Onlinekurser| SkillUp online:  [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudier| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
-| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
+| Vanliga frågor| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösnings arkitekturer
 
@@ -157,7 +157,7 @@ De faktiska stegen som krävs för att aktivera och konfigurera automatisk etabl
 
 Annars följer du stegen nedan:
 
-1. [Skapa en begäran](../develop/howto-app-gallery-listing.md) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
+1. [Skapa en begäran](../azuread-dev/howto-app-gallery-listing.md) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
 
 1. Använd [BYOA scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) Generic User Provisioning-stöd för appen. Detta är ett krav för att Azure AD ska kunna etablera användare till appen utan en förintegrerad etablerings anslutning.
 

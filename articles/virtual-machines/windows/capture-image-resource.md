@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: d1cd4a25a2a9f07c75976d5eb5c97ba450ffdabb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284650"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236615"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
@@ -39,13 +39,15 @@ Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
 1. Logga in på din virtuella Windows-dator.
    
-2. Öppna ett kommando tolks fönster som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör sedan `sysprep.exe` .
+2. Öppna ett kommando tolks fönster som administratör. 
+
+3. Ta bort Panther-katalogen (C:\Windows\Panther). Ändra katalogen till%WINDIR%\system32\sysprep och kör sedan `sysprep.exe` .
    
-3. I dialog rutan **system förberedelse verktyg** väljer du **Skriv system out-of-Box Experience (OOBE)** och markerar kryss rutan **generalisera** .
+4. I dialog rutan **system förberedelse verktyg** väljer du **Skriv system out-of-Box Experience (OOBE)** och markerar kryss rutan **generalisera** .
    
-4. För **avslutnings alternativ**väljer du **Stäng**av.
+5. För **avslutnings alternativ**väljer du **Stäng**av.
    
-5. Välj **OK**.
+6. Välj **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 

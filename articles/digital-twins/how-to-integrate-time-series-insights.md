@@ -1,5 +1,5 @@
 ---
-title: Integrera med Time Series Insights
+title: Integrera med Azure Time Series Insights
 titleSuffix: Azure Digital Twins
 description: Se så här ställer du in händelse vägar från Azure Digitals dubbla till Azure Time Series Insights.
 author: alexkarcher-msft
@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3d03588230cd0fb959807cd8f19930792d9846f0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: bda07d0e14ddc630bde4fdc9c869704154c1e6cc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285602"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236360"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrera Azure Digitals dubbla med Azure Time Series Insights
 
@@ -26,7 +26,7 @@ Innan du kan skapa en relation med Time Series Insights måste du ha en **digita
 
 Om du inte redan har konfigurerat den här inställningen kan du skapa den genom att följa självstudien om Azure Digitals dubblare [*: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md). Självstudien vägleder dig genom att konfigurera en digital Azure-instans som fungerar med en virtuell IoT-enhet för att utlösa digitala dubbla uppdateringar.
 
-## <a name="solution-architecture"></a>Lösningsarkitekturen
+## <a name="solution-architecture"></a>Lösningsarkitektur
 
 Du kommer att bifoga Time Series Insights till Azure Digitals dubbla steg genom sökvägen nedan.
 

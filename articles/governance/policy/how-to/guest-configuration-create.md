@@ -3,12 +3,12 @@ title: Så här skapar du gästkonfigurationsprinciper för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: b53c8ec8189516305de8b0b8c05b2be8ea49f7f2
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 31c40640babea961ef3bb255112306f59772bae2
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045135"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236547"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du gästkonfigurationsprinciper för Windows
 
@@ -16,7 +16,7 @@ Innan du skapar anpassade princip definitioner, är det en bra idé att läsa de
  
 Information om hur du skapar principer för gäst konfiguration för Linux finns på sidan [hur du skapar principer för gäst konfiguration för Linux](./guest-configuration-create-linux.md)
 
-När du granskar Windows använder gäst konfigurationen en resurs modell för [önskad tillstånds konfiguration](/powershell/scripting/dsc/overview/overview) (DSC) för att skapa konfigurations filen. DSC-konfigurationen definierar det villkor som datorn ska ha.
+Vid Windows-granskning använder gästkonfigurationen en [DSC](/powershell/scripting/dsc/overview/overview)-resursmodul (Desired State Configuration) för att skapa konfigurations filen. DSC-konfigurationen definierar det tillstånd som datorn ska ha.
 Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
@@ -26,7 +26,7 @@ Använd följande åtgärder för att skapa en egen konfiguration för att verif
 > [!IMPORTANT]
 > Anpassade principer med gäst konfiguration är en förhands gransknings funktion.
 >
-> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer.
+> Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer.
 > Tilldela följande princip definitioner för att distribuera tillägget i skala över alla Windows-datorer:
 >   - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
 
@@ -106,9 +106,9 @@ Egenskapen orsaker används av tjänsten för att standardisera hur information 
 Egenskaps **koden** och **frasen** förväntas av tjänsten. När du redigerar en anpassad resurs ställer du in texten (vanligt vis STDOUT) som du vill visa som orsak till att resursen inte är kompatibel med **frasens**värde. **Koden** har särskilda krav på formatering så att rapporter tydligt kan visa information om resursen som används för att utföra granskningen. Den här lösningen gör att gäst konfigurationen är utöknings bar. Alla kommandon kan köras så länge utdata kan returneras som ett sträng värde för egenskapen **fras** .
 
 - **Code** (sträng): namnet på resursen, upprepas och sedan ett kort namn utan blank steg som en identifierare för orsaken. Dessa tre värden ska vara kolon-avgränsade utan blank steg.
-  - Ett exempel är`registry:registry:keynotpresent`
+  - Ett exempel är `registry:registry:keynotpresent`
 - **Fras** (sträng): läslig text som förklarar varför inställningen inte är kompatibel.
-  - Ett exempel är`The registry key $key is not present on the machine.`
+  - Ett exempel är `The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -307,6 +307,8 @@ Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 - **Version**: princip version.
 - **Sökväg**: mål Sök väg där princip definitioner skapas.
 - **Plattform**: mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
+- **Tag** lägger till ett eller flera märkes filter i princip definitionen
+- **Kategori** anger fältet Kategori metadata i princip definitionen
 
 I följande exempel skapas princip definitionerna i en angiven sökväg från ett anpassat princip paket:
 
@@ -328,14 +330,6 @@ Följande filer skapas av `New-GuestConfigurationPolicy` :
 - **Initiative.jspå**
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
-
-> [!Note]
-> Den senaste modulen för gäst konfiguration innehåller en ny parameter:
-> - **Tag** lägger till ett eller flera märkes filter i princip definitionen
->   - Se avsnittet [filtrera gäst konfigurations principer med hjälp av Taggar](#filtering-guest-configuration-policies-using-tags).
-> - **Kategori** anger fältet Kategori metadata i princip definitionen
->   - Om parametern inte är inkluderad är kategorin som standard gäst konfiguration.
-> Dessa funktioner är i för hands version och kräver version 1.20.1, som kan installeras med hjälp av modulen `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
 
@@ -377,9 +371,6 @@ New-AzRoleDefinition -Role $role
 ```
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrera principer för gäst konfiguration med Taggar
-
-> [!Note]
-> Den här funktionen är i för hands version och kräver version 1.20.1 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
 
 Princip definitionerna som skapas av cmdlets i modulen gäst konfiguration kan eventuellt innehålla ett filter för taggar. **Tag** -parametern för `New-GuestConfigurationPolicy` stöder en matris med hash som innehåller enskilda taggar. Taggarna läggs till i `If` avsnittet i princip definitionen och kan inte ändras av en princip tilldelning.
 
@@ -439,10 +430,6 @@ New-GuestConfigurationPolicy
 ```
 
 ## <a name="extending-guest-configuration-with-third-party-tools"></a>Utöka gäst konfigurationen med verktyg från tredje part
-
-> [!Note]
-> Den här funktionen är i för hands version och kräver version 1.20.3 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
-> I version 1.20.3 är den här funktionen bara tillgänglig för princip definitioner som granskar Windows-datorer
 
 Artefakt paketen för gäst konfiguration kan utökas till att omfatta verktyg från tredje part.
 Att utöka gäst konfigurationen kräver utveckling av två komponenter.
@@ -574,11 +561,6 @@ Om du vill släppa en uppdatering av principen finns det två fält som kräver 
 - **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
-
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Konvertera Windows grupprincip-innehåll till Azure Policy gäst konfiguration
-
-Gäst konfiguration, vid granskning av Windows-datorer, är en implementering av PowerShell-syntaxen för önskad tillstånds konfiguration. DSC-communityn har publicerat verktyg för att konvertera exporterade grupprincip mallar till DSC-format. Genom att använda det här verktyget tillsammans med de konfigurations-cmdletar för gäst som beskrivs ovan kan du konvertera Windows grupprincip-innehåll och paket/publicera det för att Azure Policy granska. Mer information om hur du använder verktyget finns i artikeln [snabb start: konvertera Grupprincip till DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-När innehållet har konverterats visas stegen ovan för att skapa ett paket och publicera det som Azure Policy är samma som för alla DSC-innehåll.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>Valfritt: signering av gäst konfigurations paket
 

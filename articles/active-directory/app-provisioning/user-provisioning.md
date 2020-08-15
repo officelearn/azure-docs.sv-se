@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 56243e4d754f33b17238b64df2ba56ade162b3a2
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: b6eb571c7c37a628d11f07b4e1b207e38830250b
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163789"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235408"
 ---
 # <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Vad är automatiserad SaaS app User-etablering i Azure AD?
 
@@ -59,7 +59,7 @@ Azure AD innehåller Förintegrerad support för många populära SaaS-appar och
 
    ![Salesforce-logotyp](./media/user-provisioning/gallery-app-logos.png)
 
-   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](../develop/howto-app-gallery-listing.md). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
+   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](../azuread-dev/howto-app-gallery-listing.md). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
 
 * **Program som stöder SCIM 2,0**. Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [bygga en scim-slutpunkt och konfigurera användar etablering](use-scim-to-provision-users-and-groups.md).
 

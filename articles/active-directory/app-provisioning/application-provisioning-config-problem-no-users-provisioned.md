@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: cc3c62da371d66c2aa957974ad6d4472aaf5648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782287"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234796"
 ---
 # <a name="no-users-are-being-provisioned"></a>Inga användare etableras 
 >[!NOTE]
@@ -58,13 +58,13 @@ När en användare visas som "överhoppad" i etablerings loggarna är det viktig
 - **Ett nödvändigt attribut saknas eller har inte fyllts i för en användare.** Ett viktigt att tänka på när du konfigurerar etablering är att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Den här konfigurationen omfattar att ange "matchande egenskap" som används för att unikt identifiera och matcha användare/grupper mellan de två systemen. Mer information om den här viktiga processen finns i [Anpassa mappningar av användar Provisioning-attribut för SaaS-program i Azure Active Directory](customize-application-attributes.md).
 - **Attribut mappningar för grupper:** Etablering av grupp namn och grupp information, förutom medlemmarna, om de stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera **mappningen** för grupp objekt som visas på fliken **etablering** . Om etablerings grupper har Aktiver ATS, se till att granska mappningar för attribut för att säkerställa att ett lämpligt fält används för "matchande ID". Matchnings-ID: t kan vara visnings namnet eller e-postaliaset. Gruppen och dess medlemmar är inte etablerade om matchande egenskap är tom eller inte har fyllts i för en grupp i Azure AD.
 ## <a name="provisioning-users-assigned-to-the-default-access-role"></a>Etablering av användare som tilldelats standard åtkomst rollen
-Standard rollen för ett program från galleriet kallas för rollen "standard åtkomst". Tidigare är användare som har tilldelats den här rollen inte etablerade och markeras som överhoppade i [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) på grund av att de inte är korrekt berättigade. 
+Standard rollen för ett program från galleriet kallas för rollen "standard åtkomst". Tidigare är användare som har tilldelats den här rollen inte etablerade och markeras som överhoppade i [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md) på grund av att de inte är korrekt berättigade. 
 
 **Beteende för etablering av konfigurationer som skapats efter 04/16/2020:** Användare som tilldelats rollen som standard åtkomst kommer att utvärderas på samma sätt som alla andra roller. En användare som är tilldelad standard åtkomst kommer inte att hoppas över som "inte korrekt berättigad". 
 
 **Beteende för etablering av konfigurationer som skapats före 04/16/2020:** För de kommande 3 månaderna fortsätter beteendet när det är idag. Användare med standard åtkomst rollen hoppas över som att de inte är korrekt berättigade. Efter 2020 juli är beteendet enhetligt för alla program. Vi hoppar inte över etablering av användare med standard åtkomst rollen eftersom den inte är korrekt berättigad. Den här ändringen görs av Microsoft, utan att det krävs någon kund åtgärd. Om du vill se till att dessa användare fortsätter att hoppas över, även efter den här ändringen, ska du tillämpa lämpliga scope-filter eller ta bort tilldelningen av användaren från programmet för att se till att de ligger utanför omfånget.  
 
-Om du har frågor om de här ändringarna kan du kontaktaprovisioningfeedback@microsoft.com
+Om du har frågor om de här ändringarna kan du kontakta provisioningfeedback@microsoft.com
 ## <a name="next-steps"></a>Nästa steg
 
 [Azure AD Connect synkronisering: förstå deklarativ etablering](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning.md)

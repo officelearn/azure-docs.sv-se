@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051955"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234711"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -38,7 +38,8 @@ Genom att använda principer för villkorlig åtkomst kan du tillämpa rätt åt
 
 ![Koncept för process flöde för villkorlig åtkomst](./media/overview/conditional-access-overview-how-it-works.png)
 
-Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Villkorlig åtkomst är inte avsedd som en organisations första försvars linje för scenarier som denial-of-service (DoS)-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst.
+> [!IMPORTANT]
+> Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Villkorlig åtkomst är inte avsedd att vara en organisations första försvars linje för scenarier som DOS-attacker (Denial-of-Service), men kan använda signaler från dessa händelser för att fastställa åtkomst.
 
 ## <a name="common-signals"></a>Vanliga signaler
 

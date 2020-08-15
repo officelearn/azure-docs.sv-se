@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 01d4475e73fd436fd0cd2a8aca1e7a946cdd7562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17660df34c8039ae96440c417aef051d51a5c91c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782066"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88234761"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 
@@ -48,7 +48,7 @@ Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda app
 1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 
 ### <a name="retrieve-the-gallery-application-template-identifier"></a>Hämta mall-ID för Galleri program
-Program i Azure AD-programgalleriet har en [Programmall](https://docs.microsoft.com/graph/api/applicationtemplate-list?view=graph-rest-beta&tabs=http) som beskriver metadata för programmet. Med den här mallen kan du skapa en instans av programmet och tjänstens huvud namn i din klient organisation för hantering.
+Program i Azure AD-programgalleriet har en [Programmall](/graph/api/applicationtemplate-list?tabs=http&view=graph-rest-beta) som beskriver metadata för programmet. Med den här mallen kan du skapa en instans av programmet och tjänstens huvud namn i din klient organisation för hantering.
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -61,7 +61,7 @@ Program i Azure AD-programgalleriet har en [Programmall](https://docs.microsoft.
 GET https://graph.microsoft.com/beta/applicationTemplates
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 
 <!-- {
   "blockType": "response",
@@ -100,7 +100,7 @@ Content-type: application/json
 
 ### <a name="create-the-gallery-application"></a>Skapa Galleri programmet
 
-Använd det mall-ID som hämtades för ditt program i det sista steget för att [skapa en instans](https://docs.microsoft.com/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http) av programmet och tjänstens huvud namn i din klient organisation.
+Använd det mall-ID som hämtades för ditt program i det sista steget för att [skapa en instans](/graph/api/applicationtemplate-instantiate?tabs=http&view=graph-rest-beta) av programmet och tjänstens huvud namn i din klient organisation.
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -118,7 +118,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 
 
 <!-- {
@@ -169,7 +169,7 @@ Content-type: application/json
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Hämta mallen för etablerings anslutningen
 
-Program i galleriet som är aktiverade för etablering har mallar för att effektivisera konfigurationen. Använd begäran nedan för att [Hämta mallen för etablerings konfigurationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationtemplate-list?view=graph-rest-beta&tabs=http). Observera att du måste ange ID: t. ID: t refererar till föregående resurs, som i det här fallet är ServicePrincipal. 
+Program i galleriet som är aktiverade för etablering har mallar för att effektivisera konfigurationen. Använd begäran nedan för att [Hämta mallen för etablerings konfigurationen](/graph/api/synchronization-synchronizationtemplate-list?tabs=http&view=graph-rest-beta). Observera att du måste ange ID: t. ID: t refererar till föregående resurs, som i det här fallet är ServicePrincipal. 
 
 #### <a name="request"></a>*Förfrågan*
 
@@ -182,7 +182,7 @@ GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/temp
 ```
 
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -207,7 +207,7 @@ HTTP/1.1 200 OK
 ```
 
 ### <a name="create-the-provisioning-job"></a>Skapa etablerings jobbet
-Om du vill aktivera etablering måste du först [skapa ett jobb](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-post?view=graph-rest-beta&tabs=http). Använd begäran nedan för att skapa ett etablerings jobb. Använd templateId från föregående steg när du anger den mall som ska användas för jobbet.
+Om du vill aktivera etablering måste du först [skapa ett jobb](/graph/api/synchronization-synchronizationjob-post?tabs=http&view=graph-rest-beta). Använd begäran nedan för att skapa ett etablerings jobb. Använd templateId från föregående steg när du anger den mall som ska användas för jobbet.
 
 #### <a name="request"></a>*Förfrågan*
 <!-- {
@@ -223,7 +223,7 @@ Content-type: application/json
 }
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -261,7 +261,7 @@ Content-type: application/json
 
 ### <a name="test-the-connection-to-the-application"></a>Testa anslutningen till programmet
 
-Testa anslutningen till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Program använder ofta ClientSecret i stället för. För att avgöra vilka autentiseringsuppgifter appen kräver, navigerar du till etablerings konfigurations sidan för ditt program och i utvecklarläge klickar du på Testa anslutning. Nätverks trafiken visar de parametrar som används för autentiseringsuppgifter. Du hittar en fullständig lista över autentiseringsuppgifter [här](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http). 
+Testa anslutningen till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Program använder ofta ClientSecret i stället för. För att avgöra vilka autentiseringsuppgifter appen kräver, navigerar du till etablerings konfigurations sidan för ditt program och i utvecklarläge klickar du på Testa anslutning. Nätverks trafiken visar de parametrar som används för autentiseringsuppgifter. Du hittar en fullständig lista över autentiseringsuppgifter [här](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta). 
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
@@ -273,7 +273,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/job
     ]
 }
 ```
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -285,7 +285,7 @@ HTTP/1.1 204 No Content
 
 ### <a name="save-your-credentials"></a>Spara dina autentiseringsuppgifter
 
-När du konfigurerar etableringen måste du upprätta ett förtroende mellan Azure AD och programmet. Ge åtkomst till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Läs [API-dokumentationen](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-validatecredentials?view=graph-rest-beta&tabs=http) för att se tillgängliga alternativ. 
+När du konfigurerar etableringen måste du upprätta ett förtroende mellan Azure AD och programmet. Ge åtkomst till programmet från tredje part. Exemplet nedan är för ett program som kräver clientSecret och secretToken. Varje program har sina krav på krav. Läs [API-dokumentationen](/graph/api/synchronization-synchronizationjob-validatecredentials?tabs=http&view=graph-rest-beta) för att se tillgängliga alternativ. 
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
@@ -299,7 +299,7 @@ PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secr
 }
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -310,7 +310,7 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="step-4-start-the-provisioning-job"></a>Steg 4: starta etablerings jobbet
-Nu när etablerings jobbet har kon figurer ATS använder du följande kommando för att [starta jobbet](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-start?view=graph-rest-beta&tabs=http). 
+Nu när etablerings jobbet har kon figurer ATS använder du följande kommando för att [starta jobbet](/graph/api/synchronization-synchronizationjob-start?tabs=http&view=graph-rest-beta). 
 
 
 #### <a name="request"></a>*Förfrågan*
@@ -322,7 +322,7 @@ Nu när etablerings jobbet har kon figurer ATS använder du följande kommando f
 POST https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/start
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -348,7 +348,7 @@ Nu när etablerings jobbet körs använder du följande kommando för att följa
 GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
 ```
 
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -392,13 +392,13 @@ Content-length: 2577
 
 
 ### <a name="monitor-provisioning-events-using-the-provisioning-logs"></a>Övervaka etablerings händelser med hjälp av etablerings loggarna
-Förutom att övervaka status för etablerings jobbet kan du använda [etablerings loggarna](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http) för att fråga efter alla händelser som inträffar (t. ex. fråga efter en viss användare och fastställa om de har skapats).
+Förutom att övervaka status för etablerings jobbet kan du använda [etablerings loggarna](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta) för att fråga efter alla händelser som inträffar (t. ex. fråga efter en viss användare och fastställa om de har skapats).
 
 #### <a name="request"></a>*Förfrågan*
 ```msgraph-interactive
 GET https://graph.microsoft.com/beta/auditLogs/provisioning
 ```
-#### <a name="response"></a>*Svar*
+#### <a name="response"></a>*Response*
 <!-- {
   "blockType": "response",
   "truncated": true,
@@ -526,5 +526,5 @@ Content-type: application/json
 ```
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Läs dokumentationen om synkronisering Microsoft Graph](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Läs dokumentationen om synkronisering Microsoft Graph](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrera en anpassad SCIM-app med Azure AD](use-scim-to-provision-users-and-groups.md)

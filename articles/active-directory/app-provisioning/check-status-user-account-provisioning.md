@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 09/09/2018
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2de6c07395a559085db237eb1bc7f885998860d0
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84782015"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235085"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: rapportering om automatisk etablering av användar konton
 
-Azure Active Directory (Azure AD) innehåller en [tjänst för användar konto etablering](user-provisioning.md) som hjälper till att automatisera etableringen av inetablering av användar konton i SaaS-appar och andra system, i syfte att hantera livs cykel hantering från slut punkt till slut punkt. Azure AD har stöd för för hands integrerade användar etablerings anslutningar för alla program och system med användar etablerings självstudier [här](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
+Azure Active Directory (Azure AD) innehåller en [tjänst för användar konto etablering](user-provisioning.md) som hjälper till att automatisera etableringen av inetablering av användar konton i SaaS-appar och andra system, i syfte att hantera livs cykel hantering från slut punkt till slut punkt. Azure AD har stöd för för hands integrerade användar etablerings anslutningar för alla program och system med användar etablerings självstudier [här](../saas-apps/tutorial-list.md).
 
 Den här artikeln beskriver hur du kontrollerar status för etablerings jobb när de har kon figurer ATS och hur du felsöker etablering av enskilda användare och grupper.
 

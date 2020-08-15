@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: a5825cf5461213e3440893597059c84dcdc9ad33
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810011"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236122"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -259,7 +259,7 @@ Exempel på NSG-konfiguration för privat IP-åtkomst: ![ Application Gateway v2
 
 ### <a name="what-certificates-does-application-gateway-support"></a>Vilka certifikat stöder Application Gateway?
 
-Application Gateway stöder självsignerade certifikat, certifikat utfärdare (CA)-certifikat, utöknings verifiering (EV) och certifikat med jokertecken.
+Application Gateway stöder självsignerade certifikat, certifikat utfärdare (CA), certifikat för utökad verifiering (EV), certifikat för flera domäner (SAN) och certifikat med jokertecken.
 
 ### <a name="what-cipher-suites-does-application-gateway-support"></a>Vilka chiffersviter stöder Application Gateway?
 
@@ -346,7 +346,7 @@ Webb läsar medlemmar för certifikat utfärdare (CA) har nyligen publicerat rap
 
 Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas**.
 
-För att kontrol lera om certifikat som används av ditt program har återkallats referens [DigiCert meddelande](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) och [Spårare för certifikat återkallning](https://misissued.com/#revoked). Om dina certifikat har återkallats eller kommer att återkallas måste du begära nya certifikat från den CA-leverantör som används i dina program. För att undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du gå till våra Azure updates-uppdateringar för reparations Länkar för olika Azure-tjänster som stöder BYOC:https://azure.microsoft.com/updates/certificateauthorityrevocation/
+För att kontrol lera om certifikat som används av ditt program har återkallats referens [DigiCert meddelande](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) och [Spårare för certifikat återkallning](https://misissued.com/#revoked). Om dina certifikat har återkallats eller kommer att återkallas måste du begära nya certifikat från den CA-leverantör som används i dina program. För att undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du gå till våra Azure updates-uppdateringar för reparations Länkar för olika Azure-tjänster som stöder BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
 Application Gateway detaljerad information finns under
 

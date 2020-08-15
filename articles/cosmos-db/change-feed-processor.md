@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119417"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236479"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -95,11 +95,23 @@ Dessutom kan Processorn för förändrings flöden dynamiskt justera till behål
 
 Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut ur Cosmos-behållare använder alltid ru: er. Du debiteras för ru: er som används av leasing containern.
 
+## <a name="where-to-host-the-change-feed-processor"></a>Var du ska vara värd för Change feed-processorn
+
+Processorn för ändrings flöden kan finnas på alla plattformar som stöder tids krävande processer eller uppgifter:
+
+* En kontinuerlig körning av ett [Azure-webbjobb](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
+* En process i en [virtuell Azure-dator](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
+* Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* En [värdbaserad ASP.net-tjänst](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+
+Medan byte av flödes processor kan köras i korta miljön, eftersom Lease-behållaren upprätthåller tillstånd, kommer start-och stopp cykeln för dessa miljöer att lägga till fördröjning för att ta emot meddelanden (på grund av omkostnader för att starta processorn varje gång miljön startas).
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
-* [Användnings exempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
-* [Ytterligare exempel på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Slutför exempel programmet på GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
+* [Ytterligare användnings exempel på GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
+* [Cosmos DB workshop Labs för byte av flödes processor](https://azurecosmosdb.github.io/labs/dotnet/labs/08-change_feed_with_azure_functions.html#consume-cosmos-db-change-feed-via-the-change-feed-processor)
 
 ## <a name="next-steps"></a>Nästa steg
 

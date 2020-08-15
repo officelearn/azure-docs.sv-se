@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: c59bf14c03d9f7c0c835c5a19cf5ed92acea3501
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 12b66dc173a8d3f93f97fb369ce03533299a65d7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214208"
+ms.locfileid: "88235272"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -115,7 +115,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 1. Lägg till en hemlighet med namnet **ConnectionStrings:AppConfig** i Secret Manager.
 
-    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt `<your_connection_string>` värdet i följande kommando med anslutnings strängen för appens konfigurations arkiv. Du kan hitta anslutnings strängen under **åtkomst nycklar** i Azure Portal.
+    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt `<your_connection_string>` värdet i följande kommando med anslutnings strängen för appens konfigurations arkiv. Du kan hitta den primära skrivskyddade nyckel anslutnings strängen under **åtkomst nycklar** i Azure Portal.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 

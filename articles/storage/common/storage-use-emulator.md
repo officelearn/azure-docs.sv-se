@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 3bef3ba1e993d91fee8b6f6ef2734f008c91d1a1
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447149"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236836"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage-emulatorn för utveckling och testning
 
@@ -51,7 +51,7 @@ Starta Azure Storage-emulatorn:
 När Storage-emulatorn startar visas ett kommando tolks fönster. Du kan använda det här konsol fönstret för att starta och stoppa Storage-emulatorn. Du kan också rensa data, Hämta status och initiera emulatorn från kommando tolken. Mer information finns i referens avsnittet om [kommando rads verktyget för Storage-emulatorn](#storage-emulator-command-line-tool-reference) längre fram i den här artikeln.
 
 > [!NOTE]
-> Azure Storage-emulatorn kanske inte startar korrekt om en annan lagrings-emulator, till exempel Azurite, körs på systemet.
+> Azure Storage emulatorn kanske inte startar korrekt om en annan Storage-emulator, till exempel Azurite, körs på systemet.
 
 När emulatorn körs visas en ikon i aktivitetsfältets meddelandefält i Windows.
 
@@ -150,9 +150,9 @@ Följande adress kan till exempel användas för att komma åt en BLOB i Storage
 
 Tjänstens slut punkter för Storage-emulatorn är:
 
-* Blob Service:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Kötjänst:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Table service:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Blob Service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Kötjänst: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressera det konto som är sekundärt med RA-GRS
 

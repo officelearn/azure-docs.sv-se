@@ -11,20 +11,20 @@ ms.topic: reference
 ms.date: 04/26/2020
 ms.author: kenwith
 ms.reviewer: arvinh, celested
-ms.openlocfilehash: 612663c2edc8aa7bc1eb3a2e4c8106b3e778a961
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b69e2c9b12b2db34f3eb70e54d2c6aede6b54784
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781692"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235510"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Använda SCIM och Microsoft Graph tillsammans för att etablera användare och förbättra ditt program med de data som krävs
 
-**Mål grupp:** Den här artikeln är riktad mot utvecklare som skapar program som ska integreras med Azure Active Directory (Azure AD). Om du vill använda program som redan är integrerade med Azure AD, till exempel zoom, ServiceNow och DropBox, kan du hoppa över den här artikeln och granska programspecifika [själv studie kurser](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) eller granska [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works).
+**Mål grupp:** Den här artikeln är riktad mot utvecklare som skapar program som ska integreras med Azure Active Directory (Azure AD). Om du vill använda program som redan är integrerade med Azure AD, till exempel zoom, ServiceNow och DropBox, kan du hoppa över den här artikeln och granska programspecifika [själv studie kurser](../saas-apps/tutorial-list.md) eller granska [hur etablerings tjänsten fungerar](./how-provisioning-works.md).
 
 **Vanliga scenarier**
 
-Azure AD tillhandahåller en välkomst tjänst för etablering och en utöknings bar plattform för att bygga dina program på. Besluts trädet beskriver hur en utvecklare ska använda [scim](https://aka.ms/scimoverview) och [Microsoft Graph](https://docs.microsoft.com/graph/overview) för att automatisera etableringen. 
+Azure AD tillhandahåller en välkomst tjänst för etablering och en utöknings bar plattform för att bygga dina program på. Besluts trädet beskriver hur en utvecklare ska använda [scim](https://aka.ms/scimoverview) och [Microsoft Graph](/graph/overview) för att automatisera etableringen. 
 
 > [!div class="checklist"]
 > * Skapa användare automatiskt i mitt program
@@ -97,15 +97,15 @@ Mitt program är beroende av grupper för åtkomst till olika resurser och kunde
 ## <a name="scenario-4-enrich-my-app-with-data-from-microsoft-services-such-as-teams-outlook-and-onedrive"></a>Scenario 4: utöka min app med data från Microsoft-tjänster som Teams, Outlook och OneDrive
 Mitt program är inbyggt i Microsoft Teams och förlitar sig på meddelande data. Dessutom lagrar vi filer för användare i OneDrive. Hur kan jag förbättra mitt program med data från de här tjänsterna och i Microsoft?
 
-**Rekommendation:** [Microsoft Graph](https://docs.microsoft.com/graph/) är din start punkt för att komma åt Microsoft-data. Varje arbets belastning exponerar API: er med de data som du behöver. Microsoft Graph kan användas tillsammans med scim- [etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) för scenarierna ovan. Du kan använda SCIM för att etablera grundläggande användarattribut i programmet samtidigt som du anropar Graph för att hämta andra data som du behöver. 
+**Rekommendation:** [Microsoft Graph](/graph/) är din start punkt för att komma åt Microsoft-data. Varje arbets belastning exponerar API: er med de data som du behöver. Microsoft Graph kan användas tillsammans med scim- [etablering](./use-scim-to-provision-users-and-groups.md) för scenarierna ovan. Du kan använda SCIM för att etablera grundläggande användarattribut i programmet samtidigt som du anropar Graph för att hämta andra data som du behöver. 
 
 ## <a name="scenario-5-track-changes-in-microsoft-services-such-as-teams-outlook-and-azure-ad"></a>Scenario 5: spåra ändringar i Microsoft-tjänster som Teams, Outlook och Azure AD
 Jag behöver kunna spåra ändringar i team och Outlook-meddelanden och reagera på dem i real tid. Hur kan jag få dessa ändringar att skickas till mitt program?
 
-**Rekommendation:** Microsoft Graph tillhandahåller [ändrings meddelanden](https://docs.microsoft.com/graph/webhooks) och [ändrings spårning](https://docs.microsoft.com/graph/delta-query-overview) för olika resurser. Observera följande begränsningar i ändrings meddelanden:
+**Rekommendation:** Microsoft Graph tillhandahåller [ändrings meddelanden](/graph/webhooks) och [ändrings spårning](/graph/delta-query-overview) för olika resurser. Observera följande begränsningar i ändrings meddelanden:
 - Om en händelse mottagare bekräftar en händelse, men inte agerar på den av någon anledning, kan händelsen gå förlorad.
 - Ordningen i vilken ändringar tas emot är inte garanterat kronologisk.
-- Ändrings meddelanden innehåller inte alltid [resurs data](https://docs.microsoft.com/graph/webhooks-with-resource-data) för orsakerna ovan. utvecklare använder ofta ändrings meddelanden tillsammans med ändrings spårning för synkroniseringskonflikter. 
+- Ändrings meddelanden innehåller inte alltid [resurs data](/graph/webhooks-with-resource-data) för orsakerna ovan. utvecklare använder ofta ändrings meddelanden tillsammans med ändrings spårning för synkroniseringskonflikter. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Scenario 6: etablera användare och grupper i Azure AD
 Mitt program skapar information om en användare som kunder behöver i Azure AD. Detta kan vara ett HR-program än hanterar anställning, en kommunikations app som skapar telefonnummer för användare eller någon annan app som genererar data som är värdefulla i Azure AD. Hur gör jag för att du fylla i användar posten i Azure AD med dessa data? 
@@ -117,5 +117,5 @@ Mitt program skapar information om en användare som kunder behöver i Azure AD.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
-- [Läs dokumentationen om synkronisering Microsoft Graph](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Läs dokumentationen om synkronisering Microsoft Graph](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [Integrera en anpassad SCIM-app med Azure AD](use-scim-to-provision-users-and-groups.md)

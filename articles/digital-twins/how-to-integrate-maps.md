@@ -1,19 +1,19 @@
 ---
-title: Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
+title: Integrera med Azure Maps
 titleSuffix: Azure Digital Twins
-description: Se hur du skapar en Azure-funktion som kan använda den dubbla grafen och digitala Azure-meddelanden för att uppdatera informationen som visas i Azure Maps.
+description: I så här skapar du en Azure-funktion som kan använda den dubbla grafen och digitala Azure-meddelanden för att uppdatera en Azure Maps inomhus karta.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 6aad6201136bb925d5e094de115cc7274cc7872a
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a2dff1ea9c830fa48545dc25654cc3c5318c3415
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131420"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235918"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
 
@@ -25,7 +25,7 @@ Den här instruktionen kommer att avse:
 2. Skapa en Azure-funktion för att uppdatera en Azure Maps inomhus Maps-funktion stateset.
 3. Så här lagrar du ditt Maps-ID och funktions stateset-ID i Azure Digitals grafen.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * Följ självstudien om Azure Digitals dubbla [*steg: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md).
     * Du kommer att utöka den här dubbla med en ytterligare slut punkt och väg. Du kommer även att lägga till en annan funktion i din Function-app från den självstudien. 

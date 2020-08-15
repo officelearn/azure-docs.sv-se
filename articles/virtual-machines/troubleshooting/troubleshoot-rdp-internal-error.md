@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 4831a084153c28576cca7c40dfefeb8c5ff3c4e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87036394"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235170"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Ett internt fel inträffar när du försöker ansluta till en virtuell Azure-dator via Fjärrskrivbord
 
@@ -55,13 +55,13 @@ Anslut till [serie konsolen och öppna PowerShell-instansen](./serial-console-wi
 
 #### <a name="step-1-check-the-rdp-port"></a>Steg: 1 kontrol lera RDP-porten
 
-1. I en PowerShell-instans använder du [netstat](/windows-server/administration/windows-commands/netstat) för att kontrol lera om Port 8080 används av andra program:
+1. I en PowerShell-instans använder du [netstat](/windows-server/administration/windows-commands/netstat) för att kontrol lera om port 3389 används av andra program:
 
     ```powershell
     Netstat -anob |more
     ```
 
-2. Om Termservice.exe använder 8080-porten går du till steg 2. Om en annan tjänst eller ett annat program än Termservice.exe använder 8080-porten följer du dessa steg:
+2. Om Termservice.exe använder 3389-porten går du till steg 2. Om en annan tjänst eller ett annat program än Termservice.exe använder 3389-porten följer du dessa steg:
 
     1. Stoppa tjänsten för programmet som använder tjänsten 3389:
 

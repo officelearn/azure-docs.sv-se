@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38973e5484ece0b47e2f81ad78c716b5ee49cead
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 70938bf1dcd06ce9936767c66ffead0f8627c5a7
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829704"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235476"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -156,7 +156,7 @@ I [SCIM 2,0-protokoll specifikationen](http://www.simplecloud.info/#Specificatio
 
 Följ dessa allmänna rikt linjer när du implementerar en SCIM-slutpunkt för att säkerställa kompatibilitet med Azure AD:
 
-* `id`är en obligatorisk egenskap för alla resurser. Varje svar som returnerar en resurs måste se till att varje resurs har den här egenskapen, förutom `ListResponse` med noll medlemmar.
+* `id` är en obligatorisk egenskap för alla resurser. Varje svar som returnerar en resurs måste se till att varje resurs har den här egenskapen, förutom `ListResponse` med noll medlemmar.
 * Svar på en fråga/filter-begäran ska alltid vara en `ListResponse` .
 * Grupper är valfria, men stöds endast om SCIM-implementeringen stöder PATCH-begäranden.
 * Det är inte nödvändigt att inkludera hela resursen i KORRIGERINGs svaret.
@@ -751,7 +751,7 @@ Azure AD Provisioning-tjänsten fungerar för närvarande under IP-intervallen f
 
 Nu när du har utformat schemat och förstått Azure AD SCIM-implementeringen kan du komma igång med att utveckla din SCIM-slutpunkt. I stället för att börja från början och skapa implementeringen helt och hållet, kan du lita på ett antal SCIM-bibliotek med öppen källkod som publicerats av SCIM-communityn.
 
-Den öppna käll-och [referens koden](https://aka.ms/SCIMReferenceCode) för .net Core som publicerats av Azure AD Provisioning-teamet är en sådan resurs som kan leda till att du börjar utveckla. När du har skapat din SCIM-slutpunkt ska du testa den. Du kan använda samlingen med [Postman-tester](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) som ingår i referens koden eller köra genom exempel begär Anden/svar som anges [ovan](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations).  
+Den öppna käll-och [referens koden](https://aka.ms/SCIMReferenceCode) för .net Core som publicerats av Azure AD Provisioning-teamet är en sådan resurs som kan leda till att du börjar utveckla. När du har skapat din SCIM-slutpunkt ska du testa den. Du kan använda samlingen med [Postman-tester](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) som ingår i referens koden eller köra genom exempel begär Anden/svar som anges [ovan](#user-operations).  
 
    > [!Note]
    > Referens koden är avsedd att hjälpa dig att komma igång med att skapa din SCIM-slutpunkt och tillhandahålls "i befintligt skick". Bidrag från communityn är välkommen att hjälpa till att bygga och underhålla koden.
@@ -796,10 +796,10 @@ SCIM-tjänsten måste ha ett certifikat för HTTP-adress och serverautentisering
 
 I .NET Core SDK ingår ett HTTPS-utvecklings certifikat som kan användas under utvecklingen, certifikatet installeras som en del av upplevelsen för första körningen. Beroende på hur du kör ASP.NET Core webb program lyssnar den på en annan port:
 
-* Microsoft. SCIM. WebHostSample:https://localhost:5001
-* IIS Express:https://localhost:44359/
+* Microsoft. SCIM. WebHostSample: https://localhost:5001
+* IIS Express: https://localhost:44359/
 
-Om du vill ha mer information om HTTPS i ASP.NET Core använder du följande länk: Använd [https i ASP.net Core](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl)
+Om du vill ha mer information om HTTPS i ASP.NET Core använder du följande länk: Använd [https i ASP.net Core](/aspnet/core/security/enforcing-ssl)
 
 ### <a name="handling-endpoint-authentication"></a>Hantering av slut punkts autentisering
 
@@ -1168,12 +1168,12 @@ När den första cykeln har startats kan du välja **etablerings loggar** i den 
 
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>Steg 5: publicera ditt program i Azure AD-programgalleriet
 
-Om du skapar ett program som ska användas av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](../develop/howto-app-gallery-listing.md). Microsoft kommer att samar beta med dig för att integrera ditt program i vårt galleri, testa din slut punkt och publicera onboarding- [dokumentation](../saas-apps/tutorial-list.md) för kunder att använda. 
+Om du skapar ett program som ska användas av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](../azuread-dev/howto-app-gallery-listing.md). Microsoft kommer att samar beta med dig för att integrera ditt program i vårt galleri, testa din slut punkt och publicera onboarding- [dokumentation](../saas-apps/tutorial-list.md) för kunder att använda. 
 
 ### <a name="gallery-onboarding-checklist"></a>Check lista för Galleri registrering
 Följ check listan nedan för att se till att ditt program är inbyggt och att kunderna har en smidig distributions upplevelse. Informationen kommer att samlas in från dig när du registrerar dig i galleriet. 
 > [!div class="checklist"]
-> * Stöd för en [SCIM 2,0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) -användare och grupp slut punkt (endast en krävs, men båda rekommenderas)
+> * Stöd för en [SCIM 2,0 ](#step-2-understand-the-azure-ad-scim-implementation) -användare och grupp slut punkt (endast en krävs, men båda rekommenderas)
 > * Stöd minst 25 begär Anden per sekund per klient (krävs)
 > * Upprätta teknisk support och support kontakter som hjälper kunder att publicera gallerier (krävs)
 > * 3 ej utgångna testautentiseringsuppgifter för ditt program (krävs)

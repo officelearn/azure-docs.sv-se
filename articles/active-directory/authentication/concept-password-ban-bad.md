@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f0f7571cf9f8d355330c4acf425e38ce215e840
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 68419c33286457a770a9988f1f00cc0b5e1f91bc
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050878"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235306"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminera Felaktiga lösen ord med Azure Active Directory lösen ords skydd
 
 Många säkerhets guider rekommenderar att du inte använder samma lösen ord på flera platser, för att göra det komplext och för att undvika enkla lösen ord som *Password123*. Du kan ge dina användare [vägledning om hur du väljer lösen ord](https://www.microsoft.com/research/publication/password-guidance), men svaga eller oskyddade lösen ord används ofta. Lösen ords skyddet i Azure AD identifierar och blockerar kända svaga lösen ord och deras varianter, och kan också blockera ytterligare svaga termer som är speciella för din organisation.
 
-Med Azure AD Password Protection tillämpas standard globala förbjudna lösen ords listor automatiskt på alla moln användare. För att stödja dina egna affärs-och säkerhets behov kan du definiera poster i en anpassad lista över blockerade lösen ord. När användare ändrar eller återställer sina lösen ord, kontrol leras dessa förbjudna lösen ords listor för att tvinga användningen av starka lösen ord.
+Med Azure AD Password Protection tillämpas standard globala förbjudna lösen ords listor automatiskt på alla användare i en Azure AD-klient. För att stödja dina egna affärs-och säkerhets behov kan du definiera poster i en anpassad lista över blockerade lösen ord. När användare ändrar eller återställer sina lösen ord, kontrol leras dessa förbjudna lösen ords listor för att tvinga användningen av starka lösen ord.
 
 Du bör använda ytterligare funktioner som [azure Multi-Factor Authentication](concept-mfa-howitworks.md), inte bara förlitar sig på starka lösen ord som tillämpas av lösen ords skydd i Azure AD. Mer information om hur du använder flera säkerhets nivåer för dina inloggnings händelser finns i [din pa $ $Word spelar ingen roll](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
@@ -37,7 +37,7 @@ I Azure AD Identity Protections teamet analyseras hela Azure AD-säkerhetsteleme
 
 När ett lösen ord ändras eller återställs för en användare i en Azure AD-klient, används den aktuella versionen av den globala listan över blockerade lösen ord för att verifiera lösen ordets styrka. Den här verifierings kontrollen resulterar i starkare lösen ord för alla Azure AD-kunder.
 
-Den globala listan över blockerade lösen ord tillämpas automatiskt på alla moln användare i en Azure AD-klient. Det finns inget att aktivera eller konfigurera och kan inte inaktive ras.
+Den globala listan över blockerade lösen ord tillämpas automatiskt på alla användare i en Azure AD-klient. Det finns inget att aktivera eller konfigurera och kan inte inaktive ras. Den här globala listan över förbjudna lösen ord används för användare när de ändrar eller återställer sina egna lösen ord via Azure AD.
 
 > [!NOTE]
 > Cyberhot-cyberbrottslingarna använder också liknande strategier i deras attacker för att identifiera vanliga svaga lösen ord och varianter. För att förbättra säkerheten publicerar Microsoft inte innehållet i den globala listan över blockerade lösen ord.
@@ -99,7 +99,7 @@ Det finns vissa webbplatser från tredje part som räknar upp miljon tals lösen
 
 ## <a name="on-premises-hybrid-scenarios"></a>Lokala hybrid scenarier
 
-Många organisationer har en hybrid identitets modell som innehåller lokala Active Directory Domain Services-miljöer (AD DS). Om du vill utöka säkerhets fördelarna med Azure AD Password Protection till din AD DS-miljö kan du installera komponenter på dina lokala servrar. Dessa agenter kräver lösen ords ändrings händelser i den lokala AD DS-miljön för att följa samma lösen ords princip som enbart moln användare.
+Många organisationer har en hybrid identitets modell som innehåller lokala Active Directory Domain Services-miljöer (AD DS). Om du vill utöka säkerhets fördelarna med Azure AD Password Protection till din AD DS-miljö kan du installera komponenter på dina lokala servrar. Dessa agenter kräver lösen ords ändrings händelser i den lokala AD DS-miljön för att följa samma lösen ords princip som i Azure AD.
 
 Mer information finns i [Framtvinga lösen ords skydd i Azure AD för AD DS](concept-password-ban-bad-on-premises.md).
 

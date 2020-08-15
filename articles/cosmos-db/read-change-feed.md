@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23f99dc5c648948ce07f1b40106667d24906328a
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83697341"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236802"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
 
-Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller en pull-modell. Med en push-modell kan en klient begära att fungera från en server och har affärs logik för att bearbeta en ändring. Dock hanteras komplexiteten vid sökning efter ändringar och lagrings tillstånd för de senaste bearbetade ändringarna på servern.
+Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller en pull-modell. Med en push-modell skickas en server (ändrings flödet) till en klient som har affärs logik för bearbetning av detta arbete. Komplexiteten vid sökning efter arbete och lagrings tillstånd för det senast bearbetade arbetet hanteras dock på servern.
 
-Med en pull-modell kommer en server att fungera, vilket ofta begär den från en central arbetskö. Klienten, i det här fallet, innehåller inte bara affärs logik för bearbetning av ändringar utan även lagring av tillstånd för den senast bearbetade ändringen, hantering av belastnings utjämning över flera klienter som bearbetar ändringar parallellt och hanterar fel.
+Med en pull-modell måste klienten Hämta arbetet från servern. Klienten, i det här fallet, innehåller inte bara affärs logik för bearbetning av arbete, utan även lagring av tillstånd för det senast bearbetade arbetet, hantering av belastnings utjämning över flera klienter bearbetnings arbete parallellt och hantering av fel.
 
 När du läser från Azure Cosmos DB ändra feed rekommenderar vi vanligt vis att du använder en push-modell eftersom du inte behöver oroa dig för:
 

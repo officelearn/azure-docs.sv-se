@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 69ea1964449143a25f447375f2aae15d9feeff10
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445610"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235731"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -44,7 +44,7 @@ Om du vill begära en automatisk Azure AD Provisioning-anslutning för en app so
 
 Autentiseringsuppgifter krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. När du konfigurerar automatisk användar etablering för ett program måste du ange giltiga autentiseringsuppgifter. Du kan hitta autentiseringstypen och kraven för programmet genom att titta på själv studie kursen. I Azure Portal kan du testa autentiseringsuppgifterna genom att låta Azure AD försöka ansluta till appens etablerings app med de angivna autentiseringsuppgifterna.
 
-Om SAML-baserad enkel inloggning också har kon figurer ATS för programmet, är Azure ADs interna lagrings gräns per program 1024 byte. Den här gränsen omfattar alla certifikat, hemliga tokens, autentiseringsuppgifter och relaterade konfigurations data som är kopplade till en enda instans av ett program (kallas även för en tjänst huvud post i Azure AD). När SAML-baserad enkel inloggning har kon figurer ATS förbrukar certifikatet som används för att signera SAML-token ofta över 50% procent av utrymmet. Eventuella ytterligare objekt (hemliga token, URI: er, e-postadresser för meddelanden, användar namn och lösen ord) som du anger under etablering av användar etablering kan överskrida lagrings gränsen. Mer information finns i problem med att [Spara administratörs behörighet när du konfigurerar användar etablering](../manage-apps/application-provisioning-config-problem-storage-limit.md).
+Om SAML-baserad enkel inloggning också har kon figurer ATS för programmet, är Azure ADs interna lagrings gräns per program 1024 byte. Den här gränsen omfattar alla certifikat, hemliga tokens, autentiseringsuppgifter och relaterade konfigurations data som är kopplade till en enda instans av ett program (kallas även för en tjänst huvud post i Azure AD). När SAML-baserad enkel inloggning har kon figurer ATS förbrukar certifikatet som används för att signera SAML-token ofta över 50% procent av utrymmet. Eventuella ytterligare objekt (hemliga token, URI: er, e-postadresser för meddelanden, användar namn och lösen ord) som du anger under etablering av användar etablering kan överskrida lagrings gränsen. Mer information finns i problem med att [Spara administratörs behörighet när du konfigurerar användar etablering](./application-provisioning-config-problem-storage-limit.md).
 
 ## <a name="mapping-attributes"></a>Mappar attribut
 
@@ -54,7 +54,7 @@ Det finns en förkonfigurerad uppsättning attribut och mappningar av attribut m
 
 När du konfigurerar etablering är det viktigt att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Granska och konfigurera den matchande egenskapen (**matcha objekt med det här attributet**) som används för att unikt identifiera och matcha användare/grupper mellan de två systemen.
 
-Du kan anpassa standardattributen – mappningar efter dina affärs behov. Så du kan ändra eller ta bort befintliga attribut-mappningar eller skapa nya attribut-mappningar. Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program](../manage-apps/customize-application-attributes.md).
+Du kan anpassa standardattributen – mappningar efter dina affärs behov. Så du kan ändra eller ta bort befintliga attribut-mappningar eller skapa nya attribut-mappningar. Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program](./customize-application-attributes.md).
 
 När du konfigurerar etablering till ett SaaS-program är en av de typer av mappningar av attribut som du kan ange en uttrycks mappning. För dessa mappningar måste du skriva ett skript liknande uttryck som gör att du kan omvandla dina användares data till format som är mer acceptabla för SaaS-programmet. Mer information finns i [skriva uttryck för mappning av attribut](functions-for-customizing-application-data.md).
 
@@ -81,13 +81,13 @@ Du kan använda definitions områdes filter för att definiera attributbaserade 
 
 ### <a name="b2b-guest-users"></a>B2B-användare (gäst)
 
-Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
+Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../external-identities/configure-saas-apps.md).
 
 Observera att userPrincipalName för en gäst användare ofta lagras som "alias # EXT # @domain.com ". När userPrincipalName inkluderas i dina attributmappning som ett källattribut, tas #EXT # bort från userPrincipalName. Om du kräver att #EXT # ska vara kvar ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 
-När Azure AD är käll systemet använder etablerings tjänsten [use delta-frågan för att spåra ändringar i Microsoft Graph data](https://docs.microsoft.com/graph/delta-query-overview) för övervakning av användare och grupper. Etablerings tjänsten kör en första cykel mot käll systemet och mål systemet, följt av periodiska stegvisa cykler.
+När Azure AD är käll systemet använder etablerings tjänsten [use delta-frågan för att spåra ändringar i Microsoft Graph data](/graph/delta-query-overview) för övervakning av användare och grupper. Etablerings tjänsten kör en första cykel mot käll systemet och mål systemet, följt av periodiska stegvisa cykler.
 
 ### <a name="initial-cycle"></a>Första cykeln
 
@@ -154,11 +154,11 @@ Lös de här felen genom att justera attributvärdena för den berörda använda
 
 ### <a name="quarantine"></a>Karantän
 
-Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](../manage-apps/check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
+Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](./check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
 
 När den är i karantän minskas frekvensen för stegvisa cykler till en gång per dag.
 
-Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](../manage-apps/application-provisioning-quarantine-status.md).
+Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](./application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Hur lång tid tar etableringen?
 
@@ -166,7 +166,7 @@ Prestanda beror på om ditt etablerings jobb kör en inledande etablerings cykel
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>Så här ser du om användarna är korrekt etablerade
 
-Alla åtgärder som körs av användar etablerings tjänsten registreras i Azure AD [-etablerings loggarna (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Loggarna omfattar alla Läs-och skriv åtgärder som gjorts för käll-och mål systemen och de användar data som lästs eller skrevs under varje åtgärd. Information om hur du läser etablerings loggar i Azure Portal finns i [rapport guiden för etablering](../manage-apps/check-status-user-account-provisioning.md).
+Alla åtgärder som körs av användar etablerings tjänsten registreras i Azure AD [-etablerings loggarna (för hands version)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Loggarna omfattar alla Läs-och skriv åtgärder som gjorts för käll-och mål systemen och de användar data som lästs eller skrevs under varje åtgärd. Information om hur du läser etablerings loggar i Azure Portal finns i [rapport guiden för etablering](./check-status-user-account-provisioning.md).
 
 ## <a name="de-provisioning"></a>Avetablering
 
@@ -190,8 +190,8 @@ Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för 
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 
-[Konfigurera etablering för en galleriapp](../manage-apps/configure-automatic-user-provisioning-portal.md)
+[Konfigurera etablering för en galleriapp](./configure-automatic-user-provisioning-portal.md)
 
 [Skapa en SCIM-slutpunkt och konfigurera etablering när du skapar din egen app](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
-[Felsök problem med att konfigurera och tillhandahålla användare till ett program](../manage-apps/application-provisioning-config-problem.md).
+[Felsök problem med att konfigurera och tillhandahålla användare till ett program](./application-provisioning-config-problem.md).

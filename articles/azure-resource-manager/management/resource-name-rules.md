@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: ca13203b6d31c1eeb939c668a58e67f0d462a905
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554340"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235986"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -42,7 +42,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | tjänst/API/problem/bilagor | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | Service/API/problem/kommentarer | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/API/åtgärder | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
-> | tjänst/API: er/åtgärder/Taggar | reparation | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API: er/åtgärder/Taggar | operation | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | tjänst/API: er/versioner | api | 1–80 | Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja och sluta med alfanumeriskt eller under streck. |
 > | tjänst/API/scheman | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
 > | Service/API: er/tagDescriptions | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
@@ -322,7 +322,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | servrar/firewallRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken, bindestreck och under streck. |
 > | servrar/virtualNetworkRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken och bindestreck. |
 
-## <a name="microsoftdevices"></a>Microsoft. Devices
+## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
@@ -392,6 +392,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
+> | actionGroups | Resursgrupp | 1-260 | Kan inte använda:<br>`/` <br><br>Kan inte sluta med blank steg eller punkt.  |
 > | delarna | Resursgrupp | 1-260 | Kan inte använda:<br>`%&\?/` <br><br>Kan inte sluta med blank steg eller punkt.  |
 
 ## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
@@ -542,7 +543,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lösningar | arbetsyta | E.t. | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
+> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 
@@ -695,6 +696,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
+> | certifikat | Resursgrupp | 1-260 | Kan inte använda:<br>`/` <br><br>Kan inte sluta med blank steg eller punkt.  | 
 > | Server grupper | Resursgrupp | 1-40 | Alfanumeriska tecken och bindestreck. |
 > | webbplatser | EAN | 2-60 | Innehåller alfanumeriska tecken och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
 > | platser/platser | webbplats | 2-59 | Alfanumeriska tecken och bindestreck. |

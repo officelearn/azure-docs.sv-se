@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 3c3706cc3a15a8832cec3d799ea551810c849379
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 52819fc37cf0d10cb36009feb82dec234184752c
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313616"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88235544"
 ---
 # <a name="on-demand-provisioning"></a>Etablering på begäran
 Använd etablering på begäran för att etablera en användare i ett program på några sekunder. Bland annat kan du använda den här funktionen för att:
@@ -47,9 +47,9 @@ Etablerings tjänsten försöker auktorisera åtkomst till mål programmet genom
 
 #### <a name="troubleshooting-tips"></a>Felsökningstips
 
-* Se till att du har angett giltiga autentiseringsuppgifter, till exempel den hemliga token och klient-URL: en, till mål programmet. De autentiseringsuppgifter som krävs varierar beroende på program. Detaljerade konfigurations självstudier finns i [själv studie listan](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
+* Se till att du har angett giltiga autentiseringsuppgifter, till exempel den hemliga token och klient-URL: en, till mål programmet. De autentiseringsuppgifter som krävs varierar beroende på program. Detaljerade konfigurations självstudier finns i [själv studie listan](../saas-apps/tutorial-list.md). 
 * Kontrol lera att mål programmet stöder filtrering för de matchande attribut som definieras i fönstret **mappningar för attribut** . Du kan behöva kontrol lera API-dokumentationen från programutvecklaren för att förstå de filter som stöds.
-* För system för SCIM-program (Cross-Domain Identity Management) kan du använda ett verktyg som Postman. Sådana verktyg hjälper dig att se till att programmet svarar på autentiseringsbegäranden på det sätt som Azure Active Directory (Azure AD) etablerings tjänsten förväntar sig. Ta en titt på en [exempel förfrågan](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* För system för SCIM-program (Cross-Domain Identity Management) kan du använda ett verktyg som Postman. Sådana verktyg hjälper dig att se till att programmet svarar på autentiseringsbegäranden på det sätt som Azure Active Directory (Azure AD) etablerings tjänsten förväntar sig. Ta en titt på en [exempel förfrågan](./use-scim-to-provision-users-and-groups.md#request-3).
 
 ### <a name="step-2-import-user"></a>Steg 2: importera användare
 
@@ -76,7 +76,7 @@ I avsnittet **Visa information** visas egenskaperna för den användare som har 
 
 ### <a name="step-3-determine-if-user-is-in-scope"></a>Steg 3: kontrol lera om användaren är inom omfånget
 
-Sedan fastställer etablerings tjänsten om användaren är i [omfånget](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) för etablering. Tjänsten tar hänsyn till aspekter som:
+Sedan fastställer etablerings tjänsten om användaren är i [omfånget](./how-provisioning-works.md#scoping) för etablering. Tjänsten tar hänsyn till aspekter som:
 
 * Om användaren är tilldelad till programmet.
 * Huruvida omfattning är inställd på **Synkronisera tilldelad** eller **synkronisera alla**.
@@ -94,8 +94,8 @@ I avsnittet **Visa information** visas de omfångs villkor som utvärderades. Du
 
 #### <a name="troubleshooting-tips"></a>Felsökningstips
 
-* Kontrol lera att du har definierat en giltig omfattnings roll. Undvik till exempel att använda [operatorn Greater_Than](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) med ett värde som inte är heltal.
-* Om användaren inte har den nödvändiga rollen granskar du [tipsen för att konfigurera användare som har tilldelats rollen som standard åtkomst roll](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
+* Kontrol lera att du har definierat en giltig omfattnings roll. Undvik till exempel att använda [operatorn Greater_Than](./define-conditional-rules-for-provisioning-user-accounts.md#create-a-scoping-filter) med ett värde som inte är heltal.
+* Om användaren inte har den nödvändiga rollen granskar du [tipsen för att konfigurera användare som har tilldelats rollen som standard åtkomst roll](./application-provisioning-config-problem-no-users-provisioned.md#provisioning-users-assigned-to-the-default-access-role).
 
 ### <a name="step-4-match-user-between-source-and-target"></a>Steg 4: matcha användare mellan källa och mål
 
@@ -129,7 +129,7 @@ I avsnittet **Visa information** visas de attribut som har ändrats i mål progr
 
 #### <a name="troubleshooting-tips"></a>Felsökningstips
 
-* Felen för att exportera ändringar kan variera mycket. Se [dokumentationen för etablering av loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs#error-codes) för vanliga problem.
+* Felen för att exportera ändringar kan variera mycket. Se [dokumentationen för etablering av loggar](../reports-monitoring/concept-provisioning-logs.md#error-codes) för vanliga problem.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -150,4 +150,4 @@ Det finns för närvarande några kända begränsningar för etablering på beg�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Felsöka etablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem)
+* [Felsöka etablering](./application-provisioning-config-problem.md)

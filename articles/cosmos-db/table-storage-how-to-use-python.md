@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 4de8b50b82765499b504dac27bcef439681d58f0
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 1bf9c80e754ca4d728e35767f0a1a768734d587d
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874919"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236819"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
 
@@ -36,7 +36,7 @@ Det här exemplet beskriver hur du använder [Azure Cosmos DB Table SDK för Pyt
 
 Vi rekommenderar att du använder [referensen för Azure Cosmos DB SDK för Python API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) när du går igenom scenarierna i det här exemplet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att kunna följa med i det här exemplet:
 
@@ -209,7 +209,7 @@ Du kan också begränsa vilka egenskaper som returneras för varje entitet i en 
 Frågan i följande kod returnerar bara beskrivningarna av entiteter i tabellen.
 
 > [!NOTE]
-> Följande kodfragment fungerar bara mot Azure Storage. Det kan inte användas med lagringsemulatorn.
+> Följande kodfragment fungerar bara mot Azure Storage. Den stöds inte av Storage-emulatorn.
 
 ```python
 tasks = table_service.query_entities(

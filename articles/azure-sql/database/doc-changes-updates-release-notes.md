@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: e1e6c9254c3906b79c3a20de4672dff1b9ac6c63
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
+ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121467"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88236581"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -84,11 +84,11 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 ### <a name="sql-managed-instance-h1-2019-updates"></a>SQL-hanterad instans H1 2019 uppdateringar
 
 Följande funktioner är aktiverade i distributions modellen SQL-hanterad instans i H1 2019:
-  - Support för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers">Azures månatliga kredit för Visual Studio-prenumeranter</a> och ökade [regionala gränser](../managed-instance/resource-limits.md#regional-resource-limitations).
-  - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">sharepoint 2016 och sharepoint 2019</a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">Dynamics 365 Business Central.</a>
+  - Support för prenumerationer med <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azures månatliga kredit för Visual Studio-prenumeranter </a> och ökade [regionala gränser](../managed-instance/resource-limits.md#regional-resource-limitations).
+  - Stöd för <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> sharepoint 2016 och sharepoint 2019 </a> och <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central. </a>
   - Skapa en hanterad instans med <a href="https://aka.ms/managed-instance-collation">sortering på instans nivå</a> och en <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">tidszon</a> som du väljer.
   - Hanterade instanser skyddas nu med [inbyggd brand vägg](../managed-instance/management-endpoint-verify-built-in-firewall.md).
-  - Konfigurera SQL-hanterad instans så att den använder [offentliga slut punkter](../managed-instance/public-endpoint-configure.md), [åsidosätter proxy](connectivity-architecture.md#connection-policy) -anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md#sql-managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
+  - Konfigurera SQL-hanterad instans så att den använder [offentliga slut punkter](../managed-instance/public-endpoint-configure.md), [åsidosätter proxy](connectivity-architecture.md#connection-policy) -anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. [Långsiktig kvarhållning av säkerhets kopior](long-term-retention-overview.md#sql-managed-instance-support) (upp till 10 år) är för närvarande en begränsad offentlig för hands version.  
   - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](../managed-instance/virtual-cluster-delete.md).
   - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
   - SQL-hanterad instans finns i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala, södra Frankrike, södra Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika, västra.
@@ -97,6 +97,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 
 |Problem  |Datum identifierat  |Status  |Åtgärds datum  |
 |---------|---------|---------|---------|
+|[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
 |[Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Matchat|Juni 2020|
 |[Behörigheter för resurs gruppen gäller inte för SQL-hanterad instans](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Feb 2020|Har en lösning||
@@ -110,7 +111,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |[Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Har en lösning||
 |[Service Broker dialog rutor mellan databaser måste initieras om efter uppgraderingen av service nivå](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Aug 2019|Har en lösning||
 |[Personifiering av Azure AD-inloggnings typer stöds inte](#impersonation-of-azure-ad-login-types-is-not-supported)|Jul 2019|Ingen lösning||
-|[@queryparametern stöds inte i sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Ingen lösning||
+|[@query parametern stöds inte i sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Ingen lösning||
 |[Transaktionsreplikering måste konfigureras om efter GEO-redundans](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Ingen lösning||
 |[Tillfällig databas används under återställnings åtgärden](#temporary-database-is-used-during-restore-operation)||Har en lösning||
 |[TEMPDB-strukturen och innehållet har skapats på nytt](#tempdb-structure-and-content-is-re-created)||Ingen lösning||
@@ -124,6 +125,11 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |Funktionen Database mail med externa (icke-Azure) e-postservrar som använder säker anslutning||Matchat|Okt 2019|
 |Inneslutna databaser stöds inte i SQL-hanterad instans||Matchat|Aug 2019|
 
+### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Tjänstens huvud namn kan inte komma åt Azure AD och AKV
+
+I vissa fall kan det finnas ett problem med tjänstens huvud namn som används för att få åtkomst till Azure AD-och Azure Key Vault-tjänster (AKV). Därför påverkar det här problemet användningen av Azure AD-autentisering och transparent databas kryptering (TDE) med SQL-hanterad instans. Detta kan uppstå som ett tillfälligt anslutnings problem eller inte kan köra instruktioner som till exempel skapa inloggning/användare från extern PROVIDER eller köra som inloggning/användare. Att ställa in TDE med kundhanterad nyckel på en ny Azure SQL-hanterad instans kanske inte fungerar i vissa fall.
+
+**Lösning**: förhindra att det här problemet uppstår på SQL-hanterad instans innan du kör några uppdaterings kommandon, eller om du redan har drabbats av det här problemet efter uppdaterings kommandon, gå till Azure Portal, gå till SQL-hanterad instans [Active Directory administratörs bladet](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-portal). Kontrol lera om du kan se fel meddelandet "en hanterad instans behöver ett tjänst huvud namn för att få åtkomst till Azure Active Directory. Klicka här om du vill skapa ett huvud namn för tjänsten. Om du har påträffat det här fel meddelandet klickar du på det och följer instruktionerna för steg för steg som tillhandahölls tills felet har åtgärd ATS.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras
 
@@ -205,7 +211,7 @@ Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande Azure
 -   Azure AD-användare med alias. Följande fel returneras i det här fallet: `15517` .
 - Azure AD-inloggningar och användare baserat på Azure AD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet: `15517` och `15406` .
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query parametern stöds inte i sp_send_db_mail
 
 `@query`Parametern i [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) proceduren fungerar inte.
 
@@ -229,7 +235,7 @@ I den inledande fasen kan en användare komma åt den tomma databasen och till o
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
-`tempdb`Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb` . `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i bevaras `tempdb` inte.
+`tempdb`Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb` . `Tempdb` återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i bevaras `tempdb` inte.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överskrida lagrings utrymme med små databasfiler
 
@@ -266,7 +272,7 @@ Fel loggar som är tillgängliga i SQL Managed instance är inte bestående och 
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions omfånget på två databaser inom samma instans stöds inte
 
-**(Löst i mars 2020)** `TransactionScope`Klassen i .net fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
+**(Löst i mars 2020)** `TransactionScope` Klassen i .net fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
 
 ```csharp
 using (var scope = new TransactionScope())

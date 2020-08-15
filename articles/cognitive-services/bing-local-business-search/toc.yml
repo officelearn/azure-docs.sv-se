@@ -15,7 +15,7 @@
     - name: REST-API
       expanded: true
       items:
-        - name: 'Använd C#'
+        - name: Använd C#
           href: quickstarts/local-quickstart.md
         - name: Använda Java
           href: quickstarts/local-search-java-quickstart.md
@@ -41,7 +41,7 @@
 - name: Resurser
   items:
     - name: Testa Cognitive Services
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Prisinformation
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/'
     - name: Efterlevnad

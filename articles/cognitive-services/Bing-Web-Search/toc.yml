@@ -11,7 +11,7 @@
   items:
     - name: 'REST API:er'
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
         - name: Go
           href: quickstarts/go.md
@@ -88,7 +88,7 @@
 - name: Resurser
   items:
     - name: Hämta API-nyckel
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Slutpunkt för webbsökning i Bing
       href: web-search-endpoints.md
     - name: Prissättning

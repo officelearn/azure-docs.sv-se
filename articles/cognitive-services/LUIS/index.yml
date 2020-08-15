@@ -12,12 +12,12 @@ metadata:
   title: Dokumentation om Language Understanding Intelligent Service (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när denna använder sina egna ord. LUIS använder maskininlärning för att göra det möjligt för utvecklare att skapa program som kan ta emot indata från användaren i naturligt språk och sedan extrahera betydelse.
-  ms.openlocfilehash: 0d941872670a5bdd559a2760f73cda72773fc887
-  ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+  ms.openlocfilehash: 561f6ee161d2a697b8c143ee49209515f679c77b
+  ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/15/2020
-  ms.locfileid: "84791596"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88236530"
 landingContent:
 - title: Om Language Understanding (LUIS)
   linkLists:
@@ -60,9 +60,9 @@ landingContent:
     - text: 'Portal: Skapa en ny LUIS-app'
       url: get-started-portal-build-app.md
     - text: Med hjälp av C# SDK
-      url: sdk-authoring.md?pivots=programming-language-csharp
+      url: quickstart-sdk.md?pivots=programming-language-csharp
     - text: Med hjälp av Python SDK
-      url: sdk-authoring.md?pivots=programming-language-python
+      url: quickstart-sdk.md?pivots=programming-language-python
   - linkListType: how-to-guide
     links:
     - text: Skapa en ny LUIS-app
@@ -88,7 +88,7 @@ landingContent:
     - text: 'Portal: Distribuera app till förutsägelseslutpunkt'
       url: get-started-portal-deploy-app.md
     - text: Använda SDK
-      url: sdk-authoring.md
+      url: quickstart-sdk.md
   - linkListType: how-to-guide
     links:
     - text: Versionshantera din app
@@ -106,7 +106,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Använda SDK
-      url: sdk-query-prediction-endpoint.md
+      url: quickstart-sdk.md
   - linkListType: quickstart
     links:
     - text: Med C# som använder REST

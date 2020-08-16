@@ -10,17 +10,73 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/11/2020
+ms.date: 8/15/2020
 ms.author: yohaddad
-ms.openlocfilehash: 3fb9c863b94c65d7a4333d734648d308a904e355
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 21dcc10be255c0795058886188b4380266679963
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142357"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258293"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+## <a name="august-2020-guest-os"></a>Gäst operativ system augusti 2020
+>[!NOTE]
+>Gäst operativ systemet i augusti distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i augusti gäst operativ system. Den här listan kan ändras.
+
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 20-08 |  [4571687]  |  Kumulativ uppdatering för IE | 2,101, 3,88, 4,81 | Aug 11, 2020 |
+|  Rel 20-08 |  [4561600]  |  Uppdatera Flash | 3,88, 4,81, 5,46, 6,22 | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Senaste kumulativa uppdateringen | 6,22 | Aug 11, 2020 |
+|  Rel 20-08 |  [4565349]  |  Senaste kumulativa uppdateringen | 5,46 | Aug 11, 2020 |
+|  Rel 20-08 |  [4570673]  |  Uppdatering av underhålls stack | 2,101 | Aug 11, 2020 |
+|  Rel 20-08 |  [4571729]  |  Månatlig sammanställning | 2,101 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569767]  |  .NET Framework 3.5.1-säkerhet och kvalitets sammanslagning | 2,101 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569780]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 2,101 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569765]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 3,88 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569779]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 3,88 | Aug 11, 2020 |
+|  Rel 20-08 |  [4566426]  |  Uppdatering av underhålls stack | 3,88 | Jul 14, 2020 |
+|  Rel 20-08 |  [4571736]  |  Månatlig sammanställning | 3,88 | Aug 11, 2020 |
+|  Rel 20-08 |  [4566425]  |  Uppdatering av underhålls stack | 4,81 | Jul 14, 2020 |
+|  Rel 20-08 |  [4571703]  |  Månatlig sammanställning | 4,81 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569768]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 4,81 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569778]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 4,81 | Aug 11, 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcode | 5,46 | Feb 25, 2020 |
+|  Rel 20-08 |  [4565912]  |  Uppdatering av underhålls stack | 5,46 | Jul 14, 2020 |
+|  Rel 20-08 |  [4569746]  |  .NET Framework 4,8 säkerhets-och kvalitets sammanslagning | 5,46 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569776]  |  .NET Framework 3,5 och 4.7.2-ackumulerad uppdatering | 6,22 | Aug 11, 2020 |
+|  Rel 20-08 |  [4569750]  |  .NET Framework 3,5 och 4,8 ackumulerad uppdatering | 6,22 | Aug 11, 2020 |
+|  Rel 20-08 |  [4566424]  |  Uppdatering av underhålls stack | 6,22 | Aug 11, 2020 |
+
+
+
+[4571687]: https://support.microsoft.com/kb/4571687
+[4561600]: https://support.microsoft.com/kb/4561600
+[4571694]: https://support.microsoft.com/kb/4571694
+[4565349]: https://support.microsoft.com/kb/4565349
+[4570673]: https://support.microsoft.com/kb/4570673
+[4571729]: https://support.microsoft.com/kb/4571729
+[4569767]: https://support.microsoft.com/kb/4569767
+[4569780]: https://support.microsoft.com/kb/4569780
+[4569765]: https://support.microsoft.com/kb/4569765
+[4569779]: https://support.microsoft.com/kb/4569779
+[4566426]: https://support.microsoft.com/kb/4566426
+[4571736]: https://support.microsoft.com/kb/4571736
+[4566425]: https://support.microsoft.com/kb/4566425
+[4571703]: https://support.microsoft.com/kb/4571703
+[4569768]: https://support.microsoft.com/kb/4569768
+[4569778]: https://support.microsoft.com/kb/4569778
+[4494175]: https://support.microsoft.com/kb/4494175
+[4565912]: https://support.microsoft.com/kb/4565912
+[4569746]: https://support.microsoft.com/kb/4569746
+[4569776]: https://support.microsoft.com/kb/4569776
+[4569750]: https://support.microsoft.com/kb/4569750
+[4566424]: https://support.microsoft.com/kb/4566424
+
 
 ## <a name="july-2020-guest-os"></a>Juli 2020 gäst operativ system
 >[!NOTE]
@@ -119,7 +175,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98],  [3,85], [4,78]  |  12 maj 2020  |
 |  Rel 20-05  |  [4556813]  |  Senaste kumulativa uppdateringen (LCU)   |  [5,43]  |  12 maj 2020  |
 |  Rel 20-05  |  [4551853]  |  Senaste kumulativa uppdateringen (LCU)   |  [6,19]  |  12 maj 2020  |
 |  Rel 20-05  |  [4552940]  |  Månatlig sammanställning   |  [2,98]  |  12 maj 2020  |

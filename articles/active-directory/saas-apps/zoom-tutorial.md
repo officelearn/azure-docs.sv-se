@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9d727154adf0a2099d7a9144c109cef9c91238
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d354a36a053f8d57bc6ffc57fb76de1a85aa098
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "70743973"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257651"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med zoom
 
@@ -87,6 +87,8 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `<companyname>.zoom.us`
 
+    c. Skriv en URL i text rutan **svars-URL** med följande mönster: `https://<companyname>.zoom.us`
+
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Zooms supportteam](https://support.zoom.us/hc/) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
@@ -112,7 +114,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
-    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 
@@ -140,13 +142,13 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på fliken **Enkel inloggning**.
 
-    ![Fliken enkel inloggning](./media/zoom-tutorial/ic784700.png "Enkel inloggning")
+    ![Fliken enkel inloggning](./media/zoom-tutorial/zoom-sso1.png "Enkel inloggning")
 
 3. Klicka på fliken **Säkerhetskontroll** och gå sedan till inställningarna för **Enkel inloggning**.
 
 4. Gör följande i avsnittet Enkel inloggning:
 
-    ![Avsnittet enkel inloggning](./media/zoom-tutorial/ic784701.png "Enkel inloggning")
+    ![Avsnittet enkel inloggning](./media/zoom-tutorial/zoom-sso2.png "Enkel inloggning")
 
     a. I textrutan **Sign-in page URL** (Inloggnings-URL) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
@@ -166,10 +168,10 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. I text rutan **utfärdare** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal. 
 
-    g. Klicka på **Spara**.
+    ex. Klicka på **Spara ändringar**.
 
     > [!NOTE]
-    > Mer information finns i dokumentationen för zoomning[https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
+    > Mer information finns i dokumentationen för zoomning [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
 ### <a name="create-zoom-test-user"></a>Skapa Zoom-testanvändare
 
@@ -186,10 +188,10 @@ När du klickar på Zoom-panelen i åtkomstpanelen bör du automatiskt loggas in
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova att zooma med Azure AD](https://aad.portal.azure.com/)

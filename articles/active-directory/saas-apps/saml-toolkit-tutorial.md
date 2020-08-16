@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2681c09030ff0f36938d7a09e1d1b2e9aa645c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2cae29bb4edaf7040b1cb41293c902f975a03f23
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82166318"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88258776"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Azure AD SAML Toolkit
 
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I rutan **Inloggnings-URL** anger du en URL: `https://samltoolkit.azurewebsites.net/`
 
-    b. I text rutan **identifierare (enhets-ID)** anger du en URL:`https://samltoolkit.azurewebsites.net`
+    b. I text rutan **identifierare (enhets-ID)** anger du en URL: `https://samltoolkit.azurewebsites.net`
 
     c. Skriv en URL i textrutan **Svars-URL**: `https://samltoolkit.azurewebsites.net/SAML/Consume`
 
@@ -107,7 +107,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -161,7 +161,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-azure-ad-saml-toolkit-test-user"></a>Skapa test användare för Azure AD SAML Toolkit
 
-I det här avsnittet skapas en användare som heter B. Simon i Azure AD SAML Toolkit. Azure AD SAML Toolkit stöder just-in-Time-etablering av användare, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Azure AD SAML Toolkit skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B. Simon i Azure AD SAML Toolkit. Skapa en test användare i verktyget genom att registrera en ny användare och ange all användar information. 
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -171,11 +171,11 @@ När du klickar på panelen Azure AD SAML Toolkit på åtkomst panelen, bör du 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa Azure AD SAML Toolkit med Azure AD](https://aad.portal.azure.com/)
 

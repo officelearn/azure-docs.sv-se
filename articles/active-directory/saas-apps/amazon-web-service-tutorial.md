@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e23f516fe31b4a21232f75286540e6c0d9019d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 6a68a282a907817f1921acea911754bf78834b35
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923023"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257771"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Amazon Web Services (AWS)
 
@@ -34,7 +34,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 ![Diagram över Azure AD-och AWS-relationer](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-Du kan konfigurera flera identifierare för flera instanser. Till exempel:
+Du kan konfigurera flera identifierare för flera instanser. Ett exempel:
 
 * `https://signin.aws.amazon.com/saml#1`
 
@@ -53,7 +53,7 @@ Vi rekommenderar den här metoden av följande orsaker:
 > [!Note]
 > Se till att du endast använder ett galleri program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -120,7 +120,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     | Namn  | Källattribut  | Namnområde |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
-    | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
+    | Roll            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | ”ange ett värde mellan 900 sekunder (15 minuter) och 43 200 sekunder (12 timmar)” |  `https://aws.amazon.com/SAML/Attributes` |
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i dialog rutan **SAML-signeringscertifikat** (steg 3), väljer du **Lägg till ett certifikat**.
@@ -385,8 +385,6 @@ När du klickar på Amazon Web Services (AWS)-panelen i åtkomstpanelen bör du 
 * Roller måste uppfylla följande krav för att kunna importeras från AWS till Azure AD:
 
   * Roller måste ha exakt en SAML-Provider definierad i AWS
-
-  * Den kombinerade längden på rollens ARN och SAML-providerns ARN för en roll som importeras måste vara 119 tecken eller mindre
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

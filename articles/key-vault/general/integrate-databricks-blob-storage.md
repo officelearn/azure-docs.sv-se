@@ -1,23 +1,23 @@
 ---
 title: Få åtkomst till Azure Blob Storage med Azure Databricks och Azure Key Vault
 description: I den här självstudien får du lära dig hur du får åtkomst till Azure Blob Storage från Azure Databricks med hjälp av en hemlighet som lagras i Azure Key Vault
-author: taytran0
-ms.author: t-trtr
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.openlocfilehash: 50ea93dea62b6e4e333e58550b2750897c7e0a77
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 9b3d07eae9e47b7a8466cfb32f03b8790c079f02
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988904"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263001"
 ---
 # <a name="tutorial-access-azure-blob-storage-using-azure-databricks-and-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage med Azure Databricks och Azure Key Vault
 
 I den här självstudien får du lära dig hur du får åtkomst till Azure Blob Storage från Azure Databricks med hjälp av en hemlighet som lagras i Azure Key Vault. 
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett lagrings konto och en BLOB-behållare med Azure CLI
@@ -27,7 +27,7 @@ I de här självstudierna får du lära dig att
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Innan du börjar den här självstudien installerar du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 

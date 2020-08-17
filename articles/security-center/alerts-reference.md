@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 30609535f21b64c137d7f94b89bedfab41159deb
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e20e57a5fe1dde786097c658374516a1f3bf4005
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830571"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88263358"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -42,6 +42,7 @@ Längst ned på den här sidan finns det en tabell som beskriver den Azure Secur
 |**Tillägg av gäst konto till lokal administratörs grupp**|Analys av värd data har identifierat tillägget av det inbyggda gäst kontot i den lokala gruppen Administratörer på% {komprometterade värden}, vilket är starkt associerat med angrepps aktivitet.|-|Medium|
 |**En händelse logg har rensats**|Dator loggar indikerar en misstänkt händelse logg rensnings åtgärd av användaren:% {User Name} på datorn:% {CompromisedEntity}. Loggen% {log Channel} har rensats.|-|Information|
 |**Vidtagen Antiskadlig kod**|Microsoft Antimalware för Azure har vidtagit en åtgärd för att skydda datorn från skadlig kod eller annan oönskad program vara.|-|Medium|
+|**Åtgärden för program mot skadlig kod misslyckades**|Microsoft Antimalware har påträffat ett fel när en åtgärd skulle vidtas på skadlig kod eller annan potentiellt oönskad program vara.|-|Medium|
 |**Identifierade indikatorer på Petya-utpressningstrojan**|Analys av värd data på% {komprometterad värd} identifierade indikatorer som är associerade med Petya utpressnings tro Jan. Mer information finns i https://blogs.technet.microsoft.com/mmpc/2017/06/27/new-ransomware-old-techniques-petya-adds-worm-capabilities/. Granska kommando raden som är kopplad till den här aviseringen och eskalera aviseringen till säkerhets teamet.|-|Hög|
 |**Identifierade åtgärder som indikerar att inaktivera och ta bort IIS-loggfiler**|Analys av värd data identifierade åtgärder som visar att IIS-loggfiler inaktive ras och/eller tas bort.|-|Medium|
 |**Identifierade avvikande blandning av versaler och gemener i kommando tolken**|Vid analys av värd data på% {komprometterad värd} upptäcktes en kommando rad med avvikande blandning av versaler och gemener. Den här typen av mönster, och möjligen oskadlig, är också typiska för angripare som försöker dölja från SKIFT läges känsliga eller hash-baserade regel matchning när de utför administrativa uppgifter på en komprometterad värd.|-|Medium|

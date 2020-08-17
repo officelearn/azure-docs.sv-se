@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a5c12f9f9177c4495a82ced2b3c7d0c5edcdd78e
+ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405772"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88262797"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -70,13 +70,13 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
     - En säkerhets kopierings princip anger när säkerhets kopieringar görs och hur länge de lagras.
     - Information om standardprincipen visas under den nedrullningsbara menyn.
 
-    ![Öppna bladet Scenario](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
+    ![Välj säkerhets kopierings princip](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 1. Om du inte vill använda standard principen väljer du **Skapa ny**och [skapar en anpassad princip](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
 1. Under **Virtual Machines**väljer du **Lägg till**.
 
-    ![Öppna bladet Scenario](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+    ![Lägg till virtuella datorer](./media/backup-azure-vms-encryption/add-virtual-machines.png)
 
 1. Välj de krypterade virtuella datorer som du vill säkerhetskopiera med hjälp av Välj princip och välj **OK**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 07/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 377499b1dd263398e1be42379f8db60e8a0477f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 210fc244aebf0b13a996df69e2cf84763a9adf9e
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87017524"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272917"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Självstudie: integrera utgifter med Azure Active Directory
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar kostnad med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    Skriv en URL i text rutan **inloggnings-URL** :`https://app.expensein.com/saml`
+    Skriv en URL i text rutan **inloggnings-URL** :  `https://app.expensein.com/saml`
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera URL för **metadata för app Federation** och klickar på **Hämta** för att ladda ned **certifikatet (base64)** och spara det på din dator.
 
@@ -127,7 +127,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-expensein-sso"></a>Konfigurera kostnad för SSO
 
-1. Öppna ett nytt webbläsarfönster och logga in på din kostnadsbaserade företags webbplats som administratör.
+1. Om du vill automatisera konfigurationen i kostnad måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
+
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+1. När du har lagt till tillägg i webbläsaren, klickar du på **Konfigurera kostnadi** för att dirigera dig till programmet för kostnad Därifrån anger du administratörsautentiseringsuppgifter för att logga in på kostnad. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-5.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+1. Om du vill konfigurera kostnad manuellt loggar du in på din kostnadsbaserade företags plats som administratör.
 
 1. Klicka på **administratör** överst på sidan och gå sedan till **enkel inloggning** och klicka på **Lägg till provider**.
 

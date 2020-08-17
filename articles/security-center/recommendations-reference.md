@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8038ace4469123e50d98d9296a1aecf0107efbf2
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1609fc720474f92b3a3fa8c0631452164a7e4d0f
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262559"
+ms.locfileid: "88272034"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -181,6 +181,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**Högst 3 ägare bör anges för din prenumeration**|Ange färre än tre prenumerations ägare för att minska risken för intrång av en komprometterad ägare.<br>(Relaterad princip: högst 3 ägare bör anges för din prenumeration)|Högt|N|Prenumeration|
 |**Avancerat skydd bör vara aktiverat på Azure Key Vault valv**|Azure Security Center innehåller Azure-inbyggt Avancerat skydd för Azure Key Vault, vilket ger ytterligare ett lager av säkerhets information.<br>Viktigt: att åtgärda den här rekommendationen ger kostnader för att skydda dina AKV-valv. Om du inte har några AKV-valv i den här prenumerationen kommer inga avgifter att debiteras. Om du skapar eventuella AKV-valv i den här prenumerationen i framtiden kommer de automatiskt att skyddas och kostnader kommer att börja vid den tidpunkten.<br>(Relaterad princip: [Avancerat skydd ska vara aktiverat på Azure Key Vault-valv](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047))|Hög|**J**|Prenumeration|
 |**Diagnostikloggar i Key Vault ska vara aktive rad**|Aktivera loggar och behåll dem på ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Key Vault ska vara aktive rad)|Låg|**J**|Key Vault|
+|**Tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat**|Hanterings certifikat låter alla som autentiserar med dem att hantera de prenumerationer som de är associerade med. För att hantera prenumerationer på ett säkrare sätt rekommenderar vi att du använder tjänstens huvud namn med Resource Manager för att begränsa den förstärkta radien om det rör sig om en certifikat kompromiss. Den automatiserar även resurs hantering.|Medium|Nej|Prenumeration|
 ||||||
 
 

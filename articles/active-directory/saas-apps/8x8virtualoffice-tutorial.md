@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c81e63a073882dea3a7aea32d5e9f4d3d5c48f7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36e29ebbdc4207c0cfe3a9967d433c6595d3fdc1
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018660"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88271132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-8x8"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med 8x8
 
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar 8x8 med Azure Activ
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -48,7 +48,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * 8x8 stöder **SP-och IDP** -INITIERAd SSO
 
-* När du har konfigurerat 8x8 kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat 8x8 kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -64,7 +64,7 @@ Om du vill konfigurera integreringen av 8x8 i Azure AD måste du lägga till 8x8
 1. I avsnittet **Lägg till från galleriet** , skriver du **8x8** i sökrutan.
 1. Välj **8x8** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-8x8"></a>Konfigurera och testa enkel inloggning med Azure AD för 8x8
+## <a name="configure-and-test-azure-ad-sso-for-8x8"></a>Konfigurera och testa Azure AD SSO för 8x8
 
 Konfigurera och testa Azure AD SSO med 8x8 med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i 8x8.
 
@@ -89,7 +89,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    a. Skriv en URL i text rutan **identifierare** :`https://sso.8x8.com/saml2`
+    a. Skriv en URL i text rutan **identifierare** : `https://sso.8x8.com/saml2`
 
     b. Skriv en URL i textrutan **Svars-URL**: `https://sso.8x8.com/saml2`
 
@@ -139,7 +139,15 @@ Nästa del av själv studie kursen beror på vilken typ av prenumeration du har 
 
 ### <a name="configure-8x8-configuration-manager"></a>Konfigurera 8x8 Configuration Manager
 
-1. Logga in på 8x8 [Configuration Manager](https://vo-cm.8x8.com/).
+1. Om du vill automatisera konfigurationen i 8x8 måste du installera **Mina appar säker inloggnings webb läsar tillägg** genom att klicka på **installera tillägget**.
+
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+1. När du har lagt till tillägg i webbläsaren kan du klicka på **Konfigurera 8x8** för att dirigera dig till 8x8-programmet. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på 8x8. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+1. Logga in på 8x8 [Configuration Manager](https://vo-cm.8x8.com/) som administratör om du vill konfigurera 8x8 manuellt.
 
 1. Klicka på **identitets hantering**på Start sidan.
 
@@ -213,7 +221,7 @@ När du klickar på panelen 8x8 på åtkomst panelen, bör du loggas in automati
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 

@@ -494,6 +494,8 @@
               href: platform/alerts-metric.md
             - name: Använda dynamiska tröskelvärden
               href: platform/alerts-dynamic-thresholds.md
+            - name: Enskilda aviseringar för många tidsserier
+              href: platform/alerts-metric-multiple-time-series-single-rule.md
             - name: Måttaviseringar på loggar
               href: platform/alerts-metric-logs.md
             - name: Använda Resource Manager-mallen

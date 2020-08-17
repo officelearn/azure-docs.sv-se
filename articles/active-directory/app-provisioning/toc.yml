@@ -57,7 +57,9 @@
           href: export-import-provisioning-configuration.md
     - name: Felsöka programetablering
       items:
-        - name: Felsöka appetablering
+        - name: Kända problem
+          href: known-issues.md
+        - name: Felsöka konfigurationsproblem
           href: application-provisioning-config-problem.md
         - name: Karantänstatus
           href: application-provisioning-quarantine-status.md

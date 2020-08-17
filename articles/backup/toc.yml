@@ -287,8 +287,10 @@
       items:
         - name: Översikt
           href: offline-backup-overview.md
-        - name: Säkerhets kopiering offline med Azure Data Box
+        - name: Säkerhetskopiering offline med Azure Data Box (MARS)
           href: offline-backup-azure-data-box.md
+        - name: Säkerhetskopiering offline med Azure Data Box (DPM/MABS)
+          href: offline-backup-azure-data-box-dpm-mabs.md
         - name: Säkerhets kopiering offline med Import/Export (MARS)
           href: backup-azure-backup-import-export.md
         - name: Säkerhets kopiering offline med Import/Export (DPM/MABS)

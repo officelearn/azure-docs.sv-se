@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c4c6be7c8a6287c5a8ec6a60121751ff9fc0dc9
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808548"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88509235"
 ---
 # <a name="limitations"></a>Begränsningar
 
@@ -35,12 +35,12 @@ Ett antal funktioner har storlek, antal eller andra begränsningar.
 
 Det tillåtna antalet polygoner för alla laddade modeller beror på storleken på den virtuella datorn som skickas till [sessionen hanterings REST API](../how-tos/session-rest-api.md#create-a-session):
 
-| Storlek på virtuell dator | Maximalt antal polygoner |
+| Server storlek | Maximalt antal polygoner |
 |:--------|:------------------|
 |standard| 20 000 000 |
 |denaturering| ingen gräns |
 
-Mer detaljerad information om den här begränsningen finns i kapitel för [VM-storlek](../reference/vm-sizes.md) .
+Mer detaljerad information om den här begränsningen finns i kapitel för [Server storlek](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Plattforms begränsningar
 

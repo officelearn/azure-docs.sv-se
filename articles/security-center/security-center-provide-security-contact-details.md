@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506487"
+ms.locfileid: "88516307"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
@@ -42,7 +42,7 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Kostnadsfri nivå|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratör**<br>**Prenumerations ägare** |
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov (delvis)<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov (delvis)<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -65,4 +65,4 @@ Mer information om säkerhets aviseringar finns i följande avsnitt:
 
 * [Säkerhets aviseringar – en referens guide](alerts-reference.md) – lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
 * [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hantera och reagera på säkerhets aviseringar
-- [Arbets flödes automatisering](workflow-automation.md) – automatisera svar på aviseringar med anpassad meddelande logik
+* [Arbets flödes automatisering](workflow-automation.md) – automatisera svar på aviseringar med anpassad meddelande logik

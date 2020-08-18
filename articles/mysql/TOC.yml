@@ -138,6 +138,8 @@
           href: concepts-server-parameters.md
     - name: Utveckling
       items:
+        - name: Regelverk för program
+          href: app-development-best-practices.md
         - name: Kompatibilitet för drivrutiner och verktyg
           href: concepts-compatibility.md
         - name: Programutveckling

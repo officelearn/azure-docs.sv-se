@@ -356,6 +356,8 @@
               href: ./set-up-pyspark-interactive-environment.md
         - name: Utveckla
           items:
+            - name: Optimera frågor med SparkCruise
+              href: ./spark/spark-cruise.md
             - name: Använda ett interaktivt Apache Spark-gränssnitt
               href: ./spark/apache-spark-shell.md
             - name: Fjärrstyra jobb med Apache Livy

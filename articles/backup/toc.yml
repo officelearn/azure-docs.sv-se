@@ -146,7 +146,11 @@
         - name: Översikt
           href: backup-azure-sql-database.md
         - name: Backup
-          href: backup-sql-server-database-azure-vms.md
+          items:
+            - name: Säkerhetskopiera flera SQL Server VM från valvet
+              href: backup-sql-server-database-azure-vms.md
+            - name: Säkerhetskopiera en SQL Server VM från VM-fönstret
+              href: backup-sql-server-vm-from-vm-pane.md
         - name: Återställ
           href: restore-sql-database-azure-vm.md
         - name: Hantera

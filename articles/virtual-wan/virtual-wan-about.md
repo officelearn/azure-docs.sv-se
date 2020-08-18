@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: d7e3992f12e39dd819bc18d5deb9f8b6da935616
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 451e1581350bb1d38580d00ffd24c781bc30242d
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258692"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507592"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
@@ -98,7 +98,7 @@ Routern kan ha fyra Dirigerings status: etablerad, etablering, misslyckad eller 
 * **Ingen** status anger att den virtuella hubben inte etablerade routern. Detta kan inträffa om det virtuella WAN-nätverket är av typen *Basic*eller om den virtuella hubben distribuerades innan tjänsten är tillgänglig.
 * Statusen **misslyckades anger att det** inte gick att instansiera. För att instansiera eller återställa routern kan du leta upp alternativet **Återställ router** genom att gå till översikts sidan för virtuella hubbar i Azure Portal.
 
-Varje virtuell hubb-router stöder ett sammanställt data flöde på upp till 50 Gbit/s. Anslutning mellan virtuella nätverks anslutningar förutsätter totalt 2000 VM-arbetsbelastning över alla virtuella nätverk som är anslutna till en virtuell hubb.
+Varje virtuell hubb-router stöder ett sammanställt data flöde på upp till 50 Gbit/s. Anslutning mellan virtuella nätverks anslutningar förutsätter totalt 2000 VM-arbetsbelastning över alla virtuella nätverk som är anslutna till en enda virtuell hubb.
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Överförings anslutning mellan VPN och ExpressRoute
 
@@ -128,7 +128,7 @@ Routningstabeller har nu funktioner för Association och spridning. En fördefin
 
 * **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för en routningstabell väntar du tills veckan i augusti 17 för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

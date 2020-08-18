@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375701"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88507593"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -187,7 +187,7 @@ Nej. Virtual WAN kräver inte ExpressRoute från varje plats. Dina platser kan a
 
 ### <a name="is-there-a-network-throughput-or-connection-limit-when-using-azure-virtual-wan"></a>Finns det ett nätverks flöde eller en anslutnings gräns när du använder Azure Virtual WAN?
 
-Nätverks data flöde är per tjänst i en virtuell WAN-hubb. Även om du kan ha så många virtuella WAN-nätverk som du vill, så tillåter varje virtuellt WAN 1 hubb per region. I varje hubb är det sammanställda VPN-dataflödet upp till 20 Gbit/s, ExpressRoute-dataflödet är upp till 20 Gbit/s och det sammanlagda data flödet för VPN-och punkt-till-plats-VPN är upp till 20 Gbps. Routern i den virtuella hubben har stöd för upp till 50 Gbit/s för trafikflöden för VNet-till-VNet och antar totalt 2000 VM-arbetsbelastning över alla virtuella nätverk i virtuella WAN-hubbar.
+Nätverks data flöde är per tjänst i en virtuell WAN-hubb. Även om du kan ha så många virtuella WAN-nätverk som du vill, så tillåter varje virtuellt WAN 1 hubb per region. I varje hubb är det sammanställda VPN-dataflödet upp till 20 Gbit/s, ExpressRoute-dataflödet är upp till 20 Gbit/s och det sammanlagda data flödet för VPN-och punkt-till-plats-VPN är upp till 20 Gbps. Routern i den virtuella hubben har stöd för upp till 50 Gbit/s för trafikflöden för VNet-till-VNet och antar totalt 2000 VM-arbetsbelastning över alla virtuella nätverk som är anslutna till en enda virtuell hubb.
 
 När VPN-platser ansluter till en hubb gör de det med anslutningar. Virtuellt WAN stöder upp till 1000 anslutningar eller 2000 IPsec-tunnlar per virtuell hubb. När fjärran vändare ansluter till en virtuell hubb ansluter de till P2S VPN-gatewayen, som har stöd för upp till 10 000 användare beroende på vilken skalnings enhet (bandbredd) som valts för VPN-gatewayen för P2S i den virtuella hubben.
 

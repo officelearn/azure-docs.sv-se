@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: c09dca8b5927e417714ef89393950cfb58c89020
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 9bbb4ee4a2fd41ca0605d7dd5d8c66c83d475744
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042283"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506487"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Konfigurera e-postaviseringar för säkerhets aviseringar 
 
@@ -32,6 +32,9 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 - högst **två** e-postmeddelanden per dag för aviseringar med **medelhög allvarlighets grad**
 - högst **ett** e-postmeddelande per dag för aviseringar med **låg allvarlighets grad**
 
+
+:::image type="content" source="./media/security-center-provide-security-contacts/email-notification-settings.png" alt-text="Konfigurera information om den kontakt som får e-postmeddelanden om säkerhets aviseringar." :::
+
 ## <a name="availability"></a>Tillgänglighet
 
 |Aspekt|Information|
@@ -39,13 +42,11 @@ För att undvika aviserings utmattning begränsar Security Center volymen utgåe
 |Versions tillstånd:|Allmänt tillgänglig|
 |Priset|Kostnadsfri nivå|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratör**<br>**Prenumerations ägare** |
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) US Gov (delvis)<br>![No](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov (delvis)<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
-
-
-## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar<a name="email"></a>
+## <a name="set-up-email-notifications-for-alerts"></a>Konfigurera e-postmeddelanden för aviseringar <a name="email"></a>
 
 Du kan skicka e-postmeddelanden till enskilda användare eller till alla användare med vissa Azure-roller.
 
@@ -64,3 +65,4 @@ Mer information om säkerhets aviseringar finns i följande avsnitt:
 
 * [Säkerhets aviseringar – en referens guide](alerts-reference.md) – lär dig mer om säkerhets aviseringar som du kan se i Azure Security Center skydds modul för hot
 * [Hantera och åtgärda säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hantera och reagera på säkerhets aviseringar
+- [Arbets flödes automatisering](workflow-automation.md) – automatisera svar på aviseringar med anpassad meddelande logik

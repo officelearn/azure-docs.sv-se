@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f4d9811dc288222c0a2190805a8b052cb1ae47b
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563933"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506541"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -181,6 +181,8 @@ Om du vill uppdatera egenskaperna till en digital, skriver du den information so
 await client.UpdateDigitalTwin(id, patch);
 ```
 
+Ett korrigerings anrop kan uppdatera så många egenskaper på samma sätt som du vill (även alla). Om du behöver uppdatera egenskaper över flera multiplar behöver du ett separat uppdaterings anrop för var och en.
+
 > [!TIP]
 > När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API: et (beskrivs [tidigare i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så Använd API-anropet istället för att fråga om du vill se dina nyligen uppdaterade dubbla om du behöver ett direkt svar. 
 
@@ -204,6 +206,7 @@ Här är ett exempel på en JSON-patch-kod. Det här dokumentet ersätter *Mass*
 Du kan skapa uppdateringar manuellt eller genom att använda en serialiserande hjälp klass i [SDK](how-to-use-apis-sdks.md). Här är ett exempel på var och en.
 
 #### <a name="create-patches-manually"></a>Skapa korrigeringar manuellt
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -278,6 +281,19 @@ Korrigeringen för den här situationen måste uppdatera både modellen och den 
   }
 ]
 ```
+
+### <a name="handle-conflicting-update-calls"></a>Hantera motstridiga uppdaterings anrop
+
+Azure Digitals dubbla, säkerställer att alla inkommande begär Anden bearbetas efter den andra. Det innebär att även om flera funktioner försöker uppdatera samma egenskap på en enhet samtidigt, **behöver du inte** skriva explicit låsnings kod för att hantera konflikten.
+
+Det här beteendet sker per nivå. 
+
+Ett exempel är att anta ett scenario där de här tre anropen kommer till samma tidpunkt: 
+*   Skriv egenskap A på *Twin1*
+*   Skriv egenskap B på *Twin1*
+*   Skriv egenskap A på *Twin2*
+
+De två anropen som ändrar *Twin1* körs en efter en annan och ändrings meddelanden genereras för varje ändring. Anropet till Modify *Twin2* kan köras samtidigt utan konflikter, så snart det kommer.
 
 ## <a name="delete-a-digital-twin"></a>Ta bort en digital delad
 

@@ -3,12 +3,12 @@ title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1a9bc3e46e108c50b36e0318e0f9a51a94e83573
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 99d2a85e96aff650573e142368a136886945dcb0
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475523"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88270928"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -103,18 +103,22 @@ Exemplet som vi ska använda här är ett [MVC-program](/aspnet/core/tutorials/f
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Exempel:
+    Ett exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`används vanligt vis i [Azure Web Apps](./azure-web-apps.md?tabs=net), men kan även användas på alla platser där SDK stöds. (Om du gör en kod lös övervakning av webbappar krävs det här formatet om du inte använder anslutnings strängar.)
+    * `APPINSIGHTS_INSTRUMENTATIONKEY` används vanligt vis i [Azure Web Apps](./azure-web-apps.md?tabs=net), men kan även användas på alla platser där SDK stöds. (Om du gör en kod lös övervakning av webbappar krävs det här formatet om du inte använder anslutnings strängar.)
 
     Du kan nu även använda [anslutnings strängar](./sdk-connection-string.md?tabs=net)i stället för att ställa in Instrumentation-nycklar.
 
     > [!NOTE]
     > En Instrumentation-nyckel som anges i kod WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY` , som vinner över andra alternativ.
+
+### <a name="user-secrets-and-other-configuration-providers"></a>Användar hemligheter och andra konfigurations leverantörer
+
+Om du vill lagra Instrumentation-nyckeln i ASP.NET Core användar hemligheter eller hämta den från en annan Konfigurationsprovider, kan du använda överlagringen med en `Microsoft.Extensions.Configuration.IConfiguration` parameter. Till exempel `services.AddApplicationInsightsTelemetry(Configuration);`.
 
 ## <a name="run-your-application"></a>Köra ditt program
 
@@ -143,7 +147,7 @@ Stöd för [prestanda räknare](./web-monitor-performance.md) i ASP.net Core är
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`är aktive rad som standard och den samlar in en standard uppsättning räknare från .NET Core 3. X-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
+`EventCounterCollectionModule` är aktive rad som standard och den samlar in en standard uppsättning räknare från .NET Core 3. X-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>Aktivera telemetri på klient sidan för webb program
 
@@ -199,16 +203,16 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Fullständig lista över inställningar i`ApplicationInsightsServiceOptions`
+Fullständig lista över inställningar i `ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Standard
+|Inställning | Beskrivning | Standardvärde
 |---------------|-------|-------
-|EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera`PerformanceCounterCollectionModule` | true
-|EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera`RequestTrackingTelemetryModule` | true
-|EnableEventCounterCollectionModule   | Aktivera/inaktivera`EventCounterCollectionModule` | true
-|EnableDependencyTrackingTelemetryModule   | Aktivera/inaktivera`DependencyTrackingTelemetryModule` | true
-|EnableAppServicesHeartbeatTelemetryModule  |  Aktivera/inaktivera`AppServicesHeartbeatTelemetryModule` | true
-|EnableAzureInstanceMetadataTelemetryModule   |  Aktivera/inaktivera`AzureInstanceMetadataTelemetryModule` | true
+|EnablePerformanceCounterCollectionModule  | Aktivera/inaktivera `PerformanceCounterCollectionModule` | true
+|EnableRequestTrackingTelemetryModule   | Aktivera/inaktivera `RequestTrackingTelemetryModule` | true
+|EnableEventCounterCollectionModule   | Aktivera/inaktivera `EventCounterCollectionModule` | true
+|EnableDependencyTrackingTelemetryModule   | Aktivera/inaktivera `DependencyTrackingTelemetryModule` | true
+|EnableAppServicesHeartbeatTelemetryModule  |  Aktivera/inaktivera `AppServicesHeartbeatTelemetryModule` | true
+|EnableAzureInstanceMetadataTelemetryModule   |  Aktivera/inaktivera `AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
 |EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartbeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
@@ -281,13 +285,13 @@ Application Insights använder telemetri-moduler för att automatiskt samla in a
 
 Följande moduler för automatisk insamling är aktiverade som standard. Dessa moduler är ansvariga för automatisk insamling av telemetri. Du kan inaktivera eller konfigurera dem för att ändra deras standard beteende.
 
-* `RequestTrackingTelemetryModule`– Samlar in RequestTelemetry från inkommande webb förfrågningar.
-* `DependencyTrackingTelemetryModule`-Samlar in [DependencyTelemetry](./asp-net-dependencies.md) från utgående HTTP-anrop och SQL-anrop.
-* `PerformanceCollectorModule`-Samlar in Windows-PerformanceCounters.
-* `QuickPulseTelemetryModule`– Samlar in telemetri för visning i Live Metrics-portalen.
-* `AppServicesHeartbeatTelemetryModule`– Samlar in hjärtat-taktslag (som skickas som anpassade mått), om Azure App Service miljö där programmet finns.
-* `AzureInstanceMetadataTelemetryModule`– Samlar in hjärtat-taktslag (som skickas som anpassade mått), om Azure VM-miljön där programmet finns.
-* `EventCounterCollectionModule`– Samlar in [EventCounters.](eventcounters.md) Den här modulen är en ny funktion som är tillgänglig i SDK-version 2.8.0 och senare.
+* `RequestTrackingTelemetryModule` – Samlar in RequestTelemetry från inkommande webb förfrågningar.
+* `DependencyTrackingTelemetryModule` -Samlar in [DependencyTelemetry](./asp-net-dependencies.md) från utgående HTTP-anrop och SQL-anrop.
+* `PerformanceCollectorModule` -Samlar in Windows-PerformanceCounters.
+* `QuickPulseTelemetryModule` – Samlar in telemetri för visning i Live Metrics-portalen.
+* `AppServicesHeartbeatTelemetryModule` – Samlar in hjärtat-taktslag (som skickas som anpassade mått), om Azure App Service miljö där programmet finns.
+* `AzureInstanceMetadataTelemetryModule` – Samlar in hjärtat-taktslag (som skickas som anpassade mått), om Azure VM-miljön där programmet finns.
+* `EventCounterCollectionModule` – Samlar in [EventCounters.](eventcounters.md) Den här modulen är en ny funktion som är tillgänglig i SDK-version 2.8.0 och senare.
 
 Om du vill konfigurera standard `TelemetryModule` använder du tilläggs metoden `ConfigureTelemetryModule<T>` på `IServiceCollection` , som du ser i följande exempel.
 

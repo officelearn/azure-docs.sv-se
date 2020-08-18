@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 272dd95b97c65ecc52dd73909f1ed87d5e5ae3ca
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 2c57f23a5cad2f47311b54728d576eb810ad88a4
+ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170504"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88506030"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -103,7 +103,7 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 
 Om den anslutna organisationen ändras till en annan domän, om organisationens namn ändras eller om du vill ändra sponsorerna kan du uppdatera den anslutna organisationen genom att följa anvisningarna i det här avsnittet.
 
-**Nödvändig roll**: *Global administratör*, *användar administratör*eller *gäst deltagare*
+**Nödvändig roll**: *Global administratör* eller *användar administratör*
 
 1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
 
@@ -120,7 +120,7 @@ Om den anslutna organisationen ändras till en annan domän, om organisationens 
 
 Om du inte längre har en relation med en extern Azure AD-katalog eller-domän kan du ta bort den anslutna organisationen.
 
-**Nödvändig roll**: *Global administratör*, *användar administratör*eller *gäst deltagare*
+**Nödvändig roll**: *Global administratör* eller *användar administratör*
 
 1. I Azure Portal väljer du **Azure Active Directory**och väljer sedan **identitets styrning**.
 

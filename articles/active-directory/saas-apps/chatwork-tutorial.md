@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: jeedes
-ms.openlocfilehash: 9f43498ec6a80776f31cd45e80be6d786c2ae863
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fdf9e16e5578f794d01671d391f3568eae6555cc
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88529380"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586264"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-chatwork"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ChatWork
 
@@ -83,7 +83,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://www.chatwork.com/s/<TENANT_NAME>`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [ChatWork client support team](mailto:info@support.chatwork.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den privata inloggnings-URL som du angett efter **CHATWORK SSO-konfiguration**.
+
+1. ChatWork-programmet förväntar sig att värdet för **unikt User Identifier** -attribut matchar e-postadressen som registrerats i ChatWork. Attributet mappas till **User. PrincipalName** som standard. Om PrincipalName skiljer sig från e-postadressen mappar du  **unik användar identifierare** till **User. mail**.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
@@ -125,11 +127,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-chatwork-sso"></a>Konfigurera ChatWork SSO
 
-Om du vill konfigurera enkel inloggning på **ChatWork** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för ChatWork](mailto:info@support.chatwork.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **ChatWork** -sidan kan du läsa [Administratörs guiden för ChatWork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) och konfigurera en ChatWork-inställning.
 
 ### <a name="create-chatwork-test-user"></a>Skapa ChatWork test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i ChatWork. Arbeta med [ChatWork support team](mailto:info@support.chatwork.com) för att lägga till användare i ChatWork-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i ChatWork. Få åtkomst till [Administratörs guiden för ChatWork](https://download.chatwork.com/Chatwork_AdminGuide.pdf) och Lägg till användaren i ChatWork-plattformen.
 
 ## <a name="test-sso"></a>Testa SSO 
 

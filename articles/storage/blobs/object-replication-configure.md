@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bfc18332553d1aee713ccb8fc269ba63d2b5af12
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540604"
+ms.locfileid: "88566071"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfigurera objekt replikering för block-blobar (för hands version)
 
@@ -45,7 +45,7 @@ Följ dessa steg om du vill skapa en replikeringsprincip i Azure Portal:
 
 1. Navigera till käll lagrings kontot i Azure Portal.
 1. Under **BLOB service**väljer du **objekt replikering**.
-1. Välj **Konfigurera replikering**.
+1. Välj **Konfigurera regler för replikering**.
 1. Välj mål prenumeration och lagrings konto.
 1. I avsnittet **behållar par** väljer du en käll behållare från käll kontot och en mål behållare från mål kontot. Du kan skapa upp till 10 container par per replikeringsprincip.
 

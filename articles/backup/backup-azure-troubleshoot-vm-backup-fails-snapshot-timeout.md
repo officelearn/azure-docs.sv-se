@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 99982af7f16431ac5b1c2c4a0e419d647d3d2ca0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262865"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88585568"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -65,7 +65,7 @@ Azure Backup använder VM Snapshot-tillägget för att göra en programkonsekven
 
 - **Se till att VSS Writer-tjänsten är**igång: Följ dessa steg för att [FELSÖKA problem med VSS-skrivaren](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
 - **Följ rikt linjerna för rekommendationer för säkerhets kopiering**: granska de [bästa metoderna för att aktivera säkerhets kopiering av virtuella Azure-datorer](backup-azure-vms-introduction.md#best-practices).
-- **Läs igenom rikt linjerna för krypterade diskar**: om du aktiverar säkerhets kopiering för virtuella datorer med krypterad disk kontrollerar du att du har angett alla behörigheter som krävs. Läs mer i [säkerhetskopiera och återställa krypterade virtuella Azure-datorer](backup-azure-vms-encryption.md#encryption-support).
+- **Läs igenom rikt linjerna för krypterade diskar**: om du aktiverar säkerhets kopiering för virtuella datorer med krypterad disk kontrollerar du att du har angett alla behörigheter som krävs. Läs mer i [säkerhetskopiera och återställa krypterade virtuella Azure-datorer](backup-azure-vms-encryption.md).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable – Den virtuella datoragenten kunde inte kommunicera med Azure Backup
 

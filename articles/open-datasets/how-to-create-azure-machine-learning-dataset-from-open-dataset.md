@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 54408b20ebba60de2e1a696e5bd9b06f55e860ba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513228"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88584887"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Azure Open-datauppsättningar är granskade offentliga data uppsättningar som d
 Öppna data uppsättningar finns i molnet på Microsoft Azure och ingår i både [Azure Machine Learning python SDK](#create-datasets-with-the-sdk) och [Azure Machine Learning Studio](#create-datasets-with-the-studio).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här artikeln behöver du:
 
@@ -75,7 +75,7 @@ tabular_dataset = MNIST.get_tabular_dataset()
 file_dataset = MNIST.get_file_dataset()
 ```
 
-I det här exemplet är diabetes- `opendatasets` klassen bara tillgänglig som en `TabularDataset` , och därför använder `get_tabular_dataset()`
+I det här exemplet är diabetes- `opendatasets` klassen bara tillgänglig som en `TabularDataset` , och därför används av `get_tabular_dataset()` .
 
 ```python
 
@@ -98,7 +98,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 ## <a name="create-datasets-with-the-studio"></a>Skapa data uppsättningar med Studio
 
-Du kan också skapa data uppsättningar från öppna data uppsättningar med [Azure Machine Learning Studio](https://ml.azure.com), ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap.
+Du kan också skapa Azure Machine Learning data uppsättningar från Azure Open data uppsättningar med [Azure Machine Learning Studio](https://ml.azure.com), ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap.
 
 > [!Note]
 > Data uppsättningar som skapats med Azure Machine Learning Studio registreras automatiskt på arbets ytan.
@@ -111,7 +111,7 @@ Du kan också skapa data uppsättningar från öppna data uppsättningar med [Az
 
     ![Välj data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den **offentliga helgdags** data uppsättningen till endast USA. Välj **Skapa**.
+1. Välj ett namn under vilket du vill registrera data uppsättningen och filtrera sedan data genom att använda de tillgängliga filtren. I det här fallet filtrerar du tids perioden till ett år och lands koden för den **offentliga helgdags** data uppsättningen till endast USA. Se [Azure Open DataSets-katalogen](https://azure.microsoft.com/services/op[en-datasets/catalog/) för data information, till exempel fält beskrivningar och datum intervall. Välj **Skapa**.
 
     ![Ange data uppsättnings parametrar och skapa data uppsättning](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

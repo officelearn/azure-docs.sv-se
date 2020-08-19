@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: f42509390c3ca850162c804b45f132bfe30bde22
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d567a4f7d9b9429887d6396cb2b03dfc34c6ac93
+ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539162"
+ms.locfileid: "88602244"
 ---
 <!-- Create a resource group -->
 
-Med följande kommando anger du ID för den Azure-prenumeration som du vill använda för Media Services-kontot. Du kan se en lista över prenumerationer som du har åtkomst till under [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Använd följande kommando för att skapa en resurs grupp. Välj den geografiska region som ska användas för att lagra media-och metadata-poster för ditt Media Services-konto. Den här regionen kommer att användas för att bearbeta och strömma dina media.
 
 ```azurecli
-az account set --subscription mySubscriptionId
+az group create --name amsResourceGroup --location westus2
 ```

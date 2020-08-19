@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1a8fbb5558d5b9069c5b8103bca2fc3f8bcddf3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7411b4c000569693335cb0438fe186b290750247
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507593"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88602357"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -239,7 +239,7 @@ När flera ExpressRoute-kretsar är anslutna till en virtuell hubb, tillhandahå
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Föredrar Virtual WAN ExpressRoute via VPN för trafik som utgående Azure
 
-Ja 
+Yes 
 
 ### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>När en virtuell WAN-hubb har en ExpressRoute-krets och en VPN-plats som är ansluten till den, kan det som skulle orsaka att en anslutning till ett VPN-nätverk föredras över ExpressRoute?
 
@@ -256,6 +256,9 @@ IPv6 stöds inte i Virtual WAN Hub och dess gatewayer. Om du har ett VNet som ha
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Vilken är den rekommenderade API-versionen som ska användas av skript som automatiserar olika virtuella WAN-funktioner?
 
 En lägsta version av 05-01-2020 (kan 1 2020) krävs. 
+
+### <a name="any-virtual-wan-limits"></a>Alla virtuella WAN-gränser?
+Gränser för virtuella WAN-nätverk: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Vad är skillnaderna mellan de virtuella WAN-typerna (Basic och standard)?
 

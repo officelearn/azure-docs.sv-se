@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 3e561400683d9d0679a51a761f97ec7ba8bf8ea9
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: c243668f4ca1569ad05567649ad4a2498888847c
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505910"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88602393"
 ---
 Kom igång med ansikts klient biblioteket för .NET. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -26,9 +26,9 @@ Använd ansikts klient biblioteket för .NET för att:
 * [Identifiera ett ansikte](#identify-a-face)
 * [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.6.0-preview.1)  |  [Exempel](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services/)
@@ -78,7 +78,7 @@ I programmets `Main` metod skapar du variabler för resursens Azure-slutpunkt oc
 I program katalogen installerar du ansikts klient biblioteket för .NET med följande kommando:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.6.0-preview.1
 ```
 
 Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
@@ -87,7 +87,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i klient biblioteket Face .NET:
 
-|Namn|Beskrivning|
+|Name|Beskrivning|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |

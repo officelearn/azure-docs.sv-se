@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d32ad29bf652cad62a5950859ebff0366e09fc6f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510036"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587641"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -30,7 +30,7 @@ I allmänhet består meddelanden av två delar: sidhuvud och brödtext.
 
 Meddelande rubriker representeras med nyckel/värde-par. Beroende på vilket protokoll som används (MQTT, AMQP eller HTTP) kommer meddelandehuvuden att serialiseras på olika sätt. I det här avsnittet beskrivs allmän rubrik information för aviserings meddelanden oavsett vilket protokoll och vilka serialiseringar som valts.
 
-Vissa meddelanden uppfyller CloudEvents-standarden. CloudEvents-överensstämmelse är som följer.
+Vissa meddelanden uppfyller [CloudEvents](https://cloudevents.io/) -standarden. CloudEvents-överensstämmelse är som följer.
 * Meddelanden som släpps från enheter fortsätter att följa de befintliga specifikationerna för meddelanden
 * Meddelanden som bearbetas och genereras av IoT Hub fortsätta att följa de befintliga specifikationerna för meddelanden, förutom där IoT Hub väljer att stödja CloudEvents, till exempel via Event Grid
 * Meddelanden som släpps från [digitala garn](concepts-twins-graph.md) med en [modell](concepts-models.md) som överensstämmer med CloudEvents
@@ -103,11 +103,11 @@ Meddelanden om livs cykel utlöses när:
 
 Här är fälten i bröd texten i ett meddelande om livs cykel.
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse. |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents-specifikationen. |
+| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents- [specifikationen](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |
@@ -189,11 +189,11 @@ Här är ett annat exempel på en digital, dubbel. Den här baseras på en [mode
 
 Här är fälten i bröd texten för en Edge Change-avisering.
 
-| Namn    | Värde |
+| Name    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse |
 | `source` | Namnet på den digitala Azure-instansen, till exempel *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents-specifikationen. |
+| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents- [specifikationen](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
 | `subject` | ID för relationen, t. ex. `<twinID>/relationships/<relationshipID>` |
@@ -245,11 +245,11 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
 
 Här är fälten i bröd texten i ett digitalt meddelande om ändring av dubbla meddelanden.
 
-| Namn    | Värde |
+| Name    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents-specifikationen. |
+| `specversion` | *1,0*<br>Meddelandet överensstämmer med den här versionen av CloudEvents- [specifikationen](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID för den digitala dubbla |

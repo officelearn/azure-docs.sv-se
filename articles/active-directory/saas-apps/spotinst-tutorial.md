@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: e7aa5963f6e26776184de361aaa91f5a3c36ec9e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546630"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Spotinst
 
@@ -75,18 +75,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i IDP initierat läge, så gör du följande:
 
-    a. Markera **Ange ytterligare URL: er**.
-
-    b. Skriv ett värde i text rutan för **relä tillstånd** : `<ID>`
-
-1. Klicka på **Ange ytterligare URL:er** och utför följande steg om du vill konfigurera programmet i **SP**-initierat läge:
-
-    I rutan **Inloggnings-URL** anger du följande URL: `https://console.spotinst.com/auth/saml`
-
-    > [!NOTE]
-    > Värdet för relä statusen är inte verkligt. Du uppdaterar värdet för relä status med det faktiska värdet för relä status, vilket beskrivs senare i självstudien.
+   1. Se till att **svars-URL** är inställt på: https://console.spotinst.com/auth/saml .
+   1. I **relä läge**anger du ditt Spotinst organisations-ID, som du också kan bekräfta på fliken **SSO** .
+   1. **Inloggnings-URL: en** måste vara tom.
 
 1. Klicka på **Spara**.
 

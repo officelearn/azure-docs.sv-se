@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8e0f0b37dd429578194c18e5a9a1f063b74fb693
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506541"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587607"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -37,18 +37,22 @@ Om du vill skapa en digital Digital måste du ange:
 
 Om du vill kan du ange startvärden för alla egenskaper för den digitala, dubbla. 
 
-Värdena modell och initial egenskap anges via `initData` parametern, som är en JSON-sträng som innehåller relevanta data.
+Värdena modell och initial egenskap anges via `initData` parametern, som är en JSON-sträng som innehåller relevanta data. Fortsätt till nästa avsnitt om du vill ha mer information om att strukturera objektet.
 
 > [!TIP]
 > När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API (beskrivs [längre fram i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så Använd API-anropet i stället för att fråga om du vill se dina nyskapade dubblare om du behöver ett direkt svar. 
 
-### <a name="initialize-properties"></a>Initiera egenskaper
+### <a name="initialize-model-and-properties"></a>Initiera modell och egenskaper
 
-Det dubbla skapande-API: et accepterar ett objekt som kan serialiseras till en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [*begrepp: digitala garn och den dubbla grafen*](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel.
+Det dubbla skapande-API: et accepterar ett objekt som är serialiserat i en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [*begrepp: digitala garn och den dubbla grafen*](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel. 
+
+Först ska du skapa ett data objekt som representerar den dubbla och dess egenskaps data. Sedan kan du använda `JsonSerializer` för att skicka en serialiserad version av detta till API-anropet för `initdata` parametern.
 
 Du kan skapa ett parameter objekt antingen manuellt eller med hjälp av en angiven hjälp klass. Här är ett exempel på var och en.
 
 #### <a name="create-twins-using-manually-created-data"></a>Skapa dubbla med manuellt skapade data
+
+Utan att använda anpassade hjälp klasser kan du representera en dubbels egenskaper i a `Dictionary<string, object>` , där `string` är namnet på egenskapen och `object` är ett objekt som representerar egenskapen och dess värde.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -68,6 +72,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### <a name="create-twins-with-the-helper-class"></a>Skapa dubbla med hjälp av klassen
 
+Med hjälp klassen i `BasicDigitalTwin` kan du lagra egenskaps fält i ett "" ""-objekt mer direkt. Du kanske fortfarande vill bygga listan med egenskaper med hjälp av en `Dictionary<string, object>` , som sedan kan läggas till i det dubbla objektet som dess `CustomProperties` direkt.
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -80,6 +86,13 @@ twin.CustomProperties = props;
 
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
+
+>[!NOTE]
+> `BasicDigitalTwin` objekt levereras med ett `Id` fält. Du kan lämna fältet tomt, men om du lägger till ett ID-värde måste det matcha ID-parametern som skickas till `CreateDigitalTwin` anropet. I exemplet ovan skulle det se ut så här:
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
 
 ## <a name="get-data-for-a-digital-twin"></a>Hämta data för en digital, dubbel
 

@@ -2,31 +2,26 @@
 title: 'Självstudie: användar etablering för GitHub – Azure AD'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till GitHub.
 services: active-directory
-documentationcenter: ''
 author: ArvindHarinder1
 manager: CelesteDG
-ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82f7252f2d9cdd2c54fae593d8463bfe84bd6ce2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cfcf68b1e00e9f3333a8cd1fdb21ec71712f0e95
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77057659"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550678"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GitHub för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i GitHub och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till GitHub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
@@ -61,7 +56,7 @@ Det här avsnittet vägleder dig genom att ansluta din Azure AD till GitHub-API 
 
 ### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Konfigurera automatisk etablering av användar konton till GitHub i Azure AD
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program**  .
 
 2. Om du redan har konfigurerat GitHub för enkel inloggning söker du efter din instans av GitHub med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **GitHub** i program galleriet. Välj GitHub från Sök resultaten och Lägg till den i listan över program.
 

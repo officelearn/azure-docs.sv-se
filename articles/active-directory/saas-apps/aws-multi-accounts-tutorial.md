@@ -2,25 +2,21 @@
 title: 'Självstudie: Azure Active Directory integration med Amazon Web Services (AWS) för att ansluta flera konton | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure AD och Amazon Web Services (AWS) (tidigare självstudier).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6857fba86aebbcfd7b20326e4a4a268467e4fc3
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 20674f5a793267c3a9e2fa078f95cbf96624df13
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272475"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88550185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Självstudie: Azure Active Directory integration med Amazon Web Services (AWS) (tidigare självstudier)
 
@@ -49,7 +45,7 @@ Om du vill veta mer om SaaS-appens integrering med Azure AD, se [Vad är program
 
 * Alla AWS-konton kommer att använda samma XML-fil för federationsmetadata och vid tidpunkten för certifikat förnyelse måste du köra den här enorma övningen för att uppdatera certifikatet på alla AWS-konton på samma gång
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
@@ -126,7 +122,7 @@ I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal o
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
-    | Namn  | Källattribut  | Namnområde |
+    | Name  | Källattribut  | Namnområde |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Roll            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|

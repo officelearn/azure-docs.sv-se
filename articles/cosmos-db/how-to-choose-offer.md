@@ -4,14 +4,14 @@ description: Lär dig mer om hur du väljer mellan standard (manuell) allokerat 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 94022b9959b6a7f2bc30e31f918f2f5a916ccd8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116816"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605206"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Välja mellan standard (manuell) och autoskalning av allokerat data flöde 
 
@@ -37,7 +37,10 @@ Följande tabell visar en jämförelse på hög nivå mellan standard (manuell) 
 ## <a name="understand-your-traffic-patterns"></a>Förstå dina trafik mönster
 
 ### <a name="new-applications"></a>Nya program ###
-Om du skapar ett nytt program och inte känner till ditt trafik mönster än, kanske du vill starta vid start punkten RU/s (eller minst RU/s) för att undvika överetablering i början. Eller, om du har ett litet program som inte behöver hög skala, kanske du vill etablera bara den minsta start punkten RU/s för att optimera kostnaderna. I båda fallen är både standard (manuell) eller autoskalning lämplig. Det här bör du tänka på:
+
+Om du skapar ett nytt program och inte känner till ditt trafik mönster än, kanske du vill starta vid start punkten RU/s (eller minst RU/s) för att undvika överetablering i början. Eller, om du har ett litet program som inte behöver hög skala, kanske du vill etablera bara den minsta start punkten RU/s för att optimera kostnaderna. För små program med låg förväntade trafik kan du också ta hänsyn till [Server](throughput-serverless.md) utan kapacitets läge.
+
+Oavsett om du planerar att använda standard (manuell) eller autoskalning bör du tänka på följande:
 
 Om du etablerar standard (manuell) RU/s vid start punkten 400 RU/s, kommer du inte att kunna använda över 400 RU/s, om du inte manuellt ändrar data flödet. Du debiteras för 400 RU/s vid standard (manuell) allokerad data flödes hastighet, per timme.
 

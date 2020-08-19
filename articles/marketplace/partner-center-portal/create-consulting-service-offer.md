@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f020d3e98a5c13848a67ed4d8c9ded485b2f9450
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f8ddbc66b8e7775fa35d2407bf3aa8614fe8e835
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032602"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606162"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -38,7 +38,7 @@ Fördelar med att publicera till den kommersiella marknads platsen:
     ![Visar menyn till vänster-navigering.](./media/new-offer-consulting-service.png)
 
 >[!NOTE]
->När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
+>När ett erbjudande har publicerats visas bara ändringar i Partner Center i onlinebutiker när du har publicerat om erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
@@ -98,7 +98,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
 
 3. Om du har valt **Azure** som primär produkt väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
 
-    - Analys
+    - Analytics
     - App-modernisering
     - Arkiv
     - AI + Machine Learning
@@ -109,7 +109,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
     - DevOps
     - Haveriberedskap
     - Identitet
-    - Sakernas Internet
+    - Internet of Things
     - Migrering
     - Nätverk
     - Säkerhet
@@ -160,7 +160,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 8. Skärm bilder/videor
 9. Dokument
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 

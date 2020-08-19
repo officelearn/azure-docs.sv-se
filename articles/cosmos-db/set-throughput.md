@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 050da712df6dad872fc03bd6ca79bbdf2a3e1753
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 00ed8f6ff9839c227f3d8a929a071834c5559226
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563203"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605728"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Följande bild visar hur en fysisk partition är värd för en eller flera logis
 > [!NOTE]
 > Det går för närvarande inte att samla in data flöde i en Azure Cosmos-databas i konton där [Kundhanterade nycklar](how-to-setup-cmk.md) är aktiverade.
 
-När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett tillhandahållet data flöde på specifika behållare i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md). Information om hur du konfigurerar autoskalning av data flödet i en databas finns i [etablera autoskalning genom strömning](how-to-provision-autoscale-throughput.md).
+När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett etablerat dataflöde för specifika containrar i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md). Information om hur du konfigurerar autoskalning av data flödet i en databas finns i [etablera autoskalning genom strömning](how-to-provision-autoscale-throughput.md).
 
 Genom att ställa in data flöde på en Azure Cosmos-databas garanteras att du tar emot det etablerade data flödet för databasen hela tiden. Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Den del av data flödet som en viss behållare kan ta emot är beroende av:
 
@@ -96,7 +96,7 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. 
 
-Om du vill uppskatta det [lägsta allokerade data flödet](concepts-limits.md#storage-and-throughput) för en databas eller behållare, hitta Max:
+Om du vill uppskatta det [lägsta allokerade data flödet](concepts-limits.md#storage-and-database-operations) för en databas eller behållare, hitta Max:
 
 * 400 RU/s 
 * Aktuellt lagrings utrymme i GB * 10 RU/s

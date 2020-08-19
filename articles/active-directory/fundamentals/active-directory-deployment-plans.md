@@ -12,14 +12,14 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d839fc71992802e9ee2b6a66d0bc407c5caaecf
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 1f85d4203c0fe3978f776b418ab6d7850061416c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799067"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605372"
 ---
-# <a name="azure-active-directory-deployment-plans"></a>Distributionsplaner för Azure Active Directory
+# <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
 
 Från någon av plan sidorna använder du webbläsarens utskrifts-till-PDF-funktion för att skapa en uppdaterad offline-version av dokumentationen.
@@ -97,3 +97,4 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | -| -|
 | [Privileged Identity Management](../privileged-identity-management/pim-deployment-plan.md)| Azure AD Privileged Identity Management (PIM) hjälper dig att hantera privilegierade administrativa roller i Azure AD, Azure-resurser och andra Microsoft Online Services. PIM innehåller lösningar som just-in-Time-åtkomst, begär godkännande arbets flöden och fullständigt integrerade åtkomst granskningar, så att du kan identifiera, upptäcka och förhindra illvilliga aktiviteter för privilegierade roller i real tid. |
 | [Rapportering och övervakning](../reports-monitoring/plan-monitoring-and-reporting.md)| Utformningen av din Azure AD-rapportering och övervaknings lösning är beroende av dina juridiska, säkerhets-och drift krav samt din befintliga miljö och befintliga processer. Den här artikeln visar de olika design alternativen och vägleder dig till rätt distributions strategi. |
+| [Åtkomst granskningar](../governance/deploy-access-reviews.md) | Åtkomst granskningar är en viktig del av din styrnings strategi, så att du kan känna till och hantera vem som har åtkomst och vad de har åtkomst till. Den här artikeln hjälper dig att planera och distribuera åtkomst granskningar för att uppnå önskad säkerhets-och samarbets postures. |

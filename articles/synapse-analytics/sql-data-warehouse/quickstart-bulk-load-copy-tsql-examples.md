@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 05dd1f1d429b59c4d621b63c6b78a1fc00e8d4dd
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87528471"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603903"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -23,10 +23,11 @@ Den här artikeln beskriver och innehåller exempel på mekanismer för säker a
 
 I följande matris beskrivs de autentiseringsmetoder som stöds för varje filtyp och lagrings konto. Detta gäller för käll lagrings platsen och fel filens plats.
 
-|                          |                CSV                |              Parquet              |                ORC                |
-| :----------------------: | :-------------------------------: | :-------------------------------: | :-------------------------------: |
-|  **Azure Blob Storage**  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL              |              SAS/NYCKEL              |
-| **Azure Data Lake Gen2** | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |
+|                          |                CSV                |              Parquet               |                ORC                 |
+| :----------------------: | :-------------------------------: | :-------------------------------:  | :-------------------------------:  |
+|  **Azure Blob Storage**  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL               |              SAS/NYCKEL               |
+| **Azure Data Lake Gen2** | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS (BLOB-slutpunkt)/MSI (DFS-slutpunkt)/SERVICE huvud namn/nyckel/AAD | SAS (BLOB-slutpunkt)/MSI (DFS-slutpunkt)/SERVICE huvud namn/nyckel/AAD |
+
 
 ## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Lagrings konto nyckel med LF som rad avgränsare (UNIX-typ ny rad)
 

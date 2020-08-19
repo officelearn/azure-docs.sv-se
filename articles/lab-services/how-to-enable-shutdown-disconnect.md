@@ -3,12 +3,12 @@ title: Konfigurera automatisk avstängning av virtuella datorer för ett labb i 
 description: Lär dig hur du aktiverar eller inaktiverar automatisk avstängning av virtuella datorer när en anslutning till fjärr skrivbord är frånkopplad.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 7941a3eed502f2329f5d2acf244eec7cef322615
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3188117ac651f31057b4db88e32dfb42c45abb60
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589781"
+ms.locfileid: "88604880"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab"></a>Konfigurera automatisk avstängning av virtuella datorer för ett labb
 
@@ -22,7 +22,7 @@ Du kan aktivera flera kostnads styrnings funktioner för automatisk avstängning
 
 Granska mer information om funktionen för automatisk avstängning i avsnittet [maximera kostnads kontroll med inställningar för automatisk avstängning](cost-management-guide.md#maximize-cost-control-with-auto-shutdown-settings) .
 
-En labb konto administratör kan konfigurera den här inställningen för labb kontot där du skapar labb. Mer information finns i [Konfigurera automatisk avstängning av virtuella datorer vid från koppling för ett labb konto](how-to-configure-lab-accounts.md). Som labb ägare kan du åsidosätta inställningen när du skapar ett labb eller när labbet har skapats. 
+En labb konto administratör kan konfigurera den här inställningen för labb kontot där du skapar labb. Mer information finns i [Konfigurera automatisk avstängning av virtuella datorer för ett labb konto](how-to-configure-lab-accounts.md). Som labb ägare kan du åsidosätta inställningen när du skapar ett labb eller när labbet har skapats. 
 
 ## <a name="configure-for-the-lab-level"></a>Konfigurera för labb nivån
 

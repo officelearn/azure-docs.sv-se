@@ -3,12 +3,12 @@ title: Konfigurera automatisk avstängning av virtuella datorer i Azure Lab Serv
 description: Den här artikeln beskriver hur du konfigurerar automatisk avstängning av virtuella datorer i labb kontot.
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9fd93d383ba6a2d57057a3b45f8b517c84990043
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 8dbc54ad14530006b56bf336d9d78e7d59843485
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589815"
+ms.locfileid: "88603879"
 ---
 # <a name="configure-automatic-shutdown-of-vms-for-a-lab-account"></a>Konfigurera automatisk avstängning av virtuella datorer för ett labb konto
 
@@ -35,4 +35,4 @@ Granska mer information om funktionen för automatisk avstängning i avsnittet [
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur en labb ägare kan konfigurera eller åsidosätta den här inställningen på labb nivån finns i [Aktivera automatisk avstängning av virtuella datorer vid från koppling](how-to-enable-shutdown-disconnect.md)
+Information om hur en labb ägare kan konfigurera eller åsidosätta den här inställningen på labb nivån finns i [Konfigurera automatisk avstängning av virtuella datorer för ett labb](how-to-enable-shutdown-disconnect.md)

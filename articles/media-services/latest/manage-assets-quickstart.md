@@ -3,12 +3,15 @@ title: Använd portalen för att ladda upp, koda och strömma innehåll – Azur
 description: Den här snabb starten visar hur du använder portalen för att ladda upp, koda och strömma innehåll med Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+author: IngridAtMicrosoft
+ms.author: inhenkel
+manager: femila
+ms.openlocfilehash: 7aebc6e52ec7fac97c6f1e8fb9b30cc63b74e860
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053352"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605670"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Snabb start: Ladda upp, koda och strömma innehåll med portalen
 
@@ -28,7 +31,6 @@ Den här snabb starten visar hur du använder Azure Portal för att ladda upp, k
 
   * [Uppladdning till och lagring i molnet](storage-account-concept.md)
   * [Till gångs koncept](assets-concept.md)
-  * [Hantera till gångar](manage-asset-concept.md)
 * När du har överfört den digitala medie filen med hög kvalitet till en till gång (en indata till gång) kan du bearbeta den (koda eller analysera). Det bearbetade innehållet går till en annan till gång (utmatnings till gång). 
     * [Koda](encoding-concept.md) den överförda filen till format som kan spelas upp i en mängd olika webbläsare och enheter.
     * [Analysera](analyzing-video-audio-files-concept.md) den överförda filen. 

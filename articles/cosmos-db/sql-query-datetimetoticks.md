@@ -4,20 +4,20 @@ description: Lär dig mer om SQL system Function DateTimeToTicks i Azure Cosmos 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: a6fcff691ee5278ed0a9e1c132f8ecebbee9431c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227246"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605142"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
 
-Konverterar angiven DateTime till tickning. Ett enda streck visar 100 nanosekunder eller 1 10-millionth av en sekund.
-  
+Konverterar angiven DateTime till tickning. Ett enda streck visar 100 nanosekunder eller 1 10-millionth av en sekund. 
+
 ## <a name="syntax"></a>Syntax
   
 ```sql
@@ -31,7 +31,7 @@ DateTimeToTicks (<DateTime>)
 
 ## <a name="return-types"></a>Retur typer
 
-Returnerar ett positivt heltals värde.
+Returnerar ett signerat numeriskt värde, det aktuella antalet 100-nanosekunder som har förflutit sedan UNIX-epoken. Med andra ord returnerar DateTimeToTicks antalet 100-nanosekunder som har förflutit sedan 00:00:00 torsdag 1 januari 1970.
 
 ## <a name="remarks"></a>Kommentarer
 

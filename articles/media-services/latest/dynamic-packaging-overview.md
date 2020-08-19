@@ -2,7 +2,7 @@
 title: Dynamisk paketering i Azure Media Services v3
 titleSuffix: Azure Media Services
 description: Den här artikeln ger en översikt över dynamisk paketering i Azure Media Services.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/13/2020
-ms.author: juliako
-ms.openlocfilehash: 4f0e8822d734d3c1147eb6d5cbbc8f26a7410a01
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/18/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224075"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604573"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -80,7 +80,7 @@ Den strömmande klienten kan ange följande Smooth Streaming Format:
 
 Följande steg visar ett vanligt Media Services strömnings arbets flöde där dynamisk paketering används tillsammans med standard kodare i Azure Media Services.
 
-1. [Ladda upp en indatafil](manage-asset-concept.md) , till exempel en MP4-, QuickTime-/MOV-fil eller ett annat fil format som stöds. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
+1. [Ladda upp en indatafil](job-input-from-http-how-to.md) , till exempel en MP4-, QuickTime-/MOV-fil eller ett annat fil format som stöds. Den här filen kallas även för mezzaninfil eller käll filen. En lista över format som stöds finns i [format som stöds av Standard-kodaren](media-encoder-standard-formats.md).
 1. [Koda](#encode-to-adaptive-bitrate-mp4s) din mezzaninfil-fil till en inställd H. 264/AAC MP4 anpassad bit hastighet.
 
     Om du redan har kodade filer och bara vill kopiera och strömma filerna använder du: [CopyVideo](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyvideo) -och [CopyAudio](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#copyaudio) -API: er. En ny MP4-fil med ett strömmande manifest (. ISM-fil) skapas som ett resultat.

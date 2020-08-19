@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 451e1581350bb1d38580d00ffd24c781bc30242d
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507592"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604686"
 ---
-# <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
+# <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
 Azure Virtual WAN är en nätverks tjänst som ger många funktioner för nätverk, säkerhet och routning tillsammans för att tillhandahålla ett enda drift gränssnitt. Dessa funktioner är till exempel filial anslutning (via anslutnings automatisering från virtuella WAN-partner enheter som SD-WAN eller VPN CPE). VPN-anslutning för plats-till-plats, fjärran sluten användare (punkt-till-plats), privat (ExpressRoute) anslutning, anslutning inom molnet (transitiv anslutning för virtuella nätverk), VPN-ExpressRoute mellan anslutning, routning, Azure-brandvägg och kryptering för privat anslutning. Du behöver inte ha alla dessa användnings fall för att börja använda Virtual WAN. Du kan helt enkelt komma igång med bara ett användnings fall och sedan justera nätverket när det utvecklas.
 
@@ -102,11 +102,11 @@ Varje virtuell hubb-router stöder ett sammanställt data flöde på upp till 50
 
 #### <a name="transit-connectivity-between-vpn-and-expressroute"></a><a name="transit-er"></a>Överförings anslutning mellan VPN och ExpressRoute
 
-Det virtuella WAN-nätverket tillåter överföring av anslutningar mellan VPN-och ExpressRoute. Detta innebär att VPN-anslutna platser eller fjärran vändare kan kommunicera med ExpressRoute-anslutna platser. Det finns också ett implicit antagande om att **flaggan för Branch-till-gren** är aktive rad. Den här flaggan finns i Azures virtuella WAN-inställningar i Azure Portal. All väg hantering tillhandahålls av den virtuella Hub-routern, som också möjliggör överförings anslutning mellan virtuella nätverk.
+Det virtuella WAN-nätverket tillåter överföring av anslutningar mellan VPN-och ExpressRoute. Detta innebär att VPN-anslutna platser eller fjärran vändare kan kommunicera med ExpressRoute-anslutna platser. Det finns också en implicit antagande att **flaggan för Branch-till-gren** är aktive rad och BGP stöds i VPN-och ExpressRoute-anslutningar. Den här flaggan kan placeras i Azures virtuella WAN-inställningar i Azure Portal. All väg hantering tillhandahålls av den virtuella Hub-routern, som också möjliggör överförings anslutning mellan virtuella nätverk.
 
 ### <a name="custom-routing"></a><a name="routing"></a>Anpassad routning
 
-Det virtuella WAN-nätverket ger avancerade förbättringar av routningen. Möjlighet att konfigurera anpassade väg tabeller, optimera routning av virtuella nätverk med väg Association och-spridning, logiskt gruppera väg tabeller med etiketter och förenkla flera virtuella nätverks installationer eller delade tjänster.
+Det virtuella WAN-nätverket ger avancerade förbättringar av routningen. Möjlighet att konfigurera anpassade routningstabeller, optimera routning av virtuella nätverk med väg Association och-spridning, logiskt gruppera väg tabeller med etiketter och förenkla många olika NVA (Network Virtual installation) eller routning för delade tjänster.
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Global VNet-peering
 
@@ -120,17 +120,21 @@ Azure Virtual WAN ger möjlighet att kryptera din ExpressRoute-trafik. Tekniken 
 
 Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
 
-## <a name="route-tables-in-basic-and-standard-virtual-wans"></a><a name="route"></a>Routa tabeller i Basic-och standard-virtuella WAN
+## <a name="route-tables-for-basic-and-standard-virtual-wans"></a><a name="route"></a>Routningstabeller för Basic-och standard-virtuella WAN
 
 Routningstabeller har nu funktioner för Association och spridning. En fördefinierad routningstabell är en routningstabell som inte har dessa funktioner. Om du har befintliga vägar i hubben Routning och vill använda de nya funktionerna bör du tänka på följande:
 
 * **Virtuella standard WAN-kunder med befintliga vägar i Virtual Hub**: om du vill använda nya funktioner i en routningstabell väntar du tills veckan 17 för distributionen i Azure ska slutföras. Om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal).
 
-* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för en routningstabell väntar du tills veckan i augusti 17 för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
+* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för en routningstabell väntar du tills veckan på 17 för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+
+## <a name="view-the-latest-feature-updates"></a><a name="new"></a>Visa de senaste funktions uppdateringarna
+
+Prenumerera på RSS-flödet och se de senaste virtuella WAN-funktionerna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 43623e6841c3776e6e83453ad9cb47549fc16021
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: b48fc6ad448b829bb399c151d3f1507c804ad471
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170300"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605111"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning
 
@@ -101,21 +101,13 @@ ___
 <code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
 Välj en matris med kolumner efter namn i data strömmen. Du kan skicka ett valfritt Stream-namn som det andra argumentet. Om det finns flera matchningar returneras den första matchningen. Om det inte finns några matchningar för en kolumn, är hela utdata ett NULL-värde. Det returnerade värdet kräver en typ konverterings funktion (todate, toString,...).  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar.
 * ``toString(byNames(['parent', 'child']))``
-* ````
 * ``byNames(['parent']) ? string``
-* ````
 * ``toLong(byNames(['income']))``
-* ````
 * ``byNames(['income']) ? long``
-* ````
 * ``toBoolean(byNames(['foster']))``
-* ````
 * ``toLong(byNames($debtCols))``
-* ````
 * ``toString(byNames(['a Column']))``
-* ````
 * ``toString(byNames(['a Column'], 'DeriveStream'))``
-* ````
 * ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
@@ -354,7 +346,7 @@ Tid i millisekunder för antalet timmar.
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges anses det vara NULL. Båda värdena måste vara kompatibla (numeriska, sträng...).* ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
+Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges anses det vara NULL. Båda värdena måste vara kompatibla (numeriska, sträng...). * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
 ___
@@ -505,7 +497,7 @@ ___
 Vänster fyller strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden, trimmas den till längden.  
 * ``lpad('dumbo', 10, '-') -> '-----dumbo'``  
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
-*' ' lpad (' Dumbo ', 8, ' <> ')-> ' <><dumbo'``  
+* ' ' lpad (' Dumbo ', 8, ' <> ')-> ' <><dumbo'``  
 ___
 ### <code> LTRIM</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
@@ -968,7 +960,7 @@ ___
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Hämtar årets värde för ett datum.  
 * ``year(toDate('2012-8-8')) -> 2012``  
-##Mängd funktioner följande funktioner är bara tillgängliga i omvandlingar av typen aggregera, pivot, unpivot och window.
+## Mängd funktioner följande funktioner är bara tillgängliga i omvandlingar av typen aggregera, pivot, unpivot och window.
 ___
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
@@ -1161,7 +1153,7 @@ ___
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Baserat på ett villkor hämtar du en kolumns inte en vägd varians.  
 * ``varianceSampleIf(region == 'West', sales)``  
-##Fönster funktioner följande funktioner är bara tillgängliga i fönster transformationer.
+## Fönster funktioner följande funktioner är bara tillgängliga i fönster transformationer.
 ___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>

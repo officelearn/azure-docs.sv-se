@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 06/26/2020
+ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7411b4c000569693335cb0438fe186b290750247
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88602357"
+ms.locfileid: "88604691"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -119,7 +119,7 @@ Programvarudefinierade anslutningslösningar hanterar vanligtvis gren-enheter me
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Vad händer om en enhet jag använder inte finns med i listan över virtuella WAN-partner? Kan jag fortfarande använda den för att ansluta till Azure Virtual WAN VPN?
 
-Ja så länge enheten stöder IPsec IKEv1 eller IKEv2. Virtuella WAN-partner automatiserar anslutningen från enheten till Azure VPN-slutpunkter. Detta innebär att automatisera steg som "gren information upload", "IPsec and Configuration" och "anslutning". Eftersom din enhet inte kommer från ett eko system med en virtuell WAN-partner måste du göra den tunga genom att manuellt ta Azure-konfigurationen och uppdatera enheten för att konfigurera IPsec-anslutning.
+Ja så länge enheten stöder IPsec IKEv1 eller IKEv2. Virtuella WAN-partner automatiserar anslutningen från enheten till Azure VPN-slutpunkter. Detta innebär att automatisera steg som "gren information upload", "IPsec and Configuration" och "anslutning". Eftersom din enhet inte kommer från ett eko system med en virtuell WAN-partner måste du göra den tunga att ta med Azure-konfigurationen manuellt och uppdatera enheten för att konfigurera IPsec-anslutning.
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>Hur registreras nya partner som inte visas i startpartnerlistan?
 
@@ -215,7 +215,7 @@ Trafiken följer mönstret: Branch enhet->ISP->Microsoft Network Edge->Microsoft
 
 Ja. En Internet anslutning och en fysisk enhet som stöder IPsec, helst från våra integrerade [virtuella WAN-partner](../articles/virtual-wan/virtual-wan-locations-partners.md). Du kan också manuellt hantera konfigurationen och anslutningen till Azure från den önskade enheten.
 
-### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Hur gör jag för att aktivera standard väg (0.0.0.0/0) i en anslutning (VPN, ExpressRoute eller Virtual Network):
+### <a name="how-do-i-enable-default-route-00000-in-a-connection-vpn-expressroute-or-virtual-network"></a>Hur gör jag för att aktivera standard väg (0.0.0.0/0) i en anslutning (VPN, ExpressRoute eller Virtual Network)?
 
 En virtuell hubb kan sprida en inlärd standard väg till en VPN-/ExpressRoute-anslutning för virtuella nätverk/plats-till-plats om flaggan är aktive rad på anslutningen. Den här flaggan visas när användaren redigerar en virtuell nätverks anslutning, en VPN-anslutning eller en ExpressRoute-anslutning. Som standard inaktive ras den här flaggan när en plats eller en ExpressRoute-krets är ansluten till en hubb. Den aktive ras som standard när en virtuell nätverks anslutning läggs till för att ansluta ett VNet till en virtuell hubb. Standard vägen kommer inte från den virtuella WAN-hubben. standard vägen sprids om den redan har belärts av den virtuella WAN-hubben som ett resultat av distributionen av en brand vägg i hubben, eller om en annan ansluten plats har Tvingad tunnel trafik aktive rad.
 
@@ -239,11 +239,11 @@ När flera ExpressRoute-kretsar är anslutna till en virtuell hubb, tillhandahå
 
 ### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>Föredrar Virtual WAN ExpressRoute via VPN för trafik som utgående Azure
 
-Yes 
+Ja.
 
-### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>När en virtuell WAN-hubb har en ExpressRoute-krets och en VPN-plats som är ansluten till den, kan det som skulle orsaka att en anslutning till ett VPN-nätverk föredras över ExpressRoute?
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-preferred-over-expressroute"></a>När en virtuell WAN-hubb har en ExpressRoute-krets och en VPN-plats som är ansluten till den, kan det som skulle medföra att en anslutning till ett VPN-nätverk föredras över ExpressRoute?
 
-När en ExpressRoute-krets är ansluten till en virtuell hubb är Microsoft Edge-routrarna den första noden för kommunikation mellan lokala platser och Azure. Dessa gräns routrar kommunicerar med de virtuella WAN-ExpressRoute gateways som i sin tur lär sig vägar från den virtuella hubben som styr alla vägar mellan alla gateways i virtuella WAN. Microsoft Edge-routrarna bearbetar virtuella nav ExpressRoute-vägar med högre prioritet över vägar från lokala platser. På grund av varje orsak om VPN-anslutningen blir det primära mediet för virtuell hubb för att lära sig vägar från (t. ex. växlings scenarier mellan ExpressRoute och VPN), om inte VPN-platsen är längre än sökvägen, kommer den virtuella hubben fortsätta att dela VPN-arbetsvägar med ExpressRoute-Gateway, vilket gör att Microsoft Edge-routrarna föredrar VPN-vägar över lokala vägar. 
+När en ExpressRoute-krets är ansluten till en virtuell hubb är Microsoft Edge-routrarna den första noden för kommunikation mellan lokala platser och Azure. Dessa yttre routrar kommunicerar med de virtuella WAN-ExpressRoute gateways som i sin tur lär sig vägar från den virtuella Hub-routern som styr alla vägar mellan alla gateways i virtuella WAN. Microsoft Edge-routrarna bearbetar virtuella Hubbs ExpressRoute vägar med högre prioritet över vägar som har lärts från lokala platser. Om VPN-anslutningen blir det primära mediet för den virtuella hubben för att lära sig vägar från (t. ex. failover-scenarier mellan ExpressRoute och VPN), såvida inte VPN-platsen längre är som sökväg, kommer den virtuella hubben fortsätta att dela VPN-inlärda vägar med ExpressRoute-gatewayen, vilket gör att Microsoft Edge-routrarna föredrar VPN-vägar över lokala vägar.
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>När två hubbar (hubb 1 och 2) är anslutna och det finns en ExpressRoute-krets ansluten som en bog-bind till båda hubbarna, vilken är sökvägen för ett VNet som är anslutet till hubb 1 för att uppnå ett VNet som är anslutet i hubb 2?
 
@@ -253,12 +253,13 @@ Det aktuella beteendet är att föredra ExpressRoute krets Sök väg över hubb-
 
 IPv6 stöds inte i Virtual WAN Hub och dess gatewayer. Om du har ett VNet som har stöd för IPv6 och du vill ansluta VNet till virtuellt WAN-nätverk stöds inte det här scenariot för närvarande.
 
-### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>Vilken är den rekommenderade API-versionen som ska användas av skript som automatiserar olika virtuella WAN-funktioner?
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Vilken är den rekommenderade API-versionen som ska användas av skript som automatiserar olika virtuella WAN-funktioner?
 
 En lägsta version av 05-01-2020 (kan 1 2020) krävs. 
 
-### <a name="any-virtual-wan-limits"></a>Alla virtuella WAN-gränser?
-Gränser för virtuella WAN-nätverk: https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits
+### <a name="are-there-any-virtual-wan-limits"></a>Finns det några virtuella WAN-gränser?
+
+Se avsnittet [virtuella WAN-gränser](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) på sidan begränsningar för prenumeration och tjänst.
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>Vad är skillnaderna mellan de virtuella WAN-typerna (Basic och standard)?
 

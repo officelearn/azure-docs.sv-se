@@ -5,39 +5,32 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/19/2020
+ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523544"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605265"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB
 
-Prissättningsmodellen för Azure Cosmos DB gör det enkelt att planera och hantera dina kostnader. Med Azure Cosmos DB betalar du för det etablerade dataflödet och den lagring du förbrukar.
+Prissättningsmodellen för Azure Cosmos DB gör det enkelt att planera och hantera dina kostnader. Med Azure Cosmos DB betalar du för de åtgärder som du utför mot databasen och för det lagrings utrymme som förbrukas av dina data.
 
-* **Tillhandahållet data flöde**: ett [allokerat data flöde](how-to-choose-offer.md) (kallas även reserverat data flöde) garanterar höga prestanda i alla skalor. Du anger det data flöde (RU/s) som du behöver och Azure Cosmos DB dedikerar de resurser som krävs för att garantera det konfigurerade data flödet. Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme. Du kan etablera data flöde manuellt eller använda [autoskalning](provision-throughput-autoscale.md).
+- **Databas åtgärder**: hur du debiteras för dina databas åtgärder beror på vilken typ av Azure Cosmos-konto du använder.
+
+  - **Tillhandahållet data flöde**: ett [allokerat data flöde](set-throughput.md) (kallas även reserverat data flöde) garanterar höga prestanda i alla skalor. Du anger det data flöde som du behöver i [enheter för programbegäran](request-units.md) per sekund (ru/s) och Azure Cosmos DB dedikera de resurser som krävs för att garantera det konfigurerade data flödet. Du kan [etablera data flöde för antingen en databas eller en behållare](set-throughput.md). Utifrån dina arbets belastnings behov kan du skala data flödet uppåt/nedåt när som helst eller använda [autoskalning](provision-throughput-autoscale.md) (även om det finns ett minsta data flöde som krävs för en databas eller en behållare för att garantera service avtal). Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme.
 
    > [!NOTE]
-   > Eftersom den etablerade data flödes modellen dedikerar resurser till din behållare eller databas debiteras du för det etablerade data flödet även om du inte kör några arbets belastningar.
+   > Eftersom den etablerade data flödes modellen dedikerar resurser till din behållare eller databas debiteras du för det data flöde som du har allokerat även om du inte kör några arbets belastningar.
 
-* **Förbrukad lagring**: du debiteras ett fast pris för den totala mängden lagring (GB) som används för data och index för en specifik timme.
+  - Utan **Server**: i [Server](serverless.md) fritt läge behöver du inte etablera några data flöden när du skapar resurser i ditt Azure Cosmos-konto. I slutet av fakturerings perioden debiteras du för den mängd enheter för programbegäran som har använts av databas åtgärderna.
 
-Etablerade data flöden, angivna som [begär ande enheter](request-units.md) per sekund (ru/s), gör att du kan läsa från eller skriva data i behållare eller databaser. Du kan [etablera data flöde för antingen en databas eller en behållare](set-throughput.md). Utifrån dina arbets belastnings behov kan du skala data flödet uppåt/nedåt när som helst. Azure Cosmos DB priser är elastiska och är proportionella mot det data flöde som du konfigurerar i en databas eller en behållare. Lägsta data flödes-och lagrings värden och skalnings ökningar ger en fullständig pris uppsättning jämfört med elastiskt spektrum till alla segment av kunder, från små skala till storskaliga behållare. Varje databas eller en behållare debiteras per timme för det data flöde som har allokerats i enheter om 100 RU/s, med minst 400 RU/s och lagring som förbrukas i GB. Till skillnad från etablerade data flöden debiteras lagrings utrymmet enligt förbrukningen. Det vill säga att du inte behöver reservera någon lagring i förväg. Du faktureras bara för den lagring som du använder.
+- **Lagring**: du debiteras ett fast pris för den totala mängden lagrings utrymme (i GB) som används av dina data och index för en specifik timme. Lagringen debiteras enligt förbrukningen, så du behöver inte reservera någon lagring i förväg. Du faktureras bara för den lagring som du använder.
 
-Mer information finns på sidan med [Azure Cosmos DB priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [förstå din Azure Cosmos DB faktura](understand-your-bill.md).
+Pris sättnings modellen i Azure Cosmos DB är konsekvent i alla API: er. Mer information finns på [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/), [förstå din Azure Cosmos DB faktura](understand-your-bill.md) och [hur Azure Cosmos DB prissättnings modell är kostnads effektiv för kunder](total-cost-ownership.md).
 
-Pris sättnings modellen i Azure Cosmos DB är konsekvent i alla API: er. Mer information finns i [How Azure Cosmos DB prissättnings modell kostnads effektivt för kunder](total-cost-ownership.md). Det finns ett minsta data flöde som krävs för en databas eller en behållare för att säkerställa service avtal och du kan öka eller minska det etablerade data flödet för varje 100 RU/s.
-
-Om du distribuerar ditt Azure Cosmos DB-konto till en icke-myndighets region i USA, är för närvarande minimi priset för både databas och behållar baserat data flöde cirka $24 per månad. Prissättningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen. Om din arbets belastning använder flera behållare kan den optimeras för kostnad med data flöde på databas nivå eftersom data flödet på databas nivå gör att du kan ha valfritt antal behållare i en databas som delar data flödet bland behållarna. I följande tabell sammanfattas etablerade data flöde och kostnaderna för olika entiteter:
-
-|**Entitet**  | **Minsta data flöde** |**Skalnings steg** |**Etablerings omfång** |
-|---------|---------|---------|-------|
-|Databas    | 400 RU/s    | 100 RU/s   |Data flödet är reserverat för databasen och delas av behållare i databasen |
-|Container     | 400 RU/s   | 100 RU/s  |Data flödet är reserverat för en angiven behållare |
-
-Som det visas i föregående tabell börjar det lägsta data flödet i Azure Cosmos DB till ett pris på cirka $24 per månad. Om du börjar med det lägsta data flödet och skalar upp över tid för att stödja dina produktions arbets belastningar, kommer kostnaderna att öka smidigt, i steg om cirka $6/månad. Prissättningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen. Pris sättnings modellen i Azure Cosmos DB är elastisk och det finns en smidig ökning eller minskning av priset när du skalar upp eller ned.
+Om du distribuerar ditt Azure Cosmos DB-konto till en icke-myndighets region i USA, är det ett minimi pris för både databas-och containerbaserade data flöde i det etablerade data flödes läget. Det finns inget minimi pris i läget utan server. Prissättningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Testa Azure Cosmos DB kostnadsfritt
 
@@ -53,7 +46,7 @@ Azure Cosmos DB erbjuder många alternativ för utvecklare utan kostnad. Dessa a
 
 ## <a name="pricing-with-reserved-capacity"></a>Prissättning med reserverad kapacitet
 
-Azure Cosmos DB [reserverad kapacitet](cosmos-db-reserved-capacity.md) hjälper dig att spara pengar genom förskotts betalning för Azure Cosmos DB resurser i ett år eller tre år. Du kan avsevärt minska dina kostnader med ett års-eller tre års åtagande och spara mellan 20-65% rabatt jämfört med den vanliga prissättningen. Azure Cosmos DB reserverad kapacitet hjälper dig att sänka kostnaderna genom förskotts betalning för det etablerade data flödet (RU/s) under en period på ett år eller tre år och du får rabatt på det data flöde som du har tillhandahållit. 
+Azure Cosmos DB [reserverad kapacitet](cosmos-db-reserved-capacity.md) hjälper dig att spara pengar när du använder det tillhandahållna data flödes läget genom förskotts betalning för Azure Cosmos DB resurser i ett år eller tre år. Du kan avsevärt minska dina kostnader med ett års-eller tre års åtagande och spara mellan 20-65% rabatt jämfört med den vanliga prissättningen. Azure Cosmos DB reserverad kapacitet hjälper dig att sänka kostnaderna genom förskotts betalning för det etablerade data flödet (RU/s) under en period på ett år eller tre år och du får rabatt på det data flöde som du har tillhandahållit. 
 
 Reserverad kapacitet ger rabatt på fakturan, den påverkar inte körningsstatusen för dina Azure Cosmos DB-resurser. Reserverad kapacitet är konsekvent för alla API: er, som innehåller MongoDB-, Cassandra-, SQL-, Gremlin-och Azure-tabeller och alla regioner över hela världen. Du kan lära dig mer om reserverad kapacitet i [förskott för Azure Cosmos DB resurser med reserverad kapacitet](cosmos-db-reserved-capacity.md) artikel och köpa reserverad kapacitet från [Azure Portal](https://portal.azure.com/).
 

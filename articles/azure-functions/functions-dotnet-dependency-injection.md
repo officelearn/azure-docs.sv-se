@@ -4,15 +4,15 @@ description: Lär dig hur du använder beroende inmatning för att registrera oc
 author: craigshoemaker
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 09/05/2019
+ms.date: 08/15/2020
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: ee3caef30c573763db56f89aa4900aa62b8a436a
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4919dc8f08a745a029eb6c3755f8cfc9c39f827f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206111"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88603871"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -22,7 +22,7 @@ Azure Functions stöder design mönstret för program beroende insprutning (DI),
 
 - Stöd för beroende inmatning börjar med Azure Functions 2. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan använda beroende inmatning måste du installera följande NuGet-paket:
 
@@ -226,10 +226,10 @@ Inifrån `Startup.Configure` -metoden kan du extrahera värden från `IConfigura
 
 ```csharp
 builder.Services.AddOptions<MyOptions>()
-                .Configure<IConfiguration>((settings, configuration) =>
-                                           {
-                                                configuration.GetSection("MyOptions").Bind(settings);
-                                           });
+    .Configure<IConfiguration>((settings, configuration) =>
+    {
+        configuration.GetSection("MyOptions").Bind(settings);
+    });
 ```
 
 Anropar `Bind` kopierings värden som har matchande egenskaps namn från konfigurationen till den anpassade instansen. Alternativ instansen är nu tillgänglig i IoC-behållaren för inmatning i en funktion.
@@ -253,8 +253,57 @@ public class HttpTrigger
 
 Mer information om hur du arbetar med alternativ finns [i alternativ mönster i ASP.net Core](/aspnet/core/fundamentals/configuration/options) .
 
-> [!WARNING]
-> Undvik att försöka läsa värden från filer som *local.settings.jspå* eller *appSettings. { miljö}. JSON* i förbruknings planen. Värden som läses från dessa filer som rör utlösnings anslutningar är inte tillgängliga eftersom appen skalas eftersom värd infrastrukturen inte har åtkomst till konfigurations informationen eftersom skalnings kontrollen skapar nya instanser av appen.
+### <a name="customizing-configuration-sources"></a>Anpassa konfigurations källor
+
+> [!NOTE]
+> Anpassning av konfigurations källan är tillgänglig från Azure Functions värd versioner 2.0.14192.0 och 3.0.14191.0.
+
+Om du vill ange ytterligare konfigurations källor åsidosätter du `ConfigureAppConfiguration` metoden i din Function-Apps- `StartUp` klass.
+
+Följande exempel lägger till konfigurations värden från en bas och en valfri miljö bestämd app Setting-filer.
+
+```csharp
+using System.IO;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+[assembly: FunctionsStartup(typeof(MyNamespace.Startup))]
+
+namespace MyNamespace
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void ConfigureAppConfiguration(IFunctionsConfigurationBuilder builder)
+        {
+            FunctionsHostBuilderContext context = builder.GetContext();
+
+            builder.ConfigurationBuilder
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+        }
+    }
+}
+```
+
+Lägg till konfigurations leverantörer i `ConfigurationBuilder` egenskapen för `IFunctionsConfigurationBuilder` . Mer information om hur du använder konfigurations leverantörer finns [i konfiguration i ASP.net Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+
+En `FunctionsHostBuilderContext` hämtas från `IFunctionsConfigurationBuilder.GetContext()` . Använd den här kontexten för att hämta det aktuella miljö namnet och lös platsen för konfigurationsfiler i mappen Function app.
+
+Som standard kopieras konfigurationsfiler som *appsettings.jspå* inte automatiskt till mappen utdata i Function-appen. Uppdatera din *. CSPROJ* -fil så att den matchar följande exempel för att se till att filerna kopieras.
+
+```xml
+<None Update="appsettings.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>      
+</None>
+<None Update="appsettings.Development.json">
+    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+</None>
+```
+
+> [!IMPORTANT]
+> För Function-appar som körs i förbruknings-eller Premium-planerna kan ändringar av konfigurations värden som används i utlösare orsaka skalnings fel. Eventuella ändringar av dessa egenskaper av `FunctionsStartup` klassen resulterar i ett start fel i Function-appen.
 
 ## <a name="next-steps"></a>Nästa steg
 

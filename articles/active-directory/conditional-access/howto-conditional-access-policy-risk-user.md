@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a015f7dd58bae328a8c18e3de3202c0ca615c9cf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86034920"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605576"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Villkorlig åtkomst: användar risk-baserad villkorlig åtkomst
 
@@ -29,7 +29,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
-1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer. Mer information får du genom att [Ange namngivnings standarder för dina principer](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
@@ -60,7 +60,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Inloggnings risk baserad villkorlig åtkomst](howto-conditional-access-policy-risk.md)
+[Risk- och villkorsbaserad åtkomst – inloggning](howto-conditional-access-policy-risk.md)
 
 [Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 

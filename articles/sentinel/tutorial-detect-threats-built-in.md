@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: 2d1ef885ea36e2eee7fd30268fd7b1f4609a70bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d73337c25c812363b7a542bf42372ca3baa10e8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560032"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605430"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudie: identifiera hot färdiga
 
@@ -29,40 +29,50 @@ ms.locfileid: "85560032"
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta ger Azure Sentinel dig med inbyggda mallar som är färdiga. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. När du har aktiverat de här mallarna söker de automatiskt efter aktiviteter som ser misstänkt ut i din miljö. Många av mallarna kan anpassas för att söka efter eller filtrera ut aktiviteter utifrån dina behov. De aviseringar som genereras av de här mallarna skapar incidenter som du kan tilldela och undersöka i din miljö.
+När du har [anslutit dina data källor](quickstart-onboard.md)   till Azure Sentinel ska du bli meddelad när något misstänkt inträffar. Det är därför som Azure Sentinel tillhandahåller färdiga, inbyggda mallar som hjälper dig att skapa hot identifierings regler. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. Regler som skapas från de här mallarna söker automatiskt igenom din miljö efter aktivitet som ser misstänkt ut. Många av mallarna kan anpassas för att söka efter aktiviteter eller filtrera dem efter dina behov. De aviseringar som genereras av dessa regler skapar incidenter som du kan tilldela och undersöka i din miljö.
 
 Den här självstudien hjälper dig att identifiera hot med Azure Sentinel:
 
 > [!div class="checklist"]
-> * Använd välkomst identifieringar
+> * Använd inaktuella hot identifieringar
 > * Automatisera hot svar
 
 ## <a name="about-out-of-the-box-detections"></a>Om fördefinierade identifieringar
 
 Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
 
-   ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
+   :::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Använd inbyggda identifieringar för att hitta hot med Azure Sentinel":::
 
 Följande typer av mallar är tillgängliga:
 
-- **Microsoft Security** – Microsoft Security templates skapar automatiskt Azure Sentinel-incidenter från aviseringarna som genereras i andra Microsoft-säkerhetslösningar i real tid. Du kan använda Microsofts säkerhets regler som mall för att skapa nya regler med liknande logik. Mer information om säkerhets regler finns i [skapa incidenter automatiskt från Microsofts säkerhets aviseringar](create-incidents-from-alerts.md).
-- **Fusion** -baserad på fusions teknik, avancerad attack identifiering i flera steg i Azure Sentinel använder skalbara algoritmer för maskin inlärning som kan korrelera många aviseringar och händelser med låg kvalitet på flera produkter i hög åter givning och åtgärds bara incidenter. Fusion är aktiverat som standard. Eftersom logiken är dold kan du inte använda den som en mall för att skapa mer än en regel.
-- **Beteende analys för maskin inlärning** – dessa mallar baseras på tillverkarspecifika Microsoft Machine Learning-algoritmer, så du kan inte se den interna logiken för hur de fungerar och när de körs. Eftersom logiken är dold kan du inte använda den som en mall för att skapa mer än en regel.
--   **Schemalagda** – schemalagda analys regler är schemalagda frågor som skrivits av Microsofts säkerhets experter. Du kan se fråge logiken och göra ändringar i den. Du kan använda schemalagda regler som mall för att skapa nya regler med liknande logik.
+- **Microsoft-säkerhet**
+   
+   Microsoft Security templates skapar automatiskt Azure Sentinel-incidenter från aviseringarna som genereras i andra Microsoft-säkerhetslösningar i real tid. Du kan använda Microsofts säkerhets regler som mall för att skapa nya regler med liknande logik. Mer information om säkerhets regler finns i [skapa incidenter automatiskt från Microsofts säkerhets aviseringar](create-incidents-from-alerts.md).
+
+- **Fusion** 
+
+    Med utgångs punkt i fusions tekniken används skalbara algoritmer för maskin inlärning i Azure Sentinel för att korrelera många varningar och händelser över flera produkter till hög åter givning och åtgärds bara incidenter. Fusion är aktiverat som standard. Eftersom logiken är dold och därför inte kan anpassas, kan du bara skapa en regel med den här mallen.
+
+- **Beteende analys av Machine Learning**
+
+    De här mallarna baseras på tillverkarspecifika Microsoft Machine Learning-algoritmer, så du kan inte se den interna logiken för hur de fungerar och när de körs. Eftersom logiken är dold och därför inte kan anpassas, kan du bara skapa en regel med varje mall av den här typen.
+
+- **Schemalagd**
+
+    Regler för schemalagd analys baseras på inbyggda frågor som skrivits av Microsofts säkerhets experter. Du kan se fråge logiken och göra ändringar i den. Du kan använda mallen för schemalagda regler och anpassa inställningarna för fråge logik och schemaläggning för att skapa nya regler.
 
 ## <a name="use-out-of-the-box-detections"></a>Använd välkomst identifieringar
 
-1. Om du vill använda en inbyggd mall klickar du på **Skapa regel** för att skapa en ny aktiv regel baserat på mallen. Varje post innehåller en lista över nödvändiga data källor som kontrol leras automatiskt och det kan resultera i att **skapa regler** inaktive ras.
+1. Om du vill använda en inbyggd mall klickar du på mallnamnet och sedan på knappen **Skapa regel** i informations fönstret för att skapa en ny aktiv regel baserat på mallen. Varje mall innehåller en lista över nödvändiga data källor. När du öppnar mallen kontrol leras data källorna automatiskt för tillgänglighet. Om det finns ett tillgänglighets problem kan knappen **Skapa regel** vara inaktive rad, eller så kan du se en varning om den här inställningen.
   
-   ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/use-built-in-template.png)
+    :::image type="content" source="media/tutorial-detect-built-in/use-built-in-template.png" alt-text="Panelen för hands version av identifierings regel":::
  
-1. Guiden Skapa regel öppnas, baserat på den valda mallen. All information fylls i, och för **schemalagda regler** eller **säkerhets regler för Microsoft**, kan du anpassa logiken så att den passar din organisation bättre, eller skapa ytterligare regler baserat på den inbyggda mallen. När du har gått igenom stegen i guiden Skapa regel och slutfört skapandet av en regel som baseras på mallen, visas den nya regeln på fliken **aktiva regler** .
+1. Om du klickar på knappen **Skapa regel** öppnas guiden Skapa regel som baseras på den valda mallen. All information fylls i och med de **schemalagda** eller **Microsoft** -säkerhetsmallarna kan du anpassa logiken och andra regel inställningar så att de passar dina behov bättre. Du kan upprepa den här processen för att skapa ytterligare regler baserade på den inbyggda mallen. När du har gått igenom stegen i guiden Skapa regel till slutet, kommer du att ha skapat en regel som baseras på mallen. De nya reglerna visas på fliken **aktiva regler** .
 
-Mer information om fälten i guiden finns i [Självstudier: skapa anpassade analys regler för att identifiera misstänkta hot](tutorial-detect-threats-custom.md).
-
-
+    Mer information om hur du anpassar reglerna i guiden Skapa regel finns i [Självstudier: skapa anpassade analys regler för att identifiera hot](tutorial-detect-threats-custom.md).
 
 ## <a name="next-steps"></a>Nästa steg
+
 I den här självstudien har du lärt dig hur du kommer igång med att identifiera hot med Azure Sentinel. 
 
 Om du vill lära dig hur du automatiserar dina svar på hot [ställer du in automatiserade hot svar i Azure Sentinel](tutorial-respond-threats-playbook.md).

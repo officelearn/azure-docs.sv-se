@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6140d369c2dbc0968d2f28ff6b8cf447dd721d10
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166730"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604747"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Skapa ett SaaS-erbjudande på den kommersiella Marketplace
 
@@ -30,7 +30,7 @@ Om du vill börja skapa SaaS-erbjudanden (program vara som en tjänst) i den kom
    ![Visar menyn till vänster-navigering.](./media/new-offer-saas.png)
 
 > [!NOTE]
-> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
+> När ett erbjudande har publicerats visas bara ändringar i Partner Center i onlinebutiker när du har publicerat om erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 ## <a name="new-offer"></a>Nytt erbjudande
 
@@ -134,7 +134,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 6. Sekretesspolicy
 7. Erbjudandets namn
 8. Sammanfattning
-9. Description
+9. Beskrivning
 10. Skärm bilder/videor
 11. Dokument
 
@@ -185,7 +185,7 @@ Ditt erbjudande publiceras till AppSource eller Azure Marketplace beroende på v
 - Minst en och upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
 - Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori gäller ditt erbjudande väljer du **ej tillämpligt**.
 
-Se den fullständiga listan över kategorier och under kategorier som är tillämpliga för varje butik i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
+Se den fullständiga listan över kategorier och under kategorier som är tillämpliga för varje onlinebutik i [erbjudande lista med bästa praxis](../gtm-offer-listing-best-practices.md).
 
 ### <a name="industries"></a>Branscher
 
@@ -257,7 +257,7 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Sök Nyckelord** – ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande på Marketplace.
 - **Komma igång-instruktioner** (krävs) – förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 Det här fältet är obligatoriskt.
 
@@ -269,11 +269,11 @@ Det här fältet är obligatoriskt.
 
 - **Sekretess policy** (krävs) – länka till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
 - **CSP-program marknadsförings material** (valfritt) – ange en länk till marknadsförings material om du väljer att utöka erbjudandet till program varan för [Cloud Solution Provider (CSP)](../cloud-solution-providers.md) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
-- **Användbara länkar** (valfritt) – valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
+- **Användbara länkar** (valfritt) – valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik**  och  **URL**. Lägg till ytterligare användbara länkar genom att klicka på  **+ Lägg till en URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
 
-- **Kontakter** – för varje kund kontakt anger du ett **namn**, **telefonnummer**och **e-** postadress för en anställd (dessa visas *inte* offentligt). Det krävs en **Support-URL** för **support kontakt** gruppen (detta *kommer* att visas offentligt).
+- **Kontakter** – för varje kund kontakt anger du ett  **namn**,  **telefonnummer**och **e-** postadress för en anställd (dessa visas *inte* offentligt). Det krävs en **Support-URL**  för **support kontakt** gruppen (detta *kommer* att visas offentligt).
 
   - **Support kontakt** (krävs) – för allmänna supportfrågor.
   - Teknisk **kontakt** (krävs) – för tekniska frågor.
@@ -282,14 +282,14 @@ Det här fältet är obligatoriskt.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande, i PDF-format, för minst ett och upp till tre dokument per erbjudande.
-- **Bilder** – Ladda upp logo typ bilder i PNG-format:
+- **Bilder**  – Ladda upp logo typ bilder i PNG-format:
 
   - **Liten** (48 x 48 pixlar, krävs)
   - **Medel** (90 x 90 pixlar, krävs)
   - **Stor** (216 x 216 pixlar, krävs)
   - **Bred** (255 x 115 pixlar) (valfritt)
 
-   Dessa tre logo typer används på olika platser i butiker:
+   Dessa tre logo typer används på olika platser i onlinebutiker:
 
    -   Den lilla logo typen (48 x 48 pixlar) visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat. 
    -   Medie logo typen (90 x 90 bild punkter) visas när du skapar en ny resurs i Microsoft Azure.

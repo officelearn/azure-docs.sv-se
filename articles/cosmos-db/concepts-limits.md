@@ -5,37 +5,40 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/19/2020
+ms.openlocfilehash: 0ebd3d97c3d7a2218bcfd821e1cc81c6bd74adf6
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391850"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605767"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
 Den här artikeln innehåller en översikt över standardkvoterna som erbjuds till olika resurser i Azure Cosmos DB.
 
-## <a name="storage-and-throughput"></a>Lagring och data flöde
+## <a name="storage-and-database-operations"></a>Lagrings-och databas åtgärder
 
-När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera data i ditt konto genom att [skapa databaser, behållare och objekt](databases-containers-items.md). Du kan etablera data flöde på en behållar nivå eller på databas nivå avseende [enheter för programbegäran (ru/s eller ru: er)](request-units.md). I följande tabell visas gränserna för lagring och data flöde per container/databas.
+När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera data i ditt konto genom att [skapa databaser, behållare och objekt](databases-containers-items.md).
+
+### <a name="provisioned-throughput"></a>Etablerat dataflöde
+
+Du kan etablera data flöde på en behållar nivå eller på databas nivå avseende [enheter för programbegäran (ru/s eller ru: er)](request-units.md). I följande tabell visas gränserna för lagring och data flöde per container/databas.
 
 | Resurs | Standardgräns |
 | --- | --- |
 | Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
 | Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) |
-| Maximal ru: er per (logisk) partitionsnyckel | 10 000 |
-| Maximalt lagrings utrymme för alla objekt per (logisk) partitionsnyckel| 20 GB |
+| Maximal ru: er per (logisk) partition | 10 000 |
+| Maximalt lagrings utrymme för alla objekt per (logisk) partition | 20 GB |
 | Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
 | Maximalt lagrings utrymme per behållare | Obegränsat |
 | Maximalt lagrings utrymme per databas | Obegränsat |
-| Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB |
+| Maximal storlek på bifogade filer per konto (bilage funktionen är föråldrad) | 2 GB |
 | Lägsta ru: er som krävs per 1 GB | 10 RU/s |
 
 > [!NOTE]
 > Mer information om metod tips för att hantera arbets belastningar som har partitionsnyckel som kräver högre gränser för lagring eller data flöde finns i [skapa en syntetisk partitionsnyckel](synthetic-partition-keys.md).
->
 
 En Cosmos-behållare (eller delad data flödes databas) måste ha ett minsta data flöde på 400 RU/s. När behållaren växer är det lägsta tillåtna data flödet också beroende av följande faktorer:
 
@@ -47,7 +50,6 @@ Det aktuella och lägsta data flödet för en behållare eller en databas kan h�
 
 > [!NOTE]
 > I vissa fall kan du kunna sänka data flödet till mindre än 10%. Använd API: et för att få exakt minsta ru: er per behållare.
->
 
 Här är de lägsta etablerade RU-gränserna i sammanfattning. 
 
@@ -58,6 +60,18 @@ Här är de lägsta etablerade RU-gränserna i sammanfattning.
 | Minsta ru: er per behållare i en delad data flödes databas | 100 |
 
 Cosmos DB stöder elastisk skalning av data flöde (ru: er) per behållare eller databas via SDK: er eller portalen. Varje behållare kan skalas synkront och omedelbart inom ett skalnings intervall på 10 till 100 gånger, mellan lägsta och högsta värden. Om det begärda data flöde svärdet ligger utanför intervallet utförs skalningen asynkront. Asynkron skalning kan ta minuter till timmar att slutföra beroende på begärt data flöde och data lagrings storlek i behållaren.  
+
+### <a name="serverless"></a>Utan server
+
+Utan [Server](serverless.md) kan du använda dina Azure Cosmos DB resurser på ett konsumtions sätt. I följande tabell visas gränserna för lagring och data flödes kapacitet per behållare/databas.
+
+| Resurs | Gräns |
+| --- | --- |
+| Maximalt RU/s per behållare | 5 000 |
+| Maximalt RU/s per (logisk) partition | 5 000 |
+| Maximalt lagrings utrymme för alla objekt per (logisk) partition | 20 GB |
+| Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
+| Maximalt lagrings utrymme per behållare | 50 GB |
 
 ## <a name="control-plane-operations"></a>Kontroll Plans åtgärder
 
@@ -75,12 +89,22 @@ Cosmos DB automatiskt tar säkerhets kopior av dina data med jämna mellanrum. M
 
 ## <a name="per-account-limits"></a>Gräns per konto
 
+### <a name="provisioned-throughput"></a>Etablerat dataflöde
+
 | Resurs | Standardgräns |
 | --- | --- |
 | Maximalt antal databaser | Obegränsat |
 | Maximalt antal behållare per databas med delat data flöde |25 |
 | Maximalt antal behållare per databas eller konto med dedikerat data flöde  |obegränsat |
 | Maximalt antal regioner | Ingen gräns (alla Azure-regioner) |
+
+### <a name="serverless"></a>Utan server
+
+| Resurs | Gräns |
+| --- | --- |
+| Maximalt antal databaser | Obegränsat |
+| Maximalt antal behållare per konto  | 100 |
+| Maximalt antal regioner | 1 (alla Azure-regioner) |
 
 ## <a name="per-container-limits"></a>Gränser per behållare
 
@@ -89,13 +113,13 @@ Beroende på vilket API du använder kan en Azure Cosmos-behållare representera
 | Resurs | Standardgräns |
 | --- | --- |
 | Maximal längd på databas-eller behållar namn | 255 |
-| Maximalt antal lagrade procedurer per behållare | 100<sup>*</sup>|
-| Maximalt antal UDF: er per behållare | 25.1<sup>*</sup>|
-| Maximalt antal sökvägar i indexerings principen| 100<sup>*</sup>|
-| Maximalt antal unika nycklar per behållare|10<sup>*</sup>|
-| Maximalt antal sökvägar per unik nyckel begränsning|16<sup>*</sup>|
+| Maximalt antal lagrade procedurer per behållare | 100 <sup>*</sup>|
+| Maximalt antal UDF: er per behållare | 25.1 <sup>*</sup>|
+| Maximalt antal sökvägar i indexerings principen| 100 <sup>*</sup>|
+| Maximalt antal unika nycklar per behållare|10 <sup>*</sup>|
+| Maximalt antal sökvägar per unik nyckel begränsning|16 <sup>*</sup>|
 
-<sup>*</sup>Du kan öka de här gränserna för varje behållare genom att kontakta Azure-supporten.
+<sup>*</sup> Du kan öka de här gränserna för varje behållare genom att kontakta Azure-supporten.
 
 ## <a name="per-item-limits"></a>Begränsningar per objekt
 
@@ -122,7 +146,7 @@ Azure Cosmos DB stöder [CRUD-och Query-åtgärder](/rest/api/cosmos-db/) mot re
 | Resurs | Standardgräns |
 | --- | --- |
 | Maximal körnings tid för en enskild åtgärd (t. ex. en lagrad procedur körning eller en enskild frågevy)| 5 SEK |
-| Maximal begär ande storlek (till exempel lagrad procedur, CRUD)| 2 MB |
+| Maximal begär ande storlek (till exempel lagrad procedur, CRUD)| 2 MB |
 | Maximal svars storlek (till exempel en sid brytnings fråga) | 4 MB |
 | Maximalt antal åtgärder i en transaktionell batch | 100 |
 
@@ -149,7 +173,7 @@ Mer detaljerad information om data flödes-och lagrings gränser med autoskalnin
 | Lägsta RU/s-systemet kan skalas till | `0.1 * Tmax`|
 | Aktuella RU/s systemet skalas till  |  `0.1*Tmax <= T <= Tmax`, baserat på användning|
 | Lägsta fakturerbara RU/s per timme| `0.1 * Tmax` <br></br>Faktureringen görs per timme, där du debiteras för de högsta RU/s-systemet som skalats till i timmen eller `0.1*Tmax` , beroende på vilket som är högre. |
-| Minsta autoskalning för max RU/s för en behållare  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`avrundat till närmaste 1000 RU/s |
+| Minsta autoskalning för max RU/s för en behållare  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` avrundat till närmaste 1000 RU/s |
 | Minsta autoskalad Max RU/s för en databas  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, avrundat till närmaste 1000 RU/s. <br></br>Observera att om din databas har fler än 25 behållare, ökar systemet minimi kraven för autoskalning Max RU/s av 1000 RU/s per ytterligare behållare. Om du till exempel har 30 behållare är det lägsta antalet RU/s som du kan ställa in den lägsta storleken som är 9000 RU/s (skalas mellan 900-9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Begränsningar för SQL-frågor
@@ -159,14 +183,14 @@ Cosmos DB stöder frågor mot objekt med hjälp av [SQL](how-to-sql-query.md). I
 | Resurs | Standardgräns |
 | --- | --- |
 | Maximal längd på SQL-fråga| 256 kB |
-| Maximalt antal kopplingar per fråga| 5<sup>*</sup>|
-| Maximalt antal UDF: er per fråga| 10<sup>*</sup>|
+| Maximalt antal kopplingar per fråga| 5 <sup>*</sup>|
+| Maximalt antal UDF: er per fråga| 10 <sup>*</sup>|
 | Maximalt antal poäng per polygon| 4096 |
 | Maximalt antal inkluderade sökvägar per behållare| 500 |
 | Maximalt antal undantagna sökvägar per behållare| 500 |
 | Maximalt antal egenskaper i ett sammansatt index| 8 |
 
-<sup>*</sup>Du kan öka gränserna för SQL-frågor genom att kontakta Azure-supporten.
+<sup>*</sup> Du kan öka gränserna för SQL-frågor genom att kontakta Azure-supporten.
 
 ## <a name="mongodb-api-specific-limits"></a>MongoDB API-begränsade gränser
 
@@ -180,7 +204,7 @@ I följande tabell visas de gränser som är begränsade till stöd för MongoDB
 | Maximal körnings tid för MongoDB-åtgärder| 30 s |
 | Tids gräns för inaktiv anslutning för anslutning till Server Sidan * | 30 minuter |
 
-\*Vi rekommenderar att klient program ställer in tids gränsen för inaktiv anslutning i driv rutins inställningarna till 2-3 minuter, eftersom [Standard-timeout för Azure Loadbalancer är 4 minuter](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Den här tids gränsen ser till att inaktiva anslutningar inte stängs av en mellanliggande belastningsutjämnare mellan klient datorn och Azure Cosmos DB.
+\* Vi rekommenderar att klient program ställer in tids gränsen för inaktiv anslutning i driv rutins inställningarna till 2-3 minuter, eftersom [Standard-timeout för Azure Loadbalancer är 4 minuter](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Den här tids gränsen ser till att inaktiva anslutningar inte stängs av en mellanliggande belastningsutjämnare mellan klient datorn och Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Försök Cosmos DB fria gränser
 
@@ -193,7 +217,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 | Maximalt antal behållare per prenumeration (MongoDB-API) | 3 |
 | Maximalt data flöde per behållare | 5000 |
 | Maximalt data flöde per delat data flödes databas | 20000 |
-| Maximalt totalt lagrings utrymme per konto | 10 GB |
+| Maximalt totalt lagrings utrymme per konto | 10 GB |
 
 Testa Cosmos DB stöder global distribution bara i Central USA, Nord Europa och Sydostasien regioner. Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 

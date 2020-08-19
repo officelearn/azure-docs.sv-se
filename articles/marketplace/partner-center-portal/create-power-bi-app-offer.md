@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030780"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88604635"
 ---
-# <a name="create-a-power-bi-app-offer"></a>Skapa ett erbjudande för Power BI app
+# <a name="create-a-power-bi-app-offer"></a>Skapa erbjudande om Power BI-app
 
 Den här artikeln beskriver hur du skapar och publicerar ett Power BI app-erbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
 
@@ -29,7 +29,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
    ![Visar menyn till vänster-navigering.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
-> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
+> När ett erbjudande har publicerats visas bara ändringar i Partner Center i onlinebutiker när du har publicerat om erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 > [!IMPORTANT]
 > Om **Power BI tjänst program** inte visas eller aktive ras har ditt konto inte behörighet att skapa den här erbjudande typen. Kontrol lera att du har uppfyllt alla [krav](create-power-bi-app-overview.md) för den här erbjudande typen, inklusive registrering av ett Developer-konto.
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
 - Om erbjudandet är ett utkast för att [ta bort utkastet](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -146,7 +146,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 10. Beskrivning
 11. Skärm bilder/videor
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 

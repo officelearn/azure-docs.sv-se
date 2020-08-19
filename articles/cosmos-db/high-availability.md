@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2f464a0b519dd7f378790c135a05d04e02704ac8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027740"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88605333"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -34,8 +34,8 @@ Som en globalt distribuerad databas tillhandahåller Azure Cosmos DB omfattande 
 
 |Åtgärdstyp  | Enskild region |Flera regioner (enstaka regions skrivningar)|Flera regioner (skrivningar i flera regioner) |
 |---------|---------|---------|-------|
-|Skriver    | 99,99    |99,99   |99,999|
-|Databasläsningar     | 99,99    |99,999  |99,999|
+|Skrivningar    | 99,99    |99,99   |99,999|
+|Läsningar     | 99,99    |99,999  |99,999|
 
 > [!NOTE]
 > I praktiken är den faktiska Skriv tillgängligheten för begränsat inaktuellitet, session, konsekvent prefix och eventuella konsekvens modeller betydligt högre än den publicerade service avtal. Den faktiska Läs tillgängligheten för alla konsekvens nivåer är betydligt högre än den publicerade service avtal.
@@ -79,7 +79,7 @@ Zon redundans är en *kompletterande funktion* för [replikeringen i skriv funkt
 
 När du konfigurerar flera regions skrivningar för ditt Azure Cosmos-konto kan du välja zon redundans utan extra kostnad. I annat fall kan du läsa avsnittet om prissättningen av stöd för zon redundans. Du kan aktivera zon redundans i en befintlig region för ditt Azure Cosmos-konto genom att ta bort regionen och lägga till den igen med zon redundansen aktive rad.
 
-Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, norra Europa, västra centrala* regioner.
+Den här funktionen är tillgänglig i: *Storbritannien, södra, Sydostasien, östra USA, östra USA 2, centrala USA, Västeuropa, västra USA 2, Östra Japan, Nord Europa, västra centrala, östra Australien* .
 
 > [!NOTE]
 > Om du aktiverar Tillgänglighetszoner för ett Azure Cosmos-konto med en region kommer det att leda till kostnader som motsvarar att lägga till ytterligare en region i ditt konto. Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [kostnaden för flera regioner i Azure Cosmos DB](optimize-cost-regions.md) artiklar.

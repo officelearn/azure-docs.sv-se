@@ -8,12 +8,12 @@ ms.date: 08/17/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c144442ecd93ca87683179adef496a5d68cce98e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1c48c48ef438f99f3b144c3300cb2415e4d387e7
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525905"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88586689"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurera Azure Files nätverks slut punkter
 
@@ -136,7 +136,7 @@ Genom att begränsa åtkomsten till den offentliga slut punkten måste du först
 
 #### <a name="disable-access-to-the-public-endpoint"></a>Inaktivera åtkomst till den offentliga slut punkten
 
-När åtkomst till den offentliga slut punkten är inaktive rad kan lagrings kontot fortfarande nås via dess privata slut punkter. Annars avvisas giltiga begär anden till lagrings kontots offentliga slut punkt. 
+När åtkomst till den offentliga slut punkten är inaktive rad kan lagrings kontot fortfarande nås via dess privata slut punkter. Annars avvisas giltiga begär anden till lagrings kontots offentliga slut punkt, om de inte kommer från [en särskilt tillåten källa](#restrict-access-to-the-public-endpoint-to-specific-virtual-networks). 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 [!INCLUDE [storage-files-networking-endpoints-public-disable-portal](../../../includes/storage-files-networking-endpoints-public-disable-portal.md)]

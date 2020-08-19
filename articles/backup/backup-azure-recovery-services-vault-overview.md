@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b292a39e38ef5e298f45c2babbee9fbd20c39ea
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 5334bc2aea5ddbf734c3fd3ef314ff4da609d61d
+ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261879"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88587760"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -32,10 +32,19 @@ Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och åter
 
 - Mer information om redundans finns i de här artiklarna om [geo](../storage/common/storage-redundancy.md) -och [lokal](../storage/common/storage-redundancy.md) redundans.
 
-### <a name="additional-resources"></a>Ytterligare resurser
+## <a name="encryption-settings-in-the-recovery-services-vault"></a>Krypterings inställningar i Recovery Services valvet
 
-- [Scenarier som stöds och scenarier som inte stöds](backup-support-matrix.md#vault-support)
-- [Vanliga frågor och svar om valvet](backup-azure-backup-faq.md)
+I det här avsnittet beskrivs de alternativ som är tillgängliga för kryptering av säkerhets kopierings data som lagras i Recovery Services valvet.
+
+### <a name="encryption-of-backup-data-using-platform-managed-keys"></a>Kryptering av säkerhets kopierings data med hjälp av plattforms hanterade nycklar
+
+Som standard krypteras alla dina data med hjälp av plattforms hanterade nycklar. Du behöver inte vidta någon uttrycklig åtgärd från din sida för att aktivera den här krypteringen. Den gäller för alla arbets belastningar som säkerhets kopie ras till Recovery Services-valvet.
+
+### <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
+
+Du kan välja att kryptera dina data med hjälp av krypterings nycklar som ägs och hanteras av dig. Med Azure Backup kan du använda dina RSA-nycklar som lagras i Azure Key Vault för kryptering av dina säkerhets kopior. Krypterings nyckeln som används för kryptering av säkerhets kopior kan skilja sig från den som används för källan. Data skyddas med en AES 256-baserad data krypterings nyckel (DEK), som i sin tur skyddas med hjälp av dina nycklar. Detta ger dig fullständig kontroll över data och nycklar. För att tillåta kryptering måste Recovery Servicess valvet beviljas åtkomst till krypterings nyckeln i Azure Key Vault. Du kan inaktivera nyckeln eller återkalla åtkomst när det behövs. Du måste dock aktivera kryptering med dina nycklar innan du försöker skydda några objekt i valvet.
+
+Läs mer om hur du krypterar dina säkerhetskopierade data [med Kundhanterade nycklar](encryption-at-rest-with-cmk.md).
 
 ## <a name="azure-advisor"></a>Azure Advisor
 
@@ -45,9 +54,15 @@ Azure Advisor ger [rekommendationer](../advisor/advisor-high-availability-recomm
 
 ![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
+## <a name="additional-resources"></a>Ytterligare resurser
+
+- [Scenarier som stöds och scenarier som inte stöds](backup-support-matrix.md#vault-support)
+- [Vanliga frågor och svar om valvet](backup-azure-backup-faq.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Använd följande artiklar för att:</br>
-[Säkerhetskopiera en virtuell IaaS-dator](backup-azure-arm-vms-prepare.md)</br>
-[Säkerhetskopiera en Azure Backup Server](backup-azure-microsoft-azure-backup.md)</br>
-[Säkerhetskopiera en Windows Server](backup-windows-with-mars-agent.md)
+Använd följande artiklar för att:
+
+- [Säkerhetskopiera en virtuell IaaS-dator](backup-azure-arm-vms-prepare.md)
+- [Säkerhetskopiera en Azure Backup Server](backup-azure-microsoft-azure-backup.md)
+- [Säkerhetskopiera en Windows Server](backup-windows-with-mars-agent.md)

@@ -58,10 +58,10 @@
               href: connect-azure-security-center.md
             - name: Azure Security Center för IoT
               href: connect-asc-iot.md
+            - name: Azure-brandvägg för webbaserade program (WAF)
+              href: connect-azure-waf.md
             - name: Domännamnserver
               href: connect-dns.md
-            - name: Azure-brandvägg för webbaserade program
-              href: connect-azure-waf.md
             - name: Windows-brandvägg
               href: connect-windows-firewall.md
             - name: Windows säkerhetshändelser

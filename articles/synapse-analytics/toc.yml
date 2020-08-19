@@ -74,10 +74,10 @@
       href: ./sql/tutorial-connect-power-bi-desktop.md
     - name: Data Scientist
       items:
-        - name: Förutsäga dricks i NYC-taxibil
+        - name: Köra ett regressionsexperiment med Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+        - name: Skapa en klassificeringsmodell med Apache Spark MLlib
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-        - name: Utöka Apache Spark med ytterligare bibliotek
-          href: ./spark/apache-spark-azure-portal-add-libraries.md
     - name: Dataanalytiker
       items:
         - name: Använda SQL på begäran för att analysera och Synapse Studio för att visualisera
@@ -202,8 +202,6 @@
               href: ./spark/apache-spark-overview.md
             - name: Apache Spark-begrepp
               href: ./spark/apache-spark-concepts.md
-            - name: Stöd för körningsspråk och bibliotek
-              href: ./spark/apache-spark-version-support.md
             - name: Vad är Delta Lake
               href: ./spark/apache-spark-what-is-delta-lake.md
             - name: Apache Spark-prestanda
@@ -212,6 +210,12 @@
               href: ./spark/apache-spark-autoscale.md
         - name: Utveckling
           items:
+            - name: Bibliotek
+              items:
+                - name: Lägg till och hantera bibliotek
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Stöd för körningsspråk och bibliotek
+                  href: ./spark/apache-spark-version-support.md
             - name: Bärbara Azure Synapse Studio-datorer
               href: ./spark/apache-spark-development-using-notebooks.md
             - name: .NET för Apache Spark

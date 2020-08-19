@@ -121,6 +121,8 @@
           href: howto-create-custom-analytics.md
         - name: Visualisera dina data i Power BI
           href: howto-connect-powerbi.md
+        - name: Konfigurera och använda filuppladdningar
+          href: howto-configure-file-uploads.md
     - name: Administration
       items:
         - name: Hantera ditt program

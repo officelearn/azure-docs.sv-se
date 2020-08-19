@@ -116,6 +116,14 @@
       href: faq.md
     - name: Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
       href: windows-10-multisession-faq.md
+    - name: MSIX-appbifogning
+      items:
+        - name: Vad är MSIX-appbifogningen?
+          href: what-is-app-attach.md
+        - name: Ordlista
+          href: app-attach-glossary.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: app-attach-faq.md
     - name: Dataplatser
       href: data-locations.md
 - name: Felsöka
@@ -150,6 +158,8 @@
       href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
     - name: Azures kommandoradsgränssnitt (CLI)
       href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+    - name: Azure – exempel på scenarier
+      href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
 - name: Resurser
   items:
     - name: PowerShell

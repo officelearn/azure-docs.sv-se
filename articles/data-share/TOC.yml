@@ -6,6 +6,11 @@
       href: overview.md
     - name: Datalager som stöds
       href: supported-data-stores.md
+- name: Snabbstarter
+  items:
+    - name: Skapa dataresurs – ARM-mall
+      displayName: Resource Manager
+      href: share-your-data-arm.md
 - name: Självstudier
   expanded: true
   items:

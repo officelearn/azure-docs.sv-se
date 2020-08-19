@@ -24,6 +24,8 @@
       href: classroom-labs-fundamentals.md
     - name: Kapacitetsbegränsningar
       href: capacity-limits.md
+    - name: Kostnadshantering för labb
+      href: cost-management-guide.md
     - name: Scenarier
       items:
         - name: Använda labbtjänster för att hålla i klasser
@@ -66,7 +68,7 @@
           href: how-to-manage-lab-accounts.md
         - name: Hantera labb i ett labbkonto
           href: manage-labs.md
-        - name: Konfigurera automatisk avstängning av virtuella datorer
+        - name: Konfigurera automatisk avstängning av virtuella datorer för ett labbkonto
           href: how-to-configure-lab-accounts.md
         - name: Lägg till en labbuppgiftsförfattare
           href: add-lab-creator.md
@@ -86,8 +88,6 @@
           href: specify-marketplace-images.md
         - name: Ange supportinformation (ägare av labbkonto)
           href: lab-account-owner-support-information.md
-        - name: Kostnadshantering för labb
-          href: cost-management-guide.md
     - name: Skapa och konfigurera klassrumslabb (lärare)
       items:
         - name: Skapa och hantera klassrumslabb
@@ -106,7 +106,7 @@
           href: how-to-use-shared-image-gallery.md
         - name: Aktivera anslutning för fjärrskrivbord för Linux
           href: how-to-enable-remote-desktop-linux.md
-        - name: Aktivera automatisk avstängning vid frånkoppling
+        - name: Konfigurera automatisk avstängning av virtuella datorer för ett labb
           href: how-to-enable-shutdown-disconnect.md
         - name: Aktivera kapslad virtualisering på en virtuell malldator
           items:

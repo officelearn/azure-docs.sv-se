@@ -2,25 +2,21 @@
 title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med lösningar för Serraview utrymmes användning | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Serraview utrymmes användning av program varu lösningar.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-ms.assetid: 73de5759-bb18-4ec8-97ad-86203f4c9ef0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a194403310b61fdbce3f9c8805276a0b8b979b3e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: f8ecfaffd5a8c0c9a4eafd683e4fe2a7714c6e8b
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88259308"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88543065"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-serraview-space-utilization-software-solutions"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med program varu lösningar för Serraview utrymmes användning
 
@@ -32,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Serraview utrymmes 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 

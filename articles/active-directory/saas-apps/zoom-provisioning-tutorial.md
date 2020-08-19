@@ -2,25 +2,21 @@
 title: 'Självstudie: Konfigurera zoom för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig att automatiskt etablera och avetablera användar konton från Azure AD till att zooma.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: 52700df5c2977f33c988fcb34cdc3d67844d1d49
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 15e3d72661ad35335c744fbaf0ab39627d254750
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257569"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88545989"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Självstudie: Konfigurera zoom för automatisk användar etablering
 
@@ -34,7 +30,7 @@ I den här självstudien beskrivs de steg som du måste utföra i både zoomning
 > * Behåll användarattribut synkroniserade mellan Azure AD och zoom
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-tutorial) till zoom (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 

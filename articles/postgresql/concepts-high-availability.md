@@ -1,17 +1,17 @@
 ---
 title: Hög tillgänglighet – Azure Database for PostgreSQL-enskild server
 description: Den här artikeln innehåller information om hög tillgänglighet i Azure Database for PostgreSQL-enskild server
-author: jasonwhowell
-ms.author: jasonh
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 33c66fff681b0458d1cff1ff6176c34f4771b38e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 16ce5b42e35ff3d650ba18aa95ab80b83fdbfdad
+ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508472"
+ms.locfileid: "88547689"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Hög tillgänglighet i Azure Database for PostgreSQL – enskild server
 Tjänsten Azure Database for PostgreSQL – enskild server ger en garanterad hög tillgänglighets nivå med det ekonomiskt service avtal (SLA) på [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) drift tid. Azure Database for PostgreSQL ger hög tillgänglighet under planerade händelser som initated Scale Compute operation och även när oplanerade händelser som underliggande maskin vara, program eller nätverks fel inträffar. Azure Database for PostgreSQL kan snabbt återställas från de mest kritiska förhållandena, vilket säkerställer att det är praktiskt taget ingen program tids period när tjänsten används.
@@ -61,7 +61,7 @@ Här följer några fel scenarier och hur Azure Database for PostgreSQL återst�
 
 | **Scenario** | **Automatisk återställning** |
 | ---------- | ---------- |
-| <B>Databas Server-problem | Om databas servern är nere på grund av ett underliggande maskin varu fel, släpps aktiva anslutningar och eventuella synlighetssekvensnummer transaktioner avbryts. En ny databas server distribueras automatiskt och fjärrlagringsplatsen är kopplad till den nya databas servern. När databas återställningen är klar kan klienter ansluta till den nya databas servern via gatewayen. <br /> <br /> Återställnings tiden (RTO) är beroende av olika faktorer, inklusive aktiviteten vid tidpunkten för felet, till exempel stor transaktion och mängden återställning som ska utföras under start processen för databas server. <br /> <br /> Program som använder PostgreSQL-databaserna måste byggas på ett sätt som de kan identifiera och försöka ta bort anslutningar och misslyckade transaktioner.  När programmet försöker igen omdirigerar gatewayen transparent anslutning till den nyligen skapade databas servern. |
+| <B>Databas Server-problem | Om databas servern är nere på grund av ett underliggande maskin varu fel, släpps aktiva anslutningar och eventuella synlighetssekvensnummer transaktioner avbryts. En ny databas server distribueras automatiskt och fjärrlagringsplatsen är kopplad till den nya databas servern. När databas återställningen är klar kan klienter ansluta till den nya databas servern via gatewayen. <br /> <br /> Återställnings tiden (RTO) är beroende av olika faktorer, inklusive aktiviteten vid tidpunkten för felet, till exempel stor transaktion och mängden återställning som ska utföras under start processen för databas servern. <br /> <br /> Program som använder PostgreSQL-databaserna måste byggas på ett sätt som de kan identifiera och försöka ta bort anslutningar och misslyckade transaktioner.  När programmet försöker igen omdirigerar gatewayen transparent anslutning till den nyligen skapade databas servern. |
 | <B>Lagrings problem | Program kan inte se någon inverkan på eventuella problem som rör lagring, till exempel diskfel eller fysiska blockerade fel. När data lagras i tre kopior betjänas data kopian av den kvarvarande lagringen. Block skador korrigeras automatiskt. Om en kopia av data går förlorad skapas automatiskt en ny kopia av data. |
 
 Här följer några fel scenarier som kräver användar åtgärd för att återställa:

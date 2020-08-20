@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4ad28bd65fe9bc240e963f103ca5bd658e90fdfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 10fedaf5680976ae93984c9b2c607882f650019d
+ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77529627"
+ms.lasthandoff: 08/14/2020
+ms.locfileid: "88213273"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Så används reservationsrabatten med Azure Cache for Redis
 
-När du har köpt en reserverad kapacitet för Azure Cache for Redis tillämpas reservationsrabatten automatiskt på cacheinstanser som matchar reservationsattributen och reservationskvantiteten. En reservation täcker endast beräkningskostnaderna för Azure Cache for Redis. Du debiteras för lagring och nätverk enligt de vanliga priserna. Reserverad kapacitet är endast tillgängligt för cacheinstanser på [premiumnivå](/azure/azure-cache-for-redis/cache-premium-tier-intro).
+När du har köpt en reserverad kapacitet för Azure Cache for Redis tillämpas reservationsrabatten automatiskt på cacheinstanser som matchar reservationsattributen och reservationskvantiteten. En reservation täcker endast beräkningskostnaderna för Azure Cache for Redis. Du debiteras för lagring och nätverk enligt de vanliga priserna. Reserverad kapacitet är endast tillgängligt för cacheinstanser på [premiumnivå](/https://docs.microsoft.com/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 

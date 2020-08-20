@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 37d9cf0b0ac7145e389f9fc768ff0b593b27ae1a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 93c97c70a65be40b5801b202ba277b8f86ad1566
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88515231"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655035"
 ---
 ## <a name="limitations"></a>Begränsningar
 
@@ -137,7 +137,7 @@ Innan du använder följande mall ersätter du,,,,,, `[parameters('dataDiskName'
 När du har distribuerat en delad disk med `maxShares>1` kan du montera disken till en eller flera av dina virtuella datorer.
 
 > [!NOTE]
-> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i avsnittet [PowerShell](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) eller [CLI](../articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) i artikeln Ultra disk.
+> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i avsnittet [PowerShell](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) eller [CLI](../articles/virtual-machines/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) i artikeln Ultra disk.
 
 ```azurepowershell-interactive
 

@@ -1,0 +1,103 @@
+---
+title: Kopiera Synapse-länk för Azure Cosmos DB data till en SQL-pool med Apache Spark
+description: Läs in data i en spark-dataframe, granska data och Läs in dem i en SQL-adresspool
+services: synapse-analytics
+author: ArnoMicrosoft
+ms.service: synapse-analytics
+ms.topic: quickstart
+ms.subservice: synapse-link
+ms.date: 08/10/2020
+ms.author: acomet
+ms.reviewer: jrasnick
+ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88658532"
+---
+# <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Kopiera data från Azure Cosmos DB till en SQL-pool med Apache Spark
+
+Azure Synapse-länken för Azure Cosmos DB gör det möjligt för användare att köra nära real tids analys över drifts data i Azure Cosmos DB. Det finns dock tillfällen då vissa data behöver aggregeras och berikas för att hantera informations lager användare. Att granska och exportera Synapse länk data kan göras med bara några få celler i en bärbar dator.
+
+## <a name="prerequisites"></a>Krav
+* [Etablera en Synapse-arbetsyta](../quickstart-create-workspace.md) med:
+    * [Spark-pool](../quickstart-create-apache-spark-pool-studio.md)
+    * [SQL-pool](../quickstart-create-sql-pool-studio.md)
+* [Etablera ett Cosmos DB-konto med en HTAP-behållare med data](../../cosmos-db/configure-synapse-link.md)
+* [Anslut Azure Cosmos DB HTAP-behållaren till arbets ytan](./how-to-connect-synapse-link-cosmos-db.md)
+* [Har rätt installation för att importera data till en SQL-pool från Spark](../spark/synapse-spark-sql-pool-import-export.md)
+
+## <a name="steps"></a>Steg
+I den här självstudien ansluter du till analys lagret så att det inte påverkar transaktions lagret (det kommer inte att förbruka några enheter för programbegäran). Vi ska gå igenom följande steg:
+1. Läs Cosmos DB HTAP-behållaren i en spark-dataframe
+2. Sammanställ resultatet i en ny dataframe
+3. Mata in data i en SQL-pool
+
+[![Spark till SQL-steg](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+
+## <a name="data"></a>Data
+I det exemplet använder vi en HTAP-behållare som heter **RetailSales**. Den är en del av en länkad tjänst med namnet **ConnectedData**och har följande schema:
+* _rid: sträng (Nullable = true)
+* _ts: långt (Nullable = true)
+* logQuantity: Double (Nullable = true)
+* productCode: sträng (Nullable = true)
+* kvantitet: lång (Nullable = true)
+* pris: långt (Nullable = true)
+* ID: sträng (Nullable = true)
+* annonsering: lång (Nullable = sant)
+* storeId: långt (Nullable = true)
+* weekStarting: långt (Nullable = true)
+* _etag: sträng (Nullable = true)
+
+Vi kommer att aggregera försäljningen (*kvantitet*, *intäkter* (pris × kvantitet) av *ProductCode* och *weekStarting* för rapportering. Slutligen kommer vi att exportera dessa data till en SQL-adresspool med namnet **dbo. productsales**.
+
+## <a name="configure-a-spark-notebook"></a>Konfigurera en spark-anteckningsbok
+Skapa en spark-anteckningsbok med Scala som Spark (Scala) som huvud språk. Vi använder antecknings bokens standardinställning för sessionen.
+
+## <a name="read-the-data-in-spark"></a>Läsa data i Spark
+Läs Cosmos DB HTAP-behållaren med Spark i en dataframe i den första cellen.
+
+```java
+val df_olap = spark.read.format("cosmos.olap").
+    option("spark.synapse.linkedService", "ConnectedData").
+    option("spark.cosmos.container", "RetailSales").
+    load()
+```
+
+## <a name="aggregate-the-results-in-a-new-dataframe"></a>Sammanställ resultatet i en ny dataframe
+
+I den andra cellen kör vi den omvandling och de agg regeringar som behövs för den nya dataframe innan du läser in den i en SQL-adresspool.
+
+```java
+// Select relevant columns and create revenue
+val df_olap_step1 = df_olap.select("productCode","weekStarting","quantity","price").withColumn("revenue",col("quantity")*col("price"))
+//Aggregate revenue, quantity sold and avg. price by week and product ID
+val df_olap_aggr = df_olap_step1.groupBy("productCode","weekStarting").agg(sum("quantity") as "Sum_quantity",sum("revenue") as "Sum_revenue").
+    withColumn("AvgPrice",col("Sum_revenue")/col("Sum_quantity"))
+```
+
+## <a name="load-the-results-into-a-sql-pool"></a>Läs in resultaten i en SQL-pool
+
+I den tredje cellen läser vi in data i en SQL-pool. Det skapar automatiskt en temporär extern tabell, extern data källa och ett externt fil format som tas bort när jobbet är färdigt.
+
+```java
+df_olap_aggr.write.sqlanalytics("arnaudpool.dbo.productsales", Constants.INTERNAL)
+```
+
+## <a name="query-the-results-with-sql"></a>Fråga resultatet med SQL
+
+Du kan fråga resultatet med hjälp av en enkel SQL-fråga, till exempel följande SQL-skript:
+```sql
+SELECT  [productCode]
+,[weekStarting]
+,[Sum_quantity]
+,[Sum_revenue]
+,[AvgPrice]
+ FROM [dbo].[productsales]
+```
+
+Frågan visar följande resultat i ett diagram läge: [ ![ Spark till SQL-steg](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+
+## <a name="next-steps"></a>Nästa steg
+* [Fråga Azure Cosmos DB analys lager med Apache Spark](./how-to-query-analytical-store-spark.md)

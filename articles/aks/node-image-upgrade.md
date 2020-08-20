@@ -5,15 +5,15 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.date: 08/17/2020
+ms.openlocfilehash: 154558a2aa679dddad395225088ea891ecea8ebc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562795"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654284"
 ---
-# <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Förhands granskning – uppgraderingar för Azure Kubernetes service (AKS) Node-avbildningar
+# <a name="azure-kubernetes-service-aks-node-image-upgrade"></a>Uppgradering av noden Azure Kubernetes service (AKS)
 
 AKS stöder uppgradering av avbildningar på en nod så att du är uppdaterad med de senaste uppdateringarna för operativ systemet och körning. AKS tillhandahåller en ny avbildning per vecka med de senaste uppdateringarna, så det är bra att uppgradera nodens avbildningar regelbundet för de senaste funktionerna, inklusive Linux-eller Windows-korrigeringsfiler. I den här artikeln lär du dig hur du uppgraderar AKS-klusternoder samt hur du uppdaterar avbildningar av noder utan att uppgradera versionen av Kubernetes.
 
@@ -21,23 +21,9 @@ Om du är intresse rad av att lära dig om de senaste avbildningarna som tillhan
 
 Information om hur du uppgraderar Kubernetes-versionen för klustret finns i [uppgradera ett AKS-kluster][upgrade-cluster].
 
-## <a name="register-the-node-image-upgrade-preview-feature"></a>Registrera funktionen för förhands granskning av Node-avbildning
+## <a name="install-the-aks-cli-extension"></a>Installera AKS CLI-tillägget
 
-Om du vill använda uppgraderings funktionen för Node-avbildningen under för hands versions perioden måste du registrera funktionen.
-
-```azurecli
-# Register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "NodeImageUpgradePreview"
-```
-
-Det tar flera minuter för registreringen att slutföras. Använd följande kommando för att kontrol lera att funktionen är registrerad:
-
-```azurecli
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
-```
-
-Under för hands versionen behöver du *AKS-Preview CLI-* tillägget för att kunna använda noden avbildnings uppgradering. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
+Innan nästa kärn CLI-version släpps behöver du *AKS-Preview CLI-* tillägget för att kunna använda noden avbildnings uppgradering. Använd kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,12 +32,6 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
-
-När statusen visas som registrerad uppdaterar du registreringen av `Microsoft.ContainerService` resurs leverantören med hjälp av [AZ Provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) kommando:
-
-```azurecli
-az provider register --namespace Microsoft.ContainerService
-```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Uppgradera alla noder i alla noder i pooler
 

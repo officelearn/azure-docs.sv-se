@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5a2205ec835fb630933dd85b4b0e5846ae864cb
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236187"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653263"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrera logg disken till Ultra disk
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Slutför en [fullständig säkerhets kopiering](backup-restore.md) av databasen.
 
 Koppla Ultra SSD till den virtuella datorn när du har aktiverat ultradisk-kompatibilitet på den virtuella datorn. 
 
-Ultra disk stöds på en delmängd av VM-storlekar och-regioner. Innan du fortsätter kontrollerar du att den virtuella datorn finns i en region, zon och storlek som har stöd för Ultra disk. Du kan [bestämma och verifiera storlek och region för virtuella datorer](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) med hjälp av Azure CLI eller PowerShell. 
+Ultra disk stöds på en delmängd av VM-storlekar och-regioner. Innan du fortsätter kontrollerar du att den virtuella datorn finns i en region, zon och storlek som har stöd för Ultra disk. Du kan [bestämma och verifiera storlek och region för virtuella datorer](../../../virtual-machines/disks-enable-ultra-ssd.md#determine-vm-size-and-region-availability) med hjälp av Azure CLI eller PowerShell. 
 
 ### <a name="enable-compatibility"></a>Aktivera kompatibilitet
 
@@ -50,7 +50,7 @@ Följ dessa steg om du vill aktivera kompatibilitet:
 
 1. Välj **Ja** om du vill **Aktivera Ultra disk-kompatibilitet**. 
 
-   :::image type="content" source="../../../../includes/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Välj ytterligare inställningar för diskar under Inställningar i Azure Portal":::
+   :::image type="content" source="../../../virtual-machines/media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png" alt-text="Välj ytterligare inställningar för diskar under Inställningar i Azure Portal":::
 
 1. Välj **Spara**. 
 
@@ -58,7 +58,7 @@ Följ dessa steg om du vill aktivera kompatibilitet:
 
 ### <a name="attach-disk"></a>Bifoga disk
 
-Använd Azure Portal för att ansluta en Ultra disk till den virtuella datorn. Mer information finns i [koppla en Ultra disk](../../../virtual-machines/windows/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Använd Azure Portal för att ansluta en Ultra disk till den virtuella datorn. Mer information finns i [koppla en Ultra disk](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
 
 När disken är ansluten startar du den med hjälp av Azure Portal. 
 
@@ -85,7 +85,7 @@ Konfigurera SQL Server att använda den nya logg enheten. Du kan göra det med h
 1. Skapa en mapp (eller flera mappar) som ska användas för logg filen. 
 1. Högerklicka på mappen och välj **Egenskaper**.
 1. På fliken **säkerhet** beviljar du fullständig behörighet till SQL Server tjänst konto. 
-1. Välj **OK** för att spara inställningarna. 
+1. Välj **OK**  för att spara inställningarna. 
 1. Upprepa detta för varje mapp på rotnivå där du planerar att ha SQL-data. 
 
 ### <a name="use-new-log-drive"></a>Använd ny logg enhet 

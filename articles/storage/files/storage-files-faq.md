@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e0670aeb3a41506ef302364c6eeaff332520abc5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: eca9596666b318b71bb1deec64e3a7d037e8fa0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245442"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654335"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -54,7 +54,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     En metod för att få det bästa av både Azure Files och en fil server som är värd för Azure Virtual Machines (förutom att använda Azure-diskar som backend-lagring) är att installera Azure File Sync på en fil server som är värd för en virtuell dator i molnet. Om Azure-filresursen finns i samma region som fil servern kan du aktivera moln skiktning och ange volymen ledigt utrymme i procent till maximalt (99%). Detta säkerställer minimal dubblering av data. Du kan också använda alla program som du vill ha med dina fil servrar, t. ex. program som kräver stöd för NFS-protokollet.
 
-    Information om ett alternativ för att konfigurera en fil server med hög prestanda och hög tillgänglighet i Azure finns i [distribuera IaaS-gäst kluster för virtuella datorer i Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). En mer djupgående Beskrivning av skillnaderna mellan Azure Files och Azure-diskar finns i [Introduktion till core Azure Storage-tjänsterna](../common/storage-introduction.md). Mer information om Azure-diskar finns i [Översikt över azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+    Information om ett alternativ för att konfigurera en fil server med hög prestanda och hög tillgänglighet i Azure finns i [distribuera IaaS-gäst kluster för virtuella datorer i Microsoft Azure](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/). En mer djupgående Beskrivning av skillnaderna mellan Azure Files och Azure-diskar finns i [Introduktion till core Azure Storage-tjänsterna](../common/storage-introduction.md). Mer information om Azure-diskar finns i [Översikt över azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 * <a id="get-started"></a>
   **Hur gör jag för att kom igång med Azure Files?**  

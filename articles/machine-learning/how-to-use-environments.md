@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e6e4b8d7cc3b22737e7e76c31fd1377912fe28cb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd5aaea5e7f176a0741671d4815188a5fb94830e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167155"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653570"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -422,10 +422,6 @@ service = Model.deploy(
 ## <a name="notebooks"></a>Notebooks
 
 Den här [artikeln](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#add-new-kernels) innehåller information om hur du installerar en Conda-miljö som en kernel i en bärbar dator.
-
-Den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expanderas efter koncept och metoder som visas i den här artikeln.
-
-Den här [exempel datorn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) visar hur du tränar en modell lokalt med olika typer av miljöer.
 
 [Distribuera en modell med hjälp av en anpassad Docker-basadress](how-to-deploy-custom-docker-image.md) visar hur du distribuerar en modell med hjälp av en anpassad Docker-bas avbildning.
 

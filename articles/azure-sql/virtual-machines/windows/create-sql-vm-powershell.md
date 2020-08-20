@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2a25625e085ee07a2dc036fd40f70e6b0376b42a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c4a43d113df09d88e8b93028c68dcf04f718fad
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003890"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654012"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Använda Azure PowerShell för att etablera SQL Server på Azure Virtual Machines
 
@@ -27,7 +27,7 @@ ms.locfileid: "87003890"
 
 Den här guiden beskriver alternativ för att använda PowerShell för att etablera SQL Server på Azure Virtual Machines (VM). Ett strömlinjeformat Azure PowerShell exempel som förlitar sig på standardvärden finns i snabb starten för [SQL VM Azure PowerShell](sql-vm-create-powershell-quickstart.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ $ResourceGroupName = "sqlvm2"
 
 Definiera lagrings kontot och vilken typ av lagring som ska användas av den virtuella datorn.
 
-Ändra som du vill och kör sedan följande cmdlet för att initiera dessa variabler. Vi rekommenderar att du använder [Premium-SSD](../../../virtual-machines/windows/disks-types.md#premium-ssd) för produktions arbets belastningar.
+Ändra som du vill och kör sedan följande cmdlet för att initiera dessa variabler. Vi rekommenderar att du använder [Premium-SSD](../../../virtual-machines/disks-types.md#premium-ssd) för produktions arbets belastningar.
 
 ```powershell
 $StorageName = $ResourceGroupName + "storage"
@@ -150,7 +150,7 @@ Kör denna cmdlet för att skapa din nya resurs grupp.
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Den virtuella datorn kräver lagrings resurser för operativ system disken och för SQL Server data-och loggfiler. För enkelhetens skull skapar du en enskild disk för båda. Du kan lägga till ytterligare diskar senare med hjälp av cmdleten [Add-Azure disk](/powershell/module/servicemanagement/azure.service/add-azuredisk) för att placera SQL Server data och loggfiler på dedikerade diskar. Använd cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) för att skapa ett standard lagrings konto i din nya resurs grupp. Ange de variabler som du tidigare har initierat för lagrings konto namnet, lagrings-SKU-namnet och platsen.
 

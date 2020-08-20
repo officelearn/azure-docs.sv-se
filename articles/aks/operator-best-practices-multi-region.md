@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: efa4ca24dadb2fb5d347d79de20eebfacc9a58e0
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 110a25fca0b0e764650665635dbe545de7a350cd
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142187"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654004"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metod tips för verksamhets kontinuitet och haveri beredskap i Azure Kubernetes service (AKS)
 
@@ -122,7 +122,7 @@ Den typiska strategin är att tillhandahålla en gemensam lagrings plats där pr
 Om du använder Azure Managed Disks kan du välja replikering och DR-lösningar som dessa:
 
 * [Velero på Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
-* [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
+* [Azure Backup](../backup/backup-overview.md)
 
 ### <a name="application-based-asynchronous-replication"></a>Programbaserad asynkron replikering
 

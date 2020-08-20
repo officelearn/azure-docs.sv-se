@@ -3,12 +3,12 @@ title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057697"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654029"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -55,7 +55,7 @@ Du kan komma åt Advisor-rekommendationer som *ägare*, *deltagare*eller *läsar
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Vilka resurser ger Advisor rekommendationer för?
 
-Advisor ger rekommendationer för Application Gateway, App Services, tillgänglighets uppsättningar, Azure cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, offentliga Azure-IP-adresser, SQL Data Warehouse, SQL-servrar, lagrings konton, Traffic Manager profiler och virtuella datorer.
+Advisor ger rekommendationer för Application Gateway, App Services, tillgänglighets uppsättningar, Azure cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, offentliga Azure-IP-adresser, Azure Synapse-analys, SQL-servrar, lagrings konton, Traffic Manager profiler och virtuella datorer.
 
 Azure Advisor innehåller även rekommendationer från [Azure Security Center](../security-center/security-center-recommendations.md) som kan innehålla rekommendationer för ytterligare resurs typer.
 

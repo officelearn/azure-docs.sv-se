@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 2af82233013f064b185aefde3f2e1710bd86ed43
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053753"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654896"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Konfigurera Kundhanterade nycklar för ditt Azure Batch-konto med Azure Key Vault och hanterad identitet
 
@@ -19,7 +19,7 @@ Som standard använder Azure Batch plattforms hanterade nycklar för att krypter
 De nycklar som du anger måste genereras i [Azure Key Vault](../key-vault/general/basic-concepts.md)och de batch-konton som du vill konfigurera med Kundhanterade nycklar måste aktive ras med [Azure-hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> Stöd för Kundhanterade nycklar i Azure Batch är för närvarande en offentlig för hands version för USA, västra centrala, östra USA, södra centrala USA, västra USA 2, US Gov, Virginia och US Gov, Arizona regioner.
+> Stöd för Kundhanterade nycklar i Azure Batch är för närvarande en offentlig för hands version för Västeuropa, norra Europa, Schweiz, norra, centrala USA, södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA 2, US Gov, Virginia och US Gov, Arizona regioner.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -82,7 +82,7 @@ I **Välj** -fältet under **huvud namn**fyller du i den `principalId` som du ha
 
 ### <a name="generate-a-key-in-azure-key-vault"></a>Generera en nyckel i Azure Key Vault
 
-I Azure Portal går du till Key Vault-instansen i avsnittet **nyckel** och väljer **generera/importera**. Välj den **nyckel typ** som ska vara `RSA` och **RSA-nyckel storleken** måste vara minst `2048` bitar. `EC`nyckel typer stöds för närvarande inte som en kundhanterad nyckel på ett batch-konto.
+I Azure Portal går du till Key Vault-instansen i avsnittet **nyckel** och väljer **generera/importera**. Välj den **nyckel typ** som ska vara `RSA` och **RSA-nyckel storleken** måste vara minst `2048` bitar. `EC` nyckel typer stöds för närvarande inte som en kundhanterad nyckel på ett batch-konto.
 
 ![Skapa en nyckel](./media/batch-customer-managed-key/create-key.png)
 

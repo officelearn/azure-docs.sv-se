@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e5862daa21f8bf0075bb1dee567cbe887ec32d72
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533826"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653281"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,14 +51,14 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|No|Ja |
-|**Azure Blob-cache**|Inga|Inga|Ja|
+|**Stöder FileStream**|Ja|Nej|Ja |
+|**Azure Blob-cache**|Nej|Nej|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
 ### <a name="azure-shared-disks"></a>Delade diskar i Azure
 
-[Azure delade diskar](../../../virtual-machines/windows/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
+[Azure delade diskar](../../../virtual-machines/windows/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
 
 **Operativ system som stöds**: alla   
 **SQL-version som stöds**: alla     

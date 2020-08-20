@@ -3,12 +3,12 @@ title: Priser för Azure Backup
 description: Lär dig hur du beräknar kostnader för budgetering Azure Backup prissättning.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: cdb3dc756e1ee7e32453acd7246952c84abebaf7
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035764"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654539"
 ---
 # <a name="azure-backup-pricing"></a>Priser för Azure Backup
 
@@ -100,7 +100,7 @@ För att beräkna kostnaderna för att säkerhetskopiera SQL-servrar som körs p
 
   - Typ av säkerhetskopiering
 
-    - Den mest effektiva principen du kan välja är **daglig differentiellhet** med en veckovis/månatlig/årlig fullständig säkerhets kopiering. Azure Backup kan återställas från differentiella med enkel klickning också.
+    - Den mest effektiva principen du kan välja är **daglig differentiellhet** med en veckovis/månatlig/årlig fullständig säkerhets kopiering. Azure Backup kan återställas från differentiella genom enkel klickning också.
 
     - Du kan också välja att ha en princip med en daglig/veckovis/per månads fullständig säkerhets kopiering. Det här alternativet kommer att förbruka lite mer lagrings utrymme än det första alternativet.
 
@@ -137,7 +137,7 @@ För att beräkna kostnaderna för att säkerhetskopiera SAP HANA servrar som k�
   - Om du vet din **omsättning%** kan du använda alternativet **Ange ditt eget%**
 - Välj säkerhets kopierings princip
   - Typ av säkerhetskopiering
-    - Den mest effektiva principen du kan välja är **daglig differentiellhet** med en **veckovis/månatlig/årlig** fullständig säkerhets kopiering. Azure Backup kan återställas från differentiella med enkel klickning också.
+    - Den mest effektiva principen du kan välja är **daglig differentiellhet** med en **veckovis/månatlig/årlig** fullständig säkerhets kopiering. Azure Backup kan återställas från differentiella genom enkel klickning också.
     - Du kan också välja att ha en princip med en daglig/veckovis/per **månads** fullständig säkerhets kopiering. Det här alternativet kommer att förbruka lite mer lagrings utrymme än det första alternativet.
   - Hur lång tid förväntar du dig att spara "logg"-säkerhets kopieringar? (i dagar) [7-35]
   - Hur länge förväntar du dig att behålla "dagliga" säkerhets kopieringar? (i dagar)

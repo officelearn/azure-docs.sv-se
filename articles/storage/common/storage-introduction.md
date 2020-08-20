@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 81ee07eb41df6d8d663510913572b829feffd995
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b603776ce19bca8d6fefa7c3c85366ebe3b7b01f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133787"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653808"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
 
@@ -30,10 +30,10 @@ Azure Storages plattformen är Microsofts moln lagrings lösning för moderna da
 Azure Storage plattform innehåller följande data tjänster:
 
 - [Azure Blobs](../blobs/storage-blobs-introduction.md): En mycket skalbar objektlagring för textdata och binära data. Innehåller även stöd för stor data analys via Data Lake Storage Gen2.
-- [Azure Files](../files/storage-files-introduction.md): Hanterade filresurser för distributioner i molnet eller lokalt.
+- [Azure Files](../files/storage-files-introduction.md): hanterade fil resurser för molnbaserade eller lokala distributioner.
 - [Azure Queues](../queues/storage-queues-introduction.md): Ett meddelandearkiv för tillförlitliga meddelandefunktioner mellan programkomponenter.
 - [Azure Tables](../tables/table-storage-overview.md): En NoSQL-lagring av schemalös lagring av strukturerade data.
-- [Azure-diskar](../../virtual-machines/windows/managed-disks-overview.md): lagrings volymer på Block nivå för virtuella Azure-datorer.
+- [Azure-diskar](../../virtual-machines/managed-disks-overview.md): lagrings volymer på Block nivå för virtuella Azure-datorer.
 
 Varje tjänst nås via ett lagringskonto. För att komma igång läser du [Skapa ett lagringskonto](storage-account-create.md).
 
@@ -53,13 +53,13 @@ I följande tabell jämförs filer, blobbar, diskar, köer och tabeller, och exe
 
 Azure Blob Storage är Microsofts objektlagringslösning för molnet. Blob Storage är optimerat för att lagra stora mängder ostrukturerade data, exempelvis text eller binära data.
 
-Blob Storage är perfekt för:
+Blob Storage är perfekt för att:
 
 - Leverera bilder eller dokument direkt till en webbläsare.
 - Lagra filer för distribuerad åtkomst.
 - Direktuppspelning av video och ljud.
 - Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering.
-- Lagra data för analys av en tjänst som kan vara lokal eller Azure-baserad.
+- Lagra data för analys av en tjänst som kan vara lokal eller Azure-värdbaserad.
 
 Objekt i Blob storage kan nås från vilken plats som helst i världen via HTTP eller HTTPS. Användare eller klientprogram kan få åtkomst till blobar via URL-adresser, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) eller ett Azure Storage-klientbibliotek. Det finns lagringsklientbibliotek för flera språk, bland annat [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) och [Ruby](https://azure.github.io/azure-storage-ruby).
 
@@ -67,7 +67,7 @@ Mer information om Blob Storage finns i [Introduktion till bloblagring](../blobs
 
 ## <a name="azure-files"></a>Azure Files
 
-Med [Azure Files](../files/storage-files-introduction.md) kan du konfigurera nätverksfilresurser med hög tillgänglighet som kan nås via SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring.
+Med [Azure Files](../files/storage-files-introduction.md) kan du konfigurera nätverks fil resurser med hög tillgänglighet som kan nås med hjälp av SMB-standardprotokollet (Server Message Block). Det innebär att flera virtuella datorer kan dela samma filer med både läs- och skrivbehörighet. Du kan också läsa filerna med hjälp av REST-gränssnittet eller klientbiblioteken för lagring.
 
 En sak som skiljer Azure Files från filer på en företagsfilresurs är att du kan komma åt filerna var som helst i världen med en URL som pekar på filen och som innehåller en SAS-token (signatur för delad åtkomst). Du kan generera SAS-token, som ger specifik åtkomst till en privat resurs under en viss tidsperiod.
 
@@ -101,7 +101,7 @@ Mer information om Table Storage finns i [översikten över Azure Table Storage]
 
 En Azure-hanterad disk är en virtuell hård disk (VHD). Du kan tänka på det som en fysisk disk på en lokal server, men virtualiserad. Azure-hanterade diskar lagras som Page BLOB-objekt, som är ett slumpmässigt IO-lagringssystem i Azure. Vi kallar en hanterad disk hanterad eftersom det är en abstraktion över Page blobbar, BLOB-behållare och Azure Storage-konton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
 
-Mer information om hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Mer information om hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
@@ -121,7 +121,7 @@ Varje begäran till Azure Storage måste vara auktoriserad. Azure Storage stöde
 
 Det finns två grundläggande typer av kryptering för kärn lagrings tjänsterna. Mer information om säkerhet och kryptering finns i [Säkerhetsguiden för Azure Storage](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Vilande kryptering
+### <a name="encryption-at-rest"></a>Kryptering i vila
 
 Azure Storage kryptering skyddar och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Azure Storage krypterar automatiskt alla data innan de bevaras kvar på lagrings kontot och dekrypterar det innan hämtning. Processerna för kryptering, dekryptering och nyckel hantering är transparenta för användarna. Kunder kan också välja att hantera sina egna nycklar med hjälp av Azure Key Vault. Mer information finns i [Azure Storage kryptering för vilande data](storage-service-encryption.md).
 
@@ -137,7 +137,7 @@ För att säkerställa att dina data är beständiga, Azure Storage lagra flera 
 
 Du kan flytta data till eller från Azure Storage på flera olika sätt. Vilket alternativ du väljer beror på storleken på datauppsättningen och din nätverksbandbredd. Mer information finns i [Välja en Azure-lösning för dataöverföring](storage-choose-data-transfer-solution.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 När du fattar beslut om hur dina data lagras och används bör du också tänka på vilka kostnader som ingår. Mer information finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 

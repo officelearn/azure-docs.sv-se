@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/24/2020
-ms.openlocfilehash: de32f2a3a45a883f9da860b159eaa7f7b9368518
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 99253aa2e7e2e1f3f58f2ab7d5c40a695c2b9690
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085437"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654862"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
-Den här artikeln innehåller en bakgrund för den **accelererade skrivningar** funktionen för Apache HBase i Azure HDInsight och hur den kan användas effektivt för att förbättra skriv prestanda. **Accelererade skrivningar** använder [Azure Premium SSD-hanterade diskar](../../virtual-machines/linux/disks-types.md#premium-ssd) för att förbättra prestandan hos Apache HBase Write Ahead log (Wal). Mer information om Apache HBase finns i [Vad är Apache HBase i HDInsight](apache-hbase-overview.md).
+Den här artikeln innehåller en bakgrund för den **accelererade skrivningar** funktionen för Apache HBase i Azure HDInsight och hur den kan användas effektivt för att förbättra skriv prestanda. **Accelererade skrivningar** använder [Azure Premium SSD-hanterade diskar](../../virtual-machines/disks-types.md#premium-ssd) för att förbättra prestandan hos Apache HBase Write Ahead log (Wal). Mer information om Apache HBase finns i [Vad är Apache HBase i HDInsight](apache-hbase-overview.md).
 
 ## <a name="overview-of-hbase-architecture"></a>Översikt över HBase-arkitekturen
 
@@ -32,7 +32,7 @@ Om en **RegionServer** kraschar eller blir otillgänglig innan memstores töms, 
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Accelererade skrivningar i Azure HDInsight för Apache HBase
 
-Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State-diskar (SSD) och erbjuder utmärkta I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar påverkar den inte andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State-diskar (SSD) och erbjuder utmärkta I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar påverkar den inte andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 

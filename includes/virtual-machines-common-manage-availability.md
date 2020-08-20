@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: f1517fd577c5e6bd7341e5dde0204456524ba976
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 2c8f2d95e7e06f2fff3d8344a3fffa5b19648ede
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545314"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655030"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -23,7 +23,7 @@ Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påve
 
 * **En oväntad stillestånds** tid är när maskin varan eller den fysiska infrastrukturen för den virtuella datorn Miss lyckas oväntat. Detta kan omfatta lokala nätverks haverier, lokala diskfel eller andra rack nivå problem. När den identifieras migrerar Azure-plattformen automatiskt (läka) den virtuella datorn till en felfri fysisk dator i samma data Center. Återställningsprocessen medför driftavbrott (omstart) på virtuella datorer och i vissa fall förlust av den temporära enheten. Anslutna operativsystems- och datadiskar bevaras alltid.
 
-  Virtuella datorer kan också uppleva stillestånds tid i den osannolika händelsen av ett avbrott eller en katastrof som påverkar ett helt data Center, eller till och med en hel region. I dessa scenarier tillhandahåller Azure skydds alternativ, inklusive [tillgänglighets zoner](../articles/availability-zones/az-overview.md) och [kopplade regioner](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+  Virtuella datorer kan också uppleva stillestånds tid i den osannolika händelsen av ett avbrott eller en katastrof som påverkar ett helt data Center, eller till och med en hel region. I dessa scenarier tillhandahåller Azure skydds alternativ, inklusive  [tillgänglighets zoner](../articles/availability-zones/az-overview.md) och [kopplade regioner](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
 * **Planerade underhålls händelser** är periodiska uppdateringar som görs av Microsoft till den underliggande Azure-plattformen för att förbättra den övergripande tillförlitligheten, prestandan och säkerheten för den plattforms infrastruktur som dina virtuella datorer körs på. De flesta av de här uppdateringarna utförs utan att påverka dina virtuella datorer eller molntjänster (mer information finns i [VM Preserving Maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/preserving-maintenance) (Underhåll utan påverkan på virtuella datorer)). Azure-plattformen försöker alltid att utföra underhåll utan att påverka virtuella datorer, men i sällsynta fall kräver dessa uppdateringar en omstart av den virtuella datorn för att de nödvändiga uppdateringarna av den underliggande infrastrukturen ska kunna installeras. I detta fall kan du utföra planerat underhåll i Azure med underhålls- och omdistributionsåtgärden genom att initiera underhållet för de virtuella datorerna vid en lämplig tidpunkt. Mer information finns i [Planned Maintenance for Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/planned-maintenance/) (Planerat underhåll för virtuella datorer).
 
@@ -67,7 +67,7 @@ Feldomäner definierar den grupp av virtuella datorer som delar samma strömkäl
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning
 Om du för närvarande använder virtuella datorer med ohanterade diskar rekommenderar vi starkt att du [konverterar virtuella datorer i tillgänglighetsuppsättningar för att använda hanterade diskar](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
 
-[Hanterade diskar](../articles/virtual-machines/windows/managed-disks-overview.md) ger bättre tillförlitlighet för tillgänglighetsuppsättningar genom att säkerställa att diskarna på virtuella datorer i en tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritiska systemdelar. Detta görs genom att automatiskt placera diskarna i olika lagrings fel domäner (lagrings kluster) och justera dem med den virtuella dator fel domänen. Om en lagrings fel domän Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara den virtuella dator instansen med diskar på lagrings fel domänen.
+[Hanterade diskar](../articles/virtual-machines/managed-disks-overview.md) ger bättre tillförlitlighet för tillgänglighetsuppsättningar genom att säkerställa att diskarna på virtuella datorer i en tillgänglighetsuppsättning är tillräckligt isolerade från varandra för att undvika felkritiska systemdelar. Detta görs genom att automatiskt placera diskarna i olika lagrings fel domäner (lagrings kluster) och justera dem med den virtuella dator fel domänen. Om en lagrings fel domän Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara den virtuella dator instansen med diskar på lagrings fel domänen.
 ![Hanterade diskar fd](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 > [!IMPORTANT]

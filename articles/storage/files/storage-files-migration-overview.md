@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 3/18/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: d979d2d0167a4398d31271bb896c812bbe86be73
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4223e3bc572a689472dce136b60599034566b274
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827868"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654267"
 ---
 # <a name="migrate-to-azure-file-shares"></a>Migrera till Azure-filresurser
 
@@ -26,7 +26,7 @@ Azure har flera tillgängliga typer av moln lagring. En grundläggande aspekt av
 
 [Azure-filresurser](storage-files-introduction.md) är lämpliga för fil data i generella syften. Dessa data omfattar allt du använder en lokal SMB-eller NFS-resurs för. Med [Azure File Sync](storage-sync-files-planning.md)kan du cachelagra innehållet i flera Azure-filresurser på servrar som kör Windows Server lokalt.
 
-För en app som för närvarande körs på en lokal server kan det vara ett bra alternativ att lagra filer i en Azure-filresurs. Du kan flytta appen till Azure och använda Azure-filresurser som delad lagring. Du kan också överväga [Azure-diskar](../../virtual-machines/windows/managed-disks-overview.md) för det här scenariot.
+För en app som för närvarande körs på en lokal server kan det vara ett bra alternativ att lagra filer i en Azure-filresurs. Du kan flytta appen till Azure och använda Azure-filresurser som delad lagring. Du kan också överväga [Azure-diskar](../../virtual-machines/managed-disks-overview.md) för det här scenariot.
 
 Vissa molnappar är inte beroende av SMB eller dator-lokal data åtkomst eller delad åtkomst. För dessa appar är det ofta det bästa valet av objekt lagring som [Azure-blobbar](../blobs/storage-blobs-overview.md) .
 
@@ -126,7 +126,7 @@ I följande tabell klassificerar vi Microsoft-verktyg och deras aktuella lämpli
 |![Rekommenderas inte](media/storage-files-migration-overview/circle-red-x.png)| Azure Data Factory | Stöds. | Kopierar inte metadata. |
 |||||
 
-*\*Fullständig åter givning: uppfyller eller överskrider Azures funktioner för fil delning.*
+*\* Fullständig åter givning: uppfyller eller överskrider Azures funktioner för fil delning.*
 
 ### <a name="migration-helper-tools"></a>Verktyg för migrerings hjälp
 

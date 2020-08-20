@@ -3,7 +3,7 @@ title: Kom igång med Azure AD-autentisering
 description: Lär dig hur du kommer åt Azure Active Directory (Azure AD)-autentisering för att använda Azure Media Services API.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
-ms.author: juliako
-ms.openlocfilehash: a039e1d4442490d3747a302754d521f1f3402bcf
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.author: inhenkel
+ms.openlocfilehash: 9528efb0ce7dd9df57db21ccdcf19e54a969d2e4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035815"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654845"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Hämta autentiseringsuppgifter för åtkomst Media Services-API  
 
@@ -33,14 +33,14 @@ När du använder Azure AD-autentisering för att komma åt Azure Media Services
 
 I den här artikeln beskrivs steg för att få åtkomst till Media Services API. Välj bland följande flikar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](create-account-howto.md).
 
-## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+## <a name="portal"></a>[Portal](#tab/portal/)
 
-### <a name="api-access"></a>API-åtkomst 
+### <a name="api-access"></a>API-åtkomst
 
 På sidan **API-åtkomst** kan du välja den autentiseringsmetod som du vill använda för att ansluta till API: et. Sidan innehåller också de värden som du behöver för att ansluta till API: et.
 
@@ -70,7 +70,7 @@ Det här alternativet kan användas för att autentisera en medarbetare eller me
 
 Kopiera dina autentiseringsuppgifter för att ansluta ditt användar program från avsnittet **Anslut till Media Services-API** . Du kan hämta text värden eller kopiera JSON-eller XML-blocken.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
+## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

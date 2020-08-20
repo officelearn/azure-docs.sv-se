@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: 21609e38625d0911476c85a9d6e518f5ff7e9e61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0402febe94e50877367dc37d448a4a13893f93
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667377"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653366"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Om du vill använda de automatiserade konfigurations inställningarna för lagri
 
 * Etablerad med en [SQL Server galleri bild](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 * Använder [distributions modellen för Resource Manager](../../../azure-resource-manager/management/deployment-models.md).
-* Använder [Premium-SSD](../../../virtual-machines/windows/disks-types.md).
+* Använder [Premium-SSD](../../../virtual-machines/disks-types.md).
 
 ## <a name="new-vms"></a>Nya virtuella datorer
 
@@ -115,7 +115,7 @@ Du kan ändra disk inställningarna för de enheter som konfigurerades under SQL
 Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt under SQL Server VM etablering eller konfiguration i Azure Portal.
 
 * Azure konfigurerar en lagringspool från det lagrings utrymme som valts från den virtuella datorn. Nästa avsnitt av det här avsnittet innehåller information om konfigurationen av lagringspoolen.
-* Automatisk lagrings konfiguration använder alltid [Premium SSD](../../../virtual-machines/windows/disks-types.md) P30-datadiskar. Det finns därför en 1:1-mappning mellan det valda antalet terabyte och antalet data diskar som är anslutna till den virtuella datorn.
+* Automatisk lagrings konfiguration använder alltid [Premium SSD](../../../virtual-machines/disks-types.md) P30-datadiskar. Det finns därför en 1:1-mappning mellan det valda antalet terabyte och antalet data diskar som är anslutna till den virtuella datorn.
 
 Information om priser finns på sidan för [lagrings priser](https://azure.microsoft.com/pricing/details/storage) på fliken **disklagring** .
 
@@ -123,7 +123,7 @@ Information om priser finns på sidan för [lagrings priser](https://azure.micro
 
 Azure använder följande inställningar för att skapa lagringspoolen på SQL Server virtuella datorer.
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | --- | --- |
 | Rand storlek |256 KB (data lager hantering); 64 KB (transaktion) |
 | Disk storlekar |1 TB varje |
@@ -142,7 +142,7 @@ I följande tabell beskrivs de tre tillgängliga alternativen för arbets belast
 
 | Arbets belastnings typ | Beskrivning | Optimeringar |
 | --- | --- | --- |
-| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Ingen |
+| **Allmänt** |Standardinställning som stöder de flesta arbets belastningar |Inget |
 | **Transaktionell bearbetning** |Optimerar lagringen för traditionella databas OLTP-arbetsbelastningar |Spårnings flagga 1117<br/>Spårnings flagga 1118 |
 | **Data lager hantering** |Optimerar lagringen för analys-och rapporterings arbets belastningar |Spårnings flagga 610<br/>Spårnings flagga 1117 |
 

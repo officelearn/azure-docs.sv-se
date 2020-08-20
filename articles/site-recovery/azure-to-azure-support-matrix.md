@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6cb2f3d099c328f00fab335e1cbe9ea146c0fc55
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607041"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653655"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -206,8 +206,8 @@ Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data
 
 **Komponent** | **Support** | **Information**
 --- | --- | ---
-Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
-Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från replikering.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md).
+Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/managed-disks-overview.md) om VM-diskar.
+Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från replikering.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/managed-disks-overview.md).
 Maximal storlek för data disk | 8192 GB för Managed disks<br></br>4095 GB för ohanterade diskar|
 Minsta storlek för data disk | Ingen begränsning för ohanterade diskar. 2 GB för hanterade diskar |
 Högsta antal data diskar | Upp till 64, i enlighet med stöd för en speciell storlek på virtuell Azure-dator | [Läs mer](../virtual-machines/sizes.md) om storlekar på virtuella datorer.

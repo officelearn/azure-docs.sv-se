@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: 60e8a0dc93e19dfec0982080d0353466b08373de
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3509b99d1b222fc4f0bfa48effe42496c209d9ae
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586842"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654488"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
 
-Azure Load Balancer har två varianter eller SKU: er.
+Azure Load Balancer har två SKU: er.
 
 ## <a name="sku-comparison"></a><a name="skus"></a> SKU-jämförelse
 
-Load Balancer stöder både Basic-och standard-SKU: er. Dessa SKU: er skiljer sig åt i scenario skala, funktioner och priser. Alla scenarier som är möjliga med Basic Load Balancer kan skapas med standard Load Balancer.
+Belastnings utjämning stöder både standard-och Basic-SKU: er. Dessa SKU: er skiljer sig åt i scenario skala, funktioner och priser. Alla scenarier som är möjliga med Basic Load Balancer kan skapas med standard Load Balancer.
 
 Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -37,11 +37,11 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 | **[Storlek på serverdelspool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer)** | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
 | **Slutpunkter för serverdelspool** | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
 | **[Hälsotillståndsavsökningar](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Beteende för hälso avsökning](./load-balancer-custom-probe-overview.md#probedown)** | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
+| **[Beteende för hälso avsökning](./load-balancer-custom-probe-overview.md#probedown)** | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar slutar när alla avsökningar är nere. |
 | **Tillgänglighetszoner** | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgängligt |
 | **Diagnostik** | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor loggar](./load-balancer-monitor-log.md) |
 | **HA-portar** | [Tillgängligt för interna Load Balancer](./load-balancer-ha-ports-overview.md) | Inte tillgängligt |
-| **Säker som standard** | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från VNet till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
+| **Säker som standard** | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Intern trafik från det virtuella nätverket till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
 | **Utgående regler** | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-rules-overview.md) | Inte tillgängligt |
 | **TCP-återställning vid inaktivitet** | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgängligt |
 | **[Flera frontend-sidor](./load-balancer-multivip-overview.md)** | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |

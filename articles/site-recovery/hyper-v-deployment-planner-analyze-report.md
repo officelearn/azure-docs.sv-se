@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710277"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653587"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analysera Distributionshanteraren för Azure Site Recovery rapporten
 I den här artikeln diskuteras bladen i Excel-rapporterna som genereras av distributionshanteraren för Azure Site Recovery för scenariot Hyper-V till Azure.
@@ -179,7 +179,7 @@ Excel-rapporten som genereras av distributionshanteraren för Site Recovery inne
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VHD:er) som är kopplade till de virtuella datorerna. Namnen inkluderar de Hyper-V-värdnamn där de virtuella datorerna placerades när verktyget upptäckte de under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/windows/disks-types.md). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek: 
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/disks-types.md). Här ryms den profilerade höga omsättningen eller IOPS-disken i en högre premiumdiskstorlek än storleken som är mappad till disken. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek: 
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15.
 * 256 till 512 GB är en P20.

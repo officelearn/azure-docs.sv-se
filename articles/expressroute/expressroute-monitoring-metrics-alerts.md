@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 49e5acb7fc0cfe947d846f2943fb5071d6554ea5
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b3c42901b4ef503a6099b49db84012521a7eba9f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192469"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654573"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -33,8 +33,10 @@ När ett mått har valts tillämpas standard agg regeringen. Du kan också anvä
 | --- | --- | --- | --- |
 |ARP-tillgänglighet|Tillgänglighet|<ui><li>Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ (privat/offentlig/Microsoft)</ui></li>|ExpressRoute|
 |BGP-tillgänglighet|Tillgänglighet|<ui><li> Peer (primär/sekundär ExpressRoute-router)</ui></li><ui><li> Peering-typ</ui></li>|ExpressRoute|
-|BitsInPerSecond|Trafik|<ui><li> Peering-typ (ExpressRoute)</ui></li><ui><li>Länk (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|BitsInPerSecond|Trafik|<ui><li> Peering-typ (ExpressRoute)</ui></li><ui><li>Länk (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Trafik| <ui><li>Peering-typ (ExpressRoute)</ui></li><ui><li> Länk (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|CPU-användning|Prestanda| <ui><li>Instans</ui></li>|ExpressRoute Virtual Network-Gateway|
+|Paket per sekund|Prestanda| <ui><li>Instans</ui></li>|ExpressRoute Virtual Network-Gateway|
 |GlobalReachBitsInPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|Trafik|<ui><li>Skey krets-(tjänst nyckel)</ui></li>|Global Reach|
 |AdminState|Fysisk anslutning|Länk|ExpressRoute Direct|
@@ -102,6 +104,14 @@ Du kan visa mottagnings ljus nivån (den ljus nivå som ExpressRoute Direct-port
 Du kan visa avsändnings ljus nivån (den ljus nivå som ExpressRoute Direct-porten **överför**) för varje port. Felfria TX-ljusnivå ligger vanligt vis inom intervallet-10 till 0 dBm
 
 ![återställnings ljus nivå för er direkt linje](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
+## <a name="expressroute-virtual-network-gateway-metrics"></a>ExpressRoute Virtual Network Gateway-mått
+
+### <a name="cpu-utilization---split-instance"></a>PROCESSOR belastning – dela instans
+Du kan visa processor användningen för gateway-instanserna.
+
+### <a name="packets-per-second---split-by-instance"></a>Paket per sekund – dela per instans
+Du kan visa paket per sekund som passerar gatewayen.
 
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute Gateway-anslutningar i bitar/sekunder
 

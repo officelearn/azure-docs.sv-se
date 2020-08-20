@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: a8503f701a36d7197f85f2c86e37272ccf1cab48
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 5ba5ebcb68ed206bab038f0a892e24834ddb0f22
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760727"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653434"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program
 
@@ -80,7 +80,7 @@ Läs följande SAP-anteckningar och dokument först:
   * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Konfigurera ASCS/ERS för SAP NetWeaver med fristående resurser i RHEL 7,5](https://access.redhat.com/articles/3569681)
-  * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL](https://access.redhat.com/articles/3974941)
+  * [Konfigurera SAP S/4HANA ASCS/ERS med fristående server 2 (ENSA2) i pacemaker på RHEL ](https://access.redhat.com/articles/3974941)
 * Azure-speciell RHEL-dokumentation:
   * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
   * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -156,7 +156,7 @@ SAP NetWeaver-arkitekturen som presenteras i den här artikeln använder pool f�
    6. volym SAP-<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>PAS)
    7. volym SAP-<b>QAS</b> (NFS://192.168.24.5/usrsap<b>QAS</b>/usrsap<b>QAS</b>AAS)
   
-I det här exemplet använde vi Azure NetApp Files för alla fil system i SAP NetWeaver för att demonstrera hur Azure NetApp Files kan användas. SAP-filsystem som inte behöver monteras via NFS kan också distribueras som [Azure disk Storage](../../windows/disks-types.md#premium-ssd) . I det här exemplet måste <b>a-e</b> vara på Azure NetApp Files <b>och f-g</b> (det vill säga/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) kan distribueras som Azure disk Storage. 
+I det här exemplet använde vi Azure NetApp Files för alla fil system i SAP NetWeaver för att demonstrera hur Azure NetApp Files kan användas. SAP-filsystem som inte behöver monteras via NFS kan också distribueras som [Azure disk Storage](../../disks-types.md#premium-ssd) . I det här exemplet måste <b>a-e</b> vara på Azure NetApp Files <b>och f-g</b> (det vill säga/usr/SAP/<b>QAS</b>/d<b>02</b>,/usr/SAP/<b>QAS</b>/d<b>03</b>) kan distribueras som Azure disk Storage. 
 
 ### <a name="important-considerations"></a>Att tänka på
 

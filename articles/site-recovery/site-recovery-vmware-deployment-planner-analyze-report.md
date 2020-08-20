@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 4dad11e8331064a9df1b1aed561e00b9a9b24017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699200"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654879"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera distributions planerings rapporten för VMware haveri beredskap till Azure
 
@@ -178,7 +178,7 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja\***. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/windows/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Ett exempel:
+**VM-kompatibilitet**: Värdena är **Ja** och **Ja\***. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15
 * 256 till 512 GB är en P20.
@@ -272,7 +272,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB | 20 MB/s | 1684 GB per d
 **Källans dataomsättning** | **Övre gräns**
 ---|---
 Högsta dataomsättning av alla diskar på en virtuella dator | 54 MB/s
-Maximal dataomsättning per dag som stöds av en processerver | 2 TB
+Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 Det här är genomsnittliga värden baserade på en I/O-överlappning på 30 procent. Site Recovery kan hantera högre dataflöden med annan överlappning, större skrivningsstorlek och verkligt I/O-beteende under arbetsbelastningen. Föregående antal antar en typisk eftersläpning på cirka fem minuter. Det vill säga, när data har överförts bearbetas de och en återställningspunkt skapas inom fem minuter.
 

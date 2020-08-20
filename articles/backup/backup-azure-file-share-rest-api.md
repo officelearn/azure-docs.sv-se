@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser med REST API
 description: Lär dig hur du använder REST API för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: f48ebbd20d6775fe61c3e3dbb07e8f71af41635a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036750"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654148"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Säkerhetskopiera Azure-filresurs med Azure Backup via REST API
 
@@ -38,13 +38,13 @@ Valvet måste identifiera alla Azure Storage-konton i prenumerationen med fil re
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-POST-URI: n har `{subscriptionId}` parametrarna,, `{vaultName}` `{vaultresourceGroupName}` och `{fabricName}` . I vårt exempel skulle värdet för de olika parametrarna vara följande:
+POST-URI: n har `{subscriptionId}` parametrarna,, `{vaultName}` `{vaultresourceGroupName}` och `{fabricName}` . I vårt exempel blir värdet för de olika parametrarna följande:
 
-- `{fabricName}`är *Azure*
+- `{fabricName}` är *Azure*
 
-- `{vaultName}`är *azurefilesvault*
+- `{vaultName}` är *azurefilesvault*
 
-- `{vaultresourceGroupName}`är *migreringsåtgärden*
+- `{vaultresourceGroupName}` är *migreringsåtgärden*
 
 - $filter = backupManagementType EQ ' AzureStorage '
 
@@ -54,13 +54,13 @@ Eftersom alla nödvändiga parametrar har angetts i URI: n behöver du inte ha n
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01&$filter=backupManagementType eq 'AzureStorage'
 ```
 
-#### <a name="responses"></a>Svar
+#### <a name="responses-to-the-refresh-operation"></a>Svar på uppdaterings åtgärden
 
 Åtgärden Uppdatera är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
-##### <a name="example-responses"></a>Exempel svar
+##### <a name="example-responses-to-the-refresh-operation"></a>Exempel svar på uppdaterings åtgärden
 
 När *post* -begäran har skickats returneras ett 202-svar (accepterat).
 
@@ -421,7 +421,7 @@ x-ms-routing-request-id  : CENTRALUSEUAP:20200127T105412Z:b55527fa-f473-4f09-b16
 Date : Mon, 27 Jan 2020 10:54:12 GMT
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett *Get* -kommando.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett  *Get* -kommando.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/c3a52d1d-0853-4211-8141-477c65740264?api-version=2016-12-01
@@ -487,13 +487,13 @@ Exempel på begär ande text
 }
 ```
 
-### <a name="responses"></a>Svar
+### <a name="responses-to-the-on-demand-backup-operation"></a>Svar på säkerhets kopierings åtgärden på begäran
 
 Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och 200 (OK) när åtgärden har slutförts.
 
-### <a name="example-responses"></a>Exempel svar
+### <a name="example-responses-to-the-on-demand-backup-operation"></a>Exempel svar på säkerhets kopierings åtgärden på begäran
 
 När du har skickat in *post* -begäran för en säkerhets kopiering på begäran är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
@@ -516,7 +516,7 @@ När du har skickat in *post* -begäran för en säkerhets kopiering på begära
 'Content-Length': '0'
 ```
 
-Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett *Get* -kommando.
+Spåra sedan den resulterande åtgärden med hjälp av plats rubriken eller Azure-AsyncOperation-huvudet med ett  *Get* -kommando.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupOperations/dc62d524-427a-4093-968d-e951c0a0726e?api-version=2016-12-01

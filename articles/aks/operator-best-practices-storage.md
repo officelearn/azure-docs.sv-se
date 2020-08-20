@@ -5,12 +5,12 @@ description: Lär dig metod tips för kluster operatörer för lagring, data kry
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c683cbf7802fbf5420ec95d49e2dfda624ce093f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 722fe393ad7637be20360463a4c3b6234224a036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551803"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653978"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Metod tips för lagring och säkerhets kopiering i Azure Kubernetes service (AKS)
 
@@ -110,6 +110,6 @@ Den här artikeln fokuserar på metod tips för lagring i AKS. Mer information o
 [reclaim-policy]: concepts-storage.md#storage-classes
 [aks-concepts-storage-pvcs]: concepts-storage.md#persistent-volume-claims
 [aks-concepts-storage-classes]: concepts-storage.md#storage-classes
-[managed-disks]: ../virtual-machines/linux/managed-disks-overview.md
+[managed-disks]: ../virtual-machines/managed-disks-overview.md
 [best-practices-multi-region]: operator-best-practices-multi-region.md
 [remove-state]: operator-best-practices-multi-region.md#remove-service-state-from-inside-containers

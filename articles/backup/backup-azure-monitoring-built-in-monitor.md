@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig mer om övervaknings-och avis
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054545"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654131"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -52,7 +52,7 @@ Följande scenarier definieras av service som aviserings bara scenarier.
 - Säkerhetskopior av virtuella Azure-datorer
 - Säkerhetskopior av Azure-fil
 - Azure-arbetsbelastnings säkerhets kopior som SQL, SAP HANA
-- Microsoft Azure Recovery Services (MARS) Agent 
+- Microsoft Azure Recovery Services (MARS) Agent
 
 > [!NOTE]
 > Aviseringar från System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) visas inte här.
@@ -100,7 +100,7 @@ Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats
 
 ## <a name="inactivating-alerts"></a>Inaktivera aviseringar
 
-Om du vill inaktivera/lösa en aktiv avisering kan du klicka på listobjektet som motsvarar den avisering som du vill inaktivera. Då öppnas en skärm som visar detaljerad information om aviseringen, med knappen inaktive rad överst. Om du klickar på den här knappen ändras aviseringens status till inaktiv. Du kan också inaktivera en avisering genom att högerklicka på listobjektet som motsvarar aviseringen och välja "inaktive rad".
+Om du vill inaktivera/lösa en aktiv avisering kan du välja det List objekt som motsvarar den avisering som du vill inaktivera. Då öppnas en skärm som visar detaljerad information om aviseringen, med en **inaktive rad** knapp överst. Klicka på den här knappen för att ändra aviseringens status till **inaktiv**. Du kan också inaktivera en avisering genom att högerklicka på listobjektet som motsvarar aviseringen och välja **inaktivera**.
 
 ![Inaktive ring av RS Vault-avisering](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

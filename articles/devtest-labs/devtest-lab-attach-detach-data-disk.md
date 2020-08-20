@@ -3,15 +3,15 @@ title: Koppla eller koppla från en datadisk till en virtuell dator i Azure DevT
 description: Lär dig hur du ansluter eller kopplar från en datadisk till en virtuell dator i Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a5faae56307639e369130ec7443c8bceab2f794d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287570"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653927"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Koppla eller koppla från en datadisk till en virtuell dator i Azure DevTest Labs
-[Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md) hanterar de lagrings konton som är kopplade till data diskar för virtuella datorer. En användare bifogar en ny datadisk till en virtuell dator, anger typen och storleken på den disk som behövs, och Azure skapar och hanterar disken automatiskt. Data disken kan sedan frånkopplas från den virtuella datorn och antingen anslutas senare till samma virtuella dator eller anslutas till en annan virtuell dator som tillhör samma användare.
+[Azure Managed disks](../virtual-machines/managed-disks-overview.md) hanterar de lagrings konton som är kopplade till data diskar för virtuella datorer. En användare bifogar en ny datadisk till en virtuell dator, anger typen och storleken på den disk som behövs, och Azure skapar och hanterar disken automatiskt. Data disken kan sedan frånkopplas från den virtuella datorn och antingen anslutas senare till samma virtuella dator eller anslutas till en annan virtuell dator som tillhör samma användare.
 
 Den här funktionen är praktisk för att hantera lagrings-eller program vara utanför varje enskild virtuell dator. Om lagrings-eller program varan redan finns i en datadisk, kan den enkelt anslutas, kopplas från och återanslutas till en virtuell dator som ägs av den användare som äger den data disken.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2a35180e4c5ca26d53be135718e345f9657af6a2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84323898"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655307"
 ---
 | **Resurs** | **Standardgräns** | **Maximal gräns** |
 | --- | --- | --- |
@@ -32,4 +32,4 @@ ms.locfileid: "84323898"
 > Standard gränserna varierar beroende på vilken typ av prenumeration du använder för att skapa ett batch-konto. Kärnor som visas är för batch-konton i batch-tjänstens läge. [Visa kvoterna i batch-kontot](../articles/batch/batch-quota-limit.md#view-batch-quotas).
 
 > [!IMPORTANT]
-> För att hjälpa oss att hantera kapaciteten under den globala hälso Pandemic är standard kvoterna för nya batch-konton i vissa regioner och för vissa typer av prenumeration sänkta från ovanstående värde intervall, i vissa fall till noll kärnor. När du skapar ett nytt batch-konto [kontrollerar du kärn kvoten](../articles/batch/batch-quota-limit.md#view-batch-quotas) och [begär en ökad kärn kvot](../articles/batch/batch-quota-limit.md#increase-a-quota), om det behövs. 
+> För att hjälpa oss att hantera kapaciteten under den globala hälso Pandemic är standard kvoterna för nya batch-konton i vissa regioner och för vissa typer av prenumeration sänkta från ovanstående värde intervall, i vissa fall till noll kärnor. När du skapar ett nytt batch-konto [kontrollerar du kärn kvoten](../articles/batch/batch-quota-limit.md#view-batch-quotas) och [begär en ökad kärn kvot](../articles/batch/batch-quota-limit.md#increase-a-quota), om det behövs. Du kan också överväga att återanvända batch-konton som redan har tillräcklig kvot. 

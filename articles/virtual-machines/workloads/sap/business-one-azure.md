@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 293a0fcd1211739be07e58f414bd6861bf47eb76
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831115"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654658"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One på Azure Virtual Machines
 Det här dokumentet innehåller rikt linjer för att distribuera SAP Business One på Azure Virtual Machines. Dokumentationen ersätter inte installations dokumentationen för Business One för SAP. Dokumentationen bör avse grundläggande planerings-och distributions rikt linjer för Azure-infrastrukturen för att köra företag ett program på.
@@ -31,7 +31,7 @@ Företag One har stöd för två olika databaser:
 
 Vad gäller SQL Server gäller grundläggande distribution av distributioner som dokumenteras i [Azure Virtual Machines DBMS-distribution för SAP NetWeaver](./dbms_guide_general.md) . för SAP HANA beskrivs överväganden i det här dokumentet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda den här guiden behöver du grundläggande kunskaper om följande Azure-komponenter:
 
 - [Virtuella Azure-datorer i Windows](../../windows/tutorial-manage-vm.md)
@@ -118,7 +118,7 @@ De här dokumenten bör hjälpa dig att bestämma urvalet av lagrings typer och 
 
 I princip bör du:
 
-- Använd Premium-SSD över standard hård diskar. Mer information om tillgängliga disk typer finns i vår artikel [Välj en disktyp](../../windows/disks-types.md)
+- Använd Premium-SSD över standard hård diskar. Mer information om tillgängliga disk typer finns i vår artikel [Välj en disktyp](../../disks-types.md)
 - Använd Azure Managed disks över ohanterade diskar
 - Kontrol lera att du har tillräckligt med IOPS och I/O-genomflöde som kon figurer ATS med disk konfigurationen
 - Kombinera/Hana/data-och/Hana/log-volymer för att få en kostnads effektiv lagrings konfiguration

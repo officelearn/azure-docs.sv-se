@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5994e9741340c6fef662f7037efa142c5684b6cb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86544779"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88655095"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -21,7 +21,7 @@ Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och
 
 **Vad är Azure Managed Disks?**
 
-Managed Disks är en funktion som fören klar disk hanteringen för virtuella Azure IaaS-datorer genom att hantera lagrings konto hantering åt dig. Mer information finns i [Översikt över Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks är en funktion som fören klar disk hanteringen för virtuella Azure IaaS-datorer genom att hantera lagrings konto hantering åt dig. Mer information finns i [Översikt över Managed disks](../articles/virtual-machines/managed-disks-overview.md).
 
 **Hur mycket kostar mig om jag skapar en standard-hanterad disk från en befintlig virtuell hård disk som är 80 GB?**
 
@@ -212,7 +212,7 @@ Förutom disk begränsningen finns det en IO-begränsning som läggs på VM-niv�
 Nej, Ultra disks stöder inte de olika metoderna för cachelagring som stöds på andra disk typer. Ställ in diskcachelagring på **ingen**.
 
 **Kan jag ansluta en Ultra disk till min befintliga virtuella dator?**
-Din virtuella dator måste kanske finnas i en region och ett tillgänglighets zon par som stöder Ultra disks. Mer information finns i [komma igång med Ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
+Din virtuella dator måste kanske finnas i en region och ett tillgänglighets zon par som stöder Ultra disks. Mer information finns i [komma igång med Ultra disks](../articles/virtual-machines/disks-enable-ultra-ssd.md) .
 
 **Kan jag använda en Ultra disk som OS-disk för den virtuella datorn?**
 Nej, Ultra disks stöds bara som data diskar och stöds endast som 4K-inhemska diskar.

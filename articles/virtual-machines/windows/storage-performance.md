@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 666f84da8f0999268b09dfd06ff5b3fe21bbef96
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 82554982cd55b6c5fb2b96b2752b00401cb896d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525576"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653638"
 ---
-# <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda för virtuella datorer i Lsv2-serien
+# <a name="optimize-performance-on-the-lsv2-series-windows-virtual-machines"></a>Optimera prestanda för virtuella Windows-datorer med Lsv2-serien
 
 Virtuella datorer i Lsv2-serien har stöd för en mängd arbets belastningar som kräver höga I/O och data flöden i lokal lagring i en mängd olika program och branscher.  Lsv2-serien är idealisk för Big data, SQL, NoSQL-databaser, data lager hantering och stora transaktions databaser, inklusive Cassandra, MongoDB, Cloudera och Redis.
 
@@ -75,7 +75,7 @@ Scenarier som skyddar kunderna på ett säkert sätt är:
 - Den virtuella datorn blir ohälsosam och måste serva till en annan nod på grund av ett maskin varu problem.
 - Ett litet antal planerade underhålls åtgärder som kräver att den virtuella datorn allokeras om till en annan värd för underhåll.
 
-Mer information om alternativ för att säkerhetskopiera data i lokal lagring finns i [säkerhets kopiering och haveri beredskap för Azure IaaS-diskar](backup-and-disaster-recovery-for-azure-iaas-disks.md).
+Mer information om alternativ för att säkerhetskopiera data i lokal lagring finns i [säkerhets kopiering och haveri beredskap för Azure IaaS-diskar](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

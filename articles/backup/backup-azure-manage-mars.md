@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 581141ea5ffaecf774d292f66a05da5e40c8dc54
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 71cec82550ae8ca2bc6ddd7bda6452870e5e0818
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263307"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654233"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -92,7 +92,7 @@ Det finns två sätt att sluta skydda säkerhets kopior av filer och mappar:
   - Med det här alternativet stoppas alla framtida säkerhets kopierings jobb från skydd.
   - Azure Backup tjänsten fortsätter att behålla alla befintliga återställnings punkter.  
   - Du kan återställa säkerhetskopierade data för återställnings punkter som inte har gått ut.
-  - Om du väljer att återuppta skyddet kan du använda alternativet *återaktivera säkerhets kopierings schema* . Därefter behålls data baserat på den nya bevarande principen.
+  - Om du väljer att återuppta skyddet kan du använda alternativet *återaktivera säkerhets kopierings schema* . Efter det kommer data att behållas baserat på den nya bevarande principen.
 - **Stoppa skyddet och ta bort säkerhetskopierade data**.
   - Med det här alternativet stoppas alla framtida säkerhets kopierings jobb för att skydda dina data och ta bort alla återställnings punkter.
   - Du får ett e-postmeddelande med en varning *om att data för säkerhets kopierings objekt har tagits bort. Dessa data är tillfälligt tillgängliga i 14 dagar, och den kommer att tas bort permanent* och den rekommenderade åtgärden *skyddar säkerhets kopierings objekt inom 14 dagar för att återställa dina data.*

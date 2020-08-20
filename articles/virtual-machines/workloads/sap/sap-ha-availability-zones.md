@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4a22771f7880c48722f410f3a2fae0c66e9c8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035799"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653604"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](../../../availability-zones/az-overview.md) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -109,7 +109,7 @@ Följande överväganden gäller för den här konfigurationen:
 - För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
   - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
   - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -137,7 +137,7 @@ Följande överväganden gäller för den här konfigurationen:
 - För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
     - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
@@ -167,7 +167,7 @@ Följande överväganden gäller för den här konfigurationen:
 - För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.
-- Azure Premium Storage och [Ultra SSD Storage](../../windows/disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
+- Azure Premium Storage och [Ultra SSD Storage](../../disks-types.md#ultra-disk) stöder inte någon typ av lagrings replikering mellan zoner. Programmet (DBMS eller SAP Central Services) måste replikera viktiga data.
 - Detsamma gäller för den delade sapmnt-katalogen, som är en delad disk (Windows), en CIFS-resurs (Windows) eller en NFS-resurs (Linux). Du måste använda en teknik som replikerar de här delade diskarna eller resurserna mellan zonerna. Dessa tekniker stöds:
     - För Windows är en kluster lösning som använder SIOS DataKeeper, som dokumenterad i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure](./sap-high-availability-guide-wsfc-shared-disk.md).
     - För SUSE Linux är en NFS-resurs som skapats som dokumenterad i [hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).

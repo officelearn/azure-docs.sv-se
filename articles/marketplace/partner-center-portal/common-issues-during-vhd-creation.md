@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4d30cdb931d6523eba3aac003caeee38a8c024d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504321"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653536"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Vanliga problem vid skapande av virtuell hård disk
 
@@ -20,7 +20,7 @@ Vanliga frågor och svar (FAQ) omfattar vanliga problem som kan uppstå när du 
 
 ## <a name="how-do-i-create-a-vm-from-the-azure-portal-using-a-vhd-in-premium-storage"></a>Hur gör jag för att skapa en virtuell dator från Azure Portal med en virtuell hård disk i Premium Storage?
 
-Azure Marketplace har för närvarande inte stöd för att skapa virtuella dator erbjudanden från avbildningar på hanterad lagring eller från Azure Premium Storage. Mer information finns i [Översikt över Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
+Azure Marketplace har för närvarande inte stöd för att skapa virtuella dator erbjudanden från avbildningar på hanterad lagring eller från Azure Premium Storage. Mer information finns i [Översikt över Azure Managed disks](../../virtual-machines/managed-disks-overview.md).
 
 ## <a name="can-i-use-generation-2-vms-for-offers"></a>Kan jag använda virtuella datorer i generation 2 för erbjudanden?
 
@@ -28,7 +28,7 @@ Nej, endast generation 1-VHD: er stöds. Men vi arbetar för närvarande med Mic
 
 ## <a name="how-do-i-change-the-name-of-the-host"></a>Hur gör jag för att ändra namnet på värden?
 
-Du kan inte. När en virtuell dator har skapats kan inte användare (inklusive ägare) uppdatera värd namnet.
+Det kan du inte göra. När en virtuell dator har skapats kan inte användare (inklusive ägare) uppdatera värd namnet.
 
 ## <a name="how-do-i-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Hur gör jag för att återställa fjärr skrivbords tjänsten eller inloggnings lösen ordet?
 

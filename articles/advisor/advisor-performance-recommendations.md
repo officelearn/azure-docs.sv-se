@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure Apps med Advisor
 description: Använd prestanda rekommendationer i Azure Advisor för att förbättra hastighet och svars tider för affärs kritiska program.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdca8cd39427fb0d25f8b3308eaf2be24e0eb81a
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257459"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653315"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Förbättra prestanda för Azure-program med hjälp av Azure Advisor
 
@@ -51,32 +51,32 @@ Advisor identifierar virtuella datorer med standard diskar som har en stor mäng
 
 Azure Premium Storage levererar stöd för hög prestanda, låg latens disk för virtuella datorer som kör I/O-intensiva arbets belastningar. Virtuella dator diskar som använder Premium Storage konto Arkiv data i solid-state-hårddiskar (SSD). För bästa prestanda för ditt program rekommenderar vi att du migrerar alla virtuella dator diskar som kräver hög IOPS till Premium Storage.
 
-## <a name="remove-data-skew-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Ta bort data skevningen i SQL Data Warehouse tabeller för att öka prestandan för frågor
+## <a name="remove-data-skew-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Ta bort data skevningen i Azure Synapse Analytics-tabellerna för att öka prestandan för frågor
 
 Data skevning kan orsaka onödig data förflyttning eller Flask halsar i resurser när du kör arbets belastningen. Advisor identifierar fördelnings data skevning på mer än 15%. Vi rekommenderar att du distribuerar om dina data och återgår till dina val av tabell distributions nyckel. Mer information om hur du identifierar och tar bort skevning finns i [Felsöka skevning](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute.md#how-to-tell-if-your-distribution-column-is-a-good-choice).
 
-## <a name="create-or-update-outdated-table-statistics-in-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skapa eller uppdatera gammal tabell statistik i SQL Data Warehouse tabeller för att öka prestanda för frågor
+## <a name="create-or-update-outdated-table-statistics-in-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skapa eller uppdatera gammal tabell statistik i dina Azure Synapse Analytics-tabeller för att öka prestandan för frågor
 
-Advisor identifierar tabeller som inte har aktuell [tabell statistik](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) och rekommenderar att du skapar eller uppdaterar statistiken. Frågans optimering i Azure SQL Data Warehouse använder uppdaterad statistik för att beräkna kardinalitet eller antal rader i frågeresultat. Dessa uppskattningar gör det möjligt för Query Optimering att skapa en frågeplan för att ge snabbast prestanda.
+Advisor identifierar tabeller som inte har aktuell [tabell statistik](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-statistics.md) och rekommenderar att du skapar eller uppdaterar statistiken. Frågans optimering i Azure Synapse Analytics använder uppdaterad statistik för att beräkna kardinalitet eller antal rader i frågeresultat. Dessa uppskattningar gör det möjligt för Query Optimering att skapa en frågeplan för att ge snabbast prestanda.
 
 ## <a name="improve-mysql-connection-management"></a>Förbättra hanteringen av MySQL-anslutningar
 
 Advisor-analys kan indikera att ditt program som ansluter till en MySQL-server kanske inte hanterar anslutningar effektivt. Det här tillståndet kan leda till onödig resursförbrukning och övergripande program svars tid. För att förbättra anslutningshanteringen rekommenderar vi att du minskar antalet kortvariga anslutningar och eliminerar onödiga inaktiva anslutningar. Du kan göra dessa förbättringar genom att konfigurera en server sidans anslutningspool, som ProxySQL.
 
 
-## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cachen på dina SQL Data Warehouse tabeller för att öka prestanda för frågor
+## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Skala upp för att optimera användningen av cacheminnet i Azure Synapse Analytics-tabeller för att öka prestanda för frågor
 
-Azure Advisor identifierar om dina SQL Data Warehouse tabeller har en hög cache-Använd procent andel och en låg procent andel. Det här villkoret indikerar hög cache-avlägsnande, vilket kan påverka prestandan för SQL Data Warehouse-instansen. Advisor rekommenderar att du skalar upp SQL Data Warehouse-instansen så att du kan allokera tillräckligt med cache-kapacitet för din arbets belastning.
+Azure Advisor identifierar om dina Azure Synapse Analytics-tabeller har en hög cache-Använd procent och en låg träff i procent. Det här villkoret indikerar hög cache-avlägsnande, vilket kan påverka prestanda för din Azure Synapse Analytics-instans. Advisor rekommenderar att du skalar upp Azure Synapse Analytics-instansen så att du kan allokera tillräckligt med cache-kapacitet för din arbets belastning.
 
-## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Konvertera SQL Data Warehouse tabeller till replikerade tabeller för att öka prestanda för frågor
+## <a name="convert-azure-synapse-analytics-tables-to-replicated-tables-to-increase-query-performance"></a>Konvertera Azure Synapse Analytics-tabeller till replikerade tabeller för att öka prestanda för frågor
 
 Advisor identifierar tabeller som inte är replikerade tabeller, men som skulle ha nytta av konverteringen. Det föreslår att du konverterar dessa tabeller. Rekommendationerna baseras på:
 - Storleken på den replikerade tabellen. 
 - Antalet kolumner. 
 - Tabell distributions typen. 
-- Antalet partitioner i SQL Data Warehouses tabellen. 
+- Antalet partitioner i Azure Synapse Analytics-tabellen. 
 
-Ytterligare heuristik kan ges i rekommendationen för Context. Mer information om hur den här rekommendationen fastställs finns [SQL Data Warehouse rekommendationer](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
+Ytterligare heuristik kan ges i rekommendationen för Context. Mer information om hur den här rekommendationen fastställs finns i [rekommendationer för Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations.md#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-the-latest-azure-features"></a>Migrera ditt lagrings konto till Azure Resource Manager för att få de senaste Azure-funktionerna
 

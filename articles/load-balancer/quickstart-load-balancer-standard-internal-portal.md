@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 1a7511ed0e7bb1d9032331efa87f0d61a99cf5dc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e8d11c2122a21b67620987ad9ef74efc99eeb98b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065241"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654505"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -36,7 +36,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ---
 
-# <a name="option-1-default-create-a-internal-load-balancer-standard-sku"></a>[Alternativ 1 (standard): skapa en intern belastningsutjämnare (standard-SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# <a name="standard-sku"></a>[**Standard-SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -65,7 +65,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **myResourceGroupLB** |
     | **Instans information** |                                                                 |
-    | Name             | Ange **myVNet**                                    |
+    | Namn             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
@@ -112,7 +112,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **standard** |
@@ -275,12 +275,12 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2|
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Namn |  **myVM2** |
     | Tillgänglighetszon | **2** |
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**|
 
 
-# <a name="option-2-create-a-internal-load-balancer-basic-sku"></a>[Alternativ 2: skapa en intern belastningsutjämnare (Basic SKU)](#tab/option-1-create-internal-load-balancer-basic)
+# <a name="basic-sku"></a>[**Grundläggande SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -309,7 +309,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **myResourceGroupLB** |
     | **Instans information** |                                                                 |
-    | Name             | Ange **myVNet**                                    |
+    | Namn             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
@@ -356,7 +356,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **myResourceGroupLB** som skapades i föregående steg.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Intern**.                                        |
     | SKU           | Välj **grundläggande** |
@@ -415,7 +415,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
     | Port | Ange **80**.|
-    | Sökväg | Går**/** |
+    | Sökväg | Går **/** |
     | Intervall | Ange **15** som **intervall** i sekunder mellan avsöknings försök. |
     | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
 
@@ -523,7 +523,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2 |
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Namn |  **myVM2** |
     | Tillgänglighetsuppsättning| Välj **myAvailabilitySet** |
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**|
 

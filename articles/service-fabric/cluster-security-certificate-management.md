@@ -4,12 +4,12 @@ description: Lär dig mer om att hantera certifikat i ett Service Fabric kluster
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.custom: sfrev
-ms.openlocfilehash: fb5d19e1cceacfeabc4bc670de98e56d3fbc2596
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: aba681157d71f94914462b8d9fc13b90d4d6b153
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246715"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653672"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Certifikat hantering i Service Fabric kluster
 
@@ -91,7 +91,7 @@ I det här läget finns ett certifikat i valvet som är redo för användning. V
 Vi nämnde en etablerings agent, som är den entitet som hämtar certifikatet, inklusive den privata nyckeln, från valvet och installerar den på alla värdar i klustret. (Kom ihåg att Service Fabric inte etablerar certifikat.) I vårt sammanhang kommer klustret att finnas i en samling virtuella Azure-datorer och/eller skalnings uppsättningar för virtuella datorer. I Azure kan etablering av ett certifikat från ett valv till en VM/VMSS uppnås med följande mekanismer – förutsatt att etablerings agenten tidigare har beviljats "Get"-behörighet för valvet av valv ägaren: 
   - ad hoc: en operatör hämtar certifikatet från valvet (som PFX/PKCS #12 eller pem) och installerar det på varje nod
   - som en virtuell dators skalnings uppsättning "hemlighet" under distributionen: beräknings tjänsten hämtar, använder sin första part identitet för operatören, certifikatet från ett mall-distributions-aktiverat valv och installerar det på varje nod i den virtuella datorns skalnings uppsättning ([t. ex](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).). Observera att detta endast tillåter etablering av versions bara hemligheter
-  - använda [Key Vault VM-tillägget](../virtual-machines/extensions/key-vault-windows.md); Detta möjliggör etablering av certifikat med hjälp av versions lösa deklarationer, med regelbunden uppdatering av observerade certifikat. I detta fall förväntas VM/VMSS ha en [hanterad identitet](../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources), en identitet som har beviljats åtkomst till de valv som innehåller observerade certifikat.
+  - använda [Key Vault VM-tillägget](../virtual-machines/extensions/key-vault-windows.md); Detta möjliggör etablering av certifikat med hjälp av versions lösa deklarationer, med regelbunden uppdatering av observerade certifikat. I detta fall förväntas VM/VMSS ha en [hanterad identitet](../virtual-machines/security-policy.md#managed-identities-for-azure-resources), en identitet som har beviljats åtkomst till de valv som innehåller observerade certifikat.
 
 Ad hoc-mekanismen rekommenderas inte av flera orsaker, från säkerhet till tillgänglighet och beskrivs inte här längre. Mer information finns [i certifikat i skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#certificates).
 

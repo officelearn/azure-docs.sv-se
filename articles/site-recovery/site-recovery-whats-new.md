@@ -3,12 +3,12 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611746"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654828"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -378,7 +378,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 **Funktion** | **Information**
 --- | ---
 **Nätverksmappning** | För haveri beredskap för virtuella Azure-datorer kan du nu använda alla tillgängliga mål nätverk när du aktiverar replikering.
-**Standard SSD** | Nu kan du konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av [standard SSD diskar](../virtual-machines/windows/disks-types.md#standard-ssd).
+**Standard SSD** | Nu kan du konfigurera haveri beredskap för virtuella Azure-datorer med hjälp av [standard SSD diskar](../virtual-machines/disks-types.md#standard-ssd).
 **Lagringsutrymmen direkt** | Du kan konfigurera haveri beredskap för appar som körs på Azure VM-appar med hjälp av [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) för hög tillgänglighet.  Användning av Lagringsdirigering (S2D) tillsammans med Site Recovery ger omfattande skydd av virtuella Azure-arbetsbelastningar. S2D låter dig vara värd för ett gäst kluster i Azure. Detta är särskilt användbart när en virtuell dator är värd för ett kritiskt program, till exempel SAP ASCS-lager, SQL Server eller skalbar fil server.
 
 

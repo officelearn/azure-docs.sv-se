@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 15f357248a6174de1e0890a4b45e9fa3930a06fe
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: d234e89d0d042999805fae73d3df24c03d1027c9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258528"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654046"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Minska service kostnaderna genom att använda Azure Advisor
 
@@ -71,7 +71,7 @@ Advisor analyserar Azure Blob Storage och Azure Data Lake lagrings användning u
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>MariaDB, MySQL och PostgreSQL reserverad kapacitet
 Advisor analyserar användnings mönstren för Azure Database for MariaDB, Azure Database for MySQL och Azure Database for PostgreSQL de senaste 30 dagarna. Sedan rekommenderar vi reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa MariaDB, MySQL och PostgreSQL per timme och spara över dina nuvarande kostnader. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
-### <a name="synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Synapse-analys (tidigare SQL Data Warehouse) reserverad kapacitet
+### <a name="azure-synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Azure Synapse Analytics (tidigare SQL Data Warehouse) reserverad kapacitet
 Advisor analyserar användnings mönstren för Azure Synapse-analys under de senaste 30 dagarna och rekommenderar reserverade kapacitets inköp som optimerar kostnaderna. Med reserverad kapacitet kan du förköpa Synapse för analys per timme och spara över dina kostnader på begäran. Reserverad kapacitet är en fakturerings förmån och gäller automatiskt för nya och befintliga distributioner. Advisor beräknar besparingar för enskilda prenumerationer med hjälp av 3 års reservations priser och användnings mönster som observerats under de senaste 30 dagarna. Delade omfattnings rekommendationer är tillgängliga för reserverade kapacitets inköp och kan öka besparingarna.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Ta bort ej associerade offentliga IP-adresser för att spara pengar

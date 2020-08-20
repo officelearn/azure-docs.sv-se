@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46db5f7d3e5d3844fb297e512d8d701e6da79de9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84700893"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654318"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
 
-Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.
+Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster som Microsoft Azure, Office 365 och Dynamics 365.
 
 I den här artikeln beskrivs hur du kan använda Azure-ExpressRoute med Azure Site Recovery för haveri beredskap och migrering.
 
@@ -50,7 +50,7 @@ Det kombinerade scenariot representeras i följande diagram: ![ lokal-till-Azure
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Azure till Azure-replikering med ExpressRoute
 
-Azure Site Recovery möjliggör haveri beredskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). Beroende på om dina virtuella Azure-datorer använder [azure Managed disks](../virtual-machines/windows/managed-disks-overview.md)skickas replikeringsdata till ett Azure Storage konto eller en replik hanterad disk i Azure-regionen. Även om replikeringens slut punkter är offentliga, kommer replikeringstrafiken för replikering av virtuella Azure-datorer som standard inte att passera Internet, oavsett vilken Azure-region det virtuella käll nätverket finns i. Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
+Azure Site Recovery möjliggör haveri beredskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). Beroende på om dina virtuella Azure-datorer använder [azure Managed disks](../virtual-machines/managed-disks-overview.md)skickas replikeringsdata till ett Azure Storage konto eller en replik hanterad disk i Azure-regionen. Även om replikeringens slut punkter är offentliga, kommer replikeringstrafiken för replikering av virtuella Azure-datorer som standard inte att passera Internet, oavsett vilken Azure-region det virtuella käll nätverket finns i. Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
 
 För haveri beredskap för virtuella Azure-datorer krävs som standard inte ExpressRoute för replikering. När de virtuella datorerna redundansväxlas till Azure-regionen kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Observera att priserna för data överföring gäller oavsett vilket läge som används för datareplikering i Azure-regioner.
 

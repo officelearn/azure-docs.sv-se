@@ -3,18 +3,18 @@ title: Ladda upp VHD-filen till Azure DevTest Labs med Storage Explorer
 description: Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Microsoft Azure Storage Explorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ccdf27488147bc4840d1e505ba2761bf328d6a32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480770"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654522"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Ladda upp VHD-filen till Labbets lagrings konto med hjälp av Microsoft Azure Storage Explorer
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar som används för att etablera virtuella datorer. Den här artikeln beskriver hur du använder [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp en VHD-fil till ett labbs lagrings konto. När du har laddat upp VHD-filen visas några artiklar i [avsnittet Nästa steg](#next-steps) som illustrerar hur du skapar en anpassad avbildning från den uppladdade VHD-filen. Mer information om diskar och virtuella hård diskar i Azure finns i [Introduktion till Managed disks](../virtual-machines/linux/managed-disks-overview.md)
+I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar som används för att etablera virtuella datorer. Den här artikeln beskriver hur du använder [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp en VHD-fil till ett labbs lagrings konto. När du har laddat upp VHD-filen visas några artiklar i [avsnittet Nästa steg](#next-steps) som illustrerar hur du skapar en anpassad avbildning från den uppladdade VHD-filen. Mer information om diskar och virtuella hård diskar i Azure finns i [Introduktion till Managed disks](../virtual-machines/managed-disks-overview.md)
 
 ## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
 

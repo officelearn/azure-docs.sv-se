@@ -3,12 +3,12 @@ title: Kostnads analys och budget
 description: Lär dig hur du kan få en kostnads analys och ange en budget för de underliggande beräknings resurserna och program varu licenser som används för att köra batch-arbetsbelastningar.
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50ca1ecfd0a973ff39dabfcb62175ce820d0a0d6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725779"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654250"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Kostnads analys och budgetar för Azure Batch
 
@@ -68,7 +68,7 @@ Läs mer om hur du konfigurerar virtuella datorer med låg prioritet för din ar
 
 ### <a name="virtual-machine-os-disk-type"></a>Typ av operativ system disk för virtuell dator
 
-Det finns flera [typer av virtuella dator diskar](../virtual-machines/windows/disks-types.md). De flesta VM-serier har storlekar som stöder både Premium-och standard-lagring. När ens VM-storlek har valts för en pool konfigurerar batch att Premium SSD OS-diskar. När den virtuella datorns icke-s-storlek väljs används den billigare, standard hård disk typen. Till exempel används Premium SSD OS-diskar för `Standard_D2s_v3` och standard diskar för HDD-operativsystem används för `Standard_D2_v3` .
+Det finns flera [typer av virtuella dator diskar](../virtual-machines/disks-types.md). De flesta VM-serier har storlekar som stöder både Premium-och standard-lagring. När ens VM-storlek har valts för en pool konfigurerar batch att Premium SSD OS-diskar. När den virtuella datorns icke-s-storlek väljs används den billigare, standard hård disk typen. Till exempel används Premium SSD OS-diskar för `Standard_D2s_v3` och standard diskar för HDD-operativsystem används för `Standard_D2_v3` .
 
 Premium SSD OS-diskar är dyrare, men har högre prestanda och virtuella datorer med Premium diskar kan starta något snabbare än virtuella datorer med standard diskar för HDD-operativsystem. Med batch är operativ system disken ofta inte så mycket som program-och aktivitets filerna finns på de virtuella datorernas temporära SSD-diskar. Därför behöver du i många fall inte betala den ökade kostnaden för Premium SSD som tillhandahålls när storleken på en virtuell dator har angetts.
 

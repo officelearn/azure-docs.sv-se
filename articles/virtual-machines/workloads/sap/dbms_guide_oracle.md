@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd8177f6fd8e40e9c4ea37bc7ead910806efbad2
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 75f8a1f42c5d5702fdb4a588b0829636c30f80a6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88504950"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654624"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -247,7 +247,7 @@ ms.locfileid: "88504950"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -318,7 +318,7 @@ Oracle-programvaran stöds av Oracle för att köras på Microsoft Azure. För y
 
 Följande SAP-anteckningar är relaterade till SAP på Azure.
 
-| Antecknings nummer | Rubrik |
+| Antecknings nummer | Title |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -353,9 +353,9 @@ Om det inte finns tillräckligt med ledigt utrymme kan disken [ändra storlek](.
 För att fastställa rätt utrymme för tempfiles kan du kontrol lera storleken på tempfiles på befintliga system.
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
-Endast Oracle med enkel instans med NTFS-formaterade diskar stöds. Alla databasfiler måste lagras på fil systemet NTFS på Managed Disks (rekommenderas) eller på virtuella hård diskar. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) eller [Azure Managed disks](../../windows/managed-disks-overview.md). 
+Endast Oracle med enkel instans med NTFS-formaterade diskar stöds. Alla databasfiler måste lagras på fil systemet NTFS på Managed Disks (rekommenderas) eller på virtuella hård diskar. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) eller [Azure Managed disks](../../managed-disks-overview.md). 
 
-Vi rekommenderar starkt att du använder [Azure Managed disks](../../windows/managed-disks-overview.md). Vi rekommenderar också starkt att du använder [Premium-SSD](../../windows/disks-types.md) för dina Oracle Database-distributioner.
+Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också starkt att du använder [Premium-SSD](../../disks-types.md) för dina Oracle Database-distributioner.
 
 Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i:
 
@@ -420,7 +420,7 @@ Mer information om haveri beredskap för Oracle-databaser i Azure finns i [haver
 
 ### <a name="accelerated-networking"></a>Snabbare nätverk
 För Oracle-distributioner i Windows rekommenderar vi att du påskyndade nätverket enligt beskrivningen i [Azure accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Överväg även rekommendationer som görs i [överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md). 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 [Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Information om Oracle Database på Oracle Linux
@@ -442,11 +442,11 @@ I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage,
 
 ### <a name="storage-configuration"></a>Storage-konfiguration
 
-Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../windows/managed-disks-overview.md).
+Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../managed-disks-overview.md).
 
 För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](../../windows/premium-storage-performance.md#disk-caching).
 
-Vi rekommenderar starkt att du använder [Azure Managed disks](../../windows/managed-disks-overview.md). Vi rekommenderar också att du använder [Azure Premium-SSD](../../windows/disks-types.md) för dina Oracle Database-distributioner.
+Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också att du använder [Azure Premium-SSD](../../disks-types.md) för dina Oracle Database-distributioner.
 
 Nätverks enheter eller fjär resurser som Azure File Services stöds inte för Oracle Database-filer. Mer information finns i följande: 
 
@@ -523,5 +523,5 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 [Överväganden för azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar](dbms_guide_general.md) beskriver andra viktiga begrepp som rör distributioner av virtuella datorer med Oracle Database, inklusive Azures tillgänglighets uppsättningar och SAP-övervakning.

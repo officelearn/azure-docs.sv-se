@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 072b0e3bcf4da8e2c71082a549d42d105c06ea8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695e866b0b6182d7b46b3206a7d8e672d49ab5c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659813"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654437"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en virtuell Linux-dator från ohanterade diskar till hanterade diskar
 
-Om du har befintliga virtuella Linux-datorer som använder ohanterade diskar kan du konvertera de virtuella datorerna så att de använder [Azure Managed disks](../linux/managed-disks-overview.md). Den här processen konverterar både OS-disken och anslutna data diskar.
+Om du har befintliga virtuella Linux-datorer som använder ohanterade diskar kan du konvertera de virtuella datorerna så att de använder [Azure Managed disks](../managed-disks-overview.md). Den här processen konverterar både OS-disken och anslutna data diskar.
 
 Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure CLI. Om du behöver installera eller uppgradera den, se [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
@@ -104,4 +104,4 @@ Den virtuella datorn kommer att stoppas och startas om när migreringen är klar
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om lagrings alternativ finns i [Översikt över Azure Managed disks](../windows/managed-disks-overview.md).
+Mer information om lagrings alternativ finns i [Översikt över Azure Managed disks](../managed-disks-overview.md).

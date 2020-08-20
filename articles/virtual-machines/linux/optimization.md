@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 662475bdcb6b1ea9809f4501d144fb94e21e945e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659467"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654199"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -34,7 +34,7 @@ För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställ
 * Om du använder **xfs**inaktiverar du barriärer med hjälp av monterings alternativet `nobarrier` (för att aktivera hinder använder du alternativet `barrier` )
 
 ## <a name="unmanaged-storage-account-considerations"></a>Överväganden vid ohanterat lagrings konto
-Standard åtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Diskarna hanteras av Azure-plattformen och kräver inte någon förberedelse eller plats för att lagra dem.  Ohanterade diskar kräver ett lagrings konto och några ytterligare prestanda överväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md).  I följande avsnitt beskrivs prestanda överväganden bara när du använder ohanterade diskar.  Standardvärdet och den rekommenderade lagrings lösningen är att använda hanterade diskar.
+Standard åtgärden när du skapar en virtuell dator med Azure CLI är att använda Azure Managed Disks.  Diskarna hanteras av Azure-plattformen och kräver inte någon förberedelse eller plats för att lagra dem.  Ohanterade diskar kräver ett lagrings konto och några ytterligare prestanda överväganden.  Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](../managed-disks-overview.md).  I följande avsnitt beskrivs prestanda överväganden bara när du använder ohanterade diskar.  Standardvärdet och den rekommenderade lagrings lösningen är att använda hanterade diskar.
 
 Om du skapar en virtuell dator med ohanterade diskar, se till att du kopplar diskar från lagrings konton som finns i samma region som din virtuella dator för att säkerställa nära närhet och minimera nätverks fördröjningen.  Varje standard lagrings konto har högst 20 000 IOps och 500 TB storleks kapacitet.  Den här gränsen fungerar på ungefär 40 mycket använda diskar, inklusive både OS-disken och alla data diskar som du skapar. För Premium Storage-konton finns det ingen maximal IOps-gräns, men det finns en storleks gräns på 32 TB. 
 
@@ -51,7 +51,7 @@ I Ubuntu Cloud-avbildningar måste du använda Cloud-Init för att konfigurera v
 
 För avbildningar utan stöd för Cloud-Init har VM-avbildningar som distribueras från Azure Marketplace en VM Linux-Agent integrerad med operativ systemet. Den här agenten gör det möjligt för den virtuella datorn att samverka med olika Azure-tjänster. Förutsatt att du har distribuerat en standard avbildning från Azure Marketplace måste du göra följande för att konfigurera inställningarna för Linux-växlings filen på rätt sätt:
 
-Leta upp och ändra två poster i **/etc/waagent.conf** -filen. De styr förekomsten av en dedikerad växlings fil och storlek på växlings filen. De parametrar du behöver verifiera är `ResourceDisk.EnableSwap` och`ResourceDisk.SwapSizeMB` 
+Leta upp och ändra två poster i **/etc/waagent.conf** -filen. De styr förekomsten av en dedikerad växlings fil och storlek på växlings filen. De parametrar du behöver verifiera är `ResourceDisk.EnableSwap` och `ResourceDisk.SwapSizeMB` 
 
 Om du vill aktivera en korrekt aktive rad disk och monterad växlings fil kontrollerar du att parametrarna har följande inställningar:
 
@@ -123,7 +123,7 @@ Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva 
 
 Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:

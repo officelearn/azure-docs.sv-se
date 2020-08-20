@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498998"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653859"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Förbereda Azure-resurser för haveri beredskap för Hyper-V
 
@@ -48,7 +48,7 @@ Om du precis har skapat ett kostnads fritt Azure-konto är du administratör fö
 
 För att slutföra dessa uppgifter bör ditt konto tilldelas den inbyggda rollen för den virtuella datorn Contributor. Om du vill hantera Site Recovery åtgärder i ett valv måste ditt konto tilldelas den inbyggda rollen Site Recovery Contributor.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Avbildningar av replikerade datorer lagras i Azure-lagringen. Virtuella Azure-datorer skapas från minnet vid redundansväxling från lokalt till Azure. Lagringskontot måste finnas i samma region som Recovery Services-valvet.
 
@@ -99,7 +99,7 @@ Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats 
 
 Läs om:
 - [Azure-nätverk](../virtual-network/virtual-networks-overview.md)
-- [Hanterade diskar](../virtual-machines/windows/managed-disks-overview.md)
+- [Hanterade diskar](../virtual-machines/managed-disks-overview.md)
 
 
 

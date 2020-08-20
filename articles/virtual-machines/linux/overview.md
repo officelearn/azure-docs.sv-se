@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0d4c5a33f52799ea4da9c7c23fbace94e800660b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b205665a0e5fc06fdc784efa91036f26da5d3cde
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589477"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654352"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
 
@@ -71,7 +71,7 @@ Prenumerationen har [standardkvotgränser](../../azure-resource-manager/manageme
 
 Managed Disks hanterar skapande och hantering av Azure-lagringskontot i bakgrunden och säkerställer att du inte behöver bekymra dig om lagringskontots skalbarhetsgränser. Du anger diskens storlek och prestandanivå (Standard eller Premium) och sedan skapar och hanterar Azure disken. Om du lägger till diskar eller skalar upp eller ned den virtuella datorn behöver du inte oroa dig om lagringsutrymmet som används. Om du skapar nya virtuella datorer ska du [använda Azure CLI](quick-create-cli.md) eller Azure-portalen för att skapa virtuella datorer med hanterade OS- och datadiskar. Om du har virtuella datorer med ohanterade diskar kan du [konvertera de virtuella datorerna så att de stöds av Managed Disks](convert-unmanaged-to-managed-disks.md).
 
-Du kan även hantera dina anpassade avbildningar i ett lagringskonto per Azure-region och använda dem för att skapa hundratals virtuella datorer i samma prenumeration. Mer information om Managed Disks finns i [översikten över Managed Disks](../linux/managed-disks-overview.md).
+Du kan även hantera dina anpassade avbildningar i ett lagringskonto per Azure-region och använda dem för att skapa hundratals virtuella datorer i samma prenumeration. Mer information om Managed Disks finns i [översikten över Managed Disks](../managed-disks-overview.md).
 
 ## <a name="distributions"></a>Distributioner 
 Microsoft Azure har stöd för körning av ett antal populära Linux-distributioner som tillhandahålls och underhålls av ett antal partners.  Du hittar distributioner som Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD med flera i Azure Marketplace. Microsoft arbetar aktivt med flera Linux-communities för att lägga till ännu fler alternativ i listan över [Azure-godkända Linux-distributioner](endorsed-distros.md).

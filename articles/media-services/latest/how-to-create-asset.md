@@ -15,18 +15,18 @@ ms.workload: na
 ms.date: 08/18/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4d1e5e48e70cee1cf75b1d6605837695d26dcbf0
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: b40c936006fa47964ef67ffda37c80eb5732bdf0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608904"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653908"
 ---
 # <a name="create-an-asset"></a>Skapa en tillgång
 
 Den här artikeln visar hur du skapar en Media Services till gång.  Du kommer att använda en till gång för att lagra medie innehåll för kodning och strömning.  Läs mer om hur du Media Services till gångar genom att läsa [till gångar i Azure Media Services v3](assets-concept.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följ stegen i [skapa ett Media Services konto](./create-account-howto.md) för att skapa ett Media Services konto och en resurs grupp som krävs för att skapa en till gång.
 
@@ -53,6 +53,10 @@ Följ stegen i [skapa ett Media Services konto](./create-account-howto.md) för 
 ### <a name="using-curl"></a>Använda cURL
 
 [!INCLUDE [media-services-cli-instructions.md](./includes/task-create-asset-curl.md)]
+
+## <a name="using-postman"></a>Använda Postman
+
+[!INCLUDE[Create an asset with Postman](./includes/task-create-asset-postman.md)]
 
 ## <a name="net"></a>[.NET](#tab/net/)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: dbcb39641f35ad0f997db30b320826764a08bff1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6b66db639e0b22a7e0c45486465a1fa395aba33d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082264"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653519"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-distribution för SAP NetWeaver
 
@@ -133,7 +133,7 @@ ms.locfileid: "87082264"
 [deployment-guide-contact-support]:deployment-guide.md#3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2 (Felsöka Azure-tillägget för SAP – kontakta supporten)
 [deployment-guide-run-the-script]:deployment-guide.md#0d2847ad-865d-4a4c-a405-f9b7baaa00c7 (Felsöka Azure-tillägget för SAP – kör installations skriptet)
 [deployment-guide-redeploy-after-sysprep]:deployment-guide.md#2cd61f22-187d-42ed-bb8c-def0c983d756 (Felsöka Azure-tillägget för SAP-omdistribution efter Sysprep)
-[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 (Felsöka Azure-tillägget för SAP-Fix Internet anslutning)
+[deployment-guide-fix-internet-connection]:deployment-guide.md#e92bc57d-80d9-4a2b-a2f4-16713a22ad89 ( Felsöka Azure-tillägget för SAP-Fix Internet anslutning)
 
 
 [deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Konfigurera VM-tillägg)
@@ -256,7 +256,7 @@ ms.locfileid: "87082264"
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/disks-types.md
+[storage-premium-storage-preview-portal]:../../disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -441,7 +441,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
      En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md) i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
 1. **Inställningar**:
-   * **Lagring**
+   * **Storage**
      * **Disktyp**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
      * **Använd Managed disks**: om du vill använda Managed disks väljer du Ja. Mer information om Managed Disks finns i kapitel [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) i planerings guiden.
      * **Lagrings konto**: Välj ett befintligt lagrings konto eller skapa ett nytt. Alla lagrings typer fungerar inte för att köra SAP-program. Mer information om lagrings typer finns i [lagrings strukturen för en virtuell dator för RDBMS-distributioner](./dbms_guide_general.md#65fa79d6-a85f-47ee-890b-22e794f51a64).
@@ -549,7 +549,7 @@ Du kan använda olika steg för att skapa en privat avbildning för Linux än at
 >
 > ![Linux][Logo_Linux] Linux
 >
-> För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda `waagent -deprovision` för att göra detta. Mer information finns i [avbilda en virtuell Linux-dator som körs på Azure][virtual-machines-linux-capture-image] och [användar handboken för Azure Linux-agenten][virtual-machines-linux-agent-user-guide-command-line-options].
+> För att förbereda en Linux-avbildning som du kan använda för att distribuera flera virtuella datorer, måste vissa Linux-inställningar vara abstrakta eller generaliserade på den lokala virtuella datorn. Du kan använda `waagent -deprovision`  för att göra detta. Mer information finns i [avbilda en virtuell Linux-dator som körs på Azure][virtual-machines-linux-capture-image] och [användar handboken för Azure Linux-agenten][virtual-machines-linux-agent-user-guide-command-line-options].
 >
 >
 
@@ -581,7 +581,7 @@ Guiden vägleder dig genom att ange de parametrar som krävs för att skapa den 
      En lista över VM-typer som stöds finns i SAP anmärkning [1928533]. Se till att du väljer rätt VM-typ om du vill använda Azure Premium Storage. Alla typer av virtuella datorer har inte stöd för Premium Storage. Mer information finns i [lagring: Microsoft Azure Storage och data diskar][planning-guide-storage-microsoft-azure-storage-and-data-disks] och [Azure Storage för SAP-arbetsbelastningar](./planning-guide-storage.md) i [Azure Virtual Machines planera och implementera för SAP NetWeaver][planning-guide].
 
 1. **Inställningar**:
-   * **Lagring**
+   * **Storage**
      * **Disktyp**: Välj disk typen för OS-disken. Om du vill använda Premium Storage för dina data diskar rekommenderar vi att du även använder Premium Storage för operativ system disken.
      * **Använd Managed disks**: om du vill använda Managed disks väljer du Ja. Mer information om Managed Disks finns i kapitel [Managed disks](./planning-guide-storage.md#microsoft-azure-storage-resiliency) i planerings guiden.
    * **Nätverk**
@@ -1147,15 +1147,15 @@ Om värdet för **hälso status** inte är **OK**, följer du anvisningarna i [h
 
 1. Kontrol lera utdata från Azure-tillägget för SAP.
 
-   a.  Jag kör `more /var/lib/AzureEnhancedMonitor/PerfCounters`
+   a.  Kör `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
    **Förväntat resultat**: returnerar listan över prestanda räknare. Filen får inte vara tom.
 
-   b. Jag kör `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
+   b. Kör `cat /var/lib/AzureEnhancedMonitor/PerfCounters | grep Error`
 
    **Förväntat resultat**: returnerar en rad där felet är **ingen**, till exempel **3; config; Fel;; 0; 0; ingen; 0; 1456416792; TST-servercs;**
 
-   c. Jag kör `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
+   c. Kör `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`
 
    **Förväntat resultat**: returneras som tomt eller finns inte.
 
@@ -1163,29 +1163,29 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
 1. Kontrol lera att waagent har installerats och Aktiver ATS.
 
-   a.  Jag kör `sudo ls -al /var/lib/waagent/`
+   a.  Kör `sudo ls -al /var/lib/waagent/`
 
      **Förväntat resultat**: visar innehållet i waagent-katalogen.
 
-   b.  Jag kör `ps -ax | grep waagent`
+   b.  Kör `ps -ax | grep waagent`
 
-   **Förväntat resultat**: visar en post som liknar:`python /usr/sbin/waagent -daemon`
+   **Förväntat resultat**: visar en post som liknar: `python /usr/sbin/waagent -daemon`
 
 1. Kontrol lera att Azure-tillägget för SAP är installerat och körs.
 
-   a.  Jag kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
+   a.  Kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
    **Förväntat resultat**: visar innehållet i Azure-tillägget för SAP-katalogen.
 
-   b. Jag kör `ps -ax | grep AzureEnhanced`
+   b. Kör `ps -ax | grep AzureEnhanced`
 
-   **Förväntat resultat**: visar en post som liknar:`python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
+   **Förväntat resultat**: visar en post som liknar: `python /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-2.0.0.2/handler.py daemon`
 
 1. Installera SAP host agent enligt beskrivningen i SAP anmärkning [1031096]och kontrol lera utdata från `saposcol` .
 
-   a.  Jag kör `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Kör `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Jag kör `dump ccm`
+   b.  Kör `dump ccm`
 
    c.  Kontrol lera om den **Virtualization_Configuration \Enhanced övervaknings åtkomst** måttet är **Sant**.
 
@@ -1203,7 +1203,7 @@ Den här kontrollen säkerställer att alla prestanda mått som visas i ditt SAP
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Kör beredskaps kontrollen på en virtuell Windows-dator
 
 1. Logga in på den virtuella Azure-datorn (med ett administratörs konto behövs inte).
-1. Öppna en webbläsare och gå tillhttp://127.0.0.1:11812/azure4sap/metrics
+1. Öppna en webbläsare och gå till http://127.0.0.1:11812/azure4sap/metrics
 1. Webbläsaren bör visa eller hämta en XML-fil som innehåller övervaknings data för den virtuella datorn. Om så inte är fallet kontrollerar du att Azure-tillägget för SAP är installerat.
 
 ##### <a name="check-the-content-of-the-xml-file"></a>Kontrol lera innehållet i XML-filen
@@ -1228,29 +1228,29 @@ Om föregående kontroll inte lyckades kör du följande ytterligare kontroller:
 
 1. Kontrol lera att waagent har installerats och Aktiver ATS.
 
-   a.  Jag kör `sudo ls -al /var/lib/waagent/`
+   a.  Kör `sudo ls -al /var/lib/waagent/`
 
      **Förväntat resultat**: visar innehållet i waagent-katalogen.
 
-   b.  Jag kör `ps -ax | grep waagent`
+   b.  Kör `ps -ax | grep waagent`
 
-   **Förväntat resultat**: visar en post som liknar:`python /usr/sbin/waagent -daemon`
+   **Förväntat resultat**: visar en post som liknar: `python /usr/sbin/waagent -daemon`
 
 1. Kontrol lera att Azure-tillägget för SAP är installerat och körs.
 
-   a.  Jag kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
+   a.  Kör `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-*/'`
 
    **Förväntat resultat**: visar innehållet i Azure-tillägget för SAP-katalogen.
 
-   b. Jag kör `ps -ax | grep AzureEnhanced`
+   b. Kör `ps -ax | grep AzureEnhanced`
 
-   **Förväntat resultat**: visar en post som liknar:`/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
+   **Förväntat resultat**: visar en post som liknar: `/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux-1.0.0.82/AzureEnhancedMonitoring -monitor`
 
 1. Installera SAP host agent enligt beskrivningen i SAP anmärkning [1031096]och kontrol lera utdata från `saposcol` .
 
-   a.  Jag kör `/usr/sap/hostctrl/exe/saposcol -d`
+   a.  Kör `/usr/sap/hostctrl/exe/saposcol -d`
 
-   b.  Jag kör `dump ccm`
+   b.  Kör `dump ccm`
 
    c.  Kontrol lera om den **Virtualization_Configuration \Enhanced övervaknings åtkomst** måttet är **Sant**.
 

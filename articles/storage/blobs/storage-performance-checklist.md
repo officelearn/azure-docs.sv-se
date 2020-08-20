@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4471994f7e691466449125a74cf3f7d46607be01
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40814ca54d31ff1fff6e3bd773564748392bf5b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495139"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654080"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
@@ -64,7 +64,7 @@ Mer information om skalbarhets mål för Kötjänst finns i [Azure Storage skalb
 
 Om du närmar dig det maximala antalet lagrings konton som tillåts för en viss kombination av prenumerationer och regioner ska du utvärdera ditt scenario och avgöra om något av följande villkor gäller:
 
-- Använder du lagrings konton för att lagra ohanterade diskar och lägga till diskarna till dina virtuella datorer? I det här scenariot rekommenderar Microsoft att hanterade diskar används. Managed disks skalas automatiskt och utan behov av att skapa och hantera enskilda lagrings konton. Mer information finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md)
+- Använder du lagrings konton för att lagra ohanterade diskar och lägga till diskarna till dina virtuella datorer? I det här scenariot rekommenderar Microsoft att hanterade diskar används. Managed disks skalas automatiskt och utan behov av att skapa och hantera enskilda lagrings konton. Mer information finns i [Introduktion till Azure Managed disks](../../virtual-machines/managed-disks-overview.md)
 - Använder du ett lagrings konto per kund, i syfte att isolera data? I det här scenariot rekommenderar Microsoft att du använder en BLOB-behållare för varje kund, i stället för ett helt lagrings konto. Med Azure Storage kan du nu tilldela Azure-roller per container-basis. Mer information finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](../common/storage-auth-aad-rbac-portal.md).
 - Använder du flera lagrings konton för att Shard för att öka ingress, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här scenariot rekommenderar Microsoft att du utnyttjar ökade gränser för lagrings konton för att minska antalet lagrings konton som krävs för din arbets belastning om det är möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagrings konto. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
@@ -131,7 +131,7 @@ För bandbredd är problemet ofta klientens funktioner. Större Azure-instanser 
 
 I takt med att nätverks användningen används bör du tänka på att nätverks förhållandena som resulterar i fel och paket förlust kommer att ta en långsam effektiv data flöde.  Att använda WireShark eller NetMon kan hjälpa dig att diagnostisera det här problemet.  
 
-### <a name="location"></a>Location
+### <a name="location"></a>Plats
 
 I alla distribuerade miljöer ger klienten nära-servern den bästa prestandan. För att få åtkomst till Azure Storage med den lägsta svars tiden är den bästa platsen för din klient i samma Azure-region. Om du till exempel har en Azure-webbapp som använder Azure Storage kan du söka efter dem i en enda region, till exempel västra USA eller Asien, sydöstra. Samplacering av resurser minskar svars tiden och kostnaden, eftersom bandbredds användningen i en enda region är kostnads fri.  
 

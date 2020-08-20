@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0d697f2100360732666c9f5ea8050800dad154b4
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498981"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653825"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Förbered Azure för lokal haveri beredskap till Azure
 
@@ -94,4 +94,4 @@ Det tar några sekunder att skapa ditt virtuella nätverk. När den har skapats 
 - För haveri beredskap för Hyper-V [förbereder du de lokala Hyper-V-servrarna](hyper-v-prepare-on-premises-tutorial.md).
 - För haveri beredskap för fysiska servrar [ställer du in konfigurations servern och käll miljön](physical-azure-disaster-recovery.md)
 - [Lär dig om](../virtual-network/virtual-networks-overview.md) Azure-nätverk.
-- [Lär dig mer om](../virtual-machines/windows/managed-disks-overview.md) Managed disks.
+- [Lär dig mer om](../virtual-machines/managed-disks-overview.md) Managed disks.

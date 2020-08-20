@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 9499fe2140f4a345d48bce6ef010989cfc22c58e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037090"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653145"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -52,7 +52,7 @@ Använd följande steg för att köra analytiska frågor med Synapse-länken fö
 
 [Azure Resource Manager-mallen](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) skapar ett Synapse-länk aktiverat Azure Cosmos-konto för SQL-API. Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och ett alternativ för att använda manuellt eller autoskalning av data flöde. Om du vill distribuera den här mallen klickar **du på distribuera till Azure** på sidan viktigt.
 
-## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a>Skapa en Azure Cosmos-behållare med analys lager
+## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Skapa en Azure Cosmos-behållare med analys lager
 
 Du kan aktivera analys lager på en Azure Cosmos-behållare när du skapar behållaren. Du kan använda Azure Portal eller konfigurera `analyticalTTL` egenskapen vid skapande av behållare med hjälp av Azure Cosmos DB SDK: er.
 
@@ -103,44 +103,63 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds(-1);
 container = database.createContainerIfNotExists(containerProperties, 400).block().getContainer();
 ```
 
-### <a name="python-v3-sdk"></a>Python v3 SDK
+### <a name="python-v4-sdk"></a>Python v4 SDK
 
-Följande kod skapar en behållare med analys lager med hjälp av python SDK:
+Python 2,7 och Azure Cosmos DB SDK-4.1.0 är de lägsta versionerna som krävs och SDK är bara kompatibelt med SQL-API: et.
+
+Det första steget är att se till att du använder minst version 4.1.0 av [Azure Cosmos DB python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos):
 
 ```python
+import azure.cosmos as cosmos
+
+print (cosmos.__version__)
+```
+Nästa steg skapar en behållare med analys lager med hjälp av Azure Cosmos DB python SDK:
+
+```python
+# Azure Cosmos DB Python SDK, for SQL API only.
+# Creating an analytical store enabled container.
+
 import azure.cosmos.cosmos_client as cosmos_client
-def create_collection_if_not_exists(cosmosEndpoint, cosmosKey, databaseName, collectionName):
-    client = cosmos_client.CosmosClient(url_connection=cosmosEndpoint, auth={'masterKey': cosmosKey})
+import azure.cosmos.exceptions as exceptions
+from azure.cosmos.partition_key import PartitionKey
 
-db = client.QueryDatabases("select * from c where c.id = '" + databaseName + "'").fetch_next_block()[0]
-options = {
-    'offerThroughput': 1000
-}
+HOST = 'your-cosmos-db-account-URI'
+KEY = 'your-cosmos-db-account-key'
+DATABASE = 'your-cosmos-db-database-name'
+CONTAINER = 'your-cosmos-db-container-name'
 
-container_definition = {
-    'id': collectionName,
-    "partitionKey": {  
-        "paths": [  
-        "/id"  
-        ],  
-        "kind": "Hash" 
-    },
-    "indexingPolicy": {  
-    "indexingMode": "consistent",  
-    "automatic": True,  
-    "includedPaths": [],  
-    "excludedPaths": [{
-        "path": "/*"
-    }]  
-    },
-    "defaultTtl": -1,
-    "analyticalStorageTtl": -1
-}
+client = cosmos_client.CosmosClient(HOST,  KEY )
+# setup database for this sample. 
+# If doesn't exist, creates a new one with the name informed above.
+try:
+    db = client.create_database(DATABASE)
 
-container = client.CreateContainer(db['_self'], container_definition, options)
+except exceptions.CosmosResourceExistsError:
+    db = client.get_database_client(DATABASE)
+
+# Creating the container with analytical store enabled, using the name informed above.
+# If a container with the same name exists, an error is returned.
+#
+# The 3 options for the analytical_storage_ttl parameter are:
+# 1) 0 or Null or not informed (Not enabled).
+# 2) -1 (The data will be stored in analytical store infinitely).
+# 3) Any other number is the actual ttl, in seconds.
+
+try:
+    container = db.create_container(
+        id=CONTAINER,
+        partition_key=PartitionKey(path='/id', kind='Hash'),analytical_storage_ttl=-1
+    )
+    properties = container.read()
+    print('Container with id \'{0}\' created'.format(container.id))
+    print('Partition Key - \'{0}\''.format(properties['partitionKey']))
+
+except exceptions.CosmosResourceExistsError:
+    print('A container with already exists')
 ```
 
-### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a>Uppdatera tiden för analys av analys arkivet till Live
+### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a> Uppdatera tiden för analys av analys arkivet till Live
 
 När analysarkivet har aktiverats med ett visst TTL-värde kan du uppdatera det till ett annat giltigt värde senare. Du kan uppdatera värdet med hjälp av Azure Portal eller SDK:er. Information om de olika alternativen för konfiguration av analytiska TTL-alternativ finns i artikeln [stöd för analytiska TTL-värden](analytical-store-introduction.md#analytical-ttl) .
 
@@ -185,15 +204,15 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 container.replace(containerProperties).block();
 ```
 
-## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a>Ansluta till en Synapse-arbetsyta
+## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a> Ansluta till en Synapse-arbetsyta
 
 Använd anvisningarna i [ansluta till Azure Synapse-länken](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) om hur du kommer åt en Azure Cosmos DB databas från Azure Synapse Analytics Studio med Azure Synapse-länken.
 
-## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a>Fråga med Synapse Spark
+## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Fråga med Synapse Spark
 
 Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) om hur du frågar med Synapse Spark. Artikeln innehåller några exempel på hur du kan interagera med analys lagret från Synapse-gester. Dessa gester visas när du högerklickar på en behållare. Med gester kan du snabbt skapa kod och anpassa den efter dina behov. De är också perfekta för att identifiera data med ett enda klick.
 
-## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a>Komma igång med Azure Synpase Link-samples
+## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Komma igång med Azure Synpase Link-samples
 
 Du hittar exempel för att komma igång med Azure Synapse-länk på [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Dessa demonstrerar lösningar från slut punkt till slut punkt med IoT och detalj handels scenarier.
 

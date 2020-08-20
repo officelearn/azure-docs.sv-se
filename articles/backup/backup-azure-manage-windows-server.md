@@ -3,12 +3,12 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 68c6354fa15ee2a6873b57e5c1622afb108b9a10
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263338"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654216"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
@@ -70,8 +70,8 @@ Säkerhets kopierings kontroller kontrol lera den virtuella datorns konfiguratio
 Säkerhetskopiera innan kontroller körs som en del av de schemalagda säkerhets kopierings åtgärderna för dina virtuella Azure-datorer. De ingår i något av följande tillstånd:
 
 * **Överfört**: det här läget anger att konfigurationen av den virtuella datorn ska leda till lyckade säkerhets kopieringar och att ingen korrigerings åtgärd behöver vidtas.
-* **Varning**! det här läget anger ett eller flera problem i den virtuella datorns konfiguration som *kan* leda till säkerhets kopierings fel. Det innehåller *rekommenderade* steg för att säkerställa att säkerhets kopieringen har slutförts. Om du till exempel inte har installerat den senaste virtuella dator agenten kan säkerhets kopieringen sluta fungera. Den här situationen skulle ge ett varnings tillstånd.
-* **Kritiskt**: det här läget anger ett eller flera kritiska problem i den virtuella datorns *konfiguration som leder* till säkerhets kopierings fel och som innehåller de steg som *krävs* för att säkerställa att säkerhets kopieringen är klar. Ett nätverks problem som orsakas av en uppdatering av NSG-reglerna för en virtuell dator innebär till exempel att säkerhets kopieringen Miss lyckas eftersom den förhindrar att den virtuella datorn kommunicerar med Azure Backup tjänsten. Den här situationen skulle ge ett kritiskt tillstånd.
+* **Varning**! det här läget anger ett eller flera problem i den virtuella datorns konfiguration som *kan* leda till säkerhets kopierings fel. Det innehåller *rekommenderade* steg för att säkerställa att säkerhets kopieringen har slutförts. Om du till exempel inte har installerat den senaste virtuella dator agenten kan säkerhets kopieringen sluta fungera. Den här situationen kommer att ge ett varnings tillstånd.
+* **Kritiskt**: det här läget anger ett eller flera kritiska problem i den virtuella datorns *konfiguration som leder* till säkerhets kopierings fel och som innehåller de steg som *krävs* för att säkerställa att säkerhets kopieringen är klar. Ett nätverks problem som orsakas av en uppdatering av NSG-reglerna för en virtuell dator innebär till exempel att säkerhets kopieringen Miss lyckas eftersom den förhindrar att den virtuella datorn kommunicerar med Azure Backup tjänsten. Den här situationen kommer att ge ett kritiskt tillstånd.
 
 Följ stegen nedan för att börja lösa eventuella problem som rapporter ATS av säkerhets kopierings kontroller för säkerhets kopior av virtuella datorer på Recovery Services valvet.
 
@@ -96,7 +96,7 @@ Listan med aviseringar om säkerhets kopiering visar den valda informationen fö
 | Aviseringsnivå | Händelser som genererar aviseringar |
 | ----------- | ----------- |
 | Kritiskt | Du får viktiga aviseringar när: säkerhets kopierings jobben inte fungerar, om återställnings jobben inte fungerar och när du slutar skydda en server, men behåller data.|
-| Varning | Du får varnings aviseringar när: säkerhets kopierings jobben har slutförts med varningar, till exempel när färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller när fler än 1 000 000 filer har säkerhetskopierats). |
+| Varning | Du får varnings aviseringar när: säkerhets kopierings jobben har slutförts med varningar. Till exempel när färre än 100 filer inte säkerhets kopie ras på grund av problem med skada, eller när fler än 1 000 000 filer har säkerhetskopierats). |
 | Information | för närvarande används inga informations aviseringar. |
 
 ### <a name="viewing-alert-details"></a>Visa aviseringsinformation

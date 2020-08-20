@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9a50a655af02bc2bfa188225209024cfbaa82a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432872"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654709"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -25,11 +25,11 @@ Den här artikeln hjälper dig att förstå processen med att skapa privata slut
 - Även om ett Recovery Services valv används av (både) Azure Backup och Azure Site Recovery, diskuterar den här artikeln användning av privata slut punkter för enbart Azure Backup.
 - Azure Active Directory stöder för närvarande inte privata slut punkter. IP-adresser och FQDN: er som krävs för att Azure Active Directory ska fungera i en region måste vara tillåtna utgående åtkomst från det skyddade nätverket när du säkerhetskopierar databaser i virtuella Azure-datorer och säkerhets kopiering med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt.
 - Virtuella nätverk med nätverks principer stöds inte för privata slut punkter. Du måste inaktivera nätverks principer innan du fortsätter.
-- Du måste registrera om Recovery Services Resource Provider med prenumerationen om du registrerade den innan maj 1 2020. Om du vill registrera providern igen går du till prenumerationen i Azure Portal, navigerar till **resurs leverantören** i det vänstra navigerings fältet och väljer sedan **Microsoft. RecoveryServices** och klickar på **registrera igen**.
+- Du måste registrera om Recovery Services Resource Provider med prenumerationen om du registrerade den innan maj 1 2020. Om du vill registrera providern igen går du till prenumerationen i Azure Portal, navigerar till **resurs leverantören** i det vänstra navigerings fältet och väljer sedan **Microsoft. RecoveryServices** och väljer **Omregistrera**.
 
 ## <a name="recommended-and-supported-scenarios"></a>Rekommenderade och stödda scenarier
 
-När privata slut punkter är aktiverade för valvet används de för säkerhets kopiering och återställning av SQL och SAP HANA arbets belastningar i en Azure VM-och MARS agent-säkerhetskopiering. Du kan också använda valvet för säkerhets kopiering av andra arbets belastningar även (de kräver inte privata slut punkter). Förutom säkerhets kopiering av SQL och SAP HANA arbets belastningar och säkerhets kopiering med MARS-agenten används även privata slut punkter för att utföra fil återställning när det gäller Azure VM-säkerhetskopiering. Mer information finns i följande tabell:
+När privata slut punkter är aktiverade för valvet används de för säkerhets kopiering och återställning av SQL och SAP HANA arbets belastningar i en Azure VM-och MARS agent-säkerhetskopiering. Du kan också använda valvet för säkerhets kopiering av andra arbets belastningar även (de kräver inte privata slut punkter). Förutom säkerhets kopiering av SQL och SAP HANA arbets belastningar och säkerhets kopiering med MARS-agenten används även privata slut punkter för att utföra fil återställning för Azure VM-säkerhetskopiering. Mer information finns i följande tabell:
 
 | Säkerhets kopiering av arbets belastningar i Azure VM (SQL, SAP HANA), säkerhets kopiering med MARS-agenten | Användning av privata slut punkter rekommenderas för att tillåta säkerhets kopiering och återställning utan att tillåta-lista alla IP-adresser/FQDN: er för Azure Backup eller Azure Storage från dina virtuella nätverk. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -55,7 +55,7 @@ Hanterade identiteter tillåter valvet att skapa och använda privata slut punkt
 
     ![Ändra identitetens status till på](./media/private-endpoints/identity-status-on.png)
 
-1. Ändra **statusen** till **på** och klicka på **Spara**.
+1. Ändra **statusen** till **på** och välj **Spara**.
 
 1. Ett **objekt-ID** genereras, vilket är valvets hanterade identitet.
 
@@ -72,14 +72,14 @@ Du kan också använda dina anpassade DNS-servrar. Se [DNS-ändringar för anpas
 
 Det finns två obligatoriska DNS-zoner som måste skapas:
 
-- `privatelink.blob.core.windows.net`(för säkerhets kopiering/återställning av data)
-- `privatelink.queue.core.windows.net`(för tjänst kommunikation)
+- `privatelink.blob.core.windows.net` (för säkerhets kopiering/återställning av data)
+- `privatelink.queue.core.windows.net` (för tjänst kommunikation)
 
 1. Sök efter **privat DNS zon** i Sök fältet **alla tjänster** och välj **privat DNS zon** i list rutan.
 
     ![Välj Privat DNS zon](./media/private-endpoints/private-dns-zone.png)
 
-1. När du är i fönstret **privat DNS zon** klickar du på knappen **+ Lägg** till för att börja skapa en ny zon.
+1. När du är i fönstret **privat DNS zon** väljer du knappen **+ Lägg** till för att börja skapa en ny zon.
 
 1. Fyll i den information som krävs i fönstret **skapa privat DNS-zon** . Prenumerationen måste vara samma som den privata slut punkten som ska skapas.
 
@@ -90,7 +90,7 @@ Det finns två obligatoriska DNS-zoner som måste skapas:
 
     | **Zon**                           | **Tjänst** | **Information om prenumeration och resurs grupp (RG)**                  |
     | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: antingen RG för VNet eller den privata slut punkten |
+    | `privatelink.blob.core.windows.net`  | Blob        | **Prenumeration**: samma som den privata slut punkten måste skapas  **RG**: antingen RG för VNet eller den privata slut punkten |
     | `privatelink.queue.core.windows.net` | Kö       | **RG**: antingen RG för VNet eller den privata slut punkten |
 
     ![Skapa Privat DNS zon](./media/private-endpoints/create-private-dns-zone.png)
@@ -105,7 +105,7 @@ Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med sa
 
 | **Zon**                                                     | **Tjänst** | **Information om prenumeration och resurs grupp**                  |
 | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Obs**: *geo* här refererar till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa. | Backup      | **Prenumeration**: samma som den privata slut punkten måste skapas **RG**: alla rg i prenumerationen |
+| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Obs**: *geo* här refererar till regions koden. Till exempel *wcus* och *Ne* för USA, västra centrala respektive Nord Europa. | Backup      | **Prenumeration**: samma som den privata slut punkten måste skapas  **RG**: alla rg i prenumerationen |
 
 Referera till [den här listan](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) för region koder.
 
@@ -119,7 +119,7 @@ För URL-namn konventioner i nationella regioner:
 
 De DNS-zoner som skapats ovan måste nu länkas till det virtuella nätverk där dina servrar som ska säkerhets kopie ras finns. Detta måste göras för alla DNS-zoner som du har skapat.
 
-1. Gå till din DNS-zon (som du skapade i föregående steg) och navigera till **virtuella nätverks länkar** i det vänstra fältet. När du är där klickar du på knappen **+ Lägg till**
+1. Gå till din DNS-zon (som du skapade i föregående steg) och navigera till **virtuella nätverks länkar** i det vänstra fältet. Sedan väljer du knappen **+ Lägg till**
 1. Fyll i den information som krävs. Fälten **prenumeration** och **virtuellt nätverk** måste fyllas i med motsvarande information om det virtuella nätverk där dina servrar finns. De andra fälten måste vara kvar som de är.
 
     ![Lägg till virtuellt nätverks länk](./media/private-endpoints/add-virtual-network-link.png)
@@ -139,7 +139,7 @@ Vi rekommenderar att du ger **deltagar** rollen för dessa tre resurs grupper ti
 
     ![Lägg till en rolltilldelning](./media/private-endpoints/add-role-assignment.png)
 
-1. I fönstret **Lägg till roll tilldelning** väljer du **deltagare** som **roll**och använder **namnet** på valvet som **huvud konto**. Välj valvet och klicka på **Spara** när du är färdig.
+1. I fönstret **Lägg till roll tilldelning** väljer du **deltagare** som **roll**och använder **namnet** på valvet som **huvud konto**. Välj valvet och välj **Spara** när du är färdig.
 
     ![Välj roll och huvud konto](./media/private-endpoints/choose-role-and-principal.png)
 
@@ -155,7 +155,7 @@ I det här avsnittet beskrivs processen för att skapa en privat slut punkt för
 
     ![Sök efter privat länk](./media/private-endpoints/search-for-private-link.png)
 
-1. Klicka på **privata slut punkter**i det vänstra navigerings fältet. I fönstret **privata slut punkter** klickar du på **+ Lägg** till för att börja skapa en privat slut punkt för valvet.
+1. I det vänstra navigerings fältet väljer du **privata slut punkter**. I fönstret **privata slut punkter** väljer du **+ Lägg** till för att börja skapa en privat slut punkt för valvet.
 
     ![Lägg till privat slut punkt i privat länk Center](./media/private-endpoints/add-private-endpoint.png)
 
@@ -175,7 +175,7 @@ I det här avsnittet beskrivs processen för att skapa en privat slut punkt för
 
     1. Du kan också lägga till **taggar** för din privata slut punkt.
 
-    1. Fortsätt att **Granska + skapa** när du har skrivit in information. När verifieringen är klar klickar du på **skapa** för att skapa den privata slut punkten.
+    1. Fortsätt att **Granska + skapa** när du har skrivit in information. När verifieringen är klar väljer du **skapa** för att skapa den privata slut punkten.
 
 ## <a name="approving-private-endpoints"></a>Godkänner privata slut punkter
 
@@ -200,7 +200,7 @@ När du har skapat den valfria privata DNS-zonen och de privata slut punkterna f
 
 Detta kräver att du skapar poster för varje FQDN i din privata slut punkt i din Privat DNS zon.
 
-1. Gå till din **privata DNS-zon** och navigera till alternativet **Översikt** i det vänstra fältet. När du är där klickar du på **+ post uppsättning** för att börja lägga till poster.
+1. Gå till din **privata DNS-zon** och navigera till alternativet **Översikt** i det vänstra fältet. När du är där väljer du **+ post uppsättning** för att börja lägga till poster.
 
     ![Välj + post uppsättning för att lägga till poster](./media/private-endpoints/select-record-set.png)
 
@@ -332,9 +332,9 @@ Svars-JSON:
 
 Den hanterade identiteten för valvet måste ha följande behörigheter i resurs gruppen och det virtuella nätverk där de privata slut punkterna ska skapas:
 
-- `Microsoft.Network/privateEndpoints/*`Detta krävs för att utföra CRUD på privata slut punkter i resurs gruppen. Den ska tilldelas till resurs gruppen.
-- `Microsoft.Network/virtualNetworks/subnets/join/action`Detta krävs på det virtuella nätverk där privat IP ska anslutas till den privata slut punkten.
-- `Microsoft.Network/networkInterfaces/read`Detta krävs på resurs gruppen för att hämta det nätverks gränssnitt som skapats för den privata slut punkten.
+- `Microsoft.Network/privateEndpoints/*` Detta krävs för att utföra CRUD på privata slut punkter i resurs gruppen. Den ska tilldelas till resurs gruppen.
+- `Microsoft.Network/virtualNetworks/subnets/join/action` Detta krävs på det virtuella nätverk där privat IP ska anslutas till den privata slut punkten.
+- `Microsoft.Network/networkInterfaces/read` Detta krävs på resurs gruppen för att hämta det nätverks gränssnitt som skapats för den privata slut punkten.
 - Rollen Privat DNS Zone-deltagare den här rollen finns redan och kan användas för att ge `Microsoft.Network/privateDnsZones/A/*` och ha `Microsoft.Network/privateDnsZones/virtualNetworkLinks/read` behörighet.
 
 Du kan använda någon av följande metoder för att skapa roller med nödvändiga behörigheter:

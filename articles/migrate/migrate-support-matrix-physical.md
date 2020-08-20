@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering i Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 97da09fa88cc3e69965237cb5b4326b8b59739bd
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2b96bff7468f0705f2b80f60dcd5248960495f16
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423787"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640131"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -34,7 +34,7 @@ Om du vill utvärdera fysiska servrar skapar du ett Azure Migrate-projekt och l�
 | **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution av fysisk server**       | Den fysiska servern kan vara fristående eller distribuerad i ett kluster. |
-| **Behörigheter**           | **Windows:** Använd ett domän konto för domänanslutna datorer och ett lokalt konto för datorer som inte är domänanslutna. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. |
+| **Behörigheter**           | **Windows:** Använd ett domän konto för domänanslutna datorer och ett lokalt konto för datorer som inte är domänanslutna. Användar kontot ska läggas till i dessa grupper: fjärrhanterings användare, prestanda övervaknings användare och användare av prestanda loggar. <br/><br/> **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera. <br/> Alternativt kan du se till att de nödvändiga funktionerna är inställda med följande kommandon. <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/fdisk <br/> setcap CAP_DAC_READ_SEARCH + EIP/sbin/fdisk (om/usr/sbin/fdisk inte finns) <br/> setcap "cap_dac_override, cap_dac_read_search, cap_fowner, cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap = + EIP"/sbin/LVM <br/> setcap CAP_DAC_READ_SEARCH + EIP/usr/sbin/dmidecode <br/> chmod a + r/sys/Class/DMI/ID/product_uuid
 | **Operativsystem** | Alla operativ system utom Windows Server 2003 och SUSE Linux kan utvärderas för migrering. |
 
 
@@ -53,7 +53,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 **Enhet** | **Anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för enhets hantering med URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för enhets hantering med URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **Fysiska servrar** | **Windows:** Inkommande anslutning på WinRM-port 5985 (HTTP) för att hämta konfigurations-och prestanda metadata från Windows-servrar. <br/><br/> **Linux:**  Inkommande anslutningar på port 22 (TCP) för att hämta konfigurations-och prestanda-metadata från Linux-servrar. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Krav för agent-baserade beroende analyser

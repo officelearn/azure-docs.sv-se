@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: beb5c7262a5475f5c1535e120fcebe4c70838c7e
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135495"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641865"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Snabb start: konfigurera egenskaper för ett program i din Azure Active Directory (Azure AD)-klient
 
@@ -47,7 +47,7 @@ Redigera program egenskaperna:
 3. Ägna en stund åt att förstå alternativen som är tillgängliga för konfiguration:
     - **Aktiverat för användare att logga in?** Anger om användare som är tilldelade till programmet kan logga in.
     - **Krävs användar tilldelning?** Anger om användare som inte är tilldelade till programmet kan logga in.
-    - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [åtkomst panelen](https://myapps.microsoft.com) och Office 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Office 365-webbplats eller på en Microsoft 365 webbplats.)
+    - **Synlig för användarna?** Anger om användare som är tilldelade till en app kan se den i [Mina appar](https://myapps.microsoft.com) och Office 365 App Launcher. (Se rutmärket-menyn i det övre vänstra hörnet på en Office 365-webbplats eller på en Microsoft 365 webbplats.)
     
     > [!TIP]
     > Tilldelning av användare sker i avsnittet **användare och grupper** i navigeringen.

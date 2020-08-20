@@ -16,16 +16,16 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 155a91ded6c814e2d868e8edd4572459460d006f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764884"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642069"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad start sida för publicerade appar med hjälp av Azure AD-programproxy
 
-Den här artikeln beskriver hur du konfigurerar en app för att dirigera en användare till en anpassad start sida. När du publicerar en app med Application Proxy anger du en intern URL, men ibland är inte sidan som en användare bör se först. Ange en anpassad start sida så att en användare får rätt sida när de ansluter till appen. En användare ser den anpassade start sidan som du anger, oavsett om de kommer åt appen från Azure Active Directory åtkomst panelen eller Office 365 App Launcher.
+Den här artikeln beskriver hur du konfigurerar en app för att dirigera en användare till en anpassad start sida. När du publicerar en app med Application Proxy anger du en intern URL, men ibland är inte sidan som en användare bör se först. Ange en anpassad start sida så att en användare får rätt sida när de ansluter till appen. En användare ser den anpassade start sidan som du anger, oavsett om de kommer åt appen från Azure Active Directory Mina appar eller Microsoft 365 App-starta.
 
 När en användare startar appen dirigeras de som standard till rot domänens URL för den publicerade appen. Landnings sidan anges vanligt vis som start sidans URL. Använd Azure AD PowerShell-modulen för att definiera en anpassad URL för start sidan när du vill att en app-användare ska landa på en viss sida i appen.
 
@@ -37,7 +37,7 @@ Här är ett scenario som förklarar varför företaget skulle ange en anpassad 
 - Du vill ange `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` som start sidans URL i stället, så att en extern användare ser inloggnings sidan först.
 
 > [!NOTE]
-> När du ger användare åtkomst till publicerade appar visas apparna i [Azure AD-åtkomst panelen](../user-help/my-apps-portal-end-user-access.md) och [Office 365 App Launcher](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
+> När du ger användare åtkomst till publicerade appar visas apparna i [Mina appar](../user-help/my-apps-portal-end-user-access.md) och [Office 365-program start](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/).
 
 ## <a name="before-you-start"></a>Innan du börjar
 
@@ -59,7 +59,7 @@ Följ dessa steg om du vill ändra start sidans URL för din app via Azure AD-po
 1. Välj **Azure Active Directory**och **Appregistreringar**. Listan över registrerade appar visas.
 1. Välj din app i listan. En sida som visar information om den registrerade appen visas.
 1. Under **Hantera**väljer du **märkes anpassning**.
-1. Uppdatera **Start sidans URL** med din nya sökväg.
+1. Uppdatera **Start sidans URL**  med din nya sökväg.
 
    ![Anpassnings sida för en registrerad app som visar start sidans URL-fält](media/application-proxy-configure-custom-home-page/app-proxy-app-branding.png)
 

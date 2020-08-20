@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: af5324373359cea643a3e31b6bb94e614ddb7e36
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 32993ba41a612ccf0f02a242ed610feab2fac78f
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083181"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640743"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Data insamlings regler i Azure Monitor (för hands version)
 Data insamlings regler (DCR) definierar data som kommer till Azure Monitor och anger var data ska skickas eller lagras. Den här artikeln innehåller en översikt över data insamlings regler, inklusive deras innehåll och struktur och hur du kan skapa och arbeta med dem.
@@ -48,7 +48,7 @@ Varje data källa har en typ av data källa. Varje typ definierar en unik uppsä
 | windowsEventLogs | Händelse loggen i Windows |
 
 
-## <a name="limits"></a>Gränser
+## <a name="limits"></a>Begränsningar
 I följande tabell visas de gränser som för närvarande gäller för varje data insamlings regel.
 
 | Gräns | Värde |
@@ -68,7 +68,7 @@ I följande tabell visas de gränser som för närvarande gäller för varje dat
 Det finns för närvarande två tillgängliga metoder för att skapa en DCR:
 
 - [Använd Azure Portal](data-collection-rule-azure-monitor-agent.md) för att skapa en data insamlings regel och associera den med en eller flera virtuella datorer.
-- Redigera data insamlings regeln direkt i JSON och skicka med REST API.
+- Redigera data insamlings regeln direkt i JSON och [skicka med REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Exempel på data insamlings regel
 Exempel data insamlings regeln nedan är för virtuella datorer med Azures hanterings agent och har följande information:

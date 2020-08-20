@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763643"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642120"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
 
@@ -43,7 +43,7 @@ Det går inte att hantera lösen ord. Få säker åtkomst till alla resurser du 
 |Funktion  | Beskrivning | Rekommendation |
 |---------|---------|---------|
 |Enkel inloggning|Standardbaserad federerad enkel inloggning med tillförlitliga bransch standarder.|Använd alltid [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) för att aktivera SSO när ditt program stöder det.|
-|Åtkomstpanel|Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning.| Distribuera [åtkomst panelen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) i din organisation när du har integrerat dina appar med Azure AD för SSO.|
+|Mina appar|Erbjud dina användare en enkel hubb för att upptäcka och komma åt alla sina program. Gör det möjligt för dem att bli mer produktiva med självbetjänings funktioner, t. ex. att begära åtkomst till appar och grupper eller att hantera åtkomst till resurser för andras räkning.| Distribuera [Mina appar](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) i din organisation när du har integrerat dina appar med Azure AD för enkel inloggning.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scenario 2: automatisera etablering och avetablering 
 
@@ -89,6 +89,6 @@ Identiteten kan bara vara ditt kontroll plan om den kan ansluta allt över molne
 - [Programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Programetablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Hybrid säker åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Identitets styrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Identitetsstyrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identitets säkerhet](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

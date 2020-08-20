@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a930778e35897671d10f14a95f3fa48ea5e9eb
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367792"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642426"
 ---
-# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en Azure AD-programproxy-distribution
+# <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planera en distribution av Azure AD-programproxy
 
 Azure Active Directory (Azure AD) Application Proxy är en säker och kostnads effektiv lösning för fjärråtkomst för lokala program. Det ger en omedelbar över gångs Sök väg för organisationer med "molnets första" för att hantera åtkomst till äldre lokala program som ännu inte kan använda moderna protokoll. Mer inledande information finns i [Vad är Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy).
 
@@ -33,7 +33,7 @@ Den här artikeln innehåller de resurser som du behöver för att planera, hant
 
 I följande avsnitt får du en översikt över de viktigaste planerings elementen som du kan använda för att få en effektiv distribution.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du påbörjar implementeringen. Du kan se mer information om hur du konfigurerar din miljö, inklusive dessa krav, i den här [självstudien](application-proxy-add-on-premises-application.md).
 
@@ -170,7 +170,7 @@ Utför grundläggande funktions testning när du har publicerat ett program för
 
 ### <a name="deploy-application-proxy"></a>Distribuera programproxy
 
-Stegen för att distribuera programproxyn beskrivs i den här [självstudien för att lägga till ett lokalt program för fjärråtkomst](application-proxy-add-on-premises-application.md). Om installationen inte lyckas väljer du **Felsök tillämpningsproxy** i portalen eller använder fel söknings guiden [för problem med att installera Application Proxy agent-anslutningsprogrammet](application-proxy-connector-installation-problem.md).
+Stegen för att distribuera programproxyn beskrivs i den här [självstudien för att lägga till ett lokalt program för fjärråtkomst](application-proxy-add-on-premises-application.md). Om installationen inte lyckas väljer du  **Felsök tillämpningsproxy**  i portalen eller använder fel söknings guiden [för problem med att installera Application Proxy agent-anslutningsprogrammet](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publicera program via Application Proxy
 
@@ -271,7 +271,7 @@ Följande funktioner kan användas för att stödja Azure-AD-programproxy:
 
 * Riskfylld villkorlig åtkomst: skydda dina data från skadliga hackare med en [riskfylld princip för villkorlig åtkomst](https://www.microsoft.com/cloud-platform/conditional-access) som kan tillämpas på alla appar och alla användare, oavsett om de finns lokalt eller i molnet.
 
-* Azure AD-åtkomst panel: med tjänsten Application Proxy distribuerad och program som publicerats på ett säkert sätt kan du erbjuda användarna en enkel hubb för att upptäcka och komma åt alla sina program. Öka produktiviteten med självbetjänings funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser för andras räkning via [åtkomst panelen](https://aka.ms/AccessPanelDPDownload).
+* Azure AD Mina appar: med tjänsten Application Proxy distribuerad och program som publicerats på ett säkert sätt kan du erbjuda användarna en enkel hubb för att upptäcka och komma åt alla sina program. Öka produktiviteten med självbetjänings funktioner, till exempel möjligheten att begära åtkomst till nya appar och grupper eller hantera åtkomst till dessa resurser å andras vägnar via [Mina appar](https://aka.ms/AccessPanelDPDownload).
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 

@@ -4,12 +4,12 @@ description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 776355ce981ba5cc2a24bfe473da2f55427eadf6
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f9b81a7263dc9a1bdae9fd881519ac734da2c6bc
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850754"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642205"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -87,7 +87,6 @@ Huvudprojektmappen ( \_ \_ app \_ \_ ) kan innehålla följande filer:
 * *requirements.txt*: innehåller listan över paket som systemet installerar vid publicering till Azure.
 * *host.jspå*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [host.jspå](functions-host-json.md).
 * *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
-* *. gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local.settings.jspå.
 * *Dockerfile*: (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (function.jspå).
@@ -351,11 +350,11 @@ def main(req: azure.functions.HttpRequest,
 
 [**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python) klassen har följande String-attribut:
 
-`function_directory`Katalogen där funktionen körs.
+`function_directory` Katalogen där funktionen körs.
 
-`function_name`Namnet på funktionen.
+`function_name` Namnet på funktionen.
 
-`invocation_id`ID för aktuellt funktions anrop.
+`invocation_id` ID för aktuellt funktions anrop.
 
 ## <a name="global-variables"></a>Globala variabler
 

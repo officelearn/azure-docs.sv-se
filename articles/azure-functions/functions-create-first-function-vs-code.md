@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 10d51102b49a15cfb6893de9da616a836663829e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d00fa5cf475eb2311bfa4b6f7dbe7dba70d080fd
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213437"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642341"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code
 
@@ -60,9 +60,9 @@ Innan du börjar bör du kontrol lera att du har följande krav på plats:
 + [Python 3,8](https://www.python.org/downloads/release/python-381/), [python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) stöds av Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.Net Core SDK 2.2 +](https://www.microsoft.com/net/download)  
++ [.NET Core SDK 3,1](https://www.microsoft.com/net/download)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java Developer Kit](https://aka.ms/azure-jdks), version 8.

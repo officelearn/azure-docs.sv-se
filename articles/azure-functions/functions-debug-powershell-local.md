@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082995"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642239"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
 
@@ -235,13 +235,23 @@ Du kan anropa samma funktion igen (med `Invoke-RestMethod` t. ex.) och fel sökn
 
 Tänk på följande när du felsöker din funktions kod.
 
-### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll`kan orsaka att fel söknings programmet avbryts på oväntad plats
+### <a name="breakall-might-cause-your-debugger-to-break-in-an-unexpected-place"></a>`BreakAll` kan orsaka att fel söknings programmet avbryts på oväntad plats
 
 PowerShell-tillägget använder `Debug-Runspace` , vilket i sin tur använder PowerShell- `BreakAll` funktionen. Den här funktionen instruerar PowerShell att stoppa vid det första kommandot som körs. Med det här beteendet får du möjlighet att ställa in Bryt punkter i fel söknings körnings utrymme.
 
 Azure Functions runtime kör några kommandon innan skriptet anropas `run.ps1` , så det är möjligt att fel söknings programmet slutar att fungera i `Microsoft.Azure.Functions.PowerShellWorker.psm1` eller `Microsoft.Azure.Functions.PowerShellWorker.psd1` .
 
 Om den här rasten inträffar kör du `continue` eller- `c` kommandot för att hoppa över den här Bryt punkten. Sedan stoppar du den förväntade Bryt punkten.
+
+## <a name="troubleshooting"></a>Felsökning
+
+Om du har problem under fel sökningen bör du kontrol lera följande:
+
+| Markera | Action |
+|------|------|
+| Kör `func --version` från terminalen. Om du får ett fel som `func` inte går att hitta, kan det saknas kärn verktyg (func.exe) från den lokala `path` variabeln.| [Installera om kärn verktyg](functions-run-local.md#v2).|  
+| I Visual Studio Code måste standard terminalen ha åtkomst till func.exe. Kontrol lera att du inte använder en standard-Terminal som inte har några installerade verktyg, till exempel Windows-undersystemet för Linux (WSL).  | Ange standard gränssnittet i Visual Studio Code till antingen PowerShell 7 (rekommenderas) eller Windows PowerShell 5,1.|
+  
 
 ## <a name="next-steps"></a>Nästa steg
 

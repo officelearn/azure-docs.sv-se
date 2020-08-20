@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45124862fffa3a1ef6f601733407fbbea4eb5e74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 516bffa7057f8fee3b8e38d46f3b2da905880044
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84762980"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639944"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Tilldela användare till program
 
@@ -44,9 +44,9 @@ För att en användare ska kunna komma åt ett program måste de först tilldela
 
     * Gruppen [alla användare](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 
-3.  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med hjälp av [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion **utan affärs godkännande**
+3.  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion **utan affärs godkännande**
 
-4.  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med hjälp av [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion, men endast w**i:te före godkännande från en vald uppsättning affärs god kännare**
+4.  En administratör möjliggör [åtkomst till självbetjänings program](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) så att en användare kan lägga till ett program med hjälp av [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Lägg till app** -funktion, men endast w**i:te före godkännande från en vald uppsättning affärs god kännare**
 
 5.  En administratör möjliggör självbetjänings [grupp hantering](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) så att en användare kan ansluta till en grupp som ett program har tilldelats till **utan affärs godkännande**
 

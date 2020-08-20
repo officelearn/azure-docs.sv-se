@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764952"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642137"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Så här konfigurerar du enkel inloggning till ett program program för programproxy
 
@@ -49,7 +49,7 @@ Vart och ett av dessa alternativ finns i ditt program i "företags program" och 
 
 På den här sidan kan du också se ett ytterligare inloggnings alternativ: länkad inloggning. Det här alternativet stöds också av Application Proxy. Men det här alternativet lägger inte till enkel inloggning i programmet. Detta program kanske redan har en enkel inloggning implementerad med hjälp av en annan tjänst, till exempel Active Directory Federation Services (AD FS). 
 
-Med det här alternativet kan en administratör skapa en länk till ett program som användarna första landerar vid åtkomst till programmet. Om det till exempel finns ett program som är konfigurerat för att autentisera användare som använder Active Directory Federation Services (AD FS) 2,0 kan en administratör använda alternativet "länkad inloggning" för att skapa en länk till den på åtkomst panelen.
+Med det här alternativet kan en administratör skapa en länk till ett program som användarna första landerar vid åtkomst till programmet. Om det till exempel finns ett program som är konfigurerat för att autentisera användare som använder Active Directory Federation Services (AD FS) 2,0 kan en administratör använda alternativet "länkad inloggning" för att skapa en länk till den i Mina appar.
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lösen ords valv för enkel inloggning med programproxy](application-proxy-configure-single-sign-on-password-vaulting.md)

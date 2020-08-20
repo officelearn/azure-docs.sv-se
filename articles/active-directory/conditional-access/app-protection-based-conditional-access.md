@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87009126"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641032"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv app Protection-princip och en godkänd klient app för åtkomst till Cloud App med villkorlig åtkomst
 
@@ -55,9 +55,9 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.
-1. Under **villkor**väljer du **klient program (för hands version)**.
+1. Under **villkor**väljer du **klient program**.
    1. **Konfigurera** till **Ja**.
-   1. Välj **Mobilappar och skrivbordsklienter** och **Moderna autentiseringsklienter**.
+   1. Välj **mobilappar och skriv bords klienter** och avmarkera allt annat.
 1. Under **åtkomst kontrolls**  >  **beviljande**väljer du följande alternativ:
    - **Kräv godkänd klientapp**
    - **Kräv app Protection-princip (förhands granskning)**
@@ -76,10 +76,9 @@ Konfigurera följande komponenter för principen för villkorlig åtkomst i det 
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
-1. Under **villkor**:
-   1. **Klient program (för hands version)**:
-      1. **Konfigurera** till **Ja**.
-      1. Välj **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
+1. Under **villkor**väljer du **klient program**:
+   1. **Konfigurera** till **Ja**.
+   1. Välj **Exchange ActiveSync-klienter** och avmarkera allt annat.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver app Protection-princip**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.
@@ -107,9 +106,9 @@ Organisationer måste utföra följande steg för att kräva att ett godkänt kl
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.
-1. Under **villkor**väljer du **klient program (för hands version)**.
+1. Under **villkor**väljer du **klient program**.
    1. **Konfigurera** till **Ja**.
-   1. Välj **webbläsare**.
+   1. Välj **webbläsare** och avmarkera allt annat.
 1. Under **åtkomst kontrolls**  >  **beviljande**väljer du följande alternativ:
    - **Kräv godkänd klientapp**
    - **Kräv app Protection-princip (förhands granskning)**
@@ -140,9 +139,9 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
 1. Under **villkor**väljer du **enhets plattformar**.
    1. **Konfigurera** till **Ja**.
    1. Ta med **Android** och **iOS**.
-1. Under **villkor**väljer du **klient program (för hands version)**.
+1. Under **villkor**väljer du **klient program**.
    1. **Konfigurera** till **Ja**.
-   1. Välj **Mobilappar och skrivbordsklienter** och **Moderna autentiseringsklienter**.
+   1. Välj **mobilappar och skriv bords klienter** och avmarkera allt annat.
 1. Under **åtkomst kontrolls**  >  **beviljande**väljer du följande alternativ:
    - **Kräv godkänd klientapp**
    - **Kräv app Protection-princip (förhands granskning)**
@@ -159,10 +158,9 @@ Organisationer måste utföra följande tre steg för att kräva att en godkänd
    1. Under **Inkludera**väljer du **alla användare** eller de enskilda **användare och grupper** som du vill tillämpa principen på. 
    1. Välj **Klar**.
 1. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Office 365 Exchange Online**.
-1. Under **villkor**:
-   1. **Klient program (för hands version)**:
-      1. **Konfigurera** till **Ja**.
-      1. Välj **mobilappar och skriv bords klienter** och **Exchange ActiveSync-klienter**.
+1. Under **villkor**väljer du **klient program**:
+   1. **Konfigurera** till **Ja**.
+   1. Välj **Exchange ActiveSync-klienter** och avmarkera allt annat.
 1. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver app Protection-princip**och väljer **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa och aktivera din princip.

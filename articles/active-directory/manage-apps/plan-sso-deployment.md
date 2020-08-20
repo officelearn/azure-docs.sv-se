@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 85ec94ccf853d4f8b02a14ba08e9515170b36b5e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054808"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642392"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -235,11 +235,11 @@ Använd alltid rollen med minst de behörigheter som krävs för att utföra den
 
 | Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Support administratör | Nivå 1-stöd | Ingen |
+| Support administratör | Nivå 1-stöd | Inget |
 | Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
-| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Inget |
 | Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
-| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inget |
 
 Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
@@ -285,7 +285,7 @@ Följande länkar visar fel söknings scenarier. Du kanske vill skapa en speciel
 
 - [Problem med att logga in från en anpassad Portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problem vid inloggning från åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problem med att logga in från Mina appar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Fel på inloggningssidan för programmet](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

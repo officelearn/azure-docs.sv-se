@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c66c1fc9a9b93d5b4d3af0440ec3fdc276a9b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763422"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640454"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla branschspecifika appar för Azure Active Directory
 Den här guiden ger en översikt över hur du utvecklar branschspecifika program (LoB) för Azure Active Directory (AD). Den avsedda mål gruppen är Active Directory/Office 365 globala administratörer.
@@ -58,7 +58,7 @@ Det här är vad du, den globala administratören, behöver göra för att hjäl
 Konfigurera åtkomst regler per program till dina SaaS-appar. Du kan till exempel kräva MFA eller bara tillåta åtkomst till användare i betrodda nätverk. Informationen för detta finns i dokumentet [Konfigurera åtkomst regler](../conditional-access/app-based-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Konfigurera appen så att den kräver användar tilldelning och tilldela användare
-Som standard kan användare komma åt program utan att tilldelas. Men om programmet visar roller eller om du vill att programmet ska visas på användarens åtkomst panel, bör du kräva användar tilldelning.
+Som standard kan användare komma åt program utan att tilldelas. Men om programmet visar roller eller om du vill att programmet ska visas i användarens Mina appar, bör du kräva användar tilldelning.
 
 Om du är en Azure AD Premium-eller EMS-prenumerant (Enterprise Mobility Suite) rekommenderar vi starkt att du använder grupper. Genom att tilldela grupper till programmet kan du delegera kontinuerlig åtkomst hantering till ägare av gruppen. Du kan skapa gruppen eller be den ansvariga parten i din organisation att skapa gruppen med hjälp av din grupp hanterings funktion.
 

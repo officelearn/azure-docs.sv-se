@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1566de36d6176568b148fde965bb7d3051e6b500
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7456402605328592d4f5677767bcd985941173ec
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543477"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639842"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -24,7 +24,7 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 
 |Egenskap  |Beskrivning |
 |---------|---------|
-|Name    |    Ett unikt namn inom resurs gruppen.      |
+|Namn    |    Ett unikt namn inom resurs gruppen.      |
 |Undernät    |  Under nätet för att distribuera och allokera privata IP-adresser från ett virtuellt nätverk. För under näts krav, se avsnittet begränsningar i den här artikeln.         |
 |Privat länk resurs    |   Den privata länk resursen för att ansluta med resurs-ID eller alias i listan över tillgängliga typer. Ett unikt nätverks-ID skapas för all trafik som skickas till den här resursen.       |
 |Mål under resurs   |      Den under resurs som ska anslutas. Varje privat länk resurs typ har olika alternativ för att välja baserat på preferens.    |
@@ -47,6 +47,7 @@ Här följer några viktiga uppgifter om privata slut punkter:
  
 - Flera privata slut punkter kan skapas i samma eller olika undernät i samma virtuella nätverk. Det finns gränser för antalet privata slut punkter som du kan skapa i en prenumeration. Mer information finns i [Azure-gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
+- Prenumerationen från den privata länk resursen måste också registreras med Micosoft. Network Resource Provider. Mer information finns i [Azure Resource providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
  
 ## <a name="private-link-resource"></a>Privat länk resurs 
@@ -132,11 +133,11 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en privat slut punkt för SQL Database med hjälp av portalen](create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt för SQL Database med PowerShell](create-private-endpoint-powershell.md)
-- [Skapa en privat slut punkt för SQL Database med CLI](create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
-- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Skapa en privat slut punkt för SQL Database med hjälp av portalen ](create-private-endpoint-portal.md)
+- [Skapa en privat slut punkt för SQL Database med PowerShell ](create-private-endpoint-powershell.md)
+- [Skapa en privat slut punkt för SQL Database med CLI ](create-private-endpoint-cli.md)
+- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen ](create-private-endpoint-storage-portal.md)
+- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen ](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
 - [Skapa en egen privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen](../postgresql/howto-configure-privatelink-portal.md)
 - [Skapa en egen privat länk för Azure Database for PostgreSQL-enskild server med CLI](../postgresql/howto-configure-privatelink-cli.md)

@@ -4,16 +4,16 @@ description: Lär dig hur du kan distribuera kod till Azure Functions på olika 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: bf8944952abf83837d05019bd783bec2fd43cefe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905133"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641967"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
-Du kan använda flera olika tekniker för att distribuera din Azure Functions projekt kod till Azure. Den här artikeln innehåller en översikt över de distributions metoder som är tillgängliga för dig och rekommendationer för den bästa metoden att använda i olika scenarier. Den innehåller också en fullständig lista över och viktig information om underlyng-distributions teknikerna. 
+Du kan använda flera olika tekniker för att distribuera din Azure Functions projekt kod till Azure. Den här artikeln innehåller en översikt över de distributions metoder som är tillgängliga för dig och rekommendationer för den bästa metoden att använda i olika scenarier. Den innehåller också en fullständig lista över och viktig information om de underliggande distributions teknikerna. 
 
 ## <a name="deployment-methods"></a>Distributions metoder
 
@@ -202,7 +202,13 @@ I följande tabell visas de operativ system och språk som stöder Portal redige
 | PowerShell (förhandsversion) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup>Portal redigering är bara aktive rad för HTTP-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer.
+<sup>*</sup> Portal redigering är bara aktive rad för HTTP-och timer-utlösare för funktioner i Linux med hjälp av Premium och dedikerade planer.
+
+## <a name="deployment-behaviors"></a>Distributions beteenden
+
+När du gör en distribution kan alla befintliga körningar slutföras, och tids gränsen för den nya koden läses in för att påbörja bearbetning av begär Anden.
+
+Om du behöver mer kontroll över den här över gången bör du använda distributions platser.
 
 ## <a name="deployment-slots"></a>Distributionsplatser
 

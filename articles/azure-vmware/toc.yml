@@ -58,8 +58,10 @@
               href: set-up-mabs-for-avs.md
             - name: Säkerhetskopiera virtuella AVS-datorer med Backup Server
               href: backup-avs-vms-with-mabs.md
-        - name: Application Gateway på AVS
+        - name: Application Gateway med AVS
           href: protect-avs-web-apps-with-app-gateway.md
+        - name: Traffic Manager med AVS
+          href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: VMware-lösningar
       items:
         - name: Konfigurera vRealize Operations för AVS

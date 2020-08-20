@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321283"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639910"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
@@ -26,6 +26,7 @@ Azure Monitor anpassade mått är aktuella i offentlig för hands version.
 
 Anpassade mått kan skickas till Azure Monitor via flera metoder:
 - Instrumentera ditt program genom att använda Azure Application Insights SDK och skicka anpassad telemetri till Azure Monitor. 
+- Installera Azure Monitor Agent (för hands version) på den [virtuella Windows-eller Linux Azure-datorn](azure-monitor-agent-overview.md) och Använd en [data insamlings regel](data-collection-rule-azure-monitor-agent.md) för att skicka prestanda räknare till Azure Monitor mått.
 - Installera Windows Azure-diagnostik-tillägget (WAD) på din [virtuella Azure-dator](collect-custom-metrics-guestos-resource-manager-vm.md), [skalnings uppsättning för virtuell dator](collect-custom-metrics-guestos-resource-manager-vmss.md), [klassisk virtuell dator](collect-custom-metrics-guestos-vm-classic.md)eller [klassisk Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) och skicka prestanda räknare till Azure Monitor. 
 - Installera [InfluxDatain-agenten](collect-custom-metrics-linux-telegraf.md) på din virtuella Azure Linux-dator och skicka mått med hjälp av plugin-programmet för Azure Monitor-utdata.
 - Skicka anpassade mått [direkt till Azure Monitor REST API](./metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
@@ -176,7 +177,7 @@ När anpassade mått har skickats till Azure Monitor kan du bläddra igenom dem 
 > Du måste vara en läsare eller deltagar roll för att visa anpassade mått.
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Bläddra bland dina anpassade mått via Azure Portal
-1.    Öppna [Azure-portalen](https://portal.azure.com).
+1.    Gå till [Azure-portalen](https://portal.azure.com).
 2.    Välj fönstret **övervaka** .
 3.    Välj **Mått**.
 4.    Välj en resurs som du har skickat anpassade mått mot.

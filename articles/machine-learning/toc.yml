@@ -153,6 +153,8 @@
       href: concept-ml-pipelines.md
     - name: Företagsberedskap och säkerhet
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Företagssäkerhet och styrning
           items:
             - name: Översikt över Enterprise Security

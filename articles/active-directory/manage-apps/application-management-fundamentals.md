@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d32728c1f388e9013b922d1f60d30e65d350bbc1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84760277"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642443"
 ---
 # <a name="application-management-best-practices"></a>Metod tips för program hantering
 
@@ -33,8 +33,8 @@ Den här artikeln innehåller rekommendationer och metod tips för att hantera p
 | Kontrol lera appar i Azure AD-programgalleriet  | Azure AD har ett galleri som innehåller tusentals förintegrerade program som är aktiverade med enkel inloggning (SSO) för företag. Information om enhetsspecifika installations anvisningar finns i [listan med självstudier för SaaS-appar](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/).  | 
 | Använda federerad SAML-baserad SSO  | När ett program stöder det använder du federerad, SAML-baserad SSO med Azure AD i stället för lösenordsbaserad SSO och ADFS.  | 
 | Använd SHA-256 för certifikat signering  | Azure AD använder SHA-256-algoritmen som standard för att signera SAML-svaret. Använd SHA-256 om inte programmet kräver SHA-1 (se [alternativ för certifikat signering](certificate-signing-options.md) och [program inloggnings problem](application-sign-in-problem-application-error.md).)  | 
-| Kräv användar tilldelning  | Som standard kan användarna få åtkomst till dina företags program utan att de har tilldelats dem. Men om programmet exponerar roller, eller om du vill att programmet ska visas på användarens åtkomst panel, kräver du användar tilldelning. (Mer information finns i utvecklings [vägledning för att integrera program](developer-guidance-for-integrating-applications.md).)  | 
-| Distribuera åtkomst panelen Mina appar till dina användare | [Åtkomst panelen](end-user-experiences.md) på `https://myapps.microsoft.com` är en webbaserad portal som ger användare en enda post punkt för sina tilldelade molnbaserade program. Eftersom ytterligare funktioner som grupp hantering och återställning av lösen ord för självbetjäning läggs till, kan användarna hitta dem på åtkomst panelen. Se [Planera en distribution av åtkomst panelen](access-panel-deployment-plan.md).
+| Kräv användar tilldelning  | Som standard kan användarna få åtkomst till dina företags program utan att de har tilldelats dem. Men om programmet visar roller, eller om du vill att programmet ska visas i användarens Mina appar, kräver du användar tilldelning. (Mer information finns i utvecklings [vägledning för att integrera program](developer-guidance-for-integrating-applications.md).)  | 
+| Distribuera Mina appar till dina användare | [Mina appar](end-user-experiences.md) på `https://myapps.microsoft.com` är en webbaserad portal som förser användare med en enda post punkt för sina tilldelade molnbaserade program. Som ytterligare funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, kan användarna hitta dem i Mina appar. Se [Planera distribution av mina appar](access-panel-deployment-plan.md).
 | Använd grupp tilldelning  | Om den ingår i din prenumeration kan du tilldela grupper till ett program så att du kan delegera kontinuerlig åtkomst hantering till grupp ägaren. (Mer information finns i utvecklings [vägledning för att integrera program](developer-guidance-for-integrating-applications.md).)   | 
 | Upprätta en process för att hantera certifikat | Den maximala livs längden för ett signerings certifikat är tre år. För att förhindra eller minimera avbrott på grund av att ett certifikat upphör att gälla, använder du roller och e-postdistributionslistor för att se till att certifikat som rör ändrings aviseringar övervakas noga. |
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 843094a58868e7751f1fa2dbee70535f2192ae62
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850176"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639757"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -27,7 +27,7 @@ I den här självstudien får du hjälp med att gå igenom en driv rutin vars ba
 I de här självstudierna får du:
 
 > [!div class="checklist"]
-> * Skapa och kör en Jupyter-anteckningsbok på [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) i molnet.
+> * Skapa och kör en Jupyter Notebook-fil på [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) i molnet.
 > * Anropa Azure Maps REST-API: er i python.
 > * Sök efter ett nåbart intervall baserat på den elektriska fordons förbruknings modellen.
 > * Sök efter elektriska fordons uttags stationer inom det nåbara intervallet eller isochrone.
@@ -45,9 +45,9 @@ Följ anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-prim
 
 Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
-## <a name="create-an-azure-notebook"></a>Skapa en Azure-anteckningsbok
+## <a name="create-an-azure-notebooks-project"></a>Skapa ett Azure Notebooks-projekt
 
-Om du vill följa med i den här självstudien måste du skapa ett Azure Notebook-projekt och hämta och köra Jupyter Notebook-filen. Anteckningsbok-filen innehåller python-kod som implementerar scenariot i den här självstudien. Gör så här för att skapa ett Azure Notebook-projekt och ladda upp anteckningsbok-dokumentet för Jupyter:
+Om du vill följa med i den här själv studie kursen måste du skapa ett Azure Notebooks-projekt och hämta och köra Jupyter Notebook-filen. Jupyter Notebook-filen innehåller python-kod som implementerar scenariot i den här självstudien. Gör så här om du vill skapa ett Azure Notebooks-projekt och överföra Jupyter Notebook dokumentet till det:
 
 1. Gå till [Azure Notebooks](https://notebooks.azure.com) och logga in. Mer information finns i [snabb start: Logga in och ange ett användar-ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
 1. Välj **Mina projekt**högst upp på den offentliga profil sidan.
@@ -64,25 +64,25 @@ Om du vill följa med i den här självstudien måste du skapa ett Azure Noteboo
 
 1. Välj **Skapa**.
 
-1. När projektet har skapats kan du ladda ned den här [dokument filen för Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
+1. När projektet har skapats kan du ladda ned den här [Jupyter Notebook dokument filen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
-1. I listan projekt på sidan **Mina projekt** väljer du ditt projekt och väljer sedan **Ladda upp** för att överföra dokument filen Jupyter Notebook. 
+1. I listan projekt på sidan **Mina projekt** väljer du ditt projekt och väljer sedan **Ladda upp** för att ladda upp Jupyter Notebook dokument filen. 
 
-    ![Ladda upp antecknings bok](./media/tutorial-ev-routing/upload-notebook.png)
+    ![Ladda upp Jupyter Notebook](./media/tutorial-ev-routing/upload-notebook.png)
 
 1. Ladda upp filen från datorn och välj sedan **slutförd**.
 
 1. När överföringen har slutförts visas filen på projekt sidan. Dubbelklicka på filen för att öppna den som en Jupyter Notebook.
 
-Försök att förstå de funktioner som implementeras i Notebook-filen. Kör koden i anteckningsbok-filen, en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
+Försök att förstå de funktioner som implementeras i Jupyter Notebook-filen. Kör koden i Jupyter Notebook-filen, en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i Jupyter Notebook-appen.
 
   ![Knappen Kör](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Installera paket för projekt nivå
 
-Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att utföra följande steg:
+Om du vill köra koden i Jupyter Notebook installerar du paket på projekt nivå genom att utföra följande steg:
 
-1. Ladda ned [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) -filen från den [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
+1. Ladda ned [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) -filen från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
 1. På instrument panelen för projektet väljer du **projekt inställningar**. 
 1. I fönstret **projekt inställningar** väljer du fliken **miljö** och väljer sedan **Lägg till**.
 1. Under **miljö konfigurations steg**gör du följande:   

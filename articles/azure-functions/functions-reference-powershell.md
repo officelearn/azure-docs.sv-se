@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 06838ecee809c5159bc8a290ecb4f589fd3ce04f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207412"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642222"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -382,14 +382,14 @@ När du skapar en Function-app med hjälp av verktyg, till exempel Visual Studio
 * Automatisk MSI-autentisering till Azure.
 * Möjligheten att aktivera Azure PowerShell `AzureRM` PowerShell-alias om du vill.
 
-## <a name="powershell-version"></a>PowerShell-version
+## <a name="powershell-versions"></a>PowerShell-versioner
 
-I följande tabell visas den PowerShell-version som används av varje huvud version av Functions-körningen:
+I följande tabell visas de PowerShell-versioner som stöds av varje huvud version av Functions-körningen och .NET-versionen som krävs:
 
-| Funktions version | PowerShell-version                             |
-|-------------------|------------------------------------------------|
-| 1.x               | Windows PowerShell 5,1 (låst av körnings miljön) |
-| 2x               | PowerShell Core 6                              |
+| Funktions version | PowerShell-version                               | .NET-version  | 
+|-------------------|--------------------------------------------------|---------------|
+| 3. x (rekommenderas) | PowerShell 7 (rekommenderas)<br/>PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 3,1 |
+| 2x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Du kan se den aktuella versionen genom att skriva ut `$PSVersionTable` från vilken funktion som helst.
 

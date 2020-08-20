@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 306afb2bfba7c222798bbfd1bef334387b6f9771
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 440815d7d24cde9708c214bf407a2dd9206a1706
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080087"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642052"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Konfigurera en PHP-app för Azure App Service
 
@@ -119,7 +119,7 @@ Genomför alla ändringar och distribuera din kod med git eller zip Deploy med b
 
 Om du vill App Service köra populära automatiserings verktyg vid distributions tillfället, till exempel grunt, Bower eller Gulp, måste du ange ett [anpassat distributions skript](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service kör det här skriptet när du distribuerar med git, eller med [zip-distribution](deploy-zip.md) med build-automatisering aktiverat. 
 
-Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Till exempel:
+Om du vill göra det möjligt för lagrings platsen att köra dessa verktyg måste du lägga till dem i beroenden i *package.jspå.* Exempel:
 
 ```json
 "dependencies": {
@@ -206,7 +206,7 @@ Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatis
 1. Kör `php composer.phar install`.
 1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` och `POST_BUILD_COMMAND` är miljövariabler som är tomma som standard. Definiera för att köra kommandon för att skapa för bygge `PRE_BUILD_COMMAND` . Definiera för att köra kommandon efter kompilering `POST_BUILD_COMMAND` .
 
 I följande exempel anges de två variablerna för en serie kommandon, avgränsade med kommatecken.
 
@@ -276,8 +276,8 @@ Om du inte vill använda *.htaccess*-omskrivning kan du distribuera din Laravel-
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver kontrollera om användarbegäranden är krypterade eller inte kan du kontrollera `X-Forwarded-Proto`-rubriken.
 
 ```php
-if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'https') {
-  // Do something when HTTPS is used
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+// Do something when HTTPS is used
 }
 ```
 
@@ -318,7 +318,7 @@ Som ett alternativ till att använda en `.user.ini` fil kan du använda [ini_set
 
 Om du vill anpassa PHP_INI_USER, PHP_INI_PERDIR och PHP_INI_ALL direktiv (se [php.ini direktiv](https://www.php.net/manual/ini.list.php)) lägger du till en *. htaccess* -fil i rot katalogen för din app.
 
-I *htaccess* -filen lägger du till direktiven med hjälp av `php_value <directive-name> <value>` syntaxen. Till exempel:
+I *htaccess* -filen lägger du till direktiven med hjälp av `php_value <directive-name> <value>` syntaxen. Exempel:
 
 ```
 php_value upload_max_filesize 1000M
@@ -374,7 +374,7 @@ Kör först följande kommando i [Cloud Shell](https://shell.azure.com) för att
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`är standard katalogen där *php.ini* finns. `/home/site/ini`är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:` .
+`/usr/local/etc/php/conf.d` är standard katalogen där *php.ini* finns. `/home/site/ini` är den anpassade katalogen där du lägger till en anpassad *ini* -fil. Du skiljer värdena med en `:` .
 
 Navigera till webbssh-sessionen med Linux-containern ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
@@ -469,7 +469,7 @@ Använd standard verktyget för [error_log ()](https://php.net/manual/function.e
 Prova följande när en fungerande PHP-app fungerar annorlunda i App Service eller innehåller fel:
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
-- Testa appen lokalt i produktions läge. App Service kör din app i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Till exempel:
+- Testa appen lokalt i produktions läge. App Service kör din app i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
     - Beroende på din *composer.js*kan olika paket installeras i produktions läge ( `require` vs. `require-dev` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.

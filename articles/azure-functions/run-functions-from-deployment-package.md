@@ -3,12 +3,12 @@ title: Köra Azure Functions från ett paket
 description: Kör den Azure Functions körningen av dina funktioner genom att montera en distributions paket fil som innehåller dina projektfiler för Function-appen.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: 6a2633550c9bcbdc59baf99f79559655afbb9b74
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: b2d90cf78263b30b4315199cf1c543186a435f17
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214233"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639893"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Köra Azure Functions från en paketfil
 
@@ -50,6 +50,9 @@ Följande visar en Function-app som kon figurer ATS för att köras från en. zi
 ## <a name="integration-with-zip-deployment"></a>Integrering med zip-distribution
 
 [Zip-distribution][Zip deployment for Azure Functions] är en funktion i Azure App Service som gör att du kan distribuera ditt app-projekt till `wwwroot` katalogen. Projektet paketeras som en. zip-distributions fil. Samma API: er kan användas för att distribuera paketet till `d:\home\data\SitePackages` mappen. Med `WEBSITE_RUN_FROM_PACKAGE` appens inställnings värde `1` kopierar API: erna för zip-distribution ditt paket till `d:\home\data\SitePackages` mappen i stället för att extrahera filerna till `d:\home\site\wwwroot` . Filen skapas också `packagename.txt` . Efter en omstart monteras paketet till `wwwroot` som ett skrivskyddat fil system. Mer information om zip-distribution finns i [zip-distribution för Azure Functions](deployment-zip-push.md).
+
+> [!NOTE]
+> När en distribution sker utlöses en omstart av Function-appen. Innan en omstart tillåts alla befintliga funktions körningar att slutföras eller tids gränsen uppnåddes. Mer information finns i [distributions beteenden](functions-deployment-technologies.md#deployment-behaviors).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Lägga till inställningen WEBSITE_RUN_FROM_PACKAGE
 

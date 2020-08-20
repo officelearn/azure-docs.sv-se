@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 0e106f3ea8a5de80f4961a1d591d31abdbe2ca86
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876299"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642324"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snabbstart: Köra ett arbetsflöde genom Microsoft Genomics-tjänsten
 
@@ -55,9 +55,9 @@ Du måste installera både python och Microsoft Genomics python-klienten `msgen`
 Microsoft Genomics python-klienten är kompatibel med python 2.7.12 eller en senare version av 2.7. xx. 2.7.14 är den föreslagna versionen. Du hittar nedladdningen [här](https://www.python.org/downloads/release/python-2714/). 
 
 > [!IMPORTANT]
-> Python 3.x är inte kompatibelt med Python 2.7.xx.  `msgen`är ett python 2,7-program. När du kör `msgen` kontrollerar du att din aktiva python-miljö använder en 2.7. xx-version av python. Du kan få fel meddelanden när du försöker använda `msgen` med en 3. x-version av python.
+> Python 3.x är inte kompatibelt med Python 2.7.xx.  `msgen` är ett python 2,7-program. När du kör `msgen` kontrollerar du att din aktiva python-miljö använder en 2.7. xx-version av python. Du kan få fel meddelanden när du försöker använda `msgen` med en 3. x-version av python.
 
-### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Installera Microsoft Genomics python-klienten`msgen`
+### <a name="install-the-microsoft-genomics-python-client-msgen"></a>Installera Microsoft Genomics python-klienten `msgen`
 
 Använd python `pip` för att installera Microsoft Genomics-klienten `msgen` . Följande instruktioner förutsätter att Python2. x redan finns i System Sök vägen. Om du har problem med att `pip` installationen inte känns igen, måste du lägga till python och undermappen skript till din system Sök väg.
 
@@ -96,7 +96,7 @@ Konfigurera ditt lagrings konto med följande information, som du ser i föregå
  |:-------------------------       |:-------------         |:----------            |
  |Prenumeration         | Din Azure-prenumeration |Mer information om din prenumeration finns i [Prenumerationer](https://account.azure.com/Subscriptions) |      
  |Resursgrupp       | MinResursgrupp       |  Du kan välja samma resurs grupp som ditt genomik-konto. För giltiga resurs grupps namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
- |Lagringskontonamn         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
+ |Namn på lagringskonto         | MittLagringskonto     |Välj ett unikt konto-ID. För giltiga namn, se [namngivnings regler](/azure/architecture/best-practices/resource-naming) |
  |Plats                  | USA, västra 2                  | Använd samma plats som platsen för ditt genomik-konto, för att minska utgående kostnader och minska svars tiden.  | 
  |Prestanda                  | Standard                   | Standardinställningen är Standard. Mer information om standard-och Premium lagrings konton finns i [Introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
  |Typ av konto       | BlobStorage       |  Blob-lagring kan vara 2–5 gånger snabbare än lagring generell användning för ned- och uppladdningar. |
@@ -125,7 +125,7 @@ Ange parametern till om du vill köra GATK4 `process_name` `gatk4` .
 
 Som standard visar Genomics-tjänsten VCF-filer. Om du vill ha en gVCF-utdata i stället för en VCF-utmatning (motsvarar `-emitRefConfidence` i användas 3. x och `emit-ref-confidence` i användas 4. x) lägger du till `emit_ref_confidence` parametern till din *config.txt* och anger den till `gvcf` , som visas i föregående bild.  Om du vill ändra tillbaka till VCF-utdata tar du antingen bort den från *config.txt* -filen eller anger `emit_ref_confidence` parametern till `none` . 
 
-`bgzip`är ett verktyg som komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Som standard körs Genomiks tjänsten `bgzip` följt av `tabix` på ". g. vcf"-utdata men kör inte dessa verktyg som standard för ". vcf"-utdata. När det körs genererar tjänsten ". gz" (bgzip output) och ". TBI" (tabix output). Argumentet är ett booleskt värde som är inställt på false som standard för ". vcf"-utdata och True som standard för utdata av typen ". g. vcf". Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false` . Om du vill använda det här argumentet i *config.txt* -filen lägger `bgzip_output: true` du till eller `bgzip_output: false` till filen.
+`bgzip` är ett verktyg som komprimerar VCF-eller gvcf-filen och `tabix` skapar ett index för den komprimerade filen. Som standard körs Genomiks tjänsten `bgzip` följt av `tabix` på ". g. vcf"-utdata men kör inte dessa verktyg som standard för ". vcf"-utdata. När det körs genererar tjänsten ". gz" (bgzip output) och ". TBI" (tabix output). Argumentet är ett booleskt värde som är inställt på false som standard för ". vcf"-utdata och True som standard för utdata av typen ". g. vcf". Om du vill använda på kommando raden anger du `-bz` eller `--bgzip-output` som `true` (kör bgzip och tabix) eller `false` . Om du vill använda det här argumentet i *config.txt* -filen lägger `bgzip_output: true` du till eller `bgzip_output: false` till filen.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Skicka ditt arbets flöde till Microsoft Genomics tjänsten med `msgen` python-klienten
 
@@ -144,4 +144,4 @@ När arbets flödet har slutförts kan du Visa utdatafilerna i ditt Azure Storag
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics tjänsten via `msgen` python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan också utforska den här självstudien med vårt [exempel på Azure Notebook](https://aka.ms/genomicsnotebook) genom att hämta filen "genomiks-självstudie. ipynb" och använda en Notebook-läsare som [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) för att öppna filen och köra den.
+I den här artikeln har du laddat upp exempel indata till Azure Storage och skickat ett arbets flöde till Microsoft Genomics tjänsten via `msgen` python-klienten. Mer information om andra typer av indatafiler som kan användas med Microsoft Genomics-tjänsten finns på följande sidor: [parad fastq](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple fastq eller BAM](quickstart-input-multiple.md). Du kan också utforska den här självstudien med vårt [Azure Notebooks exempel](https://aka.ms/genomicsnotebook) genom att hämta filen "robots. ipynb" och använda en Notebook-läsare som [Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) för att öppna filen och köra den.

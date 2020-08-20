@@ -10,10 +10,12 @@
       href: overview-iot-central-developer.md
     - name: Senaste uppdateringarna
       items:
+        - name: Juli 2020 – nya och ändrade funktioner
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-july-2020/'
         - name: Juni 2020 – nya och ändrade funktioner
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-feature-updates-june-2020/'
         - name: Juni 2020 – uppdateringar till användargränssnitt och dokumentation
-          href: 'https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/'
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-ui-documenation-updates-june-2020/'
         - name: Maj 2020 – jobb och måttuppdateringar
           href: 'https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/'
         - name: Maj 2020 – uppdateringar till instrumentpanelen

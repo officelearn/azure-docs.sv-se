@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: 62c3dad980b65c3e8cfc64c98ba173f667e0b5fe
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: ab11060924c29dbddc965aa94064d0091a7b348e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447066"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639859"
 ---
 # <a name="high-availability-ports-overview"></a>Översikt över portar med hög tillgänglighet
 
@@ -92,7 +92,7 @@ Du kan konfigurera *en* offentlig standard Load Balancer resurs för Server dels
 ## <a name="limitations"></a>Begränsningar
 
 - Belastnings Utjämnings regler för HA-portar är bara tillgängliga för interna Standard Load Balancer.
-- Att kombinera en belastnings Utjämnings regel för belastnings utjämning och en icke-HA-belastnings Utjämnings regel som pekar på samma ipconfiguration (en eller flera), stöds inte om inte båda har flytande IP-aktiverade.
+- En belastnings Utjämnings regel för belastnings utjämning och en icke-belastnings Utjämnings regel som pekar på samma tjänst-ipconfiguration stöds **inte** på en enskild IP-konfiguration för klient delen om inte båda har flytande IP aktive rad.
 - Befintliga IP-fragment vidarebefordras av HA port belastnings Utjämnings regler till samma mål som det första paketet.  IP-fragmentering av UDP-eller TCP-paket stöds inte.
 - Flödes symmetrin (främst för NVA-scenarier) stöds med backend-instansen och ett enda nätverkskort (och enskild IP-konfiguration) endast när det används som det visas i diagrammet ovan och med belastnings Utjämnings regler för HA-portar. Den finns inte i något annat scenario. Det innebär att två eller flera Load Balancer resurser och deras respektive regler gör oberoende beslut och inte samordnade. Se beskrivningen och diagrammet för [virtuella nätverks enheter](#nva). När du använder flera nätverkskort eller mellan NVA mellan en offentlig och intern Load Balancer, är flödets symmetri inte tillgängligt.  Du kanske kan kringgå detta genom att källan NAT'ing ingångs flödet till IP-enheten för att tillåta svar på samma NVA.  Vi rekommenderar dock starkt att du använder ett enda nätverkskort och använder referens arkitekturen som visas i diagrammet ovan.
 

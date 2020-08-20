@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 563a98162a2453ac1c96baf9f04500ee880e0ce5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420965"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641831"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
 
@@ -34,7 +34,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 
 | **Support**                | **Information**               
 | :-------------------       | :------------------- |
-| **Hyper-V-värd**       | Hyper-V-värden kan vara fristående eller distribuerade i ett kluster.<br/><br/> Hyper-V-värden kan köra Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2. Server Core-installation av Windows Server 2016 och Windows Server 2012 R2 stöds också. <br/>Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2012.
+| **Hyper-V-värd**       | Hyper-V-värden kan vara fristående eller distribuerade i ett kluster.<br/><br/> Hyper-V-värden kan köra Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2. Server Core-installation av dessa operativ system stöds också. <br/>Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2012.
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt användar konto eller ett domän användar konto och lägger till användar kontot i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
 | **PowerShell-fjärranvändning**   | [PowerShell-fjärrkommunikation](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) måste vara aktiverat på varje Hyper-V-värd. |
 | **Hyper-V-replikering**       | Om du använder Hyper-V-replikering (eller om du har flera virtuella datorer med samma VM-identifierare), och du identifierar både de ursprungliga och replikerade virtuella datorerna med hjälp av Azure Migrate, kan det hända att utvärderingen som genereras av Azure Migrate inte är korrekt. |
@@ -62,7 +62,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 **Enhet** | **Anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Utgående anslutningar på portarna 443 (HTTPS) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **Hyper-V-värd/-kluster** | Inkommande anslutning på WinRM-port 5985 (HTTP) för att hämta metadata och prestanda data för virtuella Hyper-V-datorer med en Common Information Model-session (CIM).
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Krav för agent-baserade beroende analyser

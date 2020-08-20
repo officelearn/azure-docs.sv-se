@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757613"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641083"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
 
@@ -31,7 +31,7 @@ För att snabbt se Azure Multi-Factor Authentication i praktiken och återgå se
 > [!div class="nextstepaction"]
 > [Aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
@@ -108,6 +108,9 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
 ## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
 
 Administratörer kan välja de [autentiseringsmetoder](../authentication/concept-authentication-methods.md) som de vill göra tillgängliga för användare. Det är viktigt att tillåta mer än en enda autentiseringsmetod så att användare har en säkerhets kopierings metod som är tillgänglig om deras primära metod inte är tillgänglig. Följande metoder är tillgängliga för administratörer att aktivera:
+
+> [!TIP]
+> Microsoft rekommenderar att du använder mobilappen som den primära metoden för Azure Multi-Factor Authentication för bästa möjliga säkerhet och användar upplevelse.
 
 ### <a name="notification-through-mobile-app"></a>Meddelande via mobilapp
 
@@ -284,7 +287,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Tangent | Värde | Default |
+| Tangent | Värde | Standardvärde |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -342,11 +345,11 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
 1. Konfigurera din princip för MFA-registrering
    1. [Kombinera MFA och SSPR](howto-registration-mfa-sspr-combined.md)
    1. Med [identitets skydd](../identity-protection/howto-mfa-policy.md)
-1. Skicka användar kommunikation och få användare att registrera sig[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. Skicka användar kommunikation och få användare att registrera sig [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Håll koll på vem som har registrerats](#identify-non-registered-users)
 
 > [!TIP]
-> Statliga moln användare kan registrera sig på[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> Statliga moln användare kan registrera sig på [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
 
 ## <a name="manage-your-solution"></a>Hantera din lösning
 
@@ -354,7 +357,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Location | Beskrivning |
+| Rapport | Plats | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

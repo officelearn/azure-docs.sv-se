@@ -10,16 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678077"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640420"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids avskrift av ljud strömmar till text. Dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på den här texten som kommando inmatade. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter. Det fungerar sömlöst med <a href="./speech-translation.md" target="_blank">översättnings <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -och <a href="./text-to-speech.md" target="_blank">text till tal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -tjänstens erbjudanden. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](language-support.md#speech-to-text).
 
@@ -30,6 +28,8 @@ Med ytterligare referens text som indata [kan du använda funktionen tal](rest-s
 > [!NOTE]
 > Taligenkänning i Bing togs ur bruk den 15 oktober 2019. Om dina program, verktyg eller produkter använder Taligenkänning i Bing API: er har vi skapat guider som hjälper dig att migrera till tal tjänsten.
 > - [Migrera från Taligenkänning i Bing till tal tjänsten](how-to-migrate-from-bing-speech.md)
+
+[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 ## <a name="get-started-with-speech-to-text"></a>Kom igång med tal till text
 
@@ -58,6 +58,10 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 ## <a name="customization"></a>Anpassning
 
 Förutom standard modellen för tal tjänster kan du skapa anpassade modeller. Anpassningen hjälper till att undvika hinder för tal igenkänning, till exempel talad stil, vokabulär och bakgrunds brus, se [Custom Speech](how-to-custom-speech.md). Anpassnings alternativ varierar beroende på språk och nationella inställningar, se [språk som stöds](supported-languages.md) för att kontrol lera stödet.
+
+## <a name="batch-transcription"></a>Batch-transkription
+
+Batch-avskrift är en uppsättning REST API åtgärder som gör det möjligt att skriva av en stor mängd ljud i lagring. Du kan peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få svars resultat asynkront. Mer information om hur du använder batch-avskrifts-API: et finns i [instruktionen How-to](batch-transcription.md) .
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 

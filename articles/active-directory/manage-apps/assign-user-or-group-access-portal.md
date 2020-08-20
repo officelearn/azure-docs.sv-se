@@ -12,16 +12,16 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04b0b0120a514591fb4fa23656906203acf443b4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 7875bfc55d4530f7f56a96599491cab4a98ced04
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799510"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642035"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företagsapp i Azure Active Directory
 
-Den här artikeln visar hur du tilldelar användare eller grupper till företags program i Azure Active Directory (Azure AD), antingen i Azure Portal eller med hjälp av PowerShell. När du tilldelar en användare till ett program visas programmet i användarens [åtkomst panel för Mina appar](https://myapps.microsoft.com/) för enkel åtkomst. Om programmet exponerar roller kan du också tilldela användaren en specifik roll.
+Den här artikeln visar hur du tilldelar användare eller grupper till företags program i Azure Active Directory (Azure AD), antingen i Azure Portal eller med hjälp av PowerShell. När du tilldelar en användare till ett program visas programmet i användarens [Mina appar](https://myapps.microsoft.com/) för enkel åtkomst. Om programmet exponerar roller kan du också tilldela användaren en specifik roll.
 
 För bättre kontroll kan vissa typer av företags program konfigureras för att [kräva användar tilldelning](#configure-an-application-to-require-user-assignment). 
 
@@ -45,7 +45,7 @@ När användar tilldelning krävs kommer endast de användare som du uttrycklige
 
 Om tilldelning *inte krävs*, antingen på grund av att du har ställt in det här alternativet på **Nej** eller på att programmet använder ett annat SSO-läge, kan alla användare komma åt programmet om de har en direkt länk till programmet eller URL: en för **användar åtkomst** på programmets **egenskaps** sida. 
 
-Den här inställningen påverkar inte om ett program visas på åtkomst panelen för Mina appar. Program visas på användarnas åtkomst paneler för Mina appar när du har tilldelat en användare eller grupp till programmet. I bakgrunden, se [Hantera åtkomst till appar](what-is-access-management.md).
+Den här inställningen påverkar inte om ett program visas i Mina appar. Program visas på användarnas åtkomst paneler för Mina appar när du har tilldelat en användare eller grupp till programmet. I bakgrunden, se [Hantera åtkomst till appar](what-is-access-management.md).
 
 
 Så här kräver du användar tilldelning för ett program:
@@ -161,7 +161,7 @@ I det här exemplet tilldelas användaren Britta Simon till Microsoft-programmet
 ## <a name="related-articles"></a>Relaterade artiklar
 
 - [Läs mer om slut användar åtkomst till program](end-user-experiences.md)
-- [Planera en distribution av Azure AD-åtkomst panel](access-panel-deployment-plan.md)
+- [Planera distributionen av Azure AD Mina appar](access-panel-deployment-plan.md)
 - [Hantera åtkomst till appar](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Nästa steg

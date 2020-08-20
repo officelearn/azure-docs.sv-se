@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: eafe13adb5b37de2de2bc4eb8bf15c775af0b039
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87171863"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640590"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -117,6 +117,28 @@ Fel 50004: "det går inte att ansluta till en värd eller ett kluster eftersom S
     3. Lägg till IP-adressen och värd namnet i en rad. Upprepa detta för varje värd eller kluster där du ser det här felet.
     4. Spara och stäng värdfilen.
     5. Kontrol lera om enheten kan ansluta till värdarna med appen för hantering av appar. Efter 30 minuter bör du se den senaste informationen för de här värdarna i Azure Portal.
+
+
+## <a name="error-60001-unable-to-connect-to-server"></a>Fel 60001: det går inte att ansluta till servern 
+
+- Se till att det finns en anslutning från-enheten till servern
+- Om det är en Linux-server, se till att lösenordsbaserad autentisering är aktiverat med följande steg:
+    1. Logga in på Linux-datorn och öppna SSH-konfigurationsfilen med kommandot ' vi/etc/ssh/sshd_config '
+    2. Ange alternativet "PasswordAuthentication" till Ja. Spara filen.
+    3. Starta om SSH-tjänsten genom att köra tjänsten sshd restart
+- Om det är en Windows-Server kontrollerar du att port 5985 är öppen för att tillåta fjärr-WMI-anrop.
+- Om du identifierar en GCP Linux-server och använder en rot användare använder du följande kommandon för att ändra standardinställningen för rot inloggning
+    1. Logga in på Linux-datorn och öppna SSH-konfigurationsfilen med kommandot ' vi/etc/ssh/sshd_config '
+    2. Ange alternativet "PermitRootLogin" till Ja.
+    3. Starta om SSH-tjänsten genom att köra tjänsten sshd restart
+
+## <a name="error-no-suitable-authentication-method-found"></a>Fel: ingen lämplig autentiseringsmetod hittades
+
+Se till att lösenordsbaserad autentisering är aktiverat på Linux-servern med hjälp av följande steg:
+    1. Logga in på Linux-datorn och öppna SSH-konfigurationsfilen med kommandot ' vi/etc/ssh/sshd_config '
+    2. Ange alternativet "PasswordAuthentication" till Ja. Spara filen.
+    3. Starta om SSH-tjänsten genom att köra tjänsten sshd restart
+
 
 ## <a name="discovered-vms-not-in-portal"></a>Identifierade virtuella datorer som inte är i portalen
 

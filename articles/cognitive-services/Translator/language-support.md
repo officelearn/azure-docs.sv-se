@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d692daf2f7f8b77358e73246fd8d8760f95982ac
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510801"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639791"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -296,6 +296,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Franska      | `fr`          |
 | Tyska      | `de`          |
 | Grekiska      | `el`          |
+| Gujarati| `gu`    |
 | Hebreiska      | `he`          |
 | Hindi      | `hi`          |
 | Ungerska      | `hu`          |
@@ -309,11 +310,14 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
 | Madagaskisk| `mg`    |
+| Malajiska|    `ms`        |
 | Maori| `mi`  |
+| Marathi| `mr`  |
 | Norska      | `nb`          |
 | Persiska      | `fa`          |
 | Polska      | `pl`          |
 | Portugisiska (Brasilien) | `pt-br` |
+| Punjabi|`pa`|
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
 | Samoan|   `sm`    |
@@ -325,6 +329,7 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Thailändska      | `th`          |
 | Turkiska      | `tr`          |
 | Ukrainska      | `uk`          |
+| Urdu| `ur`    |
 | Vietnamesiska      | `vi`          |
 | Walesiska | `cy` |
 

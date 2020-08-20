@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: 1193e6f9ed637f6bd28b2fef6488b2d4902ec67b
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87459393"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640556"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Konfigurera lösenordsbaserad enkel inloggning
 
@@ -29,7 +29,7 @@ Lösenordsbaserad SSO är ett bra sätt att komma igång med att integrera progr
 
 - Stöd för program som kräver flera inloggnings fält för program som kräver mer än bara användar namn och lösen ords fält för att logga in
 
-- Anpassa etiketterna för fälten användar namn och lösen ord som användarna ser på [program åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
+- Anpassa etiketterna för fälten användar namn och lösen ord som användarna ser i [Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) när de anger sina autentiseringsuppgifter
 
 - Tillåt användarna att ange sina egna användar namn och lösen ord för alla befintliga program konton som de skriver i manuellt.
 
@@ -71,7 +71,7 @@ Om Azure AD parsing-försöket Miss lyckas kan du konfigurera inloggning manuell
    ![Manuell konfiguration av lösenordsbaserad enkel inloggning](./media/configure-password-single-sign-on/password-configure-sign-on.png)
 3. Välj **registrerings fält för registrering**. Sidan status för hämtning öppnas på en ny flik som visar att meddelande om att **metadata har fångats pågår**.
 
-4. Om rutan **åtkomst panels tillägg krävs** på en ny flik väljer du **Installera nu** för att installera webb läsar tillägget **Mina appar säker inloggnings tillägg** . (Webb läsar tillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta och aktivera tillägget och uppdatera sidan för hämtnings status.
+4. Om rutan **Mina appar som krävs** visas i en ny flik väljer du **Installera nu** för att installera webb läsar tillägget **Mina appar säker inloggnings tillägg** . (Webb läsar tillägget kräver Microsoft Edge, Chrome eller Firefox.) Installera, starta och aktivera tillägget och uppdatera sidan för hämtnings status.
 
    Webb läsar tillägget öppnar sedan en annan flik som visar den angivna URL: en.
 5. Gå igenom inloggnings processen på fliken med den angivna URL: en. Fyll i fälten användar namn och lösen ord och försök logga in. (Du behöver inte ange rätt lösen ord.)

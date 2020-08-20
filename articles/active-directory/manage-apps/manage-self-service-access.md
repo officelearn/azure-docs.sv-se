@@ -15,22 +15,22 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a59343d4eafaa0e11f56636daa7471e748abf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763150"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640760"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du självbetjäning för program tilldelning
 
-Innan användarna kan identifiera program från sin åtkomst panel för Mina appar måste du aktivera självbetjänings **program åtkomst** till alla program som du vill tillåta att användarna identifierar och begär åtkomst till. Den här funktionen är tillgänglig för program som har lagts till från [Azure AD-galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) eller lades till via [användare eller administrativa medgivande](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
+Innan användarna kan själv identifiera program från sina appar måste du aktivera självbetjänings **program åtkomst** till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Den här funktionen är tillgänglig för program som har lagts till från [Azure AD-galleriet](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app), [Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) eller lades till via [användare eller administrativa medgivande](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience). 
 
 Den här funktionen är ett bra sätt att spara tid och pengar som en IT-grupp och är starkt rekommenderat som en del av en modern program distribution med Azure Active Directory.
 
 Med den här funktionen kan du:
 
--   Låt användarna själv identifiera program från [åtkomst panelen för Mina appar](https://myapps.microsoft.com/) utan att behöva bry sig om IT-gruppen.
+-   Låt användare själv identifiera program från [Mina appar](https://myapps.microsoft.com/) utan att bry sig om IT-gruppen.
 
 -   Lägg till dessa användare i en förkonfigurerad grupp så att du kan se vem som har begärt åtkomst, ta bort åtkomst och hantera de roller som har tilldelats dem.
 
@@ -38,7 +38,7 @@ Med den här funktionen kan du:
 
 -   Du kan också konfigurera upp till 10 personer som kan godkänna åtkomst till det här programmet.
 
--   Alternativt kan en företags god kännare ange de lösen ord som användarna kan använda för att logga in till programmet, direkt från affärs god kännaens [program åtkomst panel](https://myapps.microsoft.com/).
+-   Alternativt kan en företags god kännare ange de lösen ord som användarna kan använda för att logga in i programmet, direkt från affärs god kännaren för att få [Mina appar](https://myapps.microsoft.com/).
 
 -   Du kan också automatiskt tilldela självbetjänings användare till en program roll direkt.
 
@@ -79,7 +79,7 @@ Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till e
 
 11. Klicka på knappen **Spara** längst upp i fönstret för att avsluta.
 
-När du har slutfört självbetjänings program konfigurationen kan användare navigera till sin [åtkomst panel för Mina appar](https://myapps.microsoft.com/) och klicka på knappen **Lägg till** självbetjänings program för att hitta de appar som är aktivera med självbetjänings åtkomst. Affärs god kännare ser också ett meddelande i [åtkomst panelen för Mina appar](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande.
+När du har slutfört självbetjänings program konfigurationen kan användarna navigera till sina [appar](https://myapps.microsoft.com/) och klicka på knappen **Lägg till** självbetjänings program för att hitta de appar som är aktivera med självbetjänings åtkomst. Affärs god kännare ser också ett meddelande i sina [appar](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera Azure Active Directory för grupphantering via självbetjäning](../users-groups-roles/groups-self-service-management.md)

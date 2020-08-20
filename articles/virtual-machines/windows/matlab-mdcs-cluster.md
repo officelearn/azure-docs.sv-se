@@ -8,15 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: a3f3dbd74ef74f091ca923f8c09680c6913ac300
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c2561a6dc3ad8c0af1c266b3822a80c76f45c174
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074231"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639689"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Skapa kluster för MATLAB-distribuerade dator servrar på virtuella Azure-datorer
 Använd Microsoft Azure virtuella datorer för att skapa ett eller flera MATLAB-kluster för distribuerade dator servrar för att köra beräknings intensiva parallella MATLAB-arbetsbelastningar. Installera ditt MATLAB-distribuerade program serverprogram på en virtuell dator som ska användas som en bas avbildning och Använd en Azure snabb starts mall eller ett Azure PowerShell skript (tillgängligt på [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) för att distribuera och hantera klustret. Efter distributionen ansluter du till klustret för att köra arbets belastningarna.
+
+> [!IMPORTANT]
+> Eftersom den här artikeln skrevs, finns det nu formell support för att använda MATLAB-program i Azure. Vi rekommenderar att dessa nya funktioner används i stället för mallen och skripten som nämns i den här artikeln. Sök på [Azure Marketplace](https://azuremarketplace.microsoft.com/) efter "MATLAB"; Mer information om att köra MATLAB-program på Azure finns på [MathWorks](https://www.mathworks.com/solutions/cloud.html#public-cloud).
 
 ## <a name="about-matlab-and-matlab-distributed-computing-server"></a>Om MATLAB och MATLAB-distribuerad dator server
 [MATLAB](https://www.mathworks.com/products/matlab/) -plattformen är optimerad för att lösa tekniska och vetenskapliga problem. MATLAB-användare med storskaliga simuleringar och data bearbetnings uppgifter kan använda MathWorks Parallel Computing-produkter för att påskynda beräknings intensiva arbets belastningar genom att dra nytta av beräknings kluster och rutnäts tjänster. Med [verktyg för parallell dator användning](https://www.mathworks.com/products/parallel-computing/) kan MATLAB-användare parallellisera program och dra nytta av processorer med flera kärnor, GPU: er och beräknings kluster. [MATLAB-distribuerad dator server](https://www.mathworks.com/products/distriben/) gör det möjligt för MATLAB-användare att använda många datorer i ett beräknings kluster.

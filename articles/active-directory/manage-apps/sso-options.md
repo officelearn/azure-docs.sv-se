@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: 3352bb13602947f08cc974d63308f2d802b144e7
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c380642cd4297a753b113bdbfdfb46060656269e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612358"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642103"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Alternativ för enkel inloggning i Azure AD
 
 Enkel inloggning ger många fördelar jämfört med traditionella inloggnings metoder.
 
-- **Med enkel inloggning**loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Azure AD-appens åtkomst panel. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
+- **Med enkel inloggning**loggar användare in en gång med ett konto för att komma åt domänanslutna enheter, företags resurser, SaaS-program (program vara som en tjänst) och webb program. När du har loggat in kan användaren starta program från Office 365-portalen eller Mina appar. Administratörer kan centralisera hanteringen av användar konton och automatiskt lägga till eller ta bort användar åtkomst till program baserat på grupp medlemskap.
 
 - **Utan enkel inloggning**måste användare komma ihåg programspecifika lösen ord och logga in på varje program. IT-personalen måste skapa och uppdatera användar konton för varje program, till exempel Office 365, Box och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program.
 
@@ -123,7 +123,7 @@ Lösen ord för varje program kan antingen hanteras av Azure AD-administratören
 
 När Azure AD-administratören hanterar autentiseringsuppgifterna:  
 
-- Användaren behöver inte återställa eller komma ihåg användar namnet och lösen ordet. Användaren kan komma åt programmet genom att klicka på det på åtkomst panelen eller via en angiven länk.
+- Användaren behöver inte återställa eller komma ihåg användar namnet och lösen ordet. Användaren kan komma åt programmet genom att klicka på det i sina appar eller via en angiven länk.
 - Administratören kan utföra hanterings uppgifter för autentiseringsuppgifterna. Administratören kan till exempel uppdatera program åtkomsten enligt användar grupp medlemskap och status för anställda.
 - Administratören kan använda administrativa autentiseringsuppgifter för att ge åtkomst till program som delas mellan många användare. Administratören kan till exempel tillåta alla som har åtkomst till ett program att ha åtkomst till ett socialt medium eller ett dokument delnings program.
 

@@ -2,26 +2,21 @@
 title: Felsöka programproxy | Microsoft Docs
 description: Beskriver hur du felsöker fel i Azure AD-programproxy.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57a77b486239f1fd49a4979d7acbbfc8f0254311
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 413cfe4f3aed446ad26a210b4faa452c4f624685
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848460"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640862"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med programproxy och felmeddelanden
 
@@ -84,6 +79,7 @@ Den här listan innehåller fel som slutanvändarna kan stöta på när de förs
 | Den här företags appen är inte tillgänglig just nu. Försök igen senare... Tids gränsen för anslutningen uppnåddes. | Användaren kan få det här felet när du försöker komma åt appen som du har publicerat om de inte är korrekt definierade för det här programmet på den lokala sidan. Se till att användarna har rätt behörigheter enligt definitionen för det här server dels programmet på den lokala datorn. |
 | Det går inte att öppna den här företags appen. Du har inte behörighet att komma åt det här programmet. Auktoriseringen misslyckades. Se till att användaren har en licens för Azure Active Directory Premium. | Användaren kan få det här felet när du försöker få åtkomst till appen som du har publicerat om de inte explicit hade tilldelats en Premium-licens av prenumerantens administratör. Gå till fliken Active Directory **licenser** för prenumerant och kontrol lera att den här användaren eller användar gruppen har tilldelats en Premium-licens. |
 | Det gick inte att hitta en server med det angivna värd namnet. | Användaren kan få det här felet när du försöker komma åt appen som du har publicerat om programmets anpassade domän inte är korrekt konfigurerad. Se till att du har överfört ett certifikat för domänen och konfigurerat DNS-posten korrekt genom att följa stegen i [arbeta med anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md) |
+|Tillåts inte: den här företags appen kan inte nås eller så gick det inte att auktorisera användaren. Se till att användaren har definierats i din lokala AD och att användaren har åtkomst till appen i din lokala AD. | Detta kan vara ett problem med åtkomst till auktoriseringsinformation. mer information finns i [vissa program och API: er kräver åtkomst till auktoriseringsinformation på konto objekt]( https://support.microsoft.com/help/331951/some-applications-and-apis-require-access-to-authorization-information). I en kortfattat så Jenkins lägger du till dator kontot för App proxy-anslutning till "Windows Authorization Access Group"-gruppen "Builtin" för att lösa problemet. |
 
 ## <a name="my-error-wasnt-listed-here"></a>Mitt fel visas inte här
 

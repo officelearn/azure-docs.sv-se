@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: f26addda79d57a055f7b431968319138d499ef18
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272945"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642290"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise på Azure HDInsight
 
@@ -146,8 +146,9 @@ Feedback-filerna, materialiserade under planer och fråge loggar behålls i Spar
 sudo /opt/peregrine/analyze/peregrine.sh clean
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
+* [Använd den bärbara arbets belastnings antecknings boken för att fastställa fördelarna med SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Förbättra prestanda för Apache Spark arbets belastningar med Azure HDInsight IO-cache](apache-spark-improve-performance-iocache.md)
 * [Optimera Apache Spark jobb i HDInsight](./apache-spark-perf.md)
 * [SparkCruise: åter användning av handsfree-beräkning i Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)

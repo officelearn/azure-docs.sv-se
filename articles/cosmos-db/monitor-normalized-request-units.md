@@ -6,30 +6,32 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 8709389208ba1320685b1834b20893f08ef33ed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7005a3786bb2d538450b076c113e159c766d72e
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482912"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642086"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Övervaka normaliserade RU/s för en Azure Cosmos-behållare eller ett konto
 
 Azure Monitor för Azure Cosmos DB ger en mått vy för att övervaka ditt konto och skapa instrument paneler. De Azure Cosmos DB måtten samlas in som standard, men den här funktionen kräver inte att du aktiverar eller konfigurerar något explicit.
 
-Det **normaliserade ru-förbruknings** måttet används för att se hur väl mätta replikerna är i förhållande till användningen av begär ande enheter över partitionernas nyckel intervall. Azure Cosmos DB distribuerar data flödet jämnt över alla fysiska partitioner. Det här måttet ger en vy av den högsta data flödes användningen i en replik uppsättning. Använd det här måttet för att beräkna RU/s-användningen mellan partitioner för den aktuella behållaren. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av enhets användningen för enheter.
+Det **normaliserade ru-förbruknings** måttet används för att se hur väl mättad partitionens nyckel intervall är vad gäller trafiken. Azure Cosmos DB distribuerar data flödet jämnt över alla partitionerings nyckel intervall. Det här måttet ger en vy av den maximala data flödes användningen för partitionerings intervall i en andra vy. Använd det här måttet för att beräkna RU/s-användningen över partitionerings intervallet för den aktuella behållaren. Om du använder det här måttet, bör du öka data flödet för att uppfylla arbets Belastningens behov, om du ser hög procent andel av förfrågans enhets användningar för alla partitionstyper i Azure Monitor. 
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Vad som ska förväntas och göra när normaliserade RU/s är högre
 
-När den normaliserade RU/s-förbrukningen når 100%, tar klienten emot hastighets begränsnings fel. Klienten bör respektera vänte tiden och försöka igen. Om det finns en kort insamling som når 100% användning innebär det att data flödet på repliken nått sin maximala prestanda gräns. En enskild åtgärd som till exempel en lagrad procedur som använder alla RU/s på en replik kommer att leda till en kort insamling i normaliserad RU/s-förbrukning. I sådana fall kommer det inte att finnas några omedelbara hastighets begränsnings fel om begär ande frekvensen är låg. Det beror på att Azure Cosmos DB tillåter begär Anden att debitera mer än etablerade RU/s för den särskilda begäran och andra begär Anden inom den tids perioden är begränsad.
+När den normaliserade RU/s-förbrukningen når 100% för det angivna partitionsnumret, och om en klient fortfarande skickar begär anden i tidsfönstret på 1 sekund till det särskilda partitionsnyckel, får det ett begränsat fel. Klienten bör respektera den föreslagna vänte tiden och försöka utföra begäran igen. SDK gör det enkelt att hantera den här situationen genom att försöka med förkonfigurerade tider på lämpligt sätt.  Det är inte nödvändigt att du ser begränsningen för RU-frekvensen eftersom den normaliserade RU har nått 100%. Det beror på att normaliserat RU är ett enda värde som representerar Max användningen för alla partitionsnyckel, men ett nyckel intervall kan vara upptaget, men de andra partition nyckel intervallen kan hantera begär Anden utan problem. Till exempel kan en enskild åtgärd, till exempel en lagrad procedur som förbrukar alla RU/s på ett nyckel intervall, leda till en kort insamling i den normaliserade RU/s-förbrukningen. I sådana fall uppstår inga omedelbara hastighets begränsnings fel om begär ande frekvensen är låg eller om begär Anden görs till andra partitioner på olika nyckel intervall. 
 
-Azure Monitor måtten hjälper dig att hitta åtgärderna per status kod med hjälp av måttet **Totalt antal begär Anden** . Senare kan du filtrera efter dessa förfrågningar med status koden 429 och dela upp dem efter **Åtgärds typ**.
+Azure Monitor måtten hjälper dig att hitta åtgärder per status kod för SQL-API med hjälp av måttet **Totalt antal begär Anden** . Senare kan du filtrera efter dessa förfrågningar med status koden 429 och dela upp dem efter **Åtgärds typ**.  
 
 Det rekommenderade sättet är att hämta den här informationen via diagnostikloggar för att hitta de begär Anden som är begränsade.
 
-Om det finns kontinuerlig hög belastning på 100% normaliserade RU/s-förbrukning eller nära 100% rekommenderar vi att du ökar data flödet. Du kan ta reda på vilka åtgärder som är stora och deras högsta användning genom att använda Azure Monitor-mått och Azure Monitor-loggar.
+Om det finns kontinuerlig hög belastning på 100% normaliserade RU/s-förbrukning eller nära 100% över flera nyckel intervall rekommenderas det att öka data flödet. Du kan ta reda på vilka åtgärder som är stora och deras högsta användning genom att använda Azure Monitor-mått och Azure Monitor-diagnostikloggar.
 
-Det **normaliserade ru-förbruknings** måttet används också för att se vilka nyckel intervall som är mer varma i användnings villkoren. därmed får du skevingen av data flödet mot ett nyckel intervall. Senare kan du följa upp för att se **PartitionKeyRUConsumption** -loggen i Azure Monitor loggar för att få information om vilka logiska partitionsnyckel som är frekventa när det gäller användningen.
+I sammanfattning används det **normaliserade ru-förbruknings** måttet för att se vilka nyckel intervall som är mer varma i användnings villkor. Det innebär att du kan skeva data flödet mot ett nyckel intervall. Senare kan du följa upp för att se **PartitionKeyRUConsumption** -loggen i Azure Monitor loggar för att få information om vilka logiska partitionsnyckel som är frekventa när det gäller användningen. Detta leder till ändringar i antingen partitionsfunktionen eller ändringen i program logiken. För att lösa hastighets begränsningen måste du distribuera data belastningen på flera partitioner eller bara öka i data flödet eftersom det verkligen krävs. 
+
+
 
 ## <a name="view-the-normalized-request-unit-consumption-metric"></a>Visa den normaliserade förbruknings måttet för begär ande enheter
 

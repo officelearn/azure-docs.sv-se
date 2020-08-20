@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 1b19f4aae7bf7477dbe5950f2d4df31e2de81372
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562573"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88639927"
 ---
 # <a name="managing-access-to-apps"></a>Hantera åtkomst till appar
 
@@ -45,7 +45,7 @@ Med vissa typer av program kan du välja att kräva att [användarna ska tilldel
 * Program för programproxy som använder Azure Active Directory förautentisering
 * Program som bygger på Azure AD-programplattformen som använder OAuth 2,0/OpenID Connect-autentisering när en användare eller administratör har samtyckt till det programmet. Vissa företags program ger ytterligare kontroll över vem som tillåts att logga in.
 
-När användar tilldelning *inte krävs*visas inte appen på åtkomst panelen för Mina appar, men de kan fortfarande logga in på själva programmet (även kallat SP-initierad inloggning) eller använda **URL: en för användar åtkomst** på programmets **egenskaps** sida (kallas även IDP inloggning).
+När användar tilldelning *inte krävs*ser inte otilldelade användare appen i sina appar, men de kan fortfarande logga in i själva programmet (även kallat SP-initierad inloggning) eller använda **URL: en för användar åtkomst** på programmets **egenskaps** sida (kallas även IDP inloggning).
 
 För vissa program är alternativet för att kräva användar tilldelning inte tillgängligt i programmets egenskaper. I dessa fall kan du använda PowerShell för att ange egenskapen appRoleAssignmentRequired för tjänstens huvud namn.
 
@@ -53,12 +53,12 @@ För vissa program är alternativet för att kräva användar tilldelning inte t
 
 Azure AD tillhandahåller [flera anpassningsbara sätt att distribuera program](end-user-experiences.md) till slutanvändare i din organisation:
 
-* Åtkomst panel för Azure AD Mina appar
+* Mina appar i Azure AD
 * Office 365-program start
 * Direkt inloggning till federerade appar (service – PR)
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
-Du kan avgöra om användare som är tilldelade till en företags app kan se det i åtkomst panelen och Office 365 Application start.
+Du kan avgöra om användare som är tilldelade till en företags app kan se den i Mina appar och Office 365 Application start.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Exempel: komplex program tilldelning med Azure AD
 Överväg ett program som Salesforce. I många organisationer används Salesforce främst av marknadsförings-och Sälj teamen. Ofta har medlemmar i marknadsförings teamet hög privilegie rad åtkomst till Salesforce, medan medlemmar i Sälj teamet har begränsad åtkomst. I många fall har en bred population av informations anställda begränsad åtkomst till programmet. Undantag till de här reglerna är att det är en komplicerad angelägenhet. Det är ofta förmåns gruppen för marknads organisations-eller Sälj organisations team för att ge en användare åtkomst eller ändra sina roller oberoende av dessa allmänna regler.
@@ -72,7 +72,7 @@ Med Azure AD kan program som Salesforce vara förkonfigurerade för enkel inlogg
 
 * Om du vill aktivera undantags funktionen kan en självbetjänings grupp skapas för varje roll. Till exempel kan gruppen "Salesforce Marketing Exception" skapas som en självbetjänings grupp. Gruppen kan tilldelas till Salesforce-marknadsförings rollen och marknads ledande laget kan göras ägare. Medlemmar i marknads ledningen kan lägga till eller ta bort användare, ange en kopplings princip eller till och med godkänna eller neka enskilda användares begär Anden att ansluta. Den här mekanismen stöds via en informations anställds lämpligaste upplevelse som inte kräver särskild utbildning för ägare eller medlemmar.
 
-I det här fallet är alla tilldelade användare automatiskt etablerade i Salesforce, eftersom de läggs till i olika grupper. roll tilldelningen uppdateras i Salesforce. Användare skulle kunna identifiera och komma åt Salesforce via Microsoft-programmets åtkomst panel, Office-webbklienter eller till och med genom att gå till deras organisations inloggnings sida för Salesforce. Administratörer kan enkelt Visa användnings-och tilldelnings status med hjälp av Azure AD repor ting.
+I det här fallet är alla tilldelade användare automatiskt etablerade i Salesforce, eftersom de läggs till i olika grupper. roll tilldelningen uppdateras i Salesforce. Användare skulle kunna identifiera och få åtkomst till Salesforce via Mina appar, Office-webbklienter eller till och med genom att gå till deras organisations inloggnings sida. Administratörer kan enkelt Visa användnings-och tilldelnings status med hjälp av Azure AD repor ting.
 
 Administratörer kan använda [villkorlig Azure AD-åtkomst](../conditional-access/concept-conditional-access-users-groups.md) för att ange åtkomst principer för särskilda roller. Dessa principer kan omfatta om åtkomst tillåts utanför företags miljön och till och med Multi-Factor Authentication-eller enhets krav för att få åtkomst i olika fall.
 
@@ -88,7 +88,7 @@ En användare kan få till gång till ett Microsoft-publicerat program på tre s
 
 Vissa program kombinerar dessa metoder. Vissa Microsoft-program ingår exempelvis i en Office 365-prenumeration, men kräver fortfarande medgivande.
 
-Användare har åtkomst till Office 365-program via deras Office 365-portaler. Du kan också visa eller dölja Office 365-program i åtkomst panelen för Mina appar med [office 365-synlighet växla](hide-application-from-user-portal.md) i din katalogs **användar inställningar**. 
+Användare har åtkomst till Office 365-program via deras Office 365-portaler. Du kan också visa eller dölja Office 365-program i Mina appar med [office 365-synlighet växla](hide-application-from-user-portal.md) i din katalogs **användar inställningar**. 
 
 Precis som med företags program kan du [tilldela användare](assign-user-or-group-access-portal.md) till vissa Microsoft-program via Azure Portal eller, om Portal alternativet inte är tillgängligt, med hjälp av PowerShell.
 

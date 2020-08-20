@@ -63,6 +63,8 @@
       href: ../../firewall/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Functions
       href: ../../azure-functions/security-baseline.md
+    - name: Säkerhetsbaslinje för Azure Machine Learning
+      href: ../../machine-learning/security-baseline.md
     - name: Azure Policy-säkerhetsbaslinje
       href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
     - name: Säkerhetsbaslinje för Azure Resource Graph

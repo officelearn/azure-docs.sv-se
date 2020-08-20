@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de173d6dc25610cd397cd719fe4c1c9db33a02f6
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84168207"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88641848"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Hämta och viktig information
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "84168207"
 |   |   |
 |---|---|
 |**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Urvalsundersökningar**|[Cosmos DB Tabell-API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Exempel**|[Cosmos DB Tabell-API .NET-exempel](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
 |**Självstudier**|[Självstudier](tutorial-develop-table-dotnet.md)|
 |**Aktuellt ramverk som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -41,6 +41,14 @@ ms.locfileid: "84168207"
 
 ## <a name="release-notes-for-100-series"></a>Viktig information för 1.0.0-serien
 1.0.0-serien tar beroende av [Microsoft.Azure.DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
+
+### <a name="108"></a><a name="1.0.8"></a>1.0.8
+* Lägg till stöd för att ange TTL-egenskapen om den är cosmosdb-slutpunkt 
+* Princip för princip för återförsök vid timeout och uppgift avbrutet undantag
+* Åtgärda återkommande aktivitet avbrutna undantag visas i ASP .NET-program
+* Korrigera Azure Table Storage Hämta enbart från sekundär slut punkt läge
+* Uppdatera `Microsoft.Azure.DocumentDB.Core` beroende version till 2.11.2 som löser tillfälliga null-referensundantag
+* Uppdatera `Odata.Core` beroende version till 7.6.4 som korrigerar kompatibilitet med Azure Shell
 
 ### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Prestanda förbättring genom att ange standard spårnings nivån för Table SDK till SourceLevels. off, som kan väljas via app.config

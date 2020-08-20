@@ -20,10 +20,8 @@
       href: index-speech-to-text.yml
     - name: Översikt
       items:
-        - name: Vad är tal till text i realtid?
+        - name: Vad är tal-till-text?
           href: speech-to-text.md
-        - name: Vad är batchbaserad tal till text?
-          href: batch-transcription.md
         - name: Grunderna om taligenkänning
           href: speech-to-text-basics.md
     - name: Snabbstarter
@@ -53,6 +51,8 @@
           href: how-to-select-audio-input-devices.md
         - name: Använda automatisk källspråksidentifiering
           href: how-to-automatic-language-detection.md
+        - name: Använda API för batch-transkription
+          href: batch-transcription.md
     - name: Självstudier
       items:
         - name: Förbättra noggrannheten med klientmodeller

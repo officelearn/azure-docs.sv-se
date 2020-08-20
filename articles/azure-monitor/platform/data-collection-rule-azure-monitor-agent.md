@@ -4,13 +4,13 @@ description: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 3cd2ed692f3a34223675da69efd92e78c2ba9504
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 08/19/2020
+ms.openlocfilehash: 97ba976c841e192646ebb484fe4d004556e34c54
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083194"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640845"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurera data insamling för Azure Monitor agenten (för hands version)
 Data insamlings regler (DCR) definiera data som kommer till Azure Monitor och ange var de ska skickas. Den här artikeln beskriver hur du skapar en data insamlings regel för att samla in data från virtuella datorer med hjälp av Azure Monitor agenten.
@@ -48,7 +48,7 @@ På fliken **samla in och leverera** klickar du på **Lägg till data källa** f
 [![Grundläggande data Källa](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)](media/azure-monitor-agent/data-collection-rule-data-source-basic.png#lightbox)
 
 
-Välj **anpassad**om du vill ange andra loggar och prestanda räknare. Du kan sedan ange en [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) för alla angivna värden som ska samlas in. Se exempel på [DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
+Välj **anpassad**om du vill ange andra loggar och prestanda räknare. Du kan sedan ange en [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) för alla angivna värden som ska samlas in. Se exempel på [DCR](data-collection-rule-overview.md#sample-data-collection-rule) .
 
 [![Anpassad data Källa](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)](media/azure-monitor-agent/data-collection-rule-data-source-custom.png#lightbox)
 
@@ -61,6 +61,11 @@ Klicka på **Lägg till data källa** och **granska sedan + skapa** för att gra
 > [!NOTE]
 > När data insamlings regeln och associationerna har skapats kan det ta upp till 5 minuter innan data skickas till målen.
 
+## <a name="createusingrestapi"></a>Skapa med REST-API
+Följ stegen nedan för att skapa en DCR-och Association med hjälp av REST API. 
+1.Skapa DCR-filen manuellt med JSON-formatet som visas i [exempel-DCR](data-collection-rule-overview.md#sample-data-collection-rule).
+2.Skapa regeln med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
+3.Skapa en koppling för varje virtuell dator till data insamlings regeln med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Nästa steg
 

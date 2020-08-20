@@ -1,5 +1,5 @@
 ---
-title: Vad är batch-avskrifter – tal service
+title: Använda batch-avskrifter – tal tjänst
 titleSuffix: Azure Cognitive Services
 description: Batch-avskrift är idealiskt om du vill skriva över en stor mängd ljud i lagring, till exempel Azure-blobbar. Genom att använda den dedikerade REST API kan du peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få asynkront erhålla avskrifter.
 services: cognitive-services
@@ -10,20 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: 70977c30edce124aa0d39bcc57d4ccd015d65961
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214053"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640165"
 ---
-# <a name="what-is-batch-transcription"></a>Vad är batch-avskriftering?
+# <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
 Batch-avskrift är en uppsättning REST API åtgärder som gör det möjligt att skriva av en stor mängd ljud i lagring. Du kan peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få svars resultat asynkront. Med New v 3.0-API: et kan du välja att skriva en eller flera ljudfiler eller bearbeta en hel lagrings behållare.
 
 Asynkront tal-till-text-avskrift är bara en av funktionerna. Du kan använda REST-API: er för batch-avskrift för att anropa följande metoder:
-
-
 
 |    Batch-avskrifts åtgärd                                             |    Metod    |    REST API-anrop                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -44,22 +42,16 @@ Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. Det finns för 
 
 Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
 
-## <a name="prerequisites"></a>Krav
-
-### <a name="subscription-key"></a>Prenumerationsnyckel
+## <a name="prerequisites"></a>Förutsättningar
 
 Precis som med alla funktioner i tal tjänsten skapar du en prenumerations nyckel från [Azure Portal](https://portal.azure.com) genom att följa vår [Guide för att komma igång](get-started.md).
 
 >[!NOTE]
 > En standard prenumeration (S0) för tal tjänst krävs för att använda batch-avskriftering. Kostnads fria prenumerations nycklar (F0) fungerar inte. Mer information finns i [priser och begränsningar](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-### <a name="custom-models"></a>Anpassade modeller
-
 Om du planerar att anpassa modeller följer du stegen i [akustisk anpassning](how-to-customize-acoustic-models.md) och [språk anpassning](how-to-customize-language-model.md). Om du vill använda de skapade modellerna i batch-avskriftering behöver du deras modell plats. Du kan hämta modell platsen när du har granskat informationen om modellen ( `self` egenskap). Det *behövs ingen* distribuerad anpassad slut punkt för batch-avskrifts tjänsten.
 
-## <a name="the-batch-transcription-api"></a>API för batch-avskriftering
-
-### <a name="supported-formats"></a>Format som stöds
+## <a name="batch-transcription-api"></a>API för batch-avskriftering
 
 API: et för batch-avskrift stöder följande format:
 
@@ -185,7 +177,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
 
-## <a name="the-batch-transcription-result"></a>Resultatet av batch-avskriften
+## <a name="batch-transcription-result"></a>Resultat av batch-avskrift
 
 För varje ljud inspelning skapas en resultat fil för avskriften. Du kan hämta listan över resultat filer genom att anropa [Get deskrifts-filer](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Den här metoden returnerar en lista med resultat filer för den här avskriften. Om du vill hitta avskrifts filen för en speciell indatafil filtrerar du alla returnerade filer med `kind`  ==  `Transcription` och `name`  ==  `{originalInputName.suffix}.json` .
 
@@ -289,9 +281,9 @@ Resultatet innehåller följande formulär:
       Den tolkade textens visnings form. Tillagd interpunktion och versaler ingår.
 :::row-end:::
 
-## <a name="speaker-separation-diarization"></a>Högtalar separation (Diarization)
+## <a name="speaker-separation-diarization"></a>Högtalar separation (diarization)
 
-Diarization är en process för att åtskilja högtalare i ett ljud. Vår batch-pipeline stöder diarization och kan identifiera två högtalare på svartvita kanal inspelningar. Funktionen är inte tillgänglig i stereo inspelningar.
+Diarization är en process för att åtskilja högtalare i ett ljud. Batch-pipeline stöder diarization och kan identifiera två högtalare på svartvita kanaler. Funktionen är inte tillgänglig i stereo inspelningar.
 
 Resultatet av avskrift med diarization aktiverat innehåller en `Speaker` post för varje uppskriven fras. Om diarization inte används finns `Speaker` inte egenskapen i JSON-utdata. För diarization har vi stöd för två röster, så att högtalarna identifieras som `1` eller `2` .
 
@@ -317,7 +309,7 @@ Tidsstämplar på Word-nivå måste vara aktiverade eftersom parametrarna i ovan
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan ställa frågor om status för dina avskrifter via en `GET` på [Get-avskrifter](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Anropa [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Alternativt kan du ange `timeToLive` egenskapen till ett rimligt värde för att säkerställa eventuell borttagning av resultaten.
+Batch-avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan ställa frågor om status för dina avskrifter via en `GET` på [Get-avskrifter](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Anropa [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Alternativt kan du ange `timeToLive` egenskapen till ett rimligt värde för att säkerställa eventuell borttagning av resultaten.
 
 ## <a name="sample-code"></a>Exempelkod
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: article
 ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 37f79d717b7ea0e26717e7b51f9e66b908b96521
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83121821"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640979"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Köra en funktion som inte utlösts av HTTP manuellt
 
@@ -37,7 +37,7 @@ Du kan använda den här platsen för begäran i Postman tillsammans med funktio
 
 ## <a name="get-the-functions-master-key"></a>Hämta funktionens huvudnyckel
 
-1. Navigera till din funktion i Azure Portal och välj **funktions tangenter**. Välj sedan den funktions nyckel som du vill kopiera. 
+1. Navigera till din Function-app i [Azure Portal](https://portal.azure.com), Välj **app-nycklar**och sedan `_master` nyckeln. 
 
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
@@ -50,7 +50,7 @@ Du kan använda den här platsen för begäran i Postman tillsammans med funktio
     :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visa loggarna för att se test resultaten för huvud nyckeln." border="true":::
 
 > [!CAUTION]  
-> På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program.
+> På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program. Nyckeln ska bara skickas till en HTTPS-slutpunkt.
 
 ## <a name="call-the-function"></a>Anropa funktionen
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/31/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 68ccf3518a7011c0c39003d8e447a4e1d233fd91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ce159bc61a1f21c52b8d182c1248ba1d436462da
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164588"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88640522"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Använda Azure AD-programproxy för att publicera lokala appar för fjärranslutna användare
 
@@ -76,7 +76,7 @@ Application Proxy är en Azure AD-tjänst som du konfigurerar i Azure Portal. Du
 
 Komponenterna i den här funktionen inkluderar Application Proxy-tjänsten som körs i molnet, Application Proxy Connector, som är en Lightweight-agent som körs på en lokal server och Azure AD, som är identitets leverantören. Alla tre komponenterna fungerar tillsammans för att ge användaren en enkel inloggnings upplevelse för att komma åt lokala webb program.
 
-När du har loggat in kan externa användare komma åt lokala webb program genom att använda en välbekant URL eller [åtkomst panelen](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) för Mina appar från sina Desktop-eller iOS/Mac-enheter. Till exempel kan App proxy tillhandahålla fjärråtkomst och enkel inloggning till fjärr skrivbord, SharePoint-webbplatser, Tableau, Qlik, Outlook på webben och branschspecifika program (LOB).
+När du har loggat in kan externa användare komma åt lokala webb program genom att använda en välbekant URL eller [Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access) från sina Desktop-eller iOS/Mac-enheter. Till exempel kan App proxy tillhandahålla fjärråtkomst och enkel inloggning till fjärr skrivbord, SharePoint-webbplatser, Tableau, Qlik, Outlook på webben och branschspecifika program (LOB).
 
 ![Azure AD-programproxy-arkitektur](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 

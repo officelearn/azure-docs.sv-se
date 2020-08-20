@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323289"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607144"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Marketplace insikter-instrument panel i Partner Center
 
-Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. På den här instrument panelen visas en sammanfattning av Marketplace-webbanalyser som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor som visas på den kommersiella Marketplace-butiker: Microsoft AppSource och Azure Marketplace.
+Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. Den här instrument panelen visar en sammanfattning av Marketplace-webbanalyser som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor som listas på de kommersiella Marketplace-onlinebutiker: Microsoft AppSource och Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Instrumentpanelen Marknadsplatsinsikter
 
@@ -42,11 +42,11 @@ Den maximala svars tiden mellan användare som besöker erbjudanden på Azure Ma
 
 Visa mått på kommersiell Marketplace på flera olika sätt:
 
-- Butik-flikar
+- Online Store-flikar
 - Sid filter
 - Datumfilter
 
-**Butik-flikar**: du kan visa måtten för dina erbjudanden separat via AppSource-& Azure Marketplace-flikar. Välj erbjudandet i list rutan erbjudande till höger om du vill se en visualisering av måtten för de valda erbjudandet. Som standard är alla erbjudanden markerade.
+**Online Store-flikar**: du kan visa måtten för dina erbjudanden separat via AppSource & Azure Marketplace-flikarna. Välj erbjudandet i list rutan erbjudande till höger om du vill se en visualisering av måtten för de valda erbjudandet. Som standard är alla erbjudanden markerade.
 
 ![List rutan med instrument panelen för insikter för partner Center](./media/insights-offer-dropdown.png)
 
@@ -96,7 +96,7 @@ Termisk karta innehåller följande funktioner:
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Sid besök jämfört med unika besökare
 
-Kolumnerna nedan representerar antalet sid besök som visas på Y-axeln (axel till vänster i diagrammet). Trend linjen representerar den månatliga trenden för unika besökare, som visas på den sekundära Y-axeln (axeln till höger i diagrammet) för dina erbjudanden som publiceras i butiker: Azure Marketplace och AppSource.
+Kolumnerna nedan representerar antalet sid besök som visas på Y-axeln (axel till vänster i diagrammet). Trend linjen representerar den månatliga trenden för unika besökare, som visas på den sekundära Y-axeln (axel till höger i diagrammet) för dina erbjudanden som publiceras i onlinebutiker: Azure Marketplace och AppSource.
 
 ![Partner Center Insights sid besök och unika besökares trender](./media/insights-page-vists-unique-visitors.png)
 

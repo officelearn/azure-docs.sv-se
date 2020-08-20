@@ -6,22 +6,23 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: af63ef6f33cc0e3dfe7f186ad2e36b854a728c6b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3c13d37e62da8abfa860d5fdbdf186302519c93e
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120584"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606506"
 ---
-# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Anslut med hanterad identitet till Azure Database for MySQL
+# <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Ansluta med hanterad identitet till Azure Database for MySQL
 
-Den här artikeln visar hur du använder en användardefinierad identitet för en virtuell Azure-dator (VM) för att få åtkomst till en Azure Database for MySQL-server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+Den här artikeln visar hur du använder en användardefinierad identitet för en virtuell Azure-dator (VM) för att få åtkomst till en Azure Database for MySQL-server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
-> [!div class="checklist"]
-> * Bevilja din VM-åtkomst till en Azure Database for MySQL-Server
-> * Skapa en användare i databasen som representerar den VM-tilldelade identiteten för den virtuella datorn
-> * Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for MySQL Server
-> * Implementera hämtning av token i ett exempel program i C#
+Lär dig att:
+
+- Bevilja din VM-åtkomst till en Azure Database for MySQL-Server
+- Skapa en användare i databasen som representerar den VM-tilldelade identiteten för den virtuella datorn
+- Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for MySQL Server
+- Implementera hämtning av token i ett exempel program i C#
 
 > [!IMPORTANT]
 > Anslutning med hanterad identitet är endast tillgängligt för MySQL 5,7 och senare.
@@ -83,7 +84,7 @@ Den här token-hämtningen görs genom att göra en HTTP-förfrågan till `http:
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(som du hämtade tidigare)
+* `client_id` = `CLIENT_ID` (som du hämtade tidigare)
 
 Du får tillbaka ett JSON-resultat som innehåller ett `access_token` fält – detta långa text värde är den hanterade identitets åtkomst-token som du bör använda som lösen ord när du ansluter till databasen.
 

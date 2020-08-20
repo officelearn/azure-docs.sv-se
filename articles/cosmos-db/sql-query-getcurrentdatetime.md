@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function GetCurrentDateTime i Azure Cosm
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4db2ec7bbd05d982af57c05fd46ef7da7c682e15
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ec0b8ccaceed4abe3dd2784463f507f3bc76d890
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258801"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606955"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
 
@@ -44,15 +44,13 @@ GetCurrentDateTime ()
 
 ## <a name="remarks"></a>Kommentarer
 
-  GetCurrentDateTime () är en icke-deterministisk funktion.
-  
-  Resultatet som returneras är UTC.
+GetCurrentDateTime () är en icke-deterministisk funktion. Resultatet som returneras är UTC. Precision är 7 siffror, med en noggrannhet på 100 nanosekunder.
 
-  Precision är 7 siffror, med en noggrannhet på 100 nanosekunder.
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur du hämtar den aktuella UTC-datum tiden med den inbyggda funktionen GetCurrentDateTime ().
+I följande exempel visas hur du hämtar den aktuella UTC-datum tiden med den inbyggda funktionen GetCurrentDateTime ().
   
 ```sql
 SELECT GetCurrentDateTime() AS currentUtcDateTime

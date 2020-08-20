@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c8890afcdab1b6247fe072f2e34437d790185e58
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 823e116b659a582ceb9a09b752179ee5a78f4ebd
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88076939"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607041"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -98,18 +98,19 @@ Windows 7 (x64) med SP1 och senare | Från version [9,30](https://support.micros
 
 **Operativsystem** | **Information**
 --- | ---
-Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1, [8,2](https://support.microsoft.com/help/4570609/)
-CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), 8,0, 8,1, 8,2,,, [,](https://support.microsoft.com/en-us/help/4570609)
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [8,1, 8,2](https://support.microsoft.com/help/4570609/)
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7, 7,8](https://support.microsoft.com/help/4564347/), [7,9](https://support.microsoft.com/help/4578241/), 8,0, [8,1, 8,2](https://support.microsoft.com/en-us/help/4570609)
 Ubuntu 14,04 LTS-Server | [Kernel-versioner som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Ubuntu-servrar som använder lösenordsbaserad autentisering och loggar in och Cloud-Init-paketet för att konfigurera virtuella datorer i molnet kan ha lösenordsbaserad inloggning inaktive rad vid redundansväxling (beroende på cloudinit-konfigurationen). Lösenordsbaserade inloggningar kan återaktiveras på den virtuella datorn genom att återställa lösen ordet från support > fel sökning > Inställningar-menyn (av den misslyckade virtuella datorn i Azure Portal.
-Ubuntu 18,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
+Ubuntu 18,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines) </br> Ubuntu 18.4.03 (kernel v 5.4) stöds från [9,36](https://support.microsoft.com/help/4578241/)|
+Ubuntu 20,04 LTS-Server | [Kernel-version som stöds](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | Innehåller stöd för alla 7. *x* versioner som [stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | Innehåller stöd för alla 8. *x* versioner som [stöds kernel-versioner](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (* * SP5 är tillgängligt via den senaste korrigeringen 9,33 för Azure till Azure DR-scenario).
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5  [(kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (* * SP5 är tillgängligt via den senaste korrigeringen 9,33 för Azure till Azure DR-scenario).
 SUSE Linux Enterprise Server 15 | 15 och 15 SP1. [(Kernel-versioner som stöds)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | INSTALLERAS<br/><br/> Uppgradering av replikering av datorer från SP3 till SP4 stöds inte. Om en replikerad dator har uppgraderats måste du inaktivera replikering och återaktivera replikering efter uppgraderingen.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/)  <br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>[8.1](https://support.microsoft.com/help/4573888/)<br/>Att köra på alla UEK-kerneler och RedHat kernel <= 3.10.0-1062. * stöds. Stöd för rest av RedHat-kärnan är tillgängliga i 9,36, förväntas enligt slutet av augusti.
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [8,0](https://support.microsoft.com/help/4573888/)  <br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Att köra på alla UEK-kerneler och RedHat kernel <= 3.10.0-1062. * stöds i [9,35](https://support.microsoft.com/help/4573888/) -stöd för rest av RedHat-kärnan finns i [9,36](https://support.microsoft.com/help/4578241/)
 
 * * Obs! Om du vill ha stöd för de senaste Linux-kernelerna inom 30 dagar från lanseringen, Azure Site Recovery du ut snabb korrigerings korrigeringen överst i den senaste Mobility agent-versionen. Den här korrigeringen är insamlad i mellan två större versioner. Följ anvisningarna i [den här artikeln](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure)om du vill uppdatera till den senaste versionen av mobilitets agenten (inklusive snabb korrigerings korrigering). Den här korrigeringen är för närvarande distribuerad för mobilitets agenter som används i Azure till Azure DR-scenario.
 
@@ -117,18 +118,19 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
-14,04 LTS | 9,32, [9,33](https://support.microsoft.com/help/4564347/),[9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/)| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
-14,04 LTS | 9,31 | 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
+14,04 LTS | 9,32, [9,33](https://support.microsoft.com/help/4564347/),[9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/)| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 |||
+16,04 LTS | [9,36](https://support.microsoft.com/help/4578241/)| 4.4.0 – 21-genered to 4.4.0-187-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-112-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1092 – Azure |
 16,04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.4.0-21-genered to 4.4.0-184-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-106-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1089 – Azure</br> 4.15.0-107-genered, 4.4.0-185-Generic & 4.15.0-1091-Azure till 9,35 snabb korrigering * * |
 16,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0 – 21-genered to 4.4.0-178-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-99-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1082 – Azure </br> 4.15.0-101-genered & 4.4.0-179-Generic till 9,33 snabb korrigering av snabb korrigering * *|
 16,04 LTS | 9,32 | 4.4.0-21-genered to 4.4.0-171-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-74-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1066-Azure|
-16,04 LTS | 9,31 | 4.4.0 – 21-genered to 4.4.0-170-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-Generic to 4.15.0-72-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1063 – Azure|
 |||
+18,04 LTS | [9,36](https://support.microsoft.com/help/4578241/) | 4.15.0-20-Generic to 4.15.0-112-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-58-generic </br> 5.3.0-19-genered to 5.3.0-65-generic </br> 5.4.0 – 37-generisk till 5.4.0-42-generic</br> 4.15.0-1009 – Azure till 4.15.0-1092 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1032 – Azure </br> 5.4.0-1020 – Azure till 5.4.0 – 1022 – Azure|
 18,04 LTS | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 4.15.0-20-Generic to 4.15.0-108-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-Generic to 5.0.0-52-generic </br> 5.3.0-19-genered to 5.3.0-61-generic </br> 4.15.0-1009 – Azure till 4.15.0-1089 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1031-Azure </br> 4.15.0-109-Generic, 5.0.0-53-Generic, 5.3.0-62-Generic, 4.15.0-1091-Azure & 5.3.0-1032-Azure till 9,35 snabb korrigerings korrigering * *|
 18,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-Generic to 4.15.0-99-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-47-generic </br> 5.3.0-19-genered to 5.3.0-51-generic </br> 4.15.0-1009 – Azure till 4.15.0-1082 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1036 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1020-Azure </br> 4.15.0-101-Generic, 5.0.0-48-genered, 5.3.0-1022-Azure & 5.3.0-53-Generic till 9,33 snabb korrigering * *|
 18,04 LTS | 9,32| 4.15.0-20-Generic to 4.15.0-74-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-37-generisk </br> 5.3.0-19-Generic to 5.3.0-24-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1028 – Azure </br> 5.3.0-1007-Azure till 5.3.0-1009 – Azure|
-18,04 LTS | 9,31| 4.15.0-20-Generic to 4.15.0-72-generic </br> 4.18.0-13-Generic to 4.18.0-25-genered </br> 5.0.0-15-genered to 5.0.0-37-generisk </br> 5.3.0-19-Generic to 5.3.0-24-genered </br> 4.15.0-1009 – Azure till 4.15.0-1037 – Azure </br> 4.18.0-1006 – Azure till 4.18.0 – 1025 – Azure </br> 5.0.0-1012 – Azure till 5.0.0-1025 – Azure </br> 5.3.0-1007 – Azure|
+|||
+20,04 LTS |[9,36](https://support.microsoft.com/help/4578241/) | 5.4.0-26-genered to 5.4.0-42 </br> -Generic 5.4.0-1010 – Azure till 5.4.0-1022 – Azure
 
 * * Obs! Om du vill ha stöd för de senaste Linux-kernelerna inom 30 dagar från lanseringen, Azure Site Recovery du ut snabb korrigerings korrigeringen överst i den senaste Mobility agent-versionen. Den här korrigeringen är insamlad i mellan två större versioner. Följ anvisningarna i [den här artikeln](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure)om du vill uppdatera till den senaste versionen av mobilitets agenten (inklusive snabb korrigerings korrigering). Den här korrigeringen är för närvarande distribuerad för mobilitets agenter som används i Azure till Azure DR-scenario.
 
@@ -136,24 +138,25 @@ Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5,
 
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
-Debian 7 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | 3.2.0 – 4-amd64 till 3.2.0-6-amd64, 3.16.0 -0. bpo. 4-amd64 |
+Debian 7 | 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/), [9,36](https://support.microsoft.com/help/4578241/) | 3.2.0 – 4-amd64 till 3.2.0-6-amd64, 3.16.0 -0. bpo. 4-amd64 |
 |||
-Debian 8 | [9,35](https://support.microsoft.com/help/4573888/) | 3.16.0 – 4-amd64 till 3.16.0-11-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
-Debian 8 | 9,31, 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | 3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
+Debian 8 | [9,35](https://support.microsoft.com/help/4573888/, ), [9,36](https://support.microsoft.com/help/4578241/) | 3.16.0 – 4-amd64 till 3.16.0-11-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
+Debian 8 | 9,32, [9,33](https://support.microsoft.com/help/4564347/), [9,34](https://support.microsoft.com/help/4570609) | 3.16.0 – 4-amd64 till 3.16.0-10-amd64, 4.9.0 -0. bpo. 4-amd64 till 4.9.0 -0. bpo. 11-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Stöd för SUSE Linux Enterprise Server 12 kernel-versioner för Azure Virtual Machines
 
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,36](https://support.microsoft.com/help/4578241/) | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.43 – Azure </br> 4.12.14-16,7 – Azure till 4.12.14-16.22 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/) | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.43 – Azure </br> 4.12.14-16,7 – Azure till 4.12.14-16.19 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32, [9,33](https://support.microsoft.com/help/4564347/) [9,35](https://support.microsoft.com/help/4573888/) | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | korrigering 9,33 snabb korrigering | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.34 – Azure </br> 4.12.14-16,7 – Azure till 4.12.14-16.13 – Azure  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Alla [aktie-och SUSE 12 SP1-, SP2-, SP3-och SP4-kärnor](https://www.suse.com/support/kb/doc/?id=000019587) stöds.</br></br> 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br>4.12.14-6.3 – Azure till 4.12.14-6.29 – Azure  |
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>SUSE Linux Enterprise Server 15 kernel-versioner som stöds för Azure Virtual Machines
 
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15 och 15 SP1 | [9,36](https://support.microsoft.com/help/4578241/)  | Som standard stöds alla [börs-och 15-kernels](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 5.47 – Azure </br></br> 4.12.14 – 8.5 – Azure till 4.12.14 – 8.38 – Azure
 SUSE Linux Enterprise Server 15 och 15 SP1 | [9,34](https://support.microsoft.com/help/4570609), [9,35](https://support.microsoft.com/help/4573888/)  | Som standard stöds alla [börs-och 15-kernels](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 5.47 – Azure </br></br> 4.12.14 – 8.5 – Azure till 4.12.14 – 8.33 – Azure 
 |SUSE Linux Enterprise Server 15 och 15 SP1 | [9,33](https://support.microsoft.com/help/4564347/) | Som standard stöds alla [börs-och 15-kernels](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 5.47 – Azure </br></br> 4.12.14 – 8.5 – Azure till 4.12.14 – 8.30 – Azure |
 SUSE Linux Enterprise Server 15 och 15 SP1 | 9,32 | Som standard stöds alla [börs-och 15-kernels](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 8.22 – Azure |
@@ -290,5 +293,5 @@ IPv6  | Stöds inte | Blandade konfigurationer som inkluderar både IPv4 och IPv
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [nätverks vägledning](./azure-to-azure-about-networking.md) för replikering av virtuella Azure-datorer.
+- Läs [nätverks vägledning](./azure-to-azure-about-networking.md)  för replikering av virtuella Azure-datorer.
 - Distribuera haveri beredskap genom att [Replikera virtuella Azure-datorer](./azure-to-azure-quickstart.md).

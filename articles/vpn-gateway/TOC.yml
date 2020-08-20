@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om VPN Gateway
+    - name: Vad är en VPN-gateway?
       href: vpn-gateway-about-vpngateways.md
 - name: Självstudier
   items:
@@ -116,7 +116,7 @@
           items:
             - name: Konfigurera ett virtuellt privat P2S-nätverk
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: vpn-gateway-howto-point-to-site-resource-manager-portal.md
                 - name: Azure PowerShell
                   href: vpn-gateway-howto-point-to-site-rm-ps.md

@@ -7,20 +7,20 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: efe60079814958116d8042991e1cfd6e2f6f71f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213876"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607403"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
 Den här artikeln innehåller förslag på hur du kan skapa och engagera Microsofts erbjudanden om kommersiella marknads platser. Följande tabeller beskriver metod tips för att fylla i erbjudande information i Partner Center. En analys av hur dina erbjudanden fungerar finns på [instrument panelen för Marketplace-insikter](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/marketplaceinsights) i Partner Center. 
 
-## <a name="storefront-offer-details"></a>Information om butik-erbjudande
+## <a name="online-store-offer-details"></a>Information om erbjudanden om onlinebutik
 
-| Butik-inställning | Bästa praxis |
+| Inställning | Regelverk |
 |:--- |:--- |  
 | Erbjudandets namn | För appar anger du en tydlig rubrik som innehåller sökord för att hjälpa kunderna att identifiera ditt erbjudande. <br> <br> För konsult tjänster följer du detta format: [erbjudandets namn: [duration] [erbjudande typ] (till exempel contoso: 2-veckors implementering) |
 | Beskrivning av erbjudande | Ange en tydlig beskrivning som beskriver ditt erbjudandes värde i de första meningarna.  Tänk på att dessa meningar kan användas i sökmotorns resultat. Kärn komponenterna i dina värde förslag bör innefatta: <ul> <li>Beskrivning av produkten eller lösningen. </li> <li> Användar person som vill dra nytta av produkten eller lösningen. </li> <li> Kunden behöver eller smärta produkt-eller lösnings adresser. </li> </ul> <br> Använd terminologi för bransch standard eller förmånsberättigad formulering när det är möjligt.  Förlita dig inte på funktioner och funktioner för att sälja produkten.  Fokusera i stället på det värde som du levererar. <br> <br> För konsult tjänst listor, anger du tydligt den professionella tjänst som du tillhandahåller. |
@@ -28,11 +28,11 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera Microso
 > [!IMPORTANT]
 > Se till att ditt erbjudande namn och din erbjudande Beskrivning följer **[Microsofts rikt linjer för varumärke och varumärke](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** och andra relevanta, produktspecifika rikt linjer när du refererar till Microsofts varumärken och namnen på Microsofts program varor, produkter och tjänster.
 
-## <a name="storefront-listing-details"></a>Information om butik-lista
+## <a name="online-store-listing-details"></a>Information om onlinebutik i onlinebutik
 
-Kategorier och branscher för en annan butik kan användas för olika typer av erbjudanden.
+Kategorier och branscher för en annan onlinebutik kan tillämpas på olika typer av erbjudanden.
 
-| Butik | Kategorier <br>av butik | Kategorier <br>av butik | Branscher <br> för AppSource |
+| Onlinebutik | Kategorier <br>per onlinebutik | Kategorier <br>per onlinebutik | Branscher <br> för AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Erbjudande typ**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
@@ -48,9 +48,9 @@ Kategorier och branscher för en annan butik kan användas för olika typer av e
 
 ### <a name="categories"></a>Kategorier
 
-Microsoft AppSource och Azure Marketplace är två olika butiker som hanterar unika kund krav. Azure Marketplace riktar sig IT-proffs och utvecklare som skapar lösningar på Azure.  Microsoft AppSource riktar sig till företags användare som söker företag och/eller SaaS program, Dynamics 365-tillägg, Microsoft 365 tillägg och Power Platform-appar.
+Microsoft AppSource och Azure Marketplace är två olika onlinebutiker som hanterar unika kund krav. Azure Marketplace riktar sig IT-proffs och utvecklare som skapar lösningar på Azure.  Microsoft AppSource riktar sig till företags användare som söker företag och/eller SaaS program, Dynamics 365-tillägg, Microsoft 365 tillägg och Power Platform-appar.
 
-Kategorier och under Kategorier mappas till varje butik baserat på mål mål gruppen. Ditt erbjudande publiceras till Microsoft AppSource eller Azure Marketplace beroende på erbjudande typen, transaktions funktioner för val av erbjudande och kategori/under kategori. 
+Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen. Ditt erbjudande publiceras till Microsoft AppSource eller Azure Marketplace beroende på erbjudande typen, transaktions funktioner för val av erbjudande och kategori/under kategori. 
 
 Välj kategorier och under kategorier som passar bäst för ditt erbjudande och din avsedda mål grupp. Du kan välja:
 
@@ -61,9 +61,9 @@ Välj kategorier och under kategorier som passar bäst för ditt erbjudande och 
 
 **VIKTIGT: SaaS erbjuder och Microsoft 365 tillägg**
 
-Mer information om hur Transact-funktioner kan påverka hur ditt erbjudande kan visas och köpas av Marketplace-kunder finns i [hand boken efter erbjudande typ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . För SaaS-erbjudanden bestämmer erbjudandets transaktions kapacitet samt val av kategori den butik där ditt erbjudande kommer att publiceras:
+Mer information om hur Transact-funktioner kan påverka hur ditt erbjudande kan visas och köpas av Marketplace-kunder finns i [hand boken efter erbjudande typ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . För SaaS-erbjudanden bestämmer erbjudandets transaktions kapacitet samt kategori valet det onlinebutik där ditt erbjudande ska publiceras:
 
-| SaaS-erbjudande    | SaaS-erbjudande   | SaaS-erbjudande  | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande    | Tillämpliga butik | Tillämpliga butik |
+| SaaS-erbjudande    | SaaS-erbjudande   | SaaS-erbjudande  | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande   | SaaS-erbjudande    | Tillämpligt onlinebutik| Tillämpligt onlinebutik |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Avgiftsbelagd fakturering | Microsoft 365 tillägg | Kontakta mig | Transact (minst 1 plan) | Privat plan | Endast offentlig plan | Offentliga & privata planer | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |
@@ -94,8 +94,8 @@ Bransch val gäller endast för erbjudanden som publicerats på AppSource och ko
 | **Distribution** | Maskiner <br> Paket leverans av paket & |  
 | **Education** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
 | **Ekonomiska tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
-| **Myndigheter** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
-| **Hälsovård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
+| **Government** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
+| **Sjukvård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
 | **Service & Travel** | Res & transport <br> Hotell & fritid <br> Restauranger & mat tjänster | 
 | **& resurser för produktion** | Kemisk & Agrochemical <br> Diskret tillverkning <br> Energi | 
 | **Media & kommunikation** | Media & underhållning <br> Telekommunikation | 
@@ -117,8 +117,8 @@ Välj de tillämpliga produkter som appen fungerar med för erbjudandet att visa
 
 Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifiera de bästa Sök nyckelorden för ditt erbjudande, Lägg till dem i din erbjudande Sammanfattning och beskrivning samt i avsnittet nyckelord i avsnittet information om erbjudanden.
 
-## <a name="storefront-marketing-details"></a>Marknadsförings information om butik
-| Butik-inställning | Bästa praxis |
+## <a name="online-store-marketing-details"></a>Marknadsförings information om onlinebutik
+| Inställning | Regelverk |
 |:--- |:--- |  
 | Erbjudande logo typ (PNG-format, 48 &nbsp; &times; &nbsp; 48): Sök sida | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till Sök sidan för ditt erbjudande. |
 | Erbjudande logo typ (PNG-format, 216 &nbsp; &times; &nbsp; 216): Sidan information om app | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. |

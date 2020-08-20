@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: ea5d975b73afcf03ad97bafd1c6f68f2b55263c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/19/2020
+ms.openlocfilehash: 9390f8a2ab9372927b434ea94d7545c9ec540c58
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084729"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606262"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Optimera utvecklings- och testkostnaden i Azure Cosmos DB
 
@@ -25,6 +25,9 @@ Den här artikeln beskriver de olika alternativen för att använda Azure Cosmos
 
 Azure Cosmos DB kostnads fri nivå är det enkelt att komma igång, utveckla och testa dina program, eller till och med köra små produktions arbets belastningar utan kostnad. När den kostnads fria nivån har Aktiver ATS för ett konto får du de första 400 RU/s och 5 GB lagrings utrymme i kontot kostnads fritt. Du kan också skapa en delad data flödes databas med 25 behållare som delar 400 RU/s på databas nivå, alla som omfattas av den kostnads fria nivån (gräns 5 delade data flödes databaser på ett kostnads fritt nivå konto). När du använder den kostnads fria nivån, om du etablerar en delad databas med ett lägsta data flöde på 400 RU/s, kan alla behållarna i databasen dela data flödet. Alla nya databaser med delat data flöde eller behållare med dedikerat data flöde faktureras enligt den vanliga prissättningen.
 
+> [!NOTE]
+> Den kostnads fria nivån är endast tillgänglig i ett allokerat data flödes läge.
+
 Den kostnads fria nivån är oändlig för kontots livstid och levereras med alla [fördelar och funktioner](introduction.md#key-benefits) i ett vanligt Azure Cosmos DB konto, inklusive obegränsad lagring och data flöde (ru/s), service avtal, hög tillgänglighet, nyckel färdig global distribution i alla Azure-regioner med mera. Du kan ha upp till ett konto med en kostnads fri nivå per Azure-prenumeration och måste välja när du skapar kontot. Kom igång genom att [skapa ett nytt konto i Azure Portal med kostnads fri nivå aktive rad](create-cosmosdb-resources-portal.md) eller använda en [arm-mall](manage-sql-with-resource-manager.md#free-tier). Mer information finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Testa Azure Cosmos DB kostnadsfritt
@@ -34,6 +37,10 @@ Den kostnads fria nivån är oändlig för kontots livstid och levereras med all
 ## <a name="azure-free-account"></a>Kostnadsfritt Azure-konto
 
 Azure Cosmos DB ingår i det [kostnads fria Azure-kontot](https://azure.microsoft.com/free), vilket ger Azure-krediter och resurser kostnads fritt under en viss tids period. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 ru: er data flöde för hela året. Den här upplevelsen gör det möjligt för utvecklare att enkelt testa funktionerna i Azure Cosmos DB eller integrera den med andra Azure-tjänster på noll kostnader. Med Azures kostnads fria konto får du en $200 kredit att spendera under de första 30 dagarna. Du debiteras inte, även om du börjar använda tjänsterna tills du väljer att uppgradera. Gå till sidan [kostnads fritt Azure-konto](https://azure.microsoft.com/free) för att komma igång.
+
+## <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB utan Server
+
+Med [Azure Cosmos DB server utan server](serverless.md) kan du använda ditt Azure Cosmos-konto i en förbruknings punkt där du bara debiteras för de enheter för programbegäran som används av databas åtgärderna och det lagrings utrymme som förbrukas av dina data. Det finns ingen minimi avgift när du använder Azure Cosmos DB i Server fritt läge. Eftersom det eliminerar begreppet tillhandahållen kapacitet, är det bäst att utveckla eller testa aktiviteter specifikt när databasen är inaktiv i det mesta av tiden.
 
 ## <a name="use-shared-throughput-databases"></a>Använda delade data flödes databaser
 
@@ -45,8 +52,8 @@ Anta till exempel att ditt utvecklings-eller test konto har fyra behållare. Om 
 
 Du kan komma igång med att använda emulatorn eller de kostnads fria Azure Cosmos DBs kontona med följande artiklar:
 
-* Läs mer om [optimering för utveckling och testning](optimize-dev-test.md)
 * Lär dig mer om [att förstå din Azure Cosmos DB faktura](understand-your-bill.md)
+* Läs mer om [Azure Cosmos DB utan server](serverless.md)
 * Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
 * Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)

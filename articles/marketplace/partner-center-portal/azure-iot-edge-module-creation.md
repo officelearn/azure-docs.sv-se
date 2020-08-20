@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 38e51f8bc66e8c47807a9b265ade3f196745db26
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167189"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606352"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver hur du skapar och publicerar en Sakernas Internet (I
     ![Visar menyn till vänster-navigering.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
+> När ett erbjudande har publicerats visas bara ändringar i Partner Center i onlinebutiker när du har publicerat om erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 ### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -131,7 +131,7 @@ Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inklud
 > [!NOTE]
 > Erbjudande information behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -149,7 +149,7 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -233,9 +233,9 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Support adress (länk)
 4. Villkor
 5. Sekretess policy adress (länk)
-6. Name
+6. Namn
 7. Sammanfattning
-8. Description
+8. Beskrivning
 9. Användbara länkar
 10. Skärm bilder/videor
 
@@ -255,7 +255,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Name
+1. Namn
 2. Beskrivning
 3. Användbara länkar
 4. Skärmbilder

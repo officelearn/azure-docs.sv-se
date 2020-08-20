@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2019
+ms.date: 08/19/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e56a5d8607ac2472ba4ef4bdb090468691c93de6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 474e6c96be810192d3c4e1ada1ab2e0391a5d4f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505018"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606475"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med PowerShell
 
@@ -32,7 +32,7 @@ I den här artikeln använder du PowerShell för att lära dig hur du utför fö
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till hanterade identiteter för Azure-resurser kan du läsa [avsnittet Översikt](overview.md). **Se till att granska [skillnaden mellan en tilldelad och användardefinierad hanterad identitet](overview.md#managed-identity-types)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
@@ -48,10 +48,10 @@ För att skapa en virtuell Azure-dator med den systemtilldelade hanterade identi
 
 1. Se något av följande snabb starter för Azure VM, som endast fyller i de nödvändiga avsnitten ("logga in på Azure", "skapa resurs grupp", "skapa nätverks grupp", "skapa den virtuella datorn").
 
-    När du kommer till avsnittet "skapa den virtuella datorn" gör du en mindre ändring av cmdlet [-syntaxen New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Se till att lägga till en `-AssignIdentity:$SystemAssigned` parameter för att etablera den virtuella datorn med den systemtilldelade identiteten aktive rad, till exempel:
+    När du kommer till avsnittet "skapa den virtuella datorn" gör du en mindre ändring av cmdlet [-syntaxen New-AzVMConfig](/powershell/module/az.compute/new-azvm) . Se till att lägga till en `-IdentityType SystemAssigned` parameter för att etablera den virtuella datorn med den systemtilldelade identiteten aktive rad, till exempel:
 
     ```powershell
-    $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
+    $vmConfig = New-AzVMConfig -VMName myVM -IdentityType SystemAssigned ...
     ```
 
    - [Skapa en Virtuell Windows-dator med PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
@@ -69,11 +69,11 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator som
    Connect-AzAccount
    ```
 
-2. Hämta först egenskaperna för den virtuella datorn med `Get-AzVM` cmdleten. Om du vill aktivera en systemtilldelad hanterad identitet använder du `-AssignIdentity` växeln på cmdleten [Update-AzVM](/powershell/module/az.compute/update-azvm) :
+2. Hämta först egenskaperna för den virtuella datorn med `Get-AzVM` cmdleten. Om du vill aktivera en systemtilldelad hanterad identitet använder du `-IdentityType` växeln på cmdleten [Update-AzVM](/powershell/module/az.compute/update-azvm) :
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
+   Update-AzVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType SystemAssigned
    ```
 
 
@@ -144,7 +144,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
 
 1. Se något av följande snabb starter för Azure VM, som endast fyller i de nödvändiga avsnitten ("logga in på Azure", "skapa resurs grupp", "skapa nätverks grupp", "skapa den virtuella datorn").
 
-    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring av [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet-syntaxen. Lägg till `-IdentityType UserAssigned` `-IdentityID` parametrarna och för att etablera den virtuella datorn med en tilldelad identitet.  Ersätt `<VM NAME>` , `<SUBSCRIPTION ID>` , `<RESROURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Ett exempel:
+    När du kommer till avsnittet "skapa den virtuella datorn" gör du en liten ändring av [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet-syntaxen. Lägg till `-IdentityType UserAssigned` `-IdentityID` parametrarna och för att etablera den virtuella datorn med en tilldelad identitet.  Ersätt `<VM NAME>` , `<SUBSCRIPTION ID>` , `<RESROURCE GROUP>` och `<USER ASSIGNED IDENTITY NAME>` med dina egna värden.  Exempel:
 
     ```powershell
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

@@ -4,15 +4,15 @@ description: Lär dig mer om SQL system Function GetCurrentTimestamp i Azure Cos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 08/19/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9c35f83ce7a9a478f706e9ed560d884d9bf5e508
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c1e0a8d69edab0c01005268ee49c23625236f03a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261294"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606922"
 ---
 # <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
 
@@ -26,13 +26,13 @@ GetCurrentTimestamp ()
   
 ## <a name="return-types"></a>Retur typer
   
-  Returnerar ett numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan UNIX-epoken, dvs. antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970.
+Returnerar ett signerat numeriskt värde, det aktuella antalet millisekunder som har förflutit sedan UNIX-epoken, dvs. antalet millisekunder som har förflutit sedan 00:00:00 torsdag, 1 januari 1970.
 
 ## <a name="remarks"></a>Kommentarer
 
-  GetCurrentTimestamp () är en icke-deterministisk funktion.
-  
-  Resultatet som returneras är UTC (Coordinated Universal Time).
+GetCurrentTimestamp () är en icke-deterministisk funktion. Resultatet som returneras är UTC (Coordinated Universal Time).
+
+Den här system funktionen kommer inte att använda indexet.
 
 ## <a name="examples"></a>Exempel
   

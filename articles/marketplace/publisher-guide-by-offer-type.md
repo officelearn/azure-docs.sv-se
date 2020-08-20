@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 72acd5c3c5fbab08b2e97421689b4f562b2ae2e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 9b23fbe55589bbbe6d560967119206fb1ea1d85c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119726"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607266"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
@@ -22,7 +22,7 @@ Innan du kan skapa ett erbjudande, och när du har [bestämt dig för ett public
 
 En enda erbjudande typ kan konfigureras på olika sätt för att möjliggöra olika publicerings alternativ, anrop till åtgärd, etablering eller prissättning. Publicerings alternativet och konfigurationen av erbjudande typen överensstämmer också med kravet på erbjudanden och tekniska krav.
 
-Se till att granska kraven för butik och erbjudande typ och de tekniska publicerings kraven innan du skapar erbjudandet.
+Se till att läsa igenom butiken för onlinebutik och erbjuda typ av krav och de tekniska publicerings kraven innan du skapar erbjudandet.
 
 ## <a name="list-of-offer-types"></a>Lista över erbjudande typer
 
@@ -45,4 +45,4 @@ Information om krav för enkel inloggning genom att lista alternativ och erbjuda
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska behörighets kraven i motsvarande artikel för din erbjudande typ (följande avsnitt) för att slutföra valet och konfigurationen av ditt erbjudande.
-- Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.
+- Granska publicerings mönstren per onlinebutik för att få exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

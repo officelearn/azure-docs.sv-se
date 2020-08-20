@@ -86,6 +86,8 @@
               href: entitlement-management-request-access.md
     - name: Åtkomstgranskningar
       items:
+        - name: Planera distribution av åtkomstgranskning
+          href: deploy-access-reviews.md
         - name: Åtkomstpaket
           items:
             - name: Skapa en åtkomstgranskning

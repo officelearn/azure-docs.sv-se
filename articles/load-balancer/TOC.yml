@@ -4,8 +4,6 @@
   items:
     - name: Vad är Azure Load Balancer?
       href: load-balancer-overview.md
-    - name: Nyheter
-      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Skapa offentlig lastbalanserare – portalen
@@ -45,6 +43,8 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Nyheter
+      href: whats-new.md
     - name: Komponenter
       href: components.md
     - name: Begrepp

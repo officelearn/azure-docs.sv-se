@@ -3,30 +3,26 @@ title: Hämta resultatet av ett jobb – Azure Media Services
 description: Den här artikeln visar hur du hämtar resultatet av ett jobb.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
-ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: inhenkel
+ms.openlocfilehash: 0a2e4d1ac5cf0945ab75e58bb42d23d10d6c89aa
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80346301"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607245"
 ---
 # <a name="download-the-results-of-a-job"></a>Hämta resultatet av ett jobb
 
 I Azure Media Services, när du bearbetar dina videor (till exempel kodning eller analys), måste du skapa en utgående [till gång](assets-concept.md) för att lagra resultatet av [jobbet](transforms-jobs-concept.md). Du kan sedan hämta dessa resultat till en lokal mapp med hjälp av media service och Storage-API: er. 
 
 Den här artikeln visar hur du hämtar resultaten med Java-och .NET-SDK: er.
-
-## <a name="prerequisites"></a>Förutsättningar 
-
-Granska [Hantera till gångar](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 44c43505bb779c3e00af19bed3a3fd3844c16bfe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 262c12b1fb1d5c768b178d6e56c2964527f34495
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923840"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607220"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -36,14 +36,12 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Alternativ 1 (standard): skapa en offentlig belastningsutjämnare (standard-SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**Standard-SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
 
 I det här avsnittet skapar du en belastningsutjämnare som laddar upp virtuella datorer. 
-
-Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. 
 
 När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-adress som är konfigurerad som klient del (kallas som **LoadBalancerFrontend** som standard) för belastningsutjämnaren.
 
@@ -244,7 +242,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Undernät | **myBackendSubnet** |
     | Offentlig IP-adress | Välj **Ingen**. |
     | Nätverks säkerhets grupp för nätverkskort | Välj **Avancerat**|
-    | Konfigurera nätverks säkerhets grupp | Välj **Skapa ny**. </br> I **gruppen Skapa nätverks säkerhet**anger du **myNSG** i **namn**. </br> Under **regler för inkommande**trafik väljer du **+ Lägg till en regel för inkommande trafik**. </br> Under **mål ports intervall**anger du **80**. </br> Under **prioritet**anger du **100**. </br> I **namn**anger du **myHTTPRule** </br> Välj **Lägg till** </br> Välj **OK** |
+    | Konfigurera nätverks säkerhets grupp | Välj **Skapa ny**. </br> I **gruppen Skapa nätverks säkerhet**anger du **myNSG** i **namn**. </br> Under **regler för inkommande**trafik väljer du **+ Lägg till en regel för inkommande trafik**. </br> Under  **mål ports intervall**anger du **80**. </br> Under **prioritet**anger du **100**. </br> I **namn**anger du **myHTTPRule** </br> Välj **Lägg till** </br> Välj **OK** |
     | **Belastningsutjämning**  |
     | Placera den här virtuella datorn bakom en befintlig belastnings Utjämnings lösning? | Välj **Ja** |
     | **Inställningar för belastnings utjämning** |
@@ -289,7 +287,7 @@ Mer information om utgående anslutningar finns i [utgående anslutningar i Azur
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange **myOutboundRule**. |
-    | IP-adress för klient del | Välj **Skapa ny**. </br> I **namn**anger du **LoadBalancerFrontEndOutbound**. </br> Välj **IP-adress** eller **IP-prefix**. </br> Välj **Skapa ny** under **offentlig IP-adress** eller **offentlig IP-prefix**. </br> Som namn anger du **myPublicIPOutbound** eller **myPublicIPPrefixOutbound**. </br> Välj **Lägg till**.|
+    | IP-adress för klient del | Välj **Skapa ny**. </br> I **namn**anger du **LoadBalancerFrontEndOutbound**. </br> Välj **IP-adress** eller **IP-prefix**. </br> Välj **Skapa ny** under **offentlig IP-adress** eller **offentlig IP-prefix**. </br> Som namn anger du  **myPublicIPOutbound** eller **myPublicIPPrefixOutbound**. </br> Välj **Lägg till**.|
     | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till **15 minuter**.|
     | TCP-återställning | Välj **Aktiverad**.|
     | Serverdelspool | Välj **Skapa ny**. </br> Ange **myBackendPoolOutbound** i **namn**. </br> Välj **Lägg till**. |
@@ -317,14 +315,12 @@ Mer information om utgående anslutningar finns i [utgående anslutningar i Azur
 
 8. Välj **Spara**.
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Alternativ 2: skapa en offentlig belastningsutjämnare (grundläggande SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**Grundläggande SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar.  Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
 
 I det här avsnittet skapar du en belastningsutjämnare som laddar upp virtuella datorer. 
-
-Du kan skapa en offentlig belastningsutjämnare eller en intern belastningsutjämnare. 
 
 När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-adress som är konfigurerad som klient del (kallas som **LoadBalancerFrontend** som standard) för belastningsutjämnaren.
 
@@ -445,7 +441,7 @@ Skapa en hälsoavsökning med namnet **myHealthProbe** så att du kan övervaka 
     | Namn | Ange **myHealthProbe**. |
     | Protokoll | Välj **http**. |
     | Port | Ange **80**.|
-    | Sökväg | Går**/** |
+    | Sökväg | Går **/** |
     | Intervall | Ange **15** som **intervall** i sekunder mellan avsöknings försök. |
     | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
 
@@ -530,7 +526,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     | Undernät | Välj **myBackendSubnet** |
     | Offentlig IP-adress | Välj **ingen** |
     | Nätverks säkerhets grupp för nätverkskort | Välj **Avancerat**|
-    | Konfigurera nätverks säkerhets grupp | Välj **Skapa ny**. </br> I **gruppen Skapa nätverks säkerhet**anger du **myNSG** i **namn**. </br> Under **regler för inkommande**trafik väljer du **+ Lägg till en regel för inkommande trafik**. </br> Under **mål ports intervall**anger du **80**. </br> Under **prioritet**anger du **100**. </br> I **namn**anger du **myHTTPRule** </br> Välj **Lägg till** </br> Välj **OK** |
+    | Konfigurera nätverks säkerhets grupp | Välj **Skapa ny**. </br> I **gruppen Skapa nätverks säkerhet**anger du **myNSG** i **namn**. </br> Under **regler för inkommande**trafik väljer du **+ Lägg till en regel för inkommande trafik**. </br> Under  **mål ports intervall**anger du **80**. </br> Under **prioritet**anger du **100**. </br> I **namn**anger du **myHTTPRule** </br> Välj **Lägg till** </br> Välj **OK** |
     | **Belastningsutjämning**  |
     | Placera den här virtuella datorn bakom en befintlig belastnings Utjämnings lösning? | Välj **Nej** |
  

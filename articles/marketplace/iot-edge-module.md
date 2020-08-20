@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2020
-ms.openlocfilehash: 0b707b2aed68359f8c04f6cd6bee6c95b495178b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119488"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607366"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -38,9 +38,9 @@ Typen IoT Edge module-erbjudande är en bestämd typ av behållare som körs på
 
 ## <a name="publishing-your-iot-edge-module"></a>Publicera IoT Edge-modulen
 
-**Välja rätt butik**
+**Välja den högra onlinebutiken**
 
-IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp för butiker finns i [fastställa publicerings alternativet för din lösning](determine-your-listing-type.md).
+IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp i onlinebutiker finns i [bestämma publicerings alternativ](determine-your-listing-type.md).
  
 **Fakturerings alternativ**
 
@@ -73,17 +73,9 @@ Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla 
 
 De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifierat och publicerat på Azure Marketplace, beskrivs i [förbereda din IoT Edge-modul tekniska till gångar](./partner-center-portal/create-iot-edge-module-asset.md).
 
-## <a name="documentation-and-resources"></a>Dokumentation och resurser
-
-[Skapa ett IoT Edge module-erbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) – stegen för att publicera ett nytt IoT Edge modul-erbjudande i Partner Center.
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det,
-
-- [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om Marketplace.
-
-För att registrera dig i Partner Center och börja skapa ett nytt erbjudande eller arbeta med en befintlig,
-
+- [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om den kommersiella marknads platsen.
+- [Skapa ett erbjudande för IoT Edge modul] i Partner Center.
 - Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra ditt erbjudande.
 - Mer information om hur du publicerar ett erbjudande för IoT Edge-modulen finns i [skapa ett IoT Edge-modulens erbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) .

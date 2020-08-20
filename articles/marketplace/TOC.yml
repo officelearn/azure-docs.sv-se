@@ -8,7 +8,7 @@
     - name: Översikt över och fördelar med den kommersiella marknadsplatsen
       href: ./marketplace-publishers-guide.md
       items:
-        - name: 'En marknadsplats, två butiker'
+        - name: 'En marknadsplats, två onlinebutiker'
           href: ./comparing-appsource-azure-marketplace.md
         - name: Publiceringsalternativ och överväganden
           href: ./determine-your-listing-type.md

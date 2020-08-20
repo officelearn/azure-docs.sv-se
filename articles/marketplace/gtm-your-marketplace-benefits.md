@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: c2481ca9894a1af3b363db8d5043b7fcd4eefc3d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498029"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607380"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -32,7 +32,7 @@ Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudan
 
 För Transact-partner, när du växer din fakturerade försäljning via den kommersiella Marketplace-plattformen, kan du låsa upp fler förmåner per nivå.
 
-Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet genom den kommersiella marknads platsen som en plattform.
+Minimi kravet för att publicera i onlinebutiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet genom den kommersiella marknads platsen som en plattform.
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
@@ -87,7 +87,7 @@ Alla partner som har ett Live-erbjudande får arbeta med en engagerad engagemang
 
 ![Tekniska fördelar](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\*Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2021.
+\* Tröskelvärde för platser som säljs gäller endast för Microsoft 365 appar (SaaS-program som har integreringar med Microsoft Teams, Office, Outlook eller SharePoint) och förmåner måste utföras senast den 30 juni 2021.
 
 Detaljerade beskrivningar för alla dessa förmåner finns i [program däcken för Marketplace](https://aka.ms/marketplacerewards)-förmåner.
 

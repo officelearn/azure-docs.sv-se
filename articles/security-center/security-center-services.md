@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 3055d8c31307cfacad575d892db0ed812a03a9e4
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 489f0138caa54105cced9c9ef4e8846657d84717
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258610"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607125"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -91,13 +91,13 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 
 | Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
-| Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
+| Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – djup säkerhet | Windows Server-familjen  | Inga | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Inga | Ja  **\***  |
+| Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja  **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

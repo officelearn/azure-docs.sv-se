@@ -7,16 +7,16 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51f4c9a5748896eff9e9f3ae9719b2e7e7cdd4e7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082821"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607485"
 ---
 # <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
-Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [en kommersiell Marketplace-butiker](comparing-appsource-azure-marketplace.md)kan du också sälja via CSP-programmet för att uppnå miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
+Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [onlinebutiker för kommersiella platser](comparing-appsource-azure-marketplace.md), kan du också sälja via CSP-programmet för att komma åt miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
 
 Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa paketerade lösningar för kunder.
 
@@ -166,7 +166,7 @@ Om erbjudandet för närvarande är **Alternativ 3: inga partner i CSP-programme
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Dela försäljnings-och support material med partner i CSP-programmet
 
-För att hjälpa partner i Cloud Solution Provider-programmet att representera ditt erbjudande och engagera med din organisation måste du skicka in försäljnings-och support material som kommer att vara tillgängliga för åter försäljarna. De här resurserna kommer inte att exponeras för kunder i Marketplace-butiker.
+För att hjälpa partner i Cloud Solution Provider-programmet att representera ditt erbjudande och engagera med din organisation måste du skicka in försäljnings-och support material som kommer att vara tillgängliga för åter försäljarna. De här resurserna är inte tillgängliga för kunder i onlinebutiker.
 
 ### <a name="partner-center-csp-channel"></a>Partner Center CSP-kanal
 

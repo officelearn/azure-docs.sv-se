@@ -1,32 +1,32 @@
 ---
 title: Jämföra Microsoft AppSource och Azure Marketplace
-description: I den här artikeln beskrivs skillnaderna mellan Microsofts kommersiella Marketplace-butiker-Microsoft AppSource och Azure Marketplace.
+description: Den här artikeln beskriver skillnaderna mellan Microsofts kommersiella Marketplace online-butiker – Microsoft AppSource och Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: fc0a03871ee3191f24a886cc1b9d7f90e8d54b62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 10560d1407d4e9f899578d6d4eb9cdf9b7fe7dc9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121817"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607467"
 ---
 # <a name="comparing-microsoft-appsource-and-azure-marketplace"></a>Jämföra Microsoft AppSource och Azure Marketplace
 
-På Microsofts kommersiella Marketplace ingår [Microsoft AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Varje butik hanterar unika kund krav och olika mål grupper så att du kan se till att din lösning eller tjänst är tillgänglig för rätt kunder.
+På Microsofts kommersiella Marketplace ingår [Microsoft AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Varje onlinebutik hanterar unika kund krav och olika mål grupper så att du kan se till att din lösning eller tjänst är tillgänglig för rätt kunder.
 
-## <a name="understanding-the-differences-between-storefronts"></a>Förstå skillnaderna mellan butiker
+## <a name="understanding-the-differences-between-online-stores"></a>Förstå skillnaderna mellan onlinebutiker
 
-Om du vill välja en butik måste du först identifiera mål gruppen för ditt erbjudande. Om du riktar in mål grupper i flera butiker kan du publicera en gång för att sälja i flera butiker.
+Om du vill välja en onlinebutik måste du först identifiera mål gruppen för ditt erbjudande. Om du riktar in mål grupper i flera onlinebutiker kan du publicera en gång för att sälja i flera butiker.
 
 | Azure Marketplace | AppSource |
 |:--- |:--- |
 | IT-proffs och utvecklare | Företags användare och affärs besluts fattare |
 
-I följande tabell beskrivs fördelarna med att använda en butik:
+I följande tabell beskrivs fördelarna med att använda en onlinebutik:
 
 | Fördelar | Azure Marketplace | AppSource |
 |:--- |:--- | :--- |

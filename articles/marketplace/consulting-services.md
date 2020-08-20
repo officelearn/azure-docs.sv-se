@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797873"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607454"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -22,7 +22,7 @@ Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två butiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
+De kommersiella Marketplace-onlinebutiker, Microsoft AppSource och Azure Marketplace, är justerade med mål grupper och moln produkter för att hjälpa kunderna att hitta vad de behöver. Varje onlinebutik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Mer information om skillnaden mellan de två onlinebutiker finns i [jämföra Microsoft AppSource och Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
 
@@ -34,7 +34,7 @@ Konsult tjänster och hanterade tjänster är baserade på Microsoft Azure är b
 > Konsult tjänster i AppSource bör fokusera på erbjudanden för användare med expertis i att leverera kvalitets lösningar för Dynamics 365, Power BI eller Power Apps.
  
 > [!TIP]
-> Om du vill publicera på Azure Marketplace-butik väljer du **Azure**i list rutan **primär produkt** i Partner Center.
+> Om du vill publicera på Azure Marketplace väljer du **Azure**i list rutan **primär produkt** i Partner Center.
 >
 > Om du vill publicera till AppSource går du till List rutan **primär produkt** i Partner Center och väljer **Dynamics 365**, **Power BI**eller **Power Apps**.
 
@@ -86,12 +86,12 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](become-publisher.md). 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publicerings artefakter
-Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden.
+Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden. 
 
 |Installation för nya utgivare  |
 |---------|
 |MPN-ID     |
-|Företags logo typer: 48 x 48 bild punkter (valfritt), 216 x 216 pixlar – 350 x 350 bild punkter (krävs)  |
+|Företags logo typer (48 x 48, 216 x 216 bild punkter)     |
 |Lead-mål     |
 ||
 
@@ -150,7 +150,7 @@ Exempel:
 
 När innehålls gransknings teamet har granskat dina erbjudande beskrivningar och erbjudande sammanfattningar tillämpas följande kriterier:
 
-|Erbjudandetyp  |Krävs |Rekommenderas  |
+|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste tillhandahålla en *kortfattad* person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ.    |  Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.       |

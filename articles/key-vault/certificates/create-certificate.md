@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 312f04ff4b1d860724640dfc9e5ea9d75bb76bae
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189970"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606664"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -82,7 +82,7 @@ Skapande av certifikat kan slutföras manuellt eller med en "egen" utfärdare. K
 
 |Leverantör|Certifikattyp|Konfigurations konfiguration  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault erbjuder OV eller EV SSL-certifikat med DigiCert| [Integrations guide](https://docs.digicert.com/certificate-tools/azure-key-vault-integration-guide/)
+|DigiCert|Key Vault erbjuder OV eller EV SSL-certifikat med DigiCert| [Integrations guide](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
 |GlobalSign|Key Vault erbjuder OV eller EV SSL-certifikat med GlobalSign| [Integrations guide](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.

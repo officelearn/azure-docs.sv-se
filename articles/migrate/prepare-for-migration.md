@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder lokala datorer för migrering med Azure
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: b92a26732f59235dac4c03f4e648d36dadd6c4ac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8acbb867d98a547787e207c410d4e1a852aa68f3
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077975"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606824"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -59,7 +59,7 @@ Kontrol lera att operativ system som stöds för migrering:
 
 Granska vilka URL: er och portar som nås under migreringen.
 
-**Scenario** | **Detaljer** |  **Webbadresser** | **Portar**
+**Scenario** | **Information** |  **Webbadresser** | **Portar**
 --- | --- | --- | ---
 **VMware-agent utan migrering** | Använder [Azure Migrate-enheten](migrate-appliance-architecture.md) för migrering. Ingenting installeras på virtuella VMware-datorer. | Granska de offentliga moln-och myndighets- [URL: erna](migrate-appliance.md#url-access) som krävs för identifiering, utvärdering och migrering med produkten. | [Granska](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) port kraven för migrering utan agent.
 **VMware-agent-baserad migrering** | Använder [replikeringstjänsten](migrate-replication-appliance.md) för migrering. Mobilitets tjänst agenten är installerad på virtuella datorer. | Granska det [offentliga molnet](migrate-replication-appliance.md#url-access) och [Azure Government](migrate-replication-appliance.md#azure-government-url-access) de URL: er som krävs för att få åtkomst till replikerings enheten. | [Granska](migrate-replication-appliance.md#port-access) portarna som används vid agent-baserad migrering.
@@ -118,7 +118,7 @@ Azure Migrate slutför de här åtgärderna automatiskt för dessa versioner
 För andra versioner förbereder du datorer så att de sammanfattas i tabellen.  
 
 
-**Åtgärd** | **Detaljer** | **Linux-version**
+**Åtgärd** | **Information** | **Linux-version**
 --- | --- | ---
 **Installera Hyper-V Linux Integration Services** | Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna. Om du återskapar init-avbildningen ser du till att den virtuella datorn startar i Azure. | De flesta nya versioner av Linux-distributioner har detta inkluderat som standard.<br/><br/> Om den inte ingår installerar du manuellt för alla versioner utom de som anropas ovan.
 **Aktivera loggning av Azures serie konsol** | Genom att aktivera konsol loggning kan du felsöka. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen. Disk avbildningens start motsvarar en omstart för den nya virtuella datorn.<br/><br/> Följ [dessa instruktioner](../virtual-machines/troubleshooting/serial-console-linux.md) för att aktivera.
@@ -130,15 +130,16 @@ För andra versioner förbereder du datorer så att de sammanfattas i tabellen.
 
 I följande tabell sammanfattas de steg som utförs automatiskt för de operativ system som anges ovan.
 
-| Åtgärd                                      | Agent \- baserad VMware-migrering | Migrering utan agent | Hyper\-V   |
+
+| Action                                      | Agent \- baserad VMware-migrering | Migrering utan agent | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Installera Hyper- \- V Linux Integration Services | Ja                           | Ja                        | Krävs inte |
-| Aktivera loggning av Azures serie konsol         | Ja                           | Ja                        | No         |
-| Uppdatera enhets mappnings fil                      | Yes                           | Inga                         | Inga         |
-| Uppdatera fstab-poster                        | Ja                           | Ja                        | No         |
-| Ta bort udev-regel                            | Ja                           | Ja                        | No         |
-| Uppdatera nätverks gränssnitt                   | Ja                           | Ja                        | No         |
-| Aktivera SSH                                  | Inga                            | Inga                         | Inga         |
+| Aktivera loggning av Azures serie konsol         | Ja                           | Ja                        | Nej         |
+| Uppdatera enhets mappnings fil                      | Ja                           | Nej                         | Nej         |
+| Uppdatera fstab-poster                        | Ja                           | Ja                        | Nej         |
+| Ta bort udev-regel                            | Ja                           | Ja                        | Nej         |
+| Uppdatera nätverks gränssnitt                   | Ja                           | Ja                        | Nej         |
+| Aktivera SSH                                  | Nej                            | Nej                         | Nej         |
 
 Lär dig mer om hur du [kör en virtuell Linux-dator på Azure](../virtual-machines/linux/create-upload-generic.md)och få instruktioner för några av de populära Linux-distributionerna.
 

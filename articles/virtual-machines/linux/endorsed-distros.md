@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.author: guybo
-ms.openlocfilehash: 83a5289e17243fc7d89dd463b10916fb73046947
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 0b3a598213545bbad833e9b8036f65b999df1c76
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185000"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607011"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Signerade Linux-distributioner på Azure
 
@@ -26,9 +26,9 @@ Partner tillhandahåller linux-avbildningar på Azure Marketplace. Microsoft arb
 
 ## <a name="supported-distributions-and-versions"></a>Distributioner och versioner som stöds
 
-I följande tabell visas de Linux-distributioner och-versioner som stöds i Azure. Mer detaljerad information om support för Linux och teknik med öppen källkod i Azure hittar du i [stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
+I följande tabell visas de Linux-distributioner och-versioner som stöds i Azure. Mer information finns i [stöd för Linux-avbildningar i Microsoft Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure).
 
-LIS-drivrutinerna (Linux Integration Services) för Hyper-V och Azure är kernel-moduler som Microsoft bidrar direkt till i den överordnade Linux-kärnan. Vissa LIS-drivrutiner är inbyggda i distributionens kernel som standard. Äldre distributioner som baseras på RHEL-/CentOS (Red Hat Enterprise) är tillgängliga som separat hämtning på [Linux Integration Services Version 4,2 för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106). Se [krav för linux-kernel](create-upload-generic.md#linux-kernel-requirements) för mer information om Lis-drivrutinerna.
+LIS-drivrutinerna (Linux Integration Services) för Hyper-V och Azure är kernel-moduler som Microsoft bidrar direkt till i den överordnade Linux-kärnan. Vissa LIS-drivrutiner är inbyggda i distributionens kernel som standard. Äldre distributioner som baseras på RHEL-/CentOS (Red Hat Enterprise) är tillgängliga som separat hämtning på [Linux Integration Services Version 4,2 för Hyper-V och Azure](https://www.microsoft.com/download/details.aspx?id=55106). Mer information finns i [krav för linux-kernel](create-upload-generic.md#linux-kernel-requirements).
 
 Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar och är vanligt vis tillgänglig från distributionens paket lagrings plats. Du hittar käll koden på [GitHub](https://github.com/azure/walinuxagent).
 
@@ -39,20 +39,20 @@ Azure Linux-agenten är redan förinstallerad på Azure Marketplace-avbildningar
 | Debian av credativ |8.x, 9.x |I kernel |Paket: i lagrings platsen under "waagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 |Flatcar container Linux av Kinvolk| Stable, Edge| | |
 | Oracle Linux av Oracle |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux av Red Hat |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| [Red Hat Enterprise Linux av Red Hat](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/overview) |6.x, 7.x, 8.x |I kernel |Paket: i lagrings platsen under "WALinuxAgent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise med SUSE |SLES/SLES för SAP 11. x, 12. x, 15. x <br/> [Bild livs cykel för SUSE offentlig moln bild](https://www.suse.com/c/suse-public-cloud-image-life-cycle/) |I kernel |Paketfilerna<p> för 11 i [molnet: verktyg](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen<br>för 12 som ingår i modulen "offentligt moln" under "python-Azure-agent"<br/>Källkod: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE av SUSE |openSUSE Leap 15.x |I kernel |Paket: i [molnet: tools](https://build.opensuse.org/project/show/Cloud:Tools) lagrings platsen under "python-Azure-agent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu efter kanoniskt |Ubuntu Server och Pro. 16. x, 18. x, 20. x<p>Information om utökat stöd för Ubuntu 12,04 och 14,04 hittar du här: [Ubuntu Extended Security Maintenance](https://www.ubuntu.com/esm). |I kernel |Paket: i lagrings platsen under "walinuxagent" <br/>Källkod: [GitHub](https://github.com/Azure/WALinuxAgent) |
 
 ## <a name="image-update-cadence"></a>Takt för avbildnings uppdatering
 
-Azure kräver att utgivare av de signerade Linux-distributionerna regelbundet uppdaterar sina avbildningar på Azure Marketplace med de senaste korrigeringarna och säkerhets korrigeringarna, på ett kvartal eller snabbare takt. Uppdaterade avbildningar på Azure Marketplace är automatiskt tillgängliga för kunder som nya versioner av en avbildnings-SKU. Mer information om hur du hittar Linux-avbildningar: [hitta virtuella Linux-avbildningar på Azure Marketplace](./cli-ps-findimage.md).
+Azure kräver att utgivare av de signerade Linux-distributionerna regelbundet uppdaterar sina avbildningar på Azure Marketplace med de senaste korrigeringarna och säkerhets korrigeringarna, på ett kvartal eller snabbare takt. Uppdaterade avbildningar på Marketplace är automatiskt tillgängliga för kunder som nya versioner av en avbildnings-SKU. Mer information om hur du hittar Linux-avbildningar: [hitta virtuella Linux-avbildningar på Azure Marketplace](./cli-ps-findimage.md).
 
 ## <a name="azure-tuned-kernels"></a>Azure-justerade kärnor
 
 Azure fungerar nära olika godkända Linux-distributioner för att optimera de bilder som de har publicerat på Azure Marketplace. En aspekt av det här samarbetet är utvecklingen av "justerade" Linux-kerneler som är optimerade för Azure-plattformen och levereras som komponenter som stöds fullt ut av Linux-distributionen. Azure-justerade kernels innehåller nya funktioner och prestanda förbättringar och går snabbare (kvartals vis) takt jämfört med de standard-eller generiska kärnor som är tillgängliga från distributionen.
 
-I de flesta fall kommer du att se dessa kernels förinstallerade på standard avbildningarna på Azure Marketplace, så att kunderna omedelbart får fördelarna med dessa optimerade kärnor. Mer information om dessa Azure-justerade kärnor finns i följande länkar:
+I de flesta fall kommer du att se dessa kernels förinstallerade på standard avbildningarna i Azure Marketplace, så att kunderna omedelbart får fördelarna med dessa optimerade kärnor. Mer information om dessa Azure-justerade kärnor finns i följande länkar:
 
 - [CentOS Azure-justerad kernel – tillgänglig via CentOS Virtualization SIG](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
 - [Debian Cloud kernel – tillgängligt med Debian 10-och Debian 9 "backports"-avbildningen på Azure](https://wiki.debian.org/Cloud/MicrosoftAzure)
@@ -78,7 +78,7 @@ Credativ är ett oberoende konsult-och tjänste företag som specialiserar sig p
 ### <a name="kinvolk"></a>Kinvolk
 [https://www.kinvolk.io/flatcar-container-linux/](https://www.kinvolk.io/flatcar-container-linux/)
 
-Kinvolk är företaget bakom Flatcar container Linux, och fortsätter med den ursprungliga kärnan i en minimal, oföränderlig och automatisk uppdatering av bas för program i behållare. Som en minimal distribution innehåller Flatcar bara de paket som krävs för att distribuera behållare. Det oföränderliga fil systemet garanterar konsekvens och säkerhet, medan funktionerna för automatisk uppdatering gör att du alltid är uppdaterad med de senaste säkerhets korrigeringarna. 
+Kinvolk är företaget bakom Flatcar container Linux, och fortsätter med den ursprungliga kärnan i en minimal, oföränderlig och automatisk uppdatering av grund för program i behållare. Som en minimal distribution innehåller Flatcar bara de paket som krävs för att distribuera behållare. Det oföränderliga fil systemet garanterar konsekvens och säkerhet, medan funktionerna för automatisk uppdatering gör att du alltid är uppdaterad med de senaste säkerhets korrigeringarna. 
 
 Flatcar container Linux säkerhets kopie ras av Kinvolks globala team av Linux-och container Technology-experter som erbjuder en extra kommersiell support prenumeration som omfattar svar, säkerhet och tekniska aviseringar dygnet runt, och exklusiva Azure-optimerade avbildningar inklusive en långsiktig support kanal.
 
@@ -93,7 +93,7 @@ Oracle-strategin är att erbjuda en bred portfölj med lösningar för offentlig
 
 [https://www.redhat.com/en/partners/strategic-alliance/microsoft](https://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
-Världens ledande leverantör av lösningar med öppen källkod, Red Hat hjälper mer än 90% av Fortune 500-företag att lösa affärs utmaningar, anpassa sina IT-och affärs strategier och förbereda för framtida teknik. Red Hat gör detta genom att tillhandahålla säkra lösningar via en öppen affärs modell och en prisvärd, förutsägbar prenumerations modell.
+Världens ledande leverantör av lösningar med öppen källkod, Red Hat hjälper mer än 90% av Fortune 500-företag att lösa affärs utmaningar, anpassa sina IT-och affärs strategier och förbereda för framtida teknik. Red Hat uppnår detta genom att tillhandahålla säkra lösningar via en öppen affärs modell och en prisvärd, förutsägbar prenumerations modell.
 
 ### <a name="suse"></a>SUSE
 

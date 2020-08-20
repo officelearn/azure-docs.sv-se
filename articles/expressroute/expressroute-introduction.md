@@ -7,15 +7,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75770959"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607106"
 ---
-# <a name="expressroute-overview"></a>Översikt över ExpressRoute
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure och Office 365.
+# <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure och Office 365.
 
 Anslutningen kan vara från ett ”any-to-any”-nätverk (IP VPN), ett ”point-to-point”-nätverk med Ethernet eller en virtuell korsanslutning via en anslutningsleverantör på en samlokaliseringsanläggning. ExpressRoute-anslutningar går inte via offentligt Internet. Detta gör att ExpressRoute-anslutningar ger bättre tillförlitlighet, snabbare hastigheter, konsekvent fördröjning och högre säkerhet än vanliga anslutningar via Internet. Mer information om hur du ansluter nätverket till Microsoft med ExpressRoute finns [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).
 
@@ -88,9 +88,9 @@ Mer information finns i [Om ExpressRoute Direct](https://go.microsoft.com/fwlink
 Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. Listan med bandbredder som stöds finns nedan. Kontrollera med din anslutningsleverantör för att avgöra vilka bandbredder de stöder.
 
 * 50 Mbit/s
-* 100 Mbps
+* 100 Mbit/s
 * 200 Mbit/s
-* 500 Mbps
+* 500 Mbit/s
 * 1 Gbit/s
 * 2 Gbit/s
 * 5 Gbit/s

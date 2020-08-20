@@ -8,12 +8,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496023"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606761"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
@@ -27,7 +27,7 @@ Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudan
 
 När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå.
 
-Minimi kravet för att publicera i butiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform.
+Minimi kravet för att publicera i onlinebutiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform.
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74186457"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606514"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Förbered käll datorn för push-installation av mobilitets agenten
 
@@ -59,6 +59,7 @@ Gör följande på varje Linux-dator som du vill skydda:
 11. På fliken **Hantera konton** väljer du **Lägg till konto**.
 12. Lägg till kontot som du skapade.
 13. Ange autentiseringsuppgifterna som du använder när du aktiverar replikering för en dator.
+1. Ytterligare steg för att uppdatera eller skydda SUSE Linux Enterprise Server 11 SP3-datorer. [Se till att den senaste versionen är tillgänglig på konfigurations servern](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Virus skydd på replikerade datorer
 

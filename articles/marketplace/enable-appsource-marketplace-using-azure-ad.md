@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323272"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607424"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
@@ -20,7 +20,7 @@ ms.locfileid: "87323272"
 
 ## <a name="azure-ad-benefits"></a>Fördelar med Azure AD
 
-Microsoft AppSource och Azure Marketplace-kunder använder produkt upplevelser i butik för att söka efter kataloger i-listan. De här åtgärderna kräver att kunderna loggar in på produkten. Azure AD-integrering ger följande fördelar:
+Microsoft AppSource-och Azure Marketplace-kunder använder produkt upplevelser i online för att söka efter kataloger i onlinebutik. De här åtgärderna kräver att kunderna loggar in på produkten. Azure AD-integrering ger följande fördelar:
 
 - Snabbare engagemang och en optimerad kund upplevelse
 - Enkel inloggning (SSO) för miljon tals företags användare
@@ -33,12 +33,12 @@ De olika [listorna över försäljnings platser och erbjudande typer](determine-
 
 | Erbjudandetyp    | Behöver du ringa till Azure AD SSO för att kontakta mig?  | Azure AD SSO krävs för utvärderings versionen? | Vill du att Azure AD SSO krävs för test enheten?  | Azure AD SSO krävs för Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Virtuell dator | E.t. | Nej | Nej | Nej |
-| Azure-appar (lösnings mal len)  | E.t. | E.t. | E.t. | E.t. |
-| Hanterade appar  | E.t. | E.t. | E.t. | Nej |
+| Virtuell dator | Ej tillämpligt | Nej | Nej | Nej |
+| Azure-appar (lösnings mal len)  | Saknas | Saknas | Saknas | Saknas |
+| Hanterade appar  | Saknas | Saknas | Saknas | Nej |
 | SaaS  | Nej | Ja | Ja | Ja |
-| Containrar  | E.t. | E.t. | E.t. | Nej |
-| Rådgivningstjänster  | Nej | E.t. | E.t. | E.t. |
+| Containrar  | Saknas | Saknas | Saknas | Nej |
+| Rådgivningstjänster  | Nej | Saknas | Saknas | Saknas |
 
 Mer information om tekniska krav för SaaS finns [i Azure AD och transactable SaaS-erbjudanden på den kommersiella marknaden](./azure-ad-saas.md).
 
@@ -56,8 +56,8 @@ Under autentiseringen skickar Azure AD en token till appen eller erbjudandet. Me
 
 När du använder Azure AD för att aktivera autentisering med ett klick i appen eller utvärderings listan kan du:
 
-- Effektivisera kund upplevelsen från Marketplace till din utvärderings lista.
-- Upprätthålla en produkt upplevelse även när användaren omdirigeras från Marketplace till din domän eller utvärderings miljö.
+- Effektivisera kund upplevelsen från den kommersiella marknads platsen till din utvärderings lista.
+- Upprätthålla en produkt upplevelse även när användaren omdirigeras från den kommersiella marknads platsen till din domän eller utvärderings miljö.
 - Minska sannolikheten för att överges när användare omdirigeras eftersom det inte finns några ytterligare inloggnings steg.
 - Minska distributions barriärerna för den stora populationen av Azure AD-användare.
 
@@ -67,12 +67,12 @@ När du använder Azure AD för att aktivera autentisering med ett klick i appen
 
 Använd Azure AD för att stödja följande åtgärder:
 
-- Registrera din app på en av Marketplace-butiker. Visa [app-registrering](../active-directory/develop/quickstart-register-app.md) eller [AppSource-certifiering](../active-directory/azuread-dev/howto-get-appsource-certified.md) för mer information.
+- Registrera din app i en av de kommersiella onlinebutiker i Marketplace. Visa [app-registrering](../active-directory/develop/quickstart-register-app.md) eller [AppSource-certifiering](../active-directory/azuread-dev/howto-get-appsource-certified.md) för mer information.
 - Aktivera funktionen stöd för flera innehavare i Azure AD för att få en utvärderings version med ett klick.
 
 Gör så här om du inte har använt Azure AD federerad enkel inloggning:
 
-1. Registrera din app på Marketplace.
+1. Registrera din app på den kommersiella Marketplace.
 1. Utveckla SSO med Azure AD med hjälp av [OAuth 2,0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) eller [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Aktivera funktionen stöd för flera innehavare i Azure AD för att tillhandahålla en utvärderings version med ett klick.
 
@@ -89,7 +89,7 @@ Använd Azure AD för att stödja någon av följande åtgärder:
 
 Om du inte redan har gjort det, 
 
-- [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om Marketplace.
+- [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om den kommersiella marknads platsen.
 
 Om du vill registrera dig i Partner Center börjar du med att skapa ett nytt erbjudande eller arbeta med en befintlig:
 

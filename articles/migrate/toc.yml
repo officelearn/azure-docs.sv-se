@@ -168,6 +168,8 @@
       href: troubleshoot-appliance-discovery.md
     - name: Felsöka utvärdering/beroendevisualisering
       href: troubleshoot-assessment.md
+    - name: Felsöka replikeringsfel i VMware-migrering utan agent
+      href: troubleshoot-changed-block-tracking-replication.md
 - name: Resurser
   items:
     - name: Molnmigrering i Cloud Adoption Framework

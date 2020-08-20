@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c5d8b438764fa9aa3838b2225c63d412afc519b
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304419"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606799"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Vanliga frågor om API: er för SaaS-utförande
 
@@ -63,13 +63,13 @@ Svaret på `Resolve` API: et inkluderar erbjudandet och planerings informationen
 >[!Note]
 >Du kan blockera nedgradering om du inte vill stödja vissa konverterings Sök vägar.
 
-Sekvensen nedan fångar flödet när en Azure-kund byter plan i SaaS-upplevelsen:
+Sekvensen nedan fångar flödet när en Azure-kund ändrar en plan i SaaS-upplevelsen:
 
 ![Ändra flöde för kund plan](media/saas-metering-service-integration-flow-b.png)
 
-Sekvensen nedan fångar flödet när en Azure-kund ändrar plan i Microsofts butik
+Sekvensen nedan fångar flödet när en Azure-kund ändrar en plan i Microsofts onlinebutik:
 
-![Kund butik plan ändra flöde](media/saas-metering-service-integration-flow-c.png)
+![Ändra flöde för kund Online Store plan](media/saas-metering-service-integration-flow-c.png)
 
 ### <a name="how-can-the-azure-user-unsubscribe-from-the-plan-associated-with-azure-subscription"></a>Hur kan Azure-användaren avbryta prenumerationen på den plan som är kopplad till Azure-prenumerationen?
 
@@ -79,9 +79,9 @@ Sekvensen nedan fångar flödet när en Azure-kund avbryter prenumerationen på 
 
 ![Kunden avbryter prenumerationen på SaaS-upplevelsen](media/saas-metering-service-integration-flow-d.png)
 
-Sekvensen nedan fångar flödet när Azure-användare avbryter prenumerationer i Microsofts butik:
+Sekvensen nedan fångar flödet när Azure-användare avbryter prenumerationer i Microsofts onlinebutik:
 
-![Kunden avbryter prenumerationer i Microsofts butik](media/saas-metering-service-integration-flow-e.png)
+![Kunden slutar prenumerera i Microsofts onlinebutik](media/saas-metering-service-integration-flow-e.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

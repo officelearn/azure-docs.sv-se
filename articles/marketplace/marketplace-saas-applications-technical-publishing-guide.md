@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 20d14d656132b2809fe5a79d909c27799438a247
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9f488675e4f2437982e2426da73b4db1a713905d
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280944"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607302"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
@@ -21,10 +21,10 @@ Du kan publicera SaaS-program på den kommersiella marknads platsen med tre olik
 
 ## <a name="offer-overview"></a>Erbjudande översikt  
 
-SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både butiker support lista, utvärdering och Transact-erbjudanden.
+SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både support lista, utvärdering och Transact-erbjudanden i onlinebutiker.
 
 **Lista:**  Publicerings alternativet för listan består av en kontakt mig erbjudande typ och används när det inte är möjligt att delta i en utvärderings-eller transaktions nivå. Fördelen med den här metoden är att den gör det möjligt för utgivare med en lösning på marknaden att omedelbart börja ta emot leads som kan inaktive ras i avtal för att öka din verksamhet.  
-**Utvärderings version/transaktion:**  Kunden har möjlighet att köpa eller begära en utvärdering av din lösning direkt. Att tillhandahålla en utvärderings version ökar den engagemang nivån som kunderna erbjuder och gör det möjligt för kunderna att utforska din lösning innan de köper. Med en utvärderings version får du bättre möjligheter till befordran i butiker, och du bör förvänta dig mer och rikare leads från kund engagemang. Test versioner måste innehålla kostnads fri support under minst under utvärderings periodens varaktighet.  
+**Utvärderings version/transaktion:**  Kunden har möjlighet att köpa eller begära en utvärdering av din lösning direkt. Att tillhandahålla en utvärderings version ökar den engagemang nivån som kunderna erbjuder och gör det möjligt för kunderna att utforska din lösning innan de köper. Med en utvärderings version får du bättre möjligheter till befordran i onlinebutiker och du bör förvänta dig fler och mer omfattande leads från kund engagemang. Test versioner måste innehålla kostnads fri support under minst under utvärderings periodens varaktighet.  
 
 | Erbjudande för SaaS-appar | Affärs krav | Tekniska krav |  
 | --- | --- | --- |  

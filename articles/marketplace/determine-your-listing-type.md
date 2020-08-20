@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/30/2020
-ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1b0846c68f6860b5c7dac9e93808088dac4f6a05
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498080"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607440"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 
 Det publicerings alternativ som du väljer för ditt erbjudande relaterar direkt till både behörighets kraven och GTM-förmånerna för kommersiella platser. Det är viktigt att valet av publicerings alternativ och erbjudande typ definierar hur användarna ska interagera med ditt kommersiella Marketplace-erbjudande.
 
-Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration samt anrop till åtgärd som styr hur och var ditt erbjudande presenteras i den kommersiella Marketplace-butiker.
+Om du vill konfigurera ditt erbjudande måste du förstå följande viktiga kommersiella Marketplace-koncept: publicerings alternativ, erbjudande typer och konfiguration samt anrop till åtgärd som styr hur och var ditt erbjudande presenteras i de kommersiella onlinebutiker online.
 
 I den här artikeln lär du dig att:
 
-- Så här fastställer du lämpliga butik för din lösning
-- Vilka publicerings alternativ och anrop till åtgärd som är tillgängliga i varje butik
-- Vilka erbjudande typer som är tillgängliga för varje publicerings alternativ
+- Hur du fastställer en lämplig onlinebutik för din lösning.
+- Vilka publicerings alternativ och anrop till åtgärd som är tillgängliga i varje onlinebutik.
+- Vilka erbjudande typer som är tillgängliga för varje publicerings alternativ.
 
 ## <a name="commercial-marketplace-publishing-options"></a>Publicerings alternativ för kommersiell Marketplace
 
@@ -37,8 +37,8 @@ I följande tabell visas publicerings alternativen för erbjudande typer i Micro
 | **Behållar avbildning** |  |  | Azure Marketplace | Azure Marketplace |   |
 | **IoT Edge modul** |  |  | Azure Marketplace | Azure Marketplace |   |
 | **Hanterade tjänster** |  |  |  | Azure Marketplace |   |
-| **Konsulttjänster** | Båda butiker |  |  |  |   |
-| **SaaS-app** | Båda butiker | Båda butiker | Båda butiker |  | Både butiker * |
+| **Konsulttjänster** | Båda onlinebutiker |  |  |  |   |
+| **SaaS-app** | Båda onlinebutiker | Båda onlinebutiker | Båda onlinebutiker |  | Både onlinebutiker * |
 | **Microsoft 365 app** | AppSource | AppSource |  |  | AppSource * *  |
 | **Dynamics 365-tillägg** |  AppSource | AppSource |  |  |   |
 | **PowerApps** | AppSource |AppSource  |  |  |   |
@@ -61,29 +61,29 @@ De publicerings alternativ som är tillgängliga erbjuder differentierade kund e
 > [!Note]
 > När du använder alternativet för Transact-publicering är det viktigt att förstå pris-, fakturerings-, fakturerings-och utbetalnings aspekter innan du väljer en erbjudande typ och skapar ditt erbjudande. Läs mer i artikeln om de [kommersiella Transact-funktionerna i Marketplace](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-## <a name="selecting-a-storefront"></a>Välja en butik
+## <a name="selecting-an-online-store"></a>Välja en onlinebutik
 
-Varje butik hanterar unika kund krav och riktar sig till specifika mål grupper. Din erbjudande typ, Transact-funktioner och kategori avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje butik baserat på mål mål gruppen:
+Varje onlinebutik tjänar unika kund krav och riktar sig till specifika mål grupper. Din erbjudande typ, Transact-funktioner och kategori avgör var ditt erbjudande ska publiceras. Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen:
 
 **Microsoft AppSource** riktas till företags användare som söker efter branschspecifika eller bransch lösningar och konsult tjänster för Dynamics 365, Microsoft 365 och Power Platform.
 
 **Azure Marketplace** riktar sig till IT-proffs och utvecklare som söker efter lösningar som skapats för eller på Azure samt konsult tjänster som påskyndar användningen av Azure.
 
-Välj den kategori och under kategori som bäst passar din mål grupp. Till exempel bör en brand vägg för webbaserade program publiceras på Azure Marketplace, under kategorin säkerhet, eftersom den avsedda mål gruppen är IT-proffs. En app för hantering av kontrakt bör i stället publiceras till AppSource under försäljnings kategorin eftersom den avsedda mål gruppen är företags användare. Om du väljer fel kategori eller under kategori kan ditt erbjudande publiceras till fel butik.
+Välj den kategori och under kategori som bäst passar din mål grupp. Till exempel bör en brand vägg för webbaserade program publiceras på Azure Marketplace, under kategorin säkerhet, eftersom den avsedda mål gruppen är IT-proffs. En app för hantering av kontrakt bör i stället publiceras till AppSource under försäljnings kategorin eftersom den avsedda mål gruppen är företags användare. Om du väljer fel kategori eller under kategori kan ditt erbjudande publiceras till fel onlinebutik.
 
-### <a name="publishing-to-both-storefronts-saas-offers-only"></a>Publicera till båda butiker (endast SaaS-erbjudanden)
+### <a name="publishing-to-both-online-stores-saas-offers-only"></a>Publicera till båda onlinebutiker (endast SaaS-erbjudanden)
 
-SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt SaaS-erbjudande är avsett för *både* en teknisk publik (Azure Marketplace) och en företags mål grupp (AppSource), väljer du en kategori och/eller en under kategori som gäller för varje butik. Erbjudanden som publiceras på båda butiker bör ha ett värde förslag som sträcker sig till IT-proffs *och* företags användare.
+SaaS-erbjudanden kan publiceras på Azure Marketplace eller AppSource. Om ditt SaaS-erbjudande är avsett för *både* en teknisk publik (Azure Marketplace) och en företags mål grupp (AppSource) väljer du en kategori och/eller en under kategori som gäller för varje onlinebutik. Erbjudanden som publiceras i båda onlinebutiker bör ha ett värde förslag som sträcker sig till IT-proffs *och* företags användare.
 
 > [!IMPORTANT]
 > SaaS-erbjudanden med avgiftsbelagda faktureringar är tillgängliga via Azure Marketplace och Azure Portal. SaaS-erbjudanden med enbart privata planer är tillgängliga via Azure Portal.
 
 | Avgiftsbelagd fakturering | Offentligt abonnemang | Privat plan | Tillgängligt i: |
 |---|---|---|---|
-| Ja             | Ja         | Inga           | Azure Marketplace och Azure Portal |
+| Ja             | Ja         | Nej           | Azure Marketplace och Azure Portal |
 | Ja             | Ja         | Ja          | Azure Marketplace och Azure Portal * |
-| Ja             | No          | Ja          | Endast Azure Portal |
-| Inga              | Inga          | Ja          | Endast Azure Portal |
+| Ja             | Nej          | Ja          | Endast Azure Portal |
+| Nej              | Nej          | Ja          | Endast Azure Portal |
 
 &#42; privat plan för erbjudandet är endast tillgängligt via Azure Portal
 
@@ -91,7 +91,7 @@ Ett erbjudande med till exempel fakturering och enbart privat plan (ingen offent
 
 ### <a name="categories"></a>Kategorier
 
-Kategorier och under Kategorier mappas till varje butik baserat på mål mål gruppen. Välj de kategorier och under kategorier som bäst passar ditt erbjudande och den avsedda mål gruppen. Du kan välja:
+Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål mål gruppen. Välj de kategorier och under kategorier som bäst passar ditt erbjudande och den avsedda mål gruppen. Du kan välja:
 
 - Minst en och upp till två kategorier. Du kan välja en primär kategori och en sekundär kategori.
 - Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om du inte väljer någon under kategori kommer ditt erbjudande fortfarande att kunna identifieras under den valda kategorin.
@@ -102,4 +102,4 @@ Kategorier och under Kategorier mappas till varje butik baserat på mål mål gr
 
 - När du bestämmer dig för ett publicerings alternativ kan du [välja den erbjudande typ](./publisher-guide-by-offer-type.md) som ska användas för att presentera ditt erbjudande.
 - Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
-- Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.
+- Granska publicerings mönstren per onlinebutik för att få exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

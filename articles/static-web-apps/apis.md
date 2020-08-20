@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: f5f40a615bc5faab6265f42d0728403e2735aa0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09daffa74ccd279c8187391ba3b86063aed7d204
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791630"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607023"
 ---
 # <a name="api-support-in-azure-static-web-apps-preview-with-azure-functions"></a>API-stöd i för hands versionen av Azure statisk Web Apps med Azure Functions
 
@@ -34,8 +34,8 @@ Azures statiska Web Apps tillhandahåller ett API via Azure Functions. Funktione
 - API-vägens prefix måste vara _API_.
 - Appen API Functions måste vara i Java Script.
 - Flödes regler för API-funktioner stöder bara [omdirigeringar](routes.md#redirects) och [skydd av vägar med roller](routes.md#securing-routes-with-roles).
-- Utlösare och bindningar är begränsade till [http](../azure-functions/functions-bindings-http-webhook.md).
-  - Alla andra [Azure Functions-utlösare och bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings) förutom utgående bindningar är begränsade.
+- Utlösare är begränsade till [http](../azure-functions/functions-bindings-http-webhook.md).
+  - In-och utdata- [bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings) stöds.
 - Loggar är bara tillgängliga om du lägger till [Application Insights](../azure-functions/functions-monitoring.md) i din functions-app.
 
 ## <a name="next-steps"></a>Nästa steg

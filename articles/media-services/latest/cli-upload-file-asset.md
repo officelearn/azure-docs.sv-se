@@ -3,7 +3,7 @@ title: Exempel på Azure CLI skript – Ladda upp en fil till en container | Mic
 description: Den här artikeln visar hur du använder Azure CLI-skriptet för att ladda upp en lokal fil till en lagrings behållare.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/18/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5a28cabfbc5cbba906a8c16451de801818b3fbed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2441aba7c7b83b379a9c80192fe72736ecebab8
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489970"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606647"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Azure CLI-exempel: Ladda upp en lokal fil till en behållare
 
@@ -29,7 +29,6 @@ Azure CLI-skriptet i den här artikeln visar hur du laddar upp en lokal fil till
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Skapa ett Media Services-konto](./create-account-howto.md).
-* Granska [Hantera till gångar](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

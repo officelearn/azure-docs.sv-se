@@ -125,20 +125,26 @@
           href: partition-data.md
         - name: Syntetisk partitionsnyckel
           href: synthetic-partition-keys.md
-    - name: Etablerat dataflöde
+    - name: Kapacitet
       items:
         - name: Enheter för programbegäran
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Etablerat dataflöde – introduktion
-          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-          href: set-throughput.md
-        - name: Etablera dataflöde för autoskalning
-          href: provision-throughput-autoscale.md
-        - name: Välj mellan autoskalning och standard (manuellt) för dataflöde
-          href: how-to-choose-offer.md
-        - name: Autoscale FAQ
-          href: autoscale-faq.md
+        - name: Etablerat dataflöde
+          items:
+            - name: Etablerat dataflöde – introduktion
+              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+              href: set-throughput.md
+            - name: Etablera dataflöde för autoskalning
+              href: provision-throughput-autoscale.md
+            - name: Välj mellan autoskalning och standard (manuellt) för dataflöde
+              href: how-to-choose-offer.md
+            - name: Autoscale FAQ
+              href: autoscale-faq.md
+        - name: Utan server
+          href: serverless.md
+        - name: Välj mellan etablerat dataflöde och serverlöst
+          href: throughput-serverless.md
     - name: SQL-fråga
       items:
         - name: Komma igång
@@ -238,6 +244,9 @@
                     - name: DateTimeToTicks
                       displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
                       href: sql-query-datetimetoticks.md
+                    - name: DateTimeToTimestamp
+                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                      href: sql-query-datetimetotimestamp.md
                     - name: GetCurrentDateTime
                       displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
                       href: sql-query-getcurrentdatetime.md
@@ -247,6 +256,12 @@
                     - name: GetCurrentTimestamp
                       displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
                       href: sql-query-getcurrenttimestamp.md
+                    - name: TicksToDateTime
+                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                      href: sql-query-tickstodatetime.md
+                    - name: TimestampToDateTime
+                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                      href: sql-query-timestamptodatetime.md
                 - name: Matematiska funktioner
                   items:
                     - name: Matematiska funktioner
@@ -953,26 +968,28 @@
           href: how-to-manage-conflicts.md
         - name: Konvertera tokenformat för session
           href: how-to-convert-session-token.md
-    - name: Etablerat dataflöde
+    - name: Kapacitet
       items:
-        - name: Etablera standarddataflöde (manuellt) på en container
-          displayName: 'request units, RUs, RU, collection level'
-          href: how-to-provision-container-throughput.md
-        - name: Etablera standarddataflöde (manuellt) på en databas
-          displayName: 'request units, RUs, RU, shared throughput, database level'
-          href: how-to-provision-database-throughput.md
-        - name: Etablera dataflöde med autoskalning på en databas eller container
-          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-          href: how-to-provision-autoscale-throughput.md
-        - name: Beräkna RU/s med Cosmos Capacity Planner
-          displayName: 'request units, RUs, RU, capacity'
-          href: estimate-ru-with-capacity-planner.md
         - name: Hitta avgifter för begäransenheter
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
-        - name: Skala med Azure Functions-timer
-          displayName: 'request units, RUs, RU, timer'
-          href: scale-on-schedule.md
+        - name: Etablerat dataflöde
+          items:
+            - name: Etablera standarddataflöde (manuellt) på en container
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-container-throughput.md
+            - name: Etablera standarddataflöde (manuellt) på en databas
+              displayName: 'request units, RUs, RU, shared throughput, database level'
+              href: how-to-provision-database-throughput.md
+            - name: Etablera dataflöde med autoskalning på en databas eller container
+              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+              href: how-to-provision-autoscale-throughput.md
+            - name: Beräkna RU/s med Cosmos Capacity Planner
+              displayName: 'request units, RUs, RU, capacity'
+              href: estimate-ru-with-capacity-planner.md
+            - name: Skala med Azure Functions-timer
+              displayName: 'request units, RUs, RU, timer'
+              href: scale-on-schedule.md
     - name: Arbeta med containrar och objekt
       items:
         - name: Arbeta med Cosmos DB-data

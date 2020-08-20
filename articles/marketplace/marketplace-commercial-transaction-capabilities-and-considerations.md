@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: e2ce35158e8f9a3a2ad9da2b3d67a3f35d5a8c80
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503573"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607347"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
@@ -133,8 +133,8 @@ I det här scenariot fakturerar Microsoft $100,00 för din program varu licens o
 
 |Microsoft-räkningar  | $100,00 per månad  |
 |---------|---------|
-|Microsoft betalar 80% av din licens kostnad <br> \*Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \*$90,00 per månad    |
-|Microsoft behåller 20% av din licens kostnad <br> \*Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \*$10,00     |
+|Microsoft betalar 80% av din licens kostnad <br> \* Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \* $90,00 per månad    |
+|Microsoft behåller 20% av din licens kostnad <br> \* Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \* $10,00     |
 
 För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
 
@@ -148,7 +148,7 @@ För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer M
 
 **Kostnads fria krediter och betalnings åtagande** – vissa kunder väljer att förskottsbetala Azure med ett penning åtagande i Enterprise-avtal eller ha fått kostnads fria krediter för användning med Azure. Även om de här krediterna kan användas för att betala för Azure-användning, kan de inte användas för att betala för licens avgifter för Publisher-programvaran.
 
-**Fakturering och samlingar** – licens fakturering för utgivar program vara presenteras med kunden vald fakturerings metod och följer tids linjen för fakturerings tids linjen. Kunder utan en Enterprise-avtal på plats faktureras per månad för program varu licenser för Marketplace. Kunder med en Enterprise-avtal faktureras per månad via en faktura som presenteras kvartals vis.
+**Fakturering och samlingar** – licens fakturering för Publisher-programvara presenteras med kunden vald fakturerings metod och följer fakturerings tids linjen. Kunder utan en Enterprise-avtal på plats faktureras per månad för program varu licenser för Marketplace. Kunder med en Enterprise-avtal faktureras per månad via en faktura som presenteras kvartals vis.
 
 När du har valt prenumerations modell eller pris sättning enligt principen betala per användning fungerar Microsoft som utgivarens agent och ansvarar för alla aspekter av fakturering, betalning och insamling.
 
@@ -191,4 +191,4 @@ Alternativet för att använda Transact-publicering är bara tillgängligt för 
 ## <a name="next-steps"></a>Nästa steg
 
 - Granska behörighets kraven i avsnittet publicerings alternativ per erbjudande typ för att slutföra valet och konfigurationen av ditt erbjudande.
-- Granska publicerings mönstren efter butik för exempel på hur din lösning mappar till en erbjudande typ och konfiguration.
+- Granska publicerings mönstren per onlinebutik för att få exempel på hur din lösning mappar till en erbjudande typ och konfiguration.

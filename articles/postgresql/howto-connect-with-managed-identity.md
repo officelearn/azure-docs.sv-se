@@ -6,22 +6,22 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: ec9e53ecaa95f6407a00c149abb6ed7e4a671d74
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 173633e16648bce262051947ec2bc9c1f61fbb9c
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102301"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606770"
 ---
-# <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Anslut med hanterad identitet till Azure Database for PostgreSQL
+# <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Ansluta med hanterad identitet till Azure Database for PostgreSQL
 
-Den här artikeln visar hur du använder en användardefinierad identitet för en virtuell Azure-dator (VM) för att få åtkomst till en Azure Database for PostgreSQL-Server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+Den här artikeln visar hur du använder en användardefinierad identitet för en virtuell Azure-dator (VM) för att få åtkomst till en Azure Database for PostgreSQL-Server. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. 
 
-> [!div class="checklist"]
-> * Bevilja din VM-åtkomst till en Azure Database for PostgreSQL-Server
-> * Skapa en användare i databasen som representerar den VM-tilldelade identiteten för den virtuella datorn
-> * Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for PostgreSQL Server
-> * Implementera hämtning av token i ett exempel program i C#
+Lär dig att:
+- Bevilja din VM-åtkomst till en Azure Database for PostgreSQL-Server
+- Skapa en användare i databasen som representerar den VM-tilldelade identiteten för den virtuella datorn
+- Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for PostgreSQL Server
+- Implementera hämtning av token i ett exempel program i C#
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -80,7 +80,7 @@ Den här token-hämtningen görs genom att göra en HTTP-förfrågan till `http:
 
 * `api-version` = `2018-02-01`
 * `resource` = `https://ossrdbms-aad.database.windows.net`
-* `client_id` = `CLIENT_ID`(som du hämtade tidigare)
+* `client_id` = `CLIENT_ID` (som du hämtade tidigare)
 
 Du får tillbaka ett JSON-resultat som innehåller ett `access_token` fält – detta långa text värde är den hanterade identitets åtkomst-token som du bör använda som lösen ord när du ansluter till databasen.
 

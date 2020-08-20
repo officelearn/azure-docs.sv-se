@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/22/2020
-ms.openlocfilehash: 20c82793726221515ad4d1019f4d8f4754b3ae08
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 82a6b2674fe73bd448bb7ccbd230e837bd1cbb2a
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036580"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607338"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
 
@@ -120,11 +120,11 @@ Kommersiella Marketplace-utgivare ansvarar för att stödja sin program vara och
 
 Under publicerings processen får du till gång till en för hands version av ditt erbjudande. Åtkomst är begränsad till användare som du anger på fliken **förhands granskning** och det går inte att Visa erbjudandet av någon annan. Du kan köpa en för hands version och testa processen, men du debiteras hela beloppet enligt ditt erbjudandes konfiguration.
 
-För att kunna slutföra ett köp till ett mycket lågt pris, rekommenderar vi att du publicerar en privat plan som kan visas av dig själv och till ett pris som du kan acceptera som test kostnader. Ett pris på $0,00 stöds men visar inte den fullständiga upplevelsen, som en betald prenumeration, så vi rekommenderar att du ställer in priset på $1,00.
+För att slutföra ett köp till ett lågt pris rekommenderar vi att du publicerar en privat plan som kan visas av dig själv och till ett pris som du kan acceptera som test kostnader. Ett pris på $0,00 stöds men visar inte den fullständiga upplevelsen, som en betald prenumeration, så vi rekommenderar att du ställer in priset på $1,00.
 
 ### <a name="what-are-leads-from-the-commercial-marketplace-and-what-should-i-do-with-them"></a>Vad är leads från den kommersiella Marketplace och vad ska jag göra med dem?
 
-När kunderna använder dina erbjudanden på Microsoft AppSource och Azure Marketplace-butiker samlas information. När kunderna har visat tillräckligt mycket intresse skapas ett lead och en affärs möjlighet skickas till det system du önskar. Utgivare som har till gång till den kommersiella Marketplace arbetar ofta med leads, utvecklar relationer och ger dig intresse av att göra affärer.
+När kunderna använder dina erbjudanden på Microsoft AppSource och Azure Marketplace-onlinebutiker samlas information. När kunderna har visat tillräckligt mycket intresse skapas ett lead och en affärs möjlighet skickas till det system du önskar. Utgivare som har till gång till den kommersiella Marketplace arbetar ofta med leads, utvecklar relationer och ger dig intresse av att göra affärer.
 
 Mer information finns i [kund ledare från Marketplace-erbjudandet](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
@@ -140,7 +140,7 @@ Erbjudanden visas för kunder genom produkt upplevelser, webbplatser, åter för
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Kan mitt erbjudande visas i både Microsoft AppSource och Azure Marketplace?
 
-Microsoft AppSource är målet för affärs-och bransch lösningar och Azure Marketplace är utformat för IT-och utvecklartjänster. Erbjudanden är tillgängliga i varje butiker baserat på kategorier och branscher som du valde när du skapade erbjudandet. I sällsynta fall att erbjudandet är relevant för användare av båda butiker kan det visas i båda.
+Microsoft AppSource är målet för affärs-och bransch lösningar och Azure Marketplace är utformat för IT-och utvecklartjänster. Erbjudanden är tillgängliga i alla onlinebutiker baserat på kategorier och branscher som du valde när du skapade erbjudandet. I sällsynta fall att erbjudandet är relevant för användare av båda onlinebutiker, kan det visas i båda.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>Vad är leverantören av moln lösnings programmet?
 

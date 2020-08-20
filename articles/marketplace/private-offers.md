@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 5f8487126cd187ea66f9423a480c9a73151154c3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168022"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607198"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
@@ -54,7 +54,7 @@ När ett erbjudande har certifierats och publicerats kan kunder uppdateras eller
 
 ## <a name="deploying-private-offers"></a>Distribuera privata erbjudanden
 
-Privata erbjudanden kan bara upptäckas via [Azure Portal](https://azure.microsoft.com/features/azure-portal/) och visas inte i [Microsoft AppSource](https://appsource.microsoft.com/) eller [Azure Marketplace](https://azuremarketplace.microsoft.com). Mer information om hur du publicerar till de olika butiker för kommersiella marknads platser finns i [bestämma publicerings alternativ](./determine-your-listing-type.md).
+Privata erbjudanden kan bara upptäckas via [Azure Portal](https://azure.microsoft.com/features/azure-portal/) och visas inte i [Microsoft AppSource](https://appsource.microsoft.com/) eller [Azure Marketplace](https://azuremarketplace.microsoft.com). Mer information om hur du publicerar till de olika onlinebutiker för kommersiella platser finns i [bestämma publicerings alternativ](./determine-your-listing-type.md).
 
 När du har loggat in på Azure Portal kan kunderna välja navigerings element för Marketplace för att få åtkomst till sina privata erbjudanden. Privata erbjudanden visas också i Sök Resultat och kan distribueras via kommando raden och Azure Resource Manager mallar som andra erbjudanden.
 

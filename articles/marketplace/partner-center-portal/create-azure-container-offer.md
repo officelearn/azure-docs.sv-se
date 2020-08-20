@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 4b1c2ea437168d00823bc5527eaeda33db6ae733
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 9196bea663d037f269316dc108f99d3f2c282ec7
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166747"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606360"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudand
    ![Visar menyn till vänster-navigering.](./media/new-offer-azure-container.png)
 
 > [!TIP]
-> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
+> När ett erbjudande har publicerats visas bara ändringar i Partner Center i onlinebutiker när du har publicerat om erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 ### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
@@ -50,7 +50,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](update-existing-offer.md#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](update-existing-offer.md#stop-selling-an-offer-or-plan)
@@ -133,7 +133,7 @@ På den här sidan kan du definiera information om erbjudandet som visas på den
 > [!NOTE]
 > Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -151,7 +151,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

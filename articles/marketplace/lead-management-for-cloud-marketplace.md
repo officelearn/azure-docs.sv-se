@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: d0aea0594a97990c7c89434e73fcd4982b01e20f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035186"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88606896"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Lead-hantering för den kommersiella marknaden
 
@@ -44,7 +44,7 @@ När du har konfigurerat ditt lead-mål och har publicerat publicera på ditt er
 
 När den tekniska konfigurationen är på plats bör du inkludera dessa leads i din aktuella försäljning & marknadsförings strategi och operativa processer. Vi är intresserade av att bättre förstå den övergripande Sälj processen och vill arbeta nära dig med att tillhandahålla högkvalitativa leads och tillräckligt med data för att lyckas. Vi välkomnar din feedback om hur vi kan optimera och förbättra de leads som vi skickar till dig med ytterligare data för att hjälpa kunderna att lyckas. Berätta för oss om du är intresse rad av att ge feedback och förslag för att göra det möjligt för ditt säljteam att bli mer framgångs rik med marknads ledande kunder.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Vanliga fel vid lead-konfiguration under publicering i Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Vanliga fel vid lead-konfiguration under publicering i Partner Center
 
 **Det gick inte att spara leadet i Dynamics CRM. Kontrol lera konto inställningarna för Dynamics CRM. LastCRMError: det går inte att logga in på Dynamics CRM, LastCRMException:** 
 

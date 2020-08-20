@@ -1,22 +1,22 @@
 ---
 title: Utbetalnings information per region – Microsofts handels marknads plats
-description: Ta reda på hur den uppskattade tiden det tar att överföra betalningar och vilka Microsoft-butiker du kan få betalningar från, beroende på ditt land/din region och konto typen utbetalning.
+description: Lär dig hur uppskattad tid det tar att överföra betalningar och de Microsoft online-butiker där du kan få betalningar, beroende på ditt land/din region och konto typen utbetalning.
 author: mingshen-ms
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 44246fa122b7c602e47c44e48c43c2a42d01de77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327335"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607282"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
 
-Den uppskattade tiden för att överföra betalningar och butiker som du kan ta emot betalningar från kan variera beroende på ditt land/din region och konto typen utbetalning. Den här artikeln beskriver de betalnings metoder som stöds i varje land och region.
+Den uppskattade tiden för att överföra betalningar och onlinebutiker som du kan ta emot betalningar från kan variera beroende på ditt land/din region och konto typen utbetalning. Den här artikeln beskriver de betalnings metoder som stöds i varje land och region.
 
 För alla länder och regioner betalar vi med ACH/SEPA eller överföring av kablar. Vissa länder och regioner stöder även PayPal som betalnings metod.
 
@@ -38,7 +38,7 @@ Vi skickar vanligt vis all betalning som förfaller under en månad den 15: e da
 
 Detta är de länder och regioner där betalnings metoderna ovan används för varje Marketplace. Betalnings tröskeln i samtliga fall är $50 USD.
 
-| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Kontor | PayPal-betalningar  |
+| Land/region | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar  |
 | --- | --- | --- | --- | --- |
 | Afghanistan | Ja | Ja | Nej | Nej |
 | Albanien | Ja | Ja | Ja | Ja |

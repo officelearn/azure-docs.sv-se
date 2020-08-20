@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 31bc9a5f38d50318f858a4d7169391e9d2e5e610
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 775b296185f9f0f0e967ada2688e24158f36360e
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848738"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648368"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4- och Easv4-serien
 
@@ -83,7 +83,7 @@ Easv4-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processo
 
 Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: [disk typer](./linux/disks-types.md#ultra-disk)
+Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Nästa steg
 

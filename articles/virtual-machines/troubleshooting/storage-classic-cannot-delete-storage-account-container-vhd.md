@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77915045"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649865"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av klassiska lagrings resurser
 Den här artikeln innehåller en fel söknings vägledning när något av följande fel uppstår vid försök att ta bort det klassiska Azure-lagrings kontot, behållaren eller *. VHD-sidans BLOB-fil. 
@@ -21,7 +21,7 @@ Den här artikeln innehåller en fel söknings vägledning när något av följa
 
 Den här artikeln beskriver endast problem med klassiska lagrings resurser. Om en användare tar bort en klassisk virtuell dator med hjälp av Azure Portal, PowerShell eller CLI raderas inte diskarna automatiskt. Användaren får alternativet att ta bort "disk"-resursen. Om alternativet inte är markerat förhindrar "disk"-resursen borttagning av lagrings kontot, behållaren och den faktiska *. VHD-sidans BLOB-fil.
 
-Mer information om Azure-diskar hittar du [här](../../virtual-machines/windows/managed-disks-overview.md). Azure förhindrar att en disk som är ansluten till en virtuell dator tas bort för att förhindra skada. Det förhindrar också att behållare och lagrings konton tas bort, som har en sid-blob som är kopplad till en virtuell dator. 
+Mer information om Azure-diskar hittar du [här](../../virtual-machines/managed-disks-overview.md). Azure förhindrar att en disk som är ansluten till en virtuell dator tas bort för att förhindra skada. Det förhindrar också att behållare och lagrings konton tas bort, som har en sid-blob som är kopplad till en virtuell dator. 
 
 ## <a name="what-is-a-disk"></a>Vad är en "disk"?
 En "disk"-resurs används för att montera en *. VHD Page-BLOB-fil till en virtuell dator, som en OS-disk eller data disk. En OS-disk eller data disk resurs, tills den har tagits bort, fortsätter att inneha ett lån på filen *. VHD. Alla lagrings resurser i sökvägen som visas i bilden nedan kan inte tas bort om en "disk"-resurs pekar på den.

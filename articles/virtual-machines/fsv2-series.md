@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 101aae2ab200d5d78ab617f63c6955dc0547310f
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 50653b0da2bb488f2a0d4254df2e27ba7c6a5f1f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825658"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648317"
 ---
 # <a name="fsv2-series"></a>Fsv2-serien
 
@@ -68,7 +68,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: [disk typer](./linux/disks-types.md#ultra-disk)
+Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Nästa steg

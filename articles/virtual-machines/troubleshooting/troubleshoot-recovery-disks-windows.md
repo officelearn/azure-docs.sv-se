@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 1c7b6ee73513c7e51e3bb18c3835a1d395a4c516
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63d5e4bcc57a734fc5ea455da7c2db940a4b8ec3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028269"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654692"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell återställnings dator med hjälp av Azure PowerShell
 Om din virtuella Windows-dator (VM) i Azure påträffar ett start-eller disk fel kan du behöva utföra fel söknings stegen på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder Azure PowerShell för att ansluta disken till en annan virtuell Windows-dator för att åtgärda eventuella fel och sedan reparera den ursprungliga virtuella datorn. 
 
 > [!Important]
-> Skripten i den här artikeln gäller bara för de virtuella datorer som använder [hanterad disk](../windows/managed-disks-overview.md). 
+> Skripten i den här artikeln gäller bara för de virtuella datorer som använder [hanterad disk](../managed-disks-overview.md). 
 
  
 

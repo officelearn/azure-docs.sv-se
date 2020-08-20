@@ -11,14 +11,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 50ab4b0f1e676ffcba0ce69ab6aa957e4c77ab88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71058158"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649745"
 ---
-# <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av lagrings resurs
+# <a name="troubleshoot-storage-resource-deletion-errors"></a>Felsöka fel vid borttagning av lagringsresurs
 
 I vissa fall kan något av följande fel uppstå när du försöker ta bort ett Azure Storage-konto, en behållare eller en BLOB i en Azure Resource Manager-distribution:
 
@@ -28,7 +28,7 @@ I vissa fall kan något av följande fel uppstå när du försöker ta bort ett 
 > 
 > **Det gick inte att ta bort # av # blobbar: <br> BlobName. VHD: det finns för närvarande ett lån i blobben och inget låne-ID har angetts i begäran.**
 
-De virtuella hård diskar som används i virtuella Azure-datorer är. VHD-filer som lagras som Page blobbar i ett standard-eller Premium lagrings konto i Azure. Mer information om Azure-diskar finns i [Introduktion till Managed disks](../linux/managed-disks-overview.md).
+De virtuella hård diskar som används i virtuella Azure-datorer är. VHD-filer som lagras som Page blobbar i ett standard-eller Premium lagrings konto i Azure. Mer information om Azure-diskar finns i [Introduktion till Managed disks](../managed-disks-overview.md).
 
 Azure förhindrar att en disk som är ansluten till en virtuell dator tas bort för att förhindra skada. Det förhindrar också borttagning av behållare och lagrings konton som har en sid-blob som är kopplad till en virtuell dator. 
 

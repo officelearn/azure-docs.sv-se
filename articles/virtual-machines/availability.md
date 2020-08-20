@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 18d7755bf6bf9d09a8da30cb5c2892af6ed90c7d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 583e4d3a45d31b9c386b542d42d8e749b0c36bc1
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830656"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650221"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Tillgänglighetsalternativ för virtuella datorer i Azure
 
@@ -47,7 +47,7 @@ På så sätt säkerställs att minst en instans av ditt program alltid körs vi
 
 ## <a name="virtual-machines-scale-sets"></a>Virtual Machines skalnings uppsättningar 
 
-Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hantera en grupp med belastningsutjämnade virtuella datorer. Antalet VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalnings uppsättningar ger hög tillgänglighet till dina program och gör att du kan hantera, konfigurera och uppdatera många virtuella datorer centralt. Vi rekommenderar att två eller flera virtuella datorer skapas i en skalnings uppsättning för att tillhandahålla ett program med hög tillgänglighet och som uppfyller [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Du betalar ingen kostnad för själva skalnings uppsättningen. du betalar bara för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./windows/disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan distribueras över flera uppdaterings domäner och fel domäner för att maximera tillgängligheten och återhämtning till drift störningar på grund av avbrott i data centret och planerade eller oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan också distribueras till en enda tillgänglighets zon eller regionalt. Distributions alternativen för tillgänglighets zon kan variera beroende på dirigerings läge.
+Med skalnings uppsättningar för virtuella Azure-datorer kan du skapa och hantera en grupp med belastningsutjämnade virtuella datorer. Antalet VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalnings uppsättningar ger hög tillgänglighet till dina program och gör att du kan hantera, konfigurera och uppdatera många virtuella datorer centralt. Vi rekommenderar att två eller flera virtuella datorer skapas i en skalnings uppsättning för att tillhandahålla ett program med hög tillgänglighet och som uppfyller [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Du betalar ingen kostnad för själva skalnings uppsättningen. du betalar bara för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan distribueras över flera uppdaterings domäner och fel domäner för att maximera tillgängligheten och återhämtning till drift störningar på grund av avbrott i data centret och planerade eller oplanerade underhålls händelser. Virtuella datorer i en skalnings uppsättning kan också distribueras till en enda tillgänglighets zon eller regionalt. Distributions alternativen för tillgänglighets zon kan variera beroende på dirigerings läge.
 
 **Fel domäner och uppdaterings domäner**
 
@@ -55,7 +55,7 @@ Skalnings uppsättningar för virtuella datorer fören klar designen för hög t
 
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar
-En tillgänglighets uppsättning är en logisk gruppering av virtuella datorer i ett Data Center som gör det möjligt för Azure att förstå hur ditt program är utformat för att tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighets uppsättning för att tillhandahålla ett program med hög tillgänglighet och uppfylla [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För själva tillgänglighets uppsättningen kostar du bara att betala för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./windows/disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser.
+En tillgänglighets uppsättning är en logisk gruppering av virtuella datorer i ett Data Center som gör det möjligt för Azure att förstå hur ditt program är utformat för att tillhandahålla redundans och tillgänglighet. Vi rekommenderar att två eller flera virtuella datorer skapas i en tillgänglighets uppsättning för att tillhandahålla ett program med hög tillgänglighet och uppfylla [99,95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). För själva tillgänglighets uppsättningen kostar du bara att betala för varje VM-instans som du skapar. När en enskild virtuell dator använder [Azure Premium-SSD](./disks-types.md#premium-ssd)gäller Azure SLA för oplanerade underhålls händelser.
 
 I en tillgänglighets uppsättning distribueras virtuella datorer automatiskt mellan dessa fel domäner. På så sätt begränsas påverkan av potentiella fel på fysisk maskinvara, nätverksavbrott och strömavbrott.
 

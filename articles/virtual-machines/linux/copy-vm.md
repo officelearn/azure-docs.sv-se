@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: ec8fd91dc768b44b027c96efead6924782eb0f75
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: c7d93ee928653cc1656e3e9a7cdb0d2fd6d7094b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87368616"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654420"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Skapa en kopia av en virtuell Linux-dator med hjälp av Azure CLI och Managed Disks
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar en kopia av din virtuella Azure-dator (VM)
 
 Du kan också [Ladda upp och skapa en virtuell dator från en virtuell hård disk](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 -   Installera [Azure CLI](/cli/azure/install-az-cli2).
 
@@ -43,7 +43,7 @@ az vm deallocate \
 
 Om du vill kopiera en virtuell dator skapar du en kopia av den underliggande virtuella hård disken. Den här processen skapar en specialiserad virtuell hård disk (VHD) som en hanterad disk som innehåller samma konfiguration och inställningar som den virtuella käll datorn.
 
-Mer information om Azure Managed Disks finns i [Översikt över Azure Managed Disks](../windows/managed-disks-overview.md). 
+Mer information om Azure Managed Disks finns i [Översikt över Azure Managed Disks](../managed-disks-overview.md). 
 
 1.  Lista varje virtuell dator och namnet på sin OS-disk med [AZ VM List](/cli/azure/vm#az-vm-list). I följande exempel visas alla virtuella datorer i resurs gruppen med namnet *myResourceGroup*:
     

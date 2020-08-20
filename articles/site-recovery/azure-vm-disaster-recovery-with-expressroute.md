@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73954086"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654386"
 ---
 # <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera ExpressRoute med haveri beredskap för virtuella Azure-datorer
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du integrerar Azure-ExpressRoute med [Azure Site
 
 Site Recovery möjliggör haveri beredskap för virtuella Azure-datorer genom att replikera virtuella Azure-Datadata till Azure.
 
-- Om virtuella Azure-datorer använder [Azure Managed disks](../virtual-machines/windows/managed-disks-overview.md)replikeras VM-data till en replikerad hanterad disk i den sekundära regionen.
+- Om virtuella Azure-datorer använder [Azure Managed disks](../virtual-machines/managed-disks-overview.md)replikeras VM-data till en replikerad hanterad disk i den sekundära regionen.
 - Om virtuella Azure-datorer inte använder hanterade diskar replikeras VM-data till ett Azure Storage-konto.
 - Replikeringens slut punkter är offentliga, men replikeringstrafik för virtuella Azure-datorer korsar inte Internet.
 
@@ -104,23 +104,23 @@ Företags distributioner har vanligt vis arbets belastningar som delas över fle
 
 #### <a name="spoke-to-hub"></a>Spoke till hub
 
-**Riktning** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **Tillstånd**
 --- | --- | ---
 Spoke till hub | Tillåt virtuell nätverks adress | Enabled
 Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
-Spoke till hub | Tillåt Gateway-överföring | Disabled
+Spoke till hub | Tillåt Gateway-överföring | Inaktiverad
 Spoke till hub | Använd ta bort gatewayer | Enabled
 
  ![Konfiguration av eker-peering](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
 #### <a name="hub-to-spoke"></a>Hub till spoke
 
-**Riktning** | **Inställning** | **Status**
+**Riktning** | **Inställning** | **Tillstånd**
 --- | --- | ---
 Hub till spoke | Tillåt virtuell nätverks adress | Enabled
 Hub till spoke | Tillåt vidarebefordrad trafik | Enabled
 Hub till spoke | Tillåt Gateway-överföring | Enabled
-Hub till spoke | Använd ta bort gatewayer | Disabled
+Hub till spoke | Använd ta bort gatewayer | Inaktiverad
 
  ![Hubb till eker-peering-konfiguration](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 

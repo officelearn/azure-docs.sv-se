@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: d5417bfcfbaa183c34808d9017d5863506429a81
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1a73b4707f83d6a23dffc20d95aa7b8a0fa465b3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642290"
+ms.locfileid: "88649065"
 ---
 # <a name="sparkcruise-on-azure-hdinsight"></a>SparkCruise på Azure HDInsight
 
@@ -58,7 +58,7 @@ Följande exempel scenario visar hur du använder *SparkCruise* för att optimer
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-`analyze`Kommandot tolkar fråge planerna och skapar en tabell representation av arbets belastningen. Sedan `views` identifierar kommandot vanliga under Plans uttryck och väljer ett intressant under Plans uttryck för framtida materialization och åter användning. Utdata är en feedback-fil som innehåller anteckningar för framtida Spark SQL-frågor. 
+`analyze`Kommandot tolkar fråge planerna och skapar en tabell representation av arbets belastningen. Den här arbets belastnings tabellen kan frågas med hjälp av den *WorkloadInsights* Notebook som ingår i databasen [HDInsight SparkCruise-exempel](https://github.com/Azure-Samples/azure-sparkcruise-samples) . Sedan `views` identifierar kommandot vanliga under Plans uttryck och väljer ett intressant under Plans uttryck för framtida materialization och åter användning. Utdata är en feedback-fil som innehåller anteckningar för framtida Spark SQL-frågor. 
 
 `show`Kommandot visar utdata som liknar följande text:
 

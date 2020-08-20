@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c238bf3911283db5d09fdd5679d784c5e5401f8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76756257"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654811"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Skalbarhets-och prestanda mål för Premium Page Blob Storage-konton
 
@@ -25,7 +25,7 @@ ms.locfileid: "76756257"
 Ett Blob Storage-konto för Premium-prestanda är optimerat för Läs-och skriv åtgärder. Den här typen av lagrings konto återställer en ohanterad disk för en virtuell Azure-dator.
 
 > [!NOTE]
-> Microsoft rekommenderar att du använder hanterade diskar med virtuella Azure-datorer (VM) om det är möjligt. Mer information om hanterade diskar finns i [Azure-disklagring översikt för virtuella Windows-datorer](../../virtual-machines/windows/managed-disks-overview.md).
+> Microsoft rekommenderar att du använder hanterade diskar med virtuella Azure-datorer (VM) om det är möjligt. Mer information om hanterade diskar finns i [Azure-disklagring översikt för virtuella datorer](../../virtual-machines/managed-disks-overview.md).
 
 Premium Page Blob Storage-konton har följande skalbarhets mål:
 
@@ -39,7 +39,7 @@ Premium Page Blob Storage-konton har följande skalbarhets mål:
 
 Ett BLOB-konto för Premium sidan är ett allmänt konto som kon figurer ATS för Premium-prestanda. Allmänna-Purpose v2-lagrings konton rekommenderas.
 
-Om du använder Blob Storage-konton på Premium-sidan för ohanterade diskar och ditt program överskrider skalbarhets målen för ett enda lagrings konto, rekommenderar Microsoft att du migrerar till hanterade diskar. Mer information om hanterade diskar finns i [Azure-disklagring översikt för virtuella Windows-datorer](../../virtual-machines/windows/managed-disks-overview.md) eller [Azure-disklagring översikt för virtuella Linux-datorer](../../virtual-machines/linux/managed-disks-overview.md).
+Om du använder Blob Storage-konton på Premium-sidan för ohanterade diskar och ditt program överskrider skalbarhets målen för ett enda lagrings konto, rekommenderar Microsoft att du migrerar till hanterade diskar. Mer information om hanterade diskar finns i [Azure-disklagring översikt för virtuella datorer](../../virtual-machines/managed-disks-overview.md).
 
 Om du inte kan migrera till hanterade diskar kan du bygga ditt program så att det använder flera lagrings konton och partitionerar dina data över dessa lagrings konton. Om du till exempel vill ansluta 51 TB-diskar över flera virtuella datorer sprider du dem över två lagrings konton. 35 TB är gränsen för ett enda Premium Storage-konto. Se till att ett enda lagrings konto för Premium-prestanda aldrig har mer än 35 TB etablerade diskar.
 

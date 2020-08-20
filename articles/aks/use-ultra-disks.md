@@ -4,25 +4,25 @@ description: Lär dig hur du aktiverar och konfigurerar Ultra disks i ett Azure 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: f74da764f5a0b021199782dbad03e6e95cceb7f2
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986839"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650187"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Använd Azure Ultra disks på Azure Kubernetes service (för hands version)
 
-[Azure Ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md) erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för dina tillstånds känsliga program. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina agent-noder. Ultra disks lämpar sig för data intensiva arbets belastningar.
+[Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md) erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för dina tillstånds känsliga program. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina agent-noder. Ultra disks lämpar sig för data intensiva arbets belastningar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här funktionen kan bara ställas in när klustret skapas eller när en nod skapas.
 
 > [!IMPORTANT]
-> Azure Ultra disks kräver att nodepools distribueras i tillgänglighets zoner och regioner som har stöd för dessa diskar samt endast vissa VM-serier. Se [**omfattning och begränsningar för Ultra disks ga**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
+> Azure Ultra disks kräver att nodepools distribueras i tillgänglighets zoner och regioner som har stöd för dessa diskar samt endast vissa VM-serier. Se [**omfattning och begränsningar för Ultra disks ga**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 - Se till att `EnableUltraSSD` funktions flaggan är aktive rad.
 - Se till att du har det senaste `aks-preview` [CLI-tillägget][az-extension-add] installerat.
@@ -64,7 +64,7 @@ az extension update --name aks-preview
 ``` 
 
 ### <a name="limitations"></a>Begränsningar
-- Se [ **definitions område och begränsningar för Ultra DISKs ga**](../virtual-machines/linux/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
+- Se [ **definitions område och begränsningar för Ultra DISKs ga**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations)
 - Storleks intervallet som stöds för Ultra disks är mellan 100 och 1500
 
 ## <a name="create-a-new-cluster-that-can-use-ultra-disks"></a>Skapa ett nytt kluster som kan använda Ultra disks
@@ -226,7 +226,7 @@ Events:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Ultra disks finns i [använda Azure Ultra disks](../virtual-machines/linux/disks-enable-ultra-ssd.md).
+- Mer information om Ultra disks finns i [använda Azure Ultra disks](../virtual-machines/disks-enable-ultra-ssd.md).
 - Mer information om metod tips för lagring finns i [metod tips för lagring och säkerhets kopiering i Azure Kubernetes service (AKS)][operator-best-practices-storage]
 
 <!-- LINKS - external -->
@@ -240,7 +240,7 @@ Events:
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
-[premium-storage]: ../virtual-machines/windows/disks-types.md
+[premium-storage]: ../virtual-machines/disks-types.md
 [az-disk-list]: /cli/azure/disk#az-disk-list
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create

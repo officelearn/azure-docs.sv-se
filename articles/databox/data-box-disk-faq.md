@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745801"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649422"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: vanliga frågor och svar
 
@@ -58,6 +58,23 @@ A. Data Box Disk stöds för alla regioner i USA, Kanada, Australien, Västeurop
 
 ### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>F. Kommer mitt Data Box Disk mellan land/region-kantlinjer under leverans?
 A. Data Box Disk levereras inifrån samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU) där diskar kan levereras till och från valfritt EU-land/-region.
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>F. Hur kan jag importera mina lokala källdata i ett land/en region till en Azure-region i ett annat land/en annan region?
+A. Data Box Disk har endast stöd för data inmatning inom samma region (handels gränser). I alla andra fall kan du behöva vidta ytterligare åtgärder. 
+
+Om du t. ex. hade lokala data i Kanada som du ville flytta till ett lagrings konto med Azure väst, kan du uppnå det på följande sätt:
+
+### <a name="option-1"></a>Alternativ 1: 
+
+Leverera en [disk som stöds](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) och som innehåller data med [Azure import/export-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) från käll platsen i Kanada till Azures Data Center i västra USA.
+
+### <a name="option-2"></a>Alternativ 2:
+
+1. Beställ Data Box Disk i Kanada genom att välja ett lagrings konto, t. ex. i Cananda Central. SSD-diskarna levereras från Azure-datacentret i Kanada Central till leverans adressen (i Kanada) som tillhandahålls när ordern skapas.
+
+2. När du har kopierat data från din lokala server till diskarna kan du returnera dem till Azure-datacentret i Kanada med Microsoft-angivna retur etiketter. De data som finns på Data Box Disken laddas sedan upp till mål lagrings kontot i Azure-regionen som du valde när du skapade ordningen.
+
+3. Du kan sedan använda ett verktyg som AzCopy för att kopiera data till ett lagrings konto i väst. I det här steget debiteras standard [avgifterna](https://azure.microsoft.com/pricing/details/bandwidth/) för [lagring](https://azure.microsoft.com/pricing/details/storage/) och bandbredd som inte ingår i data Box disk fakturering.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>F. Vem kontaktar jag om jag får problem med Data Box-diskarna?
 A. Om du får problem med Data Box Disk-enheter [kontaktar du Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).

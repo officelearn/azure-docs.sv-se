@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 81bfde964fa993b69bc464214dab0810a8f2bfe5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a5a3887efe9b8f19608fac63216ca53576d9ec3f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832594"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654743"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Storlekar för virtuella datorer i B-serien
 
@@ -88,7 +88,7 @@ Bas linje: 270%
 
 <sup>1</sup> krediter ackumulerade/krediter som används i en timme motsvarar: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
-För en D16s_v3 som har 16 virtuella processorer-och 64-GiB av minne är Tim priset $0,936 per timme (månatlig $673,92) och för B16ms med 16 virtuella processorer och 64 GiB-minne är priset $0,794 per timme (månatlig $547,86). <b>Detta resulterar i 15% besparingar!</b>
+För en D16s_v3 som har 16 virtuella processorer-och 64-GiB av minne är Tim priset $0,936 per timme (månatlig $673,92) och för B16ms med 16 virtuella processorer och 64 GiB-minne är priset $0,794 per timme (månatlig $547,86). <b> Detta resulterar i 15% besparingar!</b>
 
 ## <a name="q--a"></a>Frågor och svar
 
@@ -149,7 +149,7 @@ S **: Ja**, alla storlekar i B-serien har stöd för Premium Storage data diskar
 
 Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: [disk typer](./linux/disks-types.md#ultra-disk)
+Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
 
 ## <a name="next-steps"></a>Nästa steg
 

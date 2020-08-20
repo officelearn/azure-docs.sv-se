@@ -1,20 +1,20 @@
 ---
 title: PCI-DSS v 3.2.1 skiss exempel kontroller
 description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och RBAC.
-ms.date: 01/29/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: db21ac9d628e777b6ff2cc86516cfb1497f5a62f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e6133c4a847a6df8aa6a27bbca63e0fc2d047783
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76905646"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649235"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
 
 I följande artikel beskrivs hur du mappar PCI-DSS v 3.2.1-skiss exemplet till PCI-DSS v 3.2.1-kontrollerna. Mer information om kontrollerna finns i [PCI-DSS v 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Följande mappningar är till **PCI-DSS v 3.2.1:2018-** kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj ** \[för\] hands versions granskning PCI v 3.2.1:2018 Controls och distribuera särskilda VM-tillägg så att de stöder gransknings krav** inbyggda princip initiativ.
+Följande mappningar är till **PCI-DSS v 3.2.1:2018-** kontrollerna. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj för ** \[ hands versions \] granskning PCI v 3.2.1:2018 Controls och distribuera särskilda VM-tillägg så att de stöder gransknings krav** inbyggda princip initiativ.
 
 > [!IMPORTANT]
 > Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden. Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
@@ -96,12 +96,12 @@ Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig at
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- \[För\]hands version: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[För\]hands version: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För hands version \] : granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För hands version \] : granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För hands version \] : granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För hands version \] : Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 ## <a name="103-and-1054-audit-generation"></a>10,3 och 10.5.4 audit generation
 
@@ -127,8 +127,8 @@ Den här skissen hjälper dig att hantera och kontrol lera nätverket genom att 
 Nu när du har granskat kontroll mappningen av PCI-DSS v 3.2.1-skissen kan du gå till följande artiklar för att lära dig mer om översikten och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
-> [PCI-DSS v 3.2.1 skiss – distribuera steg](./deploy.md)
+> [PCI – DSS v 3.2.1 skiss – översikt](./index.md) 
+>  [PCI-DSS v 3.2.1-skiss – distribuera steg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

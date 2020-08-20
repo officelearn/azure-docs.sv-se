@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 01061ce1099588029410531793279572d112f382
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850363"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650119"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -43,7 +43,7 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 Azure Machine Learning innehåller alla verktyg och data forskare som behöver för sina Machine Learning-arbetsflöden, inklusive:
 + [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md) (för hands version): dra-n-släpp-moduler för att bygga experimenten och sedan distribuera pipeliner.
 
-+ Jupyter Notebook: Använd våra [exempel Notebook-anteckningsböcker](https://aka.ms/aml-notebooks) eller skapa egna antecknings böcker för att utnyttja våra SDK: er <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">för python</a> -exempel för din maskin inlärning. 
++ Jupyter Notebook: Använd våra [exempel Notebook-anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks) eller skapa egna antecknings böcker för att utnyttja våra SDK: er <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">för python</a> -exempel för din maskin inlärning. 
 
 + R-skript eller antecknings böcker där du använder <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK för R</a> för att skriva din egen kod eller använda R-modulerna i designern.
 
@@ -88,7 +88,7 @@ För kod kostnads fri eller låg kod utbildning och distribution, försök:
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Distribuera & livs cykel hantering
 När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
-Sedan kan du hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com)eller [Machine Learning CLI](reference-azure-machine-learning-cli.md).
+Sedan kan du hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py), [Azure Machine Learning Studio](https://ml.azure.com)eller [Machine Learning CLI](reference-azure-machine-learning-cli.md).
 
 Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-use-parallel-run-step.md) på stora mängder data.
 

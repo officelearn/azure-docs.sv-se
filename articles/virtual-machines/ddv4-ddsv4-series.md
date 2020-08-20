@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: f6d03b289dce3987d6b939fdaf545d6206766e02
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 3c51a00e5760a2dac1648cc938416625bd52ddb7
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852879"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649915"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Ddv4- och Ddsv4-serien
 
@@ -90,7 +90,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: [disk typer](./linux/disks-types.md#ultra-disk)
+Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Nästa steg

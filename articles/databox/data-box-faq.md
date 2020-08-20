@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090764"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652584"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -56,6 +56,18 @@ A.  Om du vill ha mer information om vilka länder/regioner som Data Box-enhet �
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>F. I vilka regioner kan jag lagra data med Data Box?
 A. Data Box-enhet stöds för alla regioner i USA, västra Europa, norra Europa, Frankrike, Storbritannien, Japan, Australien och Kanada. Mer information finns i [region tillgänglighet](data-box-overview.md#region-availability).
+
+### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>F. Hur kan jag importera mina lokala källdata till en Azure-region i ett annat land/region eller exportera data från en Azure-region i ett land till ett annat land/region?
+
+Data Box-enhet har stöd för data inmatning eller utgående data inom samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där data rutor kan levereras till och från ett EU-land/-region.
+
+I import scenariot kan du till exempel uppnå det på följande sätt om du hade lokala data i Kanada som du ville flytta till ett lagrings konto i Azure väst.
+
+1. Beställ Data Box-enhet i Kanada genom att välja ett lagrings konto i Cananda. Enheten levereras från ett Azure-datacenter i Kanada till leverans adressen (i Kanada) som angavs när ordern skapades.
+
+2. När lokal data kopiering till Data Box-enhet görs, returnerar du enheten till Azure-datacentret i Kanada. De data som finns på Data Box-enhet laddas sedan upp till mål lagrings kontot i den Azure-region som du valde när du skapade ordern.
+
+3. Du kan sedan använda ett verktyg som AzCopy för att kopiera data till ett lagrings konto i väst. I det här steget debiteras standard [avgifterna](https://azure.microsoft.com/pricing/details/bandwidth/) för [lagring](https://azure.microsoft.com/pricing/details/storage/) och bandbredd som inte ingår i data Box-enhet fakturering.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>F. Vem kontaktar jag om jag får problem med Data Box?
 A. Om du får problem med Data Box [kontaktar du Microsoft Support](data-box-disk-contact-microsoft-support.md).

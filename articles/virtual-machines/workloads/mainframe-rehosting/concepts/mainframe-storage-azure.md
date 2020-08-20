@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 7f83d798bbffeb232b45701beee828114ad3db7d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 639764c9cae5e27e90a55da00b246807e49d2a20
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87042591"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652856"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Flytta stordator lagring till Azure
 
@@ -45,7 +45,7 @@ Azure Infrastructure-as-a-Service ([IaaS](https://azure.microsoft.com/overview/w
 
 Microsoft erbjuder petabyte lagring för program som finns i Azure och du har flera lagrings alternativ. Detta sträcker sig från SSD-lagring för hög prestanda till blob-lagring med låg kostnad för Mass lagring och arkiv. Dessutom tillhandahåller Azure ett alternativ för dataredundans för lagring – något som tar mer ansträngning att konfigurera i en stordator miljö.
 
-Azure Storage är tillgängligt som [Azure-diskar](../../../windows/managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)och [Azure-blobbar](../../../../storage/blobs/storage-blobs-overview.md) som följande tabell sammanfattar. Läs mer om [när du ska använda dem](../../../../storage/common/storage-introduction.md).
+Azure Storage är tillgängligt som [Azure-diskar](../../../managed-disks-overview.md), [Azure Files](../../../../storage/files/storage-files-introduction.md)och [Azure-blobbar](../../../../storage/blobs/storage-blobs-overview.md) som följande tabell sammanfattar. Läs mer om [när du ska använda dem](../../../../storage/common/storage-introduction.md).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -108,7 +108,7 @@ Blob Storage tillhandahåller störst lagrings volym på Azure. Utöver lagrings
 - [Revärdering av stordatorer på Azure Virtual Machines](../overview.md)
 - [Flytta stordator beräkning till Azure](mainframe-compute-Azure.md)
 - [Bestämma när du ska använda Azure-blobbar, Azure Files eller Azure-diskar](../../../../storage/common/storage-introduction.md)
-- [Standard SSD Managed Disks för virtuella Azure-arbetsbelastningar](../../../windows/disks-types.md#standard-ssd)
+- [Standard SSD Managed Disks för virtuella Azure-arbetsbelastningar](../../../disks-types.md#standard-ssd)
 
 ### <a name="ibm-resources"></a>IBM-resurser
 

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09d82c4834e50e0dff74edb5ccd14287736b937e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1753373b360a78918682b5f6102dcc896e2d90c3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844481"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652652"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Så här aktiverar du dessa komponenter i Jupyter Notebooks miljön:
     conda activate myenv
     ```
 
-1. Klona [GitHub-lagringsplatsen](https://aka.ms/aml-notebooks) för en uppsättning exempel antecknings böcker.
+1. Klona [GitHub-lagringsplatsen](https://github.com/Azure/MachineLearningNotebooks) för en uppsättning exempel antecknings böcker.
 
     ```bash
     git clone https://github.com/Azure/MachineLearningNotebooks.git
@@ -312,7 +312,7 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
    > Inga andra SDK-tillägg kan installeras. Välj endast ett av de föregående alternativen [databricks] eller [automl].
 
    * Välj inte **Anslut automatiskt till alla kluster**.
-   * Välj **Anslut** bredvid klustrets namn.
+   * Välj  **Anslut** bredvid klustrets namn.
 
 1. Övervaka fel tills status ändras till **kopplat**, vilket kan ta flera minuter.  Om det här steget Miss lyckas:
 
@@ -323,8 +323,8 @@ När klustret har körts skapar du [ett bibliotek](https://docs.databricks.com/u
 
    Tänk också på följande:
    + När du använder Azure Databricks lägger du till följande parametrar i AutoML config:
-       1. ```max_concurrent_iterations```baseras på antalet arbetsnoder i klustret.
-        2. ```spark_context=sc```baseras på standard-Spark-kontexten.
+       1. ```max_concurrent_iterations``` baseras på antalet arbetsnoder i klustret.
+        2. ```spark_context=sc``` baseras på standard-Spark-kontexten.
    + Om du har en gammal SDK-version avmarkerar du den från klustrets installerade libs och flyttar till pappers korgen. Installera den nya SDK-versionen och starta om klustret. Om det uppstår ett problem efter omstarten, tar du bort och återansluter klustret.
 
 Om installationen lyckades bör det importerade biblioteket se ut ungefär så här:
@@ -361,9 +361,9 @@ Använd om du vill använda den här filen från din kod `ws=Workspace.from_conf
 
 Du kan skapa konfigurations filen på tre sätt:
 
-* **Använd [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: för att skriva en *config.jspå* en fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config.js* till andra utvecklings miljöer.
+* **Använd  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: för att skriva en *config.jspå* en fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config.js* till andra utvecklings miljöer.
 
-* **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
+* **Hämta filen**: i [Azure Portal](https://ms.portal.azure.com)väljer du  **Hämta config.jspå** från **översikts** avsnittet på din arbets yta.
 
      ![Azure Portal](./media/how-to-configure-environment/configure.png)
 

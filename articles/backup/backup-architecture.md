@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: fc57f275d7693c9cf93adf04dc5dcc7524ba0567
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835739"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652788"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -120,7 +120,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 - När ett valv skapas, skapas även en "DefaultPolicy" och kan användas för att säkerhetskopiera resurser.
 - Alla ändringar som görs i kvarhållningsperioden för en säkerhets kopierings princip tillämpas retroaktivt för alla äldre återställnings punkter som tas bort från de nya.
 
-### <a name="additional-reference"></a>Ytterligare referens
+### <a name="additional-reference"></a>Ytterligare referenser
 
 - Virtuell Azure-dator: så här [skapar](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) och [ändrar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) du en princip.
 - SQL Server databasen på den virtuella Azure-datorn: så här [skapar](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) och [ändrar](./manage-monitor-sql-database-backup.md#modify-policy) du en princip.
@@ -193,9 +193,8 @@ Virtuella Azure-datorer använder diskar för att lagra operativ system, appar o
 
 Mer information om disk lagring och tillgängliga disk typer för virtuella datorer finns i följande artiklar:
 
-- [Azure Managed disks för virtuella Windows-datorer](../virtual-machines/windows/managed-disks-overview.md)
-- [Azure Managed disks för virtuella Linux-datorer](../virtual-machines/linux/managed-disks-overview.md)
-- [Tillgängliga disk typer för virtuella datorer](../virtual-machines/windows/disks-types.md)
+- [Azure Managed disks för virtuella Linux-datorer](../virtual-machines/managed-disks-overview.md)
+- [Tillgängliga disk typer för virtuella datorer](../virtual-machines/disks-types.md)
 
 ### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med Premium Storage
 
@@ -204,7 +203,7 @@ Du kan säkerhetskopiera virtuella Azure-datorer med hjälp av Premium Storage m
 - Under säkerhets kopieringen av virtuella datorer med Premium Storage skapar Backup-tjänsten en tillfällig mellanlagringsplats med namnet *AzureBackup-*, i lagrings kontot. Storleken på mellanlagringsplatsen är lika stor som storleken på ögonblicks bilden av återställnings punkten.
 - Se till att Premium Storage-kontot har tillräckligt med ledigt utrymme för att kunna hantera den tillfälliga mellanlagrings platsen. Mer information finns i [skalbarhets mål för Premium Page Blob Storage-konton](../storage/blobs/scalability-targets-premium-page-blobs.md). Ändra inte mellanlagringsplatsen.
 - När säkerhets kopierings jobbet har slutförts tas mellanlagringsplatsen bort.
-- Priset för det lagrings utrymme som används för mellanlagringsplatsen är konsekvent med [priser för Premium Storage](../virtual-machines/windows/disks-types.md#billing).
+- Priset för det lagrings utrymme som används för mellanlagringsplatsen är konsekvent med [priser för Premium Storage](../virtual-machines/disks-types.md#billing).
 
 När du återställer virtuella Azure-datorer med hjälp av Premium Storage kan du återställa dem till Premium eller standard lagring. Normalt skulle du återställa dem till Premium Storage. Men om du bara behöver en delmängd av filerna från den virtuella datorn kan det vara kostnads effektivt att återställa dem till standard lagring.
 

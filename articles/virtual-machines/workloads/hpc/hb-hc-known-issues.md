@@ -10,18 +10,19 @@ tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/19/2020
 ms.author: amverma
-ms.openlocfilehash: e85ae50321b9aa034f6a6d2cadcc329a24dafa62
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.reviewer: cynthn
+ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500026"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652873"
 ---
-# <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Kända problem med virtuella datorer i HB-serien och HC-serien
+# <a name="known-issues-with-h-series-and-n-series-vms"></a>Kända problem med virtuella datorer i H-serien och N-serien
 
-Den här artikeln innehåller de vanligaste problemen och lösningarna när du använder virtuella datorer i HB-serien och HC-serien.
+Den här artikeln innehåller de vanligaste problemen och lösningarna när du använder virtuella datorer i [H-serien](../../sizes-hpc.md) och [N-serien](../../sizes-gpu.md) .
 
 ## <a name="dram-on-hb-series"></a>DRAM på HB-serien
 
@@ -87,6 +88,15 @@ Du kan se följande kernel-varnings meddelanden när du startar en virtuell dato
 
 Du kan ignorera den här varningen. Detta beror på en känd begränsning i Azure-hypervisorn som kommer att åtgärdas över tid.
 
+
+## <a name="infiniband-driver-installation-on-infiniband-enabled-n-series-vm-sizes"></a>InfiniBand-drivrutin installation på InfiniBand-aktiverade VM-storlekar för N-serien
+
+NC24r_v3 och ND40r_v2 är SR-IOV aktiverade medan NC24r och NC24r_v2 inte är SR-IOV-aktiverade. Information om bifurcation finns [här](../../sizes-hpc.md#rdma-capable-instances).
+InfiniBand (IB) kan konfigureras i SR-IOV-aktiverade VM-storlekar med OFED-drivrutinerna medan de virtuella datorerna som inte är SR-IOV kräver ND-drivrutiner. Detta IB-stöd är lämpligt på [CentOS-HPC-VMIs](configure.md). För Ubuntu, se [anvisningarna här](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351) för att installera både ofed-och nd-drivrutinerna enligt beskrivningen i [dokumenten](enable-infiniband.md#vm-images-with-infiniband-drivers).
+
+
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [data behandling med höga prestanda](/azure/architecture/topics/high-performance-computing/) i Azure.
+- Läs översikten över [HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md) för att lära dig mer om att konfigurera arbets belastningar optimalt för prestanda och skalbarhet.
+- Läs om de senaste meddelandena och några HPC-exempel och resultat i [Azure Compute Tech community-Bloggar](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- En arkitektur för högre nivå för att köra HPC-arbetsbelastningar finns i [HPC (data behandling med höga prestanda) i Azure](/azure/architecture/topics/high-performance-computing/).

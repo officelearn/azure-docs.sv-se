@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 41d0cbc8e1c59f33efc24f38b535aa9cf91b2cc9
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257961"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652839"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -18,7 +18,7 @@ I den här artikeln beskrivs hur du tar bort ett [Azure Backup](backup-overview.
 
 Du kan inte ta bort ett Recovery Services-valv med något av följande beroenden:
 
-- Det går inte att ta bort ett valv som innehåller skyddade data källor (till exempel IaaS VM, SQL-databaser, Azure-filresurser osv.)  
+- Du kan inte ta bort ett valv som innehåller skyddade data källor (till exempel IaaS VM, SQL-databaser, Azure-filresurser).
 - Du kan inte ta bort ett valv som innehåller säkerhets kopierings data. När säkerhetskopierade data tas bort hamnar de i tillståndet mjukt borttagna.
 - Det går inte att ta bort ett valv som innehåller säkerhets kopierings data i läget Soft Deleted.
 - Du kan inte ta bort ett valv som har registrerat lagrings konton.
@@ -45,7 +45,7 @@ Om du vill ta bort ett valv korrekt måste du följa stegen i den här ordningen
   - **Moln skydds objekt**: gå till instrument panelen för valv-menyn > **säkerhets kopierings objekt**. Alla objekt som anges här måste tas bort med **stoppa säkerhets kopiering** eller **ta bort säkerhetskopierade data** tillsammans med sina säkerhets kopierings data.  [Följ de här stegen](#delete-protected-items-in-the-cloud) för att ta bort dessa objekt.
   - **SQL Server instans**: gå till instrument panelen för valvet > **säkerhets kopierings infrastruktur**  >  **skyddade servrar**. I skyddade servrar väljer du den server som ska avregistreras. Om du vill ta bort valvet måste du avregistrera alla servrar. Högerklicka på den skyddade servern och välj **avregistrera**.
   - **Mars-skyddade servrar**: gå till instrument panelen för valv-menyn > **säkerhets kopierings infrastruktur**  >  **skyddade servrar**. Om du har MARS-skyddade servrar måste alla objekt som anges här tas bort tillsammans med sina säkerhets kopierings data. [Följ dessa steg](#delete-protected-items-on-premises) om du vill ta bort mars-skyddade servrar.
-   - **Mabs-eller DPM-hanterings servrar**: gå till instrument panelen för valvet > **säkerhets kopierings**  >  **hanterings servrar**för säkerhets kopiering. Om du har DPM eller Azure Backup Server (MABS) måste alla objekt som anges här tas bort eller avregistreras tillsammans med sina säkerhets kopierings data. [Följ dessa steg](#delete-protected-items-on-premises) om du vill ta bort hanterings servrarna.
+  - **Mabs-eller DPM-hanterings servrar**: gå till instrument panelen för valvet > **säkerhets kopierings**  >  **hanterings servrar**för säkerhets kopiering. Om du har DPM eller Azure Backup Server (MABS) måste alla objekt som anges här tas bort eller avregistreras tillsammans med sina säkerhets kopierings data. [Följ dessa steg](#delete-protected-items-on-premises) om du vill ta bort hanterings servrarna.
 
 - **Steg 4**: du måste se till att alla registrerade lagrings konton tas bort. Gå till instrument panelen för valv-menyn > **säkerhets kopierings infrastruktur**  >  **lagrings konton**. Om du har lagrings konton som listas här måste du avregistrera alla. Information om hur du avregistrerar kontot finns i [avregistrera ett lagrings konto](manage-afs-backup.md#unregister-a-storage-account).
 
@@ -234,7 +234,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post där följande meddelande visas:
+    Därefter visas följande prompt:
 
     *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
 
@@ -244,7 +244,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    Post där följande meddelande visas:
+    Därefter visas följande prompt:
 
    *Microsoft Azure Backup* Är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Därefter tas de bort permanent. <br/>
    [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
@@ -337,7 +337,7 @@ Utför följande om du vill ta bort det befintliga Recovery Services-valvet:
 
 Det här alternativet för att ta bort Recovery Services-valvet rekommenderas endast om alla beroenden tas bort och du fortfarande får ett *fel meddelande om borttagning av valvet*. Prova någon eller några av följande tips:
 
-- I fönstret **Essentials** i menyn valv kontrollerar du att det inte finns några säkerhets kopierings objekt, säkerhets kopierings hanterings servrar eller replikerade objekt i listan. Om det finns säkerhets kopierings objekt, se avsnittet [innan du börjar](#before-you-start) .
+- I fönstret **Essentials** i menyn valv kontrollerar du att det inte finns några säkerhets kopierings objekt, säkerhets kopierings hanterings servrar eller replikerade objekt i listan. Om det finns säkerhets kopierings objekt läser du avsnittet [innan du börjar](#before-you-start) .
 - Försök [att ta bort valvet från portalen](#delete-the-recovery-services-vault) igen.
 - Om alla beroenden tas bort och du fortfarande får *borttagnings felet för valvet*, använder du verktyget ARMClient för att utföra följande steg (efter kommentaren).
 

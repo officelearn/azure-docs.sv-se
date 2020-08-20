@@ -15,22 +15,22 @@ ms.workload: infrastructure
 ms.date: 08/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e1b510ed970b253adedef0fb6efb4abe0c3b65b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: aa6aba12af08e2b5e044eaeb299ec6090ab6d750
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506404"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650476"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
 Azure tillhandahåller olika typer av lagring som lämpar sig för virtuella Azure-datorer som kör SAP HANA. **SAP HANA certifierade Azure Storage-typer** som kan övervägas för SAP HANA distributions listor som: 
 
 - Azure Premium SSD eller Premium-lagring 
-- [Ultradisk](../../linux/disks-enable-ultra-ssd.md)
+- [Ultradisk](../../disks-enable-ultra-ssd.md)
 - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-Information om de här disk typerna finns i artikeln [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) och [Välj en disktyp](../../linux/disks-types.md)
+Information om de här disk typerna finns i artikeln [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) och [Välj en disktyp](../../disks-types.md)
 
 Azure erbjuder två distributions metoder för virtuella hård diskar på Azure standard och Premium Storage. Vi räknar med att dra nytta av [Azure Managed disk](https://azure.microsoft.com/services/managed-disks/) för Azure block Storage-distributioner. 
 
@@ -59,7 +59,7 @@ Med tanke på att låg latens svars tider är avgörande för DBMS-system, även
 
 Vissa GUID-principer vid val av lagrings konfiguration för HANA kan visas som:
 
-- Bestäm vilken typ av lagring som baseras på [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) och [Välj en disk typ](../../linux/disks-types.md)
+- Bestäm vilken typ av lagring som baseras på [Azure Storage typer för SAP-arbetsbelastningar](./planning-guide-storage.md) och [Välj en disk typ](../../disks-types.md)
 - Det totala antalet i/O-dataflöde och IOPS-gränser i åtanke när du ändrar storlek på eller bestämmer dig för en virtuell dator. Det totala data flödet för VM-lagring dokumenteras i artikel [minnet optimerade storlekar för virtuella datorer](../../sizes-memory.md)
 - När du bestämmer dig för lagrings konfigurationen kan du försöka stanna under det totala data flödet för den virtuella datorn med din **/Hana/data** volym konfiguration. När du skriver lagrings punkter kan SAP HANA vara aggressivt utfärdande I/o. Det går enkelt att skjuta upp till data flödes gränserna för din **/Hana/data** -volym när du skriver en lagrings punkt. Om diskarna som bygger **/Hana/data** -volymen har ett högre data flöde än vad den virtuella datorn tillåter kan du köra i situationer där data flöde som används av lagrings utrymmes skrivningen stör data flödes kraven för Skriv om-logg skrivningar. En situation som kan påverka programmets data flöde
 - Om du använder Azure Premium Storage är den billigaste konfigurationen att använda logiska volym hanterare för att bygga stripe-uppsättningar för att bygga **/Hana/data** -och **/Hana/log** -volymer
@@ -218,7 +218,7 @@ För de andra volymerna, inklusive **/Hana/log** på Ultra disk, kan konfigurati
 
 
 ## <a name="azure-ultra-disk-storage-configuration-for-sap-hana"></a>Konfiguration av Azure Ultra disk Storage för SAP HANA
-En annan Azure Storage-typ kallas [Azure Ultra disk](../../windows/disks-types.md#ultra-disk). Den stora skillnaden mellan Azure Storage och Ultra disk är att disk funktionerna inte är kopplade till disk storleken längre. Som kund kan du definiera dessa funktioner för Ultra disk:
+En annan Azure Storage-typ kallas [Azure Ultra disk](../../disks-types.md#ultra-disk). Den stora skillnaden mellan Azure Storage och Ultra disk är att disk funktionerna inte är kopplade till disk storleken längre. Som kund kan du definiera dessa funktioner för Ultra disk:
 
 - Storlek på en disk som sträcker sig från 4 GiB till 65 536 GiB
 - IOPS sträcker sig från 100 IOPS till 160K IOPS (maximalt beror på VM-typer)

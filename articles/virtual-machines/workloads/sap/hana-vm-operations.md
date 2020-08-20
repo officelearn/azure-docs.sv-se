@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93587c6bbed20982bd96d04f58106ec1617542d3
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: b5438132f32117e0ec48a6f985c3b9d2045a9da2
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506438"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649694"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer
 Det här dokumentet innehåller rikt linjer för att konfigurera Azure-infrastruktur och operativ SAP HANA system som distribueras på virtuella Azure-datorer (VM: ar). Dokumentet innehåller också konfigurations information för SAP HANA skala ut för VM-SKU: n för M128s. Detta dokument är inte avsett att ersätta standard-SAP-dokumentationen, som innehåller följande innehåll:
@@ -243,7 +243,7 @@ Enligt vägledningen för bästa praxis i DT 2,0 bör diskens IO-genomflöde var
 
 Det krävs att du kopplar flera Azure-diskar till den virtuella datorn DT 2,0 och skapar en programvaru-RAID (striping) på OS-nivå för att uppnå Max gränsen för disk data flöde per virtuell dator. En enskild Azure-disk kan inte tillhandahålla genomflödet för att uppnå den maximala VM-gränsen i detta hänseende. Azure Premium Storage är obligatoriskt för att köra DT 2,0. 
 
-- Information om tillgängliga Azure-disk typer finns [här](../../windows/disks-types.md)
+- Information om tillgängliga Azure-disk typer finns [här](../../disks-types.md)
 - Information om hur du skapar programvaru-RAID via mdadm finns [här](../../linux/configure-raid.md)
 - Information om hur du konfigurerar LVM för att skapa en stripe-volym för maximalt data flöde hittar du [här](../../linux/configure-lvm.md)
 

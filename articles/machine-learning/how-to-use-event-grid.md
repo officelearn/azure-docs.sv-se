@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319498"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650425"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
@@ -33,7 +33,7 @@ När du ska använda Event Grid för händelse drivna åtgärder:
 > [!NOTE] 
 > För närvarande utlöses endast runStatusChanged-händelser när körnings statusen **misslyckades**
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill använda Event Grid behöver du deltagar-eller ägar åtkomst till arbets ytan Azure Machine Learning du skapar händelser för.
 
 ## <a name="the-event-model--types"></a>Händelse modell & typer
@@ -199,7 +199,7 @@ Det här exemplet visar hur du använder Event Grid med en Azure Logic-app för 
 
 Innan du börjar utför du följande åtgärder:
 
-* Konfigurera en data uppsättnings Övervakare för att [identifiera data drivgarn]( https://aka.ms/datadrift) i en arbets yta
+* Konfigurera en data uppsättnings Övervakare för att [identifiera data drivgarn](how-to-monitor-datasets.md) i en arbets yta
 * Skapa en pipeline för publicerade [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
 
 I det här exemplet används en enkel Data Factory pipeline för att kopiera filer till ett BLOB-lager och köra en publicerad Machine Learning-pipeline. Mer information om det här scenariot finns i så här konfigurerar du ett [Machine Learning steg i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)

@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
-ms.openlocfilehash: 44370b378899228949aa1bddcc92570ad282fe92
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 094b78fa35da451101f4f5664cca46292d78d146
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284735"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650561"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Regioner för virtuella datorer i Azure
 
@@ -79,7 +79,7 @@ Följande tabell ger en snabb översikt över skillnaderna mellan lagringsreplik
 | Data kan läsas från den sekundära platsen och från den primära platsen. |Nej |Nej |Nej |Ja |
 | Antal kopior av data som finns på olika noder. |3 |3 |6 |6 |
 
-Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../storage/common/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](./windows/managed-disks-overview.md).
+Du kan läsa mer om [Azure Storage-replikeringsalternativen här](../storage/common/storage-redundancy.md). Mer information om hanterade diskar finns i [Översikt över Azure Managed Disks](./managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Lagringskostnader
 Priserna varierar beroende på vilken lagringstyp och tillgänglighet du väljer.

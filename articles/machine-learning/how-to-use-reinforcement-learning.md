@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0a043bf79818480e045fb1f82640639fd7dcb232
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87847643"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650833"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig att:
 > * Skicka ett experiment för att starta en körning
 > * Visa resultat
 
-Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
+Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,12 +45,12 @@ Kör den här koden i någon av följande miljöer. Vi rekommenderar att du för
      - Lär dig att klona exempel antecknings böcker i [Självstudier: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
          - Klona mappen för **att använda azureml** i stället för **självstudier**
      - Kör den virtuella datorn för installation av virtuella nätverk som finns på `/how-to-use-azureml/reinforcement-learning/setup/devenv_setup.ipynb` för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
-     - Kör exempel antecknings boken`/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
+     - Kör exempel antecknings boken `/how-to-use-azureml/reinforcement-learning/atari-on-distributed-compute/pong_rllib.ipynb`
  
  - Din egen Jupyter Notebook Server
 
     - Installera [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py):`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - Kör den virtuella [datorn för installation](https://aka.ms/azure-rl-env-setup) av virtuella nätverk för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
 
@@ -433,4 +433,4 @@ I korthet har du lärt dig att konfigurera flera beräknings resurser för att t
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du tränar en förstärknings utbildnings agent med hjälp av en IMPALA Learning-agent. Om du vill se fler exempel går du till [GitHub-lagringsplatsen Azure Machine Learning förstärka Learning](https://aka.ms/azureml-rl-notebooks).
+I den här artikeln har du lärt dig hur du tränar en förstärknings utbildnings agent med hjälp av en IMPALA Learning-agent. Om du vill se fler exempel går du till [GitHub-lagringsplatsen Azure Machine Learning förstärka Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md).

@@ -9,19 +9,19 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: aa7e773cb45ea23d0e091ce12cc8488114ddfbdf
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 94c47369d7b638640fab1971801177103779e896
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837065"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648946"
 ---
 # <a name="ev4-and-esv4-series"></a>Ev4- och Esv4-serien
 
 Ev4 och Esv4-serien körs på Intel &reg; Xeon &reg; platina-8272CL (Cascade Lake) i en Hyper-threadd konfiguration, är idealiska för olika minnes intensiva företags program och funktioner upp till 504GiB RAM-minne.
 
 > [!NOTE]
-> För vanliga frågor, se [Azure VM-storlekar utan en lokal temporär disk](azure-vms-no-temp-disk.md).
+> För vanliga frågor, se  [Azure VM-storlekar utan en lokal temporär disk](azure-vms-no-temp-disk.md).
 
 ## <a name="ev4-series"></a>Ev4-serien
 
@@ -97,7 +97,7 @@ Minnes bebetjänings uppdateringar: stöds
 
 Pris kalkylator: [pris kalkylator](https://azure.microsoft.com/pricing/calculator/)
 
-Mer information om disk typer: [disk typer](./linux/disks-types.md#ultra-disk)
+Mer information om disk typer: [disk typer](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>Nästa steg

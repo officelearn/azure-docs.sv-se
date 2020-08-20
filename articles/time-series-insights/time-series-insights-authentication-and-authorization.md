@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 7384d03595f36e37eb70ec68d4f59b889facf76f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cea08022b992395862fcf75e0592efd54c805a98
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168039"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649133"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
@@ -85,7 +85,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 
    1. I C# kan följande kod Hämta token för programmets räkning. Ett fullständigt exempel på hur du frågar efter data från en gen1-miljö finns [i fråga efter data med C#](time-series-insights-query-data-csharp.md).
 
-        [!code-csharp[csharpquery-example](~/samples-tsi/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]
+        Se [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)]-lagrings platsen för att komma åt C#-koden. 
 
    1. Token kan sedan skickas i `Authorization` rubriken när programmet anropar Azure Time Series Insights-API: et.
 
@@ -110,19 +110,19 @@ För att utföra autentiserade frågor mot [Azure Time Series Insights REST-API:
 
 Obligatoriska begärandehuvuden beskrivs nedan.
 
-| Nödvändigt begär ande huvud | Description |
+| Nödvändigt begär ande huvud | Beskrivning |
 | --- | --- |
 | Auktorisering | För att autentisera med Azure Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. |
 
 > [!IMPORTANT]
 > Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
 
-> * Din [Postman](https://www.getpostman.com/) - **AuthURL** kommer därför att vara:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
-> * `https://api.timeseries.azure.com/`är giltig men `https://api.timeseries.azure.com` inte.
+> * Din [Postman](https://www.getpostman.com/) - **AuthURL** kommer därför att vara: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * `https://api.timeseries.azure.com/` är giltig men `https://api.timeseries.azure.com` inte.
 
 Valfria begärandehuvuden beskrivs nedan.
 
-| Valfritt begärandehuvud | Description |
+| Valfritt begärandehuvud | Beskrivning |
 | --- | --- |
 | Innehålls typ | `application/json`stöds endast. |
 | x-MS-client-Request-ID | En klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster. |
@@ -131,7 +131,7 @@ Valfria begärandehuvuden beskrivs nedan.
 
 Valfria men rekommenderade svarshuvuden beskrivs nedan.
 
-| Svars huvud | Description |
+| Svars huvud | Beskrivning |
 | --- | --- |
 | Innehålls typ | `application/json`Stöds endast. |
 | x-MS-Request-ID | Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran. |

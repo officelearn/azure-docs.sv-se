@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: acd030d8108ef3983be29fe85de6d7b3caf620af
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849343"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651224"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -90,7 +90,7 @@ Den här koden skapar ett generiskt uppskattnings objekt, `est` som anger
 
 * En skript katalog för dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning.
 * Övnings skriptet *train_titanic. py*.
-* Data uppsättningen för indata för träning `titanic_ds` . `as_named_input()`krävs för att data uppsättningen ska refereras av det tilldelade namnet `titanic` i ditt utbildnings skript. 
+* Data uppsättningen för indata för träning `titanic_ds` . `as_named_input()` krävs för att data uppsättningen ska refereras av det tilldelade namnet `titanic` i ditt utbildnings skript. 
 * Compute-målet för experimentet.
 * Miljö definitionen för experimentet.
 
@@ -115,7 +115,7 @@ I följande exempel skapas en FileDataset och monterar data uppsättningen till 
 
 ### <a name="create-a-filedataset"></a>Skapa en FileDataset
 
-I följande exempel skapas en oregistrerad FileDataset från webb-URL: er. Lär dig mer om [hur du skapar data uppsättningar](https://aka.ms/azureml/howto/createdatasets) från andra källor.
+I följande exempel skapas en oregistrerad FileDataset från webb-URL: er. Lär dig mer om [hur du skapar data uppsättningar](how-to-create-register-datasets.md) från andra källor.
 
 ```Python
 from azureml.core.dataset import Dataset
@@ -201,7 +201,7 @@ När du **hämtar** en data uppsättning laddas alla filer som refereras till av
 
 Om skriptet bearbetar alla filer som refereras av data uppsättningen, och din beräknings disk kan passa din fullständiga data uppsättning, rekommenderas nedladdningen för att undvika att strömma data strömmas från lagrings tjänsterna. Om data storleken överskrider beräknings disk storleken är det inte möjligt att hämta. I det här scenariot rekommenderar vi montering eftersom endast de datafiler som används av skriptet läses in vid tidpunkten för bearbetningen.
 
-Följande kod monteras `dataset` i Temp-katalogen på`mounted_path`
+Följande kod monteras `dataset` i Temp-katalogen på `mounted_path`
 
 ```python
 import tempfile

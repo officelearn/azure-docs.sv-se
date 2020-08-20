@@ -3,19 +3,19 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: f031f679d8fe8e1c14b6a4086f5e1c37f15c7855
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067944"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652465"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
@@ -51,7 +51,7 @@ Du kan använda det här kommandot för att starta slut punkten för direkt upps
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
-Följ stegen i den här artikeln för att få autentiseringsuppgifter för att få åtkomst till media service-API: er: [åtkomst till media service-API: er](../latest/access-api-howto.md#use-the-azure-portal).
+Följ stegen i den här artikeln för att få autentiseringsuppgifter för att få åtkomst till media service-API: er: [åtkomst till media service-API: er](../latest/access-api-howto.md?tabs=portal) och välj Portal-fliken.
 
 ## <a name="create-and-use-local-user-account-for-deployment"></a>Skapa och Använd ett lokalt användar konto för distribution
 Om du vill köra live video analys i IoT Edge-modulen skapar du ett lokalt användar konto med så få behörigheter som möjligt. Du kan till exempel köra följande kommandon på Linux-datorn:
@@ -168,7 +168,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     * {resourceGroupName} – den resurs grupp som ditt medie tjänst konto tillhör
     * {AMS-Account-name} – det här är namnet på ditt Media Services konto
     
-    Information om hur du hämtar de andra värdena finns i [Access Azure Media Services API](../latest/access-api-howto.md#use-the-azure-portal).  
+    Om du vill hämta de andra värdena går du [till åtkomst Azure Media Services API](../latest/access-api-howto.md?tabs=portal) och väljer Portal-fliken.  
     * aadTenantId – detta är ID: t för din klient och är samma som "AadTenantId" från länken ovan.
     * aadServicePrincipalAppId – detta är app-ID: t för tjänstens huvud namn för ditt Media Service-konto och är detsamma som "AadClientId" från länken ovan.
     * aadServicePrincipalSecret – det här är lösen ordet för tjänstens huvud namn och är detsamma som "AadSecret" från länken ovan.

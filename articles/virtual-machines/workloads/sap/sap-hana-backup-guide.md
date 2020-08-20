@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/01/2020
 ms.author: juergent
-ms.openlocfilehash: e1cfe7216c1b37812c482cfacbd5d1c3f155418f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b5a83b3976dd3d3af1bfd5695815f7571d73dd9d
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507836"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652193"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Säkerhets kopierings guide för SAP HANA på Azure Virtual Machines
 
@@ -45,7 +45,7 @@ Det första scenario som visas är ett scenario där Azure Backup-tjänsten anti
 
 Azure Backup integreras och certifieras som säkerhets kopierings lösning för SAP HANA med hjälp av det tillverkarspecifika SAP HANA gränssnittet som kallas [backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5). Mer information om lösningen, dess funktioner och de Azure-regioner där den är tillgänglig finns i artikeln support- [matris för säkerhets kopiering av SAP HANA databaser på virtuella Azure-datorer](../../../backup/sap-hana-backup-support-matrix.md#scenario-support). Mer information och principer om Azure Backup tjänst för HANA finns [i artikeln om säkerhets kopiering SAP HANA databas i virtuella Azure-datorer](../../../backup/sap-hana-db-about.md). 
 
-Den andra möjligheten att utnyttja Azure Backup tjänst är att skapa en programkonsekvent säkerhets kopia med disk ögonblicks bilder av Azure Premium Storage. Andra HANA-certifierade Azure-lagringar, t. ex. [Azure Ultra disk](../../linux/disks-enable-ultra-ssd.md) och [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , stöder inte den här typen av ögonblicks bilder via Azure backups tjänsten. Läser de här artiklarna:
+Den andra möjligheten att utnyttja Azure Backup tjänst är att skapa en programkonsekvent säkerhets kopia med disk ögonblicks bilder av Azure Premium Storage. Andra HANA-certifierade Azure-lagringar, t. ex. [Azure Ultra disk](../../disks-enable-ultra-ssd.md) och [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) , stöder inte den här typen av ögonblicks bilder via Azure backups tjänsten. Läser de här artiklarna:
 
 - [Planera din infrastruktur för VM-säkerhetskopiering i Azure](../../../backup/backup-azure-vms-introduction.md)
 - [Programkonsekventa säkerhetskopior av virtuella Linux-datorer på Azure](../../../backup/backup-azure-linux-app-consistent.md) 

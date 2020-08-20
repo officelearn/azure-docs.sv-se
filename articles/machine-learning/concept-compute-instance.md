@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f4938d517d9a5c244045798a79f31b96bacd03f5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: c72777bf2a4415a7f773f82a21a121f5e58f2ec0
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829449"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651923"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -145,7 +145,7 @@ I arbets ytan i Azure Machine Learning Studio skapar du en ny beräknings instan
 
 |Fält  |Beskrivning  |
 |---------|---------|
-|Compute-namn     |  <li>Namnet måste vara mellan 3 och 24 tecken långt.</li><li>Giltiga tecken är gemener och versaler, siffror och **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-** tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
+|Namn på beräkning     |  <li>Namnet måste vara mellan 3 och 24 tecken långt.</li><li>Giltiga tecken är gemener och versaler, siffror och  **-** tecken.</li><li>Namnet måste börja med en bokstav</li><li>Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt</li><li>Om **-**  tecknet används måste det följas av minst en bokstav senare i namnet</li>     |
 |Typ av virtuell dator |  Välj processor eller GPU. Det går inte att ändra den här typen när den har skapats     |
 |Storlek för virtuell dator     |  Storleken på virtuella datorer som stöds kan vara begränsad i din region. Kontrol lera [tillgänglighets listan](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Aktivera/inaktivera SSH-åtkomst     |   SSH-åtkomst är inaktive rad som standard.  SSH-åtkomst får inte vara. ändras efter att den har skapats. Se till att aktivera åtkomst om du planerar att felsöka interaktivt med [vs Code Remote](how-to-set-up-vs-code-remote.md)   |
@@ -155,26 +155,22 @@ Du kan också skapa en instans
 * Direkt från den [integrerade Notebook-upplevelsen](tutorial-1st-experiment-sdk-setup.md#azure)
 * I Azure Portal
 * Från Azure Resource Manager mall. En exempel-mall finns i [mallen skapa en Azure Machine Learning beräknings instans](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* Med [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* Med Azure Machine Learning SDK
 * Från [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 Dedikerade kärnor per region per VM-tullkvot och den totala regionala kvoten som gäller för skapande av beräknings instanser. är enhetlig och delas med Azure Machine Learning utbildnings kluster kvot för beräkning. Att stoppa beräknings instansen frigör inte kvoten för att se till att du kommer att kunna starta om beräknings instansen.
 
 ## <a name="compute-target"></a>Beräkningsmål
 
-Du kan använda beräknings instanser som ett [utbildnings mål](concept-compute-target.md#train) som liknar Azure Machine Learning Compute Training-kluster. 
+Du kan använda beräknings instanser som ett [utbildnings mål](concept-compute-target.md#train) som liknar Azure Machine Learning beräknings kluster. 
 
 En beräknings instans:
 * Har en jobbkö.
 * Kör jobb på ett säkert sätt i en virtuell nätverks miljö, utan att företag behöver öppna SSH-porten. Jobbet körs i en behållare miljö och paketerar dina modell beroenden i en Docker-behållare.
 * Kan köra flera små jobb parallellt (för hands version).  Två jobb per kärna kan köras parallellt medan resten av jobben placeras i kö.
+* Stöd för distribuerade utbildnings jobb med en nod med flera noder
 
 Du kan använda Compute instance som ett lokalt inferencing distributions mål för test-/fel söknings scenarier.
-
-> [!NOTE]
-> Distribuerade utbildnings jobb stöds inte för beräknings instanser.  Använd (beräknings kluster] (instruktions-till-att sätta igång-utbildning-målen. MD # amlcompute) för distribuerad utbildning.
-
-Mer information finns i avsnittet [om computeinstance träna-on-](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb). Den här antecknings boken finns också i mappen Studio **exempel** i *Training/träna-on-computeinstance*.
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>Vad hände med den virtuella Notebook-datorn?
 

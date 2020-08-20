@@ -1,14 +1,14 @@
 ---
 title: Distribuera PCI-DSS v 3.2.1-skiss exempel
 description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1-exempel, inklusive information om skiss artefakt parameter.
-ms.date: 01/29/2020
+ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a7917f09e5e5ff898bd155f0961e5c9765b8d791
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76905553"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649218"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
@@ -19,7 +19,7 @@ För att distribuera Azure-skisser PCI-DSS v 3.2.1-skiss exemplet måste följan
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
@@ -93,7 +93,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[För\] hands versions granskning PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
+|\[För hands versions \] granskning PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
 |Tillåtna platser|Principtilldelning|Lista över tillåtna platser|Lista över data Center platser som tillåts för alla resurser som ska distribueras till. Den här listan kan anpassas till önskade Azure-platser globalt. Välj de platser som du vill tillåta.| 
 |Tillåtna platser för resurs grupper|Principtilldelning |Tillåten plats |Med den här principen kan du begränsa vilka platser som organisationen kan skapa resurs grupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
 |Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data kvarhållning i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
@@ -104,8 +104,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Nu när du har granskat stegen för att distribuera PCI-DSS v 3.2.1-skissen kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
-> [PCI-DSS v 3.2.1 skiss-kontroll mappning](./control-mapping.md)
+> [PCI – DSS v 3.2.1 skiss – översikt](./index.md) 
+>  [PCI-DSS v 3.2.1 skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

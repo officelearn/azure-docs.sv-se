@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3402f4ff719752cca6e1d7a4aeeb3b7e12c3e28
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511150"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651734"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -110,9 +110,9 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
            -  [Storlekar för virtuella Linux-datorer i Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Det är viktigt att tänka på det *maximala disk data flöde* som inte har cachelagrats för storleks ändring.
    2. Lagring.
         - Kontrol lera dokument [Azure Storage typer för SAP-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
-        - Använd minst [Azure standard SSD Storage](../../windows/disks-types.md#standard-ssd) för virtuella datorer som representerar SAP-programlager och för distribution av DBMS-objekt som inte är prestanda känsliga.
-        - I allmänhet rekommenderar vi inte användningen av [Azure standard HDD-diskar](../../windows/disks-types.md#standard-hdd).
-        - Använd [Azure Premium Storage](../../windows/disks-types.md#premium-ssd) för alla DBMS-VM: ar som är fjärrpresterade.
+        - Använd minst [Azure standard SSD Storage](../../disks-types.md#standard-ssd) för virtuella datorer som representerar SAP-programlager och för distribution av DBMS-objekt som inte är prestanda känsliga.
+        - I allmänhet rekommenderar vi inte användningen av [Azure standard HDD-diskar](../../disks-types.md#standard-hdd).
+        - Använd [Azure Premium Storage](../../disks-types.md#premium-ssd) för alla DBMS-VM: ar som är fjärrpresterade.
         - Använd [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/).
         - Använd Azure Skrivningsaccelerator för DBMS-loggfiler med M-serien. Tänk på Skrivningsaccelerator gränser och användning, enligt beskrivningen i [Skrivningsaccelerator](../../how-to-enable-write-accelerator.md).
         - För olika DBMS-typer kontrollerar du den [allmänna SAP-relaterade DBMS-dokumentationen](./dbms_guide_general.md) och den DBMS-specificerade dokumentation som det generiska dokumentet pekar på.

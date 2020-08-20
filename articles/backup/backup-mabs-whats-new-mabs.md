@@ -3,12 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a3ff38d9371ee9b95666ce638d0a6dc4b8822e20
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190832"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648759"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Vad är nytt i Microsoft Azure Backup Server (MABS)
 
@@ -114,7 +114,7 @@ MABS v3 kan installeras med SQL 2017 som MABS-databas. Du kan uppgradera SQL-ser
 
 ### <a name="windows-server-2019-support"></a>Stöd för Windows Server 2019
 
-MABS v3 kan installeras på Windows Server 2019. Om du vill använda MABS v3 med WS2019 kan du antingen uppgradera operativ systemet till WS2019 innan du installerar/uppgraderar till MABS v3, eller så kan du uppgradera operativ systemet efter installation/uppgradering av v3 på WS2016.
+MABS v3 kan installeras på Windows Server 2019. Om du vill använda MABS v3 med WS2019 kan du antingen uppgradera operativ systemet till WS2019 innan du installerar/uppgraderar till MABS v3 eller så kan du uppgradera operativ systemet när du har installerat/uppgraderat v3 på WS2016.
 
 MABS v3 är en fullständig version och kan installeras direkt på Windows Server 2016, Windows Server 2019 eller kan uppgraderas från MABS v2. Innan du uppgraderar till eller installerar backup server v3 bör du läsa om installations kraven.
 Mer information om installations-och uppgraderings stegen för MABS finns [här](./backup-azure-microsoft-azure-backup.md#software-package).

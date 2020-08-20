@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876911"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651768"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -90,7 +90,7 @@ Maskin inlärnings pipeliner kan använda de tidigare nämnda utbildnings metode
 * [Självstudie: Använd Azure Machine Learning pipelines för batch-Poäng](tutorial-pipeline-batch-scoring-classification.md)
 * [Exempel: Jupyter Notebook exempel för maskin inlärnings pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 * [Exempel: pipeline med automatiserad maskin inlärning](https://aka.ms/pl-automl)
-* [Exempel: pipeline med uppskattningar](https://aka.ms/pl-estimator)
+* [Exempel: pipeline med uppskattningar](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb)
 
 ### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Förstå vad som händer när du skickar ett utbildnings jobb
 
@@ -108,7 +108,7 @@ Azures utbildnings livs cykel består av:
     1. Om den inte hittas skapar systemet en ny avbildning (som kommer att cachelagras och registreras med arbets ytans ACR)
 1. Hämta den zippade projekt filen till tillfällig lagring på Compute-noden
 1. Zippa upp projekt filen
-1. Compute-noden körs`python <entry script> <arguments>`
+1. Compute-noden körs `python <entry script> <arguments>`
 1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
 1. Skala ned beräkning, inklusive borttagning av tillfällig lagring 
 

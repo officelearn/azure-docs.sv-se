@@ -3,12 +3,12 @@ title: Uppspelning av flera dagars inspelningar – Azure
 description: 'I den här självstudien får du lära dig hur du använder Azure Media Service-API: er för att spela upp en kontinuerlig video inspelning på flera dagar.'
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 52ef33e8c4380e9c21e99c4ba45b7f25f7c57780
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 19a42c61ef250fecce4503d3aed70b36d71ee3cf
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433652"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649099"
 ---
 # <a name="tutorial-playback-of-multi-day-recordings"></a>Självstudie: uppspelning av flera dagars inspelningar  
 
@@ -40,7 +40,7 @@ Vi rekommenderar att du läser igenom följande dokumentations sidor:
 
 ## <a name="run-the-sample"></a>Kör exemplet 
 
-Som en del av [självstudien om CVR](continuous-video-recording-tutorial.md)skulle du ha skapat ett media service-konto. I den här självstudien måste du ha fullständig API-åtkomst till det kontot. Du kan använda stegen i [Hämta autentiseringsuppgifter för att komma åt Media Services API](../latest/access-api-howto.md#use-the-azure-portal) för att skapa ett huvud namn för tjänsten. Du bör kunna hämta ett JSON-block från Azure Portal som ser ut så här:
+Som en del av [självstudien om CVR](continuous-video-recording-tutorial.md)skulle du ha skapat ett media service-konto. I den här självstudien måste du ha fullständig API-åtkomst till det kontot. Du kan använda stegen i [Hämta autentiseringsuppgifter för att komma åt Media Services API](../latest/access-api-howto.md?tabs=portal) för att skapa ett huvud namn för tjänsten. Du bör kunna hämta ett JSON-block från Azure Portal som ser ut så här:
 
 ```
 {
@@ -57,7 +57,7 @@ Som en del av [självstudien om CVR](continuous-video-recording-tutorial.md)skul
 }
 ```
 
-Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mappen innehåller de filer som krävs för den här självstudien. Öppna filen appSettings. JSON och kopiera dess innehåll till en ny fil, appSettings. Development. JSON. Gör följande ändringar i den senare filen:
+Gå sedan till Visual Studio Code och öppna src/AMS-Asset-Player. Den här mappen innehåller de filer som krävs för den här självstudien. Öppna filen appsettings.jsoch kopiera innehållet till en ny fil appsettings.development.jspå. Gör följande ändringar i den senare filen:
 
 ```
   "AMS" : {
@@ -87,7 +87,7 @@ AMS till gångs spelaren anger att du anger namnet på en medie tjänst till gå
 
 När du skriver in till gångs namnet och sedan klickar på Skicka, laddar Player-koden in den strömmande URL: en. Mer information finns i [instruktions guiden: uppspelning av inspelningar](playback-recordings-how-to.md). Om du som det rekommenderar att du fortfarande registrerar till gången, identifierar spelaren att och försöker att stacka uppspelningen till den senaste delen av den inspelade videon. Du kan se tidsstämpeln (i UTC) längst upp till vänster i spelaren. I skärm bilden nedan noterar du hur knappen "Live" är markerad.
 
-![Strömma](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
+![Dataström](./media/playback-multi-day-recordings-tutorial/assetplayer1.png)
  
 På höger sida av spelaren kan du se kontrollerna för att bläddra i arkivet. Åren, månaderna och datumen i den här kontrollen fylls med hjälp av availableMedia-API: t som dokumenteras i [instruktions boken: uppspelning av inspelningar](playback-recordings-how-to.md).
 Om du har till gång till CVR-självstudierna i flera timmar när du utökar dagen visas ett resultat som detta:

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 081da2b3f6fbe97ebce21940d7e0ca8978793b15
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290030"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652108"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -76,7 +76,7 @@ Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISE
 
 1. **Välj om du vill använda python SDK eller Studio Web Experience**: Lär dig mer om pariteten mellan [webb upplevelsen python SDK och Studio](#parity).
 
-   * För begränsad eller ingen kod upplevelse kan du prova Azure Machine Learning Studio-webbupplevelsen på[https://ml.azure.com](https://ml.azure.com/)  
+   * För begränsad eller ingen kod upplevelse kan du prova Azure Machine Learning Studio-webbupplevelsen på [https://ml.azure.com](https://ml.azure.com/)  
    * För python-utvecklare kan du ta en titt på [Azure Machine Learning python SDK](how-to-configure-auto-train.md) 
 
     [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
@@ -138,7 +138,7 @@ Aktivera den här inställningen med:
 
 + Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` i [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) -objektet. Läs mer om hur du [aktiverar funktionalisering](how-to-configure-auto-features.md). 
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble-modeller
+## <a name="ensemble-models"></a><a name="ensemble"></a> Ensemble-modeller
 
 Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som standard. Ensemble-inlärningen förbättrar maskin inlärnings resultatet och förutsäger prestanda genom att kombinera flera modeller i stället för att använda enskilda modeller. Ensemble-iterationerna visas som de slutliga iterationerna av din körning. Automatiserad Machine Learning använder både röstnings-och stack-Ensemble-metoder för att kombinera modeller:
 
@@ -202,15 +202,13 @@ Att till exempel skapa en modell __för varje instans eller individ__ i följand
 * Förutsägelse underhåll för hundratals olje brunnar
 * Skräddarsy en upplevelse för enskilda användare.
 
-Mer information finns i [många modeller Solution Accelerator](https://aka.ms/many-models) på GitHub.
-
 ## <a name="automl-in-azure-machine-learning"></a>AutoML i Azure Machine Learning
 
 Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML
 
 * För kod erfarna kunder [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
-* För kunder med begränsade/inga kod upplevelser Azure Machine Learning Studio på[https://ml.azure.com](https://ml.azure.com/)  
+* För kunder med begränsade/inga kod upplevelser Azure Machine Learning Studio på [https://ml.azure.com](https://ml.azure.com/)  
 
 <a name="parity"></a>
 

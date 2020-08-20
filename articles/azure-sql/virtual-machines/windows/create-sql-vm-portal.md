@@ -14,12 +14,12 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8b16551abf5b52a9b848988a50fe556d364907b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669298"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88652025"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Använda Azure Portal för att etablera en virtuell Windows-dator med SQL Server
 
@@ -32,9 +32,9 @@ Använd den här guiden för att skapa en egen SQL Server VM. Eller Använd den 
 > [!TIP]
 > Om du har frågor om virtuella SQL Server-datorer kan du läsa [Vanliga frågor](frequently-asked-questions-faq.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a>SQL Server Galleri avbildningar för virtuella datorer
+## <a name="sql-server-virtual-machine-gallery-images"></a><a id="select"></a> SQL Server Galleri avbildningar för virtuella datorer
 
 När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfigurerade avbildningar från galleriet för virtuella datorer. Följande steg visar hur du väljer en av SQL Server 2017-avbildningarna.
 
@@ -104,7 +104,7 @@ Konfigurera disk alternativen på fliken **diskar** .
 * Under **Avancerat**väljer du **ja** under Använd **Managed disks**.
 
    > [!NOTE]
-   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Översikt över Azure Managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../../../virtual-machines/windows/manage-availability.md).
+   > Microsoft rekommenderar Managed Disks för SQL Server. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Översikt över Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Mer information om hanterade diskar i en tillgänglighetsuppsättning finns i [Använda hanterade diskar för virtuella datorer i tillgänglighetsuppsättning](../../../virtual-machines/windows/manage-availability.md).
 
 ![Disk inställningar för virtuell SQL-dator](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
   
@@ -135,7 +135,7 @@ Konfigurera övervakning och automatisk avstängning på fliken **övervakning**
 
 Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **SQL Server inställningar** . Du kan konfigurera följande inställningar för SQL Server:
 
-- [Anslutningsmöjligheter](#connectivity)
+- [Anslutning](#connectivity)
 - [Autentisering](#authentication)
 - [Azure Key Vault-integrering](#azure-key-vault-integration)
 - [Lagrings konfiguration](#storage-configuration)
@@ -177,7 +177,7 @@ Om du inte vill aktivera SQL Server autentisering kan du använda det lokala adm
 
 ### <a name="azure-key-vault-integration"></a>Azure Key Vault-integrering
 
-Om du vill lagra säkerhets hemligheter i Azure för kryptering väljer du **SQL Server inställningar**och bläddrar ned till **Azure Key Vault-integrering**. Välj **Aktivera** och fyll i den begärda informationen. 
+Om du vill lagra säkerhets hemligheter i Azure för kryptering väljer du **SQL Server inställningar**och bläddrar ned till  **Azure Key Vault-integrering**. Välj **Aktivera** och fyll i den begärda informationen. 
 
 ![Azure Key Vault-integrering](./media/create-sql-vm-portal/azure-sqlvm-akv.png)
 
@@ -257,7 +257,7 @@ Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** län
 > [!NOTE]
 > Ett exempel på en tid för Azure att distribuera en SQL Server VM: ett test SQL Server VM som tillhandahålls till regionen USA, östra med standardinställningar tar cirka 12 minuter att slutföra. Du kan uppleva kortare eller långsammare distributions tider baserat på din region och de valda inställningarna.
 
-## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Öppna den virtuella datorn med fjärr skrivbord
+## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a> Öppna den virtuella datorn med fjärr skrivbord
 
 Använd följande steg för att ansluta till den SQL Server virtuella datorn med Remote Desktop Protocol (RDP):
 
@@ -267,7 +267,7 @@ När du ansluter till den virtuella SQL Server-datorn kan du starta SQL Server M
 
 När du har anslutit till datorn kan du direkt ändra inställningarna för datorn och SQL Server efter behov. Du kan till exempel konfigurera brandväggsinställningarna eller ändra konfigurationsinställningarna för SQL Server.
 
-## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a>Anslut till SQL Server via fjärr anslutning
+## <a name="connect-to-sql-server-remotely"></a><a id="connect"></a> Anslut till SQL Server via fjärr anslutning
 
 I den här genom gången valde du **offentlig** åtkomst för den virtuella datorn och **SQL Server autentisering**. Dessa inställningar konfigurerade automatiskt den virtuella datorn så att SQL Server-anslutningar tillåts från alla klienter över Internet (förutsatt att de har rätt SQL-inloggningsuppgifter).
 

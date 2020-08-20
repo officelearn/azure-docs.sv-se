@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: af9b505e762e201713b8e554b7886e5e2062dfef
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263018"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651156"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -184,7 +184,7 @@ Användar upplevelsen för sekundär regions återställning liknar den primära
 
 ## <a name="restoring-unmanaged-vms-and-disks-as-managed"></a>Återställa ohanterade virtuella datorer och diskar som hanterade
 
-Du får ett alternativ för att återställa [ohanterade diskar](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) som [hanterade diskar](../virtual-machines/windows/managed-disks-overview.md) under återställningen. Som standard återställs de ohanterade virtuella datorerna/diskarna som ohanterade virtuella datorer/diskar. Men om du väljer att återställa som hanterade virtuella datorer/diskar, är det nu möjligt att göra det. Dessa återställningar utlöses inte från ögonblicks bild fasen, utan endast från valv fasen. Den här funktionen är inte tillgänglig för ohanterade krypterade virtuella datorer.
+Du får ett alternativ för att återställa [ohanterade diskar](../storage/common/storage-disaster-recovery-guidance.md#azure-unmanaged-disks) som [hanterade diskar](../virtual-machines/managed-disks-overview.md) under återställningen. Som standard återställs de ohanterade virtuella datorerna/diskarna som ohanterade virtuella datorer/diskar. Men om du väljer att återställa som hanterade virtuella datorer/diskar, är det nu möjligt att göra det. Dessa återställningar utlöses inte från ögonblicks bild fasen, utan endast från valv fasen. Den här funktionen är inte tillgänglig för ohanterade krypterade virtuella datorer.
 
 ![Återställa som Managed disks](./media/backup-azure-arm-restore-vms/restore-as-managed-disks.png)
 

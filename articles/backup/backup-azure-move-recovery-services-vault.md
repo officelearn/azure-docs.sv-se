@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar Recovery Services-valvet över Azur
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612579"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650921"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -141,7 +141,7 @@ Ange parametern om du vill flytta till en ny prenumeration `--destination-subscr
 ## <a name="post-migration"></a>Efter migreringen
 
 1. Ange/verifiera åtkomst kontrollerna för resurs grupperna.  
-2. Funktionen för rapportering och övervakning av säkerhets kopiering måste konfigureras igen för valvet publicera flyttningen slutförd. Den tidigare konfigurationen går förlorad under flytt åtgärden.
+2. Funktionen för rapportering och övervakning av säkerhets kopiering måste konfigureras igen för valvet när flyttningen är klar. Den tidigare konfigurationen går förlorad under flytt åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 

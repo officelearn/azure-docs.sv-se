@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 2571fcc31a0ea6a548ec764d7a15d6d976ae4822
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808635"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650884"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -189,7 +189,7 @@ Den [privata Azure-slutpunkten](../private-link/private-endpoint-overview.md) ä
 
 ## <a name="governance-considerations"></a>Saker att tänka på i samband med styrning
 
-Styrning i Azure implementeras främst med [Azure policy](../governance/policy/overview.md) och [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). Med [Azure policy](../governance/policy/overview.md) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser. Den här funktionen håller resurserna i överensstämmelse med företagets standarder. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer. Följande verktyg, till exempel Azure- [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [Azure Advisor](../advisor/advisor-overview.md) , spelar också en viktig roll i kostnads hanterings processen.
+Styrning i Azure implementeras främst med [Azure policy](../governance/policy/overview.md) och [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). Med [Azure policy](../governance/policy/overview.md) kan du skapa, tilldela och hantera princip definitioner för att tillämpa regler för dina resurser. Den här funktionen håller resurserna i överensstämmelse med företagets standarder. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer. Följande verktyg, till exempel Azure- [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/) och [Azure Advisor](../advisor/advisor-overview.md)  , spelar också en viktig roll i kostnads hanterings processen.
 
 ### <a name="azure-backup-support-two-key-scenarios-via-built-in-azure-policy"></a>Azure Backup stöder två nyckel scenarier via inbyggda Azure Policy
 

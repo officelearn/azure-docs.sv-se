@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7a0fd4178df92cc9102456c1fa2ae4e8927337e4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f49a66fc6e233658b228b7ad9bacdaa23917afef
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547332"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648742"
 ---
 # <a name="enable-logging-in-azure-ml-training-runs"></a>Aktivera loggning i Azure ML-utbildningar
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -70,8 +70,6 @@ Du kan också använda samma parameter i `wait_for_completion` funktionen på de
 run.wait_for_completion(show_output=True)
 ```
 
-En fullständig exempel-anteckningsbok som använder ScriptRunConfigs-loggar finns i [träna en modell lokalt](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
-
 ## <a name="native-python-logging"></a>Intern python-loggning
 
 Vissa loggar i SDK kan innehålla ett fel som uppmanar dig att ange loggnings nivå för fel sökning. Om du vill ange loggnings nivå lägger du till följande kod i skriptet.
@@ -88,9 +86,7 @@ Azure Machine Learning kan också logga information från andra källor under ut
 Information om hur du loggar mått i Azure Machine Learning designer (för hands version) finns i [så här loggar du mått i designern (för hands version)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Exempelnotebook-filer
-Följande antecknings böcker demonstrerar begrepp i den här artikeln:
-* [instruktionen att använda – azureml/Training/Train-i-Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
-* [instruktionen att använda – azureml/Training/träna-on-Local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+Följande bärbara dator visar begrepp i den här artikeln:
 * [How-to-use-azureml/Track-and-Monitor-experiment/Logging-API](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]

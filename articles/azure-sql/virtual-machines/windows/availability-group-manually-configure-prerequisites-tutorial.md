@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 881fa116b1a44d4714002f71e6ebd163279d8c70
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284310"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88651190"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
 
@@ -192,9 +192,9 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Resursgrupp** |SQL-HA-RG |
 | **Plats** |*Din plats* |
 | **Storlek** |DS1_V2 |
-| **Lagring** | **Använd Managed disks**  -  **Ja** |
+| **Storage** | **Använd Managed disks**  -  **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
-| **Undernät** |admin |
+| **Undernät** |administratör |
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
 | **Nätverkssäkerhetsgrupp** |*Samma namn som den virtuella datorn* |
 | **Tillgänglighetsuppsättning** |adavailabilityset </br>**Fel domäner**: 2 </br>**Uppdaterings domäner**: 2|
@@ -242,7 +242,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
 12. I kolumnen **åtgärd** i dialog rutan **all information om Server aktivitet** väljer **du befordra den här servern till en**domänkontrollant.
 13. I **konfigurations guiden för Active Directory Domain Services**använder du följande värden:
 
-    | **Sida** | Inställningen |
+    | **Sida** | Inställning |
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rot domän namn** = Corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
@@ -328,7 +328,7 @@ När servern har slutfört konfigurations ändringarna startar du om servern.
 
 I Azure Portal, under virtuellt nätverk, ändrar du DNS-servern så att den inkluderar IP-adressen för den sekundära domänkontrollanten. Med den här inställningen kan DNS-tjänsten redundans.
 
-### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a>Konfigurera domän kontona
+### <a name="configure-the-domain-accounts"></a><a name="DomainAccounts"></a> Konfigurera domän kontona
 
 I nästa steg konfigurerar du Active Directory-konton. I följande tabell visas kontona:
 
@@ -380,7 +380,7 @@ Innan du fortsätter bör du tänka på följande design beslut.
 
 * **Lagring – Azure-Managed Disks**
 
-   Använd Azure Managed Disks för lagring av virtuella datorer. Microsoft rekommenderar Managed Disks för SQL Server virtuella datorer. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Översikt över Azure Managed Disks](../../../virtual-machines/linux/managed-disks-overview.md). Information om hanterade diskar i en tillgänglighets uppsättning finns i [använda Managed disks för virtuella datorer i en tillgänglighets uppsättning](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Använd Azure Managed Disks för lagring av virtuella datorer. Microsoft rekommenderar Managed Disks för SQL Server virtuella datorer. Managed Disks hanterar lagring i bakgrunden. När virtuella datorer med Managed Disks finns i samma tillgänglighetsuppsättning, distribuerar Azure dessutom lagringsresurser för att tillhandahålla rätt redundans. Mer information finns i [Översikt över Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Information om hanterade diskar i en tillgänglighets uppsättning finns i [använda Managed disks för virtuella datorer i en tillgänglighets uppsättning](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Nätverks-privata IP-adresser i produktion**
 
@@ -496,7 +496,7 @@ Upprepa stegen på den andra SQL Server VM.
   >
 
 
-## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a>Konfigurera brand väggen på varje SQL Server VM
+## <a name="configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"></a> Konfigurera brand väggen på varje SQL Server VM
 
 Lösningen kräver att följande TCP-portar är öppna i brand väggen:
 

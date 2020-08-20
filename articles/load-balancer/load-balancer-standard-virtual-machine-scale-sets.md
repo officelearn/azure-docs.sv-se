@@ -13,25 +13,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/17/2020
 ms.author: irenehua
-ms.openlocfilehash: f5a8453f84854108facb4da4616a7d362e0fb38c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41f1d6c18eab35bd1a41d4cfa98d0cbda69b35ac
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532277"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650340"
 ---
 # <a name="azure-load-balancer-with-azure-virtual-machine-scale-sets"></a>Azure Load Balancer med skalnings uppsättningar för virtuella Azure-datorer
 
 När du arbetar med skalnings uppsättningar och belastningsutjämnare för virtuella datorer bör du tänka på följande rikt linjer:
 
-## <a name="multiple-virtual-machine-scale-sets-cant-use-the-same-load-balancer"></a>Flera skalnings uppsättningar för virtuella datorer kan inte använda samma belastningsutjämnare
 ## <a name="port-forwarding-and-inbound-nat-rules"></a>Port vidarebefordring och inkommande NAT-regler:
   * När skalnings uppsättningen har skapats kan Server dels porten inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälso avsökningen genom att uppdatera skalnings uppsättningen för den virtuella Azure-datorn, uppdatera porten och sedan konfigurera hälso avsökningen igen.
   * När du använder skalnings uppsättningen för den virtuella datorn i belastningsutjämnaren för belastningsutjämnaren skapas standard reglerna för inkommande NAT automatiskt.
 ## <a name="inbound-nat-pool"></a>Inkommande NAT-pool:
   * Varje skalnings uppsättning för virtuella datorer måste ha minst en inkommande NAT-pool. 
   * Inkommande NAT-pool är en samling inkommande NAT-regler. En inkommande NAT-pool kan inte stödja flera skalnings uppsättningar för virtuella datorer.
-  
+  * Om du vill ta bort en NAT-pool från en befintlig virtuell dators skalnings uppsättning måste du först ta bort NAT-poolen från skalnings uppsättningen. Ett fullständigt exempel som använder CLI visas nedan:
+```azurecli-interactive
+  az vmss update
+     --resource-group MyResourceGroup
+     --name MyVMSS
+     --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
+  az vmss update-instances
+     -–instance-ids *
+     --resource-group MyResourceGroup
+     --name MyVMSS
+  az network lb inbound-nat-pool delete
+     --resource-group MyResourceGroup
+     -–lb-name MyLoadBalancer
+     --name MyNatPool
+```
 ## <a name="load-balancing-rules"></a>Belastnings Utjämnings regler:
   * När du använder skalnings uppsättningen för den virtuella datorn i belastningsutjämnaren, skapas standard regeln för belastnings utjämning automatiskt.
 ## <a name="outbound-rules"></a>Utgående regler:

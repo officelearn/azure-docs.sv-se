@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 08099ede82f8ebd9c1cd6e585a16800ee1626f65
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508795"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88649167"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -66,13 +66,13 @@ Följ stegen nedan för att generera ovanstående information:
     cd
     ```
 
-6. Kör följande kommando. Detta ansluter ett autentiserat konto som ska användas för Azure AD-begäranden
+6. Kör följande kommando: Detta ansluter ett autentiserat konto som ska användas för Azure AD-begäranden
 
     ```azurepowershell-interactive
     Connect-AzureAD
     ```
 
-7. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
+7. Kör följande kommando: Detta laddar ned ett skript till din Hem Katalog.
 
     ```azurepowershell-interactive
 
@@ -87,6 +87,10 @@ Följ stegen nedan för att generera ovanstående information:
     ./generatePartnerCredentials.ps1
 
     ```
+
+> [!NOTE]
+> 1. Datahub API-slutpunktens namn måste anges i gemener.
+> 2. Om du kopierar farmbeats-webbplatsens namn-URL för Datahub API-slutpunkt ser du till att det inte finns något avslutande snedstreck (/).
 
 9. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 

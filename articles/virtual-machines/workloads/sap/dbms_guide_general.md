@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad6bbc1d3c20659441b8b062898526471f4d713a
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c0368b2d0bd85f6fee65ffa2c9d6776d07f162
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510240"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650623"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Överväganden för Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastningar
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -82,7 +82,7 @@ Det finns andra artiklar tillgängliga på SAP-arbetsbelastningar på Azure. Bö
 
 Följande SAP-anteckningar är relaterade till SAP på Azure i förhållande till det utrymme som beskrivs i det här dokumentet.
 
-| Antecknings nummer | Rubrik |
+| Antecknings nummer | Title |
 | --- | --- |
 | [1928533] |SAP-program på Azure: produkter och typer av virtuella Azure-datorer som stöds |
 | [2015553] |SAP på Microsoft Azure: stöd för krav |
@@ -111,10 +111,7 @@ I allmänhet är installationen och konfigurationen av Windows, Linux och DBMS i
 ## <a name="storage-structure-of-a-vm-for-rdbms-deployments"></a><a name="65fa79d6-a85f-47ee-890b-22e794f51a64"></a>Lagrings struktur för en virtuell dator för RDBMS-distributioner
 Om du vill följa det här kapitlet kan du läsa och förstå informationen i [det här kapitlet][deployment-guide-3] i [distributions guiden][deployment-guide]. Du måste förstå och veta om de olika VM-serierna och skillnaderna mellan standard-och Premium-lagring innan du läser det här kapitlet. 
 
-Mer information om Azure Storage för virtuella Azure-datorer finns i:
-
-- [Introduktion till hanterade diskar för virtuella Azure Windows-datorer](../../windows/managed-disks-overview.md).
-- [Introduktion till hanterade diskar för virtuella Azure Linux-datorer](../../linux/managed-disks-overview.md).
+Mer information om Azure Storage för virtuella Azure-datorer finns i [Introduktion till hanterade diskar för virtuella Azure-datorer](../../managed-disks-overview.md).
 
 I en grundläggande konfiguration rekommenderar vi vanligt vis en distributions struktur där operativ systemet, DBMS och eventuell SAP-binärfiler är åtskilda från databasfilerna. Vi rekommenderar att SAP-system som körs på virtuella Azure-datorer har den grundläggande virtuella hård disken, eller disken, som installeras med operativ systemet, databas hanterings systemets körbara filer och SAP-körbara filer. 
 

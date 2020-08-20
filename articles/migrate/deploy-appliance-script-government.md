@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat i Azure Government
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat i Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: f0ebc882646b5ff3f62ddddf91cffc85cb5e0da6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109985"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612273"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurera en installation i Azure Government 
 
@@ -71,7 +71,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
@@ -124,7 +124,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst
@@ -176,7 +176,7 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verifiera åtkomst

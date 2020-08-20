@@ -4,12 +4,12 @@ description: Ger en översikt över den Azure Backup tjänsten och hur den bidra
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 70fcbc432c3a3584047fe5ac39f217981a73df71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: da4f9b4814e93a964105a7ed3ea4addaecd43864
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513531"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611236"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Vad är Azure Backup-tjänsten?
 

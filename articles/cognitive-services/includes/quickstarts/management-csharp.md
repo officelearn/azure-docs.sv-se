@@ -1,0 +1,200 @@
+---
+title: 'Snabb start: Azure-hanterings klient bibliotek för .NET'
+description: I den här snabb starten ska du komma igång med Azures hanterings klient bibliotek för .NET.
+services: cognitive-services
+author: PatrickFarley
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 08/05/2020
+ms.author: pafarley
+ms.openlocfilehash: 93ea0ffc94b78e014b30ab1d45d589eba50fe524
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607791"
+---
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/)  |  [Exempel](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
+* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+
+## <a name="create-an-azure-service-principal"></a>Skapa ett huvud namn för Azure-tjänsten
+
+För att ditt program ska interagera med ditt Azure-konto behöver du ett Azure-tjänstens huvud namn för att hantera behörigheter. Följ instruktionerna i [skapa ett huvud namn för Azure-tjänsten](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
+
+När du skapar ett huvud namn för tjänsten visas det ett hemligt värde, ett ID och ett program-ID. Spara program-ID och hemlighet till en tillfällig plats för senare steg.
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Innan du skapar en Cognitive Services resurs måste ditt konto ha en Azure-resurs grupp som innehåller resursen. Om du inte redan har en resurs grupp skapar du en i [Azure Portal](https://ms.portal.azure.com/) innan du fortsätter.
+
+## <a name="create-a-new-c-application"></a>Skapa ett nytt C#-program
+
+Skapa ett nytt .NET Core-program. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet `azure-management-quickstart` . Det här kommandot skapar ett enkelt "Hello World" C#-projekt med en enda käll fil: *program.cs*. 
+
+```console
+dotnet new console -n azure-management-quickstart
+```
+
+Ändra katalogen till mappen nyligen skapade appar. Du kan bygga programmet med:
+
+```console
+dotnet build
+```
+
+Build-utdata får inte innehålla varningar eller fel. 
+
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+### <a name="install-the-client-library"></a>Installera klient biblioteket
+
+I program katalogen installerar du Azure-hanterings klient biblioteket för .NET med följande kommando:
+
+```console
+dotnet add package Microsoft.Azure.Management.CognitiveServices
+dotnet add package Microsoft.Azure.Management.Fluent
+dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
+```
+
+Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
+
+### <a name="import-libraries"></a>Importera bibliotek
+
+Öppna *program.cs* och Lägg till följande- `using` instruktioner överst i filen:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_using)]
+
+## <a name="authenticate-the-client"></a>Autentisera klienten
+
+Lägg till följande fält i roten av *program.cs* och fyll i deras värden med hjälp av tjänstens huvud namn som du skapade och din Azure konto information.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_constants)]
+
+Använd sedan de här värdena i **main** -metoden för att skapa ett **CognitiveServicesManagementClient** -objekt. Det här objektet krävs för alla dina Azure-hanterings åtgärder.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_assigns)]
+
+## <a name="call-management-methods"></a>Anrops hanterings metoder
+
+Lägg till följande kod i **main** -metoden för att lista tillgängliga resurser, skapa en exempel resurs, lista dina ägda resurser och ta sedan bort exempel resursen. Du definierar dessa metoder i nästa steg.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_calls)]
+
+## <a name="create-a-cognitive-services-resource"></a>Skapa en -resurs för Cognitive Services
+
+### <a name="choose-a-service-and-pricing-tier"></a>Välj en tjänst och en pris nivå
+
+När du skapar en ny resurs måste du veta vilken typ av tjänst du vill använda, tillsammans med den [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/) (eller SKU) som du vill använda. Du använder denna och annan information som parametrar när du skapar resursen. Du kan hitta en lista över tillgängliga kognitiva tjänst typer genom att anropa följande metod i skriptet:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list_avail)]
+
+[!INCLUDE [cognitive-services-subscription-types](../../../../includes/cognitive-services-subscription-types.md)]
+
+Se listan över SKU: er och pris information nedan. 
+
+#### <a name="multi-service"></a>Multi-service
+
+| Tjänst                    | Variant                      |
+|----------------------------|---------------------------|
+| Flera tjänster. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cognitive-services/) .            | `CognitiveServices`     |
+
+
+#### <a name="vision"></a>Visuellt innehåll
+
+| Tjänst                    | Variant                      |
+|----------------------------|---------------------------|
+| Visuellt innehåll            | `ComputerVision`          |
+| Custom Vision förutsägelse | `CustomVision.Prediction` |
+| Custom Vision-utbildning   | `CustomVision.Training`   |
+| Ansikte                       | `Face`                    |
+| Formigenkänning            | `FormRecognizer`          |
+| Handskriftsigenkänning             | `InkRecognizer`           |
+
+#### <a name="search"></a>Search
+
+| Tjänst            | Variant                  |
+|--------------------|-----------------------|
+| Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
+| Anpassad sökning i Bing | `Bing.CustomSearch`   |
+| Entitetssökning i Bing | `Bing.EntitySearch`   |
+| Bing Search        | `Bing.Search.v7`      |
+| Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
+
+#### <a name="speech"></a>Speech
+
+| Tjänst            | Variant                 |
+|--------------------|----------------------|
+| Speech Services    | `SpeechServices`     |
+| Taligenkänning | `SpeakerRecognition` |
+
+#### <a name="language"></a>Språk
+
+| Tjänst            | Variant                |
+|--------------------|---------------------|
+| Formulär förståelse | `FormUnderstanding` |
+| LUIS               | `LUIS`              |
+| QnA Maker          | `QnAMaker`          |
+| Textanalys     | `TextAnalytics`     |
+| Textöversättning   | `TextTranslation`   |
+
+#### <a name="decision"></a>Beslut
+
+| Tjänst           | Variant               |
+|-------------------|--------------------|
+| Avvikelseidentifiering  | `AnomalyDetector`  |
+| Content Moderator | `ContentModerator` |
+| Personanpassning      | `Personalizer`     |
+
+
+#### <a name="pricing-tiers-and-billing"></a>Pris nivåer och fakturering
+
+Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner som du skickar med hjälp av autentiseringsinformationen. Varje pris nivå anger:
+* maximalt antal tillåtna transaktioner per sekund (TPS).
+* tjänst funktioner som Aktiver ATS inom pris nivån.
+* kostnad för ett fördefinierat antal transaktioner. Om du fortsätter över det här numret kommer det att leda till en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
+
+> [!NOTE]
+> Många av de Cognitive Services har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd den kostnads fria nivån `F0` som SKU för din resurs.
+
+## <a name="create-a-cognitive-services-resource"></a>Skapa en -resurs för Cognitive Services
+
+Använd **create** -metoden för att skapa och prenumerera på en ny Cognitive Services-resurs. Med den här metoden läggs en ny fakturerbar resurs till i resurs gruppen som du skickar. När du skapar en ny resurs måste du veta vilken typ av tjänst du vill använda, tillsammans med dess pris nivå (eller SKU) och en Azure-plats. Följande metod tar alla dessa som argument och skapar en resurs.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
+
+## <a name="view-your-resources"></a>Visa dina resurser
+
+Använd följande metod om du vill visa alla resurser under ditt Azure-konto (i alla resurs grupper):
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list)]
+
+## <a name="delete-a-resource"></a>Ta bort en resurs
+
+Följande metod tar bort den angivna resursen från den angivna resurs gruppen.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
+
+## <a name="run-the-application"></a>Kör programmet
+
+Kör programmet från program katalogen med `dotnet run` kommandot.
+
+```dotnet
+dotnet run
+```
+
+## <a name="see-also"></a>Se även
+
+* [Dokumentation om Azure Management SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [Vad är Azure Cognitive Services?](../../Welcome.md)
+* [Autentisera begär anden till Azure Cognitive Services](../../authentication.md)
+* [Skapa en ny resurs med Azure Portal](../../cognitive-services-apis-create-account.md)

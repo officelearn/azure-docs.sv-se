@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 304196f6b517c353cb4fc142129fa4d3007a1d9c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585344"
+ms.locfileid: "88611304"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -69,7 +69,7 @@ Dessutom finns det några saker som du kan behöva göra i vissa fall:
 1. I **säkerhets kopierings mål**  >  **var din arbets belastning körs? väljer du** **Azure**.
 1. I **vad vill du säkerhetskopiera?** Välj **virtuell dator**. Välj sedan **säkerhets kopiering**.
 
-      ![Bladet scenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
+      ![Scenario fönster](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
 1. Välj säkerhets kopierings princip i **säkerhets kopierings princip**  >  **Choose backup policy**och välj den princip som du vill associera med valvet. Välj sedan **OK**.
     - En säkerhets kopierings princip anger när säkerhets kopieringar görs och hur länge de lagras.

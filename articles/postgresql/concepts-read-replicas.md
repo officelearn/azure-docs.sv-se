@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: f2f752d6435b311c1737d531f5572aed5af223f2
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 08/10/2020
+ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276659"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611134"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Läsa repliker i Azure Database for PostgreSQL-enskild server
 
@@ -126,7 +126,7 @@ Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.
 ## <a name="failover"></a>Redundans
 Det finns ingen automatisk redundans mellan huvud-och replik servrar. 
 
-Eftersom replikeringen är asynkron finns det en fördröjning mellan huvud servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen på huvud servern som körs på huvud servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen mellan några sekunder till några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
+Eftersom replikeringen är asynkron finns det en fördröjning mellan huvud servern och repliken. Mängden fördröjning kan påverkas av ett antal faktorer, t. ex. hur mycket hög belastningen på huvud servern som körs på huvud servern och fördröjningen mellan data Center. I de flesta fall varierar replikfördröjning mellan några sekunder och några minuter. Du kan spåra den faktiska replikeringens fördröjning med hjälp av mått *replik fördröjningen*, som är tillgänglig för varje replik. Det här måttet visar tiden sedan den senaste återspelade transaktionen. Vi rekommenderar att du identifierar den genomsnittliga fördröjningen genom att iaktta din replik fördröjning under en viss tids period. Du kan ställa in en avisering på replik fördröjningen, så att om den går utanför det förväntade intervallet kan du vidta åtgärder.
 
 > [!Tip]
 > Om du redundansväxlas till repliken kommer fördröjningen vid den tidpunkt då du avlänkar repliken från huvud servern att indikera hur mycket data som förloras.
@@ -146,7 +146,7 @@ När ditt program har bearbetat läsningar och skrivningar har du slutfört redu
 
 I det här avsnittet sammanfattas överväganden om funktionen Läs replik.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Läsning av repliker och [logisk avkodning](concepts-logical.md) är beroende av postgres Write Ahead-loggen (Wal) för information. De här två funktionerna behöver olika loggnings nivåer från postgres. Logisk avkodning kräver en högre loggnings nivå än Läs repliker.
 
 Om du vill konfigurera rätt loggnings nivå använder du parametern Azure Replication support. Support för Azure-replikering har tre inställnings alternativ:
@@ -163,16 +163,19 @@ En Läs replik skapas som en ny Azure Database for PostgreSQL Server. Det går i
 ### <a name="replica-configuration"></a>Replik konfiguration
 En replik skapas med samma beräknings-och lagrings inställningar som huvud servern. När en replik har skapats kan flera inställningar ändras, inklusive lagrings-och bevarande period för säkerhets kopior.
 
-Virtuella kärnor och pris nivån kan också ändras på repliken under följande omständigheter:
-* PostgreSQL kräver att värdet för `max_connections` parametern på Läs repliken är större än eller lika med huvudets värde, annars startar inte repliken. I Azure Database for PostgreSQL `max_connections` baseras parametervärdet på SKU: n (virtuella kärnor och pris nivån). Mer information finns i [gränser i Azure Database for PostgreSQL](concepts-limits.md). 
-* Skalning till eller från den grundläggande pris nivån stöds inte
-
-> [!IMPORTANT]
-> Innan en huvud inställning uppdateras till ett nytt värde uppdaterar du replik konfigurationen till ett lika eller högre värde. På så sätt säkerställer du att repliken klarar alla ändringar som görs på huvudservern.
-
-Om du försöker uppdatera de Server värden som beskrivs ovan, men inte följer gränserna, får du ett fel meddelande.
-
 Brand Väggs regler, regler för virtuella nätverk och parameter inställningar ärvs inte från huvud servern till repliken när repliken skapas eller efteråt.
+
+### <a name="scaling"></a>Skalning
+Skala virtuella kärnor eller mellan Generell användning och Minnesoptimerade:
+* PostgreSQL kräver att `max_connections` inställningen på en sekundär server är [större än eller lika med inställningen på den primära](https://www.postgresql.org/docs/current/hot-standby.html), annars kommer den sekundära inte att starta.
+* I Azure Database for PostgreSQL, åtgärdas det högsta antalet tillåtna anslutningar för varje server till beräknings-SKU: n eftersom anslutningar upptar minne. Du kan lära dig mer om [mappningen mellan max_connections och beräknings-SKU: er](concepts-limits.md).
+* **Skala upp**: skala först upp en repliks beräkning och skala sedan upp den primära. Den här ordningen förhindrar att fel bryter mot `max_connections` kravet.
+* **Skala ned**: först skala ned den primära data bearbetningen och skala sedan ned repliken. Om du försöker skala repliken lägre än den primära, uppstår ett fel eftersom detta strider mot `max_connections` kravet.
+
+Skala lagring:
+* Alla repliker har automatisk utökning av lagring aktive rad för att förhindra replikeringsfel från en lagrings full replik. Den här inställningen kan inte inaktive ras.
+* Du kan även skala upp lagrings utrymme manuellt, precis som du gör på andra servrar
+
 
 ### <a name="basic-tier"></a>Basic-nivå
 Basic-nivå servrar stöder bara replikering med samma region.

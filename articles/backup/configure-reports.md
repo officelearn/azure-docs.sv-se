@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: bbb42643e23020742cab66812f58f78f4529fe07
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192850"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612443"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -71,17 +71,20 @@ Välj den här länken om du vill öppna arbets boken för säkerhets kopierings
 Rapporten innehåller olika flikar:
 
 ##### <a name="summary"></a>Sammanfattning
+
 Använd den här fliken för att få en översikt över reserv fastigheten. Du kan få en snabb överblick över det totala antalet säkerhets kopierings objekt, total moln lagring som förbrukas, antalet skyddade instanser och jobbets slut för ande frekvens per arbets belastnings typ. Mer detaljerad information om en speciell typ av säkerhets kopierings artefakt finns på respektive flik.
 
    ![Fliken Sammanfattning](./media/backup-azure-configure-backup-reports/summary.png)
 
 ##### <a name="backup-items"></a>Säkerhetskopieringsobjekt
+
 Använd den här fliken för att se information och trender i moln lagring som förbrukas på en säkerhets kopierings nivå. Om du till exempel använder SQL i en Azure VM-säkerhetskopiering kan du se den förbrukade moln lagringen för varje SQL-databas som säkerhets kopie ras. Du kan också välja att se data för säkerhets kopierings objekt av en viss skydds status. Om du till exempel väljer rutan **skydds stoppad** överst på fliken filtrerar alla widgetar under för att endast visa data för säkerhets kopierings objekt i läget skydd har stoppats.
 
    ![Fliken säkerhets kopierings objekt](./media/backup-azure-configure-backup-reports/backup-items.png)
 
 ##### <a name="usage"></a>Användning
-Använd den här fliken för att Visa nyckel fakturerings parametrar för dina säkerhets kopior. Informationen som visas på den här fliken finns på en fakturerings enhets nivå (skyddad container). Om en DPM-server säkerhets kopie ras till Azure kan du till exempel se trenden för skyddade instanser och moln lagring som förbrukas för DPM-servern. Om du använder SQL i Azure Backup eller SAP HANA i Azure Backup, visar den här fliken användnings relaterad information på nivån för den virtuella dator där dessa databaser finns.
+
+Använd den här fliken för att Visa nyckel fakturerings parametrar för dina säkerhets kopior. Informationen som visas på den här fliken finns på en fakturerings enhets nivå (skyddad container). Om en DPM-server exempelvis säkerhets kopie ras till Azure kan du se trenden för skyddade instanser och moln lagring som förbrukas för DPM-servern. Om du använder SQL i Azure Backup eller SAP HANA i Azure Backup, visar den här fliken användnings relaterad information på nivån för den virtuella dator där dessa databaser finns.
 
    ![Fliken användning](./media/backup-azure-configure-backup-reports/usage.png)
 
@@ -89,42 +92,48 @@ Använd den här fliken för att Visa nyckel fakturerings parametrar för dina s
 > För DPM-arbetsbelastningar kan användarna se en liten skillnad (i ordningen 20 MB per DPM-server) mellan användnings värden som visas i rapporterna jämfört med värdet för den sammanlagda användningen som visas på fliken Översikt för Recovery Services-valvet. Denna skillnad redovisas av faktum att varje DPM-server som registreras för säkerhets kopiering har en associerad data källa för metadata som inte är kopplad till en artefakt för rapportering.
 
 ##### <a name="jobs"></a>Jobb
+
 Använd den här fliken för att Visa tids krävande trender för jobb, till exempel antalet misslyckade jobb per dag och de vanligaste orsakerna till jobbfel. Du kan visa den här informationen på både en aggregerad nivå och på en säkerhets kopierings objekt nivå. Välj ett visst säkerhets kopierings objekt i ett rutnät om du vill visa detaljerad information om varje jobb som har utlösts på det säkerhetskopierade objektet i det valda tidsintervallet.
 
    ![Fliken jobb](./media/backup-azure-configure-backup-reports/jobs.png)
 
 ##### <a name="policies"></a>Principer
+
 Använd den här fliken om du vill visa information om alla dina aktiva principer, till exempel antalet associerade objekt och den totala moln lagring som förbrukas av objekt som har säkerhetskopierats under en specifik princip. Välj en viss princip om du vill visa information om var och en av de associerade säkerhets kopierings objekten.
 
    ![Fliken principer](./media/backup-azure-configure-backup-reports/policies.png)
 
 ##### <a name="optimize"></a>Optimera
+
 Använd den här fliken för att få insyn i potentiella kostnads optimerings möjligheter för dina säkerhets kopieringar. Nedan visas scenarier för vilka fliken optimera för närvarande ger insikter:
 
 ###### <a name="inactive-resources"></a>Inaktiva resurser
-Med den här vyn kan du identifiera de säkerhets kopierings objekt som inte har haft en lyckad säkerhets kopiering under en längre tid. Detta kan betyda att den underliggande datorn som säkerhets kopie ras inte finns längre (och därför resulterar i misslyckade säkerhets kopieringar) eller att det finns problem med datorn som hindrar säkerhets kopieringar från att bli tillförlitligt. 
 
-Om du vill visa inaktiva resurser går du till fliken **optimera** och klickar på panelen **inaktiva resurser** . Om du klickar på den här panelen visas ett rutnät som innehåller information om alla inaktiva resurser som finns i det valda omfånget. Som standard visar rutnätet objekt som inte har någon återställnings punkt under de senaste 7 dagarna. Om du vill hitta inaktiva resurser under ett annat tidsintervall kan du justera **tids intervalls** filtret överst på fliken.
+Med den här vyn kan du identifiera de säkerhets kopierings objekt som inte har haft en lyckad säkerhets kopiering under en längre tid. Detta kan betyda att den underliggande datorn som säkerhets kopie ras inte finns längre (och att den resulterar i misslyckade säkerhets kopieringar) eller att det finns problem med datorn som hindrar säkerhets kopieringarna från att bli tillförlitligt.
 
-När du har identifierat en inaktiv resurs kan du undersöka problemet ytterligare genom att gå till instrument panelen för säkerhets kopierings objekt eller resurs bladet för Azure för resursen (där det är tillämpligt). Beroende på ditt scenario kan du antingen stoppa säkerhets kopieringen för datorn (om den inte finns längre) och ta bort onödiga säkerhets kopieringar, vilket sparar på kostnaderna, eller så kan du åtgärda problem på datorn för att säkerställa att säkerhets kopiorna utförs på ett tillförlitligt sätt.
+Om du vill visa inaktiva resurser går du till fliken **optimera** och väljer panelen **inaktiva resurser** . Välj den här panelen visar ett rutnät som innehåller information om alla inaktiva resurser som finns i det valda omfånget. Som standard visar rutnätet objekt som inte har någon återställnings punkt under de senaste sju dagarna. Om du vill hitta inaktiva resurser under ett annat tidsintervall kan du justera **tids intervalls** filtret överst på fliken.
+
+När du har identifierat en inaktiv resurs kan du undersöka problemet ytterligare genom att gå till instrument panelen för säkerhets kopierings objekt eller fönstret för Azure-resurser för den resursen (där det är tillämpligt). Beroende på ditt scenario kan du antingen stoppa säkerhets kopieringen för datorn (om den inte finns längre) och ta bort onödiga säkerhets kopieringar som sparar kostnaderna, eller så kan du åtgärda problem på datorn för att säkerställa att säkerhets kopieringarna görs på ett tillförlitligt sätt.
 
 ![Optimera TABB-inaktiva resurser](./media/backup-azure-configure-backup-reports/optimize-inactive-resources.png)
 
 ###### <a name="backup-items-with-a-large-retention-duration"></a>Säkerhetskopieringsobjekt med lång kvarhållningsperiod
-I den här vyn kan du identifiera de objekt som har säkerhets kopior som behålls under en längre tid än vad som krävs av din organisation. 
 
-Om du klickar på panelen **princip optimeringar** följt av panelen **kvarhållning av kvarhållning** visas ett rutnät som innehåller alla säkerhets kopierings objekt för vilka kvarhållning av antingen dag, vecka, månad eller årlig kvarhållning (RP) är större än ett angivet värde. Som standard visar rutnätet alla säkerhets kopierings objekt i det valda omfånget. Du kan använda filtren för daglig, veckovis, månatlig och årlig RP-kvarhållning för att filtrera rutnätet ytterligare och identifiera de objekt som kvarhållning skulle kunna minska för att spara pengar på reserv lagrings kostnader.
+I den här vyn kan du identifiera de objekt som har säkerhets kopior som behålls under en längre tid än vad som krävs av din organisation.
 
-Observera att för databas arbets belastningar som SQL och SAP HANA, motsvarar de kvarhållningsperiod som visas i rutnätet lagrings perioder för de fullständiga säkerhets kopierings punkterna och inte de differentiella säkerhets kopierings punkterna. Samma gäller även för kvarhållning filter.  
+Om du väljer panelen **princip optimeringar** följt av panelen **kvarhållning optimeringar** visas ett rutnät som innehåller alla säkerhets kopierings objekt för vilka kvarhållning av antingen dag, vecka, månad eller årlig kvarhållning (RP) är större än ett angivet värde. Som standard visar rutnätet alla säkerhets kopierings objekt i det valda omfånget. Du kan använda filtren för dagliga, vecko Visa, månatliga och årliga RP-kvarhållning för att filtrera rutnätet ytterligare och identifiera de objekt som kvarhållning skulle kunna minska för att spara pengar på reserv lagrings kostnader.
+
+För databas arbets belastningar som SQL och SAP HANA, motsvarar de kvarhållningsperiod som visas i rutnätet lagrings perioder för de fullständiga säkerhets kopierings punkterna och inte de differentiella säkerhets kopierings punkterna. Samma gäller även för kvarhållning filter.  
 
 ![Optimera optimeringar av tabbar](./media/backup-azure-configure-backup-reports/optimize-retention.png)
 
 ###### <a name="databases-configured-for-daily-full-backup"></a>Databaser som konfigurerats för fullständig säkerhetskopiering dagligen
-Med den här vyn kan du identifiera databas arbets belastningar som har kon figurer ATS för daglig fullständig säkerhets kopiering. Ofta är det kostnads effektivt att använda daglig differentiell säkerhets kopiering tillsammans med veckovis fullständig säkerhets kopiering. 
 
-Om du klickar på panelen **princip optimeringar** följt av panelen **säkerhets kopierings schema optimeringar** visas ett rutnät som innehåller alla databaser med en daglig fullständig säkerhets kopierings princip. Du kan välja att navigera till ett visst säkerhets kopierings objekt och ändra principen för att använda daglig differentiell säkerhets kopiering med varje veckovis fullständig säkerhets kopiering.
+Med den här vyn kan du identifiera databas arbets belastningar som har kon figurer ATS för daglig fullständig säkerhets kopiering. Ofta är det kostnads effektivt att använda daglig differentiell säkerhets kopiering tillsammans med veckovis fullständig säkerhets kopiering.
 
-Observera att filter för **säkerhets kopierings hantering** högst upp på fliken ska ha objekts- **SQL i azure VM** och **SAP HANA på den virtuella Azure-datorn** som har valts för att rutnätet ska kunna visa databas arbets belastningar som förväntat.
+Om du väljer panelen **princip optimeringar** följt av panelen **säkerhets kopierings schema optimeringar** visas ett rutnät som innehåller alla databaser med en daglig fullständig säkerhets kopierings princip. Du kan välja att navigera till ett visst säkerhets kopierings objekt och ändra principen för att använda daglig differentiell säkerhets kopiering med varje veckovis fullständig säkerhets kopiering.
+
+Filter för **säkerhets kopierings hantering** överst på fliken ska ha objekts- **SQL i azure VM** och **SAP HANA på** den valda Azure-datorn för att rutnätet ska kunna visa databas arbets belastningar som förväntat.
 
 ![Optimera fliken – optimeringar av säkerhets kopierings schema](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
@@ -144,7 +153,7 @@ Om du använder [Azure-Lighthouse](../lighthouse/index.yml) med delegerad åtkom
 
 - Filtren arbetar från vänster till höger och uppifrån och ned på varje flik. Det innebär att alla filter endast gäller för alla widgetar som är placerade antingen till höger om filtret eller under filtret.
 - Om du väljer en färgad panel filtreras widgetarna under panelen för poster som hör till värdet i den panelen. Om du till exempel väljer ikonen **stoppad skydd** på fliken **säkerhets kopierings objekt** filtreras rutnätet och diagrammen nedan för att visa data för säkerhets kopierings objekt i tillstånds stopp.
-- Paneler som inte är färgade är inte klickade.
+- Paneler som inte är färgade är inte valbara.
 - Data för den aktuella del dagen visas inte i rapporterna. När det valda värdet för **tidsintervallet** är de **senaste 7 dagarna**, visar rapporten poster för de senaste sju slutförda dagarna. Aktuell dag ingår inte.
 - Rapporten visar information om jobb (förutom logg jobb) som har *utlösts* i det valda tidsintervallet.
 - Värdena som visas för **moln lagring** och **skyddade instanser** är i *slutet* av det valda tidsintervallet.

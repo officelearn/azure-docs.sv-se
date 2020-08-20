@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 53c0ede07040e782b683e8ff4b0b08e6fe0a9caf
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585568"
+ms.locfileid: "88611865"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -31,7 +31,7 @@ De vanligaste säkerhets kopierings felen kan lösas själv genom att följa de 
 - **Se till att Azure VM-tjänsten för gästa Gent är igång och uppdaterad**:
   - På en virtuell Windows-dator:
     - Navigera till **Services. msc** och se till att **tjänsten Windows Azures gästa Gent** är igång. Kontrol lera också att den [senaste versionen](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) är installerad. Mer information finns i [problem med Windows VM-gäst Gent](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
-    - Azure VM-agenten installeras som standard på alla virtuella Windows-datorer som distribueras från Azure Marketplace-avbildningen från portalen, PowerShell, kommando rads gränssnittet eller en Azure Resource Manager mall. En [manuell installation av agenten](../virtual-machines/extensions/agent-windows.md#manual-installation) kan vara nödvändig när du skapar en anpassad VM-avbildning som distribueras till Azure.
+    - Azure VM-agenten installeras som standard på en virtuell Windows-dator som distribueras från en Azure Marketplace-avbildning från portalen, PowerShell, kommando rads gränssnittet eller en Azure Resource Manager mall. En [manuell installation av agenten](../virtual-machines/extensions/agent-windows.md#manual-installation) kan vara nödvändig när du skapar en anpassad VM-avbildning som distribueras till Azure.
     - Granska support mat ris för att kontrol lera om den virtuella datorn körs på [Windows-operativsystemet som stöds](backup-support-matrix-iaas.md#operating-system-support-windows).
   - På virtuella Linux-datorer,
     - Se till att Azure-tjänsten för gästa virtuella datorer körs genom att köra kommandot `ps-e` . Kontrol lera också att den [senaste versionen](../virtual-machines/extensions/update-linux-agent.md) är installerad. Läs mer i [Linux VM-problem med gästa Gent](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).

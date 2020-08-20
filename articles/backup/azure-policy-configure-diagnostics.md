@@ -3,12 +3,12 @@ title: Konfigurera inställningar för valv diagnostik i skala
 description: Konfigurera inställningar för Log Analytics diagnostik för alla valv i ett angivet omfång med Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 2400be15dcd46084e9a605076c00cf5c5ac92463
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 58ef8af56bb3f44664ffaec6a17bab5f5e92808e
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498057"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612511"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
 
@@ -22,7 +22,7 @@ För att förenkla skapandet av diagnostikinställningar i skala (med LA som må
 
 * Du kan tillämpa principen på en gång för alla Recovery Services valv i en viss prenumeration (eller till en resurs grupp i prenumerationen). Användaren som tilldelar principen måste ha ägar åtkomst till den prenumeration som principen är tilldelad till.
 
-* Arbets ytan LA som anges av användaren (till vilken diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha åtkomst till "läsare", "deltagare" eller "ägare" till den prenumeration där den angivna LA-arbetsytan finns.
+* Arbets ytan LA som anges av användaren (som diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha åtkomst till "läsare", "deltagare" eller "ägare" till den prenumeration där den angivna LA-arbetsytan finns.
 
 * Hanterings gruppens omfång stöds inte för tillfället.
 
@@ -36,15 +36,15 @@ Följ stegen nedan om du vill tilldela principen för valv i det begärda omfån
 2. Välj **definitioner** på den vänstra menyn för att få en lista över alla inbyggda principer i Azure-resurser.
 3. Filtrera listan för **kategori = övervakning**. Leta upp principen med namnet **[för hands version]: Distribuera diagnostikinställningar för Recovery Services valv till Log Analytics arbets yta för resursbaserade kategorier**.
 
-    ![Bladet princip definition](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    ![Fönstret princip definition](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 
-4. Klicka på namnet på principen. Du kommer att omdirigeras till den detaljerade definitionen för den här principen.
+4. Välj namnet på principen. Du omdirigeras till den detaljerade definitionen för den här principen.
 
     ![Detaljerad princip definition](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
 
-5. Klicka på knappen **tilldela** överst på bladet. Detta omdirigerar dig till bladet **tilldela princip** .
+5. Välj knappen **tilldela** högst upp i fönstret. Detta omdirigerar dig till fönstret **tilldela princip** .
 
-6. Under **grunderna**klickar du på de tre punkterna bredvid fältet **omfång** . Detta öppnar ett blad med rätt kontext där du kan välja prenumerationen för den princip som ska tillämpas på. Du kan också välja en resurs grupp, så att principen endast tillämpas för valv i en viss resurs grupp.
+6. Under **grunderna**väljer du de tre punkterna bredvid fältet **omfång** . Det här öppnar ett höger kontext fönster där du kan välja prenumerationen för den princip som ska tillämpas på. Du kan också välja en resurs grupp, så att principen endast tillämpas för valv i en viss resurs grupp.
 
     ![Grundläggande princip tilldelning](./media/backup-azure-policy-configure-diagnostics/policy-assignment-basics.png)
 
@@ -53,7 +53,7 @@ Följ stegen nedan om du vill tilldela principen för valv i det begärda omfån
     * **Profil namn** – namnet som ska tilldelas till diagnostikinställningar som skapats av principen.
     * **Log Analytics arbets yta** – Log Analytics arbets ytan som diagnostikinställningar ska associeras med. Diagnostikdata för alla valv i omfånget för princip tilldelningen flyttas till den angivna LA-arbetsytan.
 
-    * **Namn på undantags kod (valfritt) och undantags tag gen värde (valfritt)** – du kan välja att exkludera valv som innehåller ett visst taggnamn och värde från princip tilldelningen. Om du t. ex. **inte** vill att en diagnostisk inställning ska läggas till i de valven som har taggen "isTest" inställd på värdet "Ja" måste du ange "isTest" i fältet namn på **undantags kod** och ja i fältet **värde för exkluderings kod** . Om något (eller båda) av dessa två fält lämnas tomt tillämpas principen på alla relevanta valv oavsett vilka taggar de innehåller.
+    * **Namn på undantags kod (valfritt) och undantags tag gen värde (valfritt)** – du kan välja att exkludera valv som innehåller ett visst taggnamn och värde från princip tilldelningen. Om du t. ex. **inte** vill att en diagnostisk inställning ska läggas till i de valv som har taggen "isTest" inställd på värdet "Ja" måste du ange "isTest" i fältet **undantags taggnamn** och ja i fältet **värde för undantags kod** . Om något (eller båda) av dessa två fält lämnas tomt tillämpas principen på alla relevanta valv oavsett vilka taggar de innehåller.
 
     ![Parametrar för princip tilldelning](./media/backup-azure-policy-configure-diagnostics/policy-assignment-parameters.png)
 
@@ -61,7 +61,7 @@ Följ stegen nedan om du vill tilldela principen för valv i det begärda omfån
 
     ![Reparation av princip tilldelning](./media/backup-azure-policy-configure-diagnostics/policy-assignment-remediation.png)
 
-9. Gå till fliken **Granska + skapa** och klicka på **skapa**.
+9. Gå till fliken **Granska + skapa** och välj **skapa**.
 
 ## <a name="under-what-conditions-will-the-remediation-task-apply-to-a-vault"></a>Under vilka villkor kommer reparations uppgiften att gälla ett valv?
 
@@ -70,9 +70,9 @@ Reparations uppgiften tillämpas på valv som inte är kompatibla enligt definit
 * Det finns ingen diagnostik-inställning för valvet.
 * Det finns diagnostikinställningar för valvet, men ingen av inställningarna har **alla** resursbaserade händelser aktiverade med La som mål och **resurs** som marker ATS i växlingen.
 
-Så även om en användare har ett valv med AzureBackupReport-händelsen aktive rad i AzureDiagnostics-läge (som stöds av säkerhets kopierings rapporter), kommer reparations aktiviteten fortfarande att gälla för det här valvet, eftersom resursens speciella läge är det rekommenderade sättet att skapa diagnostikinställningar, [gå vidare](./backup-azure-diagnostic-events.md#legacy-event).
+Så även om en användare har ett valv med händelsen AzureBackupReport aktive rad i AzureDiagnostics-läge (som stöds av säkerhets kopierings rapporter), kommer reparations aktiviteten fortfarande att gälla för det här valvet, eftersom det resursbaserade läget är det rekommenderade sättet att skapa diagnostikinställningar, som [går framåt](./backup-azure-diagnostic-events.md#legacy-event).
 
-Om en användare har ett valv med endast en delmängd av de sex resursbaserade händelser som Aktiver ATS, kommer reparations uppgiften att gälla för valvet, eftersom säkerhets kopierings rapporter fungerar som förväntat endast om alla sex resurs speciella händelser är aktiverade.
+Om en användare har ett valv med endast en delmängd av de sex resursbaserade händelserna aktive rad, kommer reparations uppgiften att gälla för valvet, eftersom säkerhets kopierings rapporter fungerar som förväntat endast om alla sex resursbaserade händelser är aktiverade.
 
 > [!NOTE]
 >
@@ -82,7 +82,7 @@ Om en användare har ett valv med endast en delmängd av de sex resursbaserade h
 >
 > Observera att reparations aktiviteten **inte** Miss fungerar om den befintliga diagnostik inställningen bara är AzureBackupReport aktive rad med arbets ytan X som mål, eftersom det i detta fall inte överlappar de händelser som Aktiver ATS av den befintliga inställningen och de händelser som aktive ras av den inställning som skapats av reparations aktiviteten.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Lär dig hur du använder säkerhets kopierings rapporter](./configure-reports.md)
 * [Läs mer om Azure Policy](../governance/policy/index.yml)

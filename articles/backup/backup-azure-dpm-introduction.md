@@ -3,12 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: a61112f04d3faef83a80395a7d316c63130e7758
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263273"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612664"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -92,7 +92,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
   - Om kontrollen av autentiseringsuppgifterna förloras kan autentiseringsuppgifterna för valvet användas för att registrera andra datorer i valvet.
   - Säkerhetskopierade data krypteras dock med en lösen fras som tillhör kunden, så befintliga säkerhets kopierings data kan inte komprometteras.
 - Se till att filen sparas på en plats som kan nås från DPM-servern. Om den är lagrad i en fil resurs/SMB, kontrol lera åtkomst behörigheterna.
-- Autentiseringsuppgifterna för valvet upphör att gälla efter 48 timmar. Du kan hämta nya autentiseringsuppgifter för valvet så många gånger som det behövs. Men endast den senaste filen med valv behörighet kan användas under registrerings arbets flödet.
+- Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan hämta nya autentiseringsuppgifter för valvet så många gånger som det behövs. Men endast den senaste filen med valv behörighet kan användas under registrerings arbets flödet.
 - Den Azure Backup tjänsten är inte medveten om certifikatets privata nyckel och den privata nyckeln är inte tillgänglig i portalen eller tjänsten.
 
 Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande sätt:
@@ -182,4 +182,4 @@ Se till att filen med valvets autentiseringsuppgifter är tillgänglig på en pl
 Om det uppstår ett ogiltigt valv för autentiseringsuppgifter (till exempel "ogiltiga valv uppgifter angavs") är filen antingen skadad eller har inte de senaste autentiseringsuppgifterna som är associerade med återställnings tjänsten.
 
 - Försök igen när du har laddat ned en ny valv referens fil från portalen.
-- Det här felet visas vanligt vis när du väljer alternativet **Hämta autentiseringsuppgifter för valv** i Azure Portal, två gånger i snabb följd. I det här fallet är det bara det andra valvet som är giltigt.
+- Det här felet visas vanligt vis när du väljer alternativet **Hämta valv för valv** i Azure Portal, två gånger i snabb följd. I det här fallet är det bara det andra valvet som är giltigt.

@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: dd5eb8acb76fe5901149d90a6d551d8d14d363cc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007784"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612647"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -51,7 +51,7 @@ Som standard återges appar och skriv bord som körs i konfigurationer med flera
 1. Anslut till Skriv bordet för den virtuella datorn med ett konto med lokal administratörs behörighet.
 2. Öppna Start-menyn och skriv "gpedit. msc" för att öppna grupprincip redigeraren.
 3. Navigera i trädet till **dator konfiguration**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **fjärr skrivbord**-  >  **fjärrsessions miljö**.
-4. Välj princip **Använd maskin varans standard grafik kort för alla Fjärrskrivbordstjänster sessioner** och ange att den här principen **är aktive rad** för att aktivera GPU-rendering i fjärrsessionen.
+4. Välj princip **Använd grafik kort för maskin vara för alla Fjärrskrivbordstjänster sessioner** och ange att den här principen **är aktive rad** för att aktivera GPU-rendering i fjärrsessionen.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Konfigurera GPU-accelererad ram kodning
 

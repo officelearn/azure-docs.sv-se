@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
-ms.openlocfilehash: e49f68f43044b93f329295181717ec2d3ade9fc6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116996"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88639163"
 ---
 Om du inte vill fortsätta använda resurserna som skapats i den här artikeln tar du bort resurs gruppen som du skapade här för att undvika avgifter.
 
@@ -22,7 +22,7 @@ Om du inte vill fortsätta använda resurserna som skapats i den här artikeln t
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och välj **resurs grupper**.
 1. I rutan **Filtrera efter namn** anger du namnet på din resurs grupp. 
-1. I resultat listan väljer du resurs gruppen och antingen högerklickar du på raden eller använder knappen med **tre punkter** (**...**) för att öppna snabb menyn.
+1. I listan resultat väljer du resurs gruppens namn för att se en översikt.
 1. Välj **Ta bort resursgrupp**.
 1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 

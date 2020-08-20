@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: cc294eb1bdfd4a6a8c6ad001c007f83a10983644
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185816"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612715"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -79,7 +79,7 @@ I följande tabell beskrivs de kluster typer och versioner som är kompatibla me
 | HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
 | HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
 
-\*HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsning.
+\* HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsning.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -258,6 +258,26 @@ De jobb som körs kommer att fortsätta. Väntande jobb väntar på schemaläggn
 ### <a name="minimum-cluster-size"></a>Minsta kluster storlek
 
 Skala inte upp klustret till färre än tre noder. Om du skalar klustret till färre än tre noder kan det bli fastnat i fel säkert läge på grund av otillräcklig filreplikering.  Mer information finns i avsnittet [komma fastna i fel säkert läge](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="llap-daemons-count"></a>Antal LLAP-Daemonar
+
+Om du använder autoskalning aktiverade LLAP-kluster skalar du upp/ned-händelsen för autoskalning också upp/ned antalet LLAP-daemonar till antalet aktiva arbetsnoder. Men den här ändringen av antalet daemonar är inte beständig i **num_llap_nodes** config i Ambari. Om Hive-tjänster startas om manuellt återställs antalet LLAP-daemonar enligt konfigurationen i Ambari.
+
+Vi tar följande scenario:
+1. Ett LLAP-aktiverat kluster för automatisk skalning skapas med tre arbetsnoder och belastnings utjämning är aktiverat med minst tre arbetsnoder som 3 och högsta antal arbetsnoder som 10.
+2. Konfigurationen av LLAP daemons räknas enligt LLAP-konfigurationen och Ambari är 3, eftersom klustret har skapats med tre arbetsnoder.
+3. Sedan utlöses automatisk uppskalning på grund av belastningen på klustret. klustret skalas nu till 10 noder.
+4. Den automatiska skalnings kontrollen som körs med jämna mellanrum är 3, men antalet aktiva arbetsnoder är 10, och den automatiska skalnings processen kommer nu att öka antalet LLAP-daemon till 10, men den här ändringen är inte kvar i Ambari num_llap_nodes-LLAP.
+5. Autoskalning är nu inaktiverat.
+6. Klustret har nu 10 arbetsnoder och 10 LLAP-daemonar.
+7. LLAP-tjänsten startas om manuellt.
+8. Under omstarten kontrollerar den num_llap_nodes config i LLAP-konfigurationen och märker värdet som 3, så det snurrar tre instansen av daemon, men antalet arbetsnoder är 10. Det finns nu ett matchnings fel mellan de två.
+
+När detta inträffar måste du manuellt ändra **num_llap_node konfigurationen (antal noder till för att köra Hive-LLAP) under avancerad Hive-interaktiv-miljö** för att matcha det aktuella antalet aktiva arbetsnoder.
+
+**Obs!**
+
+Autoskalning-händelser ändrar inte det **maximala antalet samtidiga frågor** för Hive-konfiguration i Ambari. Det innebär att den interaktiva tjänsten för Hive Server 2 **bara kan hantera det aktuella antalet samtidiga frågor vid en viss tidpunkt, även om antalet LLAP daemons skalas upp och ned baserat på belastning/schema**. Den allmänna rekommendationen är att ställa in den här konfigurationen för scenariot med hög användning så att du kan undvika det manuella ingreppet. Men en bör vara medveten om att **inställning av ett högt värde för maximal total mängd för samtidiga frågor kan Miss lyckas med Hive Server 2-omstart av interaktiva tjänster om det minsta antalet arbetsnoder inte kan hantera det angivna antalet Tez-AMS (lika med det maximala antalet samtidiga frågor som konfigureras)**
 
 ## <a name="next-steps"></a>Nästa steg
 

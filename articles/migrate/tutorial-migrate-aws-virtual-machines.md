@@ -2,21 +2,21 @@
 title: Identifiera, utvärdera och migrera Amazon Web Services (AWS) EC2 virtuella datorer till Azure
 description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer till Azure med Azure Migrate.
 ms.topic: tutorial
-ms.date: 06/16/2020
+ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9aad6993af4a90acb41316da0056da84f2e95f70
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066652"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611440"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
-Den här självstudien visar hur du identifierar, utvärderar och migrerar Amazon Web Services virtuella datorer (VM) till virtuella Azure-datorer med hjälp av Azure Migrate: Server utvärdering och Migreringsverktyg för Server
+I den här självstudien lär du dig att identifiera, utvärdera och migrera Amazon Web Services virtuella datorer (VM) till virtuella Azure-datorer med hjälp av Azure Migrate: Server utvärdering och Azure Migrate: Migreringsverktyg för Server.
 
 > [!NOTE]
-> När du migrerar dina virtuella AWS-datorer till Azure behandlas de virtuella datorerna som om de var fysiska servrar. Du använder Server migrations flödet för migrering av fysiska datorer för att migrera dina virtuella AWS-datorer till Azure.
+> Du migrerar virtuella AWS-datorer till Azure genom att behandla dem som fysiska servrar.
 
 I den här självstudien får du lära dig hur man:
 > [!div class="checklist"]
@@ -33,20 +33,29 @@ I den här självstudien får du lära dig hur man:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="discover-and-assess-aws-vms"></a>Identifiera och utvärdera virtuella AWS-datorer  
+## <a name="discover-and-assess"></a>Identifiera och utvärdera
 
 Innan du migrerar till Azure rekommenderar vi att du utför en utvärdering av VM-identifiering och migrering. Den här utvärderingen hjälper till att anpassa dina virtuella AWS-datorer för migrering till Azure och beräkna möjliga kostnader för Azure-körning.
 
 Konfigurera en utvärdering på följande sätt:
 
-1. En utvärdering kan utföras genom att behandla dina virtuella AWS-datorer som fysiska datorer i syfte att utföra en utvärdering med hjälp av verktyget Azure Migrate: Server bedömning. Följ [själv studie kursen](./tutorial-prepare-physical.md) för att konfigurera Azure och förbereda dina virtuella AWS-datorer för en utvärdering.
+1. Följ [själv studie kursen](./tutorial-prepare-physical.md) för att konfigurera Azure och förbereda dina virtuella AWS-datorer för en utvärdering. Tänk på följande:
+
+    - Azure Migrate använder lösenordsautentisering vid identifiering av AWS-instanser. AWS-instanser har inte stöd för lösenordsautentisering som standard. Innan du kan identifiera instansen måste du aktivera lösenordsautentisering.
+        - Tillåt WinRM-port 5986 (HTTPS) och 5985 (HTTP) för Windows-datorer. Detta tillåter fjärr-WMI-anrop. Om du ställer in 
+        - För Linux-datorer:
+            1. Logga in på varje Linux-dator.
+            2. Öppna filen sshd_config: vi/etc/ssh/sshd_config
+            3. Leta upp raden **PasswordAuthentication** i filen och ändra värdet till **Ja**.
+            4. Spara filen och Stäng den. Starta om SSH-tjänsten.
+
 2. Följ sedan den här [självstudien](./tutorial-assess-physical.md) för att skapa en Azure Migrate-projekt och-apparat för att identifiera och utvärdera dina virtuella AWS-datorer.
 
 Även om vi rekommenderar att du testar en utvärdering är inte ett obligatoriskt steg att utföra en utvärdering för att kunna migrera virtuella datorer.
 
-## <a name="migrate-aws-vms"></a>Migrera virtuella AWS-datorer   
 
-## <a name="1-prerequisites-for-migration"></a>1. krav för migrering
+
+## <a name="prerequisites"></a>Förutsättningar 
 
 - Se till att de virtuella AWS-datorerna som du vill migrera kör en operativ system version som stöds. Virtuella AWS-datorer behandlas som fysiska datorer för migreringen. Granska de [operativ system som stöds](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för migreringen av den fysiska servern. Vi rekommenderar att du utför en testmigrering (redundanstest) för att kontrol lera om den virtuella datorn fungerar som förväntat innan du fortsätter med den faktiska migreringen.
 - Se till att dina virtuella AWS-datorer uppfyller de [konfigurationer som stöds](./migrate-support-matrix-physical-migration.md#physical-server-requirements) för migrering till Azure.
@@ -56,7 +65,7 @@ Konfigurera en utvärdering på följande sätt:
     - Det är viktigt att du gör dessa ändringar innan du påbörjar migrering. Om du migrerar den virtuella datorn innan du gör ändringen kanske den virtuella datorn inte startar i Azure.
 Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](prepare-for-migration.md#linux-machines) -ändringar du behöver göra.
 
-## <a name="2-prepare-azure-resources-for-migration"></a>2. Förbered Azure-resurser för migrering
+### <a name="prepare-azure-resources-for-migration"></a>Förbereda Azure-resurser för migrering
 
 Förbered Azure för migrering med Azure Migrate: Migreringsverktyg för Server.
 
@@ -85,7 +94,7 @@ Tilldela Azure-kontot rollen virtuell dator deltagare. Detta ger behörighet att
 
 [Konfigurera](../virtual-network/manage-virtual-network.md#create-a-virtual-network) ett virtuellt Azure-nätverk (VNet). När du replikerar till Azure är de virtuella Azure-datorerna som skapas anslutna till det virtuella Azure-nätverket som du anger när du konfigurerar migrering.
 
-## <a name="3-prepare-aws-instances-for-migration"></a>3. Förbered AWS-instanser för migrering
+## <a name="prepare-aws-instances-for-migration"></a>Förbereda AWS-instanser för migrering
 
 För att förbereda för AWS till Azure-migrering måste du förbereda och distribuera en replikeringsprincip för migrering.
 
@@ -111,7 +120,7 @@ Förbered distribution av installationer enligt följande:
 - Replikerings enheten använder MySQL. Granska [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
 - Granska de Azure-URL: er som krävs för att replikeringssystemet ska kunna komma åt [offentliga](migrate-replication-appliance.md#url-access) och [offentliga](migrate-replication-appliance.md#azure-government-url-access) moln.
 
-## <a name="4-add-the-server-migration-tool"></a>4. Lägg till Migreringsverktyg för Server
+## <a name="add-the-server-migration-tool"></a>Lägg till Migreringsverktyg för Server
 
 Konfigurera ett Azure Migrate projekt och Lägg sedan till Migreringsverktyg för server i det.
 
@@ -136,7 +145,7 @@ Konfigurera ett Azure Migrate projekt och Lägg sedan till Migreringsverktyg fö
 granskar du inställningarna och klickar på **Lägg till verktyg**
 11. När du har lagt till verktyget visas det i Azure Migrate för Project > **Server**-  >  **Migreringsverktyg**.
 
-## <a name="5-set-up-the-replication-appliance"></a>5. Konfigurera replikerings enheten
+## <a name="set-up-the-replication-appliance"></a>Konfigurera replikerings enheten
 
 Det första steget i migreringen är att konfigurera replikerings enheten. Om du vill konfigurera installations programmet för AWS VM-migrering måste du hämta installations filen för installationen och sedan köra den på den [virtuella datorn som du för beredde](#prepare-a-machine-for-the-replication-appliance).
 
@@ -178,7 +187,7 @@ Det första steget i migreringen är att konfigurera replikerings enheten. Om du
 
     ![Slutför registrering](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-## <a name="6-install-the-mobility-service"></a>6. Installera mobilitets tjänsten
+## <a name="install-the-mobility-service"></a>Installera mobilitetstjänsten
 
 En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer som ska migreras. Agent installationerna är tillgängliga på replikerings enheten. Du hittar rätt installations program och installerar agenten på varje dator som du vill migrera. Gör så här:
 
@@ -230,7 +239,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <replication appliance IP address> -P <Passphrase File Path>
     ```
 
-## <a name="7-enable-replication-for-aws-vms"></a>7. Aktivera replikering för virtuella AWS-datorer
+## <a name="enable-replication-for-aws-vms"></a>Aktivera replikering för virtuella AWS-datorer
 
 > [!NOTE]
 > Via portalen kan du lägga till upp till 10 virtuella datorer för replikering samtidigt. Om du vill replikera fler virtuella datorer samtidigt kan du lägga till dem i batchar med 10.
@@ -277,7 +286,7 @@ En mobilitets tjänst agent måste vara installerad på de virtuella AWS-datorer
 > [!NOTE]
 > Du kan uppdatera replikeringsinställningar varje tid innan replikeringen startar, **Hantera**  >  **replikering av datorer**. Det går inte att ändra inställningarna efter att replikeringen har startat.
 
-## <a name="8-track-and-monitor-replication-status"></a>8. spåra och övervaka replikeringsstatus
+## <a name="track-and-monitor-replication-status"></a>Spåra och övervaka replikeringsstatus
 
 - När du klickar på **Replikera** startar du jobbet starta replikering.
 - När jobbet starta replikeringen har slutförts börjar de virtuella datorerna med den inledande replikeringen till Azure.
@@ -289,7 +298,7 @@ Du kan övervaka replikeringsstatus genom att klicka på **Replikera servrar** i
 
 ![Övervaka replikering](./media/tutorial-migrate-physical-virtual-machines/replicating-servers.png)
 
-## <a name="9-run-a-test-migration"></a>9. kör en testmigrering
+## <a name="run-a-test-migration"></a>Kör en testmigrering
 
 När delta-replikering börjar kan du köra en testmigrering för de virtuella datorerna innan du kör en fullständig migrering till Azure. Test migreringen rekommenderas starkt och ger en möjlighet att identifiera eventuella problem och åtgärda dem innan du fortsätter med den faktiska migreringen. Vi rekommenderar att du gör detta minst en gång för varje virtuell dator innan du migrerar den.
 
@@ -315,7 +324,7 @@ Gör en testmigrering enligt följande:
     ![Rensa migrering](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
 
 
-## <a name="10-migrate-aws-vms"></a>10. migrera virtuella AWS-datorer
+## <a name="migrate-aws-vms"></a>Migrera virtuella AWS-datorer
 
 När du har kontrollerat att testmigreringen fungerar som förväntat kan du migrera de virtuella AWS-datorerna.
 
@@ -341,6 +350,9 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 5. Klipp ut över trafik till den migrerade virtuella Azure-instansen.
 6. Uppdatera eventuell intern dokumentation för att ange den nya platsen och IP-adressen för de virtuella Azure-datorerna. 
 
+
+
+
 ## <a name="post-migration-best-practices"></a>Metod tips för efter migreringen
 
 - För ökat skydd:
@@ -354,9 +366,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 - För övervakning och hantering:
     - Överväg att distribuera [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) för att övervaka användning och utgifter.
 
-## <a name="next-steps"></a>Nästa steg
 
-Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.
 
 ## <a name="troubleshooting--tips"></a>Fel sökning/tips
 
@@ -377,3 +387,7 @@ Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/get
 
 **Fråga:** Jag kan inte identifiera AWS-instanser med Azure Migrate på grund av HTTP-statuskod 504 från fjärrhanterings tjänsten för Windows    
 **Svar:** Se till att granska kraven för Azure Migrate-installationen och URL-åtkomst behoven. Kontrol lera att inga proxyinställningar blockerar installationen av enheten.   
+
+## <a name="next-steps"></a>Nästa steg
+
+Undersök [resan för migrering i molnet](/azure/architecture/cloud-adoption/getting-started/migrate) i Azure Cloud adoption Framework.

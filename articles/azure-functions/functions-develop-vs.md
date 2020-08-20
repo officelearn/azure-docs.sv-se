@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 81de0af335e0a233ac568921b298c9bb168eb174
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209986"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612817"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med hjälp av Visual Studio  
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information om hur du använder Visual Studio för
 
 Om inget annat anges är procedurer och exempel som visas för Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure Functions verktyg. Om du vill lägga till Azure Function tools inkluderar du arbets belastningen **Azure Development** i Visual Studio-installationen. Azure Functions-verktyg är tillgängliga i Azure Development-arbetsbelastningen från och med Visual Studio 2017.
 
@@ -88,7 +88,7 @@ Koden kan också läsa inställnings värden för funktionen app som miljövaria
 
 ## <a name="configure-the-project-for-local-development"></a>Konfigurera projektet för lokal utveckling
 
-Functions-körningen använder ett Azure Storage-konto internt. För alla utlösare typer än HTTP och Webhooks anger du `Values.AzureWebJobsStorage` nyckeln till en giltig Azure Storage konto anslutnings sträng. Din Function-app kan också använda [Azure Storage-emulatorn](../storage/common/storage-use-emulator.md) för `AzureWebJobsStorage` anslutnings inställningen som krävs av projektet. Om du vill använda emulatorn ställer du in värdet `AzureWebJobsStorage` till `UseDevelopmentStorage=true` . Ändra den här inställningen till en faktisk lagrings konto anslutnings sträng före distributionen.
+Functions-körningen använder ett Azure Storage-konto internt. För alla utlösare typer än HTTP och Webhooks anger du `Values.AzureWebJobsStorage` nyckeln till en giltig Azure Storage konto anslutnings sträng. Din Function-app kan också använda [Azure Storage emulatorn](../storage/common/storage-use-emulator.md) för `AzureWebJobsStorage` anslutnings inställningen som krävs av projektet. Om du vill använda emulatorn ställer du in värdet `AzureWebJobsStorage` till `UseDevelopmentStorage=true` . Ändra den här inställningen till en faktisk lagrings konto anslutnings sträng före distributionen.
 
 Så här anger du anslutnings strängen för lagrings kontot:
 

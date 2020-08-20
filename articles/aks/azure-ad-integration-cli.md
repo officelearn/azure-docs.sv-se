@@ -6,12 +6,12 @@ author: TomGeske
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: dfcbf214c374f449a04139ce7bf4fbb6853ed524
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ab25ec5406c75316aaa1ee8efd0192dc0207ad79
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006867"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612426"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli-legacy"></a>Integrera Azure Active Directory med Azure Kubernetes-tjänsten med hjälp av Azure CLI (bakåtkompatibelt)
 
@@ -27,6 +27,7 @@ Det fullständiga exempel skriptet som används i den här artikeln finns i [Azu
 ## <a name="the-following-limitations-apply"></a>Följande begränsningar gäller:
 
 - Azure AD kan bara aktive ras på RBAC-aktiverat kluster.
+- Azure AD Legacy-integrering kan bara aktive ras när klustret skapas.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -176,7 +177,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 > [!IMPORTANT]
 > Om användaren som du beviljar RBAC-bindningen för finns i samma Azure AD-klient tilldelar du behörigheter baserat på *userPrincipalName*. Om användaren finns i en annan Azure AD-klient frågar du efter och använder egenskapen *ObjectID* i stället.
 
-Skapa ett YAML-manifest med namnet `basic-azure-ad-binding.yaml` och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId* med UPN-eller objekt-ID-utdata från föregående kommando:
+Skapa ett YAML-manifest med namnet `basic-azure-ad-binding.yaml` och klistra in följande innehåll. På den sista raden ersätter du *userPrincipalName_or_objectId*  med UPN-eller objekt-ID-utdata från föregående kommando:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -244,7 +245,7 @@ error: You must be logged in to the server (Unauthorized)
 
 * Du definierade lämpligt objekt-ID eller UPN, beroende på om användar kontot finns i samma Azure AD-klient eller inte.
 * Användaren är inte medlem i fler än 200 grupper.
-* Hemligheten som definierats i program registreringen för servern matchar det värde som kon figurer ATS med`--aad-server-app-secret`
+* Hemligheten som definierats i program registreringen för servern matchar det värde som kon figurer ATS med `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Nästa steg
 

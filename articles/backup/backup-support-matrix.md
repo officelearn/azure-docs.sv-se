@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: f2f3d26f74c6227ad257c188d4088fd41fca7075
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922324"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612528"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -79,8 +79,8 @@ Här är what's som stöds om du vill säkerhetskopiera Linux-datorer:
 --- | ---
 **Direkt säkerhets kopiering av lokal dator som kör Linux** | Stöds inte. MARS-agenten kan bara installeras på Windows-datorer.
 **Använda agent tillägget för att säkerhetskopiera virtuell Azure-dator som kör Linux** | Programkonsekvent säkerhets kopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Återställning på filnivå.<br/><br/> Återställ genom att skapa en virtuell dator från en återställningspunkt eller disk.
-**Använda DPM för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
-**Använda MABS för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMWare.<br/><br/> VM-återställning av virtuella Hyper-V-och VMWare Linux-gäst datorer.
+**Använda DPM för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMware.<br/><br/> VM-återställning av virtuella Hyper-V-och VMware Linux-gäst datorer.
+**Använda MABS för att säkerhetskopiera lokala datorer som kör Linux** | Filkonsekvent säkerhets kopiering av virtuella Linux-gäst datorer i Hyper-V och VMware.<br/><br/> VM-återställning av virtuella Hyper-V-och VMware Linux-gäst datorer.
 **Använda MABS eller DPM för att säkerhetskopiera virtuella Linux Azure-datorer** | Stöds inte.
 
 ## <a name="daylight-saving-time-support"></a>Stöd för sommar tid
@@ -150,9 +150,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Inga                                                           | E.t.               |
-| SQL-/SAP HANA          | Inga                                                           | E.t.               |
-| DATABASSERVER                    | Inga                                                           | E.t.               |
+| MARS-agent/lokalt | Nej                                                           | Ej tillämpligt               |
+| SQL-/SAP HANA          | Nej                                                           | Ej tillämpligt               |
+| DATABASSERVER                    | Nej                                                           | Ej tillämpligt               |
 
 ## <a name="next-steps"></a>Nästa steg
 

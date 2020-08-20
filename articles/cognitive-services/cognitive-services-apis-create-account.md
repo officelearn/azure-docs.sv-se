@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 00a4f7f6de207d5e8ad1bcd448cc587e3106d3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a28a8f22a8aa20612a177d88fd99a66660c74618
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316990"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607559"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/cognitive-services/).
 
@@ -120,5 +120,6 @@ Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort 
 
 * [Autentisera begär anden till Azure Cognitive Services](authentication.md)
 * [Vad är Azure Cognitive Services?](Welcome.md)
+* [Skapa en ny resurs med hjälp av klient biblioteket för Azure-hantering](.\cognitive-services-apis-create-account-client-library.md)
 * [Stöd för naturligt språk](language-support.md)
 * [Stöd för Docker-behållare](cognitive-services-container-support.md)

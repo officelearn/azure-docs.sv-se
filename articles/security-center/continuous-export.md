@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: d101acd3e72e68efd9198cb273fd352967a0cd54
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192377"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612392"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportera säkerhetsaviseringar och rekommendationer
 
@@ -57,7 +57,29 @@ Stegen nedan är nödvändiga om du konfigurerar en kontinuerlig export till Log
 
 1. I området "Exportera mål" väljer du var du vill spara data. Data kan sparas i ett mål för en annan prenumeration (till exempel på en central Event Hub-instans eller en central Log Analytics-arbetsyta).
 
-1. Klicka på **Spara**.
+1. Välj **Spara**.
+
+
+## <a name="setting-up-continuous-export-via-the-rest-api"></a>Konfigurera kontinuerlig export via REST API
+
+Funktionen för kontinuerlig export kan konfigureras och hanteras via Azure Security Center [automations API](https://docs.microsoft.com/rest/api/securitycenter/automations). Använd detta API för att skapa eller uppdatera automatiseringar för export till någon av följande möjliga destinationer:
+
+- Azure Event Hub
+- Log Analytics-arbetsyta
+- Azure Logic Apps 
+
+API: et tillhandahåller ytterligare funktioner som inte är tillgängliga från Azure Portal, till exempel:
+
+* **Större volym** – API: et gör att du kan skapa flera export konfigurationer på en enda prenumeration. Sidan för **kontinuerlig export** i Security Centers Portal gränssnitt stöder bara en export konfiguration per prenumeration.
+
+* **Ytterligare funktioner** – API: et erbjuder ytterligare parametrar som inte visas i användar gränssnittet. Du kan till exempel lägga till taggar till din Automation-resurs och definiera din export baserat på en bredare uppsättning aviserings-och rekommendations egenskaper än de som erbjuds på sidan för **kontinuerlig export** i Security Center användarens Portal gränssnitt.
+
+* **Mer fokuserat omfång** – API: et ger en mer detaljerad nivå för omfattningen av dina export konfigurationer. När du definierar en export med API: et kan du göra det på resurs grupps nivå. Om du använder sidan för **kontinuerlig export** i Security Center användarens Portal gränssnitt måste du definiera den på prenumerations nivå.
+
+    > [!TIP]
+    > Om du har konfigurerat flera export konfigurationer med hjälp av API: et, eller om du har använt API-endast parametrar, kommer dessa extra funktioner inte att visas i Security Center användar gränssnittet. I stället är det en banderoll som informerar dig om att andra konfigurationer finns.
+
+Läs mer om automations-API: et i [REST API-dokumentationen](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
 
 
@@ -109,7 +131,7 @@ Azure Monitor ger en enhetlig aviserings upplevelse för en rad olika Azure-avis
 
 Om du vill visa aviseringar och rekommendationer från Security Center i Azure Monitor konfigurerar du en varnings regel baserat på Log Analytics frågor (logg avisering):
 
-1. Från Azure Monitor sidan **aviseringar** klickar du på **ny aviserings regel**.
+1. På sidan **aviseringar** för Azure Monitor väljer du **ny aviserings regel**.
 
     ![Azure Monitor sidan aviseringar](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -126,12 +148,25 @@ Nu visas nya Azure Security Center aviseringar eller rekommendationer (beroende 
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>Manuell export av säkerhets aviseringar
 
-Om du vill ladda ned en CSV-rapport för aviseringar eller rekommendationer öppnar du sidan **säkerhets aviseringar** eller **rekommendationer** och klickar på knappen **Hämta CSV-rapport** .
+Om du vill ladda ned en CSV-rapport för aviseringar eller rekommendationer öppnar du sidan **säkerhets aviseringar** eller **rekommendationer** och väljer knappen **Hämta CSV-rapport** .
 
 [![Hämta aviserings data som en CSV-fil](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 
 > [!NOTE]
 > De här rapporterna innehåller aviseringar och rekommendationer för resurser från de för tillfället valda prenumerationerna.
+
+
+
+## <a name="faq---continuous-export"></a>Vanliga frågor och svar – löpande export
+
+### <a name="what-are-the-costs-involved-in-exporting-data"></a>Vilka kostnader ingår i export av data?
+
+Det kostar inget att aktivera en löpande export. Kostnader kan tillkomma för inmatning och lagring av data i din Log Analytics arbets yta, beroende på din konfiguration där. 
+
+Läs mer om [priser för Log Analytics-arbetsyta](https://azure.microsoft.com/pricing/details/monitor/).
+
+Läs mer om [priser för Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
+
 
 ## <a name="next-steps"></a>Nästa steg
 

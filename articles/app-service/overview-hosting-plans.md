@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c6aa5200220c55407ade5910b4232fffed3ffe19
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141592"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611457"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -65,11 +65,11 @@ Information om hur du skalar ut en app finns i [skala antalet instanser manuellt
 
 I det här avsnittet beskrivs hur App Service-appar faktureras. Detaljerad information om landsspecifika priser finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).
 
-Förutom för den **kostnads fria** nivån debiteras en app service plan per timme för de beräknings resurser som används.
+Förutom för den **kostnads fria** nivån kostar ett App Service plan en avgift för de beräknings resurser som används.
 
-- På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras per timme för processor kvoten.
-- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
-- På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar, och _varje arbets tagare_ debiteras per timme. Det finns dessutom en grund avgift per timme för att köra själva App Service-miljön.
+- På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras för processor kvoten.
+- I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan debiteras. Dessa VM-instanser debiteras på samma sätt oavsett hur många appar som körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
+- På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar och _varje arbets tagare_ debiteras. Dessutom finns det en fast stämpel avgift för att köra själva App Service-miljön.
 
 Du debiteras inte för att använda de App Service funktioner som är tillgängliga för dig (Konfigurera anpassade domäner, TLS/SSL-certifikat, distributions platser, säkerhets kopior osv.). Undantagen är:
 

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
-ms.date: 01/31/2020
-ms.openlocfilehash: 87fe128a79413af024d72726d936b85db3f9ef52
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.date: 08/19/2020
+ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225979"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607543"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -35,6 +35,7 @@ Eftersom Azure Cosmos-emulatorn tillhandahåller en emulerad miljö som körs p�
 
 * För närvarande har Datautforskaren i emulatorn stöd för klienter för SQL API. Datautforskaren vyer och åtgärder för Azure Cosmos DB-API: er som MongoDB-, Table-, Graph-och Cassandra-API: er stöds inte fullt ut.
 * Azure Cosmos-emulatorn har endast stöd för ett fast konto och en välkänd huvud nyckel. Det går inte att skapa nya nycklar i Azure Cosmos-emulatorn, men standard nyckeln kan ändras med hjälp av kommando rads alternativet.
+* Azure Cosmos-emulatorn har stöd för ett Azure Cosmos-konto i det [etablerade data flödes](set-throughput.md) läget. Det finns för närvarande inte stöd för ett Azure Cosmos-konto i [Server](serverless.md) utan läge.
 * Azure Cosmos-emulatorn är inte en skalbar tjänst och har inte stöd för ett stort antal behållare.
 * Azure Cosmos-emulatorn erbjuder inte olika [Azure Cosmos DB konsekvens nivåer](consistency-levels.md).
 * Azure Cosmos-emulatorn erbjuder inte [replikering i flera regioner](distribute-data-globally.md).
@@ -269,7 +270,7 @@ Om du vill visa en lista över alternativ skriver du `Microsoft.Azure.Cosmos.Emu
 |FailOnSslCertificateNameMismatch | Som standard återskapar emulatorn sitt självsignerade TLS/SSL-certifikat om certifikatets SAN inte innehåller emulatorns domän namn, lokal IPv4-adress, localhost och 127.0.0.1. Med det här alternativet går det inte att starta emulatorn vid start i stället. Du bör sedan använda alternativet/GenCert för att skapa och installera ett nytt självsignerat TLS/SSL-certifikat. | Microsoft.Azure.Cosmos.Emulator.exe/FailOnSslCertificateNameMismatch  | |
 | GenCert | Skapa och installera ett nytt självsignerat TLS/SSL-certifikat. Du kan också inkludera en kommaavgränsad lista över ytterligare DNS-namn för att få åtkomst till emulatorn över nätverket. | Microsoft.Azure.Cosmos.Emulator.exe/GenCert =\<dns-names\> |\<dns-names\>: Valfri kommaavgränsad lista över ytterligare DNS-namn  |
 | DirectPorts |Anger portarna som ska användas för direktanslutning. Standardvärdena är 10251, 10252, 10253, 10254. | Microsoft.Azure.Cosmos.Emulator.exe/DirectPorts:\<directports\> | \<directports\>: Kommaavgränsad lista över 4 portar |
-| Tangent |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
+| Nyckel |Auktoriseringsnyckel för emulatorn. Nyckeln måste vara en base-64-kodning av en 64 bytes vektor. | Microsoft.Azure.Cosmos.Emulator.exe/Key:\<key\> | \<key\>: Nyckeln måste vara bas-64-kodningen för en 64-byte-Vector|
 | EnableRateLimiting | Anger att begränsande beteende för förfrågningsfrekvens är aktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/EnableRateLimiting | |
 | DisableRateLimiting |Anger att begränsande beteende för förfrågningsfrekvens är inaktiverat. |Microsoft.Azure.Cosmos.Emulator.exe/DisableRateLimiting | |
 | NoUI | Visa inte emulatorns användargränssnitt. | Microsoft.Azure.Cosmos.Emulator.exe/NoUI | |

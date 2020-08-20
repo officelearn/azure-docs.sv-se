@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022726"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612120"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
@@ -19,7 +19,7 @@ Du kan använda [tjänsten Azure Migrate](./migrate-services-overview.md) för a
 
 Tabellen sammanfattar scenarier för identifiering, utvärdering och migrering som stöds.
 
-**Distribution** | **Detaljer** 
+**Distribution** | **Information** 
 --- | --- 
 **Identifiering** | Du kan identifiera datorns metadata och dynamiska prestanda data.
 **App-Discovery** | Du kan identifiera appar, roller och funktioner som körs på virtuella VMware-datorer. För närvarande är den här funktionen begränsad till enbart identifiering. Utvärderingen är för närvarande på dator nivå. Vi erbjuder ännu inte app-, roll-eller funktionsbaserade utvärderingar. 
@@ -45,7 +45,7 @@ Azure Migrate-servermigrering | Ej tillämpligt | Migrera [virtuella VMware-dato
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Utvärdera SQL Server-databaser. | Ej tillämpligt
 [DMS](../dms/dms-overview.md) | Ej tillämpligt | Migrera SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Utvärdera VDI (Virtual Desktop Infrastructure) | Ej tillämpligt
-[Movere](https://www.movere.io/) | Utvärdera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, fysiska datorer, arbets stationer (inklusive VDI), offentliga moln arbets belastningar | Ej tillämpligt
+[Movere](https://www.movere.io/) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, fysiska datorer, arbets stationer (inklusive VDI), offentliga moln arbets belastningar | Ej tillämpligt
 [Rack](https://go.microsoft.com/fwlink/?linkid=2102735) | Ej tillämpligt | Migrera virtuella VMWare-datorer, virtuella Hyper-V-datorer, virtuella Xen-datorer, KVM-VM, fysiska datorer, offentliga moln arbets belastningar 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar. | Ej tillämpligt
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Utvärdera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, offentliga moln arbets belastningar och SQL Server databaser. | Ej tillämpligt
@@ -54,7 +54,7 @@ Azure Migrate-servermigrering | Ej tillämpligt | Migrera [virtuella VMware-dato
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 
-**Support** | **Detaljer**
+**Support** | **Information**
 --- | ---
 Prenumeration | Du kan ha flera Azure Migrate projekt i en prenumeration.
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
@@ -67,7 +67,7 @@ Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-
 
 För att Azure Migrate ska fungera med Azure behöver du dessa behörigheter innan du börjar utvärdera och migrera datorer.
 
-**Uppgift** | **Behörigheter** | **Detaljer**
+**Aktivitet** | **Behörigheter** | **Information**
 --- | --- | ---
 Skapa ett Azure Migrate-projekt | Ditt Azure-konto måste ha behörighet att skapa ett projekt. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-create-project).
 Registrera Azure Migrates apparaten| Azure Migrate använder en förenklad [Azure Migrate-apparat](migrate-appliance.md) för att utvärdera datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella VMware-datorer med Azure Migrate Server-migrering. Den här enheten identifierar datorer och skickar metadata-och prestanda data till Azure Migrate.<br/><br/> Under registreringen registreras leverantörer (Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv) med den prenumeration som valts i installationen, så att prenumerationen fungerar med resurs leverantören. För att registrera dig måste du ha deltagar-eller ägar åtkomst till prenumerationen.<br/><br/> **VMware**– under onboarding skapar Azure Migrate två Azure Active Directory-appar (Azure AD). Den första appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. Den andra appen får åtkomst till en Azure Key Vault som skapats i användar prenumerationen endast för en agent utan enbart VMware-migrering. Vid en icke-migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till lagrings kontot för replikering i din prenumeration. Den har RBAC-åtkomst på Azure Key Vault (i kund klienten) när identifieringen initieras från enheten.<br/><br/> **Hyper-V**– under onboarding. Azure Migrate skapar en Azure AD-App. Appen kommunicerar mellan installations agenter och tjänsten Azure Migrate. Appen har inte behörighet att göra Azure Resource Management-anrop eller ha RBAC-åtkomst för resurser. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
@@ -98,7 +98,7 @@ USA | USA, centrala eller västra USA 2
 
 ## <a name="supported-geographies-azure-government"></a>Geografiska områden som stöds (Azure Government)
 
-**Uppgift** | **Placering** | **Detaljer**
+**Aktivitet** | **Placering** | **Information**
 --- | --- | ---
 Skapa projekt | USA | Metadata lagras i US Gov, Arizona US Gov, Virginia
 Mål utvärdering | USA | Mål regioner: US Gov, Arizona, US Gov, Virginia, US Gov, Texas

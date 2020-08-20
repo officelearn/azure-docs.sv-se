@@ -5,18 +5,18 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/01/2020
+ms.date: 08/19/2020
 ms.author: victorh
-ms.openlocfilehash: a467aa60b131e47e9251366369b3fae8dd95c004
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da2b206bf24cb33180305e32e270b989eb64dfa3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84267706"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612611"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Tvingad tunnel trafik i Azure-brandväggen
 
-När du konfigurerar en ny Azure-brandvägg kan du dirigera all Internet-baserad trafik till en utsedd nästa hopp i stället för att gå direkt till Internet. Du kan till exempel ha en lokal gräns brand vägg eller en annan virtuell nätverks installation (NVA) för att bearbeta nätverks trafik innan den skickas till Internet. Du kan dock inte konfigurera en befintlig brand vägg för Tvingad tunnel trafik.
+När du konfigurerar en ny Azure Firewall-instans kan du dirigera all trafik till internet via ett särskilt nästa hopp i stället för att den går direkt till internet. Du kan till exempel ha en lokal gräns brand vägg eller en annan virtuell nätverks installation (NVA) för att bearbeta nätverks trafik innan den skickas till Internet. Du kan dock inte konfigurera en befintlig brand vägg för Tvingad tunnel trafik.
 
 Som standard är Tvingad tunnel trafik inte tillåten i Azure-brandväggen för att se till att alla dess utgående Azure-beroenden är uppfyllda. UDR-konfigurationer (User Defined Route) på *AzureFirewallSubnet* som har en standard väg som inte kommer direkt till Internet är inaktiverade.
 
@@ -24,13 +24,13 @@ Som standard är Tvingad tunnel trafik inte tillåten i Azure-brandväggen för 
 
 För att stödja Tvingad tunnel trafik separeras Service Management-trafiken från kund trafiken. Ytterligare ett dedikerat undernät med namnet *AzureFirewallManagementSubnet* (minsta under näts storlek/26) krävs med en egen ASSOCIERAD offentlig IP-adress. Den enda vägen som tillåts i det här under nätet är en standard väg till Internet och en vidarebefordring av BGP-vägar måste inaktive ras.
 
-Om du har en standard väg som annonseras via BGP för att tvinga trafik till lokalt, måste du skapa *AzureFirewallSubnet* och *AzureFirewallManagementSubnet* innan du distribuerar brand väggen och har en UDR med en standard väg till Internet, och den **virtuella nätverks-gatewayens väg spridning** inaktive rad.
+Om du har en standard väg som annonseras via BGP för att tvinga trafik till lokalt, måste du skapa *AzureFirewallSubnet* och *AzureFirewallManagementSubnet* innan du distribuerar brand väggen och har en UDR med en standard väg till Internet, och **sprida Gateway-vägar** inaktiverade.
 
-I den här konfigurationen kan *AzureFirewallSubnet* nu inkludera vägar till valfri lokal brand vägg eller NVA för att bearbeta trafik innan den skickas till Internet. Du kan också publicera dessa vägar via BGP till *AzureFirewallSubnet* om **spridning av virtuella nätverks-Gateway** -vägar är aktiverat på det här under nätet.
+I den här konfigurationen kan *AzureFirewallSubnet* nu inkludera vägar till valfri lokal brand vägg eller NVA för att bearbeta trafik innan den skickas till Internet. Du kan också publicera dessa vägar via BGP till *AzureFirewallSubnet* om **spridning av Gateway-vägar** är aktiverat på det här under nätet.
 
-Du kan till exempel skapa en standard väg på *AzureFirewallSubnet* med din VPN-gateway som nästa hopp för att komma till din lokala enhet. Eller så kan du aktivera **spridning av väg för virtuell nätverks-Gateway** för att hämta lämpliga vägar till det lokala nätverket.
+Du kan till exempel skapa en standard väg på *AzureFirewallSubnet* med din VPN-gateway som nästa hopp för att komma till din lokala enhet. Eller så kan du aktivera **spridning av Gateway-vägar** för att hämta lämpliga vägar till det lokala nätverket.
 
-![Väg spridning för virtuell nätverks-Gateway](media/forced-tunneling/route-propagation.png)
+:::image type="content" source="media/forced-tunneling/route-propagation.png" alt-text="Väg spridning för virtuell nätverks-Gateway":::
 
 Om du aktiverar Tvingad tunnel trafik är Internet-baserad trafik SNATed till en av brand väggens privata IP-adresser i AzureFirewallSubnet, vilket döljer källan från din lokala brand vägg.
 

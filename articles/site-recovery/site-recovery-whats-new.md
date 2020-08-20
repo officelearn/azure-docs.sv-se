@@ -2,13 +2,13 @@
 title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 28bdf902ab74bf4bb94a6bc02a558bf200b25e52
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/20/2020
+ms.openlocfilehash: d7e3a8e29800943b28c64848fc66f27f888d439f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836640"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611746"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -22,17 +22,25 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 **Uppdatera** |  **Enhetlig installation** | **Konfigurations Server för ägg** | **Mobilitets tjänst agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Samlad uppdatering 49](https://support.microsoft.com/help/4578241/) | 9.36.5696.1 | 5.1.6315.0 | 9.36.5696.1 | 5.1.6315.0 | 2.0.9188.0
 [Samlad uppdatering 48](https://support.microsoft.com/help/4573888/) | 9.35.5659.1 | 5.1.6200.0 | 9.35.5659.1 | 5.1.6200.0 | 2.0.9186.0
 [Samlad uppdatering 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV-datorer – 2.0.9183.0 <br> VMware-datorer – 2.0.9177.0
 [Samlad uppdatering 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Samlad uppdatering 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
-[Samlad uppdatering 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
-[Samlad uppdatering 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 
 [Läs mer](service-updates-how-to.md) om installation och stöd för uppdateringar.
 
-> [!NOTE]
-> Samlad uppdatering 44 visas inte i tabellen eftersom den inte inkluderade uppdateringar för Site Recovery leverantörer och agenter.
+
+## <a name="updates-august-2020"></a>Uppdateringar (augusti 2020)
+
+### <a name="update-rollup-49"></a>Samlad uppdatering 49
+
+Samlad [uppdatering 49](https://support.microsoft.com/help/4578241/update-rollup-49-for-azure-site-recovery) innehåller följande uppdateringar:
+
+**Uppdatera** | **Information**
+--- | ---
+**Leverantörer och agenter** | Uppdateringar till Site Recovery agenter och leverantörer enligt beskrivningen i den samlade uppdateringen.
+**Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar som beskrivs i den samlade uppdateringen.
 
 ## <a name="updates-july-2020"></a>Uppdateringar (juli 2020)
 

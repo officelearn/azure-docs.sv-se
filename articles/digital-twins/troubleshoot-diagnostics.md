@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: d47bb7cc868c5733c6e36290f097fec783764cd3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5091edbf9138cb8ff03df193dcbeed692aaf13e3
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003589"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612409"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Felsöka Azure Digitals sammanflätade: diagnostikloggning
 
@@ -88,7 +88,7 @@ Här är en omfattande lista över åtgärderna och motsvarande [Azure Digital-m
 | ADTEventRoutesOperation | Microsoft. DigitalTwins/eventroutes/Write | Händelse vägar Lägg till API |
 |  | Microsoft. DigitalTwins/eventroutes/Read | Händelse vägar hämtas efter ID och lista API: er |
 |  | Microsoft. DigitalTwins/eventroutes/Delete | Borttagnings-API för händelse vägar |
-|  | Microsoft. DigitalTwins/eventroutes/Action | Utgående en händelse till en slut punkts tjänst (inte ett API-anrop) |
+|  | Microsoft. DigitalTwins/eventroutes/Action | Ett problem uppstod vid försök att publicera händelser till en slut punkts tjänst (inte ett API-anrop) |
 | ADTDigitalTwinsOperation | Microsoft. DigitalTwins/DigitalTwins/Write | Digitals, Lägg till, Lägg till relation, uppdatera, uppdatera komponent |
 |  | Microsoft. DigitalTwins/DigitalTwins/Read | Digitals, Hämta efter ID, Hämta komponent, Hämta relation efter ID, lista inkommande relationer, list relationer |
 |  | Microsoft. DigitalTwins/DigitalTwins/Delete | Digitals ta bort, ta bort relation |

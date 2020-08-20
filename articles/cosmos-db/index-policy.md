@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och ändrar standard indexerings princ
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: e1254b31bffa72918b46c550e8354bd1c2195dfb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f723d7ac218869313f02212d27d9f96b74bb7f0f
+ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077602"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88607522"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -30,15 +30,15 @@ Azure Cosmos DB stöder två indexerings lägen:
 - **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
-> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering. I juni 2020 införde vi en ändring som inte längre tillåter att nya behållare ställs in till Lazy indexerings läge. Om ditt Azure Cosmos DB-konto redan innehåller minst en behållare med Lazy-indexering, undantas detta konto automatiskt från ändringen. Du kan också begära ett undantag genom att kontakta [Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (förutom om du använder ett Azure Cosmos-konto i ett [Server](serverless.md) fritt läge som inte stöder Lazy-indexering).
 
 Indexerings principen är som standard inställd på `automatic` . Den uppnås genom att ställa in `automatic` egenskapen i indexerings principen på `true` . Genom att ange den här egenskapen kan `true` Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inklusive och exklusive egenskaps Sök vägar
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inklusive och exklusive egenskaps Sök vägar
 
 En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du avsevärt minska svars tiden och RU-avgiften för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 
-- en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med`/?`
+- en sökväg som leder till ett skalärt värde (sträng eller siffra) slutar med `/?`
 - element från en matris behandlas tillsammans genom `/[]` notationen (i stället för `/0` `/1` osv.)
 - `/*`jokertecknet kan användas för att matcha alla element under noden
 
@@ -62,7 +62,7 @@ Ta samma exempel igen:
 
 - `locations` `country` sökvägen är`/locations/[]/country/?`
 
-- sökvägen till något under `headquarters` är`/headquarters/*`
+- sökvägen till något under `headquarters` är `/headquarters/*`
 
 Vi kan till exempel inkludera `/headquarters/employees/?` sökvägen. Den här sökvägen ser till att vi indexerar egenskapen anställda men skulle inte indexera ytterligare kapslad JSON i den här egenskapen.
 
@@ -81,11 +81,11 @@ Alla indexerings principer måste innehålla rot Sök vägen `/*` antingen som e
 
 När du inkluderar och exkluderar sökvägar kan du stöta på följande attribut:
 
-- `kind`kan vara antingen `range` eller `hash` . Funktionen Range index innehåller alla funktioner i ett hash-index, så vi rekommenderar att du använder ett intervall index.
+- `kind` kan vara antingen `range` eller `hash` . Funktionen Range index innehåller alla funktioner i ett hash-index, så vi rekommenderar att du använder ett intervall index.
 
-- `precision`är ett tal definierat på index nivå för inkluderade sökvägar. Värdet `-1` anger maximal precision. Vi rekommenderar att alltid ange det här värdet till `-1` .
+- `precision` är ett tal definierat på index nivå för inkluderade sökvägar. Värdet `-1` anger maximal precision. Vi rekommenderar att alltid ange det här värdet till `-1` .
 
-- `dataType`kan vara antingen `String` eller `Number` . Detta anger vilka typer av JSON-egenskaper som kommer att indexeras.
+- `dataType` kan vara antingen `String` eller `Number` . Detta anger vilka typer av JSON-egenskaper som kommer att indexeras.
 
 Om detta inte anges kommer dessa egenskaper att ha följande standardvärden:
 
@@ -103,9 +103,9 @@ Om dina inkluderade sökvägar och undantagna sökvägar har en konflikt, priori
 
 Här är ett exempel:
 
-**Sökväg som ingår**:`/food/ingredients/nutrition/*`
+**Sökväg som ingår**: `/food/ingredients/nutrition/*`
 
-**Undantagen sökväg**:`/food/ingredients/*`
+**Undantagen sökväg**: `/food/ingredients/*`
 
 I det här fallet har den medföljande sökvägen företräde framför den undantagna sökvägen eftersom den är mer exakt. Baserat på dessa sökvägar utesluts alla data i `food/ingredients` sökvägen eller kapslas in i indexet. Undantaget skulle vara data i den inkluderade sökvägen: `/food/ingredients/nutrition/*` , som skulle indexeras.
 
@@ -261,6 +261,9 @@ Följande överväganden används när du skapar sammansatta index för att opti
 
 En behållares indexerings princip kan uppdateras när [som helst genom att använda Azure Portal eller någon av de SDK](how-to-manage-indexing-policy.md): er som stöds. En uppdatering av indexerings principen utlöser en omvandling från det gamla indexet till den nya, som utförs online och på plats (så att ingen ytterligare lagrings utrymme förbrukas under driften). Den gamla principens index omvandlas effektivt till den nya principen utan att det påverkar Skriv tillgänglighet, Läs tillgänglighet eller det data flöde som har allokerats på behållaren. Omvandling av index är en asynkron åtgärd och den tid det tar att slutföra beror på det etablerade data flödet, antalet objekt och deras storlek.
 
+> [!IMPORTANT]
+> Omvandling av index är en åtgärd som förbrukar [enheter för programbegäran](request-units.md). Enheter för programbegäran som används av en index omvandling faktureras inte för tillfället om du använder [Server](serverless.md) lös behållare. Dessa enheter för programbegäran debiteras när servern är allmänt tillgänglig.
+
 > [!NOTE]
 > Det är möjligt att spåra förloppet för index omvandlingen [med hjälp av en av SDK: erna](how-to-manage-indexing-policy.md).
 
@@ -284,7 +287,7 @@ För scenarier där ingen egenskaps Sök väg behöver indexeras, men TTL krävs
 
 - ett indexerings läge har angetts till konsekvent och
 - ingen sökväg har inkluderats och
-- `/*`som den enda undantagna sökvägen.
+- `/*` som den enda undantagna sökvägen.
 
 ## <a name="next-steps"></a>Nästa steg
 

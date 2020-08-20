@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a97c37accd1275fa99437862a8d939df31360e87
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 4ed4452cf8f1f44e90cfc991c2b1d13d30dddcd2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810436"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612783"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -146,7 +146,7 @@ Mer information finns i krav för [ExpressRoute-routning](../expressroute/expres
 
 Anslutning till Azure Backups tjänsten krävs för att säkerhets kopieringarna ska fungera korrekt och Azure-prenumerationen ska vara aktiv. I följande tabell visas beteendet om dessa två saker inte inträffar.
 
-**MABS till Azure** | **Prenumeration** | **Säkerhetskopiering/återställning**
+**MABS till Azure** | **Prenumeration** | **Säkerhetskopiera/återställa**
 --- | --- | ---
 Ansluten | Aktiv | Säkerhetskopiera till DPM/MABS disk.<br/><br/> Säkerhetskopiera till Azure.<br/><br/> Återställ från disk.<br/><br/> Återställ från Azure.
 Ansluten | Upphört/avetablerats | Ingen säkerhets kopiering till disk eller Azure.<br/><br/> Om prenumerationen har upphört att gälla kan du återställa från disk eller Azure.<br/><br/> Om prenumerationen är inaktive rad kan du inte återställa från disk eller Azure. Azures återställnings punkter tas bort.

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a83755a08a3579484796cd56623cb3401d03d874
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284293"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612562"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurera en belastningsutjämnare för en SQL Server Always on-tillgänglighetsgrupper i Azure Virtual Machines
 
@@ -67,10 +67,11 @@ Skapa först belastningsutjämnaren.
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Internt**: de flesta implementeringar använder en intern belastningsutjämnare som gör det möjligt för program i samma virtuella nätverk att ansluta till tillgänglighets gruppen.  </br> **Externt**: tillåter att program ansluter till tillgänglighets gruppen via en offentlig Internet anslutning. |
+   | **SKU** |**Standard**: krävs om SQL-instanserna finns i en annan tillgänglighets uppsättning än belastningsutjämnaren. </br> **Basic**: standard alternativet. |
    | **Virtuellt nätverk** |Välj det virtuella nätverk som SQL Servers instanserna finns i. |
    | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. |
    | **Tilldelning av IP-adress** |**Statiskt** |
@@ -115,7 +116,7 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
@@ -141,7 +142,7 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställningen | Värde |
+   | Inställning | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar reglerna för belastnings utjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
@@ -233,7 +234,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 7. Lägg till en hälso avsökning med hjälp av följande inställningar:
 
-   |Inställningen |Värde
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar avsökningen.
    |**Protokoll** |TCP
@@ -247,7 +248,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
 
 10. Konfigurera den nya regeln för belastnings utjämning med följande inställningar:
 
-    |Inställningen |Värde
+    |Inställning |Värde
     |:-----|:----
     |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln. 
     |**Klientdelens IP-adress** |Välj den IP-adress som du skapade. 
@@ -256,7 +257,7 @@ Gör så här om du vill lägga till en IP-adress till en belastningsutjämnare 
     |**Serverdelsport** |Använd samma värde som **port**.
     |**Serverdelspool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
     |**Hälsoavsökning** |Välj den avsökning som du har skapat.
-    |**Sessionspermanens** |Ingen
+    |**Sessionspermanens** |Inget
     |**Tids gräns för inaktivitet (minuter)** |Standard (4)
     |**Flytande IP (direkt Server retur)** | Enabled
 
@@ -296,7 +297,7 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
 
 1. Skapa belastnings Utjämnings regeln med följande inställningar:
 
-   |Inställningen |Värde
+   |Inställning |Värde
    |:-----|:----
    |**Namn** |Ett namn som identifierar belastnings Utjämnings regeln för den distribuerade tillgänglighets gruppen. 
    |**Klientdelens IP-adress** |Använd samma IP-adress för klient delen som tillgänglighets gruppen.
@@ -305,7 +306,7 @@ Om en tillgänglighets grupp deltar i en distribuerad tillgänglighets grupp beh
    |**Serverdelsport** | 5022 – Använd samma värde som **port**.
    |**Serverdelspool** |Poolen som innehåller de virtuella datorerna med SQL Server instanser. 
    |**Hälsoavsökning** |Välj den avsökning som du har skapat.
-   |**Sessionspermanens** |Ingen
+   |**Sessionspermanens** |Inget
    |**Tids gräns för inaktivitet (minuter)** |Standard (4)
    |**Flytande IP (direkt Server retur)** | Enabled
 

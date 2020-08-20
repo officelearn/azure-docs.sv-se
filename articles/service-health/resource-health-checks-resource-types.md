@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: b6420283f3d3c07182faa2cb2a82ba7b2d784055
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272662"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611950"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -46,7 +46,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/domän namn
 |Utförda kontroller|
 |---|
-|<ul><li>Är moln tjänsten det värdbaserade namnet igång?</li><li>Har värddatorns OS-start slutförts?</li><li>Är den virtuella dator behållaren etablerad och påslagen?</li><li>Finns det någon nätverks anslutning mellan värden och lagrings kontot?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
+|<ul><li>Är produktions plats distributionen felfri i alla roll instanser?</li><li>Är rollen felfri i alla dess VM-instanser?</li><li>Vilken är hälso status för varje virtuell dator i en roll för en moln tjänst?</li><li>Har VM-statusen ändrats på grund av en plattforms-eller kund initierad åtgärd?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konton
 |Utförda kontroller|

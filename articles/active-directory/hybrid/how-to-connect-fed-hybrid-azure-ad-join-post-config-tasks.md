@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a0ee226fcddb3bfc216e1e160b5571fde59a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da5cefbacbd3851d2609a687c1948d9bcba5ffae
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807595"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612477"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
@@ -63,7 +63,7 @@ Om din organisation använder en Federations tjänst för att logga in på Azure
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Aktivera Azure AD sömlös SSO för Windows-enheter på äldre nivå
 
-Om din organisation använder hash-synkronisering av lösen ord eller direktautentisering för att logga in på Azure AD, aktiverar du Azure AD sömlös SSO med denna inloggnings metod för att autentisera Windows-enheter på den äldre nivån: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
+Om din organisation använder hash-synkronisering av lösen ord eller direktautentisering för att logga in på Azure AD, aktiverar du Azure AD sömlös SSO med denna inloggnings metod för att autentisera Windows-enheter på den äldre nivån:  https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso . 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Ange Azure AD-princip för Windows-enheter på äldre nivå
 
@@ -76,9 +76,9 @@ För att registrera Windows-enheter på en äldre enhet måste du kontrol lera a
 
 ## <a name="8-add-azure-ad-endpoint-to-windows-down-level-devices"></a>8. Lägg till Azure AD-slutpunkt i Windows-enheter på nivån
 
-Lägg till Azure AD Device Authentication-slutpunkten i zonerna Lokalt intranät på dina Windows-enheter för att undvika certifikat meddelanden vid autentisering av enheterna:`https://device.login.microsoftonline.com` 
+Lägg till Azure AD Device Authentication-slutpunkten i zonerna Lokalt intranät på dina Windows-enheter för att undvika certifikat meddelanden vid autentisering av enheterna: `https://device.login.microsoftonline.com` 
 
-Om du använder [sömlös SSO](how-to-connect-sso.md)aktiverar du även Tillåt uppdatering av statusfältet via skriptet på den zonen och lägger till följande slut punkt:`https://autologon.microsoftazuread-sso.com` 
+Om du använder [sömlös SSO](how-to-connect-sso.md)aktiverar du även Tillåt uppdatering av statusfältet via skriptet på den zonen och lägger till följande slut punkt: `https://autologon.microsoftazuread-sso.com` 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installera Microsoft Workplace Join på Windows-enheter på nivån
 
@@ -87,9 +87,6 @@ Det här installations programmet skapar en schemalagd aktivitet på enhets syst
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Konfigurera grup princip för att tillåta enhets registrering
 
 Information om hur du tillåter hybrid Azure AD-anslutning för enskilda enheter finns i [kontrollerad validering av hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-control.md).
-
-> [!NOTE]
-> Princip inställningar för 2012 R2 finns i **dator konfiguration > principer > Administrativa mallar > Windows-komponenter > Workplace Join > automatiskt ansluta klient datorer på arbets plats**.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera tillbakaskrivning av enhet](how-to-connect-device-writeback.md)

@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 76f212875c7f48d9436295f523660b7a298ce7f0
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263341"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612341"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -156,7 +156,7 @@ När du har laddat ned alla filer väljer du **MicrosoftAzureBackupInstaller.exe
 
 ![Installations programmet extraherar filer för installation](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-När extraherings processen har slutförts markerar du kryss rutan för att starta den nyligen extraherade *setup.exe* för att börja installera Microsoft Azure Backup Server och väljer på knappen **Slutför** .
+När extraherings processen har slutförts markerar du kryss rutan för att starta den nyligen extraherade *setup.exe* för att börja installera Microsoft Azure Backup Server och väljer knappen **Slutför** .
 
 ### <a name="installing-the-software-package"></a>Installera programpaketet
 

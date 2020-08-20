@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar Recovery Services-valvet över Azur
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 40ef55fa3b86856051b840c5d88ab8fadae3b7c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbbe914b3e567a1a136d735fc52965524bc17b67
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514109"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612579"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -57,23 +57,23 @@ Så här flyttar du ett Recovery Services-valv och dess associerade resurser til
 
    ![Öppna Recover service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-   Om du inte ser information om **Essentials** för ditt valv klickar du på den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
+   Om du inte ser information om **Essentials** för ditt valv väljer du den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
 
    ![Fliken information om Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. I valv översikts menyn klickar du på **ändra** bredvid **resurs gruppen**för att öppna bladet **Flytta resurser** .
+3. På menyn valv översikt väljer du **ändra** bredvid **resurs gruppen**för att öppna fönstret **Flytta resurser** .
 
    ![Ändra resurs grupp](./media/backup-azure-move-recovery-services/change-resource-group.png)
 
-4. På bladet **Flytta resurser** för det valda valvet rekommenderar vi att du flyttar de valfria relaterade resurserna genom att markera kryss rutan som visas i följande bild.
+4. I rutan **Flytta resurser** för det valda valvet rekommenderar vi att du flyttar de valfria relaterade resurserna genom att markera kryss rutan som visas i följande bild.
 
    ![Flytta prenumeration](./media/backup-azure-move-recovery-services/move-resource.png)
 
-5. Lägg till mål resurs gruppen genom att välja en befintlig resurs grupp i list rutan **resurs grupp** eller klicka på **skapa en ny grupp** .
+5. Om du vill lägga till mål resurs gruppen väljer du en befintlig resurs grupp i list rutan **resurs grupp** eller väljer **skapa en ny grupp** .
 
    ![Skapa resurs](./media/backup-azure-move-recovery-services/create-a-new-resource.png)
 
-6. När du har lagt till resurs gruppen bekräftar **du att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder alternativet nya resurs-ID: n** och klickar sedan på **OK** för att slutföra flyttningen av valvet.
+6. När du har lagt till resurs gruppen bekräftar **du att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem för att använda nya resurs-ID** -alternativ och väljer sedan **OK** för att slutföra flyttningen av valvet.
 
    ![Bekräftelse meddelande](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
@@ -86,11 +86,11 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
     ![Öppna Recover service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
-    Om du inte ser information om **Essentials** för ditt valv klickar du på den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
+    Om du inte ser information om **Essentials** för ditt valv väljer du den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
 
     ![Fliken information om Essentials](./media/backup-azure-move-recovery-services/essentials-information-tab.png)
 
-3. Klicka på **ändra** bredvid **prenumeration**på menyn valv översikt för att öppna bladet **Flytta resurser** .
+3. I valv översikts menyn väljer du **ändra** bredvid **prenumeration**för att öppna fönstret **Flytta resurser** .
 
    ![Ändra prenumeration](./media/backup-azure-move-recovery-services/change-resource-subscription.png)
 
@@ -99,11 +99,11 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
    ![flytta resurs](./media/backup-azure-move-recovery-services/move-resource-source-subscription.png)
 
 5. Välj mål prenumerationen i list rutan **prenumeration** där du vill att valvet ska flyttas.
-6. Lägg till mål resurs gruppen genom att välja en befintlig resurs grupp i list rutan **resurs grupp** eller klicka på **skapa en ny grupp** .
+6. Om du vill lägga till mål resurs gruppen väljer du en befintlig resurs grupp i list rutan **resurs grupp** eller väljer **skapa en ny grupp** .
 
    ![Lägg till prenumeration](./media/backup-azure-move-recovery-services/add-subscription.png)
 
-7. Klicka på **Jag förstår att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem för att använda nya resurs-ID** -alternativ för att bekräfta, och klicka sedan på **OK**.
+7. Välj **Jag är medveten om att verktyg och skript som är kopplade till flyttade resurser inte fungerar förrän jag uppdaterar dem så att de använder nya resurs-ID: n** för att bekräfta, och välj sedan **OK**.
 
 > [!NOTE]
 > Säkerhets kopiering mellan prenumerationer (RS Vault och skyddade virtuella datorer finns i olika prenumerationer) är inte ett scenario som stöds. Dessutom går det inte att ändra lagrings alternativet för redundans från lokal redundant lagring (LRS) till global redundant lagring (GRS) och vice versa i flytt åtgärden för valv.
@@ -112,7 +112,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 
 ## <a name="use-powershell-to-move-recovery-services-vault"></a>Använd PowerShell för att flytta Recovery Services valv
 
-Använd cmdleten om du vill flytta ett Recovery Services valv till en annan resurs grupp `Move-AzureRMResource` . `Move-AzureRMResource`resurs namn och typ av resurs krävs. Du kan hämta båda från `Get-AzureRmRecoveryServicesVault` cmdleten.
+Använd cmdleten om du vill flytta ett Recovery Services valv till en annan resurs grupp `Move-AzureRMResource` . `Move-AzureRMResource` resurs namn och typ av resurs krävs. Du kan hämta båda från `Get-AzureRmRecoveryServicesVault` cmdleten.
 
 ```powershell
 $destinationRG = "<destinationResourceGroupName>"

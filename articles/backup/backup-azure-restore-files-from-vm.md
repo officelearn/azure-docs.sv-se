@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 01235e116ca93f9c73e698e4d72ae0cb561824d5
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: ba97a5812359fc72e52d68e337762f7234aa3883
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262678"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611848"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -87,7 +87,7 @@ När diskarna har demonterats visas ett meddelande. Det kan ta några minuter in
 I Linux tar operativ systemet inte bort motsvarande monterings Sök vägar automatiskt när anslutningen till återställnings punkten har brutits. Monterings Sök vägarna finns som "föräldralösa" volymer och är synliga, men genererar ett fel när du öppnar/skriver filerna. De kan tas bort manuellt. Skriptet, vid körning, identifierar eventuella sådana volymer som är befintliga från alla tidigare återställnings punkter och rensar dem vid medgivande.
 
 > [!NOTE]
-> Kontrol lera att anslutningen är stängd när de filer som krävs har återställts. Detta är viktigt, särskilt i scenariot där den dator där skriptet körs också har kon figurer ATS för säkerhets kopiering. Om anslutningen fortfarande är öppen kan den efterföljande säkerhets kopieringen Miss förväntas med fel meddelandet "UserErrorUnableToOpenMount". Detta beror på att de monterade enheterna/volymerna antas vara tillgängliga och när de kan komma åt dem kan Miss lyckas eftersom den underliggande lagringen, t. ex., iSCSI-målservern inte är tillgänglig. Om du rensar anslutningen tas enheterna/volymerna bort och de kommer därför inte att vara tillgängliga under säkerhets kopieringen.
+> Kontrol lera att anslutningen är stängd när de filer som krävs har återställts. Detta är viktigt, särskilt i scenariot där den dator där skriptet körs också har kon figurer ATS för säkerhets kopiering. Om anslutningen fortfarande är öppen kan den efterföljande säkerhets kopieringen Miss förväntas med fel meddelandet "UserErrorUnableToOpenMount". Detta beror på att de monterade enheterna/volymerna antas vara tillgängliga och när de kan komma åt dem kan Miss lyckas eftersom den underliggande lagringen, t. ex., iSCSI-målservern inte är tillgänglig. Om du rensar anslutningen tas dessa enheter/volymer bort, så de kommer inte att vara tillgängliga under säkerhets kopieringen.
 
 ## <a name="selecting-the-right-machine-to-run-the-script"></a>Välja rätt dator för att köra skriptet
 
@@ -234,7 +234,7 @@ mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 > [!WARNING]
-> Använd inte "Mount-a". Det här kommandot monterar alla enheter som beskrivs i '/etc/fstab '. Detta kan betyda att dubbla enheter kan monteras. Data kan omdirigeras till enheter som skapats av skript, som inte bevarar data och kan därför leda till data förlust.
+> Använd inte "Mount-a". Det här kommandot monterar alla enheter som beskrivs i '/etc/fstab '. Detta kan betyda att dubbla enheter kan monteras. Data kan omdirigeras till enheter som skapats av skript, som inte bevarar data, och detta kan leda till data förlust.
 
 #### <a name="for-raid-arrays"></a>För RAID-matriser
 

@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c7cd3ed863153762e42a0b6420623fec52e779e1
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566326"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611542"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -85,7 +85,7 @@ För Azure VM Linux-säkerhetskopieringar stöder Azure Backup listan över Linu
 
 ## <a name="backup-frequency-and-retention"></a>Säkerhets kopierings frekvens och kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 Högsta antal återställnings punkter per skyddad instans (dator/arbets belastning) | 9999.
 Maximal förfallo tid för en återställnings punkt | Ingen gräns.
@@ -141,7 +141,7 @@ Storlek på virtuell dator |Valfri storlek på virtuella Azure-datorer med minst
 Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](../virtual-machines/availability.md#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
 Säkerhetskopiera virtuella datorer som har distribuerats med [Hybrid Use Benefit (hubb)](../virtual-machines/windows/hybrid-use-benefit-licensing.md) | Stöds.
 Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](../virtual-machine-scale-sets/overview.md) |Stöds. [Orchestration-läget](../virtual-machine-scale-sets/orchestration-modes.md) ska vara inställt på 2 för fel domän. Tillgänglighets uppsättningen stöds inte.
-Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerat av Microsoft, tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system). Vi återställer inte virtuella Azure Marketplace-datorer som har säkerhetskopierats som virtuella datorer, eftersom dessa behov av inköps information. De återställs bara som diskar.
+Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerat av Microsoft, tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system). Vi återställer inte virtuella Azure Marketplace-datorer som har säkerhetskopierats som virtuella datorer eftersom de behöver köpa information. De återställs bara som diskar.
 Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system).
 Säkerhetskopiera virtuella datorer som migreras till Azure| Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste den virtuella dator agenten vara installerad på den migrerade datorn.
 Säkerhetskopiera konsekvens för flera virtuella datorer | Azure Backup tillhandahåller inte data-och program konsekvens över flera virtuella datorer.

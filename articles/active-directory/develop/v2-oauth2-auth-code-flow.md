@@ -13,12 +13,12 @@ ms.date: 08/14/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 6cf9f7a005a80ab34e05ee293c20209e9d0b3f01
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 6648cfb717ade4b842e8ff470a46bf744b630363
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258585"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612324"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -233,6 +233,7 @@ Fel svaren kommer att se ut så här:
 | `interaction_required` | Icke-standard, eftersom OIDC-specifikationen bara anropar för detta på `/authorize` slut punkten. Begäran kräver användar interaktion. Till exempel krävs ytterligare ett autentiserings steg. | Gör om `/authorize` begäran med samma omfång. |
 | `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. | Gör om begäran efter en liten fördröjning. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
 |`consent_required` | Begäran kräver användar medgivande. Det här felet är inte standard, eftersom det vanligt vis bara returneras i `/authorize` slut punkten per OIDC-specifikationer. Returneras när en `scope` parameter användes på det kod inlösen flöde som klient programmet inte har behörighet att begära.  | Klienten bör skicka tillbaka användaren till `/authorize` slut punkten med rätt omfång för att utlösa medgivande. |
+|`invalid_scope` | Det omfång som begärdes av appen är ogiltigt.  | Uppdatera värdet för omfattnings parametern i autentiseringsbegäran till ett giltigt värde. |
 
 > [!NOTE]
 > Appar med en sida kan få ett `invalid_request` fel meddelande som anger att inlösningen för flera ursprungs-token endast tillåts för klient typen Single-Side-program.  Detta anger att omdirigerings-URI: n som används för att begära token inte har marker ATS som en `spa` omdirigerings-URI.  Granska [program registrerings stegen](#redirect-uri-setup-required-for-single-page-apps) för att aktivera det här flödet.

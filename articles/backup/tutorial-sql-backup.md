@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SQL Server-databaser till Azure
 description: I den här självstudien lär du dig hur du säkerhetskopierar en SQL Server databas som körs på en virtuell Azure-dator till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.openlocfilehash: e0f3ec8e9407c97f91a7f215a6a2734a254006d1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 17a8472da2595c08cb198baaf853faf110a619fa
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513340"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612460"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Säkerhetskopiera en SQL Server-databas på en virtuell Azure-dator
 
@@ -53,7 +53,7 @@ Azure Backup gör ett antal saker när du konfigurerar säkerhetskopiering för 
 * För att identifiera databaser på den virtuella datorn skapar Azure Backup kontot **NT SERVICE\AzureWLBackupPluginSvc**. Det här kontot används för säkerhetskopiering och återställning och kräver SQL-sysadmin-behörighet.
 * Azure Backup utnyttjar kontot **NT AUTHORITY\SYSTEM** för databasidentifiering/-förfrågan. Därför behöver det här kontot vara en offentlig inloggning på SQL.
 
-Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](backup-azure-sql-database.md#set-vm-permissions).
+Om du inte skapade SQL Server VM från Azure Marketplace kan du få ett fel **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](backup-azure-sql-database.md#set-vm-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Kontrollera riktlinjerna för namngivning av databaser för Azure Backup
 
@@ -98,13 +98,13 @@ Identifiera databaser som körs på den virtuella datorn.
 
     ![Meddelande som anger att distributionen lyckades](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen sker följande i bakgrunden:
+8. Azure Backup identifierar alla SQL Server-databaser på den virtuella datorn. Under identifieringen inträffar följande i bakgrunden:
 
     * Azure Backup registrerar den virtuella datorn med valvet för säkerhetskopiering av arbetsbelastning. Alla databaser på den registrerade virtuella datorn kan endast säkerhetskopieras till det här valvet.
     * Azure Backup installerar tillägget **AzureBackupWindowsWorkload** på den virtuella datorn. Det installeras inte någon agent på SQL-databasen.
     * Azure Backup skapar tjänstkontot **NT Service\AzureWLBackupPluginSvc** på den virtuella datorn.
       * Alla åtgärder för säkerhetskopiering och återställning använder tjänstkontot.
-      * **NT Service\AzureWLBackupPluginSvc** behöver SQL-sysadmin-behörigheter. Alla virtuella SQL Server-datorer som skapas i Azure Marketplace har **SqlIaaSExtension** installerat. Tillägget **AzureBackupWindowsWorkload** använder **SQLIaaSExtension** för att automatiskt hämta de behörigheter som krävs.
+      * **NT Service\AzureWLBackupPluginSvc** behöver SQL-sysadmin-behörigheter. Alla SQL Server virtuella datorer som har skapats i Azure Marketplace levereras med **SqlIaaSExtension** installerat. Tillägget **AzureBackupWindowsWorkload** använder **SQLIaaSExtension** för att automatiskt hämta de behörigheter som krävs.
     * Om du inte skapade den virtuella datorn från Marketplace har den inte **SqlIaaSExtension** installerat, och identifieringsåtgärden misslyckas med felmeddelandet **UserErrorSQLNoSysAdminMembership**. Följ [anvisningarna](backup-azure-sql-database.md#set-vm-permissions) för att åtgärda problemet.
 
         ![Välj den virtuella datorn och databasen](./media/backup-azure-sql-database/registration-errors.png)
@@ -117,7 +117,7 @@ Konfigurera säkerhetskopiering på följande sätt:
 
    ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-2. Klicka på **Konfigurera säkerhets kopiering**, bladet **Välj objekt som ska säkerhets kopie ras** visas. Här visas alla registrerade tillgänglighets grupper och fristående SQL-servrar. Expandera-ikonen till vänster om raden för att se alla oskyddade databaser i den instansen eller Always on AG.  
+2. Välj **Konfigurera säkerhets kopiering**, fönstret **Välj objekt som ska säkerhets kopie ras** visas. Här visas alla registrerade tillgänglighets grupper och fristående SQL-servrar. Expandera-ikonen till vänster om raden för att se alla oskyddade databaser i den instansen eller Always on AG.  
 
     ![Visa alla SQL Server-instanser med fristående databaser](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -129,11 +129,11 @@ Konfigurera säkerhetskopiering på följande sätt:
 
      * Alternativt kan du aktivera automatiskt skydd på hela instansen eller AlwaysOn-tillgänglighetsgruppen genom att välja alternativet **PÅ** i motsvarande listruta i kolumnen **AUTOPROTECT** (Automatiskt skydd). Funktionen automatiskt skydd aktiverar inte bara skydd på alla befintliga databaser i ett svep, utan skyddar även automatiskt alla nya nya databaser som läggs till i den instansen eller tillgänglighetsgruppen i framtiden.  
 
-4. Klicka på **OK** för att öppna bladet **säkerhets kopierings princip** .
+4. Välj **OK** för att öppna fönstret **säkerhets kopierings princip** .
 
     ![Aktivera automatiskt skydd i AlwaysOn-tillgänglighetsgruppen](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. I **Välj säkerhetskopieringspolicy** väljer du en policy och klickar på **OK**.
+5. I **Välj säkerhets kopierings princip**väljer du en princip och väljer sedan **OK**.
 
    * Välj standard principen: HourlyLogBackup.
    * Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
@@ -161,8 +161,8 @@ En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur l�
 
 Så här skapar du en säkerhetskopieringspolicy:
 
-1. I valvet klickar du på **säkerhets kopierings principer**  >  **Lägg till**.
-2. I menyn **Lägg till** klickar du på **SQL Server i Azure VM** för att definiera princip typen.
+1. I valvet väljer du **säkerhets kopierings principer**  >  **Lägg till**.
+2. I menyn **Lägg till** väljer du **SQL Server i Azure VM** för att definiera princip typen.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -171,7 +171,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 
    * För **Dagligen** väljer du den timme och den tidszon då säkerhetskopieringsjobbet börjar.
    * Du måste köra en fullständig säkerhets kopiering eftersom du inte kan stänga av alternativet för **fullständig säkerhets kopiering** .
-   * Klicka på **Fullständig säkerhetskopia** för att visa policyn.
+   * Välj **fullständig säkerhets kopiering** för att Visa principen.
    * Du kan inte skapa differentiella säkerhetskopior för dagliga fullständiga säkerhetskopior.
    * För **Varje vecka** väljer du den veckodag, timme och tidszon då säkerhetskopieringsjobbet börjar.
 
@@ -214,7 +214,7 @@ Så här skapar du en säkerhetskopieringspolicy:
 ## <a name="run-an-on-demand-backup"></a>Köra en säkerhets kopiering på begäran
 
 1. I Recovery Services-valvet väljer du säkerhets kopierings objekt.
-2. Klicka på SQL i Azure VM.
+2. Välj SQL i Azure VM.
 3. Högerklicka på en databas och välj "Säkerhetskopiera nu".
 4. Välj säkerhets kopierings typ (fullständig/differentiell/Logga/kopiera endast fullständig) och komprimering (aktivera/inaktivera)
 5. Välj OK för att påbörja säkerhets kopieringen.

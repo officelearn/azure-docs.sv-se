@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a4579e092bbc4fd58954f1ce1f1dad3a8ddbbba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3a23e0c2546da55f977d589eb38607994d3902b
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80133165"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611798"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Använda IoT Edge i Windows för att köra Linux-behållare
 
@@ -34,7 +34,7 @@ Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT E
 
 Azure IoT Edge med Linux-behållare kan köras på alla versioner av Windows som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
-Om du vill installera IoT Edge på en virtuell dator aktiverar du kapslad virtualisering och allokerar minst 2 GB minne. Hur du aktiverar kapslad virtualisering är olika beroende på vilken hypervisor du använder. För Hyper-V kan virtuella datorer i generation 2 ha kapslad virtualisering aktiverat som standard. För VMWare finns det en växling för att aktivera funktionen på den virtuella datorn.
+Om du vill installera IoT Edge på en virtuell dator aktiverar du kapslad virtualisering och allokerar minst 2 GB minne. Hur du aktiverar kapslad virtualisering är olika beroende på vilken hypervisor du använder. För Hyper-V kan virtuella datorer i generation 2 ha kapslad virtualisering aktiverat som standard. För VMware finns det en växling för att aktivera funktionen på den virtuella datorn.
 
 ### <a name="prepare-the-container-engine"></a>Förbereda behållar motorn
 
@@ -53,13 +53,13 @@ Ett PowerShell-skript laddar ned och installerar Azure IoT Edge Security daemon.
 
 När du installerar IoT Edge runtime för första gången på en enhet måste du etablera enheten med en identitet från en IoT-hubb. En enskild IoT Edge enhet kan tillhandahållas manuellt med hjälp av en enhets anslutnings sträng från IoT Hub. Du kan också använda enhets etablerings tjänsten för att etablera enheter automatiskt, vilket är användbart när du har många enheter att konfigurera.
 
-Du kan läsa mer om de olika installations alternativen och parametrarna i artikeln [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md). När du har Docker-skrivbordet installerat och konfigurerat för Linux-behållare, deklareras den huvudsakliga installations skillnaden Linux med parametern **-containern** . Till exempel:
+Du kan läsa mer om de olika installations alternativen och parametrarna i artikeln [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md). När du har Docker-skrivbordet installerat och konfigurerat för Linux-behållare, deklareras den huvudsakliga installations skillnaden Linux med parametern **-containern** . Exempel:
 
 1. Registrera en ny IoT Edge enhet och hämta anslutnings strängen för enheten om du inte redan gjort det. Kopiera anslutnings strängen och Använd den senare i det här avsnittet. Du kan utföra det här steget med följande verktyg:
 
-   * [Azure Portal](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure-portalen](how-to-register-device.md#register-in-the-azure-portal)
    * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
-   * [Visuell Studio-kod](how-to-register-device.md#register-with-visual-studio-code)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. Kör PowerShell som administratör.
 
@@ -88,7 +88,7 @@ Du kan läsa mer om de olika installations alternativen och parametrarna i artik
 
 6. När du uppmanas till det anger du den enhets anslutnings sträng som du hämtade i steg 1. Enhets anslutnings strängen kopplar den fysiska enheten med ett enhets-ID i IoT Hub.
 
-   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>Verifiera lyckad installation
 

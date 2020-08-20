@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: e892bf2b943d35728b15a9354308e149af2e478e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810215"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88611831"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -39,7 +39,7 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
 * Kör konfigurations skriptet för SAP HANA säkerhets kopiering (för registrerings skriptet) på den virtuella datorn där HANA är installerat, som rot användare. [Det här skriptet](https://aka.ms/scriptforpermsonhana) hämtar Hana-systemet för säkerhets kopiering. Mer information om skriptet för för registrering finns i avsnittet [Vad skriptet gör för registrering](#what-the-pre-registration-script-does) .
 
 >[!NOTE]
->För registrerings skriptet installerar **unixODBC234** för SAP HANA arbets belastningar som körs på RHEL (7,4, 7,6 och 7,7) och **unixODBC** för RHEL 8,1. [Paketet finns i RHEL for SAP HANA (för RHEL 7-Server) uppdaterings tjänster för SAP-lösningar (RPMS) lagrings platsen](https://access.redhat.com/solutions/5094721).  För Azure Marketplace RHEL-avbildningen skulle lagrings platsen vara **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-E4S-RPMS**.
+>För registrerings skriptet installerar **unixODBC234** för SAP HANA arbets belastningar som körs på RHEL (7,4, 7,6 och 7,7) och **unixODBC** för RHEL 8,1. [Paketet finns i RHEL for SAP HANA (för RHEL 7-Server) uppdaterings tjänster för SAP-lösningar (RPMS) lagrings platsen](https://access.redhat.com/solutions/5094721).  För en Azure Marketplace RHEL-avbildning skulle lagrings platsen vara **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-E4S-RPMS**.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurera nätverks anslutning
 
@@ -71,7 +71,7 @@ Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen 
 
 1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
 
-1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
+1. Klicka på **Lägg till**  för att spara den nyligen skapade utgående säkerhets regeln.
 
 Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](../virtual-network/service-tags-overview.md).
 
@@ -111,8 +111,8 @@ Att köra skriptet för för registrering utför följande funktioner:
 * Skriptet lägger till en nyckel till **hdbuserstore** för AZUREWLBACKUPHANAUSER för plugin-programmet Hana backup för att hantera alla åtgärder (databas frågor, återställnings åtgärder, konfigurera och köra säkerhets kopiering).
 
 >[!NOTE]
-> Du kan uttryckligen skicka användar nyckeln som visas som en del av [förutsättningarna](#prerequisites) som en parameter till för registrerings skriptet:`-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
->Om du vill veta vilka andra parametrar som skriptet accepterar använder du kommandot`bash msawb-plugin-config-com-sap-hana.sh --help`
+> Du kan uttryckligen skicka användar nyckeln som visas som en del av [förutsättningarna](#prerequisites) som en parameter till för registrerings skriptet: `-sk SYSTEM_KEY_NAME, --system-key SYSTEM_KEY_NAME` <br><br>
+>Om du vill veta vilka andra parametrar som skriptet accepterar använder du kommandot `bash msawb-plugin-config-com-sap-hana.sh --help`
 
 Bekräfta att nyckeln skapas genom att köra kommandot HDBSQL på datorn HANA med SIDADM-autentiseringsuppgifter:
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 08cf736e533486b765f3b1a1173fcfe06c03306f
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
+ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212867"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612494"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Komma igång med Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du använder Visual Studio 2019 för att skapa ett A
 
 Den här artikeln visar hur du distribuerar WebJobs som en .NET Core-konsolprogram. Om du vill distribuera WebJobs som en .NET Framework-konsolsession, se [WebJobs som .NET Framework-konsol program](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Om du är intresse rad av WebJobs SDK version 2. x, som endast stöder .NET Framework, se [utveckla och distribuera WebJobs med Visual Studio-Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera Visual Studio 2019](/visualstudio/install/) med arbets belastningen **Azure Development** . Om du redan har Visual Studio men inte har den arbets belastningen lägger du till arbets belastningen genom att välja **verktyg > hämta verktyg och funktioner**.
 

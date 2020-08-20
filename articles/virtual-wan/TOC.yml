@@ -2,7 +2,7 @@
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Virtual WAN
+    - name: Vad är Virtual WAN?
       href: virtual-wan-about.md
     - name: Arkitektur
       items:

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea568acdf356064dc603d30ffba7df3c02bde621
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450465"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660916"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -80,7 +80,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](../how-to/region-mappings.md#supported-mappings)för arbets ytan. 
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 ||
 |Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder utvärderingar och korrigeringar för det här operativ systemet. [Hybrid Runbook Worker](../automation-windows-hrw-install.md) stöds för Windows Server 2008 R2. |
@@ -96,7 +96,7 @@ I följande tabell visas de operativ system som stöds för uppdaterings bedömn
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Anteckningar  |
+|Operativsystem  |Kommentarer  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
@@ -180,7 +180,7 @@ Uppdateringshantering söker igenom hanterade datorer efter data med hjälp av f
 
 * Varje Linux-dator – Uppdateringshantering genomsöks varje timme.
 
-Den genomsnittliga data användningen per Azure Monitor loggar för en dator som använder Uppdateringshantering är cirka 25 MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras, beroende på din miljö. Vi rekommenderar att du övervakar din miljö för att hålla koll på din exakta användning. Mer information om hur du analyserar data användningen finns i [Hantera användning och kostnad](../../azure-monitor/platform/manage-cost-storage.md).
+Den genomsnittliga data användningen per Azure Monitor loggar för en dator som använder Uppdateringshantering är cirka 25 MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras, beroende på din miljö. Vi rekommenderar att du övervakar din miljö för att hålla koll på din exakta användning. Mer information om hur du analyserar Azure Monitor loggar data användning finns i [Hantera användning och kostnad](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="network-planning"></a><a name="ports"></a>Nätverks planering
 

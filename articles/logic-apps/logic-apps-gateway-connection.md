@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 07/28/2020
-ms.openlocfilehash: 675d4bdb0b8c0aa8e034d5a85dc027f642705fa9
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/18/2020
+ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386188"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661205"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ansluta till lokala datakällor från Azure Logic Apps
 
-När du har [installerat den lokala *datagatewayen* på en lokal dator](../logic-apps/logic-apps-gateway-install.md) och innan du kan komma åt data källor lokalt från dina Logi Kap par, måste du skapa en gateway-resurs i Azure för din gateway-installation. Du kan sedan välja denna gateway-resurs i de utlösare och åtgärder som du vill använda för [lokala anslutningar](../connectors/apis-list.md#on-premises-connectors) som är tillgängliga i Azure Logic Apps.
+När du har [installerat den lokala *datagatewayen* på en lokal dator](../logic-apps/logic-apps-gateway-install.md) och innan du kan komma åt data källor lokalt från dina Logi Kap par, måste du skapa en gateway-resurs i Azure för din gateway-installation. Du kan sedan välja denna gateway-resurs i de utlösare och åtgärder som du vill använda för [lokala anslutningar](../connectors/apis-list.md#on-premises-connectors) som är tillgängliga i Azure Logic Apps. Azure Logic Apps stöder Läs-och skriv åtgärder via datagatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](/data-integration/gateway/service-gateway-onprem#considerations).
 
 Den här artikeln visar hur du skapar en Azure gateway-resurs för en tidigare [installerad gateway på den lokala datorn](../logic-apps/logic-apps-gateway-install.md). Mer information om gatewayen finns i [så här fungerar gatewayen](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -48,7 +48,7 @@ I Azure Logic Apps stöder den lokala datagatewayen de [lokala](../connectors/ap
 * SQL Server
 * Teradata
 
-Azure Logic Apps stöder Läs-och skriv åtgärder via datagatewayen. Dessa åtgärder har dock [gränser för deras nytto Last storlek](/data-integration/gateway/service-gateway-onprem#considerations). Även om själva gatewayen inte ådrar sig ytterligare kostnader, gäller [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md) för dessa anslutningar och andra åtgärder i Azure Logic Apps.
+Du kan också skapa [anpassade anslutningar](../logic-apps/custom-connector-overview.md) som ansluter till data källor via http eller https med hjälp av rest eller SOAP. Även om själva gatewayen inte ådrar sig ytterligare kostnader, gäller [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md) för dessa anslutningar och andra åtgärder i Azure Logic Apps.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -152,7 +152,7 @@ Om du vill skapa en annan gateway-resurs länkar du Gateway-installationen till 
 
 1. Om du inte redan har valt väljer du **lokal datagateway**på menyn gateway-resurs. I verktygsfältet gateway-resurs väljer du **ta bort**.
 
-   Ett exempel:
+   Exempel:
 
    ![Ta bort gateway-resurs i Azure](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 

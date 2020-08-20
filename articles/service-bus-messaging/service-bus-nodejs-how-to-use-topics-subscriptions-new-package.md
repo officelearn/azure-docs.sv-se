@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080634"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660604"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Node.js och Azure/Service-Bus-paketet
 I den här självstudien får du lära dig hur du skriver ett Node.js program för att skicka meddelanden till ett Service Bus ämne och ta emot meddelanden från en Service Bus prenumeration med det nya [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) paketet. Det här paketet använder det snabbare [AMQP 1,0-protokollet](service-bus-amqp-overview.md) medan det äldre [Azure-SB-](https://www.npmjs.com/package/azure-sb) paketet används [Service Bus REST-API: er för körnings tid](/rest/api/servicebus/service-bus-runtime-rest). Exemplen är skrivna i Java Script.
@@ -86,7 +86,7 @@ Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standar
 Att interagera med en Service Bus prenumeration börjar med att instansiera klassen [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) och använda den för att instansiera [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient) -klassen. När du har prenumerations klienten kan du skapa en mottagare och använda antingen [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) eller [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) -metoden på den för att ta emot meddelanden.
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa en fil med namnet `recieve.js` och klistra in nedanstående kod i den. Den här koden kommer att försöka ta emot 10 meddelanden från din prenumeration. Det faktiska antalet du får beror på antalet meddelanden i prenumerationen och nätverks fördröjningen.
+2. Skapa en fil med namnet `receive.js` och klistra in nedanstående kod i den. Den här koden kommer att försöka ta emot 10 meddelanden från din prenumeration. Det faktiska antalet du får beror på antalet meddelanden i prenumerationen och nätverks fördröjningen.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ Att interagera med en Service Bus prenumeration börjar med att instansiera klas
     });
     ```
 3. Ange anslutnings strängen och namnen för ditt ämne och din prenumeration i ovanstående kod.
-4. Kör sedan kommandot `node receiveMessages.js` i en kommando tolk för att köra den här filen.
+4. Kör sedan kommandot `node receive.js` i en kommando tolk för att köra den här filen.
 
 Grattis! Du har bara tagit emot meddelanden från en Service Bus prenumeration.
 
@@ -137,7 +137,7 @@ Varje prenumeration har en standard regel som använder det sanna filtret för a
 > [!NOTE]
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Mer information finns i följande resurser.
 
 - [Köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)

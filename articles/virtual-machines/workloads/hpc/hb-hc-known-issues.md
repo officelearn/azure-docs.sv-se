@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 2de2680ccd0ecf385598080747e80eed5ead3bc8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 6316bcc91bb381facb4f77b2d8dbd8b22f9ed387
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652873"
+ms.locfileid: "88660103"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Kända problem med virtuella datorer i H-serien och N-serien
 
@@ -35,10 +35,6 @@ Azure-accelererat nätverk är inte aktiverat för tillfället, men det kommer a
 ## <a name="qp0-access-restriction"></a>Åtkomst begränsning för qp0
 
 För att förhindra maskin vara på låg nivå som kan leda till säkerhets risker, är Queue-paret 0 inte tillgängligt för virtuella gäst datorer. Detta bör endast påverka åtgärder som vanligt vis är kopplade till administration av ConnectX-5-NÄTVERKSKORTet och som kör en viss InfiniBand-diagnostik som ibdiagnet, men inte slutanvändarens program.
-
-## <a name="ud-transport"></a>UD-transport
-
-Vid lanseringen stöder HB-och HC-serien inte dynamiskt ansluten transport (DCT). Stöd för DCT kommer att implementeras över tid. Det finns stöd för pålitliga anslutnings anslutningar (RC) och otillförlitliga datagram (UD).
 
 ## <a name="gss-proxy"></a>GSS-proxy
 

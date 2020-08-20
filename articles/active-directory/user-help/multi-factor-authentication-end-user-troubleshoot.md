@@ -9,15 +9,16 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/04/2020
+ms.date: 08/20/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 754d456f557b6c9500cdb64ee01a42124a18ab9c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+metadata ms.custom: contperfq1
+ms.openlocfilehash: b21b2a9f2d2bd483ed48a4c30b504908bb54a101
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036682"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661445"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets- eller skolkonto
 
@@ -31,14 +32,10 @@ När 2FV är på, kräver ditt konto inloggning en kombination av följande data
 
 2FV är säkrare än bara ett lösen ord, eftersom 2FV kräver något som du _känner_ till och något du _har_. Ingen hackare har din fysiska telefon.
 
-<center>
-
-![Bild av metoder för konceptuell autentisering](../authentication/media/concept-mfa-howitworks/methods.png)</center>
-
 >[!Important]
 >Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar din Azure AD-miljö i [Azure AD-dokumentationen](https://docs.microsoft.com/azure/active-directory).
->
->Det här innehållet är även avsett att användas med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel alain@contoso.com ). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com ), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+
+Det här innehållet är avsett att hjälpa dig med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel dritan@contoso.com ). Om du har problem med tvåstegsverifiering på en personlig Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com ), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Jag har inte min mobila enhet
 
@@ -71,7 +68,7 @@ Prova detta | Information om vägledning
 --------- | ------------
 Starta om din mobila enhet | Ibland behöver enheten bara en uppdatering. När du startar om enheten avslutas alla bakgrunds processer och-tjänster. Omstarten stänger också av enhetens kärn komponenter. Alla tjänster och komponenter uppdateras när du startar om enheten.
 Kontrol lera att din säkerhets information är korrekt | Kontrol lera att informationen om säkerhets verifierings metoden är korrekt, särskilt dina telefonnummer. Om du anger fel telefonnummer hamnar alla aviseringar till det felaktiga numret. Den användaren är lyckligt vis inte att kunna göra något med aviseringarna, men du kan inte heller logga in på ditt konto. Om du vill kontrol lera att informationen är korrekt läser du anvisningarna i artikeln [Hantera inställningar för metod för att hantera dina inställningar](multi-factor-authentication-end-user-manage-settings.md) .
-Kontrol lera att dina meddelanden är aktiverade | Se till att dina meddelanden är aktiverade på den mobila enheten. Se till att följande meddelande lägen är tillåtna: <br/><br/> &bull;Telefonsamtal <br/> &bull;Din app för autentisering <br/> &bull;Din app för SMS-meddelanden <br/><br/> Se till att dessa lägen skapar en avisering som är _synlig_ på enheten.
+Kontrol lera att dina meddelanden är aktiverade | Se till att dina meddelanden är aktiverade på den mobila enheten. Se till att följande meddelande lägen är tillåtna: <br/><br/> &bull; Telefonsamtal <br/> &bull; Din app för autentisering <br/> &bull; Din app för SMS-meddelanden <br/><br/> Se till att dessa lägen skapar en avisering som är _synlig_ på enheten.
 Kontrol lera att du har en enhets signal och Internet anslutning | Se till att dina telefonsamtal och textmeddelanden går igenom till din mobila enhet. Låt en vän ringa dig och skicka ett SMS till dig för att se till att du får båda. Om du inte får samtal eller text kontrollerar du först för att se till att din mobila enhet är påslagen. Om enheten är påslagen, men du fortfarande inte får samtalet eller texten, finns det förmodligen ett problem med nätverket. Du måste prata med din Provider. Om du ofta har problem med signalen rekommenderar vi att du installerar och använder Microsoft Authenticator- [appen](user-help-auth-app-download-install.md) på din mobila enhet. Authenticator-appen kan generera slumpmässiga säkerhets koder för inloggning, utan att det krävs någon cell signal eller Internet anslutning.
 Inaktivera Stör ej | Kontrol lera att du inte har aktiverat funktionen **stör ej** på den mobila enheten. När den här funktionen är aktive rad är aviseringar inte tillåtna för att varna dig på din mobila enhet. Information om hur du inaktiverar den här funktionen finns i hand boken för den mobila enheten.
 Avblockera telefonnummer | I USA kommer röst samtal från Microsoft att komma från följande nummer: + 1 (866) 539 4191, + 1 (855) 330 8653 och + 1 (877) 668 6536.

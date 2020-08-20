@@ -2,13 +2,13 @@
 title: Importera containeravbildningar
 description: 'Importera behållar avbildningar till ett Azure Container Registry med hjälp av Azure API: er, utan att behöva köra Docker-kommandon.'
 ms.topic: article
-ms.date: 03/16/2020
-ms.openlocfilehash: a7a6566540880d027b1dc3428d394b352f34318d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 08/17/2020
+ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023524"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660503"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importera behållar avbildningar till ett behållar register
 
@@ -28,17 +28,19 @@ Avbildnings import till ett Azure Container Registry har följande fördelar jä
 
 * När du importerar avbildningar med flera arkitekturer (till exempel officiella Docker-avbildningar) kopieras avbildningar för alla arkitekturer och plattformar som anges i manifest listan.
 
+* Åtkomst till käll-och mål registren behöver inte använda registrens offentliga slut punkter.
+
 Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt (version 2.0.55 eller senare rekommenderas) för att importera behållar avbildningar. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 > [!NOTE]
 > Om du behöver distribuera identiska behållar avbildningar i flera Azure-regioner stöder Azure Container Registry också [geo-replikering](container-registry-geo-replication.md). Genom geo-replikering av ett register (Premium service nivå krävs) kan du hantera flera regioner med identiska bild-och taggnamn från ett enda register.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte redan har ett Azure Container Registry skapar du ett register. Anvisningar finns i [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md).
 
-Om du vill importera en avbildning till ett Azure Container Registry måste identiteten ha Skriv behörighet till mål registret (minst deltagar rollen). Se [Azure Container Registry roller och behörigheter](container-registry-roles.md). 
+Om du vill importera en avbildning till ett Azure Container Registry måste identiteten ha Skriv behörighet till mål registret (minst deltagar rollen eller en anpassad roll som tillåter åtgärden importImage). Se [Azure Container Registry roller och behörigheter](container-registry-roles.md#custom-roles). 
 
 ## <a name="import-from-a-public-registry"></a>Importera från ett offentligt register
 
@@ -85,9 +87,11 @@ az acr import \
 
 Du kan importera en avbildning från ett annat Azure Container Registry med hjälp av integrerade Azure Active Directory behörigheter.
 
-* Din identitet måste ha Azure Active Directory behörighet att läsa från käll registret (läsar roll) och skriva till mål registret (deltagar rollen).
+* Din identitet måste ha Azure Active Directory behörighet att läsa från käll registret (läsar roll) och för att kunna importera till mål registret (deltagar rollen eller en [anpassad roll](container-registry-roles.md#custom-roles) som tillåter åtgärden importImage).
 
 * Registret kan finnas i samma eller en annan Azure-prenumeration i samma Active Directory klient.
+
+* [Offentlig åtkomst](container-registry-access-selected-networks.md#disable-public-network-access) till käll registret kan inaktive ras. Om offentlig åtkomst är inaktive rad anger du käll registret per resurs-ID i stället för inloggnings Server namnet för registret.
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>Importera från ett register i samma prenumeration
 
@@ -98,6 +102,16 @@ az acr import \
   --name myregistry \
   --source mysourceregistry.azurecr.io/aci-helloworld:latest \
   --image aci-helloworld:latest
+```
+
+I följande exempel importeras `aci-helloworld:latest` avbildningen till *registret* från en *mysourceregistry* för käll registret där åtkomst till registrets offentliga slut punkt är inaktive rad. Ange resurs-ID för käll registret med `--registry` parametern. Observera att `--source` parametern endast anger käll databasen och taggen, inte namnet på inloggnings servern för registret.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source aci-helloworld:latest \
+  --image aci-helloworld:latest \
+  --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry
 ```
 
 I följande exempel importeras en avbildning av manifest sammandrag (SHA-256-hash, som visas `sha256:...` ) i stället för taggen:

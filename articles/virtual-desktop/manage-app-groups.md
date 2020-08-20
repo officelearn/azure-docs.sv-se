@@ -3,15 +3,15 @@ title: Hantera app-grupper för Windows Virtual Desktop Portal – Azure
 description: Hantera Windows-appar för virtuella skriv bord med Azure Portal.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010097"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659491"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Självstudie: hantera program grupper med Azure Portal
 
@@ -34,11 +34,15 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 
 2.  Sök efter och välj **virtuellt skriv bord i Windows**.
 
-3.  Välj **program grupper** i menyn på vänster sida av sidan och välj sedan **+ Lägg till**.
+3. Du kan lägga till en program grupp direkt eller så kan du lägga till den från en befintlig värdbaserad pool. Välj ett alternativ nedan:
 
-4. På fliken **grundläggande** väljer du den prenumerations grupp och resurs grupp som du vill skapa app-gruppen för. Du kan också välja att skapa en ny resurs grupp i stället för att välja en befintlig.
+    - Välj **program grupper** i menyn på vänster sida av sidan och välj sedan **+ Lägg till**.
 
-5. Välj den modempool som ska associeras med program gruppen från den nedrullningsbara menyn bredvid **poolen värd**.
+    - Välj **pooler** i menyn på vänster sida av skärmen, Välj namnet på värddatorn, Välj **program grupper** i menyn på vänster sida och välj sedan **+ Lägg till**. I det här fallet är värd poolen redan vald på fliken grundläggande.
+
+4. På fliken **grundläggande** väljer du den **prenumeration** och **resurs grupp** som du vill skapa app-gruppen för. Du kan också välja att skapa en ny resurs grupp i stället för att välja en befintlig.
+
+5. Välj den **modempool** som ska associeras med program gruppen från den nedrullningsbara menyn.
 
     >[!NOTE]
     >Du måste välja den modempool som är associerad med program gruppen. App-grupper har appar eller skriv bord som hanteras från en sessions värd och sessions-värdar är en del av värd-pooler. App-gruppen måste vara kopplad till en adresspool när den skapas.
@@ -46,41 +50,27 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
     > [!div class="mx-imgBorder"]
     > ![En skärm bild av fliken grundläggande i Azure Portal.](media/basics-tab.png)
 
-6. Om du vill lägga till program grupper i din värddator väljer du **pooler** på menyn till vänster på skärmen.
-
-    Välj sedan namnet på den värddator som du vill lägga till program grupper i.
-
-    Sedan väljer du **program grupper** på menyn till vänster på skärmen och väljer sedan **+ Lägg till**.
-
-    Välj slutligen den prenumerations grupp och resurs grupp som du vill skapa app-gruppen i. Du kan antingen välja namnet på en befintlig resurs grupp från den nedrullningsbara menyn eller välja **Skapa ny** för att skapa en ny.
-
-      >[!NOTE]
-      >När du lägger till program grupper i din värd pool är den värddator som är relaterad till program gruppen redan markerad eftersom du har navigerat från den.
-      >
-      > [!div class="mx-imgBorder"]
-      >![En skärm bild av fliken grundläggande med förvaltad värd för poolen.](media/host-pool-selected.png)
-
-7. Välj **RemoteApp** under program grupps typ och ange ett namn för RemoteApp.
+6. Välj **RemoteApp** under **program grupps typ**och ange ett namn för RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![En skärm bild av fälten för program grupp typ. "RemoteApp" är markerat.](media/remoteapp-button.png)
 
-8.  Välj fliken **tilldelningar** .
+7.  Välj **Nästa: fliken tilldelningar >** .
 
-9.  Om du vill publicera enskilda användare eller användar grupper i app-gruppen väljer du **+ Lägg till Azure AD-användare eller användar grupper**.
+8.  Om du vill tilldela enskilda användare eller användar grupper till app-gruppen väljer du **+ Lägg till Azure AD-användare eller användar grupper**.
 
-10.  Välj det antal användare som du vill lägga till apparna i. Du kan välja en eller flera användare och användar grupper.
+9.  Välj de användare som du vill ska ha åtkomst till apparna. Du kan välja en eller flera användare och användar grupper.
 
      > [!div class="mx-imgBorder"]
      > ![En skärm bild av menyn för val av användare.](media/select-users.png)
 
-11.  Välj **Välj**.
+10.  Välj **Välj**.
 
-12.  Välj fliken **program** och välj sedan **+ Lägg till program**.
+11.  Välj **Nästa: program >** och välj sedan **+ Lägg till program**.
 
-13.  Så här lägger du till ett program på Start-menyn:
+12.  Så här lägger du till ett program på Start-menyn:
 
-      - Gå till **program källa** och välj **Start-menyn** på den nedrullningsbara menyn. Gå sedan till **program** och välj programmet i den nedrullningsbara menyn.
+      - Under **program källa**väljer du **Start-menyn** på den nedrullningsbara menyn. Välj sedan programmet i den nedrullningsbara menyn under **program**.
 
      > [!div class="mx-imgBorder"]
      > ![En skärm bild av skärmen Lägg till program med Start-menyn markerad.](media/add-app-start.png)
@@ -89,11 +79,11 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
 
       - Lämna de andra alternativen som de är och välj **Spara**.
 
-14. Så här lägger du till ett program från en specifik fil Sök väg:
+13.  Så här lägger du till ett program från en specifik fil Sök väg:
 
-      - Gå till **program källa** och välj **fil Sök väg** på den nedrullningsbara menyn.
+      - Under **program källa**väljer du **fil Sök väg** på den nedrullningsbara menyn.
 
-      - Ange sökvägen till programmet på värd för sessionen som är registrerad på den associerade poolen.
+      - I **program Sök väg**anger du sökvägen till programmet på den värd för sessionen som registrerats för den associerade poolen.
 
       - Ange programmets information i fälten **program namn**, **visnings namn**, **sökväg**och **ikon index** .
 
@@ -102,11 +92,11 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
      > [!div class="mx-imgBorder"]
      > ![En skärm bild av sidan Lägg till program med fil Sök väg vald.](media/add-app-file.png)
 
-     Upprepa den här processen för alla program som du vill lägga till i program gruppen.
+14.  Upprepa den här processen för alla program som du vill lägga till i program gruppen.
 
-15.  Välj sedan fliken **arbets yta** .
+15.  Välj nästa **: >arbets yta **.
 
-16.  Om du vill registrera app-gruppen på en arbets yta går du till **Registrera program grupp** och väljer **Ja**. Om du hellre vill registrera app-gruppen vid ett senare tillfälle väljer du **Nej**.
+16.  Om du vill registrera app-gruppen på en arbets yta väljer du **Ja** för **Registrera program grupp**. Om du hellre vill registrera app-gruppen vid ett senare tillfälle väljer du **Nej**.
 
 17.  Om du väljer **Ja**kan du välja en befintlig arbets yta för att registrera din app-grupp på.
 
@@ -116,11 +106,11 @@ Om du redan har skapat en adresspool och en session som är värd för en virtue
      > [!div class="mx-imgBorder"]
      > ![En skärm bild av sidan Registrera program grupp för en befintlig arbets yta. Host-poolen är förvalt.](media/register-existing.png)
 
-18. Alternativt kan du, om du vill skapa taggar för att göra din arbets yta lätt att ordna, välja fliken **taggar** och ange dina taggnamn.
+18.  Om du vill skapa taggar för att göra din arbets yta lätt att organisera, väljer du **Nästa: taggar >** och anger dina taggnamn.
 
-19. När du är klar väljer du fliken **Granska + skapa** .
+19.  När du är klar väljer du **Granska + skapa**.
 
-20. Vänta en stund tills verifierings processen har slutförts. När du är färdig väljer du **skapa** för att distribuera din app-grupp.
+20.  Vänta en stund tills verifierings processen har slutförts. När du är färdig väljer du **skapa** för att distribuera din app-grupp.
 
 Distributions processen gör följande saker för dig:
 

@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372390"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661409"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -166,8 +166,8 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. DevTestLab/labb/scheman | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft. DevTestLab/Labs/Users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft. DevTestLab/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [Listnycklar](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft. EventGrid/Domains | [Listnycklar](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -458,7 +458,7 @@ Referens funktionen kan bara användas i egenskaperna för en resurs definition 
 
 Du kan inte använda funktionen Reference för att ange värdet för `count` egenskapen i en kopierings slinga. Du kan använda för att ange andra egenskaper i slingan. Referensen har blockerats för Count-egenskapen eftersom den egenskapen måste bestämmas innan referens funktionen löses.
 
-Om du vill använda funktionen Reference eller någon List *-funktion i avsnittet utdata i en kapslad mall måste du ställa in ```expressionEvaluationOptions``` för att använda [intern omfattnings](linked-templates.md#expression-evaluation-scope-in-nested-templates) utvärdering eller använda en länkad i stället för en kapslad mall.
+Om du vill använda funktionen Reference eller någon List *-funktion i avsnittet utdata i en kapslad mall måste du ställa in  ```expressionEvaluationOptions``` för att använda [intern omfattnings](linked-templates.md#expression-evaluation-scope-in-nested-templates) utvärdering eller använda en länkad i stället för en kapslad mall.
 
 Om du använder funktionen **Reference** i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats.  Du får ett fel meddelande om **referens** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
 
@@ -490,9 +490,9 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Till exempel:
+Exempel:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` inte korrekt
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` inte korrekt
 
 För att förenkla skapandet av eventuella resurs-ID använder du `resourceId()` funktionerna som beskrivs i det här dokumentet i stället för `concat()` funktionen.
 

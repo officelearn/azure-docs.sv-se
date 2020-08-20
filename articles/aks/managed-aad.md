@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/27/2020
 ms.author: thomasge
-ms.openlocfilehash: afc20052680e7f3e5b7d3a6b7320b7ca3b10dbd5
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799865"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661069"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-hanterad Azure Active Directory-integrering
 
@@ -20,7 +20,7 @@ AKS-hanterad Azure AD-integrering är utformad för att förenkla Azure AD-integ
 
 Kluster administratörer kan konfigurera Kubernetes-rollbaserad åtkomst kontroll (RBAC) baserat på användarens identitet eller katalog grupp medlemskap. Azure AD-autentisering tillhandahålls för AKS-kluster med OpenID Connect. OpenID Connect är ett identitets lager som byggts ovanpå OAuth 2,0-protokollet. Mer information om OpenID Connect finns i [Open ID Connect-dokumentationen][open-id-connect].
 
-Läs mer om AAD-integrerings flödet i [dokumentationen för Azure Active Directory integrations begrepp](concepts-identity.md#azure-active-directory-integration).
+Läs mer om Azure AD-integrerings flödet i [dokumentationen för Azure Active Directory integrations begrepp](concepts-identity.md#azure-active-directory-integration).
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
@@ -32,8 +32,8 @@ AKS-hanterad Azure Active Directory-integrering är tillgänglig i offentliga re
 ## <a name="limitations"></a>Begränsningar 
 
 * AKS-hanterad Azure AD-integrering kan inte inaktive ras
-* icke-RBAC-aktiverade kluster stöds inte för AKS AAD-integrering
-* Det finns inte stöd för att ändra Azure AD-klienten som är associerad med AKS AAD-integration
+* icke-RBAC-aktiverade kluster stöds inte för AKS-hanterad amerikansk AD-integrering
+* Det finns inte stöd för att ändra Azure AD-klienten som är associerad med AKS-hanterad Azure AD-integrering
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -139,6 +139,31 @@ För att utföra de här stegen måste du ha till gång till den inbyggda rollen
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
 
+## <a name="enable-aks-managed-azure-ad-integration-on-your-existing-cluster"></a>Aktivera AKS-hanterad Azure AD-integrering på ditt befintliga kluster
+
+Du kan aktivera AKS-hanterad Azure AD-integrering på ditt befintliga RBAC-aktiverade kluster. Se till att du anger administratörs gruppen för att behålla åtkomsten till klustret.
+
+```azurecli-interactive
+az aks update -g MyResourceGroup -n MyManagedCluster --enable-aad --aad-admin-group-object-ids <id-1> [--aad-tenant-id <id>]
+```
+
+En lyckad aktivering av ett AKS-hanterat Azure AD-kluster har följande avsnitt i svars texten
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+Hämta autentiseringsuppgifter för användare igen för att få åtkomst till klustret genom att följa stegen [här][access-cluster].
+
 ## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Uppgradera till AKS-hanterad Azure AD-integrering
 
 Om klustret använder äldre Azure AD-integrering kan du uppgradera till AKS-hanterad Azure AD-integrering.
@@ -174,7 +199,7 @@ Det finns vissa icke-interaktiva scenarier, t. ex. kontinuerliga integrerings pi
 * Lär dig mer om [Azure AD-integrering med KUBERNETES RBAC][azure-ad-rbac].
 * Använd [kubelogin](https://github.com/Azure/kubelogin) för att få åtkomst till funktioner för Azure-autentisering som inte är tillgängliga i kubectl.
 * Lär dig mer om [AKS och Kubernetes Identity Concepts][aks-concepts-identity].
-* Använd [Azure Resource Manager arm-mallar][aks-arm-template] för att skapa AKS-hanterade Azure AD-kluster.
+* Använd [Azure Resource Manager arm-mallar ][aks-arm-template] för att skapa AKS-hanterade Azure AD-kluster.
 
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication

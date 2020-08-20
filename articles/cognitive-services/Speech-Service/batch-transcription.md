@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: wolfma
-ms.openlocfilehash: df1266070e9fb69ec94811a3120412d9b238e470
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640165"
+ms.locfileid: "88660882"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
-Batch-avskrift är en uppsättning REST API åtgärder som gör det möjligt att skriva av en stor mängd ljud i lagring. Du kan peka på ljudfiler med en SAS-URI (signatur för delad åtkomst) och få svars resultat asynkront. Med New v 3.0-API: et kan du välja att skriva en eller flera ljudfiler eller bearbeta en hel lagrings behållare.
+Batch-avskrift är en uppsättning REST API åtgärder som gör det möjligt att skriva av en stor mängd ljud i lagring. Du kan peka på ljudfiler med en typisk URI eller en URL för signatur för delad åtkomst (SAS) och ta emot avskrifts resultat asynkront. Med v 3.0-API: et kan du skriva över en eller flera ljudfiler eller bearbeta en hel lagrings behållare.
 
-Asynkront tal-till-text-avskrift är bara en av funktionerna. Du kan använda REST-API: er för batch-avskrift för att anropa följande metoder:
+Du kan använda REST-API: er för batch-avskrift för att anropa följande metoder:
 
 |    Batch-avskrifts åtgärd                                             |    Metod    |    REST API-anrop                                   |
 |------------------------------------------------------------------------------|--------------|----------------------------------------------------|
@@ -33,14 +33,12 @@ Asynkront tal-till-text-avskrift är bara en av funktionerna. Du kan använda RE
 |    Hämtar avskriften som identifieras av det angivna ID: t.                        |    GET       |    speechtotext/v 3.0/avskrifter/{ID}       |
 |    Hämtar resultat filen för avskriften som identifieras av det angivna ID: t.    |    GET       |    speechtotext/v 3.0/avskrifter/{ID}/filer |
 
-
-
-
 Du kan granska och testa det detaljerade API: et, som är tillgängligt som ett [Swagger-dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Jobb för batch-avskrifter schemaläggs enligt bästa prestanda. Det finns för närvarande ingen uppskattning för när ett jobb ändras till körnings tillstånd. Under normal system belastning bör det ske inom några minuter. När den faktiska avskriften bearbetas fort i körnings tillstånd bearbetas den faktiska avskriften än ljudet i real tid.
+Detta API kräver inte anpassade slut punkter och saknar samtidiga krav.
 
-Bredvid det lättanvända API: t behöver du inte distribuera anpassade slut punkter och du har inte några samtidiga krav att följa.
+Jobb för batch-avskrifter schemaläggs enligt bästa prestanda.
+Det går inte att beräkna när ett jobb ska ändras till körnings tillstånd, men det bör ske inom några minuter under normal system belastning. När den är i körnings tillstånd sker avskriften snabbare än uppspelnings hastigheten för ljud körningen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -61,7 +59,8 @@ API: et för batch-avskrift stöder följande format:
 | MP3    | PCM   | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
 | OGG    | OPUS  | 16-bitars  | 8 kHz eller 16 kHz, mono eller stereo |
 
-För stereo ljud strömmar delas vänster och höger kanaler upp under avskriften. För varje kanal skapas en JSON-resultat fil. De tidsstämplar som genereras per uttryck gör att utvecklaren kan skapa en sorterad slutlig avskrift.
+För stereo ljud strömmar delas vänster och höger kanaler upp under avskriften. En JSON-resultat fil skapas för varje kanal.
+Om du vill skapa en sorterad slutlig avskrift använder du de tidsstämplar som genereras per uttryck.
 
 ### <a name="configuration"></a>Konfiguration
 
@@ -93,7 +92,7 @@ Konfigurations parametrar tillhandahålls som JSON (bearbetning av en hel lagrin
 }
 ```
 
-Om du vill använda anpassade, utbildade modeller i batch-avskrifter kan de refereras till som visas nedan:
+Följande JSON anger en anpassad tränad modell som ska användas i en batch-avskriftering:
 
 ```json
 {
@@ -128,42 +127,42 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
       `profanityFilterMode`
    :::column-end:::
    :::column span="2":::
-      Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `None` att inaktivera filtrering av svordomar, `Masked` för att ersätta svordomar med asterisker, `Removed` för att ta bort alla svordomar från resultatet eller `Tags` för att lägga till taggar av "svordomar". Standardinställningen är `Masked`.
+      Valfritt, standardvärdet är `Masked` . Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `None` att inaktivera filtrering av svordomar, `Masked` för att ersätta svordomar med asterisker, `Removed` för att ta bort alla svordomar från resultatet eller `Tags` för att lägga till taggar av "svordomar".
 :::row-end:::
 :::row:::
    :::column span="1":::
       `punctuationMode`
    :::column-end:::
    :::column span="2":::
-      Anger hur interpunktion ska hanteras i igenkännings resultat. Godkända värden är `None` att inaktivera interpunktion, `Dictated` för att göra det explicit (talade) skiljetecken `Automatic` att tillåta avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` att använda dikterad och automatisk interpunktion. Standardinställningen är `DictatedAndAutomatic`.
+      Valfritt, standardvärdet är `DictatedAndAutomatic` . Anger hur interpunktion ska hanteras i igenkännings resultat. Godkända värden är `None` att inaktivera interpunktion, `Dictated` för att göra det explicit (talade) skiljetecken `Automatic` att tillåta avkodaren att hantera skiljetecken eller `DictatedAndAutomatic` att använda dikterad och automatisk interpunktion.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `wordLevelTimestampsEnabled`
    :::column-end:::
    :::column span="2":::
-      Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` att aktivera Word-nivåns tidsstämplar och `false` (standardvärdet) för att inaktivera det.
+      Valfritt, `false` som standard. Anger om Word-nivåns tidsstämplar ska läggas till i utdata.
 :::row-end:::
 :::row:::
    :::column span="1":::
       `diarizationEnabled`
    :::column-end:::
    :::column span="2":::
-      Anger att diarization-analys ska utföras på indatamängden, vilket förväntas vara en svartvit kanal som innehåller två röster. Godkända värden `true` aktiverar diarization och `false` (standardvärdet) för att inaktivera det. Det måste också `wordLevelTimestampsEnabled` anges till sant.
+      Valfritt, `false` som standard. Anger att diarization-analys ska utföras på indatamängden, vilket förväntas vara en svartvit kanal som innehåller två röster. Obs!: måste `wordLevelTimestampsEnabled` anges till `true` .
 :::row-end:::
 :::row:::
    :::column span="1":::
       `channels`
    :::column-end:::
    :::column span="2":::
-      En valfri matris med kanal nummer att bearbeta. Här kan du ange en delmängd av tillgängliga kanaler i ljud filen som ska bearbetas (t. ex. `0` endast). Om inget `0` värde anges används kanaler och `1` som standard.
+      Valfritt `0` och har `1` tilldelats som standard. En matris med kanal nummer att bearbeta. Här kan du ange en delmängd av tillgängliga kanaler i ljud filen som ska bearbetas (t. ex. `0` endast).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      En valfri varaktighet för att automatiskt ta bort avskrifter när avskriften har slutförts. `timeToLive`Är användbart vid Mass bearbetnings avskrifter för att se till att de kommer att tas bort (t. ex. `PT12H` ). Om detta inte anges eller anges till `PT0H` , tas inte avskriften bort automatiskt.
+      Valfritt, ingen borttagning som standard. Varaktigheten för att automatiskt ta bort avskrifter när avskriften har slutförts. `timeToLive`Är användbart vid Mass bearbetnings avskrifter för att se till att de kommer att tas bort (t. ex. `PT12H` i 12 timmar).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -175,43 +174,44 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 ### <a name="storage"></a>Storage
 
-Batch-avskrift stöder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) för att läsa ljud och skriva avskrifter till lagring.
+Med batch-avskrift kan du läsa ljud från en Internet-URI och läsa ljud-eller Skriv avskrifter med [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Resultat av batch-avskrift
 
-För varje ljud inspelning skapas en resultat fil för avskriften. Du kan hämta listan över resultat filer genom att anropa [Get deskrifts-filer](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles). Den här metoden returnerar en lista med resultat filer för den här avskriften. Om du vill hitta avskrifts filen för en speciell indatafil filtrerar du alla returnerade filer med `kind`  ==  `Transcription` och `name`  ==  `{originalInputName.suffix}.json` .
+För varje ljud inspelning skapas en resultat fil för avskrift.
+Åtgärden [Hämta avskrifter](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles) returnerar en lista med resultat filer för den här avskriften. Om du vill hitta avskrifts filen för en speciell indatafil filtrerar du alla returnerade filer med `kind`  ==  `Transcription` och `name`  ==  `{originalInputName.suffix}.json` .
 
-Varje avskrifts resultat fil i detta format:
+Varje avskrifts resultat fil har följande format:
 
 ```json
 {
-  "source": "...",                                                 // the sas url of a given contentUrl or the path relative to the root of a given container
-  "timestamp": "2020-06-16T09:30:21Z",                             // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
-  "durationInTicks": 41200000,                                     // total audio duration in ticks (1 tick is 100 nanoseconds)
-  "duration": "PT4.12S",                                           // total audio duration, ISO 8601 encoded duration
-  "combinedRecognizedPhrases": [                                   // concatenated results for simple access in single string for each channel
+  "source": "...",                      // sas url of a given contentUrl or the path relative to the root of a given container
+  "timestamp": "2020-06-16T09:30:21Z",  // creation time of the transcription, ISO 8601 encoded timestamp, combined date and time
+  "durationInTicks": 41200000,          // total audio duration in ticks (1 tick is 100 nanoseconds)
+  "duration": "PT4.12S",                // total audio duration, ISO 8601 encoded duration
+  "combinedRecognizedPhrases": [        // concatenated results for simple access in single string for each channel
     {
-      "channel": 0,                                                // channel number of the concatenated results
+      "channel": 0,                     // channel number of the concatenated results
       "lexical": "hello world",
       "itn": "hello world",
       "maskedITN": "hello world",
       "display": "Hello world."
     }
   ],
-  "recognizedPhrases": [                                           // results for each phrase and each channel individually
+  "recognizedPhrases": [                // results for each phrase and each channel individually
     {
-      "recognitionStatus": "Success",                              // recognition state, e.g. "Success", "Failure"
-      "channel": 0,                                                // channel number of the result
-      "offset": "PT0.07S",                                         // offset in audio of this phrase, ISO 8601 encoded duration 
-      "duration": "PT1.59S",                                       // audio duration of this phrase, ISO 8601 encoded duration
-      "offsetInTicks": 700000.0,                                   // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
-      "durationInTicks": 15900000.0,                               // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
+      "recognitionStatus": "Success",   // recognition state, e.g. "Success", "Failure"
+      "channel": 0,                     // channel number of the result
+      "offset": "PT0.07S",              // offset in audio of this phrase, ISO 8601 encoded duration 
+      "duration": "PT1.59S",            // audio duration of this phrase, ISO 8601 encoded duration
+      "offsetInTicks": 700000.0,        // offset in audio of this phrase in ticks (1 tick is 100 nanoseconds)
+      "durationInTicks": 15900000.0,    // audio duration of this phrase in ticks (1 tick is 100 nanoseconds)
       
       // possible transcriptions of the current phrase with confidences
       "nBest": [
         {
-          "confidence": 0.898652852,                               // confidence value for the recognition of the whole phrase
-          "speaker": 1,                                            // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
+          "confidence": 0.898652852,    // confidence value for the recognition of the whole phrase
+          "speaker": 1,                 // if `diarizationEnabled` is `true`, this is the identified speaker (1 or 2), otherwise this property is not present
           "lexical": "hello world",
           "itn": "hello world",
           "maskedITN": "hello world",
@@ -247,7 +247,7 @@ Resultatet innehåller följande formulär:
 
 :::row:::
    :::column span="1":::
-      **Formulär**
+      **Fält**
    :::column-end:::
    :::column span="2":::
       **Innehåll**
@@ -287,7 +287,7 @@ Diarization är en process för att åtskilja högtalare i ett ljud. Batch-pipel
 
 Resultatet av avskrift med diarization aktiverat innehåller en `Speaker` post för varje uppskriven fras. Om diarization inte används finns `Speaker` inte egenskapen i JSON-utdata. För diarization har vi stöd för två röster, så att högtalarna identifieras som `1` eller `2` .
 
-Om du vill begära diarization behöver du bara lägga till relevant parameter i HTTP-begäran som visas nedan.
+Om du vill begära diarization, lägger du till ange `diarizationEnabled` egenskapen till `true` som http-begäran visas nedan.
 
  ```json
 {
@@ -315,7 +315,7 @@ Batch-avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du ka
 
 Fullständiga exempel är tillgängliga i [GitHub-exempel arkivet](https://aka.ms/csspeech/samples) i under `samples/batch` katalogen.
 
-Uppdatera exempel koden med din prenumerations information, tjänst regionen, SAS-URI: n som pekar på ljud filen för att skrivas av och modell platsen om du vill använda en anpassad modell.
+Uppdatera exempel koden med din prenumerations information, tjänste region, URI som pekar på ljud filen för att skriva och modell plats om du använder en anpassad modell.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptiondefinition)]
 
@@ -325,16 +325,14 @@ Exempel koden konfigurerar klienten och skickar in avskrifts förfrågan. Den s�
 
 Fullständig information om föregående anrop finns i vårt Swagger- [dokument](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). För det fullständiga exemplet som visas här går du till [GitHub](https://aka.ms/csspeech/samples) i under `samples/batch` katalogen.
 
-Anteckna den asynkrona konfigurationen för att skicka ljud och ta emot avskrifts status. Klienten som du skapar är en .NET HTTP-klient. Det finns en `PostTranscriptions` metod för att skicka ljud filens information och en `GetTranscriptions` metod för att ta emot tillstånden. `PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts status.
+I det här exemplet används en asynkron konfiguration för att skicka ljud-och mottagnings status.
+`PostTranscriptions`Metoden skickar ljud filens information och `GetTranscriptions` metoden tar emot tillstånden.
+`PostTranscriptions` Returnerar en referens och `GetTranscriptions` använder den för att skapa en referens för att hämta avskrifts status.
 
-Den aktuella exempel koden anger inte en anpassad modell. Tjänsten använder bas linje modellen för att skriva över filen eller filerna. Om du vill ange modellen kan du överföra modell referensen för den anpassade modellen till samma metod.
+Den här exempel koden anger inte en anpassad modell. Tjänsten använder bas linje modellen för att skriva över filen eller filerna. Om du vill ange modellen kan du överföra modell referensen för den anpassade modellen till samma metod.
 
 > [!NOTE]
 > För bas linje avskrifter behöver du inte deklarera ID: t för bas linje modellen.
-
-## <a name="download-the-sample"></a>Ladda ned exemplet
-
-Du kan hitta exemplet i `samples/batch` katalogen i [GitHub-exempel lagrings platsen](https://aka.ms/csspeech/samples).
 
 ## <a name="next-steps"></a>Nästa steg
 

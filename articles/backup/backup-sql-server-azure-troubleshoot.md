@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: f4049cca317d254bd5ee120e47cedc4cd42300e8
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926492"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660159"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -30,7 +30,7 @@ Om den virtuella SQL-datorn och dess instanser inte visas i **identifierings-dat
 
 ### <a name="step-1-discovery-dbs-in-vms"></a>Steg 1: identifiera databaser i virtuella datorer
 
-- Om den virtuella datorn inte finns med i listan över identifierade virtuella datorer och inte heller har registrerats för SQL-säkerhetskopiering i ett annat valv följer du stegen för [identifierings SQL Server säkerhets kopiering](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) .
+- Om den virtuella datorn inte visas i listan över identifierade virtuella datorer och inte har registrerats för SQL backup i ett annat valv följer du stegen för [identifierings SQL Server säkerhets kopiering](./backup-sql-server-database-azure-vms.md#discover-sql-server-databases) .
 
 ### <a name="step-2-configure-backup"></a>Steg 2: Konfigurera säkerhets kopiering
 
@@ -62,13 +62,13 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 | Allvarlighetsgrad | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|---|
-| Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Varken differentiell säkerhets kopiering eller säkerhets kopiering av transaktions logg är möjlig. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
+| Varning | De aktuella inställningarna för den här databasen stöder inte vissa säkerhets kopierings typer som finns i den tillhör ande principen. | <li>Endast en fullständig databas säkerhets kopierings åtgärd kan utföras på huvud databasen. Det går inte att säkerhetskopiera differentiell säkerhets kopiering och transaktions logg. </li> <li>Alla databaser i den enkla återställnings modellen tillåter inte säkerhets kopiering av transaktions loggar.</li> | Ändra databas inställningarna så att alla säkerhets kopierings typer i principen stöds. Du kan också ändra den aktuella principen så att den bara innehåller de säkerhets kopierings typer som stöds. Annars kommer de säkerhets kopierings typer som inte stöds att hoppas över under schemalagd säkerhets kopiering, eller så kommer säkerhets kopieringen inte att kunna utföra säkerhets kopiering på begäran.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-| Den här SQL-databasen stöder inte den begärda säkerhetskopieringstypen. | Inträffar när databas återställnings modellen inte tillåter den begärda säkerhets kopierings typen. Felet kan inträffa i följande situationer: <br/><ul><li>En databas som använder en enkel återställnings modell tillåter inte logg säkerhets kopiering.</li><li>Det går inte att säkerhetskopiera differentiella och loggar för en huvud databas.</li></ul>Mer information finns i dokumentationen för [SQL Server återställnings modeller](/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Om logg säkerhets kopieringen Miss lyckas för databasen i den enkla återställnings modellen kan du prova något av följande alternativ:<ul><li>Om databasen är i enkelt återställnings läge inaktiverar du logg säkerhets kopior.</li><li>Använd [SQL Server-dokumentationen](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) om du vill ändra databas återställnings modellen till fullständig eller Mass utloggning. </li><li> Om du inte vill ändra återställnings modellen och du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Dina fullständiga och differentiella säkerhets kopieringar fungerar per schema. Logg säkerhets kopiorna hoppas över, vilket förväntas i det här fallet.</li></ul>Om det är en huvud databas och du har konfigurerat differentiell eller logg säkerhets kopiering, använder du något av följande steg:<ul><li>Använd portalen för att ändra schemat för säkerhets kopierings policyn för Master-databasen till full.</li><li>Om du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Den fullständiga säkerhets kopieringen fungerar per schema. Differentiella eller logga säkerhets kopieringar sker inte, vilket förväntas i det här fallet.</li></ul> |
+| Den här SQL-databasen stöder inte den begärda säkerhetskopieringstypen. | Inträffar när databas återställnings modellen inte tillåter den begärda säkerhets kopierings typen. Felet kan inträffa i följande situationer: <br/><ul><li>En databas som använder en enkel återställnings modell tillåter inte logg säkerhets kopiering.</li><li>Differentiella och loggade säkerhets kopior är inte tillåtna för en huvud databas.</li></ul>Mer information finns i dokumentationen för [SQL Server återställnings modeller](/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Om logg säkerhets kopieringen Miss lyckas för databasen i den enkla återställnings modellen kan du prova något av följande alternativ:<ul><li>Om databasen är i enkelt återställnings läge inaktiverar du logg säkerhets kopior.</li><li>Använd [SQL Server-dokumentationen](/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) om du vill ändra databas återställnings modellen till fullständig eller Mass utloggning. </li><li> Om du inte vill ändra återställnings modellen och du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Dina fullständiga och differentiella säkerhets kopieringar fungerar per schema. Logg säkerhets kopiorna hoppas över, vilket förväntas i det här fallet.</li></ul>Om det är en huvud databas och du har konfigurerat differentiell eller logg säkerhets kopiering, använder du något av följande steg:<ul><li>Använd portalen för att ändra schemat för säkerhets kopierings policyn för Master-databasen till full.</li><li>Om du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Den fullständiga säkerhets kopieringen fungerar per schema. Differentiella eller logga säkerhets kopieringar sker inte, vilket förväntas i det här fallet.</li></ul> |
 | Åtgärden avbröts eftersom en motstridig åtgärd redan körs på samma databas. | Se [blogg inlägget om begränsningar för säkerhets kopiering och återställning](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) som körs samtidigt.| [Använd SQL Server Management Studio (SSMS) för att övervaka säkerhets kopierings jobben](manage-monitor-sql-database-backup.md). När den motstridiga åtgärden Miss lyckas startar du om åtgärden.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
@@ -113,6 +113,13 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 |---|---|---|
 | Det gick inte att återställa eftersom databasen inte kunde försättas offline. | När du utför en återställning måste mål databasen försättas i offlineläge. Azure Backup kan inte ta dessa data offline. | Använd den ytterligare informationen på menyn Azure Portal fel för att begränsa rotor saken. Mer information finns i [SQL Server-dokumentationen](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
+### <a name="wlextgenericiofaultusererror"></a>WlExtGenericIOFaultUserError
+
+|Felmeddelande |Möjliga orsaker  |Rekommenderad åtgärd  |
+|---------|---------|---------|
+|Ett indata/utdata-fel uppstod under åtgärden. Kontrol lera om det finns vanliga IO-fel på den virtuella datorn.   |   Åtkomst behörighet eller utrymmes begränsningar på målet.       |  Sök efter vanliga IO-fel på den virtuella datorn. Kontrol lera att mål enheten/nätverks resursen på datorn: <li> har Läs-/Skriv behörighet för kontot NT instans\system på datorn. <li> har tillräckligt med utrymme för att åtgärden ska kunna slutföras.<br> Mer information finns i [återställa som filer](restore-sql-database-azure-vm.md#restore-as-files).
+       |
+
 ### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
@@ -153,19 +160,19 @@ Ibland kan slumpmässiga problem inträffa i säkerhets kopierings-och återstä
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-Åtgärden blockeras eftersom du har nått gränsen för antalet tillåtna åtgärder inom 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar kommer det här felet att åtgärdas. <br> Exempel: om du har nått gränsen för antalet konfigurations säkerhets kopierings jobb som kan utlösas per dag och du försöker konfigurera säkerhets kopiering för ett nytt objekt visas det här felet. | Vanligt vis åtgärdar du problemet igen efter 24 timmar. Men om problemet kvarstår kan du kontakta Microsoft-supporten om du behöver hjälp.
+Åtgärden blockeras eftersom du har nått gränsen för antalet tillåtna åtgärder inom 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar visas det här felet. <br> Exempel: om du har nått gränsen för antalet konfigurations säkerhets kopierings jobb som kan utlösas per dag och du försöker konfigurera säkerhets kopiering för ett nytt objekt visas det här felet. | Vanligt vis åtgärdar du problemet igen efter 24 timmar. Men om problemet kvarstår kan du kontakta Microsoft-supporten om du behöver hjälp.
 
 ### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-Åtgärden blockeras eftersom valvet har uppnått Max gränsen för sådana åtgärder som tillåts inom ett intervall på 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar kommer det här felet att åtgärdas. Det här felet uppstår vanligt vis när det finns åtgärder i skala, till exempel ändra princip eller automatiskt skydd. Till skillnad från när det gäller CloudDosAbsoluteLimitReached, finns det inte mycket du kan göra för att lösa det här läget, i själva verket försöker Azure Backups tjänsten utföra åtgärderna internt för alla objekt i fråga.<br> Exempel: om du har ett stort antal data källor som skyddas med en princip och du försöker ändra den principen, utlöses konfigurationen av skydds jobb för vart och ett av de skyddade objekten och ibland kan det överskrida den maximala gräns som tillåts för sådana åtgärder per dag.| Azure Backup tjänsten gör om åtgärden automatiskt efter 24 timmar.
+Åtgärden blockeras eftersom valvet har uppnått Max gränsen för sådana åtgärder som tillåts inom ett intervall på 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar visas det här felet. Det här felet visas vanligt vis när det finns åtgärder i skala, till exempel ändra princip eller automatiskt skydd. Till skillnad från CloudDosAbsoluteLimitReached är det inte mycket du kan göra för att lösa det här läget. Azure Backups tjänsten försöker faktiskt utföra åtgärderna internt för alla objekt i fråga.<br> Exempel: om du har ett stort antal data källor som skyddas med en princip och du försöker ändra den principen, utlöses konfigurationen av skydds jobb för vart och ett av de skyddade objekten och ibland kan det överskrida den maximala gräns som tillåts för sådana åtgärder per dag.| Azure Backup tjänsten gör om åtgärden automatiskt efter 24 timmar.
 
 ### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
 
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
-Den virtuella datorn kan inte kontakta Azure Backup tjänsten på grund av problem med Internet anslutningen. | Den virtuella datorn behöver utgående anslutning till Azure Backup tjänsten Azure Storage eller Azure Active Directory tjänster.| – Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup-tjänst tag gen för att tillåta utgående åtkomst till Azure Backup till Azure Backup tjänst Azure Storage eller Azure Active Directory tjänster. Följ dessa [steg](./backup-sql-server-database-azure-vms.md#nsg-tags) om du vill bevilja åtkomst.<br>– Kontrol lera att DNS löser Azure-slutpunkter.<br>-Kontrol lera om den virtuella datorn ligger bakom en belastningsutjämnare som blockerar Internet åtkomst. Genom att tilldela den offentliga IP-adressen till de virtuella datorerna fungerar identifieringen.<br>-Kontrol lera att det inte finns någon brand vägg/Antivirus/proxy som blockerar anrop till de tre mål tjänsterna ovan.
+Den virtuella datorn kan inte kontakta Azure Backup tjänsten på grund av problem med Internet anslutningen. | Den virtuella datorn behöver utgående anslutning till Azure Backup tjänst, Azure Storage eller Azure Active Directory tjänster.| – Om du använder NSG för att begränsa anslutningen bör du använda AzureBackup-tjänst tag gen för att tillåta utgående åtkomst till Azure Backup tjänst, Azure Storage eller Azure Active Directory tjänster. Följ dessa [steg](./backup-sql-server-database-azure-vms.md#nsg-tags) om du vill bevilja åtkomst.<br>– Kontrol lera att DNS löser Azure-slutpunkter.<br>-Kontrol lera om den virtuella datorn ligger bakom en belastningsutjämnare som blockerar Internet åtkomst. Genom att tilldela den offentliga IP-adressen till de virtuella datorerna fungerar identifieringen.<br>– Kontrol lera att det inte finns någon brand vägg/Antivirus/proxy som blockerar anrop till de tre mål tjänsterna ovan.
 
 ## <a name="re-registration-failures"></a>Försök att registrera igen
 
@@ -175,7 +182,7 @@ Kontrol lera om det finns ett eller flera av följande symptom innan du utlöser
 - Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du**utesluta alla andra orsaker som kan resultera i samma status:
 
   - Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn.
-  - Stäng av den virtuella datorn så att säkerhets kopieringarna inte kan genomföras.
+  - Stäng av den virtuella datorn så att säkerhets kopieringen inte kan genomföras.
   - Nätverks problem.
 
    ![registrerar om virtuell dator](./media/backup-azure-sql-database/re-register-vm.png)
@@ -261,7 +268,7 @@ I föregående innehåll kan du hämta databas filens logiska namn genom att anv
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
-  ```
+```
 
 Den här filen bör placeras innan du utlöser återställnings åtgärden.
 

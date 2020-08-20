@@ -2,13 +2,13 @@
 title: Konfigurera offentlig registeråtkomst
 description: Konfigurera IP-regler för att aktivera åtkomst till ett Azure Container Registry från valda offentliga IP-adresser eller adress intervall.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/17/2020
+ms.openlocfilehash: 0fbca1ec2734bf8275e12249f63ab134837fea12
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523833"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660933"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurera regler för offentliga IP-nätverk
 
@@ -61,12 +61,12 @@ az acr network-rule add \
 
 Du kan också inaktivera den offentliga slut punkten i registret. Om du inaktiverar den offentliga slut punkten åsidosätts alla brand Väggs konfigurationer. Du kanske till exempel vill inaktivera offentlig åtkomst till ett register som skyddas i ett virtuellt nätverk med hjälp av en [privat länk](container-registry-private-link.md).
 
+> [!NOTE]
+> Om registret har kon figurer ATS i ett virtuellt nätverk med en [tjänst slut punkt](container-registry-vnet.md), inaktiverar åtkomst till registrets offentliga slut punkt även åtkomst till registret i det virtuella nätverket.
+
 ### <a name="disable-public-access---cli"></a>Inaktivera offentlig åtkomst – CLI
 
-Om du vill inaktivera offentlig åtkomst med hjälp av Azure CLI kör du [AZ ACR Update][az-acr-update] och set `--public-network-enabled` till `false` . 
-
-> [!NOTE]
-> `public-network-enabled`Argumentet kräver Azure CLI 2.6.0 eller senare. 
+Om du vill inaktivera offentlig åtkomst med hjälp av Azure CLI kör du [AZ ACR Update][az-acr-update] och set `--public-network-enabled` till `false` . `public-network-enabled`Argumentet kräver Azure CLI 2.6.0 eller senare. 
 
 ```azurecli
 az acr update --name myContainerRegistry --public-network-enabled false

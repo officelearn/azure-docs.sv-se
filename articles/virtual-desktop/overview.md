@@ -3,15 +3,15 @@ title: Vad är Windows Virtual Desktop? – Azure
 description: En översikt över virtuella Windows-datorer.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002375"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661120"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop?
 
@@ -46,7 +46,7 @@ Med Windows Virtual Desktop kan du konfigurera en skalbar och flexibel miljö:
 
 Du kan distribuera och hantera virtuella skriv bord:
 
-* Använd Windows Virtual Desktop PowerShell och REST Interfaces för att konfigurera värd grupper, skapa app-grupper, tilldela användare och publicera resurser.
+* Använd Azure Portal, Windows Virtual Desktop PowerShell och REST-gränssnitt för att konfigurera värd grupper, skapa program grupper, tilldela användare och publicera resurser.
 * Publicera hela Skriv bordet eller enskilda fjärrappar från en enda adresspool, skapa enskilda grupp grupper för olika uppsättningar med användare eller till och med tilldela användare till flera app-grupper för att minska antalet avbildningar.
 * När du hanterar din miljö kan du använda inbyggd delegerad åtkomst för att tilldela roller och samla in diagnostik för att förstå olika konfigurations-eller användar fel.
 * Använd den nya diagnostik tjänsten för att felsöka fel.
@@ -61,7 +61,7 @@ Du kan också tilldela och ansluta användare till dina virtuella skriv bord:
 
 Det finns några saker du behöver för att konfigurera virtuella Windows-datorer och ansluta dina användare till sina Windows-datorer och program.
 
-Vi planerar att lägga till stöd för följande operativ system, så se till att du har [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på Skriv bordet och appar som du planerar att distribuera:
+Vi stöder följande operativ system, så se till att du har [lämpliga licenser](https://azure.microsoft.com/pricing/details/virtual-desktop/) för dina användare baserat på Skriv bordet och appar som du planerar att distribuera:
 
 |Operativsystem|Nödvändig licens|
 |---|---|
@@ -71,11 +71,17 @@ Vi planerar att lägga till stöd för följande operativ system, så se till at
 
 Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
 
-* En [Azure Active Directory](/azure/active-directory/)
-* En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Du kan konfigurera detta med något av följande:
-  * Azure AD Connect (för Hybrid organisationer)
-  * Azure AD Domain Services (för Hybrid-eller moln organisationer)
-* En Azure-prenumeration som innehåller ett virtuellt nätverk som antingen innehåller eller är ansluten till Windows Server-Active Directory
+* En [Azure Active Directory](/azure/active-directory/).
+* En Windows Server-Active Directory som synkroniseras med Azure Active Directory. Du kan konfigurera detta med Azure AD Connect (för Hybrid organisationer) eller Azure AD Domain Services (för Hybrid-eller moln organisationer).
+  * En Windows Server AD-synkronisering med Azure Active Directory. Användaren är inloggad från Windows Server AD och den virtuella Windows-datorn för virtuella datorer är ansluten till Windows Server AD-domän.
+  * En Windows Server AD-synkronisering med Azure Active Directory. Användaren är inloggad från Windows Server AD och den virtuella Windows-datorn för virtuella datorer är ansluten till Azure AD Domain Services domän.
+  * En Azure AD Domain Services domän. Användaren är inloggad från Azure Active Directory och den virtuella Windows Virtual Desktop-datorn är ansluten till Azure AD Domain Services domän.
+* En Azure-prenumeration, som är överordnad till samma Azure AD-klient, som innehåller ett virtuellt nätverk som antingen innehåller eller är anslutet till Windows Server Active Directory eller Azure AD DS-instansen.
+
+Användar krav för att ansluta till virtuella Windows-datorer:
+
+* Användaren måste ha en källa från samma Active Directory som är ansluten till Azure AD. Windows Virtual Desktop stöder inte B2B-eller MSA-konton.
+* Det UPN som du använder för att prenumerera på Windows Virtual Desktop måste finnas i den Active Directory domän som den virtuella datorn är ansluten till.
 
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste vara:
 
@@ -91,7 +97,7 @@ Windows Virtual Desktop består av Windows-datorer och appar som du levererar ti
 
 För bästa prestanda bör du kontrol lera att nätverket uppfyller följande krav:
 
-* Svars tid för tur och retur från klientens nätverk till den Azure-region där värdbaserade pooler har distribuerats måste vara mindre än 150 ms.
+* Svars tid för tur och retur från klientens nätverk till den Azure-region där värdbaserade pooler har distribuerats måste vara mindre än 150 ms. Använd [Föruppskattnings](https://azure.microsoft.com/services/virtual-desktop/assessment) funktionen för att visa din anslutnings hälsa och den rekommenderade Azure-regionen.
 * Nätverks trafiken kan flöda utanför lands-/region gränser när virtuella datorer som är värdar för Station ära datorer och appar ansluter till hanterings tjänsten.
 * För att optimera för nätverks prestanda rekommenderar vi att de virtuella datorerna i samordnad i samma Azure-region som hanterings tjänsten.
 
@@ -111,7 +117,7 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 > [!IMPORTANT]
 > Windows Virtual Desktop stöder för närvarande inte fjärr skrivbords klienten från Windows Store. Support för den här klienten kommer att läggas till i en framtida version.
 
-Om du vill veta mer om webb adresser måste du häva blockeringen för att använda fjärrklienterna i [listan säker URL](safe-url-list.md).
+Om du vill veta mer om webb adresser måste du häva blockeringen för att använda klienterna i [listan säker URL](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>OS-avbildningar för virtuella datorer som stöds
 
@@ -130,14 +136,14 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 multi-session, version 1809|Ja|Ja|Inga|Inga|
-|Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Inga|Inga|
-|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
-|Windows Server 2019|Ja|Ja|Inga|Inga|
+|Windows 10 Enterprise (multi-session), version 2004|Ja|Ja|Ja|Ja|
+|Windows 10 Enterprise (multi-session), version 1909|Ja|Ja|Ja|Ja|
+|Windows 10 Enterprise (multi-session), version 1903|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise (multi-session), version 1809|Ja|Ja|Nej|Nej|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
+|Windows Server 2019|Ja|Ja|Nej|Nej|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Inga|Nej|
+|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 

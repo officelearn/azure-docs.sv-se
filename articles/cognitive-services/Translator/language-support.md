@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a0ea0a7580bbb7a6106880d2733f36f5ab7a7690
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: cc5964bb243216233300e8616b0460b7a1a043d9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639791"
+ms.locfileid: "88661545"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -75,6 +75,8 @@ Translator stöder följande språk för text översättning av text.
 |Klingon|   `tlh-Latn`  |
 |Klingon (plqaD)|   `tlh-Piqd`  |
 |Koreanska |`ko`   |
+|Kurdiska (Central)  |`ku`   |
+|Kurdiska (norra) |`kmr`  |
 |Lettiska|   `lv`    |
 |Litauiska|    `lt`    |
 |Madagaskisk|  `mg`    |

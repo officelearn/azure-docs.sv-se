@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21909a9c7a1edda5059b9e83cf8dda243862b966
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003873"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660215"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Snabb start: skapa SQL Server VM med en ARM-mall
 
@@ -37,7 +37,7 @@ SQL Server VM ARM-mallen kräver följande:
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-sql-vm-new-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json" highlight="169-310":::
+:::code language="json" source="~/quickstart-templates/101-sql-vm-new-storage/azuredeploy.json":::
 
 Fem Azure-resurser definieras i mallen: 
 
@@ -120,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Andra sätt att distribuera en SQL Server VM finns i: 
 - [Azure-portalen](create-sql-vm-portal.md)

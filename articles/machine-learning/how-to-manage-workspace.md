@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c852d416b73ba29b22efe63996835deac3a5277d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1f97fddb07e56946e37c04d9b9685412782c560
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167682"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659763"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning arbets ytor i Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,8 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
    ---|---
    Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
    Prenumeration |Välj den Azure-prenumeration som du vill använda.
-   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
+   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. Du behöver *deltagar* -eller *ägar* rollen för att använda en befintlig resurs grupp.  Mer information om åtkomst finns i [Hantera åtkomst till en Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+   Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
    Plats | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
    Arbetsyte version | Välj **Basic** eller **Enterprise**.  Den här arbets ytans utgåva avgör vilka funktioner du kommer att ha åtkomst till och prissättning på. Läs mer om [erbjudanden för Basic och Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
@@ -64,7 +65,7 @@ Du behöver en Azure-prenumeration för att skapa en arbets yta. Om du inte har 
 
 1. Om du kommer att skapa en [beräknings instans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
 
-1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du **hämta config.jspå** i **översikts** avsnittet i arbets ytan.  
+1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du  **hämta config.jspå** i **översikts** avsnittet i arbets ytan.  
 
    ![Ladda ned config.jspå](./media/how-to-manage-workspace/configure.png)
    
@@ -78,7 +79,7 @@ Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition fö
 
 1. Välj den arbets yta som du vill uppgradera.
 
-1. Välj **Läs mer** längst upp till höger på sidan.
+1. Välj **Läs mer**  längst upp till höger på sidan.
 
    [![Uppgradera en arbets yta ](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
@@ -104,7 +105,7 @@ Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition fö
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
-I [Azure Portal](https://portal.azure.com/)väljer du **ta bort** överst i arbets ytan som du vill ta bort.
+I [Azure Portal](https://portal.azure.com/)väljer du **ta bort**  överst i arbets ytan som du vill ta bort.
 
 :::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Ta bort arbets yta":::
 

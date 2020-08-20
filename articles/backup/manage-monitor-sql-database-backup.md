@@ -3,12 +3,12 @@ title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 14e3a4797fe60a3d1857f1e6d947fa0c669bdcfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537312"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659593"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -58,7 +58,7 @@ Du kan sluta säkerhetskopiera en SQL Server databas på ett par olika sätt:
 Om du väljer att lämna återställnings punkter bör du tänka på följande:
 
 - Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp av skyddet med data kvar.
-- Du kommer att debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
+- Du debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
 - Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men en sista återställnings punkt kommer alltid att finnas kvar tills du stoppar säkerhets kopieringarna och tar bort data.
 
 Så här stoppar du skydd för en databas:
@@ -117,24 +117,6 @@ Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, me
 
 Mer information finns i [SQL Server säkerhets kopierings typer](backup-architecture.md#sql-server-backup-types).
 
-## <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL-serverinstans
-
-Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du tar bort valvet:
-
-1. På instrument panelen för valv under **Hantera**väljer du **infrastruktur för säkerhets kopiering**.  
-
-   ![Välja infrastruktur för säkerhetskopiering](./media/backup-azure-sql-database/backup-infrastructure-button.png)
-
-2. Under **Hanteringsservrar** väljer du **Skyddade servrar**.
-
-   ![Välja skyddade servrar](./media/backup-azure-sql-database/protected-servers.png)
-
-3. I **skyddade servrar**väljer du den server som ska avregistreras. Om du vill ta bort valvet måste du avregistrera alla servrar.
-
-4. Högerklicka på den skyddade servern och välj **avregistrera**.
-
-   ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
-
 ## <a name="modify-policy"></a>Ändra princip
 
 Ändra princip för att ändra säkerhets kopierings frekvens eller kvarhållningsintervall.
@@ -160,11 +142,31 @@ Du kan åtgärda princip versionen för alla påverkade objekt i ett klick:
 
   ![Åtgärda inkonsekvent princip](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
 
+## <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL-serverinstans
+
+Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du tar bort valvet:
+
+1. På instrument panelen för valv under **Hantera**väljer du **infrastruktur för säkerhets kopiering**.  
+
+   ![Välja infrastruktur för säkerhetskopiering](./media/backup-azure-sql-database/backup-infrastructure-button.png)
+
+2. Under **Hanteringsservrar** väljer du **Skyddade servrar**.
+
+   ![Välja skyddade servrar](./media/backup-azure-sql-database/protected-servers.png)
+
+3. I **skyddade servrar**väljer du den server som ska avregistreras. Om du vill ta bort valvet måste du avregistrera alla servrar.
+
+4. Högerklicka på den skyddade servern och välj **avregistrera**.
+
+   ![Välja Ta bort](./media/backup-azure-sql-database/delete-protected-server.jpg)
+
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrera tillägget på nytt på SQL Server VM
 
-Ibland kan arbets belastnings tillägget på den virtuella datorn påverkas av en eller flera orsaker. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrering** av åtgärden installerar om tillägget för säkerhets kopiering av arbets belastning på den virtuella datorn för att fortsätta.
+Ibland kan arbets belastnings tillägget på den virtuella datorn påverkas av en orsak eller en annan. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrerings** åtgärden installerar om säkerhets kopieringen av arbets belastningen på den virtuella datorn för att fortsätta. Du kan hitta det här alternativet under **säkerhets kopierings infrastruktur** i Recovery Service-valvet.
 
-Använd det här alternativet med försiktighet. När den utlöses på en virtuell dator med ett redan felfritt tillägg kommer den här åtgärden att leda till att tillägget startas om. Detta kan leda till att alla pågående jobb Miss lyckas. Sök efter ett eller flera av [problemen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) innan du utlöser omregistrerings åtgärden.
+![Skyddade servrar under säkerhets kopierings infrastruktur](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
+
+Använd det här alternativet med försiktighet. När den utlöses på en virtuell dator med ett redan felfritt tillägg kommer den här åtgärden att leda till att tillägget startas om. Detta kan leda till att alla pågående jobb Miss lyckas. Sök efter ett eller flera av [symptomen](backup-sql-server-azure-troubleshoot.md#re-registration-failures) innan du utlöser omregistrerings åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
 

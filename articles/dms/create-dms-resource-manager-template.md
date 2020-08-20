@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 24a0d16a6ff052df4b7a9bcdd078542987b4fd50
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537453"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661188"
 ---
 # <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Snabb start: skapa en instans av Azure Database Migration Service med ARM-mall
 
@@ -35,7 +35,7 @@ Azure Database Migration Service ARM-mallen kräver följande:
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-azure-database-migration-simple-deploy/).
 
-:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json" highlight="33-75":::
+:::code language="json" source="~/quickstart-templates/101-azure-database-migration-simple-deploy/azuredeploy.json":::
 
 Tre Azure-resurser definieras i mallen: 
 
@@ -109,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Andra sätt att distribuera Azure Database Migration Service finns i: 
 - [Azure-portalen](quickstart-create-data-migration-service-portal.md)

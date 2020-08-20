@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/05/2020
-ms.openlocfilehash: 390376216700b760e96c2348b1ad61bb4561aad2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 08/20/2020
+ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211514"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660977"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
@@ -67,7 +67,7 @@ Förutom klient skillnaderna (anges tidigare och utelämnade här), har flera an
 
 | Version 10 | Version 11 motsvarande |
 |------------|-----------------------|
-| [Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.index) | [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) |
+| [Tabbindex](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.index) | [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) |
 | [Fält](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field) | [SearchField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) |
 | [DataType](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datatype) | [SearchFieldDataType](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfielddatatype) |
 | [ItemError](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.itemerror) | [SearchIndexerError](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexererror) |
@@ -147,9 +147,18 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
    using Azure.Search.Documents.Models;
    ```
 
-1. Ersätt [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials) med [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential).
+1. Ändra koden för klientautentisering. I tidigare versioner skulle du använda egenskaperna för klient objekt för att ange API-nyckeln (till exempel egenskapen [SearchServiceClient. credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). I den aktuella versionen använder du klassen [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) för att skicka nyckeln som en autentiseringsuppgift, så om det behövs kan du uppdatera API-nyckeln utan att skapa nya klient objekt.
 
-1. Uppdatera klient referenser för indexerare-relaterade objekt. Om du använder indexerare, data källor eller färdighetsuppsättningar ändrar du klient referenserna till [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). Den här klienten är ny i version 11 och har ingen Antecedent.
+   Klient egenskaper har effektiviserats till just `Endpoint` , `ServiceName` och (där det är `IndexName` lämpligt). I följande exempel används klassen system- [URI](https://docs.microsoft.com/dotnet/api/system.uri) för att ange slut punkten och [miljö](https://docs.microsoft.com//dotnet/api/system.environment) klassen som ska läsas i nyckelvärdet:
+
+   ```csharp
+   Uri endpoint = new Uri(Environment.GetEnvironmentVariable("SEARCH_ENDPOINT"));
+   AzureKeyCredential credential = new AzureKeyCredential(
+      Environment.GetEnvironmentVariable("SEARCH_API_KEY"));
+   SearchIndexClient indexClient = new SearchIndexClient(endpoint, credential);
+   ```
+
+1. Lägg till nya klient referenser för indexerare-relaterade objekt. Om du använder indexerare, data källor eller färdighetsuppsättningar ändrar du klient referenserna till [SearchIndexerClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexerclient). Den här klienten är ny i version 11 och har ingen Antecedent.
 
 1. Uppdatera klient referenser för frågor och data import. Instanser av [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) ska ändras till [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient). Se till att du fångar alla instanser innan du fortsätter till nästa steg för att undvika namn förvirring.
 

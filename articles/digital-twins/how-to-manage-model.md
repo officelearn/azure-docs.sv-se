@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 919db9338917a9c2bedd7806eb251a2e5ef6187b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510002"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661562"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -69,7 +69,7 @@ Efter den här metoden kan du gå vidare till för att definiera modeller för s
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="manage-models-with-apis"></a>Hantera modeller med API: er.
+## <a name="manage-models-with-apis"></a>Hantera modeller med API: er
 
 I följande avsnitt visas hur du utför olika modell hanterings åtgärder med hjälp av [Azure Digitals dubbla API: er och SDK: er](how-to-use-apis-sdks.md).
 
@@ -113,7 +113,7 @@ foreach (string fileName in dtdlFiles)
 client.CreateModels(dtdlStrings);
 ```
 
-Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Ett exempel:
+Model-filer kan innehålla mer än en enskild modell. I det här fallet måste modellerna placeras i en JSON-matris. Exempel:
 
 ```json
 [

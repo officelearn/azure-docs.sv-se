@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272356"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660690"
 ---
 # <a name="what-are-durable-functions"></a>Vad är Durable Functions?
 
@@ -704,8 +704,9 @@ Du kan komma igång med Durable Functions på mindre än 10 minuter genom att sl
 * [C# med Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript med hjälp av Visual Studio Code](quickstart-js-vscode.md)
 * [Python med Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell med Visual Studio Code](quickstart-powershell-vscode.md)
 
-I båda snabbstarterna skapar du och testar en beständig ”hello world”-funktion lokalt. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
+I de här snabb starterna skapar och testar du en "Hello World"-beständig funktion. Du publicerar sedan funktionskoden till Azure. Den funktion som du skapar orkestrerar och kedjar samman anrop till andra funktioner.
 
 ## <a name="learn-more"></a>Läs mer
 

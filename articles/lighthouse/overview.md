@@ -1,18 +1,18 @@
 ---
 title: Vad är Azure Lighthouse?
 description: Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
-ms.date: 08/12/2020
+ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: f65411c03725058e8aa6491245ffd94987efa6c9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: d21d11d1316b177f38b6bce197dec4f2c3d3fac8
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163228"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660741"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
-Azure Lighthouse erbjuder ett enda kontroll plan för att visa och hantera Azure-resurser över flera klienter med högre automatisering, skalning och förbättrad styrning. Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanterings verktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också dra nytta av företagets IT-organisationer och hantera resurser över flera klienter.
+Med Azure-Lighthouse kan du hantera flera klienter och flera innehavare, vilket ger högre automatisering, skalbarhet och förbättrad styrning över resurser och klienter. Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster med hjälp av omfattande och robusta hanterings verktyg som är inbyggda i Azure-plattformen. Det här erbjudandet kan också dra nytta av företagets IT-organisationer och hantera resurser över flera klienter.
 
 ![Översikts diagram över Azure-Lighthouse](media/azure-lighthouse-overview.jpg)
 

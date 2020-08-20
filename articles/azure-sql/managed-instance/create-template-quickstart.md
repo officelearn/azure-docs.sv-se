@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.openlocfilehash: d405cfda3c72ce9c724a7d96925d3346428a3089
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
-ms.locfileid: "85506647"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660622"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Snabb start: skapa en Azure SQL-hanterad instans med en ARM-mall
 
@@ -24,7 +24,7 @@ Den här snabb starten fokuserar på processen att distribuera en Azure Resource
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sqlmi-new-vnet%2Fazuredeploy.json)
 
@@ -34,9 +34,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json" range="001-249" highlight="113,178,188,226":::
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
 
 Dessa resurser definieras i mallen:
 

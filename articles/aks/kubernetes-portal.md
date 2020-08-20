@@ -6,18 +6,21 @@ author: laurenhughes
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: lahugh
-ms.openlocfilehash: 109192efa19605af003dcfb30592c865ce7495b5
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 4a0acf284475f3c9119f3b9d012debad656b1faa
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136990"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661358"
 ---
 # <a name="access-kubernetes-resources-from-the-azure-portal-preview"></a>Få åtkomst till Kubernetes-resurser från Azure Portal (för hands version)
 
 Azure Portal innehåller en Kubernetes Resource Viewer (för hands version) för enkel åtkomst till Kubernetes-resurserna i ditt Azure Kubernetes service-kluster (AKS). Genom att Visa Kubernetes-resurser från Azure Portal reduceras kontext växlingen mellan Azure Portal och `kubectl` kommando rads verktyget, vilket effektiviserar upplevelsen med att visa och redigera dina Kubernetes-resurser. Resurs läsaren innehåller för närvarande flera resurs typer, till exempel distributioner, poddar och replik uppsättningar.
 
 Kubernetes från Azure Portal ersätter [instrument panels tillägget AKS][kubernetes-dashboard], som är inställt för utfasning.
+
+>[!NOTE]
+>Capabilty stöds för närvarande inte i [privata Azure Kubernetes service-kluster](https://docs.microsoft.com/azure/aks/private-clusters).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

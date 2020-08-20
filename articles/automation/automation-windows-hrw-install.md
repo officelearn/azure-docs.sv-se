@@ -3,14 +3,14 @@ title: Distribuera en Windows-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du distribuerar en Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90b16f10cfa94ce427a9f6249c72842f8ef6278a
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270588"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660520"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -18,7 +18,7 @@ Du kan använda Hybrid Runbook Worker funktionen i Azure Automation för att kö
 
 När du har distribuerat en Runbook Worker granskar du [Kör Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md) för att lära dig hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller annan moln miljö.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att du har följande innan du börjar.
 
@@ -29,6 +29,9 @@ Hybrid Runbook Worker-rollen beror på en Azure Monitor Log Analytics arbets yta
 Om du inte har en Azure Monitor Log Analytics arbets yta granskar du [rikt linjerna för Azure Monitor logg design](../azure-monitor/platform/design-logs-deployment.md) innan du skapar arbets ytan.
 
 Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
+
+> [!NOTE]
+> När du aktiverar Uppdateringshantering-eller Ändringsspårning-och inventerings funktion Azure Automation bara har stöd för vissa regioner för länkning av en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md). Innan du aktiverar någon av funktionerna granskar du pris informationen för [Azure](https://azure.microsoft.com/pricing/details/automation/) för Azure Automation.
 
    Om du vill lägga till funktionen Uppdateringshantering i din arbets yta kör du följande PowerShell-cmdlet:
 
@@ -123,9 +126,6 @@ Ladda ned **New-OnPremiseHybridWorker.ps1** -skriptet från [PowerShell-gallerie
 | `SubscriptionID` | Obligatorisk | Identifieraren för den Azure-prenumeration som är kopplad till ditt Automation-konto. |
 | `TenantID` | Valfritt | Identifieraren för den klient organisation som är kopplad till ditt Automation-konto. |
 | `WorkspaceName` | Valfritt | Namnet på Log Analytics arbets ytan. Om du inte har en Log Analytics arbets yta, skapar skriptet och konfigurerar ett. |
-
-> [!NOTE]
-> När du aktiverar funktioner stöder Azure Automation bara vissa regioner för att länka en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md).
 
 ### <a name="step-2---open-windows-powershell-command-line-shell"></a>Steg 2 – öppna Windows PowerShell kommando rads gränssnitt
 

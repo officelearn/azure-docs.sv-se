@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/4/2019
+ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 2c84b291aad5ec2da2946e40075b23cc4496ef65
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921020"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661528"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -75,7 +75,7 @@ Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distrib
 
 **F: är mina förfrågningar begränsade?**
 
-S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finns på våra sidor för [tal till text](speech-to-text.md).
+**A**: se [kvoter och begränsningar för tal tjänster](speech-services-quotas-and-limits.md).
 
 **F: Hur debiteras jag för ljud med dubbla kanaler?**
 
@@ -85,52 +85,14 @@ S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finn
 > Om du har ytterligare sekretess problem som hindrar dig från att använda tjänsten för anpassad röst kontaktar du en av support kanalerna.
 
 ## <a name="increasing-concurrency"></a>Ökande samtidighet
+Se [kvoter och begränsningar för tal tjänster](speech-services-quotas-and-limits.md).
 
-**F: Vad händer om jag behöver högre samtidighet för min distribuerade modell än vad som erbjuds i portalen?**
-
-**A**: du kan skala upp din modell i steg om 20 samtidiga begär Anden.
-
-Med den information som krävs skapar du en support förfrågan på [Azure-support portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Publicera inte informationen på någon av de offentliga kanalerna (GitHub, StackOverflow,...) som nämns på [support Sidan](support.md).
-
-För att öka samtidigheten för en ***anpassad modell***behöver vi följande information:
-
-- Den region där modellen distribueras,
-- slut punkts-ID för den distribuerade modellen:
-  - Till [Custom Speech Portal](https://aka.ms/customspeech),
-  - Logga in (om det behövs),
-  - Välj ditt projekt och din distribution,
-  - Välj slut punkten du behöver samtidighets ökningen för,
-  - Kopiera `Endpoint ID` .
-
-För att öka samtidigheten för en ***bas modell***behöver vi följande information:
-
-- Regionen för din tjänst,
-
-och antingen
-
-- en åtkomsttoken för din prenumeration (se [här](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token))
-
-eller
-
-- Resurs-ID för din prenumeration:
-  - Gå till [Azure Portal](https://portal.azure.com),
-  - Välj `Cognitive Services` i rutan Sök,
-  - från de visade tjänsterna väljer du den tal tjänst som du vill att samtidigheten ska höjas för.
-  - Visa `Properties` för den här tjänsten,
-  - Kopiera hela `Resource ID` .
-  
-**F: ökar min samtidighets gräns öka min kostnad?**
-
-**A**: Nej, kostnaden baseras på användning. Ökning av samtidighet medför inte högre kostnader. Se vår [prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) för mer information om kostnad. 
-  
->[!NOTE]
->[Behållare](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-container-howto) kräver ingen ökning av samtidiga gränser, eftersom behållare endast begränsas av CPU: er för den maskin vara som de är värd för.
 
 ## <a name="importing-data"></a>Importera data
 
 **F: Vad är gränsen för en data uppsättnings storlek och varför är den begränsad?**
 
-**A**: den aktuella gränsen för en data uppsättning är 2 GB. Gränsen beror på begränsningen av storleken på en fil för HTTP-uppladdning.
+**A**: gränsen beror på begränsningen av storleken på en fil för http-uppladdning. Se [kvoter för tal tjänster och begränsningar](speech-services-quotas-and-limits.md) för den faktiska gränsen.
 
 **F: kan jag zippa upp mina textfiler så att jag kan ladda upp en större textfil?**
 
@@ -198,11 +160,11 @@ S **: samla**in data som är så nära program scenariot och användnings fallet
 
 **F: vilka tal upplevelser förbättras av klient organisations modellen?**
 
-**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med tal tjänsten. Det kan också skicka en användare AAD-token som anger medlemskap i företaget.
+**A:** När klient organisations modellen är aktive rad, skapas och publiceras, används den för att förbättra igenkänningen för alla företags program som skapats med tal tjänsten. Det innebär också att du skickar en Azure AD-token som anger medlemskap i företaget.
 
 De tal upplevelser som är inbyggda i Office 365, t. ex. Diktering och PowerPoint-textning, ändras inte när du skapar en klient modell för dina tal tjänst program.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsökning](troubleshooting.md)
-- [Viktig information](releasenotes.md)
+- [Versionsanmärkningar](releasenotes.md)

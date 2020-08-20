@@ -3,12 +3,12 @@ title: Vad Azure Backup Server v3 RTM kan säkerhetskopiera
 description: Den här artikeln innehåller en skydds mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup som hanterar v3 RTM-skydd.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 86e192e13b49b89e8d66c5f912ef88f02a1b21b4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611984"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661290"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server v3 RTM-skydds mat ris
 
@@ -32,9 +32,9 @@ I följande matris visas vad som kan skyddas med Azure Backup Server v3 RTM och 
 |Servrar (32-bitars och 64-bitars)|Windows Server 2012/2012 med SP1 – Datacenter och Standard|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem<br /><br />Azure Backup Server måste köras på minst Windows Server 2012 R2 för att skydda Windows Server 2012 deduplicerade volymer.|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2012/2012 med SP1 – Datacenter och Standard|Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil<br /><br />Azure Backup Server måste köras på minst Windows Server 2012 R2 för att skydda Windows Server 2012 deduplicerade volymer.|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2012/2012 med SP1 – Datacenter och Standard|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMware)<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem<br /><br />Azure Backup Server måste köras på minst Windows Server 2012 R2 för att skydda Windows Server 2012 deduplicerade volymer.|
-|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
-|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volym, resurs, mapp, fil|
-|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Frame 4.0](https://www.microsoft.com/download/details.aspx?id=40855)|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
+|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
+|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Virtuell Azure-dator (när arbetsbelastningen körs som virtuell Azure-dator)<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volym, resurs, mapp, fil|
+|Servrar (32-bitars och 64-bitars)|Windows Server 2008 R2 SP1 – Standard och Enterprise|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMWare)<br /> <br /> Azure Stack|V3, V2<br />Du måste köra SP1 och installera [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2008 SP2|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|Stöds inte|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
 |Servrar (32-bitars och 64-bitars)|Windows Server 2008 SP2|Virtuell Windows-dator i VMware (skyddar arbets belastningar som körs på virtuella Windows-datorer i VMware)<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|
 |Servrar (32-bitars och 64-bitars)|Windows Storage Server 2008|Fysisk server<br /><br />Lokal virtuell Hyper-V-dator<br /> <br /> Azure Stack|V3, V2|Volym, resurs, mapp, fil, systemtillstånd/utan operativsystem|

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de3b0ed309863a09003b1ff7709481d763163e07
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2bf360d9b09be4db84d0ff00b1a777fe8b188ea
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652210"
+ms.locfileid: "88661341"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -1803,7 +1803,7 @@ Det finns två typer av Azure Platform-händelser som kan påverka tillgängligh
 * Planerat underhåll är periodiska uppdateringar som Microsoft utför i syfte att förbättra tillförlitligheten, prestandan och säkerheten för den plattformsinfrastruktur som dina virtuella datorer körs i.
 * Oplanerat underhåll utförs när det uppstått något fel på den underliggande maskinvaran eller fysiska infrastrukturen. Det kan vara lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När ett sådant fel upptäcks, kommer Azure-plattformen automatiskt att migrera den virtuella datorn från den ej hälsofysiska server som är värd för den virtuella datorn till en felfri fysisk server. Den här typen av händelser kan också göra att den virtuella datorn startas om, men det är ovanligt.
 
-Mer information finns i den här dokumentationen: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
+Mer information finns i [tillgänglighet för virtuella Windows-datorer i Azure](../../windows/manage-availability.md) och [tillgänglighet för virtuella Linux-datorer i Azure](../../linux/manage-availability.md).
 
 #### <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -1811,7 +1811,7 @@ Data i ditt Microsoft Azure Storage-konto replikeras alltid för att säkerstäl
 
 Eftersom Azure Storage håller tre avbildningar av data som standard behövs inte RAID5 eller RAID1 över flera Azure-diskar.
 
-Mer information hittar du i den här artikeln: <https://azure.microsoft.com/documentation/articles/storage-redundancy/>
+Mer information finns i [Azure Storage redundans](../../../storage/common/storage-redundancy.md).
 
 #### <a name="utilizing-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-sap-applications"></a>Använda en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för SAP-program
 

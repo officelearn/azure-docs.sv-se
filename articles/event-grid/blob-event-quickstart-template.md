@@ -3,12 +3,12 @@ title: Skicka Blob Storage-händelser till webb slut punkt-mall
 description: Använd Azure Event Grid och en Azure Resource Manager mall för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en webhook.
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: e1d266f747671542059e0610cfcdd8cd12594e51
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 32fc17d1af552afa5a81fbc4a5973d69006742b9
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460447"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661273"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-an-arm-template"></a>Dirigera Blob Storage-händelser till webb slut punkter med en ARM-mall
 
@@ -41,7 +41,7 @@ Innan du prenumererar på händelserna för Blob Storage-kontot ska vi skapa slu
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-event-grid-subscription-and-storage/).
 
-:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json" range="1-91" highlight="40-85":::
+:::code language="json" source="~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json":::
 
 Två Azure-resurser definieras i mallen:
 
@@ -51,7 +51,7 @@ Två Azure-resurser definieras i mallen:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-1. Välj följande länk för att logga in på Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
+1. Välj följande länk för att logga in i Azure och öppna en mall. Mallen skapar ett nyckelvalv och en hemlighet.
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
@@ -87,6 +87,6 @@ När du överför filen till Azure Blob Storage skickar Event Grid ett meddeland
 Mer information om Azure Resource Manager-mallar finns i följande artiklar:
 
 * [Azure Resource Manager dokumentation](../azure-resource-manager/index.yml)
-* [Definiera resurser i Azure Resource Manager mallar](/azure/templates/)
-* [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
+* [Definiera resurser i Azure Resource Manager-mallar](/azure/templates/)
+* [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/)
 * [Azure Event Grid mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Eventgrid).

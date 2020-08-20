@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d9f9957209c6df91185059085f57636a16a3961c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: ab013a310997f43d1019d849e87c0cf1b0d151ee
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589409"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661103"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -95,8 +95,8 @@ Beroende på vilka verktyg du väljer kan du göra det med Visual Studio Package
 Lägg till följande using-uttryck i din Azure-funktion.
 
 ```csharp
-using Azure.Identity;
 using Azure.DigitalTwins.Core;
+using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
@@ -157,7 +157,7 @@ Använd följande kommando för att skapa den systemhanterade identiteten. Antec
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Använd värdet *principalId* i följande kommando för att tilldela Function-appens identitet till *ägar* rollen för din Azure Digital-instansen:
+Använd värdet *principalId* i följande kommando för att tilldela Function-appens identitet till rollen *Azure Digital-ägare (för hands version)* för din Azure Digital-instansen. Detta ger funktionen app behörighet i instansen för att utföra data Plans aktiviteter.
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"

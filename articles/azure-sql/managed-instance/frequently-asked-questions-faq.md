@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor och svar (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Vanliga frågor och svar om Azure SQL Managed instance
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 5f42079d271a933cb9a722c7e33e6f646f7c4d1b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210513"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661426"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure SQL Managed instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -223,12 +223,15 @@ Information om hur du optimerar lagrings prestanda finns [i metod tips för lagr
 Nej, lagring av säkerhets kopior dras inte av från lagrings utrymmet för den hanterade instansen. Lagrings utrymmet för säkerhets kopian är oberoende från instans lagrings utrymmet och är inte begränsat. Säkerhets kopierings lagringen begränsas av tids perioden för att behålla säkerhets kopieringen av dina instans databaser, vilket kan konfigureras upp till 35 dagar. Mer information finns i [automatiska säkerhets kopieringar](../database/automated-backups-overview.md).
 
 **Hur kan jag se när automatiska säkerhets kopieringar görs på min hanterade instans?**
+
 Information om hur du spårar när automatiska säkerhets kopieringar har utförts på en hanterad instans finns i [spåra den automatiserade säkerhets kopieringen för en hanterad Azure SQL-instans](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-128-how-to-track-the-automated-backup-for-an/ba-p/1442355)
 
 **Stöds säkerhets kopiering på begäran?**
+
 Ja, du kan skapa en fullständig kopia av en fullständig säkerhets kopia i Azure-Blob Storage, men den kommer bara att återställas i en hanterad instans. Mer information finns i [Kopiera endast säkerhets kopiering](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15). Det är dock omöjligt att kopiera säkerhets kopior om databasen krypteras av tjänstehanterade TDE eftersom det inte går att komma åt certifikatet som används för kryptering. I sådana fall använder du funktionen för att återställa en plats i taget för att flytta databasen till en annan SQL-hanterad instans eller växla till kundhanterad nyckel.
 
 **Stöds intern återställning (från. bak-filer) till hanterad instans?**
+
 Ja, det stöds och är tillgängligt för SQL Server 2005 +-versioner.  Om du vill använda intern återställning laddar du upp. bak-filen till Azure Blob Storage och kör T-SQL-kommandon. Mer information finns i [Native Restore from URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Verksamhetskontinuitet
@@ -296,7 +299,7 @@ Det här krävs inte. Du kan antingen [skapa ett virtuellt nätverk för Azure S
 
 Nej. För närvarande har vi inte stöd för att placera en hanterad instans i ett undernät som redan innehåller andra resurs typer.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet 
+## <a name="connectivity"></a>Anslutning 
 
 **Kan jag ansluta till min hanterade instans med hjälp av IP-adress?**
 
@@ -503,6 +506,14 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
 (Ersätt "test" med önskat inloggnings namn och justera princip-och förfallo värden)
+
+
+## <a name="service-updates"></a>Tjänstuppdateringar
+
+**Vad är en planerad underhålls händelse för SQL-hanterad instans?**
+
+Se [Planera för Azures underhålls händelser i SQL-hanterad instans](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+
 
 ## <a name="azure-feedback-and-support"></a>Feedback och support för Azure
 

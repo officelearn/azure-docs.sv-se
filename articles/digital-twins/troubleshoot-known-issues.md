@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 9130a3248e881c9d4e2c9bfe9017f43198d50f51
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590174"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661494"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -69,9 +69,9 @@ För att lösa problemet ska program varan använda Azure. Identity version **1.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
-Detta är en inkompatibilitet mellan Azure Digitals dubbla och den senaste versionen av Azure. Identity-biblioteket, version **1.2.0**. 
+Detta är relaterat till ett öppet problem med den senaste versionen av Azure. Identity Library (version **1.2.0**): [*kan inte autentiseras när du använder InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
-Du ser det här problemet om du använder version **1.2.0** i ditt program, eller om du lägger till biblioteket i projektet utan att ange en version (som även som standard till den senaste versionen).
+Du ser det här problemet om du använder version **1.2.0** i ditt Azure Digitals dubbla program, eller om du lägger till biblioteket i projektet utan att ange en version (som även som standard till den senaste versionen).
 
 ## <a name="next-steps"></a>Nästa steg
 

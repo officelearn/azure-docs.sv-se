@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24db7981557cf76f9108a1dca37ea4c4c9f51951
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283086"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717786"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Password Protection på plats
 
@@ -46,7 +46,7 @@ En lösen ords ändring är när en användare väljer ett nytt lösen ord när 
 
 En lösen ords uppsättning (kallas ibland återställning av lösen ord) är när en administratör ersätter lösen ordet för ett konto med ett nytt lösen ord, till exempel med hjälp av verktyget Active Directory användare och datorer hantering. Den här åtgärden kräver en hög behörighets nivå (vanligt vis domän administratören) och den person som utför åtgärden har vanligt vis inte kunskap om det gamla lösen ordet. Support scenarier utför ofta lösen ords uppsättningar, till exempel för att hjälpa en användare som har glömt sitt lösen ord. Du kan också se händelser för lösen ords uppsättning när ett helt nytt användar konto skapas för första gången med ett lösen ord.
 
-Principen för lösen ords verifiering beter sig på samma sätt oavsett om en ändring eller uppsättning av lösen ord görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att meddela dig om ett lösen ords ändring eller en åtgärd har gjorts.  Se [övervakning och loggning av lösen ords skydd i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+Principen för lösen ords verifiering beter sig på samma sätt oavsett om en ändring eller uppsättning av lösen ord görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att meddela dig om ett lösen ords ändring eller en åtgärd har gjorts.  Se [övervakning och loggning av lösen ords skydd i Azure AD](./howto-password-ban-bad-on-premises-monitor.md).
 
 **F: Varför loggas dubbletter av lösen ords avvisande vid försök att ange ett svagt lösen ord med hjälp av snapin-modulen Active Directory användare och datorer hantering?**
 
@@ -54,7 +54,7 @@ Snapin-modulen Active Directory användare och datorer hantering försöker för
 
 **F: Varför loggas händelser för lösen ords validering i Azure AD med ett tomt användar namn?**
 
-Active Directory har stöd för möjligheten att testa ett lösen ord för att se om det uppfyller kraven på den aktuella lösen ords komplexiteten, till exempel med hjälp av [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) -API: et. När ett lösen ord verifieras på det här sättet innehåller testningen även validering av lösen ords filter-DLL-baserade produkter som Azure AD Password Protection, men användar namnen som skickas till en angiven DLL-fil för lösen ords filter är tomma. I det här scenariot kommer Azure AD Password Protection fortfarande att verifiera lösen ordet med den aktuella lösen ords principen och utfärdar ett händelse logg meddelande för att avbilda resultatet, men händelse logg meddelandet har tomma användar namns fält.
+Active Directory har stöd för möjligheten att testa ett lösen ord för att se om det uppfyller kraven på den aktuella lösen ords komplexiteten, till exempel med hjälp av [NetValidatePasswordPolicy](/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) -API: et. När ett lösen ord verifieras på det här sättet innehåller testningen även validering av lösen ords filter-DLL-baserade produkter som Azure AD Password Protection, men användar namnen som skickas till en angiven DLL-fil för lösen ords filter är tomma. I det här scenariot kommer Azure AD Password Protection fortfarande att verifiera lösen ordet med den aktuella lösen ords principen och utfärdar ett händelse logg meddelande för att avbilda resultatet, men händelse logg meddelandet har tomma användar namns fält.
 
 **F: finns det stöd för att installera Azure AD Password Protection sida vid sida med andra lösen ords filter baserade produkter?**
 
@@ -74,13 +74,13 @@ FRS (föregående teknik till DFSR) har många kända problem och stöds helt oc
 
 Mer information finns i följande artiklar:
 
-[Fallet vid migrering av SYSVOL-replikering till DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[Fallet vid migrering av SYSVOL-replikering till DFSR](/archive/blogs/askds/the-case-for-migrating-sysvol-to-dfsr)
 
 [Slutet är Nigh för FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
 
 Om din domän inte redan använder DFSR måste du migrera den till att använda DFSR innan du installerar lösen ords skyddet för Azure AD. Mer information finns i följande länk:
 
-[Migreringsguiden för SYSVOL-replikering: FRS till DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+[Migreringsguiden för SYSVOL-replikering: FRS till DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
 > [!WARNING]
 > Azure AD Password Protection DC Agent-programvaran installeras för närvarande på domänkontrollanter i domäner som fortfarande använder FRS för SYSVOL-replikering, men program varan fungerar inte som den ska i den här miljön. Ytterligare negativa sido effekter är enskilda filer som Miss lyckas att replikera, och SYSVOL-återställnings procedurer visas som slutförda men tyst Miss lyckas för att replikera alla filer. Du bör migrera din domän så att DFSR kan använda DFSR så snart som möjligt, både för DFSR: s inbyggda fördelar och även för att avblockera distributionen av lösen ords skydd i Azure AD. Framtida versioner av program varan kommer att inaktive ras automatiskt när de körs i en domän som fortfarande använder FRS.
@@ -101,7 +101,7 @@ Nej. Eftersom proxyservern är tillstånds lös är det inte viktigt vilken spec
 
 Ja. Azure AD-proxyn för lösen ords skydd och Azure AD Connect bör aldrig stå i konflikt direkt med varandra.
 
-Tyvärr har en inkompatibilitet identifierats mellan versionen av Microsoft Azure AD Connect agent Updateer-tjänsten som installeras av proxy-programvaran för Azure AD-lösenordet och den version av tjänsten som installeras av [Azure Active Directory-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) -programvaran. Den här inkompatibiliteten kan resultera i att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar. Vi rekommenderar inte att du installerar Azure AD Password Protection proxy och Azure Active Directory-programproxy på samma dator.
+Tyvärr har en inkompatibilitet identifierats mellan versionen av Microsoft Azure AD Connect agent Updateer-tjänsten som installeras av proxy-programvaran för Azure AD-lösenordet och den version av tjänsten som installeras av [Azure Active Directory-programproxy](../manage-apps/application-proxy.md) -programvaran. Den här inkompatibiliteten kan resultera i att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar. Vi rekommenderar inte att du installerar Azure AD Password Protection proxy och Azure Active Directory-programproxy på samma dator.
 
 **F: i vilken ordning ska DC-agenter och-proxyservrar installeras och registreras?**
 

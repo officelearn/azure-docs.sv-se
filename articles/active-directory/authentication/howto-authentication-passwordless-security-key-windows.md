@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf7f89ab7c84d74dcd6e3dff2c2c688da1cefea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d70fe8a1fbaee285843bfd76ad2a8076df96b49b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550622"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717973"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Aktivera inloggning med lösen ord utan lösen ord till Windows 10-enheter med Azure Active Directory (för hands version)
 
@@ -37,7 +37,7 @@ Det här dokumentet fokuserar på att aktivera FIDO2-säkerhetsnyckel baserad l�
 | [Hybrid Azure AD-anslutna enheter](../devices/concept-azure-ad-join-hybrid.md) kräver Windows 10 version 2004 eller senare |   | X |
 | Fullständigt korrigerade Windows Server 2016/2019-domänkontrollanter. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) version 1.4.32.0 eller senare |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (valfritt) | X | X |
+| [Microsoft Intune](/intune/fundamentals/what-is-intune) (valfritt) | X | X |
 | Etablerings paket (valfritt) | X | X |
 | Grupprincip (valfritt) |   | X |
 
@@ -100,7 +100,7 @@ Om du vill använda specifika enhets grupper för att aktivera Credential-provid
       - OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       - Datatyp: heltal
       - Värde: 1
-1. Den här principen kan tilldelas till vissa användare, enheter eller grupper. Mer information finns i [Tilldela användar-och enhets profiler i Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. Den här principen kan tilldelas till vissa användare, enheter eller grupper. Mer information finns i [Tilldela användar-och enhets profiler i Microsoft Intune](/intune/device-profile-assign).
 
 ![Skapa anpassad enhets konfigurations princip för Intune](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
@@ -122,10 +122,10 @@ För enheter som inte hanteras av Intune kan ett konfigurations paket installera
 1. Anteckna eller ändra sökvägen i **build** Windows under **Välj var du vill spara etablerings paketet** och välj **Nästa**.
 1. Välj **build** på sidan **bygga etablerings paket** .
 1. Spara de två filerna som skapats (*ppkg* och *Cat*) till en plats där du kan tillämpa dem på datorer senare.
-1. Om du vill använda etablerings paketet som du har skapat läser du [Använd ett konfigurations paket](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package).
+1. Om du vill använda etablerings paketet som du har skapat läser du [Använd ett konfigurations paket](/windows/configuration/provisioning-packages/provisioning-apply-package).
 
 > [!NOTE]
-> Enheter som kör Windows 10 version 1809 måste också aktivera Shared PC Mode (*EnableSharedPCMode*). Mer information om hur du aktiverar den här funktionen finns i [Konfigurera en delad eller gäst dator med Windows 10](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc).
+> Enheter som kör Windows 10 version 1809 måste också aktivera Shared PC Mode (*EnableSharedPCMode*). Mer information om hur du aktiverar den här funktionen finns i [Konfigurera en delad eller gäst dator med Windows 10](/windows/configuration/set-up-shared-or-guest-pc).
 
 ### <a name="enable-with-group-policy"></a>Aktivera med grupprincip
 

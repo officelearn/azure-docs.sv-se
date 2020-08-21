@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a06f01507ad5715d1e8a3f828ab008e1e8ce65
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: e4afc5e554e72fc2ab78173368930b2e5317bce7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87512983"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718925"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur kombinerad säkerhets registrering är. Informat
 
 ![Min profil visar registrerad säkerhets information för en användare](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Innan du aktiverar den nya upplevelsen kan du läsa den här administratörs säkra dokumentationen och den användar fokuserade dokumentationen så att du förstår funktionerna och effekterna av den här funktionen. Basera din utbildning på [användar dokumentationen](../user-help/user-help-security-info-overview.md) för att förbereda dina användare för den nya upplevelsen och hjälpa till att säkerställa en lyckad distribution.
+Innan du aktiverar den nya upplevelsen kan du läsa den här administratörs säkra dokumentationen och den användar fokuserade dokumentationen så att du förstår funktionerna och effekterna av den här funktionen. Basera din utbildning på [användar dokumentationen](../user-help/security-info-setup-signin.md) för att förbereda dina användare för den nya upplevelsen och hjälpa till att säkerställa en lyckad distribution.
 
 Den kombinerade säkerhets informations registreringen i Azure AD är för närvarande inte tillgänglig för nationella moln som Azure amerikanska myndigheter, Azure Germany eller Azure Kina 21Vianet.
 

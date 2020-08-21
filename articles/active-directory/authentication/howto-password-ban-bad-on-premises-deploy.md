@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7870b62dea01f680126f5b4aac3dc2328407cd61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82143227"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718959"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planera och distribuera lokala Azure Active Directory lösen ords skydd
 
@@ -101,7 +101,7 @@ Följande krav gäller för Azure AD Password Protection DC-agenten:
     * Active Directory domän eller skog behöver inte finnas på Windows Server 2012-domän funktions nivå (DFL) eller skogens funktions nivå (FFL). Som vi nämnt i [design principer](concept-password-ban-bad-on-premises.md#design-principles)finns det ingen minsta DFL eller FFL som krävs för att antingen DC-agenten eller proxy-programvaran ska kunna köras.
 * Alla datorer som kör Azure AD Password Protection DC-agenten måste ha .NET 4,5 installerat.
 * Alla Active Directory domäner som kör Azure AD Password Protection DC-agenttjänsten måste använda Distributed File System replikering (DFSR) för SYSVOL-replikering.
-   * Om din domän inte redan använder DFSR måste du migrera innan du installerar lösen ords skyddet för Azure AD. Mer information finns i [migreringsguiden för SYSVOL-replikering: FRS till DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+   * Om din domän inte redan använder DFSR måste du migrera innan du installerar lösen ords skyddet för Azure AD. Mer information finns i [migreringsguiden för SYSVOL-replikering: FRS till DFS Replication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
     > [!WARNING]
     > Azure AD Password Protection DC Agent-programvaran installeras för närvarande på domänkontrollanter i domäner som fortfarande använder FRS (den föregående tekniken till DFSR) för SYSVOL-replikering, men program varan fungerar inte korrekt i den här miljön.
@@ -124,14 +124,14 @@ Följande krav gäller för proxy för Azure AD Password Protection-proxy:
 * Alla datorer som är värdar för tjänsten Azure AD Password Protection proxy måste konfigureras för att ge domän kontrol Lanterna möjlighet att logga in på proxy-tjänsten. Den här funktionen styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
 * Alla datorer som är värdar för tjänsten Azure AD Password Protection proxy måste konfigureras för att tillåta utgående TLS 1,2 HTTP-trafik.
 * Ett *globalt administratörs* konto för att registrera Azure AD-proxy för lösen ords skydd och skogen med Azure AD.
-* Nätverks åtkomst måste vara aktiverat för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+* Nätverks åtkomst måste vara aktiverat för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Krav för Microsoft Azure AD Connect agent Updater
 
 Uppdaterings tjänsten för Microsoft Azure AD Connect Agent installeras sida vid sida med Azure AD-proxyn för lösen ords skydd. Ytterligare konfiguration krävs för att Microsoft Azure AD Connect agent Updater-tjänsten ska kunna fungera:
 
-* Om din miljö använder en HTTP-proxyserver följer du rikt linjerna som anges i [arbeta med befintliga lokala proxyservrar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
-* Tjänsten Microsoft Azure AD Connect agent uppdaterar också de TLS 1,2-steg som anges i [TLS-krav](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#tls-requirements).
+* Om din miljö använder en HTTP-proxyserver följer du rikt linjerna som anges i [arbeta med befintliga lokala proxyservrar](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+* Tjänsten Microsoft Azure AD Connect agent uppdaterar också de TLS 1,2-steg som anges i [TLS-krav](../manage-apps/application-proxy-add-on-premises-application.md#tls-requirements).
 
 > [!WARNING]
 > Azure AD Password Protection-proxy och Azure AD-programproxy installera olika versioner av tjänsten Microsoft Azure AD Connect agent Updater, vilket är orsaken till innehållet i programproxyn. Dessa olika versioner är inkompatibla när de installeras sida vid sida och gör så att agent uppdaterings tjänsten inte kan kontakta Azure för program uppdateringar, så du bör aldrig installera Azure AD Password Protection proxy och Application Proxy på samma dator.

@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 74b4ec803229ceb0168da6540fcbda685f0df16e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653706"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717531"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -365,7 +365,7 @@ I den här genom gången har du lärt dig hur du uppgraderar den virtuella dator
 
 Lär dig att:
 
-* [Skala upp en primär nodtyp för Service Fabric-klustret](service-fabric-scale-up-node-type.md)
+* [Skala upp en primär nodtyp för Service Fabric-klustret](service-fabric-scale-up-primary-node-type.md)
 
 * [Konvertera en mall för skalnings uppsättningar för att använda hanterade diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-convert-template-to-md.md)
 

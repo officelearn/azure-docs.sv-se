@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 9640800bb53fe2fd5b27cb6e232e09c72158f8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b610748e425b9497e12c389cca4d797d6da54087
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261417"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719010"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrera från biblioteket Change feed processor till Azure Cosmos DB .NET v3 SDK
 
@@ -46,10 +46,6 @@ Precis som i biblioteket för ändrings matnings processor använder funktionen 
 SDK v3-processen för att ändra feed identifierar alla gamla biblioteks tillstånd och migrerar den till det nya schemat automatiskt vid den första körningen av den migrerade program koden. 
 
 Du kan på ett säkert sätt stoppa programmet med den gamla koden, migrera koden till den nya versionen, starta det migrerade programmet och eventuella ändringar som hände när programmet stoppades, hämtas och bearbetas av den nya versionen.
-
-> [!NOTE]
-> Migrering från program som använder biblioteket till .NET v3 SDK är enkelriktad, eftersom tillstånd (lån) kommer att migreras till det nya schemat. Migreringen är inte bakåtkompatibel.
-
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

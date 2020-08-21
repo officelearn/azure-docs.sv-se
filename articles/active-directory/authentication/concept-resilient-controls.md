@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027622"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716307"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -30,7 +30,7 @@ Det här dokumentet ger vägledning om strategier som en organisation bör vidta
 
  1. Organisationer kan öka sin återhämtning för att minska risken för utelåsning **innan avbrott** genom att implementera strategier för minskning eller katastrof planer.
  2. Organisationer kan fortsätta att komma åt appar och resurser som de väljer **under ett avbrott** genom att ha hjälp av strategier och katastrof planer på plats.
- 3. Organisationer bör se till att de bevarar information, t. ex. loggar, **efter ett avbrott** och innan de återställer eventuella eventualförpliktelser som de har implementerat.
+ 3. Organisationer bör se till att de bevarar information, t. ex. loggar,  **efter ett avbrott** och innan de återställer eventuella eventualförpliktelser som de har implementerat.
  4. Organisationer som inte har implementerat förebyggande strategier eller alternativa planer kan kunna implementera **nöd alternativ** för att hantera störningar.
 
 ## <a name="key-guidance"></a>Nyckel vägledning
@@ -55,7 +55,7 @@ Att begränsa ett verkligt avbrott måste vara en organisations primära fokus f
 
 ### <a name="administrator-lockout-contingency"></a>Katastrof för administratörs utelåsning
 
-Om du vill låsa upp administratörs åtkomsten till din klient bör du skapa konton för nöd åtkomst. Dessa återställnings konton, även kallade *Break glas* -konton, tillåter åtkomst till hantering av Azure AD-konfiguration när vanliga åtkomst procedurer för privilegierade konton inte är tillgängliga. Minst två återställnings konton för nöd situationer bör skapas efter [konto rekommendationer för nöd åtkomst]( https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access).
+Om du vill låsa upp administratörs åtkomsten till din klient bör du skapa konton för nöd åtkomst. Dessa återställnings konton, även kallade *Break glas* -konton, tillåter åtkomst till hantering av Azure AD-konfiguration när vanliga åtkomst procedurer för privilegierade konton inte är tillgängliga. Minst två återställnings konton för nöd situationer bör skapas efter [konto rekommendationer för nöd åtkomst]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Begränsa användar utelåsning
 
@@ -65,11 +65,11 @@ Om du vill låsa upp administratörs åtkomsten till din klient bör du skapa ko
 
 Inkludera följande åtkomst kontroller i dina befintliga principer för villkorlig åtkomst för organisationen:
 
-1. Etablera flera autentiseringsmetoder för varje användare som förlitar sig på olika kommunikations kanaler, till exempel Microsoft Authenticator app (Internet-baserad), OATH-token (genereras på enheten) och SMS (telefoni). Följande PowerShell-skript hjälper dig att identifiera i förväg, vilka ytterligare metoder som dina användare bör registrera: [skript för Azure MFA-analys av autentiseringsmetod](https://docs.microsoft.com/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
+1. Etablera flera autentiseringsmetoder för varje användare som förlitar sig på olika kommunikations kanaler, till exempel Microsoft Authenticator app (Internet-baserad), OATH-token (genereras på enheten) och SMS (telefoni). Följande PowerShell-skript hjälper dig att identifiera i förväg, vilka ytterligare metoder som dina användare bör registrera: [skript för Azure MFA-analys av autentiseringsmetod](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/).
 2. Distribuera Windows Hello för företag på Windows 10-enheter för att uppfylla MFA-krav direkt från enhets inloggning.
-3. Använd betrodda enheter via [Azure AD hybrid Join](https://docs.microsoft.com/azure/active-directory/devices/overview) eller [Microsoft Intune hanterade enheter](https://docs.microsoft.com/intune/planning-guide). Betrodda enheter förbättrar användar upplevelsen, eftersom den betrodda enheten kan uppfylla kraven för stark autentisering av principer utan MFA-utmaning för användaren. MFA kommer sedan att krävas när du registrerar en ny enhet och vid åtkomst till appar eller resurser från ej betrodda enheter.
+3. Använd betrodda enheter via [Azure AD hybrid Join](../devices/overview.md) eller [Microsoft Intune hanterade enheter](/intune/planning-guide). Betrodda enheter förbättrar användar upplevelsen, eftersom den betrodda enheten kan uppfylla kraven för stark autentisering av principer utan MFA-utmaning för användaren. MFA kommer sedan att krävas när du registrerar en ny enhet och vid åtkomst till appar eller resurser från ej betrodda enheter.
 4. Använd Azure AD Identity Protection-riskfyllda principer som förhindrar åtkomst när användaren eller inloggningen är utsatt för risk i stället för fasta MFA-principer.
-5. Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) och fastställa kategorin app enligt rekommendationerna nedan. 
+5. Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](../manage-apps/view-applications-portal.md) och fastställa kategorin app enligt rekommendationerna nedan. 
 
 >[!NOTE]
 > Riskfyllda principer kräver [Azure AD Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) -licenser.
@@ -92,7 +92,7 @@ Den här exempel princip uppsättningen beviljar valda användare i **AppUsers**
 
 ### <a name="contingencies-for-user-lockout"></a>Eventualförpliktelser/eventualtillgångar för användar utelåsning
 
-Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades. Microsoft rekommenderar att du aktiverar katastrof principer i [endast rapport läge](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-report-only) när de inte används så att administratörer kan övervaka den potentiella effekten av principerna om de måste vara påslagna.
+Alternativt kan din organisation också skapa katastrof principer. För att skapa katastrof principer måste du definiera kompromiss kriterier mellan affärs kontinuitet, drifts kostnader, ekonomisk kostnad och säkerhets risker. Du kan till exempel bara aktivera en katastrof princip för en delmängd av användare, för en delmängd av appar, för en delmängd av klienter eller från en delmängd av platser. Katastrof principer ger administratörer och slutanvändare åtkomst till appar och resurser under ett avbrott när ingen minsknings metod implementerades. Microsoft rekommenderar att du aktiverar katastrof principer i [endast rapport läge](../conditional-access/howto-conditional-access-report-only.md) när de inte används så att administratörer kan övervaka den potentiella effekten av principerna om de måste vara påslagna.
 
  Att förstå exponeringen under ett avbrott bidrar till att minska risken och är en viktig del av planerings processen. För att skapa en katastrof plan måste du först fastställa följande affärs krav för din organisation:
 
@@ -119,8 +119,8 @@ En princip för villkorlig åtkomst är en **säkerhets kopierings princip** som
 
 * Konfigurera en uppsättning återställnings principer om ett avbrott i en typ av autentiseringsuppgift eller en mekanism för åtkomst kontroll påverkar åtkomsten till dina appar. Konfigurera en princip i endast rapport tillstånd som kräver domän anslutning som en kontroll, som en säkerhets kopia för en aktiv princip som kräver en MFA-provider från tredje part.
 * Minska risken för dåliga aktörer som gissar lösen ord, om MFA inte krävs, genom att följa anvisningarna i guiden för [lösen Ords vägledning](https://aka.ms/passwordguidance) White Paper.
-* Distribuera [Azure AD-SSPR (Self-Service Password rereset)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) och [Azure AD Password Protection](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
-* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Exempel:
+* Distribuera [Azure AD-SSPR (Self-Service Password rereset)](./tutorial-enable-sspr.md) och [Azure AD Password Protection](./howto-password-ban-bad-on-premises-deploy.md) för att se till att användarna inte använder vanliga lösen ord och villkor som du väljer att förbjuda.
+* Använd principer som begränsar åtkomsten i apparna om en viss autentiseringsnivå inte uppnås i stället för att bara komma tillbaka till fullständig åtkomst. Ett exempel:
   * Konfigurera en säkerhets kopierings princip som skickar anspråk för begränsad session till Exchange och SharePoint.
   * Om din organisation använder Microsoft Cloud App Security bör du överväga att återgå till en princip som samverkar med MCAS och sedan MCAS tillåter skrivskyddad åtkomst men inte uppladdning.
 * Namnge dina principer för att se till att det är enkelt att hitta dem under ett avbrott. Inkludera följande element i princip namnet:
@@ -208,7 +208,7 @@ Aktiverings ordning:
 
 ### <a name="contingencies-for-user-lockout-from-on-prem-resources-nps-extension"></a>Katastrofer för användar utelåsning från lokal resurser (NPS-tillägg)
 
-Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications) och fastställa kategorin app enligt rekommendationerna nedan. 
+Om du skyddar VPN-åtkomst med Azure MFA NPS-tillägget bör du federera VPN-lösningen som en [SAML-app](../manage-apps/view-applications-portal.md) och fastställa kategorin app enligt rekommendationerna nedan. 
 
 Om du har distribuerat Azure AD MFA NPS-tillägget för att skydda lokal-resurser, t. ex. VPN och fjärr skrivbords-Gateway, med MFA, bör du överväga i förväg om du är redo att inaktivera MFA i ett fall av nödfall.
 
@@ -233,7 +233,7 @@ Användar utelåsning kan också ske om följande villkor är uppfyllda:
 - Din organisation använder en hybrid identitets lösning med direkt autentisering eller Federation.
 - Dina lokala identitets system (till exempel Active Directory, AD FS eller beroende komponent) är inte tillgängliga. 
  
-För att vara mer elastisk bör din organisation [Aktivera synkronisering av lösen ords-hash](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), eftersom det gör att du kan [Växla till att använda hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) om dina lokala identitets system är nere.
+För att vara mer elastisk bör din organisation [Aktivera synkronisering av lösen ords-hash](../hybrid/choose-ad-authn.md), eftersom det gör att du kan [Växla till att använda hash-synkronisering av lösen ord](../hybrid/plan-connect-user-signin.md) om dina lokala identitets system är nere.
 
 #### <a name="microsoft-recommendations"></a>Microsoft-rekommendationer
  Aktivera hash-synkronisering av lösen ord med hjälp av guiden Azure AD Connect, oavsett om din organisation använder Federation eller direktautentisering.
@@ -255,7 +255,7 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 1. Som en del av din strategi för ändrings kontroll måste du dokumentera varje ändring och det tidigare läget så att du kan återställa eventuella eventualförpliktelser som du har implementerat så snart åtkomst kontrollerna är helt operativa.
 2. Anta att skadliga aktörer kommer att försöka att skörda lösen ord genom lösen ords spridning eller nätfiske-attacker när du har inaktiverat MFA. Dessutom kanske Felaktiga aktörer redan har lösen ord som tidigare inte beviljade åtkomst till någon resurs som kan provas under det här fönstret. För viktiga användare som chefer, kan du delvis minimera den här risken genom att återställa sina lösen ord innan du inaktiverar MFA för dem.
 3. Arkivera all inloggnings aktivitet för att identifiera vem som har åtkomst till vad under tiden MFA har inaktiverats.
-4. [Prioritering alla risk identifieringar som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) i det här fönstret.
+4. [Prioritering alla risk identifieringar som rapporter ATS](../reports-monitoring/concept-sign-ins.md) i det här fönstret.
 
 ## <a name="after-a-disruption"></a>Efter ett avbrott
 
@@ -265,8 +265,8 @@ Beroende på vilka åtgärder som används under ett avbrott kan din organisatio
 2. Inaktivera dina katastrof principer tillbaka till endast rapport läge. 
 3. Återställa andra ändringar som du har gjort och dokumenterat under avbrott.
 4. Om du har använt ett konto för nödfalls åtkomst måste du komma ihåg att återskapa autentiseringsuppgifter och fysiskt skydda de nya autentiseringsuppgifterna som en del av dina konto procedurer för nöd åtkomst.
-5. Fortsätt att [prioritering alla risk identifieringar som rapporter ATS](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) efter avbrott för misstänkt aktivitet.
-6. Återkalla alla uppdateringstoken som utfärdats [med PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) för att rikta in dig på en uppsättning användare. Att återkalla alla uppdateringstoken är viktigt för privilegierade konton som används under avbrottet och det tvingar dem att autentisera och uppfylla kontrollen över de återställda principerna.
+5. Fortsätt att [prioritering alla risk identifieringar som rapporter ATS](../reports-monitoring/concept-sign-ins.md) efter avbrott för misstänkt aktivitet.
+6. Återkalla alla uppdateringstoken som utfärdats [med PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) för att rikta in dig på en uppsättning användare. Att återkalla alla uppdateringstoken är viktigt för privilegierade konton som används under avbrottet och det tvingar dem att autentisera och uppfylla kontrollen över de återställda principerna.
 
 ## <a name="emergency-options"></a>Nöd alternativ
 
@@ -280,17 +280,17 @@ Om din organisation använder äldre MFA-principer per användare, kan du överv
  > Om du utökar de betrodda IP-adresserna för att blockera åtkomst kommer risk identifieringar som är associerade med IP-adresser (till exempel omöjliga resor eller okända platser) inte att genereras.
 
 >[!NOTE]
- > Det går bara att konfigurera [betrodda IP-adresser](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings) för Azure MFA med [Azure AD Premium licenser](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing).
+ > Det går bara att konfigurera [betrodda IP-adresser](./howto-mfa-mfasettings.md) för Azure MFA med [Azure AD Premium licenser](./concept-mfa-licensing.md).
 
-## <a name="learn-more"></a>Mer information
+## <a name="learn-more"></a>Läs mer
 
-* [Dokumentation om Azure AD-autentisering](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
-* [Hantera administrativa konton för katastrof åtkomst i Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
-* [Konfigurera namngivna platser i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
-  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Konfigurera hybrid Azure Active Directory anslutna enheter](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Distributionsguide för Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+* [Dokumentation om Azure AD-autentisering](./howto-mfaserver-iis.md)
+* [Hantera administrativa konton för katastrof åtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Konfigurera namngivna platser i Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
+  * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+* [Konfigurera hybrid Azure Active Directory anslutna enheter](../devices/hybrid-azuread-join-plan.md)
+* [Distributionsguide för Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [Vägledning för lösen ord – Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [Vad är villkor i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
-* [Vad är läget endast i rapporten för villkorlig åtkomst?](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-report-only)
+* [Vad är villkor i Azure Active Directory villkorlig åtkomst?](../conditional-access/concept-conditional-access-conditions.md)
+* [Vad är åtkomst kontroller i Azure Active Directory villkorlig åtkomst?](../conditional-access/controls.md)
+* [Vad är läget endast i rapporten för villkorlig åtkomst?](../conditional-access/concept-conditional-access-report-only.md)

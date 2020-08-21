@@ -3,43 +3,46 @@ title: Använda Azure Managed Identities för att skapa miljöer i DevTest Labs 
 description: Lär dig hur du använder hanterade identiteter i Azure för att distribuera miljöer i ett labb i Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d4df9cab17289eba21caf9d7c88eb37626b3349
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478883"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718992"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Använd Azure Managed Identities för att distribuera miljöer i ett labb 
+
 Som labb ägare kan du använda en hanterad identitet för att distribuera miljöer i ett labb. Den här funktionen är användbar i scenarier där miljön innehåller eller har referenser till Azure-resurser, till exempel nyckel valv, delade avbildnings gallerier och nätverk som är externa i miljöns resurs grupp. Det gör det möjligt att skapa sand Box miljöer som inte är begränsade till resurs gruppen för den miljön.
 
 > [!NOTE]
 > För närvarande stöds en enda användardefinierad identitet per labb. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
+
 - [Skapa, Visa, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+    
+    Se till att din hanterade identitet har skapats i samma region och prenumeration som ditt labb. Den hanterade identiteten behöver inte finnas i samma resurs grupp.
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen
+
 I det här avsnittet ska du, som labb ägare, använda Azure Portal för att lägga till en användardefinierad identitet i labbet. 
 
-1. På sidan labb väljer du **konfiguration och principer**. 
-1. Välj **identitet** i avsnittet **Inställningar** .
-1. Om du vill lägga till en tilldelad identitet väljer du **Lägg till** i verktygsfältet. 
-1. Välj en **identitet** från en i förväg ifylld List rutan.
-1. Välj **OK**.
-
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Sök efter **DevTest Labs**.
+1. I listan med labb väljer du det labb du vill ha.
+1. Välj **konfiguration och principer**  ->  **identitet (för hands version)**. 
+1. Om du vill lägga till en tilldelad identitet väljer du fliken **tilldelad användare** .
+1. Tryck på **Lägg till** .
+1. Välj en befintlig användare som du har skapat och/eller har åtkomst till från List rutan.
+ 
     ![Lägg till användarens hanterad identitet](./media/use-managed-identities-environments/add-user-managed-identity.png)
-2. Du ser den tillagda användar hanterade identiteten i listan. 
+1. Tryck på **Spara** överst på sidan.
 
-    ![Användarens hanterade identitet i listan](./media/use-managed-identities-environments/identity-in-list.png)
-
-När du har sparat använder labbet den här identiteten för att distribuera alla labb miljöer. Du kan också komma åt identitets resursen i Azure genom att välja identiteten i listan. 
+    När du har sparat använder labbet den här identiteten för att distribuera alla labb miljöer. Du kan också komma åt identitets resursen i Azure genom att välja identiteten i listan. 
 
 Labb ägaren behöver inte göra något särskilt medan du distribuerar en miljö förutsatt att identiteten som läggs till i labbet har behörighet till de externa resurser som miljön behöver åtkomst till. 
 
 Om du vill ändra den användar hanterade identitet som är tilldelad till labbet tar du bort den identitet som är kopplad till labbet först och lägger sedan till en annan i labbet. Om du vill ta bort en identitet som är kopplad till labbet väljer du **... (tre punkter)** och klicka på **ta bort**. 
-
-![Användarens hanterade identitet i listan](./media/use-managed-identities-environments/replace-identity.png)  
 
 ## <a name="use-api"></a>Använd API
 

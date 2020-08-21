@@ -2,14 +2,14 @@
 title: Kör uppgifter under användar konton
 description: Lär dig olika typer av användar konton och hur du konfigurerar dem.
 ms.topic: how-to
-ms.date: 11/18/2019
+ms.date: 08/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 412947b939d95be29dde374b311776829fa12582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: cce374e7d7ffb513bed882b048ea54bcbad81b0b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142676"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719367"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
 
@@ -49,18 +49,13 @@ Användar kontots höjnings nivå anger om en aktivitet körs med utökad åtkom
 
 ## <a name="auto-user-accounts"></a>Konton för automatisk användare
 
-Som standard körs aktiviteter i batch under ett automatiskt användar konto, som standard användare utan utökad åtkomst och med uppgifts omfattning. När den automatiska användar specifikationen har kon figurer ATS för uppgifts omfattning skapar batch-tjänsten ett automatiskt användar konto för den uppgiften.
+Som standard körs aktiviteter i batch under ett automatiskt användar konto, som standard användare utan utökad åtkomst och med pool-scope. Pool-scope innebär att aktiviteten körs under ett automatiskt användar konto som är tillgängligt för alla aktiviteter i poolen. Mer information om pool-scope finns i [köra en aktivitet som en automatisk användare med pool-scope](#run-a-task-as-an-auto-user-with-pool-scope).
 
-Alternativet till uppgifts omfattning är pool-scope. När den automatiska användar specifikationen för en aktivitet har kon figurer ATS för pool-scope körs aktiviteten under ett automatiskt användar konto som är tillgängligt för alla aktiviteter i poolen. Mer information om pool-scope finns i [köra en aktivitet som en automatisk användare med pool-scope](#run-a-task-as-an-auto-user-with-pool-scope).
-
-Standard omfånget skiljer sig på Windows-och Linux-noder:
-
-- På Windows-noder körs aktiviteter under uppgifts omfattning som standard.
-- Linux-noder körs alltid under poolens omfång.
+Alternativet till pool-scope är uppgifts omfattning. När den automatiska användar specifikationen har kon figurer ATS för uppgifts omfattning skapar batch-tjänsten ett automatiskt användar konto för den uppgiften.
 
 Det finns fyra möjliga konfigurationer för den automatiska användar specifikationen, som var och en motsvarar ett unikt konto för automatisk användare:
 
-- Icke-administratörs åtkomst med uppgifts omfattning (standard specifikationen för Auto-User)
+- Icke-admin-åtkomst med uppgifts omfattning
 - Administratör (utökad åtkomst) med uppgifts omfattning
 - Icke-admin-åtkomst med pool-scope
 - Administratörs åtkomst med pool-scope
@@ -75,7 +70,7 @@ Du kan konfigurera specifikationen för automatisk användare för administratö
 > [!NOTE]
 > Använd endast utökad åtkomst vid behov. Bästa praxis rekommenderar att du ger den minsta behörighet som krävs för att uppnå önskat resultat. Till exempel, om en start aktivitet installerar program vara för den aktuella användaren, i stället för för alla användare, kan du undvika att ge utökad åtkomst till uppgifter. Du kan konfigurera den automatiska användar specifikationen för pool-scope och icke-administratörs åtkomst för alla aktiviteter som behöver köras under samma konto, inklusive start uppgiften.
 
-Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget till `Task` . Aktivitets omfånget är standardinställningen, men ingår här för till exempel.
+Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget till `Task` .
 
 #### <a name="batch-net"></a>.NET för Batch
 
@@ -90,7 +85,7 @@ taskToAdd.withId(taskId)
             .withAutoUser(new AutoUserSpecification()
                 .withElevationLevel(ElevationLevel.ADMIN))
                 .withScope(AutoUserScope.TASK));
-        .withCommandLine("cmd /c echo hello");                        
+        .withCommandLine("cmd /c echo hello");
 ```
 
 #### <a name="batch-python"></a>Python för Batch
@@ -113,7 +108,7 @@ När en nod har allokerats skapas två pooliska automatiska användar konton på
 
 När du anger poolens omfång för den automatiska användaren, körs alla aktiviteter som körs med administratörs åtkomst under samma pool-brett automatiskt användar konto. På samma sätt körs aktiviteter som körs utan administratörs behörighet även under ett enda pool-konto för automatisk användar åtkomst.
 
-> [!NOTE] 
+> [!NOTE]
 > De två automatiskt använda poolerna för användar konton är separata konton. Aktiviteter som körs under det administrativa kontot för hela poolen kan inte dela data med aktiviteter som körs under standard kontot och vice versa.
 
 Fördelen med att köra med samma automatiskt användar konto är att aktiviteter kan dela data med andra aktiviteter som körs på samma nod.
@@ -291,7 +286,7 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated`inte angivet | Ingen uppdatering krävs                                                                                               |
+| `CloudTask.RunElevated` inte angivet | Ingen uppdatering krävs                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
@@ -299,7 +294,7 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated`inte angivet | Ingen uppdatering krävs                                                                                                                     |
+| `CloudTask.withRunElevated` inte angivet | Ingen uppdatering krävs                                                                                                                     |
 
 ### <a name="batch-python"></a>Python för Batch
 
@@ -307,7 +302,7 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
 | `run_elevated=False`                      | `user_identity=user`, där <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
-| `run_elevated`inte angivet | Ingen uppdatering krävs                                                                                                                                  |
+| `run_elevated` inte angivet | Ingen uppdatering krävs                                                                                                                                  |
 
 ## <a name="next-steps"></a>Nästa steg
 

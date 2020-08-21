@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038473"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719078"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Självstudie: övervaka och hantera ett video analys program för identifiering av objekt och motion
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Gå till instrument panelen för **övervakning** i ditt program. Klicka sedan på någon av hyperlänkarna för hämtade objekt identifiering på video panelen för **video händelsen** . Videon visas på en sida som visas av den lokala Videos pelaren:
+Gå till **kameran-003-** enheten och välj fliken **instrument panel** . Klicka sedan på någon av hyperlänkarna för hämtade objekt identifiering på video panelen för **video händelsen** . Videon visas på en sida som visas av den lokala Videos pelaren:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Video kodfragment":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Ändra de simulerade enheterna i program instrument panelen
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Ändra de simulerade enheterna i program instrument paneler
 
 Program instrument paneler fylls i ursprungligen med telemetri och egenskaper som genereras från IoT Central simulerade enheter. Följ dessa steg om du vill konfigurera panelerna till telemetri från riktiga kameror eller Live555-simulatorn:
 
-1. Gå till instrument panelen för den **riktiga kamera övervakaren** .
+1. Gå till instrument panelen **(exempel) i det riktiga kamera övervaknings** programmet.
 1. Välj **Redigera**.
+1. Välj **antecknings** panelen och ta bort den.
+1. Ändra instrument panelens rubrik till den *riktiga kamera övervakaren*.
 1. Välj ikonen konfigurera på panelen **antal härledningar** .
 1. I avsnittet **Konfigurera diagram** väljer du en eller flera riktiga kameror i enhets gruppen **lva Edge objekt detektor** .
 1. Välj `AI Inference Interface/Inference Count` fältet telemetri.
 1. Välj **Uppdatera**.
-
-   
 
 1. Upprepa stegen för följande paneler:
     1. Diagram över **identifieringen** använder `AI Inference Interface/Inference/entity/tag/value` typen telemetri.

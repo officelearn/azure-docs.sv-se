@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032305"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719244"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
@@ -152,7 +152,7 @@ Följande skärm bild visar den färdiga instrument panelen i program mal len. I
 
 Mer information finns i själv studie kursen [distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center.md) .
 
-## <a name="video-analytics---object-and-motion-detection"></a>Video analys – identifiering av objekt och rörelse
+## <a name="video-analytics---object-and-motion-detection"></a>Videoanalys – objekt- och rörelseidentifiering
 
 Med program mal len *IoT Central video analys – objekt och rörelse identifiering* kan du snabbt uppleva hur du distribuerar, hanterar och övervakar en lösning som använder smarta kant kameror för att identifiera objekt och rörelse.
 
@@ -160,20 +160,20 @@ Video analys programmet använder en [lva-modul (Real Video Analytics)](#live-vi
 
 Program mal len innehåller fyra instrument paneler för program:
 
-* **Installations programmet** ger information om program designen och låter dig lägga till och ta bort kameror.
-* Med **Hantera** kan du hantera dina kameror. Du kan till exempel konfigurera kamerorna, Visa statusinformation och starta kameror som kör.
-* Med **verkliga kameror** kan du Visa information från dina riktiga kameror, till exempel identifierings antal och kamera händelser.
-* Med **övervakaren** kan du Visa detaljerad information från alla dina kameror.
+* **Komma igång** innehåller länkar till resurser som hjälper dig att komma igång med program mal len.
+* **Instrument panelen demo** visar en illustration av de typer av information som du kan visa från dina anslutna kameror.
+* **(Exempel) Real Camera Management** använder simulerade kameror för att visa hur du kan hantera dina kameror från programmet.
+* **(Exempel) den verkliga kamera övervakaren** använder simulerade kameror för att visa hur du kan övervaka dina kameror från programmet.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Video analys – identifiering av objekt och rörelse":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Videoanalys – objekt- och rörelseidentifiering":::
 
 Mer information om lösningens arkitektur finns i [program arkitekturen för video analys](architecture-video-analytics.md).
 
-Information om hur du distribuerar lösningen finns i själv studie kursen [skapa ett video analys program i Azure IoT Central](tutorial-video-analytics-create-app.md) .
+Information om hur du distribuerar lösningen finns i själv studie kursen [skapa ett video analys program i Azure IoT Central](tutorial-video-analytics-deploy.md) .
 
 ### <a name="live-video-analytics"></a>Video analys i real tid
 
-Med Live Video Analytics får du en plattform där du kan bygga intelligenta video program som omfattar gränsen och molnet. Plattformen ger möjlighet att samla in, spela in, analysera direktsänd video och publicera resultaten, som kan vara video-eller video analyser till Azure-tjänster. Azure-tjänsterna kan köras i molnet eller på gränsen. Du kan använda plattformen för att förbättra IoT-lösningar med video analys.
+Med [Live Video Analytics](https://github.com/Azure/live-video-analytics) får du en plattform där du kan bygga intelligenta video program som omfattar gränsen och molnet. Plattformen ger möjlighet att samla in, spela in, analysera direktsänd video och publicera resultaten, som kan vara video-eller video analyser till Azure-tjänster. Azure-tjänsterna kan köras i molnet eller på gränsen. Du kan använda plattformen för att förbättra IoT-lösningar med video analys.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -184,4 +184,5 @@ För att komma igång med att skapa en detalj handels lösning:
 * [Distribuera och gå igenom en app-mall för digital distributions Center](./tutorial-iot-central-digital-distribution-center.md).
 * [Distribuera och gå igenom en mall för hantering av Smart inventerings program](./tutorial-iot-central-smart-inventory-management.md).
 * [Distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center.md).
+* [Distribuera och gå igenom program mal len video analys](./tutorial-video-analytics-deploy.md).
 * Läs mer om IoT Central i [översikten över IoT Central](../preview/overview-iot-central.md).

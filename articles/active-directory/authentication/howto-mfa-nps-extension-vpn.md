@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 394a4c171153ecf50ff5d755c42e3c5f939b2ec7
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 13ed87903845d9f8295e56f187b643d73fbfb04e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507186"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717888"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA genom att använda nätverks princip Server tillägget för Azure
 
@@ -41,7 +41,7 @@ Nätverks princip-och nätverks åtkomst tjänster ger organisationer möjlighet
 * Upprätta och framtvinga Network Access Protection (NAP) hälso principer för klient (NAP) som avgör om enheter beviljas obegränsad eller begränsad åtkomst till nätverks resurser.
 
 * Tillhandahålla ett sätt att genomdriva autentisering och auktorisering för åtkomst till 802.1 x-kompatibla trådlösa åtkomst punkter och Ethernet-växlar.
-  Mer information finns i [nätverks Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+  Mer information finns i [nätverks Policy Server](/windows-server/networking/technologies/nps/nps-top).
 
 För att förbättra säkerheten och tillhandahålla en hög nivå av efterlevnad kan organisationer integrera NPS med Azure Multi-Factor Authentication för att säkerställa att användarna använder tvåstegsverifiering för att ansluta till den virtuella porten på VPN-servern. För att användare ska beviljas åtkomst måste de ange kombinationen av användar namn och lösen ord och annan information som de kontrollerar. Den här informationen måste vara betrodd och inte lätt att duplicera. Den kan innehålla ett mobiltelefon nummer, ett Landline nummer eller ett program på en mobil enhet.
 
@@ -72,7 +72,7 @@ När NPS-tillägget för Azure är integrerat med NPS är ett lyckat resultat f�
 7. När anslutnings försöket är både autentiserat och auktoriserat skickas *ett meddelande om RADIUS-åtkomstaccepterande till* VPN-servern (RADIUS-klienten) när tillägget är installerat.
 8. Användaren beviljas åtkomst till den virtuella porten på VPN-servern och upprättar en krypterad VPN-tunnel.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här avsnittet innehåller information om de förutsättningar som måste slutföras innan du kan integrera MFA med VPN. Innan du börjar måste du ha följande krav på plats:
 
@@ -94,7 +94,7 @@ Om du inte har en fungerande VPN-infrastruktur på plats kan du snabbt skapa en 
 
 Nätverks princip-och nätverks åtkomst tjänster tillhandahåller funktioner för RADIUS-server och klient. Den här artikeln förutsätter att du har installerat rollen nätverks policy och åtkomst tjänster på en medlems Server eller domänkontrollant i din miljö. I den här guiden konfigurerar du RADIUS för en VPN-konfiguration. Installera rollen nätverks policy och åtkomst tjänster på en annan server *än* VPN-servern.
 
-Information om hur du installerar roll tjänsten nätverks policy och åtkomst tjänster Windows Server 2012 eller senare finns i [installera en NAP-hälsopolicy Server](https://technet.microsoft.com/library/dd296890.aspx). NAP är inaktuellt i Windows Server 2016. En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](https://technet.microsoft.com/library/cc771746).
+Information om hur du installerar roll tjänsten nätverks policy och åtkomst tjänster Windows Server 2012 eller senare finns i [installera en NAP-hälsopolicy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). NAP är inaktuellt i Windows Server 2016. En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
@@ -446,13 +446,13 @@ En relaterad händelse från Azure Multi-Factor Authentication loggen visas här
 
 ![Azure Multi-Factor Authentication-loggar](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-Information om hur du utför avancerad fel sökning finns i loggfilerna för NPS-databasfilen där NPS-tjänsten är installerad. Loggfilerna skapas i mappen _%systemroot%\System32\Logs_ som kommaavgränsade textfiler. En beskrivning av loggfilerna finns i [tolka loggfiler för NPS-databasnamn](https://technet.microsoft.com/library/cc771748.aspx).
+Information om hur du utför avancerad fel sökning finns i loggfilerna för NPS-databasfilen där NPS-tjänsten är installerad. Loggfilerna skapas i mappen _%systemroot%\System32\Logs_ som kommaavgränsade textfiler. En beskrivning av loggfilerna finns i [tolka loggfiler för NPS-databasnamn](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 Posterna i dessa loggfiler är svåra att tolka om du inte exporterar dem till ett kalkyl blad eller en databas. Du kan hitta många Internet Authentication Service (IAS)-verktyg online som hjälper dig att tolka loggfilerna. Utdata från ett sådant nedladdnings Bart [shareware-program](https://www.deepsoftware.com/iasviewer) visas här:
 
 ![Exempel på shareware-app IAS-parser](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-Om du vill göra ytterligare fel sökning kan du använda en protokoll analys som Wireshark eller [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). Följande bild från wireshark visar RADIUS-meddelanden mellan VPN-servern och NPS.
+Om du vill göra ytterligare fel sökning kan du använda en protokoll analys som Wireshark eller [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). Följande bild från wireshark visar RADIUS-meddelanden mellan VPN-servern och NPS.
 
 ![Microsoft Message Analyzer visar filtrerad trafik](./media/howto-mfa-nps-extension-vpn/image50.png)
 

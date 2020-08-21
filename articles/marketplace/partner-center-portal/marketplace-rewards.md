@@ -8,30 +8,30 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 702486a0728a7394d8d8febffc11b11bc113a030
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606761"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705052"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
-Marketplace-förmåner ger dig till gång till ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via den kommersiella Marketplace kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal.
+Marketplace-förmåner ger dig till gång till ditt speciella tillväxt steg, med hjälp av medvetenhets aktiviteter som hjälper dig att få dina första kunder. När du växer via Microsofts kommersiella marknads plats, kan du låsa upp nya förmåner som hjälper dig att konvertera kunder och avsluta avtal.
 
 Programmet skapar en positiv feedback-slinga: fördelarna med varje steg i tillväxten hjälper dig att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform.
 
-Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-call-to-action).
+Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](../determine-your-listing-type.md#choose-a-listing-option).
 
 Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet.
 
-När du ökar din fakturerade försäljning via Marketplace-plattformen för Transact-partner, så kan du låsa upp fler förmåner per nivå.
+För Transact-partner, när du växer din fakturerade försäljning via den kommersiella Marketplace-plattformen, kan du låsa upp fler förmåner per nivå.
 
-Minimi kravet för att publicera i onlinebutiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet via Marketplace som en plattform.
+Minimi kravet för att publicera i onlinebutiker är en MPNID, så dessa fördelar är tillgängliga för alla partner oavsett MPN kompetens status eller partner typ. Varje partner har befogenhet att växa sin verksamhet genom den kommersiella marknads platsen som en plattform.
 
 Du får support för att förstå vilka resurser som är tillgängliga och hur du implementerar bästa praxis, som du också kan [Granska på egen hand](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
-Kontrol lera att du är berättigad till programmet för Marketplace-förmåner [här](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
+För att kontrol lera att du har behörighet för Marketplace-programmet för marknads förmåner, se sidan med [marknads förmåner](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) i Partner Center.
 
 Dina steg för att komma igång är enkla:
 

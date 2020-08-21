@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ed6587cab1e90c9b4bd4ceffa64c77fa5d8de574
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: c261ea174f37de51a8fbd5b36aeb40c26d44e6a9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005711"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691402"
 ---
 # <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Distribuera ett hanterings verktyg för Windows Virtual Desktop (klassiskt) med en Azure Resource Manager mall
 
@@ -83,7 +83,7 @@ För att avgöra vilken användare du kan använda för att logga in på verktyg
 
 När du har bestämt vilken användare du ska använda för att ge sitt medgivande följer du de här anvisningarna för att ge dig ett medgivande till verktyget:
 
-1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel  `https://rdmimgmtweb-210520190304.azurewebsites.net` .
 2. Logga in med lämpligt Azure Active Directory användar konto.
 3. Om du har autentiserats med en global administratör kan du nu Markera kryss rutan för **din organisations räkning**. Välj **acceptera** för att ge medgivande.
 
@@ -98,7 +98,7 @@ När du har beviljat godkännande för organisationen eller för en viss använd
 
 Följ dessa instruktioner för att starta verktyget:
 
-1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net> .
+1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel  <https://rdmimgmtweb-210520190304.azurewebsites.net> .
 2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
 3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
 4. När du väljer **standard klient grupp**visas en meny på vänster sida i fönstret. I den här menyn letar du reda på namnet på din klient grupp och väljer den.

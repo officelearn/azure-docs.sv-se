@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/12/2020
 ms.author: glenga
-ms.openlocfilehash: f4af3c202d4f00c4ac3041921175c92226f0db7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 052e0c93732b99efa37b029cad29dc2efded78ee
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76964153"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703318"
 ---
-## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+## <a name="run-the-function-locally"></a>Köra funktionen lokalt
 
 Visual Studio Code integreras med [Azure Functions Core tools](../articles/azure-functions/functions-run-local.md) så att du kan köra det här projektet på den lokala utvecklings datorn innan du publicerar till Azure.
 
@@ -21,9 +21,9 @@ Visual Studio Code integreras med [Azure Functions Core tools](../articles/azure
 
     ![Lokala Azure-utdata](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 
-1. Med kärn verktyg som kör, navigerar du till följande URL för att köra en GET- `?name=Functions` begäran, som inkluderar frågesträng.
+1. Med kärn verktyg som kör, navigerar du till följande URL för att köra en GET-begäran, som inkluderar `?name=Functions` frågesträng.
 
-    <http://localhost:7071/api/HttpExample?name=Functions>
+    `http://localhost:7071/api/HttpExample?name=Functions`
 
 1. Ett svar returneras, vilket ser ut så här i en webbläsare:
 

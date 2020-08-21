@@ -3,14 +3,14 @@ title: Översikt över Durable Functions-versioner – Azure Functions
 description: Lär dig mer om Durable Functions-versioner.
 author: cgillum
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024732"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705800"
 ---
 # <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
@@ -44,7 +44,29 @@ I det här avsnittet beskrivs hur du migrerar den befintliga version 1. x-Durabl
 
 ### <a name="upgrade-the-extension"></a>Uppgradera tillägget
 
-Installera version 2. x av [tillägget Durable Functions bindningar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) i projektet. Mer information finns i [registrera Azure Functions bindnings tillägg](../functions-bindings-register.md) .
+Installera den senaste 2. x-versionen av tillägget Durable Functions bindningar i projektet.
+
+#### <a name="javascript-and-python"></a>Java Script och python
+
+Durable Functions 2. x finns i version 2. x i paketet för [Azure Functions-tillägget](../functions-bindings-register.md#extension-bundles).
+
+Om du vill uppdatera tilläggs paket versionen i projektet öppnar du host.jspå och uppdaterar `extensionBundle` avsnittet för att använda version 2. x ( `[2.*, 3.0.0)` ).
+
+```json
+{
+    "version": "2.0",
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[2.*, 3.0.0)"
+    }
+}
+```
+
+#### <a name="net"></a>.NET
+
+Uppdatera ditt .NET-projekt för att använda den senaste versionen av [tillägget Durable Functions-bindningar](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask).
+
+Mer information finns i [registrera Azure Functions bindnings tillägg](../functions-bindings-register.md#local-csharp) .
 
 ### <a name="update-your-code"></a>Uppdatera koden
 
@@ -54,9 +76,9 @@ Durable Functions 2. x introducerar flera avbrytande ändringar. Durable Functio
 
 Durable Functions 2. x använder en ny host.jsi schemat. Huvud ändringarna från 1. x är:
 
-* `"storageProvider"`(och `"azureStorage"` underavsnittet) för Storage-speciell konfiguration.
-* `"tracing"`för spårnings-och loggnings konfiguration.
-* `"notifications"`(och `"eventGrid"` underavsnittet) för konfiguration av event Grid-meddelanden.
+* `"storageProvider"` (och `"azureStorage"` underavsnittet) för Storage-speciell konfiguration.
+* `"tracing"` för spårnings-och loggnings konfiguration.
+* `"notifications"` (och `"eventGrid"` underavsnittet) för konfiguration av event Grid-meddelanden.
 
 Mer information finns i [Durable Functions host.jsi referens dokumentationen](durable-functions-bindings.md#durable-functions-2-0-host-json) .
 

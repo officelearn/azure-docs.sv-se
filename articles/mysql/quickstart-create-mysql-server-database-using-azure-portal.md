@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: 61da81dd96078e0577e00be37fe27211a5b62154
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 840e7769e8a242314b10562684c942a2468ea5ad
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084437"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705154"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for MySQL-server i Azure Portal
 
@@ -48,7 +48,7 @@ Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgrupp
 Servernamn | Unikt servernamn | Ange ett unikt namn som identifierar din Azure Database for MySQL-server. Till exempel "mysqldbserver". Server namnet får bara innehålla gemena bokstäver, siffror och bindestreck (-). Det måste innehålla mellan 3 och 63 tecken.
 Datakälla |*Inga* | Välj *ingen* om du vill skapa en ny server från grunden. (Du väljer *säkerhets kopia* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
 Inloggning för serveradministratör | myadmin | Ange ett användar namn för Server administratören. Du kan inte använda **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig** som administratörs användar namn.
-Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Lösen ordet måste vara mellan 8 och 128 tecken långt med en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
+lösenordsinställning | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Lösen ordet måste vara mellan 8 och 128 tecken långt med en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
 Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
 Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
 Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
@@ -84,7 +84,7 @@ Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql
 
    >[!div class="mx-imgBorder"]
    > ![Portal fullständig vy Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
-2. Kör det här kommandot på Azure Cloud Shell terminal. Ersätt värdena med det faktiska Server namnet och inloggnings namnet för administratörs användaren. Administratörens användar namn kräver @ <servername> som visas nedan för Azure Database for mysql  
+2. Kör det här kommandot på Azure Cloud Shell terminal. Ersätt värdena med det faktiska Server namnet och inloggnings namnet för administratörs användaren. Administratörens användar namn kräver @ \<servername> som visas nedan för Azure Database for mysql  
 
   ```azurecli-interactive
   mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
@@ -100,7 +100,7 @@ Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql
   Type "az" to use Azure CLI
   Type "help" to learn about Cloud Shell
 
-  sunitha@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u admin@wpapp-mysqldbserver -p
+  user@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
   Enter password:
   Welcome to the MySQL monitor.  Commands end with ; or \g.
   Your MySQL connection id is 64796

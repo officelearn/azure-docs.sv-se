@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
@@ -9,12 +9,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: diviso
 ms.custom: include file
-ms.openlocfilehash: 1e07f56bc2e820b325414e124c7825c1d356ca26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1aff5780aa5f4cf21d862a5cee3b140179dac03c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046401"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88703327"
 ---
 Följande sammanfattar viktiga gränser i Azure Time Series Insights gen1.
 
@@ -60,4 +60,4 @@ Högst två händelse källor stöds per instans.
 
 ### <a name="api-limits"></a>API-gränser
 
-REST API gränser för Azure Time Series Insights gen1 anges i [REST API referens dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#limits).
+REST API gränser för Azure Time Series Insights gen1 anges i [REST API referens dokumentation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/getavailability).

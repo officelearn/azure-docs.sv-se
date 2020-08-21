@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: cbbfddca1a6a07625a69be8ffb0409640d825793
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037018"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691487"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -54,7 +54,7 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 |Priset|Standard-nivå|
 |Datorer som stöds:|![Ja ](./media/icons/yes-icon.png) Azure-och icke-Azure-datorer som kör Windows och Linux<br>![Ja ](./media/icons/yes-icon.png) [Azure båg](https://docs.microsoft.com/azure/azure-arc/) -datorer|
 |Nödvändiga roller och behörigheter:|**Säkerhets läsare** och **läsar** roller kan båda Visa grupper och listor över kända säkra program<br>Rollerna **deltagare** och **säkerhets administratör** kan både redigera grupper och listor över kända säkra program|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -83,7 +83,7 @@ Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill
     - **Ingen rekommendation** – datorer utan en definierad lista över tillåtna program och som inte stöder funktionen. Datorn kan vara på den här fliken av följande orsaker:
       - En Log Analytics agent saknas
       - Log Analytics agenten skickar inte händelser
-      - Det är en Windows-dator med en befintlig [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker) -princip som Aktiver ATS av antingen ett grup princip objekt eller en lokal säkerhets princip
+      - Det är en Windows-dator med en befintlig [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) -princip som Aktiver ATS av antingen ett grup princip objekt eller en lokal säkerhets princip
 
       > [!TIP]
       > Security Center behöver minst två veckors data för att definiera de unika rekommendationerna per grupp av datorer. Datorer som nyligen har skapats, eller som tillhör prenumerationer som endast nyligen har Aktiver ATS med standard nivån, visas på fliken **Ingen rekommendation** .
@@ -187,7 +187,7 @@ När du flyttar en dator från en grupp till en annan så ändras den program ko
 
 1. På sidan **adaptiva program kontroller** går du till fliken **konfigurerad** och väljer den grupp som innehåller den dator som ska flyttas.
 
-1. Öppna listan över **konfigurerade datorer**.
+1. Öppna listan över  **konfigurerade datorer**.
 
 1. Öppna menyn på datorn från tre punkter i slutet av raden och välj **Flytta**. Fönstret **flytta datorn till en annan grupp** öppnas.
 

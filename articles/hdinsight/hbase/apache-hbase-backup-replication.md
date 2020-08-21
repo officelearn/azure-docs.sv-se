@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: b1830ddef44ef33d19c953622951779632e33e71
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 5a3760956dfe9a713d344fd6684d75ea240ab7de
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076750"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705732"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix på HDInsight
 
@@ -114,11 +114,11 @@ Mål adressen består av följande tre delar:
 
 `<destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>`
 
-* `<ZooKeeperQuorum>`är en kommaavgränsad lista med Apache ZooKeeper noder, till exempel:
+* `<ZooKeeperQuorum>` är en kommaavgränsad lista med Apache ZooKeeper noder, till exempel:
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
-* `<Port>`i HDInsight är standardvärdet 2181 och `<ZnodeParent>` är `/hbase-unsecure` det fullständiga `<destinationAddress>` :
+* `<Port>` i HDInsight är standardvärdet 2181 och `<ZnodeParent>` är `/hbase-unsecure` det fullständiga `<destinationAddress>` :
 
     zk0-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk4-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net, zk3-hdizc 2.54 o2oqawzlwevlfxgay2500xtg. DX. Internal. cloudapp. net: 2181:/HBase-unsecure
 
@@ -213,7 +213,13 @@ hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot <snapshotName> -
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
 ```
 
-När ögonblicks bilden har exporter ATS kan du använda SSH i noden Head i mål klustret och återställa ögonblicks bilden med hjälp av restore_snapshot kommandot enligt beskrivningen ovan.
+Om du inte har ett sekundärt Azure Storage-konto som är kopplat till ditt käll kluster eller om ditt käll kluster är ett lokalt kluster (eller icke-HDI kluster) kan du uppleva auktoriseringsfel när du försöker komma åt lagrings kontot för ditt HDI-kluster. Lös detta genom att ange nyckeln till ditt lagrings konto som en kommando rads parameter som visas i följande exempel. Du kan hämta nyckeln till ditt lagrings konto i Azure Portal.
+
+```console
+hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -Dfs.azure.account.key.myaccount.blob.core.windows.net=mykey -snapshot 'Snapshot1' -copy-to 'wasbs://secondcluster@myaccount.blob.core.windows.net/hbase'
+```
+
+När ögonblicks bilden har exporter ATS kan du använda SSH i head-noden i mål klustret och återställa ögonblicks bilden med hjälp av `restore_snapshot` kommandot enligt beskrivningen ovan.
 
 Ögonblicks bilder ger en fullständig säkerhets kopia av en tabell vid `snapshot` kommandots tidpunkt. Ögonblicks bilder ger inte möjlighet att utföra stegvisa ögonblicks bilder i Windows eller för att ange del mängder av kolumn familjer som ska tas med i ögonblicks bilden.
 

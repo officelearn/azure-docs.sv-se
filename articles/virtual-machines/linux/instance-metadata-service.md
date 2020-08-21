@@ -11,18 +11,18 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: d0f6655d22818c119d1098bbce96ea3699a42a50
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bb9bc978e49cddab13ab1e4f7ec4f0b74d369ac1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168141"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705851"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Azure Instance Metadata Service (IMDS)
 
 Azure-Instance Metadata Service (IMDS) innehåller information om de virtuella dator instanser som körs och kan användas för att hantera och konfigurera dina virtuella datorer.
 Den här informationen omfattar SKU, lagring, nätverkskonfigurationer och kommande underhålls händelser. En fullständig lista över tillgängliga data finns i [API: er för metadata](#metadata-apis).
-Instance Metadata Service är tillgängligt för instanser av skalnings uppsättningar för virtuella datorer och virtuella datorer. Det är bara tillgängligt för att köra virtuella datorer som skapats/hanterats med [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service tillgänglig för körning av virtuella datorer och virtuella datorers skalnings uppsättnings instanser. Alla API: er stöder virtuella datorer som skapats/hanteras med [Azure Resource Manager](/rest/api/resources/). Endast de attesterings-och nätverks slut punkter som har stöd för klassiska virtuella datorer (ej ARM) och attesterade gör det bara till en begränsad omfattning.
 
 Azures IMDS är en REST-slutpunkt som är tillgänglig på en välkänd icke-flyttbar IP-adress ( `169.254.169.254` ), men den kan bara nås från den virtuella datorn. Kommunikationen mellan VM-och IMDS lämnar aldrig värden.
 Vi rekommenderar att du använder dina HTTP-klienter för att kringgå Webbproxyservrar i den virtuella datorn när du frågar IMDS och behandlar `169.254.169.254` samma som [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md) .
@@ -163,7 +163,7 @@ API | Standard data format | Andra format
 /instance | json | text
 /scheduledevents | json | inget
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
 
 ```bash
 curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -238,7 +238,7 @@ API | Beskrivning | Version introducerad
 
 Instans-API: t visar viktiga metadata för VM-instanser, inklusive VM, nätverk och lagring. Följande kategorier kan nås via instans/Compute:
 
-Data | Description | Version introducerad
+Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
 azEnvironment | Azure-miljö där den virtuella datorn körs i | 2018-10-01
 customData | Den här funktionen är för närvarande inaktive rad. Vi kommer att uppdatera den här dokumentationen när den blir tillgänglig | 2019-02-01
@@ -421,7 +421,7 @@ AzurePublicCloud
 
 Molnet och värdena i Azure-miljön visas nedan.
 
- Molnet   | Azure-miljö
+ Moln   | Azure-miljö
 ---------|-----------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
@@ -432,7 +432,7 @@ Molnet och värdena i Azure-miljön visas nedan.
 
 Metadata för nätverket är en del av instans-API: et. Följande nätverks kategorier är tillgängliga via instansen/nätverks slut punkten.
 
-Data | Description | Version introducerad
+Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
 IPv4/privateIpAddress | Lokal IPv4-adress för den virtuella datorn | 2017-04-02
 IPv4/publicIpAddress | Offentlig IPv4-adress för den virtuella datorn | 2017-04-02
@@ -500,7 +500,7 @@ Lagrings profilen för en virtuell dator är uppdelad i tre kategorier: avbildni
 
 Objektet bild referens innehåller följande information om operativ system avbildningen:
 
-Data    | Description
+Data    | Beskrivning
 --------|-----------------
 id      | Resurs-ID
 offer   | Erbjudande för plattformen eller Marketplace-avbildningen
@@ -510,7 +510,7 @@ version | Version av plattformen eller Marketplace-avbildningen
 
 Objektet OS-disk innehåller följande information om den OS-disk som används av den virtuella datorn:
 
-Data    | Description
+Data    | Beskrivning
 --------|-----------------
 cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
@@ -525,7 +525,7 @@ writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
 Data disks-matrisen innehåller en lista över data diskar som är anslutna till den virtuella datorn. Varje data disk objekt innehåller följande information:
 
-Data    | Description
+Data    | Beskrivning
 --------|-----------------
 cachelagring | Krav för cachelagring
 createOption | Information om hur den virtuella datorn skapades
@@ -684,18 +684,21 @@ Nonce är en valfri sträng med 10 siffror. Om den inte anges, returnerar IMDS d
 }
 ```
 
-Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, SKU, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azure Marketplace-avbildningar. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
+Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Den innehåller certifikatet som används för signering tillsammans med viss VM-specifik information. För virtuella ARM-datorer omfattar detta vmId, SKU, nonce, subscriptionId, tidstämpel för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azure Marketplace-avbildningar. För klassiska virtuella datorer (inte ARM) är det bara vmId som är garanterat ifyllt. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 Dokumentet innehåller följande fält:
 
-Data | Description
+Data | Beskrivning
 -----|------------
 Nnär | En sträng som kan anges med begäran. Om inget nonce angavs används den aktuella UTC-tidsstämpeln
 planera | [Avbildnings planen för Azure Marketplace](/rest/api/compute/virtualmachines/createorupdate#plan). Innehåller plan-ID (namn), produkt avbildning eller erbjudande (produkt) och utgivar-ID (utgivare).
 Timestamp/createdOn | UTC-tidsstämpeln för när det signerade dokumentet skapades
 tidsstämpel/expiresOn | UTC-tidsstämpeln för när det signerade dokumentet upphör att gälla
 vmId |  [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn
-subscriptionId | Azure-prenumerationen för den virtuella datorn som introducerades i`2019-04-30`
-sku | En speciell SKU för VM-avbildningen som introducerades i`2019-11-01`
+subscriptionId | Azure-prenumerationen för den virtuella datorn som introducerades i `2019-04-30`
+sku | En speciell SKU för VM-avbildningen som introducerades i `2019-11-01`
+
+> [!NOTE]
+> För klassiska virtuella datorer (inte ARM) är det bara vmId som är garanterat ifyllt.
 
 ### <a name="sample-2-validating-that-the-vm-is-running-in-azure"></a>Exempel 2: verifierar att den virtuella datorn körs i Azure
 
@@ -768,7 +771,7 @@ Nonce i det signerade dokumentet kan jämföras om du angav en nonce-parameter i
 > [!NOTE]
 > Certifikatet för det offentliga molnet och det suveräna molnet är annorlunda.
 
-Molnet | Certifikat
+Moln | Certifikat
 ------|------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/) | *. metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)          | *. metadata.azure.us
@@ -817,7 +820,7 @@ Ruby          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 
 ## <a name="error-and-debugging"></a>Fel och fel sökning
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
 
 HTTP-statuskod | Orsak
 ----------------|-------
@@ -901,7 +904,7 @@ Använd problem typen `Management` och välj `Instance Metadata Service` som kat
 
 ![Stöd för instansen metadata](./media/instance-metadata-service/InstanceMetadata-support.png "Skärm bild: öppna ett support ärende när du har problem med Instance Metadata Service")
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
 1. [Hämta en åtkomsttoken för den virtuella datorn](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).

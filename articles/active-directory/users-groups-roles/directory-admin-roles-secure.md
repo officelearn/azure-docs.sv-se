@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b18b05dc9fee06b0a9866f59b4bf52ad54e0ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d303f8a04a9159eeb4dc5e78ef09b57f5a966c72
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807867"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691368"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -358,7 +358,7 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
-* Princip
+* Policy
 * Åtgärder
 * Informations säkerhet
 * Servrar
@@ -373,7 +373,7 @@ Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst kont
 * Bevilja endast privilegie rad åtkomst vid behov och ta bort den efteråt (just-in-Time)
 * Behåll gransknings aktivitets loggar som rör privilegierade konton
 
-Mer information om hur du skapar en komplett säkerhets översikt finns i [resurser för IT-arkitektur i Microsoft Cloud](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Om du vill delta i Microsofts tjänster för att hjälpa dig att implementera någon del av din översikt kan du kontakta din Microsoft-representant eller se [utveckla viktiga cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Mer information om hur du skapar en komplett säkerhets översikt finns i [resurser för IT-arkitektur i Microsoft Cloud](https://almbok.com/office365/microsoft_cloud_it_architecture_resources). Om du vill delta i Microsofts tjänster för att hjälpa dig att implementera någon del av din översikt kan du kontakta din Microsoft-representant eller se [utveckla viktiga cyberhot försvar för att skydda ditt företag](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Det här slutliga pågående steget av den säkrade åtkomst planen innehåller följande komponenter.
 

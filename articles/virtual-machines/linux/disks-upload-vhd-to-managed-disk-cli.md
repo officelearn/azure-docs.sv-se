@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 8656f0396aff7f20c867a5fae3d929236a3aa0d5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c7eb50caa4e7f0505809da64dd0309c6e0b8709f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510454"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691351"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Ladda upp en virtuell hård disk till Azure eller kopiera en hanterad disk till en annan region – Azure CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "86510454"
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du föredrar att ladda upp diskar via ett grafiskt användar gränssnitt kan du göra det med hjälp av Azure Storage Explorer. Mer information finns i: [använda Azure Storage Explorer för att hantera Azure Managed disks](disks-use-storage-explorer-managed-disks.md)
+Om du föredrar att ladda upp diskar via ett grafiskt användar gränssnitt kan du göra det med hjälp av Azure Storage Explorer. Mer information finns i: [använda Azure Storage Explorer för att hantera Azure Managed disks](../disks-use-storage-explorer-managed-disks.md)
 
 Om du vill överföra din virtuella hård disk till Azure måste du skapa en tom hanterad disk som har kon figurer ATS för den här överförings processen. Innan du skapar en sådan finns det ytterligare information som du bör känna till om de här diskarna.
 

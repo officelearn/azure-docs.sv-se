@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: ea73a4164a2f23a51ce1702cd85d29d7fb4c6790
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650408"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706072"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -136,7 +136,7 @@ Om en NSG blockerar hälso avsöknings begär Anden från AZURE_LOADBALANCER sta
 - Det maximala antalet användbara tillfälliga portar per IP-adress för klient delen är 64 000.
 - Intervallet för den konfigurerbara tids gränsen för utgående inaktivitet är 4 till 120 minuter (240 till 7200 sekunder).
 - Load Balancer stöder inte ICMP för utgående NAT.
-- Utgående regler kan bara tillämpas på en primär IP-konfiguration för ett nätverkskort.  Det finns stöd för flera nätverkskort.
+- Utgående regler kan bara tillämpas på en primär IP-konfiguration för ett nätverkskort.  Du kan inte skapa en utgående regel för den sekundära IP-adressen för en virtuell dator eller NVA. Det finns stöd för flera nätverkskort.
 - Webb arbets roller utan ett virtuellt nätverk och andra Microsofts plattforms tjänster kan nås när bara en intern Standard Load Balancer används på grund av en sido effekt från hur för-VNet-tjänster och andra plattforms tjänster fungerar. Förlita dig inte på denna sido effekt eftersom själva respektive tjänst eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa utgående anslutningar om du vill när du bara använder en intern Standard Load Balancer. Scenario 3 som beskrivs i den här artikeln är inte tillgängligt.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 823d61d94913122fc279e81698933b7e648dd114
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244354"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691470"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Recept: förutsägande underhåll med Cognitive Services för Big data
 
@@ -28,7 +28,7 @@ Det hypotetiska scenariot är en kraft anläggning där IoT-enheter övervakar [
 
 Det kan finnas extrem värden i data med slumpmässig frekvens. I dessa situationer kommer RPM-värden att bli upp och MW-utdata går nedåt, för krets skydd. Idén är att du ska kunna se data olika samtidigt, men med olika signaler.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Azure Synapse-arbetsyta](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) konfigurerad med en [Spark-pool](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
@@ -151,4 +151,4 @@ Om det lyckas kommer dina utdata att se ut så här:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du gör förutsägelse underhåll i stor skala med Azure Cognitive Services, Azure Synapse Analytics och Azure CosmosDB. Mer information finns i det fullständiga exemplet på [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples/tree/master/IoT).
+Lär dig hur du gör förutsägelse underhåll i stor skala med Azure Cognitive Services, Azure Synapse Analytics och Azure CosmosDB. Mer information finns i det fullständiga exemplet på [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples).

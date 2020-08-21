@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 08/17/2020
 ms.author: ajburnle
 ms.reviewer: vincesm
-ms.custom: it-pro, seodec18
+ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae802d8aa9378155bcca0713992a8cc041ea1a9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 042a881cc6021842dec126c92ff13f306f79dad1
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799031"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705239"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vilka är standard användar behörigheterna i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typen av användare, deras [roll tilldelningar](active-directory-users-assign-role-azure-portal.md)och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användar behörigheter kan bara ändras i användar inställningar i Azure AD.
@@ -26,26 +26,24 @@ Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Di
 ## <a name="member-and-guest-users"></a>Medlems- och gästanvändare
 Uppsättningen standard behörigheter som tas emot beror på om användaren är en ursprunglig medlem i klienten (medlems användare) eller om användaren förs över från en annan katalog som ett B2B-samarbets gäst (gäst användare). Se [Vad är Azure AD B2B-samarbete?](../b2b/what-is-b2b.md) mer information om att lägga till gäst användare.
 * Medlemsanvändare kan registrera program, hantera sina egna profilbilder och mobila telefonnummer, ändra sina egna lösenord och bjuda in B2B gäster. Dessutom kan användare läsa all kataloginformation (med några få undantag). 
-* Gäst användare har begränsad katalog behörighet. Till exempel kan gästanvändare kan inte bläddra i information från klienten utanför sin egen profilinformation. Däremot kan en gästanvändare hämta information om en annan användare genom att ange användarens huvudnamn eller objekt-ID. En gäst användare kan läsa egenskaper för grupper som de tillhör, inklusive grupp medlemskap, oavsett vilka **gäst användares behörigheter är begränsade** . En gäst kan inte Visa information om andra klient objekt.
-
-Standardbehörigheter för gäster är begränsade som standard. Gäster kan läggas till i administratörsroller som beviljar dem fullständig läs- och skrivbehörighet i rollen. Det finns en ytterligare begränsning, möjligheten för gäster att bjuda in andra gäster. Om du ställer in **Gäster kan bjuda in** på **Nej** kan gäster inte bjuda in andra gäster. Se [Delegera inbjudningar till B2B-samarbete](../b2b/delegate-invitations.md) för att lära dig hur. Om du vill ge gästanvändare samma behörigheter som medlemsanvändare som standard anger du **Gästanvändarnas behörigheter begränsas** till **Nej**. Den här inställningen ger alla behörigheter för medlemsanvändare till gästanvändare som standard och gör att gäster kan läggas till i administrativa roller.
+* Gäst användare har begränsad katalog behörighet. De kan hantera sin egen profil, ändra sina egna lösen ord och hämta information om andra användare, grupper och appar, men de kan inte läsa all katalog information. Gäst användare kan till exempel inte räkna upp användare, grupper och andra katalog objekt. Gäster kan läggas till i administratörsroller som beviljar dem fullständig läs- och skrivbehörighet i rollen. Gäster kan också bjuda in andra gäster.
 
 ## <a name="compare-member-and-guest-default-permissions"></a>Jämför standardbehörigheter för medlemmar och gästanvändare
 
-**Område** | **Behörigheter för medlemsanvändare** | **Användarbehörigheter för gäst**
------------- | --------- | ----------
-Användare och kontakter | Läsa alla offentliga egenskaper om användare och kontakter<br>Bjuda in gäster<br>Ändra eget lösenord<br>Hantera eget mobilnummer<br>Hantera eget foto<br>Ogiltigförklara egna uppdateringstokens | Läsa egna egenskaper<br>Läsa visnings namn, e-post, inloggnings namn, Foto, User Principal Name och egenskaper för användar typ för andra användare och kontakter<br>Ändra eget lösenord
-Grupper | Skapa säkerhetsgrupper<br>Skapa Office 365-grupper<br>Läsa alla icke-dolda egenskaper i grupper<br>Läsa icke-dolda gruppmeddelanden<br>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<br>Hantera egenskaper, ägarskap och medlemskap i grupper som användaren äger<br>Lägga till gäster i egna grupper<br>Hantera inställningar för dynamiskt medlemskap<br>Ta bort egna grupper<br>Återställa grupper som ägs av Office 365 | Läsa alla icke-dolda egenskaper i grupper<br>Läsa icke-dolda gruppmeddelanden<br>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<br>Hantera egna grupper<br>Lägga till gäster i egna grupper (om detta är tillåtet)<br>Ta bort egna grupper<br>Återställa grupper som ägs av Office 365<br>Läs egenskaper för grupper som de tillhör, inklusive medlemskap.
-Program | Registrera (Skapa) ett nytt program<br>Skrivskyddade egenskaper för registrerade program och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<br>Skapa eller ta bort programlösenord för användare<br>Ta bort egna program<br>Återställ egna program | Skrivskyddade egenskaper för registrerade program och företagsprogram<br>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<br>Ta bort egna program<br>Återställ egna program
-Egenskaper | Läs alla enhetsegenskaper<br>Läs alla egenskaper för egna enheter<br> | Inga behörigheter<br>Ta bort egna enheter<br>
-Katalog | Läs all företagsinformation<br>Läsa alla domäner<br>Läsa alla partnerkontrakt | Läsa visningsnamn och verifierade domäner
-Roller och omfattningar | Läsa alla administrativa roller och medlemskap<br>Läsa alla egenskaper och medlemskap i administrativa enheter | Inga behörigheter 
-Prenumerationer | Läsa alla prenumerationer<br>Aktivera tjänsteplanmedlem | Inga behörigheter
-Principer | Läs alla principegenskaper<br>Hantera alla egenskaper för egna principer | Inga behörigheter
+**Område** | **Behörigheter för medlemsanvändare** | **Standard behörigheter för gäst användare** | **Begränsad gäst användar behörighet (förhands granskning)**
+------------ | --------- | ---------- | ----------
+Användare och kontakter | <ul><li>Läsa alla offentliga egenskaper om användare och kontakter</li><li>Bjuda in gäster<li>Ändra eget lösenord<li>Hantera eget mobilnummer<li>Hantera eget foto<li>Ogiltigförklara egna uppdateringstokens</li></ul> | <ul><li>Läsa egna egenskaper<li>Läsa visnings namn, e-post, inloggnings namn, Foto, User Principal Name och egenskaper för användar typ för andra användare och kontakter<li>Ändra eget lösenord<li>Sök efter en annan användare efter visnings namn, användarens huvud namn eller ObjectId (om det är tillåtet)<li>Read Manager och information om den direkta rapporten för andra användare</li></ul> | <ul><li>Läsa egna egenskaper<li>Ändra eget lösenord</li></ul>
+Grupper | <ul><li>Skapa säkerhetsgrupper<li>Skapa Office 365-grupper<li>Läsa alla icke-dolda egenskaper i grupper<li>Läsa icke-dolda gruppmeddelanden<li>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<li>Hantera egenskaper, ägarskap och medlemskap i grupper som användaren äger<li>Lägga till gäster i egna grupper<li>Hantera inställningar för dynamiskt medlemskap<li>Ta bort egna grupper<li>Återställa grupper som ägs av Office 365</li></ul> | <ul><li>Läsa egenskaper för alla icke-dolda grupper, inklusive medlemskap och ägarskap (även icke-anslutna grupper)<li>Läsa dolda Office 365-gruppmedlemskap för domänansluten grupp<li>Sök efter grupper efter visnings namn eller ObjectId (om det är tillåtet)</li></ul> | Inga behörigheter
+Program | <ul><li>Registrera (Skapa) ett nytt program<li>Skrivskyddade egenskaper för registrerade program och företagsprogram<li>Hantera egenskaper för program, tilldelningar och autentiseringsuppgifter för egna program<li>Skapa eller ta bort programlösenord för användare<li>Ta bort egna program<li>Återställ egna program</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram</li></ul> | <ul><li>Skrivskyddade egenskaper för registrerade program och företagsprogram
+Enheter</li></ul> | <ul><li>Läs alla enhetsegenskaper<li>Läs alla egenskaper för egna enheter</li></ul> | Inga behörigheter | Inga behörigheter
+Katalog | <ul><li>Läs all företagsinformation<li>Läsa alla domäner<li>Läsa alla partnerkontrakt</li></ul> | <ul><li>Läsa visningsnamn och verifierade domäner</li></ul> | <ul><li>Läsa visningsnamn och verifierade domäner</li></ul>
+Roller och omfattningar | <ul><li>Läsa alla administrativa roller och medlemskap<li>Läsa alla egenskaper och medlemskap i administrativa enheter</li></ul> | Inga behörigheter | Inga behörigheter
+Prenumerationer | <ul><li>Läsa alla prenumerationer<li>Aktivera tjänsteplanmedlem</li></ul> | Inga behörigheter | Inga behörigheter
+Principer | <ul><li>Läs alla principegenskaper<li>Hantera alla egenskaper för egna principer</li></ul> | Inga behörigheter | Inga behörigheter
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Så här begränsar du standardbehörigheter för medlemsanvändare
 
-Standardbehörigheter för medlemmsanvändare kan begränsas på följande sätt.
+Standard behörigheter för medlems användare kan begränsas på följande sätt:
 
 Behörighet | Förklaring av inställning
 ---------- | ------------
@@ -53,8 +51,23 @@ Användare kan registrera program | Om du ställer in det här alternativet på 
 Tillåt att användare ansluter arbets-eller skol konton med LinkedIn | Om du ställer in det här alternativet på Nej förhindras användare från att ansluta sina arbets-eller skol konton till deras LinkedIn-konto. Mer information finns i [LinkedIn konto anslutningar data delning och medgivande](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent).
 Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer och användar administratörer kan fortfarande skapa säkerhets grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Får skapa Office 365-grupper | Om det här alternativet är Nej får användare inte skapa Office 365-grupper. Om det här alternativet är Vissa får en uppsättning användare skapa Office 365-grupper. Globala administratörer och användar administratörer kommer fortfarande att kunna skapa Office 365-grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
-Begränsa åtkomst till Azure AD-administrationsportalen | Om du ställer in det här alternativet på Nej kan icke-administratörer använda Azure AD-administrationskonsolen för att läsa och hantera Azure AD-resurser. Ja, begränsar alla icke-administratörer från att komma åt Azure AD-data i administrations portalen. Viktigt att Observera: den här inställningen begränsar inte åtkomsten till Azure AD-data med hjälp av PowerShell eller andra klienter, till exempel Visual Studio. När det är inställt på Ja, för att ge en särskild icke-administratör möjlighet att använda Azure AD-administrationskonsolen tilldelar du en administrativ roll som katalog läsar rollen. Med den här rollen kan du läsa grundläggande katalog information som medlems användare har som standard (gäster och tjänstens huvud namn).
+Begränsa åtkomst till Azure AD-administrationsportalen | Om du ställer in det här alternativet på Nej kan icke-administratörer använda Azure AD-administrationskonsolen för att läsa och hantera Azure AD-resurser. Ja, begränsar alla icke-administratörer från att komma åt Azure AD-data i administrations portalen.<p>**Obs!** den här inställningen begränsar inte åtkomsten till Azure AD-data med hjälp av PowerShell eller andra klienter, till exempel Visual Studio. När värdet är ja, för att ge en särskild icke-administratör möjlighet att använda Azure AD-administrationskonsolen tilldelar du en administrativ roll, till exempel rollen katalog läsare.<p>Med den här rollen kan du läsa grundläggande katalog information som medlems användare har som standard (gäster och tjänstens huvud namn).
 Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. Om du ställer in den här flaggan på $false hindras alla icke-administratörer från att läsa användar information från katalogen. Den här flaggan förhindrar inte läsning av användar information i andra Microsoft-tjänster som Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och vi rekommenderar att du inte anger den här flaggan till $false.
+
+
+## <a name="to-restrict-the-default-permissions-for-guest-users"></a>Begränsa standard behörigheterna för gäst användare
+
+Standard behörigheter för gäst användare kan begränsas på följande sätt:
+
+>[!NOTE] 
+>Inställningen för åtkomst begränsningar för gäster som ersätter **gäst användarnas behörigheter är begränsad** . Vägledning om hur du använder den här funktionen finns i [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+
+Behörighet | Förklaring av inställning
+---------- | ------------
+Användar åtkomst begränsningar för gäster (för hands version) | Om du ställer in det här alternativet på gäst användare har samma åtkomst som medlemmar beviljar alla medlems användare behörigheter till gäst användare som standard.<p>Att ställa in det här alternativet på gäst användares åtkomst är begränsad till egenskaper och medlemskap i sina egna katalog objekt begränsar gäst åtkomsten till enbart sin egen användar profil som standard. Åtkomst till andra användare tillåts inte längre även vid sökning efter användarens huvud namn eller objectId. Åtkomst till grupper, inklusive grupp medlemskap, tillåts inte heller längre. Den här inställningen förhindrar inte åtkomst till grupper i andra Microsoft-tjänster som Microsoft-team. Läs mer i [Microsoft Teams gäst åtkomst]() .<p>Gäst användare kan fortfarande läggas till i administratörs roller oavsett de här behörighets inställningarna.
+Gäster kan bjuda in | Om du ställer in det här alternativet på Ja kan gäster bjuda in andra gäster. Mer information finns i [delegera inbjudningar för B2B-samarbete](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) .
+Medlemmar kan bjuda in | Medlemmar kan bjuda in det här alternativet till Ja tillåter icke-administratörs medlemmar i din katalog att bjuda in gäster. Mer information finns i [delegera inbjudningar för B2B-samarbete](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#configure-b2b-external-collaboration-settings) .
+Administratörer och användare i gästinbjudarrollen kan bjuda in | Om du ställer in det här alternativet på Ja kan administratörer och användare i rollen "gäst inbjudare" bjuda in gäster. När det är inställt på Ja kommer användare i rollen gäst deltagare fortfarande att kunna bjuda in gäster, oavsett medlemmar kan bjuda in. Mer information finns i [delegera inbjudningar för B2B-samarbete](https://docs.microsoft.com/azure/active-directory/external-identities/delegate-invitations#assign-the-guest-inviter-role-to-a-user) .
 
 ## <a name="object-ownership"></a>Objektägarskap
 
@@ -130,6 +143,7 @@ Användare kan utföra följande åtgärder i ägda grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Om du vill veta mer om inställningen för användar åtkomst begränsningar för gäster, se [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
 * Mer information om hur du tilldelar administratörs roller för Azure AD finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns i [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

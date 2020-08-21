@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: 4214fca9e295dc7716d8e2c069f52c719aa74697
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 8a122a36b14bd3c5f4912387dc98585cb89ab53b
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292109"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705648"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Tidssynkronisering för virtuella Linux-datorer i Azure
 
@@ -64,7 +64,7 @@ Som standard konfigureras de flesta Azure Marketplace-avbildningar för Linux ti
 - NTP som primär, som hämtar tid från en NTP-server. Till exempel, Ubuntu 16,04 LTS Marketplace-bilder använder **NTP.Ubuntu.com**.
 - VMICTimeSync-tjänsten som sekundär, används för att kommunicera värd tiden med de virtuella datorerna och göra ändringar efter att den virtuella datorn har pausats för underhåll. Azure-värdar använder Microsoft-ägda stratum 1-enheter för att hålla rätt tid.
 
-I nyare Linux-distributioner använder VMICTimeSync-tjänsten precisions tids protokollet (PTP), men tidigare distributioner kanske inte har stöd för PTP och kommer att bli tillbaka till NTP för att hämta tid från värden.
+I nyare Linux-distributioner tillhandahåller VMICTimeSync-tjänsten en maskinvaru-källa för precision Time Protocol (PTP), men tidigare distributioner kanske inte tillhandahåller den här klock källan och kommer att bli tillbaka till NTP för att hämta tid från värden.
 
 Kör kommandot för att bekräfta att NTP synkroniseras korrekt `ntpq -p` .
 
@@ -112,9 +112,9 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ```
 
 
-### <a name="check-for-ptp"></a>Sök efter PTP
+### <a name="check-for-ptp-clock-source"></a>Kontrol lera om det finns en PTP-klocka
 
-I nyare versioner av Linux är en PTP-datakälla (precision Time Protocol) tillgänglig som en del av VMICTimeSync-providern. I äldre versioner av Red Hat Enterprise Linux eller CentOS 7. x kan [Linux integrations tjänsterna](https://github.com/LIS/lis-next) hämtas och användas för att installera den uppdaterade driv rutinen. När du använder PTP får Linux-enheten formatet/dev/PTP*x*. 
+I nyare versioner av Linux är en PTP-datakälla (precision Time Protocol) tillgänglig som en del av VMICTimeSync-providern. I äldre versioner av Red Hat Enterprise Linux eller CentOS 7. x kan [Linux integrations tjänsterna](https://github.com/LIS/lis-next) hämtas och användas för att installera den uppdaterade driv rutinen. När PTP-klockan är tillgänglig kommer Linux-enheten att ha formatet/dev/PTP*x*. 
 
 Se vilka PTP-klock källor som är tillgängliga.
 

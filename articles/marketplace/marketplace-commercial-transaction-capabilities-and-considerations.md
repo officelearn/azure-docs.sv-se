@@ -4,35 +4,39 @@ description: Den här artikeln beskriver pris-, fakturerings-, fakturerings-och 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5058f37fcf96c7c556b55f0afb8753390f51f4d1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 04a984a2dfa473502fd9e534e52b60b33be52757
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607347"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88704968"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Transact-funktioner för kommersiella Marketplace
 
-## <a name="transactions-by-publishing-option"></a>Transaktioner per publicerings alternativ
+Den här artikeln beskriver pris-, fakturerings-, fakturerings-och utbetalnings överväganden för Microsofts kommersiella Marketplace. 
 
-Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det publicerings alternativ du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [bestämma publicerings alternativ](./determine-your-listing-type.md#choose-a-call-to-action) för tillgänglighet och förklaringar för varje publicerings alternativ.
+## <a name="transactions-by-listing-option"></a>Alternativ för transaktioner per lista
 
-### <a name="list-trial-and-byol-publishing-options"></a>Publicerings alternativ för lista, utvärdering och BYOL
+Antingen utgivaren eller Microsoft ansvarar för att hantera program licens transaktioner för erbjudanden på den kommersiella marknaden. Det List alternativ som du väljer för ditt erbjudande avgör vem som hanterar transaktionen. Se [Välj ett List alternativ](./determine-your-listing-type.md#choose-a-listing-option) för tillgänglighet och förklaringar för varje publicerings alternativ.
 
-Utgivare med befintliga funktioner i Commerce kan välja lista, utvärdering och BYOL publicerings alternativ för kampanj-och användar förvärv. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift. Utgivare ansvarar för att stödja alla aspekter av program licens transaktionen, inklusive men inte begränsat till order, uppfyllelse, avläsning, fakturering, fakturering, betalning och insamling. Med publicerings alternativen lista och utvärdering behåller utgivaren 100% av licens avgifterna för Publisher-programvaran som samlas in från kunden.
+### <a name="contact-me-free-trial-and-byol-options"></a>Kontakta mig, kostnads fri utvärdering och BYOL-alternativ
+
+Utgivare kan välja _kontakten mig_ och den _kostnads fria utvärderings versionen_, alternativ för kampanj-och användar förvärv. För vissa erbjudande typer kan utgivare välja alternativet ta med din egen licens (BYOL) för att göra det möjligt för kunder att köpa en prenumeration på ditt erbjudande med en licens som de har köpt direkt från dig. Med dessa alternativ deltar inte Microsoft direkt i utgivarens program licens transaktioner och det finns ingen kopplad transaktions avgift. 
+
+Utgivare ansvarar för att stödja alla aspekter av program licens transaktionen. Detta omfattar men är inte begränsat till order, uppfyllelse, avläsning, fakturering, fakturering, betalning och insamling. Med alternativet kontakta mig List behåller utgivaren 100% av licens avgifterna för Publisher-programvaran som samlas in från kunden.
 
 ### <a name="transact-publishing-option"></a>Alternativ för Transact-publicering
 
-Alternativet för att använda Transact-publicering är att dra nytta av Microsoft Commerce-funktioner och ger en heltäckande upplevelse från identifiering och utvärdering till köp och implementering. Transact-erbjudanden faktureras mot en befintlig Microsoft-prenumeration eller ett kredit kort, vilket gör att Microsoft kan vara värd för moln Marketplace-transaktioner för utgivarens räkning.
+Att välja att sälja via Microsoft utnyttjar Microsoft Commerce-funktionerna och ger en komplett upplevelse från identifiering och utvärdering av inköp och implementering. Ett erbjudande som är transactable är ett där Microsoft fören klar utbytet av pengar för en program varu licens för utgivarens räkning. Transactable-erbjudanden debiteras mot en befintlig Microsoft-prenumeration eller ett kredit kort, så att Microsoft kan vara värd för moln Marketplace-transaktioner för utgivarens räkning.
 
-Du väljer alternativet Transact när du skapar ett nytt erbjudande i Partner Center. På sidan **erbjudande konfiguration** under **installations information**väljer du Ja, jag vill sälja via Microsoft och har Microsofts värd transaktioner för mig. Med det här alternativet visas endast om Transact är tillgängligt för din erbjudande typ.
+Du väljer alternativet Transact när du skapar ett nytt erbjudande i Partner Center. Med det här alternativet visas endast om Transact är tillgängligt för din erbjudande typ.
 
 ## <a name="transact-overview"></a>Översikt över Transact
 
-När du använder alternativet för användning av Transact-publicering möjliggör Microsoft försäljning av program vara från tredje part och distribution av vissa erbjudande typer till kundens Azure-prenumeration. Utgivaren måste beakta faktureringen av infrastruktur avgifter och dina egna licens avgifter för program vara när du väljer en fakturerings modell och erbjudande typ.
+När du använder Transact-alternativet gör Microsoft det möjligt att sälja program från tredje part och distribution av vissa erbjudande typer till kundens Azure-prenumeration. Utgivaren måste beakta faktureringen av infrastruktur avgifter och dina egna licens avgifter för program vara när du väljer en pris sättnings modell för ett erbjudande.
 
 Alternativet för Transact-publicering stöds för närvarande för följande erbjudande typer:
 
@@ -44,31 +48,37 @@ Alternativet för Transact-publicering stöds för närvarande för följande er
 
 För **virtuella datorer** och **Azure-program**debiteras Azure Infrastructure Usage avgifter till kundens Azure-prenumeration. Avgifter för infrastruktur användning priss ätts och presenteras separat från program varu leverantörens licens avgifter på kundens faktura.
 
-För **SaaS-appar**måste utgivaren beakta Azure-infrastrukturens användnings avgifter och program licens avgifter som ett enda kostnads objekt.  Den representeras som en fast avgift för kunden. Användningen av Azure-infrastrukturen hanteras och debiteras partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare väljer vanligt vis att paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. Avgifter för program varu licenser är inte avgiftsbelagda eller konsumtions beroende.
+För **SaaS-appar**måste utgivaren beakta Azure-infrastrukturens användnings avgifter och program licens avgifter som ett enda kostnads objekt.  Den representeras som en fast avgift för kunden. Användningen av Azure-infrastrukturen hanteras och debiteras för utgivaren direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare väljer vanligt vis att paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. Avgifterna för program varu licenser är inte avgiftsbelagda eller baseras på användar förbrukning.
 
-## <a name="transact-billing-models"></a>Transact-fakturerings modeller
+## <a name="pricing-models"></a>Prissättningsmodeller
 
-Beroende på vilket transaktions alternativ som används är licens avgifter för program vara följande:
+Beroende på vilket transaktions alternativ som används är prenumerations avgifterna följande:
 
-- **Kostnads fri** – ingen avgift för program varu licenser.
-- **Bring Your Own License** (BYOL) – alla tillämpliga avgifter för program varu licenser hanteras direkt mellan utgivaren och kunden. Microsoft passerar bara genom användnings avgifter för Azure-infrastruktur. Detta gäller enbart för virtuella datorer och Azure-program.
-- **Betala** per användning – licens avgifter för program vara presenteras som en pris taxa per timme, per kärna (vCPU) baserat på den Azure-infrastruktur som används. Detta gäller enbart för virtuella datorer och Azure-program.
-- **Prenumerations priser** – licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande avgift faktureras som en fast taxa eller per plats. Detta gäller för SaaS-appar (månatlig eller årlig) och Azure program-hanterade appar (varje månad).
-- **Kostnads fri utvärdering av program vara** – ingen avgift för program varu licenser i 30 eller 90 dagar.
+- **Hämta nu (kostnads fritt)** – ingen avgift för program varu licenser. Kunder debiteras inte Azure Marketplace-avgifter för användning av ett kostnads fritt erbjudande. Kostnads fria erbjudanden kan inte konverteras till ett betalt erbjudande. Kunderna måste beställa ett betalt erbjudande.
+- **Bring Your Own License** (BYOL) – alla tillämpliga avgifter för program varu licenser hanteras direkt mellan utgivaren och kunden. Microsoft passerar bara genom användnings avgifter för Azure-infrastruktur. Om ett erbjudande är listat på den kommersiella marknads platsen debiteras inte kunder som får åtkomst eller användning av erbjudandet utanför den kommersiella marknads platsen.
+- **Prenumerations priser** – licens avgifter för program vara presenteras som en månatlig eller årlig, återkommande prenumerations avgift debiteras som en fast taxa eller per plats. Nya prenumerations avgifter beräknas inte proportionellt för uppsägningar på medel lång sikt eller oanvända tjänster. Nya prenumerations avgifter kan debiteras om kunden uppgraderar eller nedgraderar prenumerationen i mitten av prenumerations perioden.
+- **Användnings-baserade priser** – för erbjudanden för virtuella Azure-datorer debiteras kunderna utifrån omfattningen av deras användning av erbjudandet. För avbildningar av virtuella datorer debiteras kunder en Tim avgift för Azure Marketplace, som anges av utgivare, för användning av virtuella datorer som distribueras från VM-avbildningarna. Tim avgiften kan vara enhetlig eller variera mellan storleken på virtuella datorer. Delar av timmar debiteras per minut. Planer faktureras per månad.
+- **Avgiftsbelagd prissättning** – för Azure Application erbjudanden och SaaS-erbjudanden kan utgivare använda Marketplace för [avläsning](./partner-center-portal/marketplace-metering-service-apis.md) av program vara för att debiteras för förbrukning baserat på de mätnings dimensioner som de väljer. Till exempel bandbredd, biljetter eller e-postmeddelanden som bearbetas. Utgivare kan definiera en eller flera mätnings dimensioner för varje plan. Utgivare ansvarar för att spåra enskilda kunders användning, med varje mätare som definierats i erbjudandet. Händelser ska rapporteras till Microsoft inom en timme. Microsoft debiterar kunderna baserat på användnings information som rapporteras av utgivare för den aktuella fakturerings perioden.
+- **Kostnads fri utvärdering** – ingen avgift för program varu licenser som sträcker sig från 30 dagar upp till sex månader, beroende på typen av erbjudande. Om utgivare tillhandahåller en kostnads fri utvärderings version av flera planer inom samma erbjudande kan kunderna byta till en kostnads fri utvärderings version på ett annat avtal, men utvärderings perioden startar inte om. För erbjudanden om virtuella datorer debiteras kunderna Azures infrastruktur kostnader för användning av erbjudandet under en utvärderings period. När utvärderings perioden har löpt ut debiteras kunderna automatiskt för den senaste planen de försökte baseras på standardpriser, såvida de inte annulleras före utvärderings periodens slut.
 
-### <a name="free-and-bring-your-own-license-byol-pricing"></a>Priser för kostnads fri och BYOL-licens (kostnads fritt)
+> [!NOTE]
+> Erbjudanden som debiteras enligt förbrukningen när en lösning har använts är inte berättigad till åter betalningar.
 
-När du publicerar ett kostnads fritt eller kostnads fritt transaktions erbjudande, spelar Microsoft inte en roll för att under lätta försäljnings transaktionen för dina licens avgifter för program vara. Liksom publicerings alternativen lista och utvärdering behåller utgivaren 100% av licens avgifterna för program varan.
+Utgivare som vill ändra de användnings avgifter som är kopplade till ett erbjudande bör först ta bort erbjudandet (eller den speciella planen i erbjudandet) från den kommersiella marknads platsen. Borttagningen bör göras i enlighet med kraven i [Microsoft Publisher-avtalet](https://go.microsoft.com/fwlink/?LinkID=699560). Sedan kan utgivare publicera ett nytt erbjudande (eller planera inom ett erbjudande) som innehåller de nya användnings avgifterna. Information om hur du tar bort ett erbjudande eller en plan finns i [sluta sälja ett erbjudande eller en plan](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
-### <a name="pay-as-you-go-and-subscription-site-based-pricing"></a>Betala per användning och prenumeration (baserad på plats)
+### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>Kostnads fritt, kontakta mig och ta med din egen licens (BYOL)-prissättning
 
-När du publicerar ett erbjudande enligt principen betala per användning eller prenumerations transaktion tillhandahåller Microsoft teknik och tjänster för att bearbeta inköp av program varu licenser, returer och åter betalningar. I det här scenariot godkänner utgivaren att Microsoft agerar som en agent i detta syfte. Utgivaren gör det möjligt för Microsoft att under lätta för program licens transaktionen, samtidigt som säljaren, leverantören, distributören och licens givaren behålls.
+När du publicerar ett erbjudande med alternativet Hämta nu (kostnads fri), kontakta mig eller BYOL, spelar Microsoft ingen roll för att under lätta försäljnings transaktionen för dina licens avgifter för program vara. I likhet med publicerings alternativen lista och kostnads fri utvärdering behåller utgivaren 100% av licens avgifterna för program varan.
+
+### <a name="usage-based-and-subscription-pricing"></a>Användnings-och prenumerations priser
+
+När du publicerar ett erbjudande en användarbaserad eller prenumerations transaktion tillhandahåller Microsoft teknik och tjänster för att bearbeta inköp, returer och åter betalningar för program varu licenser. I det här scenariot godkänner utgivaren att Microsoft agerar som en agent i detta syfte. Utgivaren gör det möjligt för Microsoft att under lätta för program licens transaktionen, samtidigt som säljaren, leverantören, distributören och licens givaren behålls.
 
 Microsoft gör det möjligt för kunder att beställa, licensiera och använda program varan enligt villkoren i både Microsofts kommersiella marknads plats och ditt licens avtal för slutanvändare. Du måste ange ett eget licens avtal för slutanvändare eller välja [standard kontraktet](./standard-contract.md) när du skapar erbjudandet.
 
 ### <a name="free-software-trials"></a>Kostnads fria program varu försök
 
-För scenario publicerings scenarier kan du göra en program varu licens tillgänglig kostnads fritt i 30 eller 90 dagar. Den här rabatt funktionen omfattar inte kostnaden för Azures infrastruktur användning som styrs av partner lösningen.
+För scenario publicerings scenarier kan du göra en program varu licens kostnads fritt i 30 till 120 dagar, beroende på prenumerationen. Den här rabatt funktionen omfattar inte kostnaden för Azures infrastruktur användning som styrs av partner lösningen.
 
 ### <a name="private-offers"></a>Privata erbjudanden
 
@@ -78,9 +88,9 @@ Det här alternativet tillåter högre eller lägre priser än det offentligt ti
 
 ### <a name="examples"></a>Exempel
 
-**Betala per användning** 
+**Användning-baserad** 
 
-Betala per användning har följande kostnads struktur:
+Användnings priset har följande kostnads struktur:
 
 |Din licens kostnad  | $1,00 per timme   |
 |---------|---------|
@@ -127,8 +137,6 @@ Det här alternativet måste konfigureras att sälja via Microsoft och kan prisa
 
 I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $80,00 till utgivaren.
 
-Partner som har kvalificerat sig för den minskade service avgiften för Marketplace ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020.
-
 I det här scenariot fakturerar Microsoft $100,00 för din program varu licens och utvärderar $90,00 till utgivaren:
 
 |Microsoft-räkningar  | $100,00 per månad  |
@@ -136,7 +144,7 @@ I det här scenariot fakturerar Microsoft $100,00 för din program varu licens o
 |Microsoft betalar 80% av din licens kostnad <br> \* Microsoft betalar 90% av din licens kostnad för kvalificerade SaaS-appar   |   $80,00 per månad <br> \* $90,00 per månad    |
 |Microsoft behåller 20% av din licens kostnad <br> \* Microsoft behåller 10% av din licens kostnad för alla kvalificerade SaaS-appar.  |  $20,00 per månad <br> \* $10,00     |
 
-För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
+För vissa erbjudanden som du publicerar på den kommersiella marknaden kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560)) till 10%. För dina erbjudanden som ska kvalificeras måste ditt erbjudande ha utsetts av Microsoft som Azure IP Co-Sälj-motiverade. Berättigande måste uppfyllas minst fem arbets dagar före slutet av varje kalender månad för att ta emot den minskade service avgiften för Marketplace för månaden. Den minskade service avgiften för Marketplace gäller för Azure IP Co-Sälj motiverade-SaaS, virtuella datorer, hanterade appar och andra kvalificerade IaaS-erbjudanden som görs tillgängliga via den kommersiella Marketplace.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Kund fakturering, betalning, fakturering och samlingar
 
@@ -163,7 +171,7 @@ Kunderna köper vanligt vis med Enterprise-avtal eller ett kredit kort aktiverat
 
 #### <a name="billing-questions-and-support"></a>Fakturerings frågor och support
 
-Mer information och juridiska principer finns i [utgivar avtalet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx) (tillgängligt i Partner Center).
+Mer information och juridiska principer finns i [Microsoft Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560) (tillgängligt i Partner Center).
 
 Om du behöver hjälp med fakturerings frågor kontaktar du [supporten för support för Microsoft Marketplace](https://aka.ms/marketplacepublishersupport).
 
@@ -182,7 +190,7 @@ Mer information om hur du konfigurerar dessa konton finns i [Hantera ditt kommer
 
 Alternativet för att använda Transact-publicering är bara tillgängligt för användning med följande Marketplace-erbjudande typer:
 
-- **Virtuell dator** – Välj från kostnads fri, egen licens, eller betala per användning – pris modeller och som finns som planer definierade på erbjudande nivån. På kundens Azure-faktura presenterar Microsoft utgivarens licens avgifter separat från de underliggande avgifterna för Azure-infrastrukturen. Avgifterna för Azure-infrastrukturen styrs av användningen av utgivarens program vara.
+- **Virtuell Azure-dator** – Välj från kostnads fria, egna licens-eller användnings pris modeller och som finns som planer definierade på erbjudande nivån. På kundens Azure-faktura presenterar Microsoft utgivarens licens avgifter separat från de underliggande avgifterna för Azure-infrastrukturen. Avgifterna för Azure-infrastrukturen styrs av användningen av utgivarens program vara.
 
 - **Azure-program: lösnings mal len eller hanterad app** – du måste etablera en eller flera virtuella datorer och hämta genom summan av priserna för den virtuella datorn. För hanterade appar i en enda plan kan en månatlig månatlig prenumeration väljas som pris modell i stället för prissättningen för den virtuella datorn. I vissa fall skickas Azure Infrastructure användnings avgifter till kunden separat från licens avgifter för program vara, men på samma fakturerings instruktion. Men om du konfigurerar ett hanterat program erbjudande för ISV-infrastruktur debiteras Azure-resurserna för utgivaren och kunden får en fast avgift som omfattar kostnaden för infrastruktur, program varu licenser och hanterings tjänster.
 

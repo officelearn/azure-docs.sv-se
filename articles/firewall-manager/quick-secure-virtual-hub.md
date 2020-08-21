@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 1917bed7727b97de27e560a0f2d8032a8ae08996
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: bfa957d8fb0eeb8020472026e18c41dc6e65fdc3
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242023"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705766"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>Snabb start: skydda din virtuella hubb med Azure Firewall Manager – ARM-mall
 
@@ -23,7 +23,7 @@ I den här snabb starten använder du en Azure Resource Manager mall (ARM-mall) 
 
 Mer information om Azure Firewall Manager finns i [Vad är Azure Firewall Manager?](overview.md).
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffwm-docs-qs%2Fazuredeploy.json)
 
@@ -35,9 +35,9 @@ Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mall
 
 Den här mallen skapar en säker virtuell hubb med Azure Firewall Manager, tillsammans med nödvändiga resurser för att stödja scenariot.
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
-:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
+:::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json":::
 
 Flera Azure-resurser definieras i mallen:
 
@@ -82,7 +82,7 @@ Testa nu brand Väggs reglerna för att bekräfta att den fungerar som förvänt
 
    Du bör se Microsofts hem sida.
 
-5. Bläddra till `www.google.com`.
+5. Gå till `www.google.com`.
 
    Du bör blockeras av brandväggen.
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/06/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: e9fe02903d2dc76c931e58682a0d632d5e492963
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607380"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705562"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -26,7 +26,7 @@ Marknads förmåner har utformats för att ge stöd åt dig i ditt speciella til
 
 Programmet skapar en positiv feedback-slinga: fördelarna i varje stadium av tillväxten är utformade för att gå vidare till nästa steg, så att du kan utveckla din verksamhet till Microsoft-kunder, med Microsofts fält och via Microsofts kanal genom att använda den kommersiella marknads platsen som plattform.
 
-Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](determine-your-listing-type.md#choose-a-call-to-action).
+Dina förmåner särskiljs utifrån om ditt erbjudande är [list, utvärdering eller Transact](determine-your-listing-type.md#choose-a-listing-option).
 
 Du kommer att kontaktas av en medlem i teamet för förmåner när ditt erbjudande går live, baserat på din behörighet.
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8d48a8a9f52c3edb4350c16a25deda9894dcdda1
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271166"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691504"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Lägg till en API till för hands versionen av Azure statisk Web Apps med Azure Functions
 
 Du kan lägga till Server lös API: er i Azures statiska Web Apps via integration med Azure Functions. Den här artikeln visar hur du lägger till och distribuerar ett API till en statisk Azure-Web Apps webbplats.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-konto med en aktiv prenumeration.
   - Om du inte har något konto kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free).
@@ -147,7 +147,7 @@ Visual Studio Code integreras med [Azure Functions Core tools](../azure-function
 
     :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Skapa en ny Azure Functions med hjälp av Visual Studio Code":::
 
-1. Med kärn verktyg som kör, navigerar du till följande URL för att kontrol lera att API: et körs korrekt: <http://localhost:7071/api/message> .
+1. Med kärn verktyg som kör, navigerar du till följande URL för att kontrol lera att API: et körs korrekt: `http://localhost:7071/api/message` .
 
    Svaret i webbläsaren bör se ut ungefär som i följande exempel:
 

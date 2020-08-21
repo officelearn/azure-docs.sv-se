@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: 0c60eb8618568d01af9ec6ad0e3d00fe1332b766
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: cb986f1e0172c4a44381b2f9cf043025cb5abe8a
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213017"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705035"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET för cachelagring för Azure cache för Redis
 
@@ -57,7 +57,7 @@ Konfigurera attributen med värdena från ditt cache-blad i Microsoft Azure-port
 | *värd* | sträng | värd | IP-adressen eller värd namnet för Redis-servern |
 | *lastning* | positivt heltal | 6379 (ej TLS/SSL)<br/>6380 (TLS/SSL) | Redis server-port |
 | *accessKey* | sträng | "" | Redis server-lösenord när Redis-auktorisering har Aktiver ATS. Värdet är en tom sträng som standard, vilket innebär att providern för sessionstillstånd inte använder lösen ord när de ansluter till Redis-servern. **Om din redis-server finns i ett offentligt tillgängligt nätverk som Azure Redis Cache, se till att aktivera Redis-auktorisering för att förbättra säkerheten och ange ett säkert lösen ord.** |
-| *SSL* | boolean | **!** | Om du vill ansluta till Redis-servern via TLS. Värdet är **false** som standard eftersom Redis inte stöder TLS från rutan. **Om du använder Azure Redis Cache som har stöd för SSL från rutan, måste du ange värdet sant för att förbättra säkerheten.**<br/><br/>Icke-TLS-porten är inaktive rad som standard för nya cacheminnen. Ange **True** för att den här inställningen ska använda TLS-porten. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [åtkomst portar](cache-configure.md#access-ports) i avsnittet [Konfigurera ett cacheminne](cache-configure.md) . |
+| *SSL* | boolean | **!** | Om du vill ansluta till Redis-servern via TLS. Värdet är **false** som standard eftersom Redis inte stöder TLS från rutan. **Om du använder Azure Redis Cache som har stöd för SSL från rutan, måste du ange värdet sant för att förbättra säkerheten.**<br/><br/>Icke-TLS-porten är inaktive rad som standard för nya cacheminnen. Ange **Sant** för den här inställningen om du vill använda en icke-TLS-port. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [åtkomst portar](cache-configure.md#access-ports) i avsnittet [Konfigurera ett cacheminne](cache-configure.md) . |
 | *databaseIdNumber* | positivt heltal | 0 | *Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Ange vilken Redis-databas som ska användas. |
 | *connectionTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange. Redis | Används för att ange *ConnectTimeout* när du skapar stackexchange. Redis. ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange. Redis | Används för att ange *SyncTimeout* när du skapar stackexchange. Redis. ConnectionMultiplexer. |

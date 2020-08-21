@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ec0c39bad8a7c12822e5ebf5cd4a958aa8653050
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a0f06c2db0a5bf196ae610efadd85ef1df8defe8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87844651"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691319"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Använd Azure Machine Learning med Fairlearn-paketet med öppen källkod för att utvärdera skälighet för ML-modeller (för hands version)
 
@@ -33,7 +33,7 @@ I den här instruktions guiden får du lära dig att använda python-paketet [Fa
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning skälighet SDK 
 
-Azure Machine Learning skälighet SDK, `azureml-contrib-fairness` integrerar python-paketet med öppen källkod, [Fairlearn](http://fairlearn.github.io), i Azure Machine Learning. Om du vill veta mer om Fairlearn-integrering i Azure Machine Learning kan du titta på de här [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Mer information om Fairlearn finns i [exempel guiden](https://fairlearn.github.io/auto_examples/notebooks/index.html) och exempel på [bärbara datorer](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
+Azure Machine Learning skälighet SDK, `azureml-contrib-fairness` integrerar python-paketet med öppen källkod, [Fairlearn](http://fairlearn.github.io), i Azure Machine Learning. Om du vill veta mer om Fairlearn-integrering i Azure Machine Learning kan du titta på de här [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness). Mer information om Fairlearn finns i [exempel guiden](https://fairlearn.github.io/auto_examples/) och exempel på [bärbara datorer](https://github.com/fairlearn/fairlearn/tree/master/notebooks). 
 
 Använd följande kommandon för att installera- `azureml-contrib-fairness` och- `fairlearn` paketen:
 ```bash

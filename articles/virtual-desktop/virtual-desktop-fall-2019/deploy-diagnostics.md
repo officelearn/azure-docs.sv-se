@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c456f7e82bb605909f31b35cdd838145900396e2
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 61c31b24b01b40da4d73a308a4f304f6ff242e41
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009196"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691419"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Distribuera diagnostikverktyget för Windows Virtual Desktop (klassiskt)
 
@@ -112,7 +112,7 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
 
 1. Öppna din webbläsare och logga in på [Azure Portal](https://portal.azure.com/) med ditt administratörs konto.
 2. Gå sedan till **Log Analytics arbets ytor** för att granska de konfigurerade Windows-prestandaräknare.
-3. I avsnittet **Inställningar** väljer du **Avancerade inställningar**.
+3. I avsnittet **Inställningar** väljer du  **Avancerade inställningar**.
 4. Efter det navigerar du till **data**  >  **Windows prestanda räknare** och lägger till följande räknare:
 
     -   Logisk disk ( \* ) \\ % ledigt utrymme
@@ -191,12 +191,12 @@ Ange omdirigerings-URI: n:
 4.  I den vänstra panelen under avsnittet hantera väljer du **autentisering**.
 5.  Ange önskad omdirigerings-URI i text rutan **omdirigerings-URI** och välj sedan **Spara** i det övre vänstra hörnet på menyn.
 6. Välj **webbplats** under typ på den nedrullningsbara menyn.
-7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Till exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    > [!div class="mx-imgBorder"]
    > ![Sidan omdirigerings-URI](../media/redirect-uri-page.png)
 
-8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45` , är din associerade URL <https://contosoapp45.azurewebsites.net> ).
+8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45` , är din associerade URL <http://contoso.azurewebsites.net> ).
 9. Logga in med lämpligt Azure Active Directory användar konto.
 10.   Välj **Acceptera**.
 

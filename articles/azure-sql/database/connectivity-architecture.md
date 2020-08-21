@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 22eb43e7249214e4184abe723c8348c726979fa6
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4d48ca3685dca36157307e7cb4b3d25261c243aa
+ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511073"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88705749"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -82,7 +82,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Sydöstra Australien | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
 | Brasilien, södra         | 104.41.11.5, 191.233.200.14 |
 | Kanada, centrala       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Kanada, östra          | 40.86.226.166, 40.86.226.166, 52.242.30.154 |
+| Kanada, östra          | 40.86.226.166, 52.242.30.154 |
 | Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
@@ -113,7 +113,7 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Schweiz, västra     | 51.107.152.0, 51.107.153.0 |
 | Förenade Arabemiraten Central          | 20.37.72.64        |
 | Förenade Arabemiraten, norra            | 65.52.248.0        |
-| Storbritannien, södra             | 51.140.184.11,51.140.184.11, 51.105.64.0 |
+| Storbritannien, södra             | 51.140.184.11, 51.105.64.0 |
 | Storbritannien, västra              | 51.141.8.11        |
 | USA, västra centrala      | 13.78.145.25, 13.78.248.43        |
 | Europa, västra          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |

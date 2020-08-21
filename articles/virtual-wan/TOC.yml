@@ -36,10 +36,6 @@
           href: virtual-wan-locations-partners.md
         - name: Automatiseringsriktlinjer för partner
           href: virtual-wan-configure-automation-providers.md
-    - name: Prissättningsbegrepp
-      href: pricing-concepts.md
-    - name: Om NVA i den virtuell hubb
-      href: about-nva-hub.md
     - name: Routning
       items:
         - name: Om routning av virtuell hubb
@@ -50,19 +46,19 @@
               href: scenario-any-to-any.md
             - name: Isolera virtuella nätverk
               href: scenario-isolate-vnets.md
-            - name: Isolera virtuella nätverk – anpassade
+            - name: Isolera virtuella nätverk – anpassat
               href: scenario-isolate-vnets-custom.md
             - name: Virtuella nätverk för delade tjänster
               href: scenario-shared-services-vnet.md
-            - name: Dirigera via NVA
+            - name: Dirigera via en NVA
               href: scenario-route-through-nva.md
-            - name: Dirigera genom NVA – anpassad (förhandsversion)
+            - name: Dirigera via en NVA – anpassat
               href: scenario-route-through-nvas-custom.md
             - name: Azure Firewall – anpassad
               href: scenario-route-between-vnets-firewall.md
     - name: Övervakning
       items:
-        - name: Om Azure Monitor Insights for Virtual WAN (förhandsversion)
+        - name: Om Azure Monitor-insikter för Virtual WAN
           href: azure-monitor-insights.md
     - name: Plats-till-plats
       items:
@@ -70,11 +66,15 @@
           href: virtual-wan-ipsec.md
         - name: Flera ISP-länkar – val av Azure-sökväg
           href: path-selection-multiple-links.md
+    - name: Prissättningsbegrepp
+      href: pricing-concepts.md
+    - name: Om NVA i den virtuell hubb
+      href: about-nva-hub.md
 - name: Anvisningar
   items:
     - name: Uppgradera en Virtual WAN-SKU
       href: upgrade-virtual-wan.md
-    - name: Skapa NVA i en virtuell hubb (förhandsversion)
+    - name: Skapa en NVA i en virtuell hubb
       href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
@@ -154,14 +154,18 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: virtual-wan-faq.md
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=networking'
-    - name: Blogg
-      href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: Prenumerations- och tjänstbegränsningar
-      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Uppdatera meddelanden
+      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
+    - name: Prenumerations- och tjänstbegränsningar
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+    - name: Nätverksöversikt
+      href: 'https://azure.microsoft.com/roadmap/?category=networking'
+    - name: Nätverksblogg
+      href: 'https://azure.microsoft.com/blog/topics/networking'
+    - name: Meddelanden om nätverksuppdateringar
+      href: 'https://azure.microsoft.com/updates/?category=networking'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: SLA

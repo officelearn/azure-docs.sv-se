@@ -638,10 +638,12 @@
     - name: Suveräna moln
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'
       href: sovereign-clouds.md
-    - name: Priser och begränsningar
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/#cognitive-services'
+    - name: Kvoter och begränsningar
+      href: speech-services-quotas-and-limits.md
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Kryptering

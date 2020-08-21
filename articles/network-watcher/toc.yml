@@ -61,6 +61,12 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Använda ARMClient
           href: connection-monitor-preview-create-using-arm-client.md
+    - name: Migrera till anslutningsövervakaren (förhandsversion)
+      items:
+        - name: Från övervakare av nätverksprestanda
+          href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+        - name: Från anslutningsövervakare
+          href: migrate-to-connection-monitor-preview-from-connection-monitor.md
     - name: Diagnostisera problem med VM-nätverk
       items:
         - name: Installera VM-tillägg

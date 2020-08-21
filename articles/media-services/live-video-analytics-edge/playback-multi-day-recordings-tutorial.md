@@ -33,7 +33,7 @@ Vi rekommenderar att du läser igenom följande dokumentations sidor:
 * [Instruktions guide: uppspelning av inspelningar](playback-recordings-how-to.md)
 * [Självstudie: kontinuerlig videoinspelning](continuous-video-recording-tutorial.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [själv studie kursen om CVR](continuous-video-recording-tutorial.md). Den här själv studie kursen och relevanta API: er som diskuteras i [Självstudier: kontinuerlig videoinspelning](continuous-video-recording-tutorial.md) gäller för inspelningar som är 5 minuter eller längre, men vi rekommenderar att du spelar in 5 timmars video, om inte mer. De API: er som används för att bläddra i inspelningar visas bäst med långa inspelningar.
 * Vi rekommenderar att du kör den här självstudien medan [självstudien: kontinuerlig](continuous-video-recording-tutorial.md) inspelning av video fortfarande körs – det vill säga du spelar fortfarande in video till molnet.

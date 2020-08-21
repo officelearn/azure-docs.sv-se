@@ -39,6 +39,8 @@
       href: security-center-enable-data-collection.md
     - name: Konfigurera e-postmeddelanden
       href: security-center-provide-security-contact-details.md
+    - name: Skapa ett automatiskt svar på en avisering med en ARM-mall
+      href: quickstart-automation-alert.md
 - name: Självstudier
   items:
     - name: Planerings- och drifthandbok

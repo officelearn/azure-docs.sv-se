@@ -17,11 +17,27 @@
     - name: Identifiera rörelse och spela in video till Media Services
       href: detect-motion-record-video-clips-media-services-quickstart.md
     - name: Identifiera rörelse och generera händelser
-      href: detect-motion-emit-events-quickstart.md
+      items:
+        - name: Använda direktmetodanrop
+          displayName: 'detect motion, emit events'
+          href: detect-motion-emit-events-quickstart.md
     - name: Identifiera rörelse och spela in video på gränsenheter
-      href: detect-motion-record-video-clips-edge-devices-quickstart.md
-    - name: Kör Videoanalys i realtid med din egen modell
-      href: use-your-model-quickstart.md
+      items:
+        - name: Använda direktmetodanrop
+          displayName: 'detect motion, record video on edge devices'
+          href: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - name: Analysera direktsänd video med din egen modell
+      items:
+        - name: med HTTP-tillägg
+          items:
+            - name: Använda direktmetodanrop
+              displayName: 'analyze, your own model, http'
+              href: use-your-model-quickstart.md
+        - name: med gRPC-tillägg
+          items:
+            - name: Använda direktmetodanrop
+              displayName: 'analyze, your own model, grpc'
+              href: analyze-live-video-use-your-grpc-model-quickstart.md
 - name: Självstudier
   items:
     - name: Kontinuerlig videoinspelning
@@ -37,12 +53,16 @@
           href: use-intel-openvino-tutorial.md
 - name: Exempel
   items:
-    - name: C#-exempel för Videoanalys i realtid på IoT Edge
+    - name: Exempel på C#-direktmetod
       href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp'
+    - name: Exempel på Python-direktmetod
+      href: 'https://github.com/Azure-Samples/live-video-analytics-iot-edge-python'
 - name: Begrepp
   items:
     - name: Mediegraf
       href: media-graph-concept.md
+    - name: Mediegraftillägg
+      href: media-graph-extension-concept.md
     - name: Videoinspelning
       href: video-recording-concept.md
     - name: Videouppspelning
@@ -67,14 +87,18 @@
       href: playback-recordings-how-to.md
     - name: Hantera inspelningsprincip
       href: manage-recording-policy-how-to.md
-    - name: Analysera livevideo med valfri AI
-      href: analyze-with-ai-your-choice-how-to.md
     - name: Anropa direkta metoder med portalen
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Felsöka
       href: troubleshoot-how-to.md
 - name: Referens
   items:
+    - name: HTTP-dataavtal
+      href: http-data-contract.md
+    - name: gRPC-dataavtal
+      href: grpc-data-contract.md
+    - name: Schema för slutsatsdragning av metadata
+      href: inference-metadata-schema.md
     - name: Direkta metoder
       href: direct-methods.md
     - name: Konfigurationsschema för modultvilling

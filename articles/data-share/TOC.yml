@@ -8,6 +8,8 @@
       href: supported-data-stores.md
 - name: Snabbstarter
   items:
+    - name: Skapa dataresurs – Azure-portalen
+      href: share-your-data-portal.md
     - name: Skapa dataresurs – ARM-mall
       displayName: Resource Manager
       href: share-your-data-arm.md
@@ -52,6 +54,9 @@
       href: security.md
     - name: Haveriberedskap
       href: disaster-recovery.md
+    - name: Dela Azure Data Explorer-data
+      href: /azure/data-explorer/data-share
+      maintainContext: true
 - name: Referens
   items:
     - name: .NET

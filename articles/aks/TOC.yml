@@ -141,7 +141,7 @@
           href: uptime-sla.md
         - name: Använda närhetsplaceringsgrupper (förhandsversion)
           href: reduce-latency-ppg.md
-        - name: Uppgradera nodavbildningen (förhandsversion)
+        - name: Uppgradera nodavbildningen
           href: node-image-upgrade.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md

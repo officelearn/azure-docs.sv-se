@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 05/08/2020
-  ms.openlocfilehash: 14336a28630e7a62a19e2b3a51934950cf12e2f8
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/19/2020
+  ms.openlocfilehash: 1a0a64864c4e8229b4a0f2211af06920fc1e73cc
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85564040"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88654556"
 landingContent:
 - title: Om Virtual WAN
   linkLists:
@@ -39,24 +39,60 @@ landingContent:
       url: virtual-wan-expressroute-portal.md
     - text: Skapa en användar-VPN-anslutning (punkt-till-plats)
       url: virtual-wan-point-to-site-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Konfigurera automation för Virtual WAN-partner
-      url: virtual-wan-configure-automation-providers.md
   - linkListType: concept
     links:
     - text: Standardprinciper för IPsec-anslutning
       url: virtual-wan-ipsec.md
+    - text: Automatiseringsriktlinjer för Virtual WAN-partner
+      url: virtual-wan-configure-automation-providers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en NVA i en hubb
+      url: how-to-nva-hub.md
+    - text: Konfigurera IPsec över ExpressRoute för Virtual WAN
+      url: vpn-over-expressroute.md
+    - text: Ansluta en VPN Gateway till Virtual WAN
+      url: connect-virtual-network-gateway-vwan.md
 - title: Arkitektur
   linkLists:
   - linkListType: concept
     links:
     - text: Migrera till Virtual WAN
       url: migrate-from-hub-spoke-topology.md
+  - linkListType: architecture
+    links:
     - text: Global Transit Network-arkitektur
       url: virtual-wan-global-transit-network-architecture.md
     - text: SD-WAN-anslutningsarkitektur
       url: sd-wan-connectivity-architecture.md
+- title: Routning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Om routning av virtuell hubb
+      url: about-virtual-hub-routing.md
+    - text: Scenario – Dirigera trafik via NVA
+      url: scenario-route-through-nva.md
+    - text: Scenario – Alla-till-alla
+      url: scenario-any-to-any.md
+    - text: Scenario – Isolera virtuella nätverk
+      url: scenario-isolate-vnets.md
+    - text: Scenario – Virtuella nätverk för delade tjänster
+      url: scenario-shared-services-vnet.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera routning med virtuell hubb
+      url: how-to-virtual-hub-routing.md
+- title: Övervakning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Övervaka med Azure Monitor-insikter
+      url: azure-monitor-insights.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Azure Monitor-loggar och -mått
+      url: azure-monitor-insights.md
 - title: Referens
   linkLists:
   - linkListType: reference

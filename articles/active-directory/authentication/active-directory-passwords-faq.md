@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051297"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716341"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Vanliga frågor och svar om lösen ords återställning via självbetjäning
 
 Här följer några vanliga frågor och svar (FAQ) för alla saker som rör självbetjäning för återställning av lösen ord.
 
-Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp på [sidan Microsoft Q&en fråga för Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
+Om du har en allmän fråga om Azure Active Directory (Azure AD) och lösen ords återställning via självbetjäning (SSPR) som inte besvaras här kan du be communityn om hjälp på [sidan Microsoft Q&en fråga för Azure Active Directory](/answers/topics/azure-active-directory.html). Medlemmar i communityn är tekniker, produkt chefer, MVP: er och andra IT-proffs.
 
 Vanliga frågor och svar är indelade i följande avsnitt:
 
@@ -197,7 +197,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: kan mina användare meddelas i Office-portalen när deras lokala lösen ord upphör att gälla?**
 
-  > **A:** Ja, det här är möjligt idag om du använder Active Directory Federation Services (AD FS) (AD FS). Om du använder AD FS följer du anvisningarna i artikeln [skicka anspråk för lösen ords princip med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) . Om du använder hash-synkronisering av lösen ord är detta inte möjligt idag. Vi synkroniserar inte lösen ords principer från lokala kataloger, så det är inte möjligt för oss att skicka meddelanden om förfallo datum till moln upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösen ord håller på att gå ut från PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Ja, det här är möjligt idag om du använder Active Directory Federation Services (AD FS) (AD FS). Om du använder AD FS följer du anvisningarna i artikeln [skicka anspråk för lösen ords princip med AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) . Om du använder hash-synkronisering av lösen ord är detta inte möjligt idag. Vi synkroniserar inte lösen ords principer från lokala kataloger, så det är inte möjligt för oss att skicka meddelanden om förfallo datum till moln upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösen ord håller på att gå ut från PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **F: kan jag blockera användare från att ändra sina lösen ord?**
@@ -243,7 +243,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 
 * **F: Hur fungerar tillbakaskrivning av lösen ord bakom bakgrunden?**
 
-  > **A:** Se artikeln [så här fungerar tillbakaskrivning av lösen ord](howto-sspr-writeback.md) för att få en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösen ord och hur data flödar genom systemet tillbaka till din lokala miljö.
+  > **A:** Se artikeln [så här fungerar tillbakaskrivning av lösen ord](./tutorial-enable-sspr-writeback.md) för att få en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösen ord och hur data flödar genom systemet tillbaka till din lokala miljö.
   >
   >
 * **F: hur länge fungerar tillbakaskrivning av lösen ord? Finns det en fördröjning av lösen ordets hash-synkronisering?**
@@ -273,7 +273,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
   >
 * **F: är tillbakaskrivning av lösen ord?  Hur kan jag vara säker på att jag inte blir hackad?**
 
-  > **A:** Ja, tillbakaskrivning av lösen ord är säker. Om du vill läsa mer om flera säkerhets nivåer som implementeras av tjänsten för tillbakaskrivning av lösen ord, kan du titta på avsnittet om [tillbakaskrivning](concept-sspr-writeback.md#password-writeback-security) av lösen ord i artikeln [Översikt över tillbakaskrivning av lösen](howto-sspr-writeback.md) ord.
+  > **A:** Ja, tillbakaskrivning av lösen ord är säker. Om du vill läsa mer om flera säkerhets nivåer som implementeras av tjänsten för tillbakaskrivning av lösen ord, kan du titta på avsnittet om [tillbakaskrivning](concept-sspr-writeback.md#password-writeback-security) av lösen ord i artikeln [Översikt över tillbakaskrivning av lösen](./tutorial-enable-sspr-writeback.md) ord.
   >
   >
 
@@ -286,7 +286,7 @@ Vanliga frågor och svar är indelade i följande avsnitt:
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](./tutorial-enable-sspr-writeback.md)
 * [Hur gör jag för att rapportera på aktivitet i SSPR?](howto-sspr-reporting.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)

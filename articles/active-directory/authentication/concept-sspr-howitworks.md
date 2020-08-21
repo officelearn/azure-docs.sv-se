@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89d9d06433e2b915b8a96375bb39157adbce6ef2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027691"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716324"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -73,7 +73,7 @@ Innan användarna kan återställa eller ändra sina lösen ord med hjälp av SS
 Du kan aktivera alternativet för att kräva att en användare slutför SSPR-registreringen om de loggar in på alla program som använder Azure AD. Det här arbets flödet innehåller följande program:
 
 * Office 365
-* Azure-portalen
+* Azure Portal
 * Åtkomstpanel
 * Federerade program
 * Anpassade program med hjälp av Azure AD
@@ -139,7 +139,7 @@ Användarna har inte möjlighet att registrera sin mobilapp när de registrerar 
 >
 > När du konfigurerar SSPR-principer som inkluderar Authenticator-appen som en metod måste du välja minst en ytterligare metod när en metod krävs, och minst två ytterligare metoder måste väljas när du konfigurerar två metoder.
 >
-> Detta krav beror på att den aktuella SSPR-registreringen inte innehåller alternativet för att registrera Authenticator-appen. Alternativet att registrera Authenticator-appen ingår i den nya [kombinerade registrerings upplevelsen](concept-registration-mfa-sspr-converged.md).
+> Detta krav beror på att den aktuella SSPR-registreringen inte innehåller alternativet för att registrera Authenticator-appen. Alternativet att registrera Authenticator-appen ingår i den nya [kombinerade registrerings upplevelsen](./concept-registration-mfa-sspr-combined.md).
 >
 > Att tillåta principer som bara använder Authenticator-appen (när en metod krävs), eller Authenticator-appen och endast en ytterligare metod (när två metoder krävs), kan leda till att användare blockeras från att registrera sig för SSPR tills de har kon figurer ATS för att använda den nya kombinerade registrerings upplevelsen.
 
@@ -191,13 +191,13 @@ Azure AD kontrollerar din aktuella hybrid anslutning och tillhandahåller något
 * Azure AD är online och är ansluten till din lokala tillbakaskrivning-klient. Det ser dock ut som att den installerade versionen av Azure AD Connect är inaktuell. Överväg att [uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att säkerställa att du har de senaste anslutnings funktionerna och viktiga fel korrigeringar.
 * Tyvärr kan vi inte kontrol lera din lokala tillbakaskrivning av tillbakaskrivning-klientens status eftersom den installerade versionen av Azure AD Connect är inaktuell. [Uppgradera Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) för att kunna kontrol lera anslutnings status.
 * Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. [Felsök Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
-* Tyvärr kan vi inte ansluta till din lokala tillbakaskrivning-klient eftersom tillbakaskrivning av lösen ord inte har kon figurer ATS korrekt. [Konfigurera tillbakaskrivning av lösen ord](howto-sspr-writeback.md) för att återställa anslutningen.
+* Tyvärr kan vi inte ansluta till din lokala tillbakaskrivning-klient eftersom tillbakaskrivning av lösen ord inte har kon figurer ATS korrekt. [Konfigurera tillbakaskrivning av lösen ord](./tutorial-enable-sspr-writeback.md) för att återställa anslutningen.
 * Tyvärr ser det ut som att vi inte kan ansluta till din lokala tillbakaskrivning-klient just nu. Detta kan bero på tillfälliga problem på vår sida. Om problemet kvarstår [felsöker du Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) för att återställa anslutningen.
 
 Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](tutorial-enable-writeback.md)
+> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösen ord till din lokala katalog
 
@@ -223,7 +223,7 @@ SSPR utför motsvarigheten till en administratörs initierad lösen ords återst
 
 * **Användare från en partner organisation med en befintlig Azure AD-klient**: om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi hur principerna för återställning av lösen ord är aktiverade på klienten. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det kostar ingen extra avgift för Office 365-kunder.
 * **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använde funktionen för [självbetjänings registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
-* **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../b2b/what-is-b2b.md) kan också återställa sina lösen ord med det e-postmeddelande som de registrerade under den inbjudna processen.
+* **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../external-identities/what-is-b2b.md) kan också återställa sina lösen ord med det e-postmeddelande som de registrerade under den inbjudna processen.
 
 För att testa det här scenariot går du till https://passwordreset.microsoftonline.com med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.
 

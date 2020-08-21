@@ -12,14 +12,15 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3da313803aa546c2399e3c8c18858bee5cfa2ea1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a046a3caba9a0909d873356bda8d1fa6cf1f9860
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684379"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719265"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Ladda upp media för strömning eller kodning
+
 I Media Services laddar du upp digitala filer (Media) i en BLOB-behållare som är kopplad till en till gång. [Till gångs](/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer). När filerna har överförts till till gångens behållare lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
 Innan du börjar kan du behöva samla in eller tänka på några värden.
@@ -37,10 +38,6 @@ Innan du börjar kan du behöva samla in eller tänka på några värden.
 ## <a name="cli"></a>[CLI](#tab/cli/)
 
 [!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli.md)]
-
-## <a name="cli-shell"></a>[CLI-gränssnitt](#tab/clishell/)
-
-[!INCLUDE [Upload files with the portal](./includes/task-upload-file-to-asset-cli-shell.md)]
 
 ## <a name="rest"></a>[REST](#tab/rest/)
 

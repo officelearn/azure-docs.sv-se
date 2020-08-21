@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 053b052abf6f23c385dc7447639aa40b6c2c58a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f75c08f0a390e798435b70bbe2409ec4a9732214
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680189"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717174"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Användning av autentiseringsmetoder & insikter (för hands version)
 
@@ -65,7 +65,7 @@ Om du klickar på de användare som är **registrerade**, **användare aktiverad
 
 Rapporten registrerings information visar följande information för varje användare:
 
-- Name
+- Namn
 - Användarnamn
 - Registrerings status (alla, registrerad, ej registrerad)
 - Aktive rad status (all, aktive rad, inte aktive rad)
@@ -80,7 +80,7 @@ Om du klickar på registreringar eller återställer diagram går du till åters
 
 I rapporten Återställ detaljer visas registrerings-och återställnings händelser från de senaste 30 dagarna, inklusive:
 
-- Name
+- Namn
 - Användarnamn
 - Funktion (all, registrering, återställning)
 - Autentiseringsmetod (app-meddelande, app-kod, telefonsamtal, Office-samtal, SMS, e-post, säkerhets frågor)
@@ -98,6 +98,6 @@ Rapporten kan för närvarande inte filtreras för att undanta externa användar
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Arbeta med autentiserings metoder användning rapport-API](https://docs.microsoft.com/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
+- [Arbeta med autentiserings metoder användning rapport-API](/graph/api/resources/authenticationmethods-usage-insights-overview?view=graph-rest-beta)
 - [Välja autentiseringsmetoder för din organisation](concept-authentication-methods.md)
 - [Kombinerad registrerings upplevelse](concept-registration-mfa-sspr-combined.md)

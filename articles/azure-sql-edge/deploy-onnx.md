@@ -2,19 +2,18 @@
 title: Distribuera och göra förutsägelser med ONNX
 description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Edge (för hands version) eller Azure SQL-hanterad instans (för hands version) och kör sedan inbyggt förutsägelse på data med den överförda ONNX-modellen.
 keywords: Distribuera SQL Edge
-services: sql-edge
-ms.service: sql-edge
-ms.subservice: machine-learning
+ms.prod: sql
+ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: fe1e4a195903803d3103da5f350de30a016e614b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085021"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718789"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Distribuera och göra förutsägelser med en ONNX-modell
 
@@ -283,7 +282,7 @@ cursor.execute(query, insert_params)
 conn.commit()
 ```
 
-## <a name="load-the-data"></a>Läs in data
+## <a name="load-the-data"></a>Läsa in data
 
 Läs in data i SQL.
 

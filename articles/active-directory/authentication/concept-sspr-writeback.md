@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027605"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717446"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
@@ -47,7 +47,7 @@ Tillbakaskrivning av lösen ord innehåller följande funktioner:
 Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](tutorial-enable-writeback.md)
+> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](./tutorial-enable-sspr-writeback.md)
 
 ## <a name="how-password-writeback-works"></a>Så fungerar tillbakaskrivning av lösenord
 
@@ -140,7 +140,7 @@ Lösen ord skrivs tillbaka i alla följande situationer:
    * Alla administratörs åtgärder för självbetjänings ändringar, till exempel lösen ordets giltighets tid.
    * Administratörs lösen ords återställning via självbetjäning som kommer från [portalen för återställning av lösen ord](https://passwordreset.microsoftonline.com).
    * En administratör som initierat slut användar lösen ord Återställ från [Azure Portal](https://portal.azure.com).
-   * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http).
+   * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta).
 
 ## <a name="unsupported-writeback-operations"></a>Tillbakaskrivning-åtgärder som inte stöds
 
@@ -149,7 +149,7 @@ Lösen ord skrivs inte tillbaka i någon av följande situationer:
 * **Slut användar åtgärder som inte stöds**
    * Alla slutanvändare återställer sina egna lösen ord med hjälp av PowerShell version 1, version 2 eller Microsoft Graph API.
 * **Administratörs åtgärder som inte stöds**
-   * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Microsoft Graph API ( [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) stöds).
+   * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Microsoft Graph API ( [Microsoft Graph API beta](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) stöds).
    * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com).
    * Alla administratörer kan inte använda verktyget för återställning av lösen ord för att återställa sina egna lösen ord för tillbakaskrivning av lösen ord.
 
@@ -161,4 +161,4 @@ Lösen ord skrivs inte tillbaka i någon av följande situationer:
 Kom igång med SSPR tillbakaskrivning genom att följa de här självstudierna:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](tutorial-enable-writeback.md)
+> [Självstudie: Aktivera tillbakaskrivning av lösen ord för självbetjäning (SSPR)](./tutorial-enable-sspr-writeback.md)

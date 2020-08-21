@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 08/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987782"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716851"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parameterisera länkade tjänster i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,6 +43,8 @@ För tillfället stöds länkade tjänst Parameterisering i Data Factory använd
 - MySQL
 - Oracle
 - SQL Server
+- Generisk HTTP
+- REST (allmän)
 
 ## <a name="data-factory-ui"></a>Data Factory-användargränssnitt
 

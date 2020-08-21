@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3bb8f0e809ae1acbec1479c20e24c90fd81905d4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212453"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717905"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuera exempeletikettverktyget
 
@@ -70,14 +70,27 @@ Följ de här stegen för att skapa en ny resurs med hjälp av Azure Portal:
 
 6. Nu ska vi konfigurera din Docker-behållare. Alla fält är obligatoriska om inget annat anges:
 
+    # <a name="v20"></a>[v2.0](#tab/v2-0)  
    * Alternativ-Välj **en behållare**
    * Avbildnings källa – Välj **privat register** 
-   * Server-URL – ange detta till`https://mcr.microsoft.com`
+   * Server-URL – ange detta till `https://mcr.microsoft.com`
    * Användar namn (valfritt) – skapa ett användar namn. 
    * Lösen ord (valfritt) – skapa ett säkert lösen ord som du kommer ihåg.
-   * Bild och tagg – ange detta till`mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+   * Bild och tagg – ange detta till `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
    * Kontinuerlig distribution – ange detta till **på** om du vill få automatiska uppdateringar när utvecklings teamet gör ändringar i exempel etikett verktyget.
-   * Start kommando – ange detta till`./run.sh eula=accept`
+   * Start kommando – ange detta till `./run.sh eula=accept`
+
+    # <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1) 
+   * Alternativ-Välj **en behållare**
+   * Avbildnings källa – Välj **privat register** 
+   * Server-URL – ange detta till `https://mcr.microsoft.com`
+   * Användar namn (valfritt) – skapa ett användar namn. 
+   * Lösen ord (valfritt) – skapa ett säkert lösen ord som du kommer ihåg.
+   * Bild och tagg – ange detta till `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview`
+   * Kontinuerlig distribution – ange detta till **på** om du vill få automatiska uppdateringar när utvecklings teamet gör ändringar i exempel etikett verktyget.
+   * Start kommando – ange detta till `./run.sh eula=accept`
+    
+    ---
 
    > [!div class="mx-imgBorder"]
    > ![Konfigurera Docker](./media/quickstarts/formre-configure-docker.png)
@@ -93,13 +106,15 @@ Som ett alternativ till att använda Azure Portal kan du skapa en resurs med hj�
 
 Det finns några saker du behöver veta om det här kommandot:
 
-* `DNS_NAME_LABEL=aci-demo-$RANDOM`genererar ett slumpmässigt DNS-namn. 
+* `DNS_NAME_LABEL=aci-demo-$RANDOM` genererar ett slumpmässigt DNS-namn. 
 * Det här exemplet förutsätter att du har en resurs grupp som du kan använda för att skapa en resurs. Ersätt `<resource_group_name>` med en giltig resurs grupp som är kopplad till din prenumeration. 
 * Du måste ange var du vill skapa resursen. Ersätt `<region name>` med din önskade region för webb programmet. 
 * Det här kommandot accepterar EULA automatiskt.
 
 Kör det här kommandot från Azure CLI för att skapa en Web App-resurs för verktyget för etikettering: 
 
+
+# <a name="v20"></a>[v2.0](#tab/v2-0)   
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
 
@@ -113,7 +128,24 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
+``` 
+# <a name="v21-preview"></a>[v 2.1 Preview](#tab/v2-1)    
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
 ```
+
+---
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Ansluta till Azure AD för auktorisering
 

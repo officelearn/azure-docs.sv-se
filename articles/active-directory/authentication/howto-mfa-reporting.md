@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c550576a5bd762d3333aa8a533ee6106369193c3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418244"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719520"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Använd inloggnings rapporten för att granska Azure Multi-Factor Authentication-händelser
 
@@ -90,7 +90,7 @@ Följande information visas i fönstret *autentiseringsinformation* för en inlo
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell-rapportering för användare som registrerats för MFA
 
-Se först till att du har installerat [MSOnline v1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) .
+Se först till att du har installerat [MSOnline v1 PowerShell-modulen](/powershell/azure/active-directory/overview?view=azureadps-1.0) .
 
 Identifiera användare som har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentiseras mot Azure AD:
 
@@ -118,7 +118,7 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 
 Följande tabell kan användas för att felsöka händelser med den nedladdade versionen av aktivitets rapporten från föregående Portal steg eller PowerShell-kommandon. Dessa resultat koder visas inte direkt i Azure Portal.
 
-| Anrops resultat | Description | Bred beskrivning |
+| Anrops resultat | Beskrivning | Bred beskrivning |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN-kod angiven | Användaren angav en PIN-kod. Om autentiseringen lyckades angavs rätt PIN-kod. Om autentisering nekas anges en felaktig PIN-kod eller användaren är inställd på standard läge. |
 | SUCCESS_NO_PIN | Endast antal angivna | Om användaren är inställd på PIN-läge och autentiseringen nekas innebär det att användaren inte angav sin PIN-kod och bara angav #.  Om användaren är inställd på standard läge och autentiseringen lyckas innebär det att användaren bara angav # vilket är rätt att göra i standard läge. |
@@ -170,7 +170,7 @@ Följande tabell kan användas för att felsöka händelser med den nedladdade v
 
 Följande ytterligare information och rapporter är tillgängliga för MFA-händelser, inklusive de för MFA-servern:
 
-| Rapport | Position | Description |
+| Rapport | Plats | Beskrivning |
 |:--- |:--- |:--- |
 | Blockerad användar historik | Azure AD >-säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
 | Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA server via NPS-tillägget, ADFS-och MFA-servern. |

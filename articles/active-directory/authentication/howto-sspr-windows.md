@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebcb79088ebac761632e882e98e00f165cc4bd05
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035239"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717361"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Aktivera Azure Active Directory lösen ords återställning via självbetjäning på Windows inloggnings skärm
 
@@ -35,7 +35,7 @@ Följande begränsningar gäller för att använda SSPR från Windows-inloggning
 
 - Lösen ords återställning stöds inte för närvarande från ett fjärr skrivbord eller från utökade Hyper-V-sessioner.
 - Vissa leverantörer av autentiseringsuppgifter för tredje part är kända för att orsaka problem med den här funktionen.
-- Att inaktivera UAC via ändring av [register nyckeln EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) är känt för att orsaka problem.
+- Att inaktivera UAC via ändring av [register nyckeln EnableLUA](/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) är känt för att orsaka problem.
 - Den här funktionen fungerar inte för nätverk med 802.1 x-nätverksautentisering distribuerad och alternativet "utför omedelbart före användar inloggning". För nätverk med 802.1 x-nätverksautentisering bör du använda datorautentisering för att aktivera den här funktionen.
 - Hybrid Azure AD-anslutna datorer måste ha en nätverks anslutning till en domänkontrollant för att kunna använda det nya lösen ordet och uppdatera cachelagrade autentiseringsuppgifter. Det innebär att enheterna måste antingen vara i organisationens interna nätverk eller på ett VPN med nätverks åtkomst till en lokal domänkontrollant.
 - Om du använder en avbildning innan du kör Sysprep kontrollerar du att webbcachen har rensats för den inbyggda administratören innan du utför CopyProfile-steget. Mer information om det här steget finns i Support artikeln [dåliga prestanda när du använder anpassad standard användar profil](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
@@ -59,10 +59,10 @@ Om du vill konfigurera en Windows 10-enhet för SSPR på inloggnings skärmen gr
 ### <a name="windows-10-prerequisites"></a>Krav för Windows 10
 
 - En administratör [måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal](tutorial-enable-sspr.md).
-- Användarna måste registrera sig för SSPR innan de kan använda den här funktionen på[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Användarna måste registrera sig för SSPR innan de kan använda den här funktionen på [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Inte unikt för att använda SSPR från inloggnings skärmen i Windows. alla användare måste ange kontakt information för autentisering innan de kan återställa sina lösen ord.
 - Krav för nätverks proxy:
-    - Port 443 till `passwordreset.microsoftonline.com` och`ajax.aspnetcdn.com`
+    - Port 443 till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com`
     - Windows 10-enheter stöder endast konfiguration av proxyserver på dator nivå.
 - Kör minst Windows 10, version april 2018 Update (v1803) och enheterna måste vara antingen:
     - Azure AD-ansluten
@@ -126,10 +126,10 @@ Om du vill konfigurera en Windows 7-, 8-eller 8,1-enhet för SSPR på inloggning
 ### <a name="windows-7-8-and-81-prerequisites"></a>Krav för Windows 7, 8 och 8,1
 
 - En administratör [måste aktivera lösen ords återställning via självbetjäning i Azure AD från Azure Portal](tutorial-enable-sspr.md).
-- Användarna måste registrera sig för SSPR innan de kan använda den här funktionen på[https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
+- Användarna måste registrera sig för SSPR innan de kan använda den här funktionen på [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)
     - Inte unikt för att använda SSPR från inloggnings skärmen i Windows. alla användare måste ange kontakt information för autentisering innan de kan återställa sina lösen ord.
 - Krav för nätverks proxy:
-    - Port 443 till`passwordreset.microsoftonline.com`
+    - Port 443 till `passwordreset.microsoftonline.com`
 - Operativ systemet Windows 7 eller Windows 8,1 har korrigerats.
 - TLS 1,2 aktiverat med hjälp av rikt linjer som finns i [register inställningarna för Transport Layer Security (TLS)](/windows-server/security/tls/tls-registry-settings#tls-12).
 - Om fler än en leverantör av autentiseringsuppgifter för tredje part är aktive rad på datorn visas fler än en användar profil på inloggnings skärmen.
@@ -143,7 +143,7 @@ För Windows 7, 8 och 8,1 måste en liten komponent installeras på datorn för 
 
 1. Hämta lämpligt installations program för den Windows-version som du vill aktivera.
 
-    Program varu installations programmet finns på Microsoft Download Center på[https://aka.ms/sspraddin](https://aka.ms/sspraddin)
+    Program varu installations programmet finns på Microsoft Download Center på [https://aka.ms/sspraddin](https://aka.ms/sspraddin)
 1. Logga in på den dator där du vill installera och kör installations programmet.
 1. Efter installationen rekommenderas du starkt att starta om.
 1. Efter omstarten väljer du en användare på inloggnings skärmen och väljer "glömt lösen ord?" för att initiera arbets flödet för lösen ords återställning.

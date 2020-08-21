@@ -3,14 +3,14 @@ title: Vad är media Graph-tillägget – Azure
 description: Med live video analys på IoT Edge kan du utöka medie diagrammets bearbetnings funktioner via en nod i diagram tillägget.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 09fc2b71a6188caf1bdd9b7a2ef4da287f022845
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691945"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716086"
 ---
-# <a name="media-graph-extension"></a>Media Graph-tillägg
+# <a name="media-graph-extension"></a>Mediegraftillägg
 
 Med live video analys på IoT Edge kan du utöka medie diagrammets bearbetnings funktioner via en nod i diagram tillägget. Ditt analys tilläggs-plugin-program kan använda traditionella bild bearbetnings metoder eller AI-modeller för visuellt innehåll. Graph-tillägg är aktiverade genom att inkludera en nod för förlängning i ett medie diagram. Noden för förlängnings processor reläerar video bild rutor till den konfigurerade slut punkten och fungerar som gränssnitt för ditt tillägg. Anslutningen kan göras till en lokal eller fjärrslutpunkt och den kan skyddas av autentisering och TLS-kryptering, om det behövs. Dessutom tillåter noden för Graph-tillägget processor för valfri skalning och kodning av video bild rutorna innan de skickas till ditt anpassade tillägg.
 
@@ -54,7 +54,7 @@ Diagrammet nedan visar data flödet på hög nivå:
 
 ## <a name="samples"></a>Exempel
 
-Kolla in några av våra [Jupyter Notebook](https://jupyter.org/) -exempel för live video analys. Dessa antecknings böcker ger dig stegvisa instruktioner om:
+Kolla in några av våra [Jupyter Notebook](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) -exempel för live video analys. Dessa antecknings böcker ger dig stegvisa instruktioner om:
 
 * Så här skapar du en Docker-behållar avbildning av en tilläggs tjänst
 * Distribuera tilläggs tjänsten som en behållare tillsammans med Live Video Analytics-behållaren

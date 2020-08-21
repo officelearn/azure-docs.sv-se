@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca244136178c9c05f2b88a917219035451d5e391
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 35842520b26d3a98342660244295e26e934e7d3c
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85848494"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717378"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -44,13 +44,13 @@ Du kan skapa så många Azure MFA-aktiverade NPS-servrar som du behöver. Om du 
 
 VPN-servrar dirigerar autentiseringsbegäranden, så de måste vara medvetna om de nya Azure MFA-aktiverade NPS-servrarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 NPS-tillägget är avsett att fungera med din befintliga infrastruktur. Kontrol lera att du har följande krav innan du börjar.
 
 ### <a name="licenses"></a>Licenser
 
-NPS-tillägget för Azure MFA är tillgängligt för kunder med [licenser för azure Multi-Factor Authentication](multi-factor-authentication.md) (ingår i Azure AD Premium, EMS eller en fristående MFA-licens). Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. 
+NPS-tillägget för Azure MFA är tillgängligt för kunder med [licenser för azure Multi-Factor Authentication](./concept-mfa-howitworks.md) (ingår i Azure AD Premium, EMS eller en fristående MFA-licens). Användnings licenser för Azure MFA, till exempel per användare eller per autentisering, är inte kompatibla med NPS-tillägget. 
 
 ### <a name="software"></a>Programvara
 
@@ -106,7 +106,7 @@ NPS-servern ansluter till Azure Active Directory och autentiserar MFA-begärande
 1. På din server öppnar du **guiden Lägg till roller och funktioner** från snabb starts menyn för Serverhanteraren.
 2. Välj **rollbaserad eller funktions baserad installation** av installations typen.
 3. Välj Server rollen **nätverks policy och åtkomst tjänster** . Ett fönster kan visas för att informera dig om vilka funktioner som krävs för att köra den här rollen.
-4. Fortsätt med guiden tills bekräftelse sidan. Välj **installera**.
+4. Fortsätt med guiden tills bekräftelse sidan. Välj **Installera**.
 
 Nu när du har en server som är avsedd för NPS bör du även konfigurera den här servern så att den hanterar inkommande RADIUS-begäranden från VPN-lösningen.
 
@@ -276,7 +276,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Tangent | Värde | Default |
+| Tangent | Värde | Standardvärde |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -290,7 +290,7 @@ Du kan välja att skapa den här nyckeln och ange den som falsk när dina använ
 
 Följande skript är tillgängligt för att utföra grundläggande hälso kontrolls steg när du felsöker NPS-tillägget.
 
-[MFA_NPS_Troubleshooter.ps1](https://docs.microsoft.com/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
+[MFA_NPS_Troubleshooter.ps1](/samples/azure-samples/azure-mfa-nps-extension-health-check/azure-mfa-nps-extension-health-check/)
 
 ---
 
@@ -365,7 +365,7 @@ Kontrol lera att du har ett giltigt certifikat genom att kontrol lera det lokala
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Hantering av TLS/SSL-protokoll och chiffersviter
 
-Vi rekommenderar att äldre och svagare chiffersviter inaktive ras eller tas bort om de inte krävs av din organisation. Information om hur du slutför den här aktiviteten finns i artikeln om hur du [hanterar SSL/TLS-protokoll och chiffersviter för AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
+Vi rekommenderar att äldre och svagare chiffersviter inaktive ras eller tas bort om de inte krävs av din organisation. Information om hur du slutför den här aktiviteten finns i artikeln om hur du [hanterar SSL/TLS-protokoll och chiffersviter för AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ### <a name="additional-troubleshooting"></a>Ytterligare fel sökning
 
@@ -373,7 +373,7 @@ Ytterligare fel söknings vägledning och möjliga lösningar finns i artikeln [
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt och konfiguration av nätverks princip server i Windows Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)
+- [Översikt och konfiguration av nätverks princip server i Windows Server](/windows-server/networking/technologies/nps/nps-top)
 
 - Konfigurera alternativa ID: n för inloggning eller konfigurera en undantags lista för IP-adresser som inte utför tvåstegsverifiering i [avancerade konfigurations alternativ för NPS-tillägget för Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md)
 

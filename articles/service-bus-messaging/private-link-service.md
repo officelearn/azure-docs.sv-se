@@ -5,12 +5,12 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 4f3b67794d1a7f3935c79c70f18b8bd4a1e0d7ef
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423430"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716630"
 ---
 # <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Service Bus namnrum via privata slut punkter
 
@@ -79,7 +79,7 @@ Om du redan har ett befintligt namn område kan du skapa en privat slut punkt ge
     2. Välj **resurs grupp** för den privata slut punkts resursen.
     3. Ange ett **namn** för den privata slut punkten. 
     5. Välj en **region** för den privata slut punkten. Din privata slut punkt måste finnas i samma region som ditt virtuella nätverk, men kan finnas i en annan region än den privata länk resurs som du ansluter till. 
-    6. Välj **Nästa: resurs >s** knappen längst ned på sidan.
+    6. Välj **Nästa: resurs >s ** knappen längst ned på sidan.
 
         ![Sidan skapa privat slut punkt – grunder](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Följ de här stegen på sidan **resurs** :
@@ -88,7 +88,7 @@ Om du redan har ett befintligt namn område kan du skapa en privat slut punkt ge
         2. För **resurs typ**väljer du **Microsoft. Service Bus/Namespaces** för **resurs typen**.
         3. För **resurs**väljer du ett Service Bus namn område i list rutan. 
         4. Bekräfta att **mål under resursen** har angetts till **namnrymd**.
-        5. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
+        5. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
         
             ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)
     2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**följer du dessa steg:
@@ -180,7 +180,7 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om den resur
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
 | Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
@@ -234,7 +234,7 @@ Det finns fyra etablerings tillstånd:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Kontrol lera att anslutningen till den privata länken fungerar
 
-Du bör kontrol lera att resurserna i samma undernät i den privata slut punkts resursen ansluter till Service Bus namn området över en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
+Du bör kontrol lera att resurserna i det virtuella nätverket för den privata slut punkten ansluter till Service Bus namn området över en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
 
 Börja med att skapa en virtuell dator genom att följa stegen i [skapa en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 

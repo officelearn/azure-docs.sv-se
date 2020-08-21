@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6ed1c3628b33d3ed29c3af3b773f2b635e684a67
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428022"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717055"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Aktivera lösen ords utan lösen ord med Microsoft Authenticator-appen (förhands granskning)
 
@@ -54,7 +54,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 
 ## <a name="user-registration-and-management-of-microsoft-authenticator-app"></a>Användar registrering och hantering av Microsoft Authenticator app
 
-1. Bläddra till[https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
+1. Bläddra till [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)
 1. Logga in om inte redan
 1. Lägg till en Authenticator-app genom att klicka på **Lägg till metod**, Välj **Authenticator-app**och klicka på **Lägg till**
 1. Följ anvisningarna för att installera och konfigurera appen Microsoft Authenticator på din enhet
@@ -62,7 +62,7 @@ Registrerings funktioner för metoder för lösen ords skydd förlitar sig på d
 1. I **Microsoft Authenticator**väljer du **Aktivera telefonin loggning** från List menyn konto
 1. Följ instruktionerna i appen för att slutföra registreringen för inloggning med lösen ord. 
 
-Organisationer kan peka sina användare till artikeln [Logga in med din telefon, inte ditt lösen ord](../user-help/microsoft-authenticator-app-phone-signin-faq.md) för ytterligare hjälp att konfigurera i Microsoft Authenticator-appen och aktivera telefonin loggning. För att kunna tillämpa de här inställningarna kan du behöva logga ut och logga in på klienten igen. 
+Organisationer kan peka sina användare till artikeln [Logga in med din telefon, inte ditt lösen ord](../user-help/user-help-auth-app-sign-in.md) för ytterligare hjälp att konfigurera i Microsoft Authenticator-appen och aktivera telefonin loggning. För att kunna tillämpa de här inställningarna kan du behöva logga ut och logga in på klienten igen. 
 
 ## <a name="sign-in-with-passwordless-credential"></a>Logga in med autentiseringsuppgifter för lösen ord
 

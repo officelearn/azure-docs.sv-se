@@ -3,14 +3,14 @@ title: Så här skapar du uppdaterings distributioner för Azure Automation Uppd
 description: Den här artikeln beskriver hur du schemalägger uppdaterings distributioner och granskar deras status.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2a81376b284e0d1df84a69b969335c0e63999a00
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 4336ba272dd83ad2a35060c1c7524a564b928484
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450689"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717701"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Så här distribuerar du uppdateringar och granskar resultat
 
@@ -41,8 +41,10 @@ Så här schemalägger du en ny uppdaterings distribution:
 
 6. Använd området **uppdaterings klassificeringar** för att ange [uppdaterings klassificeringar](update-mgmt-view-update-assessments.md#work-with-update-classifications) för produkter. För varje produkt avmarkerar du alla uppdaterings klassificeringar som stöds, men de som ska inkluderas i uppdaterings distributionen.
 
-7. Använd området **Inkludera/exkludera uppdateringar** om du vill välja vissa uppdateringar för distribution. Sidan inkludera/exkludera visar uppdateringar av KB-artikel-ID-nummer som ska tas med eller undantas.
-    
+    Om din distribution endast är avsedd att tillämpa en urvals uppsättning uppdateringar, är det nödvändigt att avmarkera alla förvalda uppdaterings klassificeringar när du konfigurerar alternativet **Inkludera/exkludera uppdateringar** enligt beskrivningen i nästa steg. Detta säkerställer att endast de uppdateringar som du har angett ska *inkluderas* i den här distributionen installeras på mål datorerna.
+
+7. Använd området **Inkludera/exkludera uppdateringar** om du vill lägga till eller undanta valda uppdateringar från distributionen. På sidan **Inkludera/exkludera** anger du KB-artikel-ID-nummer som ska tas med eller undantas.
+
    > [!IMPORTANT]
    > Kom ihåg att undantag åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` uppdateringshantering undantas alla korrigeringar eller paket från installationen. Undantagna uppdateringar visas fortfarande som saknade från datorerna. För Linux-datorer, om du inkluderar ett paket som har ett beroende paket som har uteslutits, installerar Uppdateringshantering inte huvud paketet.
 

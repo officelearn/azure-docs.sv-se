@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038391"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719180"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Självstudie: skapa ett program för video analys – identifiering av objekt och motion i Azure IoT Central
 
@@ -98,7 +98,7 @@ Så här skapar du ett nytt Azure IoT Central-program:
 
 Så här skapar du ett nytt video analys program:
 
-1. Välj program mal len **video analys-objekt och rörelse identifiering** . Den här mallen innehåller enhetsspecifika för de enheter som används i självstudien. Mallen tillhandahåller också en instrument panel för operatör för att övervaka videon.
+1. Välj program mal len **video analys-objekt och rörelse identifiering** . Den här mallen innehåller enhetsspecifika för de enheter som används i självstudien. Mallen innehåller exempel på instrument paneler som operatörer kan använda för att utföra åtgärder som att övervaka och hantera kameror.
 
 1. Du kan också välja ett eget **program namn**. Det här programmet baseras på ett fiktivt detalj handels lager med namnet Northwind Traders. I självstudien används **program namnet** *Northwind Traders video analys*.
 
@@ -129,7 +129,7 @@ Anteckna token i *scratchpad.txt* -filen för senare. När dialog rutan stängs 
 
 I avsnittet **Administration** väljer du **enhets anslutning**och väljer sedan **SAS-IoT-Devices**.
 
-Anteckna **primär nyckeln** för enheter i *scratchpad.txts* filen. Du använder den här *primära gruppen signatur för delad åtkomst* senare när du konfigurerar IoT Edge-enheten.
+Anteckna **primär nyckeln** för enheter i *scratchpad.txts * filen. Du använder den här *primära gruppen signatur för delad åtkomst* senare när du konfigurerar IoT Edge-enheten.
 
 ## <a name="edit-the-deployment-manifest"></a>Redigera distributions manifestet
 
@@ -245,7 +245,7 @@ Navigera till mappen *lva-Configuration* och välj *deployment.amd64.jspå* mani
 
 I enhets mal len för **lva Edge-Gateway** under **moduler/lva Edge Gateway module**väljer du **relationer**. Välj **+ Lägg till relation** och Lägg till följande två relationer:
 
-|Visningsnamn               |Name          |Mål |
+|Visningsnamn               |Namn          |Mål |
 |-------------------------- |------------- |------ |
 |LVA kant rörelse detektor   |Använd standard   |LVA Edge motion detektor-enhet |
 |LVA kant objekts detektor   |Använd standard   |LVA Edge objekt detektor enhet |

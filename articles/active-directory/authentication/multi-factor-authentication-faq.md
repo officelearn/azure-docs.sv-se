@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e4e09637a7d990e1555b5443b9931cf8ff8c271b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035085"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718874"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Vanliga frågor om Azure Multi-Factor Authentication
 
@@ -259,6 +259,6 @@ En lösning för det här felet är att ha separata användar konton för admini
 Om din fråga inte besvaras här finns följande support alternativ:
 
 * Sök i [Microsoft Support Knowledge Base](https://support.microsoft.com) efter lösningar på vanliga tekniska problem.
-* Sök efter och bläddra efter tekniska frågor och svar från communityn eller Ställ din egen fråga i [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
+* Sök efter och bläddra efter tekniska frågor och svar från communityn eller Ställ din egen fråga i [Azure Active Directory Q&A](/answers/topics/azure-active-directory.html).
 * Kontakta Microsoft Professional via [Azure Multi-Factor Authentication-Server Support](https://support.microsoft.com/oas/default.aspx?prid=14947). När du kontaktar oss är det bra om du kan inkludera så mycket information om problemet som möjligt. Information som du kan tillhandahålla inkluderar sidan där du såg felet, den speciella felkoden, det ID som identifierades och ID: t för den användare som såg felet.
 * Om du är en äldre PhoneFactor-kund och har frågor eller behöver hjälp med att återställa ett lösen ord, använder du [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-postadressen för att öppna ett support ärende.

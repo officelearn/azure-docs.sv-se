@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 4c8a536086e426a2d83d26538f9d0efe1ea63eb4
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: d6662259494bba5747e01c4574186e9030112247
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705800"
+ms.locfileid: "88719418"
 ---
 # <a name="durable-functions-versions-overview"></a>Översikt över Durable Functions-versioner
 
@@ -46,7 +46,7 @@ I det här avsnittet beskrivs hur du migrerar den befintliga version 1. x-Durabl
 
 Installera den senaste 2. x-versionen av tillägget Durable Functions bindningar i projektet.
 
-#### <a name="javascript-and-python"></a>Java Script och python
+#### <a name="javascript-python-and-powershell"></a>Java Script, python och PowerShell
 
 Durable Functions 2. x finns i version 2. x i paketet för [Azure Functions-tillägget](../functions-bindings-register.md#extension-bundles).
 

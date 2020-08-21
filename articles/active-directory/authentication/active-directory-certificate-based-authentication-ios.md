@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ede7ddb81bae69d92983e787e779ee9d410bd87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 584fb5c370fa0be629d057eb94dc4c2a8b9edc15
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82144075"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716443"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Azure Active Directory certifikatbaserad autentisering på iOS
 
@@ -61,15 +61,15 @@ Följande Active Directory Federation Services (AD FS) (ADFS) krav och överväg
 
 För att Azure AD ska kunna återkalla ett klient certifikat måste ADFS-token ha följande anspråk. Azure AD lägger till dessa anspråk till uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken behöver verifieras används den här informationen för att kontrol lera åter kallelsen:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`– Lägg till serie numret för ditt klient certifikat
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`– Lägg till strängen för utfärdaren av klient certifikatet
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` – Lägg till serie numret för ditt klient certifikat
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` – Lägg till strängen för utfärdaren av klient certifikatet
 
 Vi rekommenderar att du också uppdaterar organisationens ADFS-felsidor med följande information:
 
 * Kravet på att installera Microsoft Authenticator på iOS.
 * Instruktioner om hur du hämtar ett användar certifikat.
 
-Mer information finns i [anpassa AD FS inloggnings sida](https://technet.microsoft.com/library/dn280950.aspx).
+Mer information finns i [anpassa AD FS inloggnings sida](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 ## <a name="use-modern-authentication-with-office-apps"></a>Använd modern autentisering med Office-appar
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaed8a3e23cba90b2afe476b1e993ed1f99dae7
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: c7dab1d9e46aec64cc3c0fda9e8e6ba503f696b0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445515"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716766"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för multifaktorautentisering
 
@@ -32,7 +32,7 @@ Om du vill konfigurera alternativa inloggnings-ID: n går du till `HKLM\SOFTWARE
 
 | Namn | Typ | Standardvärde | Beskrivning |
 | ---- | ---- | ------------- | ----------- |
-| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | sträng | Tom | Ange namnet på Active Directory attributet som du vill använda i stället för UPN. Det här attributet används som AlternateLoginId-attribut. Om registervärdet är inställt på ett [giltigt Active Directory-attribut](https://msdn.microsoft.com/library/ms675090.aspx) (till exempel e-post eller DisplayName) används attributets värde i stället för användarens UPN för autentisering. Om registervärdet är tomt eller inte har kon figurer ATS så inaktive ras AlternateLoginId och användarens UPN används för autentisering. |
+| LDAP_ALTERNATE_LOGINID_ATTRIBUTE | sträng | Tom | Ange namnet på Active Directory attributet som du vill använda i stället för UPN. Det här attributet används som AlternateLoginId-attribut. Om registervärdet är inställt på ett [giltigt Active Directory-attribut](/windows/win32/adschema/attributes-all) (till exempel e-post eller DisplayName) används attributets värde i stället för användarens UPN för autentisering. Om registervärdet är tomt eller inte har kon figurer ATS så inaktive ras AlternateLoginId och användarens UPN används för autentisering. |
 | LDAP_FORCE_GLOBAL_CATALOG | boolean | Falskt | Använd den här flaggan om du vill framtvinga användning av global katalog för LDAP-sökningar när du söker efter AlternateLoginId. Konfigurera en domänkontrollant som global katalog, Lägg till attributet AlternateLoginId i den globala katalogen och aktivera sedan den här flaggan. <br><br> Om LDAP_LOOKUP_FORESTS har kon figurer ATS (inte tom) **tillämpas den här flaggan som sant**, oavsett värdet för register inställningen. I det här fallet kräver NPS-tillägget att den globala katalogen konfigureras med attributet AlternateLoginId för varje skog. |
 | LDAP_LOOKUP_FORESTS | sträng | Tom | Ange en semikolonavgränsad lista över skogar att söka i. Till exempel *contoso. com; foobar. com*. Om registervärdet har kon figurer ATS söker NPS-tillägget iterativt i alla skogar i den ordning som de listades och returnerar det första lyckade AlternateLoginId-värdet. Om registervärdet inte har kon figurer ATS begränsas AlternateLoginId-sökningen till den aktuella domänen.|
 

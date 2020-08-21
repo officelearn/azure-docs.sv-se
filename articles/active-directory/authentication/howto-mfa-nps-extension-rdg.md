@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ede429de686dd005785b44cf5c6d9571aac5a2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 4a75b6be3796a21e3f765ad69eee0578d5f2e9d0
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117030"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717854"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrera din infrastruktur för fjärrskrivbordsgateway med nätverks princip Server (NPS)-tillägget och Azure AD
 
 Den här artikeln innehåller information om hur du integrerar din infrastruktur för fjärrskrivbordsgateway med Azure Multi-Factor Authentication (MFA) med hjälp av nätverks princip Server (NPS)-tillägget för Microsoft Azure.
 
-Nätverks princip Server (NPS)-tillägget för Azure gör det möjligt för kunder att skydda Remote Authentication Dial-In User Service (RADIUS) klientautentisering med hjälp av Azures molnbaserade [Multi-Factor Authentication (MFA)](multi-factor-authentication.md). Den här lösningen ger tvåstegsverifiering för att lägga till ett andra säkerhets lager till användar inloggningar och transaktioner.
+Nätverks princip Server (NPS)-tillägget för Azure gör det möjligt för kunder att skydda Remote Authentication Dial-In User Service (RADIUS) klientautentisering med hjälp av Azures molnbaserade [Multi-Factor Authentication (MFA)](./concept-mfa-howitworks.md). Den här lösningen ger tvåstegsverifiering för att lägga till ett andra säkerhets lager till användar inloggningar och transaktioner.
 
 Den här artikeln innehåller steg-för-steg-instruktioner för att integrera NPS-infrastrukturen med Azure MFA med NPS-tillägget för Azure. Detta möjliggör säker verifiering för användare som försöker logga in på en fjärr skrivbords-Gateway.
 
@@ -75,7 +75,7 @@ I det här avsnittet beskrivs de nödvändiga förutsättningarna innan du integ
 Du måste ha en infrastruktur för arbets Fjärrskrivbordstjänster (RDS) på plats. Om du inte gör det kan du snabbt skapa den här infrastrukturen i Azure med hjälp av följande snabb starts mall: [skapa en samling distribution](https://github.com/Azure/azure-quickstart-templates/tree/ad20c78b36d8e1246f96bb0e7a8741db481f957f/rds-deployment)av fjärrskrivbordssessioner.
 
 Om du snabbt vill skapa en lokal infrastruktur för fjärr skrivbords tjänster manuellt för testning följer du stegen för att distribuera en.
-**Läs mer**: [distribuera fjärr skrivbords tjänster med Azure snabb start](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) och [grundläggande distribution av fjärr skrivbords infrastruktur](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+**Läs mer**: [distribuera fjärr skrivbords tjänster med Azure snabb start](/windows-server/remote/remote-desktop-services/rds-in-azure) och [grundläggande distribution av fjärr skrivbords infrastruktur](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 ### <a name="azure-mfa-license"></a>Azure MFA-licens
 
@@ -89,7 +89,7 @@ NPS-tillägget kräver Windows Server 2008 R2 SP1 eller senare med NPS-rolltjän
 
 NPS-rolltjänsten tillhandahåller RADIUS-server och klient funktioner samt hälso tjänst för nätverks åtkomst princip. Den här rollen måste installeras på minst två datorer i infrastrukturen: Fjärrskrivbordsgateway och en annan medlems Server eller domänkontrollant. Rollen finns redan som standard på den dator som har kon figurer ATS som fjärr skrivbords-Gateway.  Du måste också installera NPS-rollen på minst en annan dator, till exempel en domänkontrollant eller medlems Server.
 
-Information om hur du installerar NPS-rolltjänsten Windows Server 2012 eller äldre finns i [installera en NAP-hälsopolicy Server](https://technet.microsoft.com/library/dd296890.aspx). En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](https://technet.microsoft.com/library/cc771746).
+Information om hur du installerar NPS-rolltjänsten Windows Server 2012 eller äldre finns i [installera en NAP-hälsopolicy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). En beskrivning av metod tips för NPS, inklusive rekommendationer för att installera NPS på en domänkontrollant finns i [metod tips för NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory synkroniseras med lokala Active Directory
 
@@ -109,7 +109,7 @@ Följ stegen i [komma igång med azure Multi-Factor Authentication i molnet](how
 
 När ett konto har Aktiver ATS för MFA kan du inte logga in på resurser som styrs av MFA-principen förrän du har konfigurerat en betrodd enhet som ska användas för den andra autentiserings faktorn och har autentiserats med hjälp av tvåstegsverifiering.
 
-Följ stegen i [Vad innebär Azure Multi-Factor Authentication för mig?](../user-help/multi-factor-authentication-end-user.md) för att förstå och konfigurera dina enheter korrekt för MFA med ditt användar konto.
+Följ stegen i [Vad innebär Azure Multi-Factor Authentication för mig?](../user-help/multi-factor-authentication-end-user-first-time.md) för att förstå och konfigurera dina enheter korrekt för MFA med ditt användar konto.
 
 > [!IMPORTANT]
 > Inloggnings beteendet för fjärrskrivbordsgateway ger inte möjlighet att ange en verifierings kod med Azure Multi-Factor Authentication. Ett användar konto måste konfigureras för telefon verifiering eller Microsoft Authenticator-appen med push-meddelanden.
@@ -250,7 +250,7 @@ När du konfigurerar RD Gateway att använda en central princip lagring för pri
 1. Klicka på **Avbryt**.
 
 >[!NOTE]
-> Mer information om hur du skapar en princip för anslutningsbegäran finns i artikeln [Konfigurera principer](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) för anslutningsbegäran. 
+> Mer information om hur du skapar en princip för anslutningsbegäran finns i artikeln [Konfigurera principer](/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) för anslutningsbegäran. 
 
 ## <a name="configure-nps-on-the-server-where-the-nps-extension-is-installed"></a>Konfigurera NPS på den server där NPS-tillägget är installerat
 
@@ -378,13 +378,13 @@ Nedan visas en relaterad händelse från AzureMFA-loggarna:
 
 Information om hur du utför avancerade fel söknings alternativ finns i loggfilerna för NPS-databasfilen där NPS-tjänsten är installerad. Loggfilerna skapas i mappen _%systemroot%\System32\Logs_ som kommaavgränsade textfiler.
 
-En beskrivning av dessa loggfiler finns i [tolka loggfiler för NPS-databasfiler](https://technet.microsoft.com/library/cc771748.aspx). Posterna i dessa loggfiler kan vara svåra att tolka utan att importera dem till ett kalkyl blad eller en databas. Du hittar flera IAS-tolkare online för att hjälpa dig att tolka loggfilerna.
+En beskrivning av dessa loggfiler finns i [tolka loggfiler för NPS-databasfiler](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)). Posterna i dessa loggfiler kan vara svåra att tolka utan att importera dem till ett kalkyl blad eller en databas. Du hittar flera IAS-tolkare online för att hjälpa dig att tolka loggfilerna.
 
 Bilden nedan visar utdata från ett sådant nedladdnings Bart [shareware-program](https://www.deepsoftware.com/iasviewer).
 
 ![Exempel på shareware-app IAS-parser](./media/howto-mfa-nps-extension-rdg/image35.png)
 
-Slutligen kan du använda en protokoll analys, till exempel [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx), för ytterligare fel söknings alternativ.
+Slutligen kan du använda en protokoll analys, till exempel [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide), för ytterligare fel söknings alternativ.
 
 Bilden nedan från Microsoft Message Analyzer visar nätverks trafik som filtrerats på RADIUS-protokoll som innehåller användar namnet **CONTOSO\AliceC**.
 

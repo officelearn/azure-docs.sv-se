@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6fe3238a2ad602b388ff24faaee3a200084ae0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4cdeff5e08813140c45d0a30877c3789d1bc21b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419486"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718857"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Självstudie: gör det möjligt för användare att låsa upp kontot eller återställa lösen ord med hjälp av Azure Active Directory självbetjäning för återställning av lösen ord
 
@@ -107,7 +107,7 @@ Om du vill hålla användare informerade om konto aktivitet kan du konfigurera e
 Om användarna behöver ytterligare hjälp med SSPR-processen kan du anpassa länken för "kontakta administratören". Den här länken används i SSPR registrerings process och när en användare låser upp sitt konto eller återställer sitt lösen ord. För att se till att användarna får support, rekommenderar vi starkt att du tillhandahåller en anpassad e-postadress eller URL för supportavdelningen.
 
 1. På sidan **anpassning** på menyn till vänster väljer du *länken anpassa supportavdelningen* till **Ja**.
-1. I fältet **anpassad e-postadress eller URL** för e-post eller URL anger du en e-postadress eller URL för webb sidan där användarna kan få ytterligare hjälp från din organisation, till exempel*`https://support.contoso.com/`*
+1. I fältet **anpassad e-postadress eller URL** för e-post eller URL anger du en e-postadress eller URL för webb sidan där användarna kan få ytterligare hjälp från din organisation, till exempel *`https://support.contoso.com/`*
 1. Om du vill använda den anpassade länken väljer du **Spara**.
 
 ## <a name="test-self-service-password-reset"></a>Testa självåterställning av lösenord
@@ -148,4 +148,4 @@ I den här självstudien har du aktiverat lösen ords återställning via själv
 > * Testa SSPR-processen som en användare
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Aktivera Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

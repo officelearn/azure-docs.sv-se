@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 5748f758d8ac2f1723a20858920a4f261c07f938
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608925"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718704"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
 
@@ -59,7 +59,7 @@ Komponenten som försöker replikera data till Azure är antingen avstängd elle
 
    2.  Öppna MMC-snapin-modulen för Microsoft-tjänster (kör > Services. msc) och kontrol lera om "Microsoft Azure Gateway-tjänsten körs. Starta tjänsten om tjänsten är stoppad eller inte körs. Du kan också öppna kommando tolken eller PowerShell och göra följande: "net start asrgwy"
 
-3. Sök efter anslutnings problem mellan Azure Migrate-och cache Storage-konto: 
+3. Sök efter anslutnings problem mellan Azure Migrates-och enhets lagrings konto: 
 
     Kör följande kommando när du har laddat ned AzCopy i Azure Migrate-installationen:
     
@@ -149,7 +149,7 @@ Möjliga orsaker är:
     
       1. [Ladda ned](https://go.microsoft.com/fwlink/?linkid=2138966) AzCopy
         
-      2. Sök efter enhetens lagrings konto i resurs gruppen. Lagrings kontot har ett namn som liknar migrategwsa \* \* \* \* \* \* \* \* \* \* . Detta är värdet för parametern [Account] i kommandot ovan.
+      2. Sök efter enhetens lagrings konto i resurs gruppen. Lagrings kontot har ett namn som liknar migratelsa \* \* \* \* \* \* \* \* \* \* . Detta är värdet för parametern [Account] i kommandot ovan.
         
       3. Sök efter ditt lagrings konto i Azure Portal. Se till att den prenumeration du använder för att söka är samma prenumeration (mål prenumerationen) som lagrings kontot skapas i. Gå till behållare i avsnittet BLOB service. Klicka på + container och skapa en behållare. Lämna den offentliga åtkomst nivån till standardvärdet som valts.
         
@@ -226,7 +226,7 @@ Exempel: fel meddelande: ett internt fel uppstod. [En ogiltig ögonblicks bilds 
 
 I följande avsnitt visas några av de vanligaste VMware-felen och hur du kan åtgärda dem.
 
-## <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Fel meddelande: ett internt fel uppstod. [Servern nekade anslutning]
+### <a name="error-message-an-internal-error-occurred-server-refused-connection"></a>Fel meddelande: ett internt fel uppstod. [Servern nekade anslutning]
 
 Problemet är ett känt VMware-problem och inträffar i VDDK 6,7. Du måste stoppa Gateway-tjänsten som körs i Azure Migrate-enheten, [Hämta en uppdatering från VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889)och starta om Gateway-tjänsten.
 
@@ -240,36 +240,36 @@ Steg för att starta Gateway-tjänsten:
 1. Tryck på Windows + R, öppna Services. msc. Högerklicka på "Microsoft Azure Gateway Service" och starta den.
 2. Du kan också öppna kommando tolken eller PowerShell och göra följande: net start asrgwy.
 
-## <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Fel meddelande: ett internt fel uppstod. ["En ogiltig ögonblicks bilds konfiguration identifierades."]
+### <a name="error-message-an-internal-error-occurred-an-invalid-snapshot-configuration-was-detected"></a>Fel meddelande: ett internt fel uppstod. ["En ogiltig ögonblicks bilds konfiguration identifierades."]
 
 Om du har en virtuell dator med flera diskar kan du stöta på det här felet om du tar bort en disk från den virtuella datorn. Se stegen i [den här VMware-artikeln](https://go.microsoft.com/fwlink/?linkid=2138890)för att åtgärda problemet.
 
-## <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Fel meddelande: ett internt fel uppstod. [Generera ögonblicks bild låst]
+### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Fel meddelande: ett internt fel uppstod. [Generera ögonblicks bild låst]
 
 Det här problemet uppstår när genereringen av ögonblicks bilder låser sig. När det här problemet uppstår kan du se Skapa ögonblicks bilds aktivitet på 95% eller 99%. Se denna [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) för att lösa problemet.
 
-## <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_]
 
 När vi konsoliderar diskar i slutet av en replikeringscykel, Miss lyckas åtgärden. Följ anvisningarna i [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) genom att välja lämplig _orsak_ för att lösa problemet.
 
 Följande fel inträffar när åtgärder för att skapa, ta bort eller konsolidera diskar fungerar inte i VMware-ögonblicksbilder. Följ anvisningarna i nästa avsnitt för att åtgärda felen:
 
-## <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Fel meddelande: ett internt fel uppstod. [En annan aktivitet pågår redan]
+### <a name="error-message-an-internal-error-occurred-another-task-is-already-in-progress"></a>Fel meddelande: ett internt fel uppstod. [En annan aktivitet pågår redan]
 
 Det här problemet uppstår när det finns motstridiga aktiviteter i virtuella datorer som körs i bakgrunden eller när en aktivitet inom vCenter Server timeout. Följ den lösning som anges i följande [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Fel meddelande: ett internt fel uppstod. [Åtgärden tillåts inte i det aktuella läget]
+### <a name="error-message-an-internal-error-occurred-operation-not-allowed-in-current-state"></a>Fel meddelande: ett internt fel uppstod. [Åtgärden tillåts inte i det aktuella läget]
 
 Det här problemet uppstår när vCenter Server hanterings agenter slutar fungera. Lös problemet genom att läsa lösningen i följande [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Fel meddelande: ett internt fel uppstod. [Storlek på ögonblicks bild disk ogiltig]
+### <a name="error-message-an-internal-error-occurred-snapshot-disk-size-invalid"></a>Fel meddelande: ett internt fel uppstod. [Storlek på ögonblicks bild disk ogiltig]
 
 Detta är ett känt VMware-problem där disk storleken som anges av Snapshot blir noll. Följ den upplösning som angavs i [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att allokera minne. Slut på minne.]
+### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att allokera minne. Slut på minne.]
 
 Detta inträffar när NFC-värdstyrenheten har slut på minne. För att lösa det här problemet måste du flytta den virtuella datorn (Compute vMotion) till en annan värd, som har kostnads fria resurser.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Fortsätt VM-replikering och utför [testmigrering](https://go.microsoft.com/fwlink/?linkid=2139333).

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 42faf4ba0a596fc5b2b34f403a5117e5ceea82ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ac934f88d00521b13fd2b134c80f19656c63117b
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903348"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718823"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Säkerhetskopiera och återställa formulär igenkännings modeller
 
@@ -39,6 +39,9 @@ Processen för att kopiera en anpassad modell består av följande steg:
 1. Först utfärdar du en begäran om kopiering av begäran till mål resursen &mdash; som är den resurs som ska ta emot den kopierade modellen. Du får tillbaka URL: en för den nyligen skapade mål modellen, som kommer att ta emot de kopierade data.
 1. Sedan skickar du kopierings förfrågan till käll resursen &mdash; som innehåller den modell som ska kopieras. Du får tillbaka en URL som du kan fråga efter för att följa åtgärdens förlopp.
 1. Du ska använda dina käll resurs uppgifter för att ställa frågor till förlopps-URL tills åtgärden har slutförts. Du kan också fråga det nya modell-ID: t i mål resursen för att hämta statusen för den nya modellen.
+
+> [!CAUTION]
+> Kopierings-API: t stöder för närvarande inte modell-ID: n för [sammansatta anpassade modeller](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/Compose). Modell sammanställning är en förhands gransknings funktion i v 2.1 – för hands version. 1 för hands version. 
 
 ## <a name="generate-copy-authorization-request"></a>Skapa begäran om Copy-auktorisering
 
@@ -90,7 +93,7 @@ Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecog
 
 |Fel|Lösning|
 |:--|:--|
-| 400/Felaktig begäran med`"code:" "1002"` | Indikerar ett verifierings fel eller en felaktig kopierings förfrågan. Vanliga problem är: a) ogiltig eller ändrad `copyAuthorization` nytto Last. b) utgånget värde för `expirationDateTimeTicks` token ( `copyAuhtorization` nytto lasten är giltigt i 24 timmar). c) ogiltigt eller stöds inte `targetResourceRegion` . d) ogiltig eller felaktig `targetResourceId` sträng.
+| 400/Felaktig begäran med `"code:" "1002"` | Indikerar ett verifierings fel eller en felaktig kopierings förfrågan. Vanliga problem är: a) ogiltig eller ändrad `copyAuthorization` nytto Last. b) utgånget värde för `expirationDateTimeTicks` token ( `copyAuhtorization` nytto lasten är giltigt i 24 timmar). c) ogiltigt eller stöds inte `targetResourceRegion` . d) ogiltig eller felaktig `targetResourceId` sträng.
 |
 
 ## <a name="track-copy-progress"></a>Spåra kopierings förlopp

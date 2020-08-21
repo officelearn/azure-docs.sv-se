@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: dedf1174e00f5bb75822fb720a592af86121ec2d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: baed9ef099ed818fa0967c7a3e7ab61fb4921f75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691436"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719316"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Bearbeta ändrings flöde i Azure Blob Storage (förhands granskning)
 
@@ -22,15 +22,16 @@ ms.locfileid: "88691436"
 Läs mer om ändrings flödet [i ändra feed i Azure Blob Storage (för hands version)](storage-blob-change-feed.md).
 
 > [!NOTE]
-> Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md). Biblioteket Change feed processor kan ändras mellan nu och när det här biblioteket blir allmänt tillgängligt.
+> Ändrings flödet är i en offentlig för hands version och är tillgänglig i begränsade regioner. Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md). Biblioteket Change feed processor kan ändras mellan nu och när det här biblioteket blir allmänt tillgängligt.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Hämta processor biblioteket för BLOB Change feed
 
 1. Öppna ett kommando fönster (till exempel: Windows PowerShell).
-2. Från projekt katalogen installerar du paketet **Azure. Storage. blobs. Changefeed** NuGet.
+2. Från projekt katalogen installerar du [paketet **Azure. Storage. blobs. Changefeed** NuGet](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/).
 
 ```console
-dotnet add package Azure.Storage.Blobs.ChangeFeed --source https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json --version 12.0.0-dev.20200604.2
+dotnet add package Azure.Storage.Blobs --version 12.5.1
+dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ```
 ## <a name="read-records"></a>Läsa poster
 
@@ -117,7 +118,7 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 
 ## <a name="stream-processing-of-records"></a>Strömmande bearbetning av poster
 
-Du kan välja att bearbeta ändrings flödes poster när de tas emot. Se [specifikationer](storage-blob-change-feed.md#specifications). Vi rekommenderar att du söker efter ändringar varje timme.
+Du kan välja att bearbeta ändrings flödes poster när de allokeras till ändrings flödet. Se [specifikationer](storage-blob-change-feed.md#specifications). Ändrings händelserna publiceras i ändrings flödet vid en period på 60 sekunder i genomsnitt. Vi rekommenderar att du söker efter nya ändringar med den här tiden när du anger ditt avsöknings intervall.
 
 Det här exemplet söker regelbundet efter ändringar.  Om det finns ändrings poster bearbetar den här koden dessa poster och sparar ändrings flödes markören. På så sätt om processen har stoppats och sedan startats igen kan programmet använda markören för att återuppta bearbetningen av poster där den senast slutade. I det här exemplet sparas markören till en lokal program konfigurations fil, men programmet kan spara den i alla formulär som är mest begripligt för ditt scenario. 
 
@@ -181,7 +182,7 @@ public void SaveCursor(string cursor)
 
 ## <a name="reading-records-within-a-time-range"></a>Läser poster inom ett tidsintervall
 
-Du kan läsa poster som ligger inom ett angivet tidsintervall. Det här exemplet itererar igenom alla poster i ändrings flödet som faller mellan 3:00 PM den 2 2017 och 2:00 AM den 7 2019, lägger till dem i en lista och returnerar sedan listan till anroparen.
+Du kan läsa poster som ligger inom ett angivet tidsintervall. Det här exemplet itererar igenom alla poster i bytet som faller mellan 3:00 PM den 2 2020 och 2:00: a augusti 7 2020, lägger till dem i en lista och returnerar sedan listan till anroparen.
 
 ### <a name="selecting-segments-for-a-time-range"></a>Välja segment för ett tidsintervall
 
@@ -198,8 +199,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
     // Create the start and end time.  The change feed client will round start time down to
     // the nearest hour, and round endTime up to the next hour if you provide DateTimeOffsets
     // with minutes and seconds.
-    DateTimeOffset startTime = new DateTimeOffset(2017, 3, 2, 15, 0, 0, TimeSpan.Zero);
-    DateTimeOffset endTime = new DateTimeOffset(2020, 10, 7, 2, 0, 0, TimeSpan.Zero);
+    DateTimeOffset startTime = new DateTimeOffset(2020, 3, 2, 15, 0, 0, TimeSpan.Zero);
+    DateTimeOffset endTime = new DateTimeOffset(2020, 8, 7, 2, 0, 0, TimeSpan.Zero);
 
     // You can also provide just a start or end time.
     await foreach (BlobChangeFeedEvent changeFeedEvent in changeFeedClient.GetChangesAsync(

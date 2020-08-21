@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 08/21/2020
 ms.author: jingwang
-ms.openlocfilehash: a937548c9318d98e8832720706626b74167d32d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dd5e116f0c6844abeffc27820da03462c6e1cbbc
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044391"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718211"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Excel-format i Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -29,15 +29,15 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Yes      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Yes      |
-| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Yes      |
-| intervall            | Cell området i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex. `A3:H5` (en tabell från a3 till H5), `A3` (en tabell som börjar från cell A3), `A3:A3` (enkel cell). Om inget anges läser ADF-filen från hela kalkyl bladet som en tabell. | No       |
-| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | No       |
-| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | No       |
-| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | No |
+| typ             | Data uppsättningens typ-egenskap måste anges till **Excel**.   | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds under `location` . | Ja      |
+| Inställda SheetName        | Namnet på Excel-kalkylbladet för att läsa data.                       | Ja      |
+| intervall            | Cell intervallet i det aktuella kalkyl bladet för att hitta de selektiva data, t. ex.:<br>-Ej angiven: läser hela kalkyl bladet som en tabell från den första icke-tomma raden och kolumnen<br>- `A3`: läser en tabell som börjar från den aktuella cellen, identifierar dynamiskt alla rader nedan och alla kolumner till höger<br>- `A3:H5`: läser det här fasta intervallet som en tabell<br>- `A3:A3`: läser den här enkla cellen | Inga       |
+| firstRowAsHeader | Anger om den första raden i angivet kalkyl blad/intervall ska behandlas som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | Inga       |
+| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Inga       |
+| komprimering | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | Inga |
 | typ<br/>(*under `compression` *) | Komprimerings-codec som används för att läsa/skriva JSON-filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. att använda när du sparar filen. Standardvärdet är inte komprimerat.<br>**Obs!** kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate".<br>**Obs!** när du använder kopierings aktivitet för att expandera **ZipDeflate** -filer och skriva till filbaserat mottagar data lager, extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/` . | Nej.  |
-| nivå<br/>(*under `compression` *) | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| nivå<br/>(*under `compression` *) | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **Snabbast:** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **Optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Inga       |
 
 Nedan visas ett exempel på en Excel-datauppsättning på Azure Blob Storage:
 
@@ -75,8 +75,8 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets *** \* källa \* *** 
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Yes      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | No       |
+| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **ExcelSource**. | Ja      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings` . | Inga       |
 
 ```json
 "activities": [
@@ -108,12 +108,12 @@ I tabellen nedan visas de egenskaper som stöds av en Excel-källa. Du kan redig
 
 | Namn                      | Beskrivning                                                  | Krävs | Tillåtna värden                                            | Skript egenskap för data flöde         |
 | ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
-| Jokertecken sökvägar           | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | Nej       | Sträng []                                                  | wildcardPaths                     |
-| Partitionens rot Sök väg       | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | Nej       | Sträng                                                    | partitionRootPath                 |
-| Lista över filer             | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | Nej       | `true` eller `false`                                         | fileList                          |
-| Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg       | Nej       | Sträng                                                    | rowUrlColumn                      |
-| Efter slut för ande          | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | Nej       | Ta bort: `true` eller`false` <br> Fart`['<from>', '<to>']` | purgeFiles <br> moveFiles         |
-| Filtrera efter senast ändrad   | Välj att filtrera filer baserat på när de senast ändrades | Nej       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+| Jokertecken sökvägar           | Alla filer som matchar sökvägen för jokertecken kommer att bearbetas. Åsidosätter mappen och fil Sök vägen som angetts i data uppsättningen. | nej       | Sträng []                                                  | wildcardPaths                     |
+| Partitionens rot Sök väg       | För fildata som är partitionerade kan du ange en rot Sök väg för partitionen för att kunna läsa partitionerade mappar som kolumner | nej       | Sträng                                                    | partitionRootPath                 |
+| Lista över filer             | Om källan pekar på en textfil som visar en lista över filer som ska bearbetas | nej       | `true` eller `false`                                         | fileList                          |
+| Kolumn som ska lagra fil namn | Skapa en ny kolumn med käll filens namn och sökväg       | nej       | Sträng                                                    | rowUrlColumn                      |
+| Efter slut för ande          | Ta bort eller flytta filerna efter bearbetning. Fil Sök vägen börjar från container roten | nej       | Ta bort: `true` eller `false` <br> Fart `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filtrera efter senast ändrad   | Välj att filtrera filer baserat på när de senast ändrades | nej       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
 
 ### <a name="source-example"></a>Käll exempel
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81cd2649ff056ab107491cf60602f0da7435b228
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550644"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717004"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Aktivera lösen ords lös säkerhets nyckel inloggning till lokala resurser med Azure Active Directory (för hands version)
 
@@ -48,10 +48,10 @@ Organisationer måste också uppfylla följande program varu krav.
 
 - Enheter måste köra Windows 10 Insider build 18945 eller senare.
 - Du måste ha version 1.4.32.0 eller senare av [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - Mer information om tillgängliga alternativ för Azure AD hybrid-autentisering finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../../security/fundamentals/choose-ad-authn.md) och [Välj vilken Installations typ som ska användas för Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
+  - Mer information om tillgängliga alternativ för Azure AD hybrid-autentisering finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../hybrid/choose-ad-authn.md) och [Välj vilken Installations typ som ska användas för Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Windows Server-domän kontrol Lanterna måste ha följande korrigeringsfiler installerade:
-    - För Windows Server 2016-https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - För Windows Server 2019-https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+    - För Windows Server 2016- https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
+    - För Windows Server 2019- https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
 
 ### <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -75,7 +75,7 @@ Följande scenarier stöds inte:
 Administratörer använder PowerShell-verktyg från sin Azure AD Connect-Server för att skapa ett Azure AD Kerberos-serverobjektet i sina lokala kataloger. Kör följande steg i varje domän och skog i din organisation som innehåller Azure AD-användare:
 
 1. Uppgradera till den senaste versionen av Azure AD Connect. Anvisningarna förutsätter att du redan har konfigurerat Azure AD Connect som stöd för din hybrid miljö.
-1. På Azure AD Connect-servern öppnar du en upphöjd PowerShell-prompt och navigerar till`C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. På Azure AD Connect-servern öppnar du en upphöjd PowerShell-prompt och navigerar till `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
 1. Kör följande PowerShell-kommandon för att skapa ett nytt Azure AD Kerberos-serverobjektet i både din lokala Active Directory domän och Azure Active Directory klient organisation.
 
 > [!NOTE]
@@ -114,7 +114,7 @@ Det här kommandot matar ut egenskaperna för Azure AD Kerberos-servern. Du kan 
 | ID | Unikt ID för AD DS DC-objektet. Detta ID kallas ibland "fack" eller "gren-ID". |
 | DomainDnsName | Active Directory-domänens DNS-domännamn. |
 | ComputerAccount | Objektet dator konto för objektet Azure AD Kerberos-Server (DOMÄNKONTROLLANT). |
-| UserAccount | Det inaktiverade objektet User Account som innehåller Azure AD Kerberos-serverns TGT-krypterings nyckel. Kontots DN är`CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
+| UserAccount | Det inaktiverade objektet User Account som innehåller Azure AD Kerberos-serverns TGT-krypterings nyckel. Kontots DN är `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
 | Version | Nyckel versionen av Azure AD Kerberos-serverns TGT-krypterings nyckel. Versionen tilldelas när nyckeln skapas. Versionen ökas sedan varje gång nyckeln roteras. Ökningarna baseras på metadata för replikering och troligen större än ett. Den ursprungliga *versionen av versionen* kan till exempel vara *192272*. Första gången som nyckeln roterades kan versionen gå vidare till *212621*. Det är viktigt att kontrol lera att *versionen* för det lokala objektet och *CloudKeyVersion* för moln objekt är desamma. |
 | KeyUpdatedOn | Det datum och den tid som Azure AD Kerberos-servern TGT-krypteringsnyckeln uppdaterades eller skapades. |
 | KeyUpdatedFrom | Den DOMÄNKONTROLLANT där Azure AD Kerberos-servern TGT-krypteringsnyckeln senast uppdaterades. |

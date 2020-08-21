@@ -3,12 +3,12 @@ title: Integrera Azure Event Hubs med Azure Private Link service
 description: Lär dig hur du integrerar Azure Event Hubs med Azure Private Link service
 ms.date: 07/29/2020
 ms.topic: article
-ms.openlocfilehash: 8d6d5c13e1a5eab55998d3b98596ce845de104eb
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185476"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716799"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Tillåt åtkomst till Azure Event Hubs-namnrymder via privata slut punkter 
 Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Event Hubs, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
@@ -34,7 +34,7 @@ Mer information finns i [Vad är en privat Azure-länk?](../private-link/private
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill integrera ett Event Hubs-namnområde med en privat Azure-länk behöver du följande entiteter eller behörigheter:
 
@@ -71,7 +71,7 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
     2. Välj **resurs grupp** för den privata slut punkts resursen.
     3. Ange ett **namn** för den privata slut punkten. 
     5. Välj en **region** för den privata slut punkten. Din privata slut punkt måste finnas i samma region som ditt virtuella nätverk, men kan finnas i en annan region än den privata länk resurs som du ansluter till. 
-    6. Välj **Nästa: resurs >s** knappen längst ned på sidan.
+    6. Välj **Nästa: resurs >s ** knappen längst ned på sidan.
 
         ![Sidan skapa privat slut punkt – grunder](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Följ de här stegen på sidan **resurs** :
@@ -80,7 +80,7 @@ Om du redan har ett Event Hubs namn område kan du skapa en privat länk anslutn
         2. För **resurs typ**väljer du **Microsoft. EventHub/Namespaces** för **resurs typen**.
         3. För **resurs**väljer du ett Event Hubs namn område i list rutan. 
         4. Bekräfta att **mål under resursen** har angetts till **namnrymd**.
-        5. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
+        5. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
         
             ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias**följer du dessa steg:
@@ -204,7 +204,7 @@ Det finns fyra etablerings tillstånd:
 
 | Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Inget | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Ingen | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avslagen | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |
@@ -222,7 +222,7 @@ Det finns fyra etablerings tillstånd:
 2. Välj den **privata slut punkt** som du vill godkänna
 3. Välj knappen **Godkänn** .
 
-    ![Bild](./media/private-link-service/approve-private-endpoint.png)
+    ![Godkänn privat slut punkt](./media/private-link-service/approve-private-endpoint.png)
 4. På sidan **Godkänn anslutning** lägger du till en kommentar (valfritt) och väljer **Ja**. Om du väljer **Nej**händer ingenting. 
 5. Du bör se statusen för den privata slut punkts anslutningen i listan ändrad till **godkänd**. 
 
@@ -230,7 +230,7 @@ Det finns fyra etablerings tillstånd:
 
 1. Om det finns anslutningar för privata slut punkter som du vill avvisa, oavsett om det är en väntande begäran eller en befintlig anslutning, väljer du anslutningen och klickar på knappen **avvisa** .
 
-    ![Bild](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Avvisa privat slut punkt](./media/private-link-service/private-endpoint-reject-button.png)
 2. På sidan **avvisa anslutning** anger du en kommentar (valfritt) och väljer **Ja**. Om du väljer **Nej**händer ingenting. 
 3. Du bör se statusen för den privata slut punkts anslutningen i listan ändrad till **avvisad**. 
 
@@ -242,7 +242,7 @@ Det finns fyra etablerings tillstånd:
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Kontrol lera att anslutningen till den privata länken fungerar
 
-Du bör kontrol lera att resurserna i samma undernät i den privata slut punkts resursen ansluter till Event Hubs namn området över en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
+Du bör kontrol lera att resurserna i det virtuella nätverket för den privata slut punkten ansluter till Event Hubs namn området över en privat IP-adress och att de har rätt integrering av privata DNS-zoner.
 
 Börja med att skapa en virtuell dator genom att följa stegen i [skapa en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 

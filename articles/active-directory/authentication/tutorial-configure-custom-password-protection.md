@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 24e0cfa4227ba5d7c38449d3cf1304add5ae5c1f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419673"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718891"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Självstudie: Konfigurera anpassade förbjudna lösen ord för Azure Active Directory lösen ords skydd
 
@@ -124,4 +124,4 @@ I den här självstudien har du aktiverat och konfigurerat anpassade lösen ords
 > * Testa lösen ords ändringar med ett blockerat lösen ord
 
 > [!div class="nextstepaction"]
-> [Aktivera riskbaserad Azure Multi-Factor Authentication](tutorial-mfa-applications.md)
+> [Aktivera riskbaserad Azure Multi-Factor Authentication](./tutorial-enable-azure-mfa.md)

@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9072c5611f5bd5a4b8cca082cb2bfd7a1e3f1b2
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419554"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718908"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Självstudie: skydda användar inloggnings händelser med Azure Multi-Factor Authentication
 
@@ -101,7 +101,7 @@ Principer för villkorlig åtkomst kan anges till *endast rapporter* om du vill 
 
 Nu ska vi se din princip för villkorlig åtkomst och Azure Multi-Factor Authentication i praktiken. Logga först in på en resurs som inte kräver MFA på följande sätt:
 
-1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddra till[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
+1. Öppna ett nytt webbläsarfönster i InPrivate-eller Incognito-läge och bläddra till [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 1. Logga in med en test användare som inte är administratör, till exempel *testuser*. Det finns ingen fråga om du vill slutföra MFA.
 1. Stäng webbläsarfönstret.
 
@@ -133,4 +133,4 @@ I den här självstudien har du aktiverat Azure Multi-Factor Authentication med 
 > * Testa MFA-processen som en användare
 
 > [!div class="nextstepaction"]
-> [Aktivera tillbakaskrivning av lösen ord för självbetjäning för återställning av lösen ord (SSPR)](tutorial-enable-writeback.md)
+> [Aktivera tillbakaskrivning av lösen ord för självbetjäning för återställning av lösen ord (SSPR)](./tutorial-enable-sspr-writeback.md)

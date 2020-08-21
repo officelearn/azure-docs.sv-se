@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab69e3f4ca89e2069ff25470773e597009ec238
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641083"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717038"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
 
@@ -74,7 +74,7 @@ Använd anpassningsbara affischer och e-postmallar i distributions [material fö
 
 Principer för villkorlig åtkomst framtvingar registrering, vilket kräver att användare som är oregistrerade att slutföra registreringen vid första inloggning, en viktig säkerhets åtgärd.
 
-[Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) bidrar både till en registrerings princip för och automatiserade identifierings-och reparations principer till Azure Multi-Factor Authentication-artikeln. Principer kan skapas för att tvinga lösen ords ändringar när det finns ett hot mot komprometterad identitet eller kräver MFA när en inloggning bedöms vara riskfylld av följande [händelser](../reports-monitoring/concept-risk-events.md):
+[Azure AD Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) bidrar både till en registrerings princip för och automatiserade identifierings-och reparations principer till Azure Multi-Factor Authentication-artikeln. Principer kan skapas för att tvinga lösen ords ändringar när det finns ett hot mot komprometterad identitet eller kräver MFA när en inloggning bedöms vara riskfylld av följande [händelser](../identity-protection/overview-identity-protection.md):
 
 * Läckta autentiseringsuppgifter
 * Inloggningar från anonyma IP-adresser
@@ -151,7 +151,7 @@ Administratörer måste bestämma hur användarna ska registrera sina metoder. O
 
 ### <a name="registration-with-identity-protection"></a>Registrering med identitets skydd
 
-Om din organisation använder Azure Active Directory Identity Protection [konfigurerar du principen för MFA-registrering](../identity-protection/howto-mfa-policy.md) så att användarna kan registrera sig nästa gången de loggar in interaktivt.
+Om din organisation använder Azure Active Directory Identity Protection [konfigurerar du principen för MFA-registrering](../identity-protection/howto-identity-protection-configure-mfa-policy.md) så att användarna kan registrera sig nästa gången de loggar in interaktivt.
 
 ### <a name="registration-without-identity-protection"></a>Registrering utan identitets skydd
 
@@ -165,7 +165,7 @@ Med hjälp av följande steg kan en princip för villkorlig åtkomst tvinga anv�
 2. Använd villkorlig åtkomst för att genomdriva Multi-Factor Authentication för den här gruppen för åtkomst till alla resurser.
 3. Utvärdera grupp medlemskapet med jämna mellanrum och ta bort användare som har registrerat sig från gruppen.
 
-Du kan identifiera registrerade och icke-registrerade Azure MFA-användare med PowerShell-kommandon som är beroende av [MSOnline PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+Du kan identifiera registrerade och icke-registrerade Azure MFA-användare med PowerShell-kommandon som är beroende av [MSOnline PowerShell-modulen](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 
 #### <a name="identify-registered-users"></a>Identifiera registrerade användare
 
@@ -281,7 +281,7 @@ NPS-tillägget fungerar som ett kort mellan RADIUS och molnbaserad Azure MFA fö
 
 #### <a name="implementing-your-nps-server"></a>Implementera NPS-servern
 
-Om du har en distribuerad NPS-instans och redan använder, [integrerar du din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverks Policy Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för instruktioner. Fel söknings vägledning hittar du i artikeln [lösa fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
+Om du har en distribuerad NPS-instans och redan använder, [integrerar du din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication](howto-mfa-nps-extension.md). Om du konfigurerar NPS för första gången, se [nätverks Policy Server (NPS)](/windows-server/networking/technologies/nps/nps-top) för instruktioner. Fel söknings vägledning hittar du i artikeln [lösa fel meddelanden från NPS-tillägget för Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Förbered NPS för användare som inte har registrerats för MFA
 
@@ -325,7 +325,7 @@ Standard AD FS 2016-och 2019-loggning i både Windows-säkerhetsloggen och AD FS
 
 På varje AD FS-server finns det ett självsignerat Azure MFA-certifikat med titeln OU = Microsoft AD FS Azure MFA som innehåller certifikatets förfallo datum i den lokala datorns mitt arkiv. Kontrol lera giltighets perioden för det här certifikatet på varje AD FS server för att fastställa förfallo datumet.
 
-Om giltighets tiden för dina certifikat snart upphör att gälla, [genererar och verifierar du ett nytt MFA-certifikat på varje AD FS server](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
+Om giltighets tiden för dina certifikat snart upphör att gälla, [genererar och verifierar du ett nytt MFA-certifikat på varje AD FS server](/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
 Följande anvisningar beskriver hur du hanterar Azure MFA-certifikat på dina AD FS-servrar. När du konfigurerar AD FS med Azure MFA är de certifikat som genereras via `New-AdfsAzureMfaTenantCertificate` PowerShell-cmdleten giltiga i två år. Förnya och installera de förnyade certifikaten innan de upphör att gälla för ovoid-avbrott i MFA-tjänsten.
 
@@ -336,7 +336,7 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
 1. Uppfylla alla nödvändiga komponenter
    1. Distribuera [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) för alla hybrid scenarier
    1. Distribuera [Azure AD-programproxy](../manage-apps/application-proxy.md) för i alla lokala appar som publicerats för moln åtkomst
-   1. Distribuera [NPS](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) för alla RADIUS-autentiseringar
+   1. Distribuera [NPS](/windows-server/networking/technologies/nps/nps-top) för alla RADIUS-autentiseringar
    1. Se till att användarna har uppgraderat till stödda versioner av Microsoft Office med modern autentisering aktive rad
 1. Konfigurera valda [autentiseringsmetoder](#choose-verification-options)
 1. Definiera dina [namngivna nätverks platser](../conditional-access/location-condition.md#named-locations)
@@ -344,7 +344,7 @@ Nu när du har planerat din lösning kan du implementera genom att följa stegen
 1. Konfigurera [principer för villkorlig åtkomst](#create-conditional-access-policy)
 1. Konfigurera din princip för MFA-registrering
    1. [Kombinera MFA och SSPR](howto-registration-mfa-sspr-combined.md)
-   1. Med [identitets skydd](../identity-protection/howto-mfa-policy.md)
+   1. Med [identitets skydd](../identity-protection/howto-identity-protection-configure-mfa-policy.md)
 1. Skicka användar kommunikation och få användare att registrera sig [https://aka.ms/mfasetup](https://aka.ms/mfasetup)
 1. [Håll koll på vem som har registrerats](#identify-non-registered-users)
 

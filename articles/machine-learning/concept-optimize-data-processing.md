@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c73a5c5339403ecd91d45968405682c59f2f23b4
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500971"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719282"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimera data bearbetning med Azure Machine Learning
 
@@ -33,9 +33,9 @@ CSV-filer används ofta för att importera och exportera data, eftersom de är l
 
 ## <a name="pandas-dataframe"></a>Pandas dataframe
 
-[Pandas-dataframes](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) används ofta för data manipulation och analys. `Pandas`fungerar bra för data storlekar som är mindre än 1 GB, men bearbetnings tiden för `pandas` dataframes saktar ned när fil storlekarna når cirka 1 GB. Den här minskningen beror på att storleken på dina data i lagring inte är densamma som storleken på data i en dataframe. Till exempel kan data i CSV-filer utökas upp till 10 gånger i en dataframe, så en CSV-fil på 1 GB kan bli 10 GB i en dataframe.
+[Pandas-dataframes](https://pandas.pydata.org/pandas-docs/stable/getting_started/overview.html) används ofta för data manipulation och analys. `Pandas` fungerar bra för data storlekar som är mindre än 1 GB, men bearbetnings tiden för `pandas` dataframes saktar ned när fil storlekarna når cirka 1 GB. Den här minskningen beror på att storleken på dina data i lagring inte är densamma som storleken på data i en dataframe. Till exempel kan data i CSV-filer utökas upp till 10 gånger i en dataframe, så en CSV-fil på 1 GB kan bli 10 GB i en dataframe.
 
-`Pandas`är en enkel tråd, vilket innebär att åtgärder utförs en i taget på en enda processor. Du kan enkelt parallellisera arbets belastningar till flera virtuella processorer på en enda Azure Machine Learning beräknings instans med paket som [Modie](https://modin.readthedocs.io/en/latest/) som omsluter `Pandas` med en distribuerad Server del.
+`Pandas` är en enkel tråd, vilket innebär att åtgärder utförs en i taget på en enda processor. Du kan enkelt parallellisera arbets belastningar till flera virtuella processorer på en enda Azure Machine Learning beräknings instans med paket som [Modie](https://modin.readthedocs.io/en/latest/) som omsluter `Pandas` med en distribuerad Server del.
 
 Ändra bara den här kodraden till om du vill parallellisera dina uppgifter med `Modin` och [dask](https://dask.org) `import pandas as pd` `import modin.pandas as pd` .
 
@@ -47,11 +47,21 @@ En lösning är att öka ditt RAM-minne för att passa dataframe i minnet. Vi re
 
 För flera virtuella processorer, vCPU, Tänk på att du vill att en partition ska passa in i RAM-minnet som varje vCPU kan ha på datorn. Det innebär att om du har 16 GB RAM 4-virtuella processorer vill du ha ungefär 2 GB dataframes per vCPU.
 
+### <a name="local-vs-remote"></a>Lokal vs-fjärr
+
+Du kanske märker att vissa Pandas dataframe-kommandon fungerar snabbare när du arbetar på din lokala dator och en virtuell dator som du har tillAzure Machine Learning. Den lokala datorn har vanligt vis en aktive rad växlings fil, vilket gör att du kan läsa in mer än vad som passar i det fysiska minnet, det vill säga att hård disken används som en utökning av RAM-minnet. Azure Machine Learning virtuella datorer körs utan växlings fil, kan därför bara läsa in så mycket data som tillgängligt fysiskt RAM-minne. 
+
+För beräknings intensiva jobb rekommenderar vi att du väljer en större virtuell dator för att förbättra bearbetnings hastigheten.
+
+Läs mer om de [tillgängliga VM-serierna och storlekarna](concept-compute-target.md#supported-vm-series-and-sizes) för Azure Machine Learning. 
+
+För RAM-specifikationer, se motsvarande sidor för VM-serien, till exempel [Dv2-Dsv2-serien](../virtual-machines/dv2-dsv2-series-memory.md) eller [NC-serien](../virtual-machines/nc-series.md).
+
 ### <a name="minimize-cpu-workloads"></a>Minimera CPU-arbetsbelastningar
 
 Om du inte kan lägga till mer RAM-minne på datorn kan du använda följande tekniker för att minimera CPU-arbetsbelastningar och optimera bearbetnings tider. De här rekommendationerna gäller både enkla och distribuerade system.
 
-Teknik | Description
+Teknik | Beskrivning
 ----|----
 Komprimering | Använd en annan representation för dina data, på ett sätt som använder mindre minne och inte märkbart påverkar resultatet av beräkningen.<br><br>*Exempel:* I stället för att lagra poster som en sträng med cirka 10 byte eller mer per post, lagrar du dem som booleska, sanna eller falska, som du kan lagra på 1 byte.
 Segmentering | Läs in data i minnet i del mängder (segment), bearbeta data en delmängd vid tiden eller flera del mängder parallellt. Den här metoden fungerar bäst om du behöver bearbeta alla data, men behöver inte läsa in alla data i minnet samtidigt. <br><br>*Exempel:* I stället för att bearbeta data på hela året samtidigt kan du läsa in och bearbeta data en månad i taget.
@@ -71,10 +81,10 @@ Följande tabell rekommenderar distribuerade ramverk som är integrerade med Azu
 
 Upplevelse eller data storlek | Rekommendation
 ------|------
-Om du är bekant med`Pandas`| `Modin`eller `Dask` dataframe
-Om du föredrar`Spark` | `PySpark`
-För data som är mindre än 1 GB | `Pandas`lokalt **eller** en beräknings instans för fjärrAzure Machine Learning
-För data som är större än 10 GB| Flytta till ett kluster med hjälp av `Ray` , `Dask` eller`Spark`
+Om du är bekant med `Pandas`| `Modin` eller `Dask` dataframe
+Om du föredrar `Spark` | `PySpark`
+För data som är mindre än 1 GB | `Pandas` lokalt **eller** en beräknings instans för fjärrAzure Machine Learning
+För data som är större än 10 GB| Flytta till ett kluster med hjälp av `Ray` , `Dask` eller `Spark`
 
 Du kan skapa `Dask` kluster i Azure ml Compute-kluster med [dask-cloudprovider-](https://cloudprovider.dask.org/en/latest/#azure) paketet. Eller så kan du köra `Dask` lokalt på en beräknings instans.
 

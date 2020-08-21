@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685773"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717584"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -70,7 +70,7 @@ I följande tabell visas en lista över operativ system som stöds på Azure-avb
 |Microsoft|Windows-klient|Windows 10|
 |OpenLogic|CentOS|7,3 och senare|
 |Red Hat|Red Hat Enterprise Linux|7,4 – 7,8|
-|SUSE|SLES|12 SP3 och senare|
+|SUSE|SLES|12 SP3-SP5|
 
 Anpassade avbildningar av virtuella datorer stöds av principer för gäst konfiguration så länge de är ett av operativ systemen i tabellen ovan.
 
@@ -95,6 +95,11 @@ Trafiken dirigeras med hjälp av den [offentliga Azure-IP-adressen](../../../vir
 Noder som finns utanför Azure och som är anslutna till Azure-bågen kräver anslutning till gäst konfigurations tjänsten. Information om nätverks-och proxy-krav som anges i [Azure Arc-dokumentationen](../../../azure-arc/servers/overview.md).
 
 För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om ett nätverk i Azure inte tillåter utgående trafik konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Service tag-](../../../virtual-network/service-tags-overview.md) GuestAndHybridManagement kan användas för att referera till gäst konfigurations tjänsten.
+
+För Arc-anslutna servrar i privata data Center kan du tillåta trafik med följande mönster:
+
+- Port: endast TCP 443 krävs för utgående Internet åtkomst
+- Global URL: `*.guestconfiguration.azure.com`
 
 ## <a name="managed-identity-requirements"></a>Krav för hanterade identiteter
 
@@ -139,9 +144,12 @@ Om du tilldelar principen med hjälp av en Azure Resource Manager-mall (ARM-mall
 
 #### <a name="applying-configurations-using-guest-configuration"></a>Använda konfigurationer med gäst konfiguration
 
-Den senaste funktionen i Azure Policy konfigurerar inställningar i datorer. Definitionen _Konfigurera tids zonen på Windows-datorer_ gör ändringar i datorn genom att konfigurera tids zonen.
+Det är bara definitionen som _konfigurerar tids zonen på Windows-datorer_ som gör ändringar i datorn genom att konfigurera tids zonen. Anpassade princip definitioner för konfiguration av inställningar i datorer stöds inte.
 
 När du tilldelar definitioner som börjar med _Konfigurera_måste du också tilldela _krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer_. Du kan kombinera dessa definitioner i ett initiativ om du väljer.
+
+> [!NOTE]
+> Den inbyggda tids zons principen är den enda definition som har stöd för konfiguration av inställningar i datorer och anpassade principer som konfigurerar inställningar i datorer som inte stöds.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Tilldela principer till datorer utanför Azure
 

@@ -4,15 +4,15 @@ description: Replikera Azure Analysis Services-servrar med skalbarhet. Klient fr
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 08/20/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78247997"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716936"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -50,7 +50,7 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 
 ### <a name="synchronization-mode"></a>Synkroniseringstillstånd
 
-Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅTERUPPVÄCKNING sker i steg. De kopplas bort och kopplas till två i taget (förutsatt att det finns minst tre repliker) för att se till att minst en replik hålls online för frågor vid en specifik tidpunkt. I vissa fall kan klienter behöva återansluta till en av replikerna online medan den här processen sker. Genom att använda **ReplicaSyncMode** -inställningen (i förhands granskning) kan du nu ange synkronisering av synkronisering av repliker parallellt. Parallell synkronisering ger följande fördelar: 
+Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅTERUPPVÄCKNING sker i steg. De kopplas bort och kopplas till två i taget (förutsatt att det finns minst tre repliker) för att se till att minst en replik hålls online för frågor vid en specifik tidpunkt. I vissa fall kan klienter behöva återansluta till en av replikerna online medan den här processen sker. Genom att använda **ReplicaSyncMode** -inställningen kan du nu ange synkronisering av synkronisering av repliker parallellt. Parallell synkronisering ger följande fördelar: 
 
 - Betydande minskning av tiden för synkronisering. 
 - Data över repliker är ofta mer konsekventa under synkroniseringsprocessen. 
@@ -61,7 +61,7 @@ Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅT
 
 Använd SSMS för att ange ReplicaSyncMode i avancerade egenskaper. Möjliga värden är: 
 
-- `1`(standard): fullständig replik databas ÅTERUPPVÄCKNING i steg (stegvis). 
+- `1` (standard): fullständig replik databas ÅTERUPPVÄCKNING i steg (stegvis). 
 - `2`: Optimerad synkronisering parallellt. 
 
 ![RelicaSyncMode-inställning](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
@@ -137,7 +137,7 @@ Retur status koder:
 |0     | Replikera        |
 |1     |  Återuppväcks       |
 |2     |   Slutförd       |
-|3     |   Misslyckades      |
+|3     |   Misslyckad      |
 |4     |    Slutför     |
 |||
 
@@ -170,7 +170,7 @@ För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-
 
 Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gäller för alla repliker. En skalnings åtgärd förflyttar först alla repliker på en gång och hämtar alla repliker på den nya pris nivån.
 
-## <a name="troubleshoot"></a>Felsök
+## <a name="troubleshoot"></a>Felsöka
 
 **Problem:** Användare get-fel **det går inte att hitta Server ' \<Name of the server> instance i anslutnings läge ' ReadOnly '.**
 

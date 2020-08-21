@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d949f4b10bc6b7b592556d78edfcf02a05ec7144
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 433cfa3789aa37f4145982da97719526c0abfc47
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565782"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719503"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure MFA per användare för att skydda inloggningshändelser
 
@@ -42,7 +42,7 @@ En användares tillstånd visar om en administratör har registrerat dem i Azure
 
 | Stat | Beskrivning | Äldre autentisering påverkas | Webbläsarbaserade appar som påverkas | Modern autentisering påverkas |
 |:---:| --- |:---:|:--:|:--:|
-| Inaktiverad | Standard läget för en användare som inte har registrerats i Azure-Multi-Factor Authentication per användare. | Nej | Nej | Nej |
+| Inaktiverad | Standard läget för en användare som inte har registrerats i Azure-Multi-Factor Authentication per användare. | Inga | Inga | Inga |
 | Enabled | Användaren är registrerad i Azure-Multi-Factor Authentication per användare, men kan fortfarande använda sitt lösen ord för äldre autentisering. Om användaren ännu inte har registrerat MFA-autentiseringsmetoderna får användaren en uppfråga om att registrera sig nästa gången de loggar in med modern autentisering (till exempel via en webbläsare). | Nej. Äldre autentisering fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure Multi-Factor Authentication registrering.| Ja. När åtkomsttoken har upphört att gälla krävs Azure Multi-Factor Authentication registrering. |
 | Enforced | Användaren registreras per användare i Azure Multi-Factor Authentication. Om användaren ännu inte har registrerat autentiseringsmetoder får han eller hon ett meddelande om att registrera sig nästa gången de loggar in med modern autentisering (till exempel via en webbläsare). Användare som slutför registreringen i det *aktiverade* läget flyttas automatiskt till *tvingande* tillstånd. | Ja. Appar kräver applösenord. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. | Ja. Azure Multi-Factor Authentication krävs vid inloggning. |
 
@@ -76,7 +76,7 @@ Utför följande steg för att ändra Azure-Multi-Factor Authentication per anv�
 
 1. Bekräfta ditt val i popup-fönstret som öppnas.
 
-När du har aktiverat användarna ska du meddela dem via e-post. Berätta för användarna att en uppmaning visas för att be dem att registrera sig nästa gången de loggar in. Om din organisation använder icke-webbläsarbaserade appar som inte stöder modern autentisering måste de också skapa applösenord. Mer information finns i [användar handboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user.md) för att hjälpa dem att komma igång.
+När du har aktiverat användarna ska du meddela dem via e-post. Berätta för användarna att en uppmaning visas för att be dem att registrera sig nästa gången de loggar in. Om din organisation använder icke-webbläsarbaserade appar som inte stöder modern autentisering måste de också skapa applösenord. Mer information finns i [användar handboken för Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md) för att hjälpa dem att komma igång.
 
 ## <a name="change-state-using-powershell"></a>Ändra tillstånd med PowerShell
 
@@ -84,7 +84,7 @@ Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powe
 
 * *Aktiverad*
 * *Enforced*
-* *Disabled* (Inaktiverat)  
+* *Inaktiverad*  
 
 I allmänhet ska du inte flytta användare direkt till *tvingande* tillstånd om de inte redan har registrerats för MFA. Om du gör det slutar äldre autentiserings-appar att fungera eftersom användaren inte har gått igenom Azure Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-app-passwords.md). I vissa fall kan det här problemet vara önskvärt, men påverkar användar upplevelsen tills användaren registrerar sig.
 

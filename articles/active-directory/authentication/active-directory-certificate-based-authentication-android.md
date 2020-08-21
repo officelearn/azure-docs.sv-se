@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9760624afec111a271ae5aa0ebbe5533d6ba8d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dd4c95c3c02f4b4a807b5238aa61e76ecb56e3e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81680201"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716426"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Azure Active Directory certifikatbaserad autentisering på Android
 
@@ -54,8 +54,8 @@ En Federations Server måste konfigureras.
 
 För att Azure Active Directory återkalla ett klient certifikat måste ADFS-token ha följande anspråk:
 
-* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>`(Klient certifikatets serie nummer)
-* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>`(Strängen för utfärdaren av klient certifikatet)
+* `http://schemas.microsoft.com/ws/2008/06/identity/claims/<serialnumber>` (Klient certifikatets serie nummer)
+* `http://schemas.microsoft.com/2012/12/certificatecontext/field/<issuer>` (Strängen för utfärdaren av klient certifikatet)
 
 Azure Active Directory lägger till dessa anspråk till uppdateringstoken om de är tillgängliga i ADFS-token (eller någon annan SAML-token). När uppdateringstoken behöver verifieras används den här informationen för att kontrol lera återkallning.
 
@@ -64,7 +64,7 @@ Vi rekommenderar att du uppdaterar organisationens ADFS-felsidor med följande i
 * Kravet på att installera Microsoft Authenticator på Android.
 * Instruktioner om hur du hämtar ett användar certifikat.
 
-Mer information finns i [anpassa AD FS inloggnings sidor](https://technet.microsoft.com/library/dn280950.aspx).
+Mer information finns i [anpassa AD FS inloggnings sidor](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn280950(v=ws.11)).
 
 Vissa Office-appar (med modern autentisering aktive rad) skicka '*prompt = inloggning*' till Azure AD i sin begäran. Som standard översätter Azure AD "*prompt = login*" i begäran till ADFS som "*WAUTH = usernamepassworduri*" (uppmanar ADFS att göra U/P auth) och "*wfresh = 0*" (uppmanar ADFS att ignorera SSO-tillstånd och gör en ny autentisering). Om du vill aktivera certifikatbaserad autentisering för de här apparna måste du ändra standard beteendet för Azure AD. Ange "*PromptLoginBehavior*" i dina federerade domän inställningar till "*inaktive rad*".
 Du kan använda [MSOLDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) -cmdlet: en för att utföra den här uppgiften:

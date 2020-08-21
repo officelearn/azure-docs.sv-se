@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4949a83ac2aac664c19be46a367fce2bbff4cb02
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 28a01bbc54f752ffc1f25b57dcf2eca566aa635a
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904827"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718109"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 
@@ -56,7 +56,7 @@ Antalet typer av inledande noder beror på syftet med ditt kluster och de progra
 
     Service Fabric stöder kluster som sträcker sig över flera [Tillgänglighetszoner](../availability-zones/az-overview.md) genom att distribuera nodtyper som är fästa på vissa zoner och som garanterar hög tillgänglighet för dina program. Tillgänglighetszoner kräver ytterligare planering och minimi krav för Node-typ. Mer information finns i [Rekommenderad topologi för primär nodtyp för Service Fabric kluster som sträcker sig över Tillgänglighetszoner](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
 
-När du bestämmer antalet och egenskaperna för nodtyper för den första skapandet av klustret, bör du tänka på att du alltid kan lägga till, ändra eller ta bort nodtyper (icke-primära) när klustret har distribuerats. [Primära nodtyper kan också ändras](service-fabric-scale-up-node-type.md) i kluster som körs (även om sådana åtgärder kräver stor planering och försiktighet i produktions miljöer).
+När du bestämmer antalet och egenskaperna för nodtyper för den första skapandet av klustret, bör du tänka på att du alltid kan lägga till, ändra eller ta bort nodtyper (icke-primära) när klustret har distribuerats. [Primära nodtyper kan också ändras](service-fabric-scale-up-primary-node-type.md) i kluster som körs (även om sådana åtgärder kräver stor planering och försiktighet i produktions miljöer).
 
 Ytterligare överväganden för egenskaperna för nodtypen är en hållbarhets nivå, som avgör vilken typ av nodtyp som de virtuella datorerna har i Azure-infrastrukturen. Använd storleken på de virtuella datorer du väljer för klustret och antalet instanser som du tilldelar för enskilda nodtyper för att fastställa lämplig hållbarhets nivå för var och en av dina nodtyper, enligt beskrivningen härnäst.
 
@@ -105,7 +105,7 @@ Använd silver eller guld tålighet för alla nodtyper som är värdar för till
 Följ dessa rekommendationer för att hantera nodtyper med silver eller guld tålighet:
 
 * Se till att ditt kluster och program är felfritt och se till att programmen svarar på alla [livs cykel händelser för tjänste repliken](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build är fastnat) inom rimlig tid.
-* Använd säkrare sätt att göra en ändring av storleken på virtuella datorer (skala upp/ned). Att ändra storleken på den virtuella datorns skalnings uppsättning kräver noggrann planering och försiktighet. Mer information finns i [skala upp en Service Fabric nodtyp](service-fabric-scale-up-node-type.md)
+* Använd säkrare sätt att göra en ändring av storleken på virtuella datorer (skala upp/ned). Att ändra storleken på den virtuella datorns skalnings uppsättning kräver noggrann planering och försiktighet. Mer information finns i [skala upp en Service Fabric nodtyp](service-fabric-scale-up-primary-node-type.md)
 * Behåll det lägsta antalet fem noder för alla skalnings uppsättningar för virtuella datorer som har en hög grad av guld eller silver aktiverat. Klustret kommer att ange fel tillstånd om du skalar under det här tröskelvärdet och du måste manuellt rensa tillstånd ( `Remove-ServiceFabricNodeState` ) för de borttagna noderna.
 * Varje skalnings uppsättning för virtuella datorer med silver eller guld måste mappas till en egen nodtyp i Service Fabric klustret. Om du mappar flera skalnings uppsättningar för virtuella datorer till en enda nodtyp förhindrar det att samordningen mellan Service Fabric-klustret och Azure-infrastrukturen fungerar som de ska.
 * Ta inte bort slumpmässiga VM-instanser, Använd alltid skalnings uppsättning för virtuella datorer i funktionen. Borttagning av slumpmässiga VM-instanser har möjlighet att skapa obalanser i den virtuella dator instansen sprids över [uppgraderings domäner](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) och [fel domäner](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains). Den här obalansen kan negativt påverka systemets möjlighet att på ett korrekt sätt belastningsutjämna mellan tjänst instanserna/tjänst replikerna.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ed549e51b911452bca7d4d4a16c7ef45594a8f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81451439"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717157"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planera distribution av lösenordsskyddad autentisering i Azure Active Directory
 
@@ -43,9 +43,9 @@ Lösen ordet för lösen ord ersätts med något som du har plus något som du �
 ## <a name="passwordless-authentication-methods"></a>Metoder för lösen ords kryptering
 Microsoft erbjuder tre lösen ords skydds alternativ som omfattar många olika scenarier. Dessa metoder kan användas i tandem:
 
-- [Windows Hello för företag](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) är bäst för användare på sina dedikerade Windows-datorer.
-- Inloggning med säkerhets [nycklar med FIDO2-säkerhetsnycklar](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) är särskilt användbart för användare som loggar in på delade datorer som kiosker, i situationer där användningen av telefoner är begränsad och för hög privilegierade identiteter.
-- Logga in med Microsoft Authenticator- [appen](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) är användbar för att ange ett lösen ords lös alternativ för användare med mobila enheter. Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords lös autentiseringsuppgift genom att tillåta att användare loggar in på valfri plattform eller webbläsare. Användarna loggar in genom att få ett meddelande till telefonen, matcha ett tal som visas på skärmen till det som finns på telefonen och sedan använda sina bio metriska data eller PIN-kod för att bekräfta.
+- [Windows Hello för företag](./concept-authentication-passwordless.md) är bäst för användare på sina dedikerade Windows-datorer.
+- Inloggning med säkerhets [nycklar med FIDO2-säkerhetsnycklar](./concept-authentication-passwordless.md) är särskilt användbart för användare som loggar in på delade datorer som kiosker, i situationer där användningen av telefoner är begränsad och för hög privilegierade identiteter.
+- Logga in med Microsoft Authenticator- [appen](./concept-authentication-passwordless.md) är användbar för att ange ett lösen ords lös alternativ för användare med mobila enheter. Authenticator-appen förvandlar en iOS-eller Android-telefon till en stark, lösen ords lös autentiseringsuppgift genom att tillåta att användare loggar in på valfri plattform eller webbläsare. Användarna loggar in genom att få ett meddelande till telefonen, matcha ett tal som visas på skärmen till det som finns på telefonen och sedan använda sina bio metriska data eller PIN-kod för att bekräfta.
 
 ### <a name="passwordless-authentication-scenarios"></a>Scenarier med lösenordsskyddad autentisering
 
@@ -59,7 +59,7 @@ Microsofts autentiseringsmetoder för lösen ords kryptering möjliggör olika s
 | **Web App-inloggning**: <br> från en mobil eller icke-Windows-enhet | **Ja** | **Nej** | **Nej** |
 | **Dator inloggning**: <br> Icke-Windows-dator | **Nej** | **Nej** | **Nej** |
 
-Information om hur du väljer den bästa metoden för din organisation finns i [bestämma en metod för lösen ords](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#choose-a-passwordless-method)avhjälpning.
+Information om hur du väljer den bästa metoden för din organisation finns i [bestämma en metod för lösen ords](./concept-authentication-passwordless.md#choose-a-passwordless-method)avhjälpning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -72,11 +72,11 @@ Organisationer måste uppfylla följande krav innan en lösenordsskyddad distrib
 | [Användare har registrerat sig för Azure Multi-Factor Authentication och SSPR](howto-registration-mfa-sspr-combined.md) | √ | √ |
 | [Användare har registrerat sina mobila enheter på Azure Active Directory](../devices/overview.md) | √ |   |
 | Windows 10 version 1809 eller senare med en webbläsare som stöds, t. ex. Microsoft Edge eller Mozilla Firefox <br> (version 67 eller senare). <br> *Microsoft rekommenderar version 1903 eller senare för intern support*. |   | √ |
-| Kompatibla säkerhets nycklar för FIDO2. Se till att du använder en [Microsoft-testad och verifierad](howto-authentication-passwordless-enable.md) FIDO2-säkerhetsenhet eller annan kompatibel FIDO2-säkerhetsenhet. |   | √ |
+| Kompatibla säkerhets nycklar för FIDO2. Se till att du använder en [Microsoft-testad och verifierad](./concept-authentication-passwordless.md) FIDO2-säkerhetsenhet eller annan kompatibel FIDO2-säkerhetsenhet. |   | √ |
 
 ### <a name="prerequisites-for-windows-hello-for-business"></a>Krav för Windows Hello för företag
 
-Kraven för Windows Hello är mycket beroende av om du distribuerar i en lokal, hybrid eller molnbaserad konfiguration. Mer information finns i [fullständig lista över krav för Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification).
+Kraven för Windows Hello är mycket beroende av om du distribuerar i en lokal, hybrid eller molnbaserad konfiguration. Mer information finns i [fullständig lista över krav för Windows Hello för företag](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -132,7 +132,7 @@ Se [metod tips för en pilot](https://aka.ms/deploymentplans) på sidan distribu
 
 Microsoft Authenticator-appen är en kostnads fri nedladdning från Google Play eller Apple App Store. [Läs mer om att ladda ned Microsoft Authenticator-appen](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6). Låt användarna ladda ned Microsoft Authenticator-appen. och följ anvisningarna för att aktivera telefon inloggning. 
 
-Det sätter en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användarna loggar in på valfri plattform eller webbläsare genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda biometrik eller en PIN-kod för att bekräfta. [Se information om hur Microsoft Authenticator-appen fungerar](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless#microsoft-authenticator-app).
+Det sätter en iOS-eller Android-telefon till en stark, lösen ords rik autentiseringsuppgift. Användarna loggar in på valfri plattform eller webbläsare genom att få ett meddelande till sin telefon, matcha ett nummer som visas på skärmen till det som visas på telefonen och sedan använda biometrik eller en PIN-kod för att bekräfta. [Se information om hur Microsoft Authenticator-appen fungerar](./concept-authentication-passwordless.md#microsoft-authenticator-app).
 
 ![Logga in med Authenticator-appen](./media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
@@ -150,7 +150,7 @@ Det finns tre typer av lösen ords skydds bara inloggnings distributioner som ä
 -    Azure Active Directory Web Apps i en webbläsare som stöds
 -    Azure Active Directory anslutna Windows 10-enheter
 -    Hybrid Azure Active Directory anslutna Windows 10-enheter (för hands version)
-     -    Ger åtkomst till både molnbaserade och lokala resurser. Mer information om åtkomst till lokala resurser finns i [SSO till lokala resurser med hjälp av FIDOP2-nycklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises)
+     -    Ger åtkomst till både molnbaserade och lokala resurser. Mer information om åtkomst till lokala resurser finns i [SSO till lokala resurser med hjälp av FIDOP2-nycklar](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Du måste aktivera **kompatibla FIDO2 säkerhets nycklar**. Microsoft har lanserat [viktiga partnerskap med FIDO2 Key-leverantörer](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -164,7 +164,7 @@ Du måste aktivera **kompatibla FIDO2 säkerhets nycklar**. Microsoft har lanser
 -    Fullständigt korrigerade domän servrar som kör Windows Server 2016 eller 2019.
 -    Senaste versionen av Azure AD Connect
 
-En fullständig lista över kraven finns i [Aktivera lösen ords lös säkerhets nyckel inloggning till Windows 10-enheter med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-security-key-windows#requirements).
+En fullständig lista över kraven finns i [Aktivera lösen ords lös säkerhets nyckel inloggning till Windows 10-enheter med Azure Active Directory](./howto-authentication-passwordless-security-key-windows.md#requirements).
 
 
 ### <a name="security-key-life-cycle"></a>Livs cykel för säkerhets nyckel
@@ -320,7 +320,7 @@ Följ stegen i artikeln, [Aktivera lösen ords lös säkerhets nyckel logga in f
 | --- | --- |
 | Användaren kan inte utföra en kombinerad registrering. | Se till att [kombinerad registrering](concept-registration-mfa-sspr-combined.md) är aktive rad. |
 | Användaren kan inte lägga till en säkerhets nyckel i sina [säkerhets inställningar](https://aka.ms/mysecurityinfo). | Se till att [säkerhets nycklar](howto-authentication-passwordless-security-key.md) är aktiverade. |
-| Användaren kan inte lägga till säkerhets nyckel i inloggnings alternativ för Windows 10. | [Kontrol lera att säkerhets nycklar för Windows-inloggning](howto-authentication-passwordless-enable.md) |
+| Användaren kan inte lägga till säkerhets nyckel i inloggnings alternativ för Windows 10. | [Kontrol lera att säkerhets nycklar för Windows-inloggning](./concept-authentication-passwordless.md) |
 | **Fel meddelande**: vi har upptäckt att den här webbläsaren eller operativ systemet inte stöder FIDO2 säkerhets nycklar. | FIDO2-säkerhetsenheter kan bara registreras i webbläsare som stöds (Microsoft Edge, Firefox version 67) på Windows 10 version 1809 eller senare. |
 | **Fel meddelande**: företags principen kräver att du använder en annan metod för att logga in. | Se till att säkerhets nycklar är aktiverade i klient organisationen. |
 | Användaren kan inte hantera min säkerhets nyckel i Windows 10 version 1809 | Version 1809 kräver att du använder program varan för hantering av säkerhets nycklar som tillhandahålls av FIDO2 Key-leverantören. Kontakta leverantören för support. |
@@ -331,4 +331,3 @@ Följ stegen i artikeln, [Aktivera lösen ords lös säkerhets nyckel logga in f
 - [Aktivera lösen ords skydds nycklar för inloggning för Azure AD](howto-authentication-passwordless-security-key.md)
 - [Aktivera inloggning med lösen ord med Microsoft Authenticator-appen](howto-authentication-passwordless-phone.md)
 - [Lär dig mer om autentiseringsmetoder användning & insikter](howto-authentication-methods-usage-insights.md)
-

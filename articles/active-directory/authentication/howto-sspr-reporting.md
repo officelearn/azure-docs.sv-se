@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9c8557457e3a1dc7d0ed1e50da3070360b1fd76f
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035306"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717735"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporteringsalternativ för Azure AD-lösenordshantering
 
@@ -53,7 +53,7 @@ I Azure Portals upplevelsen har vi förbättrat hur du kan visa registrerings ak
 
 ### <a name="combined-registration"></a>Kombinerad registrering
 
-Om du har aktiverat [kombinerad registrering](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)visas information om användar aktivitet i gransknings loggarna **under**  >  **säkerhetsautentiseringsmetoder**.
+Om du har aktiverat [kombinerad registrering](./concept-registration-mfa-sspr-combined.md)visas information om användar aktivitet i gransknings loggarna **under**  >  **säkerhetsautentiseringsmetoder**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapport kolumnerna i Azure Portal
 
@@ -179,7 +179,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * [Vilka data används av SSPR och vilka data bör du fylla i för dina användare?](howto-sspr-authenticationdata.md)
 * [Vilka autentiseringsmetoder är tillgängliga för användarna?](concept-sspr-howitworks.md#authentication-methods)
 * [Vilka principalternativ finns för SSPR?](concept-sspr-policy.md)
-* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](howto-sspr-writeback.md)
+* [Vad är tillbakaskrivning av lösenord och vad är intresserat med det?](./tutorial-enable-sspr-writeback.md)
 * [Vad är alla alternativ i SSPR och vad betyder de?](concept-sspr-howitworks.md)
 * [Jag tror att något är brutet. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)

@@ -1,14 +1,14 @@
 ---
 title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
-ms.date: 08/12/2020
+ms.date: 08/20/2020
 ms.topic: how-to
-ms.openlocfilehash: f20df54a4bc689effad210746f93928defdaf0f5
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: db6a819c72f1ef46f542ed47cad6caae23c0d191
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167325"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719061"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
@@ -19,7 +19,7 @@ Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera e
 
 Du kan upprepa onboarding-processen för flera kunder. När en användare med rätt behörighet loggar in till din hanterings klient kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder, utan att behöva logga in på varje enskild kund klient.
 
-Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i [Länka ett partner-ID till dina Azure-konton](../../cost-management-billing/manage/link-partner-id.md).
+Om du vill spåra din påverkan på kund engagemang och få erkännande, associerar du ditt Microsoft Partner Network (MPN) ID med minst ett användar konto som har åtkomst till var och en av dina inbyggda prenumerationer. Du måste utföra den här associationen i din tjänst leverantörs klient. För enkelhetens skull rekommenderar vi att du skapar ett tjänst huvud namns konto i din klient som är associerat med ditt MPN-ID och ger åtkomst till den till alla kunder du registrerar. Mer information finns i  [Länka ett partner-ID till dina Azure-konton](../../cost-management-billing/manage/link-partner-id.md).
 
 > [!NOTE]
 > Kunder kan också publiceras på Azure-Lighthouse när de köper ett hanterat tjänst erbjudande (offentligt eller privat) som du [publicerar på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här tillsammans med erbjudanden som publicerats på Azure Marketplace.
@@ -121,7 +121,7 @@ För att publicera kunden måste du skapa en [Azure Resource Manager](../../azur
 
 |Field  |Definition  |
 |---------|---------|
-|**mspOfferName**     |Ett namn som beskriver den här definitionen. Det här värdet visas för kunden som titeln på erbjudandet.         |
+|**mspOfferName**     |Ett namn som beskriver den här definitionen. Det här värdet visas för kunden som rubriken på erbjudandet och måste vara ett unikt värde.        |
 |**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel "contoso VM Management-erbjudande").      |
 |**managedByTenantId**     |Ditt klient-ID.          |
 |**auktoriseringar**     |**PrincipalId** -värdena för användare/grupper/SPN från din klient, var och en med en **principalIdDisplayName** för att hjälpa kunden att förstå syftet med auktoriseringen och mappas till ett inbyggt **roleDefinitionId** -värde för att ange åtkomst nivå.      |
@@ -138,7 +138,7 @@ Vilken mall du väljer beror på om du registrerar en hel prenumeration, en resu
 |Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.jspå](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Processen som beskrivs här kräver en separat distribution av prenumerations nivå för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution på prenumerations nivå.
+> Processen som beskrivs här kräver en separat distribution för varje prenumeration som registreras, även om du registrerar prenumerationer i samma kund klient organisation. Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer i samma kund klient organisation. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution.
 >
 > Separata distributioner krävs också för att flera erbjudanden ska tillämpas på samma prenumeration (eller resurs grupper inom en prenumeration). Varje erbjudande som tillämpas måste använda en annan **mspOfferName**.
 
@@ -199,12 +199,22 @@ Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med 
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
 
-När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera (eller för varje prenumeration som innehåller resurs grupper som du vill publicera). Distributionen kan göras med hjälp av PowerShell eller Azure CLI, som du ser nedan.
+När du har uppdaterat parameter filen måste en användare i kundens klient organisation Distribuera Azure Resource Manager-mallen i sin klient organisation. En separat distribution krävs för varje prenumeration som du vill publicera (eller för varje prenumeration som innehåller resurs grupper som du vill publicera).
 
 > [!IMPORTANT]
-> Den här distributionen på prenumerations nivå måste utföras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägarens inbyggda roll](../../role-based-access-control/built-in-roles.md#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har publicerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> Den här distributionen måste göras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen som ägare](../../role-based-access-control/built-in-roles.md#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som har registrerats). Om du vill se alla användare som kan delegera prenumerationen kan en användare i kundens klient välja prenumerationen i Azure Portal, öppna **åtkomst kontroll (IAM)** och [Visa alla användare med ägar rollen](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription). 
 >
 > Om prenumerationen skapades via [Cloud Solution Provider (CSP)-programmet](../concepts/cloud-solution-provider.md), kan alla användare som har rollen [Administratörs agent](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) i din tjänst leverantörs klient utföra distributionen.
+
+Distributionen kan göras i Azure Portal, med hjälp av PowerShell eller med hjälp av Azure CLI, som du ser nedan.
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. I vår [GitHub-lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/)väljer du knappen **distribuera till Azure** som visas bredvid den mall som du vill använda. Mallen öppnas på Azure-portalen.
+1. Ange dina värden för **namnet på MSP-erbjudandet**, en **Beskrivning av MSP-erbjudandet**, **hanteras av klient-ID**och **auktoriseringar**. Om du vill kan du välja **Redigera parametrar** för att ange värden för `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` och `authorizations` direkt i parameter filen. Se till att uppdatera dessa värden i stället för att använda standardvärdena från mallen.
+1. Välj **Granska och skapa**och välj sedan **skapa**.
+
+Efter några minuter bör du se ett meddelande om att distributionen har slutförts.
 
 ### <a name="powershell"></a>PowerShell
 

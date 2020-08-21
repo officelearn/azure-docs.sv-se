@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83680917"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719469"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -45,7 +45,7 @@ Om webbtjänst-SDK för Azure Multi-Factor Authentication **inte** redan är ins
 3. Slutför installationen med hjälp av standardinställningarna om du inte behöver ändra dem av någon anledning.
 4. Bind ett TLS/SSL-certifikat till platsen i IIS.
 
-Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 Webbtjänst-SDK måste skyddas med ett TLS/SSL-certifikat. Ett självsignerat certifikat är lämpligt för detta ändamål. Importera certifikatet till arkivet "betrodda rot certifikat utfärdare" för det lokala dator kontot på webb servern för användar portalen så att det litar på certifikatet när TLS-anslutningen initieras.
 
@@ -73,7 +73,7 @@ Följ anvisningarna nedan om du vill distribuera användarportalen:
 
 ![Installation av MFA-serveranvändarportal](./media/howto-mfaserver-deploy-userportal/install.png)
 
-Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="deploy-the-user-portal-on-a-separate-server"></a>Distribuera användarportalen på en separat server
 
@@ -110,7 +110,7 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
 
 6. Öppna en webbläsare från valfri dator och gå till URL: en där användar portalen installerades (exempel: `https://mfa.contoso.com/MultiFactorAuth` ). Se till att inga certifikatvarningar eller fel visas.
 
-Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## <a name="configure-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Konfigurera inställningarna för användarportalen i Azure Multi-Factor Authentication-servern
 

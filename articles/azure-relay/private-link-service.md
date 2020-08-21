@@ -3,12 +3,12 @@ title: Integrera Azure Relay med Azure Private Link service
 description: Lär dig hur du integrerar Azure Relay med Azure Private Link service
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a113e52b892a25fd2b12a18d73df443d9a9866f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317317"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719435"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
 Azure **Private Link service** ger dig åtkomst till Azure-tjänster (till exempel Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket. Mer information finns i [Vad är Azure Private Link (för hands version)?](../private-link/private-link-overview.md)
@@ -24,7 +24,7 @@ En **privat slut punkt** är ett nätverks gränssnitt som gör att dina arbets 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Lägg till en privat slut punkt med Azure Portal
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 Om du vill integrera ett Azure Relay-namnområde med Azure Private Link (för hands version) behöver du följande entiteter eller behörigheter:
 
 - Ett Azure Relay namn område.
@@ -52,7 +52,7 @@ Stegvisa instruktioner om hur du skapar en ny Azure Relay namnrymd och entiteter
     2. Välj **resurs grupp** för den privata slut punkts resursen.
     3. Ange ett **namn** för den privata slut punkten. 
     5. Välj en **region** för den privata slut punkten. Din privata slut punkt måste finnas i samma region som ditt virtuella nätverk, men kan finnas i en annan region än Azure Relay namn området som du ansluter till. 
-    6. Välj **Nästa: resurs >s** knappen längst ned på sidan.
+    6. Välj **Nästa: resurs >s ** knappen längst ned på sidan.
 
         ![Sidan skapa privat slut punkt – grunder](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Följ de här stegen på sidan **resurs** :
@@ -61,11 +61,11 @@ Stegvisa instruktioner om hur du skapar en ny Azure Relay namnrymd och entiteter
         2. För **resurs typ**väljer du **Microsoft. Relay/namnrymder** för **resurs typen**.
         3. För **resurs**väljer du ett relä namn område i den nedrullningsbara listan. 
         4. Bekräfta att **mål under resursen** har angetts till **namnrymd**.
-        5. Välj **Nästa: konfiguration >s** knappen längst ned på sidan. 
+        5. Välj **Nästa: konfiguration >s ** knappen längst ned på sidan. 
         
             ![Skapa privat slut punkt – resurs sida](./media/private-link-service/create-private-endpoint-resource-page.png)    
     2. Om du väljer **Anslut till en Azure-resurs efter resurs-ID eller alias** eftersom namn området inte finns i samma katalog som den privata slut punkten, följer du dessa steg:
-        1. Ange **resurs-ID** eller **alias**. Det kan vara det resurs-ID eller alias som någon har delat med dig. Det enklaste sättet att hämta resurs-ID är att navigera till Azure Relay namn området i Azure Portal och kopiera del av URI: n som börjar från `/subscriptions/` . Här är ett exempel:`/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
+        1. Ange **resurs-ID** eller **alias**. Det kan vara det resurs-ID eller alias som någon har delat med dig. Det enklaste sättet att hämta resurs-ID är att navigera till Azure Relay namn området i Azure Portal och kopiera del av URI: n som börjar från `/subscriptions/` . Här är ett exempel: `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. För **under resurs för mål**anger du **namnrymd**. Det är den typ av under resurs som din privata slut punkt kan komma åt.
         3. valfritt Ange ett **meddelande om begäran**. Resurs ägaren ser det här meddelandet vid hantering av privat slut punkts anslutning.
         4. Välj sedan **Nästa: konfiguration >** knappen längst ned på sidan.
@@ -207,7 +207,7 @@ Det finns fyra etablerings tillstånd:
 3. Du bör se statusen ändrad till **frånkopplad**. Sedan visas slut punkten kvar från listan. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Kontrol lera att anslutningen till den privata länken fungerar
-Du bör kontrol lera att resurserna i samma undernät i den privata slut punkten ansluter till Azure Relay namn området via dess privata IP-adress.
+Du bör kontrol lera att resurserna i det virtuella nätverket för den privata slut punkten ansluter till Azure Relay namn området via dess privata IP-adress.
 
 För det här testet skapar du en virtuell dator genom att följa stegen i [skapa en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 

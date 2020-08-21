@@ -3,12 +3,12 @@ title: Aktivera hanterade identiteter på dina virtuella labb datorer i Azure De
 description: Den här artikeln visar hur en labb ägare kan aktivera användare tilldelade hanterade identiteter på dina virtuella labb datorer.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b4bf2900acebaeecd5cbc4cb65635aee6de87dda
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476010"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88717648"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Aktivera användar tilldelning av hanterade identiteter på virtuella labb datorer i Azure DevTest Labs
 Som labb ägare kan du aktivera användarspecifika hanterade identiteter på dina virtuella labb datorer (VM) i Azure DevTest Labs.
@@ -25,14 +25,16 @@ Följ dessa steg om du vill lägga till en användare som tilldelats hanterad id
 
 1. [Skapa en användardefinierad hanterad identitet i din prenumeration](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Gå till sidan **konfiguration och principer** för ditt labb.
-2. Välj **identitet (förhands granskning)** på den vänstra menyn.
-3. Välj fliken **virtuell dator** .
-4. Välj **Lägg till** för att välja en befintlig identitet från en i förväg ifylld listruta. 
+1. Välj **identitet (förhands granskning)** på den vänstra menyn.
+1. Välj fliken **virtuell dator** .
+1. Välj **Lägg till** för att välja en befintlig identitet från en i förväg ifylld listruta. 
 
-    ![Knappen Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Välj en befintlig **användare hanterad identitet** från den nedbrutna listan och välj **OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Knappen Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Välj en befintlig **användare hanterad identitet** från den nedbrutna listan och välj **OK**. 
 
-    ![Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till identitet](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## <a name="use-api"></a>Använd API
 

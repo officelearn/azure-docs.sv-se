@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2a69bc40090e74ad5885c2576c040693f90d5d03
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099759"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683886"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Självstudie för att konfigurera Experian: med Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ I det här exemplet används Experian:-integrerade digitala identiteter och **Cr
 - Mellannamn
 - Efternamn
 - Gatuadress
-- Stad
+- City
 - Region
 - Postnummer
 - Land/region
@@ -129,7 +129,7 @@ I de angivna anpassade principerna söker du efter följande plats hållare och 
 | {your_tenant_extensions_app_objectid}                  | Objekt-ID för klientens lagrings program                                   | 01234567-89ab-cdef-0123-456789abcdef         |
 | {your_api_username_key_name}                           | Namnet på användar namn nyckeln som du skapade [här](#part-4---create-api-policy-keys)             | B2C \_ 1a \_ RestApiUsername                     |
 | {your_api_password_key_name}                           | Namnet på lösen ords nyckeln som du skapade [här](#part-4---create-api-policy-keys)             | B2C \_ 1a \_ RestApiPassword                     |
-| {your_app_service_URL}                                 | URL för den app service som du har konfigurerat                                             | <https://yourapp.azurewebsites.net>          |
+| {your_app_service_URL}                                 | URL för den app service som du har konfigurerat                                             | `https://yourapp.azurewebsites.net`          |
 
 ### <a name="part-6---configure-the-azure-ad-b2c-policy"></a>Del 6 – konfigurera principen för Azure AD B2C
 

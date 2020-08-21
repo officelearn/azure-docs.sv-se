@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 624f0a2464323e8002b9940471c93b3030f053d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 21034aaae42aa4abfa6848ce22db5fa4c21a11ce
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544680"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685773"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -36,7 +36,7 @@ Om du vill granska inställningarna i en dator är ett [tillägg för virtuell d
 > [!IMPORTANT]
 > Gäst konfigurations tillägget och en hanterad identitet krävs för att granska virtuella Azure-datorer. Om du vill distribuera tillägget i skala tilldelar du följande princip initiativ:
 > 
-> - [Distribuera krav för att aktivera principer för gäst konfiguration på virtuella datorer](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
+> `Deploy prerequisites to enable Guest Configuration policies on virtual machines`
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
@@ -62,7 +62,7 @@ Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. N�
 Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga i Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel.
 I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Publisher|Name|Versioner|
+|Publisher|Namn|Versioner|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 och senare|
 |Credativ|Debian|8 och senare|

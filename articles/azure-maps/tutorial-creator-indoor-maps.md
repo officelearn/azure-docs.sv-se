@@ -3,17 +3,17 @@ title: Använd skapare för att skapa inliggande kartor
 description: Använd Azure Maps Creator för att skapa inomhus Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 08/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf2fbb48c34631bc74a3b712e135b618a1718d8e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075404"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688102"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -109,16 +109,25 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
     ```http
     https://atlas.microsoft.com/conversion/convert?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&udid={udid}&inputType=DWG
     ```
+
     >[!IMPORTANT]
     > API-URL: er i det här dokumentet kan behöva justeras enligt platsen för din skapare-resurs. Mer information finns i [åtkomst till Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
-3. Klicka på knappen **Skicka** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret och letar efter **plats** nyckeln. Kopiera värdet för **plats** nyckeln, som är `status URL` för konverterings förfrågan.
+3. Klicka på knappen **Skicka** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret och letar efter **plats** nyckeln. Kopiera värdet för **plats** nyckeln, som är `status URL` för konverterings förfrågan. Du kommer att använda det här i nästa steg.
 
-4. Starta en ny **Get** http-metod på fliken Builder. Lägg till din Azure Maps primära prenumerations nyckel i `status URL` . Gör en **Get** -begäran i `status URL` från föregående steg. Om konverterings processen ännu inte har slutförts kan du se något som följande JSON-svar:
+    :::image type="content" source="./media/tutorial-creator-indoor-maps/copy-location-uri-dialog.png" border="true" alt-text="Kopiera värdet för plats nyckeln":::
+
+4. Starta en ny **Get** http-metod på fliken Builder. Lägg till din Azure Maps primära prenumerations nyckel i `status URL` . Gör en **Get** -begäran på den `status URL` som du kopierade i steg 3. Det `status URL` ser ut som följande URL:
+
+    ```http
+    https://atlas.microsoft.com/conversion/operations/<operationId>?api-version=1.0
+    ```
+
+    Om konverterings processen ännu inte har slutförts kan du se något som följande JSON-svar:
 
     ```json
     {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Running"
     }
@@ -128,7 +137,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
     ```json
    {
-        "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:39:54.9518496+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -143,7 +152,7 @@ Exempel ritnings paketet ska konverteras utan fel eller varningar. Men om du få
 
 ```json
 {
-    "operationId": "77dc9262-d3b8-4e32-b65d-74d785b53504",
+    "operationId": "<operationId>",
     "created": "2020-04-22T19:39:54.9518496+00:00",
     "status": "Failed",
     "resourceLocation": "https://atlas.microsoft.com/conversion/{conversionId}?api-version=1.0",
@@ -177,7 +186,7 @@ Data uppsättningen är en samling kart funktioner, till exempel byggnader, niv�
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "created": "2020-04-22T19:52:38.9352189+00:00",
         "status": "Succeeded",
         "resourceLocation": "https://azure.microsoft.com/dataset/{datasetiId}?api-version=1.0"
@@ -206,7 +215,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
     ```json
     {
-        "operationId": "a93570cb-3e4f-4e45-a2b1-360df174180a",
+        "operationId": "<operationId>",
         "createdDateTime": "3/11/2020 8:45:13 PM +00:00",
         "status": "Succeeded",
         "resourceLocation": "https://atlas.microsoft.com/tileset/{tilesetId}?api-version=1.0"
@@ -215,7 +224,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
 
 ## <a name="query-datasets-with-wfs-api"></a>Fråga data uppsättningar med WFS-API
 
- Data uppsättningar kan frågas med [WFS-API](https://docs.microsoft.com/rest/api/maps/wfs). Med WFS-API: et kan du fråga efter funktions samlingar, en speciell samling eller en speciell funktion med ett funktions **-ID**. Funktions **-ID: t** identifierar en unik funktion i data uppsättningen. Den används till exempel för att identifiera vilket funktions tillstånd som ska uppdateras i en specifik stateset.
+ Data uppsättningar kan frågas med  [WFS-API](https://docs.microsoft.com/rest/api/maps/wfs). Med WFS-API: et kan du fråga efter funktions samlingar, en speciell samling eller en speciell funktion med ett funktions **-ID**. Funktions **-ID: t** identifierar en unik funktion i data uppsättningen. Den används till exempel för att identifiera vilket funktions tillstånd som ska uppdateras i en specifik stateset.
 
 1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
 
@@ -391,7 +400,7 @@ En TILESET är en uppsättning vektor paneler som återges på kartan. Tilesets 
     >[!NOTE]
     > Uppdateringen kommer bara att sparas om den tid som är bokförd är efter tidsstämpeln för föregående begäran. Vi kan skicka alla namn som vi har konfigurerat tidigare när de skapas.
 
-7. Vid en lyckad uppdatering får du en `200 OK` HTTP-statuskod. Om du har en [dynamisk formatering som har implementerats](indoor-map-dynamic-styling.md) för en inomhus karta visas uppdateringen i den angivna tids stämplingen.
+7. Vid en lyckad uppdatering får du en `200 OK` HTTP-statuskod. Om du har en  [dynamisk formatering som har implementerats](indoor-map-dynamic-styling.md) för en inomhus karta visas uppdateringen i den angivna tids stämplingen.
 
 Med [funktionen Get](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) States API kan du hämta tillståndet för en funktion med hjälp av dess funktion `ID` . Du kan också ta bort stateset och dess resurser genom att använda [funktions tillstånd ta bort API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
 

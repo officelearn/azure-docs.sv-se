@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2377ca4b929200ecd0a3a7de01dd3a58be6b7863
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbd4ea4438e82ea9fb1d503b262bfda1b22b2737
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83845448"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690314"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Konfigurera Azure Multi-Factor Authentication Server för IIS-webbappar
 
@@ -58,7 +58,7 @@ Om du ska skydda en IIS-webbapp som använder integrerad Windows HTTP-autentiser
 1. Klicka på ikonen för IIS-autentisering på den vänstra menyn i Azure Multi-Factor Authentication Server.
 2. Klicka på fliken **HTTP**.
 3. Klicka på **Lägg till**.
-4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den webbplats där HTTP-autentiseringen utförs (t <http://localhost/owa> . ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
+4. I dialog rutan Lägg till grundläggande webb adress anger du URL: en för den webbplats där HTTP-autentiseringen utförs (t `http://localhost/owa` . ex.) och anger ett program namn (valfritt). Programnamnet visas i Azure Multi-Factor Authentication-rapporter och kan visas i autentiseringsmeddelanden i SMS- eller mobilappar.
 5. Justera tiderna för Timeout vid inaktivitet och Längsta session om standardvärdet inte räcker.
 6. Markera rutan om att **Multi-Factor Authentication-användarmatchning krävs** om alla användare har importerats eller ska importeras till servern och om multifaktorautentisering används. Om ett stort antal användare inte har importerats till servern än, eller om de ska undantas från multifaktorautentisering, lämnar du rutan avmarkerad.
 7. Markera kryssrutan för **cachelagring av cookies** om du vill det.

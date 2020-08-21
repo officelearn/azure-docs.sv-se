@@ -3,12 +3,12 @@ title: Video analys i real tid för IoT Edge viktig information – Azure
 description: Det här avsnittet innehåller viktig information om real tids analys av IoT Edge-versioner, förbättringar, fel korrigeringar och kända problem.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 28260728532d9db52b8d36488c2e456bd11803ea
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c18977807d8cdca264a27d7fcff37aec7a61eb55
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091787"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690659"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Viktig information om live video analys i IoT Edge
 
@@ -21,12 +21,34 @@ Den här artikeln innehåller information om:
 * Felkorrigeringar
 * Föråldrade funktioner
 
+## <a name="august-19-2020"></a>19 augusti 2020
+
+Den här versions tag gen för uppdateringen augusti 2020 för modulen är:
+
+```
+mcr.microsoft.com/media/live-video-analytics:1.0.3
+```
+
+> [!NOTE]
+> I snabb starterna och självstudierna använder distributions manifestet en tagg på 1 (Real-Video-Analytics: 1). Det innebär att bara att omdistribuera sådana manifest bör uppdatera modulen på din gräns > enheter.
+
+## <a name="new-features"></a>Nya funktioner 
+
+* Du kan nu få hög data överförings prestanda mellan direktsända video analyser på IoT Edge och ditt anpassade tillägg med gRPC Framework. Se [det här](analyze-live-video-use-your-grpc-model-quickstart.md) för att komma igång.
+* En bredare regional distribution av Real video analys och endast moln tjänsten har uppdaterats.  
+* Live Video Analytics är nu tillgängligt i 25 ytterligare regioner över hela världen. Här är [listan](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) över alla tillgängliga regioner.  
+* [Inställningarna](https://aka.ms/lva-edge/setup-resources-for-samples) för snabb start har också uppdaterats. 
+
+## <a name="bug-fixes"></a>Felkorrigeringar 
+
+Inget 
+
 ## <a name="july-13-2020"></a>13 juli 2020
 
 Den här versions tag gen för uppdateringen från juli 2020 för modulen är:
 
 ```
-     mcr.microsoft.com/media/live-video-analytics:1.0.2
+mcr.microsoft.com/media/live-video-analytics:1.0.2
 ```
 
 > [!NOTE]

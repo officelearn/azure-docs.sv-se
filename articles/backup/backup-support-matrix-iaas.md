@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: cfa8a6c7cb2da35929151dfce09c0bc31ee69bb2
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611542"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685484"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -165,7 +165,7 @@ Säkerhetskopiera & återställa deduplicerade virtuella datorer/diskar | Azure 
 Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
 Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym (CSV) eller Skalbar filserver stöds inte. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
-[Delade diskar](../virtual-machines/windows/disks-shared-enable.md) | Stöds inte.
+[Delade diskar](../virtual-machines/disks-shared-enable.md) | Stöds inte.
 
 ## <a name="vm-network-support"></a>Stöd för virtuella dator nätverk
 

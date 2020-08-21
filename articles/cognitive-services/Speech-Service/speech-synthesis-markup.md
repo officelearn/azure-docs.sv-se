@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ae98f74092c3955a54c0817082e8f29c1b251237
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3394882574f94e4a1af3aa942f3b0bd87be55368
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533401"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690093"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -46,7 +46,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 ## <a name="create-an-ssml-document"></a>Skapa ett SSML-dokument
 
-`speak`är rot elementet och **krävs** för alla SSML-dokument. `speak`-Elementet innehåller viktig information, till exempel version, språk och definition av terminologi för markering.
+`speak` är rot elementet och **krävs** för alla SSML-dokument. `speak`-Elementet innehåller viktig information, till exempel version, språk och definition av terminologi för markering.
 
 **Syntax**
 
@@ -192,7 +192,7 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > Justeringen av tal format fungerar bara med neurala-röster.
 
-Som standard används text-till-tal-tjänsten för att syntetisera text med ett neutralt tal format för både standard-och neurala-röster. Med neurala-röster kan du ändra tal formatet till Express olika känslor som cheerfulness, empati och lugn, eller optimera rösten för olika scenarier som anpassad tjänst, newscasting och röst assistent med hjälp av <mstts: Express-as>-elementet. Detta är ett valfritt element som är unikt för tal tjänsten.
+Som standard används text-till-tal-tjänsten för att syntetisera text med ett neutralt tal format för både standard-och neurala-röster. Med neurala-röster kan du ändra tal formatet till Express olika känslor som cheerfulness, empati och lugn, eller optimera rösten för olika scenarier som anpassad tjänst, newscasting och röst assistent med hjälp av-  `mstts:express-as`   elementet. Detta är ett valfritt element som är unikt för tal tjänsten.
 
 För närvarande stöds anpassning av format justeringar för dessa neurala-röster:
 * `en-US-AriaNeural`
@@ -215,7 +215,7 @@ För närvarande stöds anpassning av format justeringar för dessa neurala-rös
 
 Använd den här tabellen för att avgöra vilka tal format som stöds för varje neurala röst.
 
-| Röst                   | Format                     | Description                                                 |
+| Röst                   | Format                     | Beskrivning                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | En formell, trygg och auktoritativ ton för nyhets leverans|
 |                         | `style="newscast-casual"` | En mångsidig och vardaglig ton för allmän nyhets leverans       |
@@ -263,9 +263,9 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inget</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfritt |
-| `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och`500` | Valfritt |
+| `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och `500` | Valfritt |
 
-| Styrka                      | Description |
+| Styrka                      | Beskrivning |
 |-------------------------------|-------------|
 | Ingen, eller om inget värde anges | 0 MS        |
 | x-svaga                        | 250 MS      |
@@ -286,7 +286,7 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 
 ## <a name="specify-paragraphs-and-sentences"></a>Ange stycken och meningar
 
-`p`och `s` element används för att ange stycken respektive meningar. Om dessa element saknas bestämmer text till tal-tjänsten automatiskt strukturen för SSML-dokumentet.
+`p` och `s` element används för att ange stycken respektive meningar. Om dessa element saknas bestämmer text till tal-tjänsten automatiskt strukturen för SSML-dokumentet.
 
 `p`Elementet kan innehålla text och följande element:,,,,,, `audio` `break` `phoneme` `prosody` `say-as` `sub` `mstts:express-as` och `s` .
 
@@ -405,7 +405,7 @@ Om du vill definiera hur flera entiteter ska läsas kan du skapa ett anpassat le
 
 `lexicon`Elementet innehåller minst ett- `lexeme` element. Varje `lexeme` -element innehåller minst ett `grapheme` element och ett eller flera `grapheme` element `alias` , och `phoneme` . `grapheme`Elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> Orthography </a>. `alias`Elementen används för att ange uttal av en akronym eller en förkortad term. `phoneme`Elementet innehåller text som beskriver hur `lexeme` uttalas.
 
-Det är viktigt att Observera att du inte kan ange uttal av ett ord direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för en akronym eller en förkortad term, anger du först ett `alias` och sedan associerar du `phoneme` med det `alias` . Ett exempel:
+Det är viktigt att Observera att du inte kan ange uttal av ett ord direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för en akronym eller en förkortad term, anger du först ett `alias` och sedan associerar du `phoneme` med det `alias` . Exempel:
 
 ```xml
   <lexeme>
@@ -494,7 +494,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `pitch` | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600 Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80 Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
-| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Ett exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
+| `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
 | `range` | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att beskriva `pitch` . | Valfritt |
 | `rate` | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabb</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
 | `duration` | Tids perioden som ska förflyta när tal syntes tjänsten läser texten, i sekunder eller millisekunder. Till exempel *2s* eller *1800ms*. | Valfritt |
@@ -564,7 +564,7 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 ```
 ## <a name="say-as-element"></a>Säg som-element
 
-`say-as`är ett valfritt element som anger innehålls typen (t. ex. antal eller datum) för elementets text. Detta ger vägledning till tal syntes motorn om hur du uttalar texten.
+`say-as` är ett valfritt element som anger innehålls typen (t. ex. antal eller datum) för elementets text. Detta ger vägledning till tal syntes motorn om hur du uttalar texten.
 
 **Syntax**
 
@@ -617,7 +617,7 @@ Tal syntes motorn läser följande exempel som "din första förfrågan var för
 
 ## <a name="add-recorded-audio"></a>Lägg till inspelat ljud
 
-`audio`är ett valfritt element som gör att du kan infoga MP3-ljud i ett SSML-dokument. Bröd texten i ljud elementet kan innehålla oformaterad text eller SSML som talas om ljud filen inte är tillgänglig eller kan spelas upp. Dessutom `audio` kan elementet innehålla text och följande element:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` och `sub` .
+`audio` är ett valfritt element som gör att du kan infoga MP3-ljud i ett SSML-dokument. Bröd texten i ljud elementet kan innehålla oformaterad text eller SSML som talas om ljud filen inte är tillgänglig eller kan spelas upp. Dessutom `audio` kan elementet innehålla text och följande element:,,,,,, `audio` `break` `p` `s` `phoneme` `prosody` `say-as` och `sub` .
 
 Alla ljud som ingår i SSML-dokumentet måste uppfylla följande krav:
 

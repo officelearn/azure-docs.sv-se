@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e2c1b9bb8d8fa1e7b82bebfa31963be19d9024af
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: aee88420fe8b88de9af9a2397316dd065144e610
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648504"
+ms.locfileid: "88685297"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Minnesoptimerade Dv2 och Dsv2-serien
 
@@ -65,7 +65,7 @@ Minnes bebetjänings uppdateringar: stöds
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
-<sup>1</sup> det maximala disk data flödet (IOPS eller Mbit/s) möjligt med en virtuell dator i DSv2-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](./windows/premium-storage-performance.md).
+<sup>1</sup> det maximala disk data flödet (IOPS eller Mbit/s) möjligt med en virtuell dator i DSv2-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](./premium-storage-performance.md).
 <sup>2</sup>  -instansen är isolerad till den Intel Haswell-baserade maskin varan och är dedikerad till en enda kund.  
 <sup>3</sup> begränsade kärn storlekar är tillgängliga.  
 <sup>4</sup> 25000 Mbit/s med accelererat nätverk.

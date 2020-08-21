@@ -3,12 +3,12 @@ title: Media Graph-koncept – Azure
 description: Med ett medie diagram kan du definiera var mediet ska samlas in, hur det ska bearbetas och var resultatet ska levereras. Den här artikeln innehåller en detaljerad beskrivning av media Graph-konceptet.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 02e960e917a059afdb0d688c7429d27d8e8a48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9889c7135a23a8817f4922d3e537eb51f26cdae0
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300815"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690688"
 ---
 # <a name="media-graph"></a>Mediegraf
 
@@ -80,6 +80,10 @@ Med filtret för RAM hastighet filtrera processor kan du sampla ramar från den 
 #### <a name="http-extension-processor"></a>Processor för HTTP-tillägg
 
 Med noden HTTP-tillägg kan du ansluta din egen IoT Edge-modul till ett medie diagram. Den här noden tar avkodade video ramar som inaktuella inmatade och vidarebefordrar sådana ramar till en HTTP REST-slutpunkt som exponeras av din modul. Den här noden har möjlighet att autentisera med REST-slutpunkten om det behövs. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till REST-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format.
+
+#### <a name="grpc-extension-processor"></a>gRPC förlängnings processor
+
+GRPC Extension processor-noden använder avkodade video ramar som inaktuella inmatade filer och vidarebefordrar sådana ramar till en gRPC-slutpunkt som exponeras av din modul. Dessutom har noden en inbyggd avbildnings-Formatter för skalning och kodning av video bild rutor innan de vidarebefordras till gRPC-slutpunkten. Skalaren har alternativ för bild-höjd-förhållandet som ska bevaras, utfylls eller sträckas ut. Bild kodaren stöder JPEG-, PNG-eller BMP-format.
 
 #### <a name="signal-gate-processor"></a>Signal grind processor  
 

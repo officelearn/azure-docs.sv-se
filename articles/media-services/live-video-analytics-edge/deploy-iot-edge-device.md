@@ -3,19 +3,18 @@ title: Distribuera video analys i real tid på en IoT Edge enhet – Azure
 description: Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 26be76a46fa514917ee1c89cab7d1f112ee85431
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652465"
+ms.locfileid: "88684107"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuera video analys i real tid på en IoT Edge enhet
 
 Den här artikeln innehåller de steg som hjälper dig att distribuera video analys på din IoT Edge-enhet. Du skulle göra detta, till exempel om du har åtkomst till en lokal Linux-dator och/eller om du tidigare har skapat ett Azure Media Services-konto.
 
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Linux-dator som uppfyller kraven för maskin vara/SW för video analys i real tid
 * Azure-prenumeration som du har [ägar behörighet](../../role-based-access-control/built-in-roles.md#owner) till
@@ -23,6 +22,7 @@ Den här artikeln innehåller de steg som hjälper dig att distribuera video ana
 * [Registrera IoT Edge enhet](../../iot-edge/how-to-register-device.md)
 * [Installera Azure IoT Edge-körningen på Debian-baserade Linux-system](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Skapa ett Azure Media Services-konto](../latest/create-account-howto.md)
+
     * Använd något av följande regioner: USA, östra 2, centrala USA, norra centrala USA, Östra Japan, västra USA 2, västra centrala USA, Östra Kanada, Storbritannien, södra, Frankrike Central, Frankrike, Schweiz, norra, Schweiz, västra och Japan, västra.
     * Vi rekommenderar att du använder GPv2-lagrings konton (General-Purpose v2)
 
@@ -190,6 +190,7 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     "armEndpoint": "https://management.azure.com/",
     "allowUnsecuredEndpoints": true
     ```
+
    > [!Note]
    > Den dubbla egenskapen **allowUnsecuredEndpoints** anges som sant för självstudiernas syfte och snabb starter.   
    Du bör ange den här egenskapen till **falskt** när den körs i produktions miljön. På så sätt kan du se till att programmet blockerar alla oskyddade slut punkter och för att köra graf-topologierna krävs giltiga autentiseringsuppgifter för anslutning.  
@@ -210,8 +211,8 @@ Granska distributions informationen och välj sedan skapa.
 
 När du har skapat distributionen återgår du till IoT Edge sida i IoT Hub.
 
-1.  Välj den IoT Edge enhet som du har för distributionen för att öppna informationen.
-2.  I enhets informationen kontrollerar du att Blob Storage-modulen anges som båda **anges i distributionen och rapporteras av enheten**.
+1. Välj den IoT Edge enhet som du har för distributionen för att öppna informationen.
+2. I enhets informationen kontrollerar du att Blob Storage-modulen anges som båda **anges i distributionen och rapporteras av enheten**.
 
 Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
 Status kod: 200 – OK innebär att [den IoT Edge körningen](../../iot-edge/iot-edge-runtime.md) är felfri och fungerar bra.
@@ -247,6 +248,7 @@ Sedan kan du testa exemplet genom att anropa en direkt metod. Läs [direkt metod
     ![Status 200-meddelande](./media/deploy-iot-edge-device/connection-timeout.png) 
 
 ## <a name="next-steps"></a>Nästa steg
+
 Prova [snabb start: kom igång – direktsända video analyser på IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]

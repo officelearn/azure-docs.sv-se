@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: f31782fb4e91b72f51d6f0550fe9010cba7ca3d6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 270e5ba1879b229fbe9f5e6c8692bd8b4e9eebc7
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585465"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688648"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -25,7 +25,7 @@ När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hu
 När du börjar skala din tjänst kommer antalet förfrågningar som skickas till ditt nyckel valv att öka. Detta har möjlighet att öka svars tiden för dina begär Anden och i extrema fall, orsaka att dina förfrågningar begränsas som påverkar tjänstens prestanda. Du kan övervaka prestanda mått för nyckel valv och få aviseringar för vissa tröskelvärden, för steg-för-steg-guide för att konfigurera övervakning, [läsa mer](https://docs.microsoft.com/azure/key-vault/general/alert).
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>Hur tilldelar jag åtkomst kontroll per Key Vault-objekt? 
-Tillgänglighet för användar kontroll per hemlighet/nyckel/certifikat kommer att meddelas här, [läsa mer](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/.32213176-per-secret-key-certificate-access-control)
+Tillgänglighet för användar kontroll per hemlighet/nyckel/certifikat kommer att meddelas här, [läsa mer](https://feedback.azure.com/forums/906355-azure-key-vault/suggestions/32213176-per-secret-key-certificate-access-control)
 
 ### <a name="how-can-i-provide-key-vault-authenticate-using-access-control-policy"></a>Hur kan jag tillhandahålla Key Vault-autentisering med hjälp av principer för åtkomst kontroll?
 Det enklaste sättet att autentisera ett molnbaserad program till Key Vault är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault]( https://docs.microsoft.com/azure/key-vault/general/managed-identity) .
@@ -50,6 +50,6 @@ För närvarande tar Key Vault ARM redopleyment bort alla åtkomst principer i K
 ### <a name="what-are-the-best-practices-i-should-implement-when-key-vault-is-getting-throttled"></a>Vilka är de bästa metoderna jag bör implementera när Key Vault får en begränsning?
 Följ de bästa metoderna, dokumenterade [här](https://docs.microsoft.com/azure/key-vault/general/overview-throttling#how-to-throttle-your-app-in-response-to-service-limits)
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du felsöker Key Vault-autentiseringsfel. [Key Vault fel söknings guide](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)

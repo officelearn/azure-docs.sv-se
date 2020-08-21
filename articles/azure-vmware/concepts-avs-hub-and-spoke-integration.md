@@ -2,13 +2,13 @@
 title: Koncept – integrera en Azure VMware-lösning distribution i en hubb och eker-arkitektur
 description: Lär dig mer om rekommendationer för att integrera en Azure VMware-lösnings distribution i en befintlig eller ny hubb och eker-arkitektur på Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: a1ba75369a1d6f19ca7ae1f36107170f219f72d0
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/20/2020
+ms.openlocfilehash: deb2756f7e83250ff58836098dc4954ec482fbda
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649592"
+ms.locfileid: "88684525"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrera Azure VMware-lösningen i en hubb och eker-arkitektur
 
@@ -28,10 +28,7 @@ Trafik mellan det lokala data centret, Azure VMware-lösningens privata moln och
 
 Diagrammet visar ett exempel på en distribution av hubb och ekrar i Azure som är ansluten till lokal och Azure VMware-lösning via ExpressRoute.
 
-:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware-lösning hubb och eker-integrering":::
-
-
-
+:::image type="content" source="./media/hub-spoke/avs-hub-and-spoke-deployment.png" alt-text="Azure VMware-lösning hubb och eker-integrering" border="false":::
 
 Arkitekturen har följande huvud komponenter:
 
@@ -64,12 +61,12 @@ Lokal anslutning kan använda ExpressRoute Global Reach även, men det är inte 
 
 * **Trafik flöde för lokala Azure VMware-lösningar**
 
-  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Trafik flöde för lokala Azure VMware-lösningar":::
+  :::image type="content" source="media/hub-spoke/on-prem-to-avs-traffic-flow.png" alt-text="Trafik flöde för lokala Azure VMware-lösningar" border="false":::
 
 
 * **Azure VMware-lösning till hubben för VNET-trafikflöde**
 
-  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning för hubb av virtuellt nätverks trafikflöde":::
+  :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Azure VMware-lösning för hubb av virtuellt nätverks trafikflöde" border="false":::
 
 
 Du hittar mer information om Azure VMware-lösningen nätverk och interanslutnings koncept i [produkt dokumentationen för Azure VMware-lösningen](./concepts-networking.md).
@@ -97,7 +94,7 @@ En andra nivå av trafik segmentering som använder nätverks säkerhets grupper
 
 Azure Application Gateway v1 och v2 har testats med webbappar som körs på virtuella datorer i Azure VMware-lösningen som en backend-pool. Application Gateway är för närvarande den enda metoden som stöds för att exponera webbappar som körs på virtuella datorer i Azure VMware-lösningen till Internet. Det kan också exponera appar till interna användare på ett säkert sätt.
 
-:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Sekundär nivå för trafik segmentering med nätverks säkerhets grupper":::
+:::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Sekundär nivå för trafik segmentering med nätverks säkerhets grupper" border="false":::
 
 
 ### <a name="jumpbox-and-azure-bastion"></a>Hopp och Azure-skydds
@@ -110,7 +107,7 @@ Av säkerhets skäl bör du distribuera [Microsoft Azure skydds](../bastion/inde
 > Ge inte en offentlig IP-adress till den virtuella datorn i hoppet eller exponera port 3389/TCP på det offentliga Internet. 
 
 
-:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Virtuellt nätverk för Azure skydds Hub":::
+:::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Virtuellt nätverk för Azure skydds Hub" border="false":::
 
 
 ## <a name="azure-dns-resolution-considerations"></a>Azure DNS lösnings överväganden

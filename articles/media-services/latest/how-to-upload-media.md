@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2ff5b7832b894e218cf65447378bfe6fd3e42ca3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3da313803aa546c2399e3c8c18858bee5cfa2ea1
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658466"
+ms.locfileid: "88684379"
 ---
 # <a name="upload-media-for-streaming-or-encoding"></a>Ladda upp media för strömning eller kodning
 I Media Services laddar du upp digitala filer (Media) i en BLOB-behållare som är kopplad till en till gång. [Till gångs](/rest/api/media/operations/asset) enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer). När filerna har överförts till till gångens behållare lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
@@ -44,7 +44,7 @@ Innan du börjar kan du behöva samla in eller tänka på några värden.
 
 ## <a name="rest"></a>[REST](#tab/rest/)
 
-När du har [skapat en till gång med Postman eller andra REST-metoder och har till gång till SUS-URL: en för till gången](how-to-create-asset.md?tabs=rest)använder du Azure Storage API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+När du har [skapat en till gång med Postman eller andra REST-metoder och fått SAS-URL: en för till gången](how-to-create-asset.md?tabs=rest)använder du Azure Storage API: er eller SDK: er (till exempel [lagrings REST API](../../storage/common/storage-rest-api-auth.md) eller [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ---
 <!-- add these to the tabs when available -->

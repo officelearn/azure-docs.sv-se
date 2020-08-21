@@ -5,12 +5,12 @@ description: Lär dig att dynamiskt skapa en permanent volym med Azure-diskar i 
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3d01b2c2098dcbe896ecaa7f854d91477eba2cab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 06aad076836c0f6fdc59c4ed5d0116231080d15c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648776"
+ms.locfileid: "88683614"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Skapa och använda en permanent volym med Azure-diskar i Azure Kubernetes service (AKS) dynamiskt
 
@@ -40,7 +40,7 @@ Varje AKS-kluster innehåller fyra i förväg skapade lagrings klasser, två av 
     
 Om du använder en av standard lagrings klasserna kan du inte uppdatera volym storleken när lagrings klassen har skapats. Om du vill kunna uppdatera volym storleken när en lagrings klass har skapats lägger du till den `allowVolumeExpansion: true` i en av standard lagrings klasserna, eller så kan du skapa en egen anpassad lagrings klass. Observera att det inte finns stöd för att minska storleken på en PVC (för att förhindra data förlust). Du kan redigera en befintlig lagrings klass med hjälp av `kubectl edit sc` kommandot. 
 
-Om du till exempel vill använda en disk med storlek 4 TiB måste du skapa en lagrings klass som definierar `cachingmode: None` eftersom [diskcachelagring inte stöds för disk 4 TIB och större](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Om du till exempel vill använda en disk med storlek 4 TiB måste du skapa en lagrings klass som definierar `cachingmode: None` eftersom [diskcachelagring inte stöds för disk 4 TIB och större](../virtual-machines/premium-storage-performance.md#disk-caching).
 
 Mer information om lagrings klasser och hur du skapar en egen lagrings klass finns i [lagrings alternativ för program i AKS][storage-class-concepts].
 

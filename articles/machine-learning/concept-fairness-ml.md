@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 0d3e49fbb11af92d016910e91b0144f6de998238
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3f051d9fc1599c0877e1e8a58935d09d224ce22b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829381"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689685"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Minimera skälighet i Machine Learning-modeller (för hands version)
 
@@ -51,7 +51,7 @@ Tillsammans gör dessa komponenter det möjligt för data experter och affärs l
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Utvärdera skälighet i Machine Learning-modeller
 
-I Fairlearn-paketet med öppen källkod är skälighet konceptuellt, trots en metod som kallas **Group skälighet**, som frågar: vilka grupper av individer riskerar att drabbas av skador? Relevanta grupper, även kallade del populationer, definieras genom **känsliga funktioner** eller känsliga attribut. Känsliga funktioner skickas till en uppskattare i Fairlearn-paketet med öppen källkod som en Vector eller en matris med namnet `sensitive_features` . Termen rekommenderar att system designern bör vara känslig för dessa funktioner när du bedömer grupp skälighet. 
+I Fairlearn-paketet med öppen källkod är skälighet konceptuellt, trots en metod som kallas **Group skälighet**, som frågar: vilka grupper av individer riskerar att drabbas av skador? Relevanta grupper, även kallade del populationer, definieras genom **känsliga funktioner** eller känsliga attribut. Känsliga funktioner skickas till en uppskattare i Fairlearn-paketet med öppen källkod som en Vector eller en matris med namnet  `sensitive_features` . Termen rekommenderar att system designern bör vara känslig för dessa funktioner när du bedömer grupp skälighet. 
 
 Något att vara mindful av är om dessa funktioner innehåller sekretess effekter på grund av privata data. Men ordet "känslig" innebär inte att dessa funktioner inte ska användas för att göra förutsägelser.
 
@@ -108,6 +108,6 @@ Fairlearn-paketet med öppen källkod tillhandahåller postprocessing och minska
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du använder de olika komponenterna genom att kontrol lera Fairlearn- [GitHub](https://github.com/fairlearn/fairlearn/), [användar handboken](https://fairlearn.github.io/user_guide/index.html), [exempel](https://fairlearn.github.io/auto_examples/notebooks/index.html)och [exempel antecknings böcker](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
+- Lär dig hur du använder de olika komponenterna genom att kontrol lera Fairlearn- [GitHub](https://github.com/fairlearn/fairlearn/), [användar handboken](https://fairlearn.github.io/user_guide/index.html), [exempel](https://fairlearn.github.io/auto_examples/)och [exempel antecknings böcker](https://github.com/fairlearn/fairlearn/tree/master/notebooks).
 - Lär dig [hur du](how-to-machine-learning-fairness-aml.md) aktiverar skälighet-utvärdering av Machine Learning-modeller i Azure Machine Learning.
 - Se [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) för ytterligare skälighet utvärderings scenarier i Azure Machine Learning. 

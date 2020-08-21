@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18c3b0397a0ad3e9e368d1a14e20a999ced5545b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367758"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690280"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Fel meddelandet "det går inte att komma åt det här företags programmet" visas när ett program för programproxy används
 
@@ -50,7 +50,7 @@ En gateway-timeout inträffar när tjänsten försöker ansluta till anslutninge
 Ett felaktigt Gateway-fel indikerar att anslutningen inte kan komma åt backend-programmet. kontrol lera att du har publicerat rätt program. Vanliga misstag som orsakar felet är:
 
 - Ett skrivfel eller fel i den interna URL: en
-- Inte att publicera programmets rot. Till exempel publicera <http://expenses/reimbursement> men försök att komma åt<http://expenses>
+- Inte att publicera programmets rot. Till exempel publicera `http://expenses/reimbursement` men försök att komma åt `http://expenses`
 - Problem med KCD-konfigurationen (Kerberos-begränsad delegering)
 - Problem med Server dels programmet
 

@@ -9,32 +9,31 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 7918f684fea1092cbd7c11fade3d8f40c1e44240
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431196"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691266"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och identifiera resurser i Azure AI Gallery
 
 **gäller för:** ![ Ja ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (klassisk) ![ inga](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
 
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 **[Azure AI Gallery](https://gallery.azure.ai)** är en community-driven webbplats för att upptäcka och dela lösningar som skapats med Azure AI.
 Galleriet har en mängd resurser som du kan använda för att utveckla egna analys lösningar.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Vad kan jag hitta i galleriet?
 
-Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Dessa omfattar:
+Azure AI Gallery innehåller ett antal olika resurser som har bidragit till Microsoft och medlemmar av data vetenskaps gruppen. Exempel på dessa är:
 
 * **Experiment** – galleriet innehåller en mängd olika experiment som har utvecklats i Azure Machine Learning Studio (klassisk). Detta sträcker sig från snabba koncept experiment som demonstrerar en speciell maskin inlärnings teknik, till fullständigt utvecklade lösningar för komplexa maskin inlärnings problem.
 * **Självstudier** – ett antal självstudier finns tillgängliga för att vägleda dig genom maskin inlärnings tekniker och-koncept, eller för att beskriva avancerade metoder för att lösa olika Machine Learning-problem.
 * **Samlingar** – en samling gör att du kan gruppera samman experiment, API: er och andra Galleri resurser som åtgärdar en speciell lösning eller ett begrepp.
 * **Anpassade moduler** – du kan ladda ned anpassade moduler till din Studio (klassiska) arbets yta som du kan använda i dina egna experiment.
-* **Jupyter Notebooks** – Jupyter Notebooks innehåller kod, data visualiseringar och dokumentation på en enda, interaktiv arbets yta. Bärbara datorer i galleriet innehåller självstudier och detaljerade förklaringar av avancerade tekniker och lösningar för maskin inlärning.
 
 ## <a name="discover-and-contribute"></a>Identifiera och bidra
 
@@ -49,12 +48,12 @@ Du kan till och med dela en resurs av intresse med vänner eller kollegor med hj
 
 När du loggar in blir du medlem i Galleri gruppen. På så sätt kan du hämta resurser eller bidra med dina egna Galleri objekt så att andra kan dra nytta av de lösningar du har identifierat.
 
-Du kan hämta **experiment**, **anpassade moduler**och **Jupyter-anteckningsböcker** som du kan använda för att utveckla egna analys lösningar.
+Du kan hämta **experiment**, **anpassade moduler** som du kan använda när du utvecklar egna analys lösningar.
 Du kan bidra med **experiment**, **självstudier**och **samlingar** i galleriet.
 
-## <a name="download-experiments-modules-notebooks"></a>Hämta experiment, moduler, antecknings böcker
+## <a name="download-experiments-modules"></a>Hämta experiment, moduler
 
-Du kan hämta **experiment**, **anpassade moduler**och **Jupyter-anteckningsböcker** till din egen Machine Learning Studio (klassisk) arbets yta som du kan använda när du utvecklar dina egna lösningar.
+Du kan hämta **experiment**, **anpassade moduler** till din egen Machine Learning Studio (klassisk) arbets yta som du kan använda när du utvecklar dina egna lösningar.
 
 Så här hämtar du en resurs i AI-galleriet:
 

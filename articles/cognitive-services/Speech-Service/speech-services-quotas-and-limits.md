@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: alexeyo
-ms.openlocfilehash: 86182130daf5cbb61df7a751aaeff392dd608a67
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 554dd0967979bc2457c3a9c8371152e09535381f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88662596"
+ms.locfileid: "88690144"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Kvoter och begränsningar för tal tjänster
 
@@ -132,7 +132,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
   - "Kvot-eller användnings validering" för att kontrol lera den befintliga gränsen
 - Klicka på *Nästa: lösningar*
 - Fortsätt vidare med att skapa begäran
-- När i *detalj* fält anger du i fältet *Beskrivning* :
+- På fliken *information* anger du i fältet *Beskrivning* :
   - en anteckning om att begäran gäller **tal-till-text-** kvot
   - **Bas** eller **anpassad** modell
   - Azure-resursinformation som du [samlat in tidigare](#have-the-required-information-ready) 
@@ -184,7 +184,7 @@ Påbörja ökningen av gränsen för samtidiga förfrågningar för din resurs e
   - "Kvot-eller användnings validering" för att kontrol lera den befintliga gränsen
 - Klicka på *Nästa: lösningar*
 - Fortsätt vidare med att skapa begäran
-- När i *detalj* fält anger du i fältet *Beskrivning* :
+- På fliken *information* anger du i fältet *Beskrivning* :
   - en anteckning om att begäran gäller **text till tal-** kvot
   - Azure-resursinformation som du [samlat in tidigare](#prepare-the-required-information) 
   - Slutför att ange den information som krävs och klicka på knappen *skapa* på fliken *Granska + skapa*

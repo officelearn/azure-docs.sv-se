@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb1511736b993032df8ca52fac01243f1feafdf4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092396"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684464"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Skapa och etablera en IoT Edge enhet med en TPM på Linux
 
@@ -61,7 +61,7 @@ Om du ser fel när du skapar den nya virtuella växeln ser du till att inga andr
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. Ladda ned en disk avbildnings fil som ska användas för den virtuella datorn och spara den lokalt. Till exempel [Ubuntu server 18,04](http://releases.ubuntu.com/18.04.4/). Information om operativ system som stöds för IoT Edge enheter finns i [Azure IoT Edge system som stöds](support.md).
+1. Ladda ned en disk avbildnings fil som ska användas för den virtuella datorn och spara den lokalt. Till exempel [Ubuntu server 18,04](http://releases.ubuntu.com/18.04/). Information om operativ system som stöds för IoT Edge enheter finns i [Azure IoT Edge system som stöds](support.md).
 
 2. I Hyper-V Manager igen väljer du **åtgärd**  >  **ny**  >  **virtuell dator** på menyn **åtgärder** .
 

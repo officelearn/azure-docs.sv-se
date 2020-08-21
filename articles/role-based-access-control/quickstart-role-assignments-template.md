@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 9320a68684a25949e8a0b4e2c7d72a6267401add
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252359"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690450"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Snabb start: lägga till en Azure-roll tilldelning med en ARM-mall
 
@@ -23,7 +23,7 @@ ms.locfileid: "86252359"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-rbac-builtinrole-resourcegroup%2Fazuredeploy.json)
 
@@ -32,14 +32,14 @@ Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mall
 Om du vill lägga till roll tilldelningar måste du ha:
 
 - Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- `Microsoft.Authorization/roleAssignments/write`och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 - Om du vill lägga till en roll tilldelning måste du ange tre element: säkerhets objekt, roll definition och omfång. I den här snabb starten är säkerhets objekt en annan användare i din katalog, roll definitionen är [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor)och omfånget är en resurs grupp som du anger.
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Mallen har tre parametrar och avsnittet Resources. I avsnittet resurser ser du att det har tre element i en roll tilldelning: säkerhets objekt, roll definition och omfattning.
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Mallen har tre parametrar och avsnittet Resources. I avsnittet resurser ser du att det har tre element i en roll tilldelning: säkerhets objekt, roll definition och omfattning.
 
-:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+:::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json":::
 
 Den resurs som definierats i mallen är:
 

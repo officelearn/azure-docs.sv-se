@@ -7,16 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c03f9b7d87660e24ca0aad008298ce0768b40d59
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: a7905ae0fdbd797d9b544cb71f44b82af1295246
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88663506"
+ms.locfileid: "88688461"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Självstudie: Distribuera Azure våren Cloud i Azure Virtual Network (VNet-insprutning)
 
-I den här självstudien beskrivs hur du distribuerar Azure våren Cloud Service-instansen i ditt virtuella nätverk. Detta kallas ibland VNet-inmatning.  
+I den här självstudien beskrivs hur du distribuerar en Azure våren Cloud Service-instans i det virtuella nätverket. Detta kallas ibland VNet-inmatning.  
 
 Distributionen gör det möjligt att:
 

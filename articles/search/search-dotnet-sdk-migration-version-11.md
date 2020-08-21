@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 83208ec792f40661861dd558ac2c1a1521c1d7fb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660977"
+ms.locfileid: "88688359"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
@@ -28,6 +28,9 @@ Några viktiga skillnader som du ser i den nya versionen är:
 + Ett nytt paket namn: `Azure.Search.Documents` i stället för `Microsoft.Azure.Search` .
 + Tre klienter i stället för två: `SearchClient` , `SearchIndexClient` , `SearchIndexerClient`
 + Namngivning av skillnader i flera API: er och små strukturella skillnader som fören klar vissa uppgifter
+
+> [!NOTE]
+> Granska [**ändrings loggen**](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) för en lista över ändringar i .NET SDK version 11.
 
 ## <a name="package-and-library-consolidation"></a>Paket-och biblioteks konsolidering
 
@@ -114,19 +117,23 @@ Varje version av ett Azure Kognitiv sökning klient bibliotek är riktad mot en 
 
 Version 11 är inriktad på [2020-06-30 Search-tjänsten](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/search/data-plane/Azure.Search/preview/2020-06-30/searchservice.json). Eftersom version 11 också är ett nytt klient bibliotek som byggts från grunden, har de flesta utvecklings ansträngningar fokuserat på likvärdighet med version 10, och vissa REST API funktioner stöds fortfarande.
 
-Version 11 har fullt stöd för följande objekt och åtgärder:
+Version 11,0 har fullständigt stöd för följande objekt och åtgärder:
 
 + Skapa och hantera index
 + Skapa och hantera synonym mappning
 + Alla typer av frågetyper och syntax (utom geo-spatial-filter)
 + Indexerare objekt och åtgärder för indexering av Azure-datakällor, inklusive data källor och färdighetsuppsättningar
 
+Version 11,1 lägger till följande:
+
++ [FieldBuilder](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.fieldbuilder) (lades till i 11,1)
++ [Egenskapen serialiserare](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclientoptions.serializer) (lades till i 11,1) för att stödja anpassad serialisering
+
 ### <a name="pending-features"></a>Väntande funktioner
 
-Följande version 10-funktioner är ännu inte tillgängliga i version 11. Om du använder dessa funktioner ska du hålla på migrering tills de stöds.
+Följande version 10-funktioner är ännu inte tillgängliga i version 11. Om du behöver dessa funktioner ska du hålla på migrering tills de stöds.
 
 + geospatiala typer
-+ [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) (även om du kan använda [den här lösningen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/tests/Samples/FieldBuilder/FieldBuilder.cs)).
 + [Knowledge Store](knowledge-store-concept-intro.md)
 
 <a name="UpgradeSteps"></a>
@@ -176,7 +183,7 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
 
 Med tanke på de ändringar som görs i bibliotek och API: er, är en uppgradering till version 11 icke-trivial och utgör en brytande ändring i den mening att koden inte längre är bakåtkompatibel med version 10 och tidigare. En grundlig granskning av skillnaderna finns i [ändrings loggen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md) för `Azure.Search.Documents` .
 
-När det gäller tjänst versioner, så introducerar flytt från 10 till 11 följande beteende ändringar: 
+När det gäller uppdateringar av tjänst version, där kod ändringar i version 11 relaterar till befintliga funktioner (och inte bara en omstrukturering av API: er), så kommer du att se följande ändringar:
 
 + [Algoritmen för BM25](index-ranking-similarity.md) ersätter den tidigare rangordningen med nyare teknik. Nya tjänster kommer att använda den här algoritmen automatiskt. För befintliga tjänster måste du ange parametrar för att använda den nya algoritmen.
 

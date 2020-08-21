@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 2201cae66aae8c2d9d106871db0d4ebbd003f361
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052142"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690348"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -112,7 +112,7 @@ Dessa funktioner är möjliga eftersom Azure NetApp Files baseras på NetApp® O
 ## <a name="licensing-oracle-database--software-on-azure"></a>Licensierings Oracle Database & program vara på Azure
 
 Microsoft Azure är en godkänd moln miljö för att köra Oracle Database. Tabellen för Oracle Core Factor kan inte användas när du licensierar Oracle-databaser i molnet. När du använder virtuella datorer med Hyper-Threading-teknik som är aktive rad för Enterprise Edition-databaser, kan du i stället räkna två virtuella processorer som likvärdiga med en Oracle processor licens om hyperthreading är aktiverat (enligt vad som anges i princip dokumentet). Du hittar information om principen [här](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf).
-Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](../../sizes-memory.md) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](../../linux/constrained-vcpu.md) för Oracle Database arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
+Oracle-databaser kräver vanligt vis mer minne och IO. Därför rekommenderas [Minnesoptimerade virtuella datorer](../../sizes-memory.md) för dessa arbets belastningar. För att optimera dina arbets belastningar rekommenderas [begränsade kärn virtuella processorer](../../constrained-vcpu.md) för Oracle Database arbets belastningar som kräver hög minnes-, lagrings-och I/O-bandbredd, men inte med ett högt antal kärnor.
 
 När du migrerar Oracle-programvara och arbets belastningar från en lokal plats till Microsoft Azure tillhandahåller Oracle License Mobility såsom anges i [vanliga frågor och svar om Oracle på Azure](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)
 

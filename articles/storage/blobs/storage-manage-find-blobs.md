@@ -3,17 +3,17 @@ title: Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands g
 description: Lär dig hur du använder BLOB-taggar för att kategorisera, hantera och fråga för att identifiera BLOB-objekt.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 08/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ed70a05e0a6213ce00a6e0514f0741e8abbaeef9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499882"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690382"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Hantera och hitta data på Azure Blob Storage med BLOB-index (förhands granskning)
 
@@ -105,7 +105,7 @@ I tabellen nedan visas alla giltiga operatorer för FindBlobsByTags:
 |     <      |  Mindre än    | "Ålder" < "32" |
 |     <=     |  Mindre än eller lika med  | "Företag" <= ' contoso ' |
 |    AND     |  Logiska och  | "Rang" >= "010" och "rang" < "100" |
-| @container |  Omfång till en angiven behållare   | @container= ' videofiles ' och ' status ' = ' slutförd ' |
+| @container |  Omfång till en angiven behållare   | @container = ' videofiles ' och ' status ' = ' slutförd ' |
 
 > [!NOTE]
 > Var bekant med lexicographical-beställning när du ställer in och frågar efter taggar.
@@ -239,7 +239,7 @@ I följande tabell sammanfattas skillnaderna mellan metadata och blob-index Tagg
 
 |              |   Metadata   |   BLOB index-Taggar  |
 |--------------|--------------|--------------------|
-| **Gränser**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
+| **Begränsningar**         | Ingen numerisk gräns; totalt 8 KB; Skift läges okänslig | 10 Taggar per BLOB Max; 768 byte per tagg; Skift läges känslig |
 | **Uppdateringar**      | Tillåts inte på Arkiv nivå. SetBlobMetadata ersätter alla befintliga metadata. SetBlobMetadata ändrar blobens senaste ändrings tid | Tillåts för alla åtkomst nivåer. SetBlobTags ersätter alla befintliga taggar; SetBlobTags ändrar inte blobens senaste ändrings tid |
 | **Storage**        | Lagrad med BLOB-data |  Under resurs till BLOB-data | 
 | **Indexerar & frågor** | Ej tillämpligt, ursprungligt; måste använda en separat tjänst, till exempel Azure Search | Ja, inbyggd indexering och frågor om funktioner som är inbyggda i Blob Storage |
@@ -296,7 +296,7 @@ I det här avsnittet beskrivs kända problem och villkor i den aktuella offentli
 - CopyBlob (asynkron kopia) från ett annat lagrings konto med tillämpade taggar på mål-bloben gör att BLOB-index motorn inte returnerar blobben och dess Taggar i filter uppsättningen. Vi rekommenderar att du använder CopyBlob från URL (synkronisera kopia) i Interim.
 -   Taggarna sparas när en ögonblicks bild skapas. Det finns för närvarande inte stöd för att befordra en ögonblicks bild och kan resultera i en tom tag-uppsättning.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Kan du använda BLOB-index för att filtrera och fråga efter innehåll i mina blobbar? 
 Nej, BLOB index-taggar kan hjälpa dig att hitta de blobbar som du letar efter. Om du behöver söka i dina blobar använder du frågans acceleration eller Azure Search.

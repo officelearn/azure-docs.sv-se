@@ -10,12 +10,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: f0673732bd657b237ed0f4b4db276b8bf9a3a2b5
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95fb9798bc62236d785c911ec75db8d6e11f6e97
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424383"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685722"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
  
@@ -89,7 +89,7 @@ Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jw
 
 Vi kan se flera viktiga delar i denna token:
 
-- AUD (mål grupp): token-token. Observera att detta är <https://vault.azure.net> . Denna token fungerar inte för resurser som inte uttryckligen matchar det här värdet, till exempel Graph.
+- AUD (mål grupp): token-token. Observera att detta är `https://vault.azure.net` . Denna token fungerar inte för resurser som inte uttryckligen matchar det här värdet, till exempel Graph.
 - IAT (utfärdat i): antalet Tick sedan den epoken börjar när token utfärdades.
 - NBF (inte före): antalet Tick sedan den epoken börjar när denna token börjar gälla.
 - EXP (Expires): antalet Tick sedan den epoken börjar när denna token upphör att gälla.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289031"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690212"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
 
@@ -95,9 +95,9 @@ De underhålls kostnader som betalas ut till Microsoft beror på tjänst nivå o
 <b>Varför saknas skiljetecken i avskriften?</b>
 </summary>
 
-**Svar:** `speech_recognition_language=<YOUR_LANGUAGE>`Ska konfigureras explicit i begäran om de använder en kol-klient.
+**Svar:** `speech_recognition_language=<YOUR_LANGUAGE>` Ska konfigureras explicit i begäran om de använder en kol-klient.
 
-Till exempel:
+Exempel:
 
 ```python
 if not recognize_once(
@@ -305,7 +305,7 @@ Kan du fylla i följande test mått, inklusive vilka funktioner som ska testas o
 - Kol som har utgångs punkt i versions utlösare (avslutar processen).
 
 Lösningen är antingen växlad till att använda kontinuerlig igenkänning i koden eller (snabbare) ansluter till antingen de interaktiva eller kontinuerliga slut punkterna i behållaren.
-För din kod ställer du in slut punkten på <Host: port>/Speech/Recognition/Interactive/cognitiveservices/v1
+För din kod ställer du in slut punkten till `host:port` /Speech/Recognition/Interactive/cognitiveservices/v1
 
 För olika lägen, se tallägen – se nedan:
 
@@ -366,7 +366,7 @@ Min nuvarande plan är att ta en befintlig ljudfil och dela upp den i 10 andra s
 
 Dokumentet säger att du vill exponera en annan port, vilket jag gör, men LUIS-behållaren lyssnar fortfarande på port 5000?
 
-**Svar:** Försök `-p <outside_unique_port>:5000` . Exempelvis `-p 5001:5000`.
+**Svar:** Försök `-p <outside_unique_port>:5000` . Till exempel `-p 5001:5000`.
 
 
 <br>
@@ -559,7 +559,7 @@ Python- [exempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk
 
 I C# för att aktivera diktering anropar du `SpeechConfig.EnableDictation()` funktionen.
 
-### <a name="fromendpoint-apis"></a>`FromEndpoint`N
+### <a name="fromendpoint-apis"></a>`FromEndpoint` N
 | Språk | API-information |
 |----------|:------------|
 | C++ | <a href="https://docs.microsoft.com/en-us/cpp/cognitive-services/speech/speechconfig#fromendpoint" target="_blank">`SpeechConfig::FromEndpoint` <span class="docon docon-navigate-external x-hidden-focus"></span></a> |
@@ -579,7 +579,7 @@ I C# för att aktivera diktering anropar du `SpeechConfig.EnableDictation()` fun
 
 **Svar:** Det finns ett nytt `FromHost` API. Detta ersätter eller ändrar inte några befintliga API: er. Det lägger bara till ett alternativt sätt att skapa en tal konfiguration med hjälp av en anpassad värd.
 
-### <a name="fromhost-apis"></a>`FromHost`N
+### <a name="fromhost-apis"></a>`FromHost` N
 
 | Språk | API-information |
 |--|:-|
@@ -597,8 +597,8 @@ Formatet för värden är `protocol://hostname:port` där `:port` är det valfri
 - Om behållaren körs på en fjärrserver använder du värd namnet eller IPv4-adressen för den servern.
 
 Värd parameter exempel för tal till text:
-- `ws://localhost:5000`-osäker anslutning till en lokal behållare med port 5000
-- `ws://some.host.com:5000`-osäker anslutning till en behållare som körs på en fjärrserver
+- `ws://localhost:5000` -osäker anslutning till en lokal behållare med port 5000
+- `ws://some.host.com:5000` -osäker anslutning till en behållare som körs på en fjärrserver
 
 Python-exempel från ovan, men Använd `host` parameter i stället för `endpoint` :
 

@@ -8,12 +8,12 @@ author: troy0820
 ms.author: b-trconn
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: 40a915531aa58567b17a774a15504dc92770479f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 046cd30c0f93a468287c73573a3d18f4ba66221b
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854336"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690229"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Skapa ett säkerhets kopierings program för Azure Red Hat OpenShift 4-kluster
 
@@ -29,7 +29,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här självstud
 
 ### <a name="install-velero"></a>Installera Velero
 
-Om du vill [Installera](https://velero.io/docs/master/basic-install/) Velero på systemet följer du den rekommenderade processen för ditt operativ system.
+Om du vill [Installera](https://velero.io/docs/main/basic-install/) Velero på systemet följer du den rekommenderade processen för ditt operativ system.
 
 ### <a name="set-up-azure-storage-account-and-blob-container"></a>Konfigurera Azure Storage-konto och blob-behållare
 

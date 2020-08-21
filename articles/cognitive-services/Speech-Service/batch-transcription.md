@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.author: wolfma
-ms.openlocfilehash: 519a9cdac678e8852bef9bd66e3fbb98278cbb3b
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b30a314977755b94bdcfdf7526d1b9ae61fcf100
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660882"
+ms.locfileid: "88689753"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -174,7 +174,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 ### <a name="storage"></a>Storage
 
-Med batch-avskrift kan du läsa ljud från en Internet-URI och läsa ljud-eller Skriv avskrifter med [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+Batch-avskrifter kan läsa ljud från en offentlig och synlig Internet-URI och kan läsa ljud-eller Skriv avskrifter med en SAS-URI med [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## <a name="batch-transcription-result"></a>Resultat av batch-avskrift
 
@@ -243,7 +243,7 @@ Varje avskrifts resultat fil har följande format:
 }
 ```
 
-Resultatet innehåller följande formulär:
+Resultatet innehåller följande fält:
 
 :::row:::
    :::column span="1":::
@@ -309,7 +309,8 @@ Tidsstämplar på Word-nivå måste vara aktiverade eftersom parametrarna i ovan
 
 ## <a name="best-practices"></a>Bästa praxis
 
-Batch-avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan ställa frågor om status för dina avskrifter via en `GET` på [Get-avskrifter](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Anropa [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Alternativt kan du ange `timeToLive` egenskapen till ett rimligt värde för att säkerställa eventuell borttagning av resultaten.
+Batch-avskrifts tjänsten kan hantera ett stort antal skickade avskrifter. Du kan fråga efter status för dina avskrifter med [Erhåll avskrifter](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
+Anropa [ta bort avskrift](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regelbundet från tjänsten när du har hämtat resultatet. Alternativt kan du ange `timeToLive` egenskapen för att säkerställa eventuell borttagning av resultaten.
 
 ## <a name="sample-code"></a>Exempelkod
 

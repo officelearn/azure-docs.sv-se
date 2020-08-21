@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8353b7290f0e0073faf93b4ea23bcc0ba50bb89e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: faf46a90a04e35eb041deb31913980575b1e0d28
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236479"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688053"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -100,8 +100,8 @@ Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut u
 Processorn för ändrings flöden kan finnas på alla plattformar som stöder tids krävande processer eller uppgifter:
 
 * En kontinuerlig körning av ett [Azure-webbjobb](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* En process i en [virtuell Azure-dator](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-virtual-machines).
-* Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs.md#azure-kubernetes-service).
+* En process i en [virtuell Azure-dator](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * En [värdbaserad ASP.net-tjänst](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
 Medan byte av flödes processor kan köras i korta miljön, eftersom Lease-behållaren upprätthåller tillstånd, kommer start-och stopp cykeln för dessa miljöer att lägga till fördröjning för att ta emot meddelanden (på grund av omkostnader för att starta processorn varje gång miljön startas).

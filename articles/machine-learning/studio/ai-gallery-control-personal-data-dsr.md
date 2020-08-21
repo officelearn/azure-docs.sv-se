@@ -10,16 +10,16 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 8255a4c6556dc1a36d763e48f6bcc5eec012b553
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6276d5c8d333f29c55720f2255f2cdf27e1e36cc
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292997"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690756"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Visa och ta bort användar data i produkten från Azure AI Gallery
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+
 
 Du kan visa och ta bort användar data från Azure AI Gallery med hjälp av gränssnitts-eller AI-galleriets katalog-API. Den här artikeln beskriver hur du gör.
 
@@ -88,7 +88,7 @@ Om du vill visa publicerade entiteter går du till följande URL och ersätter `
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'`
 
-Till exempel:
+Exempel:
 
 `https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA'`
 

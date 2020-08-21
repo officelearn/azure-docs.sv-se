@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 110d39791b3779a30e6541e77c0c6062cd51144c
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076049"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88688563"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -31,7 +31,7 @@ En praktisk guide till fel sökning från slut punkt till slut punkt i Azure Sto
 * [Övervaka lagrings tjänsten]
   * [Övervaknings tjänstens hälsa]
   * [Övervaknings kapacitet]
-  * [Övervaknings tillgänglighet]
+  * [Övervaka tillgänglighet]
   * [Övervaknings prestanda]
 * [Diagnostisera lagrings problem]
   * [Problem med tjänst hälsa]
@@ -136,7 +136,7 @@ Lagrings mått lagrar bara kapacitets mått för Blob-tjänsten eftersom blobbar
 
 Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Övervaknings tillgänglighet
+### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Övervaka tillgänglighet
 Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
 
 Alla värden som är mindre än 100% indikerar att vissa lagrings begär Anden inte fungerar. Du kan se varför de inte fungerar genom att undersöka de andra kolumnerna i mått data som visar antalet begär Anden med olika fel typer, till exempel **ServerTimeoutError**. Du bör förvänta dig att se till att **tillgänglighet** sjunker tillfälligt under 100% av orsaker som tillfälligt Server-timeout medan tjänsten flyttar partitioner till en bättre belastnings Utjämnings förfrågan. logiken för omprövning i klient programmet bör hantera sådana tillfälliga förhållanden. Artikeln [Lagringsanalys loggade åtgärder och status meddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) innehåller en lista över de transaktions typer som lagrings måtten innehåller i sin **tillgänglighets** beräkning.
@@ -468,7 +468,7 @@ Om klientprogrammet utfärdar HTTP 403-fel (förbjudet) beror det förmodligen p
 | Källa | Utförlighet | Utförlighet | ID för klientförfrågan | Åtgärds text |
 | --- | --- | --- | --- | --- |
 | Microsoft. Azure. Storage |Information |3 |85d077ab-... |Startar åtgärden med plats primärt per plats läge PrimaryOnly. |
-| Microsoft. Azure. Storage |Information |3 |85d077ab-... |Startar synkron begäran till<https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft. Azure. Storage |Information |3 |85d077ab-... |Startar synkron begäran till <https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Synchronous_and_Asynchronous_Requests#Synchronous_request> |
 | Microsoft. Azure. Storage |Information |3 |85d077ab-... |Väntar på svar. |
 | Microsoft. Azure. Storage |Varning |2 |85d077ab-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (403) förbjudet. |
 | Microsoft. Azure. Storage |Information |3 |85d077ab-... |Svaret togs emot. Status kod = 403, begäran-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 =, ETag =. |
@@ -516,7 +516,7 @@ Logg poster:
 | 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = HEAD............ x-MS-client-Request-ID: 07b26a5d-.... x-MS-date: tis, 03 jun 2014 10:33:11 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | 07b26a5d-... |Väntar på svar. |
-| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, ETag = &quot; 0x8D14D2DC63D059B &quot; . |
+| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, ETag =    &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Laddar ned svars text. |
 | 07b26a5d-... |Åtgärden har slutförts. |
@@ -824,7 +824,7 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Övervaka lagrings tjänsten]: #monitoring-your-storage-service
 [Övervaknings tjänstens hälsa]: #monitoring-service-health
 [Övervaknings kapacitet]: #monitoring-capacity
-[Övervaknings tillgänglighet]: #monitoring-availability
+[Övervaka tillgänglighet]: #monitoring-availability
 [Övervaknings prestanda]: #monitoring-performance
 
 [Diagnostisera lagrings problem]: #diagnosing-storage-issues

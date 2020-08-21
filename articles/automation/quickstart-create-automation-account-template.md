@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 4246d8324eebe15b314393fc4a26adcaf12c9f6f
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 37a619fe3279d1cb03763b14c3dfc9e315d850b9
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117276"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88685654"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Snabb start: skapa ett Automation-konto med hjälp av ARM-mall
 
@@ -50,7 +50,7 @@ När du har slutfört de här stegen måste du [Konfigurera diagnostikinställni
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-automation/).
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json" range="1-324" highlight="58-122":::
+:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
 
 ### <a name="api-versions"></a>API-versioner
 

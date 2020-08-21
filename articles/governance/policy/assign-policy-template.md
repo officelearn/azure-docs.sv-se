@@ -4,12 +4,12 @@ description: I den här snabb starten använder du en Azure Resource Manager mal
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 93c8e907190a3e87c3c0ce3392ccfd7fd4d2e515
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2f012f9cc8f986f8f887096098961e44c4b7dffb
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520880"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689855"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en ARM-mall
 
@@ -32,7 +32,7 @@ I den här snabb starten skapar du en princip tilldelning och tilldelar en inbyg
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 
-:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json" range="1-30" highlight="20-28":::
+:::code language="json" source="~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json":::
 
 Den resurs som definierats i mallen är:
 
@@ -49,7 +49,7 @@ Den resurs som definierats i mallen är:
 
 1. Välj eller ange följande värden:
 
-   | Name | Värde |
+   | Namn | Värde |
    |------|-------|
    | Prenumeration | Välj din Azure-prenumeration. |
    | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn _mypolicyquickstart \<Date in MMDD\> RG_. |

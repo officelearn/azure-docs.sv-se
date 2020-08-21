@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 37a687a17df266fe0589c24b392c0527e001f976
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831302"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88683903"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Tidigare generationer av virtuella dator storlekar
 
@@ -59,7 +59,7 @@ Premium Storage caching: stöds
 
 Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
-<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en virtuell FS-serienhet kan begränsas av antal, storlek och striping av de anslutna diskarna.  Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).  
+<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en virtuell FS-serienhet kan begränsas av antal, storlek och striping av de anslutna diskarna.  Mer information finns i [design för hög prestanda (./Premium-Storage-Performance.MD).
 
 
 ## <a name="nvv2-series"></a>NVv2-serien
@@ -267,7 +267,7 @@ Premium Storage caching: stöds
 | Standard_DS13 | 8  | 56  | 112 | 32 | 32000/256 (288) | 25600/256 | 8/4000 |
 | Standard_DS14 | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/512 | 8/8000 |
 
-<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som möjligt med en virtuell dator i DS-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som möjligt med en virtuell dator i DS-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [design för hög prestanda (./Premium-Storage-Performance.MD).
 <sup>2</sup> VM-serien kan köras på någon av följande CPU: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
@@ -293,7 +293,7 @@ Premium Storage caching: stöds inte
 | Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16000 |
 | Standard_L32s &nbsp; <sup>1</sup> | 32 | 256 | 5630 | 64 | 160000/1600 | 40000/1000 | 8/20000 |
 
-Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serien kan begränsas av antal, storlek och striping för anslutna diskar. Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).
+Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serien kan begränsas av antal, storlek och striping för anslutna diskar. Mer information finns i [design för hög prestanda (./Premium-Storage-Performance.MD).
 
 <sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
 
@@ -315,7 +315,7 @@ Premium Storage caching: stöds
 | Standard_GS4 &nbsp; <sup>3</sup> | 16 | 224 | 448 | 64 | 80000/800 (2112) | 40000/1000 | 8/16000 |
 | Standard_GS5 &nbsp; <sup>2, &nbsp; 3</sup> | 32 | 448 |896 | 64 |160000/1600 (4224) | 80000/2000 | 8/20000 |
 
-<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en GS-seriens virtuella dator kan begränsas av antalet, storlek och striping av de anslutna diskarna. Mer information finns i utforma för höga prestanda för [Windows](windows/premium-storage-performance.md) eller [Linux](linux/premium-storage-performance.md).
+<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en GS-seriens virtuella dator kan begränsas av antalet, storlek och striping av de anslutna diskarna. Mer information finns i [design för hög prestanda (./Premium-Storage-Performance.MD).
 
 <sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
 

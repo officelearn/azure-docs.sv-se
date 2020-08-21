@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 75f8a1f42c5d5702fdb4a588b0829636c30f80a6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66837a0e4118695b19776972fdb4fd88a70ee561
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654624"
+ms.locfileid: "88690331"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines DBMS-distribution för SAP-arbetsbelastning
 
@@ -444,7 +444,7 @@ I det här fallet rekommenderar vi att du installerar/hittar Oracle Home, Stage,
 
 Fil systemet för ext4, xfs eller Oracle ASM stöds för Oracle Database-filer på Azure. Alla databasfiler måste lagras i dessa fil system baserat på VHD: er eller Managed Disks. De här diskarna monteras på den virtuella Azure-datorn och baseras på [Azure Page Blob Storage](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) eller [Azure Managed disks](../../managed-disks-overview.md).
 
-För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](../../windows/premium-storage-performance.md#disk-caching).
+För Oracle Linux UEK-kärnor krävs minst UEK version 4 för att stödja [Azure Premium-SSD](../../premium-storage-performance.md#disk-caching).
 
 Vi rekommenderar starkt att du använder [Azure Managed disks](../../managed-disks-overview.md). Vi rekommenderar också att du använder [Azure Premium-SSD](../../disks-types.md) för dina Oracle Database-distributioner.
 

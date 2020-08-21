@@ -482,16 +482,12 @@
           href: platform/autoscale-resource-log-schema.md
     - name: Aviseringar
       items:
-        - name: Aviseringsregler för program
-          items:
-            - name: Tillgänglighet
-              href: app/monitor-web-app-availability.md
-            - name: Måttaviseringar
-              href: ./platform/alerts-log.md
         - name: Måttaviseringsregler
           items:
             - name: Hantera måttaviseringar
               href: platform/alerts-metric.md
+            - name: Tillgänglighet
+              href: app/monitor-web-app-availability.md
             - name: Använda dynamiska tröskelvärden
               href: platform/alerts-dynamic-thresholds.md
             - name: Enskilda aviseringar för många tidsserier

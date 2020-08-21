@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: b78ce7baf60431e0f9ee1b1218d2d57019b35359
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 78310d35361a3c34992e9fb3f08d8432b4ec4fb8
+  ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87068984"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88650532"
 landingContent:
 - title: Felsöka distributionsfel
   linkLists:
@@ -92,9 +92,9 @@ landingContent:
     - text: Felsöka allokeringsfel när du ändar storlek på en virtuell dator
       url: ./allocation-failure.md
     - text: Förstå den temporära enheten på din virtuella dator
-      url: ../linux/managed-disks-overview.md#temporary-disk
+      url: ../managed-disks-overview.md#temporary-disk
     - text: Översikt över Azure Managed Disks
-      url: ../linux/managed-disks-overview.md
+      url: ../managed-disks-overview.md
     - text: Vanliga frågor och svar om VM-diskar i Azure samt hanterade och ohanterade premiumdiskar
       url: ../linux/convert-unmanaged-to-managed-disks.md
 - title: Problem med diskkryptering

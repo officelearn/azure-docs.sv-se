@@ -5,17 +5,18 @@ metadata:
   title: Azure Cost Management + Fakturering
   description: Azure Cost Management + Fakturering gör det enklare att förstå Azure-faktureringen, hantera konton och prenumerationer, övervaka och kontrollera Azure-utgifter och optimera resursanvändningen. Lär dig hur du analyserar kostnader, skapar och hanterar budgetar, exporterar data, och granskar och arbetar med rekommendationer.
   ms.service: cost-management-billing
+  ms.subservice: common
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 06/01/2020
-  ms.openlocfilehash: c999417f091d82adf09df5d6962de146ef58b285
-  ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+  ms.date: 08/20/2020
+  ms.openlocfilehash: 1d3fafd26b5ad7f92d9280701a386a09f1ad3d22
+  ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 08/16/2020
-  ms.locfileid: "88257370"
+  ms.lasthandoff: 08/20/2020
+  ms.locfileid: "88683138"
 landingContent:
 - title: Analysera dina kostnader
   linkLists:

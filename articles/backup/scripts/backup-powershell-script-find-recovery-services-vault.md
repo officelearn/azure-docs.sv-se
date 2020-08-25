@@ -3,16 +3,16 @@ title: PowerShell-skript – hitta valv för lagrings konto
 description: Lär dig hur du använder ett Azure PowerShell-skript för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: 56e1b1bc1b9d46abecfbdc4b98385a0349711aab
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648725"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757531"
 ---
 # <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>PowerShell-skript för att hitta Recovery Services valv där ett lagrings konto registreras
 
-Det här skriptet hjälper dig att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
+Det här skriptet hjälper dig att hitta Recovery Servicess valvet där ditt lagrings konto är registrerat.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -56,7 +56,7 @@ if(!$found)
     * **-StorageAccountName** – lagrings konto namn
     * **-SubscriptionID** -ID för den prenumeration där lagrings kontot finns.
 
-Följande exempel försöker hitta Recovery Services-valvet där *afsaccount* -lagrings kontot är registrerat:
+I följande exempel försöker hitta Recovery Servicess valvet där lagrings kontot för *afsaccount* är registrerat:
 
 ```powershell
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
@@ -64,7 +64,7 @@ Följande exempel försöker hitta Recovery Services-valvet där *afsaccount* -l
 
 ## <a name="output"></a>Utdata
 
-I utdata visas den fullständiga sökvägen till Recovery Services-valvet där lagrings kontot är registrerat. Här är exempel på utdata:
+I utdata visas den fullständiga sökvägen till Recovery Services valvet där lagrings kontot är registrerat. Här är exempel på utdata:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123

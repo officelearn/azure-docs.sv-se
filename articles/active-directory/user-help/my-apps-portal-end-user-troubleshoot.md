@@ -12,12 +12,12 @@ ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5d1b08944417493d175de23c7738db58f1c7bd3
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741871"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798014"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Felsök problem med portalen för Mina appar
 
@@ -51,7 +51,7 @@ Om du har problem med att logga in på portalen för **Mina appar** kan du prova
 
 - Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
-- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](./multi-factor-authentication-end-user-first-time.md) eller [ändra dina metoder och information om säkerhets information](./security-info-setup-auth-app.md).
 
 - Lägg till **min app** portal-URL till inställningen **Internet egenskaper > säkerhets > betrodda platser** .
 
@@ -75,7 +75,7 @@ Om du får ett meddelande om **nekad åtkomst** efter att du har startat en app 
 
 - Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
-- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](./multi-factor-authentication-end-user-first-time.md) eller [ändra dina metoder och information om säkerhets information](./security-info-setup-auth-app.md).
 
 - Rensa webbläsarens cache och försök att logga in igen.
 

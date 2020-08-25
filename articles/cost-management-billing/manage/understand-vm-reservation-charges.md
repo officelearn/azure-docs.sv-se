@@ -4,14 +4,14 @@ description: Lär dig hur rabatten för Azure Reserved VM Instances tillämpas p
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/13/2020
 ms.author: banders
-ms.openlocfilehash: a9d9a5661e8a094b7d92a9dd83db3cdcd76b8b65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ddf232dbe6c6ff61f685e2910286188fb92e1f17
+ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018390"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88192211"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
 
@@ -56,11 +56,15 @@ När du kör instanser av virtuella Windows-datorer tillämpas reservationen fö
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Rabatten kan tillämpas på olika storlekar
 
-När du köper en reserverad VM-instans och väljer **Optimerad för**: **flexibel instansstorlek** beror rabattens täckning på den VM-storlek som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+När du köper en reserverad VM-instans och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek du väljer. Den kan också gälla för andra VM-storlekar som är i samma serie av flexibel instansstorlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## <a name="discount-applies-to-matching-servicetype-only"></a>Rabatten tillämpas endast på matchande ServiceType
+## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Virtuella datorer i Premium Storage får inte rabatter som inte är premium
 
-En reservationsrabatt tillämpas endast på den VM-användning där värdet för `ServiceType` i `AdditionalInfo` överensstämmer med den reservation som köps. Tillämpningen av reservationsrabatt ignorerar den mätare som används för virtuella datorer och utvärdera endast `ServiceType`. Du bör känna till vilken tjänsttyp som du har köpt den virtuella datorn för. Du kan byta ut en VM-reservation för icke-Premium-lagring mot en reservation för Premium-lagring eller vice versa.
+Här är ett exempel. Anta att du har köpt en reservation för fem virtuella Standard_D1-datorer. Då gäller reservationsrabatten endast för virtuella Standard_D1-datorer eller andra virtuella datorer i samma instansfamilj. Rabatten gäller inte för virtuella Standard_DS1-datorer eller andra storlekar i gruppen DS1 för flexibel instansstorlek.
+
+Tillämpningen av reservationsrabatt ignorerar den mätare som används för virtuella datorer och utvärdera endast tjänsttyp. Titta på värdet `ServiceType` i `AdditionalInfo` för att fastställa informationen för instansens flexibilitetsgrupp/-serie för dina virtuella datorer. Värdena finns i din användningsfil (CSV).
+
+Du kan inte ändra instansens flexibilitetsgrupp/-serie för reservationen direkt efter köpet. Men om du vill kan du *byta ut* en VM-reservation från en flexibilitetsinstansgrupp/-serie mot en annan.
 
 ## <a name="services-that-get-vm-reservation-discounts"></a>Tjänster som får rabatter för VM-reservation
 

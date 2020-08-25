@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 104fb177a1379d5a09dc54cf6f78c401744d697f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761771"
+ms.locfileid: "88763311"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -44,7 +44,7 @@ Följande är vanliga problem med säkerhets kopierings fel på virtuella Azure-
 Felkod: VMRestorePointInternalError
 
 Om du vid tidpunkten för säkerhets kopieringen visar **Loggboken-programloggarna** visas meddelandets **fel program namn: IaaSBcdrExtension.exe** sedan bekräftas att antivirus programmet som kon figurer ATS i den virtuella datorn begränsar körningen av säkerhets kopierings tillägget.
-Lös problemet genom att undanta följande kataloger i Antivirus konfigurationen och försök att säkerhetskopiera igen.
+Lös problemet genom att undanta katalogerna nedan i Antivirus konfigurationen och försök att säkerhetskopiera igen.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 * `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -93,8 +93,8 @@ Säkerhets kopieringen misslyckades på grund av ett problem med Windows-tjänst
 * Om du inte kan starta om tjänsten installerar du om **koordinator för distribuerad transaktion** tjänsten genom att följa stegen nedan:
   * Stoppa MSDTC-tjänsten
   * Öppna en kommandotolk (cmd)
-  * Kör kommandot "MSDTC-Uninstall"
-  * Kör kommandot "MSDTC-Install"
+  * Kör kommandot `msdtc -uninstall`
+  * Kör kommandot `msdtc -install`
   * Starta MSDTC-tjänsten
 * Starta Windows-tjänsten **com+-system tillämpning**. När **com+-system programmet** startar utlöser du ett säkerhets kopierings jobb från Azure Portal.</ol>
 
@@ -165,7 +165,7 @@ Säkerhets kopierings åtgärden misslyckades på grund av ett inkonsekvent till
 Felkod: ExtensionFailedSnapshotLimitReachedError  <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom ögonblicks bilds gränsen har överskridits för vissa av diskarna som är anslutna
 
-Det gick inte att utföra ögonblicks bild åtgärden eftersom gränsen för ögonblicks bilder har överskridits för vissa av de anslutna diskarna. Slutför nedanstående fel söknings steg och försök sedan igen.
+Det gick inte att utföra ögonblicks bild åtgärden eftersom gränsen för ögonblicks bilder har överskridits för vissa av de anslutna diskarna. Slutför följande fel söknings steg och försök sedan igen.
 
 * Ta bort disk-BLOB-ögonblicksbilder som inte krävs. Var försiktig med att inte ta bort disk-blob. det är bara ögonblicks bilds blobbar som ska tas bort.
 * Om mjuk borttagning är aktiverat på VM disk Storage-konton, konfigurerar du mjuk borttagnings kvarhållning, så att befintliga ögonblicks bilder är mindre än det maximalt tillåtna antalet vid någon tidpunkt.
@@ -183,7 +183,7 @@ Det gick inte att säkerhetskopiera den virtuella datorn på grund av fördröjn
 
 **Steg 1**: skapa en ögonblicks bild via värden
 
-Från en upphöjd kommandotolk (administratör) kör du kommandot nedan:
+Kör följande kommando från en utökad (admin) kommando tolk:
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f

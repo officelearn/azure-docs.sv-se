@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b13585b4a839bfcf6c0645c911e98d1f1885f3ca
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b5bf7cc74a5444e5f51aaddb1d088f6b0c1e52a8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036716"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798898"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DBs API för MongoDB
 
@@ -21,26 +21,6 @@ ms.locfileid: "88036716"
 
 > [!NOTE]
 > Om du vill använda ändrings strömmar skapar du kontot med version 3,6 av Azure Cosmos DB s API för MongoDB eller en senare version. Om du kör exemplen för ändrings data strömmar mot en tidigare version kan du se `Unrecognized pipeline stage name: $changeStream` felet.
-
-## <a name="current-limitations"></a>Aktuella begränsningar
-
-Följande begränsningar gäller när du använder ändrings strömmar:
-
-* `operationType`Egenskaperna och `updateDescription` stöds inte ännu i utmatnings dokumentet.
-* `insert` `update` `replace` Operations typerna, och stöds för närvarande. 
-* Borttagnings åtgärden eller andra händelser stöds inte ännu.
-
-På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
-
-Till skillnad från byte-feeden i Azure Cosmos DB SQL-API: t finns det ingen separat [ändrings flödes processor bibliotek](change-feed-processor.md) för att använda ändrings strömmar eller ett behov av en container container. För närvarande stöds inte Azure Functions- [utlösare](change-feed-functions.md) för att bearbeta ändrings strömmar.
-
-## <a name="error-handling"></a>Felhantering
-
-Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
-
-* **Http-felkod 16500** -när ändrings data strömmen är begränsad returneras en tom sida.
-
-* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, `NamespaceNotFound` returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras felet i stället för `operationType Invalidate` felet `NamespaceNotFound` .
 
 ## <a name="examples"></a>Exempel
 
@@ -156,15 +136,17 @@ var cursor = db.coll.watch(
 Följande begränsningar gäller när du använder ändrings strömmar:
 
 * `operationType`Egenskaperna och `updateDescription` stöds inte ännu i utmatnings dokumentet.
-* `insert` `update` `replace` Operations typerna, och stöds för närvarande. Borttagnings åtgärden eller andra händelser stöds inte ännu.
+* `insert` `update` `replace` Operations typerna, och stöds för närvarande. Borttagnings åtgärden eller andra händelser stöds dock inte ännu.
 
 På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
+
+Till skillnad från byte-feeden i Azure Cosmos DB SQL-API: t finns det ingen separat [ändrings flödes processor bibliotek](change-feed-processor.md) för att använda ändrings strömmar eller ett behov av en container container. För närvarande stöds inte Azure Functions- [utlösare](change-feed-functions.md) för att bearbeta ändrings strömmar.
 
 ## <a name="error-handling"></a>Felhantering
 
 Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
 
-* **Http-felkod 429** -när ändrings data strömmen är begränsad returneras en tom sida.
+* **Http-felkod 16500** -när ändrings data strömmen är begränsad returneras en tom sida.
 
 * **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, `NamespaceNotFound` returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras felet i stället för `operationType Invalidate` felet `NamespaceNotFound` .
 

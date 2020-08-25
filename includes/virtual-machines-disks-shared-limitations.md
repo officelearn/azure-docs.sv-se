@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/14/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4a204be0730a0ce4edcd2e343364ed8fc724430e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88655016"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88809786"
 ---
 Att aktivera delade diskar är bara tillgängligt för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
@@ -30,7 +30,7 @@ Delade Ultra disks är tillgängliga i alla regioner som stöder Ultra disks som
 
 ### <a name="premium-ssds"></a>Premium SSD
 
-- Stöds för närvarande endast i regionen västra centrala USA.
+- Stöds för närvarande bara i [en delmängd av regioner](#regional-availability).
 - För närvarande begränsad till Azure Resource Manager-eller SDK-support. 
 - Kan bara aktive ras på data diskar, inte på OS-diskar.
 - **ReadOnly** -cachelagring av värden är inte tillgängligt för Premium-SSD med `maxShares>1` .
@@ -39,5 +39,22 @@ Delade Ultra disks är tillgängliga i alla regioner som stöder Ultra disks som
 - När du använder [närhets placerings grupper (PPG)](../articles/virtual-machines/windows/proximity-placement-groups.md)måste alla virtuella datorer som delar en disk ingå i samma PPG.
 - Det går bara att använda standard diskar med vissa versioner av Windows Server-redundanskluster, mer information finns i [maskin varu krav och lagrings alternativ för redundanskluster](https://docs.microsoft.com/windows-server/failover-clustering/clustering-requirements).
 - Azure Backup och Azure Site Recovery support är ännu inte tillgängligt.
+
+#### <a name="regional-availability"></a>Regional tillgänglighet
+
+Shared Premium-SSD stöds endast i följande regioner:
+
+- East US
+- USA, östra 2
+- USA, västra
+- USA, västra 2
+- USA, västra centrala
+- USA, södra centrala
+- Central US
+- Sydkorea, centrala
+- Kanada, centrala
+- Kanada, östra
+- US Gov, Virginia
+- US Gov, Arizona
 
 Om du är intresse rad av att testa Shared Premium-SSD kan du [Registrera dig för åtkomst](https://aka.ms/AzureSharedDiskGASignUp).

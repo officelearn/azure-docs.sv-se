@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 6d3e35f44d11cd9ed41badbc64ff7528b5b15558
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 31f64a504156134b1d622705d5301d9cd5a5f5b1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084400"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756834"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>Felsöka ändringar av enhets namn för virtuella Linux-datorer
 
@@ -42,7 +42,7 @@ Problemet beror på att enhets genomsökning i Linux har schemalagts av SCSI-und
 
 Lös problemet genom att använda beständiga namn. Det finns fyra sätt att använda beständiga namn: efter fil Systems etikett, efter UUID, efter ID eller sökväg. Vi rekommenderar att du använder fil Systems etiketten eller UUID: n för virtuella Azure Linux-datorer.
 
-De flesta distributioner ger `fstab` parametrarna **nomisslyckande** eller **nobootwait** . Dessa parametrar gör det möjligt för ett system att starta när disken inte kan monteras vid start. Mer information om dessa parametrar finns i distributions dokumentationen. Information om hur du konfigurerar en virtuell Linux-dator för att använda en UUID när du lägger till en datadisk finns i [Anslut till den virtuella Linux-datorn för att montera den nya disken](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk).
+De flesta distributioner ger `fstab` parametrarna **nomisslyckande** eller **nobootwait** . Dessa parametrar gör det möjligt för ett system att starta när disken inte kan monteras vid start. Mer information om dessa parametrar finns i distributions dokumentationen. Information om hur du konfigurerar en virtuell Linux-dator för att använda en UUID när du lägger till en datadisk finns i [Anslut till den virtuella Linux-datorn för att montera den nya disken](../linux/add-disk.md#format-and-mount-the-disk).
 
 När Azure Linux-agenten installeras på en virtuell dator använder agenten udev-regler för att skapa en uppsättning symboliska länkar under/dev/disk/Azure-sökvägen. Program och skript använder udev-regler för att identifiera diskar som är anslutna till den virtuella datorn, samt disk typen och diskens LUN.
 

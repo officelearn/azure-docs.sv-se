@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 692ddbf1e17e316bdcee6c34062ffa51ef278bc7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 638ab84658c36536966ef990570684a047521ee6
+ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923789"
+ms.lasthandoff: 08/16/2020
+ms.locfileid: "88257440"
 ---
 ::: zone target="docs"
 
@@ -224,7 +224,7 @@ Gör så här om du returnerar enheten i Kina.
 
 ### <a name="self-managed"></a>[Egenhanterad](#tab/in-selfmanaged)
 
-Om du använder Data Box Disk i Japan, Singapore, Sydkorea, Västeuropa eller Indien och valde alternativet för egenhanterad frakt när du skapade ordern gör du så här:
+Om du använder Data Box Disk i US Government, Japan, Singapore, Korea, Europa, västra, Sydafrika eller Indien och valde alternativet för egenhanterad frakt när du skapade ordern följer du de här anvisningarna.
 
 1. Gå till bladet **Översikt** för din beställning i Azure Portal. Gå igenom de instruktioner som visas när du väljer **Schemalägg hämtning**. Du bör se en auktoriseringskod som används vid tidpunkten för avlämning av ordern.
 

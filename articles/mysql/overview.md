@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206405"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763668"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure Database for MySQL?
 
@@ -37,6 +37,9 @@ Den här artikeln är en introduktion till Azure Database for MySQL grundläggan
 En uppsättning Azure CLI-exempel finns här:
 
 - [Azure CLI-exempel för Azure Database for MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Automatisk uppdatering
+Tjänsten utför automatisk uppdatering av underliggande maskin vara, operativ system och databas motor. Korrigeringen innehåller säkerhets-och program uppdateringar för den underliggande maskin varan, operativ systemet och databas motorn. För MySQL-motorn är lägre versions uppgraderingar automatiska och ingår som en del av korrigerings versionen. När communityn släpper en lägre version, integreras den automatiskt som en del av test cykeln för tjänsten. Testningen av den lägre versionen utförs på några av de kanoniska arbets belastningarna för MySQL. Den lägre versionen av MySQL-motorn utvärderas för tillförlitlighet (inga krascher), tillgänglighet, säkerhet och prestanda. Det är inte alla lägre versioner som släpps till produktion i tjänsten, men det är utvärderas baserat på den kritiska fel korrigeringen och ett nytt öknings värde. Detta är att göra den högra balansen mellan nytt ökande värde och minimera variablerna i systemet för stabilitet. Det finns inga användar åtgärder eller konfigurations inställningar som krävs för korrigering. Uppdaterings frekvensen är tjänst som hanteras baserat på nytto lastens allvarlighets grad. I allmänhet följer tjänsten varje månads versions schema som en del av den kontinuerliga integreringen och versionen. Användare kan prenumerera på ett [planerat underhålls meddelande](concepts-monitoring.md) för att få ett meddelande om kommande underhåll 72 timmar före händelsen.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
 Tjänsten Azure Database for MySQL erbjuder flera tjänst nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika prestanda och funktioner för att stödja lätta till tunga arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-service-tiers.md).

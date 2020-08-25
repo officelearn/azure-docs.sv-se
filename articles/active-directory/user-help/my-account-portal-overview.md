@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: da00d77138eb3ff737c26d7fa52ab0bb56ec6ae4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95947a9350f19f0f0ff45b7c65e14729b66f26cf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422426"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798167"
 ---
 # <a name="what-is-the-my-account-portal"></a>Vad är portalen Mitt konto?
 
@@ -33,11 +33,11 @@ Du kan gå till **min konto** portal ( https://myaccount.microsoft.com) från de
 ![Min konto Portal, översikts sida](media/my-account-portal/my-account-portal-overview.png)
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker komma åt min konto Portal för att uppdatera sin säkerhets information, enhets information, lösen ord, anslutna organisationer, språk inställningar, sekretess eller tidigare inloggnings information. Om du är administratör för att söka efter information om hur du aktiverar autentisering och andra Azure Active Directory (Azure AD)-funktioner för dina anställda och andra användnings områden kan du läsa mer i [Azure AD-dokumentationen för administratörer](https://docs.microsoft.com/azure/active-directory/).
+>Den här artikeln är avsedd för användare som försöker komma åt min konto Portal för att uppdatera sin säkerhets information, enhets information, lösen ord, anslutna organisationer, språk inställningar, sekretess eller tidigare inloggnings information. Om du är administratör för att söka efter information om hur du aktiverar autentisering och andra Azure Active Directory (Azure AD)-funktioner för dina anställda och andra användnings områden kan du läsa mer i [Azure AD-dokumentationen för administratörer](../index.yml).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Välj om du vill visa eller hantera din [säkerhets information](user-help-security-info-overview.md)
+- Välj om du vill visa eller hantera din [säkerhets information](./security-info-setup-signin.md)
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md)
 

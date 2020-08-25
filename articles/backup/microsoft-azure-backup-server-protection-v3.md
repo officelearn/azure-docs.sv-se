@@ -3,12 +3,12 @@ title: Vad Azure Backup Server v3 RTM kan säkerhetskopiera
 description: Den här artikeln innehåller en skydds mat ris som visar alla arbets belastningar, data typer och installationer som Azure Backup som hanterar v3 RTM-skydd.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 30da2efd161d789cd73829c270b64f3610945413
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21c5fbcdf8aa3454a9af968509cb4cbf76b31f9e
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661290"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763617"
 ---
 # <a name="azure-backup-server-v3-rtm-protection-matrix"></a>Azure Backup Server v3 RTM-skydds mat ris
 

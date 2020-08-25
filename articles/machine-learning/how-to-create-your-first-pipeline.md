@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8b6ed41333a0ea113d939ab79bd9e9291a0dae9c
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ca1419fe95e9ca383c09c7bc33a16ce148549cb6
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244062"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755083"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -34,7 +34,7 @@ ML pipelines använder fjärrberäknings mål för beräkning och temporära dat
 
 Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skapa en [Azure Machine Learning arbets yta](how-to-manage-workspace.md) för att lagra alla dina pipeline-resurser.
 
@@ -55,7 +55,11 @@ Skapa de resurser som krävs för att köra en ML-pipeline:
 
 * Konfigurera ett data lager som används för att komma åt de data som behövs i pipeline-stegen.
 
-* Konfigurera ett `Dataset` objekt så att det pekar på beständiga data som finns i, eller är tillgängliga i, ett data lager. Konfigurera ett `PipelineData` objekt för temporära data som skickas mellan pipeline-steg. 
+* Konfigurera ett `Dataset` objekt så att det pekar på beständiga data som finns i, eller är tillgängliga i, ett data lager. Konfigurera ett `OutputFileDatasetConfig` objekt för tillfälliga data som skickas mellan pipeline-steg eller för att skapa utdata. 
+> [!NOTE]
+>`OutputFileDatasetConfig`Klassen är en experimentell förhands gransknings funktion och kan ändras när som helst.
+>
+>Mer information finns i https://aka.ms/azuremlexperimental.
 
 * Konfigurera [beräknings målen](concept-azure-machine-learning-architecture.md#compute-targets) som dina pipeline-steg ska köras på.
 
@@ -90,7 +94,7 @@ En pipeline består av ett eller flera steg. Ett steg är en enhets körning på
 
 Mer information om hur du ansluter din pipeline till dina data finns i artikeln [så här får du åtkomst till data](how-to-access-data.md) och [hur du registrerar data uppsättningar](how-to-create-register-datasets.md). 
 
-### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Konfigurera data med hjälp av `Dataset` och- `PipelineData` objekt
+### <a name="configure-data-with-dataset-and-outputfiledatasetconfig-objects"></a>Konfigurera data med `Dataset` och- `OutputFileDatasetConfig` objekt
 
 Du har precis skapat en data källa som kan refereras till i en pipeline som indata till ett steg. Det bästa sättet att tillhandahålla data till en pipeline är ett [data uppsättnings](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) objekt. `Dataset`Objektet pekar på data som finns i eller kan nås från ett data lager eller en webb-URL. `Dataset`Klassen är abstrakt, så du kommer att skapa en instans av antingen en `FileDataset` (som refererar till en eller flera filer) eller en `TabularDataset` som skapats av från en eller flera filer med avgränsade kolumner med data.
 
@@ -104,18 +108,17 @@ from azureml.core import Dataset
 iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 'train-dataset/iris.csv')])
 ```
 
-Mellanliggande data (eller utdata från ett steg) representeras av ett [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) -objekt. `output_data1` skapas som utdata från ett steg och används som indata för ett eller flera framtida steg. `PipelineData` introducerar ett data beroende mellan stegen och skapar en implicit körnings ordning i pipelinen. Det här objektet kommer att användas senare när du skapar pipeline-steg.
+Mellanliggande data (eller utdata från ett steg) representeras av ett [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) -objekt. `output_data1` skapas som utdata från ett steg och används som indata för ett eller flera framtida steg. `OutputFileDatasetConfig` introducerar ett data beroende mellan stegen och skapar en implicit körnings ordning i pipelinen. Det här objektet kommer att användas senare när du skapar pipeline-steg.
+
+`OutputFileDatasetConfig` objekt returnerar en katalog och skriver utdata som standard till arbets ytans standard data lager.
 
 ```python
-from azureml.pipeline.core import PipelineData
+from azureml.data import OutputFileDatasetConfig
 
-output_data1 = PipelineData(
-    "output_data1",
-    datastore=def_blob_store,
-    output_name="output_data1")
+output_data1 = OutputFileDatasetConfig()
 ```
 
-Mer information och exempel kod för att arbeta med data uppsättningar och pipeline-data finns i [Flytta data till och mellan ml-steg (python)](how-to-move-data-in-out-of-pipelines.md).
+Mer information och exempel kod för att arbeta med data uppsättningar och OutputFileConfig-objekt finns i [Flytta data till och mellan ml-steg (python)](how-to-move-data-in-out-of-pipelines.md).
 
 ## <a name="set-up-a-compute-target"></a>Konfigurera ett beräknings mål
 
@@ -316,8 +319,6 @@ data_prep_step = PythonScriptStep(
     script_name=entry_point,
     source_directory=dataprep_source_dir,
     arguments=["--input", ds_input.as_download(), "--output", output_data1],
-    inputs=[ds_input],
-    outputs=[output_data1],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
@@ -326,7 +327,7 @@ data_prep_step = PythonScriptStep(
 
 Koden ovan visar ett typiskt första pipeline-steg. Din data förberedelse kod finns i en under katalog (i det här exemplet `"prepare.py"` i katalogen `"./dataprep.src"` ). Som en del av processen för att skapa pipelinen är den här katalogen zippad och överförd till `compute_target` och steget Kör skriptet som anges som värde för `script_name` .
 
-`arguments`Värdena, `inputs` och `outputs` anger indata och utdata för steget. I exemplet ovan är data uppsättningen för bas linjen `my_dataset` . Motsvarande data hämtas till beräknings resursen eftersom koden anger den som `as_download()` . Skriptet `prepare.py` utför de data omvandlings aktiviteter som är lämpliga för den aktuella aktiviteten och matar ut data till `output_data1` , av typen `PipelineData` . Mer information finns i [Flytta data till och mellan steg om ml-pipeline (python)](how-to-move-data-in-out-of-pipelines.md). 
+`arguments`Värdena anger indata och utdata för steget. I exemplet ovan är data uppsättningen för bas linjen `my_dataset` . Motsvarande data hämtas till beräknings resursen eftersom koden anger den som `as_download()` . Skriptet `prepare.py` utför de data omvandlings aktiviteter som är lämpliga för den aktuella aktiviteten och matar ut data till `output_data1` , av typen `OutputFileDatasetConfig` . Mer information finns i [Flytta data till och mellan steg om ml-pipeline (python)](how-to-move-data-in-out-of-pipelines.md). 
 
 Steget kommer att köras på den dator som definieras av `compute_target` , med hjälp av konfigurationen `aml_run_config` . 
 
@@ -338,24 +339,20 @@ Det är möjligt att skapa en pipeline med ett enda steg, men nästan alltid vä
 train_source_dir = "./train_src"
 train_entry_point = "train.py"
 
-training_results = PipelineData(
-    "training_results",
-    datastore=def_blob_store,
-    output_name="training_results")
+training_results = OutputFileDatasetConfig(name = "training_results",
+                                           destination = def_blob_store)
 
 train_step = PythonScriptStep(
     script_name=train_entry_point,
     source_directory=train_source_dir,
     arguments=["--prepped_data", output_data1, "--training_results", training_results],
-    inputs=[output_data1],
-    outputs=[training_results],
     compute_target=compute_target,
     runconfig=aml_run_config,
     allow_reuse=True
 )
 ```
 
-Ovanstående kod liknar den för steget förberedelse av data. Inlärnings koden finns i en annan katalog än data förberedelse koden. `PipelineData`Utdata från steget förberedelse av data `output_data1` används som _indata_ till övnings steget. Ett nytt `PipelineData` objekt `training_results` skapas för att innehålla resultatet för en efterföljande jämförelse eller ett distributions steg. 
+Ovanstående kod liknar den för steget förberedelse av data. Inlärnings koden finns i en annan katalog än data förberedelse koden. `OutputFileDatasetConfig`Utdata från steget förberedelse av data `output_data1` används som _indata_ till övnings steget. Ett nytt `OutputFileDatasetConfig` objekt `training_results` skapas för att innehålla resultatet för en efterföljande jämförelse eller ett distributions steg. 
 
 När du har definierat stegen skapar du pipelinen med hjälp av några eller samtliga av dessa steg.
 
@@ -397,10 +394,10 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 
 ### <a name="use-a-dataset"></a>Använd en data uppsättning 
 
-Data uppsättningar som skapats från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL kan användas som indata till alla pipeline-steg. Du kan skriva utdata till en [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)eller om du vill skriva data till ett bestämt data lager använder [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). 
+Data uppsättningar som skapats från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL kan användas som indata till alla pipeline-steg. Du kan skriva utdata till en [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py), [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)eller om du vill skriva data till ett bestämt data lager använder [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py). 
 
 > [!IMPORTANT]
-> Det går bara att skriva utdata tillbaka till ett data lager med hjälp av PipelineData för Azure blob-och Azure-filresurs-datalager. Den här funktionen stöds inte för [ADLS gen 2-datalager](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) för tillfället.
+> Skrivning av utdata tillbaka till ett data lager med `OutputFileDatasetConfig` stöds bara för Azure-Blob, Azure-filresurs, ADLS gen 1-och ADLS gen 2-datalager.
 
 ```python
 dataset_consuming_step = PythonScriptStep(
@@ -454,7 +451,7 @@ När du kör en pipeline första gången Azure Machine Learning:
 * Hämtar ögonblicks bilden av projektet till beräknings målet från blob-lagringen som är kopplad till arbets ytan.
 * Skapar en Docker-avbildning som motsvarar varje steg i pipelinen.
 * Laddar ned Docker-avbildningen för varje steg till beräknings målet från behållar registret.
-* Konfigurerar åtkomst till `Dataset` och `PipelineData` objekt. Som `as_mount()` åtkomst läge används säkring för att tillhandahålla virtuell åtkomst. Om Mount inte stöds eller om användaren har angett åtkomst som `as_download()` , kopieras data istället till beräknings målet.
+* Konfigurerar åtkomst till `Dataset` och `OutputFileDatasetConfig` objekt. För `as_mount()` åtkomst läge används säkring för att tillhandahålla virtuell åtkomst. Om Mount inte stöds eller om användaren har angett åtkomst som `as_upload()` , kopieras data istället till beräknings målet.
 * Kör steget i beräknings målet som anges i steg definitionen. 
 * Skapar artefakter, till exempel loggar, STDOUT och stderr, mått och utdata som anges i steget. Dessa artefakter överförs och behålls i användarens standard data lager.
 

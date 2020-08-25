@@ -14,12 +14,12 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 230ccb3d10c7ba6f3abcac9d83309fd7fa3c5c3f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025225"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797691"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>PowerShell-och Graph-exempel för gruppbaserad licensiering i Azure AD
 
@@ -39,7 +39,7 @@ Fullständig funktionalitet för gruppbaserad licensiering är tillgänglig via 
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-Resultat:
+Utdata:
 ```
 SkuPartNumber
 -------------
@@ -55,7 +55,7 @@ Använd följande exempel för att hämta samma data från Microsoft Graph.
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -92,7 +92,7 @@ Get-MsolGroup -All | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-Resultat:
+Utdata:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -146,7 +146,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-Resultat:
+Utdata:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -165,7 +165,7 @@ För att hitta grupper som innehåller vissa användare för vilka licenser inte
 ```powershell
 Get-MsolGroup -All -HasLicenseErrorsOnly $true
 ```
-Resultat:
+Utdata:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -175,7 +175,7 @@ Använd följande för att hämta samma data från Microsoft Graph
 ```
 GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-Resultat:
+Utdata:
 ```
 HTTP/1.1 200 OK
 {
@@ -219,7 +219,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-Resultat:
+Utdata:
 
 ```powershell
 ObjectId                             DisplayName      License Error
@@ -233,7 +233,7 @@ Använd följande för att hämta samma data från Microsoft Graph:
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
 
-Resultat:
+Utdata:
 ```powershell
 HTTP/1.1 200 OK
 {
@@ -271,7 +271,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-Resultat:
+Utdata:
 
 ```powershell
 UserName         UserId                               GroupId                              LicenseError
@@ -378,7 +378,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-Resultat:
+Utdata:
 
 ```powershell
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
@@ -394,7 +394,7 @@ Graph har inget enkelt sätt att visa resultatet, men det kan ses från det här
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
 
-Resultat:
+Utdata:
 
 ```powershell
 HTTP/1.1 200 OK
@@ -445,7 +445,7 @@ HTTP/1.1 200 OK
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Ta bort direkt licenser för användare med grupp licenser
 
-Syftet med det här skriptet är att ta bort onödiga direkt licenser från användare som redan ärver samma licens från en grupp. som en del av en [över gång till gruppbaserad licensiering](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-migration-azure-portal).
+Syftet med det här skriptet är att ta bort onödiga direkt licenser från användare som redan ärver samma licens från en grupp. som en del av en [över gång till gruppbaserad licensiering](./licensing-groups-migrate-users.md).
 > [!NOTE]
 > Det är viktigt att först validera att de direkta licenser som ska tas bort inte aktiverar fler tjänst funktioner än de ärvda licenserna. Annars kan borttagning av direkt licensen inaktivera åtkomst till tjänster och data för användare. För närvarande går det inte att kontrol lera via PowerShell vilka tjänster är aktiverade via ärvda licenser eller direkt. I skriptet anger vi vilken minimi nivå av tjänster vi vet ärvs från grupper och kontrollerar mot det för att se till att användarna inte har förlorat åtkomsten till tjänster.
 
@@ -607,7 +607,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.Ob
 #END: executing the script
 ```
 
-Resultat:
+Utdata:
 
 ```powershell
 UserId                               OperationResult

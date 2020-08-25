@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: d6acc16780179654975d63ab2c0b04caf141510c
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85557040"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796807"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Snabb start: Distribuera Unity-exempel till HoloLens
 
@@ -24,7 +24,7 @@ I den här snabb starten får du lära dig att:
 >* Distribuera exemplet till enheten
 >* Kör exemplet på enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här snabb starten ska vi distribuera exempelprojektet från [snabb start: återge en modell med Unity](render-model.md).
 
@@ -44,7 +44,7 @@ Se till att dina autentiseringsuppgifter sparas korrekt med scenen och att du ka
 1. Ändra konfigurationen till **versions** -och **arm64**
 1. Växla fel söknings läge till **fjärrdatorn**\
     ![Lösnings konfiguration](media/unity-deploy-config.png)
-1. Bygg lösningen (F7)
+1. Skapa lösningen
 1. För projektet "snabb start" går du till *egenskaper > fel sökning*
     1. Kontrol lera att konfigurations *versionen* är aktiv
     1. Ange *att fel sökning ska startas* till **fjärrdatorn**

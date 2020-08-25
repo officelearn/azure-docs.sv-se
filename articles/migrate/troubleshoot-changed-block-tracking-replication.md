@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: a1ef0e9fe3805f1c6d4d1000a9ea70accc64f4d2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718704"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796943"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
 
@@ -246,7 +246,7 @@ Om du har en virtuell dator med flera diskar kan du stöta på det här felet om
 
 ### <a name="error-message-an-internal-error-occurred-generate-snapshot-hung"></a>Fel meddelande: ett internt fel uppstod. [Generera ögonblicks bild låst]
 
-Det här problemet uppstår när genereringen av ögonblicks bilder låser sig. När det här problemet uppstår kan du se Skapa ögonblicks bilds aktivitet på 95% eller 99%. Se denna [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) för att lösa problemet.
+Det här problemet uppstår när ögonblicks bilds genereringen slutar svara. När det här problemet uppstår kan du se Skapa ögonblicks bilds aktivitet på 95% eller 99%. Se denna [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) för att lösa problemet.
 
 ### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Fel meddelande: ett internt fel uppstod. [Det gick inte att konsolidera diskarna på den virtuella datorn _[orsaker]_]
 

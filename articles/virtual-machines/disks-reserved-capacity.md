@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: d041bfe1187c48e5544e8933763eaf45a507a424
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701646"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752071"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Minska kostnaderna med Azure disks-reservation
 
@@ -31,7 +31,7 @@ En disk reservation görs per disk-SKU. Därför baseras reservations förbrukni
 Anta till exempel att du reserverar en P40-disk med 2 TiB med etablerad lagrings kapacitet. Anta också att du bara tilldelar två P30-diskar. P40-reservationen i detta fall är inte ett konto för P30-förbrukning och du betalar priset för betala per användning på P30-diskarna.
 <br/>
 <br/>
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## <a name="purchase-considerations"></a>Att tänka på innan du köper
 
@@ -55,7 +55,7 @@ I sällsynta fall begränsar Azure köpet av nya reservationer till en delmängd
 
 ## <a name="buy-a-disk-reservation"></a>Köp en disk reservation
 
-Du kan köpa Azure-disklagring reservationer via [Azure Portal](https://portal.azure.com/). Du kan betala för reservationen antingen före eller med månads betalningar. Mer information om hur du köper med månads betalningar finns i [inköps reservationer med månads betalningar](~/articles/cost-management-billing/reservations/monthly-payments-reservations.md).
+Du kan köpa Azure-disklagring reservationer via [Azure Portal](https://portal.azure.com/). Du kan betala för reservationen antingen före eller med månads betalningar. Mer information om hur du köper med månads betalningar finns i [inköps reservationer med månads betalningar](../cost-management-billing/reservations/prepare-buy-reservation.md#buy-reservations-with-monthly-payments).
 
 Följ dessa steg för att köpa reserverad kapacitet:
 
@@ -103,5 +103,5 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure-reservationer?](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Förstå hur reservationsrabatten tillämpas på Azure-disklagring](~/articles/cost-management-billing/reservations/understand-disk-reservations.md)
+- [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Förstå hur reservationsrabatten tillämpas på Azure-disklagring](../cost-management-billing/reservations/understand-disk-reservations.md)

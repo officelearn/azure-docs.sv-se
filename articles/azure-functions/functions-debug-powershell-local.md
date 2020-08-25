@@ -1,17 +1,17 @@
 ---
 title: Felsöka PowerShell Azure Functions lokalt
-description: Lär dig hur du utvecklar funktioner med hjälp av PowerShell.
+description: Lär dig att felsöka PowerShell-funktioner när du kör lokalt.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: dc5bfacf470980a5d38832ec6299c8ff1426ee05
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642239"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799374"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Felsöka PowerShell Azure Functions lokalt
 
@@ -247,7 +247,7 @@ Om den här rasten inträffar kör du `continue` eller- `c` kommandot för att h
 
 Om du har problem under fel sökningen bör du kontrol lera följande:
 
-| Markera | Action |
+| Markera | Åtgärd |
 |------|------|
 | Kör `func --version` från terminalen. Om du får ett fel som `func` inte går att hitta, kan det saknas kärn verktyg (func.exe) från den lokala `path` variabeln.| [Installera om kärn verktyg](functions-run-local.md#v2).|  
 | I Visual Studio Code måste standard terminalen ha åtkomst till func.exe. Kontrol lera att du inte använder en standard-Terminal som inte har några installerade verktyg, till exempel Windows-undersystemet för Linux (WSL).  | Ange standard gränssnittet i Visual Studio Code till antingen PowerShell 7 (rekommenderas) eller Windows PowerShell 5,1.|

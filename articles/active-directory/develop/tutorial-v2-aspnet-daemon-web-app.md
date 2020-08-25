@@ -12,10 +12,10 @@ ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83641106"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mellanprogram för att logga in användare.
 
-"Daemon"-komponenten i det här exemplet är en API-styrenhet `SyncController.cs` . När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs`utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
+"Daemon"-komponenten i det här exemplet är en API-styrenhet `SyncController.cs` . När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs` utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
 
 >[!NOTE]
 > Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med snabb starten för [.net Core daemon](quickstart-v2-netcore-daemon.md).
@@ -45,7 +45,7 @@ Eftersom appen är en app för flera klienter för Microsoft Business-kunder må
 
 Mer information om de begrepp som används i det här exemplet finns i [protokoll dokumentationen för klientens autentiseringsuppgifter för identitets Plattformens slut punkt](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill köra exemplet i den här snabb starten behöver du:
 
@@ -113,17 +113,17 @@ Om du inte vill använda Automation följer du stegen i följande avsnitt.
      Om det finns fler än två omdirigerings-URI: er måste du lägga till dem från fliken **autentisering** senare, när appen har skapats.
 1. Välj **Registrera** för att skapa programmet.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
-1. I listan över sidor för appen väljer du **Autentisering**. Efter det:
+1. I listan över sidor för appen väljer du **Autentisering**. Då gäller:
    - I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44316/Account/EndSession** .
    - I avsnittet **Avancerade inställningar**för  >  **implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
 1. Välj **Spara**.
-1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Efter det:
+1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Då gäller:
 
    1. Ange en nyckel Beskrivning (till exempel **app Secret**),
    1. Välj en nyckel varaktighet på **minst ett år**, **i två år**eller **upphör aldrig att gälla**.
    1. Välj knappen **Lägg till**.
    1. När nyckelvärdet visas kopierar du och sparar det på en säker plats. Du behöver den här nyckeln senare för att konfigurera projektet i Visual Studio. Den visas inte igen eller kan hämtas på annat sätt.
-1. I listan över sidor för appen väljer du API- **behörigheter**. Efter det:
+1. I listan över sidor för appen väljer du API- **behörigheter**. Då gäller:
    1. Välj knappen **Lägg till en behörighet**.
    1. Se till att fliken **Microsoft API: er** är markerad.
    1. I avsnittet **vanliga API: er för Microsoft** väljer du **Microsoft Graph**.
@@ -140,7 +140,7 @@ I följande steg är **ClientID** detsamma som "program-ID" eller **AppId**.
 
 Om du använde installations skripten kommer följande ändringar att gälla.
 
-1. Öppna filen **UserSync\Web.config** .
+1. Öppna **UserSync\Web.Config** -filen.
 1. Hitta appens nyckel **Ida: ClientId**. Ersätt det befintliga värdet med program-ID: t för programmet **dotNet-Web-daemon-v2** som har kopierats från Azure Portal.
 1. Hitta appens nyckel **Ida: ClientSecret**. Ersätt det befintliga värdet med den nyckel som du sparade när du skapade **dotNet-Web-daemon-v2-** appen i Azure Portal.
 
@@ -232,7 +232,7 @@ Visual Studio kommer att publicera projektet och automatiskt öppna en webbläsa
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Uppdatera Azure AD-klientens program registrering för dotNET-Web-daemon-v2
 
-1. Gå tillbaka till [Azure-portalen](https://portal.azure.com).
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com).
 1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Välj programmet **dotNet-Web-daemon-v2** .
 1. På sidan **autentisering** för ditt program uppdaterar du URL-fälten för **utloggning** med adressen för din tjänst. Använd till exempel `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.

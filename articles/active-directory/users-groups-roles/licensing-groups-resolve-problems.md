@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79552c099adfa94f3515ff1b9c78103cb82830a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611296"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799561"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -66,7 +66,7 @@ Om du vill se vilka användare och grupper som använder licenser väljer du en 
 
 **Problem:** En av de produkter som anges i gruppen innehåller en tjänst plan som står i konflikt med en annan tjänst plan som redan har tilldelats användaren via en annan produkt. Vissa tjänste planer är konfigurerade på ett sätt som de inte kan tilldelas samma användare som en annan, relaterad service plan.
 
-Se följande exempel. En användare har en licens för Office 365 Enterprise *E1* som tilldelas direkt, med alla aktiverade planer. Användaren har lagts till i en grupp som har tilldelats Office 365 Enterprise *E3* -produkten. E3-produkten innehåller tjänst planer som inte överlappar de planer som ingår i E1, så grupp licens tilldelningen Miss lyckas med fel meddelandet "tjänst planer som står i konflikt". I det här exemplet är de motstridiga service planerna:
+Betänk följande exempel. En användare har en licens för Office 365 Enterprise *E1* som tilldelas direkt, med alla aktiverade planer. Användaren har lagts till i en grupp som har tilldelats Office 365 Enterprise *E3* -produkten. E3-produkten innehåller tjänst planer som inte överlappar de planer som ingår i E1, så grupp licens tilldelningen Miss lyckas med fel meddelandet "tjänst planer som står i konflikt". I det här exemplet är de motstridiga service planerna:
 
 - SharePoint Online (plan 2) står i konflikt med SharePoint Online (plan 1).
 - Exchange Online (plan 2) står i konflikt med Exchange Online (plan 1).
@@ -107,7 +107,7 @@ Om du använder Exchange Online kan vissa användare i din organisation vara fel
 > ```
 > Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Mer information om det här problemet finns i ["meddelande om att proxy-adressen redan används" i Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artikeln innehåller också information om [hur du ansluter till Exchange Online med hjälp av fjärr-PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+> Mer information om det här problemet finns i ["meddelande om att proxy-adressen redan används" i Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Artikeln innehåller också information om [hur du ansluter till Exchange Online med hjälp av fjärr-PowerShell](/powershell/exchange/connect-to-exchange-online-powershell?view=exchange-ps).
 
 När du har löst eventuella problem med proxyservern för de berörda användarna, se till att tvinga licens bearbetning på gruppen att se till att licenserna nu kan tillämpas.
 

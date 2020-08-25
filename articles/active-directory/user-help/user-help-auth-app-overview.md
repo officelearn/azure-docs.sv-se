@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741176"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799442"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
 
@@ -33,7 +33,7 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 > [!Important]
 > Microsoft Authenticator-appen fungerar med ett konto som använder tvåstegsverifiering och som stöder tidsbaserad eng ång slö sen ord (TOTP mobilapp).
 >
->Den här artikeln är avsedd för användare som försöker hämta och använda Microsoft Authenticator-appen som en säkerhets verifierings metod. Om du är administratör för att söka efter information om hur du aktiverar lösen ords lös inloggning med hjälp av Authenticator-appen för dina anställda och andra användnings områden, se [Aktivera lösen ords lös inloggning med Microsoft Authenticator-appen (för hands version)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
+>Den här artikeln är avsedd för användare som försöker hämta och använda Microsoft Authenticator-appen som en säkerhets verifierings metod. Om du är administratör för att söka efter information om hur du aktiverar lösen ords lös inloggning med hjälp av Authenticator-appen för dina anställda och andra användnings områden, se [Aktivera lösen ords lös inloggning med Microsoft Authenticator-appen (för hands version)](../authentication/howto-authentication-passwordless-phone.md).
 
 ## <a name="terminology"></a>Terminologi
 
@@ -51,7 +51,7 @@ Tvåfaktorsverifiering fungerar med Microsoft Authenticator-appen på följande 
 
 - **Indikering.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto så skickar Microsoft Authenticator-appen ett meddelande som ber dig **godkänna inloggningen**. Välj **Godkänn** om du känner igen inloggningsförsöket. Annars väljer du **Neka**. Om du väljer **Neka** kan du också markera begäran som falsk.
 
-- **Verifieringskod.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto och kopiera sedan den associerade verifieringskoden från skärmen **Konton** i Microsoft Authenticator-appen. Verifieringskoden kallas även för autentisering med engångslösenord (OTP).
+- **Verifierings kod.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto och kopiera sedan den associerade verifieringskoden från skärmen **Konton** i Microsoft Authenticator-appen. Verifieringskoden kallas även för autentisering med engångslösenord (OTP).
 
 - **Konfiguration av lösenordsfri inloggning.** Ange ditt användarnamn och lösenord i enheten som du loggar in för ditt arbets- eller skolkonto eller ditt personliga Microsoft-konto och använd sedan din mobila enhet för att kontrollera att det är du med hjälp av ditt fingeravtryck, ansikte eller en PIN-kod. För den här metoden behöver du inte ange ditt lösenord.
 

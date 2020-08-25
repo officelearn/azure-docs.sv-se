@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/17/2020
-ms.openlocfilehash: 3614fac027dd32ab5f5d70f5835432ac3b9b512d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 08/21/2020
+ms.custom: contperfq1
+ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207738"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755100"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Använda Apache Beeline-klienten med Apache Hive
 
@@ -25,7 +25,7 @@ Beeline är en Hive-klient som ingår i head-noderna i HDInsight-klustret. Om du
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Lägg märke till URI-schemat för klustrets primära lagring. Till exempel `wasb://` för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Mer information finns i [säker överföring](../../storage/common/storage-require-secure-transfer.md).
+* Lägg märke till URI-schemat för klustrets primära lagring. Till exempel  `wasb://` för Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller `adl://` för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage är URI: n `wasbs://` . Mer information finns i [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 
 * Alternativ 1: en SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). De flesta av stegen i det här dokumentet förutsätter att du använder Beeline från en SSH-session till klustret.
 
@@ -113,7 +113,7 @@ Det här exemplet baseras på användningen av Beeline-klienten från en SSH-ans
     |SKAPA EXTERN TABELL|Skapar en **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.|
     |RAD FORMAT|Hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
     |LAGRAD SOM TEXTFILE-PLATS|Var data lagras och i vilket fil format.|
-    |SELECT|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här frågan returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
+    |VÄLJ|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här frågan returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
     |INPUT__FILE__NAME som%. log|Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att den bara ska returnera data från filer som slutar med. log.|
 
    > [!NOTE]  

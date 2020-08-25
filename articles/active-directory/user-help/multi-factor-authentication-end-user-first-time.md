@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: fc95e988b3f89402967cdbedd06c4b945a99f99a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5b07f8f7ae766d110c87a495a3e1623b815e526
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266261"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795991"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Vad är sidan Ytterligare verifiering?
 
@@ -33,7 +33,7 @@ Tvåstegsverifiering är säkrare än bara ett lösen ord eftersom det är beroe
 Tvåstegsverifiering kan hjälpa dig att stoppa skadliga hackare från att vara du. Även om de har ditt lösen ord är strider att de inte har din enhet.
 
 >[!Important]
->Om du är administratör för att söka efter information om hur du aktiverar tvåstegsverifiering för dina anställda eller andra användare kan du läsa mer i [dokumentationen för Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/authentication/). Den här artikeln är avsedd för användare som försöker använda tvåstegsverifiering med ett arbets-eller skol konto (till exempel alain@contoso.com ).
+>Om du är administratör för att söka efter information om hur du aktiverar tvåstegsverifiering för dina anställda eller andra användare kan du läsa mer i [dokumentationen för Azure Active Directory autentisering](../authentication/index.yml). Den här artikeln är avsedd för användare som försöker använda tvåstegsverifiering med ett arbets-eller skol konto (till exempel alain@contoso.com ).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Vem bestämmer om du använder den här funktionen?
 

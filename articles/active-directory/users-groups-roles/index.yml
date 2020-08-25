@@ -12,12 +12,12 @@ metadata:
   ms.date: 11/08/2019
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 716551f4b298a9a7be2425fdd4cd8246afb5a924
-  ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+  ms.openlocfilehash: 3a3dc1634d4b1f94968c62635e03ff6a295dc98c
+  ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 07/31/2020
-  ms.locfileid: "87503471"
+  ms.lasthandoff: 08/25/2020
+  ms.locfileid: "88799102"
 landingContent:
 - title: Om användare, grupper, roller och licenser
   linkLists:
@@ -32,17 +32,17 @@ landingContent:
     - text: Delegera administration
       url: roles-concept-delegation.md
     - text: Jämföra Azure-roller och Azure AD-administratörsroller
-      url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
 - title: Kom igång
   linkLists:
   - linkListType: quickstart
     links:
     - text: Lägga till en användare
-      url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - text: Ange förfalloprincip för grupper
       url: groups-quickstart-expiration.md
     - text: Tilldela licenser till användare
-      url: https://docs.microsoft.com/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
 - title: Tilldela Azure AD-administratörsroller
   linkLists:
   - linkListType: how-to-guide
@@ -78,6 +78,6 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Lägg till ett anpassat domännamn
-      url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+      url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - text: Hantera anpassade domännamn
       url: domains-manage.md

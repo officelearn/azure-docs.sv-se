@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73044652"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 
 * Skapa ett [HDInsight HBase-kluster med Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md).
 
@@ -235,7 +235,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
 
 Om du inte planerar att fortsätta använda det här programmet tar du bort det HBase-kluster som du skapade med följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. I rutan **Sök** längst upp skriver du **HDInsight**. 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 

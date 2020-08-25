@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85257524"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Självstudie: Lägg till en fasett-navigering med .NET SDK
@@ -21,12 +21,12 @@ Ansikte används för att under lätta navigeringen genom att förse användaren
 
 Den här självstudien bygger på det växlings projekt som skapats i [C#-själv studie kursen: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Ange modell egenskaper som _IsFacetable_
 > * Lägg till aspekt navigering till din app
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 

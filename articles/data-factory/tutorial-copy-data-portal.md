@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85253976"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data från Azure Blob Storage till en databas i Azure SQL Database genom att använda Azure Data Factory
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Utlös pipelinen enligt ett schema.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du kan använda Blob Storage som *källa* för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md).
 * **Azure SQL Database**. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du gå till [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
@@ -170,7 +170,7 @@ I denna självstudie börjar du med att skapa pipelinen. Sedan skapar du länkad
 
     f. Välj **Testanslutning** för att testa anslutningen.
 
-    g. Välj **skapa** för att distribuera den länkade tjänsten.
+    ex. Välj **skapa** för att distribuera den länkade tjänsten.
 
     ![Spara ny länkad tjänst](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
@@ -234,7 +234,7 @@ I det här schemat skapar du en schemautlösare för pipelinen. Utlösaren kör 
 
     f. Välj **OK**.
 
-    g. För **aktiverat** alternativ väljer du **Ja**.
+    ex. För **aktiverat** alternativ väljer du **Ja**.
 
     h. Välj **OK**.
 

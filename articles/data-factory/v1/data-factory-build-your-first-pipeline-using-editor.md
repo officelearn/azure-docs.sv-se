@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.openlocfilehash: 4b291dcc95e0beecb1fd9fbf038055d8a77c7b79
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85254981"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Självstudie: skapa din första datafabrik med Azure-portalen
@@ -42,7 +42,7 @@ Pipelinen i den här självstudien har en aktivitet: en Azure HDInsight Hive-akt
 > 
 > En pipeline kan ha fler än en aktivitet. Du kan länka två aktiviteter (köra en aktivitet efter en annan) genom att ställa in datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Mer information finns i [schemaläggning och körning i Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Läs [översikten av självstudien](data-factory-build-your-first-pipeline.md) och följ anvisningarna i avsnittet ”Nödvändiga komponenter”.
 
 Den här artikeln ger inte någon konceptuell översikt över Data Factory-tjänsten. Mer information om tjänsten finns i [Introduktion till Azure Data Factory](data-factory-introduction.md).  
@@ -413,7 +413,7 @@ Du kan också använda appen Övervaka och hantera till att övervaka dina pipel
 
     ![Ikonen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-1. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Använd**.
+1. Ändra **Starttid** och **Sluttid** i appen Övervaka och hantera så att de matchar starttid och sluttid för pipelinen. Välj **Tillämpa**.
 
     ![Appen Övervaka och hantera](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
@@ -435,7 +435,7 @@ I den här självstudien skapade du en datafabrik som bearbetar data genom att k
 I den här artikeln har du skapat en pipeline med en transformeringsaktivitet (HDInsight-aktivitet) som kör ett Hive-skript i ett HDInsight-kluster på begäran. Information om hur du använder en kopierings aktivitet för att kopiera data från Blob Storage till Azure SQL Database finns i [Självstudier: kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Se även
-| Ämne | Beskrivning |
+| Avsnitt | Beskrivning |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |I den här artikeln beskriver vi pipeliner och aktiviteter i Data Factory och hur du kan använda dem till att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för ditt scenario eller ditt företag. |
 | [Datauppsättningar](data-factory-create-datasets.md) |I den här artikeln förklaras hur datauppsättningar fungerar i Data Factory. |

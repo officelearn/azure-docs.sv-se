@@ -16,26 +16,26 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8576088069f419872db57b063163e8d9b1968b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338211"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783866"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
-Hantering av Azure AD-rättigheterna använder [Azure AD Business-to-Business (B2B)](../b2b/what-is-b2b.md) för att samar beta med personer utanför organisationen i en annan katalog. Med Azure AD B2B autentiserar externa användare till sin arbets katalog, men har en representation i din katalog. Representationen i din katalog gör det möjligt för användaren att tilldelas åtkomst till dina resurser.
+Hantering av Azure AD-rättigheterna använder [Azure AD Business-to-Business (B2B)](../external-identities/what-is-b2b.md) för att samar beta med personer utanför organisationen i en annan katalog. Med Azure AD B2B autentiserar externa användare till sin arbets katalog, men har en representation i din katalog. Representationen i din katalog gör det möjligt för användaren att tilldelas åtkomst till dina resurser.
 
 I den här artikeln beskrivs de inställningar som du kan ange för att styra åtkomsten för externa användare.
 
 ## <a name="how-entitlement-management-can-help"></a>Så här kan hantering av rättigheter hjälpa
 
-När du använder [Azure AD B2B](../b2b/what-is-b2b.md) -inbjudan måste du redan känna till e-postadresserna till de externa gäst användare som du vill ta med i resurs katalogen och arbeta med. Detta fungerar bra när du arbetar med ett mindre eller kortsiktigt projekt och du redan känner till alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Till exempel kanske du arbetar med en annan organisation och har en kontakt punkt med den organisationen, men över tiden kommer ytterligare användare från organisationen också att ha åtkomst.
+När du använder [Azure AD B2B](../external-identities/what-is-b2b.md) -inbjudan måste du redan känna till e-postadresserna till de externa gäst användare som du vill ta med i resurs katalogen och arbeta med. Detta fungerar bra när du arbetar med ett mindre eller kortsiktigt projekt och du redan känner till alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Till exempel kanske du arbetar med en annan organisation och har en kontakt punkt med den organisationen, men över tiden kommer ytterligare användare från organisationen också att ha åtkomst.
 
 Med rättighets hantering kan du definiera en princip som gör det möjligt för användare från organisationer som du anger att kunna begära ett åtkomst paket själv. Du kan ange om godkännande krävs och ett förfallo datum för åtkomsten. Om godkännande krävs kan du också bjuda in en eller flera användare från den externa organisationen till din katalog och ange dem som god kännare – eftersom de förmodligen vet vilka externa användare från deras organisation som behöver åtkomst. När du har konfigurerat åtkomst paketet kan du skicka åtkomst paketets länk till din kontakt person (sponsor) i den externa organisationen. Den kontakten kan dela med andra användare i den externa organisationen, och de kan använda den här länken för att begära åtkomst paketet. Användare från den organisationen som redan har bjudits in till din katalog kan också använda den länken.
 
-När en begäran godkänns, etablerar rättighets hantering användaren med nödvändig åtkomst, vilket kan inkludera inbjudan till användaren om de inte redan finns i katalogen. Azure AD skapar automatiskt ett B2B-gäst konto för dem. Observera att en administratör kan ha tidigare begränsat vilka organisationer som tillåts för samarbete genom att ställa in en [B2B-lista med eller neka](../b2b/allow-deny-list.md) för att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera kommer de inte att bjudas in.
+När en begäran godkänns, etablerar rättighets hantering användaren med nödvändig åtkomst, vilket kan inkludera inbjudan till användaren om de inte redan finns i katalogen. Azure AD skapar automatiskt ett B2B-gäst konto för dem. Observera att en administratör kan ha tidigare begränsat vilka organisationer som tillåts för samarbete genom att ställa in en [B2B-lista med eller neka](../external-identities/allow-deny-list.md) för att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera kommer de inte att bjudas in.
 
 Eftersom du inte vill att den externa användarens åtkomst till senaste oändligt, anger du ett förfallo datum i principen, till exempel 180 dagar. Efter 180 dagar tar rättighets hanteringen bort all åtkomst som är associerad med det åtkomst paketet, om deras åtkomst inte är utökad. Om användaren som har bjudits in via rättighets hantering inte har några andra åtkomst paket tilldelningar, kommer deras gäst konto att blockeras från att logga in i 30 dagar och sedan tas bort. Detta förhindrar spridning av onödiga konton. Dessa inställningar kan konfigureras enligt beskrivningen i följande avsnitt.
 
@@ -57,7 +57,7 @@ Följande diagram och steg ger en översikt över hur externa användare bevilja
 
 1. Begäran försätts i [leverans tillstånd](entitlement-management-process.md).
 
-1. Med hjälp av B2B-ansvars processen skapas ett gäst användar konto i din katalog (**begär ande a (gäst)** i det här exemplet). Om en lista [över tillåtna eller en neka-lista](../b2b/allow-deny-list.md) har definierats tillämpas List inställningen.
+1. Med hjälp av B2B-ansvars processen skapas ett gäst användar konto i din katalog (**begär ande a (gäst)** i det här exemplet). Om en lista [över tillåtna eller en neka-lista](../external-identities/allow-deny-list.md) har definierats tillämpas List inställningen.
 
 1. Gäst användaren tilldelas åtkomst till alla resurser i åtkomst paketet. Det kan ta lite tid innan ändringar görs i Azure AD och till andra Microsoft Online Services eller anslutna SaaS-program. Mer information finns i [när ändringar tillämpas](entitlement-management-access-package-resources.md#when-changes-are-applied).
 
@@ -84,8 +84,8 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 - Genom att tillåta gäster att bjuda in andra gäster till katalogen innebär det att gäst inbjudningar kan ske utanför hantering av rättigheter. Vi rekommenderar att du ställer in **gäster kan bjuda in** till **Nej** för att endast tillåta korrekt reglerade inbjudningar.
 - Om du använder listan B2B-Tillåt måste du kontrol lera att alla domäner som du vill använda som partner med hjälp av hantering av rättigheter läggs till i listan. Alternativt, om du använder listan B2B-neka, måste du se till att alla domäner som du vill partner med inte läggs till i listan.
 - Om du skapar en rättighets hanterings princip för **alla användare** (alla anslutna organisationer och alla nya externa användare) har alla inställningar för B2B-Tillåt eller neka-lista som du har företräde. Se därför till att inkludera de domäner som du vill inkludera i den här principen i listan över tillåtna om du använder en, och exkluderar dem från listan över nekade om du använder en neka-lista.
-- Om du vill skapa en princip för hantering av rättigheter som innehåller **alla användare** (alla anslutna organisationer och nya externa användare) måste du först aktivera e-postautentisering med eng ång slö sen ord för din katalog. Mer information finns i [e-mail Authentication eng ång slö sen ord (för hands version)](../b2b/one-time-passcode.md#opting-in-to-the-preview).
-- Mer information om inställningar för externa samarbets funktioner i Azure AD B2B finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../b2b/delegate-invitations.md).
+- Om du vill skapa en princip för hantering av rättigheter som innehåller **alla användare** (alla anslutna organisationer och nya externa användare) måste du först aktivera e-postautentisering med eng ång slö sen ord för din katalog. Mer information finns i [e-mail Authentication eng ång slö sen ord (för hands version)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
+- Mer information om inställningar för externa samarbets funktioner i Azure AD B2B finns i [Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster](../external-identities/delegate-invitations.md).
 
     ![Externa samarbets inställningar för Azure AD](./media/entitlement-management-external-users/collaboration-settings.png)
 
@@ -97,17 +97,17 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>Granska dina inställningar för extern SharePoint Online-delning
 
-- Om du vill inkludera SharePoint Online-webbplatser i dina åtkomst paket för externa användare kontrollerar du att inställningen för extern delning på organisations nivå har angetts till **vem som helst** (användarna inte behöver logga in) eller **nya och befintliga gäster** (gäster måste logga in eller ange en verifierings kod). Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Om du vill inkludera SharePoint Online-webbplatser i dina åtkomst paket för externa användare kontrollerar du att inställningen för extern delning på organisations nivå har angetts till **vem som helst** (användarna inte behöver logga in) eller **nya och befintliga gäster** (gäster måste logga in eller ange en verifierings kod). Mer information finns i [Aktivera eller inaktivera extern delning](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Om du vill begränsa en extern delning utanför hantering av rättigheter kan du ange inställningen för extern delning till **befintliga gäster**. Sedan kommer endast nya användare som bjuds in via rättighets hantering att kunna få åtkomst till dessa webbplatser. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Om du vill begränsa en extern delning utanför hantering av rättigheter kan du ange inställningen för extern delning till **befintliga gäster**. Sedan kommer endast nya användare som bjuds in via rättighets hantering att kunna få åtkomst till dessa webbplatser. Mer information finns i [Aktivera eller inaktivera extern delning](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Se till att inställningarna för webbplats nivå aktiverar gäst åtkomst (samma alternativ för val som tidigare i listan). Mer information finns i [Aktivera och inaktivera extern delning på en plats](https://docs.microsoft.com/sharepoint/change-external-sharing-site).
+- Se till att inställningarna för webbplats nivå aktiverar gäst åtkomst (samma alternativ för val som tidigare i listan). Mer information finns i [Aktivera och inaktivera extern delning på en plats](/sharepoint/change-external-sharing-site).
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Granska inställningarna för delning av Microsoft 365 grupp
 
-- Om du vill inkludera Microsoft 365 grupper i dina åtkomst paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Microsoft 365 grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Om du vill inkludera Microsoft 365 grupper i dina åtkomst paket för externa användare ser du till att **Låt användarna lägga till nya gäster till organisationen** är inställda på **på** för att tillåta gäst åtkomst. Mer information finns i [Hantera gäst åtkomst till Microsoft 365 grupper](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
-- Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är associerade med en Microsoft 365 grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är associerade med en Microsoft 365 grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Information om hur du anger gäst principen för Microsoft 365 grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 

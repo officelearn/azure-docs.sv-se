@@ -1,5 +1,5 @@
 ---
-title: Skapa och fråga en Synapse SQL-pool med Azure PowerShell
+title: Skapa en Synapse SQL-pool med Azure PowerShell
 description: Skapa snabbt en Synapse SQL-pool med en brand Väggs regel på server nivå med hjälp av Azure PowerShell.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -11,20 +11,20 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 21ca3968065df2575b101efa7735d56f87683938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: e6683746e2a8f274f7260a3d5bb60e956d49d30a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211112"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751914"
 ---
-# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skapa och fråga en Synapse SQL-pool med Azure PowerShell
+# <a name="quickstart-create-a-synapse-sql-pool-with-azure-powershell"></a>Snabb start: skapa en Synapse SQL-pool med Azure PowerShell
 
 Skapa en Synapse SQL-pool (informations lager) i Azure Synapse Analytics med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!IMPORTANT]
 > Att skapa en SQL-pool kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -151,4 +151,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du skapat en SQL-pool, skapat en brand Väggs regel, anslutit till SQL-poolen och kört några frågor. Om du vill veta mer kan du fortsätta till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) .
+Nu har du skapat en SQL-pool, skapat en brand Väggs regel och anslutit till din SQL-pool. Om du vill veta mer kan du fortsätta till artikeln [Läs in data i SQL-poolen](load-data-from-azure-blob-storage-using-polybase.md) .

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034410"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783900"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -38,7 +38,7 @@ Företags organisationer är ofta inriktade på utmaningar när de hanterar pers
 - Användare kanske inte vet vilken åtkomst de ska ha, och även om de gör det kan de ha svårt att hitta rätt personer för att godkänna deras åtkomst
 - När användarna hittar och får åtkomst till en resurs, kan de vänta på att få åtkomst längre än vad som krävs i affärs syfte
 
-Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Exempel:
+Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Ett exempel:
 
 - Ingen person vet att alla enskilda personer i andra organisations kataloger kan bjuda in dem
 - Även om de kunde bjuda in dessa användare kan ingen i organisationen komma ihåg att hantera alla användares åtkomst konsekvent
@@ -71,7 +71,7 @@ Hantering av rättigheter ger Azure AD konceptet för ett *Access-paket*. Ett Ac
 - Tilldelning till Azure AD Enterprise-program, inklusive SaaS-program och anpassade integrerade program som stöder Federation/enkel inloggning och/eller etablering
 - Medlemskap i SharePoint Online-webbplatser
 
-Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Exempel:
+Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Ett exempel:
 
 - Du kan ge användare licenser för Microsoft 365 med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
 - Du kan ge användarna åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och skapa en [Azure-roll tilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
@@ -149,7 +149,7 @@ Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 - Inga licenser krävs för användare som har delegerats administrativa uppgifter, t. ex. katalog skapare, katalog ägare och Access Package Manager.
 - Det krävs inga licenser för gäster som **kan** begära åtkomst paket, men begär **inte** ett Access-paket.
 
-För varje betalat Azure AD Premium P2-licens som du köper för medlems användare (anställda) kan du använda Azure AD B2B för att bjuda in upp till fem gäst användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+För varje betalat Azure AD Premium P2-licens som du köper för medlems användare (anställda) kan du använda Azure AD B2B för att bjuda in upp till fem gäst användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../external-identities/licensing-guidance.md).
 
 Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 

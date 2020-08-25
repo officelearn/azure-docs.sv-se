@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84310010"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Självstudie: skapa och gå igenom en mall för övervakning av solpanels program 
@@ -52,7 +52,7 @@ Du kan skapa det här programmet i tre enkla steg:
     * **7-dagars kostnads fri utvärderings version**: om du redan har en Azure-prenumeration rekommenderas standardinställningen. Om du inte har en Azure-prenumeration börjar du med den kostnads fria utvärderings versionen.
     * **Fakturerings information**: själva programmet är kostnads fritt. Katalogen, Azure-prenumerationen och regions informationen krävs för att etablera resurserna för din app.
     * Klicka på knappen **skapa** längst ned på sidan så skapas din app på en minut.
-        ![Nytt program formulär](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Formuläret för nya program](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
         ![Fakturerings information för ny program form](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 

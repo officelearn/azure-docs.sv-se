@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
 ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84343775"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Självstudie: Konfigurera en tillgänglighets grupps lyssnare för SQL Server på virtuella RHEL-datorer i Azure
@@ -23,7 +23,7 @@ ms.locfileid: "84343775"
 >
 > Vi använder SQL Server 2017 med RHEL 7,6 i den här självstudien, men det går att använda SQL Server 2019 i RHEL 7 eller RHEL 8 för att konfigurera hög tillgänglighet. Kommandona för att konfigurera tillgänglighets grupp resurser har ändrats i RHEL 8, och du vill titta på artikeln [skapa tillgänglighets grupps resurs](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) och RHEL 8-resurser för mer information om rätt kommandon.
 
-I den här självstudien får du lära dig hur du skapar en tillgänglighets grupps lyssnare för dina SQL-servrar på virtuella RHEL-datorer (VM: ar) i Azure. Du lär dig att göra följande:
+I den här självstudien får du lära dig hur du skapar en tillgänglighets grupps lyssnare för dina SQL-servrar på virtuella RHEL-datorer (VM: ar) i Azure. Du lär dig hur du:
 
 > [!div class="checklist"]
 > - Skapa en belastningsutjämnare i Azure Portal
@@ -55,17 +55,17 @@ Följande instruktioner tar dig igenom steg 1 till 4 från guiden för att [skap
 
 5. I dialog rutan **skapa belastnings utjämning** konfigurerar du belastningsutjämnaren enligt följande:
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar belastningsutjämnaren. Till exempel **sqlLB**. |
    | **Typ** |**Intern** |
    | **Virtuellt nätverk** |Det virtuella standard nätverket som skapades ska ha namnet **VM1VNET**. |
-   | **Delnät** |Välj det undernät som de SQL Server instanserna finns i. Standardvärdet ska vara **VM1Subnet**.|
-   | **Tilldelning av IP-adress** |**Statisk** |
+   | **Undernät** |Välj det undernät som de SQL Server instanserna finns i. Standardvärdet ska vara **VM1Subnet**.|
+   | **Tilldelning av IP-adress** |**Statiskt** |
    | **Privat IP-adress** |Använd `virtualip` IP-adressen som skapades i klustret. |
    | **Prenumeration** |Använd den prenumeration som användes för din resurs grupp. |
    | **Resursgrupp** |Välj den resurs grupp som SQL Server instanserna finns i. |
-   | **Position** |Välj den Azure-plats som SQL Server instanserna finns i. |
+   | **Plats** |Välj den Azure-plats som SQL Server instanserna finns i. |
 
 ### <a name="configure-the-back-end-pool"></a>Konfigurera backend-poolen
 Azure anropar *backend-adresspoolen*för backend-adresspoolen. I det här fallet är backend-poolen adresserna till de tre SQL Server instanserna i tillgänglighets gruppen. 
@@ -96,11 +96,11 @@ Avsökningen definierar hur Azure verifierar vilken av de SQL Server instanser s
 
 3. Konfigurera avsökningen på bladet **Lägg till sökning** . Använd följande värden för att konfigurera avsökningen:
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar avsökningen. Till exempel **SQLAlwaysOnEndPointProbe**. |
    | **Protokoll** |**TCP** |
-   | **Lastning** |Du kan använda valfri tillgänglig port. Till exempel *59999*. |
+   | **Port** |Du kan använda valfri tillgänglig port. Till exempel *59999*. |
    | **Intervall** |*5* |
    | **Tröskelvärde för ej felfri** |*2* |
 
@@ -125,12 +125,12 @@ Reglerna för belastnings utjämning anger hur belastningsutjämnaren dirigerar 
 
 3. Konfigurera belastnings Utjämnings regeln på bladet **Lägg till belastnings Utjämnings regler** . Använd följande inställningar: 
 
-   | Inställning | Värde |
+   | Inställningen | Värde |
    | --- | --- |
    | **Namn** |Ett text namn som representerar reglerna för belastnings utjämning. Till exempel **SQLAlwaysOnEndPointListener**. |
    | **Protokoll** |**TCP** |
-   | **Lastning** |*1433* |
-   | **Backend-port** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)**. |
+   | **Port** |*1433* |
+   | **Serverdelsport** |*1433*. det här värdet ignoreras eftersom den här regeln använder **flytande IP (direkt Server retur)**. |
    | **Avsökning** |Använd namnet på avsökningen som du skapade för den här belastningsutjämnaren. |
    | **Sessionspermanens** |**Inga** |
    | **Tids gräns för inaktivitet (minuter)** |*4* |

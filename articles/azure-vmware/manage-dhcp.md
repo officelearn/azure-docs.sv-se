@@ -1,16 +1,16 @@
 ---
-title: Hantera DHCP
-description: Den här artikeln beskriver hur du hanterar DHCP i Azure VMware-lösning (AVS)
+title: Så här skapar och hanterar du DHCP
+description: Den här artikeln beskriver hur du hanterar DHCP i Azure VMware-lösningen.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 80791dd2041fb9d6fbc7c67f2d7d7b2d0b6c977e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fc3de228179925afdf1b7c1015c577fd9c4c924
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84148369"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752172"
 ---
-# <a name="how-to-manage-dhcp-in-azure-vmware-solution-avs-preview"></a>Hantera DHCP i Azure VMWare-lösningen (AVS) Preview
+# <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Så här skapar och hanterar du DHCP i Azure VMWare-lösning
 
 NSX – T ger möjlighet att konfigurera DHCP för ditt privata moln. Om du planerar att använda NSX-T som värd för DHCP-servern, se [skapa DHCP-server](#create-dhcp-server). Annars, om du har en extern DHCP-server från tredje part i nätverket och du vill vidarebefordra begär anden till DHCP-servern, se [skapa DHCP Relay service](#create-dhcp-relay-service).
 
@@ -24,71 +24,71 @@ Från NSX Manager går du till fliken **nätverk** och väljer **DHCP** under **
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Anslut DHCP-server till nivån-1 Gateway.
 
-Välj Gateway för **nivå 1**, Välj gatewayen och välj **Redigera**
+1. Välj Gateway för **nivå 1**, Välj gatewayen och välj **Redigera**
 
-:::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Välj den gateway som ska användas" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="Välj den gateway som ska användas" border="true":::
 
-Lägg till ett undernät genom att välja **ingen IP-allokerade uppsättning**
+1. Lägg till ett undernät genom att välja **ingen IP-allokerade uppsättning**
 
-:::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Lägg till ett undernät" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="Lägg till ett undernät" border="true":::
 
-På nästa skärm väljer du den **lokala DHCP-servern** i list rutan **typ** . För **DHCP-server**väljer du **standard-DHCP** och sedan **Spara**.
+1. På nästa skärm väljer du den **lokala DHCP-servern** i list rutan **typ** . För **DHCP-server**väljer du **standard-DHCP** och sedan **Spara**.
 
-:::image type="content" source="./media/manage-dhcp/set-ip-address-management.png" alt-text="Välj alternativ för DHCP-server" border="true":::
+   :::image type="content" source="./media/manage-dhcp/set-ip-address-management.png" alt-text="Välj alternativ för DHCP-server" border="true":::
 
-I fönstret **nivå-1-Gateway** väljer du **Spara**. På nästa skärm ser du **sparade ändringar**och väljer **Stäng redigering** för att slutföra.
+1. I fönstret **nivå-1-Gateway** väljer du **Spara**. På nästa skärm ser du **sparade ändringar**och väljer **Stäng redigering** för att slutföra.
 
 ### <a name="add-a-network-segment"></a>Lägg till ett nätverks segment
 
 När du har skapat din DHCP-server måste du lägga till nätverks segment i den.
 
-I NSX-T väljer du fliken **nätverk** och väljer **segment** under **anslutning**. Välj **Lägg till segment**. Namnge segmentet och anslutningen till nivån-1 Gateway. Välj sedan **Ange undernät** för att konfigurera ett nytt undernät. 
+1. I NSX-T väljer du fliken **nätverk** och väljer **segment** under **anslutning**. Välj **Lägg till segment**. Namnge segmentet och anslutningen till nivån-1 Gateway. Välj sedan **Ange undernät** för att konfigurera ett nytt undernät. 
 
-:::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Lägg till ett nytt nätverks segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="Lägg till ett nytt nätverks segment" border="true":::
 
-I fönstret **Ange undernät** väljer du **Lägg till undernät**. Ange IP-adressen för gatewayen och DHCP-intervallet och välj **Lägg till** och sedan **tillämpa**
+1. I fönstret **Ange undernät** väljer du **Lägg till undernät**. Ange IP-adressen för gatewayen och DHCP-intervallet och välj **Lägg till** och sedan **tillämpa**
 
-:::image type="content" source="./media/manage-dhcp/add-subnet-segment.png" alt-text="Lägg till nätverks segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet-segment.png" alt-text="Lägg till nätverks segment" border="true":::
 
-När du är klar väljer du **Spara** för att slutföra tillägget av ett nätverks segment.
+1. När du är klar väljer du **Spara** för att slutföra tillägget av ett nätverks segment.
 
-:::image type="content" source="./media/manage-dhcp/segments-complete.png" alt-text="slut för ande segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/segments-complete.png" alt-text="slut för ande segment" border="true":::
 
 ## <a name="create-dhcp-relay-service"></a>Skapa DHCP Relay service
 
-I fönstret NXT-T väljer du fliken **nätverk** och under **IP-hantering**väljer du **DHCP**. Välj **Lägg till Server**. Välj DHCP-relä för **Server typ** och ange Server namn och IP-adress för relä servern. Välj **Spara** för att spara ändringarna.
+1. I fönstret NXT-T väljer du fliken **nätverk** och under **IP-hantering**väljer du **DHCP**. Välj **Lägg till Server**. Välj DHCP-relä för **Server typ** och ange Server namn och IP-adress för relä servern. Välj **Spara** för att spara ändringarna.
 
-:::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Skapa DHCP-relä Server" border="true":::
+   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Skapa DHCP-relä Server" border="true":::
 
-Välj **nivå 1 Gateway** under **anslutning**. Välj den lodräta ellipsen på nivå 1-gatewayen och välj **Redigera**.
+1. Välj **nivå 1 Gateway** under **anslutning**. Välj den lodräta ellipsen på nivå 1-gatewayen och välj **Redigera**.
 
-:::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="redigera nivå 1-Gateway" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="redigera nivå 1-Gateway" border="true":::
 
-Välj **ingen IP-allokerad uppsättning** för att definiera IP-adressallokering.
+1. Välj **ingen IP-allokerad uppsättning** för att definiera IP-adressallokering.
 
-:::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Redigera IP-adressallokering" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="Redigera IP-adressallokering" border="true":::
 
-I dialog rutan väljer du **DHCP Relay server**för **typ**. I list rutan **DHCP-relä** väljer du DHCP-relä servern. När du är färdig väljer du **Spara**
+1. I dialog rutan väljer du **DHCP Relay server**för **typ**. I list rutan **DHCP-relä** väljer du DHCP-relä servern. När du är färdig väljer du **Spara**
 
-:::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="Ange hantering av IP-adresser" border="true":::
+   :::image type="content" source="./media/manage-dhcp/set-ip-address-management-relay.png" alt-text="Ange hantering av IP-adresser" border="true":::
 
-Ange IP-intervallets IP-adress i segment:
+## <a name="specify-a-dhcp-range-ip-on-segment"></a>Ange IP-intervallets IP-adress i segment
 
 > [!NOTE]
 > Den här konfigurationen krävs för att realisera DHCP-relä i DHCP-klientcertifikatet. 
 
-Under **anslutning**väljer du **segment**. Markera de lodräta ellipserna och välj **Redigera**. Om du i stället vill lägga till ett nytt segment kan du välja **Lägg till segment** för att skapa ett nytt segment.
+1. Under **anslutning**väljer du **segment**. Markera de lodräta ellipserna och välj **Redigera**. Om du i stället vill lägga till ett nytt segment kan du välja **Lägg till segment** för att skapa ett nytt segment.
 
-:::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="Redigera ett nätverks under nät" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-segments.png" alt-text="Redigera ett nätverks under nät" border="true":::
 
-Lägg till information om segmentet. Välj värdet under **undernät** eller **Ange undernät** för att lägga till eller ändra under nätet.
+1. Lägg till information om segmentet. Välj värdet under **undernät** eller **Ange undernät** för att lägga till eller ändra under nätet.
 
-:::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="nätverks segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="nätverks segment" border="true":::
 
-Markera de lodräta ellipserna och välj **Redigera**. Om du behöver skapa ett nytt undernät väljer du **Lägg till undernät** för att skapa en gateway och konfigurera ett DHCP-intervall. Ange intervallet för IP-adresspoolen och välj **Verkställ**och välj sedan **Spara**
+1. Markera de lodräta ellipserna och välj **Redigera**. Om du behöver skapa ett nytt undernät väljer du **Lägg till undernät** för att skapa en gateway och konfigurera ett DHCP-intervall. Ange intervallet för IP-adresspoolen och välj **Verkställ**och välj sedan **Spara**
 
-:::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="redigera undernät" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="redigera undernät" border="true":::
 
-Nu är en DHCP-adresspool tilldelad till segmentet.
+1. Nu är en DHCP-adresspool tilldelad till segmentet.
 
-:::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP-serverpoolen tilldelad till segment" border="true":::
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="DHCP-serverpoolen tilldelad till segment" border="true":::

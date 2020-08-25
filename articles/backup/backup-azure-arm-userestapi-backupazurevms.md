@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 89bf2df0b5b9279053ca8258e6d21b00e2789557
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761686"
+ms.locfileid: "88762886"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -445,9 +445,9 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |202 accepterad     |         |     Har godkänts    |
 
 > [!IMPORTANT]
-> För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services valv. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).
+> För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services valv. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-deletion).
 
-### <a name="undo-the-stop-protection-and-delete-data"></a>Ångra stoppa skyddet och ta bort data
+### <a name="undo-the-deletion"></a>Ångra borttagningen
 
 Att ångra borttagningen av misstag liknar att skapa säkerhets kopierings objekt. När borttagningen har ångrats behålls objektet men inga framtida säkerhets kopieringar utlöses.
 

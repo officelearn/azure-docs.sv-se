@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker problem med 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: e588ce4e3458634be32a7129b40906c98fc02ac0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513860"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763396"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
@@ -17,7 +17,7 @@ I den här artikeln beskrivs lösningar på problem som kan uppstå när du anv�
 
 ## <a name="basic-troubleshooting"></a>Grundläggande felsökning
 
-Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsöka säkerhets kopiering av system tillstånd:
+Vi rekommenderar att du utför följande verifierings steg innan du börjar felsöka säkerhets kopiering av system tillstånd:
 
 - [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -42,7 +42,7 @@ Vi rekommenderar att du utför nedanstående verifiering innan du börjar felsö
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du nedanstående krav kontroll.  
+Innan vi felsöker säkerhets kopiering av system tillstånd med Azure Backup utför du följande krav kontroll.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Verifiera Windows Server Backup har installerats
 
@@ -64,7 +64,7 @@ Kör följande kommando för att installera Windows Server Backup med PowerShell
 
 #### <a name="method-2-install-windows-server-backup-using-server-manager"></a>Metod 2: installera Windows Server Backup med Serverhanteraren
 
-Följ stegen nedan om du vill installera Windows Server Backup med hjälp av Serverhanteraren:
+Utför följande steg för att installera Windows Server Backup med hjälp av Serverhanteraren:
 
 1. I **Server hanteraren**klickar du på **Lägg till roller och funktioner**. **Guiden Lägg till roller och funktioner** visas.
 
@@ -77,20 +77,20 @@ Följ stegen nedan om du vill installera Windows Server Backup med hjälp av Ser
 3. Välj en server från serverpoolen och klicka på **Nästa**. I Server rollen lämnar du standard valet och klickar på **Nästa**.
 4. Välj **Windows Server Backup** på fliken **funktioner** och klicka på **Nästa**.
 
-    ![funktioner](./media/backup-azure-system-state-troubleshoot/features.png)
+    ![Fönstret Välj funktioner](./media/backup-azure-system-state-troubleshoot/features.png)
 
 5. På fliken **bekräftelse** klickar du på **Installera** för att starta installations processen.
 6. På fliken **resultat** visas Windows Server Backup funktionen har installerats på Windows-servern.
 
-    ![resultat](./media/backup-azure-system-state-troubleshoot/results.jpg)
+    ![Installations resultat](./media/backup-azure-system-state-troubleshoot/results.jpg)
 
 ### <a name="system-volume-information-permission"></a>Behörighet för system volym information
 
-Se till att det lokala systemet har fullständig kontroll över mappen **System Volume Information** som finns i den volym där Windows är installerat. Detta är vanligt vis **C:\System volym information**. Windows Server Backup kan inte köras om ovanstående behörigheter inte har angetts korrekt
+Se till att det lokala systemet har fullständig kontroll över mappen **System Volume Information** som finns i den volym där Windows är installerat. Detta är vanligt vis **C:\System volym information**. Windows Server Backup kan inte utföras om behörigheterna ovan inte är korrekt inställda.
 
 ### <a name="dependent-services"></a>Beroende tjänster
 
-Se till att nedanstående tjänster är i körnings tillstånd:
+Se till att tjänsterna nedan är i körnings tillstånd:
 
 **Tjänstens namn** | **Startmetod**
 --- | ---
@@ -113,7 +113,7 @@ Utför följande steg för att verifiera Windows Server Backup status:
 
     - Om det Miss lyckas med det här felet kan du installera om Windows Server Backup-funktionen på serverdatorn som anges i steg 1 i kraven.
 
-  - Se till att säkerhets kopieringen WSB fungerar korrekt genom att köra kommandot nedan från upphöjd kommando tolk:
+  - Se till att säkerhets kopieringen WSB fungerar korrekt genom att köra följande kommando från en upphöjd kommando tolk:
 
       `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 

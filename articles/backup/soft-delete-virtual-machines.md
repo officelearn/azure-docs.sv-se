@@ -4,12 +4,12 @@ description: Lär dig hur mjuk borttagning för virtuella datorer gör säkerhet
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: e447db2c3f862d2f577a9e7d8767946375abf4e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503548"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763702"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Mjuk borttagning för virtuella datorer
 
@@ -38,7 +38,7 @@ Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra,
    ![Skärm bild av Azure Portal, VM i läget för mjuk borttagning](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och att det inte finns något objekt i läget Soft Deleted kvar i valvet.
+   > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och det finns inget objekt i läget Soft Deleted kvar i valvet.
 
 4. Om du vill återställa den mjuk-borttagna virtuella datorn måste den först tas bort. Om du vill ångra borttagningen väljer du den mjuk-borttagna virtuella datorn och väljer sedan alternativet **ta bort**.
 
@@ -110,7 +110,7 @@ DeleteState för säkerhets kopierings objekt återgår till ' NotDeleted '. Men
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Mjuk borttagning för virtuella datorer som använder REST API
 
 - Ta bort säkerhets kopiorna med REST API som anges [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Om användaren vill ångra dessa borttagnings åtgärder, se de steg som beskrivs [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+- Om användaren vill ångra dessa borttagnings åtgärder, se de steg som beskrivs [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## <a name="how-to-disable-soft-delete"></a>Så här inaktiverar du mjuk borttagning
 

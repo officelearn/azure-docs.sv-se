@@ -9,17 +9,17 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3ef24e29e5dde90aa829c46d789256e6e5f3233b
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85296210"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-instruktioner för att skapa en ny Android-app med hjälp av Azure spatiala ankare
 
 I den här självstudien får du lära dig hur du skapar en ny Android-app som integrerar ARCore-funktionen med avstånds ankare för Azure.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -227,6 +227,6 @@ Nu ska vi koppla koden som ska anropas när ankaret som vi frågar efter finns. 
 
 [!code-java[MainActivity](../../../includes/spatial-anchors-new-android-app-finished.md?name=initializeSession&highlight=34-53)]
 
-Det är allt. [Distribuera](#trying-it-out) din app en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din svarta sfär. Fortsätt sedan att flytta enheten för att avbilda kamera bild rutor tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
+Klart! [Distribuera](#trying-it-out) din app en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din svarta sfär. Fortsätt sedan att flytta enheten för att avbilda kamera bild rutor tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-new-android-app-finished.md)]

@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: dech
 ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85118771"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använd verktyget datamigrering för att migrera dina data till Azure Cosmos DB
@@ -31,7 +31,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Importera data från olika datakällor
 > * Exportera från Azure Cosmos DB till JSON
 
-## <a name="prerequisites"></a><a id="Prerequisites"></a>Krav
+## <a name="prerequisites"></a><a id="Prerequisites"></a>Förutsättningar
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du utför följande steg:
 
@@ -63,7 +63,7 @@ Källkoden för migreringsverktyget finns i GitHub på [den här lagringsplatsen
 * **Dtui.exe**: Grafisk gränssnittsversion av verktyget
 * **DT.exe**: Kommandoradsversion av verktyget
 
-## <a name="select-data-source"></a>Välja datakälla
+## <a name="select-data-source"></a>Välj datakälla
 
 När du har installerat verktyget är det dags att importera dina data. Vilken typ av data vill du importera?
 
@@ -74,7 +74,7 @@ När du har installerat verktyget är det dags att importera dina data. Vilken t
 * [CSV-filer](#CSV)
 * [Azure Table Storage](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [BLOB](#BlobImport)
+* [Blob](#BlobImport)
 * [Azure Cosmos-containrar](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure Cosmos DB-massimport](#SQLBulkTarget)

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/18/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: b58a729397118b01d2ff346c0d1f09f70435efae
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 5a0c9d1888f1efbd90ef345cecabe244422abe95
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604686"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763634"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Vad är Azure Virtual WAN?
 
@@ -124,11 +124,11 @@ Plats information finns i artikeln [virtuella WAN-partners och platser](virtual-
 
 Routningstabeller har nu funktioner för Association och spridning. En fördefinierad routningstabell är en routningstabell som inte har dessa funktioner. Om du har befintliga vägar i hubben Routning och vill använda de nya funktionerna bör du tänka på följande:
 
-* **Virtuella standard WAN-kunder med befintliga vägar i Virtual Hub**: om du vill använda nya funktioner i en routningstabell väntar du tills veckan 17 för distributionen i Azure ska slutföras. Om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal).
+* **Virtuella standard WAN-kunder med befintliga vägar i virtuell hubb**: om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan försöka skapa nya routningstabeller (finns i avsnittet Route tables för hubben i Azure Portal).
 
-* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du vill använda de nya funktionerna för en routningstabell väntar du tills veckan på 17 för distributionen i Azure ska slutföras. Om du har redan befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
+* **Grundläggande virtuella WAN-kunder med befintliga vägar i virtuell hubb**: om du har befintliga vägar i avsnittet routning för hubben i Azure Portal måste du först ta bort dem och sedan **Uppgradera** ditt grundläggande virtuella WAN-nätverk till standard. Se [uppgradera ett virtuellt WAN från Basic till standard](upgrade-virtual-wan.md).
 
-## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a><a name="faq"></a>ASSURANCE
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

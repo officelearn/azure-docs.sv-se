@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85194962"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
@@ -24,14 +24,14 @@ Den här självstudien visar hur du använder Azure Toolkit for IntelliJ-plugin-
 - Få åtkomst till dina Spark-pooler resurser.
 - Utveckla och kör ett Scala Spark-program lokalt.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 >
 > - Använd plugin-programmet Azure Toolkit for IntelliJ
 > - Utveckla Apache Spark program
 > - Skicka program till Spark-pooler
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [INTELLIJ idé community-version](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Azure toolkit-plugin-3.27.0 – 2019.2 – Installera från [IntelliJ plugin-lagringsplatsen](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

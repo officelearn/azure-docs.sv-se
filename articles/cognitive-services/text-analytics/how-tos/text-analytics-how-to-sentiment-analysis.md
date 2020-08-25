@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/18/2020
 ms.author: aahi
 ms.openlocfilehash: acd8fae81baa7ad65b8d9c321c55a6311cbf4c72
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84141253"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
@@ -68,7 +68,7 @@ För att få fram en utgångs utvinning i resultatet måste du inkludera `opinio
 
 ### <a name="preparation"></a>Förberedelse
 
-Sentiment-analys ger bättre resultat när du ger det mindre mängd text att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
+Sentiment-analys ger bättre resultat när du ger det mindre mängd text att arbeta med. Detta är motsatsen till nyckelfrasextrahering vilket fungerar på bättre på större textblock. För att få bästa resultat från båda åtgärderna kan du överväga omstrukturering av indata på lämpligt sätt.
 
 Du måste ha JSON-dokument i det här formatet: ID, text och språk.
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 01/22/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 861e6528b52af39a56cc6b936eae0d68df2eecf5
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4d025057cf8992e1dc54a0fd4a07814c7cbb13d3
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87841924"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748834"
 ---
 <a name="HOLTop"></a>
 
@@ -208,9 +208,9 @@ Definiera hjälp funktionen `describeType` :
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
 
-## <a name="read-printed-and-handwritten-text"></a>Skriv ut och handskriven text
+## <a name="extract-text-ocr-with-read"></a>Extrahera text (OCR) med Read
 
-Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en tecken ström.
+Visuellt innehåll kan extrahera synlig text i en bild och konvertera den till en tecken ström. I det här exemplet används Läs åtgärder.
 
 > [!NOTE]
 > Du kan också läsa text från en lokal avbildning. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
@@ -221,17 +221,17 @@ Spara en referens till URL: en för de avbildningar som du vill extrahera text f
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
-### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
+### <a name="call-the-read-api"></a>Anropa Read API
 
-Lägg till koden nedan, som anropar `recognizeText` funktionen för de aktuella avbildningarna.
+Lägg till koden nedan, som anropar- `readTextFromURL` och- `readTextFromFile` funktionerna för de aktuella avbildningarna.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Definiera `recognizeText` funktionen. Detta anropar metoden **recognizeText** på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärden vid en sekunds intervall tills resultatet returneras. Den returnerar sedan de extraherade resultaten.
+Definiera `readTextFromURL` och- `readTextFromFile` funktionerna. Dessa anropar metoderna **Read** och **readInStream** på klient objekt, som returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder de åtgärds-ID: t för att kontrol lera åtgärds statusen tills resultatet returneras. De returnerar sedan de extraherade resultaten.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
-Definiera sedan hjälp funktionen `printRecText` , som skriver ut resultatet av en åtgärd för att identifiera till-konsolen.
+Definiera sedan hjälp funktionen `printRecText` , som skriver ut resultaten av Läs åtgärder till-konsolen.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 

@@ -1,15 +1,15 @@
 ---
 title: Skapa ett blockchain-program – Azure blockchain Workbench
 description: Självstudie om hur du skapar ett blockchain-program för för hands versionen av Azure blockchain Workbench.
-ms.date: 10/14/2019
+ms.date: 08/24/2020
 ms.topic: tutorial
-ms.reviewer: brendal
-ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: ravastra
+ms.openlocfilehash: add790a069d2e0ea66d84bbd632825cf9331fd38
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073112"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784036"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Självstudie: skapa ett blockchain-program för Azure blockchain Workbench
 
@@ -40,7 +40,7 @@ Följ stegen för att skapa programfilerna, eller så kan du [ladda ned exemplet
 
 ## <a name="configuration-file"></a>Konfigurationsfil
 
-Konfigurationsmetadata definierar avancerade arbetsflöden och interaktionsmodellen för blockkedjeprogrammet. Konfigurationsmetadata definierar arbetsflödesstegen och interaktionsmodellen för blockkedjeprogrammet.
+Konfigurationsmetadata definierar avancerade arbetsflöden och interaktionsmodellen för blockkedjeprogrammet. Konfigurationsmetadata definierar arbetsflödesstegen och interaktionsmodellen för blockkedjeprogrammet. Mer information om innehållet i konfigurationsfiler finns i [referensen för konfiguration av Azure-blockkedjearbetsflöden](configuration.md).
 
 1. Använd det redigeringsprogram du föredrar och skapa en fil med namnet `HelloBlockchain.json`.
 2. Lägg till följande JSON för att definiera konfigurationen av blockkedjeprogrammet.
@@ -211,8 +211,6 @@ Avsnittet med programroller definierar de användarroller som kan agera eller de
 ### <a name="workflows"></a>Arbetsflöden
 
 Arbetsflöden definierar en eller flera steg och åtgärder i kontraktet. I scenariot med begäran–svar är det första steget (tillståndet) i arbetsflödet att en begärare (roll) vidtar en åtgärd (övergång) för att skicka en begäran (funktion). Nästa steg (tillstånd) är att en svarare (roll) vidtar en åtgärd (övergång) för att skicka ett svar (funktion). Arbetsflödet för ett program kan omfatta egenskaper, funktioner och tillstånd som krävs för att beskriva flödet i ett kontrakt.
-
-Mer information om innehållet i konfigurationsfiler finns i [referensen för konfiguration av Azure-blockkedjearbetsflöden](configuration.md).
 
 ## <a name="smart-contract-code-file"></a>Fil med smart kontraktkod
 

@@ -2,18 +2,18 @@
 title: Azure Stack Edge & Azure Data Box Gateway 1911 viktig information | Microsoft Docs
 description: Beskriver kritiska öppna problem och lösningar för Azure Stack Edge och Data Box Gateway som kör 1911-versionen.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
 ms.date: 03/13/2020
-ms.author: v-grpr
-ms.openlocfilehash: c22ba44c3d567d363b1fec702fecb81ca203a48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 4c5c6b423c9013719a703b5112e2a897d35454d1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322474"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783968"
 ---
 # <a name="azure-stack-edge-and-azure-data-box-gateway-1911-release-notes"></a>Viktig information om Azure Stack Edge och Azure Data Box Gateway 1911
 

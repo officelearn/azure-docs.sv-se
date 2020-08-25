@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 05/19/2020
 ms.openlocfilehash: d2780b3456a802904800b894f6849544cfee4e61
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85105948"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales`- och `marketingspend`-ämnen.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa domänanvändare
@@ -52,10 +52,10 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 3. Välj **Lägg till ny princip** och ange följande värden:
 
-   |Inställningen  |Föreslaget värde  |
+   |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi sales* policy   |
-   |Ämne   |  sales* |
+   |Avsnitt   |  sales* |
    |Välj användare  |  sales_user1 |
    |Behörigheter  | publish, consume, create |
 
@@ -72,10 +72,10 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 5. Välj **Lägg till ny princip** och ange sedan följande värden:
 
-   |Inställningen  |Föreslaget värde  |
+   |Inställning  |Föreslaget värde  |
    |---------|---------|
    |Principnamn  |  hdi marketing policy   |
-   |Ämne   |  marketingspend |
+   |Avsnitt   |  marketingspend |
    |Välj användare  |  marketing_user1 |
    |Behörigheter  | publish, consume, create |
 

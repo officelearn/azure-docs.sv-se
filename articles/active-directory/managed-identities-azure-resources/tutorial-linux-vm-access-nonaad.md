@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure Key Vault – Linux – Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att få åtkomst till Azure Key Vault – Linux – Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cdccabf701d4603b8c78f7e23ec1890171603273
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74232172"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Key Vault 
@@ -34,7 +34,7 @@ Lär dig att:
 > * Ge din virtuella dator åtkomst till en hemlighet som lagras i Key Vault 
 > * Få ett åtkomsttoken med hjälp av identiteten för de virtuella datorerna och använd den för att hämta hemligheten från Key Vault 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -44,7 +44,7 @@ Med hjälp av hanterade tjänstidentiteter för Azure-resurser kan din kod hämt
 
 Börja med att skapa ett Key Vault och bevilja den virtuella datorns systemtilldelade hanterade identitet åtkomst till Key Vault.   
 
-1. Längst upp i det vänstra navigerings fältet väljer du **skapa en resurs** > **säkerhet och identitet** > **Key Vault**.  
+1. Längst upp i det vänstra navigerings fältet väljer du **skapa en resurs**  >  **säkerhet och identitet**  >  **Key Vault**.  
 2. Ange ett **namn** för det nya Key Vault. 
 3. Leta upp Key Vault i samma prenumerations- och resursgrupp som den virtuella dator du skapade tidigare. 
 4. Välj **Åtkomstprinciper** och klicka på **Lägg till**. 

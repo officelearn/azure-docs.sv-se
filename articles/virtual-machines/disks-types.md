@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 2b8a5cf1bd3df1405f148c5fe84701c04a4d0c0a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658238"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752006"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
 
@@ -26,7 +26,7 @@ Följande tabell innehåller en jämförelse av Ultra disks, Premium solid-state
 | Detalj | Ultradisk | Premium SSD | Standard SSD | Standard HDD |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](~/articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
+|Scenario   |I/o-intensiva arbets belastningar, till exempel [SAP HANA](workloads/sap/hana-vm-operations-storage.md), toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, företagsprogram med lätt användning och Dev/Test   |Säkerhetskopiering, icke-kritisk, lågfrekvent åtkomst   |
 |Maximal diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Maximalt dataflöde   |2 000 MB/s    |900 MB/s   |750 MB/s   |500 MB/s   |
 |Maximalt IOPS   |160 000    |20 000   |6 000   |2 000   |
@@ -62,7 +62,7 @@ Några viktiga funktioner i Ultra disks:
 
 ### <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
 
-[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](~/includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 
 Om du vill börja använda Ultra disks, se vår artikel på ämnet: [använda Azure Ultra disks](disks-enable-ultra-ssd.md).
@@ -71,10 +71,10 @@ Om du vill börja använda Ultra disks, se vår artikel på ämnet: [använda Az
 
 Azure Premium SSD levererar hög prestanda och disk support med låg latens för virtuella datorer med indata/utdata (i/o)-intensiva arbets belastningar. Om du vill dra nytta av hastighet och prestanda för Premium Storage-diskar kan du migrera befintliga VM-diskar till Premium-SSD. Premium-SSD är lämpliga för verksamhets kritiska produktions program. Premium-SSD kan bara användas med VM-serien som är Premium Storage-kompatibla.
 
-Mer information om enskilda VM-typer och storlekar i Azure för Windows, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella Windows-datorer](~/articles/virtual-machines/windows/sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar är Premium Storage-kompatibla, finns i [storlekar för virtuella Linux-datorer](~/articles/virtual-machines/linux/sizes.md). Från någon av dessa artiklar måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
+Mer information om enskilda VM-typer och storlekar i Azure för Windows eller Linux, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella datorer i Azure](sizes.md). Mer information om enskilda VM-typer och storlekar i Azure för Linux, inklusive vilka storlekar som är kompatibla med Premium Storage, finns i [storlekar för virtuella datorer i Azure](sizes.md). Från någon av dessa artiklar måste du kontrol lera varje enskild artikel för VM-storlek för att avgöra om den är Premium Storage-kompatibel.
 
 ### <a name="disk-size"></a>Diskstorlek
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 När du etablerar en Premium Storage-disk, till skillnad från standard lagring, garanterar du att disken har kapacitet, IOPS och data flöde. Om du till exempel skapar en P50-disk, etablerar Azure 4 095-GB lagrings kapacitet, 7 500 IOPS och 250 MB/s genom strömning för disken. Programmet kan använda hela eller delar av kapaciteten och prestandan. Premium SSD diskar har utformats för att tillhandahålla låg latens i millisekunder och mål-IOPS och data flöde som beskrivs i föregående tabell 99,9% av tiden.
 
@@ -82,7 +82,7 @@ När du etablerar en Premium Storage-disk, till skillnad från standard lagring,
 
 Premium SSD storlekar som är mindre än P30 erbjuder nu disk burst och kan överföra sina IOPS per disk upp till 3 500 och bandbredden upp till 170 Mbit/s. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Krediter samlas in automatiskt i en burst-Bucket när disk trafiken är lägre än det tillhandahållna prestanda målet och krediterna förbrukas automatiskt när trafiken överförs bortom målet, upp till den maximala burst-gränsen. Max burst-gränsen definierar taket för disk-IOPS & bandbredd även om du har burst-krediter att använda. Disk burst ger bättre tolerans på oförutsägbara ändringar av IO-mönster. Du kan använda den bäst för start och program för operativ system diskar med hög belastnings trafik.    
 
-Disk burst-stöd kommer att aktive ras vid nya distributioner av tillämpliga disk storlekar som standard, utan någon användar åtgärd krävs. För befintliga diskar av tillämpliga storlekar kan du aktivera burst-överföring med något av följande två alternativ: koppla från och återanslut disken eller stoppa och starta om den anslutna virtuella datorn. Alla användbara disk storlekar börjar med en fullständig överförings kredit Bucket när disken är ansluten till en virtuell dator som har stöd för maximal varaktighet vid högsta burst-gräns på 30 minuter. Mer information om hur du använder burst-överföring på Azure-diskar finns [Premium SSD bursting](~/articles/virtual-machines/linux/disk-bursting.md). 
+Disk burst-stöd kommer att aktive ras vid nya distributioner av tillämpliga disk storlekar som standard, utan någon användar åtgärd krävs. För befintliga diskar av tillämpliga storlekar kan du aktivera burst-överföring med något av följande två alternativ: koppla från och återanslut disken eller stoppa och starta om den anslutna virtuella datorn. Alla användbara disk storlekar börjar med en fullständig överförings kredit Bucket när disken är ansluten till en virtuell dator som har stöd för maximal varaktighet vid högsta burst-gräns på 30 minuter. Mer information om hur du använder burst-överföring på Azure-diskar finns [Premium SSD bursting](linux/disk-bursting.md). 
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -93,7 +93,7 @@ För Premium-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256 
 Azure standard SSD är ett kostnads effektivt lagrings alternativ som är optimerat för arbets belastningar som behöver konsekvent prestanda på lägre IOPS-nivåer. Standard SSD erbjuder en bra ingångs nivå för de som vill flytta till molnet, särskilt om du får problem med var Ian sen för arbets belastningar som körs på dina hård disk lösningar lokalt. Jämfört med standard hård diskar ger standard SSD bättre tillgänglighet, konsekvens, tillförlitlighet och latens. Standard SSD är lämpliga för webb servrar, låga IOPS-programservrar, lätt använda företags program och arbets belastningar för utveckling/testning. Som standard hård diskar är standard-SSD tillgängliga på alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
-[!INCLUDE [disk-storage-standard-ssd-sizes](~/includes/disk-storage-standard-ssd-sizes.md)]
+[!INCLUDE [disk-storage-standard-ssd-sizes](../../includes/disk-storage-standard-ssd-sizes.md)]
 
 Standard SSD är utformad för att tillhandahålla en ensiffrig millisekunds fördröjning och IOPS och data flöde upp till de gränser som beskrivs i föregående tabell 99% av tiden. Faktisk IOPS och data flöde kan variera ibland beroende på trafik mönstren. Standard SSD ger mer konsekvent prestanda än hård diskar med lägre latens.
 
@@ -106,7 +106,7 @@ För standard-SSD anses varje I/O-åtgärd som är mindre än eller lika med 256
 Azure standard-hårddiskar levererar tillförlitligt stöd för diskar med låg kostnad för virtuella datorer som kör svars känsliga arbets belastningar. Med standard lagring lagras data på hård diskar (HDD). Svars tid, IOPS och data flöde för Standard HDD diskar kan variera mycket mer jämfört med SSD-baserade diskar. Standard HDD diskar har utformats för att leverera Skriv fördröjningar under 10ms och Läs fördröjning under 20ms för de flesta i/o-åtgärder, men den faktiska prestandan kan variera beroende på i/o-storlek och arbets belastnings mönster. När du arbetar med virtuella datorer kan du använda standard diskar för hård diskar för utvecklings-och test scenarier och mindre kritiska arbets belastningar. Standard hård diskar är tillgängliga i alla Azure-regioner och kan användas med alla virtuella Azure-datorer.
 
 ### <a name="disk-size"></a>Diskstorlek
-[!INCLUDE [disk-storage-standard-hdd-sizes](~/includes/disk-storage-standard-hdd-sizes.md)]
+[!INCLUDE [disk-storage-standard-hdd-sizes](../../includes/disk-storage-standard-hdd-sizes.md)]
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -139,7 +139,7 @@ Detaljerad information om priser för Managed Disks, inklusive transaktionskostn
 Virtuella Azure-datorer har möjlighet att ange om de är kompatibla med Ultra disks. En Ultra disk-kompatibel virtuell dator allokerar dedikerad bandbredds kapacitet mellan den virtuella Compute VM-instansen och block lagrings enheten för att optimera prestandan och minska svars tiden. Genom att lägga till den här funktionen på den virtuella datorn får du en reservations avgift som bara införs om du har aktiverat Ultra disk-kapacitet på den virtuella datorn utan att koppla en Ultra disk till den. När en Ultra disk är ansluten till den Ultra disk-kompatibla virtuella datorn gäller inte avgiften. Den här avgiften är per vCPU etablerad på den virtuella datorn. 
 
 > [!Note]
-> För [begränsade KÄRN VM-storlekar](~/articles/virtual-machines/linux/constrained-vcpu.md)baseras reservations avgiften på det faktiska antalet virtuella processorer och inte begränsade kärnor. Reservations avgiften för Standard_E32-8s_v3 baseras på 32 kärnor. 
+> För [begränsade KÄRN VM-storlekar](constrained-vcpu.md)baseras reservations avgiften på det faktiska antalet virtuella processorer och inte begränsade kärnor. Reservations avgiften för Standard_E32-8s_v3 baseras på 32 kärnor. 
 
 Se pris [sidan för Azure-diskar](https://azure.microsoft.com/pricing/details/managed-disks/) för pris information för Ultra disk.
 

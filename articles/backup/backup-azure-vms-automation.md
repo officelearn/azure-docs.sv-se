@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e695fae087ca4e10a1d900a45cb02947bd5afa0b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652754"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763379"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -196,7 +196,7 @@ En säkerhets kopierings skydds princip är associerad med minst en bevarande pr
 * Cmdlet [: en New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) skapar ett PowerShell-objekt som innehåller information om säkerhets kopierings principen.
 * Schema-och bevarande princip objekt används som indata till cmdleten New-AzRecoveryServicesBackupProtectionPolicy.
 
-Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I exemplet nedan förutsätter du att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
+Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I följande exempel antas den önskade start tiden vara 01:00 AM UTC för dagliga säkerhets kopieringar.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -206,7 +206,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]
-> Du behöver bara ange start tiden i 30 minuter. I ovanstående exempel kan det bara vara "01:00:00" eller "02:30:00". Start tiden får inte vara "01:15:00"
+> Du behöver bara ange start tiden i 30 minuter. I exemplet ovan kan det bara vara "01:00:00" eller "02:30:00". Start tiden får inte vara "01:15:00"
 
 I följande exempel lagras schema principen och bevarande principen i variabler. Exemplet använder variablerna för att definiera parametrarna när du skapar en skydds princip, *NewPolicy*.
 
@@ -638,7 +638,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
 
     * **Icke-hanterade och krypterade virtuella datorer utan Azure AD (endast Bek)** – för icke-hanterade, krypterade virtuella datorer utan Azure AD (krypteras endast med Bek), om det **inte går** att återställa källan till nyckel valvet med hjälp av proceduren i [återställa en icke-krypterad virtuell dator från en Azure Backup återställnings punkt](backup-azure-restore-key-secret.md). Kör sedan följande skript för att ange krypterings information för den återställda OS-blobben (det här steget krävs inte för en data-BLOB). $Dekurl kan hämtas från det återställda nyckel valvet.
 
-    Skriptet nedan måste köras endast när käll nyckel valvet/hemligheten inte är tillgänglig.
+    Följande skript behöver bara köras när käll nyckel valvet/hemligheten inte är tillgänglig.
 
     ```powershell
         $dekUrl = "https://ContosoKeyVault.vault.azure.net/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"

@@ -3,12 +3,12 @@ title: Återställa SAP HANA databaser på virtuella Azure-datorer
 description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: c62ea68683355fc703a5258e6e5fa0f3795f7e34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503599"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763294"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
 
@@ -161,7 +161,7 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
         chown -R <SID>adm:sapsys <directory>
         ```
 
-    1. Kör nästa uppsättning kommandon som`<SID>adm`
+    1. Kör nästa uppsättning kommandon som `<SID>adm`
 
         ```bash
         su - <sid>adm
@@ -173,11 +173,11 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
         hdbbackupdiag --generate --dataDir <DataFileDir> --logDirs <LogFilesDir> -d <PathToPlaceCatalogFile>
         ```
 
-        I ovanstående kommando:
+        I kommandot ovan:
 
-        * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
-        * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
-        * `<PathToPlaceCatalogFile>`– mappen där katalog filen som genereras måste placeras
+        * `<DataFileDir>` – mappen som innehåller fullständiga säkerhets kopior
+        * `<LogFilesDir>` – mappen som innehåller säkerhets kopiorna av loggen
+        * `<PathToPlaceCatalogFile>` – mappen där katalog filen som genereras måste placeras
 
     1. Återställ med den nyligen genererade katalog filen via HANA Studio eller kör HDBSQL Restore Query med den här nyligen genererade katalogen. HDBSQL-frågor visas nedan:
 
@@ -191,13 +191,13 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
         RECOVER DATABASE FOR <DatabaseName> UNTIL TIMESTAMP '<TimeStamp>' CLEAR LOG USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING LOG PATH (' <LogFileDir>') USING DATA PATH ('<DataFileDir>') USING BACKUP_ID <BackupIdFromJsonFile> CHECK ACCESS USING FILE
         ```
 
-        * `<DatabaseName>`– Namnet på den nya databasen eller en befintlig databas som du vill återställa
-        * `<Timestamp>`-Exakt tidsstämpel för tidpunkten för återställning
-        * `<DatabaseName@HostName>`– Namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Det behöver därför inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
-        * `<PathToGeneratedCatalogInStep3>`-Sökväg till katalog filen som genererades i **Steg C**
-        * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
-        * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
-        * `<BackupIdFromJsonFile>`– **BackupId** extraherades i **Steg C**
+        * `<DatabaseName>` – Namnet på den nya databasen eller en befintlig databas som du vill återställa
+        * `<Timestamp>` -Exakt tidsstämpel för tidpunkten för återställning
+        * `<DatabaseName@HostName>` – Namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Det behöver därför inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
+        * `<PathToGeneratedCatalogInStep3>` -Sökväg till katalog filen som genererades i **Steg C**
+        * `<DataFileDir>` – mappen som innehåller fullständiga säkerhets kopior
+        * `<LogFilesDir>` – mappen som innehåller säkerhets kopiorna av loggen
+        * `<BackupIdFromJsonFile>` – **BackupId** extraherades i **Steg C**
 
     * Återställa till en viss fullständig eller differentiell säkerhets kopia:
 
@@ -207,13 +207,13 @@ Om du vill återställa säkerhets kopierings data som filer i stället för en 
         RECOVER DATA FOR <DatabaseName> USING BACKUP_ID <BackupIdFromJsonFile> USING SOURCE '<DatabaseName@HostName>'  USING CATALOG PATH ('<PathToGeneratedCatalogInStep3>') USING DATA PATH ('<DataFileDir>')  CLEAR LOG
         ```
 
-        * `<DatabaseName>`– namnet på den nya databasen eller den befintliga databasen som du vill återställa
-        * `<Timestamp>`– den exakta tidsstämpeln för tidpunkten i återställningen
-        * `<DatabaseName@HostName>`– namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Så det behöver inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
-        * `<PathToGeneratedCatalogInStep3>`– sökvägen till katalog filen som genererades i **Steg C**
-        * `<DataFileDir>`– mappen som innehåller fullständiga säkerhets kopior
-        * `<LogFilesDir>`– mappen som innehåller säkerhets kopiorna av loggen
-        * `<BackupIdFromJsonFile>`– **BackupId** extraherades i **Steg C**
+        * `<DatabaseName>` – namnet på den nya databasen eller den befintliga databasen som du vill återställa
+        * `<Timestamp>` – den exakta tidsstämpeln för tidpunkten i återställningen
+        * `<DatabaseName@HostName>` – namnet på den databas vars säkerhets kopia används för återställning och namnet på den **värd** /SAP HANA server som databasen finns på. `USING SOURCE <DatabaseName@HostName>`Alternativet anger att data säkerhets kopieringen (som används för återställning) är av en databas med ett annat sid eller namn än mål SAP HANA datorn. Så det behöver inte anges för återställningar som har utförts på samma HANA-server som säkerhets kopieringen görs från.
+        * `<PathToGeneratedCatalogInStep3>` – sökvägen till katalog filen som genererades i **Steg C**
+        * `<DataFileDir>` – mappen som innehåller fullständiga säkerhets kopior
+        * `<LogFilesDir>` – mappen som innehåller säkerhets kopiorna av loggen
+        * `<BackupIdFromJsonFile>` – **BackupId** extraherades i **Steg C**
 
 ### <a name="restore-to-a-specific-point-in-time"></a>Återställ till en viss tidpunkt
 

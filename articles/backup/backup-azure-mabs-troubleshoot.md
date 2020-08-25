@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 54b7295eaed5f04a118cf5097ebc7b25b18f67d2
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522852"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763498"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -17,7 +17,7 @@ Använd informationen i följande tabeller för att felsöka fel som uppstår n�
 
 ## <a name="basic-troubleshooting"></a>Grundläggande felsökning
 
-Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Microsoft Azure Backup Server (MABS):
+Vi rekommenderar att du utför följande verifiering innan du börjar felsöka Microsoft Azure Backup Server (MABS):
 
 - [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Se till att det finns en nätverks anslutning mellan MARS-agenten och Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet extern DPM-återställning och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Service-valv.<br/> <br/>**Lösning** För att lösa det här problemet ser du till att både den ursprungliga och den alternativa servern är registrerad i samma valv.|
+| Återställ | **Felkod**: CBPServerRegisteredVaultDontMatchWithCurrent/valv autentiseringsuppgifter fel: 100110 <br/> <br/>**Fel meddelande**: de ursprungliga och externa DPM-servrarna måste vara registrerade på samma valv | **Orsak**: det här problemet uppstår när du försöker återställa filer till den alternativa servern från den ursprungliga servern med hjälp av alternativet extern DPM-återställning och om servern som återställs och den ursprungliga servern från vilken data säkerhets kopie ras inte är kopplad till samma Recovery Services-valv.<br/> <br/>**Lösning** För att lösa det här problemet ser du till att både den ursprungliga och den alternativa servern är registrerad i samma valv.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Det gick inte att skapa jobb för onlineåterställningspunkt för VMware VM
 
@@ -119,7 +119,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 | Konfigurera skydds grupper | DPM kunde inte räkna upp program komponenten på den skyddade datorn (skyddat dator namn). | Välj **Uppdatera** på skärmen konfigurera skydds gruppens användar gränssnitt på den relevanta data källan/komponent nivån. |
 | Konfigurera skydds grupper | Kan inte konfigurera skydd | Om den skyddade servern är en SQL-Server kontrollerar du att sysadmin-rollens behörigheter har angetts till system kontot (NTAuthority\System) på den skyddade datorn enligt beskrivningen i [den här artikeln](/system-center/dpm/back-up-sql-server?view=sc-dpm-2019).
 | Konfigurera skydds grupper | Det finns inte tillräckligt med ledigt utrymme i lagringspoolen för den här skydds gruppen. | Diskarna som läggs till i lagringspoolen [får inte innehålla en partition](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Ta bort alla befintliga volymer på diskarna. Lägg sedan till dem i lagringspoolen.|
-| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsofts supportavdelning om problemet kvarstår. | **Orsak**<br/>Det här felet uppstår under tre förhållanden: när säkerhets inställningarna är aktiverade kan du, när du försöker minska kvarhållningsintervallet under de lägsta värdena som angetts tidigare, och när du använder en version som inte stöds. (Versioner som inte stöds är de nedan Microsoft Azure Backup Server version 2.0.9052 och Azure Backup Server uppdatering 1.) <br/>**Rekommenderad åtgärd:**<br/> Om du vill fortsätta med principbaserad uppdateringar anger du kvarhållningsperioden ovanför den minsta kvarhållningsperioden som angetts. (Den minsta Retentions perioden är sju dagar i fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år.) <br><br>Alternativt är det en annan prioriterad metod att uppdatera säkerhets kopierings agenten och Azure Backup Server för att utnyttja alla säkerhets uppdateringar. |
+| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsofts supportavdelning om problemet kvarstår. | **Orsak**<br/>Det här felet uppstår under tre förhållanden: när säkerhets inställningarna är aktiverade kan du, när du försöker minska kvarhållningsintervallet under de lägsta värdena som angetts tidigare, och när du använder en version som inte stöds. (Versioner som inte stöds är de som är lägre än Microsoft Azure Backup Server version 2.0.9052 och Azure Backup Server uppdatering 1.) <br/>**Rekommenderad åtgärd:**<br/> Om du vill fortsätta med principbaserad uppdateringar anger du kvarhållningsperioden ovanför den minsta kvarhållningsperioden som angetts. (Den minsta Retentions perioden är sju dagar i fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år.) <br><br>Alternativt är det en annan prioriterad metod att uppdatera säkerhets kopierings agenten och Azure Backup Server för att utnyttja alla säkerhets uppdateringar. |
 
 ## <a name="backup"></a>Backup
 

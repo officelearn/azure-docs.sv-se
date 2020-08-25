@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74007646"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Självstudie: strömma Azure Active Directory loggar till en Azure Event Hub
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-dia
 
 ## <a name="prerequisites"></a>Krav 
 
-Om du vill använda den här funktionen behöver du:
+För att använda funktionen behöver du:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [registrera dig för en kostnadsfri utvärdering](https://azure.microsoft.com/free/).
 * En Azure AD-klientorganisation.
@@ -39,9 +39,9 @@ Om du vill använda den här funktionen behöver du:
 
 ## <a name="stream-logs-to-an-event-hub"></a>Strömma loggar till en händelsehubb
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory** > **övervaka** > **gransknings loggar**. 
+2. Välj **Azure Active Directory**  >  **övervaka**  >  **gransknings loggar**. 
 
 3. Välj **Exportinställningar**.  
     

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 ms.openlocfilehash: 1b90364bee42b31843ac8d84f5a692a3eeb6d3f1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84417606"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Självstudie: Lägg till en Azure IoT Edge enhet till ditt Azure IoT Central-program
@@ -21,22 +21,22 @@ ms.locfileid: "84417606"
 
 Den här självstudien visar hur du konfigurerar och lägger till en Azure IoT Edge-enhet i Azure IoT Central-programmet. Självstudien använder en IoT Edge-aktiverad virtuell Linux-dator (VM) för att simulera en IoT Edge enhet. Den IoT Edge enheten använder en modul som genererar simulerad miljö telemetri. Du visar Telemetrin på en instrument panel i ditt IoT Central-program.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en enhets mall för en IoT Edge enhet
 > * Skapa en IoT Edge enhet i IoT Central
 > * Distribuera en simulerad IoT Edge enhet till en virtuell Linux-dator
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför snabb starten [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) för att skapa ett IoT Central program med hjälp av den **anpassade appen > anpassade program** .
 
 För att slutföra stegen i den här självstudien behöver du en aktiv Azure-prenumeration.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Hämta IoT Edge manifest filen från GitHub. Högerklicka på följande länk och välj sedan **Spara länk som**: [EnvironmentalSensorManifest. JSON](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
+Hämta IoT Edge manifest filen från GitHub. Högerklicka på följande länk och välj sedan **Spara länk som**: [EnvironmentalSensorManifest.jspå](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
 ## <a name="create-device-template"></a>Skapa enhets mall
 
@@ -50,7 +50,7 @@ Så här skapar du en enhets mal len från ett IoT Edge manifest:
 
 1. På sidan **Välj Malltyp** väljer du panelen **Azure IoT Edge** . Välj sedan **Nästa: anpassa**.
 
-1. På sidan **överför ett distributions manifest för ett Azure IoT Edge** *anger du enhets* mal len namn. Välj sedan **Bläddra** för att ladda upp **EnvironmentalSensorManifest. JSON** som du laddade ned tidigare. Välj sedan **Nästa: granska**.
+1. På sidan **överför ett distributions manifest för ett Azure IoT Edge** *anger du enhets* mal len namn. Välj sedan **Bläddra** för att ladda upp **EnvironmentalSensorManifest.jspå** som du laddade ned tidigare. Välj sedan **Nästa: granska**.
 
 1. På sidan **Granska** väljer du **skapa**.
 
@@ -120,7 +120,7 @@ Innan du kan lägga till en enhet som använder **enhets mal len miljö sensor g
 
 Navigera till enhets mal len för **miljö sensor** och välj **publicera**. I **mallen publicera den här enheten i program** panelen väljer du **publicera** för att publicera mallen:
 
-:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicera enhets mal len":::
+:::image type="content" source="media/tutorial-add-edge-as-leaf-device/publish-template.png" alt-text="Publicera enhetsmallen":::
 
 ## <a name="add-iot-edge-device"></a>Lägga till IoT Edge-enhet
 
@@ -152,7 +152,7 @@ Nu har du slutfört konfigurationen av IoT Central-programmet så att en IoT Edg
 
 I den här självstudien använder du en Azure IoT Edge-aktiverad Linux-baserad virtuell dator som skapats på Azure för att simulera en IoT Edge-enhet. Skapa den IoT Edge-aktiverade virtuella datorn i din Azure-prenumeration genom att klicka på:
 
-[![Distribuera till Azure-knapp för iotedge-VM-Deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+[![Knappen Distribuera till Azure för iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
 På sidan **Anpassad distribution** :
 
@@ -228,7 +228,7 @@ Så här konfigurerar du IoT Edge i den virtuella datorn att använda DPS för a
     ```
 
     > [!TIP]
-    > Se till att det inte finns något utrymme kvar framför`provisioning:`
+    > Se till att det inte finns något utrymme kvar framför `provisioning:`
 
 1. Ersätt `{scope_id}` med **ID-omfånget** som du antecknade tidigare.
 

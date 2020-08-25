@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 92097f4be02e81d3a8d306f6dc00bb0e8c939005
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: edcc77c98737b9f4e76ade0471d273f5e0070969
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612545"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763430"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -30,14 +30,14 @@ Den här lösningen utnyttjar SQL-inbyggda API: er för att säkerhetskopiera SQ
 * Azure Backup skapar kontot för att kunna identifiera databaser på den här virtuella datorn `NT SERVICE\AzureWLBackupPluginSvc` . Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. `NT SERVICE\AzureWLBackupPluginSvc`Kontot är ett [virtuellt tjänst konto](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)och kräver därför inte någon lösen ords hantering. Azure Backup `NT AUTHORITY\SYSTEM` använder kontot för identifiering/frågor av databasen, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server VM från Azure Marketplace kan du få ett fel **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
 * När du har aktiverat konfigurera skydd för de valda databaserna konfigurerar säkerhets kopierings tjänsten koordinatorn med säkerhets kopierings scheman och annan princip information, som tillägget cachelagrar lokalt på den virtuella datorn.
 * Vid den schemalagda tiden kommunicerar koordinatorn med plugin-programmet och börjar strömma säkerhetskopierade data från SQL-servern med VDI.  
-* Plugin-programmet skickar data direkt till Recovery Services-valvet, vilket eliminerar behovet av en mellanlagringsplats. Data krypteras och lagras av Azure Backups tjänsten i lagrings konton.
+* Plugin-programmet skickar data direkt till Recovery Services valvet, vilket eliminerar behovet av en mellanlagringsplats. Data krypteras och lagras av Azure Backups tjänsten i lagrings konton.
 * När data överföringen är slutförd bekräftar koordinatorn incheckningen med säkerhets kopierings tjänsten.
 
   ![Säkerhets kopierings arkitektur för SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du börjar ska du kontrol lera följande:
+Innan du börjar ska du kontrol lera följande krav:
 
 1. Se till att du har en SQL Server-instans som körs i Azure. Du kan [snabbt skapa en SQL Server-instans](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) på Marketplace.
 2. Granska [funktions överväganden](sql-support-matrix.md#feature-considerations-and-limitations) och [scenario supporten](sql-support-matrix.md#scenario-support).

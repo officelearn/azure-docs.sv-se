@@ -4,10 +4,10 @@ description: Lär dig de grundläggande principerna för Azure Batch och skapa e
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83780183"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js

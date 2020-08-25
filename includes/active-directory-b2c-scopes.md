@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84680290"
 ---
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/) 
@@ -21,13 +21,13 @@ ms.locfileid: "84680290"
 1. Ersätt standardvärdet (ett GUID) med `api` och välj sedan **Spara**. Den fullständiga URI: n visas och ska ha formatet `https://your-tenant-name.onmicrosoft.com/api` . När ditt webb program begär en åtkomsttoken för API: et ska den lägga till denna URI som prefix för varje omfång som du definierar för API: et.
 1. Under **omfattningar som definieras av detta API**väljer du **Lägg till ett omfång**.
 1. Ange följande värden för att skapa ett omfång som definierar Läs åtkomst till API: et och välj sedan **Lägg till omfång**:
-    1. **Omfattnings namn**:`demo.read`
-    1. **Visnings namn för administratörs medgivande**:`Read access to demo API`
-    1. **Beskrivning av administratörs medgivande**:`Allows read access to the demo API`
+    1. **Omfattnings namn**: `demo.read`
+    1. **Visnings namn för administratörs medgivande**: `Read access to demo API`
+    1. **Beskrivning av administratörs medgivande**: `Allows read access to the demo API`
 1. Välj **Lägg till ett omfång**, ange följande värden för att lägga till ett omfång som definierar skriv åtkomst till API: et och välj sedan **Lägg till omfång**:
-    1. **Omfattnings namn**:`demo.write`
-    1. **Visnings namn för administratörs medgivande**:`Write access to demo API`
-    1. **Beskrivning av administratörs medgivande**:`Allows write access to the demo API`
+    1. **Omfattnings namn**: `demo.write`
+    1. **Visnings namn för administratörs medgivande**: `Write access to demo API`
+    1. **Beskrivning av administratörs medgivande**: `Allows write access to the demo API`
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 

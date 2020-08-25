@@ -3,12 +3,12 @@ title: Använda diagnostikinställningar för Recovery Services valv
 description: Den här artikeln beskriver hur du använder de gamla och nya diagnostiska händelserna för Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 2b562ee7fc4afbc28119aa36cfa071291dd61f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 908420a3447869d3e417da51e6b2501fbf2fa5a0
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612630"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763532"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Använda diagnostikinställningar för Recovery Services valv
 
@@ -29,7 +29,7 @@ Azure Backup innehåller följande diagnostiska händelser. Varje händelse inne
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Om du använder den [äldre Event](#legacy-event) AzureBackupReport rekommenderar vi att du växlar till att använda ovanstående händelser tidigast.
+Om du fortfarande använder den [äldre Event](#legacy-event) AzureBackupReport rekommenderar vi att du växlar till att använda händelserna ovan.
 
 Mer information finns i [data modell för Azure Backup Diagnostics-händelser](./backup-azure-reports-data-model.md).
 

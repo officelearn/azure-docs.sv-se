@@ -8,19 +8,41 @@
       displayName: release notes
       href: release-notes.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Livehändelse med portal och Wirecast
-      displayName: 'live, event, portal, wirecast'
-      href: live-events-wirecast-quickstart.md
-    - name: Livehändelse med portal och OBS
-      displayName: 'live, event, portal, obs'
-      href: live-events-obs-quickstart.md
-    - name: 'Använda portalen för att ladda upp, koda och strömma innehåll'
-      href: manage-assets-quickstart.md
-    - name: Använda portalen för att kryptera innehåll
-      displayName: 'protect, drm, aes'
-      href: encrypt-content-quickstart.md
+    - name: Konfigurera din miljö
+      items:
+        - name: Hitta din Azure-prenumeration
+          href: how-to-set-azure-subscription.md
+        - name: Skapa ett Media Services-konto
+          href: create-account-howto.md
+        - name: 'Åtkomst till API:et'
+          href: access-api-howto.md
+        - name: Konfigurera Azure Cloud Shell
+          href: 'https://docs.microsoft.com/azure/cloud-shell/overview'
+        - name: Utveckla med REST
+          items:
+            - name: Ansluta med Postman
+              href: media-rest-apis-with-postman.md
+        - name: 'Utveckla med SDK:er'
+          items:
+            - name: Ansluta med Java
+              href: configure-connect-java-howto.md
+            - name: Ansluta med .NET
+              href: configure-connect-dotnet-howto.md
+            - name: Ansluta med Node.js
+              href: configure-connect-nodejs-howto.md
+            - name: Ansluta med Python
+              href: configure-connect-python-howto.md
+    - name: Prova Media Services i Azure-portalen
+      items:
+        - name: Livehändelse med portal och Wirecast
+          href: live-events-wirecast-quickstart.md
+        - name: Livehändelse med portal och OBS
+          href: live-events-obs-quickstart.md
+        - name: 'Använda portalen för att ladda upp, koda och strömma innehåll'
+          href: manage-assets-quickstart.md
+        - name: Använda portalen för att kryptera innehåll
+          href: encrypt-content-quickstart.md
 - name: Självstudier
   items:
     - name: Koda fjärrfiler och strömma videor
@@ -56,6 +78,7 @@
     - name: Media Services v3 REST-exempel
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Begrepp
+  expanded: true
   items:
     - name: Översikt
       href: concepts-overview.md
@@ -207,6 +230,8 @@
               href: live-event-error-codes.md
             - name: Jobbfelkoder
               href: job-error-codes.md
+        - name: Återställa autentiseringsuppgifter för konto
+          href: cli-reset-account-credentials.md
     - name: Migrering från v2 till v3
       items:
         - name: v2 vs v3
@@ -217,70 +242,30 @@
           displayName: naming
 - name: Anvisningar
   items:
-    - name: Kom igång
-      items:
-        - name: Hitta din Azure-prenumeration
-          href: how-to-set-azure-subscription.md
-        - name: Skapa ett Media Services-konto
-          href: create-account-howto.md
-          displayName: 'portal, cli, storage'
-        - name: API-åtkomst
-          displayName: 'portal, cli'
-          href: access-api-howto.md
-        - name: Utveckla med REST
-          items:
-            - name: Ansluta med Postman
-              href: media-rest-apis-with-postman.md
-        - name: 'Utveckla med SDK:er'
-          items:
-            - name: Ansluta med Java
-              href: configure-connect-java-howto.md
-            - name: Ansluta med .NET
-              href: configure-connect-dotnet-howto.md
-            - name: Ansluta med Node.js
-              href: configure-connect-nodejs-howto.md
-            - name: Ansluta med Python
-              href: configure-connect-python-howto.md
-        - name: Återställa autentiseringsuppgifter för konto
-          href: cli-reset-account-credentials.md
-    - name: Skapa och hantera tillgångar
+    - name: Skapa tillgångar och ladda upp media
       items:
         - name: Skapa en tillgång
           href: how-to-create-asset.md
-    - name: Överföra innehåll
-      items:
-        - name: Från HTTPS
-          displayName: upload
-          href: job-input-from-http-how-to.md
-        - name: Från en lokal fil
-          items:
-            - name: Med .NET
-              displayName: upload
-              href: job-input-from-local-file-how-to.md
-            - name: Med REST
-              displayName: upload
-              href: upload-files-rest-how-to.md
-            - name: Med CLI
-              href: cli-upload-file-asset.md
+        - name: Ladda upp media
+          href: how-to-upload-media.md
     - name: Skapa transformeringar och jobb
       items:
         - name: Skapa transformeringar
           href: cli-create-transform.md
         - name: Skapa jobb
           href: cli-create-jobs.md
+        - name: Skapa jobbindata med en lokal fil och .NET
+          displayName: upload
+          href: job-input-from-local-file-how-to.md
         - name: Jobb med flera transformeringsutdata
           href: job-multiple-transform-outputs.md
     - name: Koda innehåll
       items:
         - name: HTTPS som jobbindata
-          displayName: 'encode, encoding'
           href: job-input-from-http-how-to.md
         - name: Lokal fil som jobbindata
-          displayName: 'encode, encoding'
           href: job-input-from-local-file-how-to.md
         - name: Koda med en anpassad transformering
-        - name: Skala mediereserverade enheter
-          href: media-reserved-units-cli-how-to.md
           items:
             - name: Med .NET
               displayName: 'encode, encoding, custom, transform'
@@ -299,6 +284,8 @@
               href: custom-preset-rest-howto.md
             - name: Skapa miniatyrer med REST
               href: media-services-generate-thumbnails-rest.md
+            - name: Skala mediereserverade enheter
+              href: media-reserved-units-cli-how-to.md
         - name: Skapa underklipp i en video
           items:
             - name: Med .NET

@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 351fe5acd8d607b5b60817c235161ac09e530e99
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 25ee5d389bc70d82730c7056c752de393a6bf4c5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495020"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799153"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Konfigurera Kundhanterade nycklar med Azure Key Vault med hjälp av Azure CLI
 
@@ -94,13 +94,16 @@ Azure Storage-kryptering stöder RSA-och RSA-HSM-nycklar i storlekarna 2048, 307
 
 Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto så att det använder Kundhanterade nycklar med Azure Key Vault och anger sedan nyckeln som ska associeras med lagrings kontot.
 
-När du konfigurerar kryptering med Kundhanterade nycklar kan du välja att automatiskt rotera nyckeln som används för kryptering när versionen ändras i det associerade nyckel valvet. Alternativt kan du uttryckligen ange en nyckel version som ska användas för kryptering tills nyckel versionen uppdateras manuellt.
+När du konfigurerar kryptering med Kundhanterade nycklar kan du välja att automatiskt uppdatera den nyckel som används för kryptering när nyckel versionen ändras i det associerade nyckel valvet. Alternativt kan du uttryckligen ange en nyckel version som ska användas för kryptering tills nyckel versionen uppdateras manuellt.
 
-### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Konfigurera kryptering för automatisk rotation av Kundhanterade nycklar
+> [!NOTE]
+> Om du vill rotera en nyckel skapar du en ny version av nyckeln i Azure Key Vault. Azure Storage hanterar inte rotationen av nyckeln i Azure Key Vault, så du måste rotera nyckeln manuellt eller skapa en funktion för att rotera den enligt ett schema.
 
-Om du vill konfigurera kryptering för automatisk rotation av Kundhanterade nycklar, installerar du [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) eller senare. Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+### <a name="configure-encryption-to-automatically-update-the-key-version"></a>Konfigurera kryptering för att automatiskt uppdatera nyckel versionen
 
-Om du vill rotera Kundhanterade nycklar automatiskt, utelämnar du nyckel versionen när du konfigurerar Kundhanterade nycklar för lagrings kontot. Anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera `--encryption-key-source` parametern och Ställ in den på `Microsoft.Keyvault` för att aktivera Kundhanterade nycklar för kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
+Om du vill konfigurera kryptering med Kundhanterade nycklar för att automatiskt uppdatera nyckel versionen installerar du [Azure CLI version 2.4.0](/cli/azure/release-notes-azure-cli#april-21-2020) eller senare. Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+Om du vill uppdatera nyckel versionen för en kundhanterad nyckel automatiskt, utelämnar du nyckel versionen när du konfigurerar kryptering med Kundhanterade nycklar för lagrings kontot. Anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera `--encryption-key-source` parametern och Ställ in den på `Microsoft.Keyvault` för att aktivera Kundhanterade nycklar för kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -116,7 +119,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Konfigurera kryptering för manuell rotation av nyckel versioner
+### <a name="configure-encryption-for-manual-updating-of-key-versions"></a>Konfigurera kryptering för manuell uppdatering av nyckel versioner
 
 Ange nyckel versionen när du konfigurerar kryptering med Kundhanterade nycklar för lagrings kontot om du uttryckligen vill ange en nyckel version som ska användas för kryptering. Anropa [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar, som du ser i följande exempel. Inkludera `--encryption-key-source` parametern och Ställ in den på `Microsoft.Keyvault` för att aktivera Kundhanterade nycklar för kontot. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
@@ -140,7 +143,7 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-När du roterar nyckel versionen manuellt måste du uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen. Börja med att fråga efter Key Vault-URI: n genom att anropa AZ-nyckelpar [show](/cli/azure/keyvault#az-keyvault-show)och för nyckel versionen genom att anropa [AZ Key Vault Key List-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Anropa sedan [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående exempel.
+När du uppdaterar nyckel versionen manuellt måste du uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen. Börja med att fråga efter Key Vault-URI: n genom att anropa AZ-nyckelpar [show](/cli/azure/keyvault#az-keyvault-show)och för nyckel versionen genom att anropa [AZ Key Vault Key List-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Anropa sedan [AZ Storage Account Update](/cli/azure/storage/account#az-storage-account-update) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående exempel.
 
 ## <a name="use-a-different-key"></a>Använd en annan nyckel
 

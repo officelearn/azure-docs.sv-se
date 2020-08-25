@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c41fb7426cf740b5861b0b571cf7ce5c54d681ef
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656926"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757616"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 
@@ -24,7 +24,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="select-a-vm-to-back-up"></a>Välj en virtuell dator som du vill säkerhetskopiera
 
-Skapa en enkel schemalagd daglig säkerhetskopiering till ett Recovery Services-valv.
+Skapa en enkel schemalagd daglig säkerhets kopiering till ett Recovery Services-valv.
 
 1. Välj **Virtuella datorer** på menyn till vänster.
 2. Välj en virtuell dator som du vill säkerhetskopiera i listan. Om du skapade en virtuell dator med exempelkommandona i snabbstarten heter den virtuella datorn *myVM*, och resursgruppen som den finns i *myResourceGroup*.

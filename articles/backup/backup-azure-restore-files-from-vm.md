@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ab0722bfee0f8165971b5e3351640f0d3c00bea3
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654165"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757157"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -68,7 +68,7 @@ Se avsnittet [åtkomst krav](#access-requirements) för att kontrol lera att skr
 
 När du kör den körbara filen monterar operativ systemet de nya volymerna och tilldelar enhets beteckningar. Du kan använda Utforskaren eller Utforskaren för att bläddra bland enheterna. De enhets beteckningar som tilldelats volymerna får inte ha samma bokstäver som den ursprungliga virtuella datorn. Volym namnet bevaras dock. Om volymen på den ursprungliga virtuella datorn exempelvis var "datadisk (E: `\` )" kan den volymen anslutas på den lokala datorn som "data disk (" valfri bokstav ": `\` ). Bläddra igenom alla volymer som anges i skriptets utdata tills du hittar dina filer eller mappar.  
 
-   ![Fil återställnings meny](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
+   ![Anslutna återställnings volymer](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
 #### <a name="for-linux"></a>För Linux
 
@@ -302,7 +302,7 @@ Skriptet kräver också python-och bash-komponenter för att kunna köra och ans
 Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det finns åtkomst till:
 
 - `download.microsoft.com`
-- URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Service-valvet finns)
+- URL: er för återställnings tjänsten (geo-Name refererar till den region där Recovery Services valvet finns)
   - `https://pod01-rec2.geo-name.backup.windowsazure.com` (För offentliga Azure-regioner)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn` (För Azure Kina-21Vianet)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us` (För Azure amerikanska myndigheter)
@@ -332,7 +332,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
     - Se till att operativ systemet är WS 2012 eller högre.
     - Se till att register nycklarna är inställda enligt rekommendationerna nedan i återställnings servern och var noga med att starta om servern. Antalet bredvid GUID kan vara mellan 0001-0005. I följande exempel är det 0004. Navigera genom sökvägen till register nyckeln tills avsnittet parametrar.
 
-    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![Register nyckel ändringar](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
@@ -343,7 +343,7 @@ Eftersom fil återställnings processen kopplar alla diskar från säkerhets kop
 
 - Om återställnings servern är en virtuell Linux-dator:
   - I filen/etc/iSCSI/iscsid.conf ändrar du inställningen från:
-    - Node. ansluts [0]. tidsintervallet. noop_out_timeout = 5 till Node. ansluten [0]. tidsintervallet. noop_out_timeout = 30
+    - `node.conn[0].timeo.noop_out_timeout = 5`  att `node.conn[0].timeo.noop_out_timeout = 30`
 - När du har gjort ändringen ovan kör du skriptet igen. Med de här ändringarna är det mycket troligt att fil återställningen kommer att lyckas.
 - Varje gång användaren laddar ned ett skript initierar Azure Backup processen för att förbereda återställnings punkten för hämtning. Med stora diskar tar det lång tid att utföra den här processen. Om det finns successiva burst-anrop, kommer mål förberedelsen att ingå i en nedladdnings spiral. Därför rekommenderar vi att du laddar ned ett skript från portalen/PowerShell/CLI, väntar i 20-30 minuter (en tumregel) och kör det. Vid den här tidpunkten förväntas målet vara klart för anslutning från skript.
 - Efter fil återställning kontrollerar du att du går tillbaka till portalen och väljer **demontera diskar** för återställnings punkter där du inte kunde montera volymerna. I stort sett rensar det här steget eventuella befintliga processer/sessioner och ökar chansen att återställa.

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494833"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799238"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Design tabeller med Synapse SQL
 
@@ -27,27 +27,27 @@ I följande tabell visas de avsnitt som är relevanta för SQL-pool jämfört me
 
 | Avsnitt                                                        | SQL-pool | SQL på begäran |
 | ------------------------------------------------------------ | ------------------ | ----------------------- |
-| [Bestäm tabell kategori](#determine-table-category)        | Yes                | Inga                      |
+| [Bestäm tabell kategori](#determine-table-category)        | Ja                | Inga                      |
 | [Schema namn](#schema-names)                                | Ja                | Ja                     |
-| [Tabell namn](#table-names)                                  | Yes                | Inga                      |
-| [Tabell persistence](#table-persistence)                      | Yes                | Inga                      |
-| [Vanlig tabell](#regular-table)                              | Yes                | Inga                      |
+| [Tabell namn](#table-names)                                  | Ja                | Inga                      |
+| [Tabell persistence](#table-persistence)                      | Ja                | Inga                      |
+| [Vanlig tabell](#regular-table)                              | Ja                | Inga                      |
 | [Temporär tabell](#temporary-table)                          | Ja                | Ja                     |
 | [Extern tabell](#external-table)                            | Ja                | Ja                     |
 | [Datatyper](#data-types)                                    | Ja                | Ja                     |
-| [Distribuerade tabeller](#distributed-tables)                    | Yes                | Inga                      |
-| [Hash-distribuerade tabeller](#hash-distributed-tables)          | Yes                | Inga                      |
-| [Replikerade tabeller](#replicated-tables)                      | Yes                | Inga                      |
-| [Round-Robin-tabeller](#round-robin-tables)                    | Yes                | Inga                      |
-| [Vanliga distributions metoder för tabeller](#common-distribution-methods-for-tables) | Yes                | Inga                      |
+| [Distribuerade tabeller](#distributed-tables)                    | Ja                | Inga                      |
+| [Hash-distribuerade tabeller](#hash-distributed-tables)          | Ja                | Inga                      |
+| [Replikerade tabeller](#replicated-tables)                      | Ja                | Inga                      |
+| [Round-Robin-tabeller](#round-robin-tables)                    | Ja                | Inga                      |
+| [Vanliga distributions metoder för tabeller](#common-distribution-methods-for-tables) | Ja                | Inga                      |
 | [Partitioner](#partitions)                                    | Ja                | Ja                     |
-| [Columnstore-index](#columnstore-indexes)                  | Yes                | Inga                      |
+| [Columnstore-index](#columnstore-indexes)                  | Ja                | Inga                      |
 | [Statistik](#statistics)                                    | Ja                | Ja                     |
-| [Primär nyckel och unik nyckel](#primary-key-and-unique-key)    | Yes                | Inga                      |
-| [Kommandon för att skapa tabeller](#commands-for-creating-tables) | Yes                | Inga                      |
-| [Justera källdata med data lagret](#align-source-data-with-the-data-warehouse) | Yes                | Inga                      |
-| [Tabell funktioner som inte stöds](#unsupported-table-features)    | Yes                | Inga                      |
-| [Tabell storleks frågor](#table-size-queries)                    | Yes                | Inga                      |
+| [Primär nyckel och unik nyckel](#primary-key-and-unique-key)    | Ja                | Inga                      |
+| [Kommandon för att skapa tabeller](#commands-for-creating-tables) | Ja                | Inga                      |
+| [Justera källdata med data lagret](#align-source-data-with-the-data-warehouse) | Ja                | Inga                      |
+| [Tabell funktioner som inte stöds](#unsupported-table-features)    | Ja                | Inga                      |
+| [Tabell storleks frågor](#table-size-queries)                    | Ja                | Inga                      |
 
 ## <a name="determine-table-category"></a>Bestäm tabell kategori
 
@@ -75,7 +75,7 @@ Om du vill visa en tabells struktur i SQL-poolen kan du använda fakta, dim och 
 
 | Informations lagret wideworldimportersdw-tabell  | Tabell typ | SQL-pool |
 |:-----|:-----|:------|:-----|
-| Stad | Dimension | WWI. DimCity |
+| City | Dimension | WWI. DimCity |
 | Beställa | Fakta | WWI. FactOrder |
 
 ## <a name="table-persistence"></a>Tabell persistence
@@ -96,7 +96,7 @@ Det finns bara en temporär tabell under sessionen. Du kan använda en temporär
 
 SQL på begäran stöder temporära tabeller. Men användningen är begränsad eftersom du kan välja från temporär tabell men inte ansluta till den med filer i lagringen.
 
-Mer information finns i [temporära tabeller](develop-tables-temporary.md).
+Mer information finns i  [temporära tabeller](develop-tables-temporary.md).
 
 ### <a name="external-table"></a>Extern tabell
 
@@ -207,7 +207,7 @@ PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.
 
 Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en SELECT-instruktion. Följande är T-SQL-kommandon för att skapa en tabell.
 
-| T-SQL-uttryck | Description |
+| T-SQL-uttryck | Beskrivning |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en tom tabell genom att definiera alla tabell kolumner och alternativ. |
 | [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Skapar en extern tabell. Definitionen av tabellen lagras i SQL-poolen. Tabell data lagras i Azure Blob Storage eller Azure Data Lake Storage. |
@@ -360,6 +360,9 @@ SELECT *
 FROM size
 ;
 ```
+
+>[!TIP]
+> För förbättrade prestanda i Synapse SQL kan du överväga att använda **sys. pdw_permanent_table_mappings** i stället för **sys. pdw_table_mappings** i permanenta användar tabeller. Mer information finns i **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Sammanfattning av tabell utrymme
 

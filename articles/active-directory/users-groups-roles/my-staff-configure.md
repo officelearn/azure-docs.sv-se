@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: dc4e71f4283d78c2b241441810a8c1313f002152
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: da358ecb126dda21d18120bbe698fec234c85e4f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850907"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798966"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Hantera dina användare med min personal (förhands granskning)
 
@@ -64,7 +64,7 @@ När du har konfigurerat Australien kan du tillämpa det här omfånget på dina
 
 Du kan skydda min personal Portal med hjälp av principen för villkorlig åtkomst för Azure AD. Använd den för aktiviteter som kräver multifaktorautentisering innan du får åtkomst till min personal.
 
-Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst principer för Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Om du vill tillämpa en princip för villkorlig åtkomst för min personal måste du skapa tjänstens huvud namn för min personal manuellt med hjälp av PowerShell.
+Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst principer för Azure AD](../conditional-access/index.yml). Om du vill tillämpa en princip för villkorlig åtkomst för min personal måste du skapa tjänstens huvud namn för min personal manuellt med hjälp av PowerShell.
 
 ### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Tillämpa en princip för villkorlig åtkomst för min personal
 
@@ -119,7 +119,7 @@ Om du vill hantera en användares telefonnummer måste du ha tilldelats någon a
 - [Administratör för privilegie rad autentisering](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administratör](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Du kan söka efter Australien och användare i din organisation med hjälp av Sök fältet i min personal. Du kan söka i alla Australien och användare i din organisation, men du kan bara göra ändringar i användare som är i en AU som du har fått administratörs behörighet för.
 

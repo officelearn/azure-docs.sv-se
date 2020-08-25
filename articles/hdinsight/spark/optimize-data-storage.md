@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: contperfq1
+ms.openlocfilehash: 092757728e791f60616d9dceca43e109e7f0019e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737639"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757820"
 ---
 # <a name="data-storage-optimization-for-apache-spark"></a>Data lagrings optimering för Apache Spark
 
@@ -43,7 +44,7 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
     * Lägger till omkostnader för serialisering/deserialisering.
     * Hög global kostnad.
     * Delar upp kod generation i hela fasen.
-* **RDD**
+* **RDD:er**
     * Du behöver inte använda RDD, om du inte behöver bygga en ny anpassad RDD.
     * Ingen fråga optimering via katalysator.
     * Ingen hel stegs kod genereras.
@@ -60,7 +61,7 @@ När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azu
 | Azure Blob Storage (säker) | **wasbs:**//URL/ | **Standard** | Ja | Tillfälligt kluster |
 | Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Azure Data Lake Storage gen 1| **ADL:**//URL/ | **Tid** | Ja | Tillfälligt kluster |
-| Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | No | Interaktivt 24/7-kluster |
+| Lokal HDFS | **HDFS:**//URL/ | **Snabbaste** | Inga | Interaktivt 24/7-kluster |
 
 En fullständig beskrivning av lagrings alternativ finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](../hdinsight-hadoop-compare-storage-options.md).
 
@@ -77,7 +78,7 @@ Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan använ
     * Använder minnes-och SSD-cachelagring.
 
 * Lokal HDFS (rekommenderas)
-    * `hdfs://mycluster`sökväg.
+    * `hdfs://mycluster` sökväg.
     * Använder SSD-cachelagring.
     * Cachelagrade data går förlorade när du tar bort klustret, vilket kräver en återuppbyggnad av cache.
 
@@ -86,7 +87,7 @@ Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan använ
 Spark-jobb distribueras, så lämplig data serialisering är viktig för bästa möjliga prestanda.  Det finns två alternativ för serialisering för Spark:
 
 * Java-serialisering är standard.
-* `Kryo`serialisering är ett nyare format och kan resultera i en snabbare och mer kompakt serialisering än Java.  `Kryo`kräver att du registrerar klasserna i ditt program och ännu inte har stöd för alla serialiserbara typer.
+* `Kryo` serialisering är ett nyare format och kan resultera i en snabbare och mer kompakt serialisering än Java.  `Kryo` kräver att du registrerar klasserna i ditt program och ännu inte har stöd för alla serialiserbara typer.
 
 ## <a name="use-bucketing"></a>Använd bucket
 

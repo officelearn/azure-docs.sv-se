@@ -3,12 +3,12 @@ title: Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbet
 description: Lär dig hur mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar gör säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c0eaedea2d5428376befaade42f87348cf84e7bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538198"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757480"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar
 
@@ -62,7 +62,7 @@ Azure Backup tillhandahåller nu mjuk borttagning för SQL Server i virtuella Az
 >[!NOTE]
 >Dessa anvisningar gäller även för SAP HANA i Azure VM.
 
-1. Om du vill ta bort säkerhets kopierings data för en databas i en SQL-Server måste säkerhets kopian stoppas. I Azure Portal går du till Recovery Services-valvet, går till säkerhets kopierings objekt och väljer **stoppa säkerhets kopiering**.
+1. Om du vill ta bort säkerhets kopierings data för en databas i en SQL-Server måste säkerhets kopian stoppas. Gå till Recovery Services-valvet i Azure Portal, gå till objektet säkerhets kopia och välj **Avbryt säkerhets kopiering**.
 
    ![Stoppa säkerhets kopiering](./media/soft-delete-sql-saphana-in-azure-vm/stop-backup.png)
 

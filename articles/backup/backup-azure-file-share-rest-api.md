@@ -3,18 +3,18 @@ title: Säkerhetskopiera Azure-filresurser med REST API
 description: Lär dig hur du använder REST API för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: bf737dfa366796c4a392ec3d00609134978057ac
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654148"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757140"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Säkerhetskopiera Azure-filresurs med Azure Backup via REST API
 
 Den här artikeln beskriver hur du säkerhetskopierar en Azure-filresurs med hjälp av Azure Backup via REST API.
 
-Den här artikeln förutsätter att du redan har skapat ett Recovery Services-valv och en princip för att konfigurera säkerhets kopiering för din fil resurs. Om du inte har det kan du läsa avsnittet [skapa valv](./backup-azure-arm-userestapi-createorupdatevault.md) och [Skapa princip](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API själv studie kurser för att skapa nya valv och principer.
+Den här artikeln förutsätter att du redan har skapat ett Recovery Services valv och en princip för att konfigurera säkerhets kopiering för din fil resurs. Om du inte har det kan du läsa avsnittet [skapa valv](./backup-azure-arm-userestapi-createorupdatevault.md) och [Skapa princip](./backup-azure-arm-userestapi-createorupdatepolicy.md) REST API själv studie kurser för att skapa nya valv och principer.
 
 I den här artikeln använder vi följande resurser:
 

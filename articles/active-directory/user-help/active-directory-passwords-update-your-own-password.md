@@ -11,21 +11,21 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799051"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
 
-Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och [återställa ditt eget lösen ord](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
+Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och [återställa ditt eget lösen ord](./active-directory-passwords-reset-register.md).
 
-Om du känner till ditt lösen ord och vill ändra det kan du läsa avsnittet [ändra lösen ords steg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
+Om du känner till ditt lösen ord och vill ändra det kan du läsa avsnittet [ändra lösen ords steg](#how-to-change-your-password) i den här artikeln.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda återställning av lösen ord för ett bortglömt eller okänt arbets-eller skol konto. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Den här artikeln är avsedd för användare som försöker använda återställning av lösen ord för ett bortglömt eller okänt arbets-eller skol konto. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](../authentication/howto-sspr-deployment.md).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Återställa eller låsa upp lösen ordet för ett arbets-eller skol konto
 
@@ -164,6 +164,6 @@ Här följer några vanliga fel och deras lösningar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om säkerhets information i [översikts artikeln om säkerhets information (för hands version)](user-help-security-info-overview.md) .
+- Lär dig mer om säkerhets information i [översikts artikeln om säkerhets information (för hands version)](./security-info-setup-signin.md) .
 
 - Om du försöker komma tillbaka till ett personligt konto, till exempel Xbox, hotmail.com eller outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto-artikel](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

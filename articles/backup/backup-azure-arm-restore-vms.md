@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 4aca863dd4e9c418872cd67bdf54df616a7a0c5b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 66d29294d74e9fee28dd88d34f67ed3bdc4b8e7b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651156"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756494"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -65,7 +65,7 @@ Om du inte har behörighet kan du [återställa en disk](#restore-disks)och seda
     - **Skapa nytt**: Använd det här alternativet om du vill skapa en ny virtuell dator. Du kan skapa en virtuell dator med enkla inställningar eller återställa en disk och skapa en anpassad virtuell dator.
     - **Ersätt befintlig**: Använd det här alternativet om du vill ersätta diskarna på en befintlig virtuell dator.
 
-        ![Guiden Återställ konfiguration](./media/backup-azure-arm-restore-vms/restore-configuration.png)
+        ![Guiden Återställ konfiguration av virtuell dator](./media/backup-azure-arm-restore-vms/restore-configuration.png)
 
 1. Ange inställningar för det valda återställnings alternativet.
 
@@ -79,7 +79,7 @@ Som en av [återställnings alternativen](#restore-options)kan du snabbt skapa e
 1. I **virtuellt nätverk**väljer du det VNet som den virtuella datorn ska placeras i. Alla virtuella nätverk som är associerade med prenumerationen visas. Välj under nätet. Det första under nätet är valt som standard.
 1. Ange lagrings kontot för den virtuella datorn på **mellanlagringsplatsen**. [Läs mer](#storage-accounts).
 
-    ![Guiden Återställ konfiguration](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
+    ![Guiden Återställ konfiguration – Välj återställnings alternativ](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 1. Välj **Återställ** för att utlösa återställnings åtgärden.
 

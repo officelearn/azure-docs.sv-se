@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SQL Server VM från fönstret VM
 description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL Server databaser på virtuella Azure-datorer från fönstret VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: dd30ca1fb138d3e3bd44633b9d5e71beae6d96be
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227247"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755253"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Säkerhetskopiera en SQL Server från fönstret VM
 
@@ -62,7 +62,7 @@ Du kan aktivera säkerhets kopiering på SQL Server VM från **säkerhets kopier
 
     ![Beredskap för säkerhets kopiering är inte klar](./media/backup-sql-server-vm-from-vm-pane/backup-readiness-not-ready.png)
 
-8. För ytterligare åtgärder eller övervakning som du behöver göra på säkerhetskopierade SQL Server VM går du till motsvarande Recovery Service-valv. Gå till **säkerhets kopierings objekt** om du vill se alla databaser som har säkerhetskopierats i det här valvet och utlösa åtgärder som säkerhets kopiering och återställning på begäran. På samma sätt går du till **säkerhets kopierings jobb** för att [övervaka](manage-monitor-sql-database-backup.md) jobb som motsvarar åtgärder, till exempel konfigurera skydd, säkerhets kopiering och återställning.
+8. För ytterligare åtgärder eller övervakning som du behöver göra på säkerhetskopierade SQL Server VM går du till motsvarande Recovery Services valv. Gå till **säkerhets kopierings objekt** om du vill se alla databaser som har säkerhetskopierats i det här valvet och utlösa åtgärder som säkerhets kopiering och återställning på begäran. På samma sätt går du till **säkerhets kopierings jobb** för att [övervaka](manage-monitor-sql-database-backup.md) jobb som motsvarar åtgärder, till exempel konfigurera skydd, säkerhets kopiering och återställning.
 
     ![Se säkerhetskopierade databaser i säkerhets kopierings objekt](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 

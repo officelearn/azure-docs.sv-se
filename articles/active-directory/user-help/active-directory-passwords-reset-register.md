@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 999b458985d8ab486e8dbd6bcaa48ddd9e02fc28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e460f3fd383286b1e61a979b87a9dfa09f272313
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266108"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799034"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Registrera din verifierings metod information för att återställa ditt eget lösen ord
 
@@ -26,7 +26,7 @@ Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig 
 Administratören måste aktivera den här funktionen så att du kan registrera din information och återställa ditt eget lösen ord. Om du inte ser alternativet **glömt mitt lösen ord** betyder det att administratören inte har aktiverat funktionen för din organisation. Om du tror att det är fel kan du kontakta supportavdelningen om du behöver hjälp.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda registrera sig för självbetjäning för återställning av lösen ord. Det innebär att du kan återställa ditt eget arbets-eller skol lösen ord (till exempel alain@contoso.com ), utan att behöva administratörens hjälp. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Den här artikeln är avsedd för användare som försöker använda registrera sig för självbetjäning för återställning av lösen ord. Det innebär att du kan återställa ditt eget arbets-eller skol lösen ord (till exempel alain@contoso.com ), utan att behöva administratörens hjälp. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](../authentication/howto-sspr-deployment.md).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Konfigurera verifierings metoden för lösen ords återställning
 

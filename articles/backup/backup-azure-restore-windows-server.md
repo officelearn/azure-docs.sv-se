@@ -3,12 +3,12 @@ title: Återställa filer till Windows Server med MARS-agenten
 description: I den här artikeln får du lära dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator med den Microsoft Azure Recovery Services MARS-agenten.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: d96c6c54431d0160bd58be0c3491ef2b22753e53
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d9bc22204156f7562290f53db77272b9cabe6c69
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263409"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757089"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 
@@ -72,7 +72,7 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
 
 9. När du är klar väljer du **demontera**på sidan **Bläddra och återställa filer** . Välj sedan **Ja** för att bekräfta att du vill demontera volymen.
 
-    ![Skärm bild av guiden Återställ data för att bläddra och återställa filer-sidan (Återställ till samma dator)](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
+    ![Skärm bild av guiden Återställ data för att bläddra och återställa filer-sidan (Återställ till samma dator)-bekräfta avmonteringen av återställnings volymen](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
     > Om du inte väljer att **demontera**, förblir återställnings volymen monterad i 6 timmar från den tidpunkt då den monterades. Monterings tiden utökas dock upp till högst 24 timmar om en fort löp ande fil kopiering sker. Inga säkerhets kopierings åtgärder körs medan volymen monteras. Alla säkerhets kopieringar som körs under den tid då volymen monteras kommer att köras efter att återställnings volymen har demonterats.

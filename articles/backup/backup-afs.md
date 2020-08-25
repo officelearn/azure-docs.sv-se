@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: e0d9edbcb89dbdcac51893eb720da880a150bc7b
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532706"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757803"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 
 ## <a name="configure-backup-from-the-recovery-services-vault"></a>Konfigurera säkerhets kopiering från Recovery Services-valvet
 
-Följande steg beskriver hur du kan konfigurera säkerhets kopiering för flera fil resurser från fönstret valv för återställnings tjänst:
+Följande steg beskriver hur du kan konfigurera säkerhets kopiering för flera fil resurser från fönstret Recovery Services valv:
 
 1. I [Azure Portal](https://portal.azure.com/)öppnar du Recovery Services-valvet som du vill använda för att konfigurera säkerhets kopiering för fil resursen.
 
@@ -123,16 +123,16 @@ I följande steg förklaras hur du kan konfigurera säkerhets kopiering för ens
 
 1. Gör något av följande för val av Recovery Services valv:
 
-    * Om du redan har ett valv väljer du alternativ knappen **Välj befintlig** Recovery Service-valv och väljer något av de befintliga valven från den nedrullningsbara menyn **valv namn** .
+    * Om du redan har ett valv väljer du alternativ knappen **Välj befintlig** Recovery Services valv och väljer något av de befintliga valvena från den nedrullningsbara menyn **valv namn** .
 
        ![Välj befintligt valv](./media/backup-afs/select-existing-vault.png)
 
-    * Om du inte har något valv väljer du alternativ knappen **Skapa nytt** Recovery Service-valv. Ange ett namn för valvet. Den skapas i samma region som fil resursen. Valvet skapas som standard i samma resurs grupp som fil resursen. Om du vill välja en annan resurs grupp väljer du **Skapa ny** länk under List rutan **resurs typ** och anger ett namn för resurs gruppen. Klicka på **OK** för att fortsätta.
+    * Om du inte har något valv väljer du alternativ knappen **Skapa nytt** Recovery Services valv. Ange ett namn för valvet. Den skapas i samma region som fil resursen. Valvet skapas som standard i samma resurs grupp som fil resursen. Om du vill välja en annan resurs grupp väljer du **Skapa ny** länk under List rutan **resurs typ** och anger ett namn för resurs gruppen. Klicka på **OK** för att fortsätta.
 
        ![Skapa nytt valv](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Om lagrings kontot har registrerats med ett valv, eller om det finns några skyddade resurser inom lagrings kontot som är värd för den fil resurs som du försöker skydda, kommer namnet på Recovery Services-valvet att fyllas i och du kommer inte att kunna redigera det [mer här](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >Om lagrings kontot har registrerats med ett valv, eller om det finns några skyddade resurser inom lagrings kontot som är värd för den fil resurs som du försöker skydda, så fylls Recovery Services valv namnet i förväg och du får inte redigera det mer [här](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. Gör något av följande för val av **säkerhets kopierings princip** :
 

@@ -2,13 +2,13 @@
 title: Starta om princip för körnings aktiviteter
 description: Lär dig hur du använder Azure Container Instances för att köra aktiviteter som körs till slut för ande, som i bygg-, test-eller bild åter givnings jobb.
 ms.topic: article
-ms.date: 04/15/2019
-ms.openlocfilehash: a582036ae54a0b100b768e37bcf0d952521559d9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 08/11/2020
+ms.openlocfilehash: 336a31a03cdc9dfdfebe79ef47b59ef90053f523
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261342"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798949"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Köra uppgifter i containrar med principer för omstart
 
@@ -26,7 +26,9 @@ När du skapar en [behållar grupp](container-instances-container-groups.md) i A
 | ---------------- | :---------- |
 | `Always` | Containrar i containergruppen startas alltid om. Det här är **standardvärdet** som används om du inte anger någon omstartsprincip när du skapar containern. |
 | `Never` | Containrar i containergruppen startas aldrig om. Containers körs högst en gång. |
-| `OnFailure` | Containrar i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containers körs minst en gång. |
+| `OnFailure` | Containrar i containergruppen startas bara om när processen som körs i containern inte slutförs utan fel (när den avslutas med en annan slutkod än noll). Containrar körs minst en gång. |
+
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
 
 ## <a name="specify-a-restart-policy"></a>Ange en princip för omstart
 
@@ -75,7 +77,7 @@ När exempelcontainerns status blir *Avslutad* kan du se utdata för uppgiften i
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 [('the', 990),

@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 789aab1174f599a2ae484c7b0d91ddba15bd4fd6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654709"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762920"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -239,7 +239,7 @@ Detta kräver att du skapar poster för varje FQDN i din privata slut punkt i di
 När de privata slut punkterna som har skapats för valvet i ditt VNet har godkänts, kan du börja använda dem för att utföra säkerhets kopiering och återställning.
 
 >[!IMPORTANT]
->Kontrol lera att du har slutfört alla steg som anges ovan i dokumentet innan du fortsätter. För att Sammanfattning måste du ha slutfört stegen i följande check lista:
+>Se till att du har slutfört alla steg som anges ovan i dokumentet innan du fortsätter. För att Sammanfattning måste du ha slutfört stegen i följande check lista:
 >
 >1. Skapade ett (nytt) Recovery Services valv
 >1. Har aktiverat valvet för att använda systemtilldelad hanterad identitet

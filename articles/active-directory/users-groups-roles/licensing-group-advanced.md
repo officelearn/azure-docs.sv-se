@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f055a6b8f4a8876c024bdd131a6001e21004e5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 937c5dbf3417e5914a0b4285c3bb114d7499e0fb
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209475"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799068"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -211,7 +211,7 @@ Om du använder gruppbaserad licensiering, är det en bra idé att bekanta dig m
 
 - När licenser tilldelas eller ändras för en stor grupp (till exempel 100 000 användare) kan det påverka prestandan. Mer specifikt kan mängden ändringar som genereras av Azure AD Automation påverka prestandan för din katalog synkronisering mellan Azure AD och lokala system.
 
-- Om du använder dynamiska grupper för att hantera dina användares medlemskap kontrollerar du att användaren är medlem i gruppen, vilket är nödvändigt för licenstilldelning. Om inte [kontrollerar du bearbetningsstatusen för medlemskapsregeln](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule) för den dynamiska gruppen.
+- Om du använder dynamiska grupper för att hantera dina användares medlemskap kontrollerar du att användaren är medlem i gruppen, vilket är nödvändigt för licenstilldelning. Om inte [kontrollerar du bearbetningsstatusen för medlemskapsregeln](./groups-create-rule.md) för den dynamiska gruppen.
 
 - I vissa situationer med hög belastning kan det ta lång tid att bearbeta licens ändringar för grupper eller medlemskaps ändringar i grupper med befintliga licenser. Om du ser att ändringarna tar mer än 24 timmar att bearbeta grupp storleken för 60K-användare eller mindre, [öppnar du ett support ärende](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) för att vi ska kunna undersöka. 
 

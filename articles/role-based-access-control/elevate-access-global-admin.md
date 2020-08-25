@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: a93901bd95d57b29aeb1464652737a77a1a84376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84792004"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799340"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
 
@@ -144,6 +144,22 @@ Följ dessa steg om du vill ta bort roll tilldelningen administratör för anvä
     ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
+### <a name="elevate-access-for-a-global-administrator"></a>Utöka åtkomsten för en global administratör
+
+Använd följande grundläggande steg för att öka åtkomsten för en global administratör med hjälp av Azure CLI.
+
+1. Använd kommandot [AZ rest](/cli/azure/reference-index?view=azure-cli-latest#az-rest) för att anropa `elevateAccess` slut punkten, som ger dig rollen som administratör för användar åtkomst i rot omfånget ( `/` ).
+
+    ```azurecli
+    az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
+    ```
+
+1. Gör de ändringar du behöver för att få utökad åtkomst.
+
+    Information om hur du tilldelar roller finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md).
+
+1. Utför stegen i ett senare avsnitt om du vill ta bort den utökade åtkomsten.
 
 ### <a name="list-role-assignment-at-root-scope-"></a>Lista roll tilldelning i rot omfånget (/)
 
@@ -275,7 +291,7 @@ När du anropar `elevateAccess` skapar du en roll tilldelning för dig själv, s
     ```
         
     >[!NOTE] 
-    >En katalog administratör bör inte ha många tilldelningar, om föregående fråga returnerar för många tilldelningar, kan du även fråga efter alla tilldelningar precis på katalogens omfattnings nivå och sedan filtrera resultaten:`GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >En katalog administratör bör inte ha många tilldelningar, om föregående fråga returnerar för många tilldelningar, kan du även fråga efter alla tilldelningar precis på katalogens omfattnings nivå och sedan filtrera resultaten: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
             
 1. Föregående anrop returnerar en lista över roll tilldelningar. Hitta roll tilldelningen där omfånget är `"/"` och `roleDefinitionId` slutar med det roll namn-ID som du hittade i steg 1 och `principalId` matchar katalog administratörens ObjectID. 
     

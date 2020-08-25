@@ -2,14 +2,14 @@
 title: Scenarier för att använda ett virtuellt nätverk
 description: Scenarier, resurser och begränsningar för att distribuera behållar grupper till ett virtuellt Azure-nätverk.
 ms.topic: article
-ms.date: 04/29/2020
+ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: c4e983e7d83e661b4ba50ebe2c6d65bce2f42514
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259544"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797876"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenarier och resurser för virtuella nätverk
 
@@ -43,6 +43,8 @@ Behållar grupper som distribueras till ett virtuellt Azure-nätverk möjliggör
 * Du kan inte aktivera en [Direktmigrering](container-instances-liveness-probe.md) eller en [beredskaps avsökning](container-instances-readiness-probe.md) i en behållar grupp som distribueras till ett virtuellt nätverk.
 * På grund av de ytterligare nätverks resurser som berörs är distributioner till ett virtuellt nätverk normalt långsammare än att distribuera en standard behållar instans.
 
+[!INCLUDE [container-instances-restart-ip](../../includes/container-instances-restart-ip.md)]
+
 ## <a name="where-to-deploy"></a>Distributions plats
 
 Följande regioner och maximalt antal resurser är tillgängliga för att distribuera en behållar grupp i ett virtuellt Azure-nätverk.
@@ -63,7 +65,7 @@ Undernät segmenterar det virtuella nätverket i separata adress utrymmen som ka
 
 Det undernät som du använder för container grupper får bara innehålla behållar grupper. När du först distribuerar en behållar grupp till ett undernät delegerar Azure det under nätet till Azure Container Instances. Under nätet kan endast användas för container grupper när det har delegerats. Om du försöker distribuera andra resurser än container grupper till ett delegerat undernät, Miss lyckas åtgärden.
 
-### <a name="network-profile"></a>Nätverks profil
+### <a name="network-profile"></a>Nätverksprofil
 
 En nätverks profil är en mall för nätverks konfiguration för Azure-resurser. Den anger vissa nätverks egenskaper för resursen, till exempel det undernät som den ska distribueras till. När du först använder kommandot [AZ container Create][az-container-create] för att distribuera en behållar grupp till ett undernät (och därför ett virtuellt nätverk), skapar Azure en nätverks profil åt dig. Du kan sedan använda nätverks profilen för framtida distributioner till under nätet. 
 

@@ -1,21 +1,21 @@
 ---
 title: Lägg till en datadisk till en virtuell Linux-dator med hjälp av Azure CLI
 description: Lär dig att lägga till en beständig datadisk till din virtuella Linux-dator med Azure CLI
-author: roygara
-manager: twooley
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 06/13/2018
-ms.author: rogarana
+ms.date: 08/20/2020
+ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 1791d33627f04f69d10916c8ff0a154f7d8b967b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9d04e28c4af462719644deca4c4aa0e3aa94fa16
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502834"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757735"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
+
 Den här artikeln visar hur du ansluter en beständig disk till den virtuella datorn så att du kan bevara dina data, även om din virtuella dator har reserveras på grund av underhåll eller storleks ändring.
 
 
@@ -42,131 +42,74 @@ diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
 az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Ansluta till den virtuella Linux-datorn för att montera den nya disken
+## <a name="format-and-mount-the-disk"></a>Formatera och montera disken
 
-För att partitionera, formatera och montera den nya disken så att din virtuella Linux-dator kan använda den, SSH i den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). Följande exempel ansluter till en virtuell dator med den offentliga DNS-posten för *mypublicdns.westus.cloudapp.Azure.com* med användar namnet *azureuser*:
+För att partitionera, formatera och montera den nya disken så att din virtuella Linux-dator kan använda den, SSH i den virtuella datorn. Mer information finns i [Så här använder du SSH med Linux på Azure](mac-create-ssh-keys.md). Följande exempel ansluter till en virtuell dator med den offentliga IP-adressen för *10.123.123.25* med användar namnet *azureuser*:
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@10.123.123.25
 ```
 
-När du är ansluten till den virtuella datorn är du redo att ansluta en disk. Börja med att hitta disken med `dmesg` (den metod som du använder för att identifiera den nya disken kan variera). I följande exempel används dmesg för att filtrera på *SCSI-* diskar:
+### <a name="find-the-disk"></a>Hitta disken
+
+När du har anslutit till den virtuella datorn måste du hitta disken. I det här exemplet använder vi `lsblk` för att lista diskarna. 
 
 ```bash
-dmesg | grep SCSI
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 ```
 
 Utdata ser ut ungefär så här:
 
 ```bash
-[    0.294784] SCSI subsystem initialized
-[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     1:0:1:0      14G
+└─sdb1               14G /mnt
+sdc     3:0:0:0      50G
 ```
+
+Här `sdc` är den disk som vi vill ha, eftersom den är 50G. Om du inte är säker på vilken disk som den endast baseras på en storlek kan du gå till sidan för virtuella datorer i portalen, välja **diskar**och kontrol lera LUN-numret för disken under **data diskar**. 
+
+
+### <a name="format-the-disk"></a>Formatera disken
+
+Formatera disken med `parted` , om disk storleken är 2 tebibyte (TIB) eller större, måste du använda GPT-partitionering, om den finns under 2TiB, så kan du antingen använda MBR eller GPT-partitionering. 
 
 > [!NOTE]
-> Vi rekommenderar att du använder de senaste versionerna av fdisk eller delar av som är tillgängliga för din distribution.
+> Vi rekommenderar att du använder den senaste versionen `parted` som är tillgänglig för din distribution.
+> Om disk storleken är 2 tebibyte (TiB) eller större måste du använda GPT-partitionering. Om disk storleken är under 2 TiB kan du antingen använda MBR-eller GPT-partitionering.  
 
-Här är *SDC* den disk som vi vill ha. Partitionera disken med `parted` , om disk storleken är 2 tebibyte (TIB) eller större, måste du använda GPT-partitionering, om den finns under 2TiB, kan du antingen använda MBR eller GPT-partitionering. Om du använder MBR-partitionering kan du använda `fdisk` . Gör den till en primär disk på partition 1 och godkänn de andra standardvärdena. I följande exempel startar `fdisk` processen på */dev/SDC*:
 
-```bash
-sudo fdisk /dev/sdc
-```
-
-Använd kommandot `n` för att lägga till en ny partition. I det här exemplet väljer vi också `p` för en primär partition och accepterar resten av standardvärdena. Utdatan blir något som liknar följande exempel:
+I följande exempel används `parted` på `/dev/sdc` , som är den första data disken som normalt kommer på de flesta virtuella datorer. Ersätt `sdc` med rätt alternativ för disken. Vi formaterar också det med [xfs](https://xfs.wiki.kernel.org/) -fil systemet.
 
 ```bash
-Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
-Building a new DOS disklabel with disk identifier 0x2a59b123.
-Changes will remain in memory only, until you decide to write them.
-After that, of course, the previous content won't be recoverable.
-
-Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-
-Command (m for help): n
-Partition type:
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-10485759, default 2048):
-Using default value 2048
-Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
-Using default value 10485759
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
-Skriv ut partitionstabellen genom att skriva `p` och sedan använda `w` för att skriva tabellen till disk och avsluta. Utdata bör se ut ungefär som följande exempel:
+Använd [`partprobe`](https://linux.die.net/man/8/partprobe) verktyget för att se till att kärnan är medveten om den nya partitionen och fil systemet. Om det inte `partprobe` går att använda kan blkid-eller lslbk-kommandona inte returnera UUID för det nya fil systemet omedelbart.
 
-```bash
-Command (m for help): p
 
-Disk /dev/sdc: 5368 MB, 5368709120 bytes
-255 heads, 63 sectors/track, 652 cylinders, total 10485760 sectors
-Units = sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disk identifier: 0x2a59b123
+### <a name="mount-the-disk"></a>Montera disken
 
-   Device Boot      Start         End      Blocks   Id  System
-/dev/sdc1            2048    10485759     5241856   83  Linux
-
-Command (m for help): w
-The partition table has been altered!
-
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-Använd kommandot nedan för att uppdatera kerneln:
-```
-partprobe 
-```
-
-Skriv nu ett fil system till partitionen med `mkfs` kommandot. Ange fil Systems typ och enhets namn. I följande exempel skapas ett *ext4* -filsystem på den */dev/sdc1* -partition som skapades i föregående steg:
-
-```bash
-sudo mkfs -t ext4 /dev/sdc1
-```
-
-Utdata ser ut ungefär så här:
-
-```bash
-mke2fs 1.42.9 (4-Feb-2014)
-Discarding device blocks: done
-Filesystem label=
-OS type: Linux
-Block size=4096 (log=2)
-Fragment size=4096 (log=2)
-Stride=0 blocks, Stripe width=0 blocks
-327680 inodes, 1310464 blocks
-65523 blocks (5.00%) reserved for the super user
-First data block=0
-Maximum filesystem blocks=1342177280
-40 block groups
-32768 blocks per group, 32768 fragments per group
-8192 inodes per group
-Superblock backups stored on blocks:
-    32768, 98304, 163840, 229376, 294912, 819200, 884736
-Allocating group tables: done
-Writing inode tables: done
-Creating journal (32768 blocks): done
-Writing superblocks and filesystem accounting information: done
-```
-
-Skapa nu en katalog för att montera fil systemet med hjälp av `mkdir` . I följande exempel skapas en katalog på */datadrive*:
+Skapa nu en katalog för att montera fil systemet med hjälp av `mkdir` . I följande exempel skapas en katalog på `/datadrive` :
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-Använd `mount` för att montera fil systemet. I följande exempel monteras */dev/sdc1* -partitionen till */datadrive* -monterings punkten:
+Använd `mount` för att montera fil systemet. I följande exempel monterar `/dev/sdc1` partitionen till `/datadrive` monterings punkten:
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique IDentifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativsystemet upptäcker ett diskfel vid start och använder UUID undviker du att den felaktiga disken monteras på en viss plats. Återstående datadiskar tilldelas sedan samma enhets-ID:n. Du kan hitta UUID för den nya enheten med verktyget `blkid`:
+### <a name="persist-the-mount"></a>Behåll monteringen
+
+För att säkerställa att enheten monteras om automatiskt efter en omstart måste den läggas till i */etc/fstab* -filen. Det rekommenderas också starkt att UUID (Universal Unique Identifier) används i */etc/fstab* för att referera till enheten i stället för bara enhets namnet (t. ex. */dev/sdc1*). Om operativsystemet upptäcker ett diskfel vid start och använder UUID undviker du att den felaktiga disken monteras på en viss plats. Återstående datadiskar tilldelas sedan samma enhets-ID:n. Du kan hitta UUID för den nya enheten med verktyget `blkid`:
 
 ```bash
 sudo blkid
@@ -186,14 +129,16 @@ Utdata ser ut ungefär som i följande exempel:
 Öppna sedan */etc/fstab* -filen i en text redigerare enligt följande:
 
 ```bash
-sudo vi /etc/fstab
+sudo nano /etc/fstab
 ```
 
-I det här exemplet använder du UUID-värdet för den */dev/sdc1* -enhet som skapades i föregående steg och monterings punkt för */datadrive*. Lägg till följande rad i slutet av */etc/fstab* -filen:
+I det här exemplet använder du UUID-värdet för `/dev/sdc1` enheten som skapades i föregående steg och monterings punkt för `/datadrive` . Lägg till följande rad i slutet av `/etc/fstab` filen:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
+
+I det här exemplet använder vi nano-redigeraren, så när du är klar med att redigera filen använder `Ctrl+O` du för att skriva filen och `Ctrl+X` Avsluta redigeraren.
 
 > [!NOTE]
 > Om du senare tar bort en datadisk utan att redigera fstab kan det hända att den virtuella datorn inte kan starta. De flesta distributioner ger antingen alternativen *nomisslyckande* och/eller *nobootwait* fstab. De här alternativen gör det möjligt för ett system att starta även om disken inte kan monteras vid start. Mer information om dessa parametrar finns i distributionens dokumentation.

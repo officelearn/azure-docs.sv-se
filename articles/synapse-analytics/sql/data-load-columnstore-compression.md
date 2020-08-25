@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4496b74f162bfaeda7205963cbbe7e355db841f5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: fa3bee706049bbeaed0a01cb4f3f5c0422050fa2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503913"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797589"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximera radgrupps-kvalitet för columnstore-indexets prestanda
 
@@ -68,6 +68,9 @@ JOIN    sys.[dm_pdw_nodes_db_column_store_row_group_physical_stats] rg      ON  
 select *
 from cte;
 ```
+
+>[!TIP]
+> För förbättrade prestanda i Synapse SQL kan du överväga att använda **sys. pdw_permanent_table_mappings** i stället för **sys. pdw_table_mappings** i permanenta användar tabeller. Mer information finns i **[sys. pdw_permanent_table_mappings &#40;Transact-SQL&#41;](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 Trim_reason_desc anger om radgrupps har trimmats (trim_reason_desc = NO_TRIM betyder det att det inte finns någon trimning och rad grupp är av optimal kvalitet). Följande trimnings orsaker visar för tidig trimning av radgrupps:
 

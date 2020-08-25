@@ -3,12 +3,12 @@ title: Hantera säkerhetskopior av Azure-filresurser
 description: I den här artikeln beskrivs vanliga uppgifter för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 784b22f11b57fb025f6d9401e10d527c83751898
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073292"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757633"
 ---
 # <a name="manage-azure-file-share-backups"></a>Hantera säkerhetskopior av Azure-filresurser
 
@@ -143,7 +143,7 @@ Ta bort säkerhetskopierade data för Azure-filresursen:
 
 ## <a name="unregister-a-storage-account"></a>Avregistrera ett lagrings konto
 
-Om du vill skydda dina fil resurser i ett visst lagrings konto med hjälp av ett annat Recovery Services-valv måste du först [sluta skydda alla fil resurser](#stop-protection-on-a-file-share) i det lagrings kontot. Avregistrera sedan kontot från det aktuella Recovery Services-valvet som används för skydd.
+Om du vill skydda dina fil resurser i ett visst lagrings konto med hjälp av ett annat Recovery Services-valv måste du först [sluta skydda alla fil resurser](#stop-protection-on-a-file-share) i lagrings kontot. Avregistrera sedan kontot från det aktuella Recovery Services-valvet som används för skydd.
 
 Följande procedur förutsätter att skyddet har stoppats för alla fil resurser i lagrings kontot som du vill avregistrera.
 

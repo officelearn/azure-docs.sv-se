@@ -3,12 +3,12 @@ title: Om SAP HANA Database Backup i virtuella Azure-datorer
 description: I den här artikeln lär du dig hur du säkerhetskopierar SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e30507e433ff9a828266c88ca79e576c508edc31
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533452"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757548"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Om SAP HANA Database Backup i virtuella Azure-datorer
 
@@ -31,9 +31,9 @@ För att Visa säkerhets kopierings-och återställnings scenarier som vi stöde
 
 ![Diagram över säkerhets kopierings arkitektur](./media/sap-hana-db-about/backup-architecture.png)
 
-* Säkerhets kopierings processen börjar med att [skapa ett Recovery Services-valv](./tutorial-backup-sap-hana-db.md#create-a-recovery-service-vault) i Azure. Det här valvet kommer att användas för att lagra säkerhets kopior och återställnings punkter som skapats med tiden.
+* Säkerhets kopierings processen börjar genom att [skapa ett Recovery Services-valv](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) i Azure. Det här valvet kommer att användas för att lagra säkerhets kopior och återställnings punkter som skapats med tiden.
 * Den virtuella Azure-datorn som kör SAP HANA Server registreras med valvet och databaserna som ska säkerhets kopie ras [identifieras](./tutorial-backup-sap-hana-db.md#discover-the-databases). För att Azure Backup tjänsten ska kunna identifiera databaser måste ett för [registrerings skript](https://aka.ms/scriptforpermsonhana) köras på Hana-servern som en rot användare.
-* Det här skriptet skapar **AZUREWLBACKUPHANAUSER** DB-användare och en motsvarande nyckel med samma namn i **hdbuserstore**. Mer information om vad skriptet gör finns i avsnittet [Vad skriptet gör för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
+* Det här skriptet skapar **AZUREWLBACKUPHANAUSER** DB-användare och en motsvarande nyckel med samma namn i **hdbuserstore**. Mer information om vad skriptet gör finns i avsnittet  [Vad skriptet gör för registrering](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) .
 * Azure Backups tjänsten installerar nu **Azure Backup-plugin-programmet för Hana** på den registrerade SAP HANA servern.
 * Den **AZUREWLBACKUPHANAUSER** DB-användare som skapats av för registrerings skriptet används av **Azure Backup plugin-programmet för Hana** för att utföra alla säkerhets kopierings-och återställnings åtgärder. Om du försöker konfigurera säkerhets kopiering för SAP HANA databaser utan att köra skriptet kan du få följande fel meddelande: **UserErrorHanaScriptNotRun**.
 * Om du vill [Konfigurera säkerhets kopiering](./tutorial-backup-sap-hana-db.md#configure-backup) av de databaser som identifieras väljer du den säkerhets kopierings princip som krävs och aktiverar säkerhets kopieringar.

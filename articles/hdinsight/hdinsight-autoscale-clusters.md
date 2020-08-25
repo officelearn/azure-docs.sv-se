@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/29/2020
-ms.openlocfilehash: 730df91d922c4bd6187748654f8184cfb7dc6ea0
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.custom: contperfq1
+ms.date: 08/21/2020
+ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612715"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757871"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster automatiskt
 
@@ -74,10 +74,10 @@ I följande tabell beskrivs de kluster typer och versioner som är kompatibla me
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
-| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Nej | Nej | Nej |
+| HDInsight 3,6 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4,0 utan ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 3,6 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
+| HDInsight 4,0 med ESP | Ja | Ja | Ja | Ja* | Inga | Inga | Inga |
 
 \* HBase-kluster kan bara konfigureras för schemabaserade skalning, inte för inläsning.
 

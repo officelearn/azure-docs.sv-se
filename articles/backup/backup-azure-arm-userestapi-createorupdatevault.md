@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera säkerhets kopierings-o
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 0170bda1ca956efe971695e34dc0d14b68eb109a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079340"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757259"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Skapa Azure Recovery Services Vault med REST API
 
@@ -30,7 +30,7 @@ Följande huvuden krävs:
 | Begärandehuvud   | Beskrivning |
 |------------------|-----------------|
 | *Content-Type:*  | Krävs. Ange till `application/json`. |
-| *Auktorisering:* | Krävs. Ange till en giltig -`Bearer` [åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
+| *Auktorisering:* | Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 Mer information om hur du skapar begäran finns i [komponenter i en REST API begäran/svar](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
@@ -38,7 +38,7 @@ Mer information om hur du skapar begäran finns i [komponenter i en REST API beg
 
 Följande vanliga definitioner används för att bygga en begär ande text:
 
-|Namn  |Krävs  |Typ  |Description  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
 |location     |  true       |Sträng         |   Resurs plats      |
@@ -66,7 +66,7 @@ Följande exempel text används för att skapa ett valv i "västra USA". Ange pl
 
 Det finns två lyckade svar för åtgärden att skapa eller uppdatera ett Recovery Services-valv:
 
-|Namn  |Typ  |Description  |
+|Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |   [Valv](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 har skapats     | [Valv](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Skapad      |

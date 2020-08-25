@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741966"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798048"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logga in och starta appar från portalen Mina appar
 
@@ -33,7 +33,7 @@ Om du inte har åtkomst till portalen för **Mina appar** , Kontakta supportavde
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 > [!Important]
-> Det här innehållet är avsett för mina Apps-användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
+> Det här innehållet är avsett för mina Apps-användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Webbläsare som stöds
 
@@ -59,7 +59,7 @@ Det här tillägget hjälper dig att:
 
 - Se de senaste apparna som du använde i det **senast använda** avsnittet.
 
-- Använd interna företags-URL: er vid fjärr anslutning med [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
+- Använd interna företags-URL: er vid fjärr anslutning med [Application Proxy](../manage-apps/application-proxy.md).
 
 ### <a name="to-download-and-install-the-extension"></a>Hämta och installera tillägget
 

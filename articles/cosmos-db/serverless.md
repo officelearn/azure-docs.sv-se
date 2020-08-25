@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: d99deea8271a3f9e630a7d2e8cd9f73bd41645a2
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88608868"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757905"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB utan server (för hands version)
 
@@ -82,7 +82,7 @@ Du kan hitta samma diagram när du använder Azure Monitor, enligt beskrivningen
 Utan server resurser ger särskilda prestanda egenskaper som skiljer sig från vad etablerade data flödes resurser levererar:
 
 - **Tillgänglighet**: när det serverbaserade erbjudandet blir allmänt tillgängligt kommer tillgängligheten för Server lös behållare att omfattas av en serviceavtal (SLA) på 99,9% när Tillgänglighetszoner (zon redundans) inte används. Service avtalet är 99,99% när Tillgänglighetszoner används.
-- **Latens**: när det Server lösa erbjudandet blir allmänt tillgängligt, kommer svars tiden för Server lösa behållare att omfattas av ett service nivå mål (service nivå mål) på 10 millisekunder eller mindre för punkt-och 30 millisekunder eller mindre för skrivningar. En punkt-Läs åtgärder består i att hämta ett enskilt objekt med dess ID-och partitionsnyckel-värde.
+- **Latens**: när det Server lösa erbjudandet blir allmänt tillgängligt, kommer svars tiden för Server lösa behållare att omfattas av ett service nivå mål (service nivå mål) på 10 millisekunder eller mindre för punkt-och 30 millisekunder eller mindre för skrivningar. En punkt-Läs åtgärd består i att hämta ett enskilt objekt med dess ID-och partitionsnyckel-värde.
 - **Burst**-tillgänglighet: när det serverbaserade erbjudandet blir allmänt tillgängligt kommer burst-funktionen för Server lös behållare att omfattas av ett service nivå mål (service nivå mål) på 95%. Det innebär att den maximala Burst-hastigheten kan uppnås minst 95% av tiden.
 
 > [!NOTE]
@@ -93,5 +93,5 @@ Utan server resurser ger särskilda prestanda egenskaper som skiljer sig från v
 Kom igång med Server lös med följande artiklar:
 
 - [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
-- [Välj mellan allokerat data flöde och Server lös](throughput-serverless.md)
+- [Välj mellan etablerat dataflöde och serverlöst](throughput-serverless.md)
 - [Prismodell i Azure Cosmos DB](how-pricing-works.md)

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig mer om säkerhets kopiering och åt
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6a5e574795dfded98260da20711dab7d16cabd5b
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566241"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757446"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektiv säkerhets kopiering och återställning av diskar för virtuella Azure-datorer
 
@@ -38,7 +38,7 @@ Se till att du använder AZ CLI version 2.0.80 eller högre. Du kan hämta CLI-v
 az --version
 ```
 
-Logga in på det prenumerations-ID där Recovery Services-valvet och den virtuella datorn finns:
+Logga in på det prenumerations-ID där Recovery Services valvet och den virtuella datorn finns:
 
 ```azurecli
 az account set -s {subscriptionID}

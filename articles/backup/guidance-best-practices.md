@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 1e2680c5fbcdb685e13b6ad990aaf98b013c98bb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650884"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757599"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -48,7 +48,7 @@ Azure Backup aktiverar data skydd för olika arbets belastningar (lokalt och i m
 
 ### <a name="management-plane"></a>Hanteringsplanet
 
-* **Åtkomst kontroll** – Recovery Service-valvet tillhandahåller hanterings funktionerna och kan nås via API: erna Azure Portal, SDK, CLI och t.o.m. rest. Det är också en RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
+* **Åtkomst kontroll** – Recovery Services valvet tillhandahåller hanterings funktionerna och är tillgängliga via API: erna för Azure Portal, SDK, CLI och till och med rest. Det är också en RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
 
 * **Princip hantering** – Azure Backup principer i varje valv definierar när säkerhets kopiorna ska utlösas och hur länge de behöver behållas. Du kan också hantera dessa principer och tillämpa dem på flera objekt.
 
@@ -72,7 +72,7 @@ Du kan använda ett enda valv eller flera valv för att organisera och hantera s
 
 * Om dina arbets belastningar sprids över prenumerationer kan du skapa flera valv, en eller flera per prenumeration.
   * För att förenkla övervakningen av operativa aktiviteter i alla valv, prenumerationer och klienter kan du använda Backup Explorer och-rapporter. [Lär dig mer här](monitor-azure-backup-with-backup-explorer.md) för att få en sammanställd vy.
-  * Om du behöver konsekvent princip över valv kan du använda Azure policy för att sprida säkerhets kopierings principen över flera valv. Du kan skriva en anpassad [Azure policy definition](../governance/policy/concepts/definition-structure.md) som använder ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) -resultatet för att sprida en säkerhets kopierings princip över flera valv. Du [kan tilldela](../governance/policy/assign-policy-portal.md) den här Azure policys definitionen till ett visst omfång (prenumerations-eller rg), så att den distribuerar en "säkerhets kopierings princip"-resurs till alla Recovery Services-valv inom omfånget för den Azure policy tilldelningen. Inställningarna för säkerhets kopierings principen (t. ex. säkerhets kopierings frekvens, kvarhållning och så vidare) ska anges av användaren som parametrar i Azure Policy tilldelningen.
+  * Om du behöver konsekvent princip över valv kan du använda Azure policy för att sprida säkerhets kopierings principen över flera valv. Du kan skriva en anpassad [Azure policy definition](../governance/policy/concepts/definition-structure.md) som använder ["deployifnotexists"](../governance/policy/concepts/effects.md#deployifnotexists) -resultatet för att sprida en säkerhets kopierings princip över flera valv. Du [kan tilldela den här Azure policy](../governance/policy/assign-policy-portal.md) definition till ett visst omfång (prenumerations-eller rg), så att den distribuerar en "säkerhets kopierings princip"-resurs till alla Recovery Services-valv inom omfånget för Azure policy tilldelningen. Inställningarna för säkerhets kopierings principen (t. ex. säkerhets kopierings frekvens, kvarhållning och så vidare) ska anges av användaren som parametrar i Azure Policy tilldelningen.
 
 * När organisationens utrymme växer kan du vilja flytta arbets belastningar mellan prenumerationer av följande orsaker: justera efter säkerhets kopierings princip, konsolidera valv, kompromissa med lägre redundans för att spara pengar (flytta från GRS till LRS).  Azure Backup stöder flytt av ett Recovery Services valv i Azure-prenumerationer eller till en annan resurs grupp inom samma prenumeration. [Läs mer här](backup-azure-move-recovery-services-vault.md).
 
@@ -143,7 +143,7 @@ För att hjälpa dig att skydda dina säkerhets kopierings data och uppfylla ver
 
 * Azure Backup har flera säkerhets kontroller som är inbyggda i tjänsten för att förhindra, identifiera och reagera på säkerhets risker (Läs mer)
 
-* Lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore.
+* De lagrings konton som används av Recovery Services-valven är isolerade och kan inte användas av användare i något skadligt syfte. Åtkomst tillåts endast via Azure Backup hanterings åtgärder, till exempel Restore.
 
 ### <a name="encryption-of-data-in-transit-and-at-rest"></a>Kryptering av data vid överföring och i vila
 
@@ -247,7 +247,7 @@ Som säkerhets kopierings användare eller administratör bör du kunna övervak
 
 * Azure Backup innehåller en inbyggd **aviserings funktion för aviseringar** via e-post för fel, varningar och kritiska åtgärder. Du kan ange enskilda e-postadresser eller distributions listor som ska meddelas när en avisering genereras. Du kan också välja om du vill bli meddelad om varje enskild avisering eller gruppera dem i en Tim sammandrag och sedan få ett meddelande.
   * De här aviseringarna definieras av tjänsten och ger stöd för begränsade scenarier – säkerhets kopierings-/återställnings fel, stoppa skyddet med Behåll data/stoppa skydd med ta bort data och så vidare. [Läs mer här](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Om en destruktiv åtgärd, till exempel stoppa skydd med ta bort data, görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om meddelanden inte har kon figurer ATS för Recovery Service-valvet.
+  * Om en destruktiv åtgärd, till exempel stoppa skydd med ta bort data, görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om meddelanden inte har kon figurer ATS för Recovery Services valvet.
   * Vissa arbets belastningar kan generera höga frekvenser av haverier (till exempel SQL Server var 15: e minut). För att förhindra att aviseringar blir överbelastade för varje förekomst av händelsen, konsol IDE ras aviseringarna. [Läs mer här](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * De inbyggda aviseringarna kan inte anpassas och är begränsade till e-postmeddelanden som definierats i Azure Portal.
 

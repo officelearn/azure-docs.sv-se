@@ -3,12 +3,12 @@ title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: af913a6bb1fb7c871a7f6740a0fb2d66efa3f712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717584"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756698"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -111,25 +111,16 @@ Om datorn för närvarande har en användardefinierad system identitet kommer de
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 
-Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. **DeployIfNotExists** princip definitioner hanterar beroenden för att utföra granskningar på varje dator.
+Principer för gäst konfiguration använder **AuditIfNotExists** -effekter. När definitionen har tilldelats hanterar en backend-tjänst automatiskt livs cykeln för alla krav i `Microsoft.GuestConfiguration` Azure Resource Provider.
 
-**DeployIfNotExists** princip definition verifierar och korrigerar följande objekt:
+**AuditIfNotExists** -principerna returnerar inte några träffar förrän alla krav är uppfyllda på datorn. Kravet beskrivs i avsnittet [distribuera krav för Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
 
-- Verifiera att datorn har tilldelats en konfiguration som ska utvärderas. Om ingen tilldelning för närvarande finns kan du hämta tilldelningen och förbereda datorn genom att:
-  - Autentisera till datorn med en [hanterad identitet](../../../active-directory/managed-identities-azure-resources/overview.md)
-  - Installera den senaste versionen av **Microsoft. GuestConfiguration** -tillägget
-  - Installera [validerings verktyg](#validation-tools) och beroenden, om det behövs
-
-Om tilldelningen **DeployIfNotExists** är icke-kompatibel kan en [reparations uppgift](../how-to/remediate-resources.md#create-a-remediation-task) användas.
-
-När **DeployIfNotExists** -tilldelningen är kompatibel, avgör **AuditIfNotExists** -princip tilldelningen om gäst tilldelningen är kompatibel eller inte kompatibel. Verifierings verktyget tillhandahåller resultatet till klienten för gäst konfiguration. Klienten vidarebefordrar resultaten till gäst tillägget, som gör dem tillgängliga via resurs leverantören för gäst konfiguration.
+> [!IMPORTANT]
+> I en tidigare version av gäst konfigurationen krävdes ett initiativ för att kombinera **DeployIfNoteExists** -och **AuditIfNotExists** -definitioner. **DeployIfNotExists** -definitioner krävs inte längre. Definitionerna och intiaitives är märkta `[Deprecated]` men befintliga tilldelningar fungerar fortfarande.
+>
+> En manuell åtgärd krävs. Om du tidigare har tilldelat princip initiativen i kategorin `Guest Configuration` tar du bort princip tilldelningen och tilldelar den nya definitionen. Principer för gäst konfiguration har ett namn mönster enligt följande: `Audit <Windows/Linux> machines that <non-compliant condition>`
 
 Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration för att rapportera efterlevnad i noden **efterlevnad** . Mer information finns i [Hämta efterlevnadsprinciper](../how-to/get-compliance-data.md).
-
-> [!NOTE]
-> **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
-
-Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Den inbyggda för _ \[ hands versionen med namnet Preview \] : granska lösen ords säkerhet i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 

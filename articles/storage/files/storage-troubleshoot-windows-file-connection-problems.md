@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f9e4fdb0fe8872c505bbbbb10da11d8fb74a22b3
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927223"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752333"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -364,6 +364,16 @@ Du kan uppleva antingen symptom som beskrivs nedan när du försöker konfigurer
 ### <a name="solution"></a>Lösning
 
 Vi rekommenderar att du använder [icacls-verktyget](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) för att konfigurera behörigheter för katalogen/fil nivån som en lösning. 
+
+## <a name="errors-when-running-join-azstorageaccountforauth-cmdlet"></a>Fel vid körning av Join-AzStorageAccountForAuth-cmdlet
+
+### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Fel: "katalog tjänsten kunde inte allokera en relativ identifierare"
+
+Den här felkod kan inträffa om en domänkontrollant som har FSMO-rollen RID-hanterare inte är tillgänglig eller har tagits bort från domänen och återställts från säkerhets kopian.  Bekräfta att alla domänkontrollanter körs och är tillgängliga.
+
+### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Fel: ”Det går inte att binda positionsparametrar eftersom inget namn angavs”
+
+Det här felet utlöses troligen av ett syntaxfel i kommandot Join-AzStorageAccountforAuth.  Kontrol lera om det finns fel stavningar eller syntaxfel i kommandot och kontrol lera att den senaste versionen av AzFilesHybrid-modulen ( https://github.com/Azure-Samples/azure-files-samples/releases) är installerad.  
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten.
 Om du fortfarande behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.

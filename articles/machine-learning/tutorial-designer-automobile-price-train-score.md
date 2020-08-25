@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290281"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812994"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Det finns flera exempel data uppsättningar som ingår i designern som du kan ex
 
 Du kan visualisera data för att förstå den data uppsättning som du kommer att använda.
 
-1. Välj modulen **Automobile Price data (RAW)** .
-
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + log**.
-
-1. Välj diagram ikonen för att visualisera data.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Alternativ text här.":::
+1. Högerklicka på **bil pris data (RAW)** och välj **visualisera**.
 
 1. Välj olika kolumner i data fönstret om du vill visa information om var och en.
 
@@ -140,7 +134,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn**.
 
-1. Expandera List rutan med **kolumn namn** bredvid **Inkludera**och markera **alla kolumner**.
+1. Expandera List rutan med **kolumn namn** bredvid **Inkludera**och markera  **alla kolumner**.
 
 1. Välj **+** för att lägga till en ny regel.
 
@@ -291,9 +285,7 @@ Nu när din pipeline är all konfiguration kan du skicka en pipeline-körning f�
 
 När körningen är klar kan du visa resultatet av pipeline-körningen. Börja med att titta på förutsägelserna som genereras av Regressions modellen.
 
-1. Välj modulen **Poäng modell** för att visa dess utdata.
-
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ikon ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. Högerklicka på modulen **Poäng modell** och välj **visualisera** för att visa dess utdata.
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
@@ -303,9 +295,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
 Använd **utvärdera modell** för att se hur väl den tränade modellen utförts på test data uppsättningen.
 
-1. Välj modulen **utvärdera modell** för att visa dess utdata.
-
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ikon ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. Högerklicka på modulen **utvärdera modell** och välj **visualisera** för att visa dess utdata.
 
 Följande statistik visas för din modell:
 

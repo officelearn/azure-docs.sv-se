@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ffe8005ed6c2583763a10ba515ff19f0ef62ae0d
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652839"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757225"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -303,7 +303,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 > [!NOTE]
 > För närvarande stöder Azure Backup CLI bara hantering av virtuella Azure-säkerhetskopieringar, så följande kommando för att ta bort valvet fungerar bara om valvet innehåller virtuella Azure-säkerhetskopieringar. Du kan inte ta bort ett valv som använder Azure Backup CLI, om valvet innehåller några säkerhets kopierings objekt av andra typer än virtuella Azure-datorer.
 
-Utför följande om du vill ta bort det befintliga Recovery Services-valvet:
+Utför följande steg för att ta bort befintliga Recovery Services-valv:
 
 - Stoppa skyddet och ta bort säkerhetskopierade data
 
@@ -357,13 +357,13 @@ Mer information om kommandot ARMClient finns i README för [ARMClient](https://g
 1. Kör följande kommando med ditt prenumerations-ID, resurs gruppens namn och namnet på valvet. Om du inte har några beroenden tas valvet bort när du kör följande kommando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>?api-version=2015-03-15
    ```
 
 2. Om valvet inte är tomt får du följande fel meddelande: det *går inte att ta bort valvet eftersom det finns befintliga resurser i det här valvet.* Om du vill ta bort ett skyddat objekt eller en behållare i ett valv kör du följande kommando:
 
    ```azurepowershell
-   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<Recovery Services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
 3. I Azure Portal kontrollerar du att valvet har tagits bort.

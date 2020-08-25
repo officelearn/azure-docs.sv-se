@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 05/29/2020
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript 
-ms.openlocfilehash: 8c2df57f56ad30c6cf6a2ac84a32baa79ea91955
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-javascript
+ms.openlocfilehash: c079d9bad15de6dac93cd9be23631786673bd009
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87384760"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756392"
 ---
 # <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Snabb start: använda Node.js för att fråga en databas i Azure SQL Database eller Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,11 +26,11 @@ I den här snabb starten använder du Node.js för att ansluta till en databas o
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande krävs för att slutföra den här snabbstarten:
+För att slutföra den här snabbstarten behöver du:
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-  | Åtgärd | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
+  | Action | SQL Database | SQL-hanterad instans | SQL Server på virtuella Azure-datorer |
   |:--- |:--- |:---|:---|
   | Skapa| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -74,7 +74,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
+2. Gå till sidan **SQL-databaser**  eller **SQL-hanterade instanser** .
 
 3. På sidan **Översikt** granskar du det fullständigt kvalificerade Server namnet bredvid **Server namnet** för en databas i Azure SQL Database eller det fullständigt kvalificerade Server namnet (eller IP-adressen) bredvid **värd** för en Azure SQL-hanterad instans eller SQL Server på Azure VM. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
@@ -149,7 +149,7 @@ Hämta anslutnings informationen du behöver för att ansluta till databasen i A
           console.log("%s\t%s", column.metadata.colName, column.value);
         });
       });
-      
+
       connection.execSql(request);
     }
     ```

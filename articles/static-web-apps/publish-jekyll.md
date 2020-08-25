@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: cshoe
-ms.openlocfilehash: c4211f21d78ac0e06743c97f1081804fd641f9d2
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: bf1664a35562b888f9dd7aacd3b1112058bed664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797708"
 ---
 # <a name="tutorial-publish-a-jekyll-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Jekyll-webbplats till Azures statiska Web Apps för hands version
 
@@ -120,7 +120,7 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
     :::image type="content" source="./media/publish-jekyll/completed-github-info.png" alt-text="Slutförd GitHub-information":::
 
-### <a name="build"></a>Build
+### <a name="build"></a>Skapa
 
 Sedan lägger du till de konfigurations inställningar som bygg processen använder för att skapa din app. Följande inställningar konfigurerar arbets flödes filen för GitHub-åtgärd.
 

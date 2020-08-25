@@ -3,12 +3,12 @@ title: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med
 description: En artikel som beskriver hur du använder Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer som skapats inom ett angivet omfång
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 19985ebc51fe713ee0392800e2791ea1891ff3cd
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: fd54c25899bc1e58a753821d2c7c2df8ff213865
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612681"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763600"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 
@@ -54,6 +54,6 @@ Följ stegen nedan om du vill tilldela principen till det begärda omfånget:
 >
 > Vi rekommenderar att den här principen inte är tilldelad till fler än 200 virtuella datorer i taget. Om principen är tilldelad till fler än 200 virtuella datorer kan det leda till att säkerhets kopieringen utlöses några timmar senare än vad som anges i schemat.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Läs mer om Azure Policy](../governance/policy/overview.md)

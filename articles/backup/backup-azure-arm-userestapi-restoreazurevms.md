@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: add4bdeaa202c244ce2e0e83f999f29afdca5c28
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761482"
+ms.locfileid: "88763549"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -115,11 +115,16 @@ X-Powered-By: ASP.NET
 
 Återställnings punkten identifieras med `{name}` fältet i ovanstående svar.
 
-## <a name="restore-disks"></a>Återställa diskar
+## <a name="restore-operations"></a>Återställnings åtgärder
 
-Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och ska inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("vmconfig.jspå") kommer att lagras i det aktuella lagrings kontot.
+När du har valt [relevant återställnings punkt](#select-recovery-point)fortsätter du med att utlösa återställnings åtgärden.
 
-Aktivering av återställnings diskar är en *post* -begäran. Om du vill veta mer om åtgärden för att återställa diskar, se ["Utlös återställnings REST API](/rest/api/backup/restores/trigger).
+***Alla återställnings åtgärder på säkerhets kopierings objekt utförs med samma *post* -API. Endast begär ande texten ändras med återställnings scenarier.***
+
+> [!IMPORTANT]
+> All information om olika återställnings alternativ och deras beroenden anges [här](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Granska innan du fortsätter att utlösa de här åtgärderna.
+
+Att utlösa återställnings åtgärder är en *post* -begäran. Mer information om API: t finns i [REST API "trigger Restore"](/rest/api/backup/restores/trigger).
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2019-05-13
@@ -127,41 +132,15 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 `{containerName}`Och `{protectedItemName}` är som konstruerade [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` är "Azure" och `{recoveryPointId}` är `{name}` fältet för den återställnings punkt som anges [ovan](#example-response).
 
-### <a name="create-request-body"></a>Skapa brödtext för begäran
+När återställnings punkten har hämtats måste vi konstruera begär ande texten för det relevanta återställnings scenariot. I följande avsnitt beskrivs förfrågnings texten för varje scenario.
 
-Om du vill utlösa en disk återställning från en säkerhets kopia av en virtuell Azure-dator, följer du komponenterna i begär ande texten.
+- [Återställa diskar](#restore-disks)
+- [Ersätt diskar](#replace-disks-in-a-backed-up-virtual-machine)
+- [Återställ som ny virtuell dator](#restore-as-another-virtual-machine)
 
-|Namn  |Typ  |Beskrivning  |
-|---------|---------|---------|
-|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+### <a name="restore-response"></a>Återställ svar
 
-En fullständig lista över definitioner av begär ande texten och annan information finns i [utlös REST API-dokument](/rest/api/backup/restores/trigger#request-body).
-
-#### <a name="example-request"></a>Exempelbegäran
-
-Följande begär ande text definierar egenskaper som krävs för att utlösa en disk återställning.
-
-```json
-{
-  "properties": {
-    "objectType": "IaasVMRestoreRequest",
-    "recoveryPointId": "20982486783671",
-    "recoveryType": "RestoreDisks",
-    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
-    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
-    "region": "westus",
-    "createNewCloudService": false,
-    "originalStorageAccountOption": false,
-    "encryptionDetails": {
-      "encryptionEnabled": false
-    }
-  }
-}
-```
-
-### <a name="response"></a>Svarsåtgärder
-
-Utlösaren av en återställnings disk är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
+Aktivering av eventuella återställnings åtgärder är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
 Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sedan 200 (OK) när åtgärden har slutförts.
 
@@ -227,15 +206,90 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd bör det spåras som förklaras i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Eftersom återställnings jobbet är en tids krävande åtgärd bör det spåras som förklaras i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
-När tids krävande jobb är slutfört finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig.jspå") i det aktuella lagrings kontot.
+### <a name="restore-disks"></a>Återställa diskar
 
-## <a name="restore-as-another-virtual-machine"></a>Återställ som en annan virtuell dator
+Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och ska inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("vmconfig.jspå") kommer att lagras i det aktuella lagrings kontot. Som förklaras [ovan](#restore-operations)anges relevant begär ande text för återställnings diskar nedan.
 
-[Välj återställnings punkten](#select-recovery-point) och skapa begär ande texten som anges nedan om du vill skapa en annan virtuell Azure-dator med data från återställnings punkten.
+#### <a name="create-request-body"></a>Skapa brödtext för begäran
 
-Följande begär ande text definierar egenskaper som krävs för att utlösa en återställning av en virtuell dator.
+Om du vill utlösa en disk återställning från en säkerhets kopia av en virtuell Azure-dator, följer du komponenterna i begär ande texten.
+
+|Namn  |Typ  |Beskrivning  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+En fullständig lista över definitioner av begär ande texten och annan information finns i [utlös REST API-dokument](/rest/api/backup/restores/trigger#request-body).
+
+##### <a name="example-request"></a>Exempelbegäran
+
+Följande begär ande text definierar egenskaper som krävs för att utlösa en disk återställning.
+
+```json
+{
+  "properties": {
+    "objectType": "IaasVMRestoreRequest",
+    "recoveryPointId": "20982486783671",
+    "recoveryType": "RestoreDisks",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+    "region": "westus",
+    "createNewCloudService": false,
+    "originalStorageAccountOption": false,
+    "encryptionDetails": {
+      "encryptionEnabled": false
+    }
+  }
+}
+```
+
+När du har spårat svaret enligt beskrivningen [ovan](#responses)och det långvariga jobbet är slutfört, finns diskarna och konfigurationen för den säkerhetskopierade virtuella datorn ("VMConfig.jspå") på det angivna lagrings kontot.
+
+### <a name="replace-disks-in-a-backed-up-virtual-machine"></a>Ersätt diskar i en säkerhets kopie rad virtuell dator
+
+När disken återställs skapas diskar från återställnings punkten ersätter diskarna de aktuella diskarna i den säkerhetskopierade virtuella datorn med diskarna från återställnings punkten. Som det beskrivs [ovan](#restore-operations)anges den relevanta begär ande texten för att ersätta diskar nedan.
+
+#### <a name="create-request-body"></a>Skapa brödtext för begäran
+
+Om du vill utlösa en disk ersättning från en virtuell Azure-säkerhetskopiering, följer du komponenterna i begär ande texten.
+
+|Namn  |Typ  |Beskrivning  |
+|---------|---------|---------|
+|properties     | [IaaSVMRestoreRequest](/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
+
+En fullständig lista över definitioner av begär ande texten och annan information finns i [utlös REST API-dokument](/rest/api/backup/restores/trigger#request-body).
+
+#### <a name="example-request"></a>Exempelbegäran
+
+Följande begär ande text definierar egenskaper som krävs för att utlösa en disk återställning.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "OriginalLocation",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",  
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "affinityGroup": "",
+        "diskEncryptionSetId": null,
+        "subnetId": null,
+        "targetDomainNameId": null,
+        "targetResourceGroupId": null,
+        "targetVirtualMachineId": null,
+        "virtualNetworkId": null
+     }
+}
+
+```
+
+### <a name="restore-as-another-virtual-machine"></a>Återställ som en annan virtuell dator
+
+Enligt beskrivningen [ovan](#restore-operations)definierar följande begär ande text egenskaper som krävs för att utlösa en återställning av en virtuell dator.
 
 ```json
 {
@@ -271,7 +325,7 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 }
 ```
 
-Svaret ska hanteras på samma sätt som [förklaras ovan för att återställa diskar](#response).
+Svaret ska hanteras på samma sätt som [förklaras ovan för att återställa diskar](#responses).
 
 ## <a name="next-steps"></a>Nästa steg
 

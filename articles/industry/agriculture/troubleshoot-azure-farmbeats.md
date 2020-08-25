@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 110fef2dcb4c1581d49fcb776276ebd9c4ae2235
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497071"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797946"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Felsöka Azure FarmBeats
 
-Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller skicka e-post till oss farmbeatssupport@microsoft.com .
+Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vår [Q&ett support forum](https://aka.ms/farmbeatssupport) eller skicka ett e-postmeddelande till oss farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Om du har installerat FarmBeats under april och jobben Miss lyckas med ett tomt fel meddelande kanske inte installationen har tilldelats någon batch-kvot för att prioritera support för kritiska hälso-och säkerhets organisationer. Mer information finns [här](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Du måste begära att virtuella datorer ska tilldelas batch-kontot för att kunna köra jobben.
@@ -285,7 +285,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-in-datahub"></a>Samla in Azure Data Factory jobb loggar eller App Service loggar i Datahub
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
 3. På instrument panelen för **resurs gruppen** söker du efter *datahublogs \* * lagrings konto. Till exempel *datahublogsmvxmq*.  
 4. I kolumnen **namn** väljer du lagrings konto för att visa instrument panelen för **lagrings kontot** .
@@ -297,7 +297,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Samla in Azure Data Factory jobb loggar eller App Service loggar för Accelerator
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**
 3. På instrument panelen för **resurs gruppen** söker du efter *lagrings \* * lagrings kontot. Till exempel *storagedop4k \* *.
 4. Välj lagrings kontot i kolumnen **namn** om du vill visa instrument panelen för **lagrings kontot** .

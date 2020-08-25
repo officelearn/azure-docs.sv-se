@@ -3,10 +3,8 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är Speech Service?
+    - name: Speech Service-översikt
       href: overview.md
-    - name: Prova Speech Service kostnadsfritt
-      href: get-started.md
     - name: Stöd för språk och röst
       displayName: 'languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice'
       href: language-support.md

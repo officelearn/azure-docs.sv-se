@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: dfed3f983867568befc77d7dbc81cdde70eef9ed
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589613"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763124"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -133,7 +133,7 @@ Du kan också aktivera mjuk borttagning och rensning av skydd via PowerShell med
 ### <a name="assign-encryption-key-to-the-rs-vault"></a>Tilldela en krypterings nyckel till RS-valvet
 
 >[!NOTE]
-> Innan du fortsätter bör du kontrol lera följande:
+> Kontrol lera följande innan du fortsätter:
 >
 > - Alla steg som nämns ovan har slutförts:
 >   - Det Recovery Services valvets hanterade identitet har Aktiver ATS och har tilldelats nödvändiga behörigheter

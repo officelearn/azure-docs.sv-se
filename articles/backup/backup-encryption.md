@@ -4,12 +4,12 @@ description: Lär dig hur krypterings funktioner i Azure Backup hjälper dig att
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1350be3fb869e7b81eaba14f91aff7f0e9e3c992
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 71183e99522707737812096567d877df740c4bae
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586655"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763651"
 ---
 # <a name="encryption-in-azure-backup"></a>Kryptering i Azure Backup
 
@@ -27,7 +27,7 @@ Azure Backup innehåller kryptering på två nivåer:
   - **Säkerhets kopiering av virtuella Azure-datorer**: Azure Backup stöder säkerhets kopiering av virtuella datorer med diskar som har krypterats med hjälp av [plattforms hanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#platform-managed-keys), samt [Kundhanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys) som ägs och hanteras av dig. Dessutom kan du säkerhetskopiera dina virtuella Azure-datorer som har sina operativ system eller data diskar krypterade med [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade). ADE använder BitLocker för virtuella Windows-datorer och DM-crypt för virtuella Linux-datorer för att utföra kryptering i gästen.
 
 >[!NOTE]
->Infrastruktur kryptering är för närvarande i begränsad för hands version och är tillgängligt i östra USA, USA West2, södra centrala USA, US Gov, Arizona och US GOV Virginia-regioner. Om du vill använda funktionen i någon av dessa regioner kan du fylla i [det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) och skicka e-post till oss [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+>Infrastruktur kryptering är för närvarande i begränsad för hands version och är tillgängligt i östra USA, USA West2, södra centrala USA, US Gov, Arizona och US GOV Virginia-regioner. Om du vill använda funktionen i någon av dessa regioner kan du fylla i [det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u) och skicka e-post till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="next-steps"></a>Nästa steg
 

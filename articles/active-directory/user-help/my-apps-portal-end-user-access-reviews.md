@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 3b529c8112683281148751091ee93dd12ae73b4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbe05f264b0fca6c1a5e8e7d944d94a6bed55392
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741931"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798031"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Utföra en åtkomst granskning från portalen Mina appar
 
@@ -28,7 +28,7 @@ Om du inte har åtkomst till portalen för **Mina appar** , Kontakta supportavde
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/index.yml).
 
 ## <a name="manage-access-reviews"></a>Hantera åtkomst granskningar
 
@@ -58,7 +58,7 @@ Om din administratör har gett dig behörighet att utföra dina egna åtkomst gr
     ![Sidan åtkomst granskning, som visar gransknings informationen](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >Om du är administratör och har behörighet att granska organisationens åtkomst till grupper och appar, ser du en annan sida. Mer information om hur du granskar grupper eller appar för din organisation finns i [Granska åtkomst till grupper eller program i åtkomst granskningar i Azure AD](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
+    >Om du är administratör och har behörighet att granska organisationens åtkomst till grupper och appar, ser du en annan sida. Mer information om hur du granskar grupper eller appar för din organisation finns i [Granska åtkomst till grupper eller program i åtkomst granskningar i Azure AD](../governance/perform-access-review.md).
 
 6. Välj **Ja** om du vill behålla åtkomsten eller **Nej** om du vill ta bort åtkomsten.
 

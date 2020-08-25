@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/21/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: 3069ee020d5f127eb0bdb8cbaf251cd3f3cef8d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e037607d1f86e6df4d3f5b12e29ba8fde447ebc9
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118432"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757939"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Konfigurera Avancerat skydd för Azure Storage
 
@@ -32,6 +32,17 @@ Avancerat skydd för Azure Storage är för närvarande tillgängligt för Blob 
 Konton med hierarkiska namn rymder aktiverade för Data Lake Storage stöd transaktioner med både Azure Blob Storage-API: er och Data Lake Storage-API: er. Azure-filresurser stöder transaktioner över SMB.
 
 För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
+
+I följande lista sammanfattas tillgänglighet för avancerat skydd för Azure Storage:
+
+- Versions tillstånd:
+  - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
+  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (för hands version stöder SMB-och rest-transaktioner)
+  - Azure Data Lake Storage Gen2 (för hands version)
+- Moln<br>
+    ✔ Kommersiella moln<br>
+    ✔ US Gov<br>
+    ✘ Kina gov, andra gov
 
 ## <a name="set-up-advanced-threat-protection"></a>Konfigurera Avancerat skydd
 

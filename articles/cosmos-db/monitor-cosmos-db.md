@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130196"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797827"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Azure Monitor för Azure Cosmos DB baseras på [arbets bokens funktion i Azure M
 > [!NOTE]
 > När du skapar behållare ser du till att du inte skapar två behållare med samma namn men med olika Skift läge. Det beror på att vissa delar av Azure-plattformen inte är Skift läges känsliga, och det kan leda till förvirring/kollisioner för telemetri och åtgärder på behållare med sådana namn.
 
-## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a>Övervaka data som samlas in från Azure Cosmos DB Portal
+## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a> Övervaka data som samlas in från Azure Cosmos DB Portal
 
 Azure Cosmos DB samlar in samma typer av övervaknings data som andra Azure-resurser som beskrivs i [övervaknings data från Azure-resurser](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Se [Azure Cosmos DB övervaknings data referens](monitor-cosmos-db-reference.md) för en detaljerad referens för de loggar och mått som skapats av Azure Cosmos dB.
 
@@ -64,7 +64,7 @@ På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en 
 
 :::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Översikts sida":::
 
-## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analysera mått data
+## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analysera mått data
 
 Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
 
@@ -78,7 +78,7 @@ Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänste
 
 ### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Visa mått på åtgärds nivå för Azure Cosmos DB
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
 
@@ -104,7 +104,7 @@ Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan ti
 
 :::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Lägg till Använd delnings filter":::
 
-## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analysera loggdata
+## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a> Analysera loggdata
 
 Data i Azure Monitor loggar lagras i tabeller som varje tabell har en egen uppsättning unika egenskaper. Azure Cosmos DB lagrar data i följande tabeller.
 
@@ -147,7 +147,7 @@ Följande är frågor som du kan använda för att övervaka dina Azure Cosmos-d
     | summarize count() by Resource
     ```
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a>Övervaka Azure Cosmos DB program mässigt
+## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a> Övervaka Azure Cosmos DB program mässigt
 
 Konto nivå måtten som är tillgängliga i portalen, till exempel användning av konto lagring och totalt antal begär Anden, är inte tillgängliga via SQL-API: erna. Du kan dock hämta användnings data på samlings nivå med hjälp av SQL-API: erna. Gör följande för att hämta data på samlings nivå:
 
@@ -158,14 +158,16 @@ Konto nivå måtten som är tillgängliga i portalen, till exempel användning a
 Använd [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)för att få åtkomst till ytterligare mått. Tillgängliga mått definitioner kan hämtas genom att anropa:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01
 ```
 
-Frågor för att hämta enskilda mått använder följande format:
+Använd följande format för att hämta enskilda mått:
 
 ```http
-https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/providers/microsoft.insights/metrics?timespan={StartTime}/{EndTime}&interval={AggregationInterval}&metricnames={MetricName}&aggregation={AggregationType}&`$filter={Filter}&api-version=2018-01-01
 ```
+
+Mer information finns i artikeln [Azure monitoring REST API](../azure-monitor/platform/rest-api-walkthrough.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

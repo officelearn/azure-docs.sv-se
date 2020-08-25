@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 511354633b9f88f3d6cd2e2170ce3b7ca1f4ecdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 832abd0d8a5b7fad126359edcc7de5019560a82f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82096063"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748836"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager
 Följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
@@ -23,7 +23,7 @@ Följande begränsningar gäller endast för nätverks resurser som hanteras via
 
 | Resurs | Gräns | 
 | --- | --- |
-| Virtuella nätverk |1,000 |
+| Virtuella nätverk |1 000 |
 | Undernät per virtuellt nätverk |3 000 |
 | Peering för virtuella nätverk per virtuellt nätverk |500 |
 | [Virtuella nätverksgateway (VPN-gatewayer) per virtuellt nätverk](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
@@ -37,7 +37,7 @@ Följande begränsningar gäller endast för nätverks resurser som hanteras via
 | [Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500 000 |
 | Nätverks gränssnitts kort |65 536 |
 | Nätverkssäkerhetsgrupper |5 000 |
-| NSG-regler per NSG |1,000 |
+| NSG-regler per NSG |1 000 |
 | IP-adresser och intervall som har angetts för källa eller mål i en säkerhets grupp |4 000 |
 | Programsäkerhetsgrupper |3 000 |
 | Program säkerhets grupper per IP-konfiguration, per nätverkskort |20 |
@@ -67,7 +67,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 
 | Resurs                                | Gräns         |
 |-----------------------------------------|-------------------------------|
-| Lastbalanserare                          | 1,000                         |
+| Lastbalanserare                          | 1 000                         |
 | Regler per resurs                      | 1500                         |
 | Regler per nätverkskort (över alla IP-adresser på ett nätverkskort) | 300                           |
 | IP-konfigurationer för klient del              | 600                           |
@@ -83,7 +83,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 
 | Resurs                                | Gräns        |
 |-----------------------------------------|------------------------------|
-| Lastbalanserare                          | 1,000                        |
+| Lastbalanserare                          | 1 000                        |
 | Regler per resurs                      | 250                          |
 | Regler per nätverkskort (över alla IP-adresser på ett nätverkskort) | 300                          |
 | IP-konfigurationer för klient del              | 200                          |
@@ -100,7 +100,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Privata IP-adresser per virtuellt nätverk |4 096 |4 096 |
 | Samtidiga TCP-eller UDP-flöden per nätverkskort för en virtuell dator eller roll instans |500 000, upp till 1 000 000 för två eller flera nätverkskort. |500 000, upp till 1 000 000 för två eller flera nätverkskort. |
 | Nätverks säkerhets grupper (NSG: er) |200 |200 |
-| NSG-regler per NSG |1,000 |1,000 |
+| NSG-regler per NSG |200 |1 000 |
 | Användardefinierade routningstabeller |200 |200 |
 | Användardefinierade vägar per routningstabell |400 |400 |
 | Offentliga IP-adresser (dynamiska) |500 |500 |

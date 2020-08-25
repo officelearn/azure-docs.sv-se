@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 6eec9c197f0bc17a5237a05e198b12cb769da89d
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84194585"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Självstudie: kopiera data från en SQL Server-databas till Azure Blob Storage
@@ -299,7 +299,7 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     f. Ange användarnamnet.
 
-    g. Ange lösenordet som är kopplat till användarnamnet.
+    ex. Ange lösenordet som är kopplat till användarnamnet.
 
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server.  
     ![Anslutningen lyckades](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
@@ -413,7 +413,7 @@ I det här steget länkar du din SQL Server-instans till data fabriken.
 
     > [!IMPORTANT]
     > - Välj avsnitt baserat på vilken autentisering du använder när du ansluter till din SQL Server-instans.
-    > - Ersätt **\<integration runtime name>** med namnet på din integration Runtime.
+    > - Ersätt  **\<integration runtime name>** med namnet på din integration Runtime.
     > - Innan du sparar filen ersätter du, **\<servername>** , **\<databasename>** **\<username>** och **\<password>** med värdena för din SQL Server-instans.
     > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel min *domän- \\ \\ användare*.
 

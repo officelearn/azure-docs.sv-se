@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: 5b3893dce2d20b1de0a78f11263d880e262098d2
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84142392"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exempel: identifiera språk med Textanalys
@@ -69,7 +69,7 @@ Mer information om definition av begäran finns i [anropa API för textanalys](t
 
 + Skicka en POST-begäran. Information om hur du granskar API-dokumentationen för den här begäran finns i [SPRÅKIDENTIFIERING API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages).
 
-+ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v3.0/languages` i URL: en. Exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`.
++ Ange HTTP-slutpunkt för språkidentifiering. Använd antingen en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta med `/text/analytics/v3.0/languages` i URL: en. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
@@ -175,7 +175,7 @@ Till exempel är "omöjlig" gemensamt för både engelska och franska och om det
 
 Tjänsten har nu ytterligare kontext för att göra en bättre bedömning: 
 
-**Utdata**
+**Resultat**
 
 ```json
     {
@@ -237,7 +237,7 @@ Blandat språk innehåll i samma dokument returnerar det språk som har störst 
     }
 ```
 
-**Utdata**
+**Resultat**
 
 Resultatet består av det dominerande språket, med en poäng på mindre än 1,0, vilket tyder på en svagare nivå av förtroende.
 

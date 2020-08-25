@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 0b857cb853add1920e6933a9f1ebfd7a0f61b57f
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ec38f16c5a658848eab505794ed1a2d072f22aea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054280"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749624"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-active-directory-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure Active Directory Domain Services
 
@@ -94,7 +94,7 @@ En hanterad domän skapar vissa nätverks resurser under distributionen. De här
 | Azure-resurs                          | Beskrivning |
 |:----------------------------------------|:---|
 | Nätverks gränssnitts kort                  | Azure AD DS är värd för den hanterade domänen på två domänkontrollanter (DCs) som körs på Windows Server som virtuella Azure-datorer. Varje virtuell dator har ett virtuellt nätverks gränssnitt som ansluter till det virtuella nätverkets undernät. |
-| Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/public-ip-addresses.md). |
 | Azure standard Load Balancer            | Azure AD DS använder en standard-SKU-belastningsutjämnare för Network Address Translation (NAT) och belastnings utjämning (vid användning med säker LDAP). Mer information om Azure load Balances finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regler för NAT (Network Address Translation) | Azure AD DS skapar och använder tre NAT-regler på belastningsutjämnaren – en regel för säker HTTP-trafik och två regler för säker PowerShell-fjärrkommunikation. |
 | Regler för lastbalanserare                     | När en hanterad domän har kon figurer ATS för säker LDAP på TCP-port 636, skapas tre regler och används på en belastningsutjämnare för att distribuera trafiken. |
@@ -104,15 +104,15 @@ En hanterad domän skapar vissa nätverks resurser under distributionen. De här
 
 ## <a name="network-security-groups-and-required-ports"></a>Nätverks säkerhets grupper och nödvändiga portar
 
-En [nätverks säkerhets grupp (NSG)](../virtual-network/virtual-networks-nsg.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar en hanterad domän som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
+En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md) innehåller en lista över regler som tillåter eller nekar nätverks trafik till trafik i ett virtuellt Azure-nätverk. En nätverks säkerhets grupp skapas när du distribuerar en hanterad domän som innehåller en uppsättning regler som gör att tjänsten tillhandahåller autentiserings-och hanterings funktioner. Den här standard nätverks säkerhets gruppen är associerad med det virtuella nätverkets undernät som den hanterade domänen har distribuerats till.
 
 Följande regler för nätverks säkerhets grupper krävs för att den hanterade domänen ska kunna tillhandahålla autentiserings-och hanterings tjänster. Redigera inte eller ta bort dessa regler för nätverks säkerhets grupper för det virtuella nätverkets undernät som din hanterade domän distribueras till.
 
 | Portnummer | Protokoll | Källa                             | Mål | Action | Obligatorisk | Syfte |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Yes      | Synkronisering med din Azure AD-klient. |
-| 3389        | TCP      | CorpNetSaw                         | Valfri         | Tillåt  | Yes      | Hantering av din domän. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Yes      | Hantering av din domän. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Synkronisering med din Azure AD-klient. |
+| 3389        | TCP      | CorpNetSaw                         | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Valfri         | Tillåt  | Ja      | Hantering av din domän. |
 
 En Azure standard Load Balancer skapas som kräver att dessa regler placeras. Den här nätverks säkerhets gruppen säkrar Azure AD DS och krävs för att den hanterade domänen ska fungera korrekt. Ta inte bort den här nätverks säkerhets gruppen. Belastningsutjämnaren fungerar inte korrekt utan den.
 

@@ -4,10 +4,10 @@ description: I den här självstudien använder du principer för att genomdriva
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 90ac6d1c4121b8672e561ff633263775bbad5357
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84781135"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
@@ -24,7 +24,7 @@ Om du vill tilldela en princip för att identifiera dina befintliga resursers ef
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="assign-a-policy"></a>Tilldela en princip
 
@@ -42,7 +42,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
    :::image type="content" source="../media/create-and-manage/select-assign-policy.png" alt-text="Tilldela en princip definition från sidan tilldelningar" border="false":::
 
-1. På fliken **tilldela princip** sidan och **grunderna** väljer du **omfattningen** genom att välja ellipsen och välja antingen en hanterings grupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på.
+1. På fliken **tilldela princip** sidan och **grunderna** väljer du **omfattningen** genom att välja ellipsen och välja antingen en hanterings grupp eller en prenumeration. Du kan även välja en resursgrupp. Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används i.
    Välj sedan **Välj** längst ned på sidan **omfång** .
 
    I det här exemplet används **Contoso-prenumerationen**. Din prenumeration skiljer sig.
@@ -428,7 +428,7 @@ New-AzPolicySetDefinition -Name 'VMPolicySetDefinition' -Metadata '{"category":"
 
    :::image type="content" source="../media/create-and-manage/assign-definition.png" alt-text="Tilldela en definition från sidan initiativ definition" border="false":::
 
-   Du kan också högerklicka på den markerade raden eller välja ellipsen i slutet av raden för en snabb meny. Välj sedan **Tilldela**.
+   Du kan också högerklicka på den markerade raden eller välja ellipsen i slutet av raden för en snabb meny. Välj sedan **tilldela**.
 
    :::image type="content" source="../media/create-and-manage/select-right-click.png" alt-text="Alternativa alternativ för ett initiativ" border="false":::
 
@@ -506,7 +506,7 @@ Om du har arbetat med resurser från den här självstudien kan du använda föl
 
 1. Högerklicka på raden eller välj ellipserna i slutet av definitionen (eller tilldelningen) och välj **Ta bort definition** (eller **Ta bort tilldelning**).
 
-## <a name="review"></a>Granska
+## <a name="review"></a>Genomgång
 
 I den här självstudien har du genomfört följande uppgifter:
 

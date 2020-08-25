@@ -10,10 +10,10 @@ ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
 ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83774091"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge"></a>Självstudie: transformera data med Azure Stack Edge
@@ -22,7 +22,7 @@ I den här självstudien beskrivs hur du konfigurerar en beräknings roll på di
 
 Den här proceduren kan ta cirka 10 till 15 minuter att slutföra.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Konfigurera beräkning
@@ -31,7 +31,7 @@ I de här självstudierna får du lära dig att
 > * Verifiera datatransformering och överföring
 
  
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du ställer in en beräknings roll på Azure Stack Edge-enhet ser du till att:
 
@@ -53,7 +53,7 @@ Om du vill konfigurera Compute på Azure Stack Edge skapar du en IoT Hub resurs.
     |Fält  |Värde  |
     |---------|---------|
     |IoT Hub     | Välj från **ny** eller **befintlig**. <br> Som standard används en standard-nivå (S1) för att skapa en IoT-resurs. Om du vill använda en IoT-resurs på kostnads fri nivå skapar du en och väljer sedan den befintliga resursen. <br> I varje fall använder IoT Hub resursen samma prenumeration och resurs grupp som används av Azure Stack Edge-resursen.     |
-    |Name     |Ange ett namn för din IoT Hub-resurs.         |
+    |Namn     |Ange ett namn för din IoT Hub-resurs.         |
 
     ![Kom igång med Compute](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 

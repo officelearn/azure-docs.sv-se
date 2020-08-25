@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -9,10 +9,10 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 178236f774b0e1a6fe20c73afe0e7fd6965e67a5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "67235457"
 ---
 Nu när dina slut punkter och meddelande vägar har kon figurer ATS kan du visa deras konfiguration i portalen. Logga in på [Azure Portal](https://portal.azure.com) och gå till **resurs grupper**. Välj sedan din resurs grupp och välj sedan hubben (hubbens namn börjar med `ContosoTestHub` i den här självstudien). Fönstret IoT Hub visas.

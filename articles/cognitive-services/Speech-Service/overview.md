@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 82099172a933496f015ae8fc575c1919a879e1f9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: e1b24eb8e2d355e73eedda903745df73593fa1a8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167750"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749211"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 
@@ -24,38 +24,81 @@ Tal tjänsten är arbetskonton av tal-till-text, text till tal och tal översät
 > [!IMPORTANT]
 > Tal tjänsten har ersatt API för Bing-taligenkänning och Translator Speech. Se _instruktions guider > migrering_ för instruktioner om migrering.
 
-Dessa funktioner utgör röst tjänsten. Använd länkarna i den här tabellen för att lära dig mer om vanliga användnings fall för varje funktion eller Sök i API-referensen.
+Följande funktioner är en del av tal tjänsten. Använd länkarna i den här tabellen för att lära dig mer om vanliga användnings fall för varje funktion, eller Sök i API-referensen.
 
 | Tjänst | Funktion | Beskrivning | SDK | REST |
 |---------|---------|-------------|-----|------|
 | [Tal till text](speech-to-text.md) | Tal till text i real tid | Tal till text omvandlar eller översätter ljud strömmar eller lokala filer till text i real tid som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](https://docs.microsoft.com/azure/cognitive-services/luis/) för att härleda användar avsikter från inställt tal och agera på röst kommandon. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Batch-tal-till-text](batch-transcription.md) | Med tal-till-text i batch kan du använda asynkrona tal-till-text-avskrifter av stora mängder tal ljud data som lagras i Azure Blob Storage. Förutom att konvertera tal ljud till text, tillåter batch-tal-till-text också diarization och sentiment-analys. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
-| | [Konversation med flera enheter](multi-device-conversation.md) | Anslut flera enheter eller klienter i en konversation för att skicka tal-eller textbaserade meddelanden, med enkel support för avskrift och översättning| Ja | Nej |
-| | [Konversations avskrift](conversation-transcription-service.md) | Aktiverar tal igenkänning i real tid, högtalar-ID och diarization. Det är perfekt för att skriva över person möten med möjlighet att skilja på högtalare. | Ja | Nej |
-| | [Skapa Custom Speech modeller](#customize-your-speech-experience) | Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär. | Nej | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| | [Batch-tal-till-text](batch-transcription.md) | Med tal-till-text i batch kan du använda asynkrona tal-till-text-avskrifter av stora mängder tal ljud data som lagras i Azure Blob Storage. Förutom att konvertera tal ljud till text, tillåter batch-tal-till-text också diarization och sentiment-analys. | Inga | [Ja](https://westus.cris.ai/swagger/ui/index) |
+| | [Konversation med flera enheter](multi-device-conversation.md) | Anslut flera enheter eller klienter i en konversation för att skicka tal-eller textbaserade meddelanden, med enkel support för avskrift och översättning| Ja | Inga |
+| | [Konversations avskrift](conversation-transcription-service.md) | Aktiverar tal igenkänning i real tid, högtalar-ID och diarization. Det är perfekt för att skriva över person möten med möjlighet att skilja på högtalare. | Ja | Inga |
+| | [Skapa Custom Speech modeller](#customize-your-speech-experience) | Om du använder tal-till-text för igenkänning och avskriftering i en unik miljö kan du skapa och träna anpassade ljud-, språk-och uttals modeller för att hantera omgivande brus eller branschspecifika vokabulär. | Inga | [Ja](https://westus.cris.ai/swagger/ui/index) |
 | [Text till tal](text-to-speech.md) | Text till tal | Text till tal konverterar inmatad text till mänskligt syntetiskt tal med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md). Välj bland standard röster och neurala röster (se [språk stöd](language-support.md)). | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade röst teckensnitt som är unika för ditt varumärke eller din produkt. | Nej | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Talöversättning](speech-translation.md) | Talöversättning | Tal översättning möjliggör real tids översättning av tal till dina program, verktyg och enheter i real tid. Använd den här tjänsten för tal-till-tal-och tal-till-text-översättning. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Nej |
-| [Röstassistenter](voice-assistants.md) | Röstassistenter | Röst assistenter som använder röst tjänsten ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder bot Framework: s direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. | [Ja](voice-assistants.md) | Nej |
+| | [Skapa anpassade röster](#customize-your-speech-experience) | Skapa anpassade röst teckensnitt som är unika för ditt varumärke eller din produkt. | Inga | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Tal Översättning](speech-translation.md) | Talöversättning | Tal översättning möjliggör real tids översättning av tal till dina program, verktyg och enheter i real tid. Använd den här tjänsten för tal-till-tal-och tal-till-text-översättning. | [Ja](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Inga |
+| [Röstassistenter](voice-assistants.md) | Röstassistenter | Röst assistenter som använder röst tjänsten ger utvecklare möjlighet att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb, tillförlitlig interaktion mellan en enhet och en assistent implementering som använder bot Framework: s direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. | [Ja](voice-assistants.md) | Inga |
 | [Talarigenkänning](speaker-recognition-overview.md) | Identifiering av högtalar & | Tjänsten Talarigenkänning tillhandahåller algoritmer som verifierar och identifierar högtalare genom sina unika röst egenskaper. Talarigenkänning används för att besvara frågan "Vem talar?". | Ja | [Ja](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="try-the-speech-service"></a>Prova röst tjänsten
+## <a name="try-the-speech-service-for-free"></a>Prova Speech Service kostnadsfritt
 
-Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var utformade för att du ska kunna köra kod på mindre än 10 minuter. Den här tabellen innehåller de populäraste snabb starterna för varje funktion. Använd den vänstra navigeringen för att utforska fler språk och plattformar.
+För följande steg behöver du både ett Microsoft-konto och ett Azure-konto. Om du inte har en Microsoft-konto kan du registrera dig för en kostnads fri avgift på [Microsoft-konto portalen](https://account.microsoft.com/account). Välj **Logga in med Microsoft** och välj sedan **skapa en Microsoft-konto**när du uppmanas att logga in. Följ stegen för att skapa och verifiera din nya Microsoft-konto.
 
-| Tal till text (SDK) | Text till tal (SDK) | Översättning (SDK) |
-|----------------------|----------------------|-------------------|
-| [Identifiera tal från en ljudfil](quickstarts/speech-to-text-from-file.md) | [Syntetisera tal till en ljudfil](quickstarts/text-to-speech-audio-file.md) | [Översätt tal till text](quickstarts/translate-speech-to-text.md) |
-| [Identifiera tal med en mikrofon](quickstarts/speech-to-text-from-microphone.md) | [Syntetisera tal till en högtalare](quickstarts/text-to-speech.md) | [Översätta tal till flera målspråk](quickstarts/translate-speech-to-text-multiple-languages.md) |
-| [Identifiera tal som lagras i bloblagring](quickstarts/from-blob.md) | [Asynkron syntes för dikteringsljud](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Översätta tal-till-tal](quickstarts/translate-speech-to-speech.md) |
+När du har en Microsoft-konto går du till [sidan för Azure-registrering](https://azure.microsoft.com/free/ai/), väljer **Starta kostnads fritt**och skapar ett nytt Azure-konto med hjälp av en Microsoft-konto.
 
 > [!NOTE]
-> Tal till text och text till tal har också REST-slutpunkter och tillhör ande snabb starter.
+> Tjänsten Speech har två tjänst nivåer: kostnads fri och prenumeration, som har olika begränsningar och fördelar. När du registrerar dig för ett kostnads fritt Azure-konto levereras det med $200 i service kredit som du kan använda mot en betald Speech service-prenumeration, som är giltig i upp till 30 dagar.
+>
+> Om du använder den kostnads fria, låga tal Service nivån kan du behålla den här kostnads fria prenumerationen även efter att din kostnads fria utvärderings version eller service kredit upphör att gälla.
+>
+> Mer information finns i [Cognitive Services priss igenkännings tjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-När du har haft möjlighet att använda tal tjänsten kan du prova våra självstudier som lär dig hur du löser olika scenarier.
+### <a name="create-the-azure-resource"></a>Skapa Azure-resursen
+
+Så här lägger du till en tjänst resurs (kostnads fri eller betald) till ditt Azure-konto:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
+
+1. Välj **skapa en resurs** längst upp till vänster i portalen. Om du inte ser **skapa en resurs**kan du alltid hitta den genom att välja menyn komprimerad i det övre vänstra hörnet på skärmen.
+
+1. Skriv "tal" i rutan Sök i det **nya** fönstret och tryck på RETUR.
+
+1. I Sök resultaten väljer du **tal**.
+
+   ![tal Sök Resultat](media/index/speech-search.png)
+
+1. Välj **skapa**och sedan:
+
+   - Ange ett unikt namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer som är kopplade till samma tjänst.
+   - Välj den Azure-prenumeration som den nya resursen är kopplad till för att avgöra hur avgifterna faktureras.
+   - Välj den [region](regions.md) där resursen ska användas.
+   - Välj antingen en kostnads fri (F0) eller betald (S0) pris nivå. Om du vill ha fullständig information om priser och användnings kvoter för varje nivå väljer du **Visa fullständig pris information**.
+   - Skapa en ny resurs grupp för den här tal prenumerationen eller tilldela prenumerationen till en befintlig resurs grupp. Med resurs grupper kan du hålla dina olika Azure-prenumerationer organiserade.
+   - Välj **Skapa**. Detta tar dig till distributions översikten och visar meddelanden om distributions förlopp.
+
+> [!NOTE]
+> Du kan skapa ett obegränsat antal prenumerationer på standard nivå i en eller flera regioner. Du kan dock bara skapa en prenumeration på den kostnads fria nivån. Modell distributioner på den kostnads fria nivån som fortsätter att vara oanvända i 7 dagar inaktive ras automatiskt.
+
+Det tar en stund att distribuera den nya tal resursen. När distributionen är klar väljer **du gå till resurs** och i det vänstra navigerings fönstret väljer du **nycklar** för att Visa prenumerations nycklar för din röst tjänst. Varje prenumeration har två nycklar. Du kan använda någon av nycklarna i ditt program. Om du snabbt vill kopiera eller klistra in en nyckel i kod redigeraren eller på en annan plats, väljer du kopierings knappen bredvid varje nyckel, växlar fönster för att klistra in innehållet i Urklipp till önskad plats.
+
+> [!IMPORTANT]
+> Dessa prenumerations nycklar används för att få åtkomst till ditt kognitiva tjänst-API. Dela inte dina nycklar. Lagra dem på ett säkert sätt – till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar nycklarna regelbundet. Endast en nyckel krävs för att göra ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.
+
+## <a name="complete-a-quickstart"></a>Slutför en snabb start
+
+Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var och en har utformats för att lära dig grundläggande design mönster, och du kan köra kod på mindre än 10 minuter. Se följande lista för snabb starten för varje funktion.
+
+Den här tabellen innehåller de populäraste snabb starterna för varje funktion. Använd den vänstra navigeringen för att utforska fler språk och plattformar.
+
+* [Snabb start för tal till text](speech-to-text-basics.md)
+* [Snabbstart för text till tal](get-started-text-to-speech.md)
+* [Snabb start för tal Översättning](speech-translation-basics.md)
+* [Snabb start för avsikts igenkänning](quickstarts/intent-recognition.md)
+* [Snabb start för högtalar igenkänning](speaker-recognition-basics.md)
+
+När du har fått chansen att komma igång med tal tjänsten kan du prova våra självstudier som visar hur du kan lösa olika scenarier.
 
 - [Självstudie: identifiera avsikter från tal med talet SDK och LUIS, C #](how-to-recognize-intents-from-speech-csharp.md)
 - [Självstudie: röst aktivera din robot med talet SDK, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,7 +117,9 @@ Exempel kod finns på GitHub för tal tjänsten. De här exemplen beskriver vanl
 
 Röst tjänsten fungerar bra med inbyggda modeller, men du kanske vill anpassa och justera upplevelsen för din produkt eller miljö ytterligare. Anpassnings alternativ sträcker sig från akustisk modell justering till unika röst teckensnitt för ditt varumärke.
 
-| Tjänst för taligenkänning | Plattform | Description |
+Andra produkter erbjuder tal modeller som är justerade för speciella syfte, t. ex. sjukvård eller försäkring, men som är tillgängliga för alla lika. Anpassning i Azure tal blir en del av *din unika* konkurrens för del som inte är tillgänglig för någon annan användare eller kund. Med andra ord är dina modeller privata och anpassade efter ditt användnings fall.
+
+| Tjänst för taligenkänning | Plattform | Beskrivning |
 | -------------- | -------- | ----------- |
 | Tal till text | [Custom Speech](https://aka.ms/customspeech) | Anpassa tal igenkännings modeller till dina behov och tillgängliga data. Kringgå hinder för tal igenkänning, till exempel tal format, vokabulär och bakgrunds ljud. |
 | Text till tal | [Anpassad röst](https://aka.ms/customvoice) | Skapa en identifierbar, unik röst för dina text-till-tal-appar med dina tillgängliga taldata. Du kan finjustera röst utmatningarna ytterligare genom att justera en uppsättning röst parametrar. |
@@ -90,4 +135,5 @@ Röst tjänsten fungerar bra med inbyggda modeller, men du kanske vill anpassa o
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämta en prenumerations nyckel för Speech service kostnads fritt](get-started.md)
+> [Kom igång med tal till text](speech-to-text-basics.md) 
+>  [Kom igång med text till tal](get-started-text-to-speech.md)

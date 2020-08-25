@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706213"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761873"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Anslutningsarkitektur för Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,12 @@ SQL-hanterad instans övergår från manuell till tjänstens konfiguration för 
 
 Med konfiguration av tjänstestyrt undernät har användaren full kontroll över data trafik (TDS), medan SQL-hanterad instans tar ansvar för att säkerställa oavbrutet flöde av hanterings trafik för att uppfylla ett service avtal.
 
-Konfiguration av tjänstens konfiguration för under nätet bygger ovanpå funktionen [delegering](../../virtual-network/subnet-delegation-overview.md) av virtuella nätverk för att tillhandahålla automatisk hantering av nätverks konfiguration och aktivera tjänstens slut punkter. Tjänst slut punkter kan användas för att konfigurera brand Väggs regler för virtuella nätverk på lagrings konton som upprätthåller säkerhets kopierings-och gransknings loggar.
+Konfiguration av tjänstens konfiguration för under nätet bygger ovanpå funktionen [delegering](../../virtual-network/subnet-delegation-overview.md) av virtuella nätverk för att tillhandahålla automatisk hantering av nätverks konfiguration och aktivera tjänstens slut punkter. 
+
+Tjänst slut punkter kan användas för att konfigurera brand Väggs regler för virtuella nätverk på lagrings konton som upprätthåller säkerhets kopierings-och gransknings loggar. Även om tjänstens slut punkter är aktiverade, uppmuntras kunderna att använda [privat länk](../../private-link/private-link-overview.md) som ger ytterligare säkerhet jämfört med tjänstens slut punkter.
+
+> [!IMPORTANT]
+> På grund av konfigurations information för kontroll plan skulle konfiguration av tjänstens under näts undernät inte aktivera tjänstens slut punkter i nationella moln. 
 
 ### <a name="network-requirements"></a>Nätverkskrav
 
@@ -106,24 +111,24 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska inkommande säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI-UNDERNÄT  |Tillåt |
 |            |9000, 9003                  |TCP     |CorpnetPublic    |MI-UNDERNÄT  |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri                         |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|health_probe|Valfri                         |Valfri     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obligatoriska utgående säkerhets regler med konfiguration för tjänstens under näts undernät
 
-| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri           |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Användardefinierade vägar med konfiguration av tjänstestyrt undernät
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |undernät-till-vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|
@@ -294,7 +299,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 |mi-204-79-180-24-nexthop-Internet|204.79.180.0/24|Internet|
 ||||
 
-\*MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 Dessutom kan du lägga till poster i routningstabellen för att dirigera trafik som har lokala privata IP-adressintervall som mål via den virtuella Nätverksgatewayen eller Virtual Network-apparaten (NVA).
 
@@ -326,23 +331,23 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatoriska inkommande säkerhets regler
 
-| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port                        |Protokoll|Källa           |Mål|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |MI-UNDERNÄT  |Tillåt |
-|mi_subnet   |Alla                         |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
-|health_probe|Alla                         |Alla     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Valfri              |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri                         |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|health_probe|Valfri                         |Valfri     |AzureLoadBalancer|MI-UNDERNÄT  |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatoriska utgående säkerhets regler
 
-| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Namn       |Port          |Protokoll|Källa           |Mål|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |443, 12000    |TCP     |MI-UNDERNÄT        |AzureCloud |Tillåt |
-|mi_subnet   |Alla           |Alla     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
+|mi_subnet   |Valfri           |Valfri     |MI-UNDERNÄT        |MI-UNDERNÄT  |Tillåt |
 
 > [!IMPORTANT]
 > Se till att det bara finns en regel för inkommande trafik för portarna 9000, 9003, 1438, 1440 och 1452, och en utgående regel för portarna 443 och 12000. SQL-hanterad instans etablering via Azure Resource Manager-distributioner Miss fungerar om inkommande och utgående regler har kon figurer ATS separat för varje port. Om de här portarna finns i separata regler fungerar inte-distributionen med felkoden `VnetSubnetConflictWithIntendedPolicy` .
 
-\*MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
+\* MI-UNDERNÄT syftar på IP-adressintervallet för under nätet i formatet x. x. x/y. Du hittar den här informationen i Azure Portal i under näts egenskaper.
 
 > [!IMPORTANT]
 > Även om de obligatoriska inkommande säkerhets reglerna tillåter trafik från vilken källa som _helst_ på portarna 9000, 9003, 1438, 1440 och 1452, skyddas dessa portar av en inbyggd brand vägg. Mer information finns i [ta reda på hanterings slut punktens adress](management-endpoint-find-ip-address.md).
@@ -352,7 +357,7 @@ Distribuera SQL-hanterad instans i ett dedikerat undernät i det virtuella nätv
 
 ### <a name="user-defined-routes"></a>Användardefinierade vägar
 
-|Name|Adressprefix|Nästa hopp|
+|Namn|Adressprefix|Nästa hopp|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI-UNDERNÄT|Virtuellt nätverk|
 |mi-13-64-11-nexthop-Internet|13.64.0.0/11|Internet|

@@ -4,10 +4,10 @@ description: Översikt över Azure Security Benchmark-skissexempel. Det här ski
 ms.date: 06/02/2020
 ms.topic: sample
 ms.openlocfilehash: 780d16cd52ef9ea8b5edd654d6c80b9db593ab6d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84740381"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Exempel på Azure Security benchmark-skiss
@@ -27,7 +27,7 @@ Följande steg måste vidtas för att distribuera Azure-skisser om plan för sä
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ### <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 

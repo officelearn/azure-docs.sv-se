@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d1b17a3e4556f6a963f3ecacd31472ce3f75b0fe
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85248555"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Självstudie: Skapa en pipeline med en kopieringsaktivitet med hjälp av Guiden Data Factory-kopia
@@ -39,7 +39,7 @@ Med **Kopieringsguiden** för Azure Data Factory kan du snabbt skapa en pipeline
 
 Den här guiden beskriver hur du skapar en Azure-datafabrik. Starta guiden Kopiera, och utför ett antal åtgärder för att ge information om datainmatning/rörelsescenarier. När du slutför stegen i guiden skapar guiden automatiskt en pipeline med en kopierings aktivitet för att kopiera data från en Azure Blob Storage till Azure SQL Database. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Slutför stegen i artikeln [Självstudier – översikt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) innan du fortsätter med självstudierna.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik

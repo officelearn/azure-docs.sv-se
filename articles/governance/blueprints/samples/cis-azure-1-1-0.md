@@ -4,10 +4,10 @@ description: Översikt över skissexemplet på CIS Microsoft Azure Foundations B
 ms.date: 06/02/2020
 ms.topic: sample
 ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84740309"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exempel på benchmark-plan för CIS-Microsoft Azure
@@ -27,7 +27,7 @@ Följande steg måste vidtas för att distribuera Azure skisser CIS Microsoft Az
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ### <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 

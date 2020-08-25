@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: cc23e32db71439067421a9be8b18a1827515bd9c
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6523e16bfe3bf0592b78da544d7d52dc3d969af4
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563287"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749130"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA för Azure Kubernetes service (AKS) drift tid
 
@@ -25,9 +25,8 @@ Kunder kan ändå skapa obegränsat antal kostnads fria kluster med ett service 
 
 ## <a name="region-availability"></a>Regional tillgänglighet
 
-SLA för drift tid är tillgängligt i offentliga regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+SLA för drift tid är tillgängligt i offentliga regioner och Azure Government regioner där [AKS stöds](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* Azure Government stöds inte för närvarande.
 * Azure Kina 21Vianet stöds inte för närvarande.
 
 ## <a name="limitations"></a>Begränsningar

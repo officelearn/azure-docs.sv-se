@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: c215c2cb256ab37bcb096c018aefb3a410ab1e4f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85251166"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Läs in data stegvis från flera tabeller i SQL Server till en databas i Azure SQL Database med hjälp av Azure Portal
@@ -65,9 +65,9 @@ Här är några viktiga steg för att skapa den här lösningen:
     ![Läsa in data stegvis](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
 * **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en databas i SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en. 
 
@@ -410,7 +410,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 
     ![Aktiviteten ForEach – inställningar](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
 
-1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (pennikonen)**.
+1. Markera aktiviteten **ForEach** i pipelinen om det inte redan är markerat. Klicka på knappen **Redigera (Penn ikonen)** .
 
 1. I verktygslådan **Aktiviteter** expanderar du **Allmänt** och drar och släpper **sökningen** på pipelinedesignytan. Ange **LookupOldWaterMarkActivity** som **Namn**.
 
@@ -477,7 +477,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     1. Välj **Importera parameter**. 
     1. Ange följande värden för parametrarna: 
 
-        | Name | Typ | Värde | 
+        | Namn | Typ | Värde | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
@@ -525,7 +525,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
 ## <a name="review-the-results"></a>Granska resultaten
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
 
-**Söka i data** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -542,7 +542,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from project_table
@@ -559,7 +559,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -624,7 +624,7 @@ VALUES
 ## <a name="review-the-final-results"></a>Granska de slutliga resultaten
 I SQL Server Management Studio kör du följande frågor mot mål-SQL-databasen för att kontrol lera att uppdaterade/nya data har kopierats från käll tabellerna till mål tabellerna. 
 
-**Söka i data** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -643,7 +643,7 @@ PersonID    Name    LastModifytime
 
 Lägg märke till de nya värdena för **Name** och **LastModifytime** för **PersonID** för nummer 3. 
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from project_table
@@ -663,7 +663,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Observera att posten **NewProject** har lagts till i project_table. 
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from watermarktable

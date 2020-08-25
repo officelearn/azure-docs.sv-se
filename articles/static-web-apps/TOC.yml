@@ -8,7 +8,14 @@
   expanded: true
   items:
     - name: Skapa din första statiska webbapp
-      href: getting-started.md
+      expanded: true
+      items:
+        - name: Visual Studio-koden
+          href: getting-started.md
+        - name: Azure Portal
+          href: get-started-portal.md
+        - name: Azure CLI
+          href: get-started-cli.md
 - name: Begrepp
   items:
     - name: API-stöd med Azure Functions

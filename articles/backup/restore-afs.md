@@ -3,12 +3,12 @@ title: Återställa Azure-filresurser
 description: Lär dig hur du använder Azure Portal för att återställa en hel fil resurs eller vissa filer från en återställnings punkt som skapats av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: f0e232fcde12a0c035afa139e3043bfa52fbe714
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 92cc40d1a6b332ab524049322eb2d1afcb76082e
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503650"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761856"
 ---
 # <a name="restore-azure-file-shares"></a>Återställa Azure-filresurser
 
@@ -66,7 +66,7 @@ Du kan använda det här alternativet för återställning för att återställa
     * **Ursprunglig plats**: Återställ hela fil resursen till samma plats som den ursprungliga källan.
     * **Alternativ plats**: Återställ hela fil resursen till en annan plats och behåll den ursprungliga fil resursen som den är.
 
-#### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
+#### <a name="restore-to-the-original-location-full-share-recovery"></a>Återställa till den ursprungliga platsen (fullständig delning)
 
 1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter, genom att välja lämpligt alternativ i list rutan **i händelse av konflikter** .
 
@@ -74,7 +74,7 @@ Du kan använda det här alternativet för återställning för att återställa
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Återställa till en alternativ plats
+#### <a name="restore-to-an-alternate-location-full-share-recovery"></a>Återställa till en alternativ plats (fullständig delnings återställning)
 
 1. Välj en **annan plats** som **återställnings mål**.
 1. Välj det mål lagrings konto där du vill återställa det säkerhetskopierade innehållet i list rutan **lagrings konto** .
@@ -106,7 +106,7 @@ Du kan använda det här alternativet för återställning om du vill återstäl
     * **Ursprunglig plats**: Återställ valda filer eller mappar till samma fil resurs som den ursprungliga källan.
     * **Alternativ plats**: Återställ valda filer eller mappar till en annan plats och behåll det ursprungliga fil resurs innehållet.
 
-#### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
+#### <a name="restore-to-the-original-location-item-level-recovery"></a>Återställ till den ursprungliga platsen (återställning på objekt nivå)
 
 1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter genom att välja lämpligt alternativ i list rutan **i händelse av konflikter** .
 
@@ -125,7 +125,7 @@ Du kan använda det här alternativet för återställning om du vill återstäl
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
-#### <a name="restore-to-an-alternate-location"></a>Återställa till en alternativ plats
+#### <a name="restore-to-an-alternate-location-item-level-recovery"></a>Återställa till en alternativ plats (återställning på objekt nivå)
 
 1. Välj en **annan plats** som **återställnings mål**.
 1. Välj det mål lagrings konto där du vill återställa det säkerhetskopierade innehållet i list rutan **lagrings konto** .

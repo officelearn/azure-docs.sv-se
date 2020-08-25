@@ -10,10 +10,10 @@ ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ms.openlocfilehash: de481abd82b4fc7dd2eae3763f82b8dd96cc14a9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84266533"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudie: Beställ en Azure Data Box Disk
@@ -41,7 +41,7 @@ Innan du distribuerar slutför du följande konfigurationskrav för Data Box-tj�
 Innan du börjar ska du kontrollera att:
 
 * Du har en tillgänglig klientdator som du kan kopiera data från. Klientdatorn måste:
-  * Kör ett [operativ system som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Köra ett [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
   * Ha en annan[programvara som krävs](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) installerad om det är en Windows-klient.  
 
 ## <a name="order-data-box-disk"></a>Beställa Data Box Disk
@@ -63,7 +63,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
@@ -76,7 +76,7 @@ Utför följande steg för att beställa Data Box Disk.
 
 5. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
@@ -91,7 +91,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     Om du använder Data Box Disk för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Resursgrupp     | Skapa en ny resurs grupp om du tänker skapa hanterade diskar från lokala virtuella hård diskar. Använd bara en befintlig resurs grupp om den skapades för Data Box Disk ordning för hanterad disk av Data Box-enhet-tjänsten. <br> Endast en resurs grupp stöds.|
 

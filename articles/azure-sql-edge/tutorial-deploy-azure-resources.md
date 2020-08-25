@@ -10,19 +10,19 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84887445"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
 I den här självstudien med tre delar skapar du en maskin inlärnings modell för att förutsäga halten av järn malm som en procent andel kiseldioxid och distribuerar sedan modellen i Azure SQL Edge. I del ett installerar du den nödvändiga program varan och distribuerar Azure-resurser.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+1. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 2. Installera [python-3.6.8](https://www.python.org/downloads/release/python-368/).
       * Använd installations programmet för Windows x86-x64-körbar fil
       * Lägg till `python.exe` i Path-miljö variabel hämtningar/). Du hittar hämtningen under "verktyg för Visual Studio 2019".
@@ -278,6 +278,6 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera IoT Edge moduler och anslutningar](tutorial-set-up-iot-edge-modules.md)

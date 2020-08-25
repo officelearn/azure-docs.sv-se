@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
 ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85118890"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
@@ -42,11 +42,11 @@ Den här självstudiekursen omfattar:
 > [!TIP]
 > Den här självstudien förutsätter att du har tidigare erfarenhet av att använda ASP.NET Core MVC och Azure App Service. Om du är nybörjare på ASP.NET Core eller de [verktyg](#prerequisites)som krävs, rekommenderar vi att du hämtar det fullständiga exempelprojektet från [GitHub][GitHub], lägger till de nödvändiga NuGet-paketen och kör det. När du skapar projektet kan du läsa den här artikeln för att få information om koden i projektets sammanhang.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
-* Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -86,7 +86,7 @@ Nu när vi har flest den ASP.NET Core MVC Framework-kod som vi behöver för den
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **installera**.
+1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **Installera**.
 
    :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png" alt-text="Installera NuGet-paket":::
 

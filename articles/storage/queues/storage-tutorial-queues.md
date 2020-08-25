@@ -9,21 +9,21 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.openlocfilehash: 73bc21307ff0648b7e0aab7611e57f6fa60a806b
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84809565"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Självstudie: arbeta med Azure Storage-köer i .NET
 
 Azure Queue Storage implementerar molnbaserade köer för att möjliggöra kommunikation mellan komponenter i ett distribuerat program. Varje kö underhåller en lista över meddelanden som kan läggas till av en avsändarens komponent och bearbetas av en mottagar komponent. Med en kö kan ditt program skalas direkt för att möta efter frågan. Den här artikeln visar de grundläggande stegen för att arbeta med en Azure Storage-kö.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
-> - Skapa ett Azure-lagringskonto
+> - Skapa ett Azure Storage-konto
 > - Skapa appen
 > - Lägg till Azures klient bibliotek
 > - Lägg till stöd för asynkron kod
@@ -32,15 +32,15 @@ I de här självstudierna får du lära dig att
 > - Ta bort meddelanden från kön
 > - Ta bort en tom kö
 > - Sök efter kommando rads argument
-> - Skapa och kör appen
+> - Kompilera och köra appen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Få en kostnads fri kopia av den plattforms oberoende kod redigeraren i [Visual Studio](https://code.visualstudio.com/download) .
 - Hämta och installera [.net Core SDK](https://dotnet.microsoft.com/download) version 3,1 eller senare.
 - Om du inte har en aktuell Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+## <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
 Börja med att skapa ett Azure Storage-konto. En steg-för-steg-guide om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) snabb start. Detta är ett separat steg som du utför när du har skapat ett kostnads fritt Azure-konto i kraven.
 
@@ -133,7 +133,7 @@ Skapa ett .NET Core-program med namnet **QueueApp**. För enkelhetens skull komm
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-1. Spara filen **program.cs** .
+1. Spara filen **Program.cs**.
 
 ## <a name="add-support-for-asynchronous-code"></a>Lägg till stöd för asynkron kod
 
@@ -145,7 +145,7 @@ Eftersom appen använder moln resurser körs koden asynkront.
    static async Task Main(string[] args)
    ```
 
-1. Spara filen **program.cs** .
+1. Spara filen **Program.cs**.
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
@@ -159,7 +159,7 @@ Lägg till anslutnings strängen i appen så att den kan komma åt lagrings kont
 
 1. Växla tillbaka till Visual Studio Code.
 
-1. I **main** -metoden ersätter du `Console.WriteLine("Hello World!");` koden med följande rad som hämtar anslutnings strängen från miljö variabeln.
+1. I **main**  -metoden ersätter du `Console.WriteLine("Hello World!");` koden med följande rad som hämtar anslutnings strängen från miljö variabeln.
 
    # <a name="net-v12"></a>[\.NET-V12](#tab/dotnet)
 
@@ -239,7 +239,7 @@ Skapa en ny metod för att hämta ett meddelande från kön. När meddelandet ha
 
 ## <a name="delete-an-empty-queue"></a>Ta bort en tom kö
 
-Det är en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som fortsätter att köras kan medföra kostnader. Om kön finns men är tom ber du användaren om han vill ta bort den.
+Det är en bra idé i slutet av ett projekt att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som fortsätter att köras kostar pengar. Om kön finns men är tom ber du användaren om han vill ta bort den.
 
 1. Expandera **RetrieveNextMessageAsync** -metoden för att ta med en uppvarning för att ta bort den tomma kön.
 
@@ -286,7 +286,7 @@ Här är den fullständiga kod listan för det här projektet.
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-app"></a>Kompilera och köra appen
 
 1. Från kommando raden i projekt katalogen kör du följande dotNet-kommando för att skapa projektet.
 

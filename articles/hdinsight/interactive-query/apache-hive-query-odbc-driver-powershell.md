@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73494331"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudie: fråga Apache Hive med ODBC och PowerShell
@@ -60,7 +60,7 @@ Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
    |  Databas |Använd **standard**. |
    |  Mekanism |Välj **Windows Azure HDInsight-tjänst** |
    |  Användarnamn |Ange HDInsight-kluster HTTP användar namn användar namn. Standardanvändarnamnet är **admin**. |
-   |  lösenordsinställning |Ange användar lösen ord för HDInsight-kluster. Markera kryss rutan **Spara lösen ord (krypterad)**.|
+   |  Lösenord |Ange användar lösen ord för HDInsight-kluster. Markera kryss rutan **Spara lösen ord (krypterad)**.|
 
 1. Valfritt: Välj **Avancerade alternativ**.  
 

@@ -4,12 +4,12 @@ description: Lär dig hur du skalar din resurs-webbapp, moln tjänst, virtuell d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 67b041476ecc5b5da389ab1377025a94675fc42a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 710d4e1aa77f8ab3153dafc77a72eec2192cf205
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078894"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794533"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Kom igång med autoskalning i Azure
 I den här artikeln beskrivs hur du konfigurerar inställningarna för autoskalning för resursen i Microsoft Azure-portalen.
@@ -45,7 +45,7 @@ Nu ska vi gå igenom en enkel steg-för-steg-genom gång för att skapa din för
   ![Skalnings inställning för ny webbapp][5]
 1. Ange ett namn för skalnings inställningen och klicka sedan på **Lägg till en regel**. Observera de skalnings regel alternativ som öppnas som ett kontext fönster på den högra sidan. Som standard anger detta alternativet att skala antalet instanser med 1 om resursens procent andel överstiger 70 procent. Låt standardvärdena vara kvar och klicka på **Lägg till**.
   ![Skapa skalnings inställning för en webbapp][6]
-1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Gör så här:
+1. Nu har du skapat din första skalnings regel. Observera att UX rekommenderar bästa praxis och anger att "det rekommenderas att ha minst en skala i regeln". Så här gör du:
 
     a. Klicka på **Lägg till en regel**.
 
@@ -112,6 +112,28 @@ Nu kan du ange antalet instanser som du vill skala till manuellt.
 ![Ange manuell skalning][14]
 
 Du kan alltid återgå till autoskalning genom att klicka på **Aktivera autoskalning** och sedan **Spara**.
+
+## <a name="route-traffic-to-healthy-instances-app-service"></a>Dirigera trafik till felfria instanser (App Service)
+
+När du skalar ut till flera instanser kan App Service utföra hälso kontroller på dina instanser för att endast dirigera trafik till de felfria instanserna. Det gör du genom att öppna portalen till App Service och sedan välja **hälso kontroll** under **övervakning**. Välj **Aktivera** och ange en giltig URL-sökväg till programmet, till exempel `/health` eller `/api/health` . Klicka på **Spara**.
+
+### <a name="health-check-path"></a>Hälso kontroll Sök väg
+
+Sökvägen måste svara inom två minuter med en status kod mellan 200 och 299 (inklusive). Om sökvägen inte svarar inom två minuter eller returnerar en status kod utanför intervallet, betraktas instansen som "ej felfri". Hälso kontrollen integreras med App Service funktioner för autentisering och auktorisering, systemet når slut punkten även om dessa secuity-funktioner är aktiverade. Om du använder ett eget autentiseringspaket måste sökvägen till hälso kontrollen tillåta anonym åtkomst. Om platsen har HTTP**s** aktiverat, kommer Healthcheck att använda http**s** och skicka begäran med det protokollet.
+
+Hälso kontroll Sök vägen bör kontrol lera de kritiska komponenterna i ditt program. Om ditt program till exempel är beroende av en databas och ett meddelande system bör hälso kontrollens slut punkt ansluta till dessa komponenter. Om programmet inte kan ansluta till en kritisk komponent, ska sökvägen returnera en svars kod på 500 nivå för att indikera att appen inte är felfri.
+
+### <a name="behavior"></a>Beteende
+
+När hälso kontroll Sök vägen anges skickar App Service pinga sökvägen på alla instanser. Om en lyckad svarskod inte tas emot efter fem pingar anses den instansen vara "ej felfri". Felaktiga instansen kommer att uteslutas från belastnings Utjämnings rotationen. När du skalar upp eller ut kommer App Service att pinga hälso kontroll Sök vägen för att se till att de nya instanserna är klara för begär Anden.
+
+De återstående felfria instanserna kan uppleva ökad belastning. För att undvika att de återstående instanserna blir överbelastade är inte fler än hälften av instanserna uteslutna. Till exempel, om en App Services plan skalas ut till 4 instanser och 3 av vilka inte är felfri, kommer den högst 2 att uteslutas från belastningsutjämnarens rotation. De andra 2 instanserna (1 felfri och 1 är inte felfria) fortsätter att ta emot begär Anden. I värsta fall där alla instanser är felaktiga kommer ingen att undantas.
+
+Om en instans inte är felfri i en timme ersätts den med en ny instans. Högst en instans kommer att ersättas per timme, med högst tre instanser per dag per App Service plan.
+
+### <a name="monitoring"></a>Övervakning
+
+När du har angett din program hälso kontroll Sök väg kan du övervaka webbplatsens hälso tillstånd med hjälp av Azure Monitor. Från **hälso kontroll** bladet i portalen klickar du på **måtten** i det övre verktygsfältet. Då öppnas ett nytt blad där du kan se platsens historiska hälso status och skapa en ny varnings regel. Mer information om övervakning av dina platser [finns i hand boken för Azure Monitor](../../app-service/web-sites-monitor.md).
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en aktivitets logg avisering för att övervaka alla åtgärder för autoskalning av motorn i din prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

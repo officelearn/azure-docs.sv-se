@@ -8,23 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: b0574c41042e172af78365bb273c81729ce204ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782542"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749306"
 ---
 # <a name="speech-service-supported-regions"></a>Regioner som stöds av tal tjänster
 
 Med tjänsten Speech kan ditt program konvertera ljud till text, utföra tal översättning och konvertera text till tal. Tjänsten är tillgänglig i flera regioner med unika slut punkter för tal-SDK och REST-API: er.
 
-Tal portalen för att utföra anpassade konfigurationer i din tal upplevelse för alla regioner finns här:https://speech.microsoft.com
+Tal portalen för att utföra anpassade konfigurationer i din tal upplevelse för alla regioner finns här: https://speech.microsoft.com
 
-Se till att anropet stämmer överens med din prenumerations region för anrop av din röst tjänst.
+Tänk på följande när du överväger regioner:
+
+* Om programmet använder ett [tal-SDK](speech-sdk.md)anger du regions-ID: t, till exempel `westus` när du skapar en tal konfiguration.
+* Om ditt program använder en av de olika tal tjänstens [REST-API: er](rest-apis.md)är regionen en del av slut punkts-URI: n som du använder när du gör förfrågningar.
+* Nycklar som skapats för en region är bara giltiga i den regionen. Om du försöker använda dem med andra regioner resulterar det i autentiseringsfel.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
@@ -32,7 +36,7 @@ I [talet SDK](speech-sdk.md)anges regioner som en sträng (till exempel som en p
 
 ### <a name="speech-to-text-text-to-speech-and-translation"></a>Tal till text, text till tal och översättning
 
-Anpassnings portalen för tal finns här:https://speech.microsoft.com
+Anpassnings portalen för tal finns här: https://speech.microsoft.com
 
 Tal tjänsten är tillgänglig i dessa regioner för **tal igenkänning**, **text till tal**och **översättning**:
 
@@ -49,9 +53,9 @@ Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följand
 | Asien          | Asien, östra        | `eastasia`           |
 | Asien          | Sydostasien   | `southeastasia`      |
 | Australien     | Australien, östra   | `australiaeast`      |
-| Europa        | Europa, norra     | `northeurope`        |
+| Europa        | Norra Europa     | `northeurope`        |
 | Europa        | Europa, västra      | `westeurope`         |
-| Nordamerika | USA, östra          | `eastus`             |
+| Nordamerika | East US          | `eastus`             |
 | Nordamerika | USA, östra 2        | `eastus2`            |
 | Nordamerika | USA, södra centrala | `southcentralus`     |
 | Nordamerika | USA, västra centrala  | `westcentralus`      |
@@ -69,10 +73,10 @@ Det här är en delmängd av de publicerings regioner som stöds av [language Un
 | -------------- | -------------------- |
 | USA, västra        | `westus`             |
 | USA, västra 2      | `westus2`            |
-| USA, östra        | `eastus`             |
+| East US        | `eastus`             |
 | USA, östra 2      | `eastus2`            |
 | Europa, västra    | `westeurope`         |
-| Europa, norra   | `northeurope`        |
+| Norra Europa   | `northeurope`        |
 | Sydostasien | `southeastasia`      |
 
 ### <a name="speaker-recognition"></a>Talarigenkänning

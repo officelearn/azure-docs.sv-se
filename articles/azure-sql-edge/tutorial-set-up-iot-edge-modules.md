@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: a4087ef56712e098443009bd0457029394ea7b51
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/31/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84235023"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Konfigurera IoT Edge moduler och anslutningar
@@ -45,7 +45,7 @@ När Azure Stream Analytics jobb har skapats med värd miljön inställd som Edg
    Fält|Värde
    -----|-----
    Databas|IronOreSilicaPrediction
-   servernamn|TCP:., 1433
+   Servernamn|TCP:., 1433
    Användarnamn|sa
    lösenordsinställning|Ange ett starkt lösen ord
    Tabell|IronOreMeasurements1
@@ -77,7 +77,7 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
 
    _Fält_|_Värde_
    -------|-------
-   Name|Registernamn
+   Namn|Registernamn
    Adress|Inloggningsserver
    Användarnamn|Användarnamn
    lösenordsinställning|lösenordsinställning
@@ -128,6 +128,6 @@ Ange nu autentiseringsuppgifter för behållare i IoT Edge-modulen.
        }
    ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera ML-modell på Azure SQL Edge med ONNX](tutorial-run-ml-model-on-sql-edge.md)

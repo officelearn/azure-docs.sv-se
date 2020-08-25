@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 5e061e4d6f9e67cc7d92548f54add94097ede7d1
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905217"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749021"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Felsöka Azure Digitals dubbla: mått
 
@@ -55,9 +55,9 @@ Mät värden med API-begär Anden:
 
 | Mått | Mått visnings namn | Enhet | Sammansättningstyp| Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | API-begäranden (för hands version) | Antal | Totalt | Antalet API-begäranden som gjorts för digitala dubbla, Läs-, Skriv-, borttagnings-och fråge åtgärder. |  Anspråksautentisering <br>Reparation <br>Protokollhanterare <br>Status kod, <br>Status kod klass, <br>Status text |
-| ApiRequestsFailureRate | Misslyckade API-begäranden (för hands version) | Procent | Genomsnitt | Procent andelen API-begäranden som tjänsten tar emot för din instans och som ger ett internt fel (500) svars kod för digitala dubbla Läs-, Skriv-, borttagnings-och fråge åtgärder. | Anspråksautentisering <br>Reparation <br>Protokollhanterare <br>Status kod, <br>Status kod klass, <br>Status text
-| ApiRequestsLatency | Svars tid för API-förfrågningar (för hands version) | Millisekunder | Genomsnitt | Svars tid för API-begäranden. Detta avser tiden från det att begäran tas emot av Azure Digitals, ända tills tjänsten skickar ett lyckat/misslyckat resultat för digitala dubbla Läs-, Skriv-, borttagnings-och fråge åtgärder. | Anspråksautentisering <br>Reparation <br>Protokoll |
+| ApiRequests | API-begäranden (för hands version) | Count | Totalt | Antalet API-begäranden som gjorts för digitala dubbla, Läs-, Skriv-, borttagnings-och fråge åtgärder. |  Anspråksautentisering <br>Reparation <br>Protokollhanterare <br>Status kod, <br>Status kod klass, <br>Status text |
+| ApiRequestsFailureRate | Misslyckade API-begäranden (för hands version) | Procent | Medelvärde | Procent andelen API-begäranden som tjänsten tar emot för din instans och som ger ett internt fel (500) svars kod för digitala dubbla Läs-, Skriv-, borttagnings-och fråge åtgärder. | Anspråksautentisering <br>Reparation <br>Protokollhanterare <br>Status kod, <br>Status kod klass, <br>Status text
+| ApiRequestsLatency | Svars tid för API-förfrågningar (för hands version) | Millisekunder | Medelvärde | Svars tid för API-begäranden. Detta avser tiden från det att begäran tas emot av Azure Digitals, ända tills tjänsten skickar ett lyckat/misslyckat resultat för digitala dubbla Läs-, Skriv-, borttagnings-och fråge åtgärder. | Anspråksautentisering <br>Reparation <br>Protokoll |
 
 #### <a name="billing-metrics"></a>Fakturerings mått
 
@@ -68,9 +68,9 @@ Mått som måste utföras med fakturering:
 
 | Mått | Mått visnings namn | Enhet | Sammansättningstyp| Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Fakturerings-API-åtgärder (för hands version) | Antal | Totalt | Fakturerings mått för antalet API-begäranden som gjorts mot tjänsten Azure Digitals dubbla. | Mätar-ID |
-| BillingMessagesProcessed | Bearbetade fakturerings meddelanden (för hands version) | Antal | Totalt | Fakturerings mått för antalet meddelanden som skickas ut från Azure Digitals dubbla till externa slut punkter. | Mätar-ID |
-| BillingQueryUnits | Fakturerings frågans enheter (förhands granskning) | Antal | Totalt | Antalet fråge enheter, internt beräknade mått på användning av tjänst resurser som används för att köra frågor. Det finns också ett hjälp-API som är tillgängligt för att mäta fråge enheter: [QueryChargeHelper-klass](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | Mätar-ID |
+| BillingApiOperations | Fakturerings-API-åtgärder (för hands version) | Count | Totalt | Fakturerings mått för antalet API-begäranden som gjorts mot tjänsten Azure Digitals dubbla. | Mätar-ID |
+| BillingMessagesProcessed | Bearbetade fakturerings meddelanden (för hands version) | Count | Totalt | Fakturerings mått för antalet meddelanden som skickas ut från Azure Digitals dubbla till externa slut punkter. | Mätar-ID |
+| BillingQueryUnits | Fakturerings frågans enheter (förhands granskning) | Count | Totalt | Antalet fråge enheter, internt beräknade mått på användning av tjänst resurser som används för att köra frågor. Det finns också ett hjälp-API som är tillgängligt för att mäta fråge enheter: [QueryChargeHelper-klass](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | Mätar-ID |
 
 #### <a name="ingress-metrics"></a>Ingresss mått
 
@@ -78,9 +78,9 @@ Mått som måste utföras med data ingress:
 
 | Mått | Mått visnings namn | Enhet | Sammansättningstyp| Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| IngressEvents | Ingress-händelser (förhands granskning) | Antal | Totalt | Antalet inkommande telemetri-händelser till Azure Digitals dubbla. | Resultat |
-| IngressEventsFailureRate | Händelse frekvens vid ingångs händelser (förhands granskning) | Procent | Genomsnitt | Procent andelen inkommande telemetri för vilka tjänsten returnerar ett internt fel (500) svars kod. | Resultat |
-| IngressEventsLatency | Ingress Events-latens (för hands version) | Millisekunder | Genomsnitt | Tiden från när en händelse kommer till när den är redo att tas ut av Azure Digitals, då tjänsten skickar ett lyckat/misslyckat resultat. | Resultat |
+| IngressEvents | Ingress-händelser (förhands granskning) | Count | Totalt | Antalet inkommande telemetri-händelser till Azure Digitals dubbla. | Resultat |
+| IngressEventsFailureRate | Händelse frekvens vid ingångs händelser (förhands granskning) | Procent | Medelvärde | Procent andelen inkommande telemetri för vilka tjänsten returnerar ett internt fel (500) svars kod. | Resultat |
+| IngressEventsLatency | Ingress Events-latens (för hands version) | Millisekunder | Medelvärde | Tiden från när en händelse kommer till när den är redo att tas ut av Azure Digitals, då tjänsten skickar ett lyckat/misslyckat resultat. | Resultat |
 
 #### <a name="routing-metrics"></a>Routnings mått
 
@@ -88,9 +88,9 @@ Mått som måste utföras med Routning:
 
 | Mått | Mått visnings namn | Enhet | Sammansättningstyp| Beskrivning | Dimensioner |
 | --- | --- | --- | --- | --- | --- |
-| MessagesRouted | Vidarebefordrade meddelanden (förhands granskning) | Antal | Totalt | Antalet meddelanden som dirigerats till en slut punkt i Azure-tjänsten som Händelsehubben, Service Bus eller Event Grid. | Reparation <br>Resultat |
-| RoutingFailureRate | Antal routnings avbrott (för hands version) | Procent | Genomsnitt | Procent andelen händelser som resulterar i ett fel när de dirigeras från Azure Digitals dubbla till en slut punkt för Azure-tjänster som Händelsehubben, Service Bus eller Event Grid. | Reparation <br>Resultat |
-| RoutingLatency | Svars tid för routning (för hands version) | Millisekunder | Genomsnitt | Tiden som förflutit mellan en händelse som skickas från Azure Digitals till när den ansluts till Azure-tjänsten för slut punkter som Händelsehubben, Service Bus eller Event Grid. | Reparation <br>Resultat |
+| MessagesRouted | Vidarebefordrade meddelanden (förhands granskning) | Count | Totalt | Antalet meddelanden som dirigerats till en slut punkt i Azure-tjänsten som Händelsehubben, Service Bus eller Event Grid. | Slut punkts typ, <br>Resultat |
+| RoutingFailureRate | Antal routnings avbrott (för hands version) | Procent | Medelvärde | Procent andelen händelser som resulterar i ett fel när de dirigeras från Azure Digitals dubbla till en slut punkt för Azure-tjänster som Händelsehubben, Service Bus eller Event Grid. | Slut punkts typ, <br>Resultat |
+| RoutingLatency | Svars tid för routning (för hands version) | Millisekunder | Medelvärde | Tiden som förflutit mellan en händelse som skickas från Azure Digitals till när den ansluts till Azure-tjänsten för slut punkter som Händelsehubben, Service Bus eller Event Grid. | Slut punkts typ, <br>Resultat |
 
 ## <a name="dimensions"></a>Dimensioner
 
@@ -100,7 +100,7 @@ Dimensionerna hjälper till att identifiera mer information om måtten. Några a
 | --- | --- |
 | Autentisering | Arbeta |
 | Åtgärd (för API-begäranden) | Microsoft. DigitalTwins/DigitalTwins/Delete, <br>Microsoft. DigitalTwins/DigitalTwins/Write, <br>Microsoft. DigitalTwins/DigitalTwins/Read, <br>Microsoft. DigitalTwins/eventroutes/Read, <br>Microsoft. DigitalTwins/eventroutes/Write, <br>Microsoft. DigitalTwins/eventroutes/Delete, <br>Microsoft. DigitalTwins/modeller/läsa, <br>Microsoft. DigitalTwins/Models/Write, <br>Microsoft. DigitalTwins/Models/Delete, <br>Microsoft. DigitalTwins/fråga/åtgärd |
-| Åtgärd (för routning) | Event Grid <br>Händelsehubben, <br>Service Bus |
+| Typ av slutpunkt | Event Grid <br>Händelsehubben, <br>Service Bus |
 | Protokoll | HTTPS |
 | Resultat | Resultatet <br>Fel |
 | Statuskod | 200, 404, 500 och så vidare. |

@@ -8,10 +8,10 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
 ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73572321"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Självstudie: Ansluta med Power BI Desktop
@@ -23,7 +23,7 @@ I den här självstudien använder du Power BI Desktop för att ansluta till exe
 > * Anslut med hjälp av Power BI Desktop
 > * Skapa en enkel rapport
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Lägg till exempelmodelldatabasen adventureworks](../analysis-services-create-sample-model.md) på din server.
 - Se till att du har [*läsbehörighet*](../analysis-services-server-admins.md) för exempelmodelldatabasen adventureworks.
@@ -43,7 +43,7 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 
 ## <a name="connect-in-power-bi-desktop"></a>Ansluta i Power BI Desktop
 
-1. I Power BI Desktop klickar du på **Hämta data** > **Azure** > **Azure Analysis Services Database**.
+1. I Power BI Desktop klickar du på **Hämta data**  >  **Azure**  >  **Azure Analysis Services Database**.
 
    ![Ansluta i Hämta data](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aasserver.png)
 
@@ -59,7 +59,7 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 
    ![Visualiseringar](./media/analysis-services-tutorial-pbid/aas-pbid-visualizations-report.png)
 
-5. I **fält** > **Internet Sales** -tabellen väljer du **Internet Sales total** -och **marginal** mått. Välj **Product Category Name** (Namn på produktkategori) i tabellen **Product Category** (Produktkategori).
+5. I **fält**  >  **Internet Sales** -tabellen väljer du **Internet Sales total** -och **marginal** mått. Välj **Product Category Name** (Namn på produktkategori) i tabellen **Product Category** (Produktkategori).
 
    ![Slutför rapporten](./media/analysis-services-tutorial-pbid/aas-pbid-complete-report.png)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bevilja åtkomst till ett Node. js-webb-API från ett Skriv bords program'
-description: Själv studie kurs om hur du använder Active Directory B2C för att skydda ett Node. js-webb-API och anropa det från en .NET Desktop-app.
+title: 'Självstudie: bevilja åtkomst till ett Node.js webb-API från ett Skriv bords program'
+description: Själv studie kurs om hur du använder Active Directory B2C för att skydda ett Node.js webb-API och anropa det från en .NET Desktop-app.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 8ebfbeeb4533f21bc0fa10a5fee7b88ef069c262
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84298863"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med Azure Active Directory B2C
 
-Den här självstudien visar hur du anropar en Node. js-webb-API som skyddas av Azure Active Directory B2C (Azure AD B2C) från en Windows Presentation Foundation (WPF) Desktop-app, som också skyddas av Azure AD B2C.
+Den här självstudien visar hur du anropar en Node.js webb-API som skyddas av Azure Active Directory B2C (Azure AD B2C) från en Windows Presentation Foundation (WPF) Desktop-app, som också skyddas av Azure AD B2C.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
@@ -51,7 +51,7 @@ Om du vill anropa ett skyddat webb-API från ett internt klient program måste d
 
 I den nödvändiga självstudien har du registrerat ett internt klient program med namnet *nativeapp1*. Följande steg konfigurerar den interna program registreringen med de API-omfattningar som du exponerade för *webapi1* i föregående avsnitt. Detta gör det möjligt för Skriv bords programmet att hämta en åtkomsttoken från Azure AD B2C att webb-API: et kan använda för att verifiera och ge begränsad åtkomst till resurser. Du konfigurerar och kör både desktop program och webb-API-kod exempel senare i självstudien.
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -64,7 +64,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Välj **Lägg till behörigheter**. Vänta några minuter innan du fortsätter till nästa steg.
 1. Välj **bevilja administrativt godkännande för (ditt klient namn)**.
 1. Välj ditt inloggade administratörs konto eller logga in med ett konto i Azure AD B2C-klienten som har tilldelats minst administratörs rollen för *moln program* .
-1. Välj **Godkänn**.
+1. Välj **Acceptera**.
 1. Välj **Uppdatera**och verifiera sedan att "beviljat..." visas under **status** för båda omfattningarna. Det kan ta några minuter innan behörigheterna har spridits.
 
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
@@ -99,9 +99,9 @@ I ett krav för den här artikeln ändrade du ett [WPF Desktop-program](https://
     public static string ApiEndpoint = "http://localhost:5000";
     ```
 
-### <a name="get-and-update-the-nodejs-api-sample"></a>Hämta och uppdatera API-exemplet Node. js
+### <a name="get-and-update-the-nodejs-api-sample"></a>Hämta och uppdatera API-exemplet för Node.js
 
-Sedan hämtar du webb-API-exemplet Node. js från GitHub och konfigurerar det så att det använder det webb-API som du registrerade i Azure AD B2C-klienten.
+Sedan hämtar du Node.js Web API Code-exemplet från GitHub och konfigurerar det så att det använder det webb-API som du registrerade i Azure AD B2C-klienten.
 
 [Ladda ned en zip-fil](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi/archive/master.zip) eller klona exempelwebbappen från GitHub.
 
@@ -128,7 +128,7 @@ Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktiv
 
 ## <a name="run-the-samples"></a>Kör exemplen
 
-### <a name="run-the-nodejs-web-api"></a>Kör webb-API för Node. js
+### <a name="run-the-nodejs-web-api"></a>Kör Node.js webb-API
 
 1. Starta en kommandotolk för Node.js.
 2. Gå till den katalog som innehåller Node.js-exemplet. Till exempel `cd c:\active-directory-b2c-javascript-nodejs-webapi`

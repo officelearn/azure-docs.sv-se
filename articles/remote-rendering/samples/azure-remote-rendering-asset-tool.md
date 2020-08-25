@@ -1,15 +1,15 @@
 ---
-title: Till gångs verktyg för Azure Remote rendering
+title: Azure Remote Rendering Asset Tool
 description: Länk till GitHub-lagringsplatsen som är i demonstrations programmet
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020
 ms.topic: sample
 ms.openlocfilehash: c02bb46cfdfa37fed7f9c9cc2ad3c2a426547ce8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84637152"
 ---
 # <a name="azure-remote-rendering-asset-tool-arrt"></a>Verktyget Azure Remote rendering Asset (ARRT)

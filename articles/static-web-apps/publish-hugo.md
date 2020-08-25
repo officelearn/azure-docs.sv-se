@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: 250be11f498e825c3e487abfac1c0acc585e5317
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297949"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Självstudie: publicera en Hugo-webbplats till Azures statiska Web Apps för hands version
 
 Den här artikeln visar hur du skapar och distribuerar ett [Hugo](https://gohugo.io/) -webbprogram till [Azure static Web Apps](overview.md). Det slutliga resultatet är en ny Azure-statisk webbapp med associerade GitHub-åtgärder som ger dig kontroll över hur appen byggs och publiceras.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -28,7 +28,7 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/).
 - Ett GitHub-konto. Om du inte har någon kan du [skapa ett konto kostnads fritt](https://github.com/join).
@@ -98,10 +98,10 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 ### <a name="create-the-application"></a>Skapa programmet
 
 1. Navigera till [Azure Portal](https://portal.azure.com)
-1. Klicka på **skapa en resurs**
-1. Sök efter **statiska Web Apps**
-1. Klicka på **statisk Web Apps (förhands granskning)**
-1. Klicka på **skapa**
+1. Klicka på **Skapa en resurs**
+1. Sök efter **Statiska webbappar**
+1. Klicka på **Statiska webbappar (förhandsversion)**
+1. Klicka på **Skapa**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Skapa en statisk Azure Web Apps-resurs i portalen":::
 
@@ -127,11 +127,11 @@ Följande steg visar hur du skapar en ny statisk plats-app och distribuerar den 
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Slutförd GitHub-information":::
 
-### <a name="build"></a>Utveckla
+### <a name="build"></a>Skapa
 
 Sedan lägger du till de konfigurations inställningar som bygg processen använder för att skapa din app. Följande inställningar konfigurerar arbets flödes filen för GitHub-åtgärd.
 
-1. Klicka på **Nästa: bygg >** om du vill redigera build-konfigurationen
+1. Klicka på **Nästa: Skapa >** för att redigera versionskonfigurationen
 
 1. Ange _app-plats_ till **/** .
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: a863d8ccc157272ab736201615fb079eaf7f5dbc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c93f4f3976e4e036aa47144618145461ac37ad4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522835"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755627"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
@@ -44,7 +44,9 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
 1. Ersätt `<your receipt URL>` med URL-adressen för en kvitto avbildning.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
-    ```python
+# <a name="v20"></a>[v2.0](#tab/v2-0)
+
+```python
     ########### Python Form Recognizer Async Receipt #############
 
     import json
@@ -80,17 +82,70 @@ Du börjar analysera ett kvitto genom att anropa API för att **[analysera kvitt
     except Exception as e:
         print("POST analyze failed:\n%s" % str(e))
         quit()
-    ```
+```
+    
+# <a name="v21-preview1"></a>[v 2.1 – för hands version. 1](#tab/v2-1)    
+```python
+    ########### Python Form Recognizer Async Receipt #############
+
+    import json
+    import time
+    from requests import get, post
+    
+    # Endpoint URL
+    endpoint = r"<Endpoint>"
+    apim_key = "<subscription key>"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/receipt/analyze"
+    source = r"<path to your receipt>"
+    
+    headers = {
+        # Request headers
+        'Content-Type': '<file type>',
+        'Ocp-Apim-Subscription-Key': apim_key,
+    }
+    
+    params = {
+        "includeTextDetails": True
+        "locale": "en-US"
+    }
+    
+    with open(source, "rb") as f:
+        data_bytes = f.read()
+    
+    try:
+        resp = post(url = post_url, data = data_bytes, headers = headers, params = params)
+        if resp.status_code != 202:
+            print("POST analyze failed:\n%s" % resp.text)
+            quit()
+        print("POST analyze succeeded:\n%s" % resp.headers)
+        get_url = resp.headers["operation-location"]
+    except Exception as e:
+        print("POST analyze failed:\n%s" % str(e))
+        quit()
+```
+
+> [!NOTE]
+> **Språk information** 
+>
+> Analzye mottagande 2,1-lanserings åtgärd har en valfri begäran-parameter för språk, språk för kvittot. De språk som stöds är: en-AU, en-CA, en-GB, en-i, en-US. 
+
+---
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-Receipts.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-receipts.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-receipts.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
+# <a name="v20"></a>[v2.0](#tab/v2-0)    
 ```console
 https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
 ```
+# <a name="v21-preview1"></a>[v 2.1 – för hands version. 1](#tab/v2-1)    
+```console
+https://cognitiveservice/formrecognizer/v2.1-preview.1/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
+```
+---
 
 ## <a name="get-the-receipt-results"></a>Hämta kvitto resultat
 
@@ -124,17 +179,17 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-receipts.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Exempelvis `python form-recognizer-receipts.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet kommer att skriva ut svar till-konsolen tills **åtgärden för** att slutföra åtgärden har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. `"recognitionResults"`Fältet innehåller alla rader med text som har extraherats från inleveransen och `"understandingResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
+Skriptet kommer att skriva ut svar till-konsolen tills **åtgärden för** att slutföra åtgärden har slutförts. Sedan skrivs den extraherade text informationen in i JSON-format. `"readResults"`Fältet innehåller alla rader med text som har extraherats från inleveransen och `"documentResults"` fältet innehåller nyckel/värde-information för de mest relevanta delarna av kvittot.
 
 Se följande kvitto avbildning och dess motsvarande JSON-utdata. Utdatan har kort ATS för läsbarhet.
 
 ![Ett kvitto från contoso Store](../media/contoso-allinone.jpg)
 
-`"recognitionResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"understandingResults"`Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
+`"readResults"`Noden innehåller all den identifierade texten. Texten sorteras efter sida, sedan efter rad, sedan efter enskilda ord. `"documentResults"`Noden innehåller de indatavärden som modellen identifierade. Här hittar du användbara nyckel/värde-par som skatt, totalt, handels adress och så vidare.
 
 ```json
 { 

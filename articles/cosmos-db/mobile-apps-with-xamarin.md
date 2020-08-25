@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.openlocfilehash: fbcbf1be29031596201774ae5ebb40cb1a3b89a2
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85113457"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB
@@ -70,7 +70,7 @@ Du kan använda språkintegrerade frågor över schemalösa data i dina Xamarin-
         Items.AddRange(await query.ExecuteNextAsync<TodoItem>());
     }
 ```
-### <a name="add-users"></a>Lägg till användare
+### <a name="add-users"></a>Lägga till användare
 Som många kom igång-exempel autentiseras det Azure Cosmos DB-exempel som du laddar ned för tjänsten med hjälp av en huvudnyckel som är hårdkodad i appens kod. Den här standardinställningen är inte bra för appar du tänker dig ska kunna köras var som helst utom på din lokala emulator. Om en obehörig användare får tag på huvudnyckeln kan alla data i ditt Azure Cosmos DB-konto äventyras. Istället vill du att appen bara ska få åtkomst till poster som hör till den inloggade användaren. Azure Cosmos DB gör att utvecklare kan bevilja läsbehörighet eller läs- och skrivbehörighet för programmet till en samling, en uppsättning dokument grupperade efter en partitionsnyckel eller ett visst dokument. 
 
 Följ dessa anvisningar om du vill ändra att göra-appen till en app med en att göra-lista för flera användare: 

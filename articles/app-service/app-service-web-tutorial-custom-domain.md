@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: c301876a57b3be4a112c7df2706bf17389a5af44
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 1496f46eb29831dfb858f061ccc00c9e3dbc2e75
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190073"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782319"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Omdirigera standard-URL:en till en anpassad katalog
 > * Automatisera domänmappning med skript
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -83,7 +83,7 @@ Om App Service-planen inte är på nivån **F1** stänger du sidan **Skala upp**
 
 Välj någon av betalnivåerna (**D1**, **B1**, **B2**, **B3** eller en nivå i kategorin **Produktion**). Klicka på **Visa ytterligare alternativ** om du vill se fler alternativ.
 
-Klicka på **Godkänn**.
+Klicka på **Använd**.
 
 ![Kontrollera prisnivå](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -277,7 +277,7 @@ När CNAME har lagts till ser sidan för DNS-poster ut som i följande exempel:
 
 #### <a name="enable-the-cname-record-mapping-in-the-app"></a>Aktivera CNAME-postmappning i appen
 
-Nu kan du lägga till alla under domäner som matchar jokertecknets namn i appen (till exempel `sub1.contoso.com` och `sub2.contoso.com` båda matchningarna `*.contoso.com` ).
+Nu kan du lägga till alla under domäner som matchar jokertecknets namn i appen (till exempel, `sub1.contoso.com` `sub2.contoso.com` och `*.contoso.com` båda matchningarna `*.contoso.com` ).
 
 Välj **Anpassade domäner** i det vänstra navigeringsfönstret på appsidan i Azure Portal.
 

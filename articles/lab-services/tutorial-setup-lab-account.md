@@ -4,10 +4,10 @@ description: Lär dig hur du konfigurerar ett labb konto med Azure Lab Services,
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: fba4dbc5386407bd796606d86a5b7bdc7c10fd61
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85445074"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Självstudie: Konfigurera ett labbkonto med Azure Lab Services
@@ -19,7 +19,7 @@ I den här självstudien gör du följande:
 > * Skapa ett labbkonto
 > * Lägga till en användare i rollen Labbskapare
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-lab-account"></a>Skapa ett labbkonto
 Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto med Azure Lab Services. 

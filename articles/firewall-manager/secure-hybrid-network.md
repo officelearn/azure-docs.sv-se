@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 3d4d1e65c2200aee178abefb46d3e330acbd3108
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85563649"
 ---
 # <a name="tutorial-secure-your-hub-virtual-network-using-azure-firewall-manager"></a>Självstudie: skydda ditt virtuella hubb nätverk med hjälp av Azure Firewall Manager
@@ -43,7 +43,7 @@ I den här guiden får du lära dig att:
 > * testa brandväggen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
@@ -58,14 +58,14 @@ Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att diriger
 Se avsnittet [skapa vägar](#create-the-routes) i den här självstudien för att se hur dessa vägar skapas.
 
 >[!NOTE]
->Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
+>Azure Firewall måste ha direktanslutning till internet. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
 >
 >Azure-brandväggen kan konfigureras för att stödja Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](../firewall/forced-tunneling.md).
 
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-firewall-policy"></a>Skapa en brand Väggs princip
 

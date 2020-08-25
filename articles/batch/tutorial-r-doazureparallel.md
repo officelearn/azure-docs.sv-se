@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
 ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84418185"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Kör en parallell R-simulering med Azure Batch 
@@ -24,7 +24,7 @@ I den här självstudien visas hur du distribuerar en Batch-pool och kör ett pa
 > * skapa en Batch-pool som en parallell serverdel för R-sessionen
 > * köra en parallell exempelsimulering på poolen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En installerad [R](https://www.r-project.org/)-distribution, som [Microsoft R Open](https://mran.microsoft.com/open). Använd version 3.3.1 eller senare av R.
 

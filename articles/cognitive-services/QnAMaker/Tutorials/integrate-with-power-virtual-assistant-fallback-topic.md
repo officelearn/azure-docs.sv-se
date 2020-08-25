@@ -4,16 +4,16 @@ description: I den här självstudien får du bättre kvalitet på din kunskaps 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84635395"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Självstudie: Lägg till din kunskaps bas för virtuella energi agenter
 Skapa och utöka en [Power Virtual agents](https://powervirtualagents.microsoft.com/) -robot för att ge svar från din kunskaps bas.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -214,9 +214,9 @@ Här är det sista agent arbets ytan.
     |--|--|--|
     |1|Hello|Starta konversation|
     |2|Store-timmar|Exempel ämne. Detta är konfigurerat för dig utan ytterligare arbete på din sida.|
-    |3|Ja|Som svar på`Did that answer your question?`|
-    |4|Utmärkt|Som svar på`Please rate your experience.`|
-    |5|Ja|Som svar på`Can I help with anything else?`|
+    |3|Ja|Som svar på `Did that answer your question?`|
+    |4|Utmärkt|Som svar på `Please rate your experience.`|
+    |5|Ja|Som svar på `Can I help with anything else?`|
     |6|Hur kan jag förbättra data flödes prestandan för fråga förutsägelser?|Den här frågan utlöser återställnings åtgärden, som skickar texten till din kunskaps bas för att svara. Sedan visas svaret. de gröna bock markeringarna för de enskilda åtgärderna indikerar att det är klart för varje åtgärd.|
 
     :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Skärm bild av Chat-roboten med arbets ytan som visar grön bock markering för lyckade åtgärder.":::
@@ -229,7 +229,7 @@ Om du vill att agenten ska vara tillgänglig för alla medlemmar i din skola ell
 
 1. Prova din robot på demo webbplatsen (leta efter länken under **publicera**).
 
-    En ny webb sida öppnas med din robot. Fråga roboten samma test fråga:`How can I improve the throughput performance for query predictions?`
+    En ny webb sida öppnas med din robot. Fråga roboten samma test fråga: `How can I improve the throughput performance for query predictions?`
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av den slutliga agent arbets ytan](../media/how-to-integrate-power-virtual-agent/demo-chat-bot.png)

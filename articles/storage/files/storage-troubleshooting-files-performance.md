@@ -4,15 +4,15 @@ description: Felsök kända prestanda problem med Azure-filresurser. Identifiera
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 6739e5619a0dcaa940d38571c4a88c4f68971dfe
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009281"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782378"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -20,9 +20,9 @@ Den här artikeln innehåller några vanliga problem som rör Azure-filresurser.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Hög latens, lågt data flöde och allmänna prestanda problem
 
-### <a name="cause-1-share-experiencing-throttling"></a>Orsak 1: resurs begränsning
+### <a name="cause-1-share-was-throttled"></a>Orsak 1: resursen har begränsats
 
-Standard kvoten på en Premium-resurs är 100 GiB, vilket ger 100 bas linje IOPS (med möjlighet att överföra upp till 300 per timme). Mer information om etablering och dess relation till IOPS finns i avsnittet [etablerade resurser](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) i planerings guiden.
+Begär Anden begränsas när IOPS, ingress eller utgående gräns för en fil resurs nås. Information om begränsningar för fil resurser för standard och Premium finns i [fil resurs-och fil skalnings mål](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets).
 
 Du kan använda Azures mått i portalen för att kontrol lera om din resurs är begränsad.
 
@@ -47,7 +47,8 @@ Du kan använda Azures mått i portalen för att kontrol lera om din resurs är 
 
 ### <a name="solution"></a>Lösning
 
-- Öka resursens etablerade kapacitet genom att ange en högre kvot på din resurs.
+- Om du använder en standard fil resurs aktiverar du [stora fil resurser](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-large-file-share?tabs=azure-portal) på ditt lagrings konto. Stora fil resurser har stöd för upp till 10 000 IOPS per resurs.
+- Om du använder en Premium-filresurs ökar du den etablerade fil resurs storleken för att öka IOPS-gränsen. Mer information finns i avsnittet [förstå etablering för Premium-filresurser](https://docs.microsoft.com/azure/storage/files/storage-files-planning#understanding-provisioning-for-premium-file-shares) i Azure Files Planning Guide.
 
 ### <a name="cause-2-metadatanamespace-heavy-workload"></a>Orsak 2: metadata/namnrymd, tungt arbets belastning
 

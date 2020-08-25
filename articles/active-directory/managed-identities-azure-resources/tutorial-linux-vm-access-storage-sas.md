@@ -16,10 +16,10 @@ ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84266312"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Komma åt Azure Storage via en SAS-autentiseringsuppgift med en systemtilldelad hanterad identitet för virtuell Linux-dator
@@ -31,20 +31,20 @@ Den här självstudien visar hur du använder en systemtilldelad hanterad identi
 > [!NOTE]
 > Den SAS-nyckel som skapas i den här självstudien kommer inte att begränsas/bindas till den virtuella datorn.  
 
-En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagringskonto under en begränsad tid och för en särskild tjänst (i vårt fall blob-tjänsten) utan att göra kontots åtkomstnyckel tillgänglig. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien visar vi hur man laddar upp och ned en blob med hjälp av Azure Storage CLI. Du lär dig att göra följande:
+En tjänst-SAS ger möjlighet att ge begränsad åtkomst till objekt i ett lagringskonto under en begränsad tid och för en särskild tjänst (i vårt fall blob-tjänsten) utan att göra kontots åtkomstnyckel tillgänglig. Du kan en använda SAS-autentiseringsuppgift som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien visar vi hur man laddar upp och ned en blob med hjälp av Azure Storage CLI. Du lär dig hur du:
 
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Skapa en blob-container i lagringskontot
 > * Ge den virtuella datorn åtkomst till en SAS för lagringskonton i Resource Manager 
 > * Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet och använde den när du hämtar SAS:en från Resource Manager 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 

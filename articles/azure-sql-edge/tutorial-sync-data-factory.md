@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85255440"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Självstudie: synkronisera data från SQL Edge till Azure Blob Storage med hjälp av Azure Data Factory
@@ -195,7 +195,7 @@ Skapa en data fabrik genom att följa anvisningarna i [den här självstudien](.
 
     2. Om du vill ange värden för parametrarna för den lagrade proceduren väljer du **Importera parameter** och anger följande värden för parametrarna:
 
-    |Name|Typ|Värde|
+    |Namn|Typ|Värde|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {Activity (' NewWaterMark '). output. firstRow. NewWatermarkvalue}|
     |TableName|Sträng|@ {Activity (' OldWaterMark '). output. firstRow. TableName}|

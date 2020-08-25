@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
 ms.openlocfilehash: 0330e72ad74726f97bfdfd78ef8d5f9b24a5d172
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85513312"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
@@ -42,9 +42,9 @@ Den här självstudien visar hur du utför följande uppgifter:
 
 I den här självstudiekursen används .NET SDK. Du kan använda andra metoder för att interagera med Azure Data Factory. För Data Factory snabb starter, se [fem minuters snabb starter](/azure/data-factory/quickstart-create-data-factory-portal).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-account-create.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
@@ -65,7 +65,7 @@ Skapa ett program enligt beskrivningen i [skapa ett Azure Active Directory-progr
    Tamika|Walsh
    ```
 
-1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **BLOB-behållare** och välj **skapa BLOB-behållare**.
+1. Öppna Azure Storage Explorer. Expandera ditt lagrings konto. Högerklicka på **Blobcontainrar** och välj **Skapa blobcontainer**.
 1. Namnge den nya behållaren *adfv2branch* och välj **Ladda upp** för att lägga till *input.txt* -filen i behållaren.
 
 ## <a name="create-visual-studio-project"></a>Skapa Visual Studio-projekt<a name="create-visual-studio-project"></a>
@@ -236,7 +236,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna BLOB-datauppsättning refererar till den Azure Storage länkade tjänsten som stöds i föregående steg. BLOB-datauppsättningen beskriver platsen för blobben att kopiera från: *FolderPath* och *filename*.
 
-Observera att parametrarna för *FolderPath*används. `sourceBlobContainer`är namnet på parametern och uttrycket ersätts med värdena som skickas i pipeline-körningen. Syntaxen för att definiera parametrar är `@pipeline().parameters.<parameterName>`
+Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är namnet på parametern och uttrycket ersätts med värdena som skickas i pipeline-körningen. Syntaxen för att definiera parametrar är `@pipeline().parameters.<parameterName>`
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Skapa en data uppsättning för en mottagar Azure-Blob
 

@@ -11,10 +11,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
 ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84706451"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Självstudie: säkerhet i Azure SQL-hanterad instans med hjälp av Azure AD server-huvudobjekt (inloggningar)
@@ -27,7 +27,7 @@ Azure SQL-hanterad instans innehåller nästan alla säkerhetsfunktioner som den
 - Använda auktorisering med rollbaserade medlemskap och behörigheter
 - Aktivera säkerhetsfunktioner
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
@@ -41,14 +41,14 @@ I de här självstudierna får du lära dig att
 
 Mer information finns i [Översikt över Azure SQL Managed instance](sql-managed-instance-paas-overview.md). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här självstudien behöver du följande:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)
 - En hanterad instans
   - Följ den här artikeln: [snabb start: skapa en hanterad instans](instance-create-quickstart.md)
-- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Du kan läsa mer här:
+- Kunna komma åt din hanterade instans och [ha etablerat en Azure AD-administratör för den hanterade instansen](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). Mer information finns i:
   - [Ansluta program till en hanterad instans](connect-application-instance.md)
   - [Anslutnings arkitektur för SQL-hanterad instans](connectivity-architecture-overview.md)
   - [Konfigurera och hantera Azure Active Directory-autentisering med SQL](../database/authentication-aad-configure.md)
@@ -445,7 +445,7 @@ Se artikeln [SQL-hanterad instans säkerhetsfunktioner](sql-managed-instance-paa
 - [SQL-hanterad instans granskning](auditing-configure.md)
 - [Alltid krypterad](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Hotidentifiering](threat-detection-configure.md)
-- [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking)
+- [Dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking)
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security)
 - [Transparent data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 

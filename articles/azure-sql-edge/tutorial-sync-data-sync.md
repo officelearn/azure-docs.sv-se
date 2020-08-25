@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85254058"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Självstudie: synkronisera data från SQL Edge till Azure SQL Database med SQL Data Sync
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du använder en Azure SQL Data Sy
 
 Eftersom SQL Edge bygger på de senaste versionerna av [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/)kan all mekanism för datasynkronisering som är tillämplig på en SQL Server-instans också användas för att synkronisera data till eller från en SQL Edge-instans som körs på en Edge-enhet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien kräver att en Windows-dator har kon figurer ATS med [Data Sync-agenten för Azure SQL Data Sync](../azure-sql/database/sql-data-sync-agent-overview.md)
 

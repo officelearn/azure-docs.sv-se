@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig mer om övervaknings-och avis
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 07c22f4af08fd4032eeab91f0eada7797d04ebaa
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: ec0453725186ddef359f85f8c3e5554ff240d3e3
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654131"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755729"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -95,7 +95,7 @@ Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats
 
 > [!NOTE]
 >
-> - Om en destruktiv åtgärd, till exempel **stoppa skydd med ta bort data** , görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om aviseringar inte har kon figurer ATS för tjänsten för återställning av tjänst.
+> - Om en destruktiv åtgärd, till exempel **stoppa skydd med ta bort data** , görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om meddelanden inte har kon figurer ats för Recovery Services valvet.
 > - Om du vill konfigurera meddelanden för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="inactivating-alerts"></a>Inaktivera aviseringar

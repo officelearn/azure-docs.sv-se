@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85250969"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database med PowerShell
@@ -65,9 +65,9 @@ Här är några viktiga steg för att skapa den här lösningen:
     ![Läsa in data stegvis](media/tutorial-incremental-copy-multiple-tables-powershell/high-level-solution-diagram.png)
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **SQL Server**. Du använder en SQL Server databas som käll data lager i den här självstudien. 
 * **Azure SQL Database**. Du använder en databas i Azure SQL Database som data lager för mottagare. Om du inte har en SQL-databas kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en. 
@@ -834,7 +834,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. Den **förgrund
 
 Kör följande frågor mot SQL-måldatabasen i SQL Server Management Studio för att verifiera att data har kopierats från källtabellerna till måltabellerna: 
 
-**Söka i data** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -851,7 +851,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from project_table
@@ -868,7 +868,7 @@ project2    2016-02-02 01:23:00.000
 project3    2017-03-04 05:16:00.000
 ```
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from watermarktable
@@ -917,7 +917,7 @@ VALUES
 
 Kör följande frågor mot måldatabasen i SQL Server Management Studio för att verifiera att nya/uppdaterade data har kopierats från källtabellerna till måltabellerna. 
 
-**Söka i data** 
+**Query** 
 ```sql
 select * from customer_table
 ```
@@ -936,7 +936,7 @@ PersonID    Name    LastModifytime
 
 Lägg märke till de nya värdena för **Name** och **LastModifytime** för **PersonID** för nummer 3. 
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from project_table
@@ -956,7 +956,7 @@ NewProject  2017-10-01 00:00:00.000
 
 Observera att posten **NewProject** har lagts till i project_table. 
 
-**Söka i data**
+**Query**
 
 ```sql
 select * from watermarktable

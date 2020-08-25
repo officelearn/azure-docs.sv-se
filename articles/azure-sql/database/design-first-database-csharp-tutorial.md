@@ -11,10 +11,10 @@ ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
 ms.openlocfilehash: 057ffcdc8a21567e909d768236e454ee10036115
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84216562"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Självstudie: utforma en Relations databas i Azure SQL Database C&#x23; och ADO.NET
@@ -53,21 +53,21 @@ Följ de här stegen för att skapa en tom databas.
 
 3. Fyll i **SQL Database** formuläret med följande information, som du ser på föregående bild:
 
-    | Inställning       | Föreslaget värde | Description |
+    | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Databas namn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
 4. Klicka på **Server** för att använda en befintlig server eller skapa och konfigurera en ny server. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-    | Inställning       | Föreslaget värde | Description |
+    | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösen ordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/design-first-database-csharp-tutorial/create-database-server.png)
 

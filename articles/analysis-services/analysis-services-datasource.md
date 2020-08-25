@@ -4,15 +4,15 @@ description: Beskriver data källor och anslutningar som stöds för tabell 1200
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503607"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749082"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -22,15 +22,15 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 |Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   Ja      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Ja      |   Yes       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   Yes       |    Inga      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Yes       |    Inga      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Yes        |  Inga        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Yes       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Yes     |   Inga       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Yes       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Ja      |   Ja       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Anteckningar:**
@@ -45,35 +45,35 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 |Datakälla | Minnesintern | DirectQuery |Kommentarer   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Yes | Inga |  |
-|Active Directory     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup>  |
-|Analysis Services     |  Yes | Inga |  |
-|Analys plattforms system     |  Yes | Inga |  |
-|CSV-fil  |Yes | Inga |  |
-|Dynamics 365     |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Yes | Inga |  |
-|Exchange      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Access-databas     |  Ja | Inga |  |
+|Active Directory     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Ja | Inga |  |
+|Analys plattforms system     |  Ja | Inga |  |
+|CSV-fil  |Ja | Inga |  |
+|Dynamics 365     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Ja | Inga |  |
+|Exchange      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 |Mapp      |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
-|IBM Informix  |Yes | Inga |  |
-|JSON-dokument      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Rader från binär      | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|MySQL-databas     | Yes | Inga |  |
-|OData-feed      |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|ODBC-fråga     | Yes | Inga |  |
-|OLE DB     |   Yes | Inga |  |
-|Oracle  | Ja  |Yes  | <sup>[9](#oracle)</sup> |
-|PostgreSQL-databas   | Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-objekt|  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-rapporter |Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|SAP HANA     |  Yes | Inga |  |
-|SAP Business Warehouse    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
-|SharePoint-lista      |   Yes | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|SQL Server informations lager |Ja   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase-databas     |  Yes | Nej |  |
-|Teradata | Ja  | Yes  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Yes | Inga |  |
-|XML-tabell    |  Yes | Inga | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Ja | Inga |  |
+|JSON-dokument      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Ja | Inga |  |
+|OData-feed      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Ja | Inga |  |
+|OLE DB     |   Ja | Inga |  |
+|Oracle  | Ja  |Ja  | <sup>[9](#oracle)</sup> |
+|PostgreSQL-databas   | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Ja | Inga |  |
+|SAP Business Warehouse    |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Ja | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|SQL Server informations lager |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Sybase-databas     |  Ja | Nej |  |
+|Teradata | Ja  | Ja  | <sup>[10](#teradata)</sup> |
+|TXT-fil  |Ja | Inga |  |
+|XML-tabell    |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
 **Anteckningar:**  
@@ -120,7 +120,7 @@ För moln data Källor:
 
 ## <a name="oauth-credentials"></a>Autentiseringsuppgifter för OAuth
 
-För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure-Synapse (tidigare SQL Data Warehouse), Dynamics 365 och SharePoint-lista stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
+För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure-Synapse (tidigare SQL Data Warehouse), Dynamics 365 och SharePoint-lista stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda Power Query för att generera giltiga tokens.
 
 Direct Query-läget stöds inte med OAuth-autentiseringsuppgifter.
 

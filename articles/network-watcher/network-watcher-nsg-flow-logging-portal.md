@@ -16,22 +16,22 @@ ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: da7d56a0fd8571e796567331a7543074f0bf1eda
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84808696"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
-Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I de här självstudierna får du lära dig att
+Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator med en nätverkssäkerhetsgrupp
@@ -40,7 +40,7 @@ Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och
 > * Ladda ned loggdata
 > * Visa loggdata
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -55,7 +55,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
     |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
-    |Location| Välj **USA, östra**|
+    |Plats| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -67,7 +67,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med stegen
 
 Om du redan har aktiverat en nätverksbevakare i USA, östra går du vidare till [Registrera Insights-providern](#register-insights-provider).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
@@ -94,7 +94,7 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     | Inställningen        | Värde                                                        |
     | ---            | ---   |
     | Namn           | 3 till 24 tecken långt, får endast innehålla gemener och siffror och måste vara unikt bland alla Azure Storage-konton.                                                               |
-    | Location       | Välj **USA, östra**                                           |
+    | Plats       | Välj **USA, östra**                                           |
     | Resursgrupp | Välj **Använd befintlig**och välj sedan **myResourceGroup** |
 
     Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. I samtliga fall måste lagrings kontot finnas i samma region som NSG.
@@ -214,7 +214,7 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | 443         | Målport       | Målporten som flödet skickades till. Eftersom trafiken skulle till port 443 bearbetades flödet av regeln med namnet **UserRule_default-allow-rdp** i loggfilen.                                                |
 | T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
 | O            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
-| A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
+| A            | Action                 | Anger om trafiken tilläts (A) eller nekades (D).  
 | C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Börja, när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter (Continuing) för en pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
 | 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. |

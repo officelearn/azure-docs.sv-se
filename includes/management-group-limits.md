@@ -7,16 +7,16 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 9b2bf8763d175bca028be1fcceda921e87eb5b23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 204ca121045d1bd53fd507acc7ea9691bfeac12e
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80334778"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748816"
 ---
 | Resurs | Gräns |
 | --- | --- |
-| Hanterings grupper per katalog | 10 000 |
+| Hanterings grupper per Azure AD-klient | 10 000 |
 | Prenumerationer per hanterings grupp | Många. |
 | Nivåer för hanterings gruppens hierarki | Rot nivå plus 6 nivåer<sup>1</sup> |
 | Direkt överordnad hanterings grupp per hanterings grupp | En |

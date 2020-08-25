@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.openlocfilehash: 10a630aa04f51dc96b948b01e5fc01cfad4356fd
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85118822"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
@@ -40,11 +40,11 @@ Den här självstudiekursen omfattar:
 > * Utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på objektet
 > * Ta bort databasen
 
-Har du inte tid? Oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den fullständiga lösningen till självstudien](#GetSolution).
+Har du inte tid? Men oroa dig inte! Den kompletta lösningen finns på [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). En snabbguide finns i avsnittet [Hämta den fullständiga lösningen till självstudien](#GetSolution).
 
 Nu sätter vi igång!
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 
@@ -118,7 +118,7 @@ Toppen! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfö
    > [!NOTE]
    > Om du är bekant med den tidigare versionen av .NET SDK kan du vara bekant med villkors *samlingen* och *dokumentet*. Eftersom Azure Cosmos DB stöder flera API-modeller, använder version 3,0 av .NET SDK de allmänna termerna *container* och *item*. En *behållare* kan vara en samling, Graf eller tabell. Ett *objekt* kan vara ett dokument, en kant/ett hörn eller en rad och är innehållet i en behållare. Mer information finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md).
 
-1. Öppna [Azure Portal](https://portal.azure.com). Hitta ditt Azure Cosmos DB konto och välj sedan **nycklar**.
+1. Öppna [Azure-portalen](https://portal.azure.com). Hitta ditt Azure Cosmos DB konto och välj sedan **nycklar**.
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Hämta Azure Cosmos DB nycklar från Azure Portal":::
 
@@ -162,7 +162,7 @@ En databas är en logisk container med objekt som är partitionerade över conta
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
 
-    `CreateDatabaseAsync`skapar en ny databas med ID `FamilyDatabase` om den inte redan finns, som har det ID som anges från `databaseId` fältet.
+    `CreateDatabaseAsync` skapar en ny databas med ID `FamilyDatabase` om den inte redan finns, som har det ID som anges från `databaseId` fältet.
 
 1. Kopiera och klistra in koden nedan där du instansierar CosmosClient för att anropa **metoderna createdatabaseasync** -metoden som du nyss lade till.
 
@@ -279,7 +279,7 @@ Grattis! Du har skapat en Azure Cosmos-databas.
 
 En behållare kan skapas med hjälp av antingen [**CreateContainerIfNotExistsAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerIfNotExistsAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) -eller [**CreateContainerAsync**](/dotnet/api/microsoft.azure.cosmos.database.createcontainerasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Database_CreateContainerAsync_Microsoft_Azure_Cosmos_ContainerProperties_System_Nullable_System_Int32__Microsoft_Azure_Cosmos_RequestOptions_System_Threading_CancellationToken_) -metoden i `CosmosDatabase` klassen. En behållare består av objekt (JSON-dokument om SQL API) och tillhör ande program logik på Server sidan i Java Script, till exempel lagrade procedurer, användardefinierade funktioner och utlösare.
 
-1. Kopiera och klistra in `CreateContainerAsync` metoden under `CreateDatabaseAsync` metoden. `CreateContainerAsync`skapar en ny behållare med ID `FamilyContainer` om den inte redan finns, genom att använda det ID som anges från `containerId` fältet partitionerad av `LastName` egenskap.
+1. Kopiera och klistra in `CreateContainerAsync` metoden under `CreateDatabaseAsync` metoden. `CreateContainerAsync`  skapar en ny behållare med ID `FamilyContainer` om den inte redan finns, genom att använda det ID som anges från `containerId` fältet partitionerad av `LastName` egenskap.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
 

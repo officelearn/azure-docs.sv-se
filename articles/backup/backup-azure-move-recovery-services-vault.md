@@ -1,15 +1,15 @@
 ---
 title: Flytta Azure Backup Recovery Services valv
-description: Instruktioner om hur du flyttar Recovery Services-valvet över Azure-prenumerationer och resurs grupper.
+description: Instruktioner om hur du flyttar ett Recovery Services valv över Azure-prenumerationer och resurs grupper.
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 4751a6068904ef03a4d30d322a285e4074476b70
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: b4de4c58e6a6551fa7c27db9755bb02a11700721
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650921"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755746"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -50,12 +50,12 @@ Frankrike, centrala, södra Frankrike, Tyskland nordöstra, Tyskland, centrala, 
 
 ## <a name="use-azure-portal-to-move-recovery-services-vault-to-different-resource-group"></a>Använd Azure Portal för att flytta Recovery Services valv till en annan resurs grupp
 
-Så här flyttar du ett Recovery Services-valv och dess associerade resurser till en annan resurs grupp
+Så här flyttar du ett Recovery Services valv och dess associerade resurser till en annan resurs grupp:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna listan över **Recovery Services valv** och välj det valv som du vill flytta. När instrument panelen för valvet öppnas visas den som på bilden nedan.
 
-   ![Öppna Recover service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+   ![Öppna Recovery Services valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
    Om du inte ser information om **Essentials** för ditt valv väljer du den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
 
@@ -84,7 +84,7 @@ Du kan flytta ett Recovery Services valv och dess associerade resurser till en a
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Öppna listan över Recovery Services valv och välj det valv som du vill flytta. När instrument panelen för valvet öppnas visas följande bild.
 
-    ![Öppna Recover service Vault](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
+    ![Öppna Recovery Services valv](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
 
     Om du inte ser information om **Essentials** för ditt valv väljer du den nedrullningsbara ikonen. Du bör nu se information om Essentials för ditt valv.
 

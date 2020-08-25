@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce3a97678dea7e7b26caa3b1b091b023eca1a555
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015705"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794557"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupp hantering
 
@@ -134,7 +134,7 @@ Du kan söka efter en speciell grupp med parametern-filter. Den här parametern 
 ```
 
 > [!NOTE]
-> Azure AD PowerShell-cmdlets implementerar OData-frågan standard. Mer information finns i **$filter** i [OData system Query-alternativ med OData-slutpunkten](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter).
+> Azure AD PowerShell-cmdlets implementerar OData-frågan standard. Mer information finns i **$filter** i [OData system Query-alternativ med OData-slutpunkten](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)#BKMK_filter).
 
 ## <a name="create-groups"></a>Skapa grupper
 
@@ -315,7 +315,7 @@ Om du vill ta bort en ägare från en grupp använder du cmdleten Remove-AzureAD
 När en grupp skapas kan slutanvändaren ange ett e-smek namn eller alias som ska användas som en del av gruppens e-postadress för vissa slut punkter.Grupper med följande e-postalias med hög privilegier kan bara skapas av en global Azure AD-administratör. 
   
 * missbruk
-* admin
+* administratör
 * administratör
 * hostmaster
 * majordomo

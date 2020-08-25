@@ -8,19 +8,21 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84448639"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782591"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
 I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en ensemble of Regressions träd med förstärkning. *Förstärkning* innebär att varje träd är beroende av föregående träd. Algoritmen lär sig genom att anpassa resten av de träd som föregår det. Därför är det bättre att öka noggrannheten i besluts trädets ensemblen för att förbättra noggrannheten med liten risk för mindre täckning.  
+
+Den här modulen är baserad LightGBM-algoritm.
   
 Den här Regressions metoden är en övervakad inlärnings metod och kräver därför en *etikettad data uppsättning*. Etikett kolumnen måste innehålla numeriska värden.  
 

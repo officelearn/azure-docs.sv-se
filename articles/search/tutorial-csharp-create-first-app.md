@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85261468"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
 Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Konfigurera en utvecklings miljö
 > * Modell data strukturer
@@ -44,7 +44,7 @@ Det här anropet initierar en sökning i Azure-data och returnerar resultatet.
 ![Söker efter "pool"](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -504,7 +504,7 @@ Azure Kognitiv sökning-anropet är inkapslat i vår **RunQueryAsync** -metod.
 
     Det asynkrona anropet till search (**modell. resultList = await _indexClient.Documents. SearchAsync &lt; hotell &gt; (modell. searchText, parametrar);**) är vad den här själv studie kursen och appen är i gång till. **DocumentSearchResult** -klassen är en intressant och en bra idé (när appen körs) är att ange en Bryt punkt här och använda en fel sökare för att undersöka innehållet i **Model. resultList**. Du bör se att det är intuitivt, som ger dig de data du bad om och inte mycket annat.
 
-För tillfället för sanningen.
+Nu gäller det.
 
 ### <a name="test-the-app"></a>Testa appen
 

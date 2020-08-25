@@ -9,17 +9,17 @@ ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85297995"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Självstudie: steg-för-steg-anvisningar för att skapa en ny HoloLens Unity-app med hjälp av Azure spatiala ankare
 
 I den här självstudien visas hur du skapar en ny HoloLens Unity-app med Azure spatiala ankare.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -31,7 +31,7 @@ För att kunna följa den här självstudien måste du ha:
 
 Vi konfigurerar först vår projekt-och Unity-scen:
 1. Start Unit.
-2. Välj **Ny**.
+2. Välj **Nytt**.
 4. Se till att **3D** är markerat.
 5. Namnge projektet och ange en lagrings **plats**.
 6. Klicka på **skapa projekt**.
@@ -212,7 +212,7 @@ En fäst punkt överförs till molnet, vi är redo att försöka hitta den igen.
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
-Nu ska vi lägga till våra `ResetSession()` och `CleanupObjects()` metoder. Du kan ställa dem nedan`QueueOnUpdate()`
+Nu ska vi lägga till våra `ResetSession()` och `CleanupObjects()` metoder. Du kan ställa dem nedan `QueueOnUpdate()`
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
@@ -225,6 +225,6 @@ Nu kan du lägga till kod som skapar & att placera en grön sfär när CloudSpat
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Det är allt. Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
+Klart! Kör din app från **Visual Studio** en sista gången för att testa hela scenariot från början till slut. Flytta runt enheten och placera din vita sfär. Fortsätt sedan att flytta ditt huvud till att avbilda miljö data tills klotet blir gult. Ditt lokala ankare laddas upp och sfären blir blå. Till sist trycker du på skärmen en gång till, så att ditt lokala ankare tas bort och vi kommer att fråga efter dess moln motsvarighet. Fortsätt att flytta enheten tills molnets spatiala ankare är belägen. En grön sfär bör visas på rätt plats och du kan skölja & upprepa hela scenariot igen.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

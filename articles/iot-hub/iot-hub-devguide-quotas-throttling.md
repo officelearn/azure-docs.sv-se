@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f8522171fca6a88f81c3b8f0161fc382041aae1e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87335570"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782574"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -111,7 +111,8 @@ IoT Hub tillämpar andra drift gränser:
 | Automatisk enhets-och modul konfiguration<sup>1</sup> | 100 konfigurationer per betald SKU-hubb. 20 konfigurationer per kostnads fri SKU-hubb. |
 | IoT Edge automatiska distributioner<sup>1</sup> | 50 moduler per distribution. 100 distributioner (inklusive lager distributioner) per betald SKU-hubb. 10 distributioner per kostnads fri SKU-hubb. |
 | Dubblar<sup>1</sup> | Maximal storlek för önskade egenskaper och avsnitt med rapporterade egenskaper är 32 KB. Den maximala storleken på Tags-avsnittet är 8 KB. |
-| Principer för delad åtkomst | Maximalt antal principer för delad åtkomst är 16 |
+| Principer för delad åtkomst | Maximalt antal principer för delad åtkomst är 16. |
+| CA-Certifikat | Maximalt antal X. 509 CA-certifikat som kan registreras är 25. |
 
 <sup>1</sup> Den här funktionen är inte tillgänglig på den grundläggande IoT Hubs nivån. Mer information finns i [så här väljer du rätt IoT Hub](iot-hub-scaling.md).
 

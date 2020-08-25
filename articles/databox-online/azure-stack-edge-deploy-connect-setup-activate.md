@@ -10,10 +10,10 @@ ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
 ms.openlocfilehash: e0a0d9415cc55c24bb4dc0690c73d9f79fc0ce0e
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/09/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84608442"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-stack-edge"></a>Självstudie: ansluta, konfigurera och aktivera Azure Stack Edge 
@@ -22,14 +22,14 @@ I den här självstudien beskrivs hur du kan ansluta till, konfigurera och aktiv
 
 Installations-och aktiverings processen kan ta ungefär 20 minuter att slutföra.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 >
 > * Ansluta till en fysisk enhet
 > * Konfigurera och aktivera den fysiska enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar och konfigurerar Azure Stack Edge-enheten måste du kontrol lera att:
 

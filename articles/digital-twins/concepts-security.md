@@ -7,24 +7,26 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d29bccdadeef44f1ae4cdae5875257f95395b96f
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 973eeebfdf9164cb50cf98ae8edc845a80a7e080
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794507"
 ---
-# <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Skydda Azure Digitals dubbla med rollbaserad åtkomst kontroll
+# <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
 För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifika data, resurser och åtgärder i distributionen. Detta sker via en detaljerad roll och behörighets hanterings strategi som kallas **rollbaserad åtkomst kontroll (RBAC)**. Du kan läsa om de allmänna principerna för RBAC för Azure [här](../role-based-access-control/overview.md).
 
-## <a name="rbac-through-azure-ad"></a>RBAC via Azure AD
+Azure Digitals dubbla är också stöd för kryptering av data i vila.
+
+## <a name="granting-permissions-with-rbac"></a>Bevilja behörigheter med RBAC
 
 RBAC tillhandahålls till Azure Digitals dubblare via integration med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
 Du kan använda RBAC för att bevilja behörighet till ett *säkerhets objekt*, som kan vara en användare, en grupp eller ett huvud namn för program tjänsten. Säkerhets objekt autentiseras av Azure AD och tar emot en OAuth 2,0-token i retur. Denna token kan användas för att auktorisera en åtkomstbegäran till en Azure Digitals-instans.
 
-## <a name="authentication-and-authorization"></a>Autentisering och auktorisering
+### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
 Med Azure AD är Access en två stegs process. När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till Azures digitala dubbla, måste begäran *autentiseras* och *auktoriseras*. 
 
@@ -37,13 +39,13 @@ Auktoriserings steget kräver att en Azure-roll tilldelas till säkerhets objekt
 
 Mer information om roller och roll tilldelningar som stöds i Azure finns i [*förstå de olika rollerna*](../role-based-access-control/rbac-and-directory-admin-roles.md) i Azure RBAC-dokumentationen.
 
-### <a name="authentication-with-managed-identities"></a>Autentisering med hanterade identiteter
+#### <a name="authentication-with-managed-identities"></a>Autentisering med hanterade identiteter
 
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till distributionen där program koden körs. Du kan sedan associera identiteten med åtkomst kontroll roller för att bevilja anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
 
 Med hanterade identiteter hanterar Azure-plattformen den här körnings identiteten. Du behöver inte lagra och skydda åtkomst nycklar i din program kod eller konfiguration, antingen för själva identiteten eller för de resurser som du behöver komma åt. Ett digitalt Azure-klientprogram som körs inuti ett Azure App Service-program behöver inte hantera SAS-regler och nycklar eller andra åtkomsttoken. Klient programmet behöver bara slut punkts adressen för Azure Digitals-namnområdet. När appen ansluter binder Azure Digitals en hanterad entitets kontext till klienten. När den är kopplad till en hanterad identitet kan din Azure Digital-klient med dubbla Azure-klienter utföra alla behöriga åtgärder. Auktorisering beviljas sedan genom att associera en hanterad entitet med en Azure Digitals Azure-roll (beskrivs nedan).
 
-### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Auktorisering: Azure-roller för Azure Digitals dubbla
+#### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Auktorisering: Azure-roller för Azure Digitals dubbla
 
 Azure tillhandahåller de här inbyggda Azure-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
 * *Azure Digitals flätat-ägare (för hands version)* – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
@@ -60,7 +62,7 @@ Du kan tilldela roller på två sätt:
 
 Mer detaljerad information om hur du gör detta finns i självstudien om Azure Digitals dubbla steg [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
 
-## <a name="permission-scopes"></a>Behörighetsomfattning
+### <a name="permission-scopes"></a>Behörighetsomfattning
 
 Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det är bäst att endast bevilja det snävaste möjliga omfånget.
 
@@ -71,9 +73,13 @@ I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Azur
 * Digital, dubbel relation: åtgärderna för den här resursen definierar kontroll över CRUD-åtgärder på relationer mellan digitala [band](concepts-twins-graph.md) i den dubbla grafen.
 * Händelse väg: åtgärder för den här resursen bestämmer behörigheter för att [dirigera händelser](concepts-route-events.md) från Azure Digitals till en slut punkts tjänst som [händelsehubben](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)eller [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting-permissions"></a>Fel söknings behörigheter
 
 Om en användare försöker utföra en åtgärd som inte tillåts av deras roll, kan de få ett fel meddelande från begäran om läsning av tjänst `403 (Forbidden)` . Mer information och fel söknings steg finns i [*fel sökning: Azure Digitals-begäran misslyckades med status: 403 (förbjuden)*](troubleshoot-error-403.md).
+
+## <a name="encryption-of-data-at-rest"></a>Kryptering av data i vila
+
+Azure Digitals-enheter tillhandahåller kryptering av data i vila och under överföring som de skrivs i våra data Center och dekrypterar dem åt dig när du har åtkomst till den.
 
 ## <a name="next-steps"></a>Nästa steg
 

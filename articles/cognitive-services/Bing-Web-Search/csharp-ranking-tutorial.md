@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.openlocfilehash: 272a10e211e99e200b82807b188d828a9ece42d8
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85609443"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bygg en klients öknings klient i C #
@@ -27,7 +27,7 @@ Den här självstudien visar hur du:
 - Skapa en enkel fråga till API för webbsökning i Bing
 - Visa frågeresultat i rangordnad ordning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa med i själv studie kursen behöver du:
 
@@ -48,7 +48,7 @@ Ge programmet namnet **MyConsoleSearchApp**och klicka sedan på **OK**.
 Med JSON.net kan du arbeta med de JSON-svar som returneras av API: et. Lägg till dess NuGet-paket i projektet:
 
 - I **Solution Explorer** högerklickar du på projektet och väljer **Hantera NuGet-paket...**.
-- Sök efter på fliken **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera**.
+- Sök efter på fliken  **Bläddra** `Newtonsoft.Json` . Välj den senaste versionen och klicka sedan på **Installera**.
 - Klicka på **OK** -knappen i fönstret **Granska ändringar** .
 - Stäng Visual Studio-fliken med namnet **NuGet: MyConsoleSearchApp**.
 
@@ -275,7 +275,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Den här metoden:
 
 - Slingor över `rankingResponse` grupper som svaret innehåller
-- Visar objekten i varje grupp genom att anropa`DisplaySpecificResults(...)`
+- Visar objekten i varje grupp genom att anropa `DisplaySpecificResults(...)`
 
 I **program.cs**lägger du till följande två metoder:
 
@@ -310,7 +310,7 @@ Dessa metoder fungerar tillsammans för att mata ut Sök resultaten till-konsole
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Kör appen. Resultatet bör se ut ungefär så här:
+Kör programmet. Resultatet bör se ut ungefär så här:
 
 ```
 Enter Bing query: sailing lessons seattle

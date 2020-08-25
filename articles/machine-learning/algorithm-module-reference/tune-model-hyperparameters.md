@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/17/2020
-ms.openlocfilehash: 01e33f7b0133eb5d081e6e8f3c3c9497c11bae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 916d23670e1db22efe43e2966d96aa1c82f1852a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983418"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782166"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
@@ -77,11 +77,11 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 
 När inlärningen är klar:
 
-+ Om du vill visa en uppsättning noggrannhets mått för den bästa modellen högerklickar du på modulen och väljer **visualisera**.
++ Om du vill visa svep resultaten högerklickar du på modulen och väljer **visualisera**.
 
-    Utdata innehåller alla noggrannhets mått som gäller för modell typen, men måttet som du har valt för rangordning avgör vilken modell som betraktas som "bäst".
+    I utdata ingår alla parametrar för parameter rensning och precision som gäller för modell typen, men måttet som du har valt för rangordning avgör vilken modell som betraktas som "bästa".
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata + loggar** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
 
 ## <a name="technical-notes"></a>Tekniska anteckningar

@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc
 ms.openlocfilehash: b5ca24a68b271c08ea7cd4196d5b8659eb0262d2
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85367384"
 ---
 # <a name="secure-access-to-application-data"></a>Säker åtkomst till program data
@@ -31,7 +31,7 @@ I den tredje delen i serien får du lära dig att:
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. Den här självstudiekursen kompletterar [det föregående avsnittet ][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagringskonto från ett webbprogram. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna utföra den här kursen måste du ha slutfört den föregående Storage-självstudiekursen: [Automatisera storleksändring av överförda bilder med Event Grid][previous-tutorial].
 
@@ -153,7 +153,7 @@ Följande klasser, egenskaper och metoder används i den föregående aktivitete
 |[BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) | [URI](/dotnet/api/azure.storage.blobs.blobcontainerclient.uri) |[Finns](/dotnet/api/azure.storage.blobs.blobcontainerclient.exists) <br> [GetBlobs](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobs) |
 |[BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) |  | [SetPermissions](/dotnet/api/azure.storage.sas.blobsasbuilder.setpermissions) <br> [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) |
 |[BlobItem](/dotnet/api/azure.storage.blobs.models.blobitem) | [Namn](/dotnet/api/azure.storage.blobs.models.blobitem.name) |  |
-|[UriBuilder](/dotnet/api/system.uribuilder) | [Söka i data](/dotnet/api/system.uribuilder.query) |  |
+|[UriBuilder](/dotnet/api/system.uribuilder) | [Query](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Lägg till](/dotnet/api/system.collections.generic.list-1.add) |
 
 ## <a name="azure-storage-encryption"></a>Azure Storage-kryptering

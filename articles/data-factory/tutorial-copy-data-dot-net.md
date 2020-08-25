@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
 ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85513265"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
@@ -38,7 +38,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * *Azure Storage konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
@@ -97,7 +97,7 @@ Skapa ett C# .NET-konsol program med Visual Studio.
 
 1. Öppna Visual Studio.
 2. I fönstret **Starta** väljer du **skapa ett nytt projekt**.
-3. I fönstret **skapa ett nytt projekt** väljer du C#-versionen av **konsol programmet (.NET Framework)** från listan över projekt typer. Välj **Nästa**.
+3. I fönstret **skapa ett nytt projekt** väljer du C#-versionen av **konsol programmet (.NET Framework)** från listan över projekt typer. Välj sedan **Nästa**.
 4. I fönstret **Konfigurera ditt nya projekt** anger du ett **projekt namn** för *ADFv2Tutorial*. För **plats**bläddrar du till och/eller skapar katalogen för att spara projektet i. Välj sedan **Skapa**. Det nya projektet visas i Visual Studio IDE.
 
 ## <a name="install-nuget-packages"></a>Installera NuGet-paket
@@ -275,7 +275,7 @@ Lägg till följande kod i- `Main` metoden som skapar en *Azure Blob-datauppsät
 
 Du definierar en datauppsättning som representerar källdata i Azure Blob. Denna Blob-datauppsättning refererar till den Azure Storage-länkade tjänst som du skapar i föregående steg. Den beskriver:
 
-- Platsen för blobben att kopiera från: `FolderPath` och`FileName`
+- Platsen för blobben att kopiera från: `FolderPath` och `FileName`
 - BLOB-formatet som anger hur innehållet ska parsas: `TextFormat` och dess inställningar, till exempel kolumn avgränsare
 - Data strukturen, inklusive kolumn namn och data typer, som mappar i det här exemplet till SQL-tabellen Sink
 
@@ -436,7 +436,7 @@ Bygg programmet genom att välja **build**  >  **build-lösning**. Starta sedan 
 
 Konsolen skriver ut förloppet för skapandet av en datafabrik, den länkade tjänsten, datauppsättningar, pipeline och pipelinekörning. Sedan kontrolleras status för pipelinekörningen. Vänta tills du ser körnings informationen för kopierings aktiviteten med Läs-och skriv storlek för data. Sedan kan du använda verktyg som SQL Server Management Studio (SSMS) eller Visual Studio för att ansluta till mål Azure SQL Database och kontrol lera om mål tabellen som du har angett innehåller de kopierade data.
 
-### <a name="sample-output"></a>Exempel på utdata
+### <a name="sample-output"></a>Exempelutdata
 
 ```json
 Creating a data factory AdfV2Tutorial...

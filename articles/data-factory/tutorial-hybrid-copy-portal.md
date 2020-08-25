@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/08/2020
 ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/10/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84661013"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiera data från en SQL Server-databas till Azure Blob Storage
@@ -38,7 +38,7 @@ I den här självstudien får du göra följande:
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 ### <a name="azure-subscription"></a>Azure-prenumeration
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -182,11 +182,11 @@ I det här steget skapar du en datafabrik och startar sedan användargränssnitt
 
     f. Välj **Testanslutning**. Det här steget är att bekräfta att Data Factory kan ansluta till SQL Server-databasen med hjälp av den integration runtime med egen värd som du har skapat.
 
-    g. Välj **skapa**om du vill spara den länkade tjänsten.
+    ex. Välj **skapa**om du vill spara den länkade tjänsten.
  
     ![Ny länkad tjänst (SQL Server)](./media/tutorial-hybrid-copy-portal/new-sqlserver-linked-service.png)
 
-1. När den länkade tjänsten har skapats går du tillbaka till sidan **Ange egenskaper** för SqlServerDataset. Gör följande:
+1. När den länkade tjänsten har skapats går du tillbaka till sidan **Ange egenskaper** för SqlServerDataset. Utför följande steg:
 
     a. Bekräfta att du ser **SqlServerLinkedService** i **Länkad tjänst**.
 

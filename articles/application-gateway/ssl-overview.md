@@ -2,17 +2,17 @@
 title: Aktiverar end to end-TLS på Azure Application Gateway
 description: Den här artikeln är en översikt över Application Gateway slut punkt till slut punkt för TLS-stöd.
 services: application-gateway
-author: amsriva
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 5/13/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 1986955c7135cb9296937392b23635ae62d8d9f7
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962109"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723307"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -30,7 +30,7 @@ Application Gateway stöder TLS-avslutning på gatewayen, efter vilken trafiken 
 Om du vill konfigurera TLS-terminering måste ett TLS/SSL-certifikat läggas till i lyssnaren för att Application Gateway ska kunna härleda en symmetrisk nyckel enligt specifikationen TLS/SSL-protokoll. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. TLS/SSL-certifikatet måste vara i PFX-format (personal information Exchange). Med det här fil formatet kan du exportera den privata nyckeln som krävs av programgatewayen för att utföra kryptering och dekryptering av trafik.
 
 > [!IMPORTANT] 
-> Observera att certifikatet på lyssnaren kräver att hela certifikat kedjan laddas upp. 
+> Certifikatet på lyssnaren kräver att hela certifikat kedjan laddas upp (rot certifikatet från certifikat utfärdaren, mellanliggande och löv certifikatet) för att upprätta en förtroende kedja. 
 
 
 > [!NOTE] 

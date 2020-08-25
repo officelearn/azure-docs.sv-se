@@ -1,16 +1,16 @@
 ---
-title: 'Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen (AVS)'
-description: I den här Azure VMware Solution (AVS)-självstudien skapar du ett innehålls bibliotek för att distribuera en virtuell dator i ett moln privat moln.
+title: 'Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen'
+description: I den här självstudien om Azure VMware-lösning skapar du ett innehålls bibliotek för att distribuera en virtuell dator i ett privat moln i Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612800"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750550"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen (AVS)
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Självstudie: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen
 
 Ett innehålls bibliotek lagrar och hanterar innehåll i form av biblioteks objekt. Ett enda biblioteks objekt består av en eller flera filer som du använder för att distribuera virtuella datorer (VM). 
  
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Ett NSX-T logiskt växel segment och en hanterad DHCP-tjänst krävs för att slutföra den här självstudien.  Mer information finns i avsnittet [Hantera DHCP i Azure VMware-lösning (AVS)](manage-dhcp.md) .
+Ett NSX-T logiskt växel segment och en hanterad DHCP-tjänst krävs för att slutföra den här självstudien.  Mer information finns i [så här hanterar du DHCP i för hands versionen av Azure VMware-lösningen](manage-dhcp.md) .
 
 ## <a name="create-a-content-library"></a>Skapa ett innehålls bibliotek
 

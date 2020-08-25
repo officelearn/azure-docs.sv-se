@@ -1,39 +1,39 @@
 ---
 title: Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
-description: Konfigurera Azure Application-Gateway för att på ett säkert sätt exponera dina webbappar som körs på Azure VMware-lösningen (AVS).
+description: Konfigurera Azure Application Gateway för att på ett säkert sätt exponera dina webbappar som körs på Azure VMware-lösningen.
 ms.topic: how-to
 ms.date: 07/31/2020
-ms.openlocfilehash: dfe55ab6b32e9c7b73b8501a16fa6cfaad5bbabe
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: d4e193c58c5eccb29f603c3b4d56a09d26686975
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87514360"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750600"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Använd Azure Application Gateway för att skydda dina webbappar på Azure VMware-lösningen
 
-[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) är en belastningsutjämnare för Layer 7-webbtrafik som gör att du kan hantera trafik till dina webb program. Den erbjuder många funktioner: cookie-baserad sessionsbaserade tillhörighet, URL-baserad Routning och brand vägg för webbaserade program (WAF) för att ge några namn. (En fullständig lista över funktioner finns i [Azure Application Gateway-funktioner](../application-gateway/features.md).) Den erbjuds i två versioner, v1 och v2. Båda har testats med webb program som körs på Azure VMware-lösning (AVS).
+[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) är en belastningsutjämnare för Layer 7-webbtrafik som gör att du kan hantera trafik till dina webb program. Den erbjuder många funktioner: cookie-baserad sessionsbaserade tillhörighet, URL-baserad Routning och brand vägg för webbaserade program (WAF) för att ge några namn. (En fullständig lista över funktioner finns i [Azure Application Gateway-funktioner](../application-gateway/features.md).) Den erbjuds i två versioner, v1 och v2. Båda har testats med webbappar som körs på Azure VMware-lösningen.
 
-I den här artikeln går vi igenom ett vanligt scenario med Application Gateway framför en webb Server grupp med en uppsättning konfigurationer och rekommendationer för att skydda en webbapp som körs på Azure VMware-lösningen (AVS). 
+I den här artikeln går vi igenom ett vanligt scenario med Application Gateway framför en webb Server grupp med en uppsättning konfigurationer och rekommendationer för att skydda en webbapp som körs på Azure VMware-lösningen. 
 
 ## <a name="topology"></a>Topologi
-Som du ser i följande bild kan Application Gateway användas för att skydda virtuella Azure IaaS-datorer, skalnings uppsättningar för virtuella Azure-datorer eller lokala servrar. Virtuella AVS-datorer kommer att behandlas som lokala servrar genom att Application Gateway.
+Som du ser i följande bild kan Application Gateway användas för att skydda virtuella Azure IaaS-datorer, skalnings uppsättningar för virtuella Azure-datorer eller lokala servrar. Virtuella Azure VMware-lösningar kommer att behandlas som lokala servrar genom att Application Gateway.
 
-![Application Gateway skyddar AVS-virtuella datorer.](media/protect-avs-web-apps-with-app-gw/app-gateway-protects.png)
+![Application Gateway skyddar virtuella datorer i Azure VMware-lösningen.](media/protect-avs-web-apps-with-app-gw/app-gateway-protects.png)
 
 > [!IMPORTANT]
-> Azure Application Gateway är för närvarande den enda metod som stöds för att exponera webb program som körs på virtuella datorer i AVS.
+> Azure Application Gateway är för närvarande den enda metod som stöds för att exponera webb program som körs på virtuella Azure VMware-lösningar.
 
-Följande diagram visar test scenariot som används för att verifiera Application Gateway med AVS-webbprogram.
+Följande diagram visar test scenariot som används för att verifiera Application Gateway med webb program för Azure VMware-lösningar.
 
-![Application Gateway-integrering med AVS som kör webbappar.](media/protect-avs-web-apps-with-app-gw/app-gateway-avs-scenario.png)
+![Application Gateway integrering med Azure VMware-lösning som kör webbappar.](media/protect-avs-web-apps-with-app-gw/app-gateway-avs-scenario.png)
 
-Application Gateway-instansen distribueras på hubben i ett dedikerat undernät. Den har en offentlig Azure-IP-adress; Det rekommenderas att du aktiverar standard DDoS-skydd för det virtuella nätverket. Webb servern finns på ett privat AVS-moln bakom NSX-t0 och T1-routrar. AVS använder [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) för att aktivera kommunikationen med hubben och de lokala systemen.
+Application Gateway-instansen distribueras på hubben i ett dedikerat undernät. Den har en offentlig Azure-IP-adress; Det rekommenderas att du aktiverar standard DDoS-skydd för det virtuella nätverket. Webb servern finns i ett privat moln i Azure VMware-lösningen bakom NSX t0 och T1-routrar. Azure VMware-lösningen använder [ExpressRoute Global Reach](../expressroute/expressroute-global-reach.md) för att aktivera kommunikationen med hubben och de lokala systemen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration.
-- Ett moln privat moln distribueras och körs.
+- Ett privat moln för VMware-lösningar i Azure distribueras och körs.
 
 ## <a name="deployment-and-configuration"></a>Distribution och konfiguration
 
@@ -48,7 +48,7 @@ Application Gateway-instansen distribueras på hubben i ett dedikerat undernät.
     > [!NOTE]
     > Endast standard-och WAF-SKU: er (Web Application Firewall) stöds för privata klient versioner.
 
-4. Lägg sedan till en backend-pool som beskriver en uppsättning instanser som är en del av programmet eller tjänsten (i det här fallet virtuella datorer som körs på AVS-infrastruktur). Ange information om webb servrar som körs i det privata moln molnet och välj **Lägg till**. Välj sedan **Nästa: konfigurations>**.
+4. Lägg sedan till en backend-pool som beskriver en uppsättning instanser som är en del av programmet eller tjänsten (i det här fallet virtuella datorer som körs på Azures infrastruktur för VMware-lösning). Ange information om webb servrar som körs på Azure VMware-lösningen privat moln och välj **Lägg till**. Välj sedan **Nästa: konfigurations>**.
 
 1. På fliken **konfiguration** väljer du **Lägg till en regel för routning**.
 
@@ -70,18 +70,18 @@ Application Gateway-instansen distribueras på hubben i ett dedikerat undernät.
 
 ## <a name="configuration-examples"></a>Konfigurations exempel
 
-I det här avsnittet får du lära dig hur du konfigurerar Application Gateway med AVS-virtuella datorer som backend-pooler för följande användnings fall: 
+I det här avsnittet får du lära dig hur du konfigurerar Application Gateway med virtuella datorer i Azure VMware-lösningen som backend-pooler för följande användnings fall: 
 
 - [Vara värd för flera platser](#hosting-multiple-sites)
 - [Routning efter URL](#routing-by-url)
 
 ### <a name="hosting-multiple-sites"></a>Vara värd för flera platser
 
-Du kan använda Azure Portal för att konfigurera värd tjänster för flera webbplatser när du skapar en Programgateway. I den här självstudien definierar du Server dels adress grupper med hjälp av virtuella datorer som körs i ett moln privat moln på en befintlig Application Gateway. Programgatewayen är en del av ett virtuellt hubb nätverk enligt beskrivningen i [integrera AVS i en hubb och eker-arkitektur](concepts-avs-hub-and-spoke-integration.md). I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på www.contoso.com och www.fabrikam.com.
+Du kan använda Azure Portal för att konfigurera värd tjänster för flera webbplatser när du skapar en Programgateway. I den här självstudien definierar du Server dels adress grupper med hjälp av virtuella datorer som körs på ett privat Azure VMware-lösnings moln på en befintlig Application Gateway. Programgatewayen är en del av ett virtuellt hubb nätverk enligt beskrivningen i [integrera Azure VMware-lösning i en hubb och eker-arkitektur](concepts-avs-hub-and-spoke-integration.md). I den här självstudien förutsätter vi att du äger flera domäner och använder exempel på www.contoso.com och www.fabrikam.com.
 
-1. Skapa de virtuella datorerna. I det privata moln molnet skapar du två olika pooler för virtuella datorer. en kommer att representera contoso och den andra Fabrikam. 
+1. Skapa de virtuella datorerna. Skapa två olika pooler för virtuella datorer i Azures privata moln för VMware-lösningen. en kommer att representera contoso och den andra Fabrikam. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs.png" alt-text="Web Server-pool på AVS":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs.png" alt-text="Skapa de virtuella datorerna.":::
 
     För att illustrera den här självstudien har vi använt Windows Server 2016 med Internet Information Services (IIS)-rollen installerad. När de virtuella datorerna har installerats kör du följande PowerShell-kommandon för att konfigurera IIS på var och en av de virtuella datorerna. 
 
@@ -90,31 +90,31 @@ Du kan använda Azure Portal för att konfigurera värd tjänster för flera web
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-2. Lägg till backend-pooler. I en befintlig Application Gateway-instans väljer du **Server dels grupper** på den vänstra menyn, väljer **Lägg till**och anger information om de nya poolerna. Välj **Lägg till** i den högra rutan.
+2. Lägg till backend-pooler. I en befintlig Application Gateway-instans väljer du **Server dels grupper** på den vänstra menyn, väljer  **Lägg till**och anger information om de nya poolerna. Välj **Lägg till** i den högra rutan.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png" alt-text="Konfiguration av backend-pool" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png" alt-text="Lägg till backend-pooler." lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-02.png":::
 
 3. I avsnittet **lyssnare** skapar du en ny lyssnare för varje webbplats. Ange informationen för varje lyssnare och välj **Lägg till**.
 
 4. I det vänstra navigerings fönstret väljer du **http-inställningar** och väljer **Lägg till** i den vänstra rutan. Fyll i informationen för att skapa en ny HTTP-inställning och välj **Spara**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png" alt-text="Konfiguration av HTP-inställningar" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png" alt-text="Fyll i informationen för att skapa en ny HTTP-inställning och välj Spara." lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-03.png":::
 
 5. Skapa reglerna i avsnittet **Rules (regler** ) på den vänstra menyn. Koppla varje regel till motsvarande lyssnare. Välj **Lägg till**.
 
 6. Konfigurera motsvarande backend-pool och HTTP-inställningar. Välj **Lägg till**.
 
-7. Testa anslutningen. Öppna din önskade webbläsare och gå till de olika webbplatser som finns i din AVS-miljö, till exempel http://www.fabrikam.com .
+7. Testa anslutningen. Öppna din önskade webbläsare och navigera till de olika webbplatser som finns i din Azure VMware-lösnings miljö, till exempel http://www.fabrikam.com .
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-07.png" alt-text="Konfiguration av regel Server del":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-multi-backend-pool-avs-07.png" alt-text="Testa anslutningen.":::
 
 ### <a name="routing-by-url"></a>Routning efter URL
 
-Du kan använda Azure Application Gateway för att konfigurera URL-sökvägar baserade regler för routning. I den här självstudien definierar du Server dels adress grupper med hjälp av virtuella datorer som körs i ett moln privat moln på en befintlig Application Gateway. Programgatewayen är en del av ett virtuellt Hubbs nätverk som beskrivs i dokumentationen för den [interna integreringen i AVS Azure](concepts-avs-hub-and-spoke-integration.md). Du skapar sedan routningsregler som kontrollerar att webb trafiken kommer till rätt servrar i poolerna.
+Du kan använda Azure Application Gateway för att konfigurera URL-sökvägar baserade regler för routning. I den här självstudien definierar du Server dels adress grupper med hjälp av virtuella datorer som körs på ett privat Azure VMware-lösnings moln på en befintlig Application Gateway. Programgatewayen är en del av ett virtuellt hubb nätverk enligt beskrivningen i [Azures interna integrerings dokumentation för VMware-lösningen](concepts-avs-hub-and-spoke-integration.md). Du skapar sedan routningsregler som kontrollerar att webb trafiken kommer till rätt servrar i poolerna.
 
-1. Skapa de virtuella datorerna. Skapa en pool med virtuella datorer som representerar webb server gruppen i det privata moln molnet. 
+1. Skapa de virtuella datorerna. Skapa en pool med virtuella datorer som representerar webb server gruppen i det privata molnet för Azure VMware-lösningen. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs.png" alt-text="Web Server-pool på AVS":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs.png" alt-text="Skapa en pool med virtuella datorer i Azure VMware-lösningen.":::
 
     Windows Server 2016 med IIS-rollen installerad har använts för att illustrera den här självstudien. När de virtuella datorerna har installerats kör du följande PowerShell-kommandon för att konfigurera IIS för självstudien i varje virtuell dator. 
 
@@ -143,30 +143,30 @@ Du kan använda Azure Application Gateway för att konfigurera URL-sökvägar ba
 
 2. Lägg till backend-pooler. Du måste lägga till tre nya backend-pooler i en befintlig Application Gateway-instans. Välj **Serverdelspooler** på den vänstra menyn. Välj **Lägg till** och ange information om den första poolen, **contoso-Web**. Lägg till en virtuell dator som mål. Välj **Lägg till**. Upprepa den här processen för **contoso-images** och **contoso-video**och Lägg till en unik virtuell dator till varje som mål. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Skapa backend-pool" lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png" alt-text="Lägg till tre nya backend-pooler." lightbox="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-02.png":::
 
 3. I avsnittet **lyssnare** skapar du en ny lyssnare av typen Basic med Port 8080.
 
 4. I det vänstra navigerings fönstret väljer du **http-inställningar** och väljer **Lägg till** i den vänstra rutan. Fyll i informationen för att skapa en ny HTTP-inställning och välj **Spara**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-04.png" alt-text="Konfiguration av HTP-inställningar":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-04.png" alt-text="Konfiguration av HTP-inställningar.":::
 
 5. Skapa reglerna i avsnittet **Rules (regler** ) på den vänstra menyn. Koppla varje regel till den tidigare skapade lyssnaren. Konfigurera sedan huvud server delen och HTTP-inställningarna. Välj **Lägg till**.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Konfiguration av regel Server del":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-07.png" alt-text="Skapa reglerna i avsnittet Rules (regler) på den vänstra menyn.":::
 
 6. Testa konfigurationen. Öppna programgatewayen på Azure Portal och i avsnittet **Översikt** kopierar du den offentliga IP-adressen. Öppna sedan ett nytt webbläsarfönster och ange URL: en `http://<app-gw-ip-address>:8080` . 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Konfigurations test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-08.png" alt-text="Testa konfigurationen från Azure Portal.":::
 
     Ändra URL:en till `http://<app-gw-ip-address>:8080/images/test.htm`.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Konfigurations test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-09.png" alt-text="Ändra URL: en.":::
 
     Ändra URL: en igen till `http://<app-gw-ip-address>:8080/video/test.htm` .
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Konfigurations test":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gateway-url-route-backend-pool-avs-10.png" alt-text="Ändra URL: en igen.":::
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Läs [dokumentationen om Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) för fler konfigurations exempel.

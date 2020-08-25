@@ -1,18 +1,18 @@
 ---
 title: Lokala peer-miljöer i ett privat moln
-description: I den här Azure VMware Solution (AVS)-självstudien skapar du ExpressRoute Global Reach peering till ett privat moln i ett AVS.
+description: I den här självstudien om Azure VMware-lösning skapar du ExpressRoute Global Reach peering till ett privat moln i en Azure VMware-lösning.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: a9a002eab3219a0db74062570d31595bfcc0d6a3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: db3f5988cb8c07d9b6e80f500ac6aff8f96dfded
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101918"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750445"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Självstudie: peer-lokala miljöer till ett privat moln
 
-ExpressRoute Global Reach ansluter din lokala miljö till dina privata moln. ExpressRoute Global Reach-anslutningen upprättas mellan en privat Cloud ExpressRoute-krets och en befintlig ExpressRoute-anslutning till dina lokala miljöer.  Det finns instruktioner för hur du konfigurerar ExpressRoute-Global Reach med Azure CLI och PowerShell, och vi har förhöjdat [CLI-kommandona](../expressroute/expressroute-howto-set-global-reach-cli.md) med detaljerad information och exempel som hjälper dig att konfigurera ExpressRoute-Global Reach peering mellan lokala miljöer för ett Azure VMware-lösning (AVS) ett privat moln.   
+ExpressRoute Global Reach ansluter din lokala miljö till dina privata moln. ExpressRoute Global Reach-anslutningen upprättas mellan en privat Cloud ExpressRoute-krets och en befintlig ExpressRoute-anslutning till dina lokala miljöer.  Det finns instruktioner för att konfigurera ExpressRoute-Global Reach med Azure CLI och PowerShell, och vi har förstärkt [CLI-kommandona](../expressroute/expressroute-howto-set-global-reach-cli.md) med detaljerad information och exempel som hjälper dig att konfigurera ExpressRoute-Global Reach-peering mellan lokala miljöer med ett privat moln i Azure VMware-lösningen.   
 
 Innan du aktiverar anslutning mellan två ExpressRoute-kretsar med ExpressRoute Global Reach bör du läsa dokumentationen om hur du [aktiverar anslutningar i olika Azure-prenumerationer](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  ExpressRoute-kretsen som du använder när du [konfigurerar Azure-till-Private Cloud Networking](tutorial-configure-networking.md) kräver att du skapar och använder auktoriseringsregler när du peer-koppla till ExpressRoute-gatewayer eller med andra ExpressRoute-kretsar som använder Global Reach. Du har redan använt en auktoriseringspost från ExpressRoute-kretsen och du skapar en andra som peer-dator med din lokala ExpressRoute-krets.
 
@@ -33,19 +33,19 @@ Kraven för den här självstudien är:
 - En separat, fungerande ExpressRoute-krets som används för att ansluta lokala miljöer till Azure – det här är en _krets 1_ från de olika peering-procedurerna.
 - Ett/29 icke-överlappande [nätverks adress block](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) för ExpressRoute Global Reach-peering.
 
-## <a name="create-an-expressroute-authorization-key-in-the-avs-private-cloud"></a>Skapa en ExpressRoute-auktoriseringsregel i det privata AVS-molnet
+## <a name="create-an-expressroute-authorization-key-in-the-azure-vmware-solution-private-cloud"></a>Skapa en ExpressRoute-auktoriseringspost i Azure VMware-lösningen privat moln
 
 1. I **översikten över**det privata molnet under hantera väljer du **anslutnings > ExpressRoute > begära en nyckel för autentisering**.
 
-   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran":::
+   :::image type="content" source="media/expressroute-global-reach/start-request-auth-key.png" alt-text="Välj anslutnings > ExpressRoute > begära en autentiseringsnyckel för att starta en ny begäran.":::
 
 2. Ange namnet på verifierings nyckeln och välj **skapa**. 
 
-   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Klicka på skapa för att skapa en ny autentiseringsnyckel.":::
+   :::image type="content" source="media/expressroute-global-reach/create-global-reach-auth-key.png" alt-text="Klicka på skapa för att skapa en ny autentiseringsnyckel. ":::
 
    När den nya nyckeln har skapats visas den i listan över auktoriseringsregler för det privata molnet. 
 
-   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Bekräfta att den nya verifierings nyckeln visas i listan över nycklar för det privata molnet.":::
+   :::image type="content" source="media/expressroute-global-reach/show-global-reach-auth-key.png" alt-text="Bekräfta att den nya verifierings nyckeln visas i listan över nycklar för det privata molnet. ":::
 
 3. Anteckna auktoriseringsregeln och ExpressRoute-ID, tillsammans med adress blocket/29. Du ska använda dem i nästa steg för att slutföra peer kopplingen. 
 

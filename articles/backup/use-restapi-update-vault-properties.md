@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 1f0fee505443b15ba2ea97710efc220ef05df738
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c3f964032d10988bf7ae615eb64d3b56b99a7747
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513123"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757310"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -65,7 +65,7 @@ När GET-begäran har skickats returneras ett 200-svar (lyckades).
 
 ### <a name="update-soft-delete-state-using-rest-api"></a>Uppdatera läget för mjuk borttagning med REST API
 
-Om du vill uppdatera det mjuka borttagnings läget för Recovery Services-valvet med REST API använder du följande *korrigerings* åtgärd
+Om du vill uppdatera det mjuka borttagnings läget för Recovery Services valvet med REST API använder du följande *korrigerings* åtgärd
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
@@ -83,7 +83,7 @@ Följande vanliga definitioner används för att skapa en begär ande text
 
 Mer information finns i REST API- [dokumentationen](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Name  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
 |location     |  true       |Sträng         |   Resurs plats      |
@@ -103,7 +103,7 @@ Följande exempel används för att uppdatera läget för mjuk borttagning till 
 }
 ```
 
-#### <a name="responses"></a>Svar
+#### <a name="responses-for-the-patch-operation"></a>Svar för KORRIGERINGs åtgärden
 
 Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
 
@@ -111,7 +111,7 @@ Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
-##### <a name="example-response"></a>Exempelsvar
+##### <a name="example-response-for-the-patch-operation"></a>Exempel svar för KORRIGERINGs åtgärden
 
 När PATCH-begäran har skickats returneras ett 200-svar (lyckades).
 

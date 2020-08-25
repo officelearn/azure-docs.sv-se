@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du skapar ett Recove
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263426"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757514"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Använda Azure Portal till att säkerhetskopiera flera virtuella datorer
 
@@ -136,7 +136,7 @@ Så här kör du en säkerhetskopiering på begäran:
 
 1. Välj **Säkerhetskopiera nu** på snabbmenyn.
 
-    ![Snabbmeny](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Snabb meny – Välj Säkerhetskopiera nu](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Menyn Säkerhetskopiera nu öppnas.
 
@@ -166,7 +166,7 @@ Om du planerar att fortsätta att arbeta med efterföljande självstudier ska du
 
 1. På menyn **säkerhets kopierings objekt** väljer du ellipsen för att öppna snabb menyn.
 
-    ![Snabbmeny](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![Öppna snabb menyn i menyn säkerhets kopierings objekt](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. I snabb menyn väljer du **stoppa säkerhets kopiering** för att öppna menyn stoppa säkerhets kopiering.
 

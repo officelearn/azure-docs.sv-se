@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339571"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783543"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter
 
@@ -53,7 +53,7 @@ En katalog är en behållare för resurser och åtkomst paket. Du skapar en kata
 
 ### <a name="creating-a-catalog-programmatically"></a>Skapa en katalog program mässigt
 
-Du kan också skapa en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [skapa en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+Du kan också skapa en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [skapa en accessPackageCatalog](/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Lägga till resurser i en katalog
 
@@ -83,7 +83,7 @@ Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en k
 
 ### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Lägga till en resurs i en katalog program mässigt
 
-Du kan också lägga till en resurs i en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll, eller en katalog-och resurs ägare, med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+Du kan också lägga till en resurs i en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll, eller en katalog-och resurs ägare, med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [skapa en accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Ta bort resurser från en katalog
 
@@ -155,7 +155,7 @@ Du kan ta bort en katalog, men bara om den inte har några åtkomst paket.
 
 ### <a name="deleting-a-catalog-programmatically"></a>Ta bort en katalog program mässigt
 
-Du kan också ta bort en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [ta bort en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+Du kan också ta bort en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att [ta bort en accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Nästa steg
 

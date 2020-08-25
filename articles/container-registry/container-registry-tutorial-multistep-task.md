@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
 ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78402302"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Självstudie: köra ett arbets flöde för flera steg i molnet när du genomför käll koden
@@ -41,7 +41,7 @@ Nu när du har slutfört stegen som krävs för att aktivera ACR-aktiviteter fö
 
 ### <a name="yaml-file"></a>YAML-fil
 
-Du definierar stegen för en aktivitet med flera steg i en [yaml-fil](container-registry-tasks-reference-yaml.md). Det första exemplet på flera steg i den här självstudien definieras i filen `taskmulti.yaml`, som finns i roten av GitHub-lagrings platsen som du har klonat:
+Du definierar stegen för en aktivitet med flera steg i en [yaml-fil](container-registry-tasks-reference-yaml.md). Det första exemplet på flera steg i den här självstudien definieras i filen `taskmulti.yaml` , som finns i roten av GitHub-lagrings platsen som du har klonat:
 
 ```yml
 version: v1.0.0
@@ -61,7 +61,7 @@ steps:
 
 Den här aktiviteten i flera steg gör följande:
 
-1. Kör ett `build` steg för att bygga en avbildning från Dockerfile i arbets katalogen. Bilden är riktad `Run.Registry`mot, registret där aktiviteten körs och är Taggad med ett unikt ACR-ID för aktiviteter. 
+1. Kör ett `build` steg för att bygga en avbildning från Dockerfile i arbets katalogen. Bilden är riktad `Run.Registry` mot, registret där aktiviteten körs och är Taggad med ett unikt ACR-ID för aktiviteter. 
 1. Kör ett `cmd` steg för att köra avbildningen i en tillfällig behållare. Det här exemplet startar en långvarig behållare i bakgrunden och returnerar container-ID: t och stoppar sedan behållaren. I ett verkligt scenario kan du inkludera steg för att testa den behållare som körs för att säkerställa att den fungerar som den ska.
 1. I ett `push` steg skickar den avbildning som har skapats i körnings registret.
 
@@ -88,7 +88,7 @@ az acr task create \
     --git-access-token $GIT_PAT
 ```
 
-Den här uppgiften anger att en viss tids kod allokeras till *huvud* grenen i den databas `--context`som anges av, ACR-aktiviteter kommer att köra multi-Step-aktiviteten från koden i den grenen. YAML-filen som anges `--file` av från lagrings platsens rot definierar stegen. 
+Den här uppgiften anger att en viss tids kod allokeras till *huvud* grenen i den databas som anges av `--context` , ACR-aktiviteter kommer att köra multi-Step-aktiviteten från koden i den grenen. YAML-filen som anges av `--file` från lagrings platsens rot definierar stegen. 
 
 Utdata från kommandot [az acr task create][az-acr-task-create] liknar följande:
 
@@ -286,7 +286,7 @@ Om du vill skapa uppgiften behöver du namnet på registrerings servern för reg
 
 ### <a name="yaml-file"></a>YAML-fil
 
-Det andra exemplet på flera steg i den här självstudien definieras i filen `taskmulti-multiregistry.yaml`, som finns i roten av GitHub-lagrings platsen som du har klonat:
+Det andra exemplet på flera steg i den här självstudien definieras i filen `taskmulti-multiregistry.yaml` , som finns i roten av GitHub-lagrings platsen som du har klonat:
 
 ```yml
 version: v1.0.0
@@ -309,10 +309,10 @@ steps:
 Den här aktiviteten i flera steg gör följande:
 
 1. Kör två `build` steg för att bygga avbildningar från Dockerfile i arbets katalogen:
-    * Det första målet är `Run.Registry`, registret där aktiviteten körs och är märkt med körnings-ID: t för ACR Tasks. 
-    * Den andra är målet för registret som identifieras av värdet `regDate`för, som du anger när du skapar aktiviteten (eller genom att ange en `values.yaml` extern fil som `az acr task create`skickas till). Den här bilden är märkt med körnings datumet.
+    * Det första målet är `Run.Registry` , registret där aktiviteten körs och är märkt med körnings-ID: t för ACR Tasks. 
+    * Den andra är målet för registret som identifieras av värdet för `regDate` , som du anger när du skapar aktiviteten (eller genom att ange en extern `values.yaml` fil som skickas till `az acr task create` ). Den här bilden är märkt med körnings datumet.
 1. Kör ett `cmd` steg för att köra en av de inbyggda behållarna. Det här exemplet startar en långvarig behållare i bakgrunden och returnerar container-ID: t och stoppar sedan behållaren. I ett verkligt scenario kan du testa en behållare som körs för att säkerställa att den fungerar som den ska.
-1. I ett `push` steg skickar de avbildningar som har skapats, först till körnings registret, den andra till registret som identifieras av `regDate`.
+1. I ett `push` steg skickar de avbildningar som har skapats, först till körnings registret, den andra till registret som identifieras av `regDate` .
 
 ### <a name="task-command"></a>Uppgifts kommando
 
@@ -330,11 +330,11 @@ az acr task create \
 
 ### <a name="add-task-credential"></a>Lägg till autentiseringsuppgifter för aktivitet
 
-Om du vill skicka avbildningar till registret som identifieras med `regDate`värdet för använder du kommandot [AZ ACR Task Credential Add][az-acr-task-credential-add] för att lägga till inloggnings uppgifter för det registret till aktiviteten.
+Om du vill skicka avbildningar till registret som identifieras med värdet för `regDate` använder du kommandot [AZ ACR Task Credential Add][az-acr-task-credential-add] för att lägga till inloggnings uppgifter för det registret till aktiviteten.
 
 I det här exemplet rekommenderar vi att du skapar ett [huvud namn för tjänsten](container-registry-auth-service-principal.md) med åtkomst till registret som omfattas av *AcrPush* -rollen. Information om hur du skapar tjänstens huvud namn finns i det här [Azure CLI-skriptet](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
-Överför program-ID och lösen ord för tjänstens huvud `az acr task credential add` namn i följande kommando:
+Överför program-ID och lösen ord för tjänstens huvud namn i följande `az acr task credential add` kommando:
 
 ```azurecli-interactive
 az acr task credential add --name example2 \
@@ -356,7 +356,7 @@ az acr task run --registry $ACR_NAME --name example2
 
 Som standard strömmar kommandot `az acr task run` loggens utdata till konsolen när du kör kommandot. Som tidigare visar utdata förloppet för att köra varje aktivitets steg. Utdata komprimeras för att Visa viktiga steg.
 
-Resultat:
+Utdata:
 
 ```output
 Queued a run with ID: cf1g

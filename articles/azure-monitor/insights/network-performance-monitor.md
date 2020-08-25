@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326094"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798915"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
 
@@ -38,7 +38,9 @@ Mer information om de olika funktionerna som stöds av [övervakare av nätverks
 NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
 * Norra Europa
 * Europa, västra
+* Schweiz, norra
 * Frankrike, centrala
+* Sydafrika, norra
 * Kanada, centrala
 * USA, västra
 * USA, västra centrala
@@ -58,6 +60,7 @@ NPM kan övervaka anslutningar mellan nätverk och program i valfri del av värl
 * Sydkorea, centrala
 * Indien, centrala
 * AMERIKANSKA myndigheter i Virginia
+* AMERIKANSKA myndigheters Arizona
 * Kina, östra 2
 
 

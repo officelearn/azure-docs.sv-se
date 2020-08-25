@@ -6,10 +6,10 @@ ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 3c7b74d31bc3c4e2276cd52c8e6450630dc99bcd
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86058035"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudie: använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
@@ -38,9 +38,9 @@ Ytterligare resurser:
 * [Azure Deployment Manager REST API referens](/rest/api/deploymentmanager/).
 * [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -73,7 +73,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Verifiera och testa Azure-funktionen:
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 1. Öppna resurs gruppen.  Standard namnet är projekt namnet med **RG** tillagt.
 1. Välj app service från resurs gruppen.  Standard namnet på App Service är projekt namnet med **webapp** APPEND.
 1. Expandera **funktioner**och välj sedan **HttpTrigger1**.
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> `New-AzResourceGroupDeployment`är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. Om du vill kontrol lera distributionen använder du `Get-AZDeploymentManagerRollout` .  Se nästa procedur.
+> `New-AzResourceGroupDeployment` är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. Om du vill kontrol lera distributionen använder du `Get-AZDeploymentManagerRollout` .  Se nästa procedur.
 
 För att kontrol lera installations förloppet med följande PowerShell-skript:
 
@@ -348,7 +348,7 @@ Upprepa det här avsnittet om du vill distribuera om distributionen med URL: en 
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Bläddra till de nyligen skapade webbprogrammen under de nya resursgrupperna som skapades i samband med distributionen.
 3. Öppna webbprogrammet i en webbläsare. Kontrollera platsen och versionen för index.html-filen.
 

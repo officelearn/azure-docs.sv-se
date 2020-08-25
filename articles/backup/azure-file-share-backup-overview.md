@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289516"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757888"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -42,9 +42,9 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
     >[!NOTE]
     >Fil resurs data överförs inte till säkerhets kopierings tjänsten eftersom säkerhets kopierings tjänsten skapar och hanterar ögonblicks bilder som ingår i ditt lagrings konto, och säkerhets kopieringarna överförs till valvet.
 
-6. Du kan återställa innehållet i Azure-filresursen (enskilda filer eller hela resursen) från ögonblicks bilder som är tillgängliga på käll fil resursen. När åtgärden har Aktiver ATS hämtas ögonblicks bildens URL från metadatalagret och data visas och överförs från käll ögonblicks bilden till önskad mål fil resurs. 
+6. Du kan återställa innehållet i Azure-filresursen (enskilda filer eller hela resursen) från ögonblicks bilder som är tillgängliga på käll fil resursen. När åtgärden har Aktiver ATS hämtas ögonblicks bildens URL från metadatalagret och data visas och överförs från käll ögonblicks bilden till önskad mål fil resurs.
 
-7. Om du använder Azure File Sync, anger säkerhets kopierings tjänsten Azure File Sync-tjänsten Sök vägarna till filerna som återställs, vilket utlöser en ändrings identifierings process för bakgrunden på dessa filer. Alla filer som har ändrats synkroniseras till Server slut punkten. Den här processen sker parallellt med den ursprungliga återställningen till Azure-filresursen. 
+7. Om du använder Azure File Sync, anger säkerhets kopierings tjänsten Azure File Sync-tjänsten Sök vägarna till filerna som återställs, vilket utlöser en ändrings identifierings process för bakgrunden på dessa filer. Alla filer som har ändrats synkroniseras till Server slut punkten. Den här processen sker parallellt med den ursprungliga återställningen till Azure-filresursen.
 
 8. Övervaknings data för säkerhets kopierings-och återställnings jobbet skickas till Azure Backup övervaknings tjänsten. På så sätt kan du övervaka säkerhets kopiering av molnet för dina fil resurser på en enda instrument panel. Dessutom kan du också konfigurera aviseringar eller e-postaviseringar när säkerhets kopierings hälsan påverkas. E-postmeddelanden skickas via Azures e-posttjänst.
 

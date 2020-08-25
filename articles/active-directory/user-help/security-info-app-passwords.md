@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: e5ad882f172007e2563f832ec8eb61145cd0b36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9de054162a59b10fbd02bed9b3e84634ee12125b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744497"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799204"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Skapa applösenord från sidan säkerhets information (förhands granskning)
 
@@ -84,4 +84,4 @@ Om du inte längre behöver använda en app som kräver ett applösenord kan du 
 
 ## <a name="for-more-information"></a>Mer information
 
-- Mer information om sidan **säkerhets information** och hur du konfigurerar den finns i [Översikt över säkerhets information](user-help-security-info-overview.md)
+- Mer information om sidan **säkerhets information** och hur du konfigurerar den finns i [Översikt över säkerhets information](./security-info-setup-signin.md)

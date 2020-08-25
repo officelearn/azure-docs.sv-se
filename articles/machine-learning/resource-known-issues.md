@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 71457be4e572a0e04dfffd0689bfbd458f7c2622
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190496"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757293"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -121,6 +121,18 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
     pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
     ```
 
+* **Det gick inte att installera Azure Machine Learning SDK med ett undantag: ModuleNotFoundError: ingen modul med namnet ' ruamel ' eller ' ImportError: ingen modul med namnet ruamel. yaml '**
+   
+   Det här problemet uppstår vid installationen av Azure Machine Learning SDK för python på den senaste pip-versionen (>20.1.1) i bas miljön för Conda för alla versioner av Azure Machine Learning SDK för python. Se följande lösningar:
+
+    * Undvik att installera python SDK i Conda-bas miljön, i stället för att skapa din Conda-miljö och installera SDK på den nyligen skapade användar miljön. Den senaste pip-versionen bör fungera på den nya Conda-miljön.
+
+    * För att skapa avbildningar i Docker, där du inte kan växla bort från Conda-bas miljön, måste du fästa pip<= 20.1.1 i Docker-filen.
+
+    ```Python
+    conda install -c r -y conda python=3.6.2 pip=20.1.1
+    ```
+    
 * **Databricks-problem vid installation av paket**
 
     Azure Machine Learning SDK-installationen Miss lyckas på Azure Databricks när fler paket är installerade. Vissa paket, till exempel `psutil` , kan orsaka konflikter. Undvik installations fel genom att installera paket genom att frysa biblioteks versionen. Det här problemet är relaterat till Databricks och inte till Azure Machine Learning SDK. Du kan också uppleva det här problemet med andra bibliotek. Exempel:
@@ -214,7 +226,7 @@ Begränsningar och kända problem för data avvikelse Övervakare:
 * Data uppsättnings övervakare fungerar bara på data uppsättningar som innehåller 50 rader eller mer.
 * Kolumner eller funktioner i data uppsättningen klassificeras som kategoriska eller numeriska baserat på villkoren i följande tabell. Om funktionen inte uppfyller dessa villkor, t. ex. en kolumn av typen String med >100 unika värden, släpps funktionen från vår algoritm för data avvikelser, men är fortfarande profilerad. 
 
-    | Funktions typ | Datatyp | Villkor | Begränsningar | 
+    | Funktions typ | Datatyp | Condition (Väderförhållanden) | Begränsningar | 
     | ------------ | --------- | --------- | ----------- |
     | Kategoriska | sträng, bool, int, Float | Antalet unika värden i funktionen är mindre än 100 och mindre än 5% av antalet rader. | Null behandlas som sin egen kategori. | 
     | Numeriska | int, Float | Värdena i funktionen är av en numerisk datatyp och uppfyller inte villkoret för en kategoriska-funktion. | Funktionen utelämnas om >15% av värdena är null. | 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 555da74da65f3b1897a276cf819a263334cfa053
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80999046"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Självstudie: skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program
@@ -23,7 +23,7 @@ Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter
 
 Enheter använder telemetri för att skicka numeriska data från enheten. En regel utlöses när den valda enhetens telemetri korsar ett angivet tröskelvärde.
 
-I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en simulerad miljö&deg; sensor enhet överskrider 70 F.
+I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en simulerad miljö sensor enhet överskrider 70 &deg; F.
 
 I den här guiden får du lära dig att:
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Skapa en regel
 > * Lägg till en e-poståtgärd
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar fyller du i [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md) och [lägger till en simulerad enhet i IoT Central](./quick-create-simulated-device.md) snabb starter för att skapa **MXChip IoT DevKit** Device-mallen för att arbeta med.
 
@@ -56,13 +56,13 @@ För att skapa en telemetri-regel måste enhets mal len innehålla minst ett tel
 
 ### <a name="configure-the-rule-conditions"></a>Konfigurera regel villkoren
 
-Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln för att utlösa när temperaturen överskrider&deg; 70 F.
+Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln för att utlösa när temperaturen överskrider 70 &deg; F.
 
 1. Välj **temperatur** i list rutan för **telemetri** .
 
 1. Sedan väljer du **är större än** som **Operator** och anger _70_ som **värde**.
 
-    ![Villkor](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
+    ![Condition (Väderförhållanden)](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Du kan också ange en **tids agg regering**. När du väljer en tids agg regering måste du också välja en agg regerings typ, till exempel Average eller sum, från List rutan agg regering.
 
@@ -71,7 +71,7 @@ Villkor definierar de kriterier som regeln övervakar. I den här självstudien 
 
      ![Samlings villkor](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
-Du kan lägga till flera villkor i en regel genom att välja **+ villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för att regeln ska kunna utlösas. Varje villkor är anslutet av en `AND` implicit sats. Om du använder tids agg regering med flera villkor måste alla värden för telemetri aggregeras.
+Du kan lägga till flera villkor i en regel genom att välja **+ villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för att regeln ska kunna utlösas. Varje villkor är anslutet av en implicit `AND` sats. Om du använder tids agg regering med flera villkor måste alla värden för telemetri aggregeras.
 
 ### <a name="configure-actions"></a>Konfigurera åtgärder
 

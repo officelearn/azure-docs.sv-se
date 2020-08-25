@@ -2,13 +2,13 @@
 title: App schema definition
 description: LUIS-appen representeras antingen i `.json` eller `.lu` och innehåller alla avsikter, entiteter, exempel yttranden, funktioner och inställningar.
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 08/22/2020
+ms.openlocfilehash: 816a6c50129f37a55ab3dba72319358e832a6b8b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684354"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756796"
 ---
 # <a name="app-schema-definition"></a>App schema definition
 
@@ -55,12 +55,30 @@ När du importerar och exporterar appen väljer du antingen `.json` eller `.lu` 
   "tokenizerVersion": "1.0.0",
   "patternAnyEntities": [],
   "regex_entities": [],
-  "phraselists": [],
+  "phraselists": [
+  ],
   "regex_features": [],
   "patterns": [],
   "settings": []
 }
 ```
+
+| brevpost                  | Kommentar                              |
+|--------------------------|--------------------------------------|
+| "hierarkiskt": [],     | Föråldrad använder du [enheter för maskin inlärning](luis-concept-entity-types.md).   |
+| "sammansatta": [],        | Föråldrad använder du [enheter för maskin inlärning](luis-concept-entity-types.md). [Sammansatt entitetsreferens](reference-entity-composite.md) . |
+| "closedLists": [],       | [Lista entitets](reference-entity-list.md) -referens, används främst som funktioner till entiteter.    |
+| "versionId": "0,1",      | Version av en LUIS-app.|
+| "namn": "exempel-App",   | Namnet på LUIS-appen. |
+| "DESC": "",              | Valfri beskrivning av LUIS-appen.  |
+| "kultur": "en-US",      | Appens [språk](luis-language-support.md) , påverkar underliggande funktioner, till exempel färdiga entiteter, maskin inlärning och tokenizer.  |
+| "tokenizerVersion": "1.0.0", | [Tokenizer](luis-language-support.md#tokenization)  |
+| "patternAnyEntities": [],   | [Entiteten Pattern.any](reference-entity-pattern-any.md)    |
+| "regex_entities": [],    |  [Entitet för reguljära uttryck](reference-entity-regular-expression.md)   |
+| "phraselists": [],       |  [Fras listor (funktion)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Föråldrad använder du [enheter för maskin inlärning](luis-concept-entity-types.md). |
+| "mönster": [],          |  [Mönster förbättrar förutsägelse noggrannhet](luis-concept-patterns.md) med [mönstermatchningssyntax](reference-pattern-syntax.md)   |
+| "Inställningar": []           | [Appinställningar](luis-reference-application-settings.md)|
 
 ## <a name="version-6x"></a>Version 6. x
 

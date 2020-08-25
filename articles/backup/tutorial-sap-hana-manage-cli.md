@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du hanterar säkerhe
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489443"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757361"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: hantera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -80,7 +80,7 @@ cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 
 ## <a name="protect-new-databases-added-to-an-sap-hana-instance"></a>Skydda nya databaser som läggs till i en SAP HANA-instans
 
-[När en SAP HANA-instans registreras med ett Recovery Services-valv](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) upptäcks automatiskt alla databaser på den här instansen.
+[När du registrerar en SAP HANA-instans med ett Recovery Services-valv](tutorial-sap-hana-backup-cli.md#register-and-protect-the-sap-hana-instance) identifieras automatiskt alla databaser på den här instansen.
 
 I de fall då nya databaser läggs till i SAP HANA-instansen senare, använder du cmdleten [AZ backup protectable-item Initialize](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-initialize) . Den här cmdleten identifierar de nya databaserna som lagts till.
 
@@ -91,7 +91,7 @@ az backup protectable-item initialize --resource-group saphanaResourceGroup \
     --workload-type SAPHANA
 ```
 
-Använd sedan cmdleten [AZ backup Protected-item List](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) för att visa en lista över alla databaser som har identifierats på din SAP HANA-instans. Den här listan utesluter dock de databaser där säkerhets kopiering redan har kon figurer ATS. När databasen som ska säkerhets kopie ras identifieras, se [Aktivera säkerhets kopiering på SAP HANA databas](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
+Använd sedan cmdleten [AZ backup Protected-item List](/cli/azure/backup/protectable-item?view=azure-cli-latest#az-backup-protectable-item-list) för att visa en lista över alla databaser som har identifierats på din SAP HANA-instans. Den här listan utesluter dock de databaser där säkerhets kopiering redan har kon figurer ATS. När databasen som ska säkerhets kopie ras identifieras, se  [Aktivera säkerhets kopiering på SAP HANA databas](tutorial-sap-hana-backup-cli.md#enable-backup-on-sap-hana-database).
 
 ```azurecli-interactive
 az backup protectable-item list --resource-group saphanaResourceGroup \

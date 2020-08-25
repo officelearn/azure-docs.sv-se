@@ -13,12 +13,12 @@ ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b76e84f6ae2449347604ab823fde5b74d5c68f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df3941c895ce67862eb53b8e96bc7a6d53c1ed02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741001"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799425"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Eventuella korrigeringar för fel meddelandet "du kan inte ta dig dit härifrån"
 
@@ -50,7 +50,7 @@ Om du får det **här meddelandet kan du inte se** att enheten är inkompatibel 
 ![Fel meddelande som rör om du är i nätverket](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>Kontrol lera om enheten är ansluten till nätverket
-1. Logga in i Windows med ditt arbets-eller skol konto. Till exempel alain@contoso.com.
+1. Logga in i Windows med ditt arbets-eller skol konto. Exempelvis alain@contoso.com.
 
 2. Anslut till din organisations nätverk via ett virtuellt privat nätverk (VPN) eller DirectAccess.
 
@@ -68,6 +68,6 @@ Om enheten inte är ansluten till din organisations nätverk kan du göra något
 - **Registrera din personliga enhet för arbete.** Registrera din personliga enhet, vanligt vis en telefon eller surfplatta, på organisationens nätverk. När enheten har registrerats kan den komma åt din organisations begränsade resurser. Mer information och stegvisa anvisningar finns i [Registrera din personliga enhet i din organisations nätverk](user-help-register-device-on-network.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Vad är portalen för Mina appar?](active-directory-saas-access-panel-introduction.md)
+- [Vad är portalen för Mina appar?](./my-apps-portal-end-user-access.md)
 
 - [Logga in med telefonen, inte med ditt lösenord](user-help-auth-app-sign-in.md)

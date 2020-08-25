@@ -3,14 +3,14 @@ title: Diagnostik i Durable Functions – Azure
 description: Lär dig hur du diagnostiserar problem med Durable Functions-tillägget för Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ae721d2a8df981ecf9ab8e8b04d0e0d287d523cd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081822"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750696"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -28,7 +28,7 @@ Varje livs cykel händelse i en Orchestration-instans gör att en spårnings hä
 
 * **hubName**: namnet på den aktivitets hubb som dirigeringarna körs i.
 * **APPNAME**: namnet på Function-appen. Det här fältet är användbart när du har flera Function-appar som delar samma Application Insights-instans.
-* **slotName**: [distributions platsen](../functions-deployment-slots.md) där den aktuella Function-appen körs. Det här fältet är användbart när du använder distributions platser för att få en version av ditt dirigering.
+* **slotName**: [distributions platsen](../functions-deployment-slots.md) där den aktuella Function-appen körs. Det här fältet är användbart när du använder distributions platser för att välja version för ditt dirigering.
 * **functionname**: namnet på Orchestrator-eller Activity-funktionen.
 * **functionType**: typen av funktion, till exempel **Orchestrator** eller **Activity**.
 * **InstanceID**: det unika ID: t för Orchestration-instansen.
@@ -88,7 +88,7 @@ Om du vill aktivera sändning av utförliga Dirigerings händelser `LogReplayEve
 
 #### <a name="functions-20"></a>Functions 2,0
 
-```javascript
+```json
 {
     "extensions": {
         "durableTask": {
@@ -103,9 +103,9 @@ Om du vill aktivera sändning av utförliga Dirigerings händelser `LogReplayEve
 
 ### <a name="single-instance-query"></a>Fråga för enskild instans
 
-I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello-sekvensen](durable-functions-sequence.md) . Det skrivs med hjälp av [AIQL (Application Insights Query Language)](https://aka.ms/LogAnalyticsLanguageReference). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan:
+I följande fråga visas historiska spårnings data för en enda instans av funktionen Orchestration i [Hello-sekvensen](durable-functions-sequence.md) . Det skrivs med hjälp av [Kusto-frågespråket](/azure/data-explorer/kusto/query/). Den filtrerar fram uppspelnings körningen så att bara den *logiska* körnings Sök vägen visas. Händelser kan sorteras genom att sortera efter `timestamp` och `sequenceNumber` som visas i frågan nedan:
 
-```AIQL
+```kusto
 let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
 let start = datetime(2018-03-25T09:20:00);
 traces
@@ -124,13 +124,13 @@ traces
 
 Resultatet är en lista över spårnings händelser som visar körnings vägen för dirigeringen, inklusive alla aktivitets funktioner ordnade efter körnings tiden i stigande ordning.
 
-![Application Insights fråga](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+![Beställd fråga för Application Insights enskild instans](./media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
 
 ### <a name="instance-summary-query"></a>Instans sammanfattnings fråga
 
 Följande fråga visar status för alla Dirigerings instanser som kördes inom ett angivet tidsintervall.
 
-```AIQL
+```kusto
 let start = datetime(2017-09-30T04:30:00);
 traces
 | where timestamp > start and timestamp < start + 1h
@@ -148,13 +148,61 @@ traces
 
 Resultatet är en lista över instans-ID: n och deras aktuella körnings status.
 
-![Application Insights fråga](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
+![Application Insights enskild instans fråga](./media/durable-functions-diagnostics/app-insights-single-summary-query.png)
 
-## <a name="logging"></a>Loggning
+## <a name="durable-task-framework-logging"></a>Beständiga aktivitets Ramverks loggning
+
+De varaktiga tilläggs loggarna är användbara för att förstå hur din organisations logik fungerar. Dessa loggar innehåller dock inte alltid tillräckligt med information för att felsöka problem med prestanda och tillförlitlighet på Ramverks nivå. Från och med **v-2.3.0** av det varaktiga tillägget är de loggar som genereras av det underliggande DTFx-ramverket också tillgängliga för insamling.
+
+När du tittar på loggar som skickats av DTFx är det viktigt att förstå att DTFx-motorn består av två komponenter: kärn sändnings motorn ( `DurableTask.Core` ) och en av många leverantörer som stöds (Durable Functions använder `DurableTask.AzureStorage` som standard).
+
+* **DurableTask. Core**: innehåller information om Orchestration-körning och schemaläggning på låg nivå.
+* **DurableTask. AzureStorage**: innehåller information som rör interaktioner med Azure Storage artefakter, inklusive interna köer, blobbar och lagrings tabeller som används för att lagra och hämta interna Orchestration-tillstånd.
+
+Du kan aktivera dessa loggar genom att uppdatera `logging/logLevel` avsnittet i appens funktions program **host.jspå** fil. I följande exempel visas hur du aktiverar varnings-och fel loggar från både `DurableTask.Core` och `DurableTask.AzureStorage` :
+
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "DurableTask.AzureStorage": "Warning",
+      "DurableTask.Core": "Warning"
+    }
+  }
+}
+```
+
+Om du Application Insights aktive rad läggs loggarna automatiskt till i `trace` samlingen. Du kan söka på dem på samma sätt som du söker efter andra `trace` loggar med Kusto-frågor.
+
+> [!NOTE]
+> För produktions program rekommenderar vi att du aktiverar `DurableTask.Core` och `DurableTask.AzureStorage` loggar med hjälp av `"Warning"` filtret. Högre utförliga filter, som `"Information"` är mycket användbara för fel sökning av prestanda problem. Dessa logg händelser är dock höga och ökar avsevärt Application Insights kostnader för data lagring.
+
+Följande Kusto-fråga visar hur du frågar efter DTFx-loggar. Den viktigaste delen av frågan är sedan den `where customerDimensions.Category startswith "DurableTask"` som filtrerar resultaten till loggar i `DurableTask.Core` `DurableTask.AzureStorage` kategorierna och.
+
+```kusto
+traces
+| where customDimensions.Category startswith "DurableTask"
+| project
+    timestamp,
+    severityLevel,
+    Category = customDimensions.Category,
+    EventId = customDimensions.EventId,
+    message,
+    customDimensions
+| order by timestamp asc 
+```
+Resultatet är en uppsättning loggar som skrivits av de ständiga aktivitets strukturernas logg leverantörer.
+
+![Application Insights DTFx frågeresultat](./media/durable-functions-diagnostics/app-insights-dtfx.png)
+
+Mer information om vilka logg händelser som är tillgängliga finns i den [varaktiga aktivitets ramverket som är strukturerade loggnings dokumentation på GitHub](https://github.com/Azure/durabletask/tree/master/src/DurableTask.Core/Logging#durabletaskcore-logging).
+
+## <a name="app-logging"></a>Loggning av app
 
 Det är viktigt att du behåller Orchestrator-omuppspelnings beteendet i åtanke när du skriver loggar direkt från en Orchestrator-funktion. Överväg till exempel följande Orchestrator-funktion:
 
-### <a name="precompiled-c"></a>Förkompilerad C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -172,24 +220,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="c-script"></a>C#-skript
-
-```csharp
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,6 +235,26 @@ module.exports = df.orchestrator(function*(context){
     context.log("Done!");
 });
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
 
 De resulterande loggdata kommer att se ut ungefär som i följande exempel på utdata:
 
@@ -223,9 +274,9 @@ Done!
 > [!NOTE]
 > Kom ihåg att även om loggarna som ska anropa F1, F2 och F3, så kallas dessa funktioner *bara första* gången de påträffas. Efterföljande anrop som sker under uppspelningen hoppas över och utdata spelas upp i Orchestrator-logiken.
 
-Om du bara vill logga in på en icke-omuppspelnings körning kan du skriva ett villkors uttryck för att endast logga om `IsReplaying` är `false` . Överväg exemplet ovan, men den här gången med repetitions kontroller.
+Om du bara vill skriva loggar vid icke-omuppspelnings körningar kan du skriva ett villkors uttryck för att endast logga om flaggan "spelar upp" är `false` . Överväg exemplet ovan, men den här gången med repetitions kontroller.
 
-#### <a name="precompiled-c"></a>Förkompilerad C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -243,40 +294,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="c"></a>C#
-
-```cs
-public static async Task Run(
-    IDurableOrchestrationContext context,
-    ILogger log)
-{
-    if (!context.IsReplaying) log.LogInformation("Calling F1.");
-    await context.CallActivityAsync("F1");
-    if (!context.IsReplaying) log.LogInformation("Calling F2.");
-    await context.CallActivityAsync("F2");
-    if (!context.IsReplaying) log.LogInformation("Calling F3");
-    await context.CallActivityAsync("F3");
-    log.LogInformation("Done!");
-}
-```
-
-#### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
-
-```javascript
-const df = require("durable-functions");
-
-module.exports = df.orchestrator(function*(context){
-    if (!context.df.isReplaying) context.log("Calling F1.");
-    yield context.df.callActivity("F1");
-    if (!context.df.isReplaying) context.log("Calling F2.");
-    yield context.df.callActivity("F2");
-    if (!context.df.isReplaying) context.log("Calling F3.");
-    yield context.df.callActivity("F3");
-    context.log("Done!");
-});
-```
-
-Från och med Durable Functions 2,0 har .NET Orchestrator-funktioner även möjlighet att skapa en `ILogger` som automatiskt filtrerar ut logg instruktioner under uppspelningen. Denna automatiska filtrering görs med hjälp av `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` API: et.
+Från och med Durable Functions 2,0 har .NET Orchestrator-funktioner även möjlighet att skapa en `ILogger` som automatiskt filtrerar ut logg instruktioner under uppspelningen. Denna automatiska filtrering görs med hjälp av [ILogger-API: et (IDurableOrchestrationContext. CreateReplaySafeLogger)](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durablecontextextensions.createreplaysafelogger) .
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -295,6 +313,49 @@ public static async Task Run(
 }
 ```
 
+> [!NOTE]
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    if not context.is_replaying:
+        logging.info("Calling F1.")
+    yield context.call_activity("F1")
+    if not context.is_replaying:
+        logging.info("Calling F2.")
+    yield context.call_activity("F2")
+    if not context.is_replaying:
+        logging.info("Calling F3.")
+    yield context.call_activity("F3")
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Med de tidigare nämnda ändringarna ser loggen ut så här:
 
 ```txt
@@ -304,14 +365,11 @@ Calling F3.
 Done!
 ```
 
-> [!NOTE]
-> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
-
 ## <a name="custom-status"></a>Anpassad status
 
-Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här statusen tillhandahålls via HTTP-status frågans API eller `IDurableOrchestrationClient.GetStatusAsync` API: et. Den anpassade Orchestration-statusen möjliggör bättre övervakning av Orchestrator-funktioner. Till exempel kan Orchestrator-funktions koden innehålla `IDurableOrchestrationContext.SetCustomStatus` anrop för att uppdatera förloppet för en tids krävande åtgärd. En klient, till exempel en webb sida eller ett annat externt system, kan sedan regelbundet fråga HTTP-status frågans API: er för mer information om förloppet. Ett exempel `IDurableOrchestrationContext.SetCustomStatus` som använder finns nedan:
+Med anpassad Orchestration-status kan du ange ett anpassat status värde för din Orchestrator-funktion. Den här anpassade statusen visas sedan för externa klienter via [http-status frågans API](durable-functions-http-api.md#get-instance-status) eller via SPRÅKspecifika API-anrop. Den anpassade Orchestration-statusen möjliggör bättre övervakning av Orchestrator-funktioner. Till exempel kan Orchestrator-funktions koden anropa API: et "ange anpassad status" för att uppdatera förloppet för en tids krävande åtgärd. En klient, till exempel en webb sida eller ett annat externt system, kan sedan regelbundet fråga HTTP-status frågans API: er för mer information om förloppet. Exempel kod för att ange ett anpassat status värde i en Orchestrator-funktion anges nedan:
 
-### <a name="precompiled-c"></a>Förkompilerad C #
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -330,7 +388,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 > [!NOTE]
 > Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext` . Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-### <a name="javascript-functions-20-only"></a>Java Script (endast Functions 2,0)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -346,10 +404,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import logging
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    # ...do work...
+
+    # update the status of the orchestration with some arbitrary data
+    custom_status = {'completionPercentage': 90.0, 'status': 'Updating database records'}
+    context.set_custom_status(custom_status)
+    # ...do more work...
+
+    return None
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+---
+
 Medan dirigeringen körs kan externa klienter hämta den anpassade statusen:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/instance123
+GET /runtime/webhooks/durabletask/instances/instance123?code=XYZ
 
 ```
 
@@ -379,7 +459,7 @@ Azure Functions stöder fel söknings funktions kod direkt och samma stöd vidar
 * **Stoppa och starta**: meddelanden i varaktiga funktioner kvarstår mellan fel söknings sessioner. Om du slutar felsöka och avslutar den lokala värd processen medan en varaktig funktion körs, kan den funktionen köras igen automatiskt i en framtida felsökningssession. Det här beteendet kan vara förvirrande när det inte förväntas. Att rensa alla meddelanden från [interna lagrings köer](durable-functions-perf-and-scale.md#internal-queue-triggers) mellan fel söknings sessioner är en teknik för att undvika det här beteendet.
 
 > [!TIP]
-> Om du ställer in Bryt punkter i Orchestrator-funktioner, om du bara vill bryta vid icke-omuppspelningar, kan du ange en villkorlig Bryt punkt som bara delar om `IsReplaying` är `false` .
+> Om du ställer in Bryt punkter i Orchestrator-funktioner, och om du bara vill bryta vid icke-omuppspelningar, kan du ange en villkorlig Bryt punkt som bara bryts om värdet "' spelas upp ' är `false` .
 
 ## <a name="storage"></a>Storage
 

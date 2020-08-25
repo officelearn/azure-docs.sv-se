@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83745722"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799493"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din arbets enhet till din organisations nätverk
 Anslut din arbetsägda Windows 10-enhet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -27,9 +27,9 @@ När du ansluter till din Windows 10-enhet till din organisations nätverk sker 
 
 - Windows registrerar din enhet i din organisations nätverk, så att du kan komma åt dina resurser med ditt personliga konto. När enheten har registrerats ansluter Windows enheten till nätverket så att du kan använda din organisations användar namn och lösen ord för att logga in och få åtkomst till begränsade resurser.
 
-- Om du vill, baserat på din organisations val, kan du uppmanas att konfigurera tvåstegsverifiering genom antingen [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) eller [säkerhets information](user-help-security-info-overview.md).
+- Om du vill, baserat på din organisations val, kan du uppmanas att konfigurera tvåstegsverifiering genom antingen [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) eller [säkerhets information](./security-info-setup-signin.md).
 
-- Du kan också, beroende på din organisations val, registreras automatiskt i hantering av mobila enheter, t. ex. Microsoft Intune. Mer information om hur du registrerar i Microsoft Intune finns i [Registrera din enhet i Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Du kan också, beroende på din organisations val, registreras automatiskt i hantering av mobila enheter, t. ex. Microsoft Intune. Mer information om hur du registrerar i Microsoft Intune finns i [Registrera din enhet i Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - Du går igenom inloggnings processen med hjälp av automatisk inloggning med ditt organisations konto.
 
@@ -91,7 +91,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 
     ![Skärmen för mobila meddelanden](./media/user-help-join-device-on-network/join-device-setup-mobile.png)
 
-7. På skärmen **kontrol lera att det här är din organisation** , granskar du informationen för att se till att den är rätt och väljer sedan **Anslut**.
+7. På skärmen  **kontrol lera att det här är din organisation** , granskar du informationen för att se till att den är rätt och väljer sedan **Anslut**.
 
     ![Kontrol lera att det här är din organisations verifierings skärm](./media/user-help-join-device-on-network/join-device-setup-confirm.png)
 
@@ -115,4 +115,4 @@ När du har anslutit enheten till din organisations nätverk, bör du kunna komm
 
 - Om din organisation vill registrera din personliga enhet, till exempel din telefon, kan du läsa [Registrera din personliga enhet i din organisations nätverk](user-help-register-device-on-network.md).
 
-- Om din organisation hanteras med hjälp av Microsoft Intune och du har frågor om registrering, inloggning eller andra Intune-relaterade problem kan du läsa mer i [användar hjälpen för Intune](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- Om din organisation hanteras med hjälp av Microsoft Intune och du har frågor om registrering, inloggning eller andra Intune-relaterade problem kan du läsa mer i [användar hjälpen för Intune](/intune-user-help/use-managed-devices-to-get-work-done).

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 17430330d068fb55b45f073afecb8ba348286cb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e16d77c36f382e72d5e9902b07afbbec50b6876
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77472679"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723265"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
-Diagnostikdata lagras inte permanent om du inte överför den till Microsoft Azure Storage-emulatorn eller till Azure Storage. En gång i lagret kan visas med ett av flera tillgängliga verktyg.
+Diagnostikdata lagras inte permanent om du inte överför den till Microsoft Azure Storage-emulator eller Azure Storage. En gång i lagret kan visas med ett av flera tillgängliga verktyg.
 
 ## <a name="specify-a-storage-account"></a>Ange ett lagrings konto
 Du anger det lagrings konto som du vill använda i filen ServiceConfiguration. cscfg. Konto informationen definieras som en anslutnings sträng i en konfigurations inställning. I följande exempel visas standard anslutnings strängen som skapats för ett nytt moln tjänst projekt i Visual Studio:

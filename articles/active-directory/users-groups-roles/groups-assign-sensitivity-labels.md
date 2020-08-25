@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f80b986a9d1a3b2be9aa413ce4175d8eb88bc4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213831"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795324"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory
 
-Azure Active Directory (Azure AD) stöder användning av känslighets etiketter som publiceras av [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) för att Microsoft 365 grupper. Känslighets etiketter gäller för grupp över tjänster som Outlook, Microsoft Teams och SharePoint. Den här funktionen finns för närvarande i offentlig GA. Mer information om stöd för Office 365-appar finns i [office 365-stöd för känslighets etiketter](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) stöder användning av känslighets etiketter som publiceras av [Microsoft 365 Compliance Center](https://sip.protection.office.com/homepage) för att Microsoft 365 grupper. Känslighets etiketter gäller för grupp över tjänster som Outlook, Microsoft Teams och SharePoint. Den här funktionen finns för närvarande i offentlig GA. Mer information om stöd för Office 365-appar finns i [office 365-stöd för känslighets etiketter](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Om du vill konfigurera den här funktionen måste det finnas minst en aktiv Azure Active Directory Premium P1-licens i din Azure AD-organisation.
@@ -48,7 +48,7 @@ Om du vill tillämpa publicerade etiketter på grupper måste du först aktivera
     ```
 
     > [!NOTE]
-    > Om inga grupp inställningar har skapats för den här Azure AD-organisationen måste du först skapa inställningarna. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera grupp inställningar](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-cmdlets) för att skapa grupp inställningar för den här Azure AD-organisationen.
+    > Om inga grupp inställningar har skapats för den här Azure AD-organisationen måste du först skapa inställningarna. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera grupp inställningar](./groups-settings-cmdlets.md) för att skapa grupp inställningar för den här Azure AD-organisationen.
 
 1. Sedan visar du de aktuella grupp inställningarna.
 
@@ -145,7 +145,7 @@ Om du måste göra en ändring använder du ett [Azure AD PowerShell-skript](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Använd känslighets etiketter med Microsoft Teams, Microsoft 365 grupper och SharePoint-webbplatser](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
+- [Använd känslighets etiketter med Microsoft Teams, Microsoft 365 grupper och SharePoint-webbplatser](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Uppdatera grupper efter att etikett policyn ändrats manuellt med Azure AD PowerShell-skriptet](https://github.com/microsoftgraph/powershell-aad-samples/blob/master/ReassignSensitivityLabelToO365Groups.ps1)
-- [Redigera dina gruppinställningar](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal)
-- [Hantera grupper med PowerShell-kommandon](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-settings-v2-cmdlets)
+- [Redigera dina gruppinställningar](../fundamentals/active-directory-groups-settings-azure-portal.md)
+- [Hantera grupper med PowerShell-kommandon](./groups-settings-v2-cmdlets.md)

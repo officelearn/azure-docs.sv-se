@@ -3,20 +3,20 @@ title: Säkerhetskopiera Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att säkerhetskopiera Azure-filresurser i Recovery Services valvet
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 273c8fadc25ed60ba9fb57ec69bda0b59f155f87
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514449"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763277"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Säkerhetskopiera Azure-filresurser med CLI
 
 Kommando rads gränssnittet för Azure (CLI) tillhandahåller kommando tolken för att hantera Azure-resurser. Det är ett bra verktyg för att skapa anpassad automatisering för att använda Azure-resurser. Den här artikeln beskriver hur du säkerhetskopierar Azure-filresurser med Azure CLI. Du kan också utföra de här stegen med [Azure PowerShell](./backup-azure-afs-automation.md) eller [Azure Portal](backup-afs.md).
 
-I slutet av den här självstudien får du lära dig hur du utför följande åtgärder med Azure CLI:
+I slutet av den här självstudien får du lära dig hur du utför åtgärderna nedan med Azure CLI:
 
-* Skapa ett Recovery Services-valv
+* skapar ett Recovery Services-valv
 * Aktivera säkerhets kopiering för Azure-filresurser
 * Utlös en säkerhets kopiering på begäran för fil resurser
 
@@ -24,9 +24,9 @@ I slutet av den här självstudien får du lära dig hur du utför följande åt
 
 Om du vill installera och använda CLI lokalt måste du köra Azure CLI version 2.0.18 eller senare. För att hitta CLI-versionen, `run az --version` . Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-Ett Recovery Service-valv är en entitet som ger dig en samlad vy och hanterings funktion för alla säkerhets kopierings objekt. När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
+Ett Recovery Services valv är en entitet som ger dig en samlad vy och hanterings funktion för alla säkerhets kopierings objekt. När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
 Följ de här stegen för att skapa ett Recovery Services-valv:
 

@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252788"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Självstudie: Skapa containeravbildningar i ett Service Fabric-kluster i Linux
@@ -31,7 +31,7 @@ I den här självstudieserien får du lära du dig att:
 > * [Skapa och köra ett Service Fabric-program med containrar](service-fabric-tutorial-package-containers.md)
 > * [Hantera redundans och skalning i Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Linux-utvecklingsmiljö konfigurerad för Service Fabric. Följ instruktionerna [här](service-fabric-get-started-linux.md) för att konfigurera din Linux-miljö.
 * I den här självstudien krävs att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI]( /cli/azure/install-azure-cli).
@@ -98,7 +98,7 @@ Skapa en resursgrupp med kommandot **az group create**. I det här exemplet skap
 az group create --name <myResourceGroup> --location westus
 ```
 
-Skapa ett Azure Container Registry med kommandot **AZ ACR Create** . Ersätt \<acrName&gt; med namnet på containerregistret du vill skapa i din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
+Skapa ett Azure Container Registry med kommandot **AZ ACR Create** . Ersätt \<acrName> med namnet på det behållar register som du vill skapa under din prenumeration. Det här namnet måste vara alfanumeriskt och unikt.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
@@ -126,7 +126,7 @@ Om du vill se en lista med aktuella avbildningar använder du kommandot [docker 
 docker images
 ```
 
-Resultat:
+Utdata:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
@@ -156,7 +156,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 När taggningen är färdig verifierar du åtgärden genom att köra ”docker images”.
 
-Resultat:
+Utdata:
 
 ```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
@@ -186,7 +186,7 @@ Du kan returnera en lista med avbildningar som push-överförts till Azure-conta
 az acr repository list --name <acrName> --output table
 ```
 
-Resultat:
+Utdata:
 
 ```output
 Result

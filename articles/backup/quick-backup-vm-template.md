@@ -5,16 +5,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 5b2677e7b83c1d86fd12f8c89c51e95460e8694f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0a7dc470bf6392f55b55bfa99268bea4be57e78f
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690671"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757582"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>Snabb start: säkerhetskopiera en virtuell dator i Azure med en ARM-mall
 
-[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med en Azure Resource Manager-mall (ARM-mall) och Azure PowerShell. Den här snabb starten fokuserar på processen att distribuera en ARM-mall för att skapa ett återhämtnings tjänst valv. Mer information om hur du utvecklar ARM-mallar finns i [Azure Resource Manager-dokumentationen](../azure-resource-manager/index.yml) och [referensen till mallen](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) säkerhetskopierar lokala datorer och appar och virtuella Azure-datorer. Den här artikeln visar hur du säkerhetskopierar en virtuell Azure-dator med en Azure Resource Manager-mall (ARM-mall) och Azure PowerShell. Den här snabb starten fokuserar på processen att distribuera en ARM-mall för att skapa ett Recovery Services-valv. Mer information om hur du utvecklar ARM-mallar finns i [Azure Resource Manager-dokumentationen](../azure-resource-manager/index.yml) och [referensen till mallen](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

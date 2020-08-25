@@ -3,12 +3,12 @@ title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 4d8b8f6ca233c997bc2a94f88903d14009481d37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a60d1c412a36c5c2a7ca264eda524b5d5649f1a
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538861"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762750"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -47,7 +47,7 @@ Följande konfigurations-och registrerings uppgifter kan automatiseras med Power
 * Nätverks inställningar
 * Krypteringsinställningar
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Recovery Services-valv skiljer sig från ett säkerhets kopierings valv.
 
@@ -127,7 +127,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Information | Standard |
+| Alternativ | Information | Standardvärde |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |
@@ -177,7 +177,7 @@ När DPM-servern har registrerats med Recovery Services-valvet börjar den med s
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-Alla ändringar görs i det här lokala PowerShell-objektet ```$setting``` och det fullständiga objektet allokeras till DPM och Azure Backup att spara dem med cmdleten [set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Du måste använda ```–Commit``` flaggan för att se till att ändringarna är sparade. Inställningarna tillämpas inte och används av Azure Backup om det inte bekräftas.
+Alla ändringar görs i det här lokala PowerShell-objektet ```$setting```  och det fullständiga objektet allokeras till DPM och Azure Backup att spara dem med cmdleten [set-DPMCloudSubscriptionSetting](/powershell/module/dataprotectionmanager/set-dpmcloudsubscriptionsetting?view=systemcenter-ps-2019) . Du måste använda ```–Commit``` flaggan för att se till att ändringarna är sparade. Inställningarna tillämpas inte och används av Azure Backup om det inte bekräftas.
 
 ```powershell
 Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -323,10 +323,10 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 I exemplet ovan ```$onlineSch``` är en matris med fyra element som innehåller det befintliga Online Protection-schemat för skydds gruppen i gfs-schemat:
 
-1. ```$onlineSch[0]```innehåller det dagliga schemat
-2. ```$onlineSch[1]```innehåller vecko schemat
-3. ```$onlineSch[2]```innehåller månads schema
-4. ```$onlineSch[3]```innehåller års schema
+1. ```$onlineSch[0]``` innehåller det dagliga schemat
+2. ```$onlineSch[1]``` innehåller vecko schemat
+3. ```$onlineSch[2]``` innehåller månads schema
+4. ```$onlineSch[3]``` innehåller års schema
 
 Så om du behöver ändra vecko schema måste du referera till ```$onlineSch[1]``` .
 
@@ -354,8 +354,8 @@ Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 Du kan använda cmdleten [Get-DPMRecoveryPoint](/powershell/module/dataprotectionmanager/get-dpmrecoverypoint?view=systemcenter-ps-2019) för att hämta en lista över alla återställnings punkter för en data källa. I det här exemplet kommer vi att:
 
-* Hämta alla PGs på DPM-servern och lagrats i en matris```$PG```
-* Hämta de data källor som motsvarar```$PG[0]```
+* Hämta alla PGs på DPM-servern och lagrats i en matris ```$PG```
+* Hämta de data källor som motsvarar ```$PG[0]```
 * Hämta alla återställnings punkter för en data källa.
 
 ```powershell
@@ -370,7 +370,7 @@ Att återställa data är en kombination av ett ```RecoverableItem``` objekt och
 
 I exemplet nedan visar vi hur du återställer en virtuell Hyper-V-dator från Azure Backup genom att kombinera säkerhets kopierings punkter med målet för återställning. Det här exemplet innehåller:
 
-* Skapa ett återställnings alternativ med cmdleten [New-DPMRecoveryOption](/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) .
+* Skapa ett återställnings alternativ med cmdleten  [New-DPMRecoveryOption](/powershell/module/dataprotectionmanager/new-dpmrecoveryoption?view=systemcenter-ps-2019) .
 * Hämtar matrisen med säkerhets kopierings punkter med ```Get-DPMRecoveryPoint``` cmdleten.
 * Väljer en säkerhets kopierings punkt att återställa från.
 

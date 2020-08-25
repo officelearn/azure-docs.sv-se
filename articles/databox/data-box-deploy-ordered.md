@@ -2,18 +2,18 @@
 title: Självstudie för att beställa Azure Data Box | Microsoft Docs
 description: I den här självstudien får du lära dig mer om Azure Data Box, en hybrid lösning som gör att du kan importera lokala data till Azure och hur du beställer Azure Data Box.
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.author: v-grpr
-ms.openlocfilehash: 9f742af1a3c9ede4857e329697eb959a5a51dc95
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.author: twooley
+ms.openlocfilehash: 2000ecc84a92bef5ad6b80fecde4aee0157e4bc5
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926373"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783577"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -239,7 +239,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 6. I **ordning**går du till fliken **grundläggande** . Ange eller Välj följande information och välj **Nästa: data mål>**.
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Prenumeration      | Prenumerationen fylls i automatiskt baserat på din tidigare val.|
     |Resursgrupp    | Den resurs grupp som du valde tidigare. |
@@ -261,7 +261,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Om du använder Data Box-enhet för att skapa **hanterade diskar** från lokala virtuella hård diskar (VHD: er), måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
@@ -322,7 +322,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
    |utdata-o| Anger utdataformatet.  Tillåtna värden: JSON, jsonc, none, Table, TSV, yaml, yamlc. Standardvärdet är JSON. | --Output "JSON" |
-   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
+   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
 2. I kommando tolken för Choice eller Terminal använder du [data Box-jobbet AZ Create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) för att skapa din Azure Data boxs order.
@@ -509,7 +509,7 @@ Om du vill ha spårnings information om en enskild, befintlig Azure Data Box ord
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
    |utdata-o| Anger utdataformatet.  Tillåtna värden: JSON, jsonc, none, Table, TSV, yaml, yamlc. Standardvärdet är JSON. | --Output "JSON" |
-   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
+   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
    Här är ett exempel på kommandot med utdataformatet inställt på "Tabell":
@@ -550,7 +550,7 @@ I följande tabell visas parameter informationen för `az databox job list` :
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
    |utdata-o| Anger utdataformatet.  Tillåtna värden: JSON, jsonc, none, Table, TSV, yaml, yamlc. Standardvärdet är JSON. | --Output "JSON" |
-   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
+   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
    Här är ett exempel på kommandot med utdataformatet inställt på "Tabell":
@@ -580,7 +580,7 @@ I följande tabell visas parameter informationen för `az databox job list` :
 Kör [Get-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/Get-AzDataBoxJob)för att få spårnings information om en enskild, befintlig Azure Data boxs ordning. Kommandot visar information om ordningen, till exempel, men inte begränsat till: namn, resurs grupp, spårnings information, prenumerations-ID, kontakt information, leverans typ och enhets-SKU.
 
 > [!NOTE]
-> `Get-AzDataBoxJob`används för att visa både en och flera order. Skillnaden är att du anger ordnings namnet för enskilda beställningar.
+> `Get-AzDataBoxJob` används för att visa både en och flera order. Skillnaden är att du anger ordnings namnet för enskilda beställningar.
 
    ```azurepowershell
     Get-AzDataBoxJob -ResourceGroupName <String> -Name <String>
@@ -671,7 +671,7 @@ Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
    |utdata-o| Anger utdataformatet.  Tillåtna värden: JSON, jsonc, none, Table, TSV, yaml, yamlc. Standardvärdet är JSON. | --Output "JSON" |
-   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
+   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
    Här är ett exempel på kommandot med utdata:
@@ -708,7 +708,7 @@ Om du har avbrutit en Azure Data Box order kan du köra [AZ](https://docs.micros
    |Hjälp| Visa hjälp information för det här kommandot. | --hjälp-h |
    |endast-show-Errors| Visa endast fel, ignorera varningar. | --endast-show-Errors |
    |utdata-o| Anger utdataformatet.  Tillåtna värden: JSON, jsonc, none, Table, TSV, yaml, yamlc. Standardvärdet är JSON. | --Output "JSON" |
-   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga<string>|
+   |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
 Här är ett exempel på kommandot med utdata:

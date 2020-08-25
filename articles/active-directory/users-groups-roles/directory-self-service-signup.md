@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192709"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795350"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Vad är självbetjänings registrering för Azure Active Directory?
 
@@ -64,7 +64,7 @@ Om föregående villkor är uppfyllda skapas en medlems användare i arbets kata
 Mer information om flödes-och PowerApps för utvärderings registrering finns i följande artiklar:
 
 * [Hur förhindrar jag att mina befintliga användare börjar använda Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Vanliga frågor och svar om flöden i din organisation](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Vanliga frågor och svar om flöden i din organisation](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Hur fungerar kontrollerna tillsammans?
 Dessa två parametrar kan användas tillsammans för att definiera mer exakt kontroll över självbetjänings registrering. Följande kommando tillåter till exempel att användare utför självbetjänings registrering, men bara om dessa användare redan har ett konto i Azure AD (med andra ord kan användare som behöver ett e-postkonto som verifierats för att kunna skapa ett e-postkonto först inte utföra självbetjänings registrering):

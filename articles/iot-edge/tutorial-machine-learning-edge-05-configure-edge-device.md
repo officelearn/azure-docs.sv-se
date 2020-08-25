@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
 ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81733015"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
@@ -33,13 +33,13 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
 
 1. Logga in på din virtuella utvecklings dator.
 
-2. Skapa en ny mapp med sökvägen och namnet `c:\edgeCertificates`.
+2. Skapa en ny mapp med sökvägen och namnet `c:\edgeCertificates` .
 
 3. Om du inte redan kör startar du **Docker för Windows** från Start-menyn i Windows.
 
 4. Öppna Visual Studio Code.
 
-5. Välj **File** > **Öppna mapp för fil...** och välj **C\\:\\source\\IoTEdgeAndMlSample CreateCertificates**.
+5. Välj **File**  >  **Öppna mapp för fil...** och välj **C: \\ Source \\ IoTEdgeAndMlSample \\ CreateCertificates**.
 
 6. I Explorer-fönstret högerklickar du på **Dockerfile** och väljer **Bygg avbildning**.
 
@@ -58,17 +58,17 @@ I det här avsnittet skapar vi de självsignerade certifikaten med hjälp av en 
     docker run --name createcertificates --rm -v c:\edgeCertificates:/edgeCertificates createcertificates /edgeCertificates
     ```
 
-10. Docker kommer att uppmanas att få åtkomst till enheten **c:\\ ** . Välj **dela den**.
+10. Docker kommer att uppmanas att få åtkomst till enheten **c: \\ ** . Välj **dela den**.
 
 11. Ange dina autentiseringsuppgifter när du uppmanas till det.
 
-12. När behållaren har körts klart kontrollerar du att följande filer finns i **c:\\edgeCertificates**:
+12. När behållaren har körts klart kontrollerar du att följande filer finns i **c: \\ edgeCertificates**:
 
-    * c:\\edgeCertificates\\certifikat\\Azure-IoT-test-Only. root. ca. cert. pem
-    * c:\\edgeCertificates\\-\\certifikat New-Edge-Device-full-Chain. cert. pem
-    * c:\\edgeCertificates\\-\\certifikat New-Edge-Device. cert. pem
-    * c:\\edgeCertificates\\-\\certifikat New-Edge-Device. cert. pfx
-    * c:\\edgeCertificates\\Private\\New-Edge-Device. Key. pem
+    * c: \\ edgeCertificates \\ certifikat \\ Azure-IoT-test-Only. root. ca. cert. pem
+    * c: \\ edgeCertificates- \\ certifikat \\ New-Edge-Device-full-Chain. cert. pem
+    * c: \\ edgeCertificates- \\ certifikat \\ New-Edge-Device. cert. pem
+    * c: \\ edgeCertificates- \\ certifikat \\ New-Edge-Device. cert. pfx
+    * c: \\ edgeCertificates \\ Private \\ New-Edge-Device. Key. pem
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Ladda upp certifikat till Azure Key Vault
 
@@ -80,7 +80,7 @@ För att lagra våra certifikat säkert och för att göra dem tillgängliga fr�
 
     ![Kopiera nyckel valvs namn](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
-3. Överför certifikaten till Key Vault på din utvecklings dator. Ersätt ** \<subscriptionId\> ** **och \<keyvaultname\> ** med din resursinformation.
+3. Överför certifikaten till Key Vault på din utvecklings dator. Ersätt **\<subscriptionId\>** och **\<keyvaultname\>** med din resursinformation.
 
     ```powershell
     c:\source\IoTEdgeAndMlSample\CreateCertificates\upload-keyvaultcerts.ps1 -SubscriptionId <subscriptionId> -KeyVaultName <keyvaultname>
@@ -112,7 +112,7 @@ I den här självstudien skapar vi den nya enhets identiteten med hjälp av Visu
 
 ## <a name="deploy-azure-virtual-machine"></a>Distribuera virtuell Azure-dator
 
-Vi använder [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) -avbildningen från Azure Marketplace för att skapa vår IoT Edge-enhet för den här självstudien. Azure IoT Edge avbildningen på Ubuntu installerar den senaste Azure IoT Edge-körningen och dess beroenden vid start. Vi distribuerar den virtuella datorn med ett PowerShell- `Create-EdgeVM.ps1`skript,; en Resource Manager-mall `IoTEdgeVMTemplate.json`,; och ett gränssnitts skript `install packages.sh`,.
+Vi använder [Azure IoT Edge på Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) -avbildningen från Azure Marketplace för att skapa vår IoT Edge-enhet för den här självstudien. Azure IoT Edge avbildningen på Ubuntu installerar den senaste Azure IoT Edge-körningen och dess beroenden vid start. Vi distribuerar den virtuella datorn med ett PowerShell-skript, `Create-EdgeVM.ps1` en Resource Manager-mall, `IoTEdgeVMTemplate.json` och ett gränssnitts skript `install packages.sh` .
 
 ### <a name="enable-programmatic-deployment"></a>Aktivera program distribution
 
@@ -187,7 +187,7 @@ De följande flera avsnitten konfigurerar den virtuella Azure-dator vi skapade. 
 
 3. Ange ditt lösen ord när du uppmanas till det.
 
-4. Ubuntu visar ett välkomst meddelande och du bör se en prompt `<username>@<machinename>:~$`som.
+4. Ubuntu visar ett välkomst meddelande och du bör se en prompt som `<username>@<machinename>:~$` .
 
 ## <a name="download-key-vault-certificates"></a>Ladda ned Key Vault certifikat
 
@@ -275,7 +275,7 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
     hostname: '<machinename>.<region>.cloudapp.azure.com'
     ```
 
-5. Spara och Stäng filen (`Ctrl + X`, `Y`, `Enter`).
+5. Spara och Stäng filen ( `Ctrl + X` , `Y` , `Enter` ).
 
 6. Starta om iotedge daemon.
 
@@ -289,7 +289,7 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
     systemctl status iotedge
     ```
 
-8. Om du ser fel (färgad text föregås av\["\]fel") i status granska daemon-loggar för detaljerad fel information.
+8. Om du ser fel (färgad text föregås av " \[ fel \] ") i status granska daemon-loggar för detaljerad fel information.
 
     ```bash
     journalctl -u iotedge --no-pager --no-full

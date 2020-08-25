@@ -1,16 +1,16 @@
 ---
 title: Koncept – identitet och åtkomst
-description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-lösningen (AVS)
+description: Lär dig mer om identitets-och åtkomst koncepten i Azure VMware-lösningen
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ce85b60b38db86af14b9e9aa06e568436dc76658
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d5b7b4c7c2e0d55cffc99a3f371494f40320a16
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82740959"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750586"
 ---
-# <a name="azure-vmware-solution-avs-identity-concepts"></a>Identitets koncept för Azure VMware-lösning (AVS)
+# <a name="azure-vmware-solution-identity-concepts"></a>Identitets koncept för Azure VMware-lösning
 
 En vCenter-Server och NSX-T-hanterare tillhandahålls när ett privat moln distribueras. Du använder vCenter för att hantera arbets belastningar för virtuella datorer och NSX-T-hanterare för att utöka det privata molnets program varu definitions nätverk.
 

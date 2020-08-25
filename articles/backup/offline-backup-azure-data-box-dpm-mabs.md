@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 8b585dc46eb2bdd54e48950ca861f0edc8f0a7ed
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88187150"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762461"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 
@@ -67,7 +67,7 @@ Kontrollera följande:
 Se till att de nödvändiga Data Box-enhet enheterna är i ett *levererat* tillstånd innan du utlöser säkerhets kopiering offline. Se [säkerhets kopierings data storlek och stöd för data Box-enhet SKU: er](#backup-data-size-and-supported-data-box-skus) för att beställa den lämpligaste SKU: n för ditt krav. Följ stegen i [den här artikeln](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) för att beställa och ta emot dina data Box-enhet enheter.
 
 > [!IMPORTANT]
-> Välj inte *BlobStorage* för **konto typen**. DPM/MABS-servern kräver ett konto som stöder Page blobbar som inte stöds när *BlobStorage* har valts. Välj **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
+> Välj inte *BlobStorage* för **konto typen**. DPM/MABS-servern kräver ett konto som stöder Page blobbar som inte stöds när *BlobStorage* har valts. Välj  **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
 
 ![Konfigurera Azure Data Center](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -143,10 +143,10 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
      > Det tar längre tid än vanligt att logga in för första gången. Modulen Azure PowerShell installeras i bakgrunden, och även Azure AD-programmet är registrerat.
      >
      >  - Följande PowerShell-moduler är installerade:<br>
-          -AzureRM. Profile *5.8.3*<br>
-          -AzureRM. Resources *6.7.3*<br>
-          – AzureRM. Storage *5.2.0*<br>
-          – Azure. Storage *4.6.1*<br>
+          -AzureRM. Profile     *5.8.3*<br>
+          -AzureRM. Resources   *6.7.3*<br>
+          – AzureRM. Storage     *5.2.0*<br>
+          – Azure. Storage       *4.6.1*<br>
      >  - Azure AD-programmet registreras som *AzureOfflineBackup_ \<object GUID of the user> *.
 
 13. Välj rätt data Box ordning som du har packat upp, anslutit och olåst Data Box-enhet disken. Välj **Nästa**.
@@ -258,9 +258,9 @@ Utför följande åtgärder från den DPM/MABS-server som du försöker konfigur
     > - Navigera till register Sök vägen `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup` med namnet *CurrentUserId*.
 
 6. Högerklicka på den sträng som du har lagt till i steget ovan och välj **ändra**. I värdet anger du tumavtrycket för det certifikat som du exporterade i **punkt 2** och väljer **OK**.
-7. Hämta värdet för tumavtryck genom att dubbelklicka på certifikatet och sedan välja **information** och rulla nedåt tills du ser fältet tumavtryck. Välj **tumavtryck** och kopiera värdet.
+7. Hämta värdet för tumavtryck genom att dubbelklicka på certifikatet och sedan välja **information**  och rulla nedåt tills du ser fältet tumavtryck. Välj **tumavtryck** och kopiera värdet.
 
-   ![Certifikat](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
+   ![Tumavtryck-värde](./media/offline-backup-azure-data-box-dpm-mabs/certificate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

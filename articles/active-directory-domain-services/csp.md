@@ -10,18 +10,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 2760f0d91f7ed1066b0020c4aedc7572af095cfb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 42364e791711258e42883bdfcd658ba2c45ecd28
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220328"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723154"
 ---
 # <a name="azure-active-directory-domain-services-deployment-and-management-for-azure-cloud-solution-providers"></a>Azure Active Directory Domain Services distribution och hantering av Azure Cloud solution providers
 
 Azure Cloud solution providers (CSP) är ett program för Microsoft-partner och tillhandahåller en licens kanal för olika Microsoft-molntjänster. Azure CSP gör det möjligt för partner att hantera försäljning, äga fakturerings relationen, ge teknisk support och fakturerings support och vara kundens enda kontakt punkt. Dessutom tillhandahåller Azure CSP en fullständig uppsättning verktyg, inklusive en självbetjänings Portal och medföljande API: er. Med dessa verktyg kan CSP-partner enkelt etablera och hantera Azure-resurser och tillhandahålla fakturering för kunder och deras prenumerationer.
 
-[Partner Center-portalen](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) är start punkten för alla Azure CSP-partner och ger omfattande funktioner för kund hantering, automatisk bearbetning med mera. Azure CSP-partner kan använda Partner Center-funktioner med hjälp av ett webbaserat användar gränssnitt eller med hjälp av PowerShell och olika API-anrop.
+[Partner Center-portalen](/azure/cloud-solution-provider/overview/partner-center-overview) är start punkten för alla Azure CSP-partner och ger omfattande funktioner för kund hantering, automatisk bearbetning med mera. Azure CSP-partner kan använda Partner Center-funktioner med hjälp av ett webbaserat användar gränssnitt eller med hjälp av PowerShell och olika API-anrop.
 
 Följande diagram illustrerar hur CSP-modellen fungerar på en hög nivå. Här har Contoso en Azure Active Directory (Azure AD)-klient. De har ett partnerskap med en CSP, som distribuerar och hanterar resurser i sin Azure CSP-prenumeration. Contoso kan också ha vanliga (direkta) Azure-prenumerationer som faktureras direkt till contoso.
 
@@ -33,7 +33,7 @@ Gruppen *Administratörs* agenter tilldelas rollen klient organisations administ
 
 När CSP-partnern etablerar en Azure CSP-prenumeration för Contoso tilldelas gruppen administratörs agenter rollen som ägare för den prenumerationen. Därför har CSP-partnerns administratörs agenter de behörigheter som krävs för att etablera Azure-resurser, till exempel virtuella datorer, virtuella nätverk och Azure AD Domain Services å uppdrag av contoso.
 
-Mer information finns i [Översikt över Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)
+Mer information finns i [Översikt över Azure CSP](/azure/cloud-solution-provider/overview/azure-csp-overview)
 
 ## <a name="benefits-of-using-azure-ad-ds-in-an-azure-csp-subscription"></a>Fördelar med att använda Azure AD DS i en Azure CSP-prenumeration
 

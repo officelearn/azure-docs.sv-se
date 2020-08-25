@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 3e37d907d00acd3e2b368700b70b4e268bad3ec9
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921953"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756732"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -36,14 +36,12 @@ När du återställer en databas fastställer tjänsten vilka säkerhets kopior 
 
 ### <a name="backup-storage-redundancy"></a>Redundans för lagring av säkerhets kopior
 
-> [!IMPORTANT]
-> Konfigurerbar redundans för säkerhets kopieringar är för närvarande bara tillgängligt för SQL-hanterad instans och kan bara anges under processen för att skapa hanterade instanser. När resursen har allokerats kan du inte ändra redundans alternativet för lagring av säkerhets kopior.
+Som standard är SQL Database och SQL-hanterad instans lagra data i Geo-redundanta (RA-GRS) [lagrings-blobar](../../storage/common/storage-redundancy.md) som replikeras till en [kopplad region](../../best-practices-availability-paired-regions.md). Detta hjälper till att skydda mot avbrott som påverkar säkerhets kopierings lagringen i den primära regionen och gör att du kan återställa servern till en annan region i händelse av en katastrof. 
 
-Alternativet för att konfigurera redundans för säkerhets kopiering ger flexibiliteten att välja mellan lokalt redundant (LRS), zon-redundant (ZRS) eller Geo-redundant (RA-GRS) [Storage-blobar](../../storage/common/storage-redundancy.md). Metoder för redundans för lagring lagrar flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälligt maskin varu haveri, nätverks-eller strömavbrott, eller massiv natur katastrofer. Den här funktionen är för närvarande endast tillgänglig för SQL-hanterad instans.
+SQL-hanterad instans ger möjlighet att ändra lagrings redundans till antingen lokalt redundant (LRS) eller zoner som är redundant (ZRS) för att säkerställa att dina data ligger inom samma region som din hanterade instans distribueras till. Metoder för redundans för lagring lagrar flera kopior av dina data så att de skyddas från planerade och oplanerade händelser, inklusive tillfälligt maskin varu haveri, nätverks-eller strömavbrott, eller massiv natur katastrofer. 
 
-RA-GRS lagrings blobbar replikeras till en [kopplad region](../../best-practices-availability-paired-regions.md) för att skydda mot avbrott som påverkar säkerhets kopierings lagringen i den primära regionen och gör att du kan återställa servern till en annan region i händelse av en katastrof. 
+Alternativet för att konfigurera redundans för säkerhets kopiering ger flexibiliteten att välja mellan LRS-, ZRS-eller RA-GRS-lagringsmatriser för en SQL-hanterad instans. Konfigurera redundans för säkerhets kopierings lagring under processen för skapande av hanterade instanser när resursen har skapats går det inte längre att ändra lagrings redundansen. (Zon-redundant lagring (ZRS) är för närvarande endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
-LRS och ZRS Storage-blobar ser till att dina data ligger inom samma region där SQL Database eller SQL-hanterad instans distribueras. Zone-redundant lagring (ZRS) är för närvarande endast tillgängligt i [vissa regioner](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
 
 > [!IMPORTANT]
 > I SQL-hanterad instans tillämpas den konfigurerade redundansen för säkerhets kopiering på både kortsiktiga säkerhets kopior som används för återställnings punkt i tid (PITR) och säkerhets kopior med långsiktig kvarhållning som används för långsiktiga säkerhets kopior (brv).
@@ -116,7 +114,7 @@ Lagrings förbrukningen för säkerhets kopiering upp till den maximala data sto
 - Använd TempDB i stället för permanenta tabeller i program logiken för att lagra tillfälliga resultat och/eller tillfälliga data.
 - Använd lokalt redundant lagring av säkerhets kopior när det är möjligt (till exempel dev/test-miljöer)
 
-## <a name="backup-retention"></a>Kvarhållning av säkerhetskopior
+## <a name="backup-retention"></a>Kvarhållningsperiod för säkerhetskopior
 
 För alla nya, återställda och kopierade databaser behåller Azure SQL Database och Azure SQL-hanterade instanser tillräckligt med säkerhets kopior för att tillåta PITR inom de senaste 7 dagarna som standard. Med undantag för storskaliga databaser kan du [ändra kvarhållningsperioden för säkerhets kopior](#change-the-pitr-backup-retention-period) per aktiv databas inom intervallet 1-35 dag. Som det beskrivs i [säkerhets kopierings lagrings förbrukningen](#backup-storage-consumption)kan säkerhets kopior som lagras för att aktivera PITR vara äldre än kvarhållningsperioden. Endast för Azure SQL-hanterad instans är det möjligt att ange PITR säkerhets kopierings frekvens när en databas har tagits bort inom intervallet 0-35 dagar. 
 
@@ -194,7 +192,7 @@ Lägg till ett filter för **tjänst namn**och välj sedan **SQL-databas** i lis
 
 ## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
 
-Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. Alla nya databaser i Azure SQL konfigureras med TDE aktiverat som standard. Mer information om TDE finns i [Transparent datakryptering med SQL Database & SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i vila, inklusive LTR-säkerhetskopieringar. Alla nya databaser i Azure SQL konfigureras med TDE aktiverat som standard. Mer information om TDE finns i  [Transparent datakryptering med SQL Database & SQL-hanterad instans](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Säkerhets kopierings integritet
 

@@ -150,41 +150,45 @@
       href: concept-ml-pipelines.md
     - name: Företagsberedskap och säkerhet
       items:
+        - name: Översikt över Enterprise Security
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-        - name: Företagssäkerhet och styrning
+        - name: Identitets- och åtkomsthantering
           items:
-            - name: Översikt över Enterprise Security
-              displayName: authorization authentication encryption aad azure active directory
-              href: concept-enterprise-security.md
+            - name: Konfigurera autentisering
+              displayName: 'authentication, auth, oauth'
+              href: how-to-setup-authentication.md
             - name: Hantera användare och roller
               href: how-to-assign-roles.md
+            - name: Använda Azure AD-identitet i AKS-distributioner
+              href: how-to-use-azure-ad-identity.md
+        - name: Nätverkssäkerhet
+          items:
             - name: Använda virtuella nätverk
               displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: Använda Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
-            - name: Skydda webbtjänster med TLS
-              displayName: ssl
+            - name: Konfigurera säkra webbtjänster
+              displayName: 'ssl, tls'
               href: how-to-secure-web-service.md
+            - name: Konfigurera brandvägg
+              href: how-to-access-azureml-behind-firewall.md
+        - name: Dataskydd
+          items:
             - name: Öka återhämtningsförmågan
               displayName: 'high availability, disaster recovery'
               href: how-to-high-availability-machine-learning.md
-            - name: Använda Azure AD-identitet i AKS-distributioner
-              href: how-to-use-azure-ad-identity.md
             - name: Återskapa åtkomstnycklar för lagring
               href: how-to-change-storage-access-key.md
-            - name: Använda Azure Firewall
-              href: how-to-access-azureml-behind-firewall.md
-            - name: Säker kodning
-              href: concept-secure-code-best-practice.md
-              displayName: security threat
-        - name: Konfigurera autentisering
-          displayName: 'authentication, auth, oauth'
-          href: how-to-setup-authentication.md
         - name: Övervaka Azure Machine Learning
           href: monitor-azure-machine-learning.md
+        - name: Säker kodning
+          href: concept-secure-code-best-practice.md
+          displayName: security threat
     - name: Ansvarsfull ML
       items:
         - name: Översikt över ansvarsfull ML

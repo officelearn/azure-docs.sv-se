@@ -3,12 +3,12 @@ title: Så här ersätter du band infrastrukturen
 description: Lär dig hur Azure Backup innehåller band som liknar semantik som gör att du kan säkerhetskopiera och återställa data i Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 71bfa86611b3a63fa6a28f60f80608b394cab5a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514194"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757242"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Flytta långsiktig lagring från band till Azure-molnet
 
@@ -64,7 +64,7 @@ Det totala antalet återställnings punkter är 56.
 
 Genom att klicka på **ändra** på föregående skärm, har kunderna ytterligare möjlighet att ange bevarande scheman.
 
-![Ändra](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![Ändra princip fönster](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

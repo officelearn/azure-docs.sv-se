@@ -12,10 +12,10 @@ ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
 ms.openlocfilehash: 6062e8a74af4bb0a19d02ccf9a4c50da0cc4a7c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81000107"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Självstudie: exportera data från Azure IoT Central och visualisera insikter i Power BI
@@ -30,19 +30,19 @@ I den här självstudien får du lära dig hur man:
 > * Använd Logic Apps för att skicka data från en händelsehubben till en Power BI strömmande data uppsättning.
 > * Skapa en instrument panel för Power BI för att visualisera data i den strömmande data uppsättningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
 * För att slutföra de två föregående självstudierna [skapar du ett in-Store Analytics-program i Azure IoT Central](./tutorial-in-store-analytics-create-app.md) och [anpassar instrument panelen för operatören och hanterar enheter i Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Ett Power BI-konto. Om du inte har ett Power BI konto kan du registrera dig för en [kostnads fri Power BI Pro utvärdering](https://app.powerbi.com/signupredirect?pbi_source=web) innan du börjar.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 Innan du skapar din Event Hub-och Logic-app måste du skapa en resurs grupp för att hantera dem. Resurs gruppen måste vara på samma plats som din IoT Central program **för analys i butiken** . Så här skapar du en resursgrupp:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**i det vänstra navigerings fältet. Välj sedan **Lägg till**.
 1. För **prenumeration**väljer du namnet på den Azure-prenumeration som du använde för att skapa ditt IoT Central-program.
 1. För **resurs gruppens** namn, anger du _Retail-Store-Analysis_*.
@@ -110,8 +110,8 @@ Din Power BI-instrumentpanel kommer att visa data från ditt program för detalj
 
     | Värdenamn  | Värdetyp |
     | ----------- | ---------- |
-    | Tidsstämpel   | DateTime   |
-    | Fuktighet    | Antal     |
+    | Timestamp   | DateTime   |
+    | Luftfuktighet    | Antal     |
     | Temperatur | Antal     |
 
 1. Växla **historiska data analyser** på.
@@ -133,7 +133,7 @@ Du behöver också en strömmande data uppsättning för telemetri:
 
     | Värdenamn     | Värdetyp |
     | -------------- | ---------- |
-    | Tidsstämpel      | DateTime   |
+    | Timestamp      | DateTime   |
     | Kölängd 1 | Antal     |
     | Kölängd 2 | Antal     |
     | Uppehålls tid 1   | Antal     |
@@ -179,11 +179,11 @@ Följande steg visar hur du skapar Logic-appen i Azure Portal:
     * I **Event Hub-namn**väljer du **Store-telemetri**.
     * I **innehålls typ**väljer du **program/JSON**.
     * Ange **intervallet** till tre och **frekvensen** till sekunder
-1. Välj **Spara** för att spara din Logic app.
+1. Välj **Spara**, så sparas logikappen.
 
 Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
 
-1. Ersätt `"actions": {},` med följande JSON. Ersätt de två plats `[YOUR RUUVITAG DEVICE ID 1]` hållarna `[YOUR RUUVITAG DEVICE ID 2]` och med de ID: n som du antecknade för dina två RuuviTag-enheter:
+1. Ersätt `"actions": {},` med följande JSON. Ersätt de två plats hållarna `[YOUR RUUVITAG DEVICE ID 1]` och `[YOUR RUUVITAG DEVICE ID 2]` med de ID: n som du antecknade för dina två RuuviTag-enheter:
 
     ```json
     "actions": {
@@ -384,7 +384,7 @@ Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
     * Välj fältet **tidsstämpelfält** och välj sedan **x-opt-enqueuedtime** från listan med **dynamiskt innehåll** .
     * Välj fältet **fuktighet** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **fuktighet**.
     * Välj fältet **temperatur** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **temperatur**.
-    * Välj **Spara** för att spara ändringarna. **Zon 1 miljö** åtgärden ser ut som följande skärm bild: ![zon 1 miljö](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
+    * Välj **Spara** för att spara ändringarna. **Zon 1 miljö** åtgärden ser ut som följande skärm bild: ![ zon 1 miljö](./media/tutorial-in-store-analytics-visualize-insights/zone-1-action.png)
 1. Välj åtgärden **zon 2 miljö** och välj sedan **Lägg till en åtgärd**.
 1. I **Sök anslutningar och åtgärder**anger du **Power BI**och trycker sedan på **RETUR**.
 1. Välj åtgärden **Lägg till rader i en data mängd (förhands granskning)** .
@@ -396,7 +396,7 @@ Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
     * Välj fältet **tidsstämpelfält** och välj sedan **x-opt-enqueuedtime** från listan med **dynamiskt innehåll** .
     * Välj fältet **fuktighet** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **fuktighet**.
     * Välj fältet **temperatur** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **temperatur**.
-    Välj **Spara** för att spara ändringarna.  **Zon 2 miljö** åtgärden ser ut som följande skärm bild: ![zon 2 miljö](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
+    Välj **Spara** för att spara ändringarna.  **Zon 2 miljö** åtgärden ser ut som följande skärm bild: ![ zon 2 miljö](./media/tutorial-in-store-analytics-visualize-insights/zone-2-action.png)
 1. Välj åtgärden **för att använda** och välj sedan åtgärden **Växla efter gränssnitts-ID** .
 1. Välj åtgärden **uppehålls tids gränssnitt** och välj sedan **Lägg till en åtgärd**.
 1. I **Sök anslutningar och åtgärder**anger du **Power BI**och trycker sedan på **RETUR**.
@@ -409,7 +409,7 @@ Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
     * Välj fältet **tidsstämpelfält** och välj sedan **x-opt-enqueuedtime** från listan med **dynamiskt innehåll** .
     * Välj fältet **bostads tid 1** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **DwellTime1**.
     * Välj fältet **bostads tid 2** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **DwellTime2**.
-    * Välj **Spara** för att spara ändringarna. **Tids gränssnitts åtgärden för bostaden** ser ut som följande ![skärm bild: användnings åtgärd](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
+    * Välj **Spara** för att spara ändringarna. **Tids gränssnitts åtgärden för bostaden** ser ut som följande skärm bild: användnings ![ åtgärd](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-1.png)
 1. Välj åtgärds åtgärden **antal personer** och välj **Lägg till en åtgärd**.
 1. I **Sök anslutningar och åtgärder**anger du **Power BI**och trycker sedan på **RETUR**.
 1. Välj åtgärden **Lägg till rader i en data mängd (förhands granskning)** .
@@ -421,11 +421,11 @@ Om du vill lägga till logiken i din Logic app-design väljer du **kodvyn**:
     * Välj fältet **tidsstämpelfält** och välj sedan **x-opt-enqueuedtime** från listan med **dynamiskt innehåll** .
     * Välj fältet **Kölängd 1** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **count1**.
     * Välj fältet **Kölängd 2** och välj sedan **Visa mer** bredvid **parsa telemetri**. Välj sedan **count2**.
-    * Välj **Spara** för att spara ändringarna. Åtgärds åtgärden **antal människor** ser ut som följande skärm bild ![: användnings åtgärd](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
+    * Välj **Spara** för att spara ändringarna. Åtgärds åtgärden **antal människor** ser ut som följande skärm bild: användnings ![ åtgärd](./media/tutorial-in-store-analytics-visualize-insights/occupancy-action-2.png)
 
 Logic App körs automatiskt. Om du vill se status för varje körning går du till **översikts** sidan för Logic app i Azure Portal:
 
-## <a name="create-a-power-bi-dashboard"></a>Skapa en instrument panel för Power BI
+## <a name="create-a-power-bi-dashboard"></a>Skapa en Power BI-instrumentpanel
 
 Nu har du telemetri som flödar från ditt IoT Central-program via händelsehubben. Sedan parsar din Logic-app Event Hub-meddelanden och lägger till dem i en Power BI strömmande data uppsättning. Nu kan du skapa en Power BI instrument panel för att visualisera Telemetrin:
 
@@ -440,12 +440,12 @@ Lägg till fyra linje diagram paneler för att Visa temperaturen och fukten frå
 
 | Inställningen | Diagram #1 | Diagram #2 | Diagram #3 | Diagram #4 |
 | ------- | -------- | -------- | -------- | -------- |
-| Datauppsättning | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
+| Datamängd | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
 | Typ av visualisering | Linjediagram | Linjediagram | Linjediagram | Linjediagram |
-| Axel | Tidsstämpel | Tidsstämpel | Tidsstämpel | Tidsstämpel |
-| Värden | Temperatur | Fuktighet | Temperatur | Fuktighet |
+| Axel | Timestamp | Timestamp | Timestamp | Timestamp |
+| Värden | Temperatur | Luftfuktighet | Temperatur | Luftfuktighet |
 | Tids period | 60 minuter | 60 minuter | 60 minuter | 60 minuter |
-| Titel | Temperatur (1 timme) | Fuktighet (1 timme) | Temperatur (1 timme) | Fuktighet (1 timme) |
+| Rubrik | Temperatur (1 timme) | Fuktighet (1 timme) | Temperatur (1 timme) | Fuktighet (1 timme) |
 | Underrubrik | Zon 1 | Zon 1 | Zon 2 | Zon 2 |
 
 Följande skärm bild visar inställningarna för det första diagrammet:
@@ -458,10 +458,10 @@ Lägg till fyra kort paneler för att visa de senaste temperatur-och fuktighets 
 
 | Inställningen | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Datauppsättning | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
+| Datamängd | Zon 1 sensor | Zon 1 sensor | Zon 2 sensor | Zon 2 sensor |
 | Typ av visualisering | Kort | Kort | Kort | Kort |
-| Fält | Temperatur | Fuktighet | Temperatur | Fuktighet |
-| Titel | Temperatur (F) | Fuktighet (%) | Temperatur (F) | Fuktighet (%) |
+| Fält | Temperatur | Luftfuktighet | Temperatur | Luftfuktighet |
+| Rubrik | Temperatur (F) | Fuktighet (%) | Temperatur (F) | Fuktighet (%) |
 | Underrubrik | Zon 1 | Zon 1 | Zon 2 | Zon 2 |
 
 Följande skärm bild visar inställningarna för det första kortet:
@@ -474,12 +474,12 @@ Lägg till fyra kort paneler för att Visa Kölängd och bostads tid för de tv�
 
 | Inställningen | Kort #1 | Kort #2 | Kort #3 | Kort #4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Datauppsättning | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor |
+| Datamängd | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor | Beläggnings sensor |
 | Typ av visualisering | Grupperat stående stapeldiagram | Grupperat stående stapeldiagram | Mätare | Mätare |
-| Axel    | Tidsstämpel | Tidsstämpel | Ej tillämpligt | Ej tillämpligt |
+| Axel    | Timestamp | Timestamp | Saknas | Saknas |
 | Värde | Uppehålls tid 1 | Bostadens tid 2 | Kölängd 1 | Kölängd 2 |
-| Tids period | 60 minuter | 60 minuter |  Ej tillämpligt | Ej tillämpligt |
-| Titel | Bostads tid | Bostads tid | Kölängd | Kölängd |
+| Tids period | 60 minuter | 60 minuter |  Saknas | Saknas |
+| Rubrik | Bostads tid | Bostads tid | Kölängd | Kölängd |
 | Underrubrik | Utcheckning 1 | Utcheckning 2 | Utcheckning 1 | Utcheckning 2 |
 
 Ändra storlek på och ordna om panelerna på instrument panelen för att se ut som på följande skärm bild:

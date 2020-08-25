@@ -8,10 +8,10 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81010502"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Azure Storage exempel med V12 .NET-klient bibliotek
@@ -150,7 +150,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 ### <a name="file"></a>Fil
 :::row:::
    :::column span="":::
-      [Överför en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
+      [Ladda upp en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L126)
    :::column-end:::
    :::column span="":::
       [Ladda upp genom att lägga till i en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L169)
@@ -158,7 +158,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 :::row-end:::
 :::row:::
    :::column span="":::
-      [Hämta en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L224)
+      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/samples/Sample01b_HelloWorldAsync.cs#L224)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -203,7 +203,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
       [Skapa en resurs och ladda upp en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L21)
    :::column-end:::
    :::column span="":::
-      [Hämta en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L68)
+      [Ladda ned en fil](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.Shares/samples/Sample01b_HelloWorldAsync.cs#L68)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -335,5 +335,5 @@ Information om exempel för andra språk:
 
 * Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
-* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77587574"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Mass import av data till Azure Cosmos DB SQL API-konto med hjälp av .NET SDK
@@ -27,15 +27,15 @@ Den här självstudiekursen omfattar:
 > * Ansluta till ett Azure Cosmos-konto med Mass stöd aktiverat
 > * Utföra en data import via samtidiga skapande åtgärder
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
-* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+* Ett aktivt Azure-konto. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Du kan kontrol lera vilken version som är tillgänglig i din miljö `dotnet --version`genom att köra.
+* [Net Core 3 SDK](https://dotnet.microsoft.com/download/dotnet-core). Du kan kontrol lera vilken version som är tillgänglig i din miljö genom att köra `dotnet --version` .
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
 
@@ -43,7 +43,7 @@ Se till att du har följande resurser innan du följer anvisningarna i den här 
 
 ## <a name="step-2-set-up-your-net-project"></a>Steg 2: Konfigurera ditt .NET-projekt
 
-Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo*. `--langVersion` Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
+Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen. Kör följande dotNet New-kommando för att skapa en ny app med namnet *bulk-import-demo*. `--langVersion`Parametern anger egenskapen *LangVersion* i den skapade projekt filen.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo
@@ -81,7 +81,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1.  Logga in på [Azure-portalen](https://portal.azure.com/).
+1.  Logga in på [Azure Portal](https://portal.azure.com/).
 1.  Navigera till ditt Azure Cosmos-konto.
 1.  Öppna rutan **nycklar** och kopiera **URI: n** och **primär nyckeln** för ditt konto.
 
@@ -118,7 +118,7 @@ Vi börjar med att skriva över standard `Main` metoden och definiera de globala
    }
    ```
 
-I- `Main` metoden lägger du till följande kod för att initiera CosmosClient-objektet:
+I `Main` -metoden lägger du till följande kod för att initiera CosmosClient-objektet:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
@@ -150,11 +150,11 @@ Skapa sedan en hjälp funktion inuti `Program` klassen. Den här hjälp funktion
 Läs objekten och serialisera dem till Stream-instanser med hjälp av- `System.Text.Json` klassen. På grund av vilken typ av data som genereras automatiskt serialiseras data som strömmar. Du kan också använda objekt instansen direkt, men genom att konvertera dem till strömmar kan du utnyttja prestanda för Stream-API: er i CosmosClient. Normalt kan du använda data direkt så länge du känner till partitionsnyckel. 
 
 
-Om du vill konvertera data till Stream-instanser i `Main` -metoden lägger du till följande kod direkt efter att behållaren har skapats:
+Om du vill konvertera data till Stream-instanser i- `Main` metoden lägger du till följande kod direkt efter att behållaren har skapats:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
-Använd sedan data strömmar för att skapa samtidiga aktiviteter och fylla i uppgifts listan för att infoga objekten i behållaren. För att utföra den här åtgärden lägger du till följande kod `Program` i klassen:
+Använd sedan data strömmar för att skapa samtidiga aktiviteter och fylla i uppgifts listan för att infoga objekten i behållaren. För att utföra den här åtgärden lägger du till följande kod i `Program` klassen:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
@@ -174,7 +174,7 @@ Om du inte har tid att slutföra stegen i den här självstudien eller bara vill
 
 När du har klonat projektet, se till att uppdatera önskade autentiseringsuppgifter i [program.cs](https://github.com/Azure-Samples/cosmos-dotnet-bulk-import-throughput-optimizer/blob/master/src/Program.cs#L25).
 
-Exemplet kan köras genom att byta till databas katalogen och använda `dotnet`:
+Exemplet kan köras genom att byta till databas katalogen och använda `dotnet` :
 
    ```bash
    cd cosmos-dotnet-bulk-import-throughput-optimizer

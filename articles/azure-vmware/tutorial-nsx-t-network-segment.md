@@ -1,16 +1,16 @@
 ---
-title: 'Självstudie: skapa ett NSX-T-nätverks segment i Azure VMware-lösning (AVS)'
+title: 'Självstudie: skapa ett NSX-T-nätverks segment i Azure VMware-lösningen'
 description: I den här självstudien skapade du de NSX-T-datasegment som används för virtuella datorer i vCenter
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: 5654fbb6a063d4dfeb541c20407f9a09dff1509f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cee65211cbef25ec029c68888bc8e6059f7c7896
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87101906"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750460"
 ---
-# <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution-avs"></a>Självstudie: skapa ett NSX-T-nätverks segment i Azure VMware-lösning (AVS)
+# <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Självstudie: skapa ett NSX-T-nätverks segment i Azure VMware-lösningen
 
 Nätverks segment som skapats i NSX-T-hanteraren används som nätverk för virtuella datorer (VM: ar) i vCenter. De virtuella datorer som har skapats i vCenter placeras på de nätverks segment som skapats i NSX-T och visas i vCenter.
 
@@ -23,17 +23,17 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Ett privat moln moln med åtkomst till vCenter-och NSX-T Manager-hanterings gränssnitt krävs för att slutföra den här kursen. Se [självstudien: Konfigurera nätverk för ditt privata VMware-moln i Azure](tutorial-configure-networking.md).
+Det krävs ett privat moln i Azure VMware-lösningen som har åtkomst till hanterings gränssnitten vCenter och NSX-T Manager för att kunna slutföra den här självstudien. Se [självstudien: Konfigurera nätverk för ditt privata VMware-moln i Azure](tutorial-configure-networking.md).
 
 ## <a name="provision-a-network-segment-in-nsx-t"></a>Etablera ett nätverks segment i NSX-T
 
 1. I vCenter för ditt privata moln väljer du **SDDC-datacenter > nätverk** och Observera att det inte finns några nätverk än.
 
-   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="Välj SDDC-datacenter > nätverk":::
+   :::image type="content" source="media/nsxt/vcenter-without-ls01.png" alt-text="I vCenter för ditt privata moln väljer du SDDC-datacenter > nätverk och Observera att det inte finns några nätverk än.":::
 
 1. I NSX-T Manager för ditt privata moln väljer du **nätverk**.
 
-   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="Välj nätverk för att navigera till vyn nätverks översikt för NSX-T-hanterare.":::
+   :::image type="content" source="media/nsxt/nsxt-network-overview.png" alt-text="I NSX-T Manager för ditt privata moln väljer du nätverk.":::
 
 1. Välj **segment**.
 
@@ -41,15 +41,15 @@ Ett privat moln moln med åtkomst till vCenter-och NSX-T Manager-hanterings grä
 
 1. På sidan Översikt över NSX-T-segment väljer du **Lägg till segment**. Tre segment skapas som en del av den privata moln etableringen och kan inte användas för virtuella datorer.  Du måste lägga till ett nytt nätverks segment för det här ändamålet.
 
-   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="Välj Lägg till segment från översikts sidan för nätverks segment.":::
+   :::image type="content" source="media/nsxt/nsxt-segments-overview.png" alt-text="På sidan Översikt över NSX-T-segment väljer du Lägg till SEGMENT.":::
 
 1. Namnge segmentet, Välj den förkonfigurerade 1-gatewayen (TNTxx-T1) som **ansluten Gateway**, lämna **typen** som flexibel, Välj den förkonfigurerade överliggande **transport zonen** (TNTxx-överlägg-TZ) och välj sedan ange undernät. Alla andra inställningar i det här avsnittet och **port** -och **segment profilerna** kan finnas kvar i standard, som är konfigurationen.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Ange segment namn, ansluten gateway och typ och transport zon och välj sedan "Ange undernät".":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Ange segment namn, ansluten gateway och typ och transport zon och välj sedan ange undernät.":::
 
 1. Ange IP-adressen för gatewayen för det nya segmentet och välj sedan **Lägg till**. Den IP-adress som du använder måste finnas i ett icke överlappande RFC1918-Adressblock, vilket garanterar att du kan ansluta till de virtuella datorerna i det nya segmentet.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Ange segment gatewayens IP-adress i CIDR-notation och välj Lägg till.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-gateway.png" alt-text="Ange IP-adressen för gatewayen för det nya segmentet och välj sedan Lägg till.":::
 
 1. Använd det nya nätverks segmentet genom att välja **tillämpa** och spara konfigurationen med **Spara**.
 
@@ -71,7 +71,7 @@ Ett privat moln moln med åtkomst till vCenter-och NSX-T Manager-hanterings grä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du de NSX-T-datasegment som används för virtuella datorer i vCenter. Nu kan du använda [självstudien: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen (AVS)](tutorial-deploy-vm-content-library.md) för att skapa ett innehålls bibliotek i vCenter och tillhandahålla en virtuell dator i det nätverk som du skapade i den här självstudien.
+I den här självstudien skapade du de NSX-T-datasegment som används för virtuella datorer i vCenter. Nu kan du använda [självstudien: skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen](tutorial-deploy-vm-content-library.md) för att skapa ett innehålls bibliotek i vCenter och tillhandahålla en virtuell dator i det nätverk som du skapade i den här självstudien.
 
 <!-- LINKS - external-->
 

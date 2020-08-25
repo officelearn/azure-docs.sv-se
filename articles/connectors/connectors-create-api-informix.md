@@ -4,17 +4,17 @@ description: Automatisera aktiviteter och arbets flöden som hanterar resurser s
 services: logic-apps
 ms.suite: integration
 author: gplarsen
-ms.author: plarsen
+ms.author: daberry
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4995a91783c2302f3bda5cc9409f017248ca29fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76757976"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761652"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Hantera IBM Informix Database-resurser med hjälp av Azure Logic Apps
 
@@ -25,7 +25,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Informix-koppl
 
 Det här avsnittet visar hur du använder-anslutningen i en Logic app för att bearbeta databas åtgärder.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -62,13 +62,13 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
    |--------|-------------|-----------------------------|
    | **Hämta tabeller** | Lista databas tabeller genom att köra en Informix-ANROPs instruktion. | Ingen |
    | **Hämta rader** | Hämta alla rader i den angivna tabellen genom att köra en Informix- `SELECT *` instruktion. | **Tabell namn**: namnet på den Informix-tabell som du vill använda <p><p>Om du vill lägga till andra egenskaper för den här åtgärden väljer du dem i listan **Lägg till ny parameter** . Mer information finns i [kopplingens referens ämne](/connectors/informix/). |
-   | **Hämta rad** | Hämta en rad från den angivna tabellen genom att köra en Informix- `SELECT WHERE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden, till exempel`9999` |
+   | **Hämta rad** | Hämta en rad från den angivna tabellen genom att köra en Informix- `SELECT WHERE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden, till exempel `9999` |
    | **Infoga rad** | Lägg till en rad i den angivna Informix-tabellen genom att köra en Informix- `INSERT` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **objekt**: raden med värdena som ska läggas till |
-   | **Uppdatera rad** | Ändra en rad i den angivna Informix-tabellen genom att köra en Informix- `UPDATE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska uppdateras, till exempel`9999` <br>- **Rad**: raden med de uppdaterade värdena, till exempel`102` |
-   | **Ta bort rad** | Ta bort en rad från den angivna Informix-tabellen genom att köra en Informix- `DELETE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska tas bort, till exempel`9999` |
+   | **Uppdatera rad** | Ändra en rad i den angivna Informix-tabellen genom att köra en Informix- `UPDATE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska uppdateras, till exempel `9999` <br>- **Rad**: raden med de uppdaterade värdena, till exempel `102` |
+   | **Ta bort rad** | Ta bort en rad från den angivna Informix-tabellen genom att köra en Informix- `DELETE` instruktion. | - **Tabell namn**: namnet på den Informix-tabell som du vill använda <br>- **Rad-ID**: det unika ID: t för raden som ska tas bort, till exempel `9999` |
    ||||
 
-1. Spara din logikapp. [Testa nu din](#test-logic-app) Logi Kap par eller Fortsätt att skapa din Logic app.
+1. Spara logikappen. [Testa nu din](#test-logic-app) Logi Kap par eller Fortsätt att skapa din Logic app.
 
 <a name="create-connection"></a>
 
@@ -81,11 +81,11 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
    | Egenskap | JSON-egenskap | Obligatorisk | Exempelvärde | Beskrivning |
    |----------|---------------|----------|---------------|-------------|
    | Anslutningsnamn | `name` | Ja | `informix-demo-connection` | Namnet som ska användas för anslutningen till din Informix-databas |
-   | Server | `server` | Ja | Kunde`informixdemo.cloudapp.net:9089` <br>-Lokalt:`informixdemo:9089` | TCP/IP-adressen eller aliaset i antingen IPv4-eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer |
+   | Server | `server` | Ja | Kunde `informixdemo.cloudapp.net:9089` <br>-Lokalt: `informixdemo:9089` | TCP/IP-adressen eller aliaset i antingen IPv4-eller IPv6-format, följt av ett kolon och ett TCP/IP-portnummer |
    | Databas | `database` | Ja | `nwind` | DRDA Relations databas namnet (RDBNAM) eller Informix-databasens namn (dbname). Informix accepterar en sträng på 128 byte. |
    | Autentisering | `authentication` | Endast lokalt | **Basic** eller **Windows** (Kerberos) | Autentiseringstypen som krävs av din Informix-databas. Den här egenskapen visas bara när du väljer **Anslut via en lokal datagateway**. |
-   | Användarnamn | `username` | No | <*databas-användar namn*> | Ett användar namn för databasen |
-   | lösenordsinställning | `password` | No | <*databas – lösen ord*> | Ett lösen ord för databasen |
+   | Användarnamn | `username` | Inga | <*databas-användar namn*> | Ett användar namn för databasen |
+   | lösenordsinställning | `password` | Inga | <*databas – lösen ord*> | Ett lösen ord för databasen |
    | Gateway | `gateway` | Endast lokalt | – <*Azure – prenumeration*> <br>-<*Azure-on-premises-data-gateway-resurs*> | Azure-prenumerationen och Azure-resursens namn för den lokala datagatewayen som du skapade i Azure Portal. **Gateway** -egenskapen och underordnade egenskaper visas bara när du väljer **Anslut via lokal datagateway**. |
    ||||||
 
@@ -99,7 +99,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
      ![Anslutnings information för lokal databas](./media/connectors-create-api-informix/informix-on-premises-connection.png)
 
-1. Spara din logikapp.
+1. Spara logikappen.
 
 <a name="test-logic-app"></a>
 

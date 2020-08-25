@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409090"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
@@ -30,9 +30,9 @@ I den här självstudien använder du Azure PowerShell för att skapa en Data Fa
 > * Starta en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,14 +66,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     if __name__ == "__main__":
         main()
     ```
-2. Ersätt ** &lt;storageAccountName&gt; ** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+2. Ersätt ** &lt; storageAccountName &gt; ** med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 3. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte finns. 
 4. Skapa en mapp med namnet **spark**.
 5. Skapa en undermapp med namnet **script** under mappen **spark**. 
 6. Överför filen **WordCount_Spark.py** till undermappen **script**. 
 
 
-### <a name="upload-the-input-file"></a>Överför indatafilen
+### <a name="upload-the-input-file"></a>Överföra indatafilen
 1. Skapa en fil med namnet **minecraftstory.txt** med lite text. Spark-programmet räknar antalet ord i texten. 
 2. Skapa en undermapp med namnet `inputfiles` i mappen `spark`. 
 3. Överför `minecraftstory.txt` till mappen `inputfiles`. 

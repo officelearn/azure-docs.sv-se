@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77149957"
 ---
 # <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Självstudie: Konfigurera en aliaspost för att hantera apex-domännamn med Traffic Manager 
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
 Anvisningar om att hantera din domän i Azure DNS finns i [Självstudie: Hantera din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -42,16 +42,16 @@ Den exempeldomän som används i den här självstudien är contoso.com, men du 
 Skapa först ett virtuellt nätverk och ett undernät för att placera dina webbservrar i.
 1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 2. Längst upp till vänster i portalen väljer du **Skapa en resurs**. Ange *resursgrupp* i sökrutan och skapa en resursgrupp med namnet **RG-DNS-Alias-TM**.
-3. Välj **skapa en resurs** > **nätverk** > **virtuellt nätverk**.
+3. Välj **skapa en resurs**  >  **nätverk**  >  **virtuellt nätverk**.
 4. Skapa ett virtuellt nätverk med namnet **VNet-Servers**. Placera det i resursgruppen **RG-DNS-Alias-TM** och ge undernätet namnet **SN-Web**.
 
 ## <a name="create-two-web-server-virtual-machines"></a>Skapa två virtuella webbserverdatorer
-1. Välj **skapa en resurs** > **Windows Server 2016 VM**.
+1. Välj **skapa en resurs**  >  **Windows Server 2016 VM**.
 2. Ange **Web-01** som namn och placera den virtuella datorn i resursgruppen **RG-DNS-Alias-TM**. Ange ett användarnamn och ett lösenord, och välj **OK**.
 3. För **Storlek** väljer du en SKU med 8 GB RAM.
 4. Som **Inställningar** väljer du det virtuella nätverket **VNet-Servers** och undernätet **SN-Web**.
 5. Välj **Offentlig IP-adress**. Under **Tilldelning** väljer du **Statisk** och sedan **OK**.
-6. För offentliga inkommande portar väljer du **http** > **https** > **RDP (3389)** och väljer sedan **OK**.
+6. För offentliga inkommande portar väljer du **http**  >  **https**  >  **RDP (3389)** och väljer sedan **OK**.
 7. På sidan **Sammanfattning** väljer du **Skapa**. Den här proceduren tar några minuter att slutföra.
 
 Upprepa proceduren för att en annan virtuell dator med namnet **Web-02**.
@@ -83,7 +83,7 @@ Upprepa den här proceduren för att installera IIS på **Web-02**.
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 1. Öppna resursgruppen **RG-DNS-Alias-TM** och välj den offentliga IP-adressen **Web-01-ip**. Anteckna IP-adressen för senare användning. Upprepa det här steget för den offentliga IP-adressen **Web-02-ip**.
-1. Välj **skapa en resurs** > **nätverk** > **Traffic Manager profilen**.
+1. Välj **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profilen**.
 2. För namnet anger du **TM-alias-test**. Placera det i resursgruppen **RG-DNS-Alias-TM**.
 3. Välj **Skapa**.
 4. När distributionen är klar väljer du **Gå till resurs**.

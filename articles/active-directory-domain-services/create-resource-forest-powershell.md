@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: iainfou
-ms.openlocfilehash: 50a8e4f6d966a63a8e727dbacefbc7bb21f5f98b
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506336"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723171"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Skapa en Azure Active Directory Domain Services resurs skog och utgående skogs förtroende till en lokal domän med hjälp av Azure PowerShell
 
@@ -36,7 +36,7 @@ Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.mi
 > [!IMPORTANT]
 > Hanterade domän resurs skogar har för närvarande inte stöd för Azure HDInsight eller Azure Files. Standard hanterade domän användar skogar stöder båda dessa ytterligare tjänster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här artikeln behöver du följande resurser och behörigheter:
 
@@ -148,15 +148,15 @@ Innan du börjar ska du kontrol lera att du förstår [nätverks övervägandena
 
 1. Skapa hybrid anslutningen till ditt lokala nätverk till Azure med hjälp av en Azure VPN-eller Azure ExpressRoute-anslutning. Hybrid nätverks konfigurationen ligger utanför den här dokumentationens omfattning och finns kanske redan i din miljö. Mer information om vissa scenarier finns i följande artiklar:
 
-    * [Azure plats-till-plats-VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-    * [Översikt över Azure ExpressRoute](/azure/expressroute/expressroute-introduction).
+    * [Azure plats-till-plats-VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+    * [Översikt över Azure ExpressRoute](../expressroute/expressroute-introduction.md).
 
     > [!IMPORTANT]
     > Om du skapar anslutningen direkt till din hanterade domäns virtuella nätverk, använder du ett separat Gateway-undernät. Skapa inte gatewayen i under nätet för den hanterade domänen.
 
 1. Om du vill administrera en hanterad domän skapar du en virtuell hanterings dator, ansluter den till den hanterade domänen och installerar de nödvändiga hanterings verktygen för AD DS.
 
-    Medan resurs skogen för hanterad domän distribueras, [skapar du en virtuell Windows Server-dator](https://docs.microsoft.com/azure/active-directory-domain-services/join-windows-vm) och installerar sedan de viktiga hanterings verktygen för [AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-management-vm) . Vänta med att ansluta den virtuella hanterings datorn till den hanterade domänen innan du gör något av följande när domänen har distribuerats.
+    Medan resurs skogen för hanterad domän distribueras, [skapar du en virtuell Windows Server-dator](./join-windows-vm.md) och installerar sedan de viktiga hanterings verktygen för [AD DS](./tutorial-create-management-vm.md) . Vänta med att ansluta den virtuella hanterings datorn till den hanterade domänen innan du gör något av följande när domänen har distribuerats.
 
 1. Verifiera nätverks anslutningen mellan det lokala nätverket och det virtuella Azure-nätverket.
 
@@ -260,7 +260,7 @@ Du bör ha en virtuell Windows Server-dator som är ansluten till resurs domäne
 1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för hanterad domän med hjälp av fjärr skrivbord och dina autentiseringsuppgifter för hanterad domän administratör. Om du får ett autentisering på nätverksnivå fel (NLA) kontrollerar du att det användar konto du använde inte är ett domän användar konto.
 
     > [!TIP]
-    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
+    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](../bastion/bastion-overview.md) i Azure-regioner som stöds.
 
 1. Öppna en kommando tolk och Använd `whoami` kommandot för att visa det unika namnet för den för tillfället autentiserade användaren:
 
@@ -286,7 +286,7 @@ Med den virtuella Windows Server-datorn ansluten till resurs skogen för hantera
 1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för hanterad domän med hjälp av fjärr skrivbord och dina autentiseringsuppgifter för hanterad domän administratör. Om du får ett autentisering på nätverksnivå fel (NLA) kontrollerar du att det användar konto du använde inte är ett domän användar konto.
 
     > [!TIP]
-    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](https://docs.microsoft.com/azure/bastion/bastion-overview) i Azure-regioner som stöds.
+    > För att på ett säkert sätt ansluta till dina virtuella datorer som är anslutna till Azure AD Domain Services kan du använda [Azure skydds Host-tjänsten](../bastion/bastion-overview.md) i Azure-regioner som stöds.
 
 1. Öppna **Windows-inställningar**och Sök sedan efter och välj **nätverks-och delnings Center**.
 1. Välj alternativet för att **Ändra avancerade delnings** inställningar.

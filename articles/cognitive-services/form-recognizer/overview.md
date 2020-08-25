@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836912"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723577"
 ---
 # <a name="what-is-form-recognizer"></a>Vad är formigenkänning?
 
@@ -24,7 +24,7 @@ Azure formulär igenkänning är en kognitiv tjänst som använder maskin inlär
 
 Formulär tolken består av följande tjänster:
 * **Anpassade modeller** – extrahera nyckel/värde-par och tabell data från formulär. De här modellerna tränas med dina egna data, så de skräddarsys efter dina formulär.
-* **Fördefinierad inleverans modell** – extrahera data från amerikanska försäljnings kvitton med hjälp av en fördefinierad modell.
+* **Färdiga modeller** – extrahera data från unika formulär typer med hjälp av förinställda modeller. För närvarande finns det färdiga modeller för försäljnings kvitton och visitkort på engelska.
 * **Layout-API** – Extrahera text och tabell strukturer, tillsammans med deras gränser för avgränsnings rutor, från dokument.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ När du tränar med märkta data övervakas modellen för att extrahera värden 
 
 Formulär tolken använder [layout-API](#layout-api) för att lära dig de förväntade storlekarna och positionerna för de utskrivna och handskrivna text element Sedan använder den användardefinierade etiketter för att lära sig nyckel/värde-associationerna i dokumenten. Vi rekommenderar att du använder fem manuellt märkta formulär av samma typ för att komma igång när du tränar en ny modell och lägger till mer märkta data som behövs för att förbättra modellens noggrannhet.
 
-## <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
+## <a name="prebuilt-models"></a>Fördefinierade modeller
 
-Formulär tolken innehåller också en modell för läsning av engelska försäljnings kvitton från USA &mdash; typen som används av restauranger, gas stationer, åter försäljare och så vidare ([exempel kvitto](./media/contoso-receipt-small.png)). Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, belopp för skatter och total summor. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto.
+Formulär tolken innehåller även färdiga modeller för unika formulär typer.
+### <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
+Fördefinierad kvitto modell används för att läsa kvitton på engelska försäljning från Australien, Kanada, Storbritannien, Indien och USA typ som &mdash; används av restauranger, gas stationer, åter försäljare och så vidare. Den här modellen hämtar viktig information, till exempel tid och datum för transaktionen, handels information, moms belopp, rad artiklar, total summor och mer. Dessutom tränas den förskapade kvitto modellen att identifiera och returnera all text i ett kvitto. 
+
+![exempel kvitto](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Fördefinierad visitkorts modell
+Med visitkorts modellen kan du extrahera information som personens namn, befattning, adress, e-post, företags nummer och telefonnummer från visitkort på engelska. 
+
+![exempel på visitkort](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>Layout-API
 
@@ -90,7 +99,7 @@ Mer information får du genom att utforska [REST API referens dokumentationen](h
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Fördefinierad kvitto modell
+### <a name="prebuilt"></a>Fördefinierade
 
 Ingångs kraven för kvitto modellen skiljer sig något åt.
 

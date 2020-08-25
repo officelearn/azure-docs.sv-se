@@ -16,10 +16,10 @@ ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82207895"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
@@ -36,22 +36,22 @@ I den här självstudien får du ställa in portvidarebefordran i Azure Load Bal
 > * Skapa inkommande NAT-portvidarebefordringsregler för en lastbalanserare.
 > * Installera och konfigurera IIS på de virtuella datorerna för att visa belastningsutjämning och portvidarebefordran i praktiken.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
-För alla steg i den här självstudien loggar du in på [https://portal.azure.com](https://portal.azure.com)Azure Portal på.
+För alla steg i den här självstudien loggar du in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en standardlastbalanserare
 
 Börja med att skapa en offentlig standardlastbalanserare som kan balansera trafik över virtuella datorer. En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du skapar en Standard Load Balancer, och även måste skapa en ny offentlig IP-standardadress som är konfigurerad som klientdelen med namnet **LoadBalancerFrontend** som standard. 
 
-1. Klicka på **skapa en resurs** > **nätverk** > **Load Balancer**på den övre vänstra sidan av skärmen.
+1. Klicka på **skapa en resurs**  >  **nätverk**  >  **Load Balancer**på den övre vänstra sidan av skärmen.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -74,21 +74,21 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
 
 | Parameter                   | Värde                |
 |-----------------------------|----------------------|
-| **\<resurs grupp-namn>**  | myResourceGroupLB (Välj en befintlig resurs grupp) |
-| **\<virtuell-nätverks namn>** | myVNet          |
-| **\<region namn>**          | Europa, västra      |
-| **\<IPv4-adress utrymme>**   | 10.3.0.0 \ 16          |
-| **\<under näts namn>**          | myBackendSubnet        |
-| **\<undernät-adress – intervall>** | 10.3.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLB (Välj en befintlig resurs grupp) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa, västra      |
+| **\<IPv4-address-space>**   | 10.3.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.3.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Skapa virtuella datorer och lägg till dem i lastbalanseraren för serverdelsadresspoolen
 
-1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Windows Server 2016 Data Center**. 
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **Compute**  >  **Windows Server 2016 Data Center**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumerations** > **resurs grupp**: listruta och välj **MyResourceGroupLB**.
+   - **Prenumeration**  >  **Resurs grupp**: list rutan och välj **MyResourceGroupLB**.
    - **Namn på virtuell dator**: Skriv *MyVM1*.
    - **Region**: Välj **Europa, västra**. 
    - **Användar namn**: Skriv *azureuser*.
@@ -112,7 +112,7 @@ I det här avsnittet måste du ersätta följande parametrar i stegen med inform
    
 1. Lägg till den virtuella datorn till en lastbalanserares serverdelpool som du har skapat:
    
-   1. Under **belastnings utjämning** > **placerar du den virtuella datorn bakom en befintlig belastnings Utjämnings lösning?** väljer du **Ja**. 
+   1. Under **belastnings utjämning**  >  **placerar du den virtuella datorn bakom en befintlig belastnings Utjämnings lösning?** väljer du **Ja**. 
    1. Välj **Azure-lastbalanserare** i listrutan för **lastbalanseringsalternativ**. 
    1. För **Välj lastbalanserare** väljer du **MyLoadBalancer** i listrutan. 
    1. Under **Välj en serverdelspool** väljer du **Skapa nytt** och skriver *MyBackendPool*. Välj **Skapa**. 
@@ -221,7 +221,7 @@ Lastbalanserarregeln med namnet **MyLoadBalancerRule** avlyssnar port 80 i klien
    
 1. Välj **OK**.
    
-   ![Lägga till en lastbalanserarregel](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Lägga till en regel för lastbalanseraren](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Skapa inkommande NAT-portvidarebefordringsregel
 

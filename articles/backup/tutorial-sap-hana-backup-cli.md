@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du säkerhetskopiera
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489528"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762410"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -19,7 +19,7 @@ Det här dokumentet förutsätter att du redan har en SAP HANA-databas installer
 
 > [!div class="checklist"]
 >
-> * Skapa ett Recovery Services-valv
+> * skapar ett Recovery Services-valv
 > * Registrera SAP HANA instans och identifiera databaser på den
 > * Aktivera säkerhets kopiering på en SAP HANA databas
 > * Utlös en säkerhets kopiering på begäran
@@ -30,7 +30,7 @@ Ta en titt på de [scenarier som vi för närvarande stöder](./sap-hana-backup-
 
 Om du vill installera och använda CLI lokalt måste du köra Azure CLI version xx. xxx. x eller senare. Kör `az --version` för att hitta CLI-versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Ett Recovery Services valv är en logisk behållare som lagrar säkerhetskopierade data för varje skyddad resurs, till exempel virtuella Azure-datorer eller arbets belastningar som körs på virtuella Azure-datorer, t. ex. SQL-eller HANA-databaser När säkerhetskopieringsjobbet för en skyddad resurs körs, skapas en återställningspunkt i Recovery Services-valvet. Du kan sedan använda någon av dessa återställningspunkter för att återställa data till en given tidpunkt.
 
@@ -150,7 +150,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 
 ## <a name="trigger-an-on-demand-backup"></a>Utlös en säkerhets kopiering på begäran
 
-I avsnittet ovan beskrivs hur du konfigurerar en schemalagd säkerhets kopiering, det här avsnittet beskriver hur du utlöser en säkerhets kopiering på begäran. För att göra detta använder vi cmdleten [AZ backup Protection backup-Now](/cli/azure/backup/protection#az-backup-protection-backup-now) .
+Medan avsnittet ovan beskriver hur du konfigurerar en schemalagd säkerhets kopiering, pratar det här avsnittet om att utlösa en säkerhets kopiering på begäran. För att göra detta använder vi cmdleten [AZ backup Protection backup-Now](/cli/azure/backup/protection#az-backup-protection-backup-now) .
 
 >[!NOTE]
 > Bevarande principen för en säkerhets kopiering på begäran bestäms av den underliggande bevarande principen för databasen.

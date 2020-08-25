@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c4869859e11cb6c0cc868ec9deacb3e5cb972c6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 50c5c02327aa9f48a605607de901258827b14896
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586579"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783951"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -43,8 +43,8 @@ I det här fallet kan du konfigurera två anslutna organisationer. Du skapar en 
 Hur användare från Azure AD-katalogen eller domänen autentiseras beror på autentiseringstypen. Typerna av autentisering för anslutna organisationer är:
 
 - Azure AD
-- [Direkt federation](../b2b/direct-federation.md)
-- [Eng ång slö sen ord](../b2b/one-time-passcode.md) (domän)
+- [Direkt federation](../external-identities/direct-federation.md)
+- [Eng ång slö sen ord](../external-identities/one-time-passcode.md) (domän)
 
 Se följande videoklipp om du vill ha en demonstration av hur du lägger till en ansluten organisation:
 
@@ -79,7 +79,7 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 1. Välj **Lägg till** för att lägga till Azure AD-katalogen eller-domänen. För närvarande kan du bara lägga till en Azure AD-katalog eller-domän per ansluten organisation.
 
     > [!NOTE]
-    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan över tillåtna eller nekade Azure AD Business to Business (B2B). Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../b2b/allow-deny-list.md).
+    > Alla användare från Azure AD-katalogen eller-domänen kan begära det här åtkomst paketet. Detta inkluderar användare i Azure AD från alla under domäner som är associerade med katalogen, om inte dessa domäner blockeras av listan över tillåtna eller nekade Azure AD Business to Business (B2B). Mer information finns i [tillåta eller blockera inbjudningar till B2B-användare från vissa organisationer](../external-identities/allow-deny-list.md).
 
 1. När du har lagt till Azure AD-katalogen eller-domänen väljer du **Välj**.
 
@@ -89,7 +89,7 @@ Följ anvisningarna i det här avsnittet om du vill lägga till en extern Azure 
 
 1. Välj fliken **sponsorer** och Lägg till ytterligare sponsorer för den här anslutna organisationen.
 
-    Sponsorer är interna eller externa användare som redan finns i din katalog som är kontakt punkten för relationen med den här anslutna organisationen. Interna sponsorer är medlems användare i din katalog. Externa sponsorer är gäst användare från den anslutna organisationen som tidigare bjudits in och redan finns i din katalog. Sponsorer kan användas som god kännare när användare i den här anslutna organisationen begär åtkomst till det här åtkomst paketet. Information om hur du bjuder in en gäst användare till din katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../b2b/add-users-administrator.md).
+    Sponsorer är interna eller externa användare som redan finns i din katalog som är kontakt punkten för relationen med den här anslutna organisationen. Interna sponsorer är medlems användare i din katalog. Externa sponsorer är gäst användare från den anslutna organisationen som tidigare bjudits in och redan finns i din katalog. Sponsorer kan användas som god kännare när användare i den här anslutna organisationen begär åtkomst till det här åtkomst paketet. Information om hur du bjuder in en gäst användare till din katalog finns i [lägga till Azure Active Directory B2B-samarbets användare i Azure Portal](../external-identities/add-users-administrator.md).
 
     När du väljer **Lägg till/ta bort**öppnas ett fönster där du kan välja interna eller externa sponsorer. I fönstret visas en ofiltrerad lista över användare och grupper i din katalog.
 
@@ -134,9 +134,9 @@ Om du inte längre har en relation med en extern Azure AD-katalog eller-domän k
 
 ## <a name="managing-a-connected-organization-programmatically"></a>Hantera en ansluten organisation program mässigt
 
-Du kan också skapa, lista, uppdatera och ta bort anslutna organisationer med Microsoft Graph. En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att hantera [connectedOrganization](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta) -objekt och ange sponsorer för dem.
+Du kan också skapa, lista, uppdatera och ta bort anslutna organisationer med Microsoft Graph. En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att hantera [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) -objekt och ange sponsorer för dem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Styra åtkomst för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Styra åtkomst för externa användare](./entitlement-management-external-users.md)
 - [Styr åtkomsten för användare som inte är i din katalog](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

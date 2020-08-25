@@ -9,37 +9,61 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 22eab216714d45e4b8a91fd58325424d4baef95e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3a48511c896a3e4c677c35ca3069ff236761c444
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272954"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724140"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
 Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artikeln för att hålla dig uppdaterad med funktions förbättringar, korrigeringar och dokumentations uppdateringar.
 
-> [!NOTE]
-> Snabb starter och guider för formulär igenkänning använder alltid den senaste versionen av API, om inget annat anges.
+## <a name="august-2020"></a>Augusti 2020
+
+### <a name="new-features"></a>Nya funktioner
+
+**Formulär igenkänning v 2.1 offentlig för hands version är nu tillgänglig.** V 2.1 – för hands version. 1 har släppts, inklusive följande funktioner: 
+
+
+- **REST API referens är tillgänglig** – Visa [v 2.1 – för hands version. 1 referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
+- **Nya språk som stöds utöver engelska**, följande språk stöds nu: för `Layout` och `Train Custom Model` : engelska (en), Kinesisk (förenklad) (zh-zh), nederländska (NL), franska (Frankrike), tyska (de), italienska (IT), portugisiska (PT) och spanska (ES).
+- **Kryss ruta och identifiering av markerings märke** – formulär tolken stöder identifiering och extrahering av markerings märken som kryss rutor och alternativ knappar. Markerings markeringar extraheras i `Layout` och du kan nu också märka och träna i `Train Custom Model`  -  _träna med etiketter_ för att extrahera nyckel värde par för markerings märken. 
+- Med **modellens Skriv** möjlighet kan flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_.
+- **Modell namn** Lägg till ett eget namn i dina anpassade modeller för enklare hantering och spårning.
+- Ny fördefinierad **modell för visitkort** som används för att extrahera vanliga fält på engelska, språk visitkort.
+- **Nya språk för förbyggda kvitton** , förutom en-US, support är nu tillgängligt för en-au, en-ca, en-GB, en-i
+- **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_.
+
+
+**v 2.0** innehåller följande uppdatering:
+-   [Klient biblioteken](quickstarts/client-library.md) för net, python, Java och Java Script har angett allmän tillgänglighet. 
+
+
+**Nya exempel** finns på GitHub. 
+- [Recepten för kunskaps extrahering – formulär Spelbok](https://github.com/microsoft/knowledge-extraction-recipes-forms) samlar in bästa praxis från riktiga formulär som kund engagemang och ger användbara kod exempel, check listor och exempel på pipelines som används för att utveckla dessa projekt. 
+- Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_.
+
+
 
 ## <a name="july-2020"></a>Juli 2020
 
 ### <a name="new-features"></a>Nya funktioner
 * **v 2.0-referensen är tillgänglig** Visa [v 2.0 API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) och de uppdaterade SDK: erna för [.net](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre?view=azure-dotnet), [python](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)och [Java Script](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest).
-* Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i anpassade tåg utan etiketter. 
+* Förbättringar av **tabell förbättringar och extraktioner** omfattar precisions förbättringar och förbättringar av tabell extrahering, särskilt möjligheten att lära tabell rubriker och strukturer i _anpassade tåg utan etiketter_. 
 * **Valuta stöd** Identifiering och extrahering av globala valuta symboler.
 * **Azure-gov** Formulär igenkänning är nu också tillgängligt i Azure gov.
 * **Förbättrade säkerhetsfunktioner**: 
-   * **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration Microsoft-hanterade krypterings nycklar. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data.  
-   * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk.](https://docs.microsoft.com/azure/private-link/private-link-overview)
+   * **Ta med din egen nyckel**  Formulär tolken krypterar dina data automatiskt när de sparas i molnet för att skydda dem och hjälpa dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder din prenumeration krypteringsnycklar som hanteras av Microsoft. Du kan nu även hantera din prenumeration med dina egna krypterings nycklar. [Kundhanterade nycklar (CMK), som även kallas för att ta med din egen nyckel (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), erbjuder större flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomst kontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data.  
+   * **Privata slut punkter** – gör att du på ett virtuellt nätverk (VNet) kan [komma åt data på ett säkert sätt via en privat länk. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 
 ## <a name="june-2020"></a>Juni 2020
 
 ### <a name="new-features"></a>Nya funktioner
 * **CopyModel-API har lagts till i klient-SDK: er** Du kan nu använda klient-SDK: er för att kopiera modeller från en prenumeration till en annan. Se [säkerhetskopiera och återställa modeller](./disaster-recovery.md) för allmän information om den här funktionen.
-* **Azure Active Directory-integrering** Du kan nu använda autentiseringsuppgifterna för AAD för att autentisera dina klient objekt i SDK: er för formulär igenkänning.
+* **Azure Active Directory-integrering** Du kan nu använda dina autentiseringsuppgifter för Azure AD för att autentisera ditt formulärs igenkännings klient objekt i SDK: erna.
 * **SDK-/regionsspecifika ändringar** Detta inkluderar både mindre funktions tillägg och avbrytande ändringar. Se SDK-ChangeLogs för mer information.
   * [C# SDK Preview 3 ändringsloggen](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 ändringsloggen](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
@@ -74,9 +98,9 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
   * `string`
     * standard, `no-whitespaces``alphanumeric`
   * `number`
-    * objekt`currency`
+    * objekt `currency`
   * `date` 
-    * standard, `dmy` , `mdy` ,`ymd`
+    * standard, `dmy` , `mdy` , `ymd`
   * `time`
   * `integer`
 

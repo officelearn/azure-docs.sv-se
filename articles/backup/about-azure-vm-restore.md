@@ -3,12 +3,12 @@ title: Om återställnings processen för den virtuella Azure-datorn
 description: Lär dig hur tjänsten Azure Backup återställer virtuella Azure-datorer
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: a604e146dbe387675e9ed82030639921cfc03167
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb3f6bf729047dc6fe1c13c5ead1191188e30e5c
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067462"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761397"
 ---
 # <a name="about-azure-vm-restore"></a>Återställning av virtuell Azure-dator
 
@@ -46,12 +46,6 @@ Den här artikeln beskriver hur [Azure Backup tjänsten](./backup-overview.md) �
 | [Återställa vissa filer på den virtuella datorn](./backup-azure-restore-files-from-vm.md) | Välj återställnings punkt, bläddra, Välj filer och Återställ dem till samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. |  Om du vet vilka filer som ska återställas använder du det här alternativet i stället för att återställa hela den virtuella datorn. |
 | [Återställa en krypterad virtuell dator](./backup-azure-vms-encryption.md) | Från portalen återställer du diskarna och använder sedan PowerShell för att skapa den virtuella datorn | <li> [Krypterad virtuell dator med Azure Active Directory (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Krypterad virtuell dator utan AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [Krypterad virtuell dator *med AAD* migrerad till *utan AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Återställning mellan regioner](./backup-azure-arm-restore-vms.md#cross-region-restore) | Skapa en ny virtuell dator eller Återställ diskar till en sekundär region (Azure-kopplad region) | <li> **Fullständigt avbrott**: med funktionen för återställning av kors region finns det ingen vänte tid för att återställa data i den sekundära regionen. Du kan initiera återställningar i den sekundära regionen även innan Azure deklarerar ett avbrott. <li> **Partiellt avbrott**: nedtid kan uppstå i vissa lagrings kluster där Azure Backup lagrar dina säkerhetskopierade data eller till och med i nätverket, ansluter Azure Backup och lagrings kluster som är kopplade till dina säkerhetskopierade data. Med återställning mellan regioner kan du utföra en återställning i den sekundära regionen med hjälp av en replik av säkerhetskopierade data i den sekundära regionen. <li> **Inget avbrott**: du kan utföra granskningar av verksamhets kontinuitet och haveri beredskap (BCDR) för granskning eller efterlevnad med data för den sekundära regionen. På så sätt kan du utföra en återställning av säkerhetskopierade data i den sekundära regionen även om det inte finns ett fullständigt eller delvis avbrott i den primära regionen för verksamhets kontinuitet och haveri beredskap.  |
-
-------
-
-
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

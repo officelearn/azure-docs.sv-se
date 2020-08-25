@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: e0188a35289c22da784ca856c80212638052a609
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 1e3546239dfcfd4c6ef23ad16f3340f34f958901
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040290"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723222"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-active-directory-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure Active Directory Domain Services hanterad domän
 
@@ -89,8 +89,8 @@ Om du vill skapa en anpassad ORGANISATIONSENHET använder du Active Directory ad
 
 Mer information om hur du använder administrations verktyg eller skapar och använder tjänst konton finns i följande artiklar:
 
-* [Active Directory Administrationscenter: Komma igång](https://technet.microsoft.com/library/dd560651.aspx)
-* [Stegvisa instruktioner för tjänstkonton](https://technet.microsoft.com/library/dd548356.aspx)
+* [Active Directory Administrationscenter: Komma igång](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560651(v=ws.10))
+* [Stegvisa instruktioner för tjänstkonton](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

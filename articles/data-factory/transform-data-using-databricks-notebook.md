@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81418991"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Kör en Databricks Notebook med Databricks Notebook-aktiviteten i Azure Data Factory
@@ -34,13 +34,13 @@ I den här självstudiekursen får du göra följande:
 
   - Övervaka pipelinekörningen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 Om du vill se en introduktion och demonstration av den här funktionen rekommenderar vi följande videoklipp (11 minuter):
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/ingest-prepare-and-transform-using-azure-databricks-and-data-factory/player]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
   - **Azure Databricks-arbetsyta**. [Skapa en Databricks-arbetsyta](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) eller Använd en befintlig. Du skapar en Python Notebook i Azure Databricks-arbetsytan. Sedan kör du denna notebook och skickar parametrar till den med hjälp av Azure Data Factory.
 
@@ -54,7 +54,7 @@ Om du vill se en introduktion och demonstration av den här funktionen rekommend
 
 1.  I fönstret **Ny datafabrik** anger du **ADFTutorialDataFactory** under **Namn**.
 
-    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd ** \<till exempel\>dittnamn ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/azure/data-factory/naming-rules).
+    Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel ** \<yourname\> ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Ange ett namn för den nya datafabriken](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -100,7 +100,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
 1.  Utför följande steg i fönstret **New Linked Service** (Ny länkad tjänst):
     
-    1.  Som **namn**anger du ***AzureDatabricks\_LinkedService***
+    1.  Som **namn**anger du ***AzureDatabricks \_ LinkedService***
     
     1.  Välj lämplig **Databricks-arbetsyta** som du ska köra din notebook i
 
@@ -122,7 +122,7 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1.  Välj knappen **+** (plus) och välj sedan **pipeline** på menyn.
+1.  Välj **+** knappen (plus) och välj sedan **pipeline** på menyn.
 
     ![Knappar för att skapa en ny pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
@@ -179,9 +179,9 @@ I det här avsnittet skapar du en Databricks-länkad tjänst. Den här länkade 
 
        ![Lägg till parameter](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Namnge parametern som **inmatad** och ange värdet som uttrycks ** \@pipeline (). Parameters. name**.
+    b.  Namnge parametern som **inmatad** och ange värdet som uttrycks ** \@ pipeline (). Parameters. name**.
 
-1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Stäng verifierings fönstret genom att välja ** \> ** knappen (högerpil).
+1.  Verifiera pipelinen genom att välja knappen **Verifiera** i verktygsfältet. Stäng verifierings fönstret genom att välja **\>\>** knappen (högerpil).
 
     ![Verifiera pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image18.png)
 

@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/14/2020
+ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: c73e09e241baff7c4719acfd4257f537e27b010a
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236195"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724004"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Självstudie: skapa och konfigurera en Application Gateway som värd för flera webbplatser med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
@@ -78,7 +78,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Skapa VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Skapa ett annat VNet":::
 
 3. Välj **Nästa:** Server delar.
 
@@ -156,14 +156,14 @@ Om du vill lägga till Server dels mål gör du följande:
 
     - **Resurs grupp**: Välj **myResourceGroupAG** som resurs grupps namn.
     - **Namn på virtuell dator**: ange *contosoVM* som namn på den virtuella datorn.
-    - **Användar**namn: ange *azureuser* som administratörs användar namn.
-    - **Lösen ord**: ange *Azure123456!* som administratörslösenord.
-4. Godkänn de andra standardinställningarna och välj sedan **Nästa: diskar**.  
-5. Godkänn standardvärdena på fliken **diskar** och välj sedan **Nästa: nätverk**.
-6. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Godkänn de andra standardinställningarna och välj sedan **Nästa: hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
-7. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
-8. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
-9. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
+    - **Användar**namn: Ange ett namn för administratörs användar namnet.
+    - **Lösen ord**: Ange ett lösen ord för administratören.
+1. Godkänn de andra standardinställningarna och välj sedan **Nästa: diskar**.  
+2. Godkänn standardvärdena på fliken **diskar** och välj sedan **Nästa: nätverk**.
+3. På fliken **Nätverk** kontrollerar du att **myVNet** har valts för **Virtuellt nätverk** och att **Undernät** är inställt på **myBackendSubnet**. Godkänn de andra standardinställningarna och välj sedan **Nästa: hantering**.<br>Application Gateway kan kommunicera med instanser utanför det virtuella nätverk som det finns i, men du måste se till att det finns en IP-anslutning.
+4. På fliken **Hantering** anger du **Startdiagnostik** till **Av**. Acceptera de övriga standardinställningarna och välj sedan **Granska + skapa**.
+5. Gå igenom inställningarna på fliken **Granska + skapa** och åtgärda eventuella verifieringsfel och välj sedan **Skapa**.
+6. Vänta på att skapandet av den virtuella datorn är klart innan du fortsätter.
 
 ### <a name="install-iis-for-testing"></a>Installera IIS för testning
 
@@ -173,7 +173,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
     ![Installera anpassat tillägg](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-2. Kör följande kommando för att installera IIS på den virtuella datorn: 
+2. Kör följande kommando för att installera IIS på den virtuella datorn, och ersätt resurs grupps regionen för <plats \> : 
 
     ```azurepowershell-interactive
     Set-AzVMExtension `
@@ -184,7 +184,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
       -ExtensionType CustomScriptExtension `
       -TypeHandlerVersion 1.4 `
       -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
+      -Location <location>
     ```
 
 3. Skapa en andra virtuell dator och installera IIS med hjälp av de steg som du har slutfört. Använd *fabrikamVM* för det virtuella dator namnet och **VMName** -inställningen för cmdleten **set-AzVMExtension** .

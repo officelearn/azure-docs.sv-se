@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828667"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795600"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Anpassade administratörs roller i Azure Active Directory (för hands version)
 
@@ -46,7 +46,7 @@ Följande är de övergripande steg som Azure AD använder för att avgöra om d
 
 1. Beroende på omständigheterna vidtar Azure AD en av följande åtgärder:
 
-    - Utvärderar användarens roll medlemskap baserat på [wids-anspråk](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) i användarens åtkomsttoken.
+    - Utvärderar användarens roll medlemskap baserat på [wids-anspråk](../develop/access-tokens.md) i användarens åtkomsttoken.
     - Hämtar alla roll tilldelningar som gäller för användaren, antingen direkt eller via grupp medlemskap, till den resurs som åtgärden utförs på.
 
 1. Azure AD avgör om åtgärden i API-anropet ingår i de roller som användaren har för den här resursen.
@@ -70,7 +70,7 @@ Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet 
 
 Ett säkerhets objekt representerar den användare som ska tilldelas åtkomst till Azure AD-resurser. En *användare* är en person som har en användar profil i Azure Active Directory.
 
-### <a name="role"></a>Role
+### <a name="role"></a>Roll
 
 En roll definition eller roll är en samling behörigheter. En roll definition visar de åtgärder som kan utföras på Azure AD-resurser, till exempel skapa, läsa, uppdatera och ta bort. Det finns två typer av roller i Azure AD:
 

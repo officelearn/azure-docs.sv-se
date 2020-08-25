@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Felsöka vanliga problem med ARC-aktiverade Kubernetes-kluster.
 keywords: Kubernetes, båge, Azure, behållare
-ms.openlocfilehash: 1527f8d4ca06c2deaf4ce18b73bfdb515dcadc63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 404516778255409d56dd5c3a7d1fd96711cc981f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725592"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723681"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Azure Arc Enabled Kubernetes Troubleshooting (för hands version)
 
@@ -69,9 +69,9 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-Alla poddar ska visas `STATUS` som `Running` och `READY` ska vara antingen `3/3` eller `2/2` . Hämta loggar och beskriv poddar som returnerar `Error` eller `CrashLoopBackOff` .
+Alla poddar ska visas `STATUS` som `Running` och `READY` ska vara antingen `3/3` eller `2/2` . Hämta loggar och beskriv poddar som returnerar `Error` eller `CrashLoopBackOff` . Om något av dessa poddar har fastnat i `Pending` tillstånd kan det bero på otillräckliga resurser på klusternoderna. När du [skalar upp klustret](https://kubernetes.io/docs/tasks/administer-cluster/cluster-management/#resizing-a-cluster) får dessa poddar över gång till `Running` status.
 
-## <a name="unable-to-connect-my-kubernetes-cluster-to-azure"></a>Det går inte att ansluta mitt Kubernetes-kluster till Azure
+## <a name="connecting-kubernetes-clusters-to-azure-arc"></a>Ansluta Kubernetes-kluster till Azure-bågen
 
 Att ansluta kluster till Azure kräver åtkomst till både en Azure-prenumeration och `cluster-admin` åtkomst till ett mål kluster. Om det inte går att nå klustret eller om det inte finns tillräckligt med onboarding-registrering kommer det att Miss Miss
 
@@ -99,8 +99,6 @@ $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
-
-There was a problem with connect-agent deployment. Please run 'kubectl -n azure-arc logs -l app.kubernetes.io/component=connect-agent -c connect-agent' to debug the error.
 ```
 
 ## <a name="configuration-management"></a>Konfigurationshantering
@@ -116,7 +114,7 @@ az k8sconfiguration create <parameters> --debug
 ### <a name="create-source-control-configuration"></a>Skapa käll kontroll konfiguration
 Deltagar rollen på resursen Microsoft. Kubernetes/connectedCluster är nödvändig och tillräckligt för att skapa Microsoft. KubernetesConfiguration/sourceControlConfiguration-resursen.
 
-### <a name="configuration-remains-pending"></a>Konfigurationen är kvar`Pending`
+### <a name="configuration-remains-pending"></a>Konfigurationen är kvar `Pending`
 
 ```console
 kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
@@ -158,4 +156,11 @@ kind: List
 metadata:
   resourceVersion: ""
   selfLink: ""
+```
+## <a name="monitoring"></a>Övervakning
+
+DaemonSet för behållare kräver att dess körs i privilegierat läge. Azure Monitor Kör följande kommando för att konfigurera ett kanoniskt snabb Kubernetes-kluster för övervakning:
+
+```console
+juju config kubernetes-worker allow-privileged=true
 ```

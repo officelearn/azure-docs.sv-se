@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81758125"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Definiera en ny enhets typ för IoT gateway i ditt Azure IoT Central-program
@@ -32,7 +32,7 @@ I den här självstudien skapar du en mall för **Smart Building** gateway-enhet
 * Besvara skrivbara egenskaps uppdateringar gjorda av en operatör. En operatör kan exempelvis ändra sändnings intervallet för telemetri.
 * Svara på kommandon, t. ex. omstart av enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du [skapa ett Azure IoT Central-program](./quick-deploy-iot-central.md).
 
@@ -42,7 +42,7 @@ I den här självstudien används enhets mallar för en **S1-sensor** och en **R
 
 Så här skapar du en enhets mall för en **S1 sensor** enhet:
 
-1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** sedan för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj sedan **+** för att börja lägga till mallen.
 
 1. Rulla nedåt tills du ser panelen för **S1-sensor** enheten. Välj panelen och välj sedan **Nästa: anpassa**.
 
@@ -50,7 +50,7 @@ Så här skapar du en enhets mall för en **S1 sensor** enhet:
 
 Så här skapar du en enhets mall för en * RS40 för användnings**sensor** :
 
-1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** sedan för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj sedan **+** för att börja lägga till mallen.
 
 1. Rulla nedåt tills du ser panelen för ***RS40 besittnings sensor** enhet. Välj panelen och välj sedan **Nästa: anpassa**.
 
@@ -67,7 +67,7 @@ I den här självstudien skapar du en enhets mall för en gateway-enhet från gr
 
 Så här lägger du till en ny Gateway-mall i programmet:
 
-1. I det vänstra fönstret väljer du **enhets mallar**. Välj **+** sedan för att börja lägga till mallen.
+1. I det vänstra fönstret väljer du **enhets mallar**. Välj sedan **+** för att börja lägga till mallen.
 
 1. På sidan **Välj Malltyp** väljer du panelen IoT- **enhet** och väljer sedan **Nästa: anpassa**.
 
@@ -95,7 +95,7 @@ Härnäst lägger du till relationer till mallarna för de underordnade enhets m
 
 ![Enhets mal len för smart skapande Gateway, med relationer](./media/tutorial-define-gateway-device-type/relationships.png)
 
-### <a name="add-cloud-properties"></a>Lägg till moln egenskaper
+### <a name="add-cloud-properties"></a>Lägga till molnegenskaper
 
 En gateway-enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT Central programmet och skickas aldrig till eller tas emot från en enhet.
 
@@ -107,8 +107,8 @@ För att lägga till moln egenskaper till enhets mal len för **Smart skapande G
 
     | Visningsnamn      | Semantiktyp | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Inga          | Date   |
-    | Kund namn     | Inga          | Sträng |
+    | Senaste servicedatum | Ingen          | Datum   |
+    | Kundnamn     | Ingen          | Sträng |
 
 2. Välj **Spara**.
 
@@ -127,7 +127,7 @@ Så här genererar du standardvyer för **enhets mal len för smart skapande Gat
 
 1. Välj **generera standard visnings instrument panel (er)**.
 
-## <a name="publish-the-device-template"></a>Publicera enhets mal len
+## <a name="publish-the-device-template"></a>Publicera enhetsmallen
 
 Innan du kan skapa en simulerad gatewayenhet eller ansluta en riktig gateway-enhet måste du publicera din enhets mall.
 
@@ -139,7 +139,7 @@ Så här publicerar du en gateways enhets mall:
 
 3. I dialog rutan **publicera en enhets mall** väljer du **publicera**.
 
-När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall. De här uppdateringarna innebär inte att en ny version skapas. När du har gjort några ändringar väljer du **publicera** för att skicka ut ändringarna till din operatör.
+När en enhets mal len har publicerats visas den på sidan **enheter** och i operatorn. I en publicerad enhets mall kan du inte redigera en enhets kapacitets modell utan att skapa en ny version. Du kan dock göra uppdateringar av moln egenskaper, anpassningar och vyer i en publicerad enhets mall. De här uppdateringarna innebär inte att en ny version skapas. När du har gjort några ändringar väljer du **publicera**  för att skicka ut ändringarna till din operatör.
 
 ## <a name="create-the-simulated-devices"></a>Skapa de simulerade enheterna
 
@@ -149,7 +149,7 @@ Så här skapar du en simulerad gateway-enhet:
 
 1. På sidan **enheter** väljer du **Smart Building gateway-enhet** i listan med mallar för enheter.
 
-1. Välj **+** om du vill börja lägga till en ny enhet.
+1. Välj om **+** du vill börja lägga till en ny enhet.
 
 1. Behåll det genererade **enhets-ID: t** och **enhets namnet**. Kontrol lera att den **simulerade** växeln är **på**. Välj **Skapa**.
 
@@ -157,13 +157,13 @@ Så här skapar du en simulerad underordnad enhet:
 
 1. På sidan **enheter** väljer du **RS40 beläggnings sensor** i listan över enhetsspecifika.
 
-1. Välj **+** om du vill börja lägga till en ny enhet.
+1. Välj om **+** du vill börja lägga till en ny enhet.
 
 1. Behåll det genererade **enhets-ID: t** och **enhets namnet**. Kontrol lera att den **simulerade** växeln är **på**. Välj **Skapa**.
 
 1. På sidan **enheter** väljer du **S1-sensor** i listan med enhetsspecifika mallar.
 
-1. Välj **+** om du vill börja lägga till en ny enhet.
+1. Välj om **+** du vill börja lägga till en ny enhet.
 
 1. Behåll det genererade **enhets-ID: t** och **enhets namnet**. Kontrol lera att den **simulerade** växeln är **på**. Välj **Skapa**.
 

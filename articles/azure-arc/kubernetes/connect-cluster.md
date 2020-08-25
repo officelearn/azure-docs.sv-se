@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
 ms.custom: references_regions
-ms.openlocfilehash: 761263a4cb8c83475142c2afcc39695bb84d46cd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: eb3921d3ab2090b6bac54c9b68e9def3949ed4b5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080498"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723749"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -61,8 +61,8 @@ Kontrol lera att du har följande krav:
 
 Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er fungerar.
 
-* TCP på port 443-->`https://:443`
-* TCP på port 9418-->`git://:9418`
+* TCP på port 443--> `https://:443`
+* TCP på port 9418--> `git://:9418`
 
 | Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -72,6 +72,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 | `https://github.com`, git://github.com                                                                         | Exempel på GitOps-databaser finns på GitHub. Konfigurations agenten kräver anslutning till den git-slutpunkt som du anger. |
 | `https://login.microsoftonline.com`                                                                            | Krävs för att hämta och uppdatera Azure Resource Manager tokens                                                                                    |
 | `https://azurearcfork8s.azurecr.io`                                                                            | Krävs för att hämta behållar avbildningar för Azure Arc-agenter                                                                  |
+| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Krävs för att hämta system tilldelade hanterade identitets certifikat                                                                  |
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registrera de två providers för Azure Arc-aktiverade Kubernetes:
 
@@ -113,7 +114,7 @@ eastus      AzureArcTest
 
 Nu ska vi ansluta vårt Kubernetes-kluster till Azure. Arbets flödet för `az connectedk8s connect` ser ut så här:
 
-1. Kontrol lera anslutningen till ditt Kubernetes-kluster: via `KUBECONFIG` , `~/.kube/config` eller`--kube-config`
+1. Kontrol lera anslutningen till ditt Kubernetes-kluster: via `KUBECONFIG` , `~/.kube/config` eller `--kube-config`
 1. Distribuera Azure Arc-agenter för Kubernetes med Helm 3, i `azure-arc` namn området
 
 ```console
@@ -174,7 +175,7 @@ Du kan också visa den här resursen på [Azure Portal](https://portal.azure.com
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Anslut med en utgående proxyserver
 
-Om klustret ligger bakom en utgående proxyserver, måste Azure CLI och Arc-aktiverade Kubernetes-agenter dirigera sina förfrågningar via den utgående proxyservern. Följande konfiguration hjälper till att uppnå följande:
+Om klustret ligger bakom en utgående proxyserver, måste Azure CLI och Arc-aktiverade Kubernetes-agenter dirigera sina förfrågningar via den utgående proxyservern. Följande konfiguration gör det möjligt att:
 
 1. Kontrol lera vilken version av `connectedk8s` tillägget som är installerad på datorn genom att köra det här kommandot:
 
@@ -182,7 +183,7 @@ Om klustret ligger bakom en utgående proxyserver, måste Azure CLI och Arc-akti
     az -v
     ```
 
-    Du behöver `connectedk8s` tilläggs version >= 0.2.3 för att konfigurera agenter med utgående proxy. Om du har version < 0.2.3 på datorn följer du [uppdaterings stegen](#before-you-begin) för att hämta den senaste versionen av tillägget på din dator.
+    Du behöver `connectedk8s` tilläggs version >= 0.2.3 för att ställa in agenter med utgående proxy. Om du har version < 0.2.3 på datorn följer du [uppdaterings stegen](#before-you-begin) för att hämta den senaste versionen av tillägget på din dator.
 
 2. Ange de miljövariabler som krävs för Azure CLI:
 

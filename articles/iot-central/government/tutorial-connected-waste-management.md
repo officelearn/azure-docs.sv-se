@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77426368"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Självstudie: skapa ett anslutet hanterings program för skräp hantering i IoT Central
@@ -32,7 +32,7 @@ I den här självstudien får du lära dig hur man:
 > * Konfigurera jobb
 > * Anpassa din program anpassning med adresser
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 -  En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -145,8 +145,8 @@ Så här visar du enhets mal len:
 
 Försök att anpassa följande:
 1. Navigera för att **Anpassa** från menyn på enhets mal len
-2. Hitta typen `Odor meter` av telemetri
-3. Uppdatera **visnings namnet** för `Odor meter` till`Odor level`
+2. Hitta `Odor meter` typen av telemetri
+3. Uppdatera **visnings namnet** för `Odor meter` till `Odor level`
 4. Du kan också prova att uppdatera mått enheten eller ange *minsta värde* och *Max värde*
 5. **Spara** ändringar 
 
@@ -185,7 +185,7 @@ I IoT Central kan du skapa simulerade enheter för att testa enhetens mall och p
 
      ![Enhet 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-3. Navigera till fliken **moln egenskaper** och försök uppdatera `Bin full alert threshold` värdet från `95` till. `100` 
+3. Navigera till fliken **moln egenskaper** och försök uppdatera `Bin full alert threshold` värdet från `95` till `100` . 
 * Utforska fliken **enhets egenskaper** och fliken **enhets instrument panel** . 
 
 > [!NOTE]
@@ -210,9 +210,9 @@ I Azure IoT Central kan du skapa regler för automatisk övervakning på enheten
 
      ![Fullständig avisering för bin](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
- 3. Kontrollerar `Bin full alert` om **villkoret** `Fill level is greater than or equal to Bin full alert threshold`är uppfyllt.
+ 3. `Bin full alert`Kontrollerar om **villkoret** är uppfyllt `Fill level is greater than or equal to Bin full alert threshold` .
 
-    Är en *moln egenskap* som definierats i `Connected waste bin` enhets mal len. `Bin full alert threshold` 
+    `Bin full alert threshold`Är en *moln egenskap* som definierats i `Connected waste bin` enhets mal len. 
 
 Nu ska vi skapa en e-poståtgärd.
 

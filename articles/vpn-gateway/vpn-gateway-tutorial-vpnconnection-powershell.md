@@ -9,10 +9,10 @@ ms.date: 03/11/2020
 ms.author: yushwang
 ms.custom: mvc
 ms.openlocfilehash: 18c6188e1b13c35a4c28a5f9e7fc863f00798eed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80616406"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Självstudie: skapa och hantera S2S VPN-anslutningar med hjälp av PowerShell
@@ -120,7 +120,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-Resultatet blir "**\@Azure! b2C3**" som följer exemplet ovan. Använd kommandot nedan för att ändra värdet för en i förväg delad nyckel till **"\@Azure! _b2 = C3**":
+Resultatet blir "**Azure \@ ! b2C3**" som följer exemplet ovan. Använd kommandot nedan för att ändra värdet för en i förväg delad nyckel till "**Azure \@ ! _B2 = C3**":
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkGatewayConnectionSharedKey `

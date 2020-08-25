@@ -4,10 +4,10 @@ description: Den här artikeln innehåller en tabell med länkar till Azure Powe
 ms.topic: sample
 ms.date: 07/07/2020
 ms.openlocfilehash: 89945d9fc3558b8e14303aebe9ef593fbd792761
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86108115"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Azure PowerShell-exempel för Event Grid

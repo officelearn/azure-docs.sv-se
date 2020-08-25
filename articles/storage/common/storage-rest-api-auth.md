@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: d43df68f48273b03fa9bde9633b487d69c0834ed
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 29bec00916f4cc3683dae5b6d3065e02a3cbe10f
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905388"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724174"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Anropa REST API åtgärder med autentisering med delad nyckel
 
@@ -65,7 +65,7 @@ Granska referensen för [ListContainers](/rest/api/storageservices/List-Containe
 
 **Metod för begäran**: Hämta. Det här verbet är den HTTP-metod som du anger som egenskap för objektet Request. Andra värden för det här verbet omfattar HEAD, placering och DELETE, beroende på vilket API som du anropar.
 
-**URI för begäran**: `https://myaccount.blob.core.windows.net/?comp=list` .Begärd URI skapas från slut punkten för Blob Storage-kontot `http://myaccount.blob.core.windows.net` och resurs strängen `/?comp=list` .
+**URI för begäran**: `https://myaccount.blob.core.windows.net/?comp=list` .Begärd URI skapas från slut punkten för Blob Storage-kontot `https://myaccount.blob.core.windows.net` och resurs strängen `/?comp=list` .
 
 [URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Ett par av dessa parametrar är *timeout* för anropet (i sekunder) och *prefix*, som används för filtrering.
 

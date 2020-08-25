@@ -9,10 +9,10 @@ ms.date: 03/01/2020
 ms.author: allensu
 ms.custom: include file
 ms.openlocfilehash: 81db46b52c9b4fe800f2fbfeadad966995d66e12
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78244984"
 ---
 ## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
@@ -29,8 +29,8 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     | Prenumeration     | Välj din Azure-prenumeration                                  |
     | Resursgrupp   | Välj **Skapa ny**, ange **\<resource-group-name>** och välj sedan OK, eller Välj en befintlig **\<resource-group-name>** baserad på parametrar. |
     | **Instans information** |                                                                 |
-    | Name             | Går**\<virtual-network-name>**                                    |
-    | Region           | Select**\<region-name>** |
+    | Namn             | Går **\<virtual-network-name>**                                    |
+    | Region           | Select **\<region-name>** |
 
 3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
 
@@ -38,7 +38,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
     | Inställningen            | Värde                      |
     |--------------------|----------------------------|
-    | IPv4-adress utrymme | Går**\<IPv4-address-space>** |
+    | IPv4-adress utrymme | Går **\<IPv4-address-space>** |
 
 5. Under **under näts namn**väljer du ordet **standard**.
 
@@ -46,8 +46,8 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
 
     | Inställningen            | Värde                      |
     |--------------------|----------------------------|
-    | Namn på undernät | Går**\<subnet-name>** |
-    | Adressintervall för undernätet | Går**\<subnet-address-range>**
+    | Namn på undernät | Går **\<subnet-name>** |
+    | Adressintervall för undernätet | Går **\<subnet-address-range>**
 
 7. Välj **Spara**.
 

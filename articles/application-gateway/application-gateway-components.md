@@ -1,20 +1,20 @@
 ---
-title: Application Gateway-komponenter
+title: Komponenter för Application Gateway
 description: Den här artikeln innehåller information om de olika komponenterna i en Application Gateway
 services: application-gateway
-author: abshamsft
+author: surajmb
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.author: absha
-ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.author: surmb
+ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088095"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723324"
 ---
-# <a name="application-gateway-components"></a>Application Gateway-komponenter
+# <a name="application-gateway-components"></a>Komponenter för Application Gateway
 
  En Programgateway fungerar som en enda kontakt punkt för klienterna. Den distribuerar inkommande program trafik över flera backend-pooler, inklusive virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, Azure App Service och lokala/externa servrar. För att distribuera trafik använder en Application Gateway flera komponenter som beskrivs i den här artikeln.
 
@@ -69,9 +69,9 @@ Det finns två typer av lyssnare:
 
 - **Basic**. Den här typen av lyssnare lyssnar på en enda domän plats, där den har en enda DNS-mappning till programgatewayens IP-adress. Den här lyssnar konfigurationen krävs när du är värd för en enskild plats bakom en Programgateway.
 
-- **Flera platser**. Den här lyssnar konfigurationen krävs om du vill konfigurera routning baserat på värdnamn eller domän namn för mer än ett webb program på samma Application Gateway. Det gör att du kan konfigurera en effektivare topologi för dina distributioner genom att lägga till upp till 100 + webbplatser i en Application Gateway. Varje webbplats kan dirigeras till en egen serverdelspool. Till exempel, tre domäner, contoso.com, fabrikam.com och adatum.com, pekar du på IP-adressen för programgatewayen. Du skapar tre [lyssnare för flera platser](multiple-site-overview.md) och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
+- **Flera platser**. Den här lyssnar konfigurationen krävs om du vill konfigurera routning baserat på värdnamn eller domän namn för mer än ett webb program på samma Application Gateway. Den här funktionen gör att du kan konfigurera en mer effektiv topologi för dina distributioner genom att lägga till fler än 100 webbplatser i samma appgateway. Varje webbplats kan dirigeras till en egen serverdelspool. Tänk dig till exempel att de tre domänerna contoso.com, fabrikam.com och adatum.com pekar på appgatewayens IP-adress. Du skapar tre [lyssnare för flera platser](multiple-site-overview.md) och konfigurerar varje lyssnare för respektive port-och protokoll inställning. 
 
-    Du kan också definiera jokertecken som värdnamn i en lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+    Du kan också definiera värdnamn med jokertecken i lyssnare för flera platser och upp till 5 värdnamn per lyssnare. Mer information finns i [namn på jokertecken i lyssnare (för hands version)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
     Mer information om hur du konfigurerar en lyssnare för flera platser finns [i Application Gateway som är värd för flera platser i att använda Azure Portal](create-multiple-sites-portal.md).
 
@@ -99,7 +99,7 @@ Du kan välja det omdirigerings mål som ska vara en annan lyssnare (som kan hj�
 
 Mer information finns i [omdirigera trafik på din Application Gateway](redirect-overview.md).
 
-### <a name="rewrite-http-headers-and-url"></a>Skriv om HTTP-rubriker och URL
+### <a name="rewrite-http-headers-and-url"></a>Skriva om HTTP-huvuden och URL
 
 Genom att använda regler för att skriva om, kan du lägga till, ta bort eller uppdatera HTTP (S)-begäran och svars rubriker samt URL-sökväg och parametrar för frågesträngar som begär ande-och svars paket flyttas mellan klienten och backend-pooler via Application Gateway.
 
@@ -140,7 +140,7 @@ En Programgateway kan också kommunicera med lokala servrar när de är anslutna
 
 Du kan skapa olika backend-pooler för olika typer av begär Anden. Du kan till exempel skapa en backend-pool för allmänna begär Anden och sedan en annan backend-pool för förfrågningar till mikrotjänster för ditt program.
 
-## <a name="health-probes"></a>Hälsoavsökningar
+## <a name="health-probes"></a>Hälsotillståndsavsökningar
 
 Som standard övervakar en Programgateway hälsan för alla resurser i sin backend-pool och tar automatiskt bort felaktiga. Den övervakar sedan skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar.
 

@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup Server för Azure VMware-lösning
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: c45d2030e282057c487d142669ab634cd81f6929
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079544"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750612"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Konfigurera Azure Backup Server för Azure VMware-lösning
 
@@ -56,7 +56,7 @@ Om du vill konfigurera Azure Backup Server för Azure VMware-lösningen måste d
 
 Azure Backup Server distribueras som en virtuell dator i Azure Infrastructure as a Service (IaaS) för att skydda virtuella datorer i Azure VMware-lösningen.
 
-:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Arkitektur för AVS-distribution" border="false":::
+:::image type="content" source="media/avs-backup/deploy-mabs-avs-diagram.png" alt-text="Azure Backup Server distribueras som en virtuell dator i Azure Infrastructure as a Service (IaaS) för att skydda virtuella datorer i Azure VMware-lösningen." border="false":::
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Krav för Azure Backup Servers miljön
 
@@ -140,23 +140,23 @@ Ett Recovery Services-valv är en lagrings enhet som lagrar återställnings pun
 
 1. På menyn till vänster väljer du **Alla tjänster**.
 
-   ![Välj Alla tjänster](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![På menyn till vänster väljer du Alla tjänster.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. I dialog rutan **alla tjänster** anger **Recovery Services** och väljer **Recovery Services valv** i listan.
 
-   ![Ange och välja Recovery Services-valv](../backup/media/backup-create-rs-vault/all-services.png)
+   ![Ange och välj Recovery Services valv.](../backup/media/backup-create-rs-vault/all-services.png)
 
    Listan över Recovery Services-valv i prenumerationen visas.
 
 1. På instrument panelen för **Recovery Services valv** väljer du **Lägg till**.
 
-   ![Lägg till ett Recovery Services-valv](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
+   ![Lägg till ett Recovery Services-valv.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
    Dialog rutan **Recovery Services valv** öppnas.
 
 1. Ange värden för **namn**, **prenumeration**, **resurs grupp**och **plats**.
 
-   ![Konfigurera Recovery Services-valvet](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
+   ![Konfigurera Recovery Services-valvet.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
    - **Namn**: Ange ett eget namn som identifierar valvet. Namnet måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck.
    - **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration.
@@ -165,11 +165,11 @@ Ett Recovery Services-valv är en lagrings enhet som lagrar återställnings pun
 
 1. När du är redo att skapa Recovery Services-valvet väljer du **skapa**.
 
-   ![Skapa Recovery Services-valvet](../backup/media/backup-create-rs-vault/click-create-button.png)
+   ![Skapa Recovery Services-valvet.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
    Det kan ta en stund att skapa Recovery Services-valvet. Övervaka status meddelanden i **meddelande** fältet i det övre högra hörnet i portalen. När valvet har skapats visas det i listan över Recovery Services-valv. Om du inte ser ditt valv väljer du **Uppdatera**.
 
-   ![Uppdatera listan över säkerhets kopierings valv](../backup/media/backup-create-rs-vault/refresh-button.png)
+   ![Uppdatera listan över säkerhets kopierings valv.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
 ## <a name="set-storage-replication"></a>Ange Storage-replikering
 
@@ -184,7 +184,7 @@ Med alternativet lagrings replikering kan du välja mellan Geo-redundant lagring
 
 1. Välj typ av lagrings replikering och välj **Spara**.
 
-   ![Ange lagrings konfiguration för nytt valv](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+   ![Ange lagrings konfiguration för nytt valv.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Hämta och installera programpaketet
 
@@ -206,15 +206,15 @@ Följ stegen i det här avsnittet för att ladda ned, extrahera och installera p
 
    Instrumentpanelen för det valda valvet öppnas.
 
-   ![Öppna valv instrument panel](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
+   ![Instrumentpanelen för det valda valvet öppnas.](../backup/media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
 
    Alternativet **Inställningar** öppnas som standard. Om det stängs väljer du **Inställningar** för att öppna den.
 
-   ![Alternativet öppna valv inställningar](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
+   ![Alternativet Inställningar öppnas som standard. Om det stängs väljer du inställningar för att öppna den.](../backup/media/backup-azure-microsoft-azure-backup/vault-setting.png)
 
 1. Välj **säkerhets kopiering** för att öppna guiden **komma igång** .
 
-   ![Guiden Säkerhetskopiera öppnas Komma igång](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
+   ![Välj säkerhets kopiering för att öppna guiden Komma igång.](../backup/media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
 1. Gör följande i fönstret som öppnas:
 
@@ -241,7 +241,7 @@ Följ stegen i det här avsnittet för att ladda ned, extrahera och installera p
    > [!NOTE]
    > Du måste ladda ned alla filer till samma mapp. Eftersom fil hämtnings storleken är större än 3 GB kan det ta upp till 60 minuter innan nedladdningen är klar. 
 
-   ![Välj filer i Download Center](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
+   ![På sidan Hämta väljer du alla filer och väljer Nästa.](../backup/media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
 ### <a name="extract-the-software-package"></a>Extrahera programpaketet
 
@@ -256,7 +256,7 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
 
 1. Starta extraherings processen genom att välja **extrahera** .
 
-   ![Microsoft Azure Backup installations guiden](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
+   ![Starta extraherings processen genom att välja extrahera.](../backup/media/backup-azure-microsoft-azure-backup/extract/03.png)
 
 1. När du har extraherat väljer du alternativet för att **köra setup.exe** och väljer sedan **Slutför**.
 
@@ -267,17 +267,17 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
 
 1. I installations fönstret under **Installera**väljer du **Microsoft Azure Backup** för att öppna installations guiden.
 
-   ![Installations guide för Microsoft Azure Backup installations guiden](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
+   ![I installations fönstret under installera väljer du Microsoft Azure Backup för att öppna installations guiden.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
 1. På **välkomst** skärmen väljer du **Nästa** för att fortsätta till sidan **krav kontroll** .
 
 1. Välj **kontrol lera igen** för att avgöra om maskin-och program varu kraven för Azure Backup Server är uppfyllda. Välj **Nästa**om det är uppfyllt.
 
-   ![Krav kontroll för Azure Backup Server](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
+   ![ Välj kontrol lera igen för att avgöra om maskin-och program varu kraven för Azure Backup Server är uppfyllda. Välj nästa om det är uppfyllt.](../backup/media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 
 1. Installations paketet för Azure Backup Server levereras med lämpliga SQL Server binärfiler som behövs. När du startar en ny Azure Backup Server-installation väljer du alternativet **installera ny instans av SQL Server med detta installations** alternativ. Välj sedan **kontrol lera och installera**.
 
-   ![Kontroll av Azure Backup Server SQL Server](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
+   ![Installations paketet för Azure Backup Server levereras med lämpliga SQL Server binärfiler som behövs.](../backup/media/backup-azure-microsoft-azure-backup/sql/01.png)
 
    > [!NOTE]
    > Om du vill använda en egen SQL Server-instans är de SQL Server-versioner som stöds SQL Server 2014 SP1 eller högre, 2016 och 2017. Alla SQL Server-versioner ska vara standard eller Enterprise 64-bitars. Azure Backup Server fungerar inte med en fjärran sluten SQL Server instans. Instansen som används av Azure Backup Server måste vara lokal. Om du använder en befintlig SQL Server-instans för Azure Backup Server, stöder installations programmet endast användningen av *namngivna instanser* av SQL Server.
@@ -321,18 +321,18 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
    > [!NOTE]
    > Det krävs en arbets plats för att säkerhetskopiera till Azure. Se till att arbets platsen är minst 5% av de data som planeras att säkerhets kopie ras till molnet. För disk skydd måste separata diskar konfigureras efter att installationen har slutförts. Mer information om lagringspooler finns i Konfigurera lagringspooler [och disk lagring](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
-   ![Microsoft Azure Backup installations inställningar](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
+   ![Ange en plats för installationen av Microsoft Azure Backup server-filer och välj Nästa.](../backup/media/backup-azure-microsoft-azure-backup/space-screen.png)
 
 1. Ange ett starkt lösen ord för begränsade lokala användar konton och välj **Nästa**.
 
-   ![Microsoft Azure Backup Inställningar för säkerhets inställningar](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
+   ![Ange ett starkt lösen ord för begränsade lokala användar konton och välj Nästa.](../backup/media/backup-azure-microsoft-azure-backup/security-screen.png)
 
 1. Välj om du vill använda Microsoft Update för att söka efter uppdateringar och välj **Nästa**.
 
    > [!NOTE]
    > Vi rekommenderar att du Windows Update omdirigera till Microsoft Update, som erbjuder säkerhet och viktiga uppdateringar för Windows och andra produkter som Azure Backup Server.
 
-   ![Microsoft Azure Backup installations Microsoft Update du vill välja](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
+   ![Välj om du vill använda Microsoft Update för att söka efter uppdateringar och välj Nästa.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
 1. Granska **sammanfattningen av inställningarna**och välj **Installera**.
 
@@ -352,7 +352,7 @@ Om du har laddat ned program varu paketet till en annan server kopierar du filer
 
    När installationen av Microsoft Azure Recovery Services-agenten är klar flyttas installations steget vidare till installationen och konfigurationen av SQL Server och Azure Backup Server-komponenterna.
 
-   ![Microsoft Azure Backup installation](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+   ![När installationen av Microsoft Azure Recovery Services-agenten är klar flyttas installations steget vidare till installationen och konfigurationen av SQL Server och Azure Backup Server-komponenterna.](../backup/media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 1. När installations steget har slutförts väljer du **Stäng**.
 

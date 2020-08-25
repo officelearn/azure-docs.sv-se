@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: rogardle
-ms.openlocfilehash: 4489aae873c3fa4153974209074e14959307c772
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c22c5fa9c1a1680734a8cf5d8f4079e8c7b5c5f7
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690348"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723424"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -118,7 +118,7 @@ När du migrerar Oracle-programvara och arbets belastningar från en lokal plats
 
 ## <a name="oracle-real-application-cluster-oracle-rac"></a>Verkligt Oracle-programkluster (Oracle RAC)
 
-Oracle Real Application Cluster (Oracle RAC) är utformat för att minimera fel i en enskild nod i en lokal kluster konfiguration med flera noder. Den förlitar sig på två lokala tekniker som inte är inbyggda för storskaliga offentliga moln miljöer: nätverks-multicast och delad disk. Om din databas lösning kräver Oracle RAC i Azure, behöver du en tredje = parts program vara för att aktivera dessa tekniker. Mer information om Oracle RAC finns på [sidan FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
+Oracle Real Application Cluster (Oracle RAC) är utformat för att minimera fel i en enskild nod i en lokal kluster konfiguration med flera noder. Den förlitar sig på två lokala tekniker som inte är inbyggda för storskaliga offentliga moln miljöer: nätverks-multicast och delad disk. Om din databas lösning kräver Oracle RAC i Azure, behöver du program vara från tredje part för att aktivera dessa tekniker. Mer information om Oracle RAC finns på [sidan FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Överväganden för hög tillgänglighet och haveri beredskap
 

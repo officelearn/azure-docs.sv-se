@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
 ms.openlocfilehash: 8aa7401a2ee7a0d87736e6b18fc814f983e2afa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82184205"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight
@@ -29,9 +29,9 @@ I den här guiden får du lära dig att:
 
 När du är klar med stegen i det här dokumentet måste du komma ihåg att ta bort klustren för att undvika överskotts kostnader.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
 * Kunskaper om [Jupyter Notebooks](https://jupyter.org/) med Spark på HDInsight. Mer information finns i dokumentet [Läsa in data och köra frågor med Apache Spark på HDInsight](spark/apache-spark-load-data-run-query.md).
 
@@ -94,9 +94,9 @@ I båda kodfragmenten läses data från Kafka och skrivs till en fil. Skillnader
 | `write` | `writeStream` |
 | `save` | `start` |
 
-Streaming-åtgärden använder `awaitTermination(30000)`också, vilket stoppar strömmen efter 30 000 MS.
+Streaming-åtgärden använder också `awaitTermination(30000)` , vilket stoppar strömmen efter 30 000 MS.
 
-Om du vill använda Structured Streaming med Kafka måste ditt projekt ha ett beroende på paketet `org.apache.spark : spark-sql-kafka-0-10_2.11`. Versionen av det här paketet ska överensstämma med version på Spark på HDInsight. För Spark-2.2.0 (tillgängligt i HDInsight 3,6) kan du hitta beroende informationen för olika projekt typer på [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
+Om du vill använda Structured Streaming med Kafka måste ditt projekt ha ett beroende på paketet `org.apache.spark : spark-sql-kafka-0-10_2.11`. Versionen av det här paketet ska överensstämma med version på Spark på HDInsight. För Spark-2.2.0 (tillgängligt i HDInsight 3,6) kan du hitta beroende informationen för olika projekt typer på [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar) .
 
 I den Jupyter Notebook som används i den här självstudien laddar följande cell detta paket beroende:
 
@@ -127,7 +127,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-kafka-spark-structured-streaming/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-    Mallen Azure Resource Manager finns på **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**.
+    Mallen Azure Resource Manager finns på **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json** .
 
     Den här mallen skapar följande resurser:
 
@@ -140,7 +140,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
 
 2. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | --- | --- |
     | Prenumeration | Din Azure-prenumeration |
     | Resursgrupp | Resursgruppen som innehåller resurserna. |
@@ -165,7 +165,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Spark-klus
 
 Det här exemplet visar hur du använder Spark Structured streaming med Kafka på HDInsight. Den använder data i taxi resor, som tillhandahålls av New York City.  Data uppsättningen som används av den här antecknings boken är från [2016 grön taxi rese data](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Samla in information om värden. Använd kommandona för vändning och [JQ](https://stedolan.github.io/jq/) nedan för att hämta information om Kafka-ZooKeeper och Broker-värdar. Kommandona är utformade för en kommando tolk i Windows, små variationer krävs för andra miljöer. Ersätt `KafkaCluster` med namnet på ditt Kafka-kluster och `KafkaPassword` med lösen ordet för kluster inloggning. Ersätt `C:\HDI\jq-win64.exe` också med den faktiska sökvägen till din JQ-installation. Ange kommandona i kommando tolken i Windows och spara utdata för användning i senare steg.
+1. Samla in information om värden. Använd kommandona för vändning och [JQ](https://stedolan.github.io/jq/) nedan för att hämta information om Kafka-ZooKeeper och Broker-värdar. Kommandona är utformade för en kommando tolk i Windows, små variationer krävs för andra miljöer. Ersätt `KafkaCluster` med namnet på ditt Kafka-kluster och `KafkaPassword` med lösen ordet för kluster inloggning. Ersätt också `C:\HDI\jq-win64.exe` med den faktiska sökvägen till din JQ-installation. Ange kommandona i kommando tolken i Windows och spara utdata för användning i senare steg.
 
     ```cmd
     REM Enter cluster name in lowercase
@@ -178,7 +178,7 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/KAFKA/components/KAFKA_BROKER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")"
     ```
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter`, där `CLUSTERNAME` är namnet på klustret. Ange klusterinloggningen (administratör) och det lösenord som användes när du skapade klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/jupyter` , där `CLUSTERNAME` är namnet på klustret. Ange klusterinloggningen (administratör) och det lösenord som användes när du skapade klustret.
 
 1. Välj **ny > Spark** för att skapa en antecknings bok.
 
@@ -197,7 +197,7 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
     }
     ```
 
-1. Skapa Kafka-avsnittet. Redigera kommandot nedan genom att ersätta `YOUR_ZOOKEEPER_HOSTS` med Zookeeper-värd information som extraherats i det första steget. Skapa `tripdata` ämnet genom att ange det redigerade kommandot i Jupyter Notebook.
+1. Skapa Kafka-avsnittet. Redigera kommandot nedan genom att ersätta `YOUR_ZOOKEEPER_HOSTS` med Zookeeper-värd information som extraherats i det första steget. Skapa ämnet genom att ange det redigerade kommandot i Jupyter Notebook `tripdata` .
 
     ```scala
     %%bash
@@ -232,7 +232,7 @@ Det här exemplet visar hur du använder Spark Structured streaming med Kafka p�
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-1. Skicka data till Kafka. I följande kommando används `vendorid` fältet som nyckel värde för Kafka-meddelandet. Nyckeln används av Kafka när data partitioneras. Alla fält lagras i Kafka-meddelandet som ett JSON-sträng värde. Ange följande kommando i Jupyter för att spara data till Kafka med hjälp av en batch-fråga.
+1. Skicka data till Kafka. I följande kommando `vendorid` används fältet som nyckel värde för Kafka-meddelandet. Nyckeln används av Kafka när data partitioneras. Alla fält lagras i Kafka-meddelandet som ett JSON-sträng värde. Ange följande kommando i Jupyter för att spara data till Kafka med hjälp av en batch-fråga.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.

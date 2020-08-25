@@ -11,10 +11,10 @@ ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 5c16173fb46144be7c44664c45e917ec0a886313
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181166"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
@@ -46,7 +46,7 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 
 | Exempel | Beskrivning |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL. js. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL.js. |
 
 ## <a name="saml-test-application"></a>SAML-testprogram
 

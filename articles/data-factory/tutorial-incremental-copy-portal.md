@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
 ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86082666"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage med hjälp av Azure Portal
@@ -34,7 +34,7 @@ I den här självstudiekursen får du göra följande:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen.
-> * Granska resultatet
+> * Granska resultat
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen
@@ -62,7 +62,7 @@ Här är några viktiga steg för att skapa den här lösningen:
     * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång.
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har en databas i Azure SQL Database, se [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för att skapa en.
@@ -125,7 +125,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
     ```sql
     Select * from watermarktable
     ```
-    Resultat:
+    Utdata:
 
     ```
     TableName  | WatermarkValue
@@ -273,7 +273,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**.
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern:
 
-        | Name | Typ | Värde |
+        | Namn | Typ | Värde |
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Sträng | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
@@ -393,7 +393,7 @@ I den här självstudiekursen fick du:
 > * Skapa en pipeline.
 > * Köra en pipeline.
 > * Övervaka pipelinekörningen.
-> * Granska resultatet
+> * Granska resultat
 > * Lägg till mer data i källan.
 > * Kör pipelinen igen.
 > * Övervaka den andra pipelinekörningen

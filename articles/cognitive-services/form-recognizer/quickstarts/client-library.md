@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505416"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723341"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Snabb start: Använd formulär tolkens klient bibliotek
 
@@ -29,6 +29,10 @@ Använd formulär identifierarens klient bibliotek för att:
 * [Träna en anpassad modell](#train-a-custom-model)
 * [Analysera formulär med en anpassad modell](#analyze-forms-with-a-custom-model)
 * [Hantera dina anpassade modeller](#manage-your-custom-models)
+
+> [!NOTE]
+> Klient biblioteken har stöd för den senaste versionen av formulär igenkänning i allmän tillgänglighet, v 2.0. 
+
 
 ::: zone pivot="programming-language-csharp"
 

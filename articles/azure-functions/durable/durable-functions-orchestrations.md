@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033650"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750201"
 ---
 # <a name="durable-orchestrations"></a>Varaktiga dirigeringar
 
@@ -51,7 +51,7 @@ När en Orchestration-funktion får mer arbete (till exempel om ett svarsmeddela
 > För att uppspelnings mönstret ska fungera korrekt och tillförlitligt måste Orchestrator-funktions koden vara *deterministisk*. Mer information om kod begränsningar för Orchestrator Functions finns i artikeln om [begränsningar för Orchestrator-funktions kod](durable-functions-code-constraints.md) .
 
 > [!NOTE]
-> Om en Orchestrator-funktion genererar logg meddelanden kan uppspelnings beteendet orsaka att dubbla logg meddelanden genereras. I avsnittet om [loggning](durable-functions-diagnostics.md#logging) kan du läsa mer om varför det här problemet uppstår och hur du kan kringgå det.
+> Om en Orchestrator-funktion genererar logg meddelanden kan uppspelnings beteendet orsaka att dubbla logg meddelanden genereras. I avsnittet om [loggning](durable-functions-diagnostics.md#app-logging) kan du läsa mer om varför det här problemet uppstår och hur du kan kringgå det.
 
 ## <a name="orchestration-history"></a>Orchestration-historik
 
@@ -141,7 +141,7 @@ Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär
 | eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" "Hej London!" "                                       |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Hello Tokyo!", "" Hej Seattle! "," "Hej London!" "]" | Slutfört           |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Hello Tokyo!", "" Hej Seattle! "," "Hej London!" "]" | Slutförd           |
 
 Några anmärkningar om kolumn värden:
 
@@ -348,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="getweather-activity"></a>`GetWeather`Aktivitet
+#### <a name="getweather-activity"></a>`GetWeather` Aktivitet
 
 ```javascript
 module.exports = async function (context, location) {
@@ -376,7 +376,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # ...
 
 ```
-#### <a name="getweather-activity"></a>`GetWeather`Aktivitet
+#### <a name="getweather-activity"></a>`GetWeather` Aktivitet
 
 ```python
 from collections import namedtuple

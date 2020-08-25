@@ -1,14 +1,14 @@
-- name: Azure VMware Solution (AVS)
+- name: Azure VMware Solution
   href: index.yml
 - name: Översikt
   items:
-    - name: Om Azure VMware Solution (AVS)
+    - name: Om Azure VMware Solution
       href: introduction.md
 - name: Självstudier
   items:
     - name: 1 - Planera för nätverk
       href: tutorial-network-checklist.md
-    - name: 2 - Skapa ett privat AVS-moln
+    - name: 2 – Skapa privat moln
       href: tutorial-create-private-cloud.md
     - name: 3 - Konfigurera nätverk
       href: tutorial-configure-networking.md
@@ -38,7 +38,7 @@
       href: concepts-upgrades.md
 - name: Anvisningar
   items:
-    - name: AVS-migreringsutvärdering
+    - name: Migreringsutvärdering
       href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Konfigurera HCX
       href: hybrid-cloud-extension-installation.md
@@ -52,19 +52,19 @@
           href: concepts-api-management.md
         - name: Nav och ekrar
           href: concepts-avs-hub-and-spoke-integration.md
-        - name: Azure Backup Server för AVS
+        - name: Azure Backup Server
           items:
-            - name: Konfigurera Backup Server för AVS
+            - name: Konfigurera Backup Server
               href: set-up-mabs-for-avs.md
-            - name: Säkerhetskopiera virtuella AVS-datorer med Backup Server
+            - name: Säkerhetskopiera virtuella datorer för privat moln med Backup Server
               href: backup-avs-vms-with-mabs.md
-        - name: Application Gateway med AVS
+        - name: Application Gateway
           href: protect-avs-web-apps-with-app-gateway.md
         - name: Traffic Manager med AVS
           href: deploy-traffic-manager-to-balance-avs-workloads.md
     - name: VMware-lösningar
       items:
-        - name: Konfigurera vRealize Operations för AVS
+        - name: Konfigurera vRealize Operations
           href: vrealize-operations-for-avs.md
 - name: Referens
   items: null
@@ -72,7 +72,7 @@
   items:
     - name: Felsökning
       items:
-        - name: Få hjälp med AVS-distribution och etableringsfel
+        - name: Få hjälp med distribution och etableringsfel
           href: fix-deployment-provisioning-failures.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md

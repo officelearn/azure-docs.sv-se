@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
 ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86085726"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Läs in data stegvis från Azure SQL-hanterad instans till Azure Storage med hjälp av registrering av ändrings data (CDC)
@@ -49,7 +49,7 @@ I den här självstudien skapar du en pipeline som utför följande åtgärder:
    2. Skapa ett **if-villkor** för att kontrol lera om det finns ändrade poster och om så är fallet, anropa kopierings aktiviteten.
    3. Skapa en **kopierings aktivitet** för att kopiera infogade/uppdaterade/borttagna data mellan CDC-tabellen och Azure Blob Storage.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 * **Azure SQL Database Hanterad instans**. Du använder databasen som **källa** för datalagringen. Om du inte har en Azure SQL Database Hanterad instans kan du läsa artikeln [skapa en Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) för steg för att skapa en.

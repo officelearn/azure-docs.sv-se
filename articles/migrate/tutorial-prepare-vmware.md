@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
 ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109584"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
@@ -25,14 +25,14 @@ Den här självstudien är den första i en serie som visar hur du kan utvärder
 > [!NOTE]
 > Självstudier visar den enklaste distributions vägen för ett scenario. De är användbara som en snabb proof-of-Concept. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar. 
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Instruktioner för varje aktivitet följer tabellen.
 
-**Uppgift** | **Detaljer** | **Behörigheter**
+**Aktivitet** | **Information** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-enhet för att identifiera virtuella datorer, för att utvärdera dem med Server bedömnings verktyget och för att migrera dem med hjälp av återställning utan agent med Migreringsverktyg för Server. [Läs mer](migrate-appliance-architecture.md#appliance-registration) om registrering. | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
@@ -160,7 +160,7 @@ Azure Migrate-enheten ansluter till vCenter Server för att identifiera och migr
 Du kan också skapa ett konto. Skapa sedan en roll och tilldela den till kontot enligt följande:
 
 1. Logga in på sfärens webb klient som vCenter Server administratör
-2. Välj vCenter Server-instansen > **skapa roll**.
+2. Välj vCenter Server-instansen >  **skapa roll**.
 3. Ange ett rollnamn, till exempel <em>Azure_Migrate</em>, och tilldela de [behörigheter som krävs](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless) för rollen.
 
     ![vCenter Server konto privilegier](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)

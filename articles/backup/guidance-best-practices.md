@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 21d3d6b8983d8ce3d0b563785423bc1e503649f3
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757599"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825587"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -26,7 +26,7 @@ Den primära mål gruppen för den här artikeln är IT-administratörer och pro
 
 ## <a name="architecture"></a>Arkitektur
 
-![Azure Backup-arkitektur](./media/guidance-best-practices/azure-backup-architecture.png)
+![Azure Backup-arkitekturen](./media/guidance-best-practices/azure-backup-architecture.png)
 
 ### <a name="workloads"></a>Arbetsbelastningar
 
@@ -108,7 +108,7 @@ Tänk på följande när du skapar en säkerhets kopierings princip:
 
 * Långsiktig kvarhållning:
   * Planerat (krav på efterlevnad) – om du vet i förväg att data krävs år från den aktuella tiden ska du använda långsiktig kvarhållning.
-  * Oplanerat (krav på begäran) – om du inte vet i förväg kan du använda den på begäran med anpassade inställningar för kvarhållning (inställningarna för anpassade kvarhållning påverkas inte av princip inställningarna).
+  * Oplanerat (krav på begäran) – om du inte vet i förväg kan du använda den på begäran med angivna inställningar för kvarhållning (dessa inställningar för anpassad kvarhållning påverkas inte av princip inställningar).
 
 * Säkerhets kopiering på begäran med anpassad kvarhållning – om du behöver göra en säkerhets kopia som inte har schemalagts via säkerhets kopierings policyn kan du använda en säkerhets kopiering på begäran. Detta kan vara användbart för att säkerhetskopiera som inte passar din schemalagda säkerhets kopiering eller för att ta detaljerad säkerhets kopia (till exempel flera IaaS VM-säkerhetskopieringar per dag sedan schemalagd säkerhets kopiering tillåter endast en säkerhets kopiering per dag). Det är viktigt att Observera att bevarande principen som definierats i den schemalagda principen inte gäller för säkerhets kopiering på begäran.
 
@@ -247,13 +247,13 @@ Som säkerhets kopierings användare eller administratör bör du kunna övervak
 
 * Azure Backup innehåller en inbyggd **aviserings funktion för aviseringar** via e-post för fel, varningar och kritiska åtgärder. Du kan ange enskilda e-postadresser eller distributions listor som ska meddelas när en avisering genereras. Du kan också välja om du vill bli meddelad om varje enskild avisering eller gruppera dem i en Tim sammandrag och sedan få ett meddelande.
   * De här aviseringarna definieras av tjänsten och ger stöd för begränsade scenarier – säkerhets kopierings-/återställnings fel, stoppa skyddet med Behåll data/stoppa skydd med ta bort data och så vidare. [Läs mer här](backup-azure-monitoring-built-in-monitor.md#alert-scenarios).
-  * Om en destruktiv åtgärd, till exempel stoppa skydd med ta bort data, görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om meddelanden inte har kon figurer ATS för Recovery Services valvet.
+  * Om en destruktiv åtgärd, till exempel stoppa skydd med ta bort data, görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om meddelanden **inte** har kon figurer ats för Recovery Services valvet.
   * Vissa arbets belastningar kan generera höga frekvenser av haverier (till exempel SQL Server var 15: e minut). För att förhindra att aviseringar blir överbelastade för varje förekomst av händelsen, konsol IDE ras aviseringarna. [Läs mer här](backup-azure-monitoring-built-in-monitor.md#consolidated-alerts).
   * De inbyggda aviseringarna kan inte anpassas och är begränsade till e-postmeddelanden som definierats i Azure Portal.
 
 * Om du behöver **skapa anpassade aviseringar** (till exempel aviseringar om lyckade jobb) använder du Log Analytics. I Azure Monitor kan du skapa egna aviseringar i en Log Analytics arbets yta. Hybrid arbets belastningar (DPM/MABS) kan också skicka data till LA och använda LA för att tillhandahålla vanliga aviseringar över arbets belastningar som stöds av Azure Backup.
 
-* Du kan också få aviseringar via inbyggda Recovery Services valv **aktivitets loggar**; Det stöder dock begränsade scenarier och är inte lämpligt för åtgärder som schemalagd säkerhets kopiering, som justeras bättre med resurs loggar än med aktivitets loggar. Om du vill veta mer om de här begränsningarna och hur du kan använda Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup, se den här [artikeln](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
+* Du kan också få aviseringar via inbyggda Recovery Services valv **aktivitets loggar**. Det stöder dock begränsade scenarier och är inte lämpligt för åtgärder som schemalagd säkerhets kopiering, som justeras bättre med resurs loggar än med aktivitets loggar. Om du vill veta mer om de här begränsningarna och hur du kan använda Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup, se den här [artikeln](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-to-monitor-at-scale).
 
 ## <a name="next-steps"></a>Nästa steg
 

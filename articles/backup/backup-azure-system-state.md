@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows system State till Azure
 description: Lär dig hur du säkerhetskopierar system tillstånd för Windows Server-datorer till Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: a56e500cc0330a6406b4465ab5baeafa39b544aa
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 8ce30b93ebaecec1e69c6c6a6f1064c6cdd3d0f6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263052"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824470"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Säkerhetskopiera Windows system State till Azure
 
@@ -98,7 +98,7 @@ Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Wi
 ## <a name="install-and-register-the-agent"></a>Installera och registrera agenten
 
 > [!NOTE]
-> Aktivering av säkerhetskopiering via Azure Portal är inte tillgängligt ännu. Använd Microsoft Azure Recovery Services-agenten för att säkerhetskopiera Windows Server System tillstånd.
+> Att aktivera säkerhets kopiering via Azure Portal är inte tillgängligt. Använd Microsoft Azure Recovery Services-agenten för att säkerhetskopiera Windows Server System tillstånd.
 >
 
 1. Leta upp och dubbelklicka på **MARSagentinstaller.exe** från mappen för nedladdade filer (eller en annan lagringsplats).
@@ -116,7 +116,7 @@ Nu när du har skapat ett valv konfigurerar du det för att säkerhetskopiera Wi
    * Spara krypteringslösenfrasen på en säker plats.
 
      > [!NOTE]
-     > Om du tappar bort eller glömmer lösenfrasen kan Microsoft inte hjälpa dig att återställa dina säkerhetskopierade data. Spara filen på en säker plats. Det krävs för att återställa en säkerhetskopia.
+     > Om du tappar bort lösen frasen kan Microsoft inte hjälpa till att återställa säkerhetskopierade data. Spara filen på en säker plats. Det krävs för att återställa en säkerhets kopia.
      >
      >
 
@@ -132,7 +132,7 @@ Den första säkerhets kopieringen innehåller två uppgifter:
 För att slutföra den första säkerhetskopieringen använder du Microsoft Azure Recovery Services-agenten.
 
 > [!NOTE]
-> Du kan säkerhetskopiera system tillstånd på Windows Server 2008 R2 via Windows Server 2016. System tillstånds säkerhets kopiering stöds inte på klient-SKU: er. System tillstånd visas inte som ett alternativ för Windows-klienter eller Windows Server 2008 SP2-datorer.
+> Du kan säkerhetskopiera system tillstånd på Windows Server 2008 R2 via Windows Server 2016. Säkerhets kopiering av system tillstånd stöds inte på klient-SKU: er. System tillstånd visas inte som ett alternativ för Windows-klienter eller Windows Server 2008 SP2-datorer.
 >
 >
 

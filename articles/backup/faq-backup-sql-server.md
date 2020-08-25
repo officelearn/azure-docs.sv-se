@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a5fdbb78f6d700d14c2458a8d87a4b0f9a971207
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762852"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827247"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -30,7 +30,7 @@ Under vissa omständigheter utlöser tjänsten Azure Backup tjänsten återstäl
 - Om du väljer att skriva över databasen under återställningen Miss lyckas nästa logg/differentiella säkerhets kopiering och en fullständig säkerhets kopiering utlöses i stället.
 - I de fall där en fullständig säkerhets kopiering krävs för att återställa logg kedjorna på grund av ändringar i databas återställnings modellen utlöses en fullständig säkerhets kopiering automatiskt enligt nästa schema.
 
-Auto-läka som en funktion aktive ras för alla användare som standard. Om du väljer att inte göra det kan du dock utföra följande:
+Auto-läka som en funktion aktive ras för alla användare som standard. Men om du väljer att inte inaktivera den, utför du följande steg:
 
 - På SQL Server-instansen, i mappen *C:\Program Files\Azure arbets belastning Backup\bin* , skapar eller redigerar du **ExtensionSettingsOverrides.jspå** filen.
 - I **ExtensionSettingsOverrides.jspå**anger du *{"EnableAutoHealer": false}*.
@@ -56,7 +56,7 @@ Standardvärdet för DefaultBackupTasksThreshold är **20**.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Kan jag köra en fullständig säkerhetskopia från en sekundär replik?
 
-Enligt SQL-begränsningar kan du bara köra fullständig kopiering på den sekundära repliken. Fullständig säkerhets kopiering är dock inte tillåtet.
+Enligt SQL-begränsningar kan du bara köra fullständig kopiering på den sekundära repliken. Fullständig säkerhets kopiering är dock inte tillåten.
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>Kan jag skydda tillgänglighets grupper lokalt?
 

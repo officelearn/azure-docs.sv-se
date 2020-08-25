@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: aa16952d2b2dff6f69abfc37090a9e00b7d48a27
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8132358dcd0ad9d87dc6687afd2adef1942f3b67
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823912"
 ---
 # <a name="quickstart-extract-business-card-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera visitkorts data med hjälp av formulär tolken REST API med python
 
@@ -27,10 +27,10 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En URL för en bild av ett visitkort. Du kan använda en [exempel bild](../media/business-card-english.jpg) för den här snabb starten.
+- En bild av ett visitkort. Du kan använda en [exempel bild](../media/business-card-english.jpg) för den här snabb starten.
 
 > [!NOTE]
-> Den här snabb starten använder en fjärran sluten visitkorts avbildning som används av URL. Om du vill använda lokala filer i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> Den här snabb starten använder en lokal fil. Om du vill använda en fjärran sluten visitkorts avbildning som används av URL i stället, se [referens dokumentationen](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -41,7 +41,7 @@ För att slutföra den här snabb starten måste du ha:
 Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** -API: et med python-skriptet nedan. Innan du kör skriptet gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med den slut punkt som du fick med din igenkännings prenumeration för formulär.
-1. Ersätt `<your business card URL>` med URL-adressen till en visitkorts bild.
+1. Ersätt `<path to your business card>` med sökvägen till ditt lokala formulär dokument.
 1. Ersätt `<subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
 
     ```python
@@ -54,7 +54,7 @@ Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://west
     # Endpoint URL
     endpoint = r"<Endpoint>"
     apim_key = "<subscription key>"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyzeresults"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.1/prebuilt/businessCard/analyze"
     source = r"<path to your business card>"
     
     headers = {
@@ -84,7 +84,7 @@ Om du vill börja analysera ett visitkort anropar du **[visitkorts](https://west
 
 1. Spara koden i en fil med fil namns tillägget. py. Till exempel *form-Recognizer-BusinessCards.py*.
 1. Öppna ett kommandotolksfönster.
-1. I kommandotolken kör du exemplet med kommandot `python`. Exempelvis `python form-recognizer-businesscards.py`.
+1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-businesscards.py`.
 
 Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
@@ -124,7 +124,7 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd kommandot igen `python` för att köra exemplet. Exempelvis `python form-recognizer-businesscards.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-businesscards.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 ![Ett visitkort från contoso Company](../media/business-card-english.jpg)

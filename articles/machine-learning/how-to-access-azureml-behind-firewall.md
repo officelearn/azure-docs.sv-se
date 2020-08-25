@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 990a2d5279c796f354055328e6968ea705ea10b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873644"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827434"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -57,6 +57,7 @@ Värdarna i det här avsnittet ägs av Microsoft och tillhandahåller tjänster 
 | **mcr.microsoft.com** | Microsoft Container Registry för Base Docker-avbildningar |
 | **your-acr-server-name.azurecr.io** | Krävs endast om din Azure Container Registry ligger bakom det virtuella nätverket. I den här konfigurationen skapas en privat länk från Microsoft-miljön till ACR-instansen i din prenumeration. Använd namnet på ACR-servern för din Azure Machine Learning-arbetsyta. |
 | **\*. notebooks.azure.net** | Krävs av antecknings böckerna i Azure Machine Learning Studio. |
+| **graph.windows.net** | Krävs för antecknings böcker |
 
 ## <a name="python-hosts"></a>Python-värdar
 
@@ -78,6 +79,15 @@ Värdarna i det här avsnittet används för att installera R-paket. De krävs v
 | **Värdnamn** | **Syfte** |
 | ---- | ---- |
 | **cloud.r-project.org** | Används vid installation av CRAN-paket. |
+
+## <a name="azure-government-region"></a>Azure Government Region
+
+URL: er som krävs för Azure Government regionerna.
+
+| **Värdnamn** | **Syfte** |
+| ---- | ---- |
+| **usgovarizona.api.ml.azure.us** | Regionen USA – Arizona |
+| **usgovvirginia.api.ml.azure.us** | Regionen USA – Virginia |
 
 ## <a name="next-steps"></a>Nästa steg
 

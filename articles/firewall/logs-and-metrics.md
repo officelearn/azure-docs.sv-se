@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 08/25/2020
 ms.author: victorh
-ms.openlocfilehash: 9d0a46135e5f763e6253540fe62d63cb59026ccb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 51804a9f98bfa17dcfbeb90a268b91b2d28dbbde
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086599"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827230"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
 Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser.
 
-Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
+Du kan komma åt vissa av de här loggarna via portalen. Loggar kan skickas till [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md), lagring och Event Hubs och analyseras i Azure Monitor loggar eller av olika verktyg som Excel och Power BI.
 
 Måtten är lätta att använda och kan ge stöd för scenarier i nästan real tid, vilket gör dem användbara för varningar och snabb problem identifiering.
 
@@ -115,17 +115,17 @@ Följande mått är tillgängliga för Azure-brand väggen:
   - Status: möjliga värden är *felfria*, *degraderade*, *felaktiga*.
   - Orsak: anger orsaken till brand väggens aktuella status. 
 
-     Om SNAT-portar används > 95% anses de vara uttömda och hälsan är 50% med status =**degraderad** och orsak =**SNAT-port**. Brand väggen fortsätter att bearbeta trafik och befintliga anslutningar påverkas inte. Nya anslutningar kanske däremot inte upprättas tillfälligt.
+     Om SNAT-portar används > 95% anses de vara uttömda och hälsan är 50% med status =**degraderad** och orsak =**SNAT-port**. Brandväggen fortsätter att bearbeta trafik och befintliga anslutningar påverkas inte. Nya anslutningar kanske däremot inte upprättas tillfälligt.
 
      Om SNAT-portar används < 95%, anses brand väggen vara felfri och hälsa visas som 100%.
 
-     Om ingen användning av SNAT-portar rapporteras visas hälsan som 0%. 
+     Om ingen SNAT-portanvändning visas är hälsan som 0 %. 
 
 - **SNAT-port användning** – procent andelen SNAT-portar som används av brand väggen.
 
     Enhet: procent
 
-   När du lägger till fler offentliga IP-adresser i brand väggen är fler SNAT-portar tillgängliga, vilket minskar användningen av SNAT-portar. Dessutom, när brand väggen skalas ut av olika orsaker (till exempel CPU eller data flöde), blir ytterligare SNAT-portar också tillgängliga. I praktiken kan en viss procent andel av SNAT-portarna gå nedåt utan att du behöver lägga till några offentliga IP-adresser, bara för att tjänsten ska skalas ut. Du kan styra antalet offentliga IP-adresser som är tillgängliga för att öka portarna i brand väggen direkt. Men du kan inte styra skalning av brand väggen direkt. För närvarande läggs bara SNAT-portar till för de första fem offentliga IP-adresserna.   
+   När du lägger till fler offentliga IP-adresser i brandväggen blir fler SNAT-portar tillgängliga, vilket minskar SNAT-portarnas användningsgrad. När brandväggen skalas ut av olika anledningar (som processoranvändningen eller dataflödet) blir fler SNAT-portar också tillgängliga. I praktiken kan en viss procent andel av SNAT-portarna gå nedåt utan att du behöver lägga till några offentliga IP-adresser, bara för att tjänsten ska skalas ut. Du kan styra antalet offentliga IP-adresser som är tillgängliga för att öka portarna i brand väggen direkt. Men du kan inte styra skalning av brand väggen direkt.
 
 
 ## <a name="next-steps"></a>Nästa steg

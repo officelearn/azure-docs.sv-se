@@ -3,12 +3,12 @@ title: Använda Modern Backup Storage med Azure Backup Server
 description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 5c7533a5ee2fc65beb86c0c803a522e0acb1df6d
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: b8620f6999c1fcb1a1e70c73fb71fcaac008d930
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762444"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825876"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 

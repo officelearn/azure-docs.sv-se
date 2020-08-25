@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker problem med 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: add54955def7df31f8e1688f56382067343616fe
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763396"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824278"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Felsöka säkerhets kopiering av system tillstånd
 
@@ -37,7 +37,7 @@ Vi rekommenderar att du utför följande verifierings steg innan du börjar fels
 
 ### <a name="limitation"></a>Begränsning
 
-- Återställning till annan maskinvara genom återställning av systemtillståndet rekommenderas inte av Microsoft
+- Att återställa till annan maskin vara med återställning av system tillstånd rekommenderas inte av Microsoft
 - Säkerhets kopiering av system tillstånd stöder för närvarande lokala Windows-servrar. Den här funktionen är inte tillgänglig för virtuella Azure-datorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -86,7 +86,7 @@ Utför följande steg för att installera Windows Server Backup med hjälp av Se
 
 ### <a name="system-volume-information-permission"></a>Behörighet för system volym information
 
-Se till att det lokala systemet har fullständig kontroll över mappen **System Volume Information** som finns i den volym där Windows är installerat. Detta är vanligt vis **C:\System volym information**. Windows Server Backup kan inte utföras om behörigheterna ovan inte är korrekt inställda.
+Se till att det lokala systemet har fullständig kontroll över mappen **System Volume Information** som finns i den volym där Windows är installerat. Detta är vanligt vis **C:\System volym information**. Windows Server Backup kan inte utföras om behörigheterna ovan inte anges korrekt.
 
 ### <a name="dependent-services"></a>Beroende tjänster
 

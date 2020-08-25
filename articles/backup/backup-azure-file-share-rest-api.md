@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser med REST API
 description: Lär dig hur du använder REST API för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: b3d83104b699740c43b0c6506c00694c2b2ac063
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 8d2d8ed88da133986540a293185c8e37000ab87b
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757140"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824873"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Säkerhetskopiera Azure-filresurs med Azure Backup via REST API
 
@@ -175,7 +175,7 @@ Ange variablerna för URI: n enligt följande:
    I vårt exempel är det *StorageContainer; Lagrings Migreringsåtgärden; testvault2*
 
 >[!NOTE]
-> Ta alltid namnattributet för svaret och fyll i det i den här begäran. Hårdkoda inte eller skapa behållar namns formatet. Om du skapar eller hårdkodar den kommer API-anropet att Miss lägeas om behållar namns formatet ändras i framtiden.
+> Ta alltid namnattributet för svaret och fyll i det i den här begäran. Du behöver inte hårdkoda eller skapa behållar namns formatet. Om du skapar eller hårdkodar den kommer API-anropet att Miss lägeas om behållar namns formatet ändras i framtiden.
 
 <br>
 
@@ -373,7 +373,7 @@ I vårt exempel är det ID för fil resurs som vi vill skydda:
 Eller så kan du referera till **namnattributet för** skydds behållaren och svar på objekt som kan skyddas.
 
 >[!NOTE]
->Ta alltid namnattributet för svaret och fyll i det i den här begäran. Du kan inte hårdkoda eller skapa behållar format eller namn format för skyddat objekt. Om du skapar eller hårdkodar den kommer API-anropet att Miss lägeas om behållar formatet eller det skyddade objekt namnet ändras i framtiden.
+>Ta alltid namnattributet för svaret och fyll i det i den här begäran. Hårdkoda eller skapa inte formatet för behållar namn eller skyddat objekt namn. Om du skapar eller hårdkodar den kommer API-anropet att Miss lägeas om behållar formatet eller det skyddade objekt namnet ändras i framtiden.
 
 <br>
 

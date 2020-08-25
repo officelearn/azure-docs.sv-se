@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1fdc6b79bf86272afac038d8f91e4663514830fe
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e7be96fcab0807ac8c6500c3b360f9380b4d2b28
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905608"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824958"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
@@ -187,7 +187,7 @@ Det kan finnas en fördröjning på upp till 10 sekunder innan ändringarna i in
 
 Det finns ytterligare begränsningar för att använda `JOIN` under för hands versionen.
 * Det finns inte stöd för under frågor i `FROM` instruktionen.
-* `OUTER JOIN`semantik stöds inte, vilket innebär att om relationen har en rangordning på noll, elimineras hela raden rad från resultat uppsättningen utdata.
+* `OUTER JOIN` semantik stöds inte, vilket innebär att om relationen har en rangordning på noll, elimineras hela raden rad från resultat uppsättningen utdata.
 * I för hands versionen begränsas diagrammets djup till fem `JOIN` nivåer per fråga.
 * Källan för `JOIN` åtgärder är begränsad: frågan måste deklarera de dubbla platser där frågan börjar.
 
@@ -222,7 +222,6 @@ Nedan visas några tips för att fråga med Azure Digital-dubbla.
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
         ```
 * Egenskaps namn och-värden är Skift läges känsliga, så var noga med att använda de exakta namnen som definieras i modellerna. Om egenskaps namnen är felstavade eller felaktigt bokstäver, är resultat uppsättningen tom utan att några fel returneras.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

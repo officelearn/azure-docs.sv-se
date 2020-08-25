@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5871e61229277d8036727c11b42d9d7a061bad99
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612528"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825196"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -133,10 +133,10 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
-**Maximal förfallotid för en återställningspunkt** | Obegränsad
+**Maximal förfallo tid för en återställnings punkt** | Obegränsad
 **Högsta säkerhetskopieringsfrekvens till DPM/MABS** | Varje kvart för SQL Server<br/><br/> En gång i timmen för andra arbets belastningar
 **Högsta säkerhetskopieringsfrekvens till valv** | **Lokala Windows-datorer eller virtuella Azure-datorer som kör mars:** Tre per dag<br/><br/> **DPM/Mabs:** Två per dag<br/><br/> **Azure VM-säkerhetskopiering:** En per dag
 **Kvarhållning av återställnings punkt** | Varje dag, varje vecka, varje månad, varje år
@@ -150,9 +150,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Nej                                                           | Ej tillämpligt               |
-| SQL-/SAP HANA          | Nej                                                           | Ej tillämpligt               |
-| DATABASSERVER                    | Nej                                                           | Ej tillämpligt               |
+| MARS-agent/lokalt | Inga                                                           | Saknas               |
+| SQL-/SAP HANA          | Inga                                                           | Saknas               |
+| DATABASSERVER                    | Inga                                                           | Saknas               |
 
 ## <a name="next-steps"></a>Nästa steg
 

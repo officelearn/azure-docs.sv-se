@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Microsoft
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: b2994e250c37d707eee5428e83c151728f83a1ab
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88522937"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827213"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server och DPM – vanliga frågor och svar
 
@@ -65,7 +65,7 @@ Ja, objektet kan återställas till den ursprungliga SharePoint-webbplatsen.
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>Kan jag återställa en SharePoint-databas till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn?
 
-Eftersom SharePoint-databaser är konfigurerade i SQL AlwaysOn, kan de inte ändras om inte tillgänglighets gruppen tas bort. Det innebär att DPM inte kan återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
+Eftersom SharePoint-databaser är konfigurerade i SQL AlwaysOn kan de inte ändras om inte tillgänglighets gruppen tas bort. Det innebär att DPM inte kan återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

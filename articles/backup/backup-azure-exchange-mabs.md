@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 2e3e89d93ab35724a09138d48863badad6a41b71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 043122271bfa91b1cbaa490760da712cd1b867cc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514126"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825043"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 
@@ -61,17 +61,17 @@ Följ dessa steg om du vill installera MABS-skyddsagenten på Exchange-servern:
 9. Välj databasen för kopiering av **säkerhets kopia**och klicka sedan på **Nästa**.
 
    > [!NOTE]
-   > Om du inte väljer fullständig säkerhets kopiering för minst en DAG kopia av en databas så trunkeras loggarna inte.
+   > Om du inte väljer fullständig säkerhets kopiering för minst en DAG kopia av en databas trunkeras inte loggarna.
    >
    >
 10. Konfigurera målen för **kortsiktig säkerhets kopiering**och klicka sedan på **Nästa**.
 11. Granska det tillgängliga disk utrymmet och klicka sedan på **Nästa**.
 12. Välj den tid då MABS-servern ska skapa den inledande replikeringen och klicka sedan på **Nästa**.
 13. Välj alternativ för konsekvens kontroll och klicka sedan på **Nästa**.
-14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Till exempel:
+14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Exempel:
 
     ![Ange skydds data online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Till exempel:
+15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Exempel:
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

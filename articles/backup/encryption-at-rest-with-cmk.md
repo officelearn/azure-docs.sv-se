@@ -3,12 +3,12 @@ title: Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 description: Lär dig hur Azure Backup kan kryptera dina säkerhetskopierade data med Kundhanterade nycklar (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2c83350acad59e72cfabc8e40069aab46d785b63
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763124"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827349"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Kryptering av säkerhets kopierings data med Kundhanterade nycklar
 
@@ -60,7 +60,7 @@ Alla dessa steg måste följas i den ordning som anges ovan för att uppnå avse
 Azure Backup använder systemtilldelad hanterad identitet för att autentisera Recovery Services-valvet för att få åtkomst till krypterings nycklar som lagras i Azure Key Vault. Om du vill aktivera hanterad identitet för Recovery Services valvet följer du stegen som beskrivs nedan.
 
 >[!NOTE]
->Den hanterade identiteten får inte inaktive ras (även tillfälligt). Inaktive ring av den hanterade identiteten kan leda till inkonsekvent beteende.
+>Den hanterade identiteten får **inte** inaktive ras (även tillfälligt). Inaktive ring av den hanterade identiteten kan leda till inkonsekvent beteende.
 
 1. Gå till Recovery Services valv – > **identitet**
 
@@ -138,7 +138,7 @@ Du kan också aktivera mjuk borttagning och rensning av skydd via PowerShell med
 > - Alla steg som nämns ovan har slutförts:
 >   - Det Recovery Services valvets hanterade identitet har Aktiver ATS och har tilldelats nödvändiga behörigheter
 >   - Azure Key Vault har mjuk borttagning och rensning-skydd aktiverat
-> - Recovery Services-valvet som du vill aktivera CMK-kryptering för har inga objekt som är skyddade eller registrerade för det
+> - Recovery Services-valvet som du vill aktivera CMK **-kryptering för har inga objekt** som är skyddade eller registrerade för det
 
 När ovanstående är säkerställd fortsätter du med att välja krypterings nyckel för ditt valv.
 
@@ -240,7 +240,7 @@ Nej, CMK-kryptering kan bara aktive ras för nya valv. Därför måste valvet al
 
 ### <a name="i-tried-to-protect-an-item-to-my-vault-but-it-failed-and-the-vault-still-doesnt-contain-any-items-protected-to-it-can-i-enable-cmk-encryption-for-this-vault"></a>Jag försökte skydda ett objekt till mitt valv, men det misslyckades och valvet innehåller fortfarande inga objekt som är skyddade för det. Kan jag aktivera CMK-kryptering för det här valvet?
 
-Nej, valvet får inte ha haft några försök att skydda några objekt tidigare.
+Nej, valvet får inte ha några försök att skydda några objekt tidigare.
 
 ### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Jag har ett valv som använder CMK-kryptering. Kan jag senare återställa till kryptering med hjälp av plattforms hanterade nycklar även om jag har säkerhetskopierade objekt skyddade till valvet?
 

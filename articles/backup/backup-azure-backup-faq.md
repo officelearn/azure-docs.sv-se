@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96ff7fedf0574d5eb1b7bb540ccb425f4d7e9ade
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757208"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827400"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -214,7 +214,7 @@ Ja. Data i Azure krypteras i vila.
 - Vid lokal säkerhetskopiering tillhandahålls kryptering i vila med hjälp av den lösenfras som du anger när du säkerhetskopierar till Azure.
 - För virtuella Azure-datorer krypteras data i vila med hjälp av kryptering för lagringstjänst (SSE).
 
-Microsoft dekrypterar aldrig dina säkerhetskopierade data.
+Microsoft dekrypterar inte säkerhets kopierings data när som helst.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Vilken är den minsta längden på krypterings nyckeln som används för att kryptera säkerhetskopierade data?
 
@@ -222,7 +222,7 @@ Krypterings nyckeln som används av Microsoft Azure Recovery Services (MARS)-age
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>Vad händer om jag tappar bort krypteringsnyckeln? Kan jag återställa data? Kan Microsoft återställa data?
 
-Den nyckel som används för att kryptera säkerhetskopierade data finns endast hos dig. Microsoft sparar ingen kopia i Azure och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa säkerhetskopierade data.
+Den nyckel som används för att kryptera säkerhetskopierade data finns endast hos dig. Microsoft underhåller inte en kopia i Azure och har ingen åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa säkerhetskopierade data.
 
 ## <a name="next-steps"></a>Nästa steg
 

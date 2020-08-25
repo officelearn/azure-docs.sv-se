@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 0db30de655bfc0b98baa81a4ef20532e697fc1f8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382720"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824737"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -36,7 +36,7 @@ När du försöker säkerhetskopiera och väljer ett lagrings konto för att ide
 
 ### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>Varför kan jag inte ändra valvet för att konfigurera säkerhets kopiering för fil resursen?
 
-Om lagrings kontot redan är registrerat med ett valv eller andra fil resurser i lagrings kontot skyddas med ett valv, kan du inte ändra det eftersom alla fil resurser i ett lagrings konto kan skyddas endast av samma valv. Om du vill ändra valvet måste du [stoppa skyddet för alla fil resurser i lagrings kontot](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](manage-afs-backup.md#unregister-a-storage-account) lagrings kontot och sedan välja ett annat valv för skydd.
+Om lagrings kontot redan har registrerats med ett valv eller andra fil resurser i lagrings kontot skyddas med ett valv kan du inte välja att ändra det. Alla fil resurser i ett lagrings konto kan endast skyddas av samma valv. Om du vill ändra valvet måste du [stoppa skyddet för alla fil resurser i lagrings kontot](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](manage-afs-backup.md#unregister-a-storage-account) lagrings kontot och sedan välja ett annat valv för skydd.
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet till vilket jag säkerhetskopierar mina fil resurser?
 

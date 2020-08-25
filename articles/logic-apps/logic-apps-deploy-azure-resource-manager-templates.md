@@ -3,16 +3,16 @@ title: Distribuera mallar för logikappar
 description: Lär dig hur du distribuerar Azure Resource Manager mallar som skapats för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d3ef4275e5b309bb499338fe90c0f527aeaeb71f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501516"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827502"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager-mallar för Azure Logic Apps
 
@@ -119,13 +119,18 @@ Här följer de allmänna stegen för att använda Azure-pipeliner:
 
 ## <a name="authorize-oauth-connections"></a>Auktorisera OAuth-anslutningar
 
-Efter distributionen fungerar din Logic app från slut punkt till slut punkt med giltiga parametrar. Du måste dock fortfarande auktorisera alla OAuth-anslutningar för att generera giltiga åtkomsttoken för [autentisering av dina autentiseringsuppgifter](../active-directory/develop/authentication-vs-authorization.md). Här är några sätt som du kan auktorisera OAuth-anslutningar:
+Efter distributionen fungerar din Logic app från slut punkt till slut punkt med giltiga parametrar. Du måste dock fortfarande tillåta eller använda förauktoriserade OAuth-anslutningar för att generera giltiga åtkomsttoken för autentisering av [dina autentiseringsuppgifter](../active-directory/develop/authentication-vs-authorization.md). Här är några förslag:
 
-* Vid automatiserade distributioner kan du använda ett skript som ger godkännande för varje OAuth-anslutning. Här är ett exempel skript i GitHub i [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) -projektet.
+* Förauktorisera och dela API-anslutningsfel mellan olika Logic-appar i samma region. API-anslutningar finns som Azure-resurser oberoende av Logic Apps. Även om Logic Apps har beroenden av API-anslutnings resurser, finns det inga beroenden för API-anslutnings resurser i Logi Kap par och de är kvar när du har tagit bort beroende Logic Apps Logic Apps kan också använda API-anslutningar som finns i andra resurs grupper. Logic App Designer stöder dock bara skapande av API-anslutningar i samma resurs grupp som dina Logic Apps.
 
-* Om du vill auktorisera OAuth-anslutningar manuellt öppnar du din Logic app i Logic App Designer, antingen i Azure Portal eller i Visual Studio. I designern godkänner du de anslutningar som krävs.
+  > [!NOTE]
+  > Om du överväger att dela API-anslutningar ser du till att din lösning kan [hantera potentiella begränsnings problem](../logic-apps/handle-throttling-problems-429-errors.md#connector-throttling). Begränsning sker på anslutnings nivå, så att återanvända samma anslutning över flera Logi Kap par kan öka risken för problem med begränsningen.
 
-Om du använder ett [huvud namn](../active-directory/develop/app-objects-and-service-principals.md) för tjänsten Azure Active Directory (Azure AD) i stället för att auktorisera anslutningar, lär du dig att [Ange parametrar för tjänstens huvud namn i din Logic app-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
+* Om inte ditt scenario innefattar tjänster och system som kräver multifaktorautentisering kan du använda ett PowerShell-skript för att ge medgivande för varje OAuth-anslutning genom att köra en kontinuerlig integrerings arbetare som ett normalt användar konto på en virtuell dator som har aktiva webbläsarsessionen med de auktoriseringar och medgivande som redan angetts. Du kan till exempel ändra syftet med det exempel skript som tillhandahålls av [LogicAppConnectionAuth-projektet i Logic Apps GitHub-lagrings platsen](https://github.com/logicappsio/LogicAppConnectionAuth).
+
+* Auktorisera OAuth-anslutningar manuellt genom att öppna din Logic app i Logic App Designer, antingen i Azure Portal eller i Visual Studio.
+
+* Om du använder ett [huvud namn](../active-directory/develop/app-objects-and-service-principals.md) för tjänsten Azure Active Directory (Azure AD) i stället för att auktorisera anslutningar, lär du dig att [Ange parametrar för tjänstens huvud namn i din Logic app-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections).
 
 ## <a name="next-steps"></a>Nästa steg
 

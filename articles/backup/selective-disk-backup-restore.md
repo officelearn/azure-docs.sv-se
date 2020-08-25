@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig mer om säkerhets kopiering och åt
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: dd4691f6248099bdc4fa713c84d396adac6011fa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757446"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824754"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektiv säkerhets kopiering och återställning av diskar för virtuella Azure-datorer
 
@@ -190,7 +190,7 @@ När du kör de här kommandona visas `"diskExclusionProperties": null` .
 
 ## <a name="using-powershell"></a>Använda PowerShell
 
-Se till att du använder Azure PS-versionen 3.7.0 eller högre.
+Se till att du använder Azure PowerShell version 3.7.0 eller senare.
 
 ### <a name="enable-backup-with-powershell"></a>Aktivera säkerhets kopiering med PowerShell
 
@@ -261,7 +261,7 @@ Här kan du Visa de säkerhetskopierade diskarna under återställningen, när d
 Konfigurering av de selektiva diskarna för säkerhets kopiering för en virtuell dator via Azure Portal är begränsad till alternativet för att **säkerhetskopiera OS** -diskar. Använd PowerShell eller Azure CLI om du vill använda säkerhets kopiering av selektiva diskar på redan en säkerhets kopia av en virtuell dator eller för avancerad inkludering eller uteslutning av vissa data diskar för en virtuell dator.
 
 >[!NOTE]
->Om data sträcker sig över flera diskar ser du till att alla beroende diskar ingår i säkerhets kopian. Om du inte säkerhetskopierar alla beroende diskar i en volym skapas inte volymen som innehåller icke-säkerhetskopierade diskar.
+>Om data sträcker sig över flera diskar ser du till att alla beroende diskar ingår i säkerhets kopian. Om du inte säkerhetskopierar alla beroende diskar i en volym skapas inte volymen som omfattar vissa icke-säkerhetskopierade diskar.
 
 ### <a name="backup-os-disk-only-in-the-azure-portal"></a>Säkerhetskopiera OS-disken endast i Azure Portal
 
@@ -277,7 +277,7 @@ Selektiv disk återställning är en extra funktion som du får när du aktivera
 - Selektiv disk återställning stöds bara för återställnings punkter som skapats efter att funktionen disk undantag har Aktiver ATS.
 - Säkerhets kopiering med inställningen disk exkludera **på** stöder bara alternativet **disk återställning** . **Återställning av virtuella datorer** eller **ersätta befintliga** återställnings alternativ stöds inte i det här fallet.
 
-![Alternativet för att återställa VM och ersätta befintliga är inte tillgängligt under återställnings åtgärden](./media/selective-disk-backup-restore/options-not-available.png)
+![Alternativet för att återställa VM och ersätta befintligt är inte tillgängligt under återställnings åtgärden](./media/selective-disk-backup-restore/options-not-available.png)
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -293,5 +293,5 @@ Säkerhets kopiering av virtuella Azure-datorer följer den befintliga pris sät
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Supportmatris för säkerhetskopiering av virtuella Azure-datorer](backup-support-matrix-iaas.md)
+- [Stödmatris för säkerhetskopiering av virtuella Azure-datorer](backup-support-matrix-iaas.md)
 - [Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer](backup-azure-vm-backup-faq.md)

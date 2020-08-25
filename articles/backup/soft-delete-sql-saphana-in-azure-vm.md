@@ -3,12 +3,12 @@ title: Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbet
 description: Lär dig hur mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar gör säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: bf9cc2551d85c1bc663db2f9e61e2ea6895f1d23
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757480"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825179"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Mjuk borttagning för SQL Server i Azure VM och SAP HANA i Azure VM-arbetsbelastningar
 
@@ -17,7 +17,7 @@ Azure Backup tillhandahåller nu mjuk borttagning för SQL Server i virtuella Az
 [Mjuk borttagning](backup-azure-security-feature-cloud.md) är en säkerhetsfunktion som hjälper dig att skydda säkerhets kopierings data även efter borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort säkerhets kopian av en databas (eller om säkerhets kopierings data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar. Detta gör det möjligt att återställa säkerhets kopierings objekt utan data förlust. Den ytterligare kvarhållning av 14 dagar av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
 
 >[!NOTE]
->När för hands versionen har Aktiver ATS för en prenumeration går det inte att inaktivera mjuk borttagning för SQL Server eller SAP HANA databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
+>När för hands versionen har Aktiver ATS för en prenumeration är det inte möjligt att inaktivera mjuk borttagning enbart för SQL Server eller SAP HANA databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
 
 ## <a name="steps-to-enroll-in-preview"></a>Steg för att registrera dig för för hands version
 
@@ -99,7 +99,7 @@ Sekvensen av steg för att använda Azure PowerShell är samma som i Azure Porta
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Ta bort säkerhets kopierings objekt med Azure PowerShell
 
-Ta bort säkerhets kopierings objekt med hjälp av cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Ta bort säkerhets kopierings objekt med PowerShell-cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) .
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -117,7 +117,7 @@ Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadTy
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID -Name AppVM1
 ```
 
-Utför sedan åtgärden ångra borttagning med hjälp av cmdleten [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Utför sedan åtgärden ångra borttagning med hjälp av cmdleten [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

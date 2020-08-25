@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SQL Server VM från fönstret VM
 description: I den här artikeln får du lära dig hur du säkerhetskopierar SQL Server databaser på virtuella Azure-datorer från fönstret VM.
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.openlocfilehash: d7cdf0a04acc57341200b363da4d012f04fe3454
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d44c856d264c784d07b8301fa5605affddd7c02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755253"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827485"
 ---
 # <a name="back-up-a-sql-server-from-the-vm-pane"></a>Säkerhetskopiera en SQL Server från fönstret VM
 
@@ -67,7 +67,7 @@ Du kan aktivera säkerhets kopiering på SQL Server VM från **säkerhets kopier
     ![Se säkerhetskopierade databaser i säkerhets kopierings objekt](./media/backup-sql-server-vm-from-vm-pane/backup-items.png)
 
 >[!NOTE]
->Säkerhets kopieringen konfigureras inte automatiskt på någon av de nya SQL Server-instanser som kan läggas till senare till den skyddade virtuella datorn. Om du vill konfigurera säkerhets kopiering på de nyligen tillagda instanserna måste du gå till valvet som den virtuella datorn är registrerad på och följa stegen som visas [här](backup-sql-server-database-azure-vms.md).
+>Säkerhets kopieringen konfigureras inte automatiskt på någon av de nya SQL Server instanser som kan läggas till senare i den skyddade virtuella datorn. Om du vill konfigurera säkerhets kopiering på de nyligen tillagda instanserna måste du gå till valvet som den virtuella datorn är registrerad på och följa stegen som visas [här](backup-sql-server-database-azure-vms.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

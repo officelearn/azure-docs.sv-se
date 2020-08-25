@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du skapar och konfigurera
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 309d87da11c6a015a9e4db8429587e498d55882c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 048b0e3fae776be5577948f91d84bb2be7fa2d59
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757752"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827366"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Skapa och konfigurera ett Recovery Services valv
 
@@ -57,7 +57,7 @@ För den här processen finns det prissättnings effekter som på lagrings nivå
 >- Funktionen för återställning av kors region (CRR) har nu förvisats i alla offentliga Azure-regioner.
 >- CRR är ett alternativ för att välja en valv nivå för alla GRS-valv (inaktiverat som standard).
 >- Efter väljer kan det ta upp till 48 timmar innan säkerhets kopierings objekten är tillgängliga i sekundära regioner.
->- För närvarande stöds inte CRR för säkerhets kopierings hanterings typ-ARM Azure VM (den klassiska virtuella Azure-datorn stöds inte).  När ytterligare hanterings typer har stöd för CRR, registreras de **automatiskt** .
+>- För närvarande stöds endast CRR för säkerhets kopierings hantering av virtuella Azure-datorer (klassisk virtuell Azure-dator stöds inte).  När ytterligare hanterings typer har stöd för CRR, registreras de **automatiskt** .
 >- Återställning mellan regioner kan för närvarande inte återställas till GRS eller LRS när skyddet initieras för första gången.
 
 ### <a name="configure-cross-region-restore"></a>Konfigurera återställning mellan regioner

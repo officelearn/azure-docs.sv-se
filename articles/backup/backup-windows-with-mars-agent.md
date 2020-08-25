@@ -3,12 +3,12 @@ title: Säkerhetskopiera Windows-datorer med hjälp av MARS-agenten
 description: Använd MARS-agenten (Microsoft Azure Recovery Services) för att säkerhetskopiera Windows-datorer.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 34fa0906ec63eb51d37c192f9dadddc57dbf1cdf
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 381df40dfe4149b2f43dc22bb2186ec1f17b0515
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538640"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825910"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Säkerhetskopiera Windows Server-filer och-mappar till Azure
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig att:
 * Lär dig mer om den [säkerhets kopierings arkitektur](backup-architecture.md#architecture-back-up-to-dpmmabs) som kör mars-agenten på en sekundär MABS eller Data Protection Manager Server.
 * Granska [vad som stöds och vad du kan säkerhetskopiera](backup-support-matrix-mars-agent.md) av mars-agenten.
 * [Kontrol lera Internet åtkomst](install-mars-agent.md#verify-internet-access) på de datorer som du vill säkerhetskopiera.
-* Om MARS-agenten inte är installerad kan du läsa mer om hur du installerar den [här](install-mars-agent.md).
+* Om MARS-agenten inte är installerad, lär du dig hur du installerar den [här](install-mars-agent.md).
 
 ## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
 

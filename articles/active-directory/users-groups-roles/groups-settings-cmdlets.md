@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fc6726811ac01b585dd51b2086966f7a3f7c51
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 63f0c55823899be8eb4146860787aede2cd2d6b5
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213590"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797912"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
@@ -28,11 +28,11 @@ Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets
 > [!IMPORTANT]
 > Vissa inställningar kräver en licens för Azure Active Directory Premium P1. Mer information finns i tabellen [mall inställningar](#template-settings) .
 
-Mer information om hur du hindrar icke-administratörer från att skapa säkerhets grupper får du genom att ange  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Mer information om hur du hindrar icke-administratörer från att skapa säkerhets grupper får du genom att ange  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` enligt beskrivningen i [set-MSOLCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 Inställningarna för Microsoft 365 grupper konfigureras med ett inställnings objekt och ett SettingsTemplate-objekt. Inlednings vis ser du inte några inställnings objekt i katalogen, eftersom din katalog är konfigurerad med standardinställningarna. Om du vill ändra standardinställningarna måste du skapa ett nytt inställnings objekt med hjälp av en mall för inställningar. Inställningar mallar definieras av Microsoft. Det finns flera olika inställnings mallar. Om du vill konfigurera Microsoft 365 grupp inställningar för din katalog använder du mallen "Group. Unified". Om du vill konfigurera Microsoft 365 grupp inställningar på en enskild grupp använder du mallen "Group. Unified. Guest". Den här mallen används för att hantera gäst åtkomst till en Microsoft 365s grupp. 
 
-Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/azure/active-directory/overview). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
+Cmdletarna är en del av modulen Azure Active Directory PowerShell V2. Instruktioner för hur du hämtar och installerar modulen på datorn finns i artikeln [Azure Active Directory PowerShell version 2](/powershell/azure/active-directory/overview). Du kan installera version 2 av modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="install-powershell-cmdlets"></a>Installera PowerShell-cmdletar
 
@@ -114,7 +114,7 @@ Om du vill uppdatera värdet för UsageGuideLinesUrl i inställnings mal len lä
    $Setting.Values
    ```
    
-   Resultat:
+   Utdata:
    ```powershell
     Name                          Value
     ----                          -----

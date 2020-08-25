@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d21e0358e2226f93a6c7088906d1146e5e2cf740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729038"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795430"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Ta bort en klient i Azure Active Directory
 
@@ -85,7 +85,7 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
    ![Ta bort länk för borttagning av prenumeration](./media/directory-delete-howto/delete-command.png)
 
-6. Välj **ta bort prenumeration** för att ta bort prenumerationen och godkänn villkoren. Alla data tas bort permanent inom tre dagar. Du kan [återaktivera prenumerationen](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) under den tre dagars perioden om du ändrar dig.
+6. Välj **ta bort prenumeration** för att ta bort prenumerationen och godkänn villkoren. Alla data tas bort permanent inom tre dagar. Du kan [återaktivera prenumerationen](/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) under den tre dagars perioden om du ändrar dig.
   
    ![Läs noggrant allmänna villkor](./media/directory-delete-howto/delete-terms.png)
 
@@ -97,18 +97,18 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Jag har en utvärderings prenumeration som blockerar borttagningen
 
-Det finns [självbetjänings registrerings produkter](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, vilket även skapar en gäst användare för autentisering i din Azure AD-organisation. Dessa självbetjänings produkter blockerar katalog borttagningar tills produkterna tas bort helt från organisationen för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
+Det finns [självbetjänings registrerings produkter](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) som Microsoft Power BI, Rights Management Services, Microsoft Power Apps eller Dynamics 365. enskilda användare kan registrera sig via Office 365, vilket även skapar en gäst användare för autentisering i din Azure AD-organisation. Dessa självbetjänings produkter blockerar katalog borttagningar tills produkterna tas bort helt från organisationen för att undvika data förlust. De kan bara tas bort av Azure AD-administratören om användaren har registrerat sig individuellt eller tilldelat produkten.
 
 Det finns två typer av självbetjänings registrerings produkter i hur de tilldelas: 
 
 * Tilldelning på organisations nivå: en Azure AD-administratör tilldelar produkten till hela organisationen och en användare kan aktivt använda tjänsten med den här tilldelningen på organisations nivå, även om de inte licensieras separat.
 * Tilldelning på användar nivå: en enskild användare under självbetjänings registreringen tilldelar produkten själva utan administratör. När organisationen har hanterats av en administratör (se [Administratörs övertag ande av en ohanterad organisation](domains-admin-takeover.md)kan administratören direkt tilldela produkten till användare utan självbetjänings registrering.  
 
-När du påbörjar borttagningen av en självbetjänings registrerings produkt raderas data permanent och alla användare får åtkomst till tjänsten. Alla användare som har tilldelats erbjudandet individuellt eller på organisations nivå blockeras sedan från att logga in eller komma åt befintliga data. Om du vill förhindra data förlust med självbetjänings registrerings produkten som [Microsoft Power BI instrument paneler](https://docs.microsoft.com/power-bi/service-export-to-pbix) eller [princip konfiguration för Rights Management-tjänster](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), se till att data säkerhets kopie ras och sparas någon annan stans.
+När du påbörjar borttagningen av en självbetjänings registrerings produkt raderas data permanent och alla användare får åtkomst till tjänsten. Alla användare som har tilldelats erbjudandet individuellt eller på organisations nivå blockeras sedan från att logga in eller komma åt befintliga data. Om du vill förhindra data förlust med självbetjänings registrerings produkten som [Microsoft Power BI instrument paneler](/power-bi/service-export-to-pbix) eller [princip konfiguration för Rights Management-tjänster](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), se till att data säkerhets kopie ras och sparas någon annan stans.
 
-Mer information om för närvarande tillgängliga registrerings produkter och tjänster för självbetjäning finns i [tillgängliga självbetjänings program](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
+Mer information om för närvarande tillgängliga registrerings produkter och tjänster för självbetjäning finns i [tillgängliga självbetjänings program](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Information om vad som ska förväntas när en prenumeration på en utvärderings version av Office 365 går ut (inte inklusive betald partner/CSP, Enterprise-avtal eller volym licensiering) finns i följande tabell. Mer information om Office 365-datakvarhållning och prenumerations livs cykel finns i [Vad händer med mina data och åtkomst när min Office 365 för företag-prenumeration slutar?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Produkt tillstånd | Data | Åtkomst till data
 ------------- | ---- | --------------
@@ -143,4 +143,4 @@ Du kan publicera en självbetjänings registrerings produkt som Microsoft Power 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Dokumentation om Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+[Dokumentation om Azure Active Directory](../index.yml)

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08d6b12f897b8b7efb150b11ae4b3f5e2440f7c8
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727202"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797997"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-konto anslutningar i Azure Active Directory
 
@@ -33,14 +33,14 @@ Du kan ge användare i organisationen åtkomst till sina LinkedIn-anslutningar i
 > * Inställningen är inaktive rad som standard för Azure AD-organisationer etablerade i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
 > * Inställningen är inaktive rad som standard för organisationer etablerade i Frankrike.
 >
-> När LinkedIn-konton har Aktiver ATS för din organisation fungerar konto anslutningarna efter att de har gett appar till gång till företags data för deras räkning. Information om inställningen för användar medgivande finns i [så här tar du bort en användares åtkomst till ett program](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
+> När LinkedIn-konton har Aktiver ATS för din organisation fungerar konto anslutningarna efter att de har gett appar till gång till företags data för deras räkning. Information om inställningen för användar medgivande finns i [så här tar du bort en användares åtkomst till ett program](../manage-apps/methods-for-removing-user-access.md).
 
 ## <a name="enable-linkedin-account-connections-in-the-azure-portal"></a>Aktivera LinkedIn-konto anslutningar i Azure Portal
 
 Du kan aktivera LinkedIn-konto anslutningar för enbart de användare som du vill ha åtkomst till, från hela organisationen till endast valda användare i din organisation.
 
 1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com/) med ett konto som är en global administratör för Azure AD-organisationen.
-1. Välj **användare**.
+1. Välj **Användare**.
 1. Välj **användar inställningar**på sidan **användare** .
 1. Under **LinkedIn-konto anslutningar**kan användare ansluta sina konton för att komma åt sina LinkedIn-anslutningar i vissa Microsoft-appar. Inga data delas förrän användare beviljats att ansluta sina konton.
 
@@ -71,7 +71,7 @@ Vi har ersatt alternativet "valt" som anger en lista med användare med alternat
 1. Skapa en CSV-fil för de användare som har marker ATS för LinkedIn-konto anslutningar.
 1. Logga in på Microsoft 365 med ditt administratörs konto.
 1. Starta PowerShell.
-1. Installera Azure AD-modulen genom att köra`Install-Module AzureAD`
+1. Installera Azure AD-modulen genom att köra `Install-Module AzureAD`
 1. Kör följande skript:
 
   ``` PowerShell
@@ -94,10 +94,10 @@ Om du vill använda gruppen från steg två som den valda gruppen i inställning
 1. Skapa ett Grupprincip-objekt med följande inställning: **användar konfiguration**  >  **administrativa mallar**  >  **Microsoft Office 2016**  >  **Diverse**  >  **Visa LinkedIn-funktioner i Office-program**.
 1. Välj **aktive rad** eller **inaktive**rad.
   
-   Status | Verkan
+   Status | Effekt
    ------ | ------
    **Aktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är aktive rad. Användare i din organisation kan använda LinkedIn-funktioner i sina Office 2016-program.
-   **Inaktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
+   **Disabled** (Inaktiverat) | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
 
 Den här grup principen påverkar endast Office 2016-appar för en lokal dator. Om användarna inaktiverar LinkedIn i sina Office 2016-appar kan de fortfarande se LinkedIn-funktioner i Office 365.
 

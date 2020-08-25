@@ -1,35 +1,35 @@
 ---
 title: Vanliga frågor och svar
-description: Innehåller svar på några vanliga frågor om Azure VMware-lösningen (AVS).
+description: Innehåller svar på några vanliga frågor om Azure VMware-lösningen.
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: bd27d4669788b10fc12c47e4514020f6b01300bc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: cffa31bb66adfde2af24ab2542322479639ed9dd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87872335"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752191"
 ---
-# <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen (AVS)
+# <a name="frequently-asked-questions-about-azure-vmware-solution-preview"></a>Vanliga frågor om för hands versionen av Azure VMware-lösningen
 
-Svar på vanliga frågor om Azure VMware-lösning (AVS).
+Svar på vanliga frågor om Azure VMware-lösningen.
 
 ## <a name="general"></a>Allmänt
 
-**Vad är Azure VMware-lösning (AVS)?**
+**Vad är Azure VMware-lösningen?**
 
-Eftersom företag eftersträvar IT-modernisering strategier för att förbättra flexibiliteten i verksamheten, minska kostnaderna och påskynda innovationen, har hybrid moln plattformarna uppfyllts som viktigare för kunders digitala omvandling. AVS kombinerar VMwares SDDC-programvara (Software Defined Data Center) med Microsoft Azure globalt moln tjänst eko system. AVS-lösningen hanteras för att uppfylla kraven på prestanda, tillgänglighet, säkerhet och efterlevnad.
+Eftersom företag eftersträvar IT-modernisering strategier för att förbättra flexibiliteten i verksamheten, minska kostnaderna och påskynda innovationen, har hybrid moln plattformarna uppfyllts som viktigare för kunders digitala omvandling. Azure VMware-lösningen kombinerar VMwares SDDC-programvara (Software Defined Data Center) med Microsoft Azure globalt moln tjänst eko system. Azure VMware-lösningen hanteras för att uppfylla kraven på prestanda, tillgänglighet, säkerhet och efterlevnad.
 
-## <a name="avs-service"></a>AVS-tjänst
+## <a name="azure-vmware-solution-service"></a>Azure VMware Solution service
 
-**Var finns AVS tillgängligt idag?**
+**Var finns Azure VMware-lösningen idag?**
 
 Tjänsten läggs kontinuerligt till i nya regioner, så se den [senaste tjänst tillgänglighets informationen](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware) för mer information. 
 
-**Kan arbets belastningar som körs i en Azure VMware-lösning (AVS)-instans förbruka eller integrera med Azure-tjänster?**
+**Kan arbets belastningar som körs i en Azure VMware Solution-instans förbruka eller integrera med Azure-tjänster?**
 
-Alla Azure-tjänster kommer att vara tillgängliga för kunder med AVS-lösningar. Begränsningar för prestanda och tillgänglighet för vissa tjänster måste åtgärdas från fall till fall.
+Alla Azure-tjänster kommer att vara tillgängliga för kunder med Azure VMware-lösningar. Begränsningar för prestanda och tillgänglighet för vissa tjänster måste åtgärdas från fall till fall.
 
 **Använder jag samma verktyg som jag använder nu för att hantera privata moln resurser?**
 
@@ -37,13 +37,13 @@ Ja. Azure Portal används för distribution och ett antal hanterings åtgärder.
 
 **Kan jag hantera ett privat moln med min lokala vCenter?**
 
-Vid lanseringen har AVS inte stöd för en enda hanterings upplevelse i lokala och privata moln miljöer. Privata moln kluster kommer att hanteras med vCenter och NSX Manager lokalt i ett privat moln.
+Vid lanseringen har Azure VMware-lösningen inte stöd för en enda hanterings upplevelse i lokala och privata moln miljöer. Privata moln kluster kommer att hanteras med vCenter och NSX Manager lokalt i ett privat moln.
 
 **Kan jag använda vRealize Suite som körs lokalt?** 
 
 Vissa integreringar och användnings fall kan utvärderas från fall till fall.
 
-**Kan jag migrera virtuella vSphere-datorer från lokala miljöer till AVS-privata moln?**
+**Kan jag migrera virtuella vSphere-datorer från lokala miljöer till Azure VMware-lösningar privata moln?**
 
 Ja. Migrering av virtuella datorer och vMotion kan användas för att flytta virtuella datorer till ett privat moln om standard kraven för Cross vCenter [vMotion](https://kb.vmware.com/s/article/210695) är uppfyllda.
 
@@ -89,7 +89,7 @@ Varje ESXi-värd har två virtuellt San-diskgroups med kapacitets nivån 15,2 TB
 
 **Hur mycket nätverks bandbredd finns på varje ESXi-värd?**
 
-Varje ESXi-värd är AVS-konfigurerad med 4 25 Gbit/s nätverkskort, med två nätverkskort som har allokerats för ESXi system trafik och två nätverkskort som har allokerats för arbets belastnings trafik. 
+Varje ESXi-värd är en Azure VMware-lösning som är konfigurerad med 4 25 Gbit/s nätverkskort, med två nätverkskort som har allokerats för ESXi system trafik och två nätverkskort som har allokerats för arbets belastnings trafik. 
 
 **Är data lagrade på virtuellt San-datalager krypterade i vila?**
 
@@ -111,13 +111,13 @@ Ja, klustren skalas mellan det lägsta och högsta antalet ESXi-värdar. Utvärd
 
 **Vad är utvärderings kluster?**
 
-Utvärderings kluster är tre värd kluster som används för en månads utvärdering av moln privata moln.
+Utvärderings kluster är tre värd kluster som används för en månads utvärdering av privata moln i Azure VMware-lösningen.
 
 **Kan jag använda avancerade värdar för utvärderings kluster?**
 
 Nej. Avancerade ESXi-värdar är reserverade för användning i produktions kluster.
 
-## <a name="avs-and-vmware-software"></a>AVS-och VMware-programvara
+## <a name="azure-vmware-solution-and-vmware-software"></a>Azure VMware-lösning och VMware-programvara
 
 **Vilka versioner av VMware-programvaran används i privata moln?**
 
@@ -125,7 +125,7 @@ Privata moln använder vSphere 6,7, virtuellt San 6,7, HCX och version 2,5 av NS
 
 **Använder privata moln VMware-NSX?**
 
-Ja, NSX-T 2,5 används för program vara som definierats i molnets privata moln.
+Ja, NSX-T 2,5 används för program vara som definierats i Azure VMware-lösningar privata moln.
 
 **Kan jag använda VMware NSX-V i ett privat moln?**
 
@@ -143,13 +143,13 @@ Uppgraderingarna av det privata molnet för program varu paketet görs för att 
 
 Program varan för det privata molnet uppgraderas enligt ett schema som spårar program varu paketets version från VMware. Det privata molnet kräver ingen stillestånds tid för uppgraderingar.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 **Vilken nätverks-IP-adress planering krävs för att inkludera privata moln med lokala miljöer?**
 
-Det krävs ett privat nätverk/22-adressutrymme för att distribuera ett moln i molnet. Det privata adress utrymmet får inte överlappa andra virtuella nätverk i en prenumeration eller med lokala nätverk.
+Det krävs ett privat nätverk/22-adressutrymme för att distribuera ett privat moln i Azure VMware-lösningen. Det privata adress utrymmet får inte överlappa andra virtuella nätverk i en prenumeration eller med lokala nätverk.
  
-**Hur gör jag för att ansluta från lokala miljöer till ett privat moln i molnet?**
+**Hur gör jag för att ansluta från lokala miljöer till ett privat moln i Azure VMware-lösningen?**
 
 Du kan ansluta till tjänsten på något av två sätt: 
 
@@ -170,7 +170,7 @@ Ja. Du måste använda NSX-T-hanteraren för att skapa en brand vägg som begrä
 
 ## <a name="accounts-and-privileges"></a>Konton och behörigheter
 
-**Vilka konton och behörigheter får jag med mitt nya AVS-privata moln?**
+**Vilka konton och behörigheter får jag med mitt nya Azure VMware-lösningar privat moln?**
 
 Du har angett autentiseringsuppgifter för en cloudadmin-användare i vCenter-och admin-åtkomst i NSX-T Manager. Det finns också en CloudAdmin-grupp som kan användas för att införliva Azure Active Directory. Mer information finns i [åtkomst-och identitets koncept](concepts-identity.md).
 
@@ -191,19 +191,19 @@ Du kommer att ha fullständiga administratörs behörigheter på NSX-T och kan h
 
 ## <a name="billing-and-support"></a>Fakturering och support
 
-**Hur kommer jag att faktureras under för hands versionen av AVS**
+**Hur kommer jag att faktureras under för hands versionen av Azure VMware-lösningen**
 
-Fakturering för AVS-förhands granskning är månatligen enligt principen betala per användning. Ytterligare alternativ är allmänt tillgängliga.
+Faktureringen för Azure VMware-lösningen under för hands versionen är månatlig enligt principen betala per användning. Ytterligare alternativ är allmänt tillgängliga.
 
-**Hur struktureras priserna under för hands versionen av AVS?**
+**Hur struktureras priserna under för hands versionen av Azure VMware-lösningen?**
 
 Allmänna frågor om prissättning finns på [prissättnings](https://azure.microsoft.com/pricing/details/azure-vmware) sidan för Azure VMware-lösningen. Priset för för hands versionen är tillgängligt på begäran, kontakta ditt konto team eller följ länken på prissättnings sidan för att kontakta Sales.
 
-**Vem stöder AVS?**
+**Vem stöder Azure VMware-lösningen?**
 
-Stöd för AVS levereras av Microsoft. Obs! enligt våra rikt linjer för förhands granskning kommer vi att ge support under 9 – 5 PM PST-arbetstimme måndag-fredag. Du kan utlösa ett support ärende från [den här länken](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+Support för Azure VMware-lösningen levereras av Microsoft. Obs! enligt våra rikt linjer för förhands granskning kommer vi att ge support under 9 – 5 PM PST-arbetstimme måndag-fredag. Du kan utlösa ett support ärende från [den här länken](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-**Vilka konton behöver jag för att skapa ett privat AVS-moln?**
+**Vilka konton behöver jag för att skapa ett privat moln I Azure VMware-lösningen?**
 
 Du behöver ett Azure-konto i en Azure-prenumeration.
 

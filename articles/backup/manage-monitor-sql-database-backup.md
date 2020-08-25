@@ -3,12 +3,12 @@ title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ada367e94b75c30a98bedf5848b248cadfe9acc2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659593"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756324"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -16,15 +16,11 @@ I den här artikeln beskrivs vanliga uppgifter för att hantera och övervaka SQ
 
 Om du ännu inte har konfigurerat säkerhets kopior för dina SQL Server-databaser, se [säkerhetskopiera SQL Server databaser på virtuella Azure-datorer](backup-azure-sql-database.md)
 
-## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Övervaka manuella säkerhets kopierings jobb i portalen
+## <a name="monitor-backup-jobs-in-the-portal"></a>Övervaka säkerhets kopierings jobb i portalen
 
-Azure Backup visar alla manuellt utlösta jobb i portalen med **säkerhets kopierings jobb** . De jobb som visas i den här portalen är identifiering och registrering av databaser samt säkerhets kopierings-och återställnings åtgärder.
+Azure Backup visar alla schemalagda och begärda åtgärder under **säkerhets kopierings jobb** i portalen, förutom de schemalagda logg säkerhets kopiorna eftersom de kan vara mycket frekventa. De jobb som visas i den här portalen är identifiering och registrering av databaser, konfiguration av säkerhets kopiering och säkerhets kopiering och återställning.
 
 ![Säkerhets kopierings jobb portalen](./media/backup-azure-sql-database/jobs-list.png)
-
-> [!NOTE]
-> I portalen för **säkerhets kopierings jobb** visas inte schemalagda säkerhets kopierings jobb. Använd SQL Server Management Studio för att övervaka schemalagda säkerhetskopieringsjobb, enligt beskrivningen i nästa avsnitt.
->
 
 Information om övervaknings scenarier finns [i övervakning i Azure Portal](backup-azure-monitoring-built-in-monitor.md) och [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -162,7 +158,7 @@ Avregistrera en SQL Server instans när du har inaktiverat skyddet, men innan du
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrera tillägget på nytt på SQL Server VM
 
-Ibland kan arbets belastnings tillägget på den virtuella datorn påverkas av en orsak eller en annan. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrerings** åtgärden installerar om säkerhets kopieringen av arbets belastningen på den virtuella datorn för att fortsätta. Du kan hitta det här alternativet under **säkerhets kopierings infrastruktur** i Recovery Service-valvet.
+Ibland kan arbets belastnings tillägget på den virtuella datorn bli påverkat av en orsak eller en annan. I sådana fall påbörjas alla åtgärder som utlöses på den virtuella datorn. Du kan sedan behöva registrera tillägget på den virtuella datorn på nytt. **Omregistrerings** åtgärden installerar om säkerhets kopieringen av arbets belastningen på den virtuella datorn för att fortsätta. Du kan hitta det här alternativet under **säkerhets kopierings infrastruktur** i Recovery Services valvet.
 
 ![Skyddade servrar under säkerhets kopierings infrastruktur](./media/backup-azure-sql-database/protected-servers-backup-infrastructure.png)
 

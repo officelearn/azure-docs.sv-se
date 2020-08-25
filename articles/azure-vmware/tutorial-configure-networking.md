@@ -3,16 +3,16 @@ title: Självstudie – Konfigurera nätverk för ditt privata VMware-moln i Azu
 description: Lär dig att skapa och konfigurera de nätverk som behövs för att distribuera ditt privata moln i Azure
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.openlocfilehash: aa4247f60c3e1ec54bfcde336d1ae8c8f70ff7a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ff071e0d6eaf1552634433a76e4eade530c603b6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079439"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750498"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMware-moln i Azure
 
-En Azure VMware-lösning (AVS) ett privat moln kräver en Azure-Virtual Network. Eftersom AVS inte stöder din lokala vCenter under för hands versionen krävs ytterligare steg för integrering med din lokala miljö. Att konfigurera en ExpressRoute-krets och en virtuell nätverksgateway krävs också och beskrivs i den här självstudien.
+Ett privat moln i Azure VMware-lösningen kräver en Azure-Virtual Network. Eftersom Azure VMware-lösningen inte stöder din lokala vCenter under för hands versionen krävs ytterligare steg för integrering med din lokala miljö. Att konfigurera en ExpressRoute-krets och en virtuell nätverksgateway krävs också och beskrivs i den här självstudien.
 
 I den här guiden får du lära dig att:
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Leta upp URL: erna för vCenter och NSX Manager
 
 ## <a name="prerequisites"></a>Förutsättningar 
-Innan du kan skapa ett virtuellt nätverk måste du kontrol lera att du har skapat ett [privat AVS-moln](tutorial-create-private-cloud.md). 
+Innan du kan skapa ett virtuellt nätverk måste du kontrol lera att du har skapat ett [privat moln i Azure VMware-lösningen](tutorial-create-private-cloud.md). 
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -48,7 +48,7 @@ Innan du kan skapa ett virtuellt nätverk måste du kontrol lera att du har skap
 
 1. Välj **Granska + skapa**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="skapa ett virtuellt nätverk" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="Välj granska + skapa." border="true":::
 
 1. Verifiera informationen och välj **skapa**. När distributionen är klar visas ditt virtuella nätverk i resurs gruppen.
 
@@ -76,20 +76,20 @@ Nu när du har skapat ett virtuellt nätverk skapar du en virtuell nätverksgate
    | **Adress intervall för gateway-undernät** | Det här värdet fylls i när du väljer det virtuella nätverket. Ändra inte standardvärdet. |
    | **Offentlig IP-adress** | Välj **Skapa ny**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="skapa en gateway" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="På fliken grundläggande på sidan Skapa virtuell nätverksgateway anger du värden för fälten och väljer sedan granska + skapa." border="true":::
 
 1. Kontrol lera att informationen är korrekt och välj **skapa** för att starta distributionen av den virtuella Nätverksgatewayen. 
-1. När distributionen är klar går du vidare till nästa avsnitt för att ansluta din ExpressRoute-anslutning till den virtuella Nätverksgatewayen som innehåller ditt molns privata moln.
+1. När distributionen är klar går du vidare till nästa avsnitt för att ansluta din ExpressRoute-anslutning till den virtuella Nätverksgatewayen som innehåller ditt privata moln i Azure VMware-lösningen.
 
 ## <a name="connect-expressroute-to-the-virtual-network-gateway"></a>Anslut ExpressRoute till den virtuella Nätverksgatewayen
 
-Nu när du har distribuerat en virtuell nätverksgateway lägger du till en anslutning mellan den och ditt moln i molnet.
+Nu när du har distribuerat en virtuell nätverksgateway lägger du till en anslutning mellan den och ditt privata moln i Azure VMware-lösningen.
 
 1. Navigera till det privata moln som du skapade i föregående självstudie och välj **anslutning** under **Hantera**, Välj fliken **ExpressRoute** .
 
-1. Kopiera verifierings nyckeln. Om det inte finns någon autentiseringsregel måste du skapa en, för att göra det väljer du **+ begär en nyckel för autentisering**
+1. Kopiera verifierings nyckeln. Om det inte finns någon autentiseringsregel måste du skapa en, för att göra det väljer du **+ begär en nyckel för autentisering**.
 
-   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="begär en nyckel för autentisering" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/request-auth-key.png" alt-text="Kopiera verifierings nyckeln. Om det inte finns någon autentiseringsregel måste du skapa en, för att göra det väljer du + begär en nyckel för autentisering." border="true":::
 
 1. Navigera till Virtual Network gateway som du skapade i föregående steg och välj **anslutningar**under **Inställningar**. På sidan **anslutningar** väljer du **+ Lägg till**.
 
@@ -98,13 +98,13 @@ Nu när du har distribuerat en virtuell nätverksgateway lägger du till en ansl
    | Fält | Värde |
    | --- | --- |
    | **Namn**  | Ange ett namn för anslutningen.  |
-   | **Anslutnings typ**  | Välj **ExpressRoute**.  |
+   | **Anslutningstyp**  | Välj **ExpressRoute**.  |
    | **Lös in auktorisering**  | Se till att den här rutan är markerad.  |
    | **Virtuell nätverksgateway** | Virtual Network gateway som du skapade tidigare.  |
    | **Auktoriseringsregel**  | Kopiera och klistra in verifierings nyckeln från fliken ExpressRoute för din resurs grupp. |
    | **Peer-krets-URI**  | Kopiera och klistra in ExpressRoute-ID: t från fliken ExpressRoute för din resurs grupp.  |
 
-   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="Lägg till en anslutning" border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="På sidan Lägg till anslutning anger du värden för fälten och väljer OK." border="true":::
 
 Anslutningen mellan din ExpressRoute-krets och din Virtual Network skapas.
 
@@ -114,9 +114,9 @@ Anslutningen mellan din ExpressRoute-krets och din Virtual Network skapas.
 
 För att logga in på vCenter och NSX Manager behöver du URL: erna till vCenter-webbklienten och NSX-T Manager-platsen. 
 
-Navigera till ditt moln privata moln, under **Hantera**, Välj **identitet**, här hittar du den information som behövs.
+Navigera till Azure VMware-lösningen privat moln, under **Hantera**, Välj **identitet**, här hittar du den information som behövs.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Hitta vCenter-URL: erna" border="true":::
+:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Navigera till Azure VMware-lösningen privat moln, under hantera, Välj identitet, här hittar du den information som behövs." border="true":::
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 093f4f3cd54f1e4638a0fbcd161a2af4fecba5da
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475795"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795906"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Hantering av administrativa enheter i Azure Active Directory (för hands version)
 
@@ -47,8 +47,8 @@ Användning av administrativa enheter kräver en Azure Active Directory Premium-
 I den här för hands versionen kan du hantera administrativa enheter med hjälp av Azure Portal, PowerShell-cmdlets och skript, eller Microsoft Graph. Du hittar mer information i vår dokumentation:
 
 - [Skapa, ta bort, fylla i och lägga till roller i administrativa enheter](roles-admin-units-manage.md): fullständiga instruktions procedurer
-- [Arbeta med administratörs enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): så här arbetar du med administrativa enheter med hjälp av PowerShell
-- [Stöd för diagram över administrativa enheter](https://docs.microsoft.com/graph/api/resources/administrativeunit?view=graph-rest-beta): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
+- [Arbeta med administratörs enheter](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): så här arbetar du med administrativa enheter med hjälp av PowerShell
+- [Stöd för diagram över administrativa enheter](/graph/api/resources/administrativeunit?view=graph-rest-beta): detaljerad dokumentation om Microsoft Graph för administrativa enheter.
 
 ### <a name="planning-your-administrative-units"></a>Planera dina administrativa enheter
 

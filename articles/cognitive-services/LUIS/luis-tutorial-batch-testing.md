@@ -4,10 +4,10 @@ description: Den här självstudien visar hur du använder batch-testning för a
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83681623"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Självstudie: data uppsättningar för batch-test
@@ -24,7 +24,7 @@ Krav för batch-testning:
 
 När du använder en annan app än den här själv studie kursen ska du *inte* använda exemplet yttranden som redan har lagts till i din app.
 
-**I de här självstudierna får du lära dig att**
+**I den här guiden får du lära dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dda8c742a0aafe7ec3f46a0a9dbf0abd4a516b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f36e5d8974caea0eecff7e0b399b6aab5d200664
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213791"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797113"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Egenskaper för tillägg och anpassade tilläggs egenskaper
 
-Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. [Attributen för tillägg](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
+Tilläggets attribut och anpassade tilläggs egenskaper stöds som sträng egenskaper i dynamiska medlemskaps regler. [Attributen för tillägg](/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) synkroniseras från den lokala serverns AD och formatet "ExtensionAttributeX", där X är lika med 1-15. Här är ett exempel på en regel som använder attributet Extension som en egenskap:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Anpassade tilläggs egenskaper](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS-program och har formatet `user.extension_[GUID]_[Attribute]` , där:
+[Anpassade tilläggs egenskaper](../hybrid/how-to-connect-sync-feature-directory-extensions.md) synkroniseras från lokala Windows Server AD eller från ett anslutet SaaS-program och har formatet `user.extension_[GUID]_[Attribute]` , där:
 
 * [GUID] är den unika identifieraren i Azure AD för programmet som skapade egenskapen i Azure AD
 * [Attribute] är namnet på egenskapen som det skapades
@@ -393,7 +393,7 @@ Följande enhets egenskaper kan användas.
  systemLabels | valfri sträng som matchar enhets egenskapen i Intune för att tagga moderna arbets plats enheter | (device.systemLabels-innehåller "M365Managed")
 
 > [!Note]  
-> För deviceOwnership när du skapar dynamiska grupper för enheter måste du ange värdet till "företag". I Intune representeras enhetens ägarskap i stället för företag. Mer information finns på [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) . 
+> För deviceOwnership när du skapar dynamiska grupper för enheter måste du ange värdet till "företag". I Intune representeras enhetens ägarskap i stället för företag. Mer information finns på [OwnerTypes](/intune/reports-ref-devices#ownertypes) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

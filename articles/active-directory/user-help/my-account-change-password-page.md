@@ -11,19 +11,19 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: d1191fdd757b4614eca543660eccddea5c20d033
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 55df08b0782c446d7313e709de9b8ceaeb58ab2b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422527"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798201"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Ändra lösen ordet för ditt arbets-eller skol konto från sidan Ändra lösen ord
 
 Sidan **ändra lösen ord** i portalen **My-Account** hjälper dig att uppdatera ett befintligt lösen ord för ditt arbets-eller skol konto, förutsatt att du kommer ihåg lösen ordet och att du inte är utelåst från ditt konto. Om du inte kommer ihåg ditt lösen ord, om du är utelåst från ditt konto eller om du aldrig har ett lösen ord från din organisation, kan du använda din säkerhets information och din mobila enhet för att återställa ditt lösen ord.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera ett känt lösen ord för ett befintligt arbets-eller skol konto. Om du är en användare som försöker komma in på ett personligt konto, till exempel för Xbox, Hotmail eller Outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel. Om du är administratör för att få mer information om hur du testar lösen ords återställning via självbetjäning för dina anställda eller andra användare, se [lösen ords återställning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)via självbetjäning.
+>Den här artikeln är avsedd för användare som försöker uppdatera ett känt lösen ord för ett befintligt arbets-eller skol konto. Om du är en användare som försöker komma in på ett personligt konto, till exempel för Xbox, Hotmail eller Outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel. Om du är administratör för att få mer information om hur du testar lösen ords återställning via självbetjäning för dina anställda eller andra användare, se [lösen ords återställning](../authentication/tutorial-enable-sspr.md)via självbetjäning.
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Uppdatera ett lösen ord från sidan Ändra lösen ord
 
@@ -45,7 +45,7 @@ Sidan **ändra lösen ord** i portalen **My-Account** hjälper dig att uppdatera
 
 När du har ändrat ditt lösen ord kan du:
 
-- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Visa eller hantera din [säkerhets information](./security-info-setup-signin.md).
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 

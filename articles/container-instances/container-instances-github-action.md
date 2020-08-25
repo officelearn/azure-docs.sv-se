@@ -2,20 +2,20 @@
 title: Distribuera behållar instansen per GitHub-åtgärd
 description: Konfigurera en GitHub-åtgärd som automatiserar stegen för att bygga, skicka och distribuera en behållar avbildning till Azure Container Instances
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 08/20/2020
 ms.custom: ''
-ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744008"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755015"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurera en GitHub-åtgärd för att skapa en containerinstans
 
 [GitHub-åtgärder](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) är en uppsättning funktioner i GitHub för att automatisera dina arbets flöden för program utveckling på samma plats som du lagrar kod och samarbetar om pull-begäranden och-problem.
 
-Använd åtgärden [distribuera för att Azure Container instances](https://github.com/azure/aci-deploy) GitHub för att automatisera distributionen av en behållare till Azure Container instances. Med åtgärden kan du ange egenskaper för en behållar instans som liknar dem i kommandot [AZ container Create][az-container-create] .
+Använd åtgärden [distribuera för att Azure Container instances](https://github.com/azure/aci-deploy) GitHub för att automatisera distributionen av en enskild behållare till Azure Container instances. Med åtgärden kan du ange egenskaper för en behållar instans som liknar dem i kommandot [AZ container Create][az-container-create] .
 
 Den här artikeln visar hur du konfigurerar ett arbets flöde i en GitHub-lagrings platsen som utför följande åtgärder:
 
@@ -25,13 +25,13 @@ Den här artikeln visar hur du konfigurerar ett arbets flöde i en GitHub-lagrin
 
 Den här artikeln visar två sätt att konfigurera arbets flödet:
 
-* Konfigurera ett arbets flöde själv i en GitHub-lagrings platsen med hjälp av åtgärden distribuera till Azure Container Instances och andra åtgärder.  
-* Använd `az container app up` kommandot i tillägget [distribuera till Azure](https://github.com/Azure/deploy-to-azure-cli-extension) i Azure CLI. Med det här kommandot effektiviseras skapandet av GitHub-arbetsflöde och distributions steg.
+* [Konfigurera GitHub-arbetsflöde](#configure-github-workflow) – skapa ett arbets flöde i en GitHub-lagrings platsen med hjälp av åtgärden distribuera till Azure Container instances och andra åtgärder.  
+* [Använd CLI-tillägg](#use-deploy-to-azure-extension) – Använd `az container app up` kommandot i tillägget [distribuera till Azure](https://github.com/Azure/deploy-to-azure-cli-extension) i Azure CLI. Med det här kommandot effektiviseras skapandet av GitHub-arbetsflöde och distributions steg.
 
 > [!IMPORTANT]
 > GitHub-åtgärden för Azure Container Instances är för närvarande en för hands version. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **GitHub-konto** – skapa ett konto på https://github.com om du inte redan har ett.
 * **Azure CLI** – du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra Azure CLI-stegen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
@@ -39,7 +39,7 @@ Den här artikeln visar två sätt att konfigurera arbets flödet:
 
 ## <a name="set-up-repo"></a>Konfigurera lagrings platsen
 
-* I exemplen i den här artikeln använder du GitHub för att förgrena följande lagrings plats:https://github.com/Azure-Samples/acr-build-helloworld-node
+* I exemplen i den här artikeln använder du GitHub för att förgrena följande lagrings plats: https://github.com/Azure-Samples/acr-build-helloworld-node
 
   Den här lagrings platsen innehåller en Dockerfile och källfiler för att skapa en behållar avbildning av en liten webbapp.
 
@@ -91,7 +91,7 @@ Spara JSON-utdata eftersom det används i ett senare steg. Anteckna också `clie
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Uppdatera tjänstens huvud namn för autentisering av registret
 
-Uppdatera autentiseringsuppgifterna för Azure-tjänstens huvud namn för att tillåta push-och pull-behörighet för behållar registret. Det här steget gör att GitHub-arbetsflödet kan använda tjänstens huvud namn för att [autentisera med ditt behållar register](../container-registry/container-registry-auth-service-principal.md). 
+Uppdatera autentiseringsuppgifterna för Azure-tjänstens huvud namn för att tillåta push-och pull-åtkomst till behållar registret. Det här steget gör att GitHub-arbetsflödet kan använda tjänstens huvud namn för att [autentisera med ditt behållar register](../container-registry/container-registry-auth-service-principal.md) och för att skicka och ta emot en Docker-avbildning. 
 
 Hämta resurs-ID för behållar registret. Ersätt namnet på ditt register i följande [AZ ACR show][az-acr-show] -kommando:
 
@@ -118,8 +118,8 @@ az role assignment create \
 
 |Hemlighet  |Värde  |
 |---------|---------|
-|`AZURE_CREDENTIALS`     | Hela JSON-utdata från tjänstens huvud namn skapas |
-|`REGISTRY_LOGIN_SERVER`   | Inloggnings Server namnet för registret (alla gemener). Exempel: *myregistry.Azure.CR.io*        |
+|`AZURE_CREDENTIALS`     | Hela JSON-utdata från steget för att skapa tjänst objekt |
+|`REGISTRY_LOGIN_SERVER`   | Inloggnings Server namnet för registret (alla gemener). Exempel: *myregistry.azurecr.io*        |
 |`REGISTRY_USERNAME`     |  `clientId`Från JSON-utdata från det att tjänstens huvud namn skapas       |
 |`REGISTRY_PASSWORD`     |  `clientSecret`Från JSON-utdata från det att tjänstens huvud namn skapas |
 | `RESOURCE_GROUP` | Namnet på den resurs grupp som du använde för att omfånget av tjänstens huvud namn |
@@ -177,7 +177,7 @@ När du har bekräftat arbets flödes filen utlöses arbets flödet. Gå till **
 
 ![Visa arbets flödes förlopp](./media/container-instances-github-action/github-action-progress.png)
 
-Se [hantera en arbets flödes körning](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) för information om hur du visar status och resultat för varje steg i arbets flödet.
+Se [hantera en arbets flödes körning](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run) för information om hur du visar status och resultat för varje steg i arbets flödet. Om arbets flödet inte slutförs, se [Visa loggar för att diagnostisera fel](https://docs.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-logs-to-diagnose-failures).
 
 När arbets flödet har slutförts hämtar du information om behållar instansen med namnet *ACI-fråga* genom att köra kommandot [AZ container show][az-container-show] . Ersätt namnet på din resurs grupp: 
 
@@ -209,7 +209,7 @@ Arbets flödet som skapats av Azure CLI liknar det arbets flöde som du kan [Ska
 
 ### <a name="additional-prerequisite"></a>Ytterligare krav
 
-Förutom [kraven](#prerequisites) och [lagrings platsen-installationen](#set-up-repo) för det här scenariot måste du installera **tillägget distribuera till Azure** för Azure CLI.
+Förutom [kraven](#prerequisites) och [lagrings platsen-installationen](#set-up-repo) för det här scenariot måste du installera  **tillägget distribuera till Azure** för Azure CLI.
 
 Kör kommandot [AZ Extension Add][az-extension-add] för att installera tillägget:
 
@@ -225,7 +225,7 @@ Information om hur du hittar, installerar och hanterar tillägg finns i [använd
 För att köra kommandot [AZ container app up][az-container-app-up] anger du minst:
 
 * Namnet på ditt Azure Container Registry, till exempel för *registret*
-* URL: en till din GitHub-lagrings platsen, till exempel`https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
+* URL: en till din GitHub-lagrings platsen, till exempel `https://github.com/<your-GitHub-Id>/acr-build-helloworld-node`
 
 Exempel-kommando:
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Kommando förlopp
 
-* När du uppmanas till det anger du dina GitHub-autentiseringsuppgifter eller anger en GitHub-Pat ( [personal Access token](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) ) som har *lagrings platsen* och *användar* omfång för att autentisera med ditt register. Om du anger GitHub-autentiseringsuppgifter skapar kommandot en PAT åt dig.
+* När du uppmanas till det anger du dina GitHub-autentiseringsuppgifter eller anger en GitHub-Pat ( [personal Access token](https://help.github.com/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) ) som har *lagrings platsen* och *användar* omfång för att autentisera med ditt GitHub-konto. Om du anger GitHub-autentiseringsuppgifter skapar kommandot en PAT åt dig. Följ ytterligare prompter för att konfigurera arbets flödet.
 
 * Kommandot skapar lagrings platsen hemligheter för arbets flödet:
 
@@ -258,11 +258,29 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
+Om du vill visa arbets flödes status och resultat för varje steg i GitHub-ANVÄNDARGRÄNSSNITTET, se [hantera en arbets flödes körning](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+
 ### <a name="validate-workflow"></a>Verifiera arbets flöde
 
-Arbets flödet distribuerar en Azure Container instance med bas namnet för din GitHub-lagrings platsen, i det här fallet *ACR-build-HelloWorld-Node*. I webbläsaren kan du bläddra till länken för att visa den webbapp som körs. Om din app lyssnar på en annan port än 8080 anger du att i URL: en i stället.
+Arbets flödet distribuerar en Azure Container instance med bas namnet för din GitHub-lagrings platsen, i det här fallet *ACR-build-HelloWorld-Node*. När arbets flödet har slutförts hämtar du information om behållar instansen med namnet *ACR-build-HelloWorld-Node* genom att köra kommandot [AZ container show][az-container-show] . Ersätt namnet på din resurs grupp: 
 
-Om du vill visa arbets flödes status och resultat för varje steg i GitHub-ANVÄNDARGRÄNSSNITTET, se [hantera en arbets flödes körning](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
+```azurecli
+az container show \
+  --resource-group <resource-group-name> \
+  --name acr-build-helloworld-node \
+  --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" \
+  --output table
+```
+
+Utdata liknar följande:
+
+```console
+FQDN                                                   ProvisioningState
+---------------------------------                      -------------------
+acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
+```
+
+När instansen har allokerats navigerar du till behållarens FQDN i webbläsaren för att visa den webbapp som körs.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

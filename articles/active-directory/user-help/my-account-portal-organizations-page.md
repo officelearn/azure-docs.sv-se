@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422459"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798184"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
 
@@ -30,7 +30,7 @@ Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera orga
 - **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+>Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 
@@ -61,7 +61,7 @@ Du kan lämna en organisation som inte är din hem organisation.
 
 När du har visat dina organisationer kan du:
 
-- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Visa eller hantera din [säkerhets information](./security-info-setup-signin.md).
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 

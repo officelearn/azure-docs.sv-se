@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bcf589e685d0a35a58bb1e8069a6ce3699b61c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e6ee5af5d7489835f125319050d291a89ab252a6
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84728392"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797130"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Ändra statisk grupp medlemskap till dynamisk i Azure Active Directory
 
@@ -57,7 +57,7 @@ Följande steg är ett exempel på hur du ändrar en grupp från statisk till dy
 ## <a name="change-membership-type-for-a-group-powershell"></a>Ändra medlemskaps typ för en grupp (PowerShell)
 
 > [!NOTE]
-> Om du vill ändra dynamiska grupp egenskaper måste du använda cmdletar från för **hands versionen av** [Azure AD PowerShell version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Du kan installera förhands granskningen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureADPreview).
+> Om du vill ändra dynamiska grupp egenskaper måste du använda cmdletar från för **hands versionen av** [Azure AD PowerShell version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Du kan installera förhands granskningen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Här är ett exempel på funktioner som växlar medlemskaps hantering i en befintlig grupp. I det här exemplet är det viktigt att ändra egenskapen GroupTypes och bevara alla värden som inte är relaterade till dynamiskt medlemskap.
 

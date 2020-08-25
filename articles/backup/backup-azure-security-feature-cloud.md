@@ -3,12 +3,12 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 79df345858d89d032b826a0fa8b677195a785df2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538844"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763447"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
@@ -69,7 +69,7 @@ Säkerhets kopierings data i läget Soft Deleted tidigare inaktive ring av den h
 
 ### <a name="using-azure-portal"></a>Använda Azure Portal
 
-Gör så här:
+Följ de här stegen:
 
 1. Följ stegen för att [inaktivera mjuk borttagning](#enabling-and-disabling-soft-delete).
 
@@ -136,7 +136,7 @@ AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM
 
 Om objekten togs bort innan mjuk borttagning har inaktiverats, kommer de att vara i ett mjukt borttaget tillstånd. Om du vill ta bort dem omedelbart måste borttagnings åtgärden ångras och sedan utföras igen.
 
-1. Börja med att ångra borttagnings åtgärderna med stegen som anges [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-stop-protection-and-delete-data).
+1. Börja med att ångra borttagnings åtgärderna med stegen som anges [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 2. Inaktivera sedan funktionerna för mjuk borttagning med REST API med hjälp av stegen som beskrivs [här](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. Ta sedan bort säkerhets kopiorna med REST API som anges [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 

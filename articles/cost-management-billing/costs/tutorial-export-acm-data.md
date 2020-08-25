@@ -3,17 +3,17 @@ title: Självstudie – Skapa och hantera exporterade data från Azure Cost Mana
 description: Den här artikeln visar hur du kan skapa en hantera exporterade Azure Cost Management-data så att du kan använda dem i externa system.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/27/2020
+ms.date: 08/05/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 69b7b4bff46ba2998ca931ba1cb6bc9e7c1d9096
+ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142337"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88272228"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Självstudier: Skapa och hantera exporterade data
 
@@ -49,40 +49,38 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="create-a-daily-export"></a>Skapa en daglig export
 
-Om du vill skapa eller visa en dataexport, eller om du vill schemalägga en export, öppnar du önskat omfång i Azure-portalen och väljer **Kostnadsanalys** i menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** i menyn. Överst på sidan Kostnadsanalys väljer du **Inställningar** och sedan **Exporter** och väljer därefter ett exportalternativ.
+Om du vill skapa eller visa en dataexport, eller om du vill schemalägga en export, öppnar du önskat omfång i Azure-portalen och väljer **Kostnadsanalys** i menyn. Du kan till exempel gå till **Prenumerationer**, välja en prenumeration i listan och sedan välja **Kostnadsanalys** i menyn. Överst på sidan Kostnadsanalys väljer du **Inställningar** och **Exporter**.
 
 > [!NOTE]
-> - Utöver prenumerationer kan du skapa exporter för resursgrupper, konton, avdelningar och registreringar. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
+> - Utöver prenumerationer kan du skapa exporter för resursgrupper, hanteringsgrupper, avdelningar och registreringar. Mer information om omfång finns i [Förstå och arbeta med omfång](understand-work-scopes.md).
 >- När du är inloggad som partner i faktureringskontots omfång eller i en kunds klientorganisation kan du exportera data till ett Azure Storage-konto som är länkat till ditt partnerlagringskonto. Du måste dock ha en aktiv prenumeration i din CSP-klientorganisation.
 
-Välj **Lägg till**, skriv ett namn för exporten och välj sedan alternativet **Daily export of month-to-date costs** (Daglig export av kostnader hittills under månaden). Välj **Nästa**.
-
-[![Nytt exempel som visar exporttyp](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
-
-Ange prenumerationen för ditt Azure Storage-konto och välj sedan ditt lagringskonto.  Ange den lagringscontainer och den katalogsökväg som du vill att exportfilen ska gå till. Välj **Nästa**.
-
-![Nytt exportexempel som visar information om lagringskonto](./media/tutorial-export-acm-data/storage_exports.png)
-
-Granska exportinformationen och välj **Skapa**.
+1. Välj **Lägg till** och skriv ett namn för exporten. 
+1. Välj **Mått**:
+    - **Verklig kostnad (användning och inköp)** – välj för att exportera standardanvändning och standardinköp
+    - **Periodiserad kostnad (användning och inköp)** – välj för att exportera periodiserade kostnader för inköp som Azure-reservationer
+1. Välj **Exporttyp**:
+    - **Daglig export av kostnader hittills under månaden** – tillhandahåller en ny exportfil varje dag för dina kostnader hittills under månaden. Den senaste informationen sammanställs från tidigare dagliga exporter.
+    - **Veckovis export av kostnad under de senaste 7 dagarna** – skapar en veckovis export av dina kostnader under de senaste sju dagarna från det valda startdatumet för exporten.  
+    - **Månatlig export av den senaste månadens kostnader** – ger dig en export av den senaste månadens kostnader jämfört med den aktuella månad då du skapar exporten. Om vi ser framåt kör schemat en export den femte dagen i varje ny månad med kostnaderna för den senaste månaden.  
+    - **Engångsexport** – du kan välja ett datumintervall för historiska data som ska exporteras till Azure Blob Storage. Du kan exportera högst 90 dagars historiska kostnader från den dag du väljer. Den här exporten körs omedelbart och är tillgänglig i ditt lagringskonto inom två timmar.  
+        Beroende på exporttyp väljer du antingen ett startdatum eller väljer datum för **Från** och **Till**.
+1. Ange prenumerationen för ditt Azure Storage-konto och välj sedan en resursgrupp eller skapa en ny resursgrupp. 
+1. Välj lagringskontots namn eller skapa ett nytt lagringskonto. 
+1. Välj plats (Azure-region).
+1. Ange den lagringscontainer och den katalogsökväg som du vill att exportfilen ska gå till. 
+    :::image type="content" source="./media/tutorial-export-acm-data/basics_exports.png" alt-text="Nytt exportexempel" lightbox="./media/tutorial-export-acm-data/basics_exports.png":::
+1. Granska exportinformationen och välj **Skapa**.
 
 Den nya exporten visas i listan över exporter. Som standard är nya exporter aktiverade. Om du vill inaktivera eller ta bort en schemalagd export väljer du valfritt objekt i listan och väljer sedan antingen **Inaktivera** eller **Ta bort**.
 
-Först kan det ta en till två timmar innan exporten körs. Dock kan det ta upp till fyra timmar innan data visas i de exporterade filerna.
+Först kan det ta 12–24 timmar innan exporten körs. Men det kan ta längre tid innan data visas i de exporterade filerna.
 
 ### <a name="export-schedule"></a>Exportera schema
 
-Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten med samma frekvens för varje efterföljande export. För till exempel en månad till datum-export som anges till daglig frekvens körs exporten varje dag. På liknande sätt körs exporten varje vecka för en veckovis export, samma dag som den schemaläggs. Den exakta leveranstiden för exporten är inte garanterad, och exporterade data är tillgängliga inom fyra timmar från körningstiden.
-Varje export skapar en ny fil, vilket betyder att äldre exporter inte skrivs över.
+Schemalagda exporter påverkas av tiden och dagen i veckan då du först skapade exporten. När du skapar en schemalagd export körs exporten med samma frekvens för varje efterföljande export. För till exempel en daglig export av kostnader hittills denna månad körs exporten varje dag. På liknande sätt körs exporten varje vecka för en veckovis export, samma dag som den schemaläggs. Den exakta leveranstiden för exporten garanteras inte, och exporterade data är tillgängliga inom fyra timmar från körningstiden.
 
-Det finns två typer av exportalternativ:
-
-**Daglig export av kostnader hittills under månaden** – Den första exporten körs direkt. Efterföljande exporter körs nästa dag vid samma tid som den första exporten. Den senaste informationen sammanställs från tidigare dagliga exporter.
-
-**Anpassad** – Gör att du kan schemalägga vecko- och månadsexporter med alternativ för ”hittills den här veckan” och ”hittills den här månaden”. *Den första exporten körs direkt.*
-
-Om du har en prenumeration av typen Betala per användning, MDSN eller Visual Studio är det inte säkert att faktureringsperioden justeras till kalendermånaden. För dessa typer av prenumerationer och resursgrupper kan du skapa en export som är justerad till din fakturaperiod eller till kalendermånader. Om du vill skapa en export som är justerad till din fakturamånad går du till **Anpassad** och väljer **Billing-period-to-date** (Faktureringsperiod hittills).  Om du vill skapa en export som är justerad till kalendermånaden väljer du **Month-to-date** (Hittills under månaden).
-
-![Ny export – Fliken Grundläggande inställningar visar ett anpassat alternativ för ”hittills den här veckan” för varje vecka](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+Varje export skapar en ny fil, så äldre exporter skrivs inte över.
 
 #### <a name="create-an-export-for-multiple-subscriptions"></a>Skapa en export för flera prenumerationer
 
@@ -90,10 +88,11 @@ Om du har ett Enterprise-avtal kan du använda en hanteringsgrupp för att aggre
 
 Export av hanteringsgrupper av andra prenumerationstyper stöds inte.
 
-1. Skapa en hanteringsgrupp och tilldela prenumerationer till den.
-1. I Exporter väljer du **Omfång**.
-1. Välj **Select this management group** (Välj den här hanteringsgruppen).
-1. Skapa en export i omfånget för att hämta kostnadshanteringsdata för prenumerationerna i hanteringsgruppen.
+1. Om du inte redan har skapat en hanteringsgrupp skapar du en hanteringsgrupp och tilldelar prenumerationer till den.
+1. I kostnadsanalysen anger du omfattningen för hanteringsgruppen och väljer **Välj den här hanteringsgruppen**.  
+    :::image type="content" source="./media/tutorial-export-acm-data/management-group-scope.png" alt-text="Exempel som visar alternativet Välj den här hanteringsgruppen" lightbox="./media/tutorial-export-acm-data/management-group-scope.png":::
+1. Skapa en export i omfånget för att hämta kostnadshanteringsdata för prenumerationerna i hanteringsgruppen.  
+    :::image type="content" source="./media/tutorial-export-acm-data/new-export-management-group-scope.png" alt-text="Exempel som visar alternativet Skapa ny export med ett hanteringsgruppsomfång":::
 
 ## <a name="verify-that-data-is-collected"></a>Kontrollera att data samlas in
 
@@ -123,6 +122,16 @@ Du kan också ladda ned den exporterade CSV-filen i Azure-portalen. Följande st
 1. Välj CSV-filen och välj sedan **Ladda ned**.
 
 [![Exempel på exportnedladdning](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
+
+## <a name="view-export-run-history"></a>Visa körningshistorik för export  
+
+Du kan visa körningshistoriken för din schemalagda export genom att välja en enskild export på sidan med exportlistor. På sidan med exportlistor kan du även snabbt se körningstiderna för dina tidigare exporter och se när en export kommer att köras nästa gång. Här är ett exempel som visar körningshistoriken.
+
+:::image type="content" source="./media/tutorial-export-acm-data/run-history.png" alt-text="Exempel på körningshistorik för export":::
+
+Välj en export för att se dess körningshistorik.
+
+:::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Exempel som visar körningshistorik för export":::
 
 ## <a name="access-exported-data-from-other-systems"></a>Komma åt exporterade data från andra system
 

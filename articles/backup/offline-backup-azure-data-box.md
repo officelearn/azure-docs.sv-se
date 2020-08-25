@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med hjälp av Azure Data Box
 description: Lär dig hur du kan använda Azure Data Box för att dirigera stora första säkerhets kopierings data offline från MARS-agenten till ett Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ad97ee60c3c7debea72357cf7fc8d483a3c1d46
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091036"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761567"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Azure Backup offline-säkerhetskopiering med Azure Data Box
 
@@ -56,7 +56,7 @@ Processen för att dirigera data från MARS-agenten med hjälp av Azure Data Box
 >[!IMPORTANT]
 >Första säkerhets kopierings data från en enskild server måste finnas i en enskild Azure Data Box instans eller Azure Data Box disk och kan inte delas mellan flera enheter av samma eller olika SKU: er. Men en Azure Data Box enhet kan innehålla första säkerhets kopieringar från flera servrar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-subscription-and-required-permissions"></a>Azure-prenumeration och nödvändiga behörigheter
 
@@ -259,13 +259,13 @@ När du konfigurerar säkerhets kopiering offline kan det uppstå problem på gr
 
 Gör något av följande för att se om problemet är detsamma som det tidigare beskrivits.
 
-#### <a name="step-1"></a>Steg 1
+#### <a name="step-1-of-verification"></a>Steg 1 i verifieringen
 
 Kontrol lera om följande fel meddelande visas i "monoklonal-konsolen" när du konfigurerade offline-säkerhetskopiering.
 
 ![Det gick inte att skapa en princip för offline-säkerhetskopiering för det aktuella Azure-kontot](./media/offline-backup-azure-data-box/unable-to-create-policy.png)
 
-#### <a name="step-2"></a>Steg 2
+#### <a name="step-2-of-verification"></a>Steg 2 av verifieringen
 
 1. Öppna **Temp** -mappen i installations Sök vägen. Standard Sök vägen för temp är *C:\Program Files\Microsoft Azure Recovery Services Agent\Temp*. Leta efter filen *CBUICurr* och öppna filen.
 
@@ -275,11 +275,11 @@ Kontrol lera om följande fel meddelande visas i "monoklonal-konsolen" när du k
 
 Som en lösning för att lösa det här problemet utför du följande steg och försöker sedan utföra princip konfigurationen igen.
 
-#### <a name="step-1"></a>Steg 1
+#### <a name="step-1-of-workaround"></a>Steg 1 i lösningen
 
 Logga in på PowerShell som visas i användar gränssnittet för användar gränssnittet med hjälp av ett annat konto med administratörs behörighet för den prenumeration som ska ha import-eller export jobbet skapat.
 
-#### <a name="step-2"></a>Steg 2
+#### <a name="step-2-of-workaround"></a>Steg 2 i lösningen
 
 Om ingen annan server har offline-dirigering konfigurerad och ingen annan server är beroende av `AzureOfflineBackup_<Azure User Id>` programmet, tar du bort det här programmet. Välj **Azure Portal**  >  **Azure Active Directory**  >  **Appregistreringar**.
 

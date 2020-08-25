@@ -12,12 +12,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/06/2020
 ms.author: curtand
-ms.openlocfilehash: 259468d0d3b04b354e782529cefa2149974c9ca0
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: e0a6c566e8e0dfb77b5899f735020d0f1facf3d1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85983313"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798388"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Ändra metod och inställningar för en tvåfaktorautentisering
 
@@ -31,10 +31,10 @@ När du har konfigurerat dina säkerhets verifierings metoder för ditt arbets-e
 
 ## <a name="using-the-additional-security-verification-page"></a>Använda sidan ytterligare säkerhets verifiering
 
-Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och hanterar en tvåfaktorautentisering bör du följa anvisningarna först. Annars kan du komma till inställningarna för säkerhets verifierings metoden från sidan [ytterligare säkerhets verifiering](https://docs.microsoft.com/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time) .
+Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och hanterar en tvåfaktorautentisering bör du följa anvisningarna först. Annars kan du komma till inställningarna för säkerhets verifierings metoden från sidan [ytterligare säkerhets verifiering](./multi-factor-authentication-end-user-first-time.md) .
 
 >[!Note]
->Om det du ser på skärmen inte stämmer överens med vad som beskrivs i den här artikeln, innebär det att antingen din administratör har aktiverat **säkerhets information (för hands versionen)** eller om din organisation har angett din egen anpassade Portal. Mer information om den nya säkerhets informationens upplevelse finns i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md). Om du vill ha mer information om din organisations anpassade portal måste du kontakta din organisations supportavdelning.
+>Om det du ser på skärmen inte stämmer överens med vad som beskrivs i den här artikeln, innebär det att antingen din administratör har aktiverat **säkerhets information (för hands versionen)** eller om din organisation har angett din egen anpassade Portal. Mer information om den nya säkerhets informationens upplevelse finns i [Översikt över säkerhets information (för hands version)](./security-info-setup-signin.md). Om du vill ha mer information om din organisations anpassade portal måste du kontakta din organisations supportavdelning.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Så här kommer du till sidan ytterligare säkerhets verifiering
 

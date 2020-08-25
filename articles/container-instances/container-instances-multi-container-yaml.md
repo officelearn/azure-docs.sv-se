@@ -3,12 +3,12 @@ title: Självstudie – distribuera grupp med flera behållare – YAML
 description: I den här självstudien får du lära dig hur du distribuerar en behållar grupp med flera behållare i Azure Container Instances genom att använda en YAML-fil med Azure CLI.
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 2673f1066db705e4d2e850230c5f96dc2690a85c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f6ba9152003c68192ddc0fdffa5652bc0b6daa86
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259556"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750914"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>Självstudie: Distribuera en grupp med flera behållare med hjälp av en YAML-fil
 
@@ -76,7 +76,7 @@ properties:
       port: 80
     - protocol: tcp
       port: 8080
-tags: null
+tags: {exampleTag: tutorial}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
@@ -129,7 +129,7 @@ Visa logg resultatet för en behållare med hjälp av kommandot [AZ container lo
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Resultat:
+Utdata:
 
 ```console
 listening on port 80
@@ -144,7 +144,7 @@ Om du vill se loggarna för den sidvagn behållaren kör du ett liknande kommand
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Resultat:
+Utdata:
 
 ```console
 Every 3s: curl -I http://localhost                          2020-07-02 20:36:41

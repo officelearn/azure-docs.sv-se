@@ -3,12 +3,12 @@ title: Konfigurera Azure Backup-rapporter
 description: Konfigurera och Visa rapporter för Azure Backup med Log Analytics och Azure-arbetsböcker
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 94298c5826f7158655367ae1dd6b7dd54cb88d24
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: bcb9e75cea06be6ce69c6baccb5ac252c1666d4d
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612443"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755270"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 
@@ -89,7 +89,7 @@ Använd den här fliken för att Visa nyckel fakturerings parametrar för dina s
    ![Fliken användning](./media/backup-azure-configure-backup-reports/usage.png)
 
 > [!NOTE]
-> För DPM-arbetsbelastningar kan användarna se en liten skillnad (i ordningen 20 MB per DPM-server) mellan användnings värden som visas i rapporterna jämfört med värdet för den sammanlagda användningen som visas på fliken Översikt för Recovery Services-valvet. Denna skillnad redovisas av faktum att varje DPM-server som registreras för säkerhets kopiering har en associerad data källa för metadata som inte är kopplad till en artefakt för rapportering.
+> För DPM-arbetsbelastningar kan användarna se en liten skillnad (i ordningen 20 MB per DPM-server) mellan användnings värden som visas i rapporterna jämfört med värdet för den sammanlagda användningen som visas på fliken **Översikt över** Recovery Services valv. Denna skillnad redovisas av faktum att varje DPM-server som registreras för säkerhets kopiering har en associerad data källa för metadata som inte är kopplad till en artefakt för rapportering.
 
 ##### <a name="jobs"></a>Jobb
 

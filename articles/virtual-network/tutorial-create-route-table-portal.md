@@ -14,10 +14,10 @@ ms.workload: infrastructure
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: d630a41f9b83a852605ffad2a85ad6dd14bbac73
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86079657"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
@@ -34,13 +34,13 @@ Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nä
 
 I den här självstudien används [Azure Portal](https://portal.azure.com). Du kan också använda [Azure CLI](tutorial-create-route-table-cli.md) eller [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-nva"></a>Skapa en NVA
 
 Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till med nätverksfunktioner, t. ex. Routning och brand Väggs optimering. Den här självstudien förutsätter att du använder **Windows Server 2016 Datacenter**. Du kan välja ett annat operativsystem om du vill.
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**.
 
 1. Välj **säkerhet**  >  **Windows Server 2016 Data Center**.
 
@@ -48,7 +48,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
 1. På sidan **skapa en virtuell dator** under **grunderna**anger eller väljer du den här informationen:
 
-    | Avsnitt | Inställningen | Åtgärd |
+    | Avsnitt | Inställningen | Action |
     | ------- | ------- | ----- |
     | **Projekt information** | Prenumeration | Välj din prenumeration. |
     | | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj **OK**. |
@@ -118,7 +118,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-1. På [Azure Portal](https://portal.azure.com) -menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i [Azure-portalen](https://portal.azure.com) eller på sidan **Start** väljer du **Skapa en resurs**.
 
 2. I rutan Sök anger du *routningstabellen*. När **routningstabellen** visas i Sök resultaten väljer du den.
 
@@ -131,7 +131,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
     | Namn | *myRouteTablePublic* |
     | Prenumeration | Din prenumeration |
     | Resursgrupp | **myResourceGroup** |
-    | Location | **USA USA, östra** |
+    | Plats | **USA USA, östra** |
     | Väg spridning för virtuell nätverks-Gateway | **Aktiverad** |
 
     ![Skapa routningstabell, Azure Portal](./media/tutorial-create-route-table-portal/create-route-table.png)
@@ -154,7 +154,7 @@ Virtuella nätverks installationer (NVA) är virtuella datorer som hjälper till
     | ------- | ----- |
     | Vägnamn | *ToPrivateSubnet* |
     | Adressprefix | *10.0.1.0/24* (adress intervallet för det *privata* under nätet som skapades tidigare) |
-    | Nexthop-typ | **Virtuell installation** |
+    | Nästa hopptyp | **Virtuell installation** |
     | Nexthop-adress | *10.0.2.4* (en adress inom adress intervallet för *DMZ* -undernätet) |
 
 1. Välj **OK**.
@@ -205,7 +205,7 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 | Flik | Inställningen | Värde |
 | --- | ------- | ----- |
-| Grunderna | Resursgrupp | **myResourceGroup** |
+| Grundläggande inställningar | Resursgrupp | **myResourceGroup** |
 | | Namn på virtuell dator | *myVmPublic* |
 | | Offentliga inkommande portar | **Tillåt valda portar** |
 | | Välj inkommande portar | **RDP** |
@@ -218,7 +218,7 @@ Innan du väljer **skapa** för att skapa den offentliga eller privata virtuella
 
 | Flik | Inställningen | Värde |
 | --- | ------- | ----- |
-| Grunderna | Resursgrupp | **myResourceGroup** |
+| Grundläggande inställningar | Resursgrupp | **myResourceGroup** |
 | | Namn på virtuell dator | *myVmPrivate* |
 | | Offentliga inkommande portar | **Tillåt valda portar** |
 | | Välj inkommande portar | **RDP** |

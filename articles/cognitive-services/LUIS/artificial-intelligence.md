@@ -1,20 +1,21 @@
 ---
-title: Artificiell intelligens
-description: LUIS använder artificiell intelligens för att tillhandahålla språk förståelse för dina data baserat på det schema som du har definierat.
+title: Artificiell intelligens (AI)
+description: LUIS använder artificiell intelligens (AI) för att tillhandahålla språk förståelse för dina data baserat på det schema som du har definierat.
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 4f145585e097a3cf6a2338dbab879f6fce07f71d
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: bdcede01ec6bab5f8b43d89ff40d588a011d5dfb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85802662"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751358"
 ---
 # <a name="artificial-intelligence-in-language-understanding-luis"></a>Artificiell intelligens i Language Understanding (LUIS)
 
-LUIS använder artificiell intelligens för att tillhandahålla naturliga språk förståelse (NLU) för dina data baserat på det schema som du har definierat.
+LUIS använder artificiell intelligens (AI) för att tillhandahålla naturliga språk förståelse (NLU) för dina data baserat på det schema som du har definierat.
 
-## <a name="natural-language-processing"></a>Bearbetning av naturligt språk
+## <a name="natural-language-processing-nlp"></a>Bearbetning av naturligt språk (NLP)
 
 Naturlig Language Understanding (NLU) är ett speciellt underavsnitt av NLP (naturlig Language Processing).
 
@@ -25,20 +26,20 @@ Bearbetning av naturligt språk är ett bredare koncept som hanterar alla former
 * Segmentering
 * Morfologisk analys
 * Semantisk likhet
-* Avkurs
+* Samtal
 * Översättning
 
 ## <a name="natural-language-processing-in-luis"></a>Bearbetning av naturligt språk i LUIS
 
 Bearbetning av naturligt språk är tillgängligt för LUIS-appen på följande sätt:
-* [Natur språks förståelse](#natural-language-understanding) (Luis)
+* [Natur språks förståelse](#natural-language-processing-nlp) (Luis)
 * Konfigurerbara NLP-aspekter i LUIS:
     * [Tokenisering](luis-language-support.md#tokenization)
     * [API-inställningar](luis-reference-application-settings.md) för den här inställningen för dia kritiska tecken, interpunktion och ord former
 * Efter bearbetning av frågan uttryck som tillhandahålls av andra [Cognitive Services](../Welcome.md) , till exempel:
     * [Översättning](../translator/translator-info-overview.md)
 
-## <a name="natural-language-understanding"></a>Kunskap om naturligt språk
+## <a name="natural-language-understanding-nlu"></a>Natur språks förståelse (NLU)
 
 NLU är möjligheten att _omvandla_ en språklig instruktion till en åter givning som gör det möjligt för dig att förstå dina användare naturligt. Naturligt språk att förstå är ett mycket utmanande problem och definieras som ett _AI-hårt_ problem.
 

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 77ec999d63175f63c1de6e31fdb3f72c963d228c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82024480"
 ---
 # <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten kvalitet i Azure IoT Central
@@ -32,7 +32,7 @@ I de här självstudierna får du lära dig att:
 > * Konfigurera jobb.
 > * Anpassa program anpassning med hjälp av vita etiketter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi rekommenderar att du har en Azure-prenumeration för att slutföra den här kursen. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
@@ -153,7 +153,7 @@ Enhets mal len för övervakning av vatten kvalitet levereras med fördefinierad
 
   ![Vyer för enhets mal len](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
 
-### <a name="publish-the-device-template"></a>Publicera enhets mal len
+### <a name="publish-the-device-template"></a>Publicera enhetsmallen
 
 Om du gör några ändringar ska du se till att välja **publicera** för att publicera enhets mal len.
 
@@ -231,7 +231,7 @@ Med Azure IoT Central-jobb kan du utlösa uppdateringar till enhets-eller moln e
 
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program.
 
-1. Välj **Administration** > **Anpassa ditt program**.
+1. Välj **Administration**  >  **Anpassa ditt program**.
 1. Under **program logo typ**väljer du **ändra** för att välja den bild som ska laddas upp som logo typ.
 1. Under **webb läsar ikon**väljer du **ändra** för att välja den bild som visas på flikar i webbläsaren.
 1. Under **webb läsar färger**kan du ersätta standardvärdena med HTML-hexadecimala färg koder.
@@ -241,7 +241,7 @@ Som verktyg kan du ändra flera inställningar för att anpassa användar upplev
 
 ### <a name="update-the-application-image"></a>Uppdatera program avbildningen
 
-1. Välj inställningar för **administrations** > **program**.
+1. Välj inställningar för **administrations**  >  **program**.
 
 1. Använd knappen **Välj bild** för att välja en bild som ska laddas upp som program avbildning.
 

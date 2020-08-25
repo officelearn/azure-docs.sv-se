@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
 ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82608821"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Självstudie: skapa en WAF-princip på Azure CDN med hjälp av Azure Portal
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 > * Koppla den till en CDN-slutpunkt. Du kan bara koppla en WAF-princip till de slut punkter som finns på **Azure CDN Standard från Microsoft** SKU.
 > * Konfigurera WAF-regler
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa en Azure CDN profil och slut punkt genom att följa anvisningarna i [snabb start: skapa en Azure CDN profil och slut punkt](../../cdn/cdn-create-new-endpoint.md). 
 

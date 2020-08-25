@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ab0192d6b7e69f3915281acd080d2c7baabfb241
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 219a41874f4bb4a5b7773c5726638fce6b90f200
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851927"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724191"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i ditt program för att ansluta säkert till Azure Database for MySQL
 Azure Database for MySQL stöder anslutning av Azure Database for MySQL-servern till klient program med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -66,7 +66,7 @@ Kör kommandot MySQL **status** för att kontrol lera att du har anslutit till M
 ```dos
 mysql> status
 ```
-Bekräfta att anslutningen är krypterad genom att granska utdata som ska visas: **SSL: chiffrering som används är AES256-SHA** 
+Bekräfta att anslutningen är krypterad genom att granska utdata som ska visas:  **SSL: chiffrering som används är AES256-SHA** 
 
 ## <a name="sample-code"></a>Exempelkod
 Om du vill upprätta en säker anslutning till Azure Database for MySQL via SSL från ditt program, se följande kod exempel:
@@ -134,7 +134,7 @@ client = Mysql2::Client.new(
         :username => 'myadmin@mydemoserver',
         :password => 'yourpassword',
         :database => 'quickstartdb',
-        :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+        :sslca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
     )
 ```
 

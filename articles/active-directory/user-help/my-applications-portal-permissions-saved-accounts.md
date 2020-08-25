@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 4249f753181ea4b54d7e1e1f098717ef669bae4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744031"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798116"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Redigera eller återkalla program behörigheter i portalen Mina appar
 
@@ -26,7 +26,7 @@ När du använder organisations program i portalen **Mina appar** , beviljar du 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/access-panel-collections.md).
 
 ## <a name="manage-app-permissions"></a>Hantera programbehörigheter
 

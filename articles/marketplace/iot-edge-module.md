@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/15/2020
-ms.openlocfilehash: 168d343ea4582d8c19a577cedadf6f1bc3c39971
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f7a4997117c8730b767f245050caa3f3157fb6fd
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607366"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750238"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -76,6 +76,5 @@ De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifi
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lär dig mer](https://azuremarketplace.microsoft.com/sell) om den kommersiella marknads platsen.
-- [Skapa ett erbjudande för IoT Edge modul] i Partner Center.
 - Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa eller slutföra ditt erbjudande.
-- Mer information om hur du publicerar ett erbjudande för IoT Edge-modulen finns i [skapa ett IoT Edge-modulens erbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) .
+- [Skapa ett IoT Edge modul-erbjudande](./partner-center-portal/azure-iot-edge-module-creation.md) i Partner Center.

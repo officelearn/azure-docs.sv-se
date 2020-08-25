@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: e150143e726c75d96372b11fb3d451f0dc9956bc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422494"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798218"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Hantera dina anslutna enheter från sidan enheter
 
@@ -27,7 +27,7 @@ Sidan **enheter** i portalen **My-Account** hjälper dig att hantera enheter som
 - Inaktivera alla enheter som du inte längre äger, har tappat bort eller blivit stulna.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera enhets informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om enhets hantering för dina anställda och andra användnings områden, se [dokumentationen om enhets identiteter](https://docs.microsoft.com/azure/active-directory/devices/index).
+>Den här artikeln är avsedd för användare som försöker uppdatera enhets informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om enhets hantering för dina anställda och andra användnings områden, se [dokumentationen om enhets identiteter](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Visa dina anslutna enheter
 
@@ -68,7 +68,7 @@ Om du är utelåst från din enhet eller har ett allvarligt fel kan du gå till 
 
 När du har visat dina anslutna enheter kan du:
 
-- Välj om du vill visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Välj om du vill visa eller hantera din [säkerhets information](./security-info-setup-signin.md).
 
 - Visa och hantera dina [organisationer](my-account-portal-organizations-page.md).
 

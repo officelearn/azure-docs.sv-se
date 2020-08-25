@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26951d5ab7552dc6c63288ce92cdb8134bd58ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 468b874ae4a19b8b5ea2a9a91a258722cef60e3a
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498233"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798609"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegera administration i Azure Active Directory
 
@@ -60,7 +60,7 @@ Ta reda på Active Directory uppgifter som utförs av administratörer och hur d
 Varje uppgift bör utvärderas för frekvens, betydelse och svårighet. Dessa kriterier är viktiga aspekter av aktivitets definitionen eftersom de bestämmer om en behörighet ska delegeras:
 
 * Uppgifter som du utför rutinmässigt, har begränsad risk och är enkla att slutföra är utmärkta kandidater för delegering.
-* Aktiviteter som du sällan använder, men som har stor inverkan på organisationen och kräver höga skicklighets nivåer bör övervägas noggrant före delegering. I stället kan du [tillfälligt öka ett konto till den roll som krävs](../active-directory-privileged-identity-management-configure.md) eller tilldela om uppgiften.
+* Aktiviteter som du sällan använder, men som har stor inverkan på organisationen och kräver höga skicklighets nivåer bör övervägas noggrant före delegering. I stället kan du [tillfälligt öka ett konto till den roll som krävs](../privileged-identity-management/pim-configure.md) eller tilldela om uppgiften.
 
 ## <a name="delegate-app-administration"></a>Delegera app-administration
 
@@ -110,7 +110,7 @@ Angripare som får kontroll över privilegierade konton kan orsaka fantastiska s
 
 ## <a name="elevate-privilege-temporarily"></a>Privilegie rad höjning tillfälligt
 
-För de flesta dagliga aktiviteter behöver inte alla användare globala administratörs rättigheter, och alla användare behöver inte vara permanent tilldelade rollen som global administratör. När användarna behöver behörighet till en global administratör bör de aktivera roll tilldelningen i Azure AD [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) antingen på ett eget konto eller ett alternativt administrativt konto.
+För de flesta dagliga aktiviteter behöver inte alla användare globala administratörs rättigheter, och alla användare behöver inte vara permanent tilldelade rollen som global administratör. När användarna behöver behörighet till en global administratör bör de aktivera roll tilldelningen i Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md) antingen på ett eget konto eller ett alternativt administrativt konto.
 
 ## <a name="next-steps"></a>Nästa steg
 

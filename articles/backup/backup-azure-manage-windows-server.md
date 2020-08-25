@@ -3,18 +3,18 @@ title: Hantera Azure Recovery Services-valv och-servrar
 description: I den här artikeln lär du dig hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: ee96acf624f1c313c85b21840c142e1e2d6f40d8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a34ac44e3fe8d3a0b7789b37b0b0308d42d4e3da
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654216"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756069"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
 I den här artikeln förklaras hur du använder **översikts** instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas **översikts** instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](#backup-pre-check-status). Följande bild är **översikts** instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
 
-![instrument panel för Recovery Services-valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+![Instrument panel för Recovery Services valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
 Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services-valv och att minst ett säkerhets kopierings objekt har kon figurer ATS för valvet.
 
@@ -32,11 +32,11 @@ Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services
 
 3. I dialog rutan **alla tjänster** skriver du **Recovery Services**. När du börjar skriva filtreras listan baserat på det du skriver. När alternativet **Recovery Services valv** visas väljer du det för att öppna listan över Recovery Services valv i din prenumeration.
 
-    ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
+    ![Skapa Recovery Services Vault steg 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
 4. Välj ett valv i listan över valv för att öppna dess **översikts** instrument panel.
 
-    ![instrument panel för Recovery Services-valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Instrument panel för Recovery Services valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
     Översikts instrument panelen använder paneler för att tillhandahålla aviseringar och säkerhets kopierings jobb data.
 

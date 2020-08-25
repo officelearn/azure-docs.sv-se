@@ -11,10 +11,10 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.openlocfilehash: 5b0bcdd66e17fb93a560b6073c13e3170e3ab37b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81409265"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformera data i molnet genom att använda Spark-aktivitet i Azure Data Factory
@@ -31,9 +31,9 @@ I den här självstudiekursen får du göra följande:
 > * Utlös en pipelinekörning.
 > * Övervaka pipelinekörningen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,14 +71,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     if __name__ == "__main__":
         main()
     ```
-1. Ersätt * &lt;storageAccountName&gt; * med namnet på ditt Azure Storage-konto. Spara sedan filen. 
+1. Ersätt * &lt; storageAccountName &gt; * med namnet på ditt Azure Storage-konto. Spara sedan filen. 
 1. Skapa en container med namnet **adftutorial** i Azure Blob Storage om den inte redan finns. 
 1. Skapa en mapp med namnet **spark**.
 1. Skapa en undermapp med namnet **script** under mappen **spark**. 
 1. Överför filen **WordCount_Spark.py** till undermappen **script**. 
 
 
-### <a name="upload-the-input-file"></a>Överför indatafilen
+### <a name="upload-the-input-file"></a>Överföra indatafilen
 1. Skapa en fil med namnet **minecraftstory.txt** med lite text. Spark-programmet räknar antalet ord i texten. 
 1. Skapa en undermapp med namnet **inputfiles** i mappen **spark**. 
 1. Ladda upp filen **minecraftstory.txt** till undermappen **inputfiles**. 
@@ -93,7 +93,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
       
    ![Fönstret Ny datafabrik](./media/tutorial-transform-data-spark-portal/new-azure-data-factory.png)
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd ** &lt;till exempel&gt;dittnamn ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ska du ändra namnet på datafabriken. (Använd till exempel ** &lt; dittnamn &gt; ADFTutorialDataFactory**). Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/tutorial-transform-data-spark-portal/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -159,7 +159,7 @@ Du skapar två länkade tjänster i det här avsnittet:
    
    f. Ange nyckeln i **Nyckel för tjänstens huvudnamn**. 
    
-   g. Välj samma resursgrupp som du använde när du skapade datafabriken i **Resursgrupp**. Spark-klustret skapas i den här resursgruppen. 
+   ex. Välj samma resursgrupp som du använde när du skapade datafabriken i **Resursgrupp**. Spark-klustret skapas i den här resursgruppen. 
    
    h. Öppna **OS-typ**.
    
@@ -176,7 +176,7 @@ Du skapar två länkade tjänster i det här avsnittet:
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-1. Välj knappen **+** (plus) och välj sedan **pipeline** på menyn.
+1. Välj **+** knappen (plus) och välj sedan **pipeline** på menyn.
 
    ![Knappar för att skapa en ny pipeline](./media/tutorial-transform-data-spark-portal/new-pipeline-menu.png)
 1. Gå till verktygsfältet **Aktiviteter** och expandera **HDInsight**. Dra aktiviteten **Spark** från verktygsfältet **Aktiviteter** till pipelinedesignytan. 

@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6e1a6cb583c0d310cc7ce73995224c42bb84784d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 26531e80292a53400671ac3507b47371c1fbbcad
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566173"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796824"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Snabb start: Distribuera Unity-exempel till Skriv bordet
 
@@ -57,7 +57,7 @@ Endast flata skrivbordsappar stöds för närvarande på Desktop, så VR-stödet
 1. Ändra konfigurationen till **version** och **x86**.
 1. Växla fel söknings läge till **lokal dator**. \
   ![Lösnings konfiguration](./media/unity-deploy-config-pc.png)
-1. Bygg lösningen (F7).
+1. Skapa lösningen.
 
 ## <a name="launch-the-sample-project"></a>Starta exempelprojektet
 

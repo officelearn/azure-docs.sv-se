@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.openlocfilehash: 577a80f04ad186ab1575fa78db3fa59402d6058f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697394"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Självstudie: analysera samtals data med Stream Analytics och visualisera resultat i Power BI instrument panel
 
 I den här självstudien lär du dig att analysera telefonsamtalsdata med hjälp av Azure Stream Analytics. Telefonsamtals data som genereras av ett klient program innehåller vissa bedrägliga anrop, som kommer att filtreras av Stream Analyticss jobbet.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Generera exempel på telefonsamtalsdata och skicka dem till Azure Event Hubs
@@ -28,11 +28,11 @@ I de här självstudierna får du lära dig att
 > * Testa och starta jobbet
 > * Visualisera resultat i Power BI
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar utför du följande åtgärder:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 * Ladda ned telefonsamtalets händelsegeneratorapp [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center eller hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Du behöver Power BI-konto.
@@ -51,8 +51,8 @@ Använd följande steg för att skapa en händelsehubb och skickar samtalsdata t
 
    |**Inställning**  |**Föreslaget värde** |**Beskrivning**  |
    |---------|---------|---------|
-   |Name     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
-   |Prenumeration     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
+   |Namn     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
+   |Prenumeration     |   \<Your subscription\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
    |Resursgrupp     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
    |Plats     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
 
@@ -71,7 +71,7 @@ Innan ett program kan skicka data till Azure Event Hubs måste händelsen ha en 
 
 1. Navigera till händelsehubben som du skapade i föregående steg, MyEventHub *. Välj **Principer för delad åtkomst** under **Inställningar** och välj sedan **+ Lägg till**.
 
-2. Ge principen namnet **MyPolicy** och se till att **Hantera** är markerat. Välj sedan **skapa**.
+2. Ge principen namnet **MyPolicy** och se till att **Hantera** är markerat. Välj sedan **Skapa**.
 
    ![Skapa händelsehubb med delade åtkomstprinciper](media/stream-analytics-manage-job/create-event-hub-access-policy.png)
 
@@ -113,7 +113,7 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
 
    Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb. Telefonsamtalsdata innehåller följande fält:
 
-   |**Spela in**  |**Definition**  |
+   |**Post**  |**Definition**  |
    |---------|---------|
    |CallrecTime    |  Tidsstämpeln för samtalets starttid.       |
    |SwitchNum     |  Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar ursprungslandet/regionen (USA, Kina, Storbritannien, Tyskland eller Australien).       |
@@ -135,10 +135,10 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Jobbnamn     |  ASATutorial       |   Ett unikt namn för att identifiera händelsehubbens namnområde.      |
-   |Prenumeration    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
+   |Prenumeration    |  \<Your subscription\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
    |Resursgrupp   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
    |Plats   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
-   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
+   |Värdmiljö    | Moln        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
    |Strömningsenheter     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
 
 4. Använd standard alternativen för återstående inställningar, Välj **skapa**och vänta tills distributionen har slutförts.
@@ -158,7 +158,7 @@ Nästa steg är att definiera en indatakälla som jobbet använder för att läs
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias     |  CallStream       |  Ange ett eget namn som identifierar din inmatning. Indataaliaset får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3-63 tecken långt.       |
-   |Prenumeration    |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
+   |Prenumeration    |   \<Your subscription\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
    |Namnområde för händelsehubb    |  myEventHubsNS       |  Välj namnområdet för händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbnamnområden som finns i din aktuella prenumeration visas i listrutan.       |
    |Namn på händelsehubb    |   MyEventHub      |  Välj händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbar som finns i din aktuella prenumeration visas i listrutan.       |
    |Principnamn för Event Hub   |  Policy       |  Välj händelsehubbens delade princip som du skapade i föregående avsnitt. Alla händelsehubbprinciper som finns i din aktuella prenumeration visas i listrutan.       |

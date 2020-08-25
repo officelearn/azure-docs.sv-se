@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: a5eb24b5420431a43afa2ffd006ac821f0e907c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185765"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750876"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Funktionalisering i Automatisk maskin inlärning
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig:
 
 *Funktions teknik* är en process där du använder domän information om data för att skapa funktioner som hjälper Machine Learning-algoritmer (ml) att lära sig bättre. I Azure Machine Learning tillämpas teknikerna för data skalning och normalisering för att göra det enklare att använda funktionen. Tillsammans kallas dessa tekniker och den här typen av teknik för *funktionalisering* i automatiserad maskin inlärning eller *AutoML*, experiment.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du redan vet hur du konfigurerar ett AutoML experiment. Information om konfiguration finns i följande artiklar:
 
@@ -108,7 +108,7 @@ Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 **Funktions värden saknas Imputation** |Parametrarna <br><br><br> Klart| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om [saknat värde för Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> De funktions värden som saknas har identifierats i dina utbildnings data och tillräknades.
 **Funktions hantering med hög kardinalitet** |Parametrarna <br><br><br> Klart| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. <br><br> Funktioner med hög kardinalitet upptäcktes i dina indata och hanterades.
 **Verifiering av delad hantering** |Klart| Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *färre än 20 000 rader*. <br> Varje iteration av den tränade modellen verifierades med hjälp av kors validering. Läs mer om [verifierings data](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> Verifierings konfigurationen har angetts till `'auto'` och tränings data innehöll *mer än 20 000 rader*. <br> Indata har delats in i en tränings data uppsättning och en validerings data uppsättning för att verifiera modellen.
-**Identifiering av klass balansering** |Parametrarna <br><br>Aviserad <br><br>Klart | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
+**Identifiering av klass balansering** |Parametrarna <br><br><br><br>Aviserad <br><br><br>Klart | Dina indata analyserades och alla klasser är balanserade i dina tränings data. En data uppsättning anses vara bal anse rad om varje klass har en god representation i data uppsättningen, mätt enligt antal och samplings förhållandet. <br><br> Obalanserade klasser upptäcktes i dina indata. Åtgärda problem med balanseringen om du vill åtgärda modell kompensation. Läs mer om [obalanserade data](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Obalanserade klasser upptäcktes i dina indata och den svepande logiken har bestämt sig för att tillämpa balansering.
 **Identifiering av minnes problem** |Parametrarna <br><br><br><br> Klart |<br> De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och inga potentiella minnes problem har identifierats. Lär dig mer om [Prognosticering-konfigurationer](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)för tids serier. <br><br><br>De valda värdena (horisont, fördröjning, rullande fönster) har analyser ATS och kan orsaka att experimentet får slut på minne. Inställningarna för fördröjning eller rullande fönster har inaktiverats.
 **Frekvens identifiering** |Parametrarna <br><br><br><br> Klart |<br> Tids serien analyserades och alla data punkter justeras med den frekvens som upptäcktes. <br> <br> Tids serien analyserades och data punkter som inte överensstämmer med den identifierade frekvensen upptäcktes. Dessa data punkter togs bort från data uppsättningen. Lär dig mer om [förberedelse av data för tids serie prognoser](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
 
@@ -312,7 +312,7 @@ För BERT är modellen finjusterad och tränad användning av etiketter som anv�
 
 ### <a name="bert-steps"></a>BERT-steg
 
-För att kunna anropa BERT måste du ange `enable_dnn: True` i automl_settings och använda en GPU-beräkning (t. ex. `vm_size = "STANDARD_NC6"` eller en högre GPU). Om en processor beräkning används aktiverar AutoML BiLSTM DNN upplärda i stället för BERT.
+För att kunna anropa BERT måste du ange  `enable_dnn: True` i automl_settings och använda en GPU-beräkning (t. ex. `vm_size = "STANDARD_NC6"` eller en högre GPU). Om en processor beräkning används aktiverar AutoML BiLSTM DNN upplärda i stället för BERT.
 
 AutoML vidtar följande steg för BERT. 
 

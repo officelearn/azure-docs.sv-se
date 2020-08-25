@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 805be8d5c9ab4f6316251adbb9bce3e99f4fa01d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b9e33ba8d9610067cb9e844477ec273391fbdb0b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086678"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751721"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurera virtuell nätverks installation i Azure HDInsight
 
@@ -38,7 +38,7 @@ Du kan välja att aktivera en eller flera av följande tjänst slut punkter, vil
 
 ### <a name="ip-address-dependencies"></a>IP-adress beroenden
 
-| **Slutpunkt** | **Detaljer** |
+| **Slutpunkt** | **Information** |
 |---|---|
 | IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är för HDInsight-kontroll plats och bör ingå i UDR för att undvika asymmetrisk routning |
 | AAD – DS privata IP-adresser | Krävs endast för ESP-kluster|
@@ -47,7 +47,7 @@ Du kan välja att aktivera en eller flera av följande tjänst slut punkter, vil
 ### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden
 
 > [!Important]
-> Listan nedan innehåller bara några av de viktigaste FQDN-namnen. Du kan hämta hela listan över FQDN (de flesta Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Dessa beroenden används av HDInsights kontroll Plans åtgärder för att skapa ett kluster.
+> Listan nedan innehåller bara några av de fullständiga domän namn som kan behövas för operativ system och säkerhets korrigeringar eller certifikat verifiering efter att klustret har skapats och under kluster drifts tiden. Du kan hämta listan över FQDN-beroenden (de flesta Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json). Dessa beroenden används av HDInsight Resource Provider (RP) för att skapa och övervaka/hantera kluster. Detta inkluderar telemetri/diagnostikloggar, etablering av metadata, klusterkonfigurationer, skript, ARM-mallar osv. FQDN-beroende listan kan ändras med att släppa framtida HDIngisht-uppdateringar.
 
 | **Slutpunkt**                                                          |
 |---|

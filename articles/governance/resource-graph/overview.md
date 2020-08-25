@@ -1,14 +1,14 @@
 ---
 title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
-ms.date: 07/25/2020
+ms.date: 08/13/2020
 ms.topic: overview
-ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 73143c13fd83c8b784679ac28bd9a14f1c6a6888
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541795"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798541"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -37,6 +37,9 @@ Med Azure Resource Graph kan du:
 
 - Få åtkomst till egenskaperna som returneras av resurs leverantörer utan att behöva göra enskilda anrop till varje resurs leverantör.
 - Visa de senaste 14 dagarna i ändrings historiken som har gjorts till resursen för att se vilka egenskaper som har ändrats och när. (förhandsversion)
+
+> [!NOTE]
+> Som _förhands gransknings_ funktion `type` har vissa objekt ytterligare egenskaper som inte är tillgängliga för Resource Manager. Mer information finns i [utökade egenskaper (för hands version)](./concepts/query-language.md#extended-properties).
 
 ## <a name="how-resource-graph-is-kept-current"></a>Hur resurs diagram hålls aktuellt
 
@@ -74,8 +77,8 @@ Ange ditt affärs ärende och markera kryss rutan Microsoft kan skicka e-post om
 
 Resurs diagram begränsar frågor på användar nivå. Tjänst svaret innehåller följande HTTP-huvuden:
 
-- `x-ms-user-quota-remaining`(int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after`(hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs
+- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs
 
 Mer information finns i [rikt linjer för begränsade begär Anden](./concepts/guidance-for-throttled-requests.md).
 

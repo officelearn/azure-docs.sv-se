@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fd9eff90f144909b9746e85a9c42aae2fdf02ed6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86146807"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
@@ -35,7 +35,7 @@ Tänk på följande innan du provar den här självstudien:
 
 4. Det här är ett avancerat scenario. Se till att du följer de steg som beskrivs i den här självstudien noggrant.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En test miljö med Azure AD Connect Sync version 1.4.32.0 eller senare
 - En ORGANISATIONSENHET eller grupp som finns i omfånget och kan användas som pilot. Vi rekommenderar att du börjar med en liten uppsättning objekt.
@@ -118,7 +118,7 @@ Samma steg måste följas för alla typer av objekt (användare, grupp och konta
 Samma steg måste följas för alla typer av objekt (användare, grupp och kontakt).
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installera Azure AD Connect etablerings agenten
-1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
+1. Logga in på den server som du vill använda med företags administratörs behörighet.  Om du använder  [Basic AD-och Azure-miljön](tutorial-basic-ad-azure.md) blir det CP1.
 2. Hämta Azure AD Connect Cloud Provisioning agent med hjälp av stegen som beskrivs [här](how-to-install.md#install-the-agent).
 3. Kör Azure AD Connect Cloud etableringen (AADConnectProvisioningAgent. Installer)
 3. På Välkomst skärmen **godkänner** du licens villkoren och klickar på **Installera**.</br>

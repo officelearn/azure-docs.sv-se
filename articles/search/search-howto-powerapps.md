@@ -8,13 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
-ms.date: 04/25/2020
-ms.openlocfilehash: 66289c512a746a30ed8dbd3e5c2df92bea27d907
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 08/21/2020
+ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565841"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751058"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Power Apps-konto](http://make.powerapps.com)
 
@@ -47,7 +47,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
  
     :::image type="content" source="./media/search-howto-powerapps/1-2-custom-connector.png" alt-text="Menyn anpassad anslutning" border="true":::
 
-1. Välj **+ ny anpassad anslutning**och välj sedan **skapa från Tom**.
+1. Välj  **+ ny anpassad anslutning**och välj sedan **skapa från Tom**.
 
     :::image type="content" source="./media/search-howto-powerapps/1-3-create-blank.png" alt-text="Skapa från en tom meny" border="true":::
 
@@ -72,9 +72,9 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
 1. Rulla nedåt. I förfrågningar väljer du **+ Importera från exempel** för att konfigurera en förfrågan till din Sök tjänst:
 
-   * Välj verbet`GET`
+   * Välj verbet `GET`
 
-   * För URL: en anger du en exempel fråga för Sök indexet ( `search=*` returnerar alla dokument, `$select=` låter dig välja fält). API-versionen måste anges. Fullständigt angivet kan en URL se ut så här:`https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
+   * För URL: en anger du en exempel fråga för Sök indexet ( `search=*` returnerar alla dokument, `$select=` låter dig välja fält). API-versionen måste anges. Fullständigt angivet kan en URL se ut så här: `https://mydemo.search.windows.net/indexes/hotels-sample-index/docs?search=*&$select=HotelName,Description,Address/City&api-version=2020-06-30`
 
    * För sidhuvuden skriver du `Content-Type` . 
 
@@ -92,7 +92,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
 1. För *Välj*: ange `HotelName,Description,Address/City` som **standardvärdet**, ange **obligatoriskt** till *falskt*, och Ställ in **visibility** på *none*.  
 
-    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Metadata för versions parameter" border="true":::
+    :::image type="content" source="./media/search-howto-powerapps/1-10-4-parameter-metadata-select.png" alt-text="Välj parameter-metadata" border="true":::
 
 1. För *API-version*: ange `2020-06-30` som **Standardvärde**, ange **obligatorisk** till *Sant*och ange **synlighet** som *intern*.  
 
@@ -111,7 +111,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
       - {name: Content-Type, in: header, required: false, type: string}
     ```
 
-1. Gå tillbaka till **3. **Steg för begäran och rulla ned till avsnittet svar. Klicka på **Lägg till standard svar**. Detta är viktigt eftersom det hjälper Power apps att förstå schemat för svaret. 
+1. Gå tillbaka till **3. ** Steg för begäran och rulla ned till avsnittet svar. Klicka på **Lägg till standard svar**. Detta är viktigt eftersom det hjälper Power apps att förstå schemat för svaret. 
 
 1. Klistra in ett exempel svar. Ett enkelt sätt att avbilda ett exempel svar är via Sök Utforskaren i Azure Portal. I Sök Utforskaren ska du ange samma fråga som du gjorde för begäran, men Lägg till **$Top = 2** om du vill begränsa resultatet till bara två dokument:: `search=*&$select=HotelName,Description,Address/City&$top=2` . 
 
@@ -250,7 +250,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

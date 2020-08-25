@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: eef2af8b48bba7408a887947c20f8c9407f8a4da
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 28a46ad9e53a90c25c239278ee57ea368af395a5
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658268"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88754981"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Säkerhets kopiering och haveri beredskap för Azure IaaS-diskar
 
@@ -48,7 +48,7 @@ På grund av den här arkitekturen har Azure ständigt levererat tålighet i fö
 
 Lokaliserade maskin varu fel på beräknings värden eller i lagrings plattformen kan ibland leda till att den virtuella datorn inte är tillgänglig som omfattas av [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) för VM-tillgänglighet. Azure tillhandahåller också ett branschledande service avtal för enskilda VM-instanser som använder Azure Premium-SSD.
 
-Kunder kan använda [tillgänglighets uppsättningar](~/articles/virtual-machines/windows/manage-availability.md)för att skydda program arbets belastningar från stillestånds tid på grund av att en disk eller virtuell dator är tillfälligt otillgänglig. Minst två virtuella datorer i en tillgänglighets uppsättning ger dig redundans för programmet. Azure skapar sedan de här virtuella datorerna och diskarna i separata fel domäner med olika strömförsörjnings-, nätverks-och Server komponenter.
+Kunder kan använda [tillgänglighets uppsättningar](windows/manage-availability.md)för att skydda program arbets belastningar från stillestånds tid på grund av att en disk eller virtuell dator är tillfälligt otillgänglig. Minst två virtuella datorer i en tillgänglighets uppsättning ger dig redundans för programmet. Azure skapar sedan de här virtuella datorerna och diskarna i separata fel domäner med olika strömförsörjnings-, nätverks-och Server komponenter.
 
 På grund av dessa separata fel domäner påverkar inte lokaliserade maskin varu fel flera virtuella datorer i uppsättningen samtidigt. Att ha separata fel domäner ger hög tillgänglighet för ditt program. Det anses vara en bra idé att använda tillgänglighets uppsättningar när hög tillgänglighet krävs. I nästa avsnitt beskrivs Disaster Recovery-aspekten.
 
@@ -97,24 +97,24 @@ IaaS program data problem är en annan möjlighet. Överväg ett program som ber
 
 ## <a name="disaster-recovery-solution-azure-backup"></a>Lösning för katastrof återställning: Azure Backup 
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) används för säkerhets kopiering och Dr och fungerar med [hanterade diskar](~/articles/virtual-machines/managed-disks-overview.md) samt ohanterade diskar. Du kan skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar, enkel VM-återställning och bevarande principer för säkerhets kopiering.
+[Azure Backup](https://azure.microsoft.com/services/backup/) används för säkerhets kopiering och Dr och fungerar med [hanterade diskar](managed-disks-overview.md) samt ohanterade diskar. Du kan skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar, enkel VM-återställning och bevarande principer för säkerhets kopiering.
 
-Om du använder [Premium-SSD](~/articles/virtual-machines/disks-types.md), [hanterade diskar](~/articles/virtual-machines/managed-disks-overview.md)eller andra disk typer med alternativet [Lokalt Redundant lagring](~/articles/storage/common/storage-redundancy-lrs.md) , är det särskilt viktigt att göra regelbundna Dr-säkerhetskopieringar. Azure Backup lagrar data i Recovery Services-valvet för långsiktig kvarhållning. Välj alternativet [Geo-redundant lagring](~/articles/storage/common/storage-redundancy-grs.md) för backup Recovery Services-valvet. Alternativet säkerställer att säkerhets kopieringar replikeras till en annan Azure-region för att skydda sig från regionala haverier.
+Om du använder [Premium-SSD](disks-types.md), [hanterade diskar](managed-disks-overview.md)eller andra disk typer med alternativet [Lokalt Redundant lagring](../storage/common/storage-redundancy.md#locally-redundant-storage) , är det särskilt viktigt att göra regelbundna Dr-säkerhetskopieringar. Azure Backup lagrar data i Recovery Services-valvet för långsiktig kvarhållning. Välj alternativet [Geo-redundant lagring](../storage/common/storage-redundancy.md#geo-redundant-storage) för backup Recovery Services-valvet. Alternativet säkerställer att säkerhets kopieringar replikeras till en annan Azure-region för att skydda sig från regionala haverier.
 
 För ohanterade diskar kan du använda den lokalt redundanta lagrings typen för IaaS diskar, men se till att Azure Backup är aktiverat med alternativet Geo-redundant lagring för Recovery Services-valvet.
 
 > [!NOTE]
-> Om du använder geo [-redundant lagring](~/articles/storage/common/storage-redundancy-grs.md) eller alternativet [Geo-redundant lagring med Läs åtkomst](~/articles/storage/common/storage-redundancy.md) för dina ohanterade diskar, behöver du fortfarande konsekventa ögonblicks bilder för säkerhets kopiering och Dr. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots).
+> Om du använder geo [-redundant lagring](../storage/common/storage-redundancy.md#geo-redundant-storage) eller alternativet [Geo-redundant lagring med Läs åtkomst](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)  för dina ohanterade diskar, behöver du fortfarande konsekventa ögonblicks bilder för säkerhets kopiering och Dr. Använd antingen [Azure Backup](https://azure.microsoft.com/services/backup/) eller [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots).
 
  Följande tabell är en sammanfattning av de lösningar som är tillgängliga för DR.
 
 | Scenario | Automatisk replikering | DR-lösning |
 | --- | --- | --- |
-| Premium SSD-diskar | Lokalt ([Lokalt Redundant lagring](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Hanterade diskar | Lokalt ([Lokalt Redundant lagring](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Ohanterade lokalt redundanta lagrings diskar | Lokalt ([Lokalt Redundant lagring](~/articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Ohanterade geo-redundanta lagrings diskar | Mellan region ([Geo-redundant lagring](~/articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
-| Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](~/articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
+| Premium SSD-diskar | Lokalt ([Lokalt Redundant lagring](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Hanterade diskar | Lokalt ([Lokalt Redundant lagring](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Ohanterade lokalt redundanta lagrings diskar | Lokalt ([Lokalt Redundant lagring](../storage/common/storage-redundancy.md#locally-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Ohanterade geo-redundanta lagrings diskar | Mellan region ([Geo-redundant lagring](../storage/common/storage-redundancy.md#geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
+| Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](../storage/common/storage-redundancy.md#read-access-to-data-in-the-secondary-region)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
 
 Hög tillgänglighet uppnås bäst genom att använda hanterade diskar i en tillgänglighets uppsättning tillsammans med Azure Backup. Om du använder ohanterade diskar kan du fortfarande använda Azure Backup för DR. Om du inte kan använda Azure Backup och använder [konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots), som beskrivs i ett senare avsnitt, är en alternativ lösning för säkerhets kopiering och Dr.
 
@@ -127,19 +127,19 @@ Dina val för hög tillgänglighet, säkerhets kopiering och DR på program-elle
 
 ### <a name="using-azure-backup"></a>Använda Azure Backup 
 
-[Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) kan säkerhetskopiera dina virtuella datorer som kör Windows eller Linux till Azure Recovery Services-valvet. Att säkerhetskopiera och återställa affärs kritiska data är krångligt eftersom affärs kritiska data måste säkerhets kopie ras medan programmen som producerar data körs. 
+[Azure Backup](../backup/backup-azure-vms-introduction.md) kan säkerhetskopiera dina virtuella datorer som kör Windows eller Linux till Azure Recovery Services-valvet. Att säkerhetskopiera och återställa affärs kritiska data är krångligt eftersom affärs kritiska data måste säkerhets kopie ras medan programmen som producerar data körs. 
 
-För att lösa det här problemet ger Azure Backup programkonsekventa säkerhets kopieringar för Microsoft-arbetsbelastningar. Tjänsten Volume Shadow service används för att säkerställa att data skrivs korrekt till lagringen. För virtuella Linux-datorer är standard konsekvens läget filkonsekventa säkerhets kopieringar, eftersom Linux inte har funktioner som motsvarar tjänsten Volume Shadow som i fallet med Windows. För Linux-datorer, se [programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+För att lösa det här problemet ger Azure Backup programkonsekventa säkerhets kopieringar för Microsoft-arbetsbelastningar. Tjänsten Volume Shadow service används för att säkerställa att data skrivs korrekt till lagringen. För virtuella Linux-datorer är standard konsekvens läget filkonsekventa säkerhets kopieringar, eftersom Linux inte har funktioner som motsvarar tjänsten Volume Shadow som i fallet med Windows. För Linux-datorer, se [programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer](../backup/backup-azure-linux-app-consistent.md).
 
 ![Azure Backup flöde][1]
 
 När Azure Backup initierar ett säkerhets kopierings jobb vid den schemalagda tiden utlöser det säkerhets kopierings tillägget som är installerat i den virtuella datorn för att ta en ögonblicks bild av tidpunkten. En ögonblicks bild utförs i samordning med tjänsten Volume Shadow för att få en enhetlig ögonblicks bild av diskarna i den virtuella datorn utan att behöva stänga av den. Säkerhets kopierings tillägget i den virtuella datorn tömmer alla skrivningar innan du tar en enhetlig ögonblicks bild av alla diskar. När du har tagit ögonblicks bilden överförs data av Azure Backup till säkerhets kopierings valvet. För att säkerhets kopierings processen ska bli mer effektiv, identifierar och överför tjänsten bara de data block som har ändrats efter den senaste säkerhets kopieringen.
 
-För att återställa kan du Visa tillgängliga säkerhets kopior via Azure Backup och sedan starta en återställning. Du kan skapa och återställa Azure-säkerhetskopieringar via [Azure Portal](https://portal.azure.com/), med [hjälp av PowerShell](~/articles/backup/backup-azure-vms-automation.md)eller med hjälp av [Azure CLI](/cli/azure/).
+För att återställa kan du Visa tillgängliga säkerhets kopior via Azure Backup och sedan starta en återställning. Du kan skapa och återställa Azure-säkerhetskopieringar via [Azure Portal](https://portal.azure.com/), med [hjälp av PowerShell](../backup/backup-azure-vms-automation.md)eller med hjälp av [Azure CLI](/cli/azure/).
 
 ### <a name="steps-to-enable-a-backup"></a>Steg för att aktivera en säkerhets kopia
 
-Använd följande steg för att aktivera säkerhets kopiering av virtuella datorer med hjälp av [Azure Portal](https://portal.azure.com/). Det finns viss variation beroende på ditt exakta scenario. Mer information finns i [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) -dokumentationen. Azure Backup också [stöd för virtuella datorer med hanterade diskar](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
+Använd följande steg för att aktivera säkerhets kopiering av virtuella datorer med hjälp av [Azure Portal](https://portal.azure.com/). Det finns viss variation beroende på ditt exakta scenario. Mer information finns i [Azure Backup](../backup/backup-azure-vms-introduction.md) -dokumentationen. Azure Backup också [stöd för virtuella datorer med hanterade diskar](https://azure.microsoft.com/blog/azure-managed-disk-backup/).
 
 1.  Skapa ett Recovery Services-valv för en virtuell dator:
 
@@ -151,11 +151,11 @@ Använd följande steg för att aktivera säkerhets kopiering av virtuella dator
 
 1.  Konfigurera säkerhets kopierings principen och välj den virtuella datorn från samma användar gränssnitt.
 
-1.  Kontrol lera att säkerhets kopierings agenten är installerad på den virtuella datorn. Om den virtuella datorn har skapats med hjälp av en Azure Gallery-avbildning är säkerhets kopierings agenten redan installerad. Annars (det vill säga om du använder en anpassad avbildning) kan du använda anvisningarna för att [installera VM-agenten på en virtuell dator](~/articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+1.  Kontrol lera att säkerhets kopierings agenten är installerad på den virtuella datorn. Om den virtuella datorn har skapats med hjälp av en Azure Gallery-avbildning är säkerhets kopierings agenten redan installerad. Annars (det vill säga om du använder en anpassad avbildning) kan du använda anvisningarna för att [installera VM-agenten på en virtuell dator](../backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  När föregående steg har slutförts körs säkerhets kopieringen med jämna mellanrum som anges i säkerhets kopierings principen. Vid behov kan du utlösa den första säkerhets kopieringen manuellt från valv instrument panelen på Azure Portal.
 
-För att automatisera Azure Backup med hjälp av skript, se [PowerShell-cmdletar för säkerhets kopiering av virtuella datorer](~/articles/backup/backup-azure-vms-automation.md).
+För att automatisera Azure Backup med hjälp av skript, se [PowerShell-cmdletar för säkerhets kopiering av virtuella datorer](../backup/backup-azure-vms-automation.md).
 
 ### <a name="steps-for-recovery"></a>Steg för återställning
 
@@ -165,17 +165,17 @@ Om du behöver reparera eller återskapa en virtuell dator kan du återställa d
 
 -   Du kan återställa diskarna och sedan använda mallen för den virtuella datorn för att anpassa och återskapa den återställda virtuella datorn.
 
-Mer information finns i anvisningarna för att [använda Azure Portal för att återställa virtuella datorer](~/articles/backup/backup-azure-arm-restore-vms.md). Det här dokumentet beskriver också de olika stegen för att återställa säkerhetskopierade virtuella datorer till ett parat Data Center med hjälp av ditt Geo-redundant säkerhets kopierings valv om det finns en katastrof i det primära data centret. I så fall använder Azure Backup beräknings tjänsten från den sekundära regionen för att skapa den återställda virtuella datorn.
+Mer information finns i anvisningarna för att [använda Azure Portal för att återställa virtuella datorer](../backup/backup-azure-arm-restore-vms.md). Det här dokumentet beskriver också de olika stegen för att återställa säkerhetskopierade virtuella datorer till ett parat Data Center med hjälp av ditt Geo-redundant säkerhets kopierings valv om det finns en katastrof i det primära data centret. I så fall använder Azure Backup beräknings tjänsten från den sekundära regionen för att skapa den återställda virtuella datorn.
 
-Du kan också använda PowerShell för att [skapa en ny virtuell dator från återställda diskar](~/articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+Du kan också använda PowerShell för att [skapa en ny virtuell dator från återställda diskar](../backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
 ## <a name="alternative-solution-consistent-snapshots"></a>Alternativ lösning: konsekventa ögonblicks bilder
 
 Om du inte kan använda Azure Backup kan du implementera en egen mekanism för säkerhets kopiering med hjälp av ögonblicks bilder. Det är komplicerat att skapa konsekventa ögonblicks bilder för alla diskar som används av en virtuell dator och sedan replikera dessa ögonblicks bilder till en annan region. Av den anledningen tar Azure hänsyn till säkerhets kopierings tjänsten som ett bättre alternativ än att skapa en anpassad lösning.
 
-Om du använder Geo-redundant lagring/Geo-redundant lagring med Läs åtkomst för diskar replikeras ögonblicks bilder automatiskt till ett sekundärt Data Center. Om du använder lokalt redundant lagring för diskar måste du själva replikera data. Mer information finns i [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](~/articles/virtual-machines/windows/incremental-snapshots.md).
+Om du använder Geo-redundant lagring/Geo-redundant lagring med Läs åtkomst för diskar replikeras ögonblicks bilder automatiskt till ett sekundärt Data Center. Om du använder lokalt redundant lagring för diskar måste du själva replikera data. Mer information finns i [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](windows/incremental-snapshots.md).
 
-En ögonblicks bild är en representation av ett objekt vid en viss tidpunkt. En ögonblicks bild debiteras för den stegvisa storleken på de data som den innehåller. Mer information finns i [skapa en BLOB-ögonblicksbild](~/articles/storage/blobs/storage-blob-snapshots.md).
+En ögonblicks bild är en representation av ett objekt vid en viss tidpunkt. En ögonblicks bild debiteras för den stegvisa storleken på de data som den innehåller. Mer information finns i [skapa en BLOB-ögonblicksbild](../storage/blobs/snapshots-overview.md).
 
 ### <a name="create-snapshots-while-the-vm-is-running"></a>Skapa ögonblicks bilder medan den virtuella datorn körs
 
@@ -187,9 +187,9 @@ För att undvika den här situationen måste säkerhets kopierings processen imp
 
 1.  Rensa alla väntande skrivningar.
 
-1.  [Skapa en BLOB-ögonblicksbild](~/articles/storage/blobs/storage-blob-snapshots.md) för alla diskar.
+1.  [Skapa en BLOB-ögonblicksbild](../storage/blobs/snapshots-manage-dotnet.md) för alla diskar.
 
-Vissa Windows-program, till exempel SQL Server, tillhandahåller en koordinerad säkerhets kopierings funktion via en volym skugg tjänst för att skapa programkonsekventa säkerhets kopior. I Linux kan du använda ett verktyg som *fsfreeze* för att koordinera diskarna. Det här verktyget ger filkonsekventa säkerhets kopieringar, men inte programkonsekventa ögonblicks bilder. Den här processen är komplicerad, så du bör överväga att använda [Azure Backup](~/articles/backup/backup-azure-vms-introduction.md) eller en säkerhets kopierings lösning från tredje part som redan har implementerat den här proceduren.
+Vissa Windows-program, till exempel SQL Server, tillhandahåller en koordinerad säkerhets kopierings funktion via en volym skugg tjänst för att skapa programkonsekventa säkerhets kopior. I Linux kan du använda ett verktyg som *fsfreeze* för att koordinera diskarna. Det här verktyget ger filkonsekventa säkerhets kopieringar, men inte programkonsekventa ögonblicks bilder. Den här processen är komplicerad, så du bör överväga att använda [Azure Backup](../backup/backup-azure-vms-introduction.md) eller en säkerhets kopierings lösning från tredje part som redan har implementerat den här proceduren.
 
 Föregående process resulterar i en samling koordinerade ögonblicks bilder för alla VM-diskar som representerar en viss tidpunkt för den virtuella datorn. Det här är en återställnings punkt för säkerhets kopiering för den virtuella datorn. Du kan upprepa processen med schemalagda intervall för att skapa regelbundna säkerhets kopieringar. Information om hur du kopierar ögonblicks bilderna till en annan region för DR finns i [Kopiera säkerhets kopior till en annan region](#copy-the-snapshots-to-another-region) .
 
@@ -201,7 +201,7 @@ Ett annat alternativ för att skapa konsekventa säkerhets kopieringar är att s
 
 1. Skapa en ögonblicks bild av varje virtuell hård disk-BLOB, vilket bara tar några sekunder.
 
-    Om du vill skapa en ögonblicks bild kan du använda [PowerShell](~/articles/storage/common/storage-powershell-guide-full.md), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/)eller något av Azure Storage-klient biblioteken, till exempel [lagrings klient biblioteket för .net](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    Om du vill skapa en ögonblicks bild kan du använda [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/)eller något av Azure Storage-klient biblioteken, till exempel [lagrings klient biblioteket för .net](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
 1. Starta den virtuella datorn, vilket avslutar stillestånds tiden. Normalt slutförs hela processen inom några minuter.
 
@@ -218,13 +218,13 @@ Om du använder Geo-redundant lagring eller Geo-redundant lagring med Läs åtko
 
 Om du använder lokalt redundant lagring måste du kopiera ögonblicks bilderna till ett annat lagrings konto omedelbart efter att du har skapat ögonblicks bilden. Kopierings målet kan vara ett lokalt redundant lagrings konto i en annan region, vilket resulterar i att kopian befinner sig i en annan region. Du kan också kopiera ögonblicks bilden till ett Geo-redundant lagrings konto med Läs åtkomst i samma region. I det här fallet replikeras ögonblicks bilden Lazy till den sekundära fjärrregionen. Säkerhets kopieringen skyddas från haverier på den primära platsen när kopieringen och replikeringen har slutförts.
 
-Om du vill kopiera dina stegvisa ögonblicks bilder så att de fungerar effektivt kan du läsa anvisningarna i [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](~/articles/virtual-machines/windows/incremental-snapshots.md).
+Om du vill kopiera dina stegvisa ögonblicks bilder så att de fungerar effektivt kan du läsa anvisningarna i [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](windows/incremental-snapshots.md).
 
 ![Säkerhetskopiera Azure ohanterade virtuella dator diskar med stegvisa ögonblicks bilder][2]
 
 ### <a name="recovery-from-snapshots"></a>Återställning från ögonblicks bilder
 
-Om du vill hämta en ögonblicks bild kopierar du den för att skapa en ny blob. Om du kopierar ögonblicks bilden från det primära kontot kan du kopiera ögonblicks bilden till den grundläggande bloben för ögonblicks bilden. Den här processen återställer disken till ögonblicks bilden. Den här processen kallas för att befordra ögonblicks bilden. Om du kopierar ögonblicks bilds säkerhets kopian från ett sekundärt konto måste du kopiera det till ett primärt konto om du vill ha ett Geo-redundant lagrings konto med Läs behörighet. Du kan kopiera en ögonblicks bild med [hjälp av PowerShell](~/articles/storage/common/storage-powershell-guide-full.md) eller med hjälp av AzCopy-verktyget. Mer information finns i [överföra data med kommando rads verktyget AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+Om du vill hämta en ögonblicks bild kopierar du den för att skapa en ny blob. Om du kopierar ögonblicks bilden från det primära kontot kan du kopiera ögonblicks bilden till den grundläggande bloben för ögonblicks bilden. Den här processen återställer disken till ögonblicks bilden. Den här processen kallas för att befordra ögonblicks bilden. Om du kopierar ögonblicks bilds säkerhets kopian från ett sekundärt konto måste du kopiera det till ett primärt konto om du vill ha ett Geo-redundant lagrings konto med Läs behörighet. Du kan kopiera en ögonblicks bild med [hjälp av PowerShell](https://docs.microsoft.com/powershell/module/az.storage) eller med hjälp av AzCopy-verktyget. Mer information finns i [överföra data med kommando rads verktyget AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
 
 För virtuella datorer med flera diskar måste du kopiera alla ögonblicks bilder som är en del av samma koordinerade återställnings punkt. När du har kopierat ögonblicks bilderna till skrivbara VHD-blobar kan du använda Blobbarna för att återskapa den virtuella datorn med hjälp av mallen för den virtuella datorn.
 
@@ -232,7 +232,7 @@ För virtuella datorer med flera diskar måste du kopiera alla ögonblicks bilde
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server som körs i en virtuell dator har sina egna inbyggda funktioner för att säkerhetskopiera SQL Server-databasen till Azure Blob Storage eller en fil resurs. Om lagrings kontot är Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet kan du komma åt de säkerhets kopiorna i lagrings kontots sekundära Data Center i händelse av en katastrof, med samma begränsningar som tidigare diskuterats. Mer information finns i [säkerhetskopiera och återställa för SQL Server i Azure Virtual Machines](~/articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Förutom att säkerhetskopiera och återställa kan [SQL Server AlwaysOn-tillgänglighetsgrupper](~/articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) upprätthålla sekundära repliker av databaser. Den här möjligheten minskar haveri återställnings tiden avsevärt.
+SQL Server som körs i en virtuell dator har sina egna inbyggda funktioner för att säkerhetskopiera SQL Server-databasen till Azure Blob Storage eller en fil resurs. Om lagrings kontot är Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet kan du komma åt de säkerhets kopiorna i lagrings kontots sekundära Data Center i händelse av en katastrof, med samma begränsningar som tidigare diskuterats. Mer information finns i [säkerhetskopiera och återställa för SQL Server i Azure Virtual Machines](../azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Förutom att säkerhetskopiera och återställa kan [SQL Server AlwaysOn-tillgänglighetsgrupper](../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) upprätthålla sekundära repliker av databaser. Den här möjligheten minskar haveri återställnings tiden avsevärt.
 
 ## <a name="other-considerations"></a>Ytterligare överväganden
 
@@ -257,11 +257,11 @@ Den största skillnaden mellan Geo-redundant lagring och Geo-redundant lagring m
 
 Om det blir ett betydande avbrott kan Azure-teamet utlösa en GEO-redundans och ändra de primära DNS-posterna så att de pekar på sekundär lagring. Om du i det här läget har antingen Geo-redundant lagring eller Geo-redundant lagring med Läs behörighet aktiverat, kan du komma åt data i den region som används som sekundär. Om ditt lagrings konto är Geo-redundant lagring och det uppstår problem kan du bara komma åt den sekundära lagringen om det finns en GEO-redundans.
 
-Mer information finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](~/articles/storage/common/storage-disaster-recovery-guidance.md).
+Mer information finns i [Vad du gör om ett avbrott i Azure Storage inträffar?](../storage/common/storage-disaster-recovery-guidance.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](./linux/incremental-snapshots.md).
+Se [säkerhetskopiera Azure-ohanterade virtuella dator diskar med stegvisa ögonblicks bilder](linux/incremental-snapshots.md).
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png

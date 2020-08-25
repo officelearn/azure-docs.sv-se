@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 07/18/2019
 ms.author: curtand
-ms.openlocfilehash: 91138f104c787148042b187f4cf59a60bc1448d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c056e439deac71417ff14dcfc3f2c3c95db41946
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83744420"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797674"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Konfigurera en säkerhets nyckel som verifierings metod
 
@@ -158,13 +158,13 @@ Du kan skapa en ny PIN-kod för säkerhets nyckeln för din säkerhets nyckel.
 
 ## <a name="additional-security-info-methods"></a>Ytterligare metoder för säkerhets information
 
-För att kunna registrera en säkerhets nyckel måste du ha minst en annan metod för säkerhets verifiering registrerad. Mer information finns i [översikts avsnittet](security-info-add-update-methods-overview.md) . 
+För att kunna registrera en säkerhets nyckel måste du ha minst en annan metod för säkerhets verifiering registrerad. Mer information finns i [översikts avsnittet](./security-info-setup-auth-app.md) . 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om verifierings metoder för lösen ord finns i [Microsoft Azure AD påbörjar den offentliga för hands versionen av FIDO2-säkerhetsnycklar, aktiverar blogg inloggnings](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blogg eller läser artikeln [Vad är Microsoft Authenticator app?](user-help-auth-app-overview.md) och [Översikt över Windows Hello](https://www.microsoft.com/windows/windows-hello) .
 
-- Mer detaljerad information om [Microsoft-kompatibla säkerhets nycklar](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- Mer detaljerad information om [Microsoft-kompatibla säkerhets nycklar](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Återställ lösenordet om du har tappat eller glömt det från [portalen för lösenordsåterställning](https://passwordreset.microsoftonline.com/) eller följ stegen i artikeln [Återställa lösenordet för arbets- eller skolkonto](active-directory-passwords-update-your-own-password.md).
 

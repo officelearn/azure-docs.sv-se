@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d18041a746a0c1046a51cf408494ccb81019c9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: fe509879c38f979525a673890c05fcfe5c8e3880
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183215"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798320"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Använd moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)
 
@@ -33,7 +33,7 @@ Skapa en ny Office 365-eller säkerhets grupp med egenskapen "isAssignableToRole
 Om du inte vill att medlemmar i gruppen ska ha ständig åtkomst till rollen kan du använda Azure AD Privileged Identity Management. Tilldela en grupp som en berättigad medlem i en Azure AD-roll. Varje medlem i gruppen kan sedan ha tilldelningen aktive rad för den roll som gruppen är tilldelad till. De kan sedan aktivera sin roll tilldelning för en fast tids period.
 
 > [!Note]
-> Du måste ha en uppdaterad version av Privileged Identity Management för att kunna tilldela en grupp till Azure AD-rollen via PIM. Du kan vara på en äldre version av PIM eftersom din Azure AD-organisation använder Privileged Identity Management API. Kontakta aliaset pim_preview@microsoft.com för att flytta din organisation och uppdatera ditt API. Lär dig mer [om Azure AD-roller och-funktioner i PIM](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-ad-roles-features).
+> Du måste ha en uppdaterad version av Privileged Identity Management för att kunna tilldela en grupp till Azure AD-rollen via PIM. Du kan vara på en äldre version av PIM eftersom din Azure AD-organisation använder Privileged Identity Management API. Kontakta aliaset pim_preview@microsoft.com för att flytta din organisation och uppdatera ditt API. Lär dig mer [om Azure AD-roller och-funktioner i PIM](../privileged-identity-management/azure-ad-roles-features.md).
 
 ## <a name="why-we-enforce-creation-of-a-special-group-for-assigning-it-to-a-role"></a>Därför tillämpar vi skapandet av en särskild grupp för att tilldela den till en roll
 
@@ -65,7 +65,7 @@ Följande scenarier stöds inte just nu:
   - I PIM-portalen kan **Mina roller** endast visa en roll tilldelning, oavsett hur många metoder som tilldelningen beviljas med (via en eller flera grupper och direkt).
 - *Endast Azure AD P2-licensierade kunder* Även om du har tagit bort gruppen visas fortfarande en berättigad medlem av rollen i PIM-ANVÄNDARGRÄNSSNITTET. Det finns inget problem. Det är bara ett cache-problem i Azure Portal.  
 - Exchange administrations Center känner inte igen roll medlemskap via gruppen än, men PowerShell-cmdleten fungerar.
-- Azure Information Protection portal (den klassiska portalen) känner inte igen roll medlemskap via gruppen än. Du kan [migrera till en enhetlig känslighets etikett plattform](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) och sedan använda Office 365 Security & Compliance Center för att använda grupp tilldelningar för att hantera roller.
+- Azure Information Protection portal (den klassiska portalen) känner inte igen roll medlemskap via gruppen än. Du kan [migrera till en enhetlig känslighets etikett plattform](/azure/information-protection/configure-policy-migrate-labels) och sedan använda Office 365 Security & Compliance Center för att använda grupp tilldelningar för att hantera roller.
 
 Vi åtgärdar problemen.
 

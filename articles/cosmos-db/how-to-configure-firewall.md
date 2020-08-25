@@ -4,15 +4,15 @@ description: Lär dig hur du konfigurerar principer för IP-åtkomstkontroll fö
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/31/2019
+ms.date: 08/24/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 36afc42844203436313f2a5b15975746f2acd349
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494363"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814186"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Du kan skydda data som lagras i Azure Cosmos DB-kontot med hjälp av IP-brandvä
 * Deklarativt med hjälp av en Azure Resource Manager-mall
 * Program mässigt via Azure CLI eller Azure PowerShell genom att uppdatera egenskapen **ipRangeFilter**
 
-## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Konfigurera en IP-brandvägg med hjälp av Azure Portal
+## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Konfigurera en IP-brandvägg med hjälp av Azure Portal
 
 Om du vill ange princip för IP-åtkomstkontroll i Azure Portal går du till sidan Azure Cosmos DB konto och väljer **brand vägg och virtuella nätverk** på navigerings menyn. Ändra värdet **Tillåt åtkomst från** värde till **valda nätverk**och välj sedan **Spara**.
 
@@ -52,7 +52,7 @@ Du kan aktivera begär Anden om åtkomst till Azure Portal genom att välja alte
 
 Om du har åtkomst till ditt Azure Cosmos DB-konto från tjänster som inte har en statisk IP-adress (till exempel Azure Stream Analytics och Azure Functions) kan du fortfarande använda IP-brandväggen för att begränsa åtkomsten. Du kan aktivera åtkomst från andra källor i Azure genom att markera alternativet **Godkänn anslutningar från Azure-datacenter** , som du ser i följande skärm bild:
 
-:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Skärm bild som visar hur du öppnar brand Väggs sidan i Azure Portal":::
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Skärm bild som visar hur du accepterar anslutningar från Azure-datacenter":::
 
 När du aktiverar det här alternativet läggs IP-adressen `0.0.0.0` till i listan över tillåtna IP-adresser. `0.0.0.0`IP-adressen begränsar begär anden till ditt Azure Cosmos DB konto från Azure datacenters IP-intervall. Den här inställningen tillåter inte åtkomst för några andra IP-intervall till ditt Azure Cosmos DB-konto.
 
@@ -95,7 +95,44 @@ När du ansluter till ditt Azure Cosmos DB-konto från en dator på Internet må
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurera en IP-brandvägg med en Resource Manager-mall
 
-Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger attributet **ipRangeFilter** med en lista över tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations` matrisen matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations` matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](resource-manager-samples.md)
+Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger egenskapen **ipRules** med en matris med tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations` matrisen matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations` matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](resource-manager-samples.md)
+
+> [!IMPORTANT]
+> **IpRules** -egenskapen har introducerats med API-version 2020-04-01. Tidigare versioner exponerade en **ipRangeFilter** -egenskap i stället, som är en lista över kommaavgränsade IP-adresser.
+
+Exemplet nedan visar hur **ipRules** -egenskapen exponeras i API version 2020-04-01 eller senare:
+
+```json
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2020-04-01",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "ipRules": [
+      {
+        "ipAddressOrRange": "40.76.54.131"
+      },
+      {
+        "ipAddressOrRange": "52.176.6.30"
+      },
+      {
+        "ipAddressOrRange": "52.169.50.45"
+      },
+      {
+        "ipAddressOrRange": "52.187.184.26"
+      }
+    ]
+  }
+}
+```
+
+Här är samma exempel för alla API-versioner före 2020-04-01:
 
 ```json
 {
@@ -141,7 +178,7 @@ Följande skript visar hur du skapar ett Azure Cosmos DB-konto med IP-åtkomst k
 # Create a Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
-$ipRangeFilter = "192.168.221.17,183.240.196.255,40.76.54.131"
+$ipRules = @("192.168.221.17","183.240.196.255","40.76.54.131")
 
 $locations = @(
     @{ "locationName"="West US 2"; "failoverPriority"=0; "isZoneRedundant"=False },
@@ -152,11 +189,11 @@ $locations = @(
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "ipRangeFilter"=$ipRangeFilter
+    "ipRules"=$ipRules
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -ApiVersion "2020-04-01" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
@@ -164,7 +201,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 Du kan felsöka problem med en kontroll princip för IP-åtkomst med hjälp av följande alternativ:
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 Genom att aktivera en princip för IP-åtkomstkontroll för ditt Azure Cosmos DB-konto blockerar du alla förfrågningar till ditt konto från datorer utanför listan över tillåtna IP-adressintervall. Om du vill aktivera data Plans åtgärder på portalen som att söka efter behållare och fråga dokument måste du uttryckligen tillåta Azure Portal åtkomst med hjälp av **brand Väggs** fönstret i portalen.
 
@@ -179,6 +216,10 @@ Aktivera diagnostisk loggning på ditt Azure Cosmos DB-konto. Loggarna visar var
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Begär Anden från ett undernät med en tjänst slut punkt för Azure Cosmos DB aktive rad
 
 Begär Anden från ett undernät i ett virtuellt nätverk som har en tjänst slut punkt för Azure Cosmos DB aktive rad skickar det virtuella nätverket och under nätets identitet till Azure Cosmos DB-konton. Dessa begär Anden har ingen offentlig IP-adress för källan, så IP-filter avvisar dem. Om du vill tillåta åtkomst från specifika undernät i virtuella nätverk lägger du till en åtkomst kontrol lista enligt beskrivningen i [så här konfigurerar du virtuellt nätverk och fjärråtkomst till ditt Azure Cosmos DB konto](how-to-configure-vnet-service-endpoint.md). Det kan ta upp till 15 minuter innan brand Väggs regler tillämpas.
+
+### <a name="private-ip-addresses-in-list-of-allowed-addresses"></a>Privata IP-adresser i listan över tillåtna adresser
+
+Det går inte att skapa eller uppdatera ett Azure Cosmos-konto med en lista över tillåtna adresser som innehåller privata IP-adresser. Kontrol lera att ingen privat IP-adress har angetts i listan.
 
 ## <a name="next-steps"></a>Nästa steg
 

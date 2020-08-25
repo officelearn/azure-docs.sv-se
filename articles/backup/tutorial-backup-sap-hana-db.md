@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 3903630a657c2cf8a0b39f3e4c8fc22456097941
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611831"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757497"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -125,7 +125,7 @@ Kommandots utdata ska Visa nyckeln {SID} {DBNAME}, där användaren visas som AZ
 >[!NOTE]
 > Se till att du har en unik uppsättning SSFS-filer under `/usr/sap/{SID}/home/.hdb/` . Det får bara finnas en mapp i den här sökvägen.
 
-## <a name="create-a-recovery-service-vault"></a>Skapa ett Recovery Service-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Ett Recovery Services-valv är en entitet som lagrar säkerhets kopior och återställnings punkter som skapats med tiden. Recovery Services valvet innehåller också de säkerhets kopierings principer som är associerade med de skyddade virtuella datorerna.
 
@@ -149,7 +149,7 @@ Så här skapar du ett Recovery Services-valv:
 
    ![Skapa Recovery Services-valv](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Namn**: namnet används för att identifiera Recovery Services-valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
+   * **Namn**: namnet används för att identifiera Recovery Services valvet och måste vara unikt för Azure-prenumerationen. Ange ett namn som innehåller minst två, men högst 50 tecken. Namnet måste börja med en bokstav och får bara bestå av bokstäver, siffror och bindestreck. I den här självstudien har vi använt namnet **SAPHanaVault**.
    * **Prenumeration**: Välj den prenumeration som ska användas. Om du är medlem i endast en prenumeration ser du det namnet. Om du inte är säker på vilken prenumeration du ska använda använder du standard prenumerationen (rekommenderas). Det finns flera alternativ bara om ditt arbets-eller skol konto är associerat med fler än en Azure-prenumeration. Här har vi använt prenumerations prenumerationen för **SAP HANA Solution Lab** .
    * **Resurs grupp**: Använd en befintlig resurs grupp eller skapa en ny. Här har vi använt **SAPHANADemo**.<br>
    Om du vill se en lista över tillgängliga resurs grupper i din prenumeration väljer du **Använd befintlig**och väljer sedan en resurs i list rutan. Om du vill skapa en ny resurs grupp väljer du **Skapa ny** och anger namnet. Fullständig information om resurs grupper finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
@@ -159,7 +159,7 @@ Så här skapar du ett Recovery Services-valv:
 
    ![Välj granska & skapa](./media/tutorial-backup-sap-hana-db/review-create.png)
 
-Recovery Services-valvet har nu skapats.
+Recovery Servicess valvet har nu skapats.
 
 ## <a name="discover-the-databases"></a>Identifiera databaserna
 
@@ -243,7 +243,7 @@ Ange princip inställningarna enligt följande:
 
 Du har nu konfigurerat säkerhets kopiering (er) för SAP HANA databas (er).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [Kör säkerhets kopiering på begäran på SAP HANA databaser som körs på virtuella Azure-datorer](backup-azure-sap-hana-database.md#run-an-on-demand-backup)
 * Lär dig hur du [återställer SAP HANA databaser som körs på virtuella Azure-datorer](sap-hana-db-restore.md)

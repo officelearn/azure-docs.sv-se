@@ -3,12 +3,12 @@ title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524496"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763685"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
@@ -22,10 +22,10 @@ Den här artikeln innehåller felsöknings information för att åtgärda eventu
 - Kontrol lera om någon fil resurs under lagrings kontot redan är skyddad med ett annat Recovery Services-valv.
 
   >[!NOTE]
-  >Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. Du kan använda [det här skriptet](scripts/backup-powershell-script-find-recovery-services-vault.md) för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
+  >Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. Du kan använda [det här skriptet](scripts/backup-powershell-script-find-recovery-services-vault.md) för att hitta Recovery Services valv där ditt lagrings konto är registrerat.
 
 - Se till att fil resursen inte finns i något av de lagrings konton som inte stöds. Du kan läsa [support mat ris för Azure-filresursen](azure-file-share-support-matrix.md) för att hitta lagrings konton som stöds.
-- Se till att den kombinerade längden på lagrings kontots namn och resurs gruppens namn inte överskrider 84 tecken i händelse av nya lagrings konton och 77 tecken i händelse av klassiska lagrings konton. 
+- Se till att den kombinerade längden på lagrings kontots namn och resurs gruppens namn inte överskrider 84 tecken i händelse av nya lagrings konton och 77 tecken i händelse av klassiska lagrings konton.
 - Kontrol lera brand Väggs inställningarna för lagrings kontot för att säkerställa att alternativet att tillåta att betrodda Microsoft-tjänster har åtkomst till lagrings kontot har Aktiver ATS.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Fel i portalen anger att identifieringen av lagringskonton misslyckades
@@ -54,7 +54,7 @@ Försök att registrera igen. Kontakta supporten om problemet kvarstår.
 I Azure Portal öppnar du ditt **valv**  >  lagrings konto för**säkerhets kopierings infrastruktur**  >  **Storage accounts** och klickar på **avregistrera** för att ta bort lagrings kontona från Recovery Services-valvet.
 
 >[!NOTE]
->Det går bara att ta bort ett Recovery Services-valv efter att alla lagrings konton har registrerats med valvet.
+>Ett Recovery Services-valv kan bara tas bort när alla lagrings konton som registrerats med valvet har avregistrerats.
 
 ## <a name="common-backup-or-restore-errors"></a>Vanliga säkerhets kopierings-eller återställnings fel
 

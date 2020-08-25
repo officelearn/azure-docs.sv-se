@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 7500eddc2416a1cb705ef207930c5fe4c6f1068a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604747"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817025"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Skapa ett SaaS-erbjudande på den kommersiella Marketplace
 
@@ -282,18 +282,19 @@ Det här fältet är obligatoriskt.
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs) – Lägg till relaterade marknadsförings dokument för ditt erbjudande, i PDF-format, för minst ett och upp till tre dokument per erbjudande.
-- **Bilder**  – Ladda upp logo typ bilder i PNG-format:
+- **Avbildningar** (krävs) – det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser. Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-  - **Liten** (48 x 48 pixlar, krävs)
-  - **Medel** (90 x 90 pixlar, krävs)
-  - **Stor** (216 x 216 pixlar, krävs)
-  - **Bred** (255 x 115 pixlar) (valfritt)
+  - **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+  - **Medel** (90 x 90 BPT, valfritt)
+  - **Liten** (48 x 48 BPT, valfritt)
+  
+  Dessa Logo typer används på olika platser i listan:
 
-   Dessa tre logo typer används på olika platser i onlinebutiker:
+   - Den stora logo typen visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
+   - Medie logo typen visas när du skapar en ny resurs i Microsoft Azure.
+   - Den lilla logo typen visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat.
 
-   -   Den lilla logo typen (48 x 48 pixlar) visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat. 
-   -   Medie logo typen (90 x 90 bild punkter) visas när du skapar en ny resurs i Microsoft Azure.
-   -   Den stora logo typen (mellan 216 x 216 och 350 x 350 bild punkter) visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
+   [!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 - **Skärm bilder** (krävs) – Lägg till högst fem skärm bilder som demonstrerar ditt erbjudande, med en storlek på 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 322a3b4e8d362d1b751b2c016e6f7cf904f11d7e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e9384dd3865b106488dc8ec303b060736f23ded7
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752333"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88797793"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -369,7 +369,7 @@ Vi rekommenderar att du använder [icacls-verktyget](https://docs.microsoft.com/
 
 ### <a name="error-the-directory-service-was-unable-to-allocate-a-relative-identifier"></a>Fel: "katalog tjänsten kunde inte allokera en relativ identifierare"
 
-Den här felkod kan inträffa om en domänkontrollant som har FSMO-rollen RID-hanterare inte är tillgänglig eller har tagits bort från domänen och återställts från säkerhets kopian.  Bekräfta att alla domänkontrollanter körs och är tillgängliga.
+Det här felet kan inträffa om en domänkontrollant som har FSMO-rollen RID-hanterare inte är tillgänglig eller har tagits bort från domänen och återställts från säkerhets kopian.  Bekräfta att alla domänkontrollanter körs och är tillgängliga.
 
 ### <a name="error-cannot-bind-positional-parameters-because-no-names-were-given"></a>Fel: ”Det går inte att binda positionsparametrar eftersom inget namn angavs”
 

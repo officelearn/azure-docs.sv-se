@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 0d2b840b401dc90b332f91c93a9eda03d6643432
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245561"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816498"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
@@ -23,13 +23,13 @@ Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avb
 
 Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault. Du kan antingen importera [dina RSA-nycklar](../key-vault/keys/hsm-protected-keys.md) till Key Vault eller generera nya RSA-nycklar i Azure Key Vault.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln kräver att du redan har en disk krypterings uppsättning som ska användas för avbildningen.
 
-- Om du bara vill använda en kundhanterad nyckel läser du **Aktivera Kundhanterade nycklar med kryptering på Server sidan** med hjälp av [Azure Portal](./windows/disks-enable-customer-managed-keys-portal.md) eller [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
+- Om du bara vill använda en kundhanterad nyckel läser du **Aktivera Kundhanterade nycklar med kryptering på Server sidan** med hjälp av [Azure Portal](./disks-enable-customer-managed-keys-portal.md) eller [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
-- Om du vill använda både plattforms-hanterade och Kundhanterade nycklar (för dubbel kryptering) kan du läsa **Aktivera dubbel kryptering i vila** med hjälp av [Azure Portal](./windows/disks-enable-double-encryption-at-rest-portal.md) eller [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
+- Om du vill använda både plattforms-hanterade och Kundhanterade nycklar (för dubbel kryptering) kan du läsa **Aktivera dubbel kryptering i vila** med hjälp av [Azure Portal](./disks-enable-double-encryption-at-rest-portal.md) eller [PowerShell](./windows/disks-enable-double-encryption-at-rest-powershell.md).
     > [!IMPORTANT]
     > Du måste använda den här länken [https://aka.ms/diskencryptionupdates](https://aka.ms/diskencryptionupdates) för att få åtkomst till Azure Portal. Dubbel kryptering i vila är för närvarande inte synligt i den offentliga Azure Portal utan att använda länken.
 

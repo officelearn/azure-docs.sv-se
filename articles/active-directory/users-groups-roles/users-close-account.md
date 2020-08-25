@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87e03214e2a00a16064763f35f38bdd3ea0e6123
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798337"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Stäng ditt arbets-eller skol konto i en ohanterad Azure AD-organisation
 
@@ -32,9 +32,9 @@ Användare i en ohanterad organisation skapas ofta under självbetjänings regis
 
 Innan du kan avsluta ditt konto bör du bekräfta följande objekt:
 
-* Se till att du är en användare av en ohanterad Azure AD-organisation. Du kan inte stänga ditt konto om du tillhör en hanterad organisation. Om du tillhör en hanterad organisation och vill avsluta ditt konto måste du kontakta administratören. Information om hur du avgör om du tillhör en ohanterad organisation finns i [ta bort användaren från en ohanterad klient](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Se till att du är en användare av en ohanterad Azure AD-organisation. Du kan inte stänga ditt konto om du tillhör en hanterad organisation. Om du tillhör en hanterad organisation och vill avsluta ditt konto måste du kontakta administratören. Information om hur du avgör om du tillhör en ohanterad organisation finns i [ta bort användaren från en ohanterad klient](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
-* Spara alla data som du vill behålla. Information om hur du skickar en export förfrågan finns i [komma åt och exportera systemgenererade loggar för ohanterade klienter](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
+* Spara alla data som du vill behålla. Information om hur du skickar en export förfrågan finns i [komma åt och exportera systemgenererade loggar för ohanterade klienter](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 
 > [!WARNING]
 > Om du stänger ditt konto går det inte att ångra. När du stänger ditt konto tas all personlig information bort. Du kommer inte längre att ha åtkomst till ditt konto och dina data som är kopplade till ditt konto.
@@ -56,5 +56,5 @@ Följ dessa steg om du vill stänga ett ohanterat arbets-eller skol konto:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md)
-- [Ta bort användaren från en ohanterad klientorganisation](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
-- [Åtkomst till och export av systemgenererade loggar för ohanterade klientorganisationer](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)
+- [Ta bort användaren från en ohanterad klientorganisation](/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant)
+- [Åtkomst till och export av systemgenererade loggar för ohanterade klientorganisationer](/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants)

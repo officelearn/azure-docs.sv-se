@@ -1,14 +1,14 @@
 ---
 title: Förstå frågespråket
 description: Beskriver resurs diagram tabeller och tillgängliga Kusto data typer, operatorer och funktioner som kan användas med Azure Resource Graph.
-ms.date: 08/21/2020
+ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: ea274c349c968852b77f3c3f2d39637f91484335
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723442"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798558"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -63,6 +63,25 @@ Resources
 
 > [!NOTE]
 > När du begränsar `join` resultatet med `project` , måste den egenskap som används av `join` för att relatera de två tabellerna, _subscriptionId_ i ovanstående exempel, ingå i `project` .
+
+## <a name="extended-properties-preview"></a><a name="extended-properties"></a>Utökade egenskaper (förhands granskning)
+
+Som _förhands gransknings_ funktion har några av resurs typerna i resurs diagram ytterligare egenskaper som är tillgängliga för frågor utöver de egenskaper som tillhandahålls av Azure Resource Manager. Den här uppsättningen värden, som kallas _utökade egenskaper_, finns på en resurs typ som stöds i `properties.extended` . Om du vill se vilka resurs typer som har _utökade egenskaper_använder du följande fråga:
+
+```kusto
+Resources
+| where isnotnull(properties.extended)
+| distinct type
+| order by type asc
+```
+
+Exempel: Hämta antal virtuella datorer genom att `instanceView.powerState.code` :
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
 
 ## <a name="resource-graph-custom-language-elements"></a>Resurs diagram anpassade språk element
 
@@ -123,8 +142,7 @@ Här är listan över KQL tabell operatörer som stöds av resurs diagram med vi
 Omfattningen av de prenumerationer som resurserna returneras från, beroende på metoden för åtkomst till resurs diagram. Azure CLI och Azure PowerShell fylla i listan över prenumerationer som ska ingå i begäran baserat på den auktoriserade användarens kontext. Listan över prenumerationer kan definieras manuellt för var och en med parametrarna **prenumerationer** och **prenumerationer** .
 I REST API och alla andra SDK: er måste listan över prenumerationer för att inkludera resurser från uttryckligen definieras som en del av begäran.
 
-Som **förhands granskning**lägger REST API-versionen till `2020-04-01-preview` en egenskap för att omfånget av frågan till en [hanterings grupp](../../management-groups/overview.md). Den här för hands versionen av API gör också att prenumerations egenskapen är valfri. Om varken hanterings gruppen eller prenumerations listan har definierats, är frågans omfång alla resurser som den autentiserade användaren har åtkomst till. Den nya `managementGroupId` egenskapen tar hanterings gruppens ID, som skiljer sig från namnet på hanterings gruppen.
-När `managementGroupId` har angetts ingår resurser från de första 5000 prenumerationerna i eller under den angivna hierarkin för hanterings grupper. `managementGroupId` kan inte användas på samma tid som `subscriptions` .
+Som **förhands granskning**lägger REST API-versionen till `2020-04-01-preview` en egenskap för att omfånget av frågan till en [hanterings grupp](../../management-groups/overview.md). Den här för hands versionen av API gör också att prenumerations egenskapen är valfri. Om en hanterings grupp eller en prenumerations lista inte har definierats, är frågans omfång alla resurser som den autentiserade användaren har åtkomst till. Den nya `managementGroupId` egenskapen tar hanterings gruppens ID, som skiljer sig från namnet på hanterings gruppen. När `managementGroupId` har angetts ingår resurser från de första 5000 prenumerationerna i eller under den angivna hierarkin för hanterings grupper. `managementGroupId` kan inte användas på samma tid som `subscriptions` .
 
 Exempel: fråga alla resurser inom hierarkin för hanterings gruppen med namnet min hanterings grupp med ID myMG.
 

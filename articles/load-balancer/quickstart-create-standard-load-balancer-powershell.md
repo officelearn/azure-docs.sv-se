@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: bdacd752ab549d0caed4d3579ac8d0c3b2606477
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 3589aeb21053525e481f3448270d236265dd698e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925727"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815325"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure PowerShell
 
@@ -56,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 ```
 ---
 
-# <a name="option-1-default-create-a-public-load-balancer-standard-sku"></a>[Alternativ 1 (standard): skapa en offentlig belastningsutjämnare (standard-SKU)](#tab/option-1-create-load-balancer-standard)
+# <a name="standard-sku"></a>[**Standard-SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -219,7 +219,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapar du de stödda virtuella nätverks resurserna.
 
-### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Skapa ett virtuellt nätverk och en Azure skydds-värd
+### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
 Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
@@ -228,16 +228,13 @@ Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.ne
 * Undernät med namnet **myBackendSubnet**.
 * Virtuellt nätverk **10.0.0.0/16**.
 * Undernät **10.0.0.0/24**.
-* Skydds under nät **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -246,35 +243,10 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
-Skapa skydds-värden med [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Med namnet **myBastionHost**.
-* Offentlig IP-adress för **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-$all = 'Static'
-$sku 'Standard'
-
-## Create public IP address for Bastion host ##
-$baspubip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Name $basip -Location $loc -AllocationMethod $all -Sku $sku
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $baspubip -VirtualNetwork $vnet
-```
-Det tar några minuter för skydds-värden att distribueras till det virtuella nätverket.
 
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
 Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutningar till det virtuella nätverket.
@@ -285,7 +257,7 @@ Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleCon
 * Med namnet **myNSGRuleHTTP**.
 * Beskrivning av **Tillåt http**.
 * Åtkomst till **Tillåt**.
-* Protokoll- **TCP**.
+* Protokoll **(*)**.
 * Riktningen **inkommande**.
 * Prioritet **2000**.
 * **Internet**källa.
@@ -298,7 +270,7 @@ Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleCon
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -596,6 +568,7 @@ Skapa en ny IP-konfiguration för klient delen med [Add-AzLoadBalancerFrontendIp
 ```azurepowershell-interactive
 ## Variables for the command ##
 $fen = 'myFrontEndOutbound'
+$lbn = 'myLoadBalancer'
 
 ## Get the load balancer configuration  and apply the frontend config##
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFrontendIPConfig -Name $fen -PublicIpAddress $publicIP | Set-AzLoadBalancer
@@ -734,7 +707,7 @@ $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPool
 
 ```
 
-# <a name="option-2-create-a-public-load-balancer-basic-sku"></a>[Alternativ 2: skapa en offentlig belastningsutjämnare (grundläggande SKU)](#tab/option-1-create-load-balancer-basic)
+# <a name="basic-sku"></a>[**Grundläggande SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
@@ -885,7 +858,7 @@ New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -F
 
 Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapar du de stödda virtuella nätverks resurserna.
 
-### <a name="create-a-virtual-network-and-azure-bastion-host"></a>Skapa ett virtuellt nätverk och en Azure skydds-värd
+### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
 Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
@@ -894,16 +867,13 @@ Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.ne
 * Undernät med namnet **myBackendSubnet**.
 * Virtuellt nätverk **10.0.0.0/16**.
 * Undernät **10.0.0.0/24**.
-* Skydds under nät **10.0.1.0/24**
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$bsub = 'AzureBastionSubnet'
 $spfx = '10.0.0.0/24'
-$bpfx = '10.0.1.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -912,31 +882,9 @@ $vpfx = '10.0.0.0/16'
 $subnetConfig = 
 New-AzVirtualNetworkSubnetConfig -Name $sub -AddressPrefix $spfx
 
-## Create Bastion subnet config ##
-$bassubnetConfig =
-New-AzVirtualNetworkSubnetConfig -name $bsub -AddressPrefix $bpfx
-
 ## Create the virtual network ##
 $vnet = 
-New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig,$bassubnetConfig
-```
-Skapa skydds-värden med [New-AzBastion](/powershell/module/az.network/new-azbastion):
-
-* Med namnet **myBastionHost**.
-* Offentlig IP-adress för **myBastionIP**.
-
-```azurepowershell-interactive
-$rg = 'myResourceGroupLB'
-$loc = 'eastus'
-$bas = 'myBastionHost'
-$basip = 'myBastionIP'
-
-## Create public IP address for Bastion host ##
-$basip = 
-New-AzPublicIPAddress -ResourceGroupName $rg -Location $loc
-
-## Create the bastion host using the $vnet variable from previous step ##
-New-AzBastion -ResourceGroupName $rg -Name $bas -PublicIpAddress $basip -VirtualNetwork $vnet
+New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPrefix $vpfx -Subnet $subnetConfig
 ```
 
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
@@ -948,7 +896,7 @@ Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleCon
 * Med namnet **myNSGRuleHTTP**.
 * Beskrivning av **Tillåt http**.
 * Åtkomst till **Tillåt**.
-* Protokoll- **TCP**.
+* Protokoll **(*)**.
 * Riktningen **inkommande**.
 * Prioritet **2000**.
 * **Internet**källa.
@@ -961,7 +909,7 @@ Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleCon
 $rnm = 'myNSGRuleHTTP'
 $des = 'Allow HTTP'
 $acc = 'Allow'
-$pro = 'Tcp'
+$pro = '*'
 $dir = 'Inbound'
 $pri = '2000'
 $spfx = 'Internet'
@@ -1236,49 +1184,72 @@ Det tar några minuter att skapa och konfigurera de tre virtuella datorerna.
 
 ## <a name="install-iis"></a>Installera IIS
 
-1. [Logga in](https://portal.azure.com) i Azure-portalen.
+Använd [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension?view=latest) för att installera Anpassat skripttillägg. 
 
-2. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
+Tillägget kör PowerShell Add-WindowsFeature-webbservern för att installera IIS-webbservern och uppdaterar sedan sidan Default.htm för att Visa värd namnet för den virtuella datorn:
 
-3. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
+### <a name="vm1"></a>VM1 
 
-4. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM1'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-5. Välj **Anslut**.
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-6. Gå till **Windows administrations verktyg**  >  **Windows PowerShell**på server Skriv bordet.
+### <a name="vm2"></a>VM2 
 
-7. Kör följande kommandon i PowerShell-fönstret för att:
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM2'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
 
-    * Installera IIS-servern
-    * Ta bort standard iisstart.htms filen
-    * Lägg till en ny iisstart.htm-fil som visar namnet på den virtuella datorn:
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
-   ```powershell
-    
-    # install IIS server role
-     Install-WindowsFeature -name Web-Server -IncludeManagementTools
-    
-    # remove default htm file
-     Remove-Item  C:\inetpub\wwwroot\iisstart.htm
-    
-    # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
-   ```
-8. Stäng skydds-sessionen med **myVM1**.
+### <a name="vm3"></a>VM3
 
-9. Upprepa steg 1 till 8 för att installera IIS och den uppdaterade iisstart.htm-filen på **myVM2** och **myVM3**.
+```azurepowershell-interactive
+## Variables for command. ##
+$rg = 'myResourceGroupLB'
+$enm = 'IIS'
+$vmn = 'myVM3'
+$loc = 'eastus'
+$pub = 'Microsoft.Compute'
+$ext = 'CustomScriptExtension'
+$typ = '1.8'
+
+Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Location $loc -Publisher $pub -ExtensionType $ext -TypeHandlerVersion $typ -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
+```
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 
-1. I Azure Portal letar du upp den offentliga IP-adressen för belastningsutjämnaren på **översikts** skärmen. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myPublicIP**.
+Använd [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest) för att hämta belastnings utjämningens offentliga IP-adress:
 
-2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
+```azurepowershell-interactive
+  ## Variables for command. ##
+  $rg = 'myResourceGroupLB'
+  $ipn = 'myPublicIP'
+    
+  Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ipn | select IpAddress
+```
+
+Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält. IIS-webbserverns standardsida visas i webbläsaren.
 
    ![IIS-webbserver](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Om du vill se belastningsutjämnaren distribuerar trafik över alla tre virtuella datorer kan du anpassa standard sidan för varje virtuell dators IIS-webbserver och sedan framtvinga en uppdatering av webbläsaren från klient datorn.
-
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -1303,5 +1274,5 @@ I den här snabb starten
 Om du vill veta mer om Azure Load Balancer kan du fortsätta till [Azure Load Balancer?](load-balancer-overview.md) och [Load Balancer vanliga frågor och svar](load-balancer-faqs.md).
 
 * Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).
-* Mer information om Azure skydds finns i [Vad är Azure skydds?](https://docs.microsoft.com/azure/bastion/bastion-overview).
+
 

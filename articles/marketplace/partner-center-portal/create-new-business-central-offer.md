@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 0d00f779031ec294523c861a4e9868f7cbbe790d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 4226f9cc45589b8c555d3d54918e31a04acbfc6b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606138"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817059"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
@@ -134,7 +134,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 9. Beskrivning
 10. Skärm bilder/videor
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -182,16 +182,16 @@ Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, til
 
 ### <a name="marketplace-images"></a>Marketplace-avbildningar
 
-Ange logo typer och avbildningar för ditt erbjudande. Alla bilder måste vara i PNG-format. 
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** logo typ. Du kan också ersätta detta med en annan avbildning senare.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Ladda upp din erbjudande logo typ i två storlekar:
-
-* **Liten** (48 x 48 pixlar)
-* **Stor** (216 x 216 pixlar)
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som `https://upload.xboxlive.com` används av Partner Center.
@@ -200,7 +200,7 @@ Ladda upp din erbjudande logo typ i två storlekar:
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

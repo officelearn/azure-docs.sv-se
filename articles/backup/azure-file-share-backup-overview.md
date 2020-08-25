@@ -3,12 +3,12 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c57537519888138698e9add1a687e0018d330cfa
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757888"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823888"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
@@ -40,7 +40,7 @@ Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets k
 5. Baserat på den angivna principen, utlöser Azure Backup Scheduler säkerhets kopieringar vid den schemalagda tiden. Som en del av detta jobb skapas fil resursens ögonblicks bild med hjälp av fil resurs-API: et. Endast ögonblicks bildens URL lagras i metadatalagret.
 
     >[!NOTE]
-    >Fil resurs data överförs inte till säkerhets kopierings tjänsten eftersom säkerhets kopierings tjänsten skapar och hanterar ögonblicks bilder som ingår i ditt lagrings konto, och säkerhets kopieringarna överförs till valvet.
+    >Fil resurs data överförs inte till säkerhets kopierings tjänsten eftersom säkerhets kopierings tjänsten skapar och hanterar ögonblicks bilder som är en del av ditt lagrings konto och säkerhets kopiorna inte överförs till valvet.
 
 6. Du kan återställa innehållet i Azure-filresursen (enskilda filer eller hela resursen) från ögonblicks bilder som är tillgängliga på käll fil resursen. När åtgärden har Aktiver ATS hämtas ögonblicks bildens URL från metadatalagret och data visas och överförs från käll ögonblicks bilden till önskad mål fil resurs.
 

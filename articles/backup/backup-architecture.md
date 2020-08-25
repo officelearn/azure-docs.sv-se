@@ -3,12 +3,12 @@ title: Översikt över arkitekturen
 description: Innehåller en översikt över arkitekturen, komponenterna och processerna som används av Azure Backups tjänsten.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 6da6cedc7841e31876bef8788458531b1ec375a8
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652788"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824040"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup arkitektur och komponenter
 
@@ -134,7 +134,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 
 1. När du aktiverar säkerhets kopiering för en virtuell Azure-dator körs en säkerhets kopiering enligt det schema du anger.
 1. Under den första säkerhets kopieringen installeras ett säkerhets kopierings tillägg på den virtuella datorn om den virtuella datorn körs.
-    - För virtuella Windows-datorer installeras VMSnapshot-tillägget.
+    - För virtuella Windows-datorer installeras tillägget VMSnapshot.
     - För virtuella Linux-datorer är VMSnapshot Linux-tillägget installerat.
 1. Tillägget tar en ögonblicks bild på lagrings nivå.
     - För virtuella Windows-datorer som kör, koordineras säkerhets kopieringen med Windows-tjänsten Volume Shadow Copy (VSS) för att ta en programkonsekvent ögonblicks bild av den virtuella datorn. Som standard tar säkerhets kopieringen fullständiga VSS-säkerhetskopieringar. Om säkerhets kopieringen inte kan göra en programkonsekvent ögonblicks bild tar det en filkonsekvent ögonblicks bild.
@@ -143,7 +143,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> Endast 
 1. När ögonblicks bilden har tagits överförs data till valvet.
     - Endast data block som har ändrats sedan den senaste säkerhets kopieringen kopierades.
     - Data är inte krypterade. Azure Backup kan säkerhetskopiera virtuella Azure-datorer som har krypterats med Azure Disk Encryption.
-    - Ögonblicks bild data kan inte kopieras direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhets kopierings tiden för en virtuell dator kommer att vara mindre än 24 timmar för dagliga säkerhets kopierings principer.
+    - Ögonblicksbilddata kopieras kanske inte direkt till valvet. Vid hög belastnings tider kan säkerhets kopieringen ta några timmar. Den totala säkerhetskopieringstiden för en virtuell dator blir mindre än 24 timmar för dagliga säkerhetskopieringsprinciper.
 1. När data har skickats till valvet skapas en återställnings punkt. Som standard behålls ögonblicks bilder i två dagar innan de tas bort. Den här funktionen tillåter återställnings åtgärder från dessa ögonblicks bilder, vilket minskar återställnings tiderna. Det minskar den tid som krävs för att transformera och kopiera data tillbaka från valvet. Se [Azure Backup omedelbar återställnings funktion](./backup-instant-restore-capability.md).
 
 Du behöver inte uttryckligen tillåta Internet anslutning att säkerhetskopiera virtuella Azure-datorer.

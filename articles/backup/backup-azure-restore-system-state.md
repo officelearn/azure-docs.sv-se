@@ -3,12 +3,12 @@ title: Återställa system tillstånd till en Windows-Server
 description: Steg för steg-förklaringar för återställning av Windows Server-systemtillstånd från en säkerhets kopia i Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 727268b2dc9473a6bda79f023e8a75202d43afe4
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 1adf20b08a5c7f93108b3af5077afae9555f2219
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263443"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827111"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -73,7 +73,7 @@ Den terminologi som används i dessa steg omfattar:
 * *Exempel valv* – det Recovery Services valv som *käll datorn* och *mål datorn* är registrerade på.
 
 > [!NOTE]
-> Säkerhets kopieringar som tas från en dator kan inte återställas till en dator som kör en tidigare version av operativ systemet. Säkerhets kopieringar som tagits från en Windows Server 2016-dator kan till exempel inte återställas till Windows Server 2012 R2. Inversen är dock möjlig. Du kan använda säkerhets kopior från Windows Server 2012 R2 för att återställa Windows Server 2016.
+> Säkerhets kopior som tas från en dator kan inte återställas till en dator som kör en tidigare version av operativ systemet. Säkerhets kopieringar som tagits från en Windows Server 2016-dator kan till exempel inte återställas till Windows Server 2012 R2. Inversen är dock möjlig. Du kan använda säkerhets kopior från Windows Server 2012 R2 för att återställa Windows Server 2016.
 >
 
 1. Öppna snapin-modulen **Microsoft Azure Backup** på *mål datorn*.
@@ -88,7 +88,7 @@ Den terminologi som används i dessa steg omfattar:
 6. I fönstret Välj säkerhets kopierings server väljer du *käll datorn* i listan med datorer som visas.
 7. I fönstret Välj återställnings läge väljer du **system tillstånd** och **sedan nästa**.
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Sök](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. I kalendern i fönstret **Välj volym och datum** väljer du en återställnings punkt. Du kan återställa från vilken återställnings punkt som helst. Datum i **fetstil** anger tillgänglighet för minst en återställnings punkt. När du har valt ett datum, om det finns flera återställnings punkter, väljer du den aktuella återställnings punkten från den nedrullningsbara menyn **tid** .
 

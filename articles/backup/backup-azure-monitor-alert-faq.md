@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Azure Bac
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761125"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827179"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 
@@ -60,7 +60,7 @@ En avisering aktive ras inom 20 minuter efter ett Azure Backup-haveri.
 
 ### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Finns det ett fall där ett e-postmeddelande inte skickas om meddelanden har kon figurer ATS?
 
-Ja. I följande situationer skickas inga meddelanden:
+Ja. I följande situationer skickas inte meddelanden:
 
 * Om meddelanden konfigureras varje timme och en avisering höjs och löses inom timmen
 * När ett jobb avbryts

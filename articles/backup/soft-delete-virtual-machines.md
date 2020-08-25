@@ -4,12 +4,12 @@ description: Lär dig hur mjuk borttagning för virtuella datorer gör säkerhet
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 19de26024a6a31a213130ec419132fd7dd8134a0
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763702"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826488"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Mjuk borttagning för virtuella datorer
 
@@ -38,7 +38,7 @@ Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra,
    ![Skärm bild av Azure Portal, VM i läget för mjuk borttagning](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
    > [!NOTE]
-   > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och det finns inget objekt i läget Soft Deleted kvar i valvet.
+   > Om det finns mjuka, borttagna säkerhets kopierings objekt i valvet kan valvet inte tas bort vid denna tidpunkt. Försök att ta bort valvet när säkerhets kopierings objekten har tagits bort permanent och det finns inga objekt i läget Soft Deleted kvar i valvet.
 
 4. Om du vill återställa den mjuk-borttagna virtuella datorn måste den först tas bort. Om du vill ångra borttagningen väljer du den mjuk-borttagna virtuella datorn och väljer sedan alternativet **ta bort**.
 
@@ -62,13 +62,13 @@ Mjuk borttagning stöds för närvarande i USA, västra centrala, Asien, östra,
 ## <a name="soft-delete-for-vms-using-azure-powershell"></a>Mjuk borttagning för virtuella datorer som använder Azure PowerShell
 
 > [!IMPORTANT]
-> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
+> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PowerShell är minimal 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
 
 Som beskrivs ovan för Azure Portal, är sekvensen av steg densamma när du använder Azure PowerShell även.
 
 ### <a name="delete-the-backup-item-using-azure-powershell"></a>Ta bort säkerhets kopierings objekt med Azure PowerShell
 
-Ta bort säkerhets kopierings objekt med hjälp av cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS.
+Ta bort säkerhets kopierings objekt med PowerShell-cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) .
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
@@ -95,7 +95,7 @@ VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;
 $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
 ```
 
-Utför sedan åtgärden ångra borttagning med hjälp av cmdleten [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PS.
+Utför sedan åtgärden ångra borttagning med hjälp av cmdleten [Undo-AzRecoveryServicesBackupItemDeletion](/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion) PowerShell.
 
 ```powershell
 Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force

@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline för Data Protection Manager (DPM) och Micro
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för tidigare versioner av DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e986baaf6ac2943bd210761ff2194eacdee5984a
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261930"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826607"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
 
@@ -48,7 +48,7 @@ Offline-säkerhetskopiering stöds för alla distributions modeller av Azure Bac
 >[!NOTE]
 >Azure CSP-prenumerationer stöds inte för användning med offline-seeding för DPM 2019 RTM och tidigare versioner, och MABS v3 RTM och tidigare versioner. Online-säkerhetskopieringar över nätverket stöds fortfarande.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet offline-säkerhetskopiering:
 
@@ -58,8 +58,8 @@ Kontrol lera att följande krav är uppfyllda innan du startar arbets flödet of
 
     | Region för suveräna moln | Fil länk för Azure Publish-inställningar |
     | --- | --- |
-    | USA | [Länk](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Kina | [Länk](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | USA | [Operationsföljdslänkkod](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Kina | [Operationsföljdslänkkod](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
 * Ett Azure Storage-konto med distributions modellen Resource Manager har skapats i den prenumeration som du laddade ned filen med publicerings inställningar för. I lagrings kontot skapar du en ny BLOB-behållare som ska användas som mål.
 

@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 99e175f20247058a57bb64a47465cce1ce7fbd75
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755376"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826061"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -119,7 +119,7 @@ Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella dato
 Rekommenderad åtgärd:<br>
 Lös problemet genom att ta bort låset på den virtuella datorns resurs grupp och försök igen för att utlösa rensning.
 > [!NOTE]
-> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Kunderna uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapats av säkerhets kopierings tjänsten är: AzureBackupRG_ `<Geo>` _ `<number>` tex: AzureBackupRG_northeurope_1
+> Backup-tjänsten skapar en separat resurs grupp än resurs gruppen för den virtuella datorn som ska lagra återställnings punkts samlingen. Du uppmanas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten. Namngivnings formatet för resurs gruppen som skapas av säkerhets kopierings tjänsten är: AzureBackupRG_ `<Geo>` _ _ `<number>` . Exempel: *AzureBackupRG_northeurope_1*
 
 **Steg 1: [ta bort låset från resurs gruppen för återställnings punkter](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa återställnings punkts samling](#clean_up_restore_point_collection)**<br>
@@ -277,7 +277,7 @@ Följande villkor kan leda till att ögonblicks bild aktiviteten Miss kopierar:
 
 ### <a name="remove-lock-from-the-recovery-point-resource-group"></a><a name="remove_lock_from_the_recovery_point_resource_group"></a>Ta bort låset från återställnings punkt resurs gruppen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till **alternativet alla resurser**, Välj resurs gruppen för återställnings punkt samling i följande format AzureBackupRG_ `<Geo>` _ _ `<number>` .
 3. I avsnittet **Inställningar** väljer du **Lås** för att Visa låsen.
 4. Om du vill ta bort låset väljer du ellipsen och väljer **ta bort**.
@@ -297,7 +297,7 @@ Om du vill rensa återställnings punkterna följer du någon av metoderna:<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a><a name="clean-up-restore-point-collection-by-running-on-demand-backup"></a>Rensa återställnings punkts samlingen genom att köra säkerhets kopiering på begäran
 
-När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. Den här åtgärden ser till att återställnings punkterna rensas automatiskt. Vi förväntar dig att den här åtgärden på begäran upphör att fungera första gången; den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen ska din nästa schemalagda säkerhets kopiering lyckas.
+När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. Den här åtgärden ser till att återställnings punkterna rensas automatiskt. Vi förväntar dig att den här åtgärden på begäran inte fungerar första gången. Den kommer dock att säkerställa automatisk rensning i stället för manuell borttagning av återställnings punkter. Efter rensningen ska din nästa schemalagda säkerhets kopiering lyckas.
 
 > [!NOTE]
 > Automatisk rensning sker efter några timmar efter att säkerhets kopieringen har påbörjats. Om den schemalagda säkerhets kopieringen fortfarande Miss lyckas, försök att ta bort återställnings punkts samlingen manuellt med hjälp av stegen i listan [här](#clean-up-restore-point-collection-from-azure-portal)
@@ -306,7 +306,7 @@ När du har tagit bort låset utlöser du en säkerhets kopiering på begäran. 
 
 Om du vill rensa samlingen återställnings punkter manuellt, som inte avmarkeras på grund av resurs gruppens lås, kan du prova följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **alla resurser**på menyn **hubb** , Välj resurs gruppen med följande format AZUREBACKUPRG_ `<Geo>` _ `<number>` där den virtuella datorn finns.
 
     ![Välj resurs grupp](./media/backup-azure-arm-vms-prepare/resource-group.png)
@@ -320,4 +320,4 @@ Om du vill rensa samlingen återställnings punkter manuellt, som inte avmarkera
 6. Försök att säkerhetskopiera igen.
 
 > [!NOTE]
- >Om resursen (RP-samlingen) har ett stort antal återställnings punkter kan det hända att de tar bort dem från portalen och Miss lyckas. Detta är ett känt CRP-problem, där alla återställnings punkter inte tas bort under den fastställda tiden och drift tiden går ut. men borttagnings åtgärden slutförs vanligt vis efter 2 eller 3 försök.
+ >Om resursen (RP-samlingen) har ett stort antal återställnings punkter kan det hända att de tar bort dem från portalen och Miss lyckas. Detta är ett känt CRP-problem där alla återställnings punkter inte tas bort under den angivna tiden och tids gränsen för åtgärden har överskridits. Borttagnings åtgärden lyckas dock vanligt vis efter två eller tre återförsök.

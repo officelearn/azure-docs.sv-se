@@ -4,14 +4,14 @@ description: Lär dig hur du återställer en disk och återskapar en virtuell d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141354"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824452"
 ---
-# <a name="restore-a-vm-with-azure-cli"></a>Återställa en virtuell dator med Azure CLI
+# <a name="restore-a-vm-with-azure-cli"></a>Återställa en VM med Azure CLI
 
 Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta återställningsvalv. När du återställer från en återställningspunkt kan du återställa hela den virtuella datorn eller enskilda filer. Den här artikeln förklarar hur du återställer hela den virtuella datorn med CLI. I den här guiden får du lära du dig hur man:
 
@@ -88,7 +88,7 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
     ```
 
     > [!WARNING]
-    > Om mål resurs grupp inte anges kommer de hanterade diskarna att återställas som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Kunderna får bara nytta av omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange mål resurs grupps parametern och i stället ange parametern Restore-as-unmanaged-disk som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
+    > Om **mål resurs gruppen** inte anges återställs de hanterade diskarna som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Kunderna får bara nytta av omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange parametern **-resurs-grupp** och i stället ange parametern **restore-as-unmanaged-disk** som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,7 +101,7 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
     --restore-as-unmanaged-disk
     ```
 
-Detta kommer att återställa hanterade diskar som ohanterade diskar till det aktuella lagrings kontot och kommer inte att använda funktionen "direkt återställning". I framtida versioner av CLI är det obligatoriskt att ange antingen parametern-parameter-eller "Återställ-som-ohanterad-disk".
+Detta kommer att återställa hanterade diskar som ohanterade diskar till det aktuella lagrings kontot och kommer inte att använda funktionen "direkt återställning". I framtida versioner av CLI kommer det att vara obligatoriskt att ange antingen parameter för **mål resurs gruppen** eller parametern **restore-as-unmanaged-disk** .
 
 ### <a name="unmanaged-disks-restore"></a>Återställning av ohanterade diskar
 
@@ -224,7 +224,7 @@ Mallens BLOB-URI kommer att ha det här formatet och extrahera mallnamnet
 https://<storageAccountName.blob.core.windows.net>/<containerName>/<templateName>
 ```
 
-Därför blir mallnamnet från exemplet ovan ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` och behållar namnet```myVM-daa1931199fd4a22ae601f46d8812276```
+Därför blir mallnamnet från exemplet ovan ```azuredeploy1fc2d55d-f0dc-4ca6-ad48-aca0519c0232.json``` och behållar namnet ```myVM-daa1931199fd4a22ae601f46d8812276```
 
 Hämta nu SAS-token för den här behållaren och mallen som beskrivs [här](../azure-resource-manager/templates/secure-template-with-sas-token.md?tabs=azure-cli#provide-sas-token-during-deployment)
 

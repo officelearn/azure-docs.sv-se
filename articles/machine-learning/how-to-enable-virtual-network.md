@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: 9f92e703dd45e893a3dfdd8a4c1d6aa3e9b8e96e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0a7a5f21ee868da2b9c3a6c7dc8bb5968531d0d0
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506523"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824210"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Nätverks isolering under utbildning &s störningar med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du skyddar dina Machine Learning-livsc
 
 Ett __virtuellt nätverk__ fungerar som en säkerhets gränser som isolerar dina Azure-resurser från det offentliga Internet. Du kan också ansluta ett virtuellt Azure-nätverk till ditt lokala nätverk. Genom att ansluta till nätverk kan du på ett säkert sätt träna dina modeller och komma åt dina distribuerade modeller för att få en mer härledning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + En Azure Machine Learning- [arbetsyta](how-to-manage-workspace.md).
 
@@ -49,7 +49,7 @@ Du kan också [Aktivera Azure Private-länken](how-to-configure-private-link.md)
 > [!TIP]
 > Du kan kombinera virtuella nätverk och privata länkar tillsammans för att skydda kommunikationen mellan arbets ytan och andra Azure-resurser. Vissa kombinationer kräver dock en Enterprise Edition-arbetsyta. Använd följande tabell för att ta reda på vilka scenarier som kräver Enterprise Edition:
 >
-> | Scenario | Stora företag</br>Edition | Basic</br>Edition |
+> | Scenario | Stora företag</br>Edition | Grundläggande</br>Edition |
 > | ----- |:-----:|:-----:| 
 > | Inget virtuellt nätverk eller en privat länk | ✔ | ✔ |
 > | Arbets yta utan privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
@@ -366,6 +366,12 @@ Du kan göra detta på två sätt:
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
+
+        > [!TIP]
+        > Om du använder US-Virginia-, USA-Arizona-regionerna eller Kina-öst-2-regionerna returnerar dessa kommandon inga IP-adresser. Använd i stället någon av följande länkar för att hämta en lista över IP-adresser:
+        >
+        > * [Azure IP-intervall och service märken för Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
+        > * [Azure IP-intervall och service märken för Azure Kina](https://www.microsoft.com//download/details.aspx?id=57062)
     
     När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
 

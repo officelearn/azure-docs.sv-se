@@ -3,12 +3,12 @@ title: Hantera säkerhetskopierade SAP HANA databaser på virtuella Azure-datore
 description: I den här artikeln lär du dig vanliga uppgifter för att hantera och övervaka SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 98dd67668d1b88a25dfa3b91174cd96730c435e1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7e23ffc2fe39389725519f7b94a0fe6ffaecf69c
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049464"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826709"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Hantera och övervaka säkerhetskopierade SAP HANA-databaser
 
@@ -32,7 +32,7 @@ Om du vill veta mer om övervakning går du till [övervakning i Azure Portal](.
 
 Aviseringar är ett enkelt sätt att övervaka säkerhets kopieringar av SAP HANA databaser. Aviseringar hjälper dig att fokusera på de händelser du bryr dig om utan att förlora antalet händelser som en säkerhets kopia genererar. Med Azure Backup kan du ange aviseringar och de kan övervakas på följande sätt:
 
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 * På instrument panelen för valv väljer du **säkerhets kopierings aviseringar**.
 
   ![Säkerhets kopierings aviseringar på valv instrument panel](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
@@ -129,7 +129,7 @@ Du kan ändra den underliggande principen för ett SAP HANA säkerhets kopiering
 >[!NOTE]
 > Eventuella ändringar i kvarhållningsperioden tillämpas retroaktivt för alla äldre återställnings punkter förutom de nya.
 >
-> Det går inte att använda principer för stegvis säkerhets kopiering för SAP HANA databaser. Stegvis säkerhets kopiering stöds för närvarande inte för dessa databaser.
+> Det går inte att använda stegvisa säkerhets kopierings principer för SAP HANA databaser. Stegvis säkerhets kopiering stöds för närvarande inte för de här databaserna.
 
 ### <a name="modify-policy"></a>Ändra princip
 
@@ -171,7 +171,7 @@ Du kan sluta skydda en SAP HANA-databas på ett par olika sätt:
 
 Om du väljer att lämna återställnings punkter bör du tänka på följande:
 
-* Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp av skyddet med data kvar.
+* Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp skydd med kvarhållning av data.
 * Du debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
 * Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas.
 

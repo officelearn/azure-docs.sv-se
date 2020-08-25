@@ -3,12 +3,12 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: b3ccd944ce1f6a30b4441c205a83e71374e7aff2
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763447"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826981"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
@@ -29,7 +29,7 @@ Det här Flow-diagrammet visar de olika stegen och tillstånden för ett säkerh
 
 Mjuk borttagning är aktiverat som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar.  Du bör inte inaktivera den här funktionen. Den enda omständigheterna där du bör inaktivera mjuk borttagning är om du planerar att flytta dina skyddade objekt till ett nytt valv, och det kan inte vänta 14 dagar innan du tar bort och återskyddar (till exempel i en test miljö). Endast valvets ägare kan inaktivera den här funktionen. Om du inaktiverar den här funktionen kommer alla framtida borttagningar av skyddade objekt att leda till omedelbar borttagning, utan möjlighet att återställa. Säkerhets kopierings data som finns i läget Soft Deleted, innan funktionen inaktive ras, förblir i tyst borttaget läge under perioden 14 dagar. Om du vill ta bort dessa omedelbart permanent måste du ångra borttagningen och ta bort dem igen för att ta bort dem permanent.
 
- Det är viktigt att komma ihåg att när mjuk borttagning har inaktiverats är funktionen inaktive rad för alla typer av arbets belastningar, inklusive SQL Server och SAP HANA arbets belastningar. När [SQL Server/SAP HANA för hands versionen](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) har Aktiver ATS för en prenumeration går det till exempel inte att inaktivera mjuk borttagning enbart för SQL Server-eller SAP HANA-databaser samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
+ Det är viktigt att komma ihåg att när mjuk borttagning har inaktiverats är funktionen inaktive rad för alla typer av arbets belastningar, inklusive SQL Server och SAP HANA arbets belastningar. När [SQL Server/SAP HANA för hands versionen](./soft-delete-sql-saphana-in-azure-vm.md#steps-to-enroll-in-preview) har Aktiver ATS för en prenumeration är det till exempel inte möjligt att inaktivera mjuk borttagning enbart för SQL Server-eller SAP HANA-databaser, samtidigt som den är aktive rad för virtuella datorer i samma valv. Du kan skapa separata valv för detaljerad kontroll.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Inaktivera mjuk borttagning med Azure Portal
 
@@ -44,9 +44,9 @@ Följ dessa steg om du vill inaktivera mjuk borttagning:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Inaktivera mjuk borttagning med Azure PowerShell
 
 > [!IMPORTANT]
-> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PS är min 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
+> AZ. RecoveryServices-versionen som krävs för att använda mjuk borttagning med Azure PowerShell är minimal 2.2.0. Använd ```Install-Module -Name Az.RecoveryServices -Force``` för att hämta den senaste versionen.
 
-Om du vill inaktivera använder du cmdleten [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) PS.
+Om du vill inaktivera använder du PowerShell-cmdleten [set-AzRecoveryServicesVaultBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) .
 
 ```powershell
 Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable

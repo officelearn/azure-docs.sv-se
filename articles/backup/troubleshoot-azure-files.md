@@ -3,12 +3,12 @@ title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 2030620446f414f985f86218b96c6db78ab090a1
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763685"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825468"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
@@ -251,7 +251,7 @@ Fel meddelande: det går inte att hitta ögonblicks bilden av Azure-filresursen 
 - Se till att fil resursens ögonblicks bild, som motsvarar den återställnings punkt som du försöker använda för återställning, fortfarande finns.
 
   >[!NOTE]
-  >Om du tar bort en ögonblicks bild av en fil resurs som har skapats av Azure Backup, blir motsvarande återställnings punkter oanvändbara. Vi rekommenderar att inte ta bort ögonblicks bilder för att garantera garanterad återställning.
+  >Om du tar bort en ögonblicks bild av en fil resurs som har skapats av Azure Backup, blir motsvarande återställnings punkter oanvändbara. Vi rekommenderar att du inte tar bort ögonblicks bilder för att garantera garanterad återställning.
 
 - Försök att välja en annan återställnings punkt för att återställa dina data.
 

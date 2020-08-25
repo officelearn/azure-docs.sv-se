@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: bf267285e47f6695f2c6104cbc1817f5e733fa29
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514566"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823972"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -139,7 +139,7 @@ När du kan återställa en säkerhetskopierade virtuell dator använder du guid
     - **Återställ till ursprunglig instans**: När du återställer till den ursprungliga instansen tas den ursprungliga virtuella hårddisken bort. MABS återställer den virtuella hård disken och andra konfigurationsfiler till den ursprungliga platsen med hjälp av VSS-skrivaren för Hyper-V. I slutet av återställningsprocessen är de virtuella datorerna fortfarande högtillgängliga.
         Resursgruppen måste vara tillgänglig för återställning. Om den inte är tillgänglig återställer du till en annan plats och gör sedan den virtuella datorn högtillgänglig.
 
-    - **Återställ som virtuell dator till valfri värd**: Mabs stöder alternativ plats återställning (återställning till), vilket ger en sömlös återställning av en skyddad virtuell Hyper-v-dator till en annan Hyper-v-värd, oberoende av processor arkitekturen. Virtuella Hyper-V-datorer som återställs till en klusternod blir inte högtillgängliga. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
+    - **Återställ som virtuell dator till valfri värd**: Mabs stöder alternativ plats återställning (återställning till), vilket ger en sömlös återställning av en skyddad virtuell Hyper-v-dator till en annan Hyper-v-värd, oberoende av processor arkitekturen. Virtuella Hyper-V-datorer som återställs till en klusternod blir inte hög tillgängliga. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
 
     - **Kopiera till en nätverksmapp**: Mabs har stöd för återställning på objekt nivå (ILR), vilket gör att du kan utföra återställning på objekt nivå av filer, mappar, volymer och virtuella hård diskar (VHD) från en säkerhets kopiering på värdnivå av virtuella Hyper-V-datorer till en nätverks resurs eller en volym på en Mabs-skyddad Server. MABS-skyddsagenten behöver inte vara installerad på gästen för att utföra återställning på objekt nivå. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
 

@@ -3,12 +3,12 @@ title: Återställa Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 23de6e1e352a1b72d1435fc65d6a59ab37d838b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c9848e12de80bcafe4553a9e8f3e27e8876d41
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538555"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826505"
 ---
 # <a name="restore-azure-files-with-powershell"></a>Återställa Azure Files med PowerShell
 
@@ -17,7 +17,7 @@ I den här artikeln förklaras hur du återställer en hel fil resurs eller viss
 Du kan återställa en hel fil resurs eller vissa filer på resursen. Du kan återställa till den ursprungliga platsen eller till en annan plats.
 
 > [!WARNING]
-> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice-backup-item-identification) disponera kravet för den här ändringen.
+> Kontrol lera att PowerShell-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice-backup-item-identification) disponera kravet för den här ändringen.
 
 >[!NOTE]
 >Azure Backup stöder nu återställning av flera filer eller mappar till den ursprungliga eller alternativa platsen med hjälp av PowerShell. Läs mer i [det här avsnittet](#restore-multiple-files-or-folders-to-original-or-alternate-location) av dokumentet.

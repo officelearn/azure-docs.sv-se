@@ -4,12 +4,12 @@ description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: 170ecf364e01ba4b098da289f9d213716e74e0ee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757038"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826913"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
@@ -20,7 +20,7 @@ Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara oc
 - **Återställning**. Borttagna säkerhets kopierings data behålls under ytterligare 14 dagar från datumet för borttagningen. Detta säkerställer återhämtning av data inom en viss tids period, så det finns ingen data förlust även om ett angrepp sker. Dessutom behålls ett större antal lägsta återställnings punkter för att skydda mot skadade data.
 
 > [!NOTE]
-> Säkerhetsfunktioner bör inte aktive ras om du använder IaaS (Infrastructure as a Service) för säkerhets kopiering av virtuella datorer. Dessa funktioner är ännu inte tillgängliga för IaaS VM-säkerhetskopiering, så att de inte påverkar några konsekvenser. Säkerhetsfunktioner ska bara aktive ras om du använder: <br/>
+> Säkerhetsfunktioner bör inte aktive ras om du använder IaaS (Infrastructure as a Service) med säkerhets kopiering av virtuella datorer. Dessa funktioner är ännu inte tillgängliga för IaaS VM-säkerhetskopiering, så att de inte har någon påverkan. Säkerhetsfunktioner ska bara aktive ras om du använder: <br/>
 >
 > - **Azure Backup Agent**. Lägsta agent version 2.0.9052. När du har aktiverat de här funktionerna bör du uppgradera till den här agent versionen för att utföra kritiska åtgärder. <br/>
 > - **Azure Backup Server**. Lägsta Azure Backups agent version 2.0.9052 med Azure Backup Server uppdatering 1. <br/>
@@ -84,7 +84,7 @@ Som en del av att lägga till ett extra lager av autentisering för kritiska åt
 
 > [!NOTE]
 >
-> För närvarande stöds inte säkerhets kod för att **stoppa skyddet med ta bort data** för DPM och Mabs.
+> För närvarande stöds inte säkerhets-PIN för att **stoppa skyddet med ta bort data** för DPM och Mabs.
 
 För att ta emot den här PIN-koden:
 

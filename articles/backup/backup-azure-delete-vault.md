@@ -3,12 +3,12 @@ title: Ta bort ett Microsoft Azure Recovery Services-valv
 description: I den här artikeln lär du dig hur du tar bort beroenden och sedan tar bort ett Azure Backup Recovery Services-valv.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: a7e922069f567a0b907c2f2cd28fe09de040cdee
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: c0b75d147abba45a745f811de5e4b8ac45088bd8
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757225"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826743"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -101,7 +101,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
     > [!NOTE]
     >
     >- Om den skyddade servern är synkroniserad med Azure-tjänster och säkerhets kopierings objekt finns, visar kryss rutan medgivande antalet beroende säkerhets kopierings objekt och länken för att Visa säkerhets kopierings objekt.
-    >- Om den skyddade servern inte är synkroniserad med Azure-tjänster och det finns säkerhets kopierings objekt visas bara antalet säkerhets kopierings objekt i kryss rutan medgivande.
+    >- Om den skyddade servern inte har synkroniserats med Azure-tjänster och det finns säkerhets kopierings objekt visas bara antalet säkerhets kopierings objekt i kryss rutan medgivande.
     >- Om det inte finns några säkerhets kopierings objekt uppmanas du att ta bort den i kryss rutan medgivande.
 
 4. Markera kryss rutan medgivande och välj sedan **ta bort**.

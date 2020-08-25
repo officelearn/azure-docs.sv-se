@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/23/2020
+ms.date: 08/25/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 81574f25e2132a7079fa0242284fb67b0132a8af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e1094befcc6b3a6e9d56ba3b603dc45fcb91ba13
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86119335"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825502"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Självstudie: använda distributions skript för att skapa ett självsignerat certifikat (förhands granskning)
 
@@ -42,7 +42,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 * ** [Visual Studio Code](https://code.visualstudio.com/) med tillägget Resource Manager-verktyg**. Se [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](./quickstart-create-templates-use-visual-studio-code.md).
 
-* **En användardefinierad hanterad identitet med deltagar rollen på prenumerations nivå**. Den här identiteten används för att köra distributions skript. Information om hur du skapar ett finns i [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Du behöver identitets-ID när du distribuerar mallen. Formatet på identiteten är:
+* **En användardefinierad hanterad identitet med deltagar rollen på prenumerations nivå**. Den här identiteten används för att köra distributions skript. Information om hur du skapar ett finns i [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). Du behöver identitets-ID när du distribuerar mallen. Formatet på identiteten är:
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -324,7 +324,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
 
 ## <a name="debug-the-failed-script"></a>Felsöka skriptet som misslyckades
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna resurs gruppen. Det är projekt namnet med **RG** tillagt. Du ska se två ytterligare resurser i resurs gruppen. Dessa resurser kallas för *distributions skript resurser*.
 
     ![Distributions skript resurser för Resource Manager-mall](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)

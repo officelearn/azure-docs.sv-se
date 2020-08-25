@@ -4,16 +4,16 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: fbd1c7f5e7fab9f77815e782160e855a9a854dc9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054611"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827162"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
-Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan någon ytterligare hanterings infrastruktur. Men den här inbyggda tjänsten är begränsad i följande scenarier:
+Azure Backup tillhandahåller [inbyggda övervaknings-och aviserings funktioner](backup-azure-monitoring-built-in-monitor.md) i ett Recovery Services-valv. Dessa funktioner är tillgängliga utan ytterligare hanteringsinfrastruktur. Men den här inbyggda tjänsten är begränsad i följande scenarier:
 
 - Om du övervakar data från flera Recovery Services-valv över prenumerationer
 - Om den önskade aviserings kanalen *inte* är e-post
@@ -46,7 +46,7 @@ Den definiering av egenskaperna för en avisering är dess Utlös ande villkor. 
 Om det behövs kan du redigera frågan Kusto. Välj ett tröskelvärde, en period och en frekvens. Tröskelvärdet avgör när aviseringen ska höjas. Perioden är tiden då frågan körs. Om tröskelvärdet till exempel är större än 0, är perioden 5 minuter och frekvensen är 5 minuter, kör regeln frågan var 5: e minut, och granska de senaste 5 minuterna. Om antalet resultat är större än 0 får du ett meddelande via den valda åtgärds gruppen.
 
 > [!NOTE]
-> Om du vill köra varnings regeln en gång per dag, ändrar du värdet för både "period" och "frekvens" till 1440, dvs. 24 timmar i alla händelser/loggar som skapades den aktuella dagen.
+> Om du vill köra varnings regeln en gång per dag, ändrar du värdet för både "period" och "frekvens" till 1440, vilket är 24 timmar.
 
 #### <a name="alert-action-groups"></a>Aviserings åtgärds grupper
 

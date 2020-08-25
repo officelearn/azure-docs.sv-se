@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: d6305607170e02c2f6e104ff8b18011b8657947b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 974be6d337c3376d10e09ba6211f7804c2c8cada
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762461"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88824567"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 
@@ -67,7 +67,7 @@ Kontrollera följande:
 Se till att de nödvändiga Data Box-enhet enheterna är i ett *levererat* tillstånd innan du utlöser säkerhets kopiering offline. Se [säkerhets kopierings data storlek och stöd för data Box-enhet SKU: er](#backup-data-size-and-supported-data-box-skus) för att beställa den lämpligaste SKU: n för ditt krav. Följ stegen i [den här artikeln](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) för att beställa och ta emot dina data Box-enhet enheter.
 
 > [!IMPORTANT]
-> Välj inte *BlobStorage* för **konto typen**. DPM/MABS-servern kräver ett konto som stöder Page blobbar som inte stöds när *BlobStorage* har valts. Välj  **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
+> Välj inte *BlobStorage* för **konto typen**. DPM/MABS-servern kräver ett konto som stöder sid-blobar som inte stöds när *BlobStorage* har valts. Välj  **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
 
 ![Konfigurera Azure Data Center](./media/offline-backup-azure-data-box-dpm-mabs/setup-azure-databox.png)
 
@@ -131,7 +131,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
     ![Välj inledande replikering online](./media/offline-backup-azure-data-box-dpm-mabs/choose-initial-online-replication.png)
 
     >[!NOTE]
-    > Alternativet att välja **överföring med Microsoft-ägda diskar** är inte tillgängligt för Mabs v3 eftersom funktionen är en för hands version. Kontakta oss på [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) om du vill använda den här funktionen för Mabs v3.
+    > Alternativet att välja **överföring med Microsofts ägda diskar** är inte tillgängligt för Mabs v3 eftersom funktionen är en för hands version. Kontakta oss på [systemcenterfeedback@microsoft.com](mailto:systemcenterfeedback@microsoft.com) om du vill använda den här funktionen för Mabs v3.
 
 12. Logga in i Azure när du uppmanas att använda de användarautentiseringsuppgifter som har ägar åtkomst till Azure-prenumerationen. Efter en lyckad inloggning visas följande skärm:
 
@@ -234,7 +234,7 @@ Lös problemet genom att utföra följande steg och försöka utföra princip ko
 2. Om ingen annan server har offline-dirigering konfigurerad och ingen annan server är beroende av `AzureOfflineBackup_<Azure User Id>` programmet, tar du bort det här programmet från **Azure Portal > Azure Active Directory > Appregistreringar**.
 
    > [!NOTE]
-   > Kontrol lera om programmet `AzureOfflineBackup_<Azure User Id>` inte har någon annan offlineadressbok konfigurerad och att ingen annan server är beroende av det här programmet. Gå till **inställningar > nycklar** under avsnittet offentliga nycklar den ska inte ha några andra **offentliga nycklar** tillagda. Se följande skärm bild för referens:
+   > Kontrol lera om programmet `AzureOfflineBackup_<Azure User Id>` inte har någon annan offlineadressbok konfigurerad och att ingen annan server är beroende av det här programmet. Gå till **inställningar > nycklar** under avsnittet offentliga nycklar. Inga andra **offentliga nycklar** har lagts till. Se följande skärm bild för referens:
    >
    > ![Offentliga nycklar](./media/offline-backup-azure-data-box-dpm-mabs/public-keys.png)
 

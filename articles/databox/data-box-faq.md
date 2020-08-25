@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7d300252893a72ef6296e941f5a573a67807779f
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652584"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88823989"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -57,7 +57,7 @@ A.  Om du vill ha mer information om vilka länder/regioner som Data Box-enhet �
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>F. I vilka regioner kan jag lagra data med Data Box?
 A. Data Box-enhet stöds för alla regioner i USA, västra Europa, norra Europa, Frankrike, Storbritannien, Japan, Australien och Kanada. Mer information finns i [region tillgänglighet](data-box-overview.md#region-availability).
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>F. Hur kan jag importera mina lokala källdata till en Azure-region i ett annat land/region eller exportera data från en Azure-region i ett land till ett annat land/region?
+### <a name="q-how-can-i-import-source-data-at-my-location-in-a-particular-country-to-an-azure-region-in-a-different-countryregion-or-export-data-from-an-azure-region-in-one-country-to-a-different-countryregion"></a>F. Hur kan jag importera käll data på min plats i ett visst land till en Azure-region i ett annat land/region eller exportera data från en Azure-region i ett land till ett annat land/region?
 
 Data Box-enhet har stöd för data inmatning eller utgående data inom samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där data rutor kan levereras till och från ett EU-land/-region.
 

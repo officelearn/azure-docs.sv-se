@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/04/2019
+ms.date: 08/25/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cffdcc9c99cdec2aeac8bf6fe1dc1575691c8d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924038"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826879"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -85,7 +85,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -94,12 +94,12 @@ Du kan filtrera dina etablerings data. Vissa filter värden fylls i dynamiskt ba
 I standardvyn kan du välja följande filter:
 
 - Identitet
-- Date
+- Datum
 - Status
-- Action
+- Åtgärd
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filter")
+![Filter](./media/concept-provisioning-logs/default-filter.png "Filtrera")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -131,7 +131,7 @@ Med **Åtgärds** filtret kan du filtrera:
 - Uppdatera
 - Ta bort
 - Inaktivera
-- Annat
+- Övrigt
 
 Dessutom kan du också ange följande filter till filtren i standardvyn:
 
@@ -175,7 +175,7 @@ Detaljerna grupperas baserat på följande kategorier:
 - Sammanfattning
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Flikar")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Tabbar")
 
 
 
@@ -190,7 +190,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filter")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtrera")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer
@@ -242,6 +242,8 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 |LicenseLimitExceeded|Det gick inte att skapa användaren i mål programmet eftersom det inte finns några tillgängliga licenser för den här användaren. Du kan antingen köpa ytterligare licenser för mål programmet eller granska användar tilldelningarna och mappnings konfigurationen för attribut för att säkerställa att rätt användare tilldelas rätt attribut.|
 |DuplicateTargetEntries  |Det gick inte att slutföra åtgärden eftersom mer än en användare i mål programmet hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren från mål programmet eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 |DuplicateSourceEntries | Det gick inte att slutföra åtgärden eftersom mer än en användare hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|ImportSkipped | När varje användare utvärderas försöker vi importera användaren från käll systemet. Det här felet uppstår vanligt vis när användaren som importeras saknar matchande egenskap som definierats i dina Attribute-mappningar. Utan ett värde som finns på användarobjektet för det matchande attributet kan vi inte utvärdera omfattnings-, matchnings-eller export ändringar. Obs! närvaro av det här felet anger inte att användaren är i omfånget eftersom vi ännu inte har utvärderat omfattning för användaren.|
+|EntrySynchronizationSkipped | Etablerings tjänsten har skickat frågan till käll systemet och identifierade användaren. Ingen ytterligare åtgärd vidtogs för användaren och de hoppades över. Det kan bero på att användaren är utanför omfånget eller att användaren redan finns i mål systemet utan ytterligare ändringar som krävs.|
 
 ## <a name="next-steps"></a>Nästa steg
 

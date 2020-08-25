@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om kända problem och lö
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1f4900bb129ee67cd75d2b793f4179e3135569a6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 26d30a56b3117642678f98ba3e7927c27bfd6a69
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032569"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826624"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Viktig information för Microsoft Azure Backup Server
 
@@ -78,10 +78,10 @@ Lösning **:** Utför följande steg för att uppgradera till MABS v3 med instal
 **Lösning**: om du vill ersätta RDL-filerna följer du stegen nedan:
 
 1. Öppna SQL Reporting Services-webbportalens URL på MABS-datorn.
-1. I webb portalens URL finns mappen katalogen DpmReports i formatet**`DPMReports_<GUID>`**
+1. I webb portalens URL finns mappen katalogen DpmReports i formatet **`DPMReports_<GUID>`**
 
     >[!NOTE]
-    >Det finns alltid en mapp med denna namngivnings konvention. Om MABS har uppgraderats från en tidigare version kan det också finnas en annan äldre mapp, men du kommer inte att kunna öppna den.
+    >Det finns alltid en mapp med denna namngivnings konvention. Om MABS har uppgraderats från en tidigare version kan det också finnas en annan äldre mapp, men du kan inte öppna den.
 
     ![Katalogen DpmReports-mapp](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
 
@@ -95,9 +95,9 @@ Lösning **:** Utför följande steg för att uppgradera till MABS v3 med instal
 
 1. På sidan ny väljer du alternativet **Ersätt** för att ersätta filerna med de senaste uppdateringsfilerna.
 
-    Du hittar de senaste uppdateringsfilerna i sökvägen`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Du hittar de senaste uppdateringsfilerna i sökvägen `<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
-    Exempel: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+    Exempelvis: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
 
     ![Ersätt filerna med de senaste uppdateringsfilerna](./media/backup-mabs-release-notes-v3/replace-files.png)
 

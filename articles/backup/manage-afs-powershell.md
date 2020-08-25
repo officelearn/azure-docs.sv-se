@@ -3,19 +3,19 @@ title: Hantera säkerhets kopior av Azure-filresurser med PowerShell
 description: Lär dig hur du använder PowerShell för att hantera och övervaka Azure-filresurser som har säkerhetskopierats av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 889c9bb3ef087c700bbfc3a68959f2c5924bffda
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bb400c25ca6b1deebaef6af6fe4b322951dfcdcc
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538601"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826760"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>Hantera säkerhets kopior av Azure-filresurser med PowerShell
 
 Den här artikeln beskriver hur du använder Azure PowerShell för att hantera och övervaka Azure-filresurser som säkerhets kopie ras av Azure Backups tjänsten.
 
 > [!WARNING]
-> Kontrol lera att PS-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice-backup-item-identification) disponera kravet på den här ändringen.
+> Kontrol lera att PowerShell-versionen har uppgraderats till den lägsta versionen för "AZ. RecoveryServices 2.6.0" för AFS-säkerhetskopieringar. Mer information finns i [avsnittet](backup-azure-afs-automation.md#important-notice-backup-item-identification) disponera kravet på den här ändringen.
 
 ## <a name="modify-the-protection-policy"></a>Ändra skydds principen
 

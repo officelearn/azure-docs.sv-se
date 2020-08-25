@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: b1baeaa31eddc13a68f2cc1d374b850f1c1a26bd
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 2ff8d962479188ddf324dc5ff75d22eac4fed3d6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136345"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826777"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -50,7 +50,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Kanada                              | CA        | CAD          |
 | Caymanöarna                      | KY        | USD          |
 | Chile                               | CL        | USD          |
-| Porslin\**                            | CN        | Ej tillämpligt          |
+| Porslin\**                            | CN        | Saknas          |
 | Colombia                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d'Ivoire                       | CI        | USD          |
@@ -166,18 +166,25 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-\*För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.
+\* För kunder i Brasilien använder Marketplace via Cloud solution providers (CSP) USD.
 
 \** Endast kostnads fria och BYOL VM-avbildningar.
 
 ## <a name="how-we-convert-currency"></a>Så här konverterar vi valuta
 
-För alla avgiftsbelagda erbjudande typer har ISV möjlighet att ange priser i USD eller ladda upp priser i lokal valuta. Priserna som anges i USD konverteras automatiskt till lokal valuta när sidan sparas. Priserna Partner Center använder uppdateras dagligen. ISV: er kan exportera priserna och granska de konverterade motsvarigheterna.
+För alla avgiftsbelagda erbjudande typer har du möjlighet att ange priser i USD eller ladda upp priser i lokal valuta. Priserna som anges i USD konverteras automatiskt till lokal valuta när sidan sparas. Priserna Partner Center använder uppdateras dagligen. Du kan exportera priserna och granska de konverterade motsvarigheterna.
 
 För att justera ett pris innan du publicerar, exportera bara pris kalkyl bladet, ändra det och ladda upp det med ändringar.
 
 > [!NOTE]
 > När du har publicerat ett pris för en marknad i planen kan du inte ändra det senare. För att se till att priserna är rätt innan du publicerar dem, exportera pris kalkyl bladet och granska priserna på varje marknad.
+
+Priset för ett erbjudande visas alltid för kunder i sin lokala valuta. Det pris du väljer i Partner Center konverteras till kundernas lokala valuta enligt växelkursen vid den tidpunkt då du sparade priset i Partner Center. Det pris som visas för kunder i onlinebutiker ändras inte, såvida du inte publicerar erbjudandet igen.
+
+Microsoft tar emot betalningar från kunder i sin lokala valuta och du betalar i din lokala valuta. Microsoft konverterar kundens lokala valuta till din lokala valuta med hjälp av växelkursen för inköps dagen.
+
+> [!NOTE]
+> Microsoft konverterar priset för priser med hjälp av Microsoft stats byte-priset.
 
 ## <a name="retrieving-currency-information-by-api"></a>Hämtar valuta information via API
 
@@ -189,7 +196,7 @@ Mer information om hur du anger pris för vissa erbjudande typer finns i följan
 - [Skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md)
 - [Skapa ett erbjudande för virtuella datorer i Azure](partner-center-portal/azure-vm-create-offer.md)
 - [Skapa ett konsulttjänsterbjudande](partner-center-portal/create-consulting-service-offer.md)
-- [Skapa en Dynamics 365 för kund engagemang & PowerApps-erbjudande](partner-center-portal/create-new-customer-engagement-offer.md)
+- [Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Skapa ett erbjudande för Dynamics 365 for Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Skapa ett IoT Edge-modulerbjudande](partner-center-portal/azure-iot-edge-module-creation.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 32904044cf6dcecf19b1a78eb4236dc02555bb86
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8a50aa02a2ba7187c8221c046fcabb7f4a6473fa
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034205"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826692"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 I den här artikeln beskrivs några mönster som lämpar sig för användning med Table service lösningar. Dessutom får du se hur du praktiskt taget kan åtgärda några av de problem och kompromisser som beskrivs i andra tabell lagrings design artiklar. Följande diagram sammanfattar relationerna mellan olika mönster:  
@@ -263,7 +263,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 ![Avdelnings enhet och entitet för anställd](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
 ### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Ett exempel:  
+I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Exempel:  
 
 ![Avdelnings enhet](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -310,7 +310,7 @@ Observera att **RowKey** nu är en sammansatt nyckel som består av medarbetar-I
 
 I följande exempel beskrivs hur du kan hämta alla gransknings data för en viss medarbetare (till exempel anställda 000123 på försäljnings avdelningen):  
 
-$filter = (PartitionKey EQ ' Sales ') och (RowKey ge ' empid_000123 ') och (RowKey lt ' empid_000124 ') &$select = RowKey, chefs klassificering, peer-klassificering, kommentarer  
+$filter = (PartitionKey EQ ' Sales ') och (RowKey ge ' empid_000123 ') och (RowKey lt ' 000123_2012 ') &$select = RowKey, chefs klassificering, peer-klassificering, kommentarer  
 
 ### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -710,7 +710,7 @@ Undantag som har utlösts när lagrings klient biblioteket kör en EGT inkludera
 Du bör också fundera över hur din design påverkar hur ditt klient program hanterar samtidighets-och uppdaterings åtgärder.  
 
 ### <a name="managing-concurrency"></a>Hantera samtidighet
-Som standard implementerar tabell tjänsten optimistisk concurrency-kontroller på nivån för enskilda entiteter för **insert**-, **merge**-och **Delete** -åtgärder, även om det är möjligt för en klient att tvinga tabell tjänsten att kringgå kontrollerna. Mer information om hur tabell tjänsten hanterar samtidighet finns i [Hantera samtidighet i Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Som standard implementerar tabell tjänsten optimistisk concurrency-kontroller på nivån för enskilda entiteter för **insert**-, **merge**-och **Delete** -åtgärder, även om det är möjligt för en klient att tvinga tabell tjänsten att kringgå kontrollerna. Mer information om hur tabell tjänsten hanterar samtidighet finns i  [Hantera samtidighet i Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Sammanfoga eller Ersätt
 **Ersättnings** metoden i **TableOperation** -klassen ersätter alltid den fullständiga entiteten i Table service. Om du inte tar med en egenskap i begäran när egenskapen finns i den lagrade entiteten tar begäran bort egenskapen från den lagrade entiteten. Om du inte vill ta bort en egenskap uttryckligen från en lagrad entitet måste du inkludera varje egenskap i begäran.  

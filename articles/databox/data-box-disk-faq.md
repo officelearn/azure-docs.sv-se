@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 3d4b51445e0859fe90a81eecb95625d41009b6eb
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: f2231b74034ba6cea672a7bbf68f506fce423d45
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649422"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826148"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: vanliga frågor och svar
 
@@ -56,13 +56,13 @@ A.  Om du vill se var Data Box-enhet diskarna är tillgängliga går du till [re
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
 A. Data Box Disk stöds för alla regioner i USA, Kanada, Australien, Västeuropa och Nord Europa, Korea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
-### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>F. Kommer mitt Data Box Disk mellan land/region-kantlinjer under leverans?
-A. Data Box Disk levereras inifrån samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU) där diskar kan levereras till och från valfritt EU-land/-region.
+### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>F. I vilka regioner kan jag lagra data med Data Box-diskar?
+A. Data Box Disk stöds för alla regioner i USA, Kanada, Australien, Västeuropa och Nord Europa, Korea och Japan. Endast regionerna med offentligt Azure-moln stöds. Azure Government och andra begränsade moln stöds inte.
 
-### <a name="q-how-can-i-import-my-on-premises-source-data-in-one-countryregion-to-an-azure-region-in-a-different-countryregion"></a>F. Hur kan jag importera mina lokala källdata i ett land/en region till en Azure-region i ett annat land/en annan region?
-A. Data Box Disk har endast stöd för data inmatning inom samma region (handels gränser). I alla andra fall kan du behöva vidta ytterligare åtgärder. 
+### <a name="q-how-can-i-import-source-data-present-at-my-location-in-one-countryregion-to-an-azure-region-in-a-different-country"></a>F. Hur kan jag importera källdata som finns på min plats i ett land/region till en Azure-region i ett annat land?
+A. Data Box Disk har endast stöd för data inmatning inom samma land/region som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där Data Box-enhet diskar kan levereras till och från valfritt EU-land/-region.
 
-Om du t. ex. hade lokala data i Kanada som du ville flytta till ett lagrings konto med Azure väst, kan du uppnå det på följande sätt:
+Om du till exempel vill flytta data på din plats i Kanada till ett lagrings konto med Azure väst, kan du uppnå det på följande sätt:
 
 ### <a name="option-1"></a>Alternativ 1: 
 

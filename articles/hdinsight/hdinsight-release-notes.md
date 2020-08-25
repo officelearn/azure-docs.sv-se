@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
-ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/25/2020
+ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751469"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826828"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -75,4 +75,4 @@ Ingen komponent versions ändring för den här versionen. Du hittar de aktuella
 
 ## <a name="known-issues"></a>Kända problem
 
-När du försöker skapa ett Azure HDInsight-kluster från Azure Portal och använder en SSH-autentiseringstyp av en offentlig nyckel, uppstår ett fel när användaren klickar på **Granska + skapa**. Felet i portalen är "får inte innehålla tre tecken i följd från SSH-användarnamn." Det här problemet behandlas. men om du upplever det här felet, skapar lösningen ett kluster med en ARM-mall. 
+Ett problem har åtgärd ATS i Azure-portalen, där användarna råkade ut för ett fel när de skapade ett Azure HDInsight-kluster med hjälp av en SSH-autentiseringstyp med en offentlig nyckel. När användare klickar på **Granska + skapa**, får de fel meddelandet "får inte innehålla tre tecken i följd från SSH-användarnamnet". Det här problemet har åtgärd ATS, men det kan krävas att du uppdaterar webbläsarens cacheminne genom att trycka på CTRL + F5 för att läsa in den korrigerade vyn. Lösningen på det här problemet var att skapa ett kluster med en ARM-mall. 

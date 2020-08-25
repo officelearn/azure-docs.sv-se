@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: eef30808dddfb20d01fcb6e25a88b9a64e4445d8
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763549"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826370"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -210,7 +210,7 @@ Eftersom återställnings jobbet är en tids krävande åtgärd bör det spåras
 
 ### <a name="restore-disks"></a>Återställa diskar
 
-Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services-valvet och ska inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("vmconfig.jspå") kommer att lagras i det aktuella lagrings kontot. Som förklaras [ovan](#restore-operations)anges relevant begär ande text för återställnings diskar nedan.
+Om du behöver anpassa skapandet av en virtuell dator från säkerhets kopierings data kan du bara återställa diskarna till ett valt lagrings konto och skapa en virtuell dator från dessa diskar enligt deras krav. Lagrings kontot ska finnas i samma region som Recovery Services valvet och bör inte vara zoner-redundant. Både diskarna och konfigurationen av den säkerhetskopierade virtuella datorn ("vmconfig.jspå") lagras i det aktuella lagrings kontot. Som förklaras [ovan](#restore-operations)anges relevant begär ande text för återställnings diskar nedan.
 
 #### <a name="create-request-body"></a>Skapa brödtext för begäran
 

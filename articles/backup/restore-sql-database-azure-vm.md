@@ -3,12 +3,12 @@ title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 97cf8a7d7fcae0e31dde14e045b222c5899dbb02
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921154"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826564"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -126,7 +126,7 @@ Om du vill återställa säkerhets kopierings data som. bak-filer i stället fö
     >
     >- Kör `PsExec -s cmd` för att ange i NT instans\system-gränssnittet
     >   - Kör `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verifiera åtkomst med`dir \\<storageacct>.file.core.windows.net\<filesharename>`
+    >   - Verifiera åtkomst med `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Starta en återställning som filer från säkerhets kopierings valvet till `\\<storageacct>.file.core.windows.net\<filesharename>` som sökväg<BR>
     Du kan ladda ned PsExec från [Sysinternals](/sysinternals/downloads/psexec) -sidan.
 
@@ -165,7 +165,7 @@ Om du har valt **fullständig & differentiell** som återställnings typ gör du
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Återställa databaser med ett stort antal filer
 
-Om den totala sträng storleken för filer i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), lagrar Azure Backup listan över databasfiler i en annan depå komponent, så att du inte kan ange sökvägen till mål återställningen under återställnings åtgärden. Filerna kommer att återställas till standard Sök vägen för SQL i stället.
+Om den totala sträng storleken för filer i en databas är större än en [viss gräns](backup-sql-server-azure-troubleshoot.md#size-limit-for-files), Azure Backup lagra listan över databasfiler i en annan depå komponent så att du inte kan ange sökvägen till mål återställningen under återställningen. Filerna kommer att återställas till standard Sök vägen för SQL i stället.
 
   ![Återställ databasen med stor fil](./media/backup-azure-sql-database/restore-large-files.jpg)
 

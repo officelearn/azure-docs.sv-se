@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 0dd0b86a11c7060040f8734c0102252f18d9f114
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: dea07e8a2dd0f70c714c6213408db9264bd30750
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987179"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826964"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Lägg till ett TLS-/SSL-certifikat i Azure App Service
 
@@ -114,14 +114,18 @@ Starta en App Service certifikat ordning på <a href="https://portal.azure.com/#
 
 Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
-| Namn | Ett eget namn på ditt App Service certifikat. |
+| Name | Ett eget namn på ditt App Service certifikat. |
 | Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under `www` domänen. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www` domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com` ).|
 | Prenumeration | Den prenumeration som ska innehålla certifikatet. |
 | Resursgrupp | Den resurs grupp som ska innehålla certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
 | Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikaten hämtas från GoDaddy. |
+
+> [!NOTE]
+> App Service certifikat som har köpts från Azure utfärdas av GoDaddy. För vissa toppnivå domäner måste du uttryckligen tillåta GoDaddy som en certifikat utfärdare genom att skapa en [CAA-domän post](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) med värdet: `0 issue godaddy.com`
+> 
 
 ### <a name="store-in-azure-key-vault"></a>Lagra i Azure Key Vault
 
@@ -135,9 +139,9 @@ Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#
 
 På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Skapa den nya Key Vault inuti samma prenumeration och resurs grupp som din App Service-app.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
-| Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
+| Name | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
 | Plats | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -192,7 +196,7 @@ Välj **TLS/SSL-inställningar**  >  **privat nyckel certifikat (. pfx)**  >  **
 
 Använd följande tabell för att få hjälp att välja certifikatet.
 
-| Inställning | Beskrivning |
+| Inställningen | Beskrivning |
 |-|-|
 | Prenumeration | Den prenumeration som Key Vault tillhör. |
 | Key Vault | Valvet med det certifikat som du vill importera. |

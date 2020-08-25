@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 1105665296c7319c32995d1f83cb25b559abf997
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 2bd3487e58f204ba7ada9320b50d4b87538ae987
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756155"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826573"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Säkerhetskopiera en virtuell dator i Azure med CLI
 
@@ -60,7 +60,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-> Om den virtuella datorn inte finns i samma resursgrupp som valvet så syftar myResourceGroup på den resursgrupp där valvet skapades. Ange den virtuella datorns ID i stället för dess namn, så som anges nedan.
+> Om den virtuella datorn inte finns i samma resurs grupp som valvet refererar myResourceGroup till den resurs grupp där valvet skapades. Ange den virtuella datorns ID i stället för dess namn, så som anges nedan.
 
 ```azurecli-interactive
 az backup protection enable-for-vm \
@@ -71,7 +71,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!IMPORTANT]
-> När du använder CLI för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, måste du se till att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PS-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer men kontrollen har planer ATS för att läggas till i framtiden.
+> När du använder CLI för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, måste du se till att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PowerShell-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer, men kontrollen är planerad att läggas till i framtiden.
 
 ## <a name="start-a-backup-job"></a>Starta ett säkerhetskopieringsjobb
 

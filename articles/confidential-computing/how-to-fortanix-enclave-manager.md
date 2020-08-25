@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b5b0f9acc45dba81bb7653c844bb8c78a8bd29ba
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815852"
+ms.locfileid: "88826301"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Så här gör du: kör ett program med Fortanix enklaven Manager 
 
 Börja köra ditt program i Azures konfidentiella data behandling med [Fortanix enklaven Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) och [Fortanix Node agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) från [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix är en tredjeparts program varu leverantör med produkter och tjänster som bygger på Azure-infrastrukturen. Det finns andra leverantörer av tredje part som erbjuder liknande tjänster för konfidentiell behandling på Azure, till exempel [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) och [Scone](https://sconedocs.github.io).  
+Fortanix är en tredjeparts program varu leverantör med produkter och tjänster som bygger på Azure-infrastrukturen. Det finns andra leverantörer av tredje part som erbjuder liknande tjänster för konfidentiell behandling i Azure.
 
 > [!Note] 
  > DE PRODUKTER SOM REFERERAS I DETTA DOKUMENT ÄR INTE UNDERSTYRDA AV MICROSOFT. MICROSOFT TILLHANDAHÅLLER DEN HÄR INFORMATIONEN ENDAST SOM EN BEKVÄMLIGHET, OCH REFERENSEN TILL DESSA PRODUKTER FRÅN ANDRA TILLVERKARE ÄN MICROSOFT KRÄVER INTE MICROSOFT.
@@ -162,7 +162,7 @@ vilken
 
 När de inte längre behövs kan du ta bort resurs gruppen, den virtuella datorn och de associerade resurserna. Om du tar bort resurs gruppen avregistreras de noder som är kopplade till den konverterade avbildningen. 
 
-Välj resurs gruppen för den virtuella datorn och välj sedan **ta bort**. Bekräfta resurs gruppens namn för att slutföra borttagningen av resurserna. \
+Välj resurs gruppen för den virtuella datorn och välj sedan **ta bort**. Bekräfta resurs gruppens namn för att slutföra borttagningen av resurserna.
 
 Om du vill ta bort det Fortanix enklaven Manager-konto som du har skapat går du till [sidan konton](https://em.fortanix.com/accounts) i enklaven Manager. Hovra över det konto som du vill ta bort. Välj de lodräta svarta punkterna i det övre högra hörnet och välj **ta bort konto**.
 
@@ -174,3 +174,4 @@ I den här snabb starten använde du Fortanix-verktyg för att konvertera progra
 
 Mer information om Azures tjänster för konfidentiell behandling finns i [Översikt över Azure konfidentiell dator användning](overview.md)
 
+ Lär dig hur du utför liknande uppgifter med andra tredjepartsprogram i Azure, t. ex. [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) och [Scone](https://sconedocs.github.io).  

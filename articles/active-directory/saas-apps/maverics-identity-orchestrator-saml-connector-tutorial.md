@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med Maverics Identity Orchestrator SAML Connector | Microsoft Docs'
+title: 'Självstudie: integrera Azure Active Directory enkel inloggning (SSO) med Maverics Identity Orchestrator SAML Connector | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Maverics Identity Orchestrator SAML Connector.
 services: active-directory
 author: jeevansd
@@ -11,67 +11,65 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: ec5368427f50f548be965bb883683c859759bbf3
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 116ee7c8db3070a667c21a052bec739fd397a2dd
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518954"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825570"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maverics-identity-orchestrator-saml-connector"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Maverics Identity Orchestrator SAML Connector
+# <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Självstudie: integrera enkel inloggning med Azure AD med Maverics Identity Orchestrator SAML Connector
 
-## <a name="introduction"></a>Introduktion
+Strata är ett enkelt sätt att integrera lokala program med Azure Active Directory (Azure AD) för autentisering och åtkomst kontroll.
 
-Strata är ett enkelt sätt att integrera lokala program med Azure AD för autentisering och åtkomst kontroll.
-
-Den här guiden hjälper dig att konfigurera Maverics Identity Orchestrator &trade; till:
+Den här artikeln beskriver hur du konfigurerar Maverics Identity Orchestrator för att:
 * Migrera användare stegvis från ett lokalt identitets system till Azure AD under inloggningen till ett äldre lokalt program.
-* Dirigera inloggnings förfrågningar från en äldre webb åtkomst hanterings produkt, till exempel CA SiteMinder eller Oracle Access Manager till Azure AD.
-* Autentisera användare till lokala program som skyddas med HTTP-huvuden eller patentskyddade sessionscookies efter autentisering av användaren mot Azure AD.
+* Dirigera inloggnings förfrågningar från en äldre webb åtkomst hanterings produkt, till exempel CA SiteMinder eller Oracle Access Manager, till Azure AD.
+* Autentisera användare till lokala program som skyddas med hjälp av HTTP-huvuden eller patentskyddade sessionscookies efter autentisering av användaren mot Azure AD.
 
-Strata tillhandahåller program vara som distribuerar lokalt eller i molnet för att upptäcka, ansluta och dirigera mellan identitets leverantörer för att skapa distribuerad identitets hantering för Hybrid-och multicloud-företag.
+Strata tillhandahåller program vara som du kan distribuera lokalt eller i molnet. Det hjälper dig att upptäcka, ansluta och dirigera mellan identitets leverantörer för att skapa distribuerad identitets hantering för Hybrid-och multicloud-företag.
 
-Den här självstudien visar hur du migrerar ett lokalt webb program som skyddas av en äldre webb åtkomst hanterings produkt (CA SiteMinder) för att använda Azure AD för autentisering och åtkomst kontroll.
-1. Installera Maverics Identity Orchestrator&trade;
-2. Registrera ditt företags program med Azure AD och konfigurera det att använda Maverics Azure AD SAML Zero Code Connector &trade; för SAML-baserad SSO.
-3. Integrera Maverics med SiteMinder och LDAP-användarkontot.
-4. Konfigurera Azure Key Vault och konfigurera Maverics så att det används som sin hemliga hanterings leverantör.
-5. Demonstrera användarmigrering och abstraktion av sessioner med hjälp av Maverics för att ge åtkomst till ett lokalt Java-webbprogram.
+Den här självstudien visar hur du migrerar en lokal webbapp som för närvarande skyddas av en äldre webb åtkomst hanterings produkt (CA SiteMinder) för att använda Azure AD för autentisering och åtkomst kontroll. Här är de grundläggande stegen:
+1. Installera Maverics Identity Orchestrator.
+2. Registrera ditt företags program med Azure AD och konfigurera det att använda Maverics Azure AD SAML Zero Code Connector för SAML-baserad enkel inloggning (SSO).
+3. Integrera Maverics med SiteMinder och LDAP-användarkonto (Lightweight Directory Access Protocol).
+4. Konfigurera ett Azure Key Vault och konfigurera Maverics så att det används som sin hemliga hanterings leverantör.
+5. Demonstrera användarmigrering och abstraktion av sessioner genom att använda Maverics för att ge åtkomst till ett lokalt Java-webbprogram.
 
-Mer information om installation och konfiguration finns på https://strata.io/docs
+Ytterligare installations-och konfigurations anvisningar finns på [Strata-webbplatsen](https://strata.io/docs).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-- Maverics Identity Orchestrator SAML Connector enkel inloggning (SSO) aktive rad prenumeration. För att få Maverics-programvaran kontaktar du sales@strata.io
+- En Maverics Identity Orchestrator SAML Connector SSO-aktiverad prenumeration. Kontakta [Strata Sales](mailto:sales@strata.io)om du vill hämta Maverics-programvaran.
 
-## <a name="install-maverics-identity-orchestratortrade"></a>Installera Maverics Identity Orchestrator&trade;
+## <a name="install-maverics-identity-orchestrator"></a>Installera Maverics Identity Orchestrator
 
-För att komma igång med installationen av Maverics-identiteten kan du läsa installationsinstruktioner på https://strata.io/docs
+Information om hur du kommer igång med installationen av Maverics-identiteten finns i [installations anvisningarna](https://strata.io/docs).
 
-## <a name="system-requirements"></a>Systemkrav
-### <a name="supported-operating-systems"></a>Operativsystem som stöds
-* RHEL 7+
-* CentOS 7+
+### <a name="system-requirements"></a>Systemkrav
+* Operativsystem som stöds
+  * RHEL 7+
+  * CentOS 7+
 
-### <a name="dependencies"></a>Beroenden
-* system
+* Beroenden
+  * system
 
-## <a name="installation"></a>Installation
+### <a name="installation"></a>Installation
 
-1. Hämta det senaste Maverics RPM-paketet. Kopiera paketet till systemet där du vill installera Maverics-programvaran.
+1. Hämta det senaste Maverics-paketet för Redhat Package Manager (RPM). Kopiera paketet till systemet där du vill installera Maverics-programvaran.
 
-2. Installera Maverics-paketet och ersätt ditt fil namn i stället för `maverics.rpm` .
+2. Installera Maverics-paketet och ersätt fil namnet i stället för `maverics.rpm` .
 
     `sudo rpm -Uvf maverics.rpm`
 
-3. När du har installerat Maverics kommer den att köras som en tjänst under `systemd` . Kör följande kommando för att kontrol lera att tjänsten körs.
+3. När du har installerat Maverics kommer den att köras som en tjänst under `systemd` . Verifiera att tjänsten körs genom att köra följande kommando:
 
     `sudo systemctl status maverics`
 
-Som standard installeras Maverics i `/usr/local/bin` katalogen.
+Som standard installeras Maverics i katalogen */usr/local/bin* .
 
-När du har installerat Maverics `maverics.yaml` skapas standard filen i `/etc/maverics` katalogen. Innan du redigerar konfigurationen för att inkludera `workflows` och `connectors` , kommer konfigurations filen att se ut så här:
+När du har installerat Maverics skapas standard filen *Maverics. yaml* i */etc/maverics* -katalogen. Innan du redigerar konfigurationen för att inkludera `workflows` och `connectors` , kommer konfigurations filen att se ut så här:
 
 ```yaml
 # © Strata Identity Inc. 2020. All Rights Reserved. Patents Pending.
@@ -79,24 +77,24 @@ När du har installerat Maverics `maverics.yaml` skapas standard filen i `/etc/m
 version: 0.1
 listenAddress: ":7474"
 ```
-## <a name="config-options"></a>Konfigurations alternativ
+## <a name="configuration-options"></a>Konfigurationsalternativ
 ### <a name="version"></a>Version
-`version`Fältet deklarerar vilken version av konfigurations filen som används. Om inget anges används den senaste konfigurations versionen.
+`version`Fältet deklarerar vilken version av konfigurations filen som används. Om versionen inte anges används den senaste konfigurations versionen.
 
 ```yaml
 version: 0.1
 ```
-### <a name="listen-address"></a>Lyssna på adress
-`listenAddress` deklarerar vilken adress som Orchestrator lyssnar på. Om värd avsnittet i adressen är tomt, kommer Orchestrator att lyssna på alla tillgängliga unicast-och anycast-IP-adresser för det lokala systemet. Om Port avsnittet i adressen är tomt väljs ett port nummer automatiskt.
+### <a name="listenaddress"></a>listenAddress
+`listenAddress` deklarerar vilken adress Orchestrator lyssnar på. Om värd avsnittet i adressen är tomt, kommer Orchestrator att lyssna på alla tillgängliga unicast-och anycast-IP-adresser för det lokala systemet. Om Port avsnittet i adressen är tomt väljs ett port nummer automatiskt.
 
 ```yaml
 listenAddress: ":453"
 ```
 ### <a name="tls"></a>TLS
 
-`tls`Fältet deklarerar en karta över säkerhets objekt i transport skiktet. TLS-objekten kan användas av anslutningar och Orchestrator-servern. Information om alla tillgängliga TLS-alternativ finns i `transport` paket dokumentationen.
+`tls`Fältet deklarerar en karta över Transport Layer Security-objekt (TLS). TLS-objekten kan användas av anslutningar och Orchestrator-servern. Information om alla tillgängliga TLS-alternativ finns i `transport` paket dokumentationen.
 
-Microsoft Azure kräver kommunikation via TLS när du använder SAML-baserad SSO, hittar du mer information [här](https://letsencrypt.org/getting-started/) för att generera dina certifikat.
+Microsoft Azure kräver kommunikation via TLS när du använder SAML-baserad SSO. Information om hur du skapar certifikat finns på webbplatsen för att [kryptera](https://letsencrypt.org/getting-started/).
 
 `maverics`Nyckeln är reserverad för Orchestrator-servern. Alla andra nycklar är tillgängliga och kan användas för att mata in ett TLS-objekt i en specifik anslutning.
 
@@ -106,9 +104,10 @@ tls:
     certFile: /etc/maverics/maverics.cert
     keyFile: /etc/maverics/maverics.key
 ```  
-### <a name="include-files"></a>Ta med filer
+### <a name="include-files"></a>Inkludera filer
 
-`connectors` och `workflows` kan definieras i egna, separata konfigurationsfiler och refereras till med hjälp av `maverics.yaml` `includeFiles` följande exempel.
+Du kan definiera `connectors` och `workflows` i sina egna, separata konfigurationsfiler och referera till dem i filen *maverics. yaml* med hjälp av `includeFiles` , enligt följande exempel:
+
 ```yaml
 includeFiles:
   - workflow/sessionAbstraction.yaml
@@ -116,14 +115,15 @@ includeFiles:
   - connector/siteminder.yaml
   ```
 
-I den här självstudien används en enda `maverics.yaml` konfigurations fil.
+I den här självstudien används en enda konfigurations fil för *maverics. yaml* .
 
-## <a name="using-azure-key-vault-as-your-secrets-provider"></a>Använda Azure Key Vault som din hemligheter-Provider
+## <a name="use-azure-key-vault-as-your-secrets-provider"></a>Använd Azure Key Vault som din hemligheter-Provider
 
-### <a name="secret-management"></a>Hemlig hantering
+### <a name="manage-secrets"></a>Hantera hemligheter
 
-Maverics kan integreras med olika hemliga hanterings lösningar för att läsa in hemligheter. De aktuella integreringarna innehåller en fil, Hashicorp-valv och Azure Key Vault. Om ingen lösning för hemlig hantering har angetts kommer Maverics att läsa in hemligheter i klartext från `maverics.yaml` .
-Om du vill deklarera ett värde som en hemlighet i en `maverics.yaml` konfigurations fil, radbryter du hemligheten med vinkelparenteser:
+För att läsa in hemligheter kan Maverics integreras med olika hemliga hanterings lösningar. De aktuella integreringarna inkluderar en fil, Hashicorp-valv och Azure Key Vault. Om ingen lösning för hemlig hantering anges, Maverics standardinställningarna att läsa in hemligheter i klartext från filen *Maverics. yaml* .
+
+Om du vill deklarera ett värde som en hemlighet i en *maverics. yaml* -konfigurationsfil, omger du hemligheten med vinkelparenteser:
 
   ```yaml
   connectors:
@@ -134,111 +134,125 @@ Om du vill deklarera ett värde som en hemlighet i en `maverics.yaml` konfigurat
     oauthClientSecret: <AzureADOAuthClientSecret>
   ```
 
-### <a name="file"></a>Fil
+### <a name="load-secrets-from-a-file"></a>Läsa in hemligheter från en fil
 
-Om du vill läsa in hemligheter från en fil lägger du till miljövariabeln `MAVERICS_SECRET_PROVIDER` i filen  `/etc/maverics/maverics.env` med:
+1. Om du vill läsa in hemligheter från en fil lägger du till miljövariabeln `MAVERICS_SECRET_PROVIDER` i */etc/maverics/maverics.env* -filen genom att använda:
 
-`MAVERICS_SECRET_PROVIDER=secretfile:///<PATH TO SECRETS FILE>`
+   `MAVERICS_SECRET_PROVIDER=secretfile:///<PATH TO SECRETS FILE>`
 
-Starta sedan om maverics-tjänsten: `sudo systemctl restart maverics`
+2. Starta om Maverics-tjänsten genom att köra:
 
-`secrets.yaml`Fil innehållet kan fyllas i med valfritt antal `secrets` .
+   `sudo systemctl restart maverics`
+
+Innehållet i filen *hemligheter. yaml* kan fyllas i med valfritt antal `secrets` .
+
 ```yaml
 secrets:
   AzureADAPIToken: aReallyGoodToken
   AzureADOAuthClientID: aReallyUniqueID
   AzureADOAuthClientSecret: aReallyGoodSecret
 ```
-### <a name="azure-key-vault"></a>Azure Key Vault
+### <a name="set-up-an-azure-key-vault"></a>Konfigurera ett Azure Key Vault
 
-Följande steg visar hur du konfigurerar en Azure Key Vault med hjälp av [Azure Portal](https://portal.azure.com) eller med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest):
+Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller Azure CLI.
 
-1. [Logga in](https://portal.azure.com) med Azure Portal eller med CLI-kommandot:
+**Använda Azure-portalen**
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. [Skapa ett nytt nyckel valv](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
+1. [Lägg till hemligheterna i nyckel valvet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [Registrera ett program med Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
+1. [Auktorisera ett program för att använda en hemlighet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+
+**Använda Azure CLI**
+
+1. Öppna [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)och ange följande kommando:
+
     ```shell
     az login
     ```
 
-2. [Skapa ett nytt valv](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault)eller Använd CLI-kommandot:
+1. Skapa ett nytt nyckel valv genom att köra följande kommando:
     ```shell
     az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
     ```
 
-3. [Lägg till hemligheterna i Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)eller med ett CLI-kommando:
+1. Lägg till hemligheterna i nyckel valvet genom att köra följande kommando:
     ```shell
     az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
     ```
 
-4. [Registrera ett program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)eller med ett CLI-kommando:
+1. Registrera ett program med Azure AD genom att köra följande kommando:
     ```shell
     az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
     ```
 
-5. [Auktorisera ett program för att använda en hemlighet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault)eller med ett CLI-kommando:
+1. Ge ett program behörighet att använda en hemlighet genom att köra följande kommando:
     ```shell
     az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
     #APPID can be found in the azure-credentials.json
     generated in the previous step
     ```
 
-Om du vill läsa in hemligheter från Azure-valv ställer du in miljövariabeln `MAVERICS_SECRET_PROVIDER` i filen `/etc/maverics/maverics.env` med autentiseringsuppgifterna som finns i azure-credentials.jspå filen med följande mönster: `MAVERICS_SECRET_PROVIDER='azurekeyvault://<KEYVAULT NAME>.vault.azure.net?clientID=<APPID>&clientSecret=<PASSWORD>&tenantID=<TENANT>'`
+1. Om du vill läsa in hemligheter från ditt Azure Key Vault ställer du in miljövariabeln `MAVERICS_SECRET_PROVIDER` i */etc/maverics/maverics.env* -filen med hjälp av autentiseringsuppgifterna som finns i *azure-credentials.jspå* filen i följande format:
+ 
+   `MAVERICS_SECRET_PROVIDER='azurekeyvault://<KEYVAULT NAME>.vault.azure.net?clientID=<APPID>&clientSecret=<PASSWORD>&tenantID=<TENANT>'`
 
-Starta sedan om maverics-tjänsten: `sudo systemctl restart maverics`
+1. Starta om Maverics-tjänsten: `sudo systemctl restart maverics`
 
 ## <a name="configure-your-application-in-azure-ad-for-saml-based-sso"></a>Konfigurera ditt program i Azure AD för SAML-baserad SSO
 
-1. I Azure Active Directory klient navigerar du till `Enterprise applications` , söker efter `Maverics Identity Orchestrator SAML Connector` och väljer den.
+1. Gå till **företags program**i Azure AD-klienten, Sök efter **MAVERICS Identity Orchestrator SAML Connector**och markera den.
 
-2. På Maverics Identity Orchestrator SAML Connector | Sidan Egenskaper, Ställ in `User assignment required?` på Nej om du vill att programmet ska fungera för nyligen migrerade användare.
+1. I fönstret **Egenskaper** för Maverics Identity Orchestrator SAML Connector anger du **användar tilldelning krävs?** till **Nej** om du vill att programmet ska fungera för nyligen migrerade användare.
 
-3. På Maverics Identity Orchestrator SAML Connector | Översikts sida väljer `Setup single sign-on` du och väljer `SAML` .
+1. I **översikts** fönstret Maverics Identity Orchestrator SAML Connector väljer du **Konfigurera enkel inloggning**och väljer sedan **SAML**.
 
-4. På Maverics Identity Orchestrator SAML Connector | SAML-baserad inloggning, redigera den grundläggande SAML-konfigurationen.
+1. Redigera den **grundläggande SAML-konfigurationen** genom att välja knappen **Redigera** (Penn ikonen) i fönstret Maverics Identity Orchestrator SAML **-baserad inloggning** .
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Skärm bild av redigerings knappen "grundläggande SAML-konfiguration".](common/edit-urls.png)
 
-5. Ange `Entity ID` en URL för inmatning med följande mönster: `https://<SUBDOMAIN>.maverics.org` . `Entity ID`Måste vara unik i alla appar i klienten. Spara värdet som anges här för att inkluderas i konfigurationen av Maverics.
+1. Ange **entitets-ID: t** genom att skriva in en URL i följande format: `https://<SUBDOMAIN>.maverics.org` . Entitets-ID: t måste vara unikt i alla appar i klienten. Spara värdet som anges här för att inkluderas i konfigurationen av Maverics.
 
-6. Ange svars-URL med följande mönster: `https://<AZURECOMPANY.COM>/<MY_APP>/` . 
+1. Ange **svars-URL** i följande format: `https://<AZURECOMPANY.COM>/<MY_APP>/` . 
 
-7. Ange inloggnings-URL med följande mönster: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` och klicka på Spara.
+1. Ange **inloggnings-URL** i följande format: `https://<AZURE-COMPANY.COM>/<MY_APP>/<LOGIN PAGE>` . 
 
-8. Gå till avsnittet SAML-signeringscertifikat och klicka på knappen Kopiera för att kopiera URL: en för appens Federations-metadata och spara den på din dator.
+1. Välj **Spara**.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+1. I avsnittet **SAML-signeringscertifikat** väljer du **kopierings** knappen för att kopiera **URL: en för appens federationens metadata**och sparar den sedan på din dator.
 
-## <a name="maverics-identity-orchestrator-azure-ad-saml-connector-configuration"></a>Konfiguration av Maverics Identity Orchestrator Azure AD SAML Connector
+    ![Skärm bild av kopierings knappen "SAML signerings certifikat".](common/copy-metadataurl.png)
 
-Maverics Identity Orchestrator Azure AD Connector stöder: 
-- OpenID Connect
-- SAML Connect 
+## <a name="configure-maverics-identity-orchestrator-azure-ad-saml-connector"></a>Konfigurera Maverics Identity Orchestrator Azure AD SAML Connector
+
+Maverics Identity Orchestrator Azure AD Connector stöder OpenID Connect och SAML Connect. Gör så här för att konfigurera anslutningen: 
 
 1. Ange om du vill aktivera SAML-baserad SSO `authType: saml` .
 
-1. Skapa värdet för `samlMetadataURL` : `samlMetadataURL:https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
+1. Skapa värdet `samlMetadataURL` i följande format: `samlMetadataURL:https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>` .
 
-1. Definiera nu den URL som Azure omdirigerar tillbaka till i din app när de har loggat in med sina Azure-autentiseringsuppgifter.
-`samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>`
+1. Definiera den URL som Azure ska omdirigeras tillbaka till i din app när användare har loggat in med sina Azure-autentiseringsuppgifter. Använd följande format: `samlRedirectURL: https://<AZURECOMPANY.COM>/<MY_APP>` .
 
-1. Kopiera värdet från EntityID som kon figurer ATS ovan: `samlEntityID: https://<SUBDOMAIN>.maverics.org`
+1. Kopiera värdet från den tidigare konfigurerade EntityID: `samlEntityID: https://<SUBDOMAIN>.maverics.org` .
 
-1. Kopiera värdet från svars-URL: en som Azure AD ska använda för att publicera SAML-svaret.
-`samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>`
+1. Kopiera värdet från svars-URL: en som Azure AD ska använda för att publicera SAML-svaret: `samlConsumerServiceURL: https://<AZURE-COMPANY.COM>/<MY_APP>` .
 
-1. Generera en JWT-signeringscertifikat som används för att skydda Maverics-information om identitetens Orchestrator &trade; -session med hjälp av [openssl-verktyget](https://www.openssl.org/source/):
+1. Generera en JSON Web Token-signerad (JWT)-signerings nyckel som används för att skydda Maverics med [openssl-verktyget](https://www.openssl.org/source/):
 
     ```shell 
     openssl rand 64 | base64
     ```
-1. Kopiera svaret till `jwtSigningKey` konfigurations egenskapen: `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==`
+1. Kopiera svaret till `jwtSigningKey` konfigurations egenskapen: `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==` .
 
 ## <a name="attributes-and-attribute-mapping"></a>Attribut och attributmappning
-Attributmappning används för att definiera mappningen av användarattribut från en lokal käll användar katalog till Azure AD när användare är etablerade.
+Mappning av attribut används för att definiera mappningen av användarattribut från en lokal användar katalog till en Azure AD-klient när användaren har kon figurer ATS.
 
-Attribut avgör vilka användar data som kan returneras till ett program i ett anspråk, skickas till sessionscookies eller skickas till programmet i http-huvudvariabler.
+Attribut avgör vilka användar data som kan returneras till ett program i ett anspråk, skickas till sessionscookies eller skickas till programmet i HTTP-huvudvariabler.
 
-## <a name="configure-maverics-identity-orchestrator-azure-ad-saml-connector-yaml"></a>Konfigurera Maverics Identity Orchestrator Azure AD SAML Connector yaml
+## <a name="configure-the-maverics-identity-orchestrator-azure-ad-saml-connector-yaml-file"></a>Konfigurera YAML-filen för Maverics Identity Orchestrator Azure AD SAML Connector
 
 Din Maverics Identity Orchestrator Azure AD Connector-konfiguration kommer att se ut så här:
+
 ```yaml
 - name: AzureAD
   type: azure
@@ -257,28 +271,32 @@ Din Maverics Identity Orchestrator Azure AD Connector-konfiguration kommer att s
     password: password
 ```
 
-## <a name="migrate-users-to-azure-ad"></a>Migrera användare till Azure AD
+## <a name="migrate-users-to-an-azure-ad-tenant"></a>Migrera användare till en Azure AD-klient
 
-Följ den här konfigurationen för att stegvis migrera användare från en webb åtkomst hanterings produkt, till exempel CA SiteMinder, Oracle Access Manager eller IBM Tivoli; en LDAP-katalog; eller en SQL-databas.
+Följ den här konfigurationen för att stegvis migrera användare från en webb åtkomst hanterings produkt, till exempel CA SiteMinder, Oracle Access Manager eller IBM Tivoli. Du kan också migrera dem från en LDAP-katalog (Lightweight Directory Access Protocol) eller en SQL-databas.
 
-## <a name="configure-your-application-permissions-in-azure-ad-to-create-users"></a>Konfigurera dina program behörigheter i Azure AD för att skapa användare
+### <a name="configure-your-application-permissions-in-azure-ad-to-create-users"></a>Konfigurera dina program behörigheter i Azure AD för att skapa användare
 
-1. I Azure Active Directory klient navigerar du till `App registrations` och väljer programmet "Maverics Identity Orchestrator SAML Connector".
+1. I Azure AD-klienten går du till `App registrations` och väljer **Maverics Identity Orchestrator SAML Connector** Application.
 
-2. På Maverics Identity Orchestrator SAML Connector | Certifikat & hemligheter väljer du `New client secret` och väljer sedan alternativet förfallo datum. Klicka på knappen Kopiera för att kopiera hemligheten och spara den på din dator.
+1. På **Maverics Identity Orchestrator SAML Connector | Fönstret certifikat & hemligheter** väljer du `New client secret` och väljer sedan alternativet förfallo datum. Välj **kopierings** knappen för att kopiera hemligheten och spara den på din dator.
 
-3. På Maverics Identity Orchestrator SAML Connector | API-behörigheter väljer du `Add permission` och sedan på begär API-behörigheter väljer `Microsoft Graph` och sedan `Application permissions` . Välj på nästa skärm `User.ReadWrite.All` och välj sedan `Add permissions` . Detta leder dig tillbaka till API-behörigheter, där du väljer `Grant admin consent` .
+1. På **Maverics Identity Orchestrator SAML Connector | Rutan API-behörigheter** väljer du **Lägg till behörighet** och i rutan **begär API-behörigheter** väljer du **Microsoft Graph** -och **program behörigheter**. 
 
+1. Välj **User. readwrite. all**på nästa skärm och välj sedan **Lägg till behörigheter**. 
 
-## <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-for-user-migration"></a>Konfigurera Maverics Identity Orchestrator SAML Connector yaml för användarmigrering
+1. Gå tillbaka till rutan **API-behörigheter** och välj **bevilja administratörs medgivande**.
+
+### <a name="configure-the-maverics-identity-orchestrator-saml-connector-yaml-file-for-user-migration"></a>Konfigurera YAML-filen för Maverics Identity Orchestrator SAML Connector för användarmigrering
 
 Om du vill aktivera arbets flödet för användarmigrering lägger du till följande ytterligare egenskaper i konfigurations filen:
-1. Ange URL: en för Azure Graph: `graphURL: https://graph.microsoft.com`
-1. Ange URL för OAuth-token enligt mönstret: `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>`
-1. Ange klient hemligheten som genereras ovan: `oauthClientSecret: <CLIENT SECRET>`
+1. Ange **URL: en för Azure Graph** i följande format: `graphURL: https://graph.microsoft.com` .
+1. Ange **URL för OAuth-token** i följande format: `oauthTokenURL: https://login.microsoftonline.com/<TENANT ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<APP ID>` .
+1. Ange tidigare genererad klient hemlighet i följande format: `oauthClientSecret: <CLIENT SECRET>` .
 
 
-Din slutgiltiga Maverics Identity Orchestrator Azure AD Connector-konfiguration ser ut så här:
+Din slutgiltiga Maverics Identity Orchestrator Azure AD Connector-konfigurations fil ser ut så här:
+
 ```yaml
 - name: AzureAD
   type: azure
@@ -301,21 +319,22 @@ Din slutgiltiga Maverics Identity Orchestrator Azure AD Connector-konfiguration 
     password: password
 ```
 
-## <a name="configure-the-maverics-zero-code-connectortrade-for-siteminder"></a>Konfigurera Maverics Zero Code Connector &trade; för SiteMinder
+### <a name="configure-maverics-zero-code-connector-for-siteminder"></a>Konfigurera Maverics Zero Code Connector för SiteMinder
 
-SiteMinder-anslutningen används för att migrera användare till Azure AD och för att logga in användare på äldre program som skyddas av SiteMinder med hjälp av de nyligen skapade Azure AD-identiteterna och autentiseringsuppgifterna.
+Du kan använda SiteMinder-anslutningen för att migrera användare till en Azure AD-klient. Du loggar användarna i äldre lokala program som skyddas av SiteMinder med hjälp av de nyligen skapade Azure AD-identiteterna och autentiseringsuppgifterna.
 
-I den här självstudien har SiteMinder kon figurer ATS för att skydda det äldre programmet med formulärbaserad autentisering och med hjälp av `SMSESSION` cookien. Om du vill integrera med en app som använder autentisering och session via HTTP-huvuden måste du lägga till huvudemulerings konfigurationen i anslutningen.
+I den här självstudien har SiteMinder kon figurer ATS för att skydda det äldre programmet med formulärbaserad autentisering och `SMSESSION` cookien. Om du vill integrera med en app som använder autentiserings-och sessionsinformation via HTTP-huvuden måste du lägga till huvudemulerings konfigurationen för anslutningen.
 
 Det här exemplet mappar `username` attributet till `SM_USER` http-huvudet:
+
 ```yaml
   headers:
     SM_USER: username
 ```
 
-Ange `proxyPass` till den plats som begär proxy till. Detta är vanligt vis värden för det skyddade programmet.
+Ange `proxyPass` till den plats som begär proxy till. Den här platsen är vanligt vis värd för det skyddade programmet.
 
-`loginPage` ska matcha URL: en för det inloggnings formulär som för närvarande används av SiteMinder när användare omdirigeras för autentisering.
+`loginPage` ska matcha URL: en för det inloggnings formulär som för närvarande används av SiteMinder när den omdirigerar användare för autentisering.
 
 ```yaml
 connectors:
@@ -326,21 +345,21 @@ connectors:
   proxyPass: http://host.company.com
 ```
 
-## <a name="configure-the-maverics-zero-code-connectortrade-for-ldap"></a>Konfigurera Maverics Zero Code Connector &trade; för LDAP
+### <a name="configure-maverics-zero-code-connector-for-ldap"></a>Konfigurera Maverics Zero Code Connector för LDAP
 
-När program skyddas av en WAM-produkt som SiteMinder lagras användar identiteter och attribut vanligt vis i en LDAP-katalog.
+När program skyddas av en webb åtkomst hanterings produkt (WAM) som SiteMinder, lagras användar identiteter och attribut vanligt vis i en LDAP-katalog.
 
-Den här anslutnings konfigurationen visar hur du ansluter till LDAP-katalogen som har kon figurer ATS som användar Arkiv för SiteMinder så att rätt användar profil information kan samlas in under migreringen av arbets flödet och en motsvarande användare kan skapas i Azure AD.
+Den här anslutnings konfigurationen visar hur du ansluter till LDAP-katalogen. Anslutningen är konfigurerad som användar Arkiv för SiteMinder så att rätt användar profil information kan samlas in under migreringen av arbets flödet och en motsvarande användare kan skapas i Azure AD.
 
 * `baseDN` anger platsen i katalogen som LDAP-sökningen ska utföras mot.
 
 * `url` är adressen och porten för den LDAP-server som du vill ansluta till.
 
-* `serviceAccountUsername` är det användar namn som används för att ansluta till LDAP-servern, vanligt vis uttryckt som ett DN-DN, till exempel `CN=Directory Manager` .
+* `serviceAccountUsername` är det användar namn som används för att ansluta till LDAP-servern, vanligt vis uttrycks som ett unikt namn för bindning (till exempel `CN=Directory Manager` ).
 
-* `serviceAccountPassword` lösen ordet som används för att ansluta till LDAP-servern. Det här värdet lagras i Azure Key Vault-instansen som kon figurer ATS tidigare.  
+* `serviceAccountPassword` är det lösen ord som används för att ansluta till LDAP-servern. Det här värdet lagras i den tidigare konfigurerade Azure Key Vault-instansen.  
 
-* `userAttributes` definierar listan över användare relaterade attribut att fråga efter. Dessa attribut mappas senare till motsvarande Azure AD-attribut.
+* `userAttributes` definierar listan över användarspecifika attribut att fråga efter. Dessa attribut mappas senare till motsvarande Azure AD-attribut.
 
 ```yaml
 - name: company-ldap
@@ -358,22 +377,26 @@ Den här anslutnings konfigurationen visar hur du ansluter till LDAP-katalogen s
     - mobile
 ```
 
-## <a name="configure-the-migration-workflow"></a>Konfigurera arbets flödet för migrering
+### <a name="configure-the-migration-workflow"></a>Konfigurera arbets flödet för migrering
 
-Arbets flödes konfigurationen för migrering avgör hur Maverics kommer att migrera användare från SiteMinder/LDAP till Azure AD.
+Arbets flödes konfigurationen för migrering avgör hur Maverics migrerar användare från SiteMinder eller LDAP till Azure AD.
 
 Det här arbets flödet:
 - Använder SiteMinder-anslutningen för att proxya SiteMinder-inloggningen. Användarautentiseringsuppgifter verifieras genom SiteMinder-autentisering och skickas sedan till efterföljande steg i arbets flödet.
 - Hämtar attribut för användar profil från användar arkivet för SiteMinder.
 - Gör en begäran till Microsoft Graph API för att skapa användaren i din Azure AD-klient.
 
-Steg:
-1. Ge arbets flödet ett namn, t. ex. SiteMinder till Azure AD-migrering.
-2. Ange `endpoint` , som är en HTTP-sökväg där arbets flödet exponeras, som utlöser arbets `actions` flödet som svar på begär Anden. `endpoint`Motsvarar vanligt vis appen som proxys, t. ex. `/my_app` . Värdet måste innehålla både inledande och avslutande snedstreck.
-3. Lägg till lämplig `actions` i arbets flödet.
-    - Definiera `login` metoden för SiteMinder-anslutningen. Koppling svärdet måste matcha name-värdet i anslutnings konfigurationen.
-     - Definiera `getprofile` metoden för LDAP-anslutningen.
-     - Definiera `createuser` för AzureAD-anslutningen.
+Gör så här för att konfigurera migrerings arbets flödet:
+
+1. Ge arbets flödet ett namn (till exempel **SiteMinder till Azure AD migration**).
+1. Ange `endpoint` , vilket är en HTTP-sökväg som arbets flödet exponeras på, vilket utlöser `actions` arbets flödet som svar på begär Anden. `endpoint`Motsvarar vanligt vis appen som är proxy (till exempel `/my_app` ). Värdet måste innehålla både inledande och avslutande snedstreck.
+1. Lägg till lämplig `actions` i arbets flödet.
+
+   a. Definiera `login` metoden för SiteMinder-anslutningen. Koppling svärdet måste matcha name-värdet i anslutnings konfigurationen.
+
+   b. Definiera `getprofile` metoden för LDAP-anslutningen.
+
+   c.  Definiera `createuser` metoden för AzureAD-anslutningen.
 
     ```yaml
       workflows:
@@ -389,25 +412,29 @@ Steg:
     ```
 ### <a name="verify-the-migration-workflow"></a>Kontrol lera arbets flödet för migrering
 
-1. Om Maverics-tjänsten inte redan körs startar du den genom att köra följande kommando: `sudo systemctl start maverics`
+1. Om Maverics-tjänsten inte redan körs startar du den genom att köra följande kommando: 
 
-2. Navigera till inloggnings webb adressen för proxy: `http://host.company.com/my_app` .
-3. Ange användarautentiseringsuppgifter som används för att logga in på programmet medan det skyddas av SiteMinder.
-4. Navigera till Start > användare | Alla användare kan verifiera att användaren har skapats i Azure AD-klienten.  
+   `sudo systemctl start maverics`
 
-## <a name="configure-the-session-abstraction-workflow"></a>Konfigurera arbets flödet för abstraktion av sessioner
+1. Gå till inloggnings-URL: en för proxy `http://host.company.com/my_app` .
+1. Ange de autentiseringsuppgifter som används för att logga in på programmet när det skyddas av SiteMinder.
+4. Gå till **hem**  >  **användare | Alla användare** kan verifiera att användaren har skapats i Azure AD-klienten.  
 
-Arbets flödet för sessions-abstraktion flyttar autentisering och åtkomst kontroll för det äldre lokala webb programmet till Azure AD.
+### <a name="configure-the-session-abstraction-workflow"></a>Konfigurera arbets flödet för abstraktion av sessioner
 
-Azure-anslutaren använder `login` metoden för att omdirigera användaren till inloggnings-URL: en, förutsatt att ingen session finns.
+Arbets flödet för sessions-abstraktion flyttar autentisering och åtkomst kontroll för det äldre lokala webb programmet till Azure AD-klienten.
 
-När det har autentiserats skickas sessionstoken som skapats som ett resultat till Maverics och SiteMinder-kopplingens `emulate` metod används för att emulera den cookie-baserade sessionen och/eller den huvudbaserade sessionen och sedan dekorera begäran med eventuella ytterligare attribut som krävs av programmet.
+Azure-anslutaren använder `login` metoden för att omdirigera användaren till inloggnings-URL: en förutsatt att ingen session finns.
 
-1. Ge arbets flödet ett namn, t. ex. SiteMinder.
-2. Ange `endpoint` , som motsvarar appen som proxy. Värdet måste innehålla både inledande och avslutande snedstreck, t. ex. `/my_app/` .
-3. Lägg till lämplig `actions` i arbets flödet.
-    - Definiera `login` metoden för Azure-anslutaren. `connector`Värdet måste matcha `name` värdet i anslutnings konfigurationen.
-    - Definiera `emulate` metoden för SiteMinder-anslutningen.
+När den har autentiserats skickas den sessionstoken som skapas som ett resultat till Maverics. SiteMinder-kopplingens `emulate` metod används för att emulera den cookie-baserade sessionen eller den huvudbaserade sessionen och dekorera sedan begäran med eventuella ytterligare attribut som krävs av programmet.
+
+1. Ge arbets flödet ett namn (till exempel **SiteMinder-abstraktion**).
+1. Ange `endpoint` , som motsvarar den app som proxy. Värdet måste innehålla både inledande och avslutande snedstreck (till exempel `/my_app/` ).
+1. Lägg till lämplig `actions` i arbets flödet.
+
+   a. Definiera `login` metoden för Azure-anslutaren. `connector`Värdet måste matcha `name` värdet i anslutnings konfigurationen.
+
+   b. Definiera `emulate` metoden för SiteMinder-anslutningen.
 
      ```yaml
       - name: SiteMinder Session Abstraction
@@ -420,6 +447,10 @@ När det har autentiserats skickas sessionstoken som skapats som ett resultat ti
      ```
 ### <a name="verify-the-session-abstraction-workflow"></a>Verifiera arbets flödet för abstraktion av sessioner
 
-1. Navigera till programmets URL för proxy: `https://<AZURECOMPANY.COM>/<MY_APP>` . Användaren kommer att omdirigeras till inloggnings sidan för proxy.
-2. Ange autentiseringsuppgifter för Azure AD-användare.
-3. Användaren ska omdirigeras till programmet som om det autentiseras direkt av SiteMinder.
+1. Gå till programmets URL för proxy `https://<AZURECOMPANY.COM>/<MY_APP>` . 
+    
+    Du är Omdirigerad till inloggnings sidan för proxy.
+
+1. Ange autentiseringsuppgifter för Azure AD-användare.
+
+   Du bör omdirigeras till programmet på samma sätt som om du autentiserades direkt av SiteMinder.

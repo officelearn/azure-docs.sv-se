@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bbb59439677f6c7297aabbecbafeb04327f482b5
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762920"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826658"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -60,7 +60,7 @@ Hanterade identiteter tillåter valvet att skapa och använda privata slut punkt
 1. Ett **objekt-ID** genereras, vilket är valvets hanterade identitet.
 
     >[!NOTE]
-    >Den hanterade identiteten får inte inaktive ras (även tillfälligt). Inaktive ring av den hanterade identiteten kan leda till inkonsekvent beteende.
+    >Den hanterade identiteten får **inte** inaktive ras (även tillfälligt). Inaktive ring av den hanterade identiteten kan leda till inkonsekvent beteende.
 
 ## <a name="dns-changes"></a>DNS-ändringar
 
@@ -192,7 +192,7 @@ Se [manuellt godkännande av privata slut punkter med hjälp av Azure Resource M
 ## <a name="adding-dns-records"></a>Lägga till DNS-poster
 
 >[!NOTE]
-> Det här steget krävs inte om du använder en integrerad DNS-zon. Men om du har skapat din egen Azure Privat DNS-zon eller använder en anpassad privat DNS-zon, kontrollerar du att posterna görs enligt beskrivningen i det här avsnittet.
+> Det här steget är inte obligatoriskt om du använder en integrerad DNS-zon. Men om du har skapat din egen Azure Privat DNS-zon eller använder en anpassad privat DNS-zon, kontrollerar du att posterna görs enligt beskrivningen i det här avsnittet.
 
 När du har skapat den valfria privata DNS-zonen och de privata slut punkterna för valvet måste du lägga till DNS-poster i din DNS-zon. Du kan göra detta antingen manuellt eller med ett PowerShell-skript. Detta måste bara utföras för DNS-zonen för säkerhets kopiering, de för blobbar och köer kommer att uppdateras automatiskt.
 

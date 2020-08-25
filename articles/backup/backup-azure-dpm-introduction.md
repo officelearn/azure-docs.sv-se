@@ -3,12 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 7043b4411856addf0fae26ee5402c4d3878e7f12
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612664"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827315"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -97,7 +97,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
 
 Hämta valv filen med autentiseringsuppgifter till en lokal dator på följande sätt:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Öppna det valv där du vill registrera DPM-servern.
 3. I **Inställningar**väljer du **Egenskaper**.
 
@@ -161,7 +161,7 @@ Alla datorer som säkerhets kopie ras av Azure Backup måste ha säkerhets kopie
 
     > [!WARNING]
     > Du äger krypterings lösen frasen och Microsoft har ingen insyn i den.
-    > Om lösen frasen tappas bort eller tappas bort. Microsoft kan inte hjälpa till att återskapa säkerhets kopierings data.
+    > Om lösen frasen tappas bort eller blir bortglömt kan Microsoft inte hjälpa till att återställa säkerhetskopierade data.
 
 7. Välj **Registrera** för att registrera DPM-servern på valvet.
 

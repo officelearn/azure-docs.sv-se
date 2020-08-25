@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 23ae2b5b04823bc809712190a3e1617fec65e73a
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763379"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826454"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 När du har definierat skydds principen måste du ändå aktivera principen för ett objekt. Använd [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) för att aktivera skydd. Att aktivera skydd kräver två objekt – objektet och principen. När principen har associerats med valvet utlöses arbets flödet för säkerhets kopiering vid den tidpunkt som anges i princip schemat.
 
 > [!IMPORTANT]
-> När du använder PS för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, kontrollerar du att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PS-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer men kontrollen har planer ATS för att läggas till i framtiden.
+> När du använder PowerShell för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, måste du se till att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PowerShell-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer men kontrollen har planer ATS för att läggas till i framtiden.
 
 I följande exempel aktive ras skyddet för objektet, V2VM, med hjälp av principen NewPolicy. Exemplen varierar beroende på om den virtuella datorn är krypterad och vilken typ av kryptering.
 
@@ -315,7 +315,7 @@ Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $Ret
 #### <a name="configuring-instant-restore-snapshot-retention"></a>Konfigurera omedelbar kvarhållning av ögonblicks bilder
 
 > [!NOTE]
-> Från AZ PS version 1.6.0 och senare, kan en uppdatering av återställnings perioden för ögonblicks bilder av ögonblicks bilder i principen med hjälp av PowerShell
+> Från Azure PowerShell version 1.6.0 och senare, kan en uppdatering av återställnings perioden för ögonblicks bilder av ögonblicks bilder i principen med hjälp av PowerShell
 
 ````powershell
 $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM" -VaultId $targetVault.ID
@@ -328,7 +328,7 @@ Standardvärdet är 2, användaren kan ange värdet med minst 1 och högst 5. F�
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Skapar Azure Backup resurs grupp under kvarhållning av ögonblicks bilder
 
 > [!NOTE]
-> Från Azure PS-versionen 3.7.0 och senare, kan en skapa och redigera resurs gruppen som skapats för att lagra ögonblicks bilder.
+> Från Azure PowerShell version 3.7.0 och senare, kan en skapa och redigera resurs gruppen som skapats för att lagra ögonblicks bilder.
 
 Mer information om regler för skapande av resurs grupper och annan relevant information finns i [Azure Backup resurs grupp för Virtual Machines](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines) dokumentation.
 
@@ -385,7 +385,7 @@ TestVM           ConfigureBackup      Completed            3/18/2019 8:00:21 PM 
 
 #### <a name="retain-data"></a>Behålla data
 
-Om användaren vill stoppa skyddet kan de använda cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) PS. Detta stoppar schemalagda säkerhets kopieringar men data som säkerhets kopie ras tills nu kvarhålls för alltid.
+Om du vill stoppa skyddet kan du använda PowerShell-cmdleten [disable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) . Detta stoppar schemalagda säkerhets kopieringar men data som säkerhets kopie ras tills nu kvarhålls för alltid.
 
 ````powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -Name "<backup item name>" -VaultId $targetVault.ID
@@ -481,7 +481,7 @@ $restorejob
 Ange ytterligare en parameter **TargetResourceGroupName** för att ange rg som de hanterade diskarna ska återställas till.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder **TargetResourceGroupName** -parametern för att återställa hanterade diskar eftersom den resulterar i betydande prestanda förbättringar. Om den här parametern inte anges kan kunderna inte dra nytta av funktionen för omedelbar återställning och återställnings åtgärden är långsammare i jämförelse. Om syftet är att återställa hanterade diskar som ohanterade diskar, kan du inte ange den här parametern och göra avsikten tydlig genom att ange parametern-RestoreAsUnmanagedDisks. Parametern-RestoreAsUnmanagedDisks är tillgänglig från AZ PS 3.7.0 och senare. I framtida versioner är det obligatoriskt att ange någon av dessa parametrar för den rätta återställnings upplevelsen
+> Vi rekommenderar starkt att du använder **TargetResourceGroupName** -parametern för att återställa hanterade diskar eftersom den resulterar i betydande prestanda förbättringar. Om den här parametern inte anges kan du inte dra nytta av funktionen för omedelbar återställning och återställnings åtgärden kommer att vara långsammare i jämförelse. Om syftet är att återställa hanterade diskar som ohanterade diskar, ska du inte ange den här parametern och göra avsikten tydlig genom att ange `-RestoreAsUnmanagedDisks` parametern. `-RestoreAsUnmanagedDisks`Parametern är tillgänglig från Azure PowerShell 3.7.0 och senare. I framtida versioner är det obligatoriskt att ange någon av dessa parametrar för den rätta återställnings upplevelsen.
 >
 >
 
@@ -530,7 +530,7 @@ När du har återställt diskarna kan du använda följande steg för att skapa 
 >
 > 1. AzureAz-modulen 3.0.0 eller högre krävs. <br>
 > 2. För att skapa krypterade virtuella datorer från återställda diskar måste din Azure-roll ha behörighet att utföra åtgärden, **Microsoft. nyckel valv/valv/distribuera/åtgärd**. Om rollen inte har den här behörigheten skapar du en anpassad roll med den här åtgärden. Mer information finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md). <br>
-> 3. När du har återställt diskarna kan du nu hämta en distributionsmall som du kan använda direkt för att skapa en ny virtuell dator. Inga fler olika PS-cmdletar för att skapa hanterade/ohanterade virtuella datorer som är krypterade/okrypterade.<br>
+> 3. När du har återställt diskarna kan du nu hämta en distributionsmall som du kan använda direkt för att skapa en ny virtuell dator. Du behöver inte andra PowerShell-cmdletar för att skapa hanterade/ohanterade virtuella datorer som är krypterade/okrypterade.<br>
 > <br>
 
 ### <a name="create-a-vm-using-the-deployment-template"></a>Skapa en virtuell dator med hjälp av distributions mal len

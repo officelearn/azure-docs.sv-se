@@ -12,12 +12,12 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83741987"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798082"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -26,7 +26,7 @@ Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -p
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/index.yml).
 
 ## <a name="view-your-groups-information"></a>Visa information om dina grupper
 
@@ -80,9 +80,9 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
     - **Grupptyp:**
 
-        - **Bullet.** Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. Genom att göra det på det sättet så kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheter till varje medlem individuellt.
+        - **Bullet.** Används för att hantera medlems- och datoråtkomst till delade resurser för en grupp användare. Du kan till exempel skapa en säkerhetsgrupp för en specifik säkerhetsprincip. På det här sättet kan du ge en uppsättning behörigheter till alla medlemmar på samma gång utan att behöva lägga till behörigheterna för varje medlem individuellt.
 
-        - **Office 365.** Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du också ge personer utanför organisationen åtkomst till gruppen.
+        - **Office 365.** Ger samarbetsmöjligheter genom att ge medlemmar tillgång till en delad postlåda, kalender, filer, SharePoint-webbplats och mer. Med det här alternativet kan du även ge personer utanför organisationen tillgång till gruppen.
 
     - **Grupp namn.** Lägg till ett namn för gruppen, något som du kommer ihåg och som låter logiskt.
 

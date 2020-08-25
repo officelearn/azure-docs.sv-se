@@ -3,16 +3,16 @@ title: Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift v3-klu
 description: Den här artikeln beskriver hur du kan stoppa övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 26c8a574894e117694545508174d0ce7d0f0f5ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091223"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815444"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster 
 
-När du har aktiverat övervakning av ditt Azure Red Hat OpenShift version 3. x-kluster kan du stoppa övervakningen av klustret med Azure Monitor för behållare om du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av Azure Resource Manager-mallen som tillhandahölls.  
+När du har aktiverat övervakning av ditt Azure Red Hat OpenShift version 3. x-kluster kan du stoppa övervakningen av klustret med Azure Monitor för behållare om du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av Azure Resource Manager-mallen som tillhandahölls. 
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 

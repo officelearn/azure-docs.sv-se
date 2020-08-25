@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 66c712eca86b01c5815638c9ea58042580791ea6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685484"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816124"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -85,7 +85,7 @@ För Azure VM Linux-säkerhetskopieringar stöder Azure Backup listan över Linu
 
 ## <a name="backup-frequency-and-retention"></a>Säkerhets kopierings frekvens och kvarhållning
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
 Högsta antal återställnings punkter per skyddad instans (dator/arbets belastning) | 9999.
 Maximal förfallo tid för en återställnings punkt | Ingen gräns.
@@ -98,16 +98,16 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="supported-restore-methods"></a>Återställnings metoder som stöds
 
-**Återställnings alternativ** | **Information**
+**Återställningsalternativ** | **Information**
 --- | ---
-**Skapa en ny virtuell dator** | Skapar och hämtar snabbt en grundläggande virtuell dator som körs från en återställnings punkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella käll datorn.
-**Återställ disk** | Återställer en virtuell dator disk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup innehåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till den resurs grupp som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurations inställningar som inte fanns vid tidpunkten för säkerhets kopieringen eller lägga till inställningar som måste konfigureras med mallen eller PowerShell.
-**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Det här alternativet kan inte användas om det har tagits bort.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställnings punkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Efter åtgärden Ersätt disk behålls den ursprungliga disken i resurs gruppen. Du kan välja att manuellt ta bort de ursprungliga diskarna om de inte behövs. <br/><br/>Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, [generaliserade virtuella datorer](../virtual-machines/windows/capture-image-resource.md)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br><br> Ersätt befintlig stöds också för virtuella datorer med länkade resurser, t. ex. [användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) och [Key Vault](../key-vault/general/overview.md).
-**Mellan region (sekundär region)** | Återställning mellan regioner kan användas för att återställa virtuella Azure-datorer i den sekundära regionen, som är en [Azure-kopplad region](../best-practices-availability-paired-regions.md#what-are-paired-regions).<br><br> Du kan återställa alla virtuella Azure-datorer för den valda återställnings punkten om säkerhets kopian görs i den sekundära regionen.<br><br> Den här funktionen är tillgänglig för alternativen nedan:<br> <li> [Skapa en virtuell dator](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [Återställa diskar](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Vi stöder för närvarande inte alternativet [Ersätt befintliga diskar](./backup-azure-arm-restore-vms.md#replace-existing-disks) .<br><br> Behörigheter<br> Återställnings åtgärden i den sekundära regionen kan utföras av säkerhets kopierings administratörer och app-administratörer.
+**Skapa en ny virtuell dator** | Skapar och kör snabbt igång en grundläggande virtuell dator från en återställningspunkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella källdatorn.
+**Återställ disk** | Återställer en virtuell datordisk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup tillhandahåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till den resursgrupp som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurationsinställningar som inte fanns vid tidpunkten för säkerhetskopieringen eller lägga till inställningar som måste konfigureras med hjälp av mallen eller PowerShell.
+**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Om den har tagits bort kan det här alternativet inte användas.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställningspunkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Efter åtgärden Ersätt disk behålls den ursprungliga disken i resurs gruppen. Du kan välja att manuellt ta bort de ursprungliga diskarna om de inte behövs. <br/><br/>Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, [generaliserade virtuella datorer](../virtual-machines/windows/capture-image-resource.md)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br><br> Ersätt befintlig stöds också för virtuella datorer med länkade resurser, t. ex. [användardefinierad hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) och [Key Vault](../key-vault/general/overview.md).
+**Mellan regioner (sekundär region)** | Återställning mellan regioner kan användas för att återställa virtuella Azure-datorer i den sekundära regionen, som är en [Azure-kopplad region](../best-practices-availability-paired-regions.md#what-are-paired-regions).<br><br> Du kan återställa alla virtuella Azure-datorer för den valda återställnings punkten om säkerhets kopian görs i den sekundära regionen.<br><br> Den här funktionen är tillgänglig för alternativen nedan:<br> <li> [Skapa en virtuell dator](./backup-azure-arm-restore-vms.md#create-a-vm) <br> <li> [Återställ diskar](./backup-azure-arm-restore-vms.md#restore-disks) <br><br> Vi stöder för närvarande inte alternativet [Ersätt befintliga diskar](./backup-azure-arm-restore-vms.md#replace-existing-disks) .<br><br> Behörigheter<br> Återställnings åtgärden i den sekundära regionen kan utföras av säkerhets kopierings administratörer och app-administratörer.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
@@ -120,7 +120,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -149,7 +149,7 @@ Säkerhetskopiera med [diagnostikinställningar](../azure-monitor/platform/platf
 Återställa zoner-fästa virtuella datorer | Stöds (för VM som säkerhets kopie ras efter 2019 och där [tillgänglighets zon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga).<br/><br/>Vi stöder för närvarande återställning till samma zon som är fäst i virtuella datorer. Men om zonen inte är tillgänglig, Miss lyckas återställningen.
 Virtuella Gen2-datorer | Stöds <br> Azure Backup stöder säkerhets kopiering och återställning av [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). När de här virtuella datorerna återställs från återställnings punkten återställs de som [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Säkerhets kopiering av virtuella Azure-datorer med lås | Stöds inte för ohanterade virtuella datorer. <br><br> Stöds för hanterade virtuella datorer.
-[Virtuella Spot-datorer](../virtual-machines/windows/spot-vms.md) | Som inte stöds. Azure Backup återställer virtuella datorer på plats som vanliga virtuella Azure-datorer.
+[Virtuella Spot-datorer](../virtual-machines/spot-vms.md) | Som inte stöds. Azure Backup återställer virtuella datorer på plats som vanliga virtuella Azure-datorer.
 
 ## <a name="vm-storage-support"></a>Stöd för VM-lagring
 

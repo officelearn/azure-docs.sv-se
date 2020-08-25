@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 75c604df2f44e9c732fa9c2ce2093237e4e484a4
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 9ff11312b6d231927f5053868b64e0b825df371e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606061"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816991"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -90,7 +90,7 @@ Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
 3. Användbara länkar
 4. Skärmbilder
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -135,24 +135,25 @@ I det här avsnittet kan du ange logo typer och avbildningar som ska användas n
 >[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
-#### <a name="marketplace-logos"></a>Marketplace-logotyper
+#### <a name="store-logos"></a>Butiks logo typer
 
-Ange ditt erbjudandes logo typ i fyra pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-- **Liten** (48 x 48)
-- **Medel** (90 x 90)
-- **Stor** (216 x 216)
-- **Bred** (255 x 115)
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Medel** (90 x 90 BPT, valfritt)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Dessa Logo typer används på olika platser på Azure Marketplace:
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

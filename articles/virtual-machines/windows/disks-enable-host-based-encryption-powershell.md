@@ -4,18 +4,18 @@ description: Så här aktiverar du kryptering från slut punkt till slut punkt f
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6cb6235c5c1a34cb3f48d315adee565591bb72c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a352ecc2d2b02f03e2b55f7c5896ac905077921
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088469"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814802"
 ---
-# <a name="enable-end-to-end-encryption-using-encryption-at-host---azure-powershell"></a>Aktivera kryptering från slut punkt till slut punkt med kryptering på värd-Azure PowerShell
+# <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Använd Azure PowerShell-modulen för att aktivera kryptering från slut punkt till slut punkt med kryptering på värden
 
 När du aktiverar kryptering på värden krypteras data som lagras på den virtuella dator värden i vila och flöden krypteras till lagrings tjänsten. För konceptuell information om kryptering på värden och andra typer av hanterade disk krypterings typer, se [kryptering på värd-till-slutpunkt-kryptering för dina VM-data](disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data).
 

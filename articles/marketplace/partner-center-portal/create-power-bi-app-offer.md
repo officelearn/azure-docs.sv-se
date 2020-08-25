@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 5b9752107aac1f90a67fb7c87a14492a74a124aa
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ebc3ad6957890423314bb2d8623c7b4708aed10b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604635"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815426"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Skapa erbjudande om Power BI-app
 
@@ -146,7 +146,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 10. Beskrivning
 11. Skärm bilder/videor
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -209,13 +209,16 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i två bild punkter:
-- **Liten** (48 x 48)
-- **Stor** (216 x 216)
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** logo typ. Du kan också ersätta detta med en annan avbildning senare.
 
-Båda logo typerna krävs och används på olika platser i Marketplace-listan.
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Liten** (48 x 48 BPT, valfritt)
+
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 

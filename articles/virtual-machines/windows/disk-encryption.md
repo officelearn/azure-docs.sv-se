@@ -8,14 +8,14 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 413ca677bc778069b92def043bf35ab7bb87b038
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448938"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815597"
 ---
-# <a name="server-side-encryption-of-azure-disk-storage"></a>Kryptering på Server sidan av Azure-disklagring
+# <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Kryptering på Server sidan av Azure-disklagring för PowerShell
 
 Server Side Encryption (SSE) skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. SSE krypterar automatiskt dina data som lagras på Azure Managed disks (OS-och data diskar) i vila som standard när de sparas i molnet. 
 
@@ -84,8 +84,8 @@ Hög säkerhets känsliga kunder som är intresserade av den risk som är koppla
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Aktivera kryptering från slut punkt till slut punkt med hjälp av kryptering på värd med antingen [PowerShell](disks-enable-host-based-encryption-powershell.md) eller [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Aktivera dubbel kryptering i vila för hanterade diskar med antingen [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) eller [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Aktivera Kundhanterade nycklar för hanterade diskar med antingen [PowerShell](disks-enable-customer-managed-keys-powershell.md) eller [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Aktivera kryptering från slut punkt till slut punkt med hjälp av kryptering på värd med antingen [PowerShell](disks-enable-host-based-encryption-powershell.md) eller [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Aktivera dubbel kryptering i vila för hanterade diskar med antingen [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) eller [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Aktivera Kundhanterade nycklar för hanterade diskar med antingen [PowerShell](disks-enable-customer-managed-keys-powershell.md) eller [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [Utforska Azure Resource Manager mallar för att skapa krypterade diskar med Kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Vad är Azure Key Vault?](../../key-vault/general/overview.md)

@@ -7,12 +7,12 @@ ms.topic: article
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: f62483880d2572b6487c87bbd73e0dd7033238d3
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 071d3fc972e99d61a226492350b7eee146584df6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606174"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815681"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -202,7 +202,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Användbara länkar
 4. Skärmbilder
 
-#### <a name="name"></a>Namn
+#### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -249,22 +249,23 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i följande tre bild punkter:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-- **Liten** (48 x 48)
-- **Medel** (90 x 90)
-- **Stor** (216 x 216)
-- **Bred** (255 x 115)
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Medel** (90 x 90 BPT, valfritt)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Alla tre logo typer krävs och används på olika platser i listan.
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 7bf4860e8c42ef8aacc2e564dacd6de1a7d39149
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607403"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816277"
 ---
 # <a name="offer-listing-best-practices"></a>Metodtips för erbjudandelistor
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller förslag på hur du kan skapa och engagera Microso
 
 ## <a name="online-store-offer-details"></a>Information om erbjudanden om onlinebutik
 
-| Inställning | Regelverk |
+| Inställningen | Regelverk |
 |:--- |:--- |  
 | Erbjudandets namn | För appar anger du en tydlig rubrik som innehåller sökord för att hjälpa kunderna att identifiera ditt erbjudande. <br> <br> För konsult tjänster följer du detta format: [erbjudandets namn: [duration] [erbjudande typ] (till exempel contoso: 2-veckors implementering) |
 | Beskrivning av erbjudande | Ange en tydlig beskrivning som beskriver ditt erbjudandes värde i de första meningarna.  Tänk på att dessa meningar kan användas i sökmotorns resultat. Kärn komponenterna i dina värde förslag bör innefatta: <ul> <li>Beskrivning av produkten eller lösningen. </li> <li> Användar person som vill dra nytta av produkten eller lösningen. </li> <li> Kunden behöver eller smärta produkt-eller lösnings adresser. </li> </ul> <br> Använd terminologi för bransch standard eller förmånsberättigad formulering när det är möjligt.  Förlita dig inte på funktioner och funktioner för att sälja produkten.  Fokusera i stället på det värde som du levererar. <br> <br> För konsult tjänst listor, anger du tydligt den professionella tjänst som du tillhandahåller. |
@@ -54,12 +54,12 @@ Kategorier och under Kategorier mappas till varje onlinebutik baserat på mål m
 
 Välj kategorier och under kategorier som passar bäst för ditt erbjudande och din avsedda mål grupp. Du kan välja:
 
-* Upp till två (2) kategorier, inklusive en primär och en sekundär kategori (valfritt).
-* Upp till två (2) under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin.
+* Upp till två kategorier, inklusive en primär och en sekundär kategori (valfritt).
+* Upp till två under Kategorier för varje primär och/eller sekundär kategori. Om ingen under kategori har valts kan du fortfarande bara identifiera i den valda kategorin.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**VIKTIGT: SaaS erbjuder och Microsoft 365 tillägg**
+#### <a name="important-saas-offers-and-microsoft-365-add-ins"></a>VIKTIGT: SaaS erbjuder och Microsoft 365 tillägg
 
 Mer information om hur Transact-funktioner kan påverka hur ditt erbjudande kan visas och köpas av Marketplace-kunder finns i [hand boken efter erbjudande typ](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) . För SaaS-erbjudanden bestämmer erbjudandets transaktions kapacitet samt kategori valet det onlinebutik där ditt erbjudande ska publiceras:
 
@@ -94,8 +94,8 @@ Bransch val gäller endast för erbjudanden som publicerats på AppSource och ko
 | **Distribution** | Maskiner <br> Paket leverans av paket & |  
 | **Education** | Högre utbildning <br> Primär & sekundär edu/K-12 <br> Bibliotek & Museums |
 | **Ekonomiska tjänster** | Bank & kapital marknader <br> Försäkringsbokf | 
-| **Government** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
-| **Sjukvård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
+| **Myndigheter** |  Försvars & intelligens <br> Civila myndigheter <br> Allmän säkerhets & rättvisa |
+| **Hälsovård** | Hälso betalare <br> Hälso leverantör <br> Pharmaceuticals | 
 | **Service & Travel** | Res & transport <br> Hotell & fritid <br> Restauranger & mat tjänster | 
 | **& resurser för produktion** | Kemisk & Agrochemical <br> Diskret tillverkning <br> Energi | 
 | **Media & kommunikation** | Media & underhållning <br> Telekommunikation | 
@@ -118,11 +118,11 @@ Välj de tillämpliga produkter som appen fungerar med för erbjudandet att visa
 Nyckelord kan hjälpa kunder att hitta ditt erbjudande när de söker. Identifiera de bästa Sök nyckelorden för ditt erbjudande, Lägg till dem i din erbjudande Sammanfattning och beskrivning samt i avsnittet nyckelord i avsnittet information om erbjudanden.
 
 ## <a name="online-store-marketing-details"></a>Marknadsförings information om onlinebutik
-| Inställning | Regelverk |
+| Inställningen | Regelverk |
 |:--- |:--- |  
-| Erbjudande logo typ (PNG-format, 48 &nbsp; &times; &nbsp; 48): Sök sida | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till Sök sidan för ditt erbjudande. |
-| Erbjudande logo typ (PNG-format, 216 &nbsp; &times; &nbsp; 216): Sidan information om app | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. |
-| "Läs mer"-dokument | Ta med stöd för försäljnings-och marknadsförings till gångar under "Läs mer", några exempel: <ul> <li> Fakta blad, </li> <li> broschyrer, </li> <li> Check listor eller </li> <li> PowerPoint-presentationer.</li> </ul>Spara alla filer i PDF-format. Ditt mål är att utbilda kunder, inte sälja till dem. <br><br>Lägg till en länk till din app landnings sida till alla dina dokument och Lägg till URL-parametrar som hjälper dig att spåra besökare och försök. |
+| Erbjudande logo typ (PNG-format, från 216 × 216 till 350 x 350 BPT): information om App-sidan | Utforma och optimera din logo typ för ett digitalt medium:<br>Ladda upp logo typen i PNG-format till sidan med information om appar i ditt erbjudande. Partner Center ändrar storlek till de storlekar som krävs för logo typen. |
+| Erbjudande logo typ (PNG-format, 48 × 48 bild punkter): Sök sida | Partner Center kommer att generera logo typen från den stora logo typen som du överförde. Du kan också ersätta detta med en annan avbildning senare. |
+| "Läs mer"-dokument | Ta med stöd för försäljnings-och marknadsförings till gångar under "Läs mer", några exempel:<ul><li>Fakta blad</li><li> broschyrer</li><li>Check listor eller</li><li> PowerPoint-presentationer</li></ul><br>Spara alla filer i PDF-format. Ditt mål är att utbilda kunder, inte sälja till dem.<br><br>Lägg till en länk till din app landnings sida till alla dina dokument och Lägg till URL-parametrar som hjälper dig att spåra besökare och försök. |
 | Videor: AppSource, konsult tjänster och SaaS erbjuder bara | De starkaste videorna förmedlar värdet för ditt erbjudande i form av information:<ul> <li> Gör din kund, inte ditt företag, riktig text. </li> <li> Din video bör åtgärda de huvudsakliga utmaningarna och målen för mål kunden. </li> <li> Rekommenderad längd: 60-90 sekunder.</li> <li> Inkludera nyckelord för nyckelord som använder namnet på videor. </li> <li> Överväg att lägga till ytterligare videor, till exempel en instruktion, komma igång eller kund åsikter. </li> </ul> |
 | Skärm bilder (1280 &nbsp; &times; &nbsp; 720) | Lägg till upp till fem skärm bilder:<br>Inkludera ord för nyckels ökning i fil namnen. |
 
@@ -141,4 +141,3 @@ Genom att lägga till parametrarna till din AppSource-URL kan du granska effekti
 Lär dig mer om dina [kommersiella marknads förmåner](./gtm-your-marketplace-benefits.md).
 
 Logga in på [partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) för att skapa och konfigurera ditt erbjudande.
-

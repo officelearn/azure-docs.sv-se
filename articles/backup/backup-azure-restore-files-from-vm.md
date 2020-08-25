@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: e913fa1e609eff687b5757a566583539b32b1b8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca523370a887ed1178312c48a577695f5ba6da8f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757157"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763464"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -200,13 +200,13 @@ Nu har vi alla VG-namn med unika ID: n.
 
 ###### <a name="active-volume-groups"></a>Aktiva volym grupper
 
-Se till att volym grupperna som motsvarar skriptets volymer är aktiva. Kommandot nedan används för att visa aktiva volym grupper. Kontrol lera om skriptets relaterade volym grupper finns i den här listan.
+Se till att volym grupperna som motsvarar skriptets volymer är aktiva. Följande kommando används för att visa aktiva volym grupper. Kontrol lera om skriptets relaterade volym grupper finns i den här listan.
 
 ```bash
 vgdisplay -a
 ```  
 
-Annars aktiverar du volym gruppen genom att använda kommandot nedan.
+Annars aktiverar du volym gruppen med hjälp av följande kommando.
 
 ```bash
 #!/bin/bash
@@ -215,7 +215,7 @@ vgchange –a y  <volume-group-name>
 
 ##### <a name="listing-logical-volumes-within-volume-groups"></a>Lista logiska volymer i volym grupper
 
-När vi hämtar den unika, aktiva listan över VGs som är relaterade till skriptet, kan de logiska volymer som finns i dessa volym grupper listas med kommandot nedan.
+När vi hämtar den unika, aktiva listan över VGs som är relaterade till skriptet, kan de logiska volymer som finns i dessa volym grupper listas med hjälp av följande kommando.
 
 ```bash
 #!/bin/bash

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a482b860ae13e817727ca0c3848a598fe3632136
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b094f63c075bdb8af225ff366343c60bc6818224
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87277595"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816770"
 ---
 # <a name="read-and-write-spatial-data"></a>Läsa och skriva rumsliga data
 
@@ -150,9 +150,15 @@ Följande kod visar Läs-och skriv-välkänd text och tillbaka.
 GML är en spatial XML-filspecifikation som ofta används som ett tillägg till andra XML-specifikationer. Det går att skriva data från en XML-fil med GML-Taggar med hjälp av `atlas.io.core.GmlWriter.write` funktionen. XML-filen som innehåller GML kan läsas med hjälp av `atlas.io.core.GmlReader.read` funktionen. Funktionen Read har två alternativ:
 
 - `isAxisOrderLonLat`Alternativet-axel ordningen för koordinaterna "latitud, longitud" eller "longitud, latitud" kan variera mellan data mängder och det är inte alltid väl definierat. Som standard läser GMLs läsaren koordinatens data som "latitud, longitud", men om du ställer in det här alternativet på sant så läses det som "longitud, latitud".
-- `propertyTypes`Alternativet – det här alternativet är en uppslags tabell med nyckel värden där nyckeln är namnet på en egenskap i data uppsättningen. Värdet är objekt typen för att konvertera värdet till vid parsning. De typ värden som stöds är: `string` , `number` , `boolean` , och `date` . Om en egenskap inte finns i uppslags tabellen eller om typen inte har definierats, kommer egenskapen att parsas som en sträng.
+- `propertyTypes`Alternativet – det här alternativet är en uppslags tabell med nyckel värden där nyckeln är namnet på en egenskap i data uppsättningen. Värdet är objekt typen för att konvertera värdet till vid parsning. De typ värden som stöds är: `string` , `number` , `boolean` , och  `date` . Om en egenskap inte finns i uppslags tabellen eller om typen inte har definierats, kommer egenskapen att parsas som en sträng.
 
 `atlas.io.read`Funktionen kommer att användas som standard `atlas.io.core.GmlReader.read` när den identifierar att indata är XML, men data inte är en av de andra stödda XML-formaten för att hantera avstånd.
+
+`GmlReader`Kommer att parsa koordinater som har något av följande srid:
+
+- EPSG: 4326 (önskad)
+- EPSG: 4269, EPSG: 4283, EPSG: 4258, EPSG: 4308, EPSG: 4230, EPSG: 4272, EPSG: 4271, EPSG: 4267, EPSG: 4608, EPSG: 4674 kan eventuellt ha en liten marginal på fel.
+- EPSG: 3857, EPSG: 102100, EPSG: 3785, EPSG: 900913, EPSG: 102113, EPSG: 41001, EPSG: 54004
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 4de682bd315eef100bdbf8dd24faa128c5b8c2a1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87336930"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815818"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -113,7 +113,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
     h. Välj **stegvis** för **distributions läget**.
 
     > [!WARNING]
-    > Om du väljer **Slutför** för **distributions läget**kan befintliga resurser tas bort, inklusive alla resurser i mål resurs gruppen som inte har definierats i Resource Manager-mallen.
+    > I fullständigt distributions läge **raderas**resurser som finns i resurs gruppen men inte har angetts i den nya Resource Manager-mallen. Mer information finns i [Azure Resource Manager distributions lägen](../azure-resource-manager/templates/deployment-modes.md)
 
     ![Data Factory Prod. distribution](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -165,7 +165,7 @@ Det finns två sätt att hantera hemligheter:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Bevilja behörighet till Azure pipelines-agenten
 
-Azure Key Vault aktiviteten kan Miss Miss kan ett fel meddelande om nekad åtkomst om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta upp den. ps1-fil som innehåller kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. `Get`och `List` är de lägsta behörigheter som krävs.
+Azure Key Vault aktiviteten kan Miss Miss kan ett fel meddelande om nekad åtkomst om rätt behörigheter inte har angetts. Hämta loggarna för versionen och leta upp den. ps1-fil som innehåller kommandot för att ge behörighet till Azure pipelines-agenten. Du kan köra kommandot direkt. Du kan också kopiera ägar-ID: t från filen och lägga till åtkomst principen manuellt i Azure Portal. `Get` och `List` är de lägsta behörigheter som krävs.
 
 ### <a name="updating-active-triggers"></a>Uppdaterar aktiva utlösare
 
@@ -317,7 +317,7 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="triggers"></a>Utlösare
 
 * Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
-* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Exempelvis `<entityName>_freq`.
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
@@ -630,7 +630,7 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
 
 -   Du kan för närvarande inte vara värd för projekt på Bitbucket.
 
-## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a>Exempel skript för för-och efter distribution
+## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Exempel skript för för-och efter distribution
 
 Följande exempel skript kan användas för att stoppa utlösare före distribution och starta om dem efteråt. Skriptet innehåller också kod för att ta bort resurser som har tagits bort. Spara skriptet i en Azure DevOps git-lagringsplats och referera till den via en Azure PowerShell aktivitet som använder version 4. *.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bdce311efbe7e41e09a3be76562c6be752a4b5c1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 79bf5f0d6b7e3fa4735d94c7b26c1736ab25113e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606106"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88817008"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Skapa ett erbjudande för Dynamics 365 for Operations
 
@@ -21,7 +21,7 @@ I det här avsnittet beskrivs hur du skapar en ny Dynamics 365 för Operations-e
 Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](create-account.md) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 >[!NOTE]
-> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Se till att du skickar in erbjudandet för publicering när du har gjort ändringar.
+> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet i Partner Center och onlinebutiken när du har skickat in erbjudandet för publicering igen.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
@@ -136,7 +136,7 @@ Här är ett exempel på hur information om erbjudandet visas i Microsoft AppSou
 9. Skärm bilder/videor
 10. Beskrivning
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -193,18 +193,22 @@ I det här avsnittet kan du ange logo typer och avbildningar som ska användas n
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange ditt erbjudandes logo typ i två pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** logo typ. Du kan också ersätta detta med en annan avbildning senare.
 
-- **Liten** (48 x 48)
-- **Stor** (216 x 216)
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Liten** (48 x 48 BPT, valfritt)
+
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 

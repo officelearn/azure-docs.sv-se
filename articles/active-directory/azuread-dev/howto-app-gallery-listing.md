@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/20/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcb8f709bc75fdf9fe80ee26497acb78cc023327
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116350"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814650"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -45,7 +45,7 @@ Den här artikeln visar hur du visar en lista över ett program i program galler
 
 **Hur skaffar jag Azure AD för utvecklare?**
 
-Du kan få ett kostnads fritt test konto med alla Premium Azure AD-funktioner – 90 dagar kostnads fritt och kan bli utökad så länge du arbetar med utveckling:https://docs.microsoft.com/office/developer-program/office-365-developer-program
+Du kan få ett kostnads fritt test konto med alla Premium Azure AD-funktioner – 90 dagar kostnads fritt och kan bli utökad så länge du arbetar med utveckling: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 
@@ -113,7 +113,7 @@ Skapa ett webb program som har en HTML-inloggnings sida för att konfigurera [l�
 
 ![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för inloggning** som visas.
+* Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord SSO (användar namn & lösen ord)** som det visas.
 * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="request-for-user-provisioning"></a>Begäran om användar etablering

@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 29a202b3833bbc6ee550df89b240d95ecb38ef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83742055"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798065"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Använda samlingar i portalen Mina appar
 
@@ -26,7 +26,7 @@ Samlingar är olika app-vyer som visas i portalen för **Mina appar** . Appar ka
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
 >[!Important]
->Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+>Det här innehållet är avsett för **Mina Apps** -användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](../manage-apps/access-panel-collections.md).
 
 ## <a name="access-apps-using-collections"></a>Få åtkomst till appar med samlingar
 

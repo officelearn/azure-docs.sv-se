@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 43359b66ba747dba7b3294d022a2c1aa2a3e624c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af4264860f8d9950515cd5302f03822e7cbac39
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233249"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816872"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Distribuera Azure SQL Edge (för hands version) 
 
@@ -22,8 +22,8 @@ Azure SQL Edge (för hands version) är en Relations databas motor som är optim
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 * Skapa ett [Azure-IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 * Registrera en [IoT Edge-enhet från Azure Portal](../iot-edge/how-to-register-device-portal.md).
 * Förbered IoT Edge-enheten för att [distribuera IoT Edge modul från Azure Portal](../iot-edge/how-to-deploy-modules-portal.md).
@@ -114,9 +114,114 @@ Azure Marketplace är ett online-program och tjänster för tjänster där du ka
 12. Klicka på **Nästa**.
 13. Klicka på **Skicka**.
 
-I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet.
+## <a name="connect-to-azure-sql-edge"></a>Ansluta till Azure SQL Edge
+
+I följande steg används kommando rads verktyget för Azure SQL Edge, **SQLCMD**, inuti behållaren för att ansluta till Azure SQL Edge.
+
+> [!NOTE]
+> SQLCMD-verktyget är inte tillgängligt i ARM64-versionen av SQL Edge-behållare.
+
+1. Använd `docker exec -it` kommandot för att starta ett interaktivt bash-gränssnitt i den behållare som körs. I följande exempel `azuresqledge` är namnet som anges av `Name` parametern för din IoT Edge-modul.
+
+   ```bash
+   sudo docker exec -it azuresqledge "bash"
+   ```
+
+2. När du är i behållaren ansluter du lokalt med SQLCMD. SQLCMD finns inte som standard i sökvägen, så du måste ange den fullständiga sökvägen.
+
+   ```bash
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   ```
+
+   > [!TIP]
+   > Du kan utelämna lösen ordet på kommando raden för att uppmanas att ange det.
+
+3. Om det lyckas, bör du komma till en **SQLCMD** kommando tolk: `1>` .
+
+## <a name="create-and-query-data"></a>Skapa och fråga efter data
+
+I följande avsnitt får du stegvisa anvisningar genom att använda **SQLCMD** och Transact-SQL för att skapa en ny databas, lägga till data och köra en enkel fråga.
+
+### <a name="create-a-new-database"></a>Skapa en ny databas
+
+Följande steg skapar en ny databas med namnet `TestDB` .
+
+1. I kommando tolken **SQLCMD** klistrar du in följande Transact-SQL-kommando för att skapa en test databas:
+
+   ```sql
+   CREATE DATABASE TestDB
+   Go
+   ```
+
+2. På nästa rad skriver du en fråga för att returnera namnet på alla databaser på servern:
+
+   ```sql
+   SELECT Name from sys.Databases
+   Go
+   ```
+
+### <a name="insert-data"></a>Infoga data
+
+Skapa sedan en ny tabell, `Inventory` och infoga två nya rader.
+
+1. Växla kontext till den nya databasen från kommando tolken i **SQLCMD** `TestDB` :
+
+   ```sql
+   USE TestDB
+   ```
+
+2. Skapa en ny tabell med namnet `Inventory` :
+
+   ```sql
+   CREATE TABLE Inventory (id INT, name NVARCHAR(50), quantity INT)
+   ```
+
+3. Infoga data i den nya tabellen:
+
+   ```sql
+   INSERT INTO Inventory VALUES (1, 'banana', 150); INSERT INTO Inventory VALUES (2, 'orange', 154);
+   ```
+
+4. Skriv `GO` för att köra föregående kommandon:
+
+   ```sql
+   GO
+   ```
+
+### <a name="select-data"></a>Välj data
+
+Kör nu en fråga för att returnera data från `Inventory` tabellen.
+
+1. Från kommando tolken **SQLCMD** anger du en fråga som returnerar rader från `Inventory` tabellen där antalet är större än 152:
+
+   ```sql
+   SELECT * FROM Inventory WHERE quantity > 152;
+   ```
+
+2. Kör kommandot:
+
+   ```sql
+   GO
+   ```
+
+### <a name="exit-the-sqlcmd-command-prompt"></a>Avsluta kommando tolken SQLCMD
+
+1. För att avsluta **SQLCMD** -sessionen skriver du `QUIT` :
+
+   ```sql
+   QUIT
+   ```
+
+2. Om du vill avsluta den interaktiva kommando tolken i behållaren skriver du `exit` . Din behållare fortsätter att köras när du har avslutat det interaktiva bash-gränssnittet.
+
+## <a name="connect-from-outside-the-container"></a>Anslut utanför behållaren
+
+Du kan ansluta och köra SQL-frågor mot din Azure SQL Edge-instans från alla externa Linux-, Windows-eller macOS-verktyg som stöder SQL-anslutningar. Mer information om hur du ansluter till en SQL Edge-behållare från utsidan finns i [Anslut och fråga Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+
+I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge enhet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
 - [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).
+- [Data strömning i Azure SQL Edge](stream-data.md)

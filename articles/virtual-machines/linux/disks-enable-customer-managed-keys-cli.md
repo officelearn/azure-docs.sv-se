@@ -2,19 +2,19 @@
 title: Azure CLI – aktivera Kundhanterade nycklar med SSE-hanterade diskar
 description: Aktivera Kundhanterade nycklar på dina hanterade diskar med Azure CLI.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: cd1855a4ce2d394559db28448d9f1c9a01b4bd08
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 2acc95190454de2ffdd81a05a6e6cf166a9a6549
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236158"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814150"
 ---
-# <a name="azure-cli---enable-customer-managed-keys-with-server-side-encryption---managed-disks"></a>Azure CLI – aktivera Kundhanterade nycklar med krypterings hanterade diskar på Server Sidan
+# <a name="use-the-azure-cli-to-enable-server-side-encryption-with-customer-managed-keys-for-managed-disks"></a>Använd Azure CLI för att aktivera kryptering på Server sidan med Kundhanterade nycklar för hanterade diskar
 
 Med Azure-disklagring kan du hantera dina egna nycklar när du använder SSE (Server Side Encryption) för hanterade diskar, om du väljer. För konceptuell information om SSE med Kundhanterade nycklar, samt andra typer av hanterade disk krypterings typer, se avsnittet [Kundhanterade nycklar](disk-encryption.md#customer-managed-keys) i artikeln om disk kryptering.
 
@@ -129,5 +129,5 @@ az disk-encryption-set update -n keyrotationdes -g keyrotationtesting --key-url 
 
 - [Utforska Azure Resource Manager mallar för att skapa krypterade diskar med Kundhanterade nycklar](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [Replikera datorer med Kundhanterade nycklar aktiverade diskar](../../site-recovery/azure-to-azure-how-to-enable-replication-cmk-disks.md)
-- [Konfigurera katastrof återställning av virtuella VMware-datorer till Azure med PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
-- [Konfigurera katastrof återställning till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)
+- [Konfigurera haveriberedskap för virtuella VMware-datorer till Azure med PowerShell](../../site-recovery/vmware-azure-disaster-recovery-powershell.md#replicate-vmware-vms)
+- [Konfigurera haveriberedskap till Azure för virtuella Hyper-V-datorer med PowerShell och Azure Resource Manager](../../site-recovery/hyper-v-azure-powershell-resource-manager.md#step-7-enable-vm-protection)

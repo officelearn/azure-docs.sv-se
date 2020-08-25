@@ -10,34 +10,34 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 675ddf073393afde6ac8d08a65b40da11d90d3ea
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: f6d128ace64f7c100a974883bff82435a496be97
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026669"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815461"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en Ubuntu-Data Science Virtual Machine med en ARM-mall
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här snabb starten visas hur du skapar en Ubuntu 18,04-Data Science Virtual Machine med en Azure Resource Manager-mall (ARM-mall). Data vetenskap Virtual Machines är molnbaserade virtuella datorer som är förinstallerade med en svit med data vetenskaps-och maskin inlärnings ramverk och verktyg. När du har distribuerat en GPU-baserad beräknings resurs konfigureras alla verktyg och bibliotek för att använda GPU: n. 
+I den här snabb starten visas hur du skapar en Ubuntu 18,04-Data Science Virtual Machine med en Azure Resource Manager-mall (ARM-mall). Data vetenskap Virtual Machines är molnbaserade virtuella datorer som är förinstallerade med en svit med data vetenskaps-och maskin inlärnings ramverk och verktyg. När du har distribuerat en GPU-baserad beräknings resurs konfigureras alla verktyg och bibliotek för att använda GPU: n.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Om din miljö uppfyller förutsättningarna och du är van att använda ARM-mallar, väljer du knappen **distribuera till Azure** . Mallen öppnas i Azure Portal.
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
 
 [![Distribuera till Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-ubuntu-DSVM-GPU-or-CPU%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/services/machine-learning/) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/services/machine-learning/) innan du börjar.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Den fullständiga mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa hela mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Den del som definierar de olika DSVM visas här:
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Den fullständiga mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa hela mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Den del som definierar de olika DSVM visas här:
 
 :::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
 
@@ -74,7 +74,7 @@ När du kör kommandot ovan anger du:
 
 Så här ser du Data Science Virtual Machine:
 
-1. Gå till https://portal.azure.com.
+1. Gå till [Azure Portal](https://portal.azure.com)
 1. Logga in.
 1. Välj den resurs grupp som du nyss skapade.
 

@@ -1,22 +1,22 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 08/24/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: b2d4ce0de130942ccd52dc2894d91a4e4f667c99
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7709f26b30d41b932569227b8b6f05b5725dc98f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326636"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815680"
 ---
-När du publicerar ditt erbjudande på Marketplace via partner Center måste du ansluta ditt erbjudande till ditt CRM-system. På så sätt kan du ta emot kund kontakt uppgifter direkt efter att en kund uttrycker intresse eller distribuerar din produkt.
+När du publicerar ditt erbjudande på den kommersiella Marketplace via partner Center måste du ansluta ditt erbjudande till ditt CRM-system. På så sätt kan du ta emot kund kontakt uppgifter direkt efter att en kund har fått ett intresse eller distribuerar din produkt.
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Följande CRM-system stöds:
 
@@ -29,7 +29,6 @@ När du publicerar ditt erbjudande på Marketplace via partner Center måste du 
     * [Azure-tabell](../commercial-marketplace-lead-management-instructions-azure-table.md)
     * [HTTPS-slutpunkt](../commercial-marketplace-lead-management-instructions-https.md)
 
-2. Läs den här länkade dokumentationen för ditt valda lead-mål för att se hur du ställer in målet för lead för att ta emot leads från Marketplace-erbjudandet.
-3. Anslut ditt erbjudande till lead-målet när du publicerar erbjudandet på Marketplace i Partner Center. Information om hur du gör detta finns i den länkade dokumentationen.
-4. Bekräfta att anslutningen till målet för målet har kon figurer ATS korrekt. När du har konfigurerat din lead-mål på rätt sätt väljer du **publicera** på ditt erbjudande i Partner Center. Sedan validerar vi anslutningen och skickar ett test lead. När du visar erbjudandet innan du går live kan du också testa din lead-anslutning genom att försöka skaffa erbjudandet själv i för hands versionen.
-5. Se till att anslutningen till mål platsen hålls uppdaterad så att du inte förlorar några leads. Se till att du uppdaterar anslutningarna när något har ändrats på din sida.
+1. Läs den tillämpliga länkade dokumentationen ovan för att lära dig hur du konfigurerar din lead-destination och tar emot leads från dina kommersiella Marketplace-erbjudanden.
+1. När du har anslutit ditt erbjudande till ditt lead-mål väljer du **publicera** på ditt erbjudande i Partner Center. Vi validerar anslutningen och skickar ett test lead. När du visar erbjudandet innan du går live kan du också testa din lead-anslutning genom att försöka skaffa erbjudandet själv i för hands versionen.
+1. Se till att anslutningen till mål platsen hålls uppdaterad så att du inte förlorar några leads. Se till att du uppdaterar anslutningarna när något har ändrats.

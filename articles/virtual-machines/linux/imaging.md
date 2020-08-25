@@ -1,6 +1,6 @@
 ---
 title: Översikt över hur du skapar Linux-avbildningar för Azure
-description: Översikt över hur du kan ta med dina virtuella Linux-avbildningar eller skapa nya avbildningar som ska användas i Azure.
+description: Så här använder du dina virtuella Linux-avbildningar eller skapar nya avbildningar som ska användas i Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502188"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815308"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Skapa och skapa Linux-avbildningar i Azure
 
@@ -25,7 +25,7 @@ Den här artikeln beskriver avbildnings besluts punkterna och kraven, förklarar
 ## <a name="difference-between-managed-disks-and-images"></a>Skillnaden mellan hanterade diskar och avbildningar
 
 
-Med Azure kan du ta en virtuell hård disk till plattformen, använda den som en [hanterad disk](../windows/faq-for-disks.md#managed-disks)eller använda som källa för en avbildning. 
+Med Azure kan du ta en virtuell hård disk till plattformen, använda den som en [hanterad disk](../faq-for-disks.md#managed-disks)eller använda som källa för en avbildning. 
 
 Azure Managed disks är enkla virtuella hård diskar. Du kan antingen ta en befintlig virtuell hård disk och skapa en hanterad disk från den eller skapa en tom hanterad disk från grunden. Du kan skapa virtuella datorer från hanterade diskar genom att koppla disken till den virtuella datorn, men du kan bara använda en virtuell hård disk med en virtuell dator. Du kan inte ändra några OS-egenskaper. Azure försöker bara aktivera den virtuella datorn och börja använda den disken. 
 
@@ -58,7 +58,7 @@ Följande är [förutsättningar](./create-upload-generic.md) för att skapa en 
 ### <a name="specialized-images"></a>Specialiserade bilder
 Dessa är avbildningar som är helt konfigurerade och inte kräver VM och särskilda parametrar. plattformen aktiverar bara den virtuella datorn eftersom du behöver hantera unikheten i den virtuella datorn, t. ex. Ange ett värdnamn, för att undvika DNS-konflikter i samma VNET. 
 
-Etablerings agenter krävs inte för de här avbildningarna men du kanske vill ha funktioner för fil hantering. Du kan installera Linux-agenten, men inaktivera etablerings alternativet. Även om du inte behöver en etablerings agent måste avbildningen uppfylla [kraven](./create-upload-generic.md) för Azure-avbildningar.
+Etablerings agenter krävs inte för de här avbildningarna men du kanske vill ha funktioner för fil hantering. Du kan installera Linux-agenten, men inaktivera etablerings alternativet. Även om du inte behöver en etablerings agent måste avbildningen uppfylla [kraven](./create-upload-generic.md)  för Azure-avbildningar.
 
 
 ## <a name="image-storage-options"></a>Alternativ för bild lagring

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509118"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815189"
 ---
 # <a name="what-is-identity-protection"></a>Vad är Identity Protection?
 
@@ -52,9 +52,10 @@ Identitets skyddet identifierar risker i följande klassificeringar:
 | Ovanlig resa | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar. |
 | Anonym IP-adress | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN). |
 | Obekanta inloggningsegenskaper | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren. |
-| Länkad IP-adress för skadlig kod | Logga in från en länkad IP-adress med skadlig kod |
-| Läckta autentiseringsuppgifter | Den här risk identifieringen visar att användarens giltiga autentiseringsuppgifter har läckts |
-| Azure AD Threat Intelligence | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster |
+| Länkad IP-adress för skadlig kod | Logga in från en länkad IP-adress med skadlig kod. |
+| Läckta autentiseringsuppgifter | Den här risk identifieringen visar att användarens giltiga autentiseringsuppgifter har läckts. |
+| Lösen ords sprayning | Anger att flera användar namn angrips med vanliga lösen ord i ett enhetligt brutet sätt. |
+| Azure AD Threat Intelligence | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster. |
 
 Mer information om dessa risker och hur/när de beräknas finns i artikeln, [Vad är risk](concept-identity-protection-risks.md).
 
@@ -103,15 +104,15 @@ Administratörer för villkorlig åtkomst kan också skapa principer som faktorr
 
 | Kapacitet | Information | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Free/Office 365-appar |
 | --- | --- | --- | --- | --- |
-| Risk principer | Användar risk princip (via identitets skydd) | Ja | Nej | Nej |
-| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Nej | Nej |
-| Säkerhetsrapporter | Översikt | Ja | Nej | Nej |
+| Risk principer | Användar risk princip (via identitets skydd) | Ja | Inga | Inga |
+| Risk principer | Inloggnings risk princip (via identitets skydd eller villkorlig åtkomst) | Ja | Inga | Inga |
+| Säkerhetsrapporter | Översikt | Ja | Inga | Inga |
 | Säkerhetsrapporter | Riskfyllda användare | Fullständig åtkomst | Begränsad information | Begränsad information |
 | Säkerhetsrapporter | Riskfyllda inloggningar | Fullständig åtkomst | Begränsad information | Begränsad information |
-| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | Nej |
-| Meddelanden | Varningar för användare med risk identifiering | Ja | Nej | Nej |
-| Meddelanden | Vecko sammandrag | Ja | Nej | Nej |
-| | Registreringsprincip för multifaktorautentisering | Ja | Nej | Nej |
+| Säkerhetsrapporter | Riskidentifieringar | Fullständig åtkomst | Begränsad information | Inga |
+| Meddelanden | Varningar för användare med risk identifiering | Ja | Inga | Inga |
+| Meddelanden | Vecko sammandrag | Ja | Inga | Inga |
+| | Registreringsprincip för multifaktorautentisering | Ja | Inga | Nej |
 
 ## <a name="next-steps"></a>Nästa steg
 

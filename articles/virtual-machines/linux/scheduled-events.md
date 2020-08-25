@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: f91b5879922fc473ff1e46f817b3d649b1b30a9c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fee57efb3517131049f986c743125f17573fdc34
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87088741"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816736"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -42,7 +42,7 @@ Schemalagda händelser innehåller händelser i följande användnings fall:
 - [Plattform initierat underhåll](../maintenance-and-updates.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json) (till exempel VM-omstart, direktmigrering eller minnes konserverings uppdateringar för värd)
 - Den virtuella datorn körs på en [degraderad värd maskin vara](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) som förväntas sluta att fungera snart
 - Underhåll av användaren (till exempel när en användare startar om eller distribuerar om en virtuell dator)
-- Borttagning av instans av [virtuella datorer](spot-vms.md) och [dekor skalnings uppsättningar](../../virtual-machine-scale-sets/use-spot.md) .
+- Borttagning av instans av [virtuella datorer](../spot-vms.md) och [dekor skalnings uppsättningar](../../virtual-machine-scale-sets/use-spot.md) .
 
 ## <a name="the-basics"></a>Grunderna  
 
@@ -139,7 +139,7 @@ Om det finns schemalagda händelser innehåller svaret en händelse mat ris.
 | EventStatus | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> `Completed`Det finns aldrig någon eller liknande status. Händelsen returneras inte längre när händelsen är färdig.
 | NotBefore| Tid när den här händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 | Beskrivning | Beskrivning av den här händelsen. <br><br> Exempel: <br><ul><li> Underhåll pågår för värd servern. |
-| EventSource | Händelsens initierare. <br><br> Exempel: <br><ul><li> `Platform`: Den här händelsen initieras av platfrom. <li>`User`: Den här händelsen initieras av användaren. |
+| EventSource | Händelsens initierare. <br><br> Exempel: <br><ul><li> `Platform`: Den här händelsen initieras av plattformen. <li>`User`: Den här händelsen initieras av användaren. |
 
 ### <a name="event-scheduling"></a>Händelse schemaläggning
 Varje händelse schemaläggs en minimi period i framtiden baserat på händelse typen. Den här tiden visas i en händelse `NotBefore` egenskap. 

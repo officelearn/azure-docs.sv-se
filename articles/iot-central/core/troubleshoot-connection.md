@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 98d7566d5e9339ea2ac5d81d91f1d9f8ace5b0f4
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719730"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816073"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Felsöka varför data från dina enheter inte visas i Azure IoT Central
 
@@ -57,7 +57,7 @@ az set account --subscription <your-subscription-id>
 Använd följande kommando för att övervaka den telemetri som enheten skickar:
 
 ```cmd/bash
-az iot central app monitor-events -n <app-id> -d <device-name>
+az iot central app monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Om enheten har anslutit till IoT Central visas utdata som liknar följande:
@@ -82,7 +82,7 @@ Filtering on device: device-001
 Om du vill övervaka egenskapen uppdateringar som enheten utbyter med IoT Central använder du följande för hands versions kommando:
 
 ```cmd/bash
-az iot central app monitor-properties -n <app-id> -d <device-name>
+az iot central app monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Om enheten har skickat egenskaps uppdateringar ser du utdata som liknar följande:
@@ -108,7 +108,7 @@ Om du fortfarande inte ser några data i terminalen är det troligt att enheten 
 Om dina data inte visas på övervakaren kontrollerar du etablerings statusen för enheten genom att köra följande kommando:
 
 ```cmd/bash
-az iot central app device registration-info -n <app-id> -d <device-id>
+az iot central app device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
 Följande utdata visar ett exempel på en enhet som blockeras från att ansluta:
@@ -133,7 +133,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Enhets etablerings status | Beskrivning | Möjlig minskning |
 | - | - | - |
-| Etablerats | Ingen direkt identifierbar fråga. | Ej tillämpligt |
+| Etablerats | Ingen direkt identifierbar fråga. | Saknas |
 | Registrerad | Enheten har ännu inte anslutits till IoT Central. | Kontrol lera dina enhets loggar för anslutnings problem. |
 | Blockerad | Enheten har blockerats från att ansluta till IoT Central. | Enheten blockeras från att ansluta till IoT Central-programmet. Avblockera enheten i IoT Central och försök igen. Mer information finns i [blockera enheter](concepts-get-connected.md#device-status-values). |
 | Ej godkända | Enheten är inte godkänd. | Enheten är inte godkänd för att ansluta till IoT Central-programmet. Godkänn enheten i IoT Central och försök igen. Läs mer i [Godkänn enheter](concepts-get-connected.md#connect-without-registering-devices) |
@@ -178,13 +178,13 @@ För att identifiera vilka kategorier ditt problem är i kör du det mest lämpl
 - Använd för hands versions kommandot för att validera telemetri:
 
     ```cmd/bash
-    az iot central app validate-messages -n <app-id> -d <device-name>
+    az iot central app validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Om du vill validera egenskaps uppdateringar använder du kommandot för hands version
 
     ```cmd/bash
-    az iot central app validate-properties -n <app-id> -d <device-name>
+    az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
 - Om du föredrar att använda ett grafiskt användar gränssnitt använder du vyn IoT Central **rå data** för att se om något inte har modeller ATS. Vyn **rå data** identifierar inte om enheten skickar felaktig JSON.

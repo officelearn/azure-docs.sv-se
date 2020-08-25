@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: 2ca0031d3ae9fc1347c3a8bd7bf24c2780e502a8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607454"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814730"
 ---
 # <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
@@ -72,40 +72,40 @@ Mer information om kompetenser finns på sidan [Microsoft Partner Network kompet
 
 System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 20 länder/regioner:
 
-| Länder  | (fortsatte..)   | (fortsatte..)  | (fortsatte..)  |
+| Länder | (forts.) |  (forts.) |  (forts.) |
 |---------|----------|----------|----------|
 | Australien | Belgien | Kanada | Danmark |
 | Finland  | Frankrike | Tyskland  | Indien   |
 | Italien    | Japan  |  Mexico  |  Nederländerna  |
 |  Nya Zeeland  |  Norge  |  Polen  | Sydafrika |
 |  Sverige  | Schweiz  |  USA  | Storbritannien  |
-||
+|
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrera dig för konsult tjänster på den kommersiella marknaden
 
-Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](become-publisher.md). 
+Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](become-publisher.md).
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publicerings artefakter
 Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden. 
 
 |Installation för nya utgivare  |
-|---------|
-|MPN-ID     |
-|Företags logo typer (48 x 48, 216 x 216 bild punkter)     |
-|Lead-mål     |
-||
+| - |
+| MPN-ID |
+| Företags logo typer (48 x 48, 216 x 216 bild punkter) |
+| Lead-mål |
+|
 
 |Installations program för nya erbjudanden  |
-|---------|
-|Erbjudande namn (200 tecken) och beskrivning (2 000 tecken)    |
-|Kompetenser     |
-|Tillgänglighet för land/region     |
-|Varaktighet för åtagandet     |
-|Lämpliga branscher, kategorier och Sök Nyckelord     |
-|Produkt översikts video    |
-|Skärm bilder (högst 5 1280 x 720 bild punkter)     |
-|Marknadsförings dokument (högst 3)     |
-||
+| - |
+| Erbjudande namn (200 tecken) och beskrivning (2 000 tecken) |
+| Kompetenser  |
+| Tillgänglighet för land/region |
+| Varaktighet för åtagandet  |
+| Lämpliga branscher, kategorier och Sök Nyckelord |
+| Produkt översikts video |
+| Skärm bilder (högst 5 1280 x 720 bild punkter) |
+| Marknadsförings dokument (högst 3) |
+|
 
 ## <a name="the-publishing-process"></a>Publicerings processen
 

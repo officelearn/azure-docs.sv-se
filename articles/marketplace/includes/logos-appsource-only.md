@@ -7,13 +7,13 @@ ms.topic: include
 author: dannyevers
 ms.author: mingshen
 ms.reviewer: trkeya
-ms.date: 08/07/2020
-ms.openlocfilehash: 65fde879aa29ed1f93de4dd5c8ddccbfddccee38
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/18/2020
+ms.openlocfilehash: 90fe06e352a012f4774ba86fce9aed170379820a
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030781"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815425"
 ---
--   Den lilla logo typen (48 x 48 pixlar) visas på sidan Microsoft AppSource huvud sida och Sök resultat. 
--   Den stora logo typen (mellan 216 x 216 och 350 x 350 bild punkter) visas på sidan med din erbjudande lista i Microsoft AppSource.
+- Den stora logo typen visas på sidan med din erbjudande lista i Microsoft AppSource.
+- Den lilla logo typen (valfritt) visas på sidan Microsoft AppSource huvud sida och Sök resultat.

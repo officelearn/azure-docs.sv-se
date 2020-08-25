@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 2fc87f08b30d648ec38d2b93e96a32d125b856be
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757922"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88799289"
 ---
-# <a name="business-card-concepts"></a>Affärs korts begrepp
+# <a name="business-card-concepts"></a>Koncept för visitkort
 
 Azure formulär tolken kan analysera och extrahera nyckel värdes par från visitkort med en av de förinställda modellerna. Visitkorts-API: t kombinerar kraftfulla OCR-funktioner (optisk tecken läsning) med vårt affärskorts förståelse för modell för att extrahera viktig information från visitkort på engelska. Den extraherar personlig kontakt information, företags namn, befattning med mera. Det inbyggda API: t för visitkortet är offentligt tillgängligt i för hands versionen av formulär igenkänning v 2.1. 
 
@@ -70,7 +70,7 @@ Det andra steget är att anropa åtgärden för att [analysera visitkorts result
 
 När fältet **status** har värdet **lyckades** innehåller JSON-svaret affärs korts förståelse och text igenkännings resultat. Resultatet av visitkorten är ordnat som en ord lista med namngivna fält värden där varje värde innehåller den extraherade texten, normaliserade värdet, avgränsnings rutan, relevansen och motsvarande Word-element. Resultatet av text igenkänningen är ordnat som en hierarki med rader och ord, med text, avgränsnings ram och information om säkerhet.
 
-![Contoso smample-resultat](./media/business-card-results.png)
+![exempel på visitkorts resultat](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Exempel på JSON-utdata
 
@@ -90,8 +90,8 @@ Se följande exempel på ett lyckat JSON-svar: noden "readResults" innehåller a
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-    "lines": 
-         {
+                "lines": 
+                          {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,

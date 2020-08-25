@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 0cb2eed0895c10f649facaa184a5f9f9ea158aa5
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87551990"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816889"
 ---
 # <a name="configure-azure-sql-edge-preview"></a>Konfigurera Azure SQL Edge (för hands version)
 
@@ -157,6 +157,60 @@ Tidigare CTP-versioner av Azure SQL Edge har kon figurer ATS för att köras som
   - Uppdatera behållaren skapa alternativ för att ange Lägg till `*"User": "user_name | user_id*` nyckel/värde-par under behållare skapa alternativ. Ersätt user_name eller user_id med en faktisk user_name eller user_id från Docker-värden. 
   - Ändra behörigheter för katalogen/monterings volymen.
 
+## <a name="persist-your-data"></a>Spara dina data
+
+Dina ändringar i Azure SQL Edge-konfigurationen och databasfiler sparas i behållaren även om du startar om behållaren med `docker stop` och `docker start` . Men om du tar bort behållaren med `docker rm` , tas allt i behållaren bort, inklusive Azure SQL Edge och dina databaser. I följande avsnitt beskrivs hur du använder **data volymer** för att spara dina databasfiler även om de tillhör ande behållarna tas bort.
+
+> [!IMPORTANT]
+> För Azure SQL Edge är det viktigt att du förstår data persistens i Docker. Förutom diskussionen i det här avsnittet finns Docker-dokumentation om [hur du hanterar data i Docker-behållare](https://docs.docker.com/engine/tutorials/dockervolumes/).
+
+### <a name="mount-a-host-directory-as-data-volume"></a>Montera en värd katalog som data volym
+
+Det första alternativet är att montera en katalog på värden som en data volym i din behållare. Det gör du genom att använda `docker run` kommandot med `-v <host directory>:/var/opt/mssql` flaggan. Detta gör att data kan återställas mellan behållar körningar.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+Med den här metoden kan du också dela och Visa filer på värden utanför Docker.
+
+> [!IMPORTANT]
+> Värd volym mappning för **Docker på Windows** stöder för närvarande inte mappning av den fullständiga `/var/opt/mssql` katalogen. Du kan dock mappa en under katalog, t. ex `/var/opt/mssql/data` . till värddatorn.
+
+> [!IMPORTANT]
+> Värd volym mappning för **Docker på Mac** med Azure SQL Edge-avbildningen stöds inte för tillfället. Använd data volym behållare i stället. Den här begränsningen är speciell för `/var/opt/mssql` katalogen. Läsning från en monterad katalog fungerar bra. Du kan till exempel montera en värd katalog med-v på Mac och återställa en säkerhets kopia från en. bak-fil som finns på värden.
+
+### <a name="use-data-volume-containers"></a>Använd data volym behållare
+
+Det andra alternativet är att använda en data volym behållare. Du kan skapa en data volym behållare genom att ange ett volym namn i stället för en värd katalog med `-v` parametern. I följande exempel skapas en delad data volym med namnet **sqlvolume**.
+
+```bash
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+```PowerShell
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+```
+
+> [!NOTE]
+> Den här tekniken för att implicit skapa en data volym i körnings kommandot fungerar inte med äldre versioner av Docker. I så fall använder du de specifika stegen som beskrivs i Docker-dokumentationen, [skapar och monterar en data volym behållare](https://docs.docker.com/engine/tutorials/dockervolumes/#creating-and-mounting-a-data-volume-container).
+
+Även om du stoppar och tar bort den här behållaren kvarstår data volymen. Du kan visa den med `docker volume ls` kommandot.
+
+```bash
+docker volume ls
+```
+
+Om du sedan skapar en annan behållare med samma volym namn använder den nya behållaren samma Azure SQL Edge-data som finns i volymen.
+
+Om du vill ta bort en data volym behållare använder du `docker volume rm` kommandot.
+
+> [!WARNING]
+> Om du tar bort data volym behållaren tas alla Azure SQL Edge-data i behållaren bort *permanent* .
 
 
 ## <a name="next-steps"></a>Nästa steg

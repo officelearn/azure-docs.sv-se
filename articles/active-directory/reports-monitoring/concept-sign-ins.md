@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81daa7696c645c1353cdd5e6d3cbca90ac4f03da
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388126"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816090"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -47,11 +47,7 @@ Den här artikeln ger en översikt över inloggnings rapporten.
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
 
-- Rapporten inloggnings aktivitet är tillgänglig i [alla versioner av Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data).
-
-- Om du vill komma åt inloggnings data med ett API måste klienten ha en [Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) licens som är kopplad till den.
-
-
+Rapporten inloggnings aktivitet är tillgänglig i [alla versioner av Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) och kan också nås via Microsoft Graph API.
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
@@ -128,7 +124,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 
 **Plats** – platsen som anslutningen initierades från:
 
-- Stad
+- City
 
 - Delstat/provins
 
@@ -146,7 +142,7 @@ ID för **begäran** : ID för den begäran du bryr dig om.
 ![Filter för klient program](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Name|Modern autentisering|Description|
+|Name|Modern autentisering|Beskrivning|
 |---|:-:|---|
 |Autentiserad SMTP| |Används av POP-och IMAP-klienten för att skicka e-postmeddelanden.|
 |Tjänsten automatisk upptäckt| |Används av Outlook och EAS-klienter för att hitta och ansluta till post lådor i Exchange Online.|
@@ -235,8 +231,8 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Användarnamn
 - Program-ID
 - Program
-- Klient
-- Position
+- Client
+- Plats
 - IP-adress
 - Datum
 - MFA krävs

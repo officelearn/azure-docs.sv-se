@@ -4,18 +4,18 @@ description: Aktivera privata Länkar för dina hanterade diskar med Azure Porta
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135852"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815869"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal-begränsa import/export-åtkomst för hanterade diskar med privata länkar
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Använd Azure Portal för att begränsa import/export-åtkomst för hanterade diskar med privata länkar
 
 Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och gör att du kan begränsa exporten och importen av hanterade diskar så att det bara sker i det virtuella Azure-nätverket. Du kan skapa en tidsbunden URL för signatur för delad åtkomst (SAS) för ej anslutna hanterade diskar och ögonblicks bilder för att exportera data till annan region för regional expansion, haveri beredskap och läsa data för kriminal tekniska-analys. Du kan också använda SAS-URI: n för att ladda upp den virtuella hård disken direkt till en tom disk från din lokala plats. Nätverks trafik mellan klienter på sina virtuella nätverk och hanterade diskar passerar bara över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponeringen för det offentliga Internet.
 
@@ -100,5 +100,5 @@ Nu har du slutfört konfigurationen av privata länkar som du kan använda när 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vanliga frågor och svar om privata länkar](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Vanliga frågor och svar om privata länkar](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Exportera/kopiera hanterade ögonblicksbilder som VHD till ett lagringskonto i en annan region med PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

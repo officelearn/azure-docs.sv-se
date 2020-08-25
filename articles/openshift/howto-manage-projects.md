@@ -8,14 +8,14 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: d4f53238951784a74e6e3fc8a73d1f112ce75608
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139121"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816447"
 ---
-# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Hantera projekt, mallar, bild strömmar i ett kluster med OpenShift i Azure Red Hat 
+# <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Hantera projekt, mallar, bild strömmar i ett kluster med OpenShift i Azure Red Hat
 
 I en OpenShift container-plattform används projekt för att gruppera och isolera relaterade objekt. Som administratör kan du ge utvecklare åtkomst till specifika projekt, tillåta dem att skapa sina egna projekt och ge dem administrativa rättigheter till enskilda projekt.
 
@@ -45,7 +45,7 @@ När en projekt förfrågan skickas, ersätter API följande parametrar i mallen
    oc edit template project-request -n openshift
    ```
 
-3. Ta bort standard projekt mal len från uppdaterings processen för Azure Red Hat OpenShift (ARO) genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
+3. Ta bort standard projekt mal len från uppdaterings processen för Azure Red Hat OpenShift (ARO) genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...
@@ -112,7 +112,7 @@ Så här inaktiverar du uppdateringar för alla `Templates` och `ImageStreams` i
    oc edit namespace openshift
    ```
 
-3. Ta bort `openshift` namn området från Aro uppdaterings processen genom att lägga till följande anteckning:`openshift.io/reconcile-protect: "true"`
+3. Ta bort `openshift` namn området från Aro uppdaterings processen genom att lägga till följande anteckning: `openshift.io/reconcile-protect: "true"`
 
    ```
    ...

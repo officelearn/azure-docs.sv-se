@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2020
+ms.date: 08/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 556d3df41b7ee66bfb2b32b8a566d7172f45e313
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 30839fac6a264ad9defb565663b28a5b12b571b5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034472"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814526"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -24,7 +24,7 @@ Azure Storage lagrar alltid flera kopior av dina data så att de skyddas från p
 När du bestämmer vilket alternativ för redundans som passar bäst för ditt scenario bör du fundera över kompromisserna mellan lägre kostnader och högre tillgänglighet och hållbarhet. De faktorer som hjälper dig att avgöra vilket alternativ för redundans som du bör välja bland:  
 
 - Hur dina data replikeras i den primära regionen
-- Om dina data replikeras till en andra plats som är geografiskt avlägsen till den primära regionen, för att skydda mot regionala haverier
+- Om dina data replikeras till en andra region som är geografiskt avlägsen till den primära regionen, för att skydda mot regionala haverier
 - Huruvida programmet kräver Läs behörighet till replikerade data i den sekundära regionen om den primära regionen blir otillgänglig av någon anledning
 
 ## <a name="redundancy-in-the-primary-region"></a>Redundans i den primära regionen
@@ -64,13 +64,13 @@ Följande tabell visar vilka typer av lagrings konton som stöder ZRS i vilka re
 | Storage Account-typ | Regioner som stöds | Tjänster som stöds |
 |--|--|--|
 | Allmänt-syfte v2<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Nordeuropa<br />  Västeuropa<br /> Frankrike, centrala<br /> Japan, östra<br /> Sydafrika, norra<br /> Storbritannien, södra<br /> USA, centrala<br /> USA, Östra<br /> USA, östra 2<br /> USA, västra 2 | Blockblobar<br /> Page blobbar<sup>2</sup><br /> Fil resurser (standard)<br /> Tabeller<br /> Köer<br /> |
-| BlockBlobStorage<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra | Endast Premium block-blobbar |
-| FileStorage | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra | Premium-filer endast resurser |
+| BlockBlobStorage<sup>1</sup> | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra <br /> USA, västra 2| Endast Premium block-blobbar |
+| FileStorage | Sydostasien<br /> Australien, östra<br /> Västeuropa<br /> USA, Östra <br /> USA, västra 2 | Premium-filer endast resurser |
 
 <sup>1</sup> Arkiv nivån stöds för närvarande inte för ZRS-konton.<br />
 <sup>2</sup> lagrings konton som innehåller Azure Managed disks för virtuella datorer använder alltid LRS. Azure-ohanterade diskar bör också använda LRS. Det går att skapa ett lagrings konto för Azure unmanaged disks som använder GRS, men det rekommenderas inte på grund av potentiella problem med konsekvens över asynkron geo-replikering. Varken hanterade eller ohanterade diskar har stöd för ZRS eller GZRS. Mer information om hanterade diskar finns i [prissättning för Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-Information om vilka regioner som stöder ZRS finns i **tjänster support efter region** i [Vad är Azure-tillgänglighetszoner?](../../availability-zones/az-overview.md).
+Information om vilka regioner som stöder ZRS finns i **tjänster support efter region**  i [Vad är Azure-tillgänglighetszoner?](../../availability-zones/az-overview.md).
 
 ## <a name="redundancy-in-a-secondary-region"></a>Redundans i en sekundär region
 
@@ -83,9 +83,9 @@ Azure Storage erbjuder två alternativ för att kopiera data till en sekundär r
 - **Geo-redundant lagring (GRS)** kopierar dina data synkront tre gånger inom en enda fysisk plats i den primära regionen med hjälp av LRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
 - **Geo-Zone-redundant lagring (GZRS)** kopierar dina data synkront över tre tillgänglighets zoner i Azure i den primära regionen med hjälp av ZRS. Därefter kopieras data asynkront till en enda fysisk plats i den sekundära regionen.
 
-Den främsta skillnaden mellan GRS och GZRS är hur data replikeras i den primära regionen. På den sekundära platsen replikeras alltid data synkront under tre gånger med hjälp av LRS. LRS i den sekundära regionen skyddar dina data mot maskin varu problem.
+Den främsta skillnaden mellan GRS och GZRS är hur data replikeras i den primära regionen. I den sekundära regionen replikeras alltid data synkront under tre gånger med hjälp av LRS. LRS i den sekundära regionen skyddar dina data mot maskin varu problem.
 
-Med GRS eller GZRS är data på den sekundära platsen inte tillgängliga för Läs-eller skriv åtkomst, såvida det inte finns någon redundansväxling till den sekundära regionen. För Läs behörighet till den sekundära platsen konfigurerar du ditt lagrings konto så att det använder Read-Access Geo-redundant lagring (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS). Mer information finns i [Läs åtkomst till data i den sekundära regionen](#read-access-to-data-in-the-secondary-region).
+Med GRS eller GZRS är data i den sekundära regionen inte tillgängliga för Läs-eller skriv åtkomst, såvida det inte finns någon redundansväxling till den sekundära regionen. För Läs behörighet till den sekundära regionen konfigurerar du ditt lagrings konto så att det använder Read-Access Geo-redundant lagring (RA-GRS) eller Läs åtkomst till geo-Zone-redundant lagring (RA-GZRS). Mer information finns i [Läs åtkomst till data i den sekundära regionen](#read-access-to-data-in-the-secondary-region).
 
 Om den primära regionen blir otillgänglig kan du välja att redundansväxla till den sekundära regionen. När redundansväxlingen har slutförts blir den sekundära regionen den primära regionen och du kan läsa och skriva data igen. Mer information om haveri beredskap och om hur du växlar över till den sekundära regionen finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 
@@ -166,7 +166,7 @@ Följande tabell visar om dina data är beständiga och tillgängliga i ett spec
 | Avbrott-scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
 | En nod i ett Data Center blir otillgänglig | Ja | Ja | Ja | Ja |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Inga | Ja | Ja<sup>1</sup> | Yes |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt | Inga | Ja | Ja<sup>1</sup> | Ja |
 | Ett områdes omfattande avbrott uppstår i den primära regionen | Inga | Inga | Ja<sup>1</sup> | Ja<sup>1</sup> |
 | Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga | Inga | Ja (med RA-GRS) | Ja (med RA-GZRS) |
 
@@ -196,4 +196,4 @@ Azure Storage verifierar regelbundet integriteten för data som lagras med hjäl
 - [Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md)
 - [Ändra redundans alternativ för ett lagrings konto](redundancy-migration.md)
 - [Använd GEO-redundans för att skapa program med hög tillgänglighet](geo-redundant-design.md)
-- [Haveri beredskap och redundans för lagrings konto](storage-disaster-recovery-guidance.md)
+- [Haveriberedskap och lagringskontoredundans](storage-disaster-recovery-guidance.md)

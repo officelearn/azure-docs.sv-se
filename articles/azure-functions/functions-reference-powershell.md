@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: dd3978ee1f371d59119e406c5f023718d57ad99b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642222"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816413"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -375,7 +375,7 @@ param([string] $myBlob)
 
 I PowerShell är begreppet en PowerShell-profil. Om du inte är bekant med PowerShell-profiler, se [om profiler](/powershell/module/microsoft.powershell.core/about/about_profiles).
 
-I PowerShell-funktioner körs profil skriptet när funktions programmet startar. Function-appar startar när de först distribueras och efter att de varit inaktiva ([kall start](#cold-start)).
+I PowerShell-funktioner utförs profil skriptet en gång per PowerShell-arbetsinstans i appen när den först distribueras och efter att ha varit inaktive ras ([kall start](#cold-start). När samtidighet har Aktiver ATS genom att ange [PSWorkerInProcConcurrencyUpperBound](#concurrency) -värdet körs profil skriptet för varje körnings utrymme som skapas.
 
 När du skapar en Function-app med hjälp av verktyg, till exempel Visual Studio Code och Azure Functions Core Tools, skapas en standard `profile.ps1` åt dig. Standard profilen underhålls [av GitHub-lagringsplatsen Core tools](https://github.com/Azure/azure-functions-core-tools/blob/dev/src/Azure.Functions.Cli/StaticResources/profile.ps1) och innehåller:
 
@@ -417,7 +417,10 @@ När du skapar ett nytt PowerShell Functions-projekt aktive ras beroende hanteri
 När du uppdaterar filen requirements.psd1 installeras uppdaterade moduler efter en omstart.
 
 > [!NOTE]
-> Hanterade beroenden kräver åtkomst till www.powershellgallery.com för att hämta moduler. När du kör lokalt kontrollerar du att körnings miljön har åtkomst till den här URL: en genom att lägga till eventuella nödvändiga brand Väggs regler. 
+> Hanterade beroenden kräver åtkomst till www.powershellgallery.com för att hämta moduler. När du kör lokalt kontrollerar du att körnings miljön har åtkomst till den här URL: en genom att lägga till eventuella nödvändiga brand Väggs regler.
+
+> [!NOTE]
+> Hanterade beroenden stöder för närvarande inte moduler som kräver att användaren accepterar en licens, antingen genom att acceptera licensen interaktivt eller genom att tillhandahålla `-AcceptLicense` växel när den anropas `Install-Module` .
 
 Följande program inställningar kan användas för att ändra hur de hanterade beroendena hämtas och installeras. Din app-uppgradering startar inom `MDMaxBackgroundUpgradePeriod` och uppgraderings processen slutförs inom ungefär `MDNewSnapshotCheckPeriod` .
 
@@ -435,6 +438,7 @@ I functions, `PSModulePath` innehåller två sökvägar:
 
 * En `Modules` mapp som finns i roten för din Function-app.
 * En sökväg till en `Modules` mapp som styrs av PowerShell-språket.
+
 
 ### <a name="function-app-level-modules-folder"></a>Funktion app-Level- `Modules` mapp
 
@@ -502,17 +506,22 @@ Som standard kan funktioner i PowerShell-körningsmiljön endast bearbeta ett an
 * När du försöker hantera ett stort antal anrop samtidigt.
 * När du har funktioner som anropar andra funktioner i samma Function-app.
 
-Du kan ändra det här beteendet genom att ställa in följande miljö variabel till ett heltals värde:
+Det finns några samtidighets modeller som du kan utforska beroende på typen av arbets belastning:
 
-```
-PSWorkerInProcConcurrencyUpperBound
-```
+* Öka ```FUNCTIONS_WORKER_PROCESS_COUNT``` . Detta möjliggör hantering av funktions anrop i flera processer inom samma instans, vilket introducerar viss CPU och minnes belastning. I allmänhet kommer i/O-gränser inte att påverkas av den här belastningen. För PROCESSORbaserade funktioner kan påverkan vara betydande.
 
-Du ställer in miljövariabeln i [appens inställningar](functions-app-settings.md) för Funktionsapp.
+* Öka ```PSWorkerInProcConcurrencyUpperBound``` värdet för app Setting. På så sätt kan du skapa flera körnings utrymmen i samma process, vilket avsevärt minskar CPU-och minnes belastningen.
+
+Du ställer in de här miljövariablerna i [app-inställningarna](functions-app-settings.md) för din Function-app.
+
+Beroende på ditt användnings fall kan Durable Functions avsevärt förbättra skalbarheten. Läs mer i [Durable Functions program mönster](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+
+>[!NOTE]
+> Du kan få ett meddelande om att "förfrågningar har placerats i kö på grund av inga tillgängliga körnings utrymmen"-varningar, Observera att detta inte är ett fel. Meddelandet talar om för dig att förfrågningarna placeras i kö och att de hanteras när föregående begär Anden har slutförts.
 
 ### <a name="considerations-for-using-concurrency"></a>Överväganden vid användning av samtidighet
 
-PowerShell är ett _enda trådat_ skript språk som standard. Samtidighet kan dock läggas till med hjälp av flera PowerShell-körnings utrymmen i samma process. Mängden körnings utrymmen som skapas kommer att matcha inställningen för PSWorkerInProcConcurrencyUpperBound-programmet. Data flödet påverkas av mängden processor-och minnes mängd som är tillgängliga i den valda planen.
+PowerShell är ett _enda trådat_ skript språk som standard. Samtidighet kan dock läggas till med hjälp av flera PowerShell-körnings utrymmen i samma process. Mängden körnings utrymmen som skapas kommer att matcha ```PSWorkerInProcConcurrencyUpperBound``` program inställningen. Data flödet påverkas av mängden processor-och minnes mängd som är tillgängliga i den valda planen.
 
 Azure PowerShell använder vissa kontexter och tillstånd på _processnivå_ för att hjälpa till att spara. Men om du aktiverar samtidighet i din Function-app och anropar åtgärder som ändrar tillstånd, kan du få licens villkoren. Dessa tävlings förhållanden är svåra att felsöka eftersom ett anrop är beroende av ett visst tillstånd och det andra anropet har ändrat tillståndet.
 

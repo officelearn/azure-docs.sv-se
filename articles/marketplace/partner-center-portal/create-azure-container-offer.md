@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 9196bea663d037f269316dc108f99d3f2c282ec7
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 055db043f4e695001b2ee90a47a2531284466314
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606360"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815647"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Skapa ett Azure Container-erbjudande på Azure Marketplace
 
@@ -133,7 +133,7 @@ På den här sidan kan du definiera information om erbjudandet som visas på den
 > [!NOTE]
 > Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [icke-engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -197,16 +197,17 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
- Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-- **Liten** (48 x 48)
-- **Medel** (90 X 90)
-- **Stor** (216 x 216)
-- **Bred** (255 X 115)
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Medel** (90 x 90 BPT, valfritt)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

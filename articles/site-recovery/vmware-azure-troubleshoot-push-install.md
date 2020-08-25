@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: db66137ac4b233a7e5d3040cf38dc69a089b0c9a
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185221"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816206"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Felsöka mobilitets tjänstens push-installation
 
@@ -41,8 +41,8 @@ För Windows (**fel 95107**) kontrollerar du att användar kontot har administra
 * För att manuellt lägga till en register nyckel som inaktiverar fjärran vändare åtkomst kontroll:
 
   * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
-  * Lägg till en ny `DWORD` :`LocalAccountTokenFilterPolicy`
-  * Ange värdet till`1`
+  * Lägg till en ny `DWORD` : `LocalAccountTokenFilterPolicy`
+  * Ange värdet till `1`
 
 * Om du vill lägga till register nyckeln kör du följande kommando från en kommando tolk:
 
@@ -130,6 +130,28 @@ Så här löser du felet:
 
 Felet uppstår när nätverket som käll datorn finns på inte hittas, kan ha tagits bort eller inte längre är tillgängligt. Det enda sättet att lösa felet är att se till att nätverket finns.
 
+## <a name="check-access-for-network-shared-folders-on-source-machine-errorid-9510595523"></a>Kontrol lera åtkomsten för delade nätverks-mappar på käll datorn (ErrorID: 95105, 95523)
+
+Kontrol lera att nätverks delade mappar på den virtuella datorn kan nås från processervern (PS) via fjärr anslutning med angivna autentiseringsuppgifter. För att bekräfta åtkomst: 
+
+1. Logga in på datorn med processervern.
+2. Öppna Utforskaren. I adress fältet skriver du `\\<SOURCE-MACHINE-IP>\C$` och klickar på RETUR.
+
+    ![Öppna mappen i PS](./media/vmware-azure-troubleshoot-push-install/open-folder-process-server.PNG)
+
+3. Utforskaren kommer att fråga efter autentiseringsuppgifter. Ange användar namn och lösen ord och klicka på OK. <br><br/>
+
+    ![Ange autentiseringsuppgifter](./media/vmware-azure-troubleshoot-push-install/provide-credentials.PNG)
+
+    >[!NOTE]
+    > Om käll datorn är ansluten till en domän anger du domän namnet tillsammans med användar namnet som `<domainName>\<username>` . Om käll datorn finns i en arbets grupp anger du bara användar namnet.
+
+4. Om anslutningen lyckas visas mapparna på käll datorn via fjärr anslutning från processervern.
+
+    ![Synliga mappar från käll datorn](./media/vmware-azure-troubleshoot-push-install/visible-folders-from-source.png)
+
+Om anslutningen Miss lyckas kontrollerar du om alla krav är uppfyllda.
+
 ## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Kontroll av fil-och skrivar delnings tjänster (ErrorID: 95105 & 95106)
 
 Efter en anslutnings kontroll kontrollerar du om fil-och skrivar delnings tjänsten är aktive rad på den virtuella datorn. De här inställningarna krävs för att kopiera mobilitets agenten till käll datorn.
@@ -204,7 +226,7 @@ Innan 9,20-versionen hade en rot partition eller volym konfiguration på flera d
 
 Konfigurationsfilerna för Grand Unified startGRUB (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/Boot/grub2/grub.cfg_eller _/etc/default/grub_) kan innehålla värdet för parameter **roten** och **återupptas** som faktiska enhets namn i stället för en universell unik identifierare (UUID). Site Recovery bestämmer UUID-metoden som enhets namn kan ändras för den virtuella datorn. Till exempel kanske den virtuella datorn inte är online med samma namn vid redundansväxling och som resulterar i problem.
 
-Till exempel:
+Exempel:
 
 - Följande rad är från GRUB-filen _/Boot/grub2/grub.cfg_:
 
@@ -223,7 +245,7 @@ Enhetsnamnen bör ersättas med motsvarande UUID.
 
 1. Hitta enhetens UUID genom att köra kommandot `blkid \<device name>` .
 
-   Till exempel:
+   Exempel:
 
    ```shell
    blkid /dev/sda1
@@ -260,7 +282,7 @@ När mobilitets agenten kopieras till käll datorn krävs minst 100 MB ledigt ut
 
 ## <a name="low-system-resources"></a>Låga system resurser
 
-Det här problemet uppstår när systemet har ont om ledigt minne och inte kan allokera minne för mobilitets tjänst installationen. Se till att tillräckligt med minne har frigjorts för att installationen ska kunna fortsätta och slutföras.
+De möjliga fel-ID: na som visas för det här problemet är 95572 och 95573. Det här problemet uppstår när systemet har ont om ledigt minne och inte kan allokera minne för mobilitets tjänst installationen. Se till att tillräckligt med minne har frigjorts för att installationen ska kunna fortsätta och slutföras.
 
 ## <a name="vss-installation-failures"></a>Installations problem med VSS
 

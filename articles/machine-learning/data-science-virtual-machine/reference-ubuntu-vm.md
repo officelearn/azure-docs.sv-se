@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 247840fe4719dc83be8048826ac4defc76d7ef9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: c919e8abc55dd5cb36325ae060340c1ee147a1a0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852233"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816311"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referens: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -248,14 +248,12 @@ Operationalisera de maskin inlärnings modeller som du har skapat genom att figu
 
 Du kan också bygga dina modeller i R eller python på den virtuella datorn och sedan distribuera dem i produktion på Azure Machine Learning. Vi har installerat bibliotek i R (**azureml**) och python (**azureml**) för att aktivera den här funktionen.
 
-Information om hur du distribuerar modeller i R och python till Azure Machine Learning finns i [tio saker du kan göra på data science Virtual Machine](vm-do-ten-things.md).
-
 > [!NOTE]
 > Dessa instruktioner skrevs för Windows-versionen av Data Science Virtual Machine. Men informationen som ges vid distribution av modeller till Azure Machine Learning är tillämplig på den virtuella Linux-datorn.
 
 ## <a name="machine-learning-tools"></a>Machine Learning-verktyg
 
-Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Dessa omfattar:
+Den virtuella datorn levereras med Machine Learning-verktyg och algoritmer som har förkompilerats och redan installerats lokalt. Exempel på dessa är:
 
 * **Vowpal Wabbit**: en snabb onlineutbildning för inlärning.
 * **xgboost**: ett verktyg som tillhandahåller optimerade, förstärkta träd algoritmer.
@@ -282,7 +280,7 @@ cd vwdemo
 vw house_dataset
 ```
 
-Det finns andra, större demonstrationer i den katalogen. Mer information om Vowpal-Wabbit finns i [det här avsnittet av GitHub](https://github.com/JohnLangford/vowpal_wabbit) och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
+Det finns andra, större demonstrationer i den katalogen. Mer information om Vowpal-Wabbit finns i  [det här avsnittet av GitHub](https://github.com/JohnLangford/vowpal_wabbit) och [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
 ### <a name="xgboost"></a>xgboost
 

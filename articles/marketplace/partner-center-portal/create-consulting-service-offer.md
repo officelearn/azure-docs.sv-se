@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f8ddbc66b8e7775fa35d2407bf3aa8614fe8e835
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 03fa302d2e8aa173419912b99d60734c7a4e0356
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606162"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814272"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -98,7 +98,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
 
 3. Om du har valt **Azure** som primär produkt väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
 
-    - Analytics
+    - Analys
     - App-modernisering
     - Arkiv
     - AI + Machine Learning
@@ -109,7 +109,7 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
     - DevOps
     - Haveriberedskap
     - Identitet
-    - Internet of Things
+    - Sakernas Internet
     - Migrering
     - Nätverk
     - Säkerhet
@@ -160,7 +160,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 8. Skärm bilder/videor
 9. Dokument
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -209,15 +209,14 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** logo typ. Du kan också ersätta detta med en annan avbildning senare.
 
-- **Liten (48 x 48)**
-- **Stor (216 x 216)**
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Alla logo typer krävs och används på olika platser i Marketplace-listan.
+Dessa Logo typer används på olika platser i listan.
 
--   Den lilla logo typen (48 x 48 pixlar) visas i Sök resultaten för Azure Marketplace och på sidan Microsoft AppSource huvud sida och Sök resultat. 
--   Den stora logo typen (mellan 216 x 216 och 350 x 350 bild punkter) visas på sidan med din erbjudande lista i Azure Marketplace och Microsoft AppSource.
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 

@@ -1,6 +1,6 @@
 ---
 title: Kryptering på Server sidan av Azure Managed Disks – Azure CLI
-description: Azure Storage skyddar dina data genom att kryptera dem i vila innan du sparar dem i lagrings kluster. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda Kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
+description: Azure Storage skyddar dina data genom att kryptera dem i vila innan du sparar dem i lagrings kluster. Du kan använda Kundhanterade nycklar för att hantera kryptering med dina egna nycklar, eller så kan du lita på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar.
 author: roygara
 ms.date: 07/10/2020
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: e0a1f97cc7467d115ecc8462a301e45f90d73818
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: e541fd90f0cb9c8f0e2763f16541824c5a7b3000
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87449146"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816906"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Kryptering på Server sidan av Azure-disklagring
 
@@ -80,7 +80,7 @@ Hög säkerhets känsliga kunder som är intresserade av den risk som är koppla
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Aktivera kryptering från slut punkt till slut punkt med kryptering på värden med antingen [CLI](disks-enable-host-based-encryption-cli.md) eller [Azure Portal](disks-enable-host-based-encryption-portal.md).
-- Aktivera dubbel kryptering i vila för hanterade diskar med antingen [CLI](disks-enable-double-encryption-at-rest-cli.md) eller [Azure Portal](disks-enable-double-encryption-at-rest-portal.md).
-- Aktivera Kundhanterade nycklar för hanterade diskar med antingen [CLI](disks-enable-customer-managed-keys-cli.md) eller [Azure Portal](disks-enable-customer-managed-keys-portal.md).
+- Aktivera kryptering från slut punkt till slut punkt med kryptering på värden med antingen [CLI](disks-enable-host-based-encryption-cli.md) eller [Azure Portal](../disks-enable-host-based-encryption-portal.md).
+- Aktivera dubbel kryptering i vila för hanterade diskar med antingen [CLI](disks-enable-double-encryption-at-rest-cli.md) eller [Azure Portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Aktivera Kundhanterade nycklar för hanterade diskar med antingen [CLI](disks-enable-customer-managed-keys-cli.md) eller [Azure Portal](../disks-enable-customer-managed-keys-portal.md).
 - [Vad är Azure Key Vault?](../../key-vault/general/overview.md)

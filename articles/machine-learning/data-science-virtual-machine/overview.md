@@ -1,7 +1,7 @@
 ---
 title: Vad är Azure-Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine
-description: Översikt över Azure Data Science Virtual Machine – ett enkelt sätt att skapa och använda en virtuell dator på Azures moln plattform med förinstallerade och konfigurerade verktyg och bibliotek för data vetenskap och utveckling av intelligenta program.
+description: Översikt över Azure Data Science Virtual Machine – en enkel att använda en virtuell dator på Azures moln plattform med förinstallerade och konfigurerade verktyg och bibliotek för data vetenskap.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
@@ -10,74 +10,87 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 03bfee258fe96d90c32b6a305b99856a11d9a087
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754980"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816345"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Vad är Azure-Data Science Virtual Machine för Linux och Windows?
 
-Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning på Azure Cloud Platform som skapats specifikt för data vetenskap. Det finns många populära verktyg för data vetenskap förinstallerade och förkonfigurerade för att rivstart med skapa intelligenta program för avancerade analyser. 
+Data Science Virtual Machine (DSVM) är en anpassad VM-avbildning på Azure Cloud Platform som skapats specifikt för data vetenskap. Det finns många populära verktyg för data vetenskap förinstallerade och förkonfigurerade för att komma igång med att skapa intelligenta program för avancerade analyser.
 
 DSVM finns på:
 
-+ **Windows Server 2019**
-+ **Ubuntu 18,04 LTS**
-+ Windows Server 2016
-+ Ubuntu 16.04 LTS
++ Windows Server 2019
++ Ubuntu 18,04 LTS
 
-> [!NOTE]
-> Alla virtuella dator verktyg för djup inlärning har viktas i Data Science Virtual Machine. 
+## <a name="comparison-with-azure-machine-learning"></a>Jämförelse med Azure Machine Learning
 
-## <a name="why-choose-the-dsvm"></a>Varför ska jag välja DSVM?
+DSVM är en anpassad VM-avbildning för data vetenskap, men [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (azureml) är en slutpunkt-till-slutpunkt-plattform som omfattar:
 
-Målet med Data Science Virtual Machine är att tillhandahålla data experter för alla kunskaps nivåer och mellan olika branscher med en friktions fri, förkonfigurerad data vetenskaps miljö. I stället för att distribuera en jämförbar arbets yta på egen hand kan du etablera en DSVM. Detta val kan spara dagar eller till och med _veckor_ i installations-, konfigurations-och paket hanterings processerna. När din DSVM har allokerats kan du omedelbart börja arbeta med ditt datavetenskapsprojekt.
++ Fullständigt hanterad beräkning
+  + Beräkningsinstanser
+  + Beräknings kluster för distribuerade ML-aktiviteter
+  + Härlednings kluster för real tids resultat
++ Data lager (till exempel BLOB, ADLS Gen2, SQL DB)
++ Experiment spårning
++ Modellhantering
++ Notebooks
++ Miljöer (hantera Conda-och R-beroenden)
++ Märkning
++ Pipelines (automatisera data vetenskaps arbets flöden från slut punkt till slut punkt)
+
+### <a name="comparison-with-azureml-compute-instances"></a>Jämförelse med AzureML Compute instances
+
+[Azure Machine Learning beräknings instanser](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) är en fullständigt konfigurerad och __hanterad__ VM-avbildning medan DSVM är en __ohanterad__ virtuell dator.
+
+De viktigaste skillnaderna mellan dessa två produkt erbjudanden beskrivs nedan:
+
+
+|Funktion |Data vetenskap<br>Virtuell dator |AzureML<br>Beräknings instans  | 
+|---------|---------|---------|
+| Fullständigt hanterad | Inga        | Ja        |
+|Stöd för språk     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F #       | Python och R        |
+|Operativsystem     | Ubuntu<br>Windows         |    Ubuntu     |
+|Förkonfigurerat GPU-alternativ     |  Ja       |    Ja     |
+|Alternativet skala upp | Ja | Ja |
+|SSH-åtkomst    | Ja        |    Ja     |
+|RDP-åtkomst    | Ja        |     Inga    |
+|Inbyggd<br>Värdbaserade antecknings böcker     |   Inga<br>(kräver ytterligare konfiguration)      |      Ja   |
+|Inbyggd SSO     | Inga <br>(kräver ytterligare konfiguration)         |    Ja     |
+|Inbyggt samarbete     | Inga         | Ja        |
+|Förinstallerade verktyg     |  Jupyter (labb), RStudio-Server, VSCode,<br> Visual Studio, pycharm med, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache-granskning       |     Jupyter (labb)<br> RStudio Server   |
 
 ## <a name="sample-use-cases"></a>Exempel på användnings fall
 
 Nedan illustreras några vanliga användnings fall för DSVM-kunder.
 
-### <a name="moving-data-science-workloads-to-the-cloud"></a>Flytta data vetenskaps arbets belastningar till molnet
-
-DSVM tillhandahåller en bas linje konfiguration för data vetenskaps team som vill ersätta sina lokala skriv bord med ett hanterat moln skriv bord, och se till att alla data experter i ett team har en enhetlig konfiguration som du kan använda för att verifiera experiment och främja samarbete. Det minskar också kostnaderna genom att minska sysadmin-belastningen. Den här kostnads minskningen sparar vid den tid som behövs för att utvärdera, installera och underhålla program varu paket för avancerad analys.
-
-### <a name="data-science-training-and-education"></a>Kurser och utbildning om datavetenskap
-
-Företags utbildare och lärare som undervisar data vetenskaps klasser brukar tillhandahålla en avbildning av en virtuell dator. Avbildningen säkerställer att eleverna har en konsekvent inställning och att exemplen fungerar förutsägbart. 
-
-DSVM skapar en miljö på begäran med en konsekvent konfiguration som underlättar support-och inkompatibilitets utmaningarna. Det är mycket användbart i fall där de här miljöerna behöver skapas ofta, särskilt för kortare kurser.
-
-### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Elastisk kapacitet på begäran för storskaliga projekt
-
-Data vetenskap Hackathon kickar/tävlingar eller storskalig data modellering och utforskning kräver skalbar maskin varu kapacitet, vanligt vis för kort varaktighet. DSVM kan hjälpa till att replikera data vetenskaps miljön snabbt på begäran, på utskalade servrar som tillåter att experiment som drivs av stora data resurser kan köras.
-
-### <a name="custom-compute-power-for-azure-notebooks"></a>Anpassad beräknings kraft för Azure Notebooks
-
-[Azure Notebooks](../../notebooks/azure-notebooks-overview.md) är en kostnads fri värdbaserad tjänst för att utveckla, köra och dela Jupyter-anteckningsböcker i molnet utan att installera. Den kostnads fria tjänst nivån är begränsad till 4 GB minne och 1 GB data. 
-
-Om du vill frigöra alla gränser kan du bifoga ett Notebook-projekt till en DSVM eller någon annan virtuell dator som körs på en Jupyter-Server. Om du loggar in på Azure Notebooks med ett konto genom att använda Azure Active Directory (till exempel ett företags konto), visar antecknings böcker automatiskt Dsvm i alla prenumerationer som är kopplade till det kontot. Du kan [koppla en DSVM till Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) för att utöka den tillgängliga beräknings kraften.
-
 ### <a name="short-term-experimentation-and-evaluation"></a>Kortsiktig experimentering och utvärdering
 
 Du kan använda DSVM för att utvärdera eller lära dig nya data vetenskaps [verktyg](./tools-included.md), särskilt genom att gå igenom några av våra publicerade [exempel och genom gångar](./dsvm-samples-and-walkthroughs.md).
 
-
 ### <a name="deep-learning-with-gpus"></a>Djup inlärning med GPU: er
 
-I DSVM kan dina utbildnings modeller använda djup inlärnings-algoritmer på maskin vara som baseras på GPU: er (Graphics Processing units). Genom att dra nytta av funktionerna för skalning av virtuella datorer i Azure-plattformen kan DSVM hjälpa dig att använda GPU-baserad maskin vara i molnet efter behov. Du kan växla till en GPU-baserad virtuell dator när du tränar stora modeller eller när du behöver snabba beräkningar samtidigt som du behåller samma OS-disk. Du kan välja någon av de N-seriens GPU-aktiverade virtuella datorer SKU: er med DSVM. Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
+I DSVM kan dina utbildnings modeller använda djup inlärnings-algoritmer på maskin vara som baseras på GPU: er (Graphics Processing units). Genom att dra nytta av funktionerna för skalning av virtuella datorer i Azure-plattformen kan DSVM hjälpa dig att använda GPU-baserad maskin vara i molnet efter behov. Du kan växla till en GPU-baserad virtuell dator när du tränar stora modeller eller när du behöver snabba beräkningar samtidigt som du behåller samma OS-disk. Du kan välja någon av de N-seriens GPU-aktiverade virtuella datorerna SKU: er med DSVM. Anteckna GPU-aktiverade virtuella datorer SKU: er stöds inte på kostnads fria Azure-konton.
 
-Windows-versionerna av DSVM levereras förinstallerade med GPU-drivrutiner, ramverk och GPU-versioner av djup inlärnings ramverk. I Linux-versionen har djup inlärning på GPU: er Aktiver ATS på Ubuntu-Dsvm. 
+Windows-versionerna av DSVM levereras förinstallerade med GPU-drivrutiner, ramverk och GPU-versioner av djup inlärnings ramverk. På Linux-versionerna har djup inlärning på GPU: er Aktiver ATS på Ubuntu-Dsvm. 
 
 Du kan också distribuera Ubuntu-eller Windows-versionerna av DSVM till en virtuell Azure-dator som inte baseras på GPU: er. I det här fallet kommer alla ramverk för djup inlärning att återgå till CPU-läget.
 
 [Lär dig mer om tillgängliga djup inlärnings-och AI-ramverk](dsvm-tools-deep-learning-frameworks.md).
 
-<a name="included"></a>
+### <a name="data-science-training-and-education"></a>Kurser och utbildning om datavetenskap
+
+Företags utbildare och lärare som undervisar data vetenskaps klasser brukar tillhandahålla en avbildning av en virtuell dator. Bilden ser till att eleverna har en konsekvent inställning och att exemplen fungerar förutsägbart.
+
+DSVM skapar en miljö på begäran med en konsekvent konfiguration som underlättar support-och inkompatibilitets utmaningarna. Det är mycket användbart i fall där de här miljöerna behöver skapas ofta, särskilt för kortare kurser.
+
+
 ## <a name="whats-included-on-the-dsvm"></a>Vad ingår i DSVM?
 
-Se en fullständig lista med verktyg på både Windows-och Linux-DSVM [.](tools-included.md)
+Se en fullständig lista med verktyg på både Windows-och Linux-Dsvm [här](tools-included.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -85,7 +98,7 @@ Lär dig mer med de här artiklarna:
 
 + Windows:
   + [Konfigurera en Windows DSVM](provision-vm.md)
-  + [Tio saker du kan göra på en Windows-DSVM](vm-do-ten-things.md)
+  + [Data vetenskap på en Windows-DSVM](vm-do-ten-things.md)
 
 + Linux:
   + [Konfigurera en Linux-DSVM (Ubuntu)](dsvm-ubuntu-intro.md)

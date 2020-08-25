@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 3e8822462cd7989f6bc1f051b3868d6241f591b1
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166713"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816532"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -196,7 +196,7 @@ Ange en kort beskrivning av ditt erbjudande, som visas i Sök resultaten för Az
 
 Ange en längre Beskrivning av ditt erbjudande, som visas i Sök resultaten för Azure Marketplace. Det kan innehålla upp till 256 tecken.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -249,22 +249,23 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="azure-marketplace-logos"></a>Logo typer för Azure Marketplace
 
-Ange PNG-filer för ditt erbjudandes logo typ med följande fyra bild dimensioner:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-- **Liten** (48 &times; 48 bild punkter)
-- **Medel** (90 &times; 90 bild punkter)
-- **Stor** (216 &times; 216 bild punkter)
-- **Bred** (255 &times; 115 bild punkter)
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Medel** (90 x 90 BPT, valfritt)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Alla fyra logo typer krävs och de visas i olika Azure Marketplace-listor.
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Skärmbilder
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 &times; 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. Videor bör finnas på en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 &times; 720 bild punkter.
 
@@ -403,7 +404,7 @@ Använd en av följande tre alternativ för pris poster för en användnings-bas
 
 Du kan erbjuda en månads *kostnads fri utvärderings version* av en månad eller tre månader till dina kunder.
 
-#### <a name="visibility"></a>Synlighet
+#### <a name="visibility"></a>Visibility (Sikt)
 
 Du kan utforma varje plan som ska vara synlig för alla eller endast till en förvaltad mål grupp. Tilldela medlemskap i den här begränsade mål gruppen med hjälp av ID för Azure-prenumeration.
 
@@ -540,7 +541,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 4. Villkor
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
-7. Description
+7. Beskrivning
 8. Användbara länkar
 9. Skärm bilder/videor
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 13c54b548a507043fda7ff230cf7641c26f471d1
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: b7c41d96e9817c548dbf52d4e56a78df4a88d696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724085"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815766"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
@@ -221,7 +221,7 @@ Följande värde typer och varianter stöds för närvarande:
 > [!NOTE]
 > Se följande regler för datum format:
 > 
-> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Ett exempel:
+> Följande tecken kan användas som avgränsare för DMY datum: `, - / . \` . Det går inte att använda blank steg som avgränsare. Exempel:
 > * 01, 01, 2020
 > * 01-01-2020
 > * 01/01/2020
@@ -265,7 +265,7 @@ Den här funktionen är för närvarande tillgänglig i v 2.1. förhandsgranskni
 
 Med modell Skriv kan du skapa upp till 100 modeller till ett enda modell-ID. När du anropar analys med detta bestående modell-ID kommer formulär tolken att först klassificera formuläret som du har skickat, matcha det med den bästa matchnings modellen och sedan returnera resultat för den modellen. Detta är användbart när inkommande formulär kan tillhöra en av flera mallar.
 
-Om du vill skapa modeller i exempel etikett verktyget, klickar du på ikonen skapa (två pilar) till vänster. Till vänster väljer du de modeller som du vill skapa tillsammans. Modeller med ikonen pilar består redan av modeller. Klicka på knappen "skapa". I popup-fönstret namnger du din nya sammansatta modell och klickar på "skapa". När åtgärden har slutförts ska den nya, färdiga modellen visas i listan. 
+Om du vill skapa modeller i exempel etikett verktyget klickar du på ikonen skapa (sammanfoga pilen) till vänster. Till vänster väljer du de modeller som du vill skapa tillsammans. Modeller med ikonen pilar består redan av modeller. Klicka på knappen "skapa". I popup-fönstret namnger du din nya sammansatta modell och klickar på "skapa". När åtgärden har slutförts ska den nya, färdiga modellen visas i listan. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Skapa UX-vy för modell.":::
 
@@ -296,7 +296,7 @@ När du vill återuppta ditt projekt måste du först skapa en anslutning till s
 
 ### <a name="resume-a-project"></a>Återuppta ett projekt
 
-Till sist går du till huvud sidan (House-ikonen) och klickar på öppna moln projekt. Välj sedan Blob Storage-anslutningen och välj din projekts *. vott* -fil. Programmet kommer att läsa in alla projekt inställningar eftersom det har säkerhetstoken.
+Till sist går du till huvud sidan (House-ikonen) och klickar på öppna moln projekt. Välj sedan Blob Storage-anslutningen och välj din projekts *. fott* -fil. Programmet kommer att läsa in alla projekt inställningar eftersom det har säkerhetstoken.
 
 ## <a name="next-steps"></a>Nästa steg
 

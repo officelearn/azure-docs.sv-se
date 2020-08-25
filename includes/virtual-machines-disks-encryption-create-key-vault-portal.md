@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2d4ab180818e597afa86a4cfdf73c6948d44e630
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a967777b65c06cf23239a47e8e691fb3a29231b4
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132472"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815478"
 ---
 Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurser i en viss ordning, om du gör det för första gången. Först måste du skapa och konfigurera en Azure Key Vault.
 
@@ -22,7 +22,7 @@ Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurse
 1. Logga in på [Azure-portalen](https://aka.ms/diskencryptionupdates).
 1. Sök efter och välj **nyckel valv**.
 
-    [![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
+    [![Skärm bild av Azure Portal med dialog rutan Sök expanderad.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Ditt Azure Key Vault, disk krypterings uppsättning, virtuell dator, diskar och ögonblicks bilder måste vara i samma region och prenumeration för att distributionen ska lyckas.
@@ -36,25 +36,25 @@ Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurse
 
 1. Välj **Granska + skapa**, verifiera dina val och välj sedan **skapa**.
 
-    ![Skärm bild av Azure Key Vault skapande upplevelsen. Visar de specifika värden som du skapar](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
+    ![Skärm bild av Azure Key Vault skapande upplevelsen. Visar de specifika värden som du skapar](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
 
 1. När du har slutfört distributionen av nyckel valvet väljer du det.
 1. Välj **nycklar** under **Inställningar**.
 1. Välj **generera/importera**.
 
-    ![Skärm bild av fönstret Key Vault resurs inställningar. Visar knappen generera/importera i inställningar.](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
+    ![Skärm bild av fönstret Key Vault resurs inställningar. Visar knappen generera/importera i inställningar.](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-generate-settings.png)
 
 1. Lämna båda **nyckel typerna** inställd på **RSA** och **RSA-nyckel storleken** inställd på **2048**.
 1. Fyll i de återstående valen som du vill och välj sedan **skapa**.
 
-    ![Skärm bild av bladet skapa en nyckel som visas när knappen generera/importera har valts](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
+    ![Skärm bild av bladet skapa en nyckel som visas när knappen generera/importera har valts](./media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-generate.png)
 
 ## <a name="set-up-your-disk-encryption-set"></a>Konfigurera din disk krypterings uppsättning
 
 1. Sök efter **disk krypterings uppsättningar** och välj den.
 1. På bladet **disk krypterings uppsättningar** väljer du **+ Lägg till**.
 
-    ![Skärm bild av disk krypterings portalens huvud skärm. Markera knappen Lägg till](media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
+    ![Skärm bild av disk krypterings portalens huvud skärm. Markera knappen Lägg till](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. Välj din resurs grupp, namnge krypterings uppsättningen och välj samma region som nyckel valvet.
 1. För **krypterings typ** väljer du **kryptering i vila med en kundhanterad nyckel**.
@@ -67,12 +67,12 @@ Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurse
 1. Tryck på **Välj**.
 1. Välj **Granska + skapa** och sedan **skapa**.
 
-    ![Skärm bild av bladet för att skapa disk kryptering. Visar prenumeration, resurs grupp, namn på disk krypterings uppsättning, region och nyckel valv + nyckel väljare.](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
+    ![Skärm bild av bladet för att skapa disk kryptering. Visar prenumeration, resurs grupp, namn på disk krypterings uppsättning, region och nyckel valv + nyckel väljare.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 
 1. Öppna disk krypterings uppsättningen när den har skapats och välj den avisering som visas.
 
-    ![Skärm bild av popup för avisering: "om du vill associera en disk, avbildning eller ögonblicks bild med en disk krypterings uppsättning måste du bevilja behörighet till nyckel valvet". Välj den här aviseringen om du vill fortsätta](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
+    ![Skärm bild av popup för avisering: "om du vill associera en disk, avbildning eller ögonblicks bild med en disk krypterings uppsättning måste du bevilja behörighet till nyckel valvet". Välj den här aviseringen om du vill fortsätta](./media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
 
     Två meddelanden bör visas och lyckas. På så sätt kan du använda disk krypterings uppsättningen med nyckel valvet.
 
-    ![Skärm bild av lyckad behörighet och roll tilldelning för ditt nyckel valv.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+    ![Skärm bild av lyckad behörighet och roll tilldelning för ditt nyckel valv.](./media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)

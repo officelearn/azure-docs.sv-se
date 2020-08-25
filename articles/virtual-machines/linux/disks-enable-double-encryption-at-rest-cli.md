@@ -2,20 +2,20 @@
 title: Aktivera dubbel kryptering i rest – Azure CLI-hanterade diskar
 description: Aktivera dubbel kryptering i vila för dina hanterade disk data med hjälp av Azure CLI.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 08/24/2020
 ms.topic: how-to
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 25f4f99d2bd80034d2f337aa649417d2d06026be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 76e5ab49e354faac085be533fed1ff16c0315a5e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082536"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816838"
 ---
-# <a name="azure-cli---enable-double-encryption-at-rest-on-your-managed-disks"></a>Azure CLI – aktivera dubbel kryptering i vila på dina hanterade diskar
+# <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Använd Azure CLI för att aktivera dubbel kryptering i vila för hanterade diskar
 
 Azure-disklagring stöder dubbel kryptering i vila för hanterade diskar. Grundläggande information om dubbel kryptering i vila och andra typer av hanterade disk krypterings typer finns i avsnittet [dubbel kryptering i vilo](disk-encryption.md#double-encryption-at-rest) läge i vår disk krypterings artikel.
 

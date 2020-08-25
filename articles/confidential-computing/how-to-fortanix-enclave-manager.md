@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 8996673cf8f01334e3dcd35aab8544643bd37360
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d46354b18d5c3317cc1ed67d839feb26b7b6b5d0
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88802227"
+ms.locfileid: "88815852"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Så här gör du: kör ett program med Fortanix enklaven Manager 
 
@@ -46,7 +46,6 @@ Den här självstudien visar hur du konverterar program avbildningen till en kon
 1. Logga in på [FORTANIX EM](https://fortanix.com)
 1. Gå till sidan **konton** och välj **Lägg till konto** för att skapa ett nytt konto. 
     
-[!div class="mx-imgBorder"]
 ![Skapa ett konto](media/how-to-fortanix-enclave-manager/create-account.png)
 
 1. När ditt konto har skapats trycker du på **Välj** för att välja det nyligen skapade kontot. Nu kan vi börja registrera Compute-noderna och skapa program. 

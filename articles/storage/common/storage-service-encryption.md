@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: fd819f0b819007611f5232d0fdfb324173d9c4b4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797929"
+ms.locfileid: "88814458"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
 
@@ -68,7 +68,7 @@ Du kan skapa ett eller flera krypterings omfång för ett lagrings konto med hj�
 När du har skapat ett krypterings omfång kan du ange att krypterings omfång på en begäran om att skapa en behållare eller en blob. Mer information om hur du skapar en krypterings omfattning finns i [skapa och hantera krypterings omfattningar (för hands version)](../blobs/encryption-scope-manage.md).
 
 > [!NOTE]
-> Krypterings omfång stöds inte med RA-GRS-konton (Read-Access Geo-redundant Storage) under för hands versionen.
+> Krypterings omfång stöds inte med Read-Access Geo-redundant lagring (RA-GRS) och Read-Access geo-Zone-redundant lagring (RA-GZRS)-konton under för hands versionen.
 
 > [!IMPORTANT]
 > För hands versionen av krypterings området är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.

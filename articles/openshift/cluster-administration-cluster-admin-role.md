@@ -7,15 +7,15 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: ae9a421a165d6c8bda688819c5233ae5bb1a8562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 38686ba35285159d7a27724b5402a6b6e2f3a696
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79139104"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815529"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Azure Red Hat OpenShift Customer-administratörs roll
-
+ 
 Du är kluster administratör för ett kluster med en Red Hat OpenShift. Ditt konto har ökat behörigheter och åtkomst till alla projekt som skapats av användare.
 
 När ditt konto har rollen kund-admin-Cluster-auktorisering kan du hantera ett projekt automatiskt.
@@ -37,7 +37,7 @@ Du kan konfigurera rollen kund-admin-kluster kluster enbart när klustret skapas
 
 ## <a name="confirm-membership-in-the-customer-administrator-role"></a>Bekräfta medlemskap i rollen kund administratör
 
-Om du vill bekräfta ditt medlemskap i kund administratörs gruppen kan du prova kommandona OpenShift CLI `oc get nodes` eller `oc projects` . `oc get nodes`visar en lista över noder om du har rollen kund administratör-kluster och ett behörighets fel om du bara har rollen kund administratör-projekt. `oc projects`visar alla projekt i klustret i stället för enbart de projekt som du arbetar i.
+Om du vill bekräfta ditt medlemskap i kund administratörs gruppen kan du prova kommandona OpenShift CLI `oc get nodes` eller `oc projects` . `oc get nodes` visar en lista över noder om du har rollen kund administratör-kluster och ett behörighets fel om du bara har rollen kund administratör-projekt. `oc projects` visar alla projekt i klustret i stället för enbart de projekt som du arbetar i.
 
 För att ytterligare utforska roller och behörigheter i klustret kan du använda [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) kommandot.
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e151145bd3c4d1db87ef5d1b0d553555a580279
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87069795"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816753"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Fel meddelanden för virtuella datorer och skalnings uppsättningar
 
@@ -31,11 +31,11 @@ Här följer några möjliga fel koder som du kan få när du använder virtuell
 | MaxPriceChangeNotAllowedForAllocatedVMs | Maximal pris ändring är inte tillåten när den virtuella datorn {0} har allokerats för tillfället. Frigör och försök igen. | Stop\Deallocate den virtuella datorn så att du kan ändra det högsta priset. |
 | MaxPriceChangeNotAllowed | Max pris ändring är inte tillåten. | Du kan inte ändra det högsta priset för den här virtuella datorn. |
 | AzureSpotIsNotSupportedForThisAPIVersion  |  Azure-platsen stöds inte för den här API-versionen. | API-versionen måste vara 2019-03-01. |
-| AzureSpotIsNotSupportedForThisVMSize  |  Azure dekor stöds inte för den här virtuella dator storleken {0} . | Välj en annan VM-storlek. Mer information finns på [plats Virtual Machines](./linux/spot-vms.md). |
-| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Högsta pris stöds bara för Azure-Virtual Machines. | Mer information finns på [plats Virtual Machines](./linux/spot-vms.md). |
+| AzureSpotIsNotSupportedForThisVMSize  |  Azure dekor stöds inte för den här virtuella dator storleken {0} . | Välj en annan VM-storlek. Mer information finns på [plats Virtual Machines](./spot-vms.md). |
+| MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  Högsta pris stöds bara för Azure-Virtual Machines. | Mer information finns på [plats Virtual Machines](./spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  Begäran om att flytta resurser innehåller en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för virtuella dator-ID: n. | Det går inte att flytta virtuella plats datorer. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  Begäran om att flytta resurser innehåller en skalnings uppsättning för en virtuell Azure-dator. Detta stöds inte för närvarande. Kontrol lera fel informationen för skalnings uppsättnings-ID: n för virtuella datorer. | Det går inte att flytta instanser för punkt skalnings uppsättning. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Virtuell dator i Azure-platsen stöds inte i skalnings uppsättningen för virtuella datorer med den virtuella datorns Orchestration-läge. | Ange Orchestration-läget till skalnings uppsättningen för den virtuella datorn för att kunna använda punkt instanser. |
 
 
-**Nästa steg** Mer information finns på [plats Virtual Machines](./linux/spot-vms.md).
+**Nästa steg** Mer information finns på [plats Virtual Machines](./spot-vms.md).

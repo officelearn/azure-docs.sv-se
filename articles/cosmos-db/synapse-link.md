@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9e8dd4b7d7e6f0de1f3ce19238e4ab1e3cf958e1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034186"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814398"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -27,7 +27,7 @@ Följande bild visar Azure Synapse Link integration med Azure Cosmos DB och Azur
 
 :::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Arkitektur diagram för integrering med Azure Synapse Analytics med Azure Cosmos DB" border="false":::
 
-## <a name="benefits"></a><a id="synapse-link-benefits"></a>Funktioner
+## <a name="benefits"></a><a id="synapse-link-benefits"></a> Funktioner
 
 För att analysera stora drift data uppsättningar och minimera påverkan på prestandan hos verksamhets kritiska transaktions arbets belastningar, kommer de tidigare i Azure Cosmos DB att extraheras och bearbetas av ETL-pipelinen (Extract-Transform-Load). ETL-pipeline kräver många lager av data förflyttning, vilket leder till mycket drifts komplexitet och prestanda påverkan på dina transaktions arbets belastningar. Det ökar också svars tiden för att analysera drift data från tidpunkten för ursprunget.
 
@@ -105,7 +105,7 @@ Mer information om stöd för Azure Synapse Analytics runtime för Azure Cosmos 
 
 Synapse-länk rekommenderas i följande fall:
 
-* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Ett exempel:
+* Om du är Azure Cosmos DB kund och vill köra analyser, BI och maskin inlärning över dina användnings data. I sådana fall ger Synapse-länken en mer integrerad analys upplevelse utan att påverka det etablerade data flödet i transaktions arkivet. Exempel:
 
   * Om du kör Analytics eller BI på Azure Cosmos DB operativa data direkt med hjälp av separata anslutningar idag, eller
 

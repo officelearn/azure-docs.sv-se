@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b9ec42620ee5ffaaf5fd79da5dabc944fc3bc422
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287085"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815954"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Använd modulen Azure Maps inomhus Maps
 
-Azure Maps Web SDK innehåller *Azure Maps* inliggande modul. I modulen *Azure Maps inomhus* kan du rendera inliggande Maps som skapats i Azure Maps Creator.
+Azure Maps Web SDK innehåller *Azure Maps* inliggande modul. I modulen  *Azure Maps inomhus* kan du rendera inliggande Maps som skapats i Azure Maps Creator.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Skapa en skapare resurs](how-to-manage-creator.md)
@@ -35,10 +35,8 @@ Du kan installera och bädda in modulen *Azure Maps inomhus* på ett av två sä
 Om du vill använda den globalt värdbaserade Azure Content Delivery Network-versionen av *Azure Maps* ingångs modul refererar du till följande JavaScript-och Formatmallslänkar i `<head>` HTML-filens element:
 
 ```html
-<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
-<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
-<link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
 <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+<script src="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.js"></script>
 ```
 
  Du kan också hämta *Azure Maps inomhus* -modulen. Den *Azure Maps inomhus* modulen innehåller ett klient bibliotek för åtkomst till Azure Maps-tjänster. Följ stegen nedan för att installera och läsa in modulen *inomhus* i webb programmet.  
@@ -46,15 +44,14 @@ Om du vill använda den globalt värdbaserade Azure Content Delivery Network-ver
   1. Installera [Azure-Maps-inomhus-paketet](https://www.npmjs.com/package/azure-maps-indoor).
   
       ```powershell
-      >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
   2. Referera till JavaScript-och format mal len *Azure Maps inomhus* modul i `<head>` HTML-filens element:
 
       ```html
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
-      <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/indoor/0.1/atlas-indoor.min.css" type="text/css"/>
+      <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.css" type="text/css" />
+      <script src="node_modules/azure-maps-drawing-tools/dist/atlas-indoor.min.js"></script>
       ```
 
 ## <a name="instantiate-the-map-object"></a>Instansiera objektet Map
@@ -148,11 +145,11 @@ Det här exemplet visar hur du använder modulen *Azure Maps inomhus* i ditt web
 3. I HTML-huvudet refererar du till JavaScript-och Style Sheet-formaten i *Azure Maps inomhus* -modulen.
 
 4. Initiera ett *kart objekt*. *Map-objektet* har stöd för följande alternativ:
-    - `Subscription key`är din Azure Maps primära prenumerations nyckel.
-    - `center`definierar en latitud och en longitud för platsen för kartan Center. Ange ett värde för `center` om du inte vill ange ett värde för `bounds` . Formatet ska visas som `center` : [-122,13315, 47,63637].
-    - `bounds`är den minsta rektangulära formen som innesluter TILESET-kart data. Ange ett värde för `bounds` om du inte vill ange ett värde för `center` . Du kan hitta mappnings gränserna genom att anropa [TILESET List-API: et](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). TILESET List-API: et returnerar `bbox` , som du kan parsa och tilldela till `bounds` . Formatet ska visas som `bounds` : [# väst, # syd, # öst, # Nord].
-    - `style`gör att du kan ange bakgrunds färgen. Om du vill visa en vit bakgrund definierar du `style` som "Tom".
-    - `zoom`gör att du kan ange lägsta och högsta zoomnings nivå för kartan.
+    - `Subscription key` är din Azure Maps primära prenumerations nyckel.
+    - `center` definierar en latitud och en longitud för platsen för kartan Center. Ange ett värde för `center` om du inte vill ange ett värde för `bounds` . Formatet ska visas som `center` : [-122,13315, 47,63637].
+    - `bounds` är den minsta rektangulära formen som innesluter TILESET-kart data. Ange ett värde för `bounds` om du inte vill ange ett värde för `center` . Du kan hitta mappnings gränserna genom att anropa [TILESET List-API: et](https://docs.microsoft.com/rest/api/maps/tileset/listpreview). TILESET List-API: et returnerar `bbox` , som du kan parsa och tilldela till `bounds` . Formatet ska visas som `bounds` : [# väst, # syd, # öst, # Nord].
+    - `style` gör att du kan ange bakgrunds färgen. Om du vill visa en vit bakgrund definierar du `style` som "Tom".
+    - `zoom` gör att du kan ange lägsta och högsta zoomnings nivå för kartan.
 
 5. Skapa sedan modulen *inomhus Manager* . Tilldela *Azure Maps i inomhus* `tilesetId` och Lägg eventuellt till `statesetId` .
 

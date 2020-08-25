@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: 768186d4b1cf9ac62d4ffdb0af8fdb3df04e9b19
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461642"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815760"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -29,7 +29,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -77,6 +77,9 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
    Alla Service Bus-utlösare är *tids avsöknings* utlösare. Den här beskrivningen innebär att utlösaren bearbetar alla meddelanden när utlösaren utlöses och väntar sedan 30 sekunder på att fler meddelanden ska visas i kön eller ämnes prenumerationen. Om inga meddelanden visas på 30 sekunder hoppas utlösarens körning över. Annars fortsätter utlösaren att läsa meddelanden tills kön eller ämnes prenumerationen är tom. Nästa Utlös ande avsökning baseras på upprepnings intervallet som anges i utlösarens egenskaper.
 
    Vissa utlösare, till exempel **när ett eller flera meddelanden tas emot i en kö (automatisk komplettering)** , kan returnera ett eller flera meddelanden. När utlösarna utlöses, returnerar de mellan ett och antalet meddelanden som anges av utlösarens egenskap för **maximalt antal meddelanden** .
+
+    > [!NOTE]
+    > Utlösaren för automatisk komplettering Slutför automatiskt ett meddelande, men slut för ande sker bara vid nästa Utlös ande körning. Det här beteendet kan påverka din Logic Apps design. Om du till exempel ställer in automatisk fullständig utlösare för att söka efter meddelanden varje minut, men lås varaktigheten är 30 sekunder på Service Bus sidan, är resultatet ett fel som uppstår när meddelandet "låset har upphört att gälla" visas när meddelandet är slutfört. Du måste ange lås varaktigheten till ett värde som är längre än avsöknings intervallet.
 
 1. Om utlösaren ansluter till Service Bus namn området för första gången följer du de här stegen när du uppmanas att ange anslutnings information i Logic Apps designer.
 

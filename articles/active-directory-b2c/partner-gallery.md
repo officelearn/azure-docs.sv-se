@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 225e337cdb4a1901d6b8e563a2a7d7c0bea4b05d
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552974"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814251"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Azure Active Directory B2C ISV-partner
 
@@ -33,11 +33,13 @@ Vårt ISV partner Network utökar våra lösnings funktioner som hjälper dig at
 | ![Microsofts](./media/partner-gallery/experian-logo.png) | [Experian:](./partner-experian.md) är en identitets verifiering och en kontroll leverantör som utför riskbedömningar baserat på användarattribut för att förhindra bedrägerier.|
 | ![Microsofts](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) är en identitets verifiering och en språkprovider med ID-verifierings lösningar, bedrägeri förebyggande lösningar, lösningar för efterlevnad och andra.|
 | ![Microsofts](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) är en eiDAS-kompatibel (Electronic Identification, Authentication and Trust Services) Digital ID-lösning som gör att användarna kan logga in på ett säkert sätt utan kort läsare, lösen ord, tvåfaktorautentisering och flera PIN-koder. |
+| ![Microsofts](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) är en tjänst för ID-verifiering som möjliggör verifiering av AUTOMATISERAt ID i real tid, vilket skyddar kund information. |
 | ![Microsofts](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) är en profilerings-och identitets verifierings leverantör som verifierar användar identifiering och ger omfattande riskbedömning baserat på användarens enhet. |
 | ![Microsofts](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) är ett dokument-ID och en verifierings lösning för ansikts biometrik som gör det möjligt för företag att möta sina *kunskaper om kund* -och identitets krav i real tid.  |
 | ![Microsofts](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) -integreringen hjälper dig att logga in på ett säkert sätt och möjliggör lösenordsbaserad autentisering, Multi-Factor Authentication och digital License scanning.|
 | ![Microsofts](./media/partner-gallery/twilio-logo.png) | [Twilio verifiera app](./partner-twilio.md) tillhandahåller flera lösningar för att aktivera Multi-Factor Authentication (MFA) via SMS eng ång slö sen ord (eng ång slö sen ord), tidsbaserat eng ång slö sen ord (TOTP mobilapp) och push-meddelanden och för att uppfylla SCA-kraven för betal tjänsternas direktiv 2 (PSD2).|
 | ![Microsofts](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) är en identitets verifiering och en bevisning som bygger på användarens Skriv mönster och ger ID-verifierings lösningar som framtvingar Multi-Factor Authentication och hjälper till att uppfylla SCA-kraven för Payment Services-direktiv 2 (PSD2). |
+| ![Microsofts](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) är ett BRIMS-program som gör det möjligt för organisationer att verifiera användar basen med röst, SMS och e-post. 
 
 ## <a name="next-steps"></a>Nästa steg
 

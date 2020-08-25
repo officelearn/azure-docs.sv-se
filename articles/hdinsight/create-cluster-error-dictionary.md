@@ -7,13 +7,13 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 11/19/2019
-ms.openlocfilehash: 39179c9b6d02d810561485f6a4af0102711ad0ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82186642"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816464"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 
@@ -24,19 +24,17 @@ I den här artikeln beskrivs lösningar på fel som du kan stöta på när du sk
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
 
-### <a name="error"></a>Fel
+**Fel**: "det går inte att komma åt URI för skript åtgärd: \<SCRIPT ACTION URL\> "
 
-"Det går inte att komma åt URI för skript åtgärd: \<SCRIPT ACTION URL\> "
-
-#### <a name="error-message"></a>Felmeddelande
+### <a name="error-message-1"></a>Fel meddelande 1
 
 "Fjärrservern returnerade ett fel: (404) hittades inte."
 
-### <a name="cause"></a>Orsak
+#### <a name="cause"></a>Orsak
 
 HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
-### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Lösning
 
 - För en HTTP-eller HTTPS-URL, verifiera URL: en genom att försöka gå till den från ett Incognito webbläsarfönster.
 - För en WASB-URL, se till att skriptet finns i det lagrings konto som du har angett i begäran. Kontrol lera också att lagrings nyckeln för det här lagrings kontot är korrekt.
@@ -44,37 +42,29 @@ HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som 
 
 ---
 
-## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
-
-### <a name="error"></a>Fel
-
-"Det går inte att komma åt URI för skript åtgärd: \<SCRIPT_ACTION_URL\> "
-
-#### <a name="error-message"></a>Felmeddelande
+### <a name="error-message-2"></a>Fel meddelande 2
 
 "Den aktuella skript-URI: n \<SCRIPT_URI\> är i ADLS, men det här klustret har inget data Lake Storage-huvudobjekt"
 
-### <a name="cause"></a>Orsak
+#### <a name="cause"></a>Orsak
 
 HDInsight-tjänsten har inte åtkomst till den skript åtgärds webb adress som du angav som en del av förfrågan om att skapa kluster. Tjänsten tar emot föregående fel meddelande när det försöker få åtkomst till skript åtgärden.
 
-### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Lösning
 
 Lägg till motsvarande Azure Data Lake Storage gen 1-konto i klustret. Lägg också till tjänstens huvud namn som ansluter till Data Lake Storage gen 1-konto till klustret.
 
 ---
 
-## <a name="error-code-deploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
-
-### <a name="error"></a>Fel
+### <a name="error-message-3"></a>Fel meddelande 3
 
 "VM-storleken" \<CUSTOMER_SPECIFIED_VM_SIZE\> som tillhandahölls i begäran är ogiltig eller stöds inte för rollen " \<ROLE\> ". Giltiga värden är: \<VALID_VM_SIZE_FOR_ROLE\> . "
 
-### <a name="cause"></a>Orsak
+#### <a name="cause"></a>Orsak
 
 Den angivna storleken för den virtuella datorn är inte tillåten för rollen. Det här felet kan inträffa eftersom värdet för VM-storlek inte fungerar som förväntat eller inte är lämpligt för dator rollen.
 
-### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Lösning
 
 Fel meddelandet visar en lista över giltiga värden för VM-storleken. Välj ett av dessa värden och försök att skapa en kluster förfrågan igen.
 
@@ -94,7 +84,7 @@ Det **VirtualNetworkId** -värde som du angav när klustret skapades har inte r�
 
 Kontrol lera att värdena för **VirtualNetworkId** och under nätet är i rätt format. Så här hämtar du **VirtualNetworkId** -värdet:
 
-1. Gå till Azure Portal.
+1. Gå till Azure-portalen.
 1. Välj ditt virtuella nätverk.
 1. Välj meny alternativet **Egenskaper** . Värdet för egenskapen **ResourceID** är **VirtualNetworkId** -värdet.
 
@@ -169,7 +159,7 @@ Du har inte angett de behörigheter som krävs för att hantera identiteten. Den
 
 ### <a name="resolution"></a>Lösning
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 1. Gå till ditt lagringskonto.
 1. Titta under **Access Control (IAM)**.
 1. Se till att användaren har rollen Storage BLOB data Contributor eller rollen som ägare till lagrings-BLOB-data.
@@ -230,7 +220,7 @@ Om du använder anpassade säkerhets grupper för VNet-nätverk (NSG: er) och an
 
 ---
 
-## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: distributioner misslyckades på grund av princip överträdelse: resursen tilläts inte <Resource URI> av principen. Princip identifierare: [{"policyAssignment": {"name": " <Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition":<Policy Definition>
+## <a name="error-code-deployments-failed-due-to-policy-violation-resource-resource-uri-was-disallowed-by-policy-policy-identifiers-policyassignmentnamepolicy-name-idprovidersmicrosoftmanagementmanagementgroupsmanagement-group-name-providersmicrosoftauthorizationpolicyassignmentspolicy-namepolicydefinition-policy-definition"></a>Felkod: distributioner misslyckades på grund av princip överträdelse: resursen tilläts inte <Resource URI> av principen. Princip identifierare: [{"policyAssignment": {"name": " <Policy Name> ", "ID": "/providers/Microsoft.Management/managementGroups/ <Management Group Name> providers/Microsoft. Authorization/policyAssignments/ <Policy Name> "}, "policyDefinition": <Policy Definition>
 
 ### <a name="cause"></a>Orsak
 

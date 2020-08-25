@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 2584d10a73f183958e3b7010255979cc47bc2cd9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: dc1e8bfa9b747b9933762af1b6a5b59cf8cd98de
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606352"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815784"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Skapa ett IoT Edge-modulerbjudande
 
@@ -131,7 +131,7 @@ Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inklud
 > [!NOTE]
 > Erbjudande information behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
 Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
@@ -201,16 +201,17 @@ Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bil
 
 #### <a name="store-logos"></a>Butiks logo typer
 
-Ange PNG-filer för ditt erbjudandes logo typ i var och en av följande fyra pixel storlekar:
+Ange en PNG-fil för logo typen med **stor** storlek. Partner Center använder detta för att skapa en **liten** och en **medie** logo typ. Du kan också ersätta dem med olika avbildningar senare.
 
-- **Liten (48 x 48)**
-- **Medel (90 x 90)**
-- **Stor (216 x 216)**
-- **Bred (255 x 115)**
+- **Stor** (från 216 x 216 till 350 x 350 BPT, krävs)
+- **Medel** (90 x 90 BPT, valfritt)
+- **Liten** (48 x 48 BPT, valfritt)
 
-Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
+Dessa Logo typer används på olika platser i listan:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Skärm dum par (valfritt)
 
@@ -233,7 +234,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Support adress (länk)
 4. Villkor
 5. Sekretess policy adress (länk)
-6. Namn
+6. Name
 7. Sammanfattning
 8. Beskrivning
 9. Användbara länkar
@@ -255,7 +256,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 
 #### <a name="call-out-descriptions"></a>Beskrivningar av anrop
 
-1. Namn
+1. Name
 2. Beskrivning
 3. Användbara länkar
 4. Skärmbilder
@@ -426,7 +427,7 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 1. Åtkomstnycklar
 2. Användarnamn
-3. lösenordsinställning
+3. Lösenord
 
 **Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](../../container-registry/container-registry-repositories.md). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
 

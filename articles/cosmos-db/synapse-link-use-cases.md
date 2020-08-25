@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a522a5a5945fe7a4b63dc759077d744f951a76f
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119502"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814424"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
 
@@ -34,7 +34,7 @@ Tillverkare integreras med molnbaserade tekniker för att ta bort begränsningar
 
 Följande arkitektur visar kraften i att använda Azure Cosmos DB som den molnbaserade operativa databasen och Synapse-länken i tillhandahållar kedje analys:
 
-:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys" border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Azure Synapse-länk för Azure Cosmos DB i tillhandahållar kedje analys " border="false":::
 
 Baserat på tidigare arkitektur kan du uppnå följande användnings fall med Synapse-länken för Azure Cosmos DB:
 

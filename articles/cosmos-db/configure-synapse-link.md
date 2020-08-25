@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 37cbddbb54493c54a29a790d617bbdb44bf17da9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653145"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815580"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -19,7 +19,7 @@ Synapse-länken för Azure Cosmos DB är en molnbaserad hybrid transaktions-och 
 
 
 > [!IMPORTANT]
-> För att använda Azure Synapse-länken, se till att du etablerar ditt Azure Cosmos-konto & Azure Synapse Analytics-arbetsyta i någon av de regioner som stöds ovan. En lista över regioner som stöds finns i [Azure service updates](https://azure.microsoft.com/updates/). 
+> Om du vill använda Azure Synapse-länken, se till att du etablerar ditt Azure Cosmos-konto & Azure Synapse Analytics-arbetsyta i någon av de regioner som stöds. Azure Synapse-länken är för närvarande tillgänglig i följande Azure-regioner: USA, västra centrala, östra USA, västra 2; USA, Nord Europa, Västeuropa, södra centrala USA, Sydostasien, östra Australien, östra U2, Storbritannien, södra.
 
 Använd följande steg för att köra analytiska frågor med Synapse-länken för Azure Cosmos DB:
 

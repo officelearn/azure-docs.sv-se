@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: c648387547e9543c9e509344aa86285504dced7a
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 3006522f75ed732c08e453a266e660cf4c577917
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761380"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815376"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Supportmatris för haveriberedskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -195,6 +195,7 @@ Placerings grupper för närhet | Stöds | Virtuella datorer som finns inuti en 
 -- | ---
 Ändra storlek på disk på replikerad virtuell dator | Stöds på den virtuella käll datorn före redundans. Du behöver inte inaktivera/återaktivera replikering.<br/><br/> Om du ändrar den virtuella käll datorn efter redundansväxlingen, fångas inte ändringarna.<br/><br/> Om du ändrar disk storleken på den virtuella Azure-datorn efter redundansväxlingen, registreras inte ändringarna av Site Recovery och återställningen görs till den ursprungliga virtuella dator storleken.
 Lägga till en disk till en replikerad virtuell dator | Stöds
+Offlineändringar av skyddade diskar | Att koppla från diskar och göra offlineändringar till dem kräver att en fullständig omsynkronisering utlöses.
 
 ## <a name="replicated-machines---storage"></a>Replikerade datorer – lagring
 
@@ -254,6 +255,7 @@ I följande tabell sammanfattas Site Recovery gränser.
 - Dessa gränser baseras på våra tester, men det är självklart inte alla möjliga kombinationer av program I/O.
 - De faktiska resultaten kan variera beroende på appens I/O-mix.
 - Det finns två gränser att överväga, data omsättning per disk och data omsättning per virtuell dator.
+- Den aktuella gränsen för data omsättning per virtuell dator är 54 MB/s, oavsett storlek.
 
 **Lagrings mål** | **Genomsnittligt käll disk-I/O** |**Average Source Disk Data Churn** (Genomsnittlig dataomsättning för källdisk) | **Total käll disk data omsättning per dag**
 ---|---|---|---

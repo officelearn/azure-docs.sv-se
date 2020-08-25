@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2020
-ms.openlocfilehash: 85f4cc9f9e6e762a85571010840cc697bc6c9888
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f152283b1280cde2a26569b8acf10738e883e39e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963673"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816037"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -117,7 +117,14 @@ När du skapar din ISE kan du välja att använda antingen interna eller externa
 > [!IMPORTANT]
 > Du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare.
 
-* **Internt**: privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*. Kontrol lera att du har nätverks anslutning mellan de privata slut punkterna och den dator där du vill komma åt körnings historiken. Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk, till exempel via peering eller ett virtuellt privat nätverk.
+* **Internt**: privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*.
+
+  > [!IMPORTANT]
+  > Kontrol lera att du har nätverks anslutning mellan de privata slut punkterna och den dator där du vill komma åt körnings historiken. Annars visas ett fel meddelande som säger "oväntat fel" när du försöker visa körnings historiken för din Logic Apps. Det gick inte att hämta ".
+  >
+  > ![Azure Storage åtgärds fel som orsakas av oförmåga att skicka trafik genom brand väggen](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
+  >
+  > Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk via peering eller ett virtuellt privat nätverk. 
 
 * **Externt**: offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 

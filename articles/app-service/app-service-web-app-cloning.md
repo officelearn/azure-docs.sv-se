@@ -5,12 +5,12 @@ ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
 ms.custom: seodec18
-ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92e893fe9f74d51856faf39d3e4800dd5a8155db
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255195"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815393"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service kloning av appar med hjälp av PowerShell
 
@@ -107,6 +107,8 @@ När du har använt Traffic Manager-ID: t visar följande kommando hur du skapar
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 ```
+> [!NOTE]
+> Om du får ett fel meddelande om att SSL-verifieringen på Traffic Manager-värdnamnet inte fungerar, rekommenderar vi att du använder-IgnoreCustomHostNames-attributet i PowerShell-cmdleten när du utför klonings åtgärden eller använder portalen.
 
 ## <a name="current-restrictions"></a>Aktuella begränsningar
 Här följer kända begränsningar för app-kloning:

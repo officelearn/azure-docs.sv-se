@@ -3,12 +3,12 @@ title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 09afd4416efc8e6904b7c487d5ed2f3be22db081
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 837344d10e21d20488760f6d5aa4749c039f9b07
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654828"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816957"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -538,7 +538,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Information**
 --- | ---
-**Linux-support** | Stöd har lagts till för RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Linux-baserade virtuella datorer som använder partitionstypen GUID Partition Table (GPT) i bakåtkompatibelt BIOS-kompatibelt läge stöds nu. Mer information hittar du i [vanliga frågor och svar om Azure VM](../virtual-machines/linux/faq-for-disks.md) .
+**Linux-support** | Stöd har lagts till för RedHat Enterprise Linux 6,10, CentOS 6,10.<br/><br/> Linux-baserade virtuella datorer som använder partitionstypen GUID Partition Table (GPT) i bakåtkompatibelt BIOS-kompatibelt läge stöds nu. Mer information hittar du i [vanliga frågor och svar om Azure VM](../virtual-machines/faq-for-disks.md) .
 **Haveri beredskap för virtuella datorer efter migrering** | Stöd för att aktivera haveri beredskap till en sekundär region för en lokal virtuell VMware-dator som migrerats till Azure utan att behöva avinstallera mobilitets tjänsten på den virtuella datorn innan du aktiverar replikeringen.
 **Windows Server 2008** | Stöd för migrering av datorer som kör Windows Server 2008 R2/2008 64-bitars och 32-bitars.<br/><br/> Endast migrering (replikering och redundans). Failback stöds inte.
 

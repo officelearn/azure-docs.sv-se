@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/06/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df46a921b482b182e0f17754293af37146d1e7
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 7c6537ace2caeb2f5dc25848a04aa2e0e65b31d6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783220"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815988"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -30,7 +30,7 @@ Den här steg-för-steg-guiden beskriver hur du planerar distributionen av Privi
 >
 > : heavy_check_mark: **Microsoft rekommenderar**
 >
-> Detta är allmänna rekommendationer och du bör bara implementera om de gäller för dina företags behov.
+> Detta är allmänna rekommendationer och du bör endast implementera dem när de gäller för dina företags behov.
 
 ## <a name="learn-about-privileged-identity-management"></a>Läs mer om Privileged Identity Management
 
@@ -100,7 +100,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Intressenter: Privileged Identity Management för Azure AD-roller
 
-| Namn | Roll | Action |
+| Name | Roll | Åtgärd |
 | --- | --- | --- |
 | Namn och e-postadress | **Identitets arkitekt eller Global Azure-administratör**<br/>En representant från identitets hanterings teamet som är ansvarig för att definiera hur den här ändringen justeras med infrastrukturen för kärn identitets hantering i din organisation. | SÅ/R/I |
 | Namn och e-postadress | **Tjänst ägare/rads hanterare**<br/>En representant från IT-ägare till en tjänst eller en grupp av tjänster. De är viktiga för att fatta beslut och hjälpa till att distribuera Privileged Identity Management för sitt team. | SÅ/R/I |
@@ -110,16 +110,16 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Intressenter: Privileged Identity Management för Azures resurs roller
 
-| Namn | Roll | Action |
+| Name | Roll | Åtgärd |
 | --- | --- | --- |
 | Namn och e-postadress | **Prenumeration/resurs ägare**<br/>En representant från IT-ägarna till varje prenumeration eller resurs som du vill distribuera Privileged Identity Management för | SÅ/R/I |
 | Namn och e-postadress | **Säkerhets ägare**<br/>En representant från säkerhets teamet som kan signera att planen uppfyller organisationens säkerhets krav. | SÅ/R |
 | Namn och e-postadress | **IT support Manager/supportavdelningen**<br/>En representant från IT-supporten som kan tillhandahålla insikter om den här förändringen från ett support perspektiv. | R/I |
 | Namn och e-post för pilot användare | **Azure Role-användare**<br/>Gruppen med användare som Privileged Identity Management implementeras för. De måste känna till hur de aktiverar sina roller när Privileged Identity Management implementeras. | I |
 
-### <a name="enable-privileged-identity-management"></a>Aktivera Privileged Identity Management
+### <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
-Som en del av planerings processen måste du först godkänna och aktivera Privileged Identity Management genom att följa vår artikel för att [börja använda Privileged Identity Management](pim-getting-started.md) . Om du aktiverar Privileged Identity Management får du till gång till vissa funktioner som är särskilt utformade för att hjälpa dig med din distribution.
+Som en del av planerings processen bör du förbereda Privileged Identity Management genom att följa artikeln [börja använda Privileged Identity Management](pim-getting-started.md) . Privileged Identity Management ger dig till gång till vissa funktioner som är särskilt utformade för att hjälpa dig med din distribution.
 
 Om målet är att distribuera Privileged Identity Management för Azure-resurser bör du följa våra [Azure-resurser för att hantera i Privileged Identity Management](pim-resource-roles-discover-resources.md) artikeln. Endast ägare av prenumerationer och hanterings grupper kan identifiera och publicera dessa resurser på Privileged Identity Management. När den har publicerats är PIM-funktionen tillgänglig för ägare på alla nivåer, inklusive hanterings grupp, prenumeration, resurs grupp och resurs. Om du är en global administratör som försöker distribuera Privileged Identity Management för dina Azure-resurser kan du [öka åtkomsten för att hantera alla Azure-prenumerationer](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) för att ge dig åtkomst till alla Azure-resurser i katalogen för identifiering. Vi rekommenderar dock att du får godkännande från var och en av dina prenumerations ägare innan du hanterar resurserna med Privileged Identity Management.
 
@@ -351,7 +351,7 @@ Om Privileged Identity Management inte fungerade som det behövs i produktions m
 
 #### <a name="azure-ad-roles"></a>Azure AD-roller
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Öppna **Azure AD Privileged Identity Management**.
 1. Klicka på **Azure AD-roller** och klicka sedan på **roller**.
 1. För varje roll som du har konfigurerat klickar du på ellipsen (**...**) för alla användare med en berättigad tilldelning.
@@ -359,7 +359,7 @@ Om Privileged Identity Management inte fungerade som det behövs i produktions m
 
 #### <a name="azure-resource-roles"></a>Azure-resursroller
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Öppna **Azure AD Privileged Identity Management**.
 1. Klicka på **Azure-resurser** och klicka sedan på en prenumeration eller resurs som du vill återställa.
 1. Klicka på **roller**.
@@ -374,7 +374,7 @@ Att distribuera Privileged Identity Management i produktion är ett stort steg f
 
 Du bör använda Privileged Identity Management inbyggda aviserings funktioner för att bättre skydda din organisation. Mer information finns i [säkerhets aviseringar](pim-how-to-configure-security-alerts.md#security-alerts). Dessa aviseringar är: administratörer som inte använder privilegierade roller, roller som tilldelas utanför Privileged Identity Management, roller aktive ras för ofta och mer. För att skydda din organisation fullständigt bör du regelbundet gå igenom listan över aviseringar och åtgärda problemen. Du kan visa och åtgärda aviseringar på följande sätt:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Öppna **Azure AD Privileged Identity Management**.
 1. Klicka på **Azure AD-roller** och klicka sedan på **aviseringar**.
 

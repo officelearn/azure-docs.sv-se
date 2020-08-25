@@ -8,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: afcb676f68e7be9d3ebef11ea2c6876a86bbd062
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80281790"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816362"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabb start: Konfigurera Data Science Virtual Machine för Windows
 
 Kom igång med en Windows Server 2019 Data Science Virtual Machine.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Om du vill skapa en Windows-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
 Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
@@ -69,6 +69,5 @@ Du kan också bifoga en DSVM till Azure Notebooks för att köra Jupyter-anteckn
 
 * Utforska verktygen på DSVM genom att öppna **Start** -menyn.
 * Läs mer om Azure Machine Learning genom att läsa [Vad är Azure Machine Learning?](../overview-what-is-azure-ml.md) och prova [själv studie kurserna](../index.yml).
-* Läs artikeln [tio saker du kan göra på data science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Besök [Azure AI Gallery](https://gallery.cortanaintelligence.com) för Machine Learning-och data analys-exempel som använder Azure Machine Learning och relaterade data tjänster på Azure. Vi har också tillhandahållit en ikon för det här galleriet på **Start** -menyn och på Skriv bordet på den virtuella datorn.
+* Läs artikeln [data vetenskap med en Windows data science Virtual Machine i Azure](./vm-do-ten-things.md)
 

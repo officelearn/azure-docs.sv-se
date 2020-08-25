@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: f8515668cc30f62edadc0975533fe3bb9646e5e5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 165a2c6221c8d3c14f71134deef962d0859bb438
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288376"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816719"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuera virtuella datorer med hjälp av Azure CLI
 
@@ -21,7 +21,7 @@ Med hjälp av [virtuella Azure-datorer](spot-vms.md) kan du dra nytta av vår ou
 
 Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-Du har möjlighet att ange ett högsta pris som du är villig att betala per timme för den virtuella datorn. Det maximala priset för en VM-VM kan anges i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot. Mer information om hur du ställer in högsta pris finns i [VM-priser för virtuella datorer](spot-vms.md#pricing).
+Du har möjlighet att ange ett högsta pris som du är villig att betala per timme för den virtuella datorn. Det maximala priset för en VM-VM kan anges i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer den virtuella datorn inte att avlägsnas baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot. Mer information om hur du ställer in högsta pris finns i [VM-priser för virtuella datorer](../spot-vms.md#pricing).
 
 Processen för att skapa en virtuell dator med dekor med hjälp av Azure CLI är samma som beskrivs i [snabb starts artikeln](./quick-create-cli.md). Lägg bara till parametern "--priority", ange `--eviction-policy` antingen för att frigöra (detta är standard) eller `Delete` , och ange ett högsta pris eller `-1` . 
 

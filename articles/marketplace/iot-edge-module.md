@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: f7a4997117c8730b767f245050caa3f3157fb6fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/18/2020
+ms.openlocfilehash: c475e548cc8e29a83f2d440df43fb8ac31dc1c1e
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750238"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816260"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -40,13 +40,13 @@ Typen IoT Edge module-erbjudande är en bestämd typ av behållare som körs på
 
 **Välja den högra onlinebutiken**
 
-IoT Edge moduler publiceras bara på Azure Marketplace, AppSource gäller inte.  Mer information om skillnaderna och mål grupp i onlinebutiker finns i [bestämma publicerings alternativ](determine-your-listing-type.md).
- 
+IoT Edge moduler publiceras bara på Azure Marketplace. AppSource gäller inte. Mer information om skillnaderna och mål grupp i onlinebutiker finns i [bestämma publicerings alternativ](determine-your-listing-type.md).
+
 **Fakturerings alternativ**
 
 Marketplace har för närvarande stöd för **kostnads fria** och **använder dina egna licens alternativ för BYOL-** fakturering för IoT Edge moduler.
- 
-**Publicerings alternativ**
+
+### <a name="publishing-options"></a>Publicerings alternativ
 
 I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -publicering.  Se [Välj ett publicerings alternativ](determine-your-listing-type.md) för mer information om publicerings alternativ.  
 
@@ -54,22 +54,22 @@ I samtliga fall bör IoT Edge moduler välja alternativet för **Transact** -pub
 
 Alla villkor för Microsoft Azure Marketplace-avtal och-principer gäller för IoT Edge modul-erbjudanden.  Dessutom finns det krav och tekniska krav för IoT Edge moduler.  
 
-**Krav**
+### <a name="prerequisites"></a>Förutsättningar
 
 Om du vill publicera en IoT Edge-modul på Azure Marketplace måste du uppfylla följande krav:
 
 - Åtkomst till Partner Center. Mer information finns i [publicerings guiden för Azure Marketplace och AppSource](marketplace-publishers-guide.md).
-- Placera din IoT Edge-modul i en Azure Container Registry. 
-- Låt din IoT Edge modul metadata vara klara som (ej uttömmande lista): 
+- Placera din IoT Edge-modul i en Azure Container Registry.
+- Låt din IoT Edge modul metadata vara klara som (ej uttömmande lista):
     - En rubrik
     - En beskrivning (i HTML-format)
-    - En logo typ bild (PNG-format och fasta bild storlekar, inklusive 40x40px, 90x90px, 115x115px, 255x115px)
+    - En logo typ bild (i storlekar på 48 x 48 (valfritt), 90 x 90 (valfritt) och från 216 x 216 till 350 x 350 BPT, allt i PNG-format)
     - Ett användnings villkor och en sekretess policy
     - Standardkonfiguration av modul (Route, dubbla önskade egenskaper, createOptions, miljövariabler)
     - Dokumentation
     - Supportkontakter
 
-**Tekniska krav**
+### <a name="technical-requirements"></a>Tekniska krav
 
 De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifierat och publicerat på Azure Marketplace, beskrivs i [förbereda din IoT Edge-modul tekniska till gångar](./partner-center-portal/create-iot-edge-module-asset.md).
 

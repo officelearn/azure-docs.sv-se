@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: b3485ebbdf9cf428b09364b73197220e02e9ffa8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ddd1f61ada539ebb00341dd83919f1c851a0f3e1
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751085"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816379"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -28,12 +28,12 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 
 - **REST API referens är tillgänglig** – Visa [v 2.1 – för hands version. 1 referens](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) 
-- **Nya språk som stöds utöver engelska**, följande språk stöds nu: för `Layout` och `Train Custom Model` : engelska (en), Kinesisk (förenklad) (zh-zh), nederländska (NL), franska (Frankrike), tyska (de), italienska (IT), portugisiska (PT) och spanska (ES).
+- **Nya språk som stöds utöver engelska**, följande [språk](language-support.md) stöds nu: for `Layout` och `Train Custom Model` : engelska ( `en` ), kinesiska (förenklad) ( `zh-Hans` ), nederländska () `nl` , franska (), tyska (), `fr` italienska (), portugisiska ( `de` `it` `pt` ) och spanska ( `es` ).
 - **Kryss ruta och identifiering av markerings märke** – formulär tolken stöder identifiering och extrahering av markerings märken som kryss rutor och alternativ knappar. Markerings markeringar extraheras i `Layout` och du kan nu också märka och träna i `Train Custom Model`  -  _träna med etiketter_ för att extrahera nyckel värde par för markerings märken. 
 - Med **modellens Skriv** möjlighet kan flera modeller skapas och anropas med ett enda modell-ID. När ett dokument skickas för att analyseras med ett sammansatt modell-ID utförs ett klassificerings steg först för att dirigera det till rätt anpassad modell. Modellens Skriv sätt är tillgängligt för `Train Custom Model`  -  _träna med etiketter_.
 - **Modell namn** Lägg till ett eget namn i dina anpassade modeller för enklare hantering och spårning.
-- Ny fördefinierad **modell för visitkort** som används för att extrahera vanliga fält på engelska, språk visitkort.
-- **Nya språk för förbyggda kvitton** , förutom en-US, support är nu tillgängligt för en-au, en-ca, en-GB, en-i
+- Ny fördefinierad **[modell för visitkort](concept-business-cards.md)** som används för att extrahera vanliga fält på engelska, språk visitkort.
+- **[Nya språk för förbyggda kvitton](concept-receipts.md)** , förutom en-US, support är nu tillgängligt för en-au, en-ca, en-GB, en-i
 - **Kvalitets förbättringar** för `Layout` , `Train Custom Model`  -  _träna utan etiketter_ och _träna med etiketter_.
 
 
@@ -43,6 +43,7 @@ Formulär igenkännings tjänsten uppdateras regelbundet. Använd den här artik
 
 **Nya exempel** finns på GitHub. 
 - [Recepten för kunskaps extrahering – formulär Spelbok](https://github.com/microsoft/knowledge-extraction-recipes-forms) samlar in bästa praxis från riktiga formulär som kund engagemang och ger användbara kod exempel, check listor och exempel på pipelines som används för att utveckla dessa projekt. 
+- [Verktyget för samplings etiketter](https://github.com/microsoft/OCR-Form-Tools) har uppdaterats för att stödja de nya v 2.1-funktionerna. Se den här [snabb](quickstarts/label-tool.md) starten för att komma igång med verktyget. 
 - Formulär tolks exemplet i [intelligent kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) visar hur du integrerar `Analyze Receipt` och `Train Custom Model`  -  _tränar utan etiketter_.
 
 

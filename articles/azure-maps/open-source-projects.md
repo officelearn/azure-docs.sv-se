@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f24a04db9317083fb47c0956174e649b5bd7ae10
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77048900"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815699"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community-projekt med öppen källkod
 
@@ -22,16 +22,41 @@ Dessa community-drivna initiativ med öppen källkod skapas och underhålls av A
 
 Nedan visas några av de populäraste Azure Maps projekt och exempel med öppen källkod.
 
+**Robotar**
+
+| Projektnamn | Beskrivning |
+|-|-|
+| [Bot Framework – orienterings punkt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Orienterings punkten ger POI-relaterade funktioner till en virtuell assistent med hjälp av Azure Maps med Azure Bot Service-och bot-ramverket. |
+| [BotBuilder-plats](https://github.com/Microsoft/BotBuilder-Location) | En plats väljare för öppen källkod för Microsoft bot Framework som drivs av Bing Maps REST-tjänster. |
+
+**Öppna Web SDK-moduler**
+
+Följande är en lista med projekt med öppen källkod som utökar funktionerna i Azure Maps Web SDK.
+
+| Projektnamn | Beskrivning |
+|-|-|
+| [Modul för Azure Maps animering](https://github.com/Azure-Samples/azure-maps-animations)| Ett avancerat bibliotek med animeringar som används med Azure Maps Web SDK. |
+| [Modul för Azure Maps Services-gränssnittet](https://github.com/Azure-Samples/azure-maps-services-ui) | En uppsättning webb GRÄNSSNITTs kontroller som radbryter Azure Maps REST-tjänsterna. |
+
+**Exempel**
+
 | Projektnamn | Beskrivning |
 |-|-|
 | [Azure Maps kod exempel](https://github.com/Azure-Samples/AzureMapsCodeSamples) | En samling kod exempel för att använda Azure Maps i webbaserade appar. |
 | [Azure Maps gov Cloud kod exempel](https://github.com/Azure-Samples/AzureMapsCodeSamples) | En samling kod exempel för att använda Azure Maps via molnet för Azure Government. |
 | [Azure Maps & Azure Active Directory exempel](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | En samling exempel som visar hur du använder Azure Active Directory med Azure Maps. | 
-| [Implementera rumslig IoT-analys med Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. |
 | [Azure Maps Jupyter Notebook exempel](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | En samling python-exempel som använder Azure Maps REST-tjänsterna. |
-| [Bot Framework – orienterings punkt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | Orienterings punkten ger POI funktioner till en virtuell assistent med hjälp av Azure Maps med Azure Bot Service-och bot-ramverket. |
+| [Azure Maps .NET UWP IoT fjärr styrning](https://github.com/Azure-Samples/azure-maps-dotnet-webgl-uwp-iot-remote-control) | Detta är ett exempel program som visar hur du skapar en fjärrstyrd mappning med hjälp av Azure Maps och IoT Hub-tjänster. |
+| [Implementera rumslig IoT-analys med Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Att spåra och fånga relevanta händelser som inträffar i utrymme och tid är ett vanligt IoT-scenario. |
 
-En längre lista som innehåller Community-skapade projekt med öppen källkod finns [här](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
+**Verktyg och resurser**
+
+| Projektnamn | Beskrivning |
+|-|-|
+| [Azure Maps dokument](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Källa för all Azure Location Based Services-dokumentation. |
+| [Verktyg för Azure Maps skapare](https://github.com/Azure-Samples/AzureMapsCreator) | Python-verktyg för Azure Maps skapare verktyg. |
+
+En längre lista över projekt med öppen källkod för Azure Maps som innehåller Community-skapade projekt finns [här](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 
 ## <a name="supportability-of-open-source-projects"></a>Support för projekt med öppen källkod
 

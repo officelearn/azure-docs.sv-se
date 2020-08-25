@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 33a0df73e280fc195a7ccba18c857b2ebdcbe31a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e986348c063626bd6a0b5a834854bad09d73c952
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825403"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814203"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Mål för skalbarhet och prestanda för virtuella datordiskar i Linux
 
@@ -22,7 +22,7 @@ Mer information finns i [storlekar för virtuella Linux-datorer](../sizes.md?toc
 
 ## <a name="managed-virtual-machine-disks"></a>Hanterade virtuella dator diskar
 
-Storlekar som betecknas med en asterisk är för närvarande en för hands version. Läs våra [vanliga frågor och svar](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) om vilka regioner de är tillgängliga i.
+Storlekar som betecknas med en asterisk är för närvarande en för hands version. Läs våra [vanliga frågor och svar](../faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) om vilka regioner de är tillgängliga i.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 

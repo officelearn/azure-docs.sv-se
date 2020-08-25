@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter privat till ett Azure Batch-konto med hjä
 ms.topic: how-to
 ms.date: 08/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: fac9523dc2ecabaec5d1c108e0ddd7536f01f077
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0fd16e4e11d0b3f08a7ba0e2f425785e3cce7927
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004248"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88814118"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Använd privata slutpunkter med Azure Batch-konton
 
@@ -19,7 +19,8 @@ Med hjälp av en [privat Azure-länk](../private-link/private-link-overview.md)k
 
 Med privat länk kan användare komma åt ett Azure Batch konto inifrån det virtuella nätverket eller från ett peer-kopplat virtuellt nätverk. Resurser som är mappade till privat länk är också tillgängliga lokalt via privat peering via VPN eller [Azure ExpressRoute](../expressroute/expressroute-introduction.md). Du kan ansluta till ett Azure Batch-konto som kon figurer ATS med privat länk genom att använda [metoden automatisk eller manuell godkännande](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
-Stöd för privat anslutning i Azure Batch är för närvarande tillgängligt i följande Azure-regioner: västra centrala USA, västra USA 2, östra USA, södra centrala USA, US Gov, Virginia, US Gov, Arizona, Asien, östra, Frankrike och Storbritannien, södra.
+> [!IMPORTANT]
+> Stöd för privat anslutning i Azure Batch är för närvarande tillgängligt i följande Azure-regioner: centrala USA, norra centrala USA, södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2, Asien, östra, Frankrike Central, Storbritannien, södra, Nord Europa, Västeuropa, Östra Japan, västra Japan, östra Australien och alla US Gov och US DoD regioner.
 
 I den här artikeln beskrivs stegen för att skapa ett privat batch-konto och komma åt det med en privat slut punkt.
 

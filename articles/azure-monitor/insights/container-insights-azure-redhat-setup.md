@@ -3,14 +3,14 @@ title: Konfigurera Azure Red Hat OpenShift v3. x med Azure Monitor för behålla
 description: Den här artikeln beskriver hur du konfigurerar övervakning av ett Kubernetes-kluster med Azure Monitor som finns i Azure Red Hat OpenShift version 3 och senare.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: aac70ccc40da15318dd2dece17e429bb091e1860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e462fb25672fa1912f7bb24efad4ea9a6d27d078
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317985"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816651"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v3 med Azure Monitor för behållare
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Konfigurera Azure Red Hat OpenShift v3 med Azure Monitor för behållare 
 
 Azure Monitor for containers innehåller omfattande övervaknings funktioner för AKS-och AKS-motorns kluster. Den här artikeln beskriver hur du aktiverar övervakning av Kubernetes-kluster som finns i [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 3 och den senaste version som stöds av version 3, för att uppnå en liknande övervaknings upplevelse.
 
@@ -30,7 +30,7 @@ Azure Monitor for containers stöder övervakning av Azure Red Hat OpenShift enl
 - Real tids data (förhands granskning)
 - [Samla in mått](container-insights-update-metrics.md) från klusternoder och poddar och lagra dem i Azure Monitor Metrics-databasen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En [Log Analytics-arbetsyta](../platform/design-logs-deployment.md).
 
@@ -159,7 +159,7 @@ Utför följande steg för att aktivera övervakning av ett Azure Red Hat OpenSh
 
 ### <a name="from-the-azure-portal"></a>Från Azure-portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. På Azure Portal-menyn eller på Start sidan väljer du **Azure Monitor**. Under avsnittet **insikter** väljer du **behållare**.
 

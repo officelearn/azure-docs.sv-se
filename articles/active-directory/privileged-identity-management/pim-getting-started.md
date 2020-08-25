@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cad6c41b465e14b11d4fa7b8e7fa6037d49e8eae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742920"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816005"
 ---
 # <a name="start-using-privileged-identity-management"></a>Börja använda Privileged Identity Management
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du aktiverar Privileged Identity Management (PI
 
 Använd Privileged Identity Management (PIM) för att hantera, kontrol lera och övervaka åtkomst i din Azure Active Directory (Azure AD)-organisation. Med PIM kan du tillhandahålla nödvändiga och just-in-Time-åtkomst till Azure-resurser, Azure AD-resurser och andra Microsoft-onlinetjänster som Office 365 eller Microsoft Intune.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Privileged Identity Management måste du ha någon av följande licenser:
 
@@ -38,9 +38,7 @@ Mer information finns i [licens krav för att använda Privileged Identity Manag
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Förbereda PIM för Azure AD-roller
 
-När du har aktiverat Privileged Identity Management för din katalog kan du förbereda Privileged Identity Management för att hantera Azure AD-roller.
-
-Här är de uppgifter vi rekommenderar för att förbereda för Azure AD-roller, i ordning:
+Här är de uppgifter som vi rekommenderar för att förbereda Privileged Identity Management för att hantera Azure AD-roller:
 
 1. [Konfigurera inställningar för Azure AD-roller](pim-how-to-change-default-settings.md).
 1. [Ge berättigade tilldelningar](pim-how-to-add-role-to-user.md).
@@ -48,9 +46,7 @@ Här är de uppgifter vi rekommenderar för att förbereda för Azure AD-roller,
 
 ## <a name="prepare-pim-for-azure-roles"></a>Förbereda PIM för Azure-roller
 
-När du har aktiverat Privileged Identity Management för din katalog kan du förbereda Privileged Identity Management för att hantera Azure-roller för Azure Resource Access i en prenumeration.
-
-Här är de uppgifter vi rekommenderar för att förbereda för Azure-roller i följande ordning:
+Här är de uppgifter vi rekommenderar att du förbereder Privileged Identity Management för att hantera Azure-roller för en prenumeration:
 
 1. [Identifiera Azure-resurser](pim-resource-roles-discover-resources.md)
 1. [Konfigurera inställningar för Azure-roller](pim-resource-roles-configure-role-settings.md).
@@ -76,17 +72,17 @@ När Privileged Identity Management har kon figurer ATS kan du lära dig hur du 
 
 För att göra det lättare att öppna Privileged Identity Management lägger du till en PIM-panel i Azure Portal instrument panelen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj **alla tjänster** och Sök efter tjänsten **Azure AD Privileged Identity Management** .
 
     ![Azure AD Privileged Identity Management i alla tjänster](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Välj snabb start för Privileged Identity Management.
+1. Välj **snabb start**för Privileged Identity Management.
 
-1. Kontrol lera **Fäst bladet på instrument panelen** för att fästa Privileged Identity Management snabb starts bladet på instrument panelen.
+1. Välj **Fäst bladet på instrument panelen** för att fästa Privileged Identity Management **snabb start** sidan på instrument panelen.
 
-    ![Ikon för kartnål för att fästa Privileged Identity Management bladet på instrument panelen](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Ikon för kartnål för att fästa Privileged Identity Management sida på instrument panelen](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     På Azure-instrumentpanelen ser du en panel så här:
 

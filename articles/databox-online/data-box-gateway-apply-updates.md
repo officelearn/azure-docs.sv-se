@@ -2,17 +2,17 @@
 title: Installera uppdatering på Azure Data Box Gateway serie enhet | Microsoft Docs
 description: Beskriver hur du tillämpar uppdateringar med hjälp av Azure Portal och lokalt webb gränssnitt för Azure Data Box Gateway serie enhet
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: v-grpr
-ms.openlocfilehash: 4c17488a875484b2d3dc0e7e8e1045ce8ea75cf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: twooley
+ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85802476"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783883"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Uppdatera din Azure Data Box Gateway
 
@@ -63,7 +63,7 @@ Vi rekommenderar att du installerar uppdateringar via Azure Portal. Enheten sök
 
     ![Program varu version efter uppdatering](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **installera**.
+    Om du väljer att bara hämta uppdateringar väljer du meddelandet för att öppna bladet med **enhets uppdateringar** . Välj **Installera**.
   
     ![Program varu version efter uppdatering](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
@@ -116,7 +116,7 @@ Utför följande steg för att ladda ned uppdateringen från Microsoft Update ka
 
    ![Sökkatalog](./media/data-box-gateway-apply-updates/download-update-2.png)
 
-3. Välj **Ladda ned**. Det finns en enda fil att ladda ned, vilket kallas *SoftwareUpdatePackage.exe* som motsvarar enhetens program uppdatering. Ladda ned filen till en mapp i det lokala systemet. Du kan också kopiera mappen till en nätverks resurs som kan kontaktas från enheten.
+3. Välj **Hämta**. Det finns en enda fil att ladda ned, vilket kallas *SoftwareUpdatePackage.exe* som motsvarar enhetens program uppdatering. Ladda ned filen till en mapp i det lokala systemet. Du kan också kopiera mappen till en nätverks resurs som kan kontaktas från enheten.
 
    ![Sökkatalog](./media/data-box-gateway-apply-updates/download-update-3.png)
 
@@ -139,7 +139,7 @@ Den här proceduren tar cirka 20 minuter att slutföra. Utför följande steg f�
 
    ![uppdatera enhet](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
-3. Välj **Använd**.
+3. Välj **Tillämpa**.
 
    ![uppdatera enhet](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 

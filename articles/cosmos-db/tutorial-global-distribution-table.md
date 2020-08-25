@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76900177"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
@@ -28,11 +28,11 @@ Den här artikeln beskriver följande uppgifter:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluta till en önskad region med hjälp av tabell-API
 
-För att kunna dra nytta av den [globala distributionen](distribute-data-globally.md)bör klient programmen ange den aktuella platsen där programmet körs. Detta görs genom att ange `CosmosExecutorConfiguration.CurrentRegion` egenskapen. `CurrentRegion` Egenskapen ska innehålla en enda plats. Varje klient instans kan ange sin egen region för läsningar med låg latens. Regionen måste namnges med hjälp av deras [visnings namn](https://msdn.microsoft.com/library/azure/gg441293.aspx) som "västra USA". 
+För att kunna dra nytta av den [globala distributionen](distribute-data-globally.md)bör klient programmen ange den aktuella platsen där programmet körs. Detta görs genom att ange `CosmosExecutorConfiguration.CurrentRegion` egenskapen. `CurrentRegion`Egenskapen ska innehålla en enda plats. Varje klient instans kan ange sin egen region för läsningar med låg latens. Regionen måste namnges med hjälp av deras [visnings namn](https://msdn.microsoft.com/library/azure/gg441293.aspx) som "västra USA". 
 
-Azure Cosmos DB Tabell-API SDK väljer automatiskt den bästa slut punkten för att kommunicera med baserat på konto konfigurationen och den aktuella regionala tillgängligheten. Den prioriterar den närmaste regionen för att ge bättre svars tid till klienter. När du har angett `CurrentRegion` den aktuella egenskapen dirigeras Läs-och skriv förfrågningar enligt följande:
+Azure Cosmos DB Tabell-API SDK väljer automatiskt den bästa slut punkten för att kommunicera med baserat på konto konfigurationen och den aktuella regionala tillgängligheten. Den prioriterar den närmaste regionen för att ge bättre svars tid till klienter. När du har angett den aktuella `CurrentRegion` egenskapen dirigeras Läs-och skriv förfrågningar enligt följande:
 
-* **Läs begär Anden:** Alla Läs begär Anden skickas till den konfigurerade `CurrentRegion`. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
+* **Läs begär Anden:** Alla Läs begär Anden skickas till den konfigurerade `CurrentRegion` . Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 
 * **Skriv begär Anden:** SDK: n skickar automatiskt alla Skriv förfrågningar till den aktuella Skriv regionen. I ett multi-master-konto kommer den aktuella regionen också att betjäna Skriv förfrågningarna. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 

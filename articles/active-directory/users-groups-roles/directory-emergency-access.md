@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a98ff68500593c644e6f0fa5eacb338ab90f5604
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421730"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795383"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Hantera konton för nöd åtkomst i Azure AD
 
@@ -44,7 +44,7 @@ Skapa två eller fler konton för nöd åtkomst. Dessa konton ska vara molnbaser
 När du konfigurerar de här kontona måste följande krav uppfyllas:
 
 - Kontona för nöd åtkomst ska inte vara kopplade till någon enskild användare i organisationen. Se till att dina konton inte är anslutna till några mobila mobil telefoner, maskinvaru-token som reser med enskilda anställda eller andra autentiseringsuppgifter som är specifika för anställda. Den här försiktighets tjänsten omfattar instanser där en enskild medarbetare inte kan kontaktas när autentiseringsuppgiften behövs. Det är viktigt att se till att alla registrerade enheter hålls på en känd, säker plats som har flera sätt att kommunicera med Azure AD.
-- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda olika metoder för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-Provider via [anpassade kontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
+- Den autentiseringsmekanism som används för ett konto för nöd åtkomst bör skilja sig från det som används av andra administrativa konton, inklusive andra konton för nöd åtkomst.  Om till exempel din normala Administratörs inloggning är via lokal MFA, är Azure MFA en annan mekanism.  Men om Azure MFA är din primära del av autentiseringen för dina administrativa konton, kan du överväga att använda olika metoder för dessa, till exempel att använda villkorlig åtkomst med en tredjepartsleverantör-Provider via [anpassade kontroller](../conditional-access/controls.md).
 - Enheten eller autentiseringsuppgiften får inte förfalla eller vara i omfånget för automatisk rensning på grund av bristande användning.  
 - Du bör göra roll tilldelningen global administratör permanent för dina konto för nöd åtkomst. 
 
@@ -74,7 +74,7 @@ Organisationer bör övervaka inloggnings-och gransknings loggs aktiviteter frå
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. [Skicka inloggnings loggar för Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) till Azure Monitor.
+1. [Skicka inloggnings loggar för Azure AD](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) till Azure Monitor.
 
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Hämta objekt-ID: n för rast glas kontona
 
@@ -156,5 +156,5 @@ De här stegen bör utföras med jämna mellanrum och för viktiga ändringar:
 - [Lägg till användare med hjälp av Azure AD](../fundamentals/add-users-azure-active-directory.md) och [tilldela den nya användaren rollen som global administratör](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - [Registrera dig för Azure AD Premium](../fundamentals/active-directory-get-started-premium.md)om du inte redan har registrerat dig
 - [Så här kräver du tvåstegsverifiering för en användare](../authentication/howto-mfa-userstates.md)
-- [Konfigurera ytterligare skydd för globala administratörer i Microsoft 365](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts)om du använder Microsoft 365
+- [Konfigurera ytterligare skydd för globala administratörer i Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts)om du använder Microsoft 365
 - [Starta en åtkomst granskning av globala administratörer](../privileged-identity-management/pim-how-to-start-security-review.md) och [över gång av befintliga globala administratörer till mer detaljerade administratörs roller](directory-assign-admin-roles.md)

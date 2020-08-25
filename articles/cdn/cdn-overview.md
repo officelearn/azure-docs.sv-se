@@ -3,7 +3,7 @@ title: Vad är CDN (Content Delivery Network)? - Azure | Microsoft Docs
 description: Lär dig vad Azure CDN är och hur du använder det för att leverera innehåll med hög bandbredd.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
-ms.openlocfilehash: 262e5b7bbcbf6c463ef97d5acc72248d37195124
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44ab6822039ef2a26ffafc2824bed249825e2daa
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81260466"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783825"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Vad är CDN på Azure?
-Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN-nät cachelagrar innehåll på edge-servrar på POP-platser (Point-of-Presence) som är nära slutanvändarna för att minimera fördröjningen. 
+Ett nätverk för innehållsleverans (CDN, Content Delivery Network) är ett distribuerat nätverk av servrar som effektivt kan leverera webbinnehåll till användare. CDN ' lagrar cachelagrat innehåll på Edge-servrar i Point-of-Presence-platser (POP) som är nära slutanvändare, för att minimera svars tiden. 
 
 Med CDN får utvecklare en global lösning för snabb innehållsleverans med hög bandbredd till användarna eftersom innehållet cachelagras på fysiska noder på strategiska platser runt om i världen. Azure CDN möjliggör också snabbare dynamiskt innehåll, som inte kan cachelagras, genom att utnyttja olika nätverksoptimeringar med CDN POP-platser. Till exempel routningsoptimering för att kringgå BGP (Border Gateway Protocol).
 
@@ -38,7 +38,7 @@ En lista över aktuella CDN-nodplatser finns i [POP-platser för Azure CDN](cdn-
 ## <a name="how-it-works"></a>Så här fungerar det
 ![Översikt över CDN](./media/cdn-overview/cdn-overview.png)
 
-1. En användare (Alice) begär en fil (även kallad till gång) genom att använda en URL med ett särskilt domän namn, till exempel _ &lt;slut&gt;punkts namn_. azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
+1. En användare (Alice) begär en fil (även kallad till gång) genom att använda en URL med ett särskilt domän namn, till exempel _ &lt; slut &gt; punkts namn_. azureedge.net. Det här namnet kan vara slutpunktens värdnamn eller en anpassad domän. DNS omdirigerar begäran till den bästa tillgängliga POP-platsen, som vanligtvis är den POP-plats som är geografiskt närmast användaren.
     
 2. Om filen inte finns i cachelagringen i någon edge-server på POP-platsen begär POP filen från ursprungsservern. Ursprungsservern kan vara en Azure-webbapp, en Azure-molntjänst, ett Azure Storage-konto eller en offentligt tillgänglig webbserver.
    
@@ -67,7 +67,7 @@ Azure CDN erbjuder följande huvudfunktioner:
 - [Acceleration av dynamisk webbplats](cdn-dynamic-site-acceleration.md)
 - [CDN-cachelagringsregler](cdn-caching-rules.md)
 - [HTTPS-stöd för egna domäner](cdn-custom-ssl.md)
-- [Azure-diagnostikloggar](cdn-azure-diagnostic-logs.md)
+- [Azure Diagnostics-loggar](cdn-azure-diagnostic-logs.md)
 - [Filkomprimering](cdn-improve-performance.md)
 - [Geo-filtrering](cdn-restrict-access-by-country.md)
 

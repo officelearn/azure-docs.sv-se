@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4756ced858210f86bb8e979705db99a563441490
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078177"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783831"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arkivera loggar och rapportera om hantering av Azure AD-berättigande i Azure Monitor
 
@@ -59,7 +59,7 @@ Att arkivera Azure AD audit-loggar kräver att du har Azure Monitor i en Azure-p
 
 ## <a name="view-events-for-an-access-package"></a>Visa händelser för ett Access-paket  
 
-Om du vill visa händelser för ett Access-paket måste du ha åtkomst till den underliggande Azure Monitor-arbetsytan (se [Hantera åtkomst till loggdata och arbets ytor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) för information) och i någon av följande roller: 
+Om du vill visa händelser för ett Access-paket måste du ha åtkomst till den underliggande Azure Monitor-arbetsytan (se [Hantera åtkomst till loggdata och arbets ytor i Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) för information) och i någon av följande roller: 
 
 - Global administratör  
 - Säkerhetsadministratör  
@@ -170,7 +170,7 @@ $wks | ft CustomerId, Name
 
 ### <a name="send-the-query-to-the-log-analytics-workspace"></a>Skicka frågan till arbets ytan Log Analytics
 När du har identifierat en arbets yta kan du slutligen använda [Invoke-AzOperationalInsightsQuery](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery?view=azps-3.3.0
-) för att skicka en Kusto-fråga till arbets ytan. Dessa frågor skrivs i [Kusto-frågespråk](https://docs.microsoft.com/azure/kusto/query/).
+) för att skicka en Kusto-fråga till arbets ytan. Dessa frågor skrivs i [Kusto-frågespråk](/azure/kusto/query/).
  
 Du kan till exempel hämta datum intervallet för gransknings händelse posterna från arbets ytan Log Analytics, med PowerShell-cmdletar för att skicka en fråga som:
  
@@ -189,5 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Nästa steg:
-- [Skapa interaktiva rapporter med Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md) 
-
+- [Skapa interaktiva rapporter med Azure Monitor arbets böcker](../../azure-monitor/platform/workbooks-overview.md)

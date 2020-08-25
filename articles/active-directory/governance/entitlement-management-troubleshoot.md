@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bf19123888dd26073016131c93047b0cd0afaf4
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 216cff03ac6ce64dee9aae1e9daa4a86385eeb0e
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145777"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783339"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Felsöka hantering av Azure AD-berättigande
 
@@ -45,9 +45,9 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 * Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett åtkomstpaket, måste du se till att användarna har tilldelats till åtkomstpaketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett åtkomstpaket som redan har användare i gruppen. Om användarna i gruppen behöver fortsatt åtkomst, måste de ha en lämplig princip för åtkomstpaketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomstpaketet genom att antingen be användarna att begära åtkomstpaketet som innehåller resursen, eller genom att tilldela dem direkt till åtkomstpaketet. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
-* När du tar bort en medlem i ett team tas de även bort från gruppen Microsoft 365. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
+* När du tar bort en medlem i ett team tas de även bort från gruppen Microsoft 365. Borttagningen från teamets chattfunktioner kan vara fördröjd. Mer information finns i [grupp medlemskap](/microsoftteams/office-365-groups#group-membership).
 
-* Kontrollera att katalogen inte är konfigurerad för Multi-Geo. Berättigandehanteringen stöder för närvarande inte Multi-Geo-platser i SharePoint Online. SharePoint Online-webbplatser måste finns på en geografisk standardplats för att kunna styras med berättigandehanteringen. Mer information finns i [multi-geo-funktioner i OneDrive och SharePoint Online](https://docs.microsoft.com/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
+* Kontrollera att katalogen inte är konfigurerad för Multi-Geo. Berättigandehanteringen stöder för närvarande inte Multi-Geo-platser i SharePoint Online. SharePoint Online-webbplatser måste finns på en geografisk standardplats för att kunna styras med berättigandehanteringen. Mer information finns i [multi-geo-funktioner i OneDrive och SharePoint Online](/Office365/Enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-office-365).
 
 ## <a name="access-packages"></a>Åtkomstpaket
 
@@ -69,7 +69,7 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 * När användare som ännu inte finns i din katalog loggar in på Min åtkomst-portalen för att begära ett åtkomstpaket, bör du se till att de autentiseras med hjälp av sitt organisationskonto. Organisationskontot kan antingen vara ett konto i resurskatalogen, eller i en katalog som ingår i någon av åtkomstpaketets principer. Om användarens konto inte är ett organisationskonto, eller om den katalog där de autentiseras inte ingår i principen, kommer användaren inte att se åtkomstpaketet. Mer information finns i [begäran om åtkomst till ett Access-paket](entitlement-management-request-access.md).
 
-* Användare som är blockerade från att logga in på resurskatalogen, kommer inte att kunna begära åtkomst i Min åtkomst-portalen. Innan användaren kan begära åtkomst måste du ta bort inloggningsblockeringen från användarens profil. Ta bort inloggnings blocket genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **användare**, klicka på användaren och sedan på **profil**. Redigera avsnittet **Inställningar** och ändra **blockera inloggning** till **Nej**. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Du kan också kontrol lera om användaren har blockerats på grund av en [identitets skydds princip](../identity-protection/howto-unblock-user.md).
+* Användare som är blockerade från att logga in på resurskatalogen, kommer inte att kunna begära åtkomst i Min åtkomst-portalen. Innan användaren kan begära åtkomst måste du ta bort inloggningsblockeringen från användarens profil. Ta bort inloggnings blocket genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **användare**, klicka på användaren och sedan på **profil**. Redigera avsnittet **Inställningar** och ändra **blockera inloggning** till **Nej**. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Du kan också kontrol lera om användaren har blockerats på grund av en [identitets skydds princip](../identity-protection/howto-identity-protection-remediate-unblock.md).
 
 * Om en användare är både en beställare och en god kännare, kommer de inte att se sin begäran om ett åtkomst paket på sidan **godkännanden** i portalen för åtkomst. Det här är avsiktligt – en användare kan inte godkänna sin egen begäran. Kontrollera att det åtkomstpaket som begärs har fler godkännare konfigurerade i principen. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 

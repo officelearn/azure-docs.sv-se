@@ -17,10 +17,10 @@ ms.workload: infrastructure
 ms.date: 08/23/2018
 ms.author: kumud
 ms.openlocfilehash: 85fc5687b82947ed16bde0c30ca2b947514ba958
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74186360"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Självstudie: Begränsa nätverksåtkomst till PaaS-resurser med tjänstslutpunkter för virtuellt nätverk och Azure-portalen
@@ -37,7 +37,7 @@ Med tjänstslutpunkter för virtuellt nätverk kan du begränsa nätverksåtkoms
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) eller [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -49,7 +49,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. Välj eller ange följande information och välj **Skapa**:
 
-   |Inställning|Värde|
+   |Inställningen|Värde|
    |----|----|
    |Namn| myVirtualNetwork |
    |Adressutrymme| 10.0.0.0/16|
@@ -59,8 +59,8 @@ Logga in på Azure Portal på https://portal.azure.com.
    |Undernätsnamn| Offentlig|
    |Undernätsadressintervall| 10.0.0.0/24|
    |DDoS-skydd| Basic|
-   |Tjänstslutpunkter| Disabled|
-   |Brandvägg| Disabled|
+   |Tjänstslutpunkter| Inaktiverad|
+   |Brandvägg| Inaktiverad|
 
    ![Ange grundläggande information om ditt virtuella nätverk](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
@@ -75,9 +75,9 @@ Tjänstslutpunkter är aktiverade per tjänst och undernät. Skapa ett undernät
 
 3. Under **Lägg till undernät** väljer du eller anger följande information och väljer sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
-    |Namn| Privat |
+    |Namn| Privata |
     |Adressintervall| 10.0.1.0/24|
     |Tjänstslutpunkter| Välj **Microsoft.Storage** under **Tjänster**|
 
@@ -92,7 +92,7 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 2. Välj **Nätverk** och sedan **Nätverkssäkerhetsgrupp**.
 3. Under **Skapa en nätverkssäkerhetsgrupp** anger eller väljer du följande information och väljer sedan **Skapa**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
     |Namn| myNsgPrivate |
     |Prenumeration| Välj din prenumeration|
@@ -104,46 +104,46 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 6. Välj **+ Lägg till**.
 7. Skapa en regel som tillåter utgående kommunikation till Azure Storage-tjänsten. Välj eller ange följande information och välj **Lägg till**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
     |Källa| Välj **VirtualNetwork** |
     |Källportintervall| * |
     |Mål | Välj **service tag**|
     |Måltjänsttagg | Välj **Lagring**|
     |Målportintervall| * |
-    |Protokoll|Alla|
-    |Action|Tillåt|
+    |Protokoll|Valfri|
+    |Åtgärd|Tillåt|
     |Prioritet|100|
-    |Name|Allow-Storage-All|
+    |Namn|Allow-Storage-All|
 
 8. Skapa en annan säkerhetsregel för utgående kommunikation som nekar utgående kommunikation till internet. Den här regeln åsidosätter en standardregel i alla nätverkssäkerhetsgrupper som tillåter utgående internetkommunikation. Slutför steg 5–7 igen med följande värden:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
     |Källa| Välj **VirtualNetwork** |
     |Källportintervall| * |
     |Mål | Välj **service tag**|
     |Måltjänsttagg| Välj **Internet**|
     |Målportintervall| * |
-    |Protokoll|Alla|
-    |Action|Neka|
+    |Protokoll|Valfri|
+    |Åtgärd|Neka|
     |Prioritet|110|
-    |Name|Deny-Internet-All|
+    |Namn|Deny-Internet-All|
 
 9. Under **INSTÄLLNINGAR** väljer du **Inkommande säkerhetsregel**.
 10. Välj **+ Lägg till**.
 11. Skapa en säkerhetsregel för ingående kommunikation som tillåter RDP-trafik (Remote Desktop Protocol) till undernätet varifrån som helst. Regeln åsidosätter en standardsäkerhetsregel som nekar all inkommande trafik från internet. Fjärrskrivbordsanslutningar tillåts i undernätet så att anslutningen kan testas i ett senare steg. Under **INSTÄLLNINGAR** väljer du **Ingående säkerhetsregler**, väljer **+Lägg till**, skriver in följande värden och väljer **Lägg till**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
-    |Källa| Alla |
+    |Källa| Valfri |
     |Källportintervall| * |
     |Mål | Välj **VirtualNetwork**|
     |Målportintervall| 3389 |
-    |Protokoll|Alla|
-    |Action|Tillåt|
+    |Protokoll|Valfri|
+    |Åtgärd|Tillåt|
     |Prioritet|120|
-    |Name|Allow-RDP-All|
+    |Namn|Allow-RDP-All|
 
 12. Under **INSTÄLLNINGAR** väljer du **Undernät**.
 13. Välj **+ Koppla**
@@ -154,13 +154,13 @@ Alla virtuella datorer i ett undernät kan kommunicera med alla resurser som sta
 
 De steg som behövs för att begränsa nätverksåtkomsten till resurser som har skapats via Azure-tjänster som är aktiverade för tjänstslutpunkter varierar från tjänst till tjänst. Läs dokumentationen för enskilda tjänster för specifika åtgärder för varje tjänst. Resten av den här självstudiekursen innehåller steg för att begränsa nätverksåtkomsten för ett Azure Storage-konto, som ett exempel.
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Lagring** och sedan **Koppla undernät – blob, fil, tabell, kö**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
     |Namn| Ange ett namn som är unikt i alla Azure-platser, mellan 3–24 tecken långt och som endast innehåller siffror och gemener.|
     |Typ av konto|StorageV2 (generell användning v2)|
@@ -189,7 +189,7 @@ Som standard godkänner lagringskonton nätverksanslutningar från klienter i al
 3. Välj **+ Lägg till befintligt virtuellt nätverk**.
 4. Under **Lägg till nätverk** väljer du följande värden och sedan **Lägg till**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |----|----|
     |Prenumeration| Välj din prenumeration.|
     |Virtuella nätverk|Välj **myVirtualNetwork** under **Virtuella nätverk**|
@@ -215,11 +215,11 @@ Om du vill testa nätverksåtkomsten till ett lagringskonto distribuerar du en v
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
 3. Ange eller Välj följande information och välj sedan **OK**:
 
-   |Inställning|Värde|
+   |Inställningen|Värde|
    |----|----|
    |Namn| myVmPublic|
    |Användarnamn|Ange ett valfritt användarnamn.|
-   |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    |Prenumeration| Välj din prenumeration.|
    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
    |Plats| Välj **USA, östra**.|
@@ -311,4 +311,4 @@ I den här självstudien har du aktiverat en tjänstslutpunkt för ett undernät
 Om du har flera virtuella nätverk i ditt konto kanske du vill ansluta två virtuella nätverk så att resurserna i vart och ett kan kommunicera med varandra. Om du vill lära dig mer om att ansluta virtuella nätverk går du vidare till nästa självstudie.
 
 > [!div class="nextstepaction"]
-> [Ansluta virtuella nätverk](./tutorial-connect-virtual-networks-portal.md)
+> [Anslutning till virtuella nätverk](./tutorial-connect-virtual-networks-portal.md)

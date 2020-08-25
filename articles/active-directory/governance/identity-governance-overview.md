@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796785"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783305"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -58,9 +58,9 @@ Organisationer behöver en process för att hantera åtkomst utöver vad som urs
 
 Vanligt vis delegerar den åtkomst till godkännande beslut till besluts fattare i företaget.  Dessutom kan de involvera själva användarna.  Till exempel behöver användare som har åtkomst till konfidentiell kund information i ett företags marknadsförings program i Europa känna till företagets principer. Gäst användare kan vara medvetna om hanterings kraven för data i en organisation som de har bjudits in till.
 
-Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../b2b/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).   [Hantering av Azure AD](entitlement-management-overview.md) -behörighet gör det också möjligt att definiera hur användare begär åtkomst över paket av grupp-och team medlemskap, program roller och SharePoint Online-roller.
+Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../external-identities/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).   [Hantering av Azure AD](entitlement-management-overview.md) -behörighet gör det också möjligt att definiera hur användare begär åtkomst över paket av grupp-och team medlemskap, program roller och SharePoint Online-roller.
 
-När en användare försöker få åtkomst till program tvingar Azure AD sig att tillämpa principer för [villkorlig åtkomst](/azure/active-directory/conditional-access/) . Principer för villkorlig åtkomst kan till exempel innehålla ett [antal användnings villkor](../conditional-access/terms-of-use.md) och [Se till att användaren har godkänt dessa villkor innan de](../conditional-access/require-tou.md) kan komma åt ett program.
+När en användare försöker få åtkomst till program tvingar Azure AD sig att tillämpa principer för [villkorlig åtkomst](../conditional-access/index.yml) . Principer för villkorlig åtkomst kan till exempel innehålla ett [antal användnings villkor](../conditional-access/terms-of-use.md) och [Se till att användaren har godkänt dessa villkor innan de](../conditional-access/require-tou.md) kan komma åt ett program.
 
 ## <a name="privileged-access-lifecycle"></a>Livs cykel för privilegie rad åtkomst
 
@@ -100,6 +100,4 @@ Vi rekommenderar att du använder den minst privilegierade rollen för att utfö
 - [Vad är berättigandehantering i Azure AD?](entitlement-management-overview.md)
 - [Vad är Azure AD-åtkomstgranskningar?](access-reviews-overview.md)
 - [Vad är Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-- [Vad kan jag göra med användningsvillkoren?](active-directory-tou.md)
-
-
+- [Vad kan jag göra med användningsvillkoren?](../conditional-access/terms-of-use.md)

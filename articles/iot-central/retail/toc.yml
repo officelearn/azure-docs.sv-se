@@ -32,6 +32,8 @@
           href: tutorial-micro-fulfillment-center.md
     - name: Videoanalys – objekt- och rörelseidentifiering
       items:
+        - name: 0 – Distribuera program för objekt- och rörelseidentifiering
+          href: tutorial-video-analytics-deploy.md
         - name: 1 – Skapa ett videoanalysprogram
           href: tutorial-video-analytics-create-app.md
         - name: 2 – Konfigurera en IoT Edge-enhet
@@ -64,8 +66,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Anvisningar
   items:
-    - name: Distribuera program för objekt- och rörelseidentifiering
-      href: howto-deploy-video-analytics-template.md
     - name: Ansluta enheter
       items:
         - name: Förbereda och ansluta en Rigado Cascade 500

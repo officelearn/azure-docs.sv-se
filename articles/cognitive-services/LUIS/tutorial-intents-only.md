@@ -4,10 +4,10 @@ description: Skapa en anpassad app som förutsäger en användares avsikt basera
 ms.topic: tutorial
 ms.date: 05/05/2020
 ms.openlocfilehash: d0a625708e730094ab4dea8f705852f38ee6e1da
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85959867"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg en LUIS-app för att fastställa användar avsikter
@@ -55,7 +55,7 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
 
 1. Lägg till flera exempelyttranden till den här avsikten som du förväntar dig att en användare kan fråga:
 
-    |`OrderPizza`exempel yttranden|
+    |`OrderPizza` exempel yttranden|
     |--|
     |`can i get a pepperoni pizza and a can of coke please`|
     |`can i get a small pizza with onions peppers and olives`|
@@ -75,7 +75,7 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
 
 1. Skapa `Greeting` avsikten och Lägg till följande exempel yttranden. Detta är avsikten att avgöra om en användare påbörjar en ny pizza order-konversation.
 
-    |`Greeting`exempel yttranden|
+    |`Greeting` exempel yttranden|
     |--|
     |`Hi`|
     |`Hello`|
@@ -85,7 +85,7 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
 
 1. Skapa `Confirm` avsikten och Lägg till följande exempel yttranden. Det här är avsikten att avgöra om en användare utför beställningar och godkänner beställnings detaljerna.
 
-    |`Confirm`exempel yttranden|
+    |`Confirm` exempel yttranden|
     |--|
     |`Go ahead`|
     |`ok`|

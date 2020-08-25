@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: rohink
 ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76938796"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Självstudie: Konfigurera den geografiska Traffic routing-metoden med hjälp av Traffic Manager
@@ -25,9 +25,9 @@ Med metoden för geografisk trafik cirkulation kan du dirigera trafik till speci
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/).
-2. Klicka på **skapa en resurs** > **nätverk** > **Traffic Manager profil** > **skapa**.
+2. Klicka på **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 4. I **skapa Traffic Manager-profilen**:
-    1. Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. För att få åtkomst till din Traffic Manager-profil använder du `<profilename>.trafficmanager.net`DNS-namnet.
+    1. Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. För att få åtkomst till din Traffic Manager-profil använder du DNS-namnet `<profilename>.trafficmanager.net` .
     2. Välj **geografisk** routningsmetod.
     3. Välj den prenumeration som du vill skapa profilen under.
     4. Använd en befintlig resurs grupp eller skapa en ny resurs grupp för att placera profilen under. Om du väljer att skapa en ny resurs grupp använder du List rutan **resurs grupps plats** för att ange platsen för resurs gruppen. Den här inställningen refererar till platsen för resurs gruppen och har ingen inverkan på den Traffic Manager profil som distribueras globalt.
@@ -38,7 +38,7 @@ Med metoden för geografisk trafik cirkulation kan du dirigera trafik till speci
 ## <a name="add-endpoints"></a>Lägg till slut punkter
 
 1. Sök efter namnet på Traffic Manager profilen som du skapade i portalens Sök fält och klicka på resultatet när det visas.
-2. Navigera till **Inställningar** -> **slut punkter** i Traffic Manager.
+2. Navigera till **Inställningar**  ->  **slut punkter** i Traffic Manager.
 3. Klicka på **Lägg till** för att visa **Lägg till slut punkt**.
 3. Klicka på **Lägg till** och i **Lägg till slut punkt** som visas, Slutför på följande sätt:
 4. Välj **typ** beroende på vilken typ av slut punkt du lägger till. För geografiska routnings profiler som används i produktion rekommenderar vi att du använder kapslade slut punkts typer som innehåller en underordnad profil med fler än en slut punkt. Mer information finns i [vanliga frågor och svar om metoder för geografisk trafik cirkulation](traffic-manager-FAQs.md).

@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure Storage – Linux – Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att få åtkomst till Azure Storage – Linux – Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75971923"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage 
@@ -29,7 +29,7 @@ ms.locfileid: "75971923"
 I den här självstudien lär du dig hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att komma åt Azure Storage. Lär dig att:
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Skapa en blobcontainer i ett lagringskonto
 > * Ge en hanterade identitet på en virtuell Linux-dator åtkomst till en Azure Storage-container
 > * Hämta en åtkomsttoken och använda den för att anropa Azure Storage
@@ -37,7 +37,7 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > [!NOTE]
 > Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -46,7 +46,7 @@ Om du vill köra CLI-exempelskripten i den här självstudien har du två altern
 - Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) antingen från Azure Portal eller via knappen **Prova**, som du hittar i det övre högra hörnet av varje kodblock.
 - [Installera den senaste versionen av CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda en lokal CLI-konsol.
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
 
 I det här avsnittet skapar du ett lagringskonto. 
 
@@ -64,7 +64,7 @@ I det här avsnittet skapar du ett lagringskonto.
 Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
-2. Under **Blob Service** klickar du på **Containers**.
+2. Under **BLOB service**klickar du på **behållare**.
 3. Klicka på **+ Container** överst på sidan.
 4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
 

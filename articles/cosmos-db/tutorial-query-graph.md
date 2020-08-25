@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 1dde7bfc74c6a7b0c03d8f192f4e6eaf72e2de6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74870181"
 ---
 # <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Självstudie: Fråga Azure Cosmos DB Gremlin-API med hjälp av Gremlin
@@ -24,7 +24,7 @@ Den här artikeln beskriver följande uppgifter:
 > [!div class="checklist"]
 > * Fråga efter data med Gremlin
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha diagramdata i containern. Har du detta? Slutför [snabbstarten på 5 minuter](create-graph-dotnet.md) eller [självstudien för utvecklare](tutorial-query-graph.md) om du behöver skapa ett konto och fylla i databasen. Du kan köra följande frågor från [Gremlin-konsolen](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) eller din favoritdrivrutin för Gremlin.
 

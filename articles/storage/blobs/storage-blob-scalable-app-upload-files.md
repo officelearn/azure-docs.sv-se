@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75371946"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Överföra stora mängder slumpmässiga data parallellt till Azure Storage
@@ -23,14 +23,14 @@ I del två i serien lär du dig hur du:
 > [!div class="checklist"]
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
-> * Köra appen
+> * Kör programmet
 > * Validera antalet anslutningar
 
 Azure Blob Storage är en skalbar tjänst för att lagra data. För att ditt program ska få bästa möjliga prestanda rekommenderar vi att du lär dig hur Blob Storage fungerar. Det är viktigt att känna till gränserna för Azure-blobar för att lära dig mer om de här gränserna: [skalbarhets-och prestanda mål för Blob Storage](../blobs/scalability-targets.md).
 
 [Namngivning av partitioner](../blobs/storage-performance-checklist.md#partitioning) är en annan potentiellt viktig faktor när du skapar ett program med höga prestanda med hjälp av blobbar. För block storlekar som är större än eller lika med 4 MiB används [block blobbar med hög genomflöde](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) , och partitionens namn påverkar inte prestanda. För block storlekar som är mindre än 4 MiB använder Azure Storage ett intervall baserat partitionerings schema för skalning och belastnings utjämning. Den här konfigurationen innebär att filer med liknande namnkonventioner eller prefix hamnar i samma partition. Den här logiken innehåller namnet på den container som filerna överförs till. I den här kursen använder du filer som har globalt unika identifierare som namn samt slumpmässigt genererat innehåll. De överförs sedan till fem olika containrar med slumpmässiga namn.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att utföra den här kursen måste du först ha slutfört den föregående Storage-självstudiekursen: [Skapa en virtuell dator och ett lagringskonto för ett skalbart program][previous-tutorial].
 
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Konfigurera anslutningssträngen
 
-Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Logga in på den virtuella datorn som du skapade i den föregående självstudiekursen. Öppna en **kommandotolk** som administratör och kör kommandot `setx` med växeln `/m`. Det här kommandot sparar en miljövariabel för datorn. Miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** på nytt. Ersätt ** \<storageConnectionString\> ** i följande exempel:
+Navigera till ditt lagringskonto i Azure Portal. Välj **Åtkomstnycklar** under **Inställningar** i ditt lagringskonto. Kopiera **anslutningssträngen** från den primära eller sekundära nyckeln. Logga in på den virtuella datorn som du skapade i den föregående självstudiekursen. Öppna en **kommandotolk** som administratör och kör kommandot `setx` med växeln `/m`. Det här kommandot sparar en miljövariabel för datorn. Miljövariabeln inte tillgänglig förrän du har läst in **kommandotolken** på nytt. Ersätt **\<storageConnectionString\>** i följande exempel:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
@@ -52,7 +52,7 @@ setx storageconnectionstring "<storageConnectionString>" /m
 
 När det är klart öppnar du en annan **kommandotolk**, navigerar till `D:\git\storage-dotnet-perf-scale-app` och skriver `dotnet build` för att skapa programmet.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Navigera till `D:\git\storage-dotnet-perf-scale-app`.
 
@@ -187,7 +187,7 @@ I den andra delen i serien har du lärt dig hur du överför stora mängder slum
 > [!div class="checklist"]
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
-> * Köra appen
+> * Kör programmet
 > * Validera antalet anslutningar
 
 Gå vidare till den tredje delen i serien och lär dig hur du laddar ned stora mängder data från ett lagringskonto.

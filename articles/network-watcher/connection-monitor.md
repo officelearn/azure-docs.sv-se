@@ -16,10 +16,10 @@ ms.date: 10/25/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76834662"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
@@ -32,11 +32,11 @@ Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) oc
 > * Generera aviseringar om mått från anslutningsövervakare
 > * Diagnostisera ett kommunikationsproblem mellan två virtuella datorer och lär dig hur du kan lösa det
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Skapa VM:ar
 
@@ -48,11 +48,11 @@ Skapa två virtuella datorer.
 2. Välj **Compute** och sedan ett operativsystem. I den här självstudien används **Windows Server 2016 Datacenter**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myVm1|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
     |Plats| Välj **USA, östra**|
@@ -70,10 +70,10 @@ Skapa två virtuella datorer.
 
 Utför stegen i [Skapa den första virtuella datorn](#create-the-first-vm) igen med följande ändringar:
 
-|Steg|Inställning|Värde|
+|Steg|Inställningen|Värde|
 |---|---|---|
 | 1 | Välj en version av **Ubuntu Server** |                                                                         |
-| 3 | Name                                  | myVm2                                                                   |
+| 3 | Namn                                  | myVm2                                                                   |
 | 3 | Autentiseringstyp                   | Klistra in den offentliga SSH-nyckeln eller välj **Lösenord** och ange ett lösenord. |
 | 3 | Resursgrupp                        | Välj **Använd befintlig** och sedan **myResourceGroup**.                 |
 | 6 | Tillägg                            | **Network Watcher agent för Linux**                                             |
@@ -90,7 +90,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 4. Välj **+ Lägg till**.
 5. Ange eller välj information för anslutningen du vill övervaka och välj sedan **Lägg till**. I exemplet som visas i följande bild övervakas anslutningen från den virtuella datorn *myVm1* till den virtuella datorn *myVm2* VM via port 22:
 
-    | Inställning                  | Värde               |
+    | Inställningen                  | Värde               |
     | ---------                | ---------           |
     | Namn                     | myVm1-myVm2(22)     |
     | Källa                   |                     |
@@ -146,12 +146,12 @@ Som standard tillåter Azure kommunikation via alla portar mellan virtuella dato
 
 4. Standardregeln som tillåter kommunikation mellan alla virtuella datorer i ett virtuellt nätverk heter **AllowVnetInBound**. Skapa en regel med högre prioritet (lägre nummer) än regeln **AllowVnetInBound** som nekar inkommande kommunikation via port 22. Välj eller ange följande information, acceptera standardvärdena för resten av inställningarna och välj sedan **Lägg till**:
 
-    | Inställning                 | Värde          |
+    | Inställningen                 | Värde          |
     | ---                     | ---            |
     | Målportintervall | 22             |
-    | Action                  | Neka           |
+    | Åtgärd                  | Neka           |
     | Prioritet                | 100            |
-    | Name                    | DenySshInbound |
+    | Namn                    | DenySshInbound |
 
 5. Eftersom anslutningsövervakaren gör avsökningar var 60:e sekund ska du vänta några minuter. Välj **Network Watcher** och **Anslutningsövervakare** till vänster i portalen, och välj sedan övervakaren ** myVm1-myVm2(22)** igen. Nu blir resultatet ett annat, så som visas i följande bild:
 

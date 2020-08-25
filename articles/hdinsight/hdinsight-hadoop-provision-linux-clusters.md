@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 1d11318d2af640a0cf417286ee777ce833297a4f
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: f9c5b8ae16cb43576d788f72478e2cfba521a736
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873610"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749869"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -43,7 +43,7 @@ I följande tabell visas de olika metoder som du kan använda för att skapa ett
 
 Den här artikeln vägleder dig genom installationen i [Azure Portal](https://portal.azure.com), där du kan skapa ett HDInsight-kluster.
 
-## <a name="basics"></a>Grunder
+## <a name="basics"></a>Grundläggande inställningar
 
 ![snabb alternativ för HDInsight-skapande](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -97,13 +97,13 @@ Med HDInsight-kluster kan du konfigurera två användar konton när klustret ska
 
 HTTP-användarnamnet har följande begränsningar:
 
-* Tillåtna specialtecken: `_` och`@`
+* Tillåtna specialtecken: `_` och `@`
 * Tecken som inte tillåts: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Max längd: 20
 
 SSH-användarnamnet har följande begränsningar:
 
-* Tillåtna specialtecken: `_` och`@`
+* Tillåtna specialtecken: `_` och `@`
 * Tecken som inte tillåts: #;. "', \/ : '! *? $ () {} [] <>|&--= +% ~ ^ Space
 * Max längd: 64
 * Reserverade namn: Hadoop, användare, Oozie, Hive, mapred, Ambari-frågor och svar, Zookeeper, tez, HDFS, Sqoop, garn, hcat, AMS, HBase, Storm, administratör, admin, användare, Användare1, test, användare2, TEST1, user3, admin1, 1, 123, actuser, ADM, admin2, ASPNET, säkerhets kopiering, konsol, David, gäst, John, ägare, rot, Server, SQL, support, support_388945a0, sys, TEST2, test3, user4, user5, Spark
@@ -133,6 +133,9 @@ Under konfigurationen för standard lagrings slut punkten anger du en BLOB-behå
 
 > [!IMPORTANT]
 > Aktivering av säker lagrings överföring efter att ett kluster har skapats kan resultera i fel med ditt lagrings konto och rekommenderas inte. Det är bättre att skapa ett nytt kluster med ett lagrings konto med säker överföring redan aktiverat.
+
+> [!Note]  
+> Azure HDInsight överför inte automatiskt, flyttar eller kopierar data som lagras i Azure Storage från en region till en annan.
 
 ### <a name="metastore-settings"></a>Metaarkiv-inställningar
 

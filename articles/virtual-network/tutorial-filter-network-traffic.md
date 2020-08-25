@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75350142"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Självstudie: filtrera nätverks trafik med en nätverks säkerhets grupp med hjälp av Azure Portal
@@ -33,7 +33,7 @@ Du kan filtrera inkommande och utgående nätverkstrafik till och från ett unde
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-filter-network-traffic-cli.md) eller [PowerShell](tutorial-filter-network-traffic-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -41,11 +41,11 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. 
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. 
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                    | myVirtualNetwork                                   |
     | Adressutrymme           | 10.0.0.0/16                                        |
@@ -59,11 +59,11 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande funktioner, till exempel webbservrar.
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. 
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. 
 2. I rutan **Sök på Marketplace** anger du *Programsäkerhetsgrupp*. När **programsäkerhetsgruppen** visas i sökresultatet väljer du den. Välj sedan **Programsäkerhetsgrupp** igen under **Allt** och välj sedan **Skapa**.
 3. Välj eller ange följande information och välj **Skapa**:
 
-    | Inställning        | Värde                                                         |
+    | Inställningen        | Värde                                                         |
     | ---            | ---                                                           |
     | Namn           | myAsgWebServers                                               |
     | Prenumeration   | Välj din prenumeration.                                     |
@@ -72,7 +72,7 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
 4. Slutför steg 3 igen och ange följande värden:
 
-    | Inställning        | Värde                                                         |
+    | Inställningen        | Värde                                                         |
     | ---            | ---                                                           |
     | Namn           | myAsgMgmtServers                                              |
     | Prenumeration   | Välj din prenumeration.                                     |
@@ -81,11 +81,11 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
 ## <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. 
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. 
 2. Välj **Nätverk** och sedan **Nätverkssäkerhetsgrupp**.
 3. Välj eller ange följande information och välj **Skapa**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myNsg|
     |Prenumeration| Välj din prenumeration.|
@@ -109,22 +109,22 @@ En programsäkerhetsgrupp gör att du kan gruppera ihop servrar med liknande fun
 
 2. Skapa en säkerhetsregel som tillåter portarna 80 och 443 till programsäkerhetsgruppen **myAsgWebServers**. Under **Lägg till ingående säkerhetsregel** anger eller väljer du följande värden, accepterar standardvärdena för resten av inställningarna och väljer sedan **Lägg till**:
 
-    | Inställning                 | Värde                                                                                                           |
+    | Inställningen                 | Värde                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgWebServers** för **Programsäkerhetsgrupp**.  |
     | Målportintervall | Ange 80,443                                                                                                    |
     | Protokoll                | Välj TCP                                                                                                      |
-    | Name                    | Allow-Web-All                                                                                                   |
+    | Namn                    | Allow-Web-All                                                                                                   |
 
 3. Slutför steg 2 igen med följande värden:
 
-    | Inställning                 | Värde                                                                                                           |
+    | Inställningen                 | Värde                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Mål             | Välj **Programsäkerhetsgrupp** och välj sedan **myAsgMgmtServers** för **Programsäkerhetsgrupp**. |
     | Målportintervall | Ange 3389                                                                                                      |
     | Protokoll                | Välj TCP                                                                                                      |
     | Prioritet                | Ange 110                                                                                                       |
-    | Name                    | Allow-RDP-All                                                                                                   |
+    | Namn                    | Allow-RDP-All                                                                                                   |
 
     I den här självstudien exponeras RDP (port 3389) till internet för den virtuella dator som är tilldelad till programsäkerhetsgruppen *myAsgMgmtServers*. För produktionsmiljöer rekommenderas att du i stället för att exponera port 3389 mot Internet ansluter till Azure-resurser som du vill hantera med hjälp av en VPN-anslutning eller privat nätverksanslutning.
 
@@ -138,25 +138,25 @@ Skapa två virtuella datorer i det virtuella nätverket.
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. 
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. 
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**.
 3. Ange eller Välj följande information och godkänn standardinställningarna för de återstående inställningarna:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
-    |Name|myVmWeb|
+    |Namn|myVmWeb|
     |Plats| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 
    
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **nätverk**väljer du följande värden och godkänner de återstående standardvärdena:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Virtuellt nätverk |Välj **myVirtualNetwork**.|
     |Nätverks säkerhets grupp för nätverkskort |Välj **Ingen**.|

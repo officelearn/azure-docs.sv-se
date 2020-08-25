@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75613949"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Självstudie: Installera och skapa Service Fabric-kluster
@@ -30,7 +30,7 @@ I del två i serien lär du dig hur du:
 
 Fabric Service tillhandahåller ett konfigurationspaket för att skapa fristående Service Fabric-kluster.  [Ladda ned installationspaketet](https://go.microsoft.com/fwlink/?LinkId=730690) på den lokala datorn.  När du har hämtat kopian via RDP-anslutningen till den virtuella datorn och klistrar in den på Skriv bordet.
 
-Välj zip-filen och öppna snabb menyn och välj **extrahera alla** > **extrahera**.  När du extraherar filerna skapas en mapp på skrivbordet med samma namn som zip-filen.
+Välj zip-filen och öppna snabb menyn och välj **extrahera alla**  >  **extrahera**.  När du extraherar filerna skapas en mapp på skrivbordet med samma namn som zip-filen.
 
 Om du vill kan du hämta mer information om [innehållet i installationspaketet](service-fabric-cluster-standalone-package-contents.md).
 
@@ -120,7 +120,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Hämta Service Fabric Explorer
 
-Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från någon av datorerna med http\/:/localhost:19080/Explorer/index.html eller via fjärr anslutning med http\//<:*IPAddressofaMachine*>:19080/Explorer/index.html.
+Nu kan du ansluta till klustret med Service Fabric Explorer antingen direkt från en av datorerna med http: \/ /localhost: 19080/Explorer/index.html eller fjärran slutet med http: \/ /< *IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Lägga till och ta bort noder
 
@@ -133,7 +133,7 @@ I den andra delen i serien har du lärt dig hur du överför stora mängder slum
 > [!div class="checklist"]
 > * Konfigurera anslutningssträngen
 > * Skapa programmet
-> * Köra appen
+> * Kör programmet
 > * Validera antalet anslutningar
 
 Gå vidare till avsnitt tre i serien för att installera ett program i klustret som du skapade.

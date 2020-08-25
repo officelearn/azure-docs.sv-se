@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 853fa2b80e04dd8d9225d023db8030fed044ed7f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73890926"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Självstudie: Felsök och åtgärda enhetsproblem
@@ -28,7 +28,7 @@ I den här kursen får du:
 > * Undersöka en avisering från en enhet
 > * Lösa problemet med enheten
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -48,7 +48,7 @@ Informationsvyn för aviseringen visar:
 * Statusinformation om enheter som är kopplade till aviseringen
 * Telemetri från enheterna kopplade till aviseringen
 
-[![Aviserings information](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
+[![Aviseringsinformation](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancealarmdetail-expanded.png#lightbox)
 
 Du kan bekräfta aviseringen genom att välja **Alert occurrences** (Aviseringsförekomster) och välja **Bekräfta**. Med den här åtgärden meddelas andra operatörer att du har sett aviseringen och arbetar med den:
 

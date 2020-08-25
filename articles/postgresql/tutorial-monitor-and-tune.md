@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: tutorial
 ms.date: 5/6/2019
 ms.openlocfilehash: d1958c6ef0f7ed52e939967b5e82886fe1373ed8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74774745"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql---single-server"></a>Självstudie: övervaka och finjustera Azure Database for PostgreSQL-enskild server
@@ -32,7 +32,7 @@ Du behöver en Azure Database for PostgreSQL-server med PostgreSQL version 9.6 e
 ## <a name="enabling-data-collection"></a>Aktivera datainsamling
 I [Query Store](concepts-query-store.md) finns en historik över fråge- och väntestatistik på din server och den lagras i databasen **azure_sys** på servern. Det är en valbar funktion. För att aktivera den:
 
-1. Öppna Azure Portal.
+1. Öppna Azure-portalen.
 
 2. Välj din Azure Database for PostgreSQL-server.
 

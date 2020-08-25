@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 6841695cca5d3864e6823085520d8e9162e54043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "70067946"
 ---
 # <a name="mock-api-responses"></a>Simulera API-svar
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 ![Svar från simulerade åtgärder](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -63,11 +63,11 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
 1. Välj det API som du skapade i föregående steg.
 2. Klicka på **+ Lägg till åtgärd**.
 
-    | Inställning             | Värde                             | Beskrivning                                                                                                                                                                                   |
+    | Inställningen             | Värde                             | Beskrivning                                                                                                                                                                                   |
     |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Visningsnamn**    | *Testanrop*                       | Det här namnet visas i **utvecklarportalen**.                                                                                                                                       |
-    | **URL** (HTTP-verb) | HÄMTA                               | Du kan välja någon av de fördefinierade HTTP-verben.                                                                                                                                         |
-    | **ADRESSER**             | */test*                           | En URL-sökväg för API:et.                                                                                                                                                                       |
+    | **URL** (HTTP-verb) | GET                               | Du kan välja någon av de fördefinierade HTTP-verben.                                                                                                                                         |
+    | **URL**             | */test*                           | En URL-sökväg för API:et.                                                                                                                                                                       |
     | **Beskrivning**     |                                   | Ange en beskrivning av åtgärden för att tillhandahålla dokumentation för utvecklare som använder detta API i **utvecklarportalen**.                                                    |
     | Fliken **Fråga**       |                                   | Du kan lägga till frågeparametrar. Förutom att tillhandahålla namn och beskrivning, kan du även ange värden som kan tilldelas till den här parametern. Ett av värdena kan vara markerat som standard (valfritt). |
     | Fliken **Begäran**     |                                   | Du kan definiera innehållstyper för begäran, exempel och scheman.                                                                                                                                  |

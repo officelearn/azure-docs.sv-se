@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
 ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75614017"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Självstudie: skapa en Azure VM-infrastruktur som värd för ett Service Fabric kluster
@@ -25,7 +25,7 @@ I del ett i den här serien lärde du dig att:
 > * Logga in på någon av instanserna
 > * Förbereda instansen för Service Fabric
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen.  Om du inte redan har ett konto går du till [Azure Portal](https://portal.azure.com) för att skapa ett.
 
@@ -51,10 +51,10 @@ Du behöver en Azure-prenumeration för att kunna utföra stegen i den här sjä
 
    ![SF-inkommande][sf-inbound]
 
-   * Port `3389`, för RDP och ICMP (grundläggande anslutning).
-   * Portar `19000-19003`, för Service Fabric.
-   * Portar `19080-19081`, för Service Fabric.
-   * Port `8080`för webb läsar begär Anden.
+   * Port `3389` , för RDP och ICMP (grundläggande anslutning).
+   * Portar `19000-19003` , för Service Fabric.
+   * Portar `19080-19081` , för Service Fabric.
+   * Port `8080` för webb läsar begär Anden.
 
    > [!TIP]
    > För att du ska kunna ansluta dina virtuella datorer tillsammans i Service Fabric, måste de virtuella datorer som är värd för din infrastruktur ha samma autentiseringsuppgifter.  Det finns två vanliga metoder för att få likadana autentiseringsuppgifter: Anslut dem till samma domän, eller ange samma administratörslösenord på varje virtuell dator. Lyckligt vis tillåter Azure att alla virtuella datorer i samma **virtuella nätverk** är lätta att ansluta, så vi ska se till att ha alla våra instanser i samma nätverk.

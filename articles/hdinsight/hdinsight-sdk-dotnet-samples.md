@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
 ms.openlocfilehash: 097323b4566daeda737428121bee4d64e9f7248b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74951572"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET-exempel
@@ -31,7 +31,7 @@ Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.co
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 [Azure HDInsight SDK för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
 

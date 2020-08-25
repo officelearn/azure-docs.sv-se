@@ -16,17 +16,17 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66f8020ec2561bf06716db0720a7ec4292f36eb3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 77c560ffd01fe6d0b93e18b963574136c086fdc4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034130"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783203"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Hantera gäståtkomst med Azure AD-åtkomstgranskningar
 
 
-Med Azure Active Directory (Azure AD) kan du enkelt aktivera samarbete mellan organisations gränser med hjälp av [funktionen Azure AD B2B](../b2b/what-is-b2b.md). Gäst användare från andra klienter kan [bjudas in av administratörer](../b2b/add-users-administrator.md) eller av [andra användare](../b2b/what-is-b2b.md). Den här funktionen gäller även sociala identiteter som Microsoft-konton.
+Med Azure Active Directory (Azure AD) kan du enkelt aktivera samarbete mellan organisations gränser med hjälp av [funktionen Azure AD B2B](../external-identities/what-is-b2b.md). Gäst användare från andra klienter kan [bjudas in av administratörer](../external-identities/add-users-administrator.md) eller av [andra användare](../external-identities/what-is-b2b.md). Den här funktionen gäller även sociala identiteter som Microsoft-konton.
 
 Du kan också enkelt se till att gäst användare har lämplig åtkomst. Du kan be gästerna själva eller en besluts fattare att delta i en åtkomst granskning och omcertifiera (eller intyga) till gästernas åtkomst. Granskarna kan ge sin syn på varje användares behov för kontinuerlig åtkomst, baserat på förslag från Azure AD. När en åtkomst granskning är färdig kan du göra ändringar och ta bort åtkomst för gäster som inte längre behöver den.
 
@@ -120,10 +120,3 @@ I vissa organisationer kanske gästerna inte känner till deras grupp medlemskap
 ## <a name="next-steps"></a>Nästa steg
 
 [Skapa en åtkomst granskning av grupper eller program](create-access-review.md)
-
-
-
-
-
-
-

@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77122056"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Självstudie: skapa ett program för övervakning av vatten förbrukning med Azure IoT Central
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur man:
 > * Konfigurera jobb.
 > * Anpassa din program anpassning genom att använda vit etikettering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -136,8 +136,8 @@ Så här visar du enhets mal len:
 Så här anpassar du enhets mal len:
 
 1. Gå till **Anpassa** på menyn **mallar på enheten** .
-1. Hitta typen `Temperature` av telemetri.
-1. Uppdatera **visnings namnet** för `Temperature` till `Reported temperature`.
+1. Hitta `Temperature` typen av telemetri.
+1. Uppdatera **visnings namnet** för `Temperature` till `Reported temperature` .
 1. Uppdatera mått enheten eller ange det **minsta värdet** och **Max värdet**.
 1. Välj **Spara** för att spara ändringarna.
 
@@ -169,7 +169,7 @@ I Azure IoT Central kan du skapa simulerade enheter för att testa enhetens mall
 
 ### <a name="view-the-devices"></a>Visa enheterna
 
-1. Välj **enheter** > **alla enheter** i den vänstra rutan.
+1. Välj **enheter**  >  **alla enheter** i den vänstra rutan.
 
    ![Fönstret alla enheter](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
 
@@ -204,7 +204,7 @@ Det program för övervakning av vatten förbrukning som du har skapat har tre f
 
      ![Hög pH-avisering](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-    `High flow alert` Regeln är konfigurerad att kontrol lera mot villkoret `Acidity (pH)` `greater than` `Max flow threshold`. Högsta flödes tröskel är en moln egenskap som definierats i mallen **Smart ventil** enhet. Värdet för `Max flow threshold` anges per enhets instans.
+    `High flow alert`Regeln är konfigurerad att kontrol lera mot villkoret `Acidity (pH)` `greater than` `Max flow threshold` . Högsta flödes tröskel är en moln egenskap som definierats i mallen **Smart ventil** enhet. Värdet för `Max flow threshold` anges per enhets instans.
 
 Nu ska vi skapa en e-poståtgärd.
 
@@ -237,14 +237,14 @@ I Azure IoT Central kan du använda jobb för att utlösa enhets-eller moln egen
 
 Som verktyg kan du ändra flera inställningar för att anpassa användar upplevelsen i ditt program.
 
-1. Välj **Administration** > **Anpassa ditt program**.
+1. Välj **Administration**  >  **Anpassa ditt program**.
 1. Om du vill välja en bild som ska överföras som **program logo typ**väljer du knappen **ändra** .
 1. Välj knappen **ändra** om du vill välja en bild i **webbläsarens ikon** som visas i webbläsarens flikar.
 1. Du kan också ersätta standard **webbläsarens färger** genom att lägga till HTML-hexadecimala färg koder.
 
    ![Val för program logo typ, webb läsar ikon och webb läsar färger](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-1. Du kan också ändra program avbildningar genom att välja inställningar för **administrations** > **program**. Välj en bild som ska laddas upp som program avbildning genom att välja knappen **Välj bild** .
+1. Du kan också ändra program avbildningar genom att välja inställningar för **administrations**  >  **program**. Välj en bild som ska laddas upp som program avbildning genom att välja knappen **Välj bild** .
 1. Slutligen kan du även ändra **temat** genom att välja **inställnings** ikonen i det övre högra hörnet i programmet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

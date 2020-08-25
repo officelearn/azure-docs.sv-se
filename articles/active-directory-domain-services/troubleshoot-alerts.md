@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 91a060e8a5fe1bdaf3e6ea08811814297c355108
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 29bd7490ea9a03118f134ba11923ede2075e6fd5
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86222980"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722593"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -106,7 +106,7 @@ Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan pr
 
 Azure AD DS kräver en aktiv prenumeration. Om den Azure-prenumeration som den hanterade domänen var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
 
-1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Förnya din Azure-prenumeration](../cost-management-billing/manage/subscription-disabled.md).
 2. När prenumerationen har förnyats kan du återaktivera den hanterade domänen med en Azure AD DS-avisering.
 
 När den hanterade domänen är aktive rad uppdateras den hanterade domänens hälsa automatiskt inom två timmar och aviseringen tas bort.
@@ -162,7 +162,7 @@ Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort
 
 Vissa automatiskt genererade tjänstens huvud namn används för att hantera och skapa resurser för en hanterad domän. Om åtkomst behörigheterna för något av dessa tjänst huvud namn ändras kan inte domänen hantera resurser på rätt sätt. Följande steg visar hur du förstår och ger åtkomst behörighet till ett huvud namn för tjänsten:
 
-1. Läs om [rollbaserad åtkomst kontroll och hur du beviljar åtkomst till program i Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Läs om [rollbaserad åtkomst kontroll och hur du beviljar åtkomst till program i Azure Portal](../role-based-access-control/role-assignments-portal.md).
 2. Granska åtkomsten till tjänstens huvud namn med ID- *abba844e-bc0e-44b0-947a-dc74e5d09022* och bevilja åtkomst som nekades vid ett tidigare datum.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: inte tillräckligt med IP-adress i den hanterade domänen
@@ -276,7 +276,7 @@ Följande vanliga orsaker leder till att synkronisering stoppas i en hanterad do
 
 Azure AD DS kräver en aktiv prenumeration. Om den Azure-prenumeration som den hanterade domänen var kopplad till inte är aktiv, måste du förnya den för att återaktivera prenumerationen.
 
-1. [Förnya din Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Förnya din Azure-prenumeration](../cost-management-billing/manage/subscription-disabled.md).
 2. När prenumerationen har förnyats kan du återaktivera den hanterade domänen med en Azure AD DS-avisering.
 
 När den hanterade domänen är aktive rad uppdateras den hanterade domänens hälsa automatiskt inom två timmar och aviseringen tas bort.

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
 ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74771108"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Självstudie: etablera en Azure Database for MySQL server med Azure Resource Manager-mall
@@ -87,7 +87,7 @@ I den här begäran är de värden som måste anpassas:
 +   `storageProfile/geoRedundantBackup` – Ange aktiverat/inaktiverat beroende på kraven för geohaveriberedskap.
 +   `sku/tier` – Ange nivån Basic, GeneralPurpose eller MemoryOptimized för distributionen.
 +   `sku/capacity` – Ange vCore-kapacitet. Möjliga värden är 2, 4, 8, 16, 32 eller 64.
-+   `sku/family`-Ange Gen5 för att välja maskin varu generering för Server distribution.
++   `sku/family` -Ange Gen5 för att välja maskin varu generering för Server distribution.
 +   `sku/name` – Ange TierPrefix_family_capacity. Till exempel B_Gen5_1 GP_Gen5_16 MO_Gen5_32. Se dokumentationen [prissättningsnivåer](./concepts-pricing-tiers.md) för att se giltiga värden per region och nivå.
 +   `resources/properties/virtualNetworkSubnetId` – Ange Azure-identifieraren för undernätet i det virtuella nätverket där Azure MySQL-servern ska placeras. 
 +   `tags(optional)` – Ange valfria taggar är nyckelvärdepar som du använder för att kategorisera resurser för fakturering osv.

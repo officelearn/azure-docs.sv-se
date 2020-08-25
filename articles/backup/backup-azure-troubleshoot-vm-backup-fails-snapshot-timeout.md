@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: d690ed23f49d3aa3f77b88c8d57c963ae2a98682
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 26050dfb9fdde5988fe3ae922dae5486d17f4317
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611865"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755376"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -176,7 +176,7 @@ Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av
 Det senaste säkerhets kopierings jobbet misslyckades på grund av att en befintlig säkerhets kopiering pågår. Du kan inte starta ett nytt säkerhets kopierings jobb förrän det aktuella jobbet har slutförts. Se till att den pågående säkerhets kopieringen har slutförts innan du utlöser eller schemalägger en annan säkerhets kopierings åtgärd. Gör så här för att kontrol lera status för säkerhets kopierings jobb:
 
 1. Logga in på Azure Portal och välj **alla tjänster**. Skriv Recovery Services och välj **Recovery Services valv**. Listan över Recovery Services-valv visas.
-2. I listan över Recovery Services-valv väljer du ett valv där säkerhets kopian har kon figurer ATS.
+2. I listan över Recovery Services valv väljer du ett valv där säkerhets kopian har kon figurer ATS.
 3. På instrument panelen för valv väljer du **säkerhets kopierings jobb** där alla säkerhets kopierings jobb visas.
    - Om ett säkerhets kopierings jobb pågår väntar du tills det är klart eller Avbryt säkerhets kopierings jobbet.
      - Om du vill avbryta säkerhets kopierings jobbet högerklickar du på säkerhets kopierings jobbet och väljer **Avbryt** eller Använd [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).

@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "71121928"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Självstudie: använda R i en spark Compute-kontext i Azure HDInsight
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 > * Använda sammansatta XDF-filer
 > * Konvertera XDF till CSV
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure HDInsight Machine Learning Services-kluster. Gå till [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **ml-tjänster**för **kluster typ**.
 
@@ -179,7 +179,7 @@ airDS <- RxTextData( airDataDir,
 
 ## <a name="create-a-compute-context-for-spark"></a>Skapa en beräknings kontext för Spark
 
-Om du vill läsa in data och köra analyser på arbetsnoder ställer du in beräknings kontexten i skriptet på [rxspark beräkningskontexten](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). I det här sammanhanget distribuerar R-funktioner automatiskt arbets belastningen för alla arbetsnoder, utan inbyggt krav på hantering av jobb eller kön. Beräknings kontexten Spark upprättas `RxSpark` via `rxSparkConnect()` eller för att skapa Spark Compute-kontexten och används `rxSparkDisconnect()` för att återgå till en lokal beräknings kontext. I RStudio anger du följande kod:
+Om du vill läsa in data och köra analyser på arbetsnoder ställer du in beräknings kontexten i skriptet på [rxspark beräkningskontexten](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). I det här sammanhanget distribuerar R-funktioner automatiskt arbets belastningen för alla arbetsnoder, utan inbyggt krav på hantering av jobb eller kön. Beräknings kontexten Spark upprättas via `RxSpark` eller `rxSparkConnect()` för att skapa Spark Compute-kontexten och används `rxSparkDisconnect()` för att återgå till en lokal beräknings kontext. I RStudio anger du följande kod:
 
 ```R
 # Define the Spark compute context
@@ -241,13 +241,13 @@ rxSetComputeContext(mySparkCluster)
     Condition number: 1 
     ```
 
-    Resultaten visar att du har bearbetat alla data, 6 000 000 observationer, med alla CSV-filer i den angivna katalogen. Eftersom du har `cube = TRUE`angett har du en uppskattad koefficient för varje veckodag (och inte spärren).
+    Resultaten visar att du har bearbetat alla data, 6 000 000 observationer, med alla CSV-filer i den angivna katalogen. Eftersom du har angett `cube = TRUE` har du en uppskattad koefficient för varje veckodag (och inte spärren).
 
 ## <a name="use-composite-xdf-files"></a>Använda sammansatta XDF-filer
 
 Som du har sett kan du analysera CSV-filer direkt med R på Hadoop. Men du kan göra analysen snabbare om du lagrar data i ett mer effektivt format. Fil formatet R XDF är effektivt, men det har ändrats något för HDFS så att enskilda filer förblir i ett enda HDFS-block. (HDFS-blockets storlek varierar från installationen till installationen, men är vanligt vis antingen 64 MB eller 128 MB.) 
 
-När du använder [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) på Hadoop för att skapa en uppsättning sammansatta XDF-filer, `RxTextData` anger du en data `AirDS` källa, till exempel som indata och en `RxXdfData` data källa med fil systemet inställt på ett HDFS-filsystem som argument för utdatafilen. Du kan sedan använda `RxXdfData` objektet som data argument i efterföljande R-analyser.
+När du använder [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) på Hadoop för att skapa en uppsättning sammansatta XDF-filer, anger du en `RxTextData` data källa, till exempel `AirDS` som indata och en `RxXdfData` data källa med fil systemet INställt på ett HDFS-filsystem som argument för utdatafilen. Du kan sedan använda `RxXdfData` objektet som data argument i efterföljande R-analyser.
 
 1. Definiera ett `RxXdfData` objekt. I RStudio anger du följande kod:
 
@@ -265,7 +265,7 @@ När du använder [rxImport](https://docs.microsoft.com/machine-learning-server/
     numRowsToRead = -1
     ```
 
-1. Importera data med hjälp `rxImport`av. I RStudio anger du följande kod:
+1. Importera data med hjälp av `rxImport` . I RStudio anger du följande kod:
 
     ```R
     rxImport(inData = airDS,
@@ -300,7 +300,7 @@ När du använder [rxImport](https://docs.microsoft.com/machine-learning-server/
 
 Om du har konverterat CSV-filerna till XDF-filformatet för ökad effektivitet medan du kör analyserna, men nu vill konvertera data tillbaka till CSV, kan du göra det med hjälp av [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
 
-Skapa en mapp med CSV-filer genom att först skapa `RxTextData` ett objekt med hjälp av ett katalog namn som fil argumentet. Objektet representerar den mapp där CSV-filerna ska skapas. Den här katalogen skapas när du kör `rxDataStep`. Peka sedan på det här `RxTextData` objektet i `outFile` argumentet för `rxDataStep`. Varje CSV som skapas namnges baserat på katalog namnet och följt av ett tal.
+Skapa en mapp med CSV-filer genom att först skapa ett `RxTextData` objekt med hjälp av ett katalog namn som fil argumentet. Objektet representerar den mapp där CSV-filerna ska skapas. Den här katalogen skapas när du kör `rxDataStep` . Peka sedan på det här `RxTextData` objektet i `outFile` argumentet för `rxDataStep` . Varje CSV som skapas namnges baserat på katalog namnet och följt av ett tal.
 
 Anta att du vill skriva ut en mapp med CSV-filer i HDFS från den `airDataXdf` sammansatta XDF när du har utfört Logistisk regression och förutsägelse, så att de nya CSV-filerna innehåller förväntade värden och rester. I RStudio anger du följande kod:
 
@@ -312,11 +312,11 @@ rxDataStep(inData=airDataXdf, outFile=airDataCsvDS)
 
 Det här steget bör vara klart om 2,5 minuter.
 
-Den `rxDataStep` skrev ut en CSV-fil för varje XDFD-fil i den sammansatta XDF-filen. Detta är standard beteendet för att skriva CSV-filer från sammansatta XDF-filer till HDFS när beräknings `RxSpark`kontexten är inställd på.
+Den `rxDataStep` skrev ut en CSV-fil för varje XDFD-fil i den sammansatta XDF-filen. Detta är standard beteendet för att skriva CSV-filer från sammansatta XDF-filer till HDFS när beräknings kontexten är inställd på `RxSpark` .
 
 ### <a name="in-a-local-context"></a>I ett lokalt sammanhang
 
-När du `local` har utfört dina analyser kan du ändra din beräknings kontext till för att dra nytta av två argument i `RxTextData` som ger dig något mer kontroll när du skriver CSV-filer till HDFS: `createFileSet` och. `rowsPerOutFile` När du ställer `createFileSet` in `TRUE`på, skrivs en mapp med CSV-filer till den katalog som du anger. När du ställer `createFileSet` in `FALSE`på, skrivs en enskild CSV-fil. Du kan ange det andra argumentet, `rowsPerOutFile`till ett heltal för att ange hur många rader som ska skrivas till varje CSV `createFileSet` - `TRUE`fil när är.
+När du har utfört dina analyser kan du ändra din beräknings kontext till `local` för att dra nytta av två argument i `RxTextData` som ger dig något mer kontroll när du skriver CSV-filer till HDFS: `createFileSet` och `rowsPerOutFile` . När du ställer in `createFileSet` på `TRUE` , skrivs en mapp med CSV-filer till den katalog som du anger. När du ställer in `createFileSet` på `FALSE` , skrivs en enskild CSV-fil. Du kan ange det andra argumentet, `rowsPerOutFile` till ett heltal för att ange hur många rader som ska skrivas till varje CSV-fil när `createFileSet` är `TRUE` .
 
 I RStudio anger du följande kod:
 
@@ -331,7 +331,7 @@ Det här steget bör vara klart om 10 minuter.
 
 När du använder en `RxSpark` beräknings kontext, `createFileSet` har standardvärdet `TRUE` och `rowsPerOutFile` har ingen påverkan. Om du vill skapa en enkel CSV eller anpassa antalet rader per fil kan du utföra `rxDataStep` i en `local` beräknings kontext (data kan fortfarande finnas i HDFS).
 
-## <a name="final-steps"></a>Sista stegen
+## <a name="final-steps"></a>De sista stegen
 
 1. Rensa data. I RStudio anger du följande kod:
 

@@ -14,23 +14,23 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e307df95fe4cb18986ed8e68a7f3381c5fbe7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742909"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783526"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Microsoft Graph-API: er för Privileged Identity Management (förhands granskning)
 
-Du kan utföra Privileged Identity Management uppgifter med hjälp av [Microsoft Graph-API: er](https://developer.microsoft.com/graph/docs/concepts/overview) för Azure Active Directory. I den här artikeln beskrivs viktiga begrepp för att använda Microsoft Graph-API: er för Privileged Identity Management.
+Du kan utföra Privileged Identity Management uppgifter med hjälp av [Microsoft Graph-API: er](/graph/overview) för Azure Active Directory. I den här artikeln beskrivs viktiga begrepp för att använda Microsoft Graph-API: er för Privileged Identity Management.
 
-Mer information om Microsoft Graph-API:er finns i [referensen för Azure AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
+Mer information om Microsoft Graph-API:er finns i [referensen för Azure AD Privileged Identity Management API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta).
 
 > [!IMPORTANT]
 > API:er under /betaversionen i Microsoft Graph är i förhandsversion och kan komma att ändras. Användning av dessa API:er i produktionsprogram stöds inte.
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Om du vill anropa Microsoft Graph-API: er för Privileged Identity Management måste du ha **en eller flera** av följande behörigheter:
 
@@ -61,4 +61,4 @@ Om du använder Graph Explorer för att testa anrop kan du ange behörigheterna 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Referens för Azure AD Privileged Identity Management API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root)
+- [Referens för Azure AD Privileged Identity Management API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

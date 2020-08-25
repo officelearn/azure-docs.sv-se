@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 9ae8fd824144c70edeb1e084155e8cdff95cd8b9
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612341"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756018"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -101,7 +101,7 @@ Så här redigerar du inställningen för lagringsreplikering:
    * I listan över resurser skriver du **Recovery Services**.
    * När du börjar skriva filtreras listan baserat på det du skriver. När du ser **Recovery Services valv**väljer du det.
 
-     ![Skapa Recovery Services-valv (steg 1)](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
+     ![Skapa Recovery Services Vault steg 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
      Listan över Recovery Services-valv visas.
    * Välj ett valv i listan över Recovery Services-valv.
@@ -135,7 +135,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     ![Ändring av guiden Komma igång](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. I fönstret **Förbered infrastruktur** som öppnas väljer du länken **Hämta** Länkar för installation Azure Backup Server och laddar ned autentiseringsuppgifter för valvet. Du använder autentiseringsuppgifterna för valvet under registreringen av Azure Backup Server i Recovery Services-valvet. Länkarna tar dig till Download Center där du kan ladda ned program varu paketet.
+6. I fönstret **Förbered infrastruktur** som öppnas väljer du länken **Hämta** Länkar för installation Azure Backup Server och laddar ned autentiseringsuppgifter för valvet. Du använder autentiseringsuppgifterna för valvet under registreringen av Azure Backup Server i Recovery Servicess valvet. Länkarna tar dig till Download Center där du kan ladda ned program varu paketet.
 
     ![Förbered infrastruktur för Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
@@ -143,7 +143,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     ![Hämta Center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Eftersom nedladdnings storleken för alla filer tillsammans är > 3G, kan det ta upp till 60 minuter för nedladdnings länken på 10 Mbit/s att slutföra nedladdningen.
+    Eftersom nedladdnings storleken för alla filer tillsammans är > 3 GB, kan det ta upp till 60 minuter för nedladdnings länken på 10 Mbit/s att slutföra nedladdningen.
 
 ### <a name="extracting-the-software-package"></a>Extrahera programpaketet
 

@@ -4,10 +4,10 @@ description: Exempel är ett bra sätt att uppleva Jupyter Notebooks som körs i
 ms.topic: sample
 ms.date: 01/11/2019
 ms.openlocfilehash: 397e40f628e6e935fef74d2225d2e477aac7b276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85834003"
 ---
 # <a name="discover-and-use-sample-notebooks-in-azure-notebooks-preview"></a>Identifiera och Använd exempel antecknings böcker i Azure Notebooks för hands version

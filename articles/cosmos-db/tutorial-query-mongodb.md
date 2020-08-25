@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85848939"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Fråga data med Azure Cosmos DB:s API för MongoDB
@@ -62,7 +62,7 @@ Frågorna i den här artikeln använder följande exempeldokument.
 
 Med exemplet på familjedokumentet ovan returnerar följande fråga dokument där ID-fältet matchar `WakefieldFamily`.
 
-**Söka i data**
+**Query**
 
 ```bash
 db.families.find({ id: "WakefieldFamily"})
@@ -116,7 +116,7 @@ db.families.find({ id: "WakefieldFamily"})
 
 Nästa fråga returnerar alla underordnade i familjen. 
 
-**Söka i data**
+**Query**
 
 ```bash 
 db.families.find( { id: "WakefieldFamily" }, { children: true } )
@@ -152,7 +152,7 @@ db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 Nästa fråga returnerar alla familjer som är registrerade. 
 
-**Söka i data**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : true })
@@ -166,7 +166,7 @@ Inget dokument kommer att returneras.
 
 Nästa fråga returnerar alla familjer som inte är registrerade. 
 
-**Söka i data**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : false })
@@ -215,7 +215,7 @@ db.families.find( { "isRegistered" : false })
 
 Nästa fråga returnerar alla familjer med statusen NY som inte är registrerade. 
 
-**Söka i data**
+**Query**
 
 ```bash
 db.families.find( { "isRegistered" : false, "address.state" : "NY" })
@@ -264,7 +264,7 @@ db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
 Nästa fråga returnerar alla familjer där värdet för underordnade klasser är 8.
 
-**Söka i data**
+**Query**
 
 ```bash
 db.families.find( { children : { $elemMatch: { grade : 8 }} } )
@@ -313,7 +313,7 @@ db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
 Nästa fråga returnerar alla familjer där den underordnade matrisens storlek är 3.
 
-**Söka i data**
+**Query**
 
 ```bash
 db.Family.find( {children: { $size:3} } )

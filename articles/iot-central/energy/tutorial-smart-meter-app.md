@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ms.openlocfilehash: 9e954e9c1a7efa43a19849b1c5b40284ec84eeed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77016008"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Självstudie: skapa och gå igenom App-mallen för smart avläsning av övervakning 
@@ -29,8 +29,8 @@ Den här självstudien vägleder dig genom processen att skapa ett program för 
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Krav
-- Inga
+## <a name="prerequisites"></a>Förutsättningar
+- Ingen
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
 ## <a name="create-a-smart-meter-monitoring-app"></a>Skapa en app för smart mätarövervakning 
@@ -52,7 +52,7 @@ Du kan skapa det här programmet i tre enkla steg:
     * **Fakturerings information**: själva programmet är kostnads fritt. Katalogen, Azure-prenumerationen och regions informationen krävs för att etablera resurserna för din app.
     * Klicka på knappen **skapa** längst ned på sidan så skapas din app på en minut.
 
-        ![Nytt program formulär](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
+        ![Formuläret för nya program](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
         ![Fakturerings information för ny program form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app-billinginfo.png)
 

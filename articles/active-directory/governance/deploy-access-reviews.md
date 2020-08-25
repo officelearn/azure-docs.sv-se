@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cccab009ddd5624fcc98ad6f871fe40d9540823
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604088"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783611"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -180,7 +180,7 @@ Typiska mål för granskning är:
 
 * [Program som är integrerade med Azure AD för enkel inloggning](../manage-apps/what-is-application-management.md) (till exempel SaaS, verksamhets nivå).
 
-* Grupp [medlemskap](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) (synkroniserat till Azure AD eller skapats i Azure AD eller Office 365, inklusive Microsoft Teams).
+* Grupp [medlemskap](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synkroniserat till Azure AD eller skapats i Azure AD eller Office 365, inklusive Microsoft Teams).
 
 * [Åtkomst paket](/entitlement-management-overview.md) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
 
@@ -389,7 +389,7 @@ Du måste sedan [tilldela de användare och grupper](../manage-apps/assign-user-
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planera granskning av Azure AD och Azures resurs roller
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure AD. Detta bevarar listan över privilegierade roller, både i [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) och [Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) mycket mindre och ökar den övergripande säkerheten för katalogen.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure AD. Detta bevarar listan över privilegierade roller, både i [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) och [Azure-resurser](../../role-based-access-control/built-in-roles.md) mycket mindre och ökar den övergripande säkerheten för katalogen.
 
 Med åtkomst granskningar kan granskare intyga om användarna fortfarande måste vara i en roll. Precis som åtkomst granskningar för åtkomst paket integreras granskningar för Azure AD-roller och Azure-resurser i användar upplevelsen för PIM-administratören. Vi rekommenderar att du granskar följande roll tilldelningar regelbundet:
 
@@ -452,9 +452,9 @@ Följ anvisningarna i länkarna nedan:
 
 | Instruktionsartiklar | Beskrivning |
 | - | - |
- [Skapa åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Skapa åtkomst granskningar för privilegierade Azure AD-roller i PIM |
-| [Själv granskning av din åtkomst](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
-| [Slutför en åtkomst granskning](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| Visa en åtkomst granskning och tillämpa resultaten |
+ [Skapa åtkomst granskningar](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Skapa åtkomst granskningar för privilegierade Azure AD-roller i PIM |
+| [Själv granskning av din åtkomst](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
+| [Slutför en åtkomst granskning](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Visa en åtkomst granskning och tillämpa resultaten |
 
 
 ### <a name="review-azure-resource-roles"></a>Granska Azures resurs roller
@@ -467,14 +467,14 @@ Följ anvisningarna i länkarna nedan:
 
 | Instruktionsartiklar| Beskrivning |
 | - | -|
-| [Skapa åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Skapa åtkomst granskningar för privilegierade Azure-resurs roller i PIM |
-| [Själv granskning av din åtkomst](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
-| [Slutför en åtkomst granskning](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| Visa en åtkomst granskning och tillämpa resultaten |
+| [Skapa åtkomst granskningar](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Skapa åtkomst granskningar för privilegierade Azure-resurs roller i PIM |
+| [Själv granskning av din åtkomst](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Om du har tilldelats en administrativ roll, Godkänn eller neka åtkomst till din roll |
+| [Slutför en åtkomst granskning](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Visa en åtkomst granskning och tillämpa resultaten |
 
 
 ## <a name="use-the-access-reviews-api"></a>Använd API: et för åtkomst granskning
 
-Se [Graph API-metoder](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) och [kontroller för roll-och program behörighet](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) för att interagera med och hantera resurser som kan granskas. Åtkomst gransknings metoderna i Microsoft Graph API är tillgängliga för både program-och användar kontexter. När skript körs i program kontexten måste det konto som används för att köra API: et (tjänst principen) beviljas behörigheten "AccessReview. Read. all" för att få åtkomst till gransknings information.
+Se [Graph API-metoder](/graph/api/resources/accessreviews-root?view=graph-rest-beta) och [kontroller för roll-och program behörighet](/graph/api/resources/accessreviews-root?view=graph-rest-beta) för att interagera med och hantera resurser som kan granskas. Åtkomst gransknings metoderna i Microsoft Graph API är tillgängliga för både program-och användar kontexter. När skript körs i program kontexten måste det konto som används för att köra API: et (tjänst principen) beviljas behörigheten "AccessReview. Read. all" för att få åtkomst till gransknings information.
 
 Populära åtkomst gransknings aktiviteter för att automatisera med Graph API för åtkomst granskningar är:
 
@@ -519,4 +519,3 @@ Lär dig mer om de nedan relaterade teknikerna.
 
 * [Vad är Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

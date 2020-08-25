@@ -14,16 +14,16 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87418924"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795232"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
-`id_tokens`skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde (OIDC). De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
+`id_tokens` skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde (OIDC). De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
 
 ## <a name="using-the-id_token"></a>Använda id_token
 
@@ -31,7 +31,7 @@ ID-token ska användas för att verifiera att en användare är den som han elle
 
 ## <a name="claims-in-an-id_token"></a>Anspråk i en id_token
 
-`id_tokens`är [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web tokens), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla JWT-anspråk som anges här i både v 1.0-och v 2.0-token.
+`id_tokens` är [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web tokens), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla JWT-anspråk som anges här i både v 1.0-och v 2.0-token.
 
 ### <a name="v10"></a>V1.0
 
@@ -51,7 +51,7 @@ Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV
 
 ### <a name="header-claims"></a>Huvud anspråk
 
-|Begär | Format | Description |
+|Begär | Format | Beskrivning |
 |-----|--------|-------------|
 |`typ` | Sträng-Always-JWT | Anger att token är en JWT-token.|
 |`alg` | Sträng | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
@@ -62,7 +62,7 @@ Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV
 
 I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standard (utom där antecknas).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) för att begära ytterligare JWT-anspråk i id_token.  Detta kan vara ett intervall från `groups` anspråk till information om användarens namn.
 
-|Begär | Format | Description |
+|Begär | Format | Beskrivning |
 |-----|--------|-------------|
 |`aud` |  Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I `id_tokens` är mål gruppen appens program-ID som har tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
 |`iss` |  Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token har utfärdats av v 2.0-slutpunkten avslutas URI: n `/v2.0` .  GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad` . Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
@@ -80,7 +80,7 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 |`oid` | Sträng, ett GUID | Det oföränderliga ID: t för ett objekt i Microsoft Identity system, i det här fallet ett användar konto. Det här ID: t identifierar unikt användaren för alla program – två olika program som loggar in på samma användare får samma värde i `oid` anspråket. Microsoft Graph returnerar detta ID som `id` egenskap för ett angivet användar konto. Eftersom `oid` tillåter flera appar att korrelera användare måste `profile` omfånget ta emot detta anspråk. Observera att om en enskild användare finns i flera klienter, kommer användaren att innehålla ett annat objekt-ID i varje klient – de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. `oid`Anspråket är ett GUID och kan inte återanvändas. |
 |`roles`| Strängmatris | Den uppsättning roller som har tilldelats användaren som loggar in. |
 |`rh` | Ogenomskinlig sträng |Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
-|`sub` | Sträng, ett GUID | Den huvudprincip som token förutsätter information för, t. ex. användaren av en app. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Ämnet är en identifierad identifierare – den är unik för ett visst program-ID. Om en enskild användare loggar in i två olika appar med två olika klient-ID: n, får dessa appar två olika värden för ämnes anspråket. Detta kan vara så eller kanske inte önskas beroende på dina krav på arkitektur och sekretess. |
+|`sub` | Sträng | Den huvudprincip som token förutsätter information för, t. ex. användaren av en app. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Ämnet är en identifierad identifierare – den är unik för ett visst program-ID. Om en enskild användare loggar in i två olika appar med två olika klient-ID: n, får dessa appar två olika värden för ämnes anspråket. Detta kan vara så eller kanske inte önskas beroende på dina krav på arkitektur och sekretess. |
 |`tid` | Sträng, ett GUID | Ett GUID som representerar den Azure AD-klient som användaren är från. För arbets-och skol konton är GUID det oåterkalleliga klient-ID: t för den organisation som användaren tillhör. För personliga konton är värdet `9188040d-6c67-4c5b-b112-36a304b66dad` . `profile`Omfånget krävs för att ta emot det här anspråket. |
 |`unique_name` | Sträng | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är unikt vid varje viss tidpunkt, men när e-postmeddelanden och andra identifierare kan återanvändas kan det här värdet visas igen på andra konton och bör därför endast användas för visning. Endast utfärdat i v 1.0 `id_tokens` . |
 |`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
@@ -89,8 +89,8 @@ I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standa
 > [!NOTE]
 > V 1.0-och v 2.0-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen baseras på slut punkten varifrån den begärdes. Även om befintliga program ofta använder Azure AD-slutpunkten, ska nya program använda "Microsoft Identity Platform"-slutpunkten för v 2.0.
 >
-> - v 1.0: Azure AD-slut punkter:`https://login.microsoftonline.com/common/oauth2/authorize`
-> - v 2.0: slut punkter för Microsoft Identity Platform:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v 1.0: Azure AD-slut punkter: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - v 2.0: slut punkter för Microsoft Identity Platform: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Använda anspråk för att identifiera en användare på ett tillförlitligt sätt (ämne och objekt-ID)
 

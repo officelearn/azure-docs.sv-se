@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be8a714d57d0f84b195c9f3846964aa2bf2525b
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605093"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783662"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -158,7 +158,7 @@ Om du har tilldelat gäster som granskare och de inte har accepterat inbjudan f�
 
 ## <a name="create-reviews-via-apis"></a>Skapa recensioner via API: er
 
-Du kan också skapa åtkomst granskningar med hjälp av API: er. Vad du gör för att hantera åtkomst granskningar av grupper och program användare i Azure Portal kan också göras med hjälp av Microsoft Graph-API: er. Mer information finns i API- [referens för Azure AD Access-granskning](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Ett kod exempel finns i [exempel på hämtning av åtkomst granskningar för Azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+Du kan också skapa åtkomst granskningar med hjälp av API: er. Vad du gör för att hantera åtkomst granskningar av grupper och program användare i Azure Portal kan också göras med hjälp av Microsoft Graph-API: er. Mer information finns i API- [referens för Azure AD Access-granskning](/graph/api/resources/accessreviews-root?view=graph-rest-beta). Ett kod exempel finns i [exempel på hämtning av åtkomst granskningar för Azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Nästa steg
 

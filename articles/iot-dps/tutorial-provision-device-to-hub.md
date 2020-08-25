@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 3fe2fa8b094830e2d15c1cebce782381b4ca7bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74975048"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Självstudie: etablera enheten till en IoT-hubb med Azure-IoT Hub Device Provisioning Service
@@ -24,7 +24,7 @@ I den förra självstudien lärde du dig att konfigurera en enhet för att anslu
 > * Starta enheten
 > * Kontrollera att enheten är registrerad
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter måste du konfigurera din enhet enligt anvisningarna i självstudien [Konfigurera en enhet för etablering med Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-device.md).
 
@@ -42,7 +42,7 @@ I det här steget ska du lägga till enhetens unika säkerhetsartefakter till en
       [![Registrerings information för TPM i portalen](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - För X.509-baserade enheter behöver du:
-    - [Certifikatet som utfärdats till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-kretsen eller -simuleringen, som antingen en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda det *signerade certifikatet* per enhet för ditt X. 509-system, och för registrerings grupper måste du använda *rot certifikatet*. 
+    - [Certifikatet som utfärdats till X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx)-kretsen eller -simuleringen, som antingen en *.pem*- eller *.cer*-fil. För enskild registrering måste du använda det  *signerade certifikatet* per enhet för ditt X. 509-system, och för registrerings grupper måste du använda *rot certifikatet*. 
 
       [![Lägg till enskild registrering för X. 509-attestering i portalen](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
@@ -58,7 +58,7 @@ Nu registrerar du enheten med enhetsetableringstjänstens instans, med de säker
 
 1. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
 
-2. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Markera fliken **Enskilda registreringar** eller **Registreringsgrupper** enligt enhetskonfigurationen. Klicka på knappen **Lägg till** högst upp. Välj **TPM** eller **X.509** som identitet för bestyrkande *mekanism* och ange lämpliga säkerhetsartefakter som diskuterades ovan. Du kan ange ett nytt **Enhets-ID för IoT Hub**. Klicka på knappen **Spara** när det är klart. 
+2. På sammanfattningsbladet för Device Provisioning-tjänsten väljer du **Manage enrollments** (Hantera registreringar). Markera fliken **Enskilda registreringar** eller **Registreringsgrupper** enligt enhetskonfigurationen. Klicka på knappen **Lägg till** längst upp. Välj **TPM** eller **X.509** som identitet för bestyrkande *mekanism* och ange lämpliga säkerhetsartefakter som diskuterades ovan. Du kan ange ett nytt **Enhets-ID för IoT Hub**. Klicka på knappen **Spara** när det är klart. 
 
 3. När enheten har registrerats bör du se den i portalen på följande sätt:
 

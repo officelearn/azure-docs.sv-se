@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74184268"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Skapa ett Internet Analyzer-test med CLI (för hands version)
@@ -79,7 +79,7 @@ Internet Analyzer CLI exponerar följande typer av resurser:
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    Kommandot ovan förutsätter att både `www.contoso.com` och `www.microsoft.com` är värdar för en bild av en bild punkt ([överf. gif](https://fpc.msedge.net/apc/trans.gif)) under anpassade sökvägar. Om en objekt Sök väg inte anges explicit, används `/apc/trans.gif` som standard objekt Sök vägen i Internet Analyzer, vilket är den förkonfigurerade slut punkten som är värd för en bild av en bild punkt. Observera också att schemat (https/http) inte behöver anges. Internet Analyzer har endast stöd för HTTPS-slutpunkter, så HTTPS antas.
+    Kommandot ovan förutsätter att både `www.contoso.com` och `www.microsoft.com` är värdar för bilden med en bild punkt ([trans.gif](https://fpc.msedge.net/apc/trans.gif)) under anpassade sökvägar. Om en objekt Sök väg inte anges explicit, används `/apc/trans.gif` som standard objekt Sök vägen i Internet Analyzer, vilket är den förkonfigurerade slut punkten som är värd för en bild av en bild punkt. Observera också att schemat (https/http) inte behöver anges. Internet Analyzer har endast stöd för HTTPS-slutpunkter, så HTTPS antas.
 
 11. Det nya testet bör visas under Internet Analyzer-profilen:
     ```azurecli-interactive

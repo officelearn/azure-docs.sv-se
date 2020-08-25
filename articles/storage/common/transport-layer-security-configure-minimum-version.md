@@ -10,12 +10,12 @@ ms.date: 07/29/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e7bb996b3d42e2db2b4fa65d050ec1cb6a935bc6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533384"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755916"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Framtvinga en minsta version av Transport Layer Security (TLS) som krävs för begär anden till ett lagrings konto
 
@@ -338,6 +338,10 @@ När du har skapat principen med neka-resultatet och tilldelar den till ett omf�
 Följande bild visar felet som uppstår om du försöker skapa ett lagrings konto med den lägsta TLS-versionen inställd på TLS 1,0 (standard för ett nytt konto) när en princip med en neka-inverkan kräver att den lägsta TLS-versionen anges till TLS 1,2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Skärm bild som visar felet som inträffar när du skapar ett lagrings konto som strider mot principen":::
+
+## <a name="network-considerations"></a>Nätverksöverväganden
+
+När en klient skickar en begäran till ett lagrings konto upprättar klienten en anslutning med den offentliga slut punkten för lagrings kontot först innan begär Anden bearbetas. Inställningen för minsta TLS-version kontrol leras när anslutningen har upprättats. Om begäran använder en tidigare version av TLS än den som anges i inställningen fortsätter anslutningen att lyckas, men begäran kommer att Miss lyckas. Mer information om offentliga slut punkter för Azure Storage finns i [resurs-URI-syntax](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#resource-uri-syntax).
 
 ## <a name="next-steps"></a>Nästa steg
 

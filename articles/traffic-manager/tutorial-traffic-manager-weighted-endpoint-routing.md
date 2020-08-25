@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: rohink
 ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76939484"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudie: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager
@@ -29,9 +29,9 @@ I den här guiden får du lära dig att:
 > * Lägg till VM-slutpunkter i Traffic Manager-profilen.
 > * Visa Traffic Manager i aktion.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar distribuerar du följande för den här självstudien:
 
@@ -40,7 +40,7 @@ Om du vill se hur Traffic Manager fungerar distribuerar du följande för den h�
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Skapa webbplatser
 
@@ -53,16 +53,16 @@ I det här avsnittet skapar du två webbplatsinstanser som tillhandahåller två
 
 I det här avsnittet skapar du två virtuella datorer (*myIISVMEastUS* och *MyIISVMWestEurope*) i Azure-regionerna USA, östra och Västeuropa.
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**.
+1. I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Compute**  >  **Windows Server 2019 Data Center**.
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
 
-   - **Prenumerations** > **resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   - **Instans information** > **namn på virtuell dator**: Skriv *myIISVMEastUS*.
-   - **Instans informations** > **region**: Välj **USA, östra**.
-   - **Administrator Account** > **Användar**namn för administratörs konto: Ange ett användar namn som du väljer.
-   - **Administrator Account** > **Lösen ord**för administratörs konto: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
-   - **Inkommande port regler** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
-   - **Ingående port regler** > **Välj inkommande portar**: Välj **RDP** och **http** i rutan Hämta.
+   - **Prenumeration**  >  **Resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
+   - **Instans information**  >  **Namn på virtuell dator**: Skriv *myIISVMEastUS*.
+   - **Instans information**  >  **Region**: Välj **USA, östra**.
+   - **Administratörs konto**  >  **Användar**namn: Ange ett användar namn som du väljer.
+   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **RDP** och **http** i rutan Hämta.
 
 3. Välj fliken **hantering** eller Välj **Nästa: diskar**, klicka sedan på **Nästa: nätverk**, och sedan på **Nästa: hantering**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
 4. Välj **Granska + skapa**.
@@ -78,10 +78,10 @@ I det här avsnittet installerar du IIS-servern på de två virtuella datorerna 
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myIISVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På **översiktssidan** väljer du **Anslut**. I **Anslut till virtuell dator**väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange det namn och lösenord du angav när du skapade den virtuella datorn. Du kan behöva välja **fler alternativ** > för att ange de autentiseringsuppgifter som du angav när du skapade den virtuella**datorn.**
+3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange det namn och lösenord du angav när du skapade den virtuella datorn. Du kan behöva välja **fler alternativ**  >  **Use a different account**för att ange de autentiseringsuppgifter som du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du får varningen väljer du **Ja** eller **fortsätter** att fortsätta med anslutningen.
-6. På server Skriv bordet bläddrar du till **administrations verktyg** > för Windows**Serverhanteraren**.
+6. På server Skriv bordet bläddrar du till **administrations verktyg för Windows**  >  **Serverhanteraren**.
 7. Öppna Windows PowerShell på VM1. Använd följande kommandon för att installera IIS-servern och uppdatera standard-HTML-filen.
 
     ```powershell-interactive
@@ -113,16 +113,16 @@ Traffic Manager dirigerar användartrafik baserat på tjänstslutpunkternas DNS-
 
 I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEurope*) i varje Azure-region (USA **,****östra** och Västeuropa). Du kommer att använda de här virtuella datorerna för att testa hur Traffic Manager dirigerar trafik till webbplats slut punkten som har det högre viktning svärdet.
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**.
+1. I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Compute**  >  **Windows Server 2019 Data Center**.
 2. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
 
-   - **Prenumerations** > **resurs grupp**: Välj **myResourceGroupTM1**.
-   - **Instans information** > **namn på virtuell dator**: Skriv *myVMEastUS*.
-   - **Instans informations** > **region**: Välj **USA, östra**.
-   - **Administrator Account** > **Användar**namn för administratörs konto: Ange ett användar namn som du väljer.
-   - **Administrator Account** > **Lösen ord**för administratörs konto: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
-   - **Inkommande port regler** > **offentliga inkommande portar**: Välj **Tillåt valda portar**.
-   - **Ingående port regler** > **Välj inkommande portar**: Välj **RDP** i list rutan.
+   - **Prenumeration**  >  **Resurs grupp**: Välj **myResourceGroupTM1**.
+   - **Instans information**  >  **Namn på virtuell dator**: Skriv *myVMEastUS*.
+   - **Instans information**  >  **Region**: Välj **USA, östra**.
+   - **Administratörs konto**  >  **Användar**namn: Ange ett användar namn som du väljer.
+   - **Administratörs konto**  >  **Lösen ord**: Ange ett lösen ord som du väljer. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).
+   - Regler för inkommande **portar**  >  **Offentliga inkommande portar**: Välj **Tillåt valda portar**.
+   - Regler för inkommande **portar**  >  **Välj inkommande portar**: Välj **RDP** i list rutan.
 
 3. Välj fliken **hantering** eller Välj **Nästa: diskar**, klicka sedan på **Nästa: nätverk**, och sedan på **Nästa: hantering**. Under **Övervakning** anger du **Startdiagnostik** till **Av**.
 4. Välj **Granska + skapa**.
@@ -134,10 +134,10 @@ I det här avsnittet skapar du en virtuell dator (*myVMEastUS* och *myVMWestEuro
 
 Skapa en Traffic Manager-profil baserat på routningsmetoden **Viktat**.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverk** > **Traffic Manager profil** > **skapa**.
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **skapa**.
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Ange ett unikt namn inom trafficmanager.net-zonen. Det resulterar i DNS-namnet trafficmanager.net, som används för att få åtkomst till Traffic Manager-profilen.                                   |
     | Routningsmetod          | Välj routningsmetoden **Viktat**.                                       |
@@ -155,10 +155,10 @@ Lägg till de två virtuella datorerna som kör IIS-servrarna myIISVMEastUS och 
 2. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar** och välj  > **Lägg till**.
 3. Ange eller välj följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **OK**.
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Ange Azure-slutpunkten.                                   |
-    | Name           | Ange **myEastUSEndpoint**.                                        |
+    | Namn           | Ange **myEastUSEndpoint**.                                        |
     | Målresurstyp           | Välj **Offentlig IP-adress**.                          |
     | Målresurs          | Välj en offentlig IP-adress för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet **myIISVMEastUS-ip**. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |  Vikt      | Ange **100**.        |
@@ -192,7 +192,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
 1. Välj **Alla resurser** på menyn till vänster. I resurslistan väljer du **myVMEastUS** i resursgruppen **myResourceGroupTM1**.
 2. På **översiktssidan** väljer du **Anslut**. I **Anslut till virtuell dator**väljer du **Ladda ned RDP-fil**.
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **fler alternativ** > för att ange de autentiseringsuppgifter som du angav när du skapade den virtuella**datorn.**
+3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **fler alternativ**  >  **Use a different account**för att ange de autentiseringsuppgifter som du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du får varningen väljer du **Ja** eller **fortsätter** att fortsätta med anslutningen.
 6. I en webbläsare på den virtuella datorn myVMEastUS anger du DNS-namnet i Traffic Manager-profilen för at visa din webbplats. Du dirigeras till en webbplats på IIS-servern myIISVMEastUS eftersom den har tilldelats en högre vikt på **100**. IIS-myIISVMWestEurope tilldelas ett lägre värde för slut punkts vikt på **25**.

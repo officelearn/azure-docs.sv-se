@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 02/12/2020
 ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77198896"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudie: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Skapa en dataram från en csv-fil
 > * Köra frågor i dataramen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -32,13 +32,13 @@ Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apac
 
 Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
-1. Redigera URL: `https://SPARKCLUSTER.azurehdinsight.net/jupyter` en genom `SPARKCLUSTER` att ersätta med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Redigera URL: en `https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom `SPARKCLUSTER` att ersätta med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-2. På webb sidan Jupyter väljer du **ny** > **PySpark** för att skapa en antecknings bok.
+2. På webb sidan Jupyter väljer du **ny**  >  **PySpark** för att skapa en antecknings bok.
 
    ![Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter Notebook för att köra interaktiv Spark SQL-fråga")
 
-   En ny antecknings bok skapas och öppnas med namnet namnlös (`Untitled.ipynb`).
+   En ny antecknings bok skapas och öppnas med namnet namnlös ( `Untitled.ipynb` ).
 
     > [!NOTE]  
     > Genom att använda PySpark-kärnan för att skapa en anteckningsbok skapas automatiskt sessionen `spark` för dig när du kör den första kodcellen. Du behöver inte uttryckligen skapa sessionen.
@@ -89,9 +89,9 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
     ![Ytdiagram i interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Ytdiagram i interaktivt Spark-frågeresultat")
 
-3. Från meny raden i anteckningsbokslayout navigerar du till **filen** > **Save och Checkpoint**.
+3. Från meny raden i anteckningsbokslayout navigerar du till **filen**  >  **Save och Checkpoint**.
 
-4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Annars stänger du antecknings boken för att frigöra kluster resurserna: från meny raden i anteckningsbok-menyn navigerar du till **filen** >  **Stäng och stoppa**.
+4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Annars stänger du antecknings boken för att frigöra kluster resurserna: från meny raden i anteckningsbok-menyn navigerar du till **filen**  >   **Stäng och stoppa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

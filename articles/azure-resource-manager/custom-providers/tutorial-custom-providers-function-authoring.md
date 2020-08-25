@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
 ms.openlocfilehash: d7f6c51211ce0572797ade659b9316003502da1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75650025"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>Redigera en RESTful-slutpunkt för anpassade providers
@@ -41,7 +41,7 @@ I följande exempel visas en `x-ms-customproviders-requestpath` rubrik för en a
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Baserat på exemplets `x-ms-customproviders-requestpath` rubrik kan du skapa parametrarna *partitionKey* och *rowKey* för ditt lagrings utrymme som visas i följande tabell:
+Baserat på exemplets `x-ms-customproviders-requestpath` Rubrik kan du skapa parametrarna *PartitionKey* och *rowKey* för ditt lagrings utrymme som visas i följande tabell:
 
 Parameter | Mall | Beskrivning
 ---|---|---
@@ -62,7 +62,7 @@ public class CustomResource : TableEntity
 ## <a name="support-custom-provider-restful-methods"></a>Stöd för anpassade Provider RESTful-metoder
 
 > [!NOTE]
-> Om du inte kopierar koden direkt från den här självstudien måste svars innehållet vara ett giltigt JSON som `Content-Type` anger sidhuvudet till `application/json`.
+> Om du inte kopierar koden direkt från den här självstudien måste svars innehållet vara ett giltigt JSON som anger `Content-Type` sidhuvudet till `application/json` .
 
 Nu när du har konfigurerat data partitionering skapar du de grundläggande CRUD och utlöser metoder för anpassade resurser och anpassade åtgärder. Eftersom anpassade providrar fungerar som proxyservrar måste RESTful-slutpunkten modellera och hantera begäran och svar. Följande kodfragment visar hur du hanterar grundläggande RESTful-åtgärder.
 
@@ -138,7 +138,7 @@ Egenskap | Exempel | Beskrivning
 ---|---|---
 **Namn** | {myCustomResourceName} | Namnet på den anpassade resursen
 **bastyp** | Microsoft. CustomProviders/resourceProviders/{resourceTypeName} | Namn området resurs typ
-**identitet** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Resurs-ID
+**id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft. CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | Resurs-ID
 
 Förutom att lägga till egenskaperna, sparade du även JSON-dokumentet till Azure Table Storage.
 
@@ -338,7 +338,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ```
 
-Den uppdaterade **körnings** metoden innehåller nu den *tableStorage* -databindning som du har lagt till för Azure Table Storage. Den första delen av metoden läser `x-ms-customproviders-requestpath` rubriken och använder `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteket för att parsa värdet som ett resurs-ID. `x-ms-customproviders-requestpath` Rubriken skickas av den anpassade providern och anger sökvägen till den inkommande begäran.
+Den uppdaterade **körnings** metoden innehåller nu den *tableStorage* -databindning som du har lagt till för Azure Table Storage. Den första delen av metoden läser `x-ms-customproviders-requestpath` rubriken och använder `Microsoft.Azure.Management.ResourceManager.Fluent` biblioteket för att parsa värdet som ett resurs-ID. `x-ms-customproviders-requestpath`Rubriken skickas av den anpassade providern och anger sökvägen till den inkommande begäran.
 
 Med hjälp av det parsade resurs-ID: t kan du generera **partitionKey** -och **rowKey** -värden för data för att söka efter eller lagra anpassade resurser.
 

@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/11/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84712521"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Självstudie: Identifiera problem med enheter som är anslutna till din övervakningslösning
@@ -33,7 +33,7 @@ I den här kursen får du:
 > * Redigera en befintlig regel
 > * Aktivera och inaktivera regler
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -79,7 +79,7 @@ Om du vill skapa en regel med flera villkor som genererar en kritisk varning nä
 | Regelnamn        | Kritisk luftfuktighet och temperatur för kylaggregat    |
 | Beskrivning      | Luftfuktighet och temperatur har kritiska värden |
 | Enhetsgrupp     | **Kylaggregatets** enhetsgrupp             |
-| Beräkning      | Medel                               |
+| Beräkning      | Medelvärde                               |
 | Tidsperiod      | 5                                     |
 | Villkor 1 fält| luftfuktighet                              |
 | Villkor 1 operator | Större än                      |

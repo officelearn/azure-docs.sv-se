@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/29/2018
 ms.custom: mvc
 ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75614142"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Självstudie: Distribuera ett containerprogram med CI/CD till ett Service Fabric-kluster
@@ -23,7 +23,7 @@ I del två i serien lär du dig hur du:
 > * Skapa en versionsdefinition i Visual Studio Team Explorer
 > * distribuera och uppgradera ett program automatiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -42,7 +42,7 @@ Välj en målprofil inom programprojektet att använda för arbetsflödet för d
 
 Dela programkällfilerna till ett teamprojekt i Azure DevOps så att du kan generera byggen.
 
-Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg till i käll kontroll** -> **git** i statusfältet i det nedre högra hörnet av Visual Studio.
+Skapa en ny lokal git-lagrings platsen för projektet genom att välja **Lägg till i käll kontroll**  ->  **git** i statusfältet i det nedre högra hörnet av Visual Studio.
 
 I vyn för **Push-överföring ** i **Team Explorer** väljer du knappen för att **publicera Git-lagringsplatsen** under alternativet för att **push-överföra till Azure DevOps**.
 
@@ -134,7 +134,7 @@ Aktivera en kontinuerlig distributionsutlösare så att versionen automatiskt sk
 
 ![Aktivera utlösare][enable-trigger]
 
-Välj **+ släpp** -> **skapa en version** -> **skapa** för att skapa en version manuellt. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
+Välj **+ släpp**  ->  **skapa en version**  ->  **skapa** för att skapa en version manuellt. Du kan övervaka versionsförloppet på fliken **Releases** (Versioner).
 
 Kontrollera att distributionen har slutförts och programmet körs i klustret.  Öppna en webbläsare och gå till `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Observera programversionen. I det här exemplet är den 1.0.0.20170616.3.
 

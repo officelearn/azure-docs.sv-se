@@ -18,10 +18,10 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76845216"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudie: Diagnostisera problem med nätverksroutning i Azure Portal
@@ -36,7 +36,7 @@ När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure 
 
 Om du vill kan du diagnostisera problem med nätverksroutning via [Azures CLI](diagnose-vm-network-routing-problem-cli.md) eller [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -48,11 +48,11 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
     |Plats| Välj **USA, östra**|
@@ -69,7 +69,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda funktionen för nästa hopp](#use-next-hop).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -83,7 +83,7 @@ Azure skapar automatiskt vägar till olika standardmål. Du kan skapa egna väga
 1. Välj **Nästa hopp** i Azure Portal, under **Network Watcher**.
 2. Välj din prenumeration, ange eller välj följande värden och välj sedan **Nästa hopp**, som du ser i bilden nedan:
 
-    |Inställning                  |Värde                                                   |
+    |Inställningen                  |Värde                                                   |
     |---------                |---------                                               |
     | Resursgrupp          | Välj myResourceGroup                                 |
     | Virtuell dator         | Välj myVm                                            |

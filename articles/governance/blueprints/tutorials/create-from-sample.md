@@ -4,10 +4,10 @@ description: I den här självstudien använder du ett skiss exempel för att sk
 ms.date: 03/25/2020
 ms.topic: tutorial
 ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80677097"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudie: skapa en miljö från ett skiss exempel
@@ -23,9 +23,9 @@ I följande självstudie används **resurs grupper med RBAC** -skisser för att 
 > - Granska distribuerade resurser för tilldelningen
 > - Ta bort tilldelningen för att ta bort låsen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+För att slutföra den här självstudien krävs en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-blueprint-definition-from-sample"></a>Skapa skiss definition från exempel
 
@@ -96,14 +96,14 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
    - Artefakt parametrar
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}`väljer du ditt Azure-användarkonto.
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}` väljer du ditt Azure-användarkonto.
 
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för ProdRG|Resursgrupp|Name|ProductionRG|Definierar namnet på den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resurs gruppen.|
      |Resurs grupp för ProdRG|Resursgrupp|Plats|USA, västra 2|Anger platsen för den första resurs gruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _deltagar_ roll tilldelningen i den första resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resursgrupp|Name|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Namn|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
      |Resurs grupp för PreProdRG|Resursgrupp|Plats|USA, västra|Anger platsen för den andra resurs gruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
@@ -144,7 +144,7 @@ Skiss tilldelningen skapar och spårar de artefakter som definieras i skiss defi
 
 1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
 
-   Neka-tilldelningen förhindrar alla åtgärder **\*** med- **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att exkludera ** \*/Read** via **NotActions**.
+   Neka-tilldelningen förhindrar alla åtgärder med **\*** - **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att exkludera ** \* /Read** via **NotActions**.
 
 1. Från Azure Portal dynamiska länkar väljer du **PreProductionRG-Access Control (IAM)**. Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet _PreProductionRG_ för att bekräfta borttagningen och välj **ta bort** längst ned i fönstret.
 

@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
 ms.openlocfilehash: 64bbed9b558d4c20889b28a5247e2113d20daa77
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "73501773"
 ---
 # <a name="create-an-internet-analyzer-test-using-portal-preview"></a>Skapa ett Internet Analyzer-test med hjälp av Portal (för hands version)

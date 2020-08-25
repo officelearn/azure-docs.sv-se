@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
 ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76169836"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Lägga till ansikten i en PersonGroup
@@ -28,7 +28,7 @@ Följande kod deklarerar flera variabler och implementerar en hjälp funktion f�
 - `PersonCount` är det totala antalet personer.
 - `CallLimitPerSecond` är det maximala antalet anrop per sekund enligt prenumerationsnivån.
 - `_timeStampQueue` är en kö för att registrera tidstämplar.
-- `await WaitCallLimitPerSecondAsync()`väntar tills den är giltig för att skicka nästa begäran.
+- `await WaitCallLimitPerSecondAsync()` väntar tills den är giltig för att skicka nästa begäran.
 
 ```csharp
 const int PersonCount = 10000;
@@ -84,7 +84,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 
 ## <a name="step-4-create-the-persons-for-the-persongroup"></a>Steg 4: skapa personerna för PersonGroup
 
-Personer skapas samtidigt och `await WaitCallLimitPerSecondAsync()` används också för att undvika att anrops gränsen överskrids.
+Personer skapas samtidigt och används `await WaitCallLimitPerSecondAsync()` också för att undvika att anrops gränsen överskrids.
 
 ```csharp
 Person[] persons = new Person[PersonCount];
@@ -100,7 +100,7 @@ Parallel.For(0, PersonCount, async i =>
 ## <a name="step-5-add-faces-to-the-persons"></a>Steg 5: Lägg till ansikten till personerna
 
 Ansikten som läggs till i olika personer bearbetas samtidigt. Ansikten som lagts till för en viss person bearbetas sekventiellt.
-`await WaitCallLimitPerSecondAsync()` Återigen anropas för att säkerställa att begär ande frekvensen ligger inom begränsningens omfattning.
+Återigen `await WaitCallLimitPerSecondAsync()` anropas för att säkerställa att begär ande frekvensen ligger inom begränsningens omfattning.
 
 ```csharp
 Parallel.For(0, PersonCount, async i =>

@@ -9,10 +9,10 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84977916"
 ---
 1. Leta upp det virtuella WAN-nätverket som du har skapat. På sidan virtuellt WAN, under avsnittet **anslutning** , väljer du **hubbar**.
@@ -24,7 +24,7 @@ ms.locfileid: "84977916"
     **Projekt information**
 
    * Region (tidigare kallad plats)
-   * Name
+   * Namn
    * NAV, privat adress utrymme. Det minsta adress utrymmet är/24 för att skapa en hubb, vilket innebär att allt mellan/25 och/32 genererar ett fel när det skapas. Azure Virtual WAN som en hanterad tjänst av Microsoft skapar lämpliga undernät i den virtuella hubben för olika gatewayer/tjänster (t. ex. VPN-gatewayer, ExpressRoute-gatewayer, användares VPN/punkt-till-plats-gatewayer, brand vägg, routning osv.). Användaren behöver inte uttryckligen planera för under nätets adress utrymme för tjänsterna i den virtuella hubben eftersom Microsoft gör detta som en del av tjänsten.
 4. Välj **Nästa: plats-till-plats**.
 

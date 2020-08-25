@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75372099"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
@@ -22,10 +22,10 @@ I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet
-> * Köra appen
+> * Kör programmet
 > * Validera antalet anslutningar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här kursen måste du ha slutfört den tidigare lagringskursen: [Överföra stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
 
@@ -85,7 +85,7 @@ När programmet har uppdaterats måste du bygga programmet på nytt. Öppna en `
 dotnet build
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Nu när programmet har byggts om är det dags att köra programmet med den uppdaterade koden. Öppna en `Command Prompt`, om den inte redan är öppen, och navigera till `D:\git\storage-dotnet-perf-scale-app`.
 
@@ -203,7 +203,7 @@ C:\>
 I den tredje delen i serien lärde du dig hur du laddar ned stora mängder slumpmässiga data från ett lagringskonto. Du fick till exempel veta hur du gör för att:
 
 > [!div class="checklist"]
-> * Köra appen
+> * Kör programmet
 > * Validera antalet anslutningar
 
 Gå vidare till den fjärde delen i serien och lär dig hur du kontrollerar mått för dataflöde och svarstid i Portal.

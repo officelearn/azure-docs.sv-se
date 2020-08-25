@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/05/2020
-ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.date: 08/21/2020
+ms.openlocfilehash: 5cafb7927bb3ec697446b37df8936da65748a9ba
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079227"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749459"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
@@ -30,9 +30,9 @@ I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/d
 > * Använd flera trådar för att öka indexerings hastigheten
 > * Använd en exponentiell backoff-strategi för återförsök för att försöka utföra misslyckade objekt
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här självstudien.
 
@@ -154,7 +154,7 @@ DataGenerator dg = new DataGenerator();
 List<Hotel> hotels = dg.GetHotels(100000, "large");
 ```
 
-Det finns två storlekar på hotell som är tillgängliga för testning i det här exemplet: **liten** och **stor**.
+Det finns två storlekar på hotell som är tillgängliga för testning i det här exemplet: **liten** och  **stor**.
 
 Schemat för ditt index kan ha en betydande inverkan på indexerings hastigheten. På grund av den här effekten är det klokt att konvertera den här klassen för att generera data som matchar det avsedda index schemat när du har kört den här självstudien.
 
@@ -382,7 +382,7 @@ Du kan också använda portalen för att ta bort index.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

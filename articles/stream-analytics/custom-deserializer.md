@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
 ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75443699"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Självstudie: anpassade .NET-deserialiserare för Azure Stream Analytics
@@ -28,9 +28,9 @@ I den här guiden får du lära dig att:
 > * Konfigurera Stream Analytics-jobbet så att det använder den anpassade deserialiseraren.
 > * Kör ditt Stream Analytics jobb lokalt för att testa den anpassade deserialiseraren.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Installera [Visual studio 2017](https://www.visualstudio.com/downloads/) eller [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Express-versionen stöds inte.
 
@@ -63,7 +63,7 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
 
 ## <a name="configure-a-stream-analytics-job"></a>Konfigurera ett Stream Analytics jobb
 
-1. Dubbelklicka på **JobConfig. JSON**. Använd standard konfigurationerna, förutom följande inställningar:
+1. Dubbelklicka på **JobConfig.jspå**. Använd standard konfigurationerna, förutom följande inställningar:
 
    |Inställningen|Föreslaget värde|
    |-------|---------------|
@@ -74,7 +74,7 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
    |Lagrings konto för anpassade kod lagrings inställningar|< ditt lagrings konto >|
    |Behållare för lagrings inställningar för anpassade koder|< lagrings container >|
 
-2. Under **indata**dubbelklickar du på **input. JSON**. Använd standard konfigurationerna, förutom följande inställningar:
+2. Under **indata**dubbelklickar du på **Input.jspå**. Använd standard konfigurationerna, förutom följande inställningar:
 
    |Inställningen|Föreslaget värde|
    |-------|---------------|
@@ -85,9 +85,9 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
    |Container|< lagrings container >|
    |Format för händelse serialisering|Annat (protobuf, XML, patentskyddat...)|
    |Resurs|Läsa in från ASA projekt referens eller CodeBehind|
-   |Sammansättnings namn för CSharp|ProtobufDeserializer. dll|
+   |Sammansättnings namn för CSharp|ProtobufDeserializer.dll|
    |Klassnamn|MessageBodyProto.MessageBodyDeserializer|
-   |Händelse komprimerings typ|Inga|
+   |Händelse komprimerings typ|Ingen|
 
 3. Lägg till följande fråga i filen **script. asaql** .
 
@@ -95,14 +95,14 @@ Den behållare som du skapar kommer att användas för att lagra till gångar so
    SELECT * FROM Input
    ```
 
-4. Hämta [exempel filen protobuf indatafilen](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). I mappen **indata** högerklickar du på **input. JSON** och väljer **Lägg till lokal inmatning**. Dubbelklicka sedan på **local_Input. JSON** och konfigurera följande inställningar:
+4. Hämta [exempel filen protobuf indatafilen](https://github.com/Azure/azure-stream-analytics/blob/master/CustomDeserializers/Protobuf/SimulatedTemperatureEvents.protobuf). I mappen **indata** högerklickar du på **Input.jspå** och väljer **Lägg till lokal inmatning**. Dubbelklicka sedan på **local_Input.jspå** och konfigurera följande inställningar:
 
    |Inställningen|Föreslaget värde|
    |-------|---------------|
    |Indataalias|Indata|
    |Källtyp|Dataström|
    |Format för händelse serialisering|Annat (protobuf, XML, patentskyddat...)|
-   |Sammansättnings namn för CSharp|ProtobufDeserializer. dll|
+   |Sammansättnings namn för CSharp|ProtobufDeserializer.dll|
    |Klassnamn|MessageBodyProto.MessageBodyDeserializer|
    |Sökväg till lokal indatafil|< fil Sök vägen för den hämtade indatafilen för protobuf>|
 

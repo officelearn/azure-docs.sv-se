@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
 ms.openlocfilehash: c0d0e9f0994f7d4d75a67911a5191d6e4ffecaa8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80382808"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Självstudie: Utforma en Azure Database for MySQL-databas med Azure Portal
@@ -41,7 +41,7 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-2. Välj **databaser** > **Azure Database for MySQL**. Om du inte hittar MySQL server under kategorin **databaser** klickar du på **Visa alla** för att visa alla tillgängliga databas tjänster. Du kan också skriva **Azure Database for MySQL** i sökrutan för att snabbt hitta tjänsten.
+2. Välj **databaser**  >  **Azure Database for MySQL**. Om du inte hittar MySQL server under kategorin **databaser** klickar du på **Visa alla** för att visa alla tillgängliga databas tjänster. Du kan också skriva **Azure Database for MySQL** i sökrutan för att snabbt hitta tjänsten.
    
    ![Navigera till MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
 
@@ -51,12 +51,12 @@ En Azure Database för MySQL-server skapas med en definierad uppsättning [compu
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     ---|---|---
-    servernamn | Unikt servernamn | Välj ett unikt namn för Azure Database för MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+    Servernamn | Unikt servernamn | Välj ett unikt namn för Azure Database för MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
-    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
-    lösenordsinställning | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    Inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörens inloggnings namn får inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
+    Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
     Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Den senaste versionen*| Välj den senaste versionen (om du inte har särskilda behov som gör att du måste ha en annan version).
@@ -91,7 +91,7 @@ Hämta det fullständiga **servernamnet** och **inloggningsnamnet för serveradm
 2. Skriv ned **Servernamn** och **Inloggningsnamn för serveradministratör** på sidan **Översikt**. Du kan klicka på kopieringsknappen bredvid respektive fält för att kopiera till Urklipp.
    ![4-2 Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I det här exemplet är Server namnet *mydemoserver.mysql.Database.Azure.com*och inloggningen för Server administratören är *Administratörs\@mydemoserver*.
+I det här exemplet är Server namnet *mydemoserver.mysql.Database.Azure.com*och inloggningen för Server administratören är *Administratörs \@ mydemoserver*.
 
 ## <a name="connect-to-the-server-using-mysql"></a>Anslut till servern med mysql
 

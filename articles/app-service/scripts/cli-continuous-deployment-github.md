@@ -10,10 +10,10 @@ ms.date: 09/02/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 0578ea7f677e1abaa5687295fc7bc871e6db2d3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80044788"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>Skapa en App Service-app med kontinuerlig distribution från GitHub med CLI
@@ -39,7 +39,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

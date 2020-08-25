@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "74976748"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Självstudie: etablera enheter över belastningsutjämnade IoT-hubbar
@@ -25,9 +25,9 @@ Den här självstudien visar hur du etablerar enheter för flera belastningsutj�
 > * Ange allokeringsprincipen för enhetsetableringstjänsten till **jämn distribution**
 > * Länka den nya IoT-hubben till enhetsetableringstjänsten
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien bygger på den tidigare självstudien [Etablera enhet till en hubb](tutorial-provision-device-to-hub.md).
 

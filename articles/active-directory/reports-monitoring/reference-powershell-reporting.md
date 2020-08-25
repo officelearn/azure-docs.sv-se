@@ -17,12 +17,12 @@ ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0510184e2471d61c8911b5fcd484fd5dec0bce28
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 6a198a63d633573ad683a3f8e8215b2975721bc9
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144483"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794923"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Azure AD PowerShell-cmdletar för rapportering
 
@@ -34,13 +34,14 @@ Använd följande om du vill installera den offentliga för hands versionen.
 ```powershell
 Install-module AzureADPreview
 ```
+
 Mer information om hur du ansluter till Azure AD med hjälp av PowerShell finns i artikeln [Azure AD PowerShell för Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).  
 
 Med Azure Active Directory (Azure AD)-rapporter kan du få information om aktiviteter kring alla Skriv åtgärder i din riktning (gransknings loggar) och autentiserings data (inloggnings loggar). Även om informationen är tillgänglig med hjälp av MS-Graph API kan du hämta samma data med hjälp av Azure AD PowerShell-cmdlets för rapportering.
 
 Den här artikeln innehåller en översikt över de PowerShell-cmdletar som används för gransknings loggar och inloggnings loggar.
 
-## <a name="audit-logs"></a>Spårningsloggar
+## <a name="audit-logs"></a>Granskningsloggar
 
 [Gransknings loggar](concept-audit-logs.md) ger spårning via loggar för alla ändringar som gjorts av olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
 

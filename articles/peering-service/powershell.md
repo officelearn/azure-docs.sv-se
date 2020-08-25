@@ -9,10 +9,10 @@ ms.date: 05/18/2020
 ms.author: derekol
 Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
 ms.openlocfilehash: 163f93ab93890f27eb2a9b18cc23804595fcb822
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84872715"
 ---
 # <a name="tutorial-register-a-peering-service-connection-using-azure-powershell"></a>Självstudie: registrera en peering service-anslutning med hjälp av Azure PowerShell
@@ -32,7 +32,7 @@ Till sist, om du kör PowerShell lokalt måste du även köra `Connect-AzAccount
 Använd Azure PowerShell-modulen för att registrera och hantera peering-tjänsten. Du kan registrera eller hantera peering-tjänsten från PowerShell-kommandoraden eller i skript.
 
 
-## <a name="prerequisites"></a>Krav  
+## <a name="prerequisites"></a>Förutsättningar  
 Du måste ha följande:
 
 ### <a name="azure-account"></a>Azure-konto

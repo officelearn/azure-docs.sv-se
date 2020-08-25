@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
 ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85318649"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Distribuera ML-modell på Azure SQL Edge med ONNX 
@@ -35,8 +35,8 @@ I del tre av den här självstudien i tre delar om förutsägelse av järn Malms
    |Server|Offentlig IP-adress som anges i den virtuella datorn som skapades för den här demon|
    |Användarnamn|sa|
    |lösenordsinställning|Det starka lösen ord som användes när Azure SQL Edge-instansen skapades|
-   |Databas|Standard|
-   |Server grupp|Standard|
+   |Databas|Standardvärde|
+   |Servergrupp|Standardvärde|
    |Namn (valfritt)|Ange ett valfritt namn|
 
 3. Klicka på **Anslut**

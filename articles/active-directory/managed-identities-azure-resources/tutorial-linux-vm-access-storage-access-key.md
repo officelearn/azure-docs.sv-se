@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure Storage via åtkomst nyckel – Linux-Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att få åtkomst till Azure Storage via åtkomst nyckel – Linux-Azure AD
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,27 +16,27 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78273822"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Självstudie: Använda en systemtilldelade hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage via åtkomstnyckel
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskonton med en systemtilldelad hanterad identitet för en virtuell Linux-dator. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig att göra följande:
+I den här självstudien lär du dig att hämta åtkomstnycklar till lagringskonton med en systemtilldelad hanterad identitet för en virtuell Linux-dator. Du kan använda en lagringsåtkomstnyckel som vanligt när du gör lagringsåtgärder, till exempel när du använder Storage SDK. I den här självstudien laddar vi upp och ned blobbar med hjälp av Azure CLI. Du lär dig hur du:
 
 > [!div class="checklist"]
 > * Ge din virtuella dator åtkomst till åtkomstnycklar för lagringskonton i Resource Manager 
 > * Hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och använder den för att hämta lagringsåtkomstnycklarna från Resource Manager  
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto 
 
 Nu skapar du ett lagringskonto, om du inte redan har ett.  Du kan även hoppa över det här steget och ge den virtuella datorns systemtilldelade hanterade identitet åtkomst till nycklarna till ett befintligt lagringskonto. 
 

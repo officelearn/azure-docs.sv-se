@@ -4,10 +4,10 @@ description: I den här självstudien använder du alternativen för resurs lås
 ms.date: 05/06/2020
 ms.topic: tutorial
 ms.openlocfilehash: 738c627d350c5e11b41a65d159cf2cc7de807334
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85969650"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
@@ -23,9 +23,9 @@ I den här självstudien utför du följande steg:
 > - Granska den nya resurs gruppen
 > - Ta bort tilldelningen för att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-a-blueprint-definition"></a>Skapa en skiss definition
 
@@ -131,7 +131,7 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - **Grunderna**
+   - **Grundläggande inställningar**
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen där du sparade skiss definitionen. Om du väljer fler än en prenumeration skapas en tilldelning för varje prenumeration med hjälp av de parametrar som du anger.
      - **Tilldelnings namn**: namnet fylls i i förväg baserat på skiss definitionens namn. Vi vill att den här tilldelningen ska representera låsning av den nya resurs gruppen, så ändra tilldelnings namnet till **tilldelningen-Locked-storageaccount-TestingBPLocks**.
@@ -153,8 +153,8 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för RGtoLock|Resursgrupp|Name|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
-     |Resurs grupp för RGtoLock|Resursgrupp|Location|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Plats|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|SKU för lagring. Standardvärdet är _Standard_LRS_.|
 
 1. När du har angett alla parametrar väljer du **tilldela** längst ned på sidan.

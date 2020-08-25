@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.custom: mvc
 ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77593168"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)

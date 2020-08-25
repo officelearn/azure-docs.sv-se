@@ -15,10 +15,10 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76834696"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
@@ -45,7 +45,7 @@ Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återståe
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
@@ -78,7 +78,7 @@ Om du redan har en aktiv nätverksbevakare i regionen USA, östra går du vidare
     Som du ser är **FELSÖKNINGSSTATUS****Ej felfri**. Du kan också se en **sammanfattning** och **information** om problemet på fliken **Status**.
 10. När du väljer fliken **Åtgärd** visar VPN-diagnostik ytterligare information. I exemplet som visas i följande bild meddelar VPN-diagnostik att du bör kontrollera hälsotillståndet för varje anslutning:
 
-    ![Action](./media/diagnose-communication-problem-between-networks/action.png)
+    ![Åtgärd](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnostisera en gatewayanslutning
 

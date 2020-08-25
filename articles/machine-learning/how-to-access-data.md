@@ -1,5 +1,5 @@
 ---
-title: Ansluta till Azure Storage-tjänster
+title: Ansluta till Azure-lagringstjänster
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du använder data lager för att säkert ansluta till Azure Storage-tjänster under utbildning med Azure Machine Learning
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
-ms.custom: how-to, seodec18, devx-track-python
-ms.openlocfilehash: 90de785d56e50885a13d43faa77f087d1235ea18
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: how-to, contperfq1, devx-track-python
+ms.openlocfilehash: c5200214946b52ce974a8b7557e38eb57481028a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852539"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782999"
 ---
-# <a name="connect-to-azure-storage-services"></a>Ansluta till Azure Storage-tjänster
+# <a name="connect-to-azure-storage-services"></a>Ansluta till Azure-lagringstjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här artikeln får du lära dig hur du **ansluter till Azure Storage-tjänster via Azure Machine Learning data lager**. Data lagringen ansluter säkert till Azure Storage-tjänsten utan att dina autentiseringsuppgifter för autentisering och integritet för den ursprungliga data källan bevaras i risk zonen. De lagrar anslutnings information, t. ex. prenumerations-ID och token-auktorisering i [Key Vault](https://azure.microsoft.com/services/key-vault/) som är kopplade till arbets ytan, så att du kan komma åt lagringen på ett säkert sätt utan att behöva hårdkoda dem i dina skript. Du kan använda [Azure Machine Learning python SDK](#python) eller [Azure Machine Learning Studio](#studio) för att skapa och registrera data lager.

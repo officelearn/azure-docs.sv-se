@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045458"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
@@ -27,9 +27,9 @@ I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/d
 > * Köra en indexerare för att läsa in data i ett index
 > * Fråga ett index som ett verifierings steg
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -108,7 +108,7 @@ API-anrop kräver tjänst-URL och en åtkomst nyckel. En Sök tjänst skapas med
 
 1. För `searchServiceName` , om den fullständiga URL: en är " https://my-demo-service.search.windows.net ", är tjänst namnet som ska tillhandahållas "min-demo-service".
 
-1. För `AzureSqlConnectionString` , liknar sträng formatet följande:`"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
+1. För `AzureSqlConnectionString` , liknar sträng formatet följande: `"Server=tcp:{your_dbname}.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"`
 
     ```json
     {
@@ -244,7 +244,7 @@ Du kan också använda portalen för att ta bort index, indexerare och data käl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

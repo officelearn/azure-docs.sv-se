@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att få åtkomst till Azure Data Lake Store – Linux – Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att få åtkomst till Azure Data Lake Store – Linux – Azure AD
 description: En självstudiekurs som visar hur du använder en systemtilldelad hanterad identitet för virtuell Linux-dator för åtkomst till Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75888523"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudier: Använda systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Data Lake Store
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 > * Bevilja din virtuella dator åtkomst till Azure Data Lake Store.
 > * Få en åtkomsttoken genom att använda den virtuella datorns systemtilldelade hanterade identitet för åtkomst till Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -60,7 +60,7 @@ Hanterade identiteter för Azure-resurser kan nu utföra alla åtgärder på fil
 
 ## <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken och anropar Data Lake Store fil systemet. Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken finns i auktoriseringsrubriken i formatet ”Ägartoken \<ACCESS_TOKEN_VALUE\>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Det här avsnittet visar hur du hämtar en åtkomsttoken och anropar Data Lake Store fil systemet. Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas via hanterade identiteter för Azure-resurser. För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för ditt Data Lake Store-filsystem. Åtkomsttoken är i ett Authorization-huvud i formatet "Bearer \<ACCESS_TOKEN_VALUE\> ".  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 I den här självstudien autentiserar du REST-API:et för Data Lake Store-filsystemet med hjälp av CURL för att göra REST-begäranden.
 
@@ -71,7 +71,7 @@ För att slutföra de här stegen behöver du en SSH-klient. Om du använder Win
 
 1. Bläddra till din virtuella Linux-dator i portalen. I **Översikt** väljer du **Anslut**.  
 2. Anslut till den virtuella datorn med valfri SSH-klient. 
-3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID: t för `https://datalake.azure.net/`data Lake Store är.  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
+3. I terminalfönstret, med hjälp av CURL, skickar du en begäran till den lokala hanterade identiteter för Azure-resursslutpunkter för att hämta en åtkomsttoken för Data Lake Store-filsystemet. Resurs-ID: t för Data Lake Store är `https://datalake.azure.net/` .  Det är viktigt att inkludera avslutande snedstreck i resurs-ID.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

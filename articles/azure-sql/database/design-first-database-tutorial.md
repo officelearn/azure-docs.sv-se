@@ -11,10 +11,10 @@ ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
 ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "84216548"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Självstudie: utforma en Relations databas i Azure SQL Database med SSMS
@@ -56,28 +56,28 @@ En databas i Azure SQL Database skapas med en definierad uppsättning beräkning
 
 Följ de här stegen för att skapa en tom databas.
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 2. Välj **Databaser** i avsnittet Azure Marketplace på sidan **Nytt** och klicka sedan på **SQL Database** i avsnittet **Aktuellt**.
 
    ![skapa tom databas](./media/design-first-database-tutorial/create-empty-database.png)
 
 3. Fyll i **SQL Database** formuläret med följande information, som du ser på föregående bild:
 
-    | Inställning       | Föreslaget värde | Description |
+    | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Databas namn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Databasnamn** | *yourDatabase* | För giltiga databasnamn, se [databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Prenumeration** | *yourSubscription*  | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *yourResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
     | **Välj källa** | Tom databas | Anger att en tom databas ska skapas. |
 
 4. Klicka på **Server** för att använda en befintlig server eller skapa och konfigurera en ny server. Välj antingen en befintlig server eller klicka på **Skapa en ny server** och fyll i följande information i formuläret **Ny server**:
 
-    | Inställning       | Föreslaget värde | Description |
+    | Inställning       | Föreslaget värde | Beskrivning |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **Server namn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-    | **Inloggning för Server administratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
+    | **Servernamn** | Valfritt globalt unikt namn | Giltiga servernamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+    | **Inloggning för serveradministratör** | Valfritt giltigt namn | För giltiga inloggningsnamn, se [Databasidentifierare](/sql/relational-databases/databases/database-identifiers). |
     | **Lösenord** | Valfritt giltigt lösenord | Lösenordet måste innehålla minst åtta tecken och måste innehålla tecken från tre av följande kategorier: versaler, gemener, siffror och icke-alfanumeriska tecken. |
-    | **Position** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
+    | **Plats** | Valfri giltig plats | För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/). |
 
     ![skapa databas-server](./media/design-first-database-tutorial/create-database-server.png)
 
@@ -131,10 +131,10 @@ Använd [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ss
 1. Öppna SQL Server Management Studio.
 2. I dialogrutan **Anslut till server** anger du följande information:
 
-   | Inställning       | Föreslaget värde | Description |
+   | Inställning       | Föreslaget värde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Servertyp** | Databasmotor | Det här värdet är obligatoriskt. |
-   | **Server namn** | Fullständigt kvalificerat servernamn | Till exempel *yourserver.database.windows.net*. |
+   | **Servernamn** | Fullständigt kvalificerat servernamn | Till exempel *yourserver.database.windows.net*. |
    | **Autentisering** | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här självstudien. |
    | **Inloggning** | Serveradministratörskontot | Kontot som du angav när du skapade servern. |
    | **Lösenord** | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |

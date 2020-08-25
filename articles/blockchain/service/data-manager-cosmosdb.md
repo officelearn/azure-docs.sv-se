@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "79533189"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
@@ -41,7 +41,7 @@ I den här kursen får du:
 
 En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain service Transaction-nod. En instans fångar alla RAW-block och rå transaktions data från Transaction-noden. En utgående anslutning skickar blockchain-data till Azure Event Grid. Du konfigurerar en enda utgående anslutning när du skapar instansen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till den Azure blockchain service-medlem som du skapade i den nödvändiga [snabb starten: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md). Välj **Blockchain Data Manager**.
 1. Välj **Lägg till**.
 

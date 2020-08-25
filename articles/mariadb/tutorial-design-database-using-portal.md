@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 974b6a1e980119582d4fedb5f8b4e73685290de3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "80063791"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Självstudie: skapa en Azure Database for MariaDB-databas med Azure-portalen
@@ -41,7 +41,7 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [b
 
 1. Välj knappen **Skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-2. Välj **databaser** > **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
+2. Välj **databaser**  >  **Azure Database for MariaDB**. Du kan också skriva **MariaDB** i sökrutan för att hitta tjänsten.
 
    ![Gå till MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-mariadb.png)
 
@@ -49,18 +49,18 @@ Du skapar en Azure Database for MariaDB-server med en definierad uppsättning [b
 
    ![Skapa formulär](./media/tutorial-design-database-using-portal/2-create-form.png)
 
-    Inställningen | Föreslaget värde | Fältbeskrivning
+    Inställning | Föreslaget värde | Fältbeskrivning
     ---|---|---
-    servernamn | *ett unikt servernamn* | Välj ett unikt namn för Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+    Servernamn | *ett unikt servernamn* | Välj ett unikt namn för Azure Database for MariaDB-server. Till exempel **mydemoserver**. Domännamnet *.mariadb.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | *din prenumeration* | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | **myresourcegroup** | Ange ett nytt resursgruppsnamn eller välj en befintlig resursgrupp.
     Välj källa | **Tom** | Välj **Tom** om du vill skapa en ny server. (Välj **Säkerhetskopiering** om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MariaDB-server).
-    inloggning för serveradministratör | **myadmin** | Ett inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-    lösenordsinställning | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
+    Inloggning för serveradministratör | **myadmin** | Ett inloggningskonto att använda när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
+    Lösenord | *ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *ditt val*| Bekräfta administratörslösenordet.
     Plats | *den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *den senaste versionen*| Välj den senaste versionen (om du inte har särskilda krav på att använda en annan version).
-    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå** > **generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | Se beskrivningen. | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **pris nivå**  >  **generell användning**. Behåll standardvärdena för följande inställningar:<br><ul><li>**Compute-generering** (Gen 5)</li><li>**vCore** (4 virtuella kärnor)</li><li>**Lagring** (100 GB)</li><li>**Kvarhållningsperiod för säkerhetskopiering** (7 dagar)</li></ul><br>Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. <br><br>Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
     
    ![Prisnivå](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
@@ -93,7 +93,7 @@ Hämta värden för **servernamnet** (fullständigt kvalificerat) och **inloggni
 
    ![Serveregenskaper](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-I vårt exempel är Server namnet **mydemoserver.MariaDB.Database.Azure.com** och inloggnings namnet för Server administratören är **unadmin\@-mydemoserver**.
+I vårt exempel är Server namnet **mydemoserver.MariaDB.Database.Azure.com** och inloggnings namnet för Server administratören är **unadmin- \@ mydemoserver**.
 
 ## <a name="connect-to-the-server-by-using-mysql"></a>Anslut till servern med mysql
 

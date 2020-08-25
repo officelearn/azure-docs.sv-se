@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
 ms.openlocfilehash: 41841fd51433a18389aa9f5beee063fb30696755
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/23/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85251224"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Läs in data stegvis från Azure SQL Database till Azure Blob Storage använda ändrings spårnings information med hjälp av PowerShell
@@ -69,9 +69,9 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
     ![Steg för att läsa in flödesdiagram](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-load-flow-diagram.png)
 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har en databas i Azure SQL Database går du till artikeln [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) för steg för att skapa en.
@@ -154,7 +154,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 Installera de senaste Azure PowerShell-modulerna genom att följa anvisningarna i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
-1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Exempel: `"adfrg"`. 
+1. Definiera en variabel för resursgruppens namn som du kan använda senare i PowerShell-kommandon. Kopiera följande kommandotext till PowerShell, ange ett namn för [Azure-resursgruppen](../azure-resource-manager/management/overview.md), sätt dubbla citattecken omkring namnet och kör sedan kommandot. Till exempel: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";

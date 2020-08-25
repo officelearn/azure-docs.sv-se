@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
 ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85362030"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal
@@ -28,9 +28,9 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Bevilja åtkomst för en användare i ett resursgruppomfång
-> * Tar bort åtkomst
+> * Ta bort åtkomst
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-1. I navigeringslistan klickar du på **Resursgrupper**.
+1. Klicka på **Resursgrupper** i navigeringslistan.
 
 1. Klicka på **Lägg till** för att öppna bladet **Resursgrupp**.
 
@@ -62,7 +62,7 @@ I Azure RBAC för att bevilja åtkomst skapar du en roll tilldelning.
 
 1. I listan över **Resursgrupper** klicka du på den nya resursgruppen **rbac-resource-group**.
 
-1. Klicka på **Åtkomstkontroll (IAM)** .
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på fliken **Rolltilldelningar** för att visa den aktuella listan med rolltilldelningar.
 
@@ -88,7 +88,7 @@ I Azure RBAC för att bevilja åtkomst skapar du en roll tilldelning.
 
    ![Tilldelning av rollen Virtuell datordeltagare](./media/quickstart-assign-role-user-portal/vm-contributor-assignment.png)
 
-## <a name="remove-access"></a>Tar bort åtkomst
+## <a name="remove-access"></a>Ta bort åtkomst
 
 För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning.
 
@@ -102,7 +102,7 @@ För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning.
 
 ## <a name="clean-up"></a>Rensa
 
-1. I navigeringslistan klickar du på **Resursgrupper**.
+1. Klicka på **Resursgrupper** i navigeringslistan.
 
 1. Klicka på **rbac-resource-group** för att öppna resursgruppen.
 

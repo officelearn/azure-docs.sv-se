@@ -9,10 +9,10 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.openlocfilehash: b247a72b5d7db9892c6a2a763b7b71dc5f972d95
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045305"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure HDInsight
@@ -26,9 +26,9 @@ I den här guiden får du lära dig att:
 > * Transformera data med hjälp av Apache Hive.
 > * Läs in data till Azure SQL Database med Sqoop.
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * **Ett Azure Data Lake Storage Gen2-lagringskonto som har konfigurerats för HDInsight**
 
@@ -50,7 +50,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
 2. Välj följande värden på sidan:
 
-   | Name | Värde |
+   | Namn | Värde |
    | --- | --- |
    | Filtrera år |2013 |
    | Filtrera period |Januari |
@@ -58,7 +58,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
    
    Rensa alla andra fält.
 
-3. Välj **Ladda ned**. Du får en .zip-fil med de datafält du valde.
+3. Välj **Hämta**. Du får en .zip-fil med de datafält du valde.
 
 ## <a name="extract-and-upload-the-data"></a>Extrahera och ladda upp data
 
@@ -76,7 +76,7 @@ I det här avsnittet laddar du upp data till ditt HDInsight-kluster och kopierar
 
    Om du använder ett lösenord för att autentisera din SSH-inloggning uppmanas du att ange lösenordet.
 
-   Om du använder en offentlig nyckel kan du behöva använda `-i`-parametern och ange sökvägen till motsvarande privata nyckel. Till exempel `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
+   Om du använder en offentlig nyckel kan du behöva använda `-i`-parametern och ange sökvägen till motsvarande privata nyckel. Exempelvis `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
 2. När uppladdningen är klar kan du ansluta till klustret med hjälp av SSH. Öppna kommandotolken och ange följande kommando:
 
@@ -226,7 +226,7 @@ Som en del av Apache Hive-jobbet importerar du data från CSV-filen till en Apac
 
 Du behöver Server namnet från SQL Database för den här åtgärden. Slutför stegen nedan för att hitta namnet på servern.
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 
 2. Välj **SQL-databaser**.
 

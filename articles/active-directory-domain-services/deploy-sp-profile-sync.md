@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a65065a6f3cbc7264a8efb9bcf128b06897aacf
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: aa66f7150e5c3ac4560d7f97cb73b1effb8eec89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220277"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749632"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>Konfigurera Azure Active Directory Domain Services som stöder synkronisering av användar profiler för SharePoint Server
 
-SharePoint Server innehåller en tjänst för att synkronisera användar profiler. Med den här funktionen kan användar profiler lagras på en central plats och nås på flera SharePoint-webbplatser och-grupper. Om du vill konfigurera tjänsten användar profil för SharePoint Server måste rätt behörigheter beviljas i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän. Mer information finns i [synkronisering av användar profiler i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx).
+SharePoint Server innehåller en tjänst för att synkronisera användar profiler. Med den här funktionen kan användar profiler lagras på en central plats och nås på flera SharePoint-webbplatser och-grupper. Om du vill konfigurera tjänsten användar profil för SharePoint Server måste rätt behörigheter beviljas i en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän. Mer information finns i [synkronisering av användar profiler i SharePoint Server](/SharePoint/administration/user-profile-service-administration).
 
 Den här artikeln visar hur du konfigurerar Azure AD DS så att synkroniseringstjänsten för användar profiler för SharePoint Server tillåts.
 
@@ -71,7 +71,7 @@ Utför följande steg från din Azure AD DS Management VM:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [bevilja Active Directory Domain Services behörigheter för profilsynkronisering i SharePoint Server](https://technet.microsoft.com/library/hh296982.aspx)
+Mer information finns i [hantera synkronisering av användar profiler i SharePoint Server](/SharePoint/administration/manage-profile-synchronization).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

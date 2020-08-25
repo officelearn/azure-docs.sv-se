@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85963537"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
@@ -410,7 +410,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
       | --- | --- |
       | Prenumeration | Din Azure-prenumeration |
       | Resursgrupp | Resursgruppen som innehåller resurserna. |
-      | Location | Azure-regionen som resurserna skapas i. |
+      | Plats | Azure-regionen som resurserna skapas i. |
       | Kafka-klusternamn | Namnet på Kafka-klustret. |
       | Namn på Storm-kluster | Namnet på Storm-klustret. |
       | Användarnamn för klusterinloggning | Ett administratörsanvändarnamn för klustren. |

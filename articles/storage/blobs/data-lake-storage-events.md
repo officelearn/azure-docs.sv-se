@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78303315"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Självstudie: Implementera Data Lake Capture-mönstret för att uppdatera en Databricks delta tabell
@@ -30,11 +30,11 @@ I de här självstudierna får du:
 
 Vi bygger den här lösningen i omvänd ordning, från och med Azure Databricks arbets ytan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Skapa ett lagrings konto med ett hierarkiskt namn område (Azure Data Lake Storage Gen2). I den här självstudien används `contosoorders`ett lagrings konto med namnet. Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
+* Skapa ett lagrings konto med ett hierarkiskt namn område (Azure Data Lake Storage Gen2). I den här självstudien används ett lagrings konto med namnet `contosoorders` . Se till att ditt användarkonto har tilldelats rollen [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac).
 
   Se [skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
 
@@ -68,7 +68,7 @@ Skapa först en CSV-fil som beskriver en försäljnings order och överför seda
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
 
-4. Spara filen på den lokala datorn och ge den namnet **data. csv**.
+4. Spara filen på den lokala datorn och ge den namnet **data.csv**.
 
 5. I Storage Explorer laddar du upp den här filen till mappen **indata** .  
 
@@ -86,7 +86,7 @@ I det här avsnittet ska du utföra följande uppgifter:
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks på Azure Portal")
 
@@ -100,7 +100,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
 1. I [Azure Portal](https://portal.azure.com)går du till arbets ytan Azure Databricks som du skapade och väljer sedan **Starta arbets yta**.
 
-2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt** > **kluster**från portalen.
+2. Du omdirigeras till Azure Databricks-portalen. Välj **nytt**  >  **kluster**från portalen.
 
     ![Databricks på Azure](./media/data-lake-storage-events/databricks-on-azure.png "Databricks på Azure")
 
@@ -113,7 +113,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     * Ange ett namn för klustret.
     * Se till att markera kryssrutan **Avsluta efter 120 minuters inaktivitet**. Ange en varaktighet (i minuter) för att avsluta klustret om klustret inte används.
 
-4. Välj **Skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
+4. Välj **skapa kluster**. När klustret körs kan du ansluta anteckningsböcker till klustret och köra Spark-jobb.
 
 Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -133,7 +133,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
 
 1. I den antecknings bok som du har skapat kopierar du och klistrar in följande kodblock i den första cellen, men kör inte den här koden ännu.  
 
-   Ersätt `appId`-, `password`, `tenant` placeholder-värden i det här kod blocket med de värden som du samlade in när du slutförde kraven i den här självstudien.
+   Ersätt `appId` -, `password` , `tenant` placeholder-värden i det här kod blocket med de värden som du samlade in när du slutförde kraven i den här självstudien.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -152,7 +152,7 @@ Mer information om att skapa kluster finns i [Skapa ett Spark-kluster i Azure Da
     Den här koden skapar en widget med namnet **source_file**. Senare kommer du att skapa en Azure-funktion som anropar den här koden och skickar en fil Sök väg till widgeten.  Den här koden autentiserar också tjänstens huvud namn med lagrings kontot och skapar vissa variabler som du kommer att använda i andra celler.
 
     > [!NOTE]
-    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>I stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")`använder du till exempel följande rad med kod:. `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
+    > I en produktionsinställning bör du överväga att lagra din autentiseringsnyckel i Azure Databricks. Sedan lägger du till en lookup-nyckel i kodblocket i stället för autentiseringsnyckeln. <br><br>I stället för att använda den här kodraden: `spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")` använder du till exempel följande rad med kod: `spark.conf.set("fs.azure.account.oauth2.client.secret", dbutils.secrets.get(scope = "<scope-name>", key = "<key-name-for-service-credential>"))` . <br><br>När du har slutfört den här kursen kan du se exempel på den här metoden i [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artikeln på Azure Databricks webbplats.
 
 2. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
@@ -279,7 +279,7 @@ Skapa en Azure-funktion som kör jobbet.
    |----|----|
    |**DBX_INSTANCE**| Regionen för din databricks-arbetsyta. Exempelvis: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| Den personliga åtkomsttoken som du skapade tidigare. |
-   |**DBX_JOB_ID**|Identifierare för det jobb som körs. I vårt fall är `1`det här värdet.|
+   |**DBX_JOB_ID**|Identifierare för det jobb som körs. I vårt fall är det här värdet `1` .|
 7. På sidan Översikt i Function-appen klickar du på knappen **ny funktion** .
 
    ![Ny funktion](./media/data-lake-storage-events/new-function.png "Ny funktion")
@@ -354,7 +354,7 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
 ## <a name="test-the-event-grid-subscription"></a>Testa Event Grid prenumerationen
 
-1. Skapa en fil med `customer-order.csv`namnet, klistra in följande information i filen och spara den på den lokala datorn.
+1. Skapa en fil med namnet `customer-order.csv` , klistra in följande information i filen och spara den på den lokala datorn.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
@@ -385,14 +385,14 @@ I det här avsnittet ska du skapa en Event Grid-prenumeration som anropar Azure-
 
    ![Den senaste posten visas i tabellen](./media/data-lake-storage-events/final_query.png "Den senaste posten visas i tabellen")
 
-6. Om du vill uppdatera posten skapar du en fil `customer-order-update.csv`med namnet, klistrar in följande information i filen och sparar den på den lokala datorn.
+6. Om du vill uppdatera posten skapar du en fil med namnet `customer-order-update.csv` , klistrar in följande information i filen och sparar den på den lokala datorn.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536371,99999,EverGlow Single,22,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-   Den här CSV-filen är nästan identisk med den föregående, förutom antalet order som har ändrats från `228` till `22`.
+   Den här CSV-filen är nästan identisk med den föregående, förutom antalet order som har ändrats från `228` till `22` .
 
 7. I Storage Explorer laddar du upp den här filen till mappen **indata** för ditt lagrings konto.
 

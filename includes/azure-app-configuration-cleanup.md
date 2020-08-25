@@ -9,10 +9,10 @@ ms.date: 1/31/2020
 ms.author: lcozzens
 ms.custom: include file
 ms.openlocfilehash: 751613e7b3b2252b62dff2c3e1adad83bdc8c393
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "88639163"
 ---
 Om du inte vill fortsätta använda resurserna som skapats i den här artikeln tar du bort resurs gruppen som du skapade här för att undvika avgifter.

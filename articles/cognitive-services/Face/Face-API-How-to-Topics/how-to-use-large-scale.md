@@ -11,10 +11,10 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76169771"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning
@@ -66,7 +66,7 @@ Lägg till alla ansikten och personer från PersonGroup till den nya LargePerson
 | Skapa | Skapa |
 | Ta bort | Ta bort |
 | Hämta | Hämta |
-| Visa lista | Visa lista |
+| Lista | Lista |
 | Uppdatera | Uppdatera |
 | - | Träna |
 | - | Hämta träningsstatus |
@@ -199,18 +199,18 @@ Som tidigare visas är data hantering och FindSimilar delen i stort sett desamma
 
 | Skala för ansikten eller personer | Uppskattad utbildnings tid |
 |:---:|:---:|
-| 1,000 | 1-2 SEK |
+| 1 000 | 1-2 SEK |
 | 10 000 | 5-10 SEK |
-| 100 000 | 1-2 min |
+| 100 000 | 1-2 min |
 | 1,000,000 | 10-30 min |
 
 För att bättre kunna använda funktionen för storskalig skalning rekommenderar vi följande strategier.
 
 ### <a name="step-31-customize-time-interval"></a>Steg 3,1: anpassa tidsintervall
 
-Som det visas i `TrainLargeFaceList()`, finns det ett tidsintervall i millisekunder för att försena den oändliga status kontroll processen. För LargeFaceList med flera ansikten, minskar anropsantalet och -kostnaden med hjälp av ett större intervall. Anpassa tidsintervallet enligt förväntad kapacitet för LargeFaceList.
+Som det visas i `TrainLargeFaceList()` , finns det ett tidsintervall i millisekunder för att försena den oändliga status kontroll processen. För LargeFaceList med flera ansikten, minskar anropsantalet och -kostnaden med hjälp av ett större intervall. Anpassa tidsintervallet enligt förväntad kapacitet för LargeFaceList.
 
-Samma strategi gäller även för LargePersonGroup. När du till exempel tränar en LargePersonGroup med 1 000 000 personer `timeIntervalInMilliseconds` kan det vara 60 000, vilket är ett intervall på 1 minut.
+Samma strategi gäller även för LargePersonGroup. När du till exempel tränar en LargePersonGroup med 1 000 000 personer kan det `timeIntervalInMilliseconds` vara 60 000, vilket är ett intervall på 1 minut.
 
 ### <a name="step-32-small-scale-buffer"></a>Steg 3,2: Small-Scale buffer
 
@@ -231,7 +231,7 @@ Ett exempel på ett arbetsflöde:
 
 Om en relativt lång latens är acceptabel, är det inte nödvändigt att utlösa åtgärds åtgärden direkt när du har lagt till nya data. Istället kan träningsåtgärden delas upp från den huvudsakliga logiken och utlösas regelbundet. Den här strategin är lämplig för dynamiska scenarier med acceptabel svars tid. Det kan användas för statiska scenarier för att ytterligare minska tåg frekvensen.
 
-Anta att det finns `TrainLargePersonGroup` en funktion som `TrainLargeFaceList`liknar. En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klassen i `System.Timers` är:
+Anta att det finns en `TrainLargePersonGroup` funktion som liknar `TrainLargeFaceList` . En typisk implementering av den fristående utbildningen på en LargePersonGroup genom att anropa [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) klassen i `System.Timers` är:
 
 ```csharp
 private static void Main()

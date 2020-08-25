@@ -4,10 +4,10 @@ description: Använd mönster för att öka avsikt och enhets förutsägelse sam
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86039508"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
@@ -33,7 +33,7 @@ Det finns två typer av yttranden lagrade i LUIS-appen:
 
 Genom att lägga till mallen yttranden som ett mönster kan du ange färre exempel-yttranden för ett avsikts sätt.
 
-Ett mönster används som en kombination av text matchning och maskin inlärning.  Mallen uttryck i mönstret, tillsammans med exemplet yttranden i avsikten, ger LUIS en bättre förståelse för vad yttranden passar avsikten.
+Ett mönster tillämpas som en kombination av textmatchning och maskininlärning.  Malltalindata i mönstret tillsammans med exempeltalindata i avsikten ger LUIS bättre förståelse för vilka talindata som passar avsikten.
 
 ## <a name="import-example-app-and-clone-to-new-version"></a>Importera exempel App och klon till ny version
 
@@ -204,8 +204,8 @@ Exempel på mallyttranden för den här avsikten är:
 
 |Exempel på mallyttranden|syntaxbetydelse|
 |--|--|
-|`Who does {EmployeeListEntity} report to[?]`|utbytbara`{EmployeeListEntity}`<br>Ignorera`[?]`|
-|`Who reports to {EmployeeListEntity}[?]`|utbytbara`{EmployeeListEntity}`<br>Ignorera`[?]`|
+|`Who does {EmployeeListEntity} report to[?]`|utbytbara `{EmployeeListEntity}`<br>Ignorera `[?]`|
+|`Who reports to {EmployeeListEntity}[?]`|utbytbara `{EmployeeListEntity}`<br>Ignorera `[?]`|
 
 Syntaxen `{EmployeeListEntity}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]` , markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
 
@@ -249,7 +249,7 @@ För att ett mönster ska matchas med en uttryck måste _först_ entiteterna i u
 
 Nu när mönstren har lagts till i appen, träna, publicera och fråga appen på den förutsägelse körnings slut punkten.
 
-1. Välj **träna**. När utbildningen är klar väljer du **publicera** och väljer **produktions** platsen och väljer sedan **klar**.
+1. Välj **Träna** (Träna). När utbildningen är klar väljer du **publicera** och väljer **produktions** platsen och väljer sedan **klar**.
 
 1. När publiceringen är klar växlar du tillbaka till fliken slut punkts-URL i webbläsarens flik.
 

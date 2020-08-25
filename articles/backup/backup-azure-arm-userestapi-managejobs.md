@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att spåra och hantera säkerhets k
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b9f69b8815cc8d508d5a10dda82803581216a4eb
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079323"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761635"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Spåra säkerhets kopierings-och återställnings jobb med REST API
 
@@ -17,7 +17,7 @@ Azure Backup tjänst utlöser jobb som körs i bakgrunden i olika scenarier, til
 
 ## <a name="fetch-job-information-from-operations"></a>Hämta jobb information från åtgärder
 
-En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempel: det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) är följande:
+En åtgärd som utlöser säkerhets kopiering returnerar alltid en jobID. Exempel: det slutliga svaret från en [Utlös ande säkerhets kopiering REST API åtgärd](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) är följande:
 
 ```http
 {

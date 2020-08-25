@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74084393"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudie: Använd en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
@@ -30,7 +30,7 @@ ms.locfileid: "74084393"
 
 För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i den hämtade filen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript.
 
-Gå vidare och hämta [Azure IoT C#-exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) nu. Zippa upp Master. zip-filen. Resource Manager-mallen och parameter filen är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **template_iothub. JSON** och **template_iothub_parameters. JSON**.
+Gå vidare och hämta [Azure IoT C#-exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) nu. Zippa upp master.zip-filen. Resource Manager-mallen och parameter filen är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **template_iothub.jspå** och **template_iothub_parameters.jspå**.
 
 ## <a name="create-your-resources"></a>Skapa dina resurser
 
@@ -149,7 +149,7 @@ Den andra resursen som skapas är Service Bus namnrymd, tillsammans med den Serv
 }
 ```
 
-I det här avsnittet skapas Service Bus kön. Den här delen av skriptet innehåller en `dependsOn` -sats som säkerställer att namn området skapas före kön.
+I det här avsnittet skapas Service Bus kön. Den här delen av skriptet innehåller en- `dependsOn` sats som säkerställer att namn området skapas före kön.
 
 ```json
 {
@@ -195,7 +195,7 @@ Nästa avsnitt är avsnittet för konfigurationen av meddelanderoutning för IoT
 
 Om du vill skapa anslutnings strängen för kön behöver du queueAuthorizationRulesResourcedId, som hämtas infogas. För att skapa anslutnings strängen för lagrings kontot hämtar du den primära lagrings nyckeln och använder den sedan i formatet för anslutnings strängen.
 
-Slut punkts konfigurationen är också där du ställer in BLOB- `AVRO` formatet `JSON`på eller.
+Slut punkts konfigurationen är också där du ställer in BLOB-formatet på `AVRO` eller `JSON` .
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
@@ -231,7 +231,7 @@ Slut punkts konfigurationen är också där du ställer in BLOB- `AVRO` formatet
 
 Det här nästa avsnitt gäller för meddelande vägar till slut punkterna. Det finns en inställning för varje slut punkt, så det finns en för Service Bus kö och en för lagrings konto behållaren.
 
-Kom ihåg att frågevillkor för de meddelanden som dirigeras till Storage är `level="storage"`och villkoren för de meddelanden som dirigeras till Service Bus kön är. `level="critical"`
+Kom ihåg att frågevillkor för de meddelanden som dirigeras till Storage är `level="storage"` och villkoren för de meddelanden som dirigeras till Service Bus kön är `level="critical"` .
 
 ```json
 "routes": [
@@ -303,7 +303,7 @@ Detta JSON visar resten av IoT Hub-avsnittet som innehåller standard informatio
 
 ### <a name="resources-service-bus-queue-authorization-rules"></a>Resurser: Service Bus auktoriseringsregler för kön
 
-Auktoriseringsregeln för Service Bus kön används för att hämta anslutnings strängen för Service Bus kön. Den använder en `dependsOn` -sats för att säkerställa att den inte skapas före Service Bus-namnrymden och Service Bus kön.
+Auktoriseringsregeln för Service Bus kön används för att hämta anslutnings strängen för Service Bus kön. Den använder en- `dependsOn` sats för att säkerställa att den inte skapas före Service Bus-namnrymden och Service Bus kön.
 
 ```json
 {

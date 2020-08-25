@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 965c768df9138d850c2ac9f88e3797dcc54fa3fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79501855"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box-enhet för att importera data som Managed disks i Azure
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: konfigurera Azure Data Box](data-box-deploy-set-up.md).
+1. Du har slutfört självstudien [: Konfigurera Azure Data Box](data-box-deploy-set-up.md).
 2. Du har fått din Data Box och att orderstatusen i portalen är **Levererad**.
 3. Du har anslutning till ett höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10-GbE-anslutning inte är tillgänglig kan du använda en 1-GbE-datalänk men kopierings hastigheten påverkas.
 4. Du har granskat:
@@ -44,7 +44,7 @@ Innan du börjar ska du kontrollera att:
 
 ## <a name="connect-to-data-box"></a>Ansluta till Data Box
 
-Baserat på de angivna resurs grupperna skapar Data Box-enhet en resurs för varje associerad resurs grupp. Om `mydbmdrg1` och `mydbmdrg2` till exempel skapades när ordern placerades, skapas följande resurser:
+Baserat på de angivna resurs grupperna skapar Data Box-enhet en resurs för varje associerad resurs grupp. Om och till exempel `mydbmdrg1` `mydbmdrg2` skapades när ordern placerades, skapas följande resurser:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`

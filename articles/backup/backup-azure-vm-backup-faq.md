@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 03e2f004fa54ee235eabc49afd6abd7532a6ee44
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: b29f1a11f6600f013fdf1d5aa71883ab44dfe635
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262780"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761516"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -195,8 +195,8 @@ Ja, det finns en gräns på 100 virtuella datorer som kan kopplas till samma sä
 
 ### <a name="how-can-i-view-the-retention-settings-for-my-backups"></a>Hur kan jag se inställningarna för kvarhållning för mina säkerhets kopieringar?
 
-För närvarande kan du Visa inställningar för kvarhållning på en säkerhets kopierings objekt nivå (VM) utifrån den säkerhets kopierings princip som har tilldelats den virtuella datorn. 
+För närvarande kan du Visa inställningar för kvarhållning på en säkerhets kopierings objekt nivå (VM) utifrån den säkerhets kopierings princip som har tilldelats den virtuella datorn.
 
 Ett sätt att visa inställningarna för kvarhållning av dina säkerhets kopior är att gå till [instrument panelen](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) för säkerhets kopierings objekt för den virtuella datorn i Azure Portal. Genom att klicka på länken till säkerhets kopierings principen kan du se Retentions tiden för alla dagliga, vecko Visa och årliga bevarande punkter som är associerade med den virtuella datorn.
 
-Du kan också använda [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) för att visa inställningarna för kvarhållning för alla virtuella datorer i samma fönster ruta. Gå till backup Explorer från ett Recovery Services valv, gå till fliken **säkerhets kopierings objekt** och välj Avancerad vy för att se detaljerad kvarhållning av information för varje virtuell dator.  
+Du kan också använda [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) för att visa inställningarna för kvarhållning för alla virtuella datorer i samma fönster ruta. Gå till backup Explorer från ett Recovery Services valv, gå till fliken **säkerhets kopierings objekt** och välj Avancerad vy för att se detaljerad kvarhållning av information för varje virtuell dator.

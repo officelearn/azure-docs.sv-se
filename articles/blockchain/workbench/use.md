@@ -5,10 +5,10 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
 ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74324045"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudie: använda program i Azure blockchain Workbench
@@ -23,7 +23,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Blockchain Workbench-distribution. Mer information finns i [distribution av Azure blockchain Workbench](deploy.md) för information om distribution
 * Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
@@ -61,7 +61,7 @@ Beroende på kontraktets tillstånd kan medlemmarna utföra åtgärder för att 
 
     ![Kontraktinformation](./media/use/contract-details.png)
 
-    | Section  | Beskrivning  |
+    | Avsnitt  | Beskrivning  |
     |---------|---------|
     | Status | Visar den aktuella statusen i kontraktfaserna |
     | Information | De aktuella värdena för kontraktet |

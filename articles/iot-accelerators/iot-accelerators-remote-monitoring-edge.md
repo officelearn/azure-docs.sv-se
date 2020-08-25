@@ -10,10 +10,10 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "66117576"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Självstudie: Identifiera avvikelser vid gränsen med acceleratorn för fjärrövervakningslösningen
@@ -45,7 +45,7 @@ På IoT Edge-enheten:
 
 I den här självstudien används en virtuell Linux-dator som en IoT Edge-enhet. Du installerar också en Edge-modul för att simulera oljepumpjackenheten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
@@ -78,12 +78,12 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
 1. Skapa ett jobb för att lägga till taggen **IsEdge** till tjänsten med följande inställningar:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Jobb     | Taggar  |
     | Jobbnamn | AddEdgeTag |
-    | Nyckel     | IsOilPump |
-    | Värde   | Y     |
+    | Tangent     | IsOilPump |
+    | Värde   | J     |
     | Typ    | Text  |
 
     [![Lägg till tagg](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
@@ -94,12 +94,12 @@ Om du vill göra det enklare att hantera IoT Edge-enheter i lösningen kan du sk
 
 1. Klicka på **Skapa ny enhetsgrupp**. Skapa en ny enhetsgrupp med följande inställningar:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Namn    | OilPumps |
-    | Field   | Tags.IsOilPump |
+    | Fält   | Tags.IsOilPump |
     | Operator | = Lika med |
-    | Värde    | Y |
+    | Värde    | J |
     | Typ     | Text |
 
     [![Skapa enhets grupp](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
@@ -317,8 +317,8 @@ Om du vill meddela operatörer när tröskelvärdet har uppnåtts kan du skapa e
     | Regelnamn | Oljepumptemperatur |
     | Beskrivning | Oljapumptemperaturen överskred 300 |
     | Enhetsgrupp | OilPumps |
-    | Beräkning | Omedelbar |
-    | Field | temperatur |
+    | Beräkning | Direkt |
+    | Fält | temperatur |
     | Operator | > |
     | Värde | 300 |
     | Allvarlighetsgrad | Information |

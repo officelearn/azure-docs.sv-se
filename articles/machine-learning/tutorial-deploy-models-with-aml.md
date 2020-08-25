@@ -11,10 +11,10 @@ ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
 ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86025683"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Självstudie: Distribuera en bild klassificerings modell i Azure Container Instances
@@ -35,9 +35,9 @@ Container Instances är en bra lösning för testning och för att förstå arbe
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK-version 1.0.83.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra antecknings boken börjar du med att slutföra modell utbildningen i [Självstudier (del 1): träna en bild klassificerings modell](tutorial-train-models-with-aml.md).   Öppna sedan antecknings boken *img-klassificering-part2-Deploy. ipynb* i dina klonade *självstudier/data klassificering-mnist-* datamapp.
+Om du vill köra antecknings boken börjar du med att slutföra modell utbildningen i [Självstudier (del 1): träna en bild klassificerings modell](tutorial-train-models-with-aml.md).   Öppna sedan antecknings boken  *img-klassificering-part2-Deploy. ipynb* i dina klonade *självstudier/data klassificering-mnist-* datamapp.
 
 Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har installerat `matplotlib` och `scikit-learn` i din miljö. 
 

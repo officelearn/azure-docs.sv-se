@@ -15,10 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
 ms.openlocfilehash: 5d4ac5435281f521c71556123f77d737ee6916e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73161773"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Skapa ett Pivotal Cloud Foundry-kluster i Azure
@@ -64,7 +64,7 @@ Mer information finns i [Använda SSH-nycklar med Windows i Azure](https://docs.
 
     > [!NOTE]
     >
-    > Välj din egen program start sida och ID-URI, till exempel http\://www\.contoso.com.
+    > Välj din egen program start sida och ID-URI, till exempel http \: //www \. contoso.com.
 
 4. Skapa ett huvudnamn för tjänsten med ditt nya app-ID.
 

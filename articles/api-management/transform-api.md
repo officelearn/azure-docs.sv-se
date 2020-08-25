@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
 ms.openlocfilehash: 4c3cc572dd9629605414cd88d7735c2b31f92249
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85851259"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformera och skydda ditt API
@@ -74,7 +74,7 @@ Det ursprungliga svaret ska se ut så här:
 1. Välj **Demokonferens-API**.
 2. Överst på skärmen väljer du fliken **Design**.
 3. Välj **alla åtgärder**.
-4. I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
+4. I avsnittet **utgående bearbetning** klickar du på **</>** ikonen.
 5. Placera markören inuti det ** &lt; utgående &gt; ** elementet.
 6. Klicka på **+ Konfigurera HTTP-huvud** två gånger under **Transformationsprinciper** i det högra fönstret (så infogas två principkodavsnitt).
 
@@ -113,7 +113,7 @@ Visa det ursprungliga svaret:
 1.  Välj **Demokonferens-API**.
 2.  Välj **alla åtgärder**.
 3.  Överst på skärmen väljer du fliken **Design**.
-4.  I avsnittet **Utgående bearbetning** klickar du på ikonen **</>**.
+4.  I avsnittet **utgående bearbetning** klickar du på **</>** ikonen.
 5.  Placera markören inuti det ** &lt; utgående &gt; ** elementet och klicka på knappen **Visa kodfragment** i det övre högra hörnet.
 6.  I det högra fönstret, under **omvandlings principer**, klickar du på **maskera URL: er i innehåll**.
 

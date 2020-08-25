@@ -10,10 +10,10 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74084443"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Självstudie: Använd Azure PowerShell för att konfigurera IoT Hub meddelanderoutning
@@ -26,7 +26,7 @@ ms.locfileid: "74084443"
 
 För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i nedladdningen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript. 
 
-Om du vill visa det färdiga skriptet laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp Master. zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_psh. ps1**.
+Om du vill visa det färdiga skriptet laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp master.zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_psh.ps1**.
 
 ## <a name="create-your-resources"></a>Skapa dina resurser
 
@@ -128,7 +128,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 Nu när bas resurserna har kon figurer ATS kan du konfigurera meddelanderoutning.
 
-## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
+## <a name="set-up-message-routing"></a>Konfigurera meddelandedirigering
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
@@ -148,7 +148,7 @@ Detta är de variabler som används av skriptet som måste anges inom Cloud Shel
 
 **endpointName**: det här fältet är namnet som identifierar slut punkten. 
 
-**endpointType**: det här fältet är typen av slut punkt. Värdet måste anges `azurestoragecontainer`till, `eventhub` `servicebusqueue`, eller. `servicebustopic` För dina behov här ställer du in den `azurestoragecontainer`på.
+**endpointType**: det här fältet är typen av slut punkt. Värdet måste anges till,, `azurestoragecontainer` `eventhub` `servicebusqueue` eller `servicebustopic` . För dina behov här ställer du in den på `azurestoragecontainer` .
 
 **subscriptionID**: det här fältet har angetts till subscriptionID för ditt Azure-konto.
 
@@ -156,13 +156,13 @@ Detta är de variabler som används av skriptet som måste anges inom Cloud Shel
 
 **containerName**: det här fältet är namnet på behållaren i det lagrings konto som data ska skrivas till.
 
-**Encoding**: Ange det här fältet som `AVRO` antingen `JSON`eller. Detta anger formatet för lagrade data. Standardvärdet är AVRO.
+**Encoding**: Ange det här fältet som antingen `AVRO` eller `JSON` . Detta anger formatet för lagrade data. Standardvärdet är AVRO.
 
 **routeName**: det här fältet är namnet på den väg som du ställer in. 
 
-**villkor**: det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för meddelanden som dirigeras till lagring är `level="storage"`.
+**villkor**: det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för meddelanden som dirigeras till lagring är `level="storage"` .
 
-**aktive rad**: det här `true`fältet är standardvärdet och anger att meddelande flödet ska aktive ras efter att det har skapats.
+**aktive rad**: det här fältet är standardvärdet `true` och anger att meddelande flödet ska aktive ras efter att det har skapats.
 
 Kopiera det här skriptet och klistra in det i Cloud Shell-fönstret.
 
@@ -208,7 +208,7 @@ Add-AzIotHubRoute `
 
 ### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus kö
 
-Konfigurera nu routning för Service Bus-kön. Om du vill hämta anslutnings strängen för Service Bus kön måste du skapa en auktoriseringsregel som har rätt rättigheter definierade. Följande skript skapar en auktoriseringsregel för Service Bus kön som kallas `sbauthrule`, och anger rättigheterna till. `Listen Manage Send` När den här auktoriseringsregeln har kon figurer ATS kan du använda den för att hämta anslutnings strängen för kön.
+Konfigurera nu routning för Service Bus-kön. Om du vill hämta anslutnings strängen för Service Bus kön måste du skapa en auktoriseringsregel som har rätt rättigheter definierade. Följande skript skapar en auktoriseringsregel för Service Bus kön som kallas `sbauthrule` , och anger rättigheterna till `Listen Manage Send` . När den här auktoriseringsregeln har kon figurer ATS kan du använda den för att hämta anslutnings strängen för kön.
 
 ```powershell
 ##### ROUTING FOR SERVICE BUS QUEUE #####
@@ -236,11 +236,11 @@ Nu konfigurerar du Dirigerings slut punkten och meddelande vägen för Service B
 
 **endpointName**: det här fältet är namnet som identifierar slut punkten. 
 
-**endpointType**: det här fältet är typen av slut punkt. Värdet måste anges `azurestoragecontainer`till, `eventhub` `servicebusqueue`, eller. `servicebustopic` För dina behov här ställer du in den `servicebusqueue`på.
+**endpointType**: det här fältet är typen av slut punkt. Värdet måste anges till,, `azurestoragecontainer` `eventhub` `servicebusqueue` eller `servicebustopic` . För dina behov här ställer du in den på `servicebusqueue` .
 
 **routeName**: det här fältet är namnet på den väg som du ställer in. 
 
-**villkor**: det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för de meddelanden som dirigeras till Service Bus kön är `level="critical"`.
+**villkor**: det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för de meddelanden som dirigeras till Service Bus kön är `level="critical"` .
 
 Här är Azure PowerShell för meddelanderoutning för kön Service Bus.
 

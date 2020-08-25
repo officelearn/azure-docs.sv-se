@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 5b075e1065ef8c30837000f490cc93525b4b61cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74456101"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
@@ -37,20 +37,20 @@ Nu är det dags att skapa en instans av Web App for Containers i regionen *USA, 
 
 Logga in på [Azure Portal](https://portal.azure.com) och navigera till den registernyckel som du skapade i den föregående självstudiekursen.
 
-Välj **databaser** > **ACR-HelloWorld**, högerklicka sedan på taggen **v1** under **taggar** och välj **distribuera till webbapp**:
+Välj **databaser**  >  **ACR-HelloWorld**, högerklicka sedan på taggen **v1** under **taggar** och välj **distribuera till webbapp**:
 
 ![Distribuera till App Service i Azure Portal][deploy-app-portal-01]
 
-Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte har aktiverat administratörsanvändaren för registret enligt anvisningarna i [Create a container registry](container-registry-tutorial-prepare-registry.md#create-a-container-registry) (Skapa ett containerregister) i den första självstudiekursen. Du kan aktivera administratörs användaren i **Inställningar** > **åtkomst nycklar** i Azure Portal.
+Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte har aktiverat administratörsanvändaren för registret enligt anvisningarna i [Create a container registry](container-registry-tutorial-prepare-registry.md#create-a-container-registry) (Skapa ett containerregister) i den första självstudiekursen. Du kan aktivera administratörs användaren i **Inställningar**  >  **åtkomst nycklar** i Azure Portal.
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
-| **Resurs grupp** | **Använd befintlig** > `myResourceGroup` |
+| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
 | **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-westus` i regionen **USA, västra**. |
-| **Bild** | `acr-helloworld:v1` |
+| **Avbildning** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
 > [!NOTE]
@@ -78,12 +78,12 @@ När Docker-avbildningen har distribuerats från din geo-replikerade container, 
 
 Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
-| **Resurs grupp** | **Använd befintlig** > `myResourceGroup` |
+| **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
 | **App Service-plan/plats** | Skapa ett nytt schema med namnet `plan-eastus` i regionen **USA, östra**. |
-| **Bild** | `acr-helloworld:v1` |
+| **Avbildning** | `acr-helloworld:v1` |
 | **Operativsystem** | Linux |
 
 Etablera webbappen i regionen *USA, östra* genom att välja **Skapa**.

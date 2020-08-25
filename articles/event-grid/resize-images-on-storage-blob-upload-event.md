@@ -4,10 +4,10 @@ description: 'Självstudie: Azure Event Grid kan utlösa vid BLOB-uppladdningar 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86105820"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
@@ -269,7 +269,7 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     
     ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | Inställningen      | Föreslaget värde  | Description                                        |
+    | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **Namn** | imageresizersub | Namn som identifierar din nya händelseprenumeration. |
     | **Typ av ämne** | Lagringskonton | Välj händelseprovidern för Storage-kontot. |

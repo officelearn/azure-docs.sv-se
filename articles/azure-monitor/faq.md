@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: bd575eb5f646b749b431516670c64c764f4d4c9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828514"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782948"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -80,6 +80,10 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 ### <a name="how-do-i-retrieve-log-data"></a>Hur gör jag för att hämta logg data?
 Alla data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga som skrivits med hjälp av KQL (Kusto Query Language). Du kan skriva egna frågor eller använda lösningar och insikter som innehåller logg frågor för ett visst program eller en viss tjänst. Se [Översikt över logg frågor i Azure Monitor](log-query/log-query-overview.md).
+
+### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Kan jag ta bort data från en Log Analytics arbets yta?
+Data tas bort från en arbets yta enligt kvarhållningsperioden [.](platform/manage-cost-storage.md#change-the-data-retention-period) Du kan ta bort vissa data för sekretess eller efterlevnad. Mer information finns i [Exportera och ta bort privata data](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) .
+
 
 ### <a name="what-is-a-log-analytics-workspace"></a>Vad är en Log Analytics-arbetsyta?
 Alla loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta. En arbets yta är i grunden en behållare där loggdata samlas in från olika källor. Du kan ha en enda Log Analytics arbets yta för alla dina övervaknings data eller så kan det finnas krav för flera arbets ytor. Se [utforma distributioner av Azure Monitor loggar](platform/design-logs-deployment.md).
@@ -171,7 +175,7 @@ Använd stegen som beskrivs i [skapa en ny logg avisering](platform/alerts-metri
 - **Definiera aviserings villkor**: Ange Log Analytics arbets ytan som resurs mål.
 - **Aviserings villkor** 
    - **Signal namn**: *anpassad loggs ökning*
-   - **Sök fråga**:`Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Sök fråga**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
    - **Aviserings logik**: **baserat på** *antalet resultat*, **villkoret** är *större än*, **tröskelvärdet** *0*
    - **Utvärderad baserat på**: **period (i minuter)** *30*, **frekvens (i minuter)** *10*
 - **Definiera aviseringsinformationen** 
@@ -371,7 +375,7 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 * Om en riktig användare använder din webbplats i olika webbläsare, eller använder privat/Incognito-surfning eller olika datorer, kommer de att räknas mer än en gång.
 * Om du vill identifiera en inloggad användare på datorer och webbläsare lägger du till ett anrop till [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
 
-### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a>Har jag aktiverat allt i Application Insights?
+### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> Har jag aktiverat allt i Application Insights?
 | Vad du bör se | Så här hämtar du det | Varför du vill ha den |
 | --- | --- | --- |
 | Tillgänglighets diagram |[Webbtester](app/monitor-web-app-availability.md) |Vet att din webbapp är igång |
@@ -430,9 +434,9 @@ Vi rekommenderar att du använder våra SDK [: er](app/api-custom-events-metrics
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät webb server?
 
 Ja, men du måste tillåta trafik till våra tjänster genom brand Väggs undantag eller omdirigering av proxy.
-- QuickPulse`https://rt.services.visualstudio.com:443` 
-- ApplicationIdProvider`https://dc.services.visualstudio.com:443` 
-- TelemetryChannel`https://dc.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
 Läs vår fullständiga lista över tjänster och IP-adresser [här](app/ip-addresses.md).
@@ -714,7 +718,7 @@ Detta kan inträffa av några skäl.  I de fall där det finns en lucka i data i
 Ja, när du har installerat beroende agenten samlar vi in information från de virtuella datorerna för att Visa grupper baserat på prenumeration, resurs grupp, skalnings uppsättningar för virtuella datorer och moln tjänster.  Om du har använt Tjänstkarta och skapat dator grupper visas dessa även.  Dator grupper visas också i filtret grupper om du har skapat dem för den arbets yta som du visar. 
 
 ### <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Hur gör jag för att se information om vad som driver den 95 percentils linjen i de sammanställda prestanda diagrammen?
-Som standard sorteras listan för att visa de virtuella datorer som har det högsta värdet för 95-percentilen för det valda måttet, förutom det tillgängliga minnes diagrammet, som visar datorerna med det lägsta värdet för den femte percentilen.  Om du klickar på diagrammet öppnas den **översta N-listvyn** med lämpligt mått valt.
+Som standard sorteras listan för att visa de virtuella datorer som har det högsta värdet för 95-percentilen för det valda måttet, förutom det tillgängliga minnes diagrammet, som visar datorerna med det lägsta värdet för den femte percentilen.  Om du klickar på diagrammet öppnas den **översta N-listvyn**  med lämpligt mått valt.
 
 ### <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>Hur hanterar kart funktionen dubbla IP-adresser över olika virtuella nätverk och undernät?
 Om du duplicerar IP-intervall med virtuella datorer eller skalnings uppsättningar för virtuella Azure-datorer över undernät och virtuella nätverk kan det orsaka att Azure Monitor for VMs karta visar felaktig information. Detta är ett känt problem och vi undersöker alternativ för att förbättra den här upplevelsen.

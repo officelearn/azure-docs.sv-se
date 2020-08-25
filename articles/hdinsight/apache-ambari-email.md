@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
 ms.openlocfilehash: 21376eb40fb40abe67f7e03d15aabd7d89ea62f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "80082316"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Självstudie: Konfigurera Apache Ambari-e-postmeddelanden i Azure HDInsight
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Hämta SendGrid användar namn
 > * Konfigurera Apache Ambari-e-postmeddelanden
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett SendGrid e-postkonto. Instruktioner finns i [skicka e-post med hjälp av SendGrid med Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) .
 
@@ -48,11 +48,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="configure-ambari-e-mail-notification"></a>Konfigurera e-postavisering om Ambari
 
-1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, där `CLUSTERNAME` är namnet på klustret.
+1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts` , där `CLUSTERNAME` är namnet på klustret.
 
 1. I list rutan **åtgärder** väljer du **Hantera meddelanden**.
 
-1. Välj **+** ikonen i fönstret **Hantera aviserings meddelanden** .
+1. Välj ikonen i fönstret **Hantera aviserings meddelanden** **+** .
 
     ![Ambari skapa aviserings meddelande](./media/apache-ambari-email/azure-portal-create-notification.png)
 
@@ -60,9 +60,9 @@ I den här guiden får du lära dig att:
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Name|Ange ett namn för meddelandet.|
+    |Namn|Ange ett namn för meddelandet.|
     |Grupper|Konfigurera efter behov.|
-    |Severity|Konfigurera efter behov.|
+    |Allvarlighetsgrad|Konfigurera efter behov.|
     |Beskrivning|Valfritt.|
     |Metod|Lämna kvar **via e-post**.|
     |E-postmeddelande till|Ange e-postmeddelanden som ska ta emot meddelanden, avgränsade med kommatecken.|

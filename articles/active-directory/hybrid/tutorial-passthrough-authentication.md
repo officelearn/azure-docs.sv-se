@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 96846d75111fe11b225704a248baeb006a3df3fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "66473003"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudie: integrera en enda AD-skog med direktautentisering (PTA)
@@ -24,7 +24,7 @@ ms.locfileid: "66473003"
 
 Självstudien vägleder dig genom att skapa en hybrididentitetsmiljö med hjälp av direktautentisering.  Du kan sedan använda miljön för att testa eller bli mer bekant med hur en hybrididentitet fungerar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Följande är förutsättningar som krävs för den här självstudien
 - En dator med [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) installerat.  Vi rekommenderar att du gör detta på en dator med antingen [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) eller [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - En [Azure-prenumeration](https://azure.microsoft.com/free)
@@ -93,7 +93,7 @@ För att slutföra skapande av den virtuella datorn kan du behöva slutföra ins
 Nu när vi har fått igång en virtuell dator kan behöva vi göra några saker innan vi installerar Active Directory.  Vi behöver alltså byta namn på den virtuella datorn, ange en statisk IP-adress och DNS-information och installera verktyg för fjärrserveradministration.   Gör följande:
 
 1. Öppna PowerShell ISE som administratör.
-2. Kör `Set-ExecutionPolicy remotesigned` och svara Ja på alla [A].  Tryck på RETUR.
+2. Kör `Set-ExecutionPolicy remotesigned` och svara Ja på alla [A].  Tryck på Retur.
 3. Kör följande skript.
 
 ```powershell
@@ -189,16 +189,16 @@ Nu ska vi skapa en Azure AD-klientorganisation så att vi kan synkronisera våra
 3. Välj **Azure Active Directory** i sökresultatet.
 4. Välj **Skapa**.</br>
 ![Skapa](media/tutorial-password-hash-sync/create1.png)</br>
-5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **skapa**. Detta skapar din katalog.
+5. Ange ett **namn på organisationen** tillsammans med det **ursprungliga domännamnet**. Välj sedan **Skapa**. Detta skapar din katalog.
 6. När det här har slutförts klickar du på den **här** länken för att hantera katalogen.
 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Skapa en global administratör i Azure AD
 Nu när vi har en Azure AD-klientorganisation ska vi skapa ett globalt administratörskonto.  Det här kontot används för att skapa ett Azure AD-anslutningsappkonto under Azure AD Connect-installationen.  Azure AD-anslutningsappkontot används för att skriva information till Azure AD.   Skapa kontot för den globala administratören genom att göra följande.
 
-1.  Under **Hantera** väljer du **Användare**.</br>
+1.  Under **Hantera** väljer du **Användare**.</br>
 ![Skapa](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Välj **Alla användare** och sedan **+ Ny användare**.
-3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan även visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
+3.  Ange ett namn och användarnamn för den här användaren. Det här är din globala administratör för klientorganisationen. Du bör även ändra **katalogrollen** till **Global administratör.** Du kan dessutom visa det tillfälliga lösenordet. När du är klar väljer du **Skapa**.</br>
 ![Skapa](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. När det här har slutförts öppnar du en ny webbläsare och loggar in på myapps.microsoft.com med hjälp av det nya globala administratörskontot och det tillfälliga lösenordet.
 5. Ändra lösenordet för den globala administratören till något som du kommer ihåg.
@@ -246,12 +246,12 @@ Vi kommer nu att verifiera att de användare som vi hade i vår lokala katalog h
 
 1. Bläddra till [Azure-portalen](https://portal.azure.com) och logga in med ett konto som har en Azure-prenumeration.
 2. Välj **Azure Active Directory** till vänster
-3. Under **Hantera** väljer du **Användare**.
+3. Under **Hantera** väljer du **Användare**.
 4. Kontrollera att du ser de nya användarna i vår klientorganisation ![Synch](media/tutorial-password-hash-sync/synch1.png)
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 

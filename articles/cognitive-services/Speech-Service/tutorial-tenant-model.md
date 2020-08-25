@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.openlocfilehash: 04a6742d3db8d65e06fe3d7b35ed94ebe5dc13a5
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391221"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Självstudie: skapa en klient modell (förhands granskning)
@@ -59,7 +59,7 @@ Om du vill använda din klient modell med tal-SDK behöver du en tal resurs och 
 1. Välj **Skapa en resurs**.
 1. Skriv **tal**i rutan **Sök** .
 1. Välj **tal**i listan resultat och välj sedan **skapa**.
-1. Följ anvisningarna på skärmen för att skapa din resurs. Kontrollera att:
+1. Följ anvisningarna på skärmen för att skapa din resurs. Se till att:
    * **Platsen** anges till antingen **öster** eller **väst**.
    * **Pris nivån** är inställd på **S0**.
 1. Välj **Skapa**.

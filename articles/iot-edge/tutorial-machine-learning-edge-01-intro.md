@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 965c420fa29c4cf82517148c01e17d6d7dd6ea97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74106504"
 ---
 # <a name="tutorial-an-end-to-end-solution-using-azure-machine-learning-and-iot-edge"></a>Självstudie: en lösning från slut punkt till slut punkt med hjälp av Azure Machine Learning och IoT Edge
@@ -74,7 +74,7 @@ Bilden nedan illustrerar de grova steg som vi följer i den här självstudien:
 
 1. **Underhålla och förfina modellen**. Vårt arbete utförs inte när modellen har distribuerats. I många fall vill vi fortsätta samla in data och regelbundet överföra dessa data till molnet. Vi kan sedan använda dessa data för att omträna och förfina vår modell, som vi sedan kan distribuera till IoT Edge.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra självstudien måste du ha åtkomst till en Azure-prenumeration där du har behörighet att skapa resurser. Flera av de tjänster som används i den här självstudien debiteras Azure-avgifter. Om du inte redan har en Azure-prenumeration kan du komma igång med ett [kostnads fritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/).
 

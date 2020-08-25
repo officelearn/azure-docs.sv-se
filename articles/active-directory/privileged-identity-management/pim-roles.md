@@ -14,12 +14,12 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80762511591d10bd2823101e2ff233fdd0f0eb00
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 862b304d1f36567aecd4452f91f31d1a50c3198a
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495632"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782489"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Roller som du inte kan hantera i Privileged Identity Management
 
@@ -37,7 +37,7 @@ Mer information om administratörs rollerna för den klassiska prenumerationen f
 
 ## <a name="what-about-office-365-admin-roles"></a>Vad gäller Office 365-administratörs roller?
 
-Vi har stöd för alla Office365-roller i Azure AD-roller och-administratörer, till exempel Exchange-administratören och SharePoint-administratören, men vi stöder inte vissa roller i Exchange RBAC eller SharePoint RBAC. Mer information om de här Office 365-tjänsterna finns i [Administratörs roller för office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles).
+Vi har stöd för alla Office365-roller i Azure AD-roller och-administratörer, till exempel Exchange-administratören och SharePoint-administratören, men vi stöder inte vissa roller i Exchange RBAC eller SharePoint RBAC. Mer information om de här Office 365-tjänsterna finns i [Administratörs roller för office 365](/office365/admin/add-users/about-admin-roles).
 
 > [!NOTE]
 > Berättigade användare för administratörs rollen för SharePoint, enhets administratörs rollen och alla roller som försöker komma åt Microsoft Security och Compliance Center kan uppleva fördröjningar på upp till några timmar efter att ha aktiverat sin roll. Vi arbetar med dessa team för att åtgärda problemen.

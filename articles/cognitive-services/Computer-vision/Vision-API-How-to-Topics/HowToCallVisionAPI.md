@@ -12,10 +12,10 @@ ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
 ms.openlocfilehash: 0d2ef4af8af8ad9545277202f0aa7842ac05ea67
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85957910"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
@@ -182,7 +182,7 @@ Fält | Typ | Innehåll
 Taggar  | `object` | Objektet på den översta nivån för en matris med taggar.
 tags[].Name | `string`    | Nyckelordet från taggarnas klassificerare.
 tags[].Score    | `number`    | Förtroende poängen, mellan 0 och 1.
-description     | `object`    | Objektet på den översta nivån för en beskrivning.
+beskrivning     | `object`    | Objektet på den översta nivån för en beskrivning.
 description.tags[] |    `string`    | Listan med taggar.  Om det inte finns tillräckligt med förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för anroparen.
 description.captions[].text    | `string`    | En mening som beskriver bilden.
 description.captions[].confidence    | `number`    | Förtroende poängen för frasen.

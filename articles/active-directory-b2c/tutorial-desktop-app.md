@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "78186207"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Självstudie: autentisera användare i en intern Skriv bords klient med hjälp av Azure Active Directory B2C
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Skapa användarflöden](tutorial-create-user-flows.md) för att möjliggöra användarupplevelser i programmet.
 - Installera [Visual Studio 2019](https://www.visualstudio.com/downloads/) med **.net Desktop development** **-och ASP.net-och webb utvecklings** arbets belastningar.
@@ -52,7 +52,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 
 Så här uppdaterar du programmet så att det fungerar med din Azure AD B2C klient och anropar dess användar flöden i stället för de i standard-demo-klienten:
 
-1. Öppna **Active-Directory-B2C-WPF-** lösningen (`active-directory-b2c-wpf.sln`) i Visual Studio.
+1. Öppna **Active-Directory-B2C-WPF-** lösningen ( `active-directory-b2c-wpf.sln` ) i Visual Studio.
 2. Öppna *app.XAML.cs* -filen i **Active-Directory-B2C-WPF-** projektet och leta upp följande variabel definitioner. Ersätt `{your-tenant-name}` med ditt Azure AD B2C klient namn och `{application-ID}` med det program-ID som du registrerade tidigare.
 
     ```csharp
@@ -79,7 +79,7 @@ Tryck på **F5** för att skapa och köra exemplet.
 2. Azure AD B2C visar en inloggnings sida med länken **Registrera dig nu** . Eftersom du ännu inte har ett konto väljer du länken **Registrera dig nu** .
 3. Arbetsflödet för registrering visar en sida för att samla in och verifiera användarens identitet med en e-postadress. Arbetsflödet för registrering samlar även in användarens lösenord och de attribut som definierats i användarflödet.
 
-    Använd en giltig e-postadress och verifiera med verifieringskoden. Ange ett lösenord. Ange värden för de begärda attributen.
+    Använd en giltig e-postadress och verifiera med verifieringskoden. Ställ in ett lösenord. Ange värden för de begärda attributen.
 
     ![Registrerings sidan visas som en del av inloggnings-och registrerings arbets flödet](./media/tutorial-desktop-app/azure-ad-b2c-sign-up-workflow.png)
 
@@ -89,7 +89,7 @@ Användaren kan nu använda sin e-postadress för att logga in och använda Skri
 
 ![Information om token visas i det nedre fönstret av WPF Desktop-programmet](./media/tutorial-desktop-app/desktop-app-01-post-signin.png)
 
-Om du väljer knappen **anropa API** visas ett **fel meddelande** . Felet uppstår eftersom programmet försöker komma åt ett API som skyddas av demo klienten, `fabrikamb2c.onmicrosoft.com`i det aktuella läget. Eftersom din åtkomsttoken bara är giltig för din Azure AD B2C klient, är API-anropet därför obehörigt.
+Om du väljer knappen **anropa API** visas ett **fel meddelande** . Felet uppstår eftersom programmet försöker komma åt ett API som skyddas av demo klienten, i det aktuella läget `fabrikamb2c.onmicrosoft.com` . Eftersom din åtkomsttoken bara är giltig för din Azure AD B2C klient, är API-anropet därför obehörigt.
 
 Fortsätt till nästa självstudie för att registrera ett skyddat webb-API i din egen klient organisation och aktivera API-funktionen för **anrop** .
 
@@ -105,4 +105,4 @@ I den här självstudiekursen lärde du dig att:
 För att aktivera funktionen **anropa API** -knappen ger du åtkomst till WPF Desktop-programmet åtkomst till ett webb-API som registrerats i din egen Azure AD B2C klient:
 
 > [!div class="nextstepaction"]
-> [Självstudie: bevilja åtkomst till ett Node. js-webb-API från en desktop-app >](tutorial-desktop-app-webapi.md)
+> [Självstudie: bevilja åtkomst till ett Node.js webb-API från en desktop-app >](tutorial-desktop-app-webapi.md)

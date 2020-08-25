@@ -5,10 +5,10 @@ ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
 ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79533189"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Självstudie: Använd blockchain Data Manager för att skicka data till Azure Cosmos DB
@@ -29,7 +29,7 @@ I den här kursen får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: skapa en blockchain-medlem med hjälp av Azure Portal](create-member.md) eller [snabb start: skapa en Azure blockchain service blockchain-medlem med Azure CLI](create-member-cli.md)
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig när du installerar [Azure blockchain Development Kit för Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) och ställer in din blockchain Development-miljö.
@@ -51,7 +51,7 @@ En blockchain Data Manager-instans ansluter och övervakar en Azure blockchain s
 
     Inställningen | Exempel | Beskrivning
     --------|---------|------------
-    Name | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
+    Namn | Watcher | Ange ett unikt namn för en ansluten blockchain Data Manager.
     Transaction Node | myblockchainmember | Välj noden standard transaktion för den Azure blockchain service-medlem som du skapade i förutsättningen.
     Anslutningsnamn | cosmosdb | Ange ett unikt namn på den utgående anslutningen där blockchain transaktions data skickas.
     Event Grid-slutpunkt | Avsnittet | Välj ett event Grid-ämne som du skapade i förutsättningen. Obs! Data Manager blockchain-instansen och avsnittet Event Grid måste vara i samma prenumeration.
@@ -76,7 +76,7 @@ ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hu
 
     Kontraktets ABI kopieras till Urklipp.
 
-1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *ABI. JSON*. Du använder filen i ett senare steg.
+1. Spara **ABI** -matrisen som en JSON-fil. Till exempel *abi.jspå*. Du använder filen i ett senare steg.
 
 Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet. Den distribuerade bytekod-filen skiljer sig från det smarta kontraktets bytekod. Du kan använda Azure blockchain Development Kit-tillägget för att kopiera bytekod till Urklipp.
 
@@ -88,11 +88,11 @@ Blockchain-Data Manager kräver distribuerad bytekod för det smarta kontraktet.
 
     Bytekod kopieras till Urklipp.
 
-1. Spara **bytekod** -värdet som en JSON-fil. Till exempel, *bytekod. JSON*. Du använder filen i ett senare steg.
+1. Spara **bytekod** -värdet som en JSON-fil. Till exempel *bytecode.jspå*. Du använder filen i ett senare steg.
 
-I följande exempel visas *ABI. JSON* och *bytekod. JSON* -filer öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
+I följande exempel visas *abi.jspå* och *bytecode.jspå* filer som är öppna i vs Code-redigeraren. Dina filer bör se ut ungefär så här.
 
-![Exempel på ABI. JSON och bytekod. JSON-filer](./media/data-manager-cosmosdb/contract-files.png)
+![Exempel på abi.jspå och bytecode.jspå filer](./media/data-manager-cosmosdb/contract-files.png)
 
 ### <a name="create-contract-abi-and-bytecode-url"></a>Skapa kontrakts ABI och bytekod-URL
 
@@ -110,7 +110,7 @@ Blockchain Data Manager kräver att kontrakts ABI och bytekod-filerna kan nås a
 
     | Inställningen | Beskrivning |
     |---------|-------------|
-    | Name  | Ge containern ett namn. Till exempel *smartcontract* |
+    | Namn  | Ge containern ett namn. Till exempel *smartcontract* |
     | Offentlig åtkomstnivå | Välj *privat (ingen anonym åtkomst)* |
 
 1. Klicka på **OK** för att skapa containern.
@@ -146,7 +146,7 @@ Generera en signatur för delad åtkomst för varje blob.
 
     Inställningen | Beskrivning
     --------|------------
-    Name | Ange ett unikt namn för blockchain-programmet som ska spåras.
+    Namn | Ange ett unikt namn för blockchain-programmet som ska spåras.
     Kontrakt ABI | URL-sökväg till kontraktets ABI-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
     Kontraktets bytekod | URL-sökväg till bytekod-fil. Mer information finns i [skapa kontrakts ABI och BYTEKOD URL](#create-contract-abi-and-bytecode-url).
 
@@ -176,7 +176,7 @@ Du kan använda Datautforskaren i Azure Portal för att skapa en databas och beh
     | Databas-id | Ange **blockchain-data** som namn på den nya databasen. |
     | Dataflöde | Lämna data flödet på **400** enheter för programbegäran per sekund (ru/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.|
     | Container-ID | Ange **meddelanden** som namn på den nya behållaren. |
-    | Partitionsnyckeln | Använd **/MessageType** som partitionsnyckel. |
+    | Partitionsnyckel | Använd **/MessageType** som partitionsnyckel. |
 
 1. Välj **OK**. Datautforskaren visar den nya databasen och den behållare som du skapade.
 
@@ -235,7 +235,7 @@ Lägg till en åtgärd för att skapa ett dokument i Cosmos DB för varje transa
     Uttrycket hämtar data delen av meddelandet och anger ID: t till ett tidsstämpel-värde.
 
 1. Välj **Lägg till ny parameter** och välj **partitionerings nyckel värde**.
-1. Ange **värdet** för `"@{triggerBody()['data']['MessageType']}"`partitionsnyckel. Värdet måste omges av dubbla citat tecken.
+1. Ange **värdet för partitionsnyckel** `"@{triggerBody()['data']['MessageType']}"` . Värdet måste omges av dubbla citat tecken.
 
     ![Logic Apps designer med Cosmos DB inställningar](./media/data-manager-cosmosdb/create-action.png)
 

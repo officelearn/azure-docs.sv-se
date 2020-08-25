@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 73247dac1ca829a7893192101da0981c3edcf8d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 897431feae6cd3166b594d4d6848204df76fe3fa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539082"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761414"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -461,35 +461,37 @@ Nedan visas några exempel som hjälper dig att skriva frågor om Azure Backup d
     ````
 
 ## <a name="v1-schema-vs-v2-schema"></a>Schemat v1 schema vs v2
-Tidigare skickades diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostiks tabellen i ett schema som kallas ***v1-schema***. Sedan lades nya kolumner till för att stödja andra scenarier och arbets belastningar, och diagnostikdata skickades i ett nytt schema som kallas ***v2-schema***. 
 
-Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor. 
+Tidigare skickades diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostiks tabellen i ett schema som kallas ***v1-schema***. Sedan lades nya kolumner till för att stödja andra scenarier och arbets belastningar, och diagnostikdata skickades i ett nytt schema som kallas ***v2-schema***.  
+
+Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor.
 
 Referera till den tredje kolumnen Beskrivning i den [data modell](#using-azure-backup-data-model) som beskrivs ovan för att identifiera vilka kolumner som endast tillhör v1-schema.
 
 ### <a name="modifying-your-queries-to-use-the-v2-schema"></a>Ändra dina frågor till att använda v2-schemat
+
 Eftersom v1-schemat finns på en föråldrad sökväg rekommenderar vi att du bara använder v2-schemat i alla dina anpassade frågor på Azure Backup diagnostikdata. Nedan visas ett exempel på hur du uppdaterar dina frågor för att ta bort beroendet av v1-schemat:
 
 1. Identifiera om frågan använder ett fält som endast gäller v1-schema. Anta att du har en fråga om du vill visa en lista över alla säkerhets kopierings objekt och deras associerade skyddade servrar på följande sätt:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | distinct BackupItemUniqueId_s, ProtectedServerUniqueId_s
+    ````
 
-Frågan ovan använder fältet ProtectedServerUniqueId_s som endast gäller för v1-schemat. Schema motsvarigheten v2 för det här fältet är ProtectedContainerUniqueId_s (se tabellerna ovan). Fältet BackupItemUniqueId_s gäller även v2-schemat och samma fält kan användas i den här frågan.
+    Frågan ovan använder fältet ProtectedServerUniqueId_s som endast gäller för v1-schemat. Schema motsvarigheten v2 för det här fältet är ProtectedContainerUniqueId_s (se tabellerna ovan). Fältet BackupItemUniqueId_s gäller även v2-schemat och samma fält kan användas i den här frågan.
 
 2. Uppdatera frågan så att den använder schema fält namnen v2. Vi rekommenderar att du använder filtret ' WHERE SchemaVersion_s = = "v2" ' i alla dina frågor, så att endast poster som motsvarar v2-schemat tolkas av frågan:
 
-````Kusto
-AzureDiagnostics
-| where Category=="AzureBackupReport"
-| where OperationName=="BackupItemAssociation"
-| where SchemaVersion_s=="V2"
-| distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s 
-````
+    ````Kusto
+    AzureDiagnostics
+    | where Category=="AzureBackupReport"
+    | where OperationName=="BackupItemAssociation"
+    | where SchemaVersion_s=="V2"
+    | distinct BackupItemUniqueId_s, ProtectedContainerUniqueId_s
+    ````
 
 ## <a name="next-steps"></a>Nästa steg
 

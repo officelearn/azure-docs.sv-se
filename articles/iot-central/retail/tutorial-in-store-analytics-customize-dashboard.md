@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 47edaec54a2470e9b657b2f214be923439e1e8a2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "81000121"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Självstudie: anpassa instrument panelen för operatör och hantera enheter i Azure IoT Central
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 > * Lägg till egenskaps paneler för att Visa enhets information
 > * Lägg till kommando paneler för att köra kommandon
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Verktyget bör slutföra självstudien för att skapa Azure IoT Central i Store Analytics-program och lägga till enheter:
 

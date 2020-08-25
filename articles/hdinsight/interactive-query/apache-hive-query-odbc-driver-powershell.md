@@ -9,10 +9,10 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
 ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73494331"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Självstudie: fråga Apache Hive med ODBC och PowerShell
@@ -28,7 +28,7 @@ I den här självstudien ska du utföra följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudiekursen behöver du följande:
 
@@ -42,7 +42,7 @@ Hämta och installera [Microsoft HIVE ODBC-drivrutinen](https://www.microsoft.co
 
 Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
 
-1. Från Windows navigerar du till **Starta** > **Windows Administration Tools** > **ODBC data sources (32-bitars)/(64-bitars)**.  En **Administratörs fönstret för ODBC-datakälla** öppnas.
+1. Från Windows navigerar du till **Starta**  >  **Windows Administration Tools**  >  **ODBC data sources (32-bitars)/(64-bitars)**.  En **Administratörs fönstret för ODBC-datakälla** öppnas.
 
     ![OBDC data källans administratör](./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png "Konfigurera en data källa med hjälp av administratör för ODBC-datakälla")
 
@@ -55,7 +55,7 @@ Följande steg visar hur du skapar en ODBC-datakälla för Apache Hive.
    | Egenskap | Beskrivning |
    | --- | --- |
    |  Namn på datakälla |Namnge din datakälla |
-   |  Värd (er) |Ange `CLUSTERNAME.azurehdinsight.net`. Till exempel, `myHDICluster.azurehdinsight.net` |
+   |  Värd (er) |Ange `CLUSTERNAME.azurehdinsight.net`. Till exempel `myHDICluster.azurehdinsight.net` |
    |  Port |Använd **443**.|
    |  Databas |Använd **standard**. |
    |  Mekanism |Välj **Windows Azure HDInsight-tjänst** |

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "61450583"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Självstudie: Skapa en anpassad simulerad enhet
@@ -28,9 +28,9 @@ I den här kursen får du:
 > * Klona en enhetsmodell
 > * Ta bort en enhetsmodell
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimulering i din Azure-prenumeration.
 
@@ -60,11 +60,11 @@ I den här självstudien skapar du ett simulerat kylskåp som skickar data för 
 
 Fyll i formuläret med följande information:
 
-| Inställning             | Värde                                                |
+| Inställningen             | Värde                                                |
 | ------------------- | ---------------------------------------------------- |
 | Enhetsmodellnamn   | Kylskåp                                         |
 | Modellbeskrivning   | Ett kylskåp med temperatur- och luftfuktighetssensorer |
-| Version             | 1.0                                                  |
+| Version             | 1,0                                                  |
 
 > [!NOTE]
 > Enhetsmodellnamnet måste vara unikt.
@@ -73,8 +73,8 @@ Klicka på **+ Lägg till datapunkt** för att lägga till datapunkter för temp
 
 | Datapunkt          | Beteende        | Minvärde | Maxvärde | Enhet |
 | ------------------- | --------------- | --------- | --------- | ---- |
-| Temperatur         | Slumpmässig          | -50       | 100       | F    |
-| Fuktighet            | Slumpmässig          | 0         | 100       | %    |
+| Temperatur         | Slumpmässigt          | -50       | 100       | F    |
+| Luftfuktighet            | Slumpmässigt          | 0         | 100       | %    |
 
 Klicka på **Spara** för att spara enhetsmodellen.
 

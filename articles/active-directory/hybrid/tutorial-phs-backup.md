@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5ad7badfa44a006fd7e71d3b0e42ee95ac698d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "64918997"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Självstudie: Konfigurera PHS som säkerhets kopiering för AD FS i Azure AD Connect
@@ -29,7 +29,7 @@ Följande självstudie vägleder dig genom att ställa in synkronisering av lös
 >[!NOTE]
 >I händelse av att du inte har åtkomst till Azure AD Connect Server eller om servern inte har åtkomst till Internet, kan du kontakta [Microsoft Support](https://support.microsoft.com/en-us/contactus/) för att hjälpa till med ändringarna i Azure AD-sidan.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här självstudien bygger på [självstudien: federera en enda AD-skogs miljö till molnet](tutorial-federation.md) och är ett krav som krävs innan du provar den här kursen.  Om du inte har slutfört den här kursen kan du göra det innan du provar att utföra stegen i det här dokumentet.
 
 >[!IMPORTANT]
@@ -72,7 +72,7 @@ Nu ska vi visa hur du byter till synkronisering av lösenordshash. Innan du bör
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1. Bläddra till[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1. Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klient.  Du måste logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.</br>
    ![Verifiera](media/tutorial-password-hash-sync/verify1.png)</br>
 
@@ -108,7 +108,7 @@ Nu måste vi återställa förtroendet mellan AD FS och Azure.
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa att logga in med någon av våra användare
 
-1.  Bläddra till[https://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  Bläddra till [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Logga in med ett användarkonto som har skapats i vår nya klientorganisation.  Du behöver logga in med följande format: (user@domain.onmicrosoft.com). Använd samma lösenord som användaren använder för att logga in lokalt.
 ![Verifiera](media/tutorial-password-hash-sync/verify1.png)
 

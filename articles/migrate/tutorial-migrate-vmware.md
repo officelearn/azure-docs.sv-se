@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
 ms.openlocfilehash: 77fc621dc5e8013f49c261f7e0e265aad939bc2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86113538"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering av virtuella datorer.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
 ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86027519"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
@@ -24,7 +24,7 @@ Lär dig hur du använder HDInsight Spark för att träna maskin inlärnings mod
 
 Det här exemplet demonstrerar de olika stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). En delmängd av NYC taxi-resan och biljett 2013-datauppsättningen används för att läsa in, utforska och förbereda data. Sedan kan du använda Spark-MLlib, binära klassificerings-och Regressions modeller för att förutsäga om ett tips kommer att betalas för resan och uppskatta Tip-mängden.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett Azure-konto och ett Spark 1,6-kluster (eller Spark 2,0) för att slutföra den här genom gången. Mer information om hur du uppfyller dessa krav finns i [Översikt över data vetenskap med Spark på Azure HDInsight](spark-overview.md) . Avsnittet innehåller också en beskrivning av NYC 2013 taxi-data som används här och instruktioner om hur man kör kod från en Jupyter-anteckningsbok i Spark-klustret. 
 
@@ -96,7 +96,7 @@ PySpark-kärnan innehåller fördefinierade "MAGICS", som är särskilda kommand
 
 Mer information om Jupyter Notebook-kärnor och de fördefinierade "MAGICS" finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
-## <a name="load-the-data"></a>Läs in data
+## <a name="load-the-data"></a>Läsa in data
 
 Det första steget i data vetenskaps processen är att mata in data som ska analyseras från källor där finns i data utforsknings-och modell miljö. Miljön är spark i den här genom gången. Det här avsnittet innehåller koden för att slutföra en serie aktiviteter:
 

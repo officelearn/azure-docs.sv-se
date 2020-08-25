@@ -4,10 +4,10 @@ description: Extrahera strukturerade data från en uttryck med hjälp av enheten
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86045611"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)

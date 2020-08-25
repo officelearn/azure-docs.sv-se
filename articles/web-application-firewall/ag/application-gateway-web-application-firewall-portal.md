@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74049226"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Självstudie: skapa en Programgateway med en brand vägg för webbaserade program med hjälp av Azure Portal
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 <!---If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).--->
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -209,7 +209,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 I den här artikeln använder Application Gateway ett lagrings konto för att lagra data för identifiering och förebyggande ändamål. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data.
 
@@ -244,7 +244,7 @@ Alla WAF-anpassningar och inställningar finns i ett separat objekt, så kallade
 
 Även om IIS inte krävs för att skapa programgatewayen installerar du den för att kontrol lera om Azure har skapat programgatewayen. Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![Registrera offentlig IP-adress för Application Gateway](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
+1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . ![ Registrera offentlig IP-adress för Application Gateway](../media/application-gateway-web-application-firewall-portal/application-gateway-record-ag-address.png) 
 
    Alternativt kan du välja **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och sedan välja den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 1. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.

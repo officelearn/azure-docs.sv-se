@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: evanhi
 ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85368115"
 ---
 # <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Snabb start: skapa en anpassad Provider och distribuera anpassade resurser
@@ -18,7 +18,7 @@ I den här snabb starten skapar du en egen resurs leverantör och distribuerar a
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 - För att slutföra stegen i den här snabb starten måste du anropa `REST` åtgärder. Det finns [olika sätt att skicka rest-begäranden](/rest/api/azure/).
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)

@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 046a0d61bb7a6d715a1d732790d2b472b3e83c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 763441d023e4a707c6a1edc09abfb6d8e5525723
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743787"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782744"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Bjud in gäst användare och tilldela Azure-resurs roller i Privileged Identity Management
 
@@ -45,7 +45,7 @@ Här följer några exempel på när du kan bjuda in gäster till din organisati
 
 ## <a name="how-does-collaboration-using-b2b-guests-work"></a>Hur fungerar samarbete med B2B-gäster?
 
-När du använder B2B-samarbete kan du bjuda in en extern användare till din organisation som gäst. Gästen kan hanteras som en användare i din organisation, men en gäst måste autentiseras i sin hem organisation och inte i din Azure AD-organisation. Det innebär att om gästen inte längre har åtkomst till sin hem organisation, förlorar de också åtkomst till din organisation. Om gästen till exempel lämnar sin organisation förlorar de automatiskt åtkomst till de resurser som du har delat med dem i Azure AD utan att du behöver göra något. Mer information om B2B-samarbete finns i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+När du använder B2B-samarbete kan du bjuda in en extern användare till din organisation som gäst. Gästen kan hanteras som en användare i din organisation, men en gäst måste autentiseras i sin hem organisation och inte i din Azure AD-organisation. Det innebär att om gästen inte längre har åtkomst till sin hem organisation, förlorar de också åtkomst till din organisation. Om gästen till exempel lämnar sin organisation förlorar de automatiskt åtkomst till de resurser som du har delat med dem i Azure AD utan att du behöver göra något. Mer information om B2B-samarbete finns i [Vad är gäst användar åtkomst i Azure Active Directory B2B?](../external-identities/what-is-b2b.md).
 
 ![Diagram över hur en gäst användare autentiseras i sin Hem Katalog](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
@@ -166,4 +166,4 @@ Du kan visa gransknings loggar för att hålla reda på vad gästerna gör.
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tilldela administratörs roller för Azure AD i Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Vad är gäst användar åtkomst i Azure AD B2B-samarbete?](../b2b/what-is-b2b.md)
+- [Vad är gäst användar åtkomst i Azure AD B2B-samarbete?](../external-identities/what-is-b2b.md)

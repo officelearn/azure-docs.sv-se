@@ -3,12 +3,12 @@ title: Återställa Azure-filresurser med REST API
 description: Lär dig hur du använder REST API för att återställa Azure-filresurser eller vissa filer från en återställnings punkt som skapats av Azure Backup
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 3a1f2999fa1b50507fd3d1b6f21f508ec9f82841
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60c73caa5db684e38b94b4d5786f2fd24aa65d08
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538164"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761805"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Återställa Azure-filresurser med hjälp av REST API
 
@@ -20,7 +20,7 @@ I slutet av den här artikeln får du lära dig hur du utför följande åtgärd
 * Återställa en fullständig Azure-filresurs.
 * Återställa enskilda filer eller mappar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi förutsätter att du redan har en säkerhetskopierad fil resurs som du vill återställa. Om du inte gör det kontrollerar du [säkerhets kopiering av Azure-filresurs med REST API](backup-azure-file-share-rest-api.md) för att lära dig hur du skapar en.
 
@@ -64,7 +64,7 @@ Hämta URI har alla nödvändiga parametrar. Det behövs ingen ytterligare bröd
 GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare;azurefiles/recoveryPoints?api-version=2019-05-13
 ```
 
-### <a name="example-response"></a>Exempelsvar
+### <a name="example-response-for-fetch-recovery-points"></a>Exempel svar för hämtning av återställnings punkter
 
 När Hämta URI har skickats returneras ett 200-svar:
 
@@ -168,7 +168,7 @@ En fullständig lista över definitioner av begär ande texten och annan informa
 
 ### <a name="restore-to-original-location"></a>Återställ till ursprunglig plats
 
-#### <a name="request-body-example"></a>Exempel på begär ande text
+#### <a name="request-body-example-for-restore-to-original-location"></a>Exempel på begäran om att återställa till den ursprungliga platsen
 
 Följande begär ande text definierar egenskaper som krävs för att utlösa en Azure-fil resurs återställning:
 
@@ -192,7 +192,7 @@ Ange följande parametrar för alternativ plats återställning:
 * **namn**: fil resursen på mål lagrings kontot som det säkerhetskopierade innehållet återställs till.
 * **targetFolderPath**: mappen under den fil resurs som data återställs till.
 
-#### <a name="request-body-example"></a>Exempel på begär ande text
+#### <a name="request-body-example-for-restore-to-alternate-location"></a>Exempel på begäran om att återställa till en annan plats
 
 Följande begär ande brödtext återställer fil resursen *migreringsåtgärden* i *afsaccount* Storage-kontot till *azurefiles1* -filresursen i *afaccount1* -lagrings kontot.
 
@@ -366,7 +366,7 @@ Värdena {containerName} och {protectedItemName} anges [här](#fetch-containerna
 POST https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;azurefiles;afsaccount/protectedItems/AzureFileShare%3Bazurefiles/recoveryPoints/932886657837421071/restore?api-version=2019-05-13'
 ```
 
-### <a name="create-request-body"></a>Skapa brödtext för begäran
+### <a name="create-request-body-for-item-level-recovery-using-rest-api"></a>Skapa begär ande text för återställning på objekt nivå med REST API
 
 För att utlösa en återställning för en Azure-filresurs är följande komponenter i begär ande texten:
 
@@ -376,7 +376,7 @@ Egenskaper | AzureFileShareRestoreRequest | Egenskaper för RestoreRequestResour
 
 En fullständig lista över definitioner av begär ande texten och annan information finns i [Återställnings REST API dokumentet](/rest/api/backup/restores/trigger#request-body).
 
-### <a name="restore-to-original-location"></a>Återställ till ursprunglig plats
+### <a name="restore-to-original-location-for-item-level-recovery-using-rest-api"></a>Återställ till den ursprungliga platsen för återställning på objekt nivå med REST API
 
 Följande brödtext i begäran är att återställa *Restoretest.txt* -filen i *migreringsåtgärden* -filresursen i *afsaccount* Storage-kontot.
 
@@ -402,7 +402,7 @@ Skapa brödtext för begäran
 }
 ```
 
-### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
+### <a name="restore-to-alternate-location-for-item-level-recovery-using-rest-api"></a>Återställ till en alternativ plats för återställning på objekt nivå med REST API
 
 Följande brödtext i begäran är att återställa *Restoretest.txt* -filen i *migreringsåtgärden* -filresursen i *afsaccount* -lagrings kontot till mappen *restoredata* i *azurefiles1* -filresursen i *afaccount1* lagrings konto.
 

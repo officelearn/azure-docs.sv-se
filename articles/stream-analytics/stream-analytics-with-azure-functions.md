@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77589461"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Självstudie: köra Azure Functions från Azure Stream Analytics-jobb 
@@ -52,7 +52,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Läs avsnittet [Skapa en funktionsapp](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) i dokumentationen till Functions. Det här avsnittet beskriver hur du skapar en Function-app och en [http-utlöst funktion i Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function)med hjälp av csharp-språket.  
 
-2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. Ersätt **"\<Azure-cachen för Redis-anslutningssträngen\>här"** med Azure-cachen för Redis primära anslutnings sträng som du hämtade i föregående avsnitt. 
+2. Gå till funktionen **run.csx**. Uppdatera den med nedanstående kod. Ersätt **" \<your Azure Cache for Redis connection string goes here\> "** med Azure cache för Redis primär anslutnings sträng som du hämtade i föregående avsnitt. 
 
     ```csharp
     using System;
@@ -140,9 +140,9 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
 
 1. Öppna ditt Stream Analytics-jobb på Azure-portalen.  
 
-2. Bläddra till din funktion och välj **Översikt** > **utdata** > **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Utdataadaptern för Functions har följande egenskaper:  
+2. Bläddra till din funktion och välj **Översikt**  >  **utdata**  >  **Lägg till**. Om du vill lägga till en ny utdatakanal väljer du **Azure-funktion** för kanalmottagaralternativet. Utdataadaptern för Functions har följande egenskaper:  
 
-   |**Egenskaps namn**|**Beskrivning**|
+   |**Egenskapsnamn**|**Beskrivning**|
    |---|---|
    |Utdataalias| Ett användarvänligt namn som du använder i jobbets fråga för att referera till utdata. |
    |Importalternativ| Du kan använda funktionen från den aktuella prenumerationen eller ange inställningarna manuellt om funktionen finns i en annan prenumeration. |
@@ -150,7 +150,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
    |Funktion| Namnet på funktionen i din Functions-app (namnet på din run.csx-funktion).|
    |Max batchstorlek|Anger den maximala storleken för varje utgående batch, som skickas till din funktion i byte. Som standard är värdet är inställt på 262 144 byte (256 kB).|
    |Max batchantal|Anger det maximala antalet händelser i varje batch som skickas till funktionen. Standardvärdet är 100. Den här egenskapen är valfri.|
-   |Nyckel|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
+   |Tangent|Gör att du kan använda en funktion från en annan prenumeration. Ange nyckelvärdet för att få åtkomst till din funktion. Den här egenskapen är valfri.|
 
 3. Ange ett namn för utdataaliaset. I den här självstudien får den namnet **saop1**, men du kan välja valfritt namn. Fyll i övrig information.
 
@@ -167,7 +167,7 @@ Följ anvisningarna i självstudien [Upptäck bedrägerier i realtid](stream-ana
         WHERE CS1.SwitchNum != CS2.SwitchNum
    ```
 
-5. Starta telcodatagen. exe-programmet genom att köra följande kommando på kommando raden. Kommandot använder formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`.  
+5. Starta telcodatagen.exe-programmet genom att köra följande kommando på kommando raden. Kommandot använder formatet `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]` .  
    
    ```cmd
    telcodatagen.exe 1000 0.2 2

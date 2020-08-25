@@ -83,6 +83,8 @@
           href: devtest-lab-internal-support-message.md
         - name: Ange principer och scheman
           href: devtest-lab-set-lab-policy.md
+        - name: "Konfigurera labbidentitet\_"
+          href: configure-lab-identity.md
         - name: Konfigurera ett labb för användning med en fjärrskrivbords-gateway
           href: configure-lab-remote-desktop-gateway.md
         - name: Publicera ett meddelande i ett labb
@@ -95,8 +97,6 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Skala ditt labb
           href: devtest-lab-scale-lab.md
-        - name: Aktivera hanterade identiteter för virtuella labbdatorer
-          href: enable-managed-identities-lab-vms.md
         - name: Hantera virtuella datorbaser
           items:
             - name: Konfigurera Azure Marketplace-avbildningar
@@ -167,6 +167,8 @@
           href: start-machines-use-automation-runbooks.md
         - name: Importera virtuella datorer från ett annat labb
           href: import-virtual-machines-from-another-lab.md
+        - name: Aktivera hanterade identiteter för virtuella labbdatorer
+          href: enable-managed-identities-lab-vms.md
     - name: Använd miljöer i ett labb
       items:
         - name: Skapa en miljö

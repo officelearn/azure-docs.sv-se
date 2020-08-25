@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1760c746aca439e19ab5727e5be02f6dbad3cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81535697"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782217"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -29,7 +29,7 @@ För att slutföra den här instruktionen:
 
 ## <a name="bind-the-domain-name-preemptively"></a>Bind domän namnet förebyggande syfte
 
-När du binder en anpassad domän förebyggande syfte utför du båda följande innan du gör några ändringar i dina DNS-poster:
+När du binder en anpassad domän förebyggande syfte utför du båda följande innan du gör några ändringar i dina befintliga DNS-poster:
 
 - Verifiera domän ägarskap
 - Aktivera domän namnet för din app
@@ -38,26 +38,24 @@ När du slutligen migrerar ditt anpassade DNS-namn från den gamla platsen till 
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
+### <a name="get-domain-verification-id"></a>Hämta ID för domän verifiering
+
+Hämta domän verifierings-ID: t för din app genom att följa stegen i [Hämta domän verifierings-ID](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+
 ### <a name="create-domain-verification-record"></a>Skapa domän verifierings post
 
-Om du vill verifiera domän ägarskapet lägger du till en TXT-post. TXT-posten mappar från _awverify. &lt; under domän>_ till _ &lt; appname>. azurewebsites.net_. 
-
-Den TXT-post du behöver beror på den DNS-post som du vill migrera. Exempel finns i följande tabell ( `@` vanligt vis representerar rot domänen):
+Om du vill verifiera domän ägarskapet lägger du till en TXT-post för domän verifiering. Värd namnet för TXT-posten beror på vilken typ av DNS-posttyp du vill mappa. Se följande tabell ( `@` normalt representerar rot domänen):
 
 | Exempel på DNS-post | TXT-värd | TXT-värde |
 | - | - | - |
-| \@skogen | _awverify_ | _&lt;APPNAME>. azurewebsites.net_ |
-| www (sub) | _awverify. www_ | _&lt;APPNAME>. azurewebsites.net_ |
-| \*användning | _awverify.\*_ | _&lt;APPNAME>. azurewebsites.net_ |
+| \@ skogen | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| www (sub) | _asuid. www_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \* användning | _asuid_ | [ID för domän verifiering för din app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
 
 På sidan DNS-poster noterar du post typen för det DNS-namn som du vill migrera. App Service stöder mappningar från CNAME-och A-poster.
 
 > [!NOTE]
-> För vissa leverantörer, till exempel CloudFlare, `awverify.*` är inte en giltig post. Använd `*` i stället.
-
-> [!NOTE]
 > Jokertecken `*` validerar inte under domäner med en befintlig CNAME-post. Du kan behöva skapa en TXT-post explicit för varje under domän.
-
 
 ### <a name="enable-the-domain-for-your-app"></a>Aktivera domänen för din app
 
@@ -69,7 +67,7 @@ På sidan **anpassade domäner** väljer du **+** ikonen bredvid **Lägg till v�
 
 ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Ange det fullständigt kvalificerade domän namnet som du har lagt till TXT-posten för, till exempel `www.contoso.com` . För en domän med jokertecken (till exempel \* . contoso.com) kan du använda alla DNS-namn som matchar domänen med jokertecken. 
+Skriv det fullständigt kvalificerade domän namnet som du vill migrera, som motsvarar den TXT-post som du skapar, till exempel `contoso.com` , `www.contoso.com` eller `*.contoso.com` .
 
 Välj **Verifiera**.
 
@@ -121,7 +119,7 @@ Spara inställningarna.
 
 DNS-frågor ska börja matcha till din App Service-app omedelbart efter det att DNS-spridningen sker.
 
-## <a name="active-domain-in-azure"></a>Aktiv domän i Azure
+## <a name="migrate-domain-from-another-app"></a>Migrera domän från en annan app
 
 Du kan migrera en aktiv anpassad domän i Azure, mellan prenumerationer eller inom samma prenumeration. En sådan migrering utan drift stopp kräver att käll appen och mål appen tilldelas samma anpassade domän vid en viss tidpunkt. Därför måste du kontrol lera att de två apparna inte har distribuerats till samma distributions enhet (internt kallat ett webb utrymme). Ett domän namn kan bara tilldelas en app i varje distributions enhet.
 

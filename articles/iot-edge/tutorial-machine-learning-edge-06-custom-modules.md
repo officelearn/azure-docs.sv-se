@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0726edae7c5f44fae7f573559d561e7ef5773e71
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85801313"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudie: skapa och distribuera anpassade IoT Edge-moduler

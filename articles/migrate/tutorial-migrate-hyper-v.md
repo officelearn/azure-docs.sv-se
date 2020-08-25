@@ -7,10 +7,10 @@ ms.custom:
 - MVC
 - fasttrack-edit
 ms.openlocfilehash: 0e909a91d610c032bc1d9d003efae7c555afd8bc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86108234"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
@@ -31,7 +31,7 @@ Den här självstudien är den tredje i en serie som visar hur du bedömer och m
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering av virtuella datorer.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -42,7 +42,7 @@ Innan du börjar de här självstudierna bör du:
 1. [Granska](hyper-v-migration-architecture.md) arkitekturen för Hyper-V-migrering.
 2. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) Krav för Hyper-V-värden för migrering och de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
 3. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) kraven för virtuella Hyper-V-datorer som du vill migrera till Azure.
-4. Vi rekommenderar att du [bedömer virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) innan du migrerar dem till Azure, men du behöver inte.
+4. Vi rekommenderar att du  [bedömer virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) innan du migrerar dem till Azure, men du behöver inte.
 
    
 ## <a name="add-the-azure-migrateserver-migration-tool"></a>Lägg till verktyget Azure Migrate: Migreringsverktyg för Server

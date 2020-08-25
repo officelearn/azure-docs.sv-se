@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: trbye
 ms.openlocfilehash: c4195ff1b81097a3620f68939f32147a26e16d60
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391612"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>Snabb start: Hämta en LUIS-slutpunkt-nyckel
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande saker innan du påbörjar den här självstudien:
 

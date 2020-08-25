@@ -4,10 +4,10 @@ description: I den här självstudien använder du Azure Lab Services för att s
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85445142"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
@@ -21,7 +21,7 @@ I den här självstudien gör du följande:
 > * Ange schema för labbet
 > * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien skapar du ett labb med virtuella datorer för din klass. Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen. Så du kan använda det användar konto som du använde för att skapa ett labb konto för att skapa ett klass rums labb. 
 
 Här är det vanligaste arbets flödet när du använder Azure Lab Services:

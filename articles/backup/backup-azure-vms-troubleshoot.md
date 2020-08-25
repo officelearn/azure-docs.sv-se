@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 0f598e0058d817fbba8d816500ab252134be0eb5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: f6085554f64c71c66587587ee03a58ee73c6639a
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371744"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761771"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -56,7 +56,7 @@ Fel meddelande: det gick inte att kopiera säkerhetskopierade data från valvet
 
 Detta kan inträffa på grund av tillfälliga lagrings fel eller otillräckligt lagrings konto IOPS för säkerhets kopierings tjänsten för att överföra data till valvet inom tids gränsen. Konfigurera säkerhets kopiering av virtuella datorer med dessa [metod tips](backup-azure-vms-introduction.md#best-practices) och försök att säkerhetskopiera igen.
 
-### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState-VM är inte i ett tillstånd som tillåter säkerhets kopieringar
+### <a name="usererrorvmnotindesirablestate---vm-is-not-in-a-state-that-allows-backups"></a>UserErrorVmNotInDesirableState – Den virtuella datorn är i ett tillstånd som inte tillåter säkerhetskopieringar
 
 Felkod: UserErrorVmNotInDesirableState <br/>
 Fel meddelande: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar.<br/>
@@ -162,7 +162,7 @@ Säkerhets kopierings åtgärden misslyckades på grund av ett inkonsekvent till
 
 ### <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError-åtgärden misslyckades eftersom gränsen för ögonblicks bilder har överskridits för vissa av diskarna
 
-Felkod: ExtensionFailedSnapshotLimitReachedError <br/>
+Felkod: ExtensionFailedSnapshotLimitReachedError  <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom ögonblicks bilds gränsen har överskridits för vissa av diskarna som är anslutna
 
 Det gick inte att utföra ögonblicks bild åtgärden eftersom gränsen för ögonblicks bilder har överskridits för vissa av de anslutna diskarna. Slutför nedanstående fel söknings steg och försök sedan igen.
@@ -248,7 +248,7 @@ Felkod: ExtensionVCRedistInstallationFailure <br/> Fel meddelande: ögonblicks b
 * Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.
 * Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE \software\classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.
 
-### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden
+### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – En ogiltig princip har konfigurerats på den virtuella datorn vilket förhindrar att åtgärden utförs för ögonblicksbilden
 
 Felkod: UserErrorRequestDisallowedByPolicy <BR> Fel meddelande: en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden.
 
@@ -289,23 +289,23 @@ Om säkerhets kopieringen tar mer än 12 timmar, eller om det tar längre tid ä
 
 Normalt finns VM-agenten redan i virtuella datorer som skapas från Azure-galleriet. Men virtuella datorer som migreras från lokala data Center kommer inte att ha VM-agenten installerad. VM-agenten måste installeras explicit för de virtuella datorerna.
 
-#### <a name="windows-vms"></a>Virtuella Windows-datorer
+#### <a name="windows-vms---set-up-the-agent"></a>Virtuella Windows-datorer – Konfigurera agenten
 
 * Ladda ned och installera [agentens MSI-fil](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Du måste ha administratörs behörighet för att slutföra installationen.
 * För virtuella datorer som skapats med den klassiska distributions modellen [uppdaterar du egenskapen VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) för att ange att agenten är installerad. Det här steget krävs inte för Azure Resource Manager virtuella datorer.
 
-#### <a name="linux-vms"></a>Virtuella Linux-datorer
+#### <a name="linux-vms---set-up-the-agent"></a>Virtuella Linux-datorer – Konfigurera agenten
 
 * Installera den senaste versionen av agenten från distributions platsen. Mer information om paket namnet finns i Linux- [agentens lagrings plats](https://github.com/Azure/WALinuxAgent).
 * För virtuella datorer som skapats med den klassiska distributions modellen [uppdaterar du egenskapen VM](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) och kontrollerar att agenten är installerad. Det här steget krävs inte för virtuella Resource Manager-datorer.
 
 ### <a name="update-the-vm-agent"></a>Uppdatera VM-agenten
 
-#### <a name="windows-vms"></a>Virtuella Windows-datorer
+#### <a name="windows-vms---update-the-agent"></a>Virtuella Windows-datorer – uppdatera agenten
 
 * Om du vill uppdatera VM-agenten installerar du om [binärfilerna för VM-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Innan du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder sker under uppdateringen av VM-agenten.
 
-#### <a name="linux-vms"></a>Virtuella Linux-datorer
+#### <a name="linux-vms---update-the-agent"></a>Virtuella Linux-datorer – uppdatera agenten
 
 * Uppdatera Linux VM-agenten genom att följa anvisningarna i artikeln [Uppdatera Linux VM-agenten](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 

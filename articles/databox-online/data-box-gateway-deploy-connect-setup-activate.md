@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
 ms.openlocfilehash: 78c06cc7f08fe94a25ea63d9bf76cc1352d9f2b7
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82561665"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Självstudie: ansluta, konfigurera, aktivera Azure Data Box Gateway
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Ansluta till en virtuell enhet
 > * Konfigurera och aktivera den virtuella enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du konfigurerar och konfigurerar Data Box Gateway bör du kontrol lera att:
 
@@ -41,7 +41,7 @@ Innan du konfigurerar och konfigurerar Data Box Gateway bör du kontrol lera att
 
 1. Öppna ett webbläsarfönster och öppna det lokala webb gränssnittet för enheten på:
    
-   https:\//IP-Address-of-Network-Interface
+   https: \/ /IP-Address-of-Network-Interface
    
    Använd anslutnings-URL: en som anges i föregående självstudie. Du ser ett fel eller en varning som anger att det är problem med webbplatsens säkerhetscertifikat.
 
@@ -88,7 +88,7 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
    
    På sidan **webbproxy** gör du följande:
    
-   1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://&lt;host-IP address or FQDN&gt;:Port number`. HTTPS-URL: er stöds inte.
+   1. I rutan **webbproxy-URL** anger du webb adressen i följande format: `http://&lt;host-IP address or FQDN&gt;:Port number` . HTTPS-URL: er stöds inte.
    2. Under **autentisering**väljer du **ingen** eller **NTLM**.
    3. Om du använder autentisering anger du ett **användar namn** och **lösen ord**.
    4. Om du vill validera och tillämpa de konfigurerade webbproxyinställningarna väljer du **tillämpa**.
@@ -109,7 +109,7 @@ På instrument panelen visas de olika inställningar som krävs för att konfigu
     1. I list rutan **tids zon** väljer du den tidszon som motsvarar den geografiska plats där enheten distribueras.
         Standard tids zonen för enheten är PST. Enheten använder den här tidszonen för alla schemalagda åtgärder.
 
-    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet `time.windows.com`.   
+    2. Ange en **primär NTP-server** för din enhet eller acceptera standardvärdet `time.windows.com` .   
         Kontrollera att ditt nätverk tillåter att NTP-trafik skickas från ditt datacenter till Internet.
 
     3. Alternativt kan du ange en sekundär server för enheten i rutan **sekundär NTP-server** .

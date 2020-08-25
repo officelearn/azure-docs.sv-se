@@ -12,10 +12,10 @@ ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
 ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "81000254"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > * Ansluta enheter till ditt program
 > * Lägg till regler och åtgärder för att övervaka villkor
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här själv studie serien behöver du:
 * En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -146,7 +146,7 @@ Så här lägger du till en RuuviTag enhets mal len i programmet:
 
 1. Sök efter och välj mallen **RuuviTag** sensor Device i Azure IoT-katalogen. 
 
-1. Välj **Nästa: anpassa**.
+1. Välj **Nästa: Anpassa**.
 
     ![Mall för Azure IoT Central RuuviTag sensor enhet](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
@@ -244,7 +244,7 @@ Så här skapar du en regel:
 
 1. Välj **regler**.
 
-1. Välj **+ ny**.
+1. Välj **+ Ny**.
 
 1. Ange *fuktighets nivån* som regelns namn. 
 

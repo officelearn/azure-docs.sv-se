@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Azure Bac
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28645311328a2e2054851af6bacf07927eaa88aa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76989577"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761125"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 
@@ -47,22 +47,6 @@ Ja, du kan visa rapporter över valv och prenumerationer samt regioner. Dina dat
 ### <a name="can-i-view-reports-across-tenants"></a>Kan jag visa rapporter mellan klienter?
 
 Om du är en [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) -användare med delegerad åtkomst till dina kunders prenumerationer eller La arbets ytor kan du använda säkerhets kopierings rapporter för att visa data över alla dina klienter.
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Hur lång tid tar det för jobb status för Azure Backup-agenten att avspeglas i portalen?
-
-Det kan ta upp till 15 minuter för Azure Portal att avspegla jobb statusen för Azure Backup Agent.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Hur lång tid tar det innan en avisering utlöses när ett säkerhetskopieringsjobb misslyckas?
-
-En avisering aktive ras inom 20 minuter efter ett Azure Backup-haveri.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Finns det ett fall där ett e-postmeddelande inte skickas om meddelanden har kon figurer ATS?
-
-Ja. I följande situationer skickas inte meddelanden.
-
-* Om meddelanden konfigureras varje timme och en avisering höjs och löses inom timmen
-* När ett jobb avbryts
-* Om ett andra säkerhets kopierings jobb Miss lyckas eftersom det ursprungliga säkerhets kopierings jobbet pågår
 
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 

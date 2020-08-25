@@ -1,5 +1,5 @@
 ---
-title: Självstudie`:` Använd en hanterad identitet för att komma åt Azure Resource Manager-Windows-Azure AD
+title: Självstudie `:` Använd en hanterad identitet för att komma åt Azure Resource Manager-Windows-Azure AD
 description: En självstudiekurs som beskriver steg för steg hur du använder en användartilldelad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75977843"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Självstudie: Använd en användardefinierad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
@@ -39,11 +39,11 @@ Lär dig att:
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-- [Logga in på Azure-portalen](https://portal.azure.com)
+- [Logga in på Azure Portal](https://portal.azure.com)
 
 - [Skapa en virtuell Windows-dator](/azure/virtual-machines/windows/quick-create-portal)
 
@@ -129,7 +129,7 @@ CanDelegate: False
 
 Under resten av självstudiekursen arbetar du från den virtuella datorn som vi skapade tidigare.
 
-1. Logga in på Azure Portal på[https://portal.azure.com](https://portal.azure.com)
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com)
 
 2. Gå till **Virtuella datorer** på portalen, gå till den virtuella Windows-datorn och klicka sedan på **Anslut** under **Översikt**.
 
@@ -137,7 +137,7 @@ Under resten av självstudiekursen arbetar du från den virtuella datorn som vi 
 
 4. Nu när du har skapat en **anslutning till fjärrskrivbord** med den virtuella datorn öppnar du **PowerShell** i fjärrsessionen.
 
-5. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Resource Manager.  `client_id` Värdet är det värde som returneras när du skapade den användarspecifika hanterade identiteten.
+5. Använd PowerShells `Invoke-WebRequest` och skicka en begäran till den lokala slutpunkten för hanterade identiteter för Azure-resurser för att hämta en åtkomsttoken för Azure Resource Manager.  `client_id`Värdet är det värde som returneras när du skapade den användarspecifika hanterade identiteten.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}

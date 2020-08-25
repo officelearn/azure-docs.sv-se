@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 595291549b4d181967ea168d0dc71bc7e2237a67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48b5a8c596ec5b23d2962acb9c1f95a1d5aafbc0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514211"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761686"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -23,7 +23,7 @@ Anta att du vill skydda en virtuell dator "testVM" under en resurs grupp "testRG
 
 ### <a name="discover-unprotected-azure-vms"></a>Identifiera oskyddade virtuella Azure-datorer
 
-Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses med hjälp av [uppdaterings åtgärden](/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post* -åtgärd som ser till att valvet får den senaste listan över alla oskyddade virtuella datorer i den aktuella prenumerationen och cachelagrar dem. När den virtuella datorn är "cachelagrad" kommer återställnings tjänster att kunna komma åt den virtuella datorn och skydda den.
+Först ska valvet kunna identifiera den virtuella Azure-datorn. Detta utlöses med hjälp av [uppdaterings åtgärden](/rest/api/backup/protectioncontainers/refresh). Det är en asynkron *post*  -åtgärd som ser till att valvet får den senaste listan över alla oskyddade virtuella datorer i den aktuella prenumerationen och cachelagrar dem. När den virtuella datorn är "cachelagrad" kommer återställnings tjänster att kunna komma åt den virtuella datorn och skydda den.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
@@ -35,7 +35,7 @@ POST-URI: n har `{subscriptionId}` , `{vaultName}` , `{vaultresourceGroupName}` 
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Svar
+#### <a name="responses-to-refresh-operation"></a>Svar på uppdaterings åtgärden
 
 Åtgärden Uppdatera är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -46,7 +46,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |204 inget innehåll     |         |  OK utan innehåll som returneras      |
 |202 accepterad     |         |     Har godkänts    |
 
-##### <a name="example-responses"></a>Exempel svar
+##### <a name="example-responses-to-refresh-operation"></a>Exempel svar för uppdaterings åtgärd
 
 När *post* -begäran har skickats returneras ett 202-svar (accepterat).
 
@@ -92,7 +92,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="selecting-the-relevant-azure-vm"></a>Välja relevant virtuell Azure-dator
 
- Du kan bekräfta att "cachelagring" görs genom att [lista alla objekt](/rest/api/backup/backupprotectableitems/list) som kan skyddas under prenumerationen och hitta önskad virtuell dator i svaret. [Svaret på den här åtgärden](#example-responses-1) ger också information om hur Recovery Services identifierar en virtuell dator.  När du känner till mönstret kan du hoppa över det här steget och fortsätta att [aktivera skyddet](#enabling-protection-for-the-azure-vm)direkt.
+ Du kan bekräfta att "cachelagring" görs genom att [lista alla objekt](/rest/api/backup/backupprotectableitems/list) som kan skyddas under prenumerationen och hitta önskad virtuell dator i svaret. [Svaret på den här åtgärden](#example-responses-to-get-operation) ger också information om hur Recovery Services identifierar en virtuell dator.  När du känner till mönstret kan du hoppa över det här steget och fortsätta att [aktivera skyddet](#enabling-protection-for-the-azure-vm)direkt.
 
 Den här åtgärden är en *Get* -åtgärd.
 
@@ -102,13 +102,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *Hämta* URI har alla nödvändiga parametrar. Ingen ytterligare begär ande text krävs.
 
-#### <a name="responses"></a><a name="responses-1"></a>Svar
+#### <a name="responses-to-get-operation"></a>Svar för att hämta åtgärd
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
-#### <a name="example-responses"></a><a name="example-responses-1"></a>Exempel svar
+#### <a name="example-responses-to-get-operation"></a>Exempel svar för att hämta åtgärd
 
 När *Get* -begäran har skickats returneras ett 200-svar (OK).
 
@@ -152,8 +152,8 @@ X-Powered-By: ASP.NET
 Svaret innehåller en lista över alla oskyddade virtuella Azure-datorer och varje `{value}` innehåller all information som krävs av Azure Recovery Service för att konfigurera säkerhets kopiering. Om du vill konfigurera säkerhets kopiering noterar du `{name}` fältet och `{virtualMachineId}` fältet i `{properties}` avsnittet. Konstruera två variabler från dessa fält värden enligt vad som anges nedan.
 
 - containerName = "iaasvmcontainer;" +`{name}`
-- protectedItemName = "VM;" +`{name}`
-- `{virtualMachineId}`används senare i [begär ande texten](#example-request-body)
+- protectedItemName = "VM;" + `{name}`
+- `{virtualMachineId}` används senare i [begär ande texten](#example-request-body)
 
 I exemplet översätts ovanstående värden till:
 
@@ -200,9 +200,9 @@ Följande begär ande text definierar egenskaper som krävs för att skapa ett s
 }
 ```
 
-`{sourceResourceId}`Är det `{virtualMachineId}` som nämns ovan från [svar på listan över skrivskyddade objekt](#example-responses-1).
+`{sourceResourceId}`Är det `{virtualMachineId}` som nämns ovan från [svar på listan över skrivskyddade objekt](#example-responses-to-get-operation).
 
-#### <a name="responses"></a>Svar
+#### <a name="responses-to-create-protected-item-operation"></a>Svar för att skapa skyddad objekt åtgärd
 
 Att skapa ett skyddat objekt är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -213,7 +213,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |200 OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 accepterad     |         |     Har godkänts    |
 
-##### <a name="example-responses"></a>Exempel svar
+##### <a name="example-responses-to-create-protected-item-operation"></a>Exempel svar för att skapa skyddad objekt åtgärd
 
 När du skickar in *begäran om att skapa* eller uppdatera skyddade objekt är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
@@ -284,13 +284,13 @@ Att utlösa en säkerhets kopiering på begäran är en *post* -åtgärd.
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/backup?api-version=2016-12-01
 ```
 
-`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}`Är "Azure". I vårt exempel översätts detta till:
+`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-to-get-operation). `{fabricName}`Är "Azure". I vårt exempel översätts detta till:
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
 ```
 
-### <a name="create-the-request-body"></a>Skapa begär ande texten
+### <a name="create-the-request-body-for-on-demand-backup"></a>Skapa begär ande texten för säkerhets kopiering på begäran
 
 Om du vill utlösa en säkerhets kopiering på begäran, följer du komponenterna i begär ande texten.
 
@@ -300,7 +300,7 @@ Om du vill utlösa en säkerhets kopiering på begäran, följer du komponentern
 
 En fullständig lista över definitioner av begär ande texten och annan information finns i [Utlös säkerhets kopiering för skyddade objekt REST API dokument](/rest/api/backup/backups/trigger#request-body).
 
-#### <a name="example-request-body"></a>Exempel på begär ande text
+#### <a name="example-request-body-for-on-demand-backup"></a>Exempel på begäran om säkerhets kopiering på begäran
 
 Följande begär ande text definierar egenskaper som krävs för att utlösa en säkerhets kopia för ett skyddat objekt. Om kvarhållning inte anges kommer den att behållas i 30 dagar från den tidpunkt då säkerhets kopierings jobbet utlöses.
 
@@ -313,7 +313,7 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 }
 ```
 
-### <a name="responses"></a>Svar
+### <a name="responses-for-on-demand-backup"></a>Svar för säkerhets kopiering på begäran
 
 Att utlösa en säkerhets kopiering på begäran är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -323,7 +323,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |---------|---------|---------|
 |202 accepterad     |         |     Har godkänts    |
 
-#### <a name="example-responses"></a><a name="example-responses-3"></a>Exempel svar
+#### <a name="example-responses-for-on-demand-backup"></a>Exempel svar för säkerhets kopiering på begäran
 
 När du har skickat in *post* -begäran för en säkerhets kopiering på begäran är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
@@ -399,7 +399,7 @@ Om du vill ändra principen som den virtuella datorn är skyddad med kan du anv�
 }
 ```
 
-Svaret följer samma format som det som nämnts [för att aktivera skydd](#responses-2)
+Svaret följer samma format som det som nämnts [för att aktivera skydd](#responses-to-create-protected-item-operation)
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Stoppa skyddet men behåll befintliga data
 
@@ -415,7 +415,7 @@ Ta bort skyddet för en skyddad virtuell dator men Behåll de data som redan har
 }
 ```
 
-Svaret följer samma format som det som nämnts [för att utlösa en säkerhets kopiering på begäran](#example-responses-3). Det resulterande jobbet bör spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Svaret följer samma format som det som nämnts [för att utlösa en säkerhets kopiering på begäran](#example-responses-for-on-demand-backup). Det resulterande jobbet bör spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ### <a name="stop-protection-and-delete-data"></a>Stoppa skyddet och ta bort data
 
@@ -427,13 +427,13 @@ Att stoppa skyddet och ta bort data är en *borttagnings* åtgärd.
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-1). `{fabricName}`är "Azure". I vårt exempel översätts detta till:
+`{containerName}`Och `{protectedItemName}` är som konstruerade [ovan](#responses-to-get-operation). `{fabricName}` är "Azure". I vårt exempel översätts detta till:
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-#### <a name="responses"></a><a name="responses-2"></a>Svar
+#### <a name="responses-for-delete-protection"></a>Svar för borttagnings skydd
 
 *Borttagning* av skydd är en [asynkron åtgärd](../azure-resource-manager/management/async-operations.md). Det innebär att den här åtgärden skapar en annan åtgärd som måste spåras separat.
 
@@ -445,13 +445,13 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 |202 accepterad     |         |     Har godkänts    |
 
 > [!IMPORTANT]
-> För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services-valvet. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).
+> För att skydda mot oavsiktliga borttagnings scenarier finns det en [funktion för mjuk borttagning](use-restapi-update-vault-properties.md#soft-delete-state) som är tillgänglig för Recovery Services valv. Om det mjuka borttagnings läget för valvet är inställt på aktive rad tas inte data bort direkt i borttagnings åtgärden. Den sparas i 14 dagar och rensas sedan permanent. Kunden debiteras inte för lagring under den här perioden på 14 dagar. Om du vill ångra borttagnings åtgärden läser du [avsnittet ångra-ta bort](#undo-the-stop-protection-and-delete-data).
 
 ### <a name="undo-the-stop-protection-and-delete-data"></a>Ångra stoppa skyddet och ta bort data
 
 Att ångra borttagningen av misstag liknar att skapa säkerhets kopierings objekt. När borttagningen har ångrats behålls objektet men inga framtida säkerhets kopieringar utlöses.
 
-Ångra borttagning *är en åtgärd* som liknar att [ändra principen](#changing-the-policy-of-protection) och/eller [aktivera skyddet](#enabling-protection-for-the-azure-vm). Ange bara avsikten att ångra borttagningen med variabeln *isRehydrate* i [begär ande texten](#example-request-body) och skicka begäran. Exempel: om du vill ångra borttagningen av testVM, ska följande begär ande text användas.
+Ångra borttagning *är en åtgärd* som liknar att [ändra principen](#changing-the-policy-of-protection) och/eller [aktivera skyddet](#enabling-protection-for-the-azure-vm). Ange bara avsikten att ångra borttagningen med variabeln *isRehydrate*  i [begär ande texten](#example-request-body) och skicka begäran. Exempel: om du vill ångra borttagningen av testVM, ska följande begär ande text användas.
 
 ```http
 {
@@ -464,7 +464,7 @@ Att ångra borttagningen av misstag liknar att skapa säkerhets kopierings objek
 }
 ```
 
-Svaret följer samma format som det som nämnts [för att utlösa en säkerhets kopiering på begäran](#example-responses-3). Det resulterande jobbet bör spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Svaret följer samma format som det som nämnts [för att utlösa en säkerhets kopiering på begäran](#example-responses-for-on-demand-backup). Det resulterande jobbet bör spåras enligt beskrivningen i [övervaknings jobben med REST API-dokument](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,10 +14,10 @@ ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77201306"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
@@ -32,7 +32,7 @@ Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuell
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](tutorial-connect-virtual-networks-cli.md) eller [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -44,19 +44,19 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. På fliken **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Prenumeration| Välj din prenumeration.|
     |Resursgrupp| Välj **Skapa ny** och skriv *myResourceGroup*.|
     |Region| Välj **USA, östra**.|
-    |Name|myVirtualNetwork1|
+    |Namn|myVirtualNetwork1|
 
 4. På fliken **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange *Subnet1* för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
 5. Välj **Granska + skapa** och välj sedan **skapa**.
    
 5. Utför steg 1–5 igen, med följande ändringar:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
@@ -73,7 +73,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**.
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Peer-kopplingens namn från myVirtualNetwork1 till ett virtuellt dator nätverk|myVirtualNetwork1-myVirtualNetwork2 – när sidan först läses in visas frasen "fjärran sluten virtuellt nätverk" här. När du har valt det virtuella fjärrnätverket ersätts frasen "fjärrstyrt nätverk" med namnet på det virtuella fjärrnätverket.|
     |Prenumeration| Välj din prenumeration.|
@@ -98,10 +98,10 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. Du kan välja ett annat operativsystem, men i återstående steg förutsätts att du har valt **Windows Server 2016 Datacenter**. 
 3. Ange eller välj följande information för **Grundinställningar**, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Resursgrupp| Välj **Använd befintlig** och välj sedan **myResourceGroup**.|
-    |Name|myVm1|
+    |Namn|myVm1|
     |Plats| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -109,7 +109,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 4. Välj en storlek på virtuell dator för alternativet **storlek** .
 5. Välj följande värden för under **nätverk**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Virtuellt nätverk| myVirtualNetwork1 – om det inte redan är valt väljer du **virtuellt nätverk** och väljer sedan **myVirtualNetwork1**.|
     |Undernät| Subnet1 – om det inte redan är valt väljer du **undernät** och sedan **Subnet1**.|
@@ -122,7 +122,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
 Utför steg 1–6 igen, med följande ändringar:
 
-|Inställning|Värde|
+|Inställningen|Värde|
 |---|---|
 |Namn | myVm2|
 |Virtuellt nätverk | myVirtualNetwork2|

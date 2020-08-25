@@ -7,10 +7,10 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79239219"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Självstudie: Lägg till Server dels lagring och konfigurera det virtuella namn området 
@@ -55,7 +55,7 @@ När du har lagt till en kärn fil fil kan du uppdatera dess inställningar på 
 
 ## <a name="add-a-core-filer"></a>Lägg till en kärn-filer
 
-Definiera en kärna genom att klicka på knappen **skapa** på sidan **Core** > -**filer hantera Core-Filskydd** .
+Definiera en kärna genom att klicka på knappen **skapa** på sidan **Core**-  >  **filer hantera Core-Filskydd** .
 
 ![Klicka på knappen Skapa ovanför listan över Core-på sidan Hantera core-filer](media/fxt-cluster-config/create-core-filer-button.png)
 
@@ -79,7 +79,7 @@ Under aktiviteter är:
 
   ![Cloud Core-information i guiden nya kärnor](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Om du redan har lagt till autentiseringsuppgifter för moln åtkomst för det här klustret visas de i listan. Uppdatera och Lägg till autentiseringsuppgifter på sidan Inställningar för **kluster** > **molnets autentiseringsuppgifter** . 
+  Om du redan har lagt till autentiseringsuppgifter för moln åtkomst för det här klustret visas de i listan. Uppdatera och Lägg till autentiseringsuppgifter på sidan Inställningar för **kluster**  >  **molnets autentiseringsuppgifter** . 
 
 När du har fyllt i alla nödvändiga inställningar i guiden klickar du på knappen **Lägg till** filer för att skicka ändringen.
 
@@ -129,7 +129,7 @@ Om du vill skapa en ny vserver behöver du följande information:
 
 * Om nätverket har VLAN, vilket VLAN som ska användas för den här vserver
 
-Använd sidan **vserver** > **Hantera VServers** -inställningar om du vill skapa en ny vserver. Mer information finns i [skapa en vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) i guiden kluster konfiguration. 
+Använd sidan **vserver**  >  **Hantera VServers** -inställningar om du vill skapa en ny vserver. Mer information finns i [skapa en vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) i guiden kluster konfiguration. 
 
 ![popup-fönster för att skapa en ny vserver](media/fxt-cluster-config/new-vserver.png)
 
@@ -141,7 +141,7 @@ Du kan använda det här systemet för att förenkla den sökväg som används i
 
 ![Guiden Lägg till ny Knut sida med inställningar ifyllda](media/fxt-cluster-config/add-junction-full.png)
 
-Mer information om hur du skapar en namn områdes Knut punkt finns i [ **vserver** > -namnrymden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) i kluster konfigurations guiden.
+Mer information om hur du skapar en namn områdes Knut punkt finns i [ **vserver**-  >  **namnrymden** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) i kluster konfigurations guiden.
 
 ![Sidan VServer > namn områdes inställningar som visar information om en förgrening](media/fxt-cluster-config/namespace-populated.png)
 
@@ -149,9 +149,9 @@ Mer information om hur du skapar en namn områdes Knut punkt finns i [ **vserver
 
 När du har både en vserver och en kärn fil, bör du anpassa export reglerna och export principerna som styr hur klienter kan komma åt filer på kärn filerna.
 
-Använd först sidan **vserver** > **export regler** om du vill lägga till nya regler, ändra standard principen eller skapa en egen anpassad export princip.
+Använd först sidan **vserver**  >  **export regler** om du vill lägga till nya regler, ändra standard principen eller skapa en egen anpassad export princip.
 
-Sedan använder du sidan **vserver** > **export policys** för att tillämpa den anpassade principen på dina kärn-filers exporter vid åtkomst via den vserver.
+Sedan använder du sidan **vserver**  >  **export policys** för att tillämpa den anpassade principen på dina kärn-filers exporter vid åtkomst via den vserver.
 
 Mer information finns i artikeln kluster konfigurations guiden för att [kontrol lera åtkomst till viktiga](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) filer.
 

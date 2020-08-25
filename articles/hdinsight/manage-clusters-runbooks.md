@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75553515"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Självstudie: Skapa Azure HDInsight-kluster med Azure Automation
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett befintligt [Azure Automation-konto](../automation/automation-quickstart-create-account.md).
 * Ett befintligt [Azure Storage-konto](../storage/common/storage-account-create.md)som kommer att användas som kluster lagring.
@@ -74,7 +74,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 1. Välj **Runbooks** under **process automatisering**.
 1. Välj **skapa en Runbook**.
-1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-create`. Välj **PowerShell** i list rutan **Runbook-typ** .
+1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-create` . Välj **PowerShell** i list rutan **Runbook-typ** .
 1. Välj **Skapa**.
 
     ![Skapa Runbook](./media/manage-clusters-runbooks/create-runbook.png)
@@ -130,7 +130,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 1. Välj **Runbooks** under **process automatisering**.
 1. Välj **skapa en Runbook**.
-1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-delete`. Välj **PowerShell** i list rutan **Runbook-typ** .
+1. På panelen **skapa en Runbook** anger du ett namn för runbooken, till exempel `hdinsight-cluster-delete` . Välj **PowerShell** i list rutan **Runbook-typ** .
 1. Välj **Skapa**.
 1. Ange följande kod på skärmen **Redigera PowerShell-Runbook** och välj **publicera**:
 
@@ -153,7 +153,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 ### <a name="create-a-cluster"></a>Skapa ett kluster
 
 1. Visa listan över Runbooks för ditt Automation-konto genom att välja **Runbooks** under **process automatisering**.
-1. Välj `hdinsight-cluster-create`eller det namn som du använde när du skapade en Runbook för att skapa klustret.
+1. Välj `hdinsight-cluster-create` eller det namn som du använde när du skapade en Runbook för att skapa klustret.
 1. Välj **Starta** för att köra runbooken omedelbart. Du kan också schemalägga att Runbooks ska köras regelbundet. Se [schemaläggning av en Runbook i Azure Automation](../automation/shared-resources/schedules.md)
 1. Ange de parametrar som krävs för skriptet och välj **OK**. Då skapas ett nytt HDInsight-kluster med det namn som du angav i parametern **kluster** namn.
 
@@ -161,7 +161,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 ### <a name="delete-a-cluster"></a>Ta bort ett kluster
 
-Ta bort klustret genom att välja `hdinsight-cluster-delete` den Runbook som du skapade. Välj **Start**, ange parametern **kluster** namn och sselect **OK**.
+Ta bort klustret genom att välja den `hdinsight-cluster-delete` Runbook som du skapade. Välj **Start**, ange parametern **kluster** namn och sselect **OK**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

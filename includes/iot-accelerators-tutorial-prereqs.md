@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
@@ -9,13 +9,13 @@ ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 99f8edd816688324058d80d92a5f97f6fa8b8263
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "67187773"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 

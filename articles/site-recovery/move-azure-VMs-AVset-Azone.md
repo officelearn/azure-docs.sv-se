@@ -8,10 +8,10 @@ ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
 ms.openlocfilehash: 7d92311dfa699247995c7ded3e3930e19a9a537a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86135471"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Flytta virtuella Azure-datorer till tillgänglighetszoner
@@ -85,7 +85,7 @@ Följande steg vägleder dig när du använder Azure Site Recovery för att akti
 
 1. I Azure Portal väljer du **virtuella datorer**och väljer den virtuella dator som du vill flytta till Tillgänglighetszoner.
 2. I **Åtgärder** väljer du **Haveriberedskap**.
-3. I **Konfigurera**  >  **mål region**för haveri beredskap väljer du den mål region som du vill replikera till. Se till att den här regionen [stöder](../availability-zones/az-region.md) Tillgänglighetszoner.
+3. I **Konfigurera haveriberedskap** > **Målregion** väljer du den målregion du ska replikera till. Se till att den här regionen [stöder](../availability-zones/az-region.md) Tillgänglighetszoner.
 
     ![Val av mål region](media/azure-vms-to-zones/enable-rep-1.PNG)
 
@@ -110,7 +110,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 
 ## <a name="test-the-configuration"></a>Testa konfigurationen
 
-1. I menyn virtuell dator väljer du **haveri beredskap**.
+1. I menyn virtuell dator väljer du  **haveri beredskap**.
 2. Välj ikonen **testa redundans** .
 3. I **testa redundans**väljer du en återställnings punkt som ska användas för redundansväxlingen:
 
@@ -129,7 +129,7 @@ När replikeringen har slutförts kan du kontrollera replikeringsstatus, ändra 
 
 ## <a name="move-to-the-target-region-and-confirm"></a>Flytta till mål regionen och bekräfta
 
-1.  I menyn virtuell dator väljer du **haveri beredskap**.
+1.  I menyn virtuell dator väljer du  **haveri beredskap**.
 2. Välj ikonen för **redundans** .
 3. I **Redundans** väljer du **Senaste**. 
 4. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av den virtuella källdatorn innan redundansen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa förloppet för redundansväxlingen på **jobb** sidan. 

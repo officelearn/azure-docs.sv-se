@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75971952"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
@@ -36,7 +36,7 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > [!NOTE]
 > Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -69,7 +69,7 @@ I det här avsnittet skapar du ett lagringskonto.
 Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
-2. Under **Blob Service** klickar du på **Containers**.
+2. Under **BLOB service**klickar du på **behållare**.
 3. Klicka på **+ Container** överst på sidan.
 4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
 

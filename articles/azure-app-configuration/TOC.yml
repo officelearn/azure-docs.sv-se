@@ -62,8 +62,14 @@
           href: use-key-vault-references-dotnet-core.md
         - name: Spring Boot
           href: use-key-vault-references-spring-boot.md
-    - name: Integrera med en CI/CD-pipeline
-      href: integrate-ci-cd-pipeline.md
+    - name: Integrering av CI/CD-pipeliner
+      items:
+        - name: Push-överföring med Azure-pipelines
+          href: push-kv-devops-pipeline.md
+        - name: Push-överföring med GitHub Actions
+          href: concept-github-action.md
+        - name: Skapa projekt med exporterad konfiguration
+          href: integrate-ci-cd-pipeline.md
     - name: Integrera med Kubernetes-distribution med hjälp av Helm
       href: integrate-kubernetes-deployment-helm.md
 - name: Exempel
@@ -81,8 +87,6 @@
       href: concept-point-time-snapshot.md
     - name: Funktionshantering
       href: concept-feature-management.md
-    - name: Synkronisera med GitHub Actions
-      href: concept-github-action.md
     - name: Händelsehantering
       href: concept-app-configuration-event.md
     - name: Säkerhet

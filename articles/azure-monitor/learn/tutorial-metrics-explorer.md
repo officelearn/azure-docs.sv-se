@@ -7,10 +7,10 @@ ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
 ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "79082820"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Självstudie: skapa ett mått diagram i Azure Monitor
@@ -27,13 +27,13 @@ Följande är en video som visar ett mer omfattande scenario än proceduren som 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du en Azure-resurs för att övervaka. Du kan använda vilken resurs som helst i din Azure-prenumeration som har stöd för mått. Ta reda på om en resurs stöder mått genom att gå till menyn i Azure Portal och kontrol lera att det finns ett **mått** alternativ i avsnittet **övervakning** på menyn.
 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com) .
 
 ## <a name="open-metrics-explorer-and-select-a-scope"></a>Öppna Metrics Explorer och välj ett omfång
 Du kan öppna Metrics Explorer antingen från Azure Monitor-menyn eller från en resurs meny i Azure Portal. Mått från alla resurser är tillgängliga oavsett vilket alternativ du använder. 

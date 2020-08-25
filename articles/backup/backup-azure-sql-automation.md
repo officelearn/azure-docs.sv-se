@@ -4,12 +4,12 @@ description: Säkerhetskopiera och Återställ SQL-databaser på virtuella Azure
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: a5b62b05c36afac078ccc7aeb7ed0e7259072fc1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513803"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761329"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -193,7 +193,7 @@ NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 
 
 ### <a name="registering-the-sql-vm"></a>Registrerar den virtuella SQL-datorn
 
-För virtuella Azure-säkerhetskopieringar och Azure-filresurser kan säkerhets kopierings tjänsten ansluta till dessa Azure Resource Manager resurser och hämta relevant information. Eftersom SQL är ett program i en virtuell Azure-dator måste säkerhets kopierings tjänsten ha behörighet att komma åt programmet och hämta nödvändig information. För att göra det måste du *Registrera* den virtuella Azure-datorn som innehåller SQL-programmet med ett Recovery Services-valv. När du registrerar en virtuell SQL-dator med ett valv kan du bara skydda SQL-databaser till det valvet. Använd [register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS-cmdlet för att registrera den virtuella datorn.
+För virtuella Azure-säkerhetskopieringar och Azure-filresurser kan säkerhets kopierings tjänsten ansluta till dessa Azure Resource Manager resurser och hämta relevant information. Eftersom SQL är ett program i en virtuell Azure-dator måste säkerhets kopierings tjänsten ha behörighet att komma åt programmet och hämta nödvändig information. För att göra det måste du *Registrera* den virtuella Azure-datorn som innehåller SQL-programmet med ett Recovery Services valv. När du registrerar en virtuell SQL-dator med ett valv kan du bara skydda SQL-databaser till det valvet. Använd [register-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer) PS-cmdlet för att registrera den virtuella datorn.
 
 ```powershell
  $myVM = Get-AzVM -ResourceGroupName <VMRG Name> -Name <VMName>
@@ -522,6 +522,7 @@ Om du vill redigera en befintlig princip använder du kommandot [set-AzRecoveryS
 ```powershell
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $Pol -SchedulePolicy $SchPol -RetentionPolicy $RetPol
 ```
+
 Kontrol lera säkerhets kopierings jobben efter en stund att spåra eventuella problem. I så fall måste du åtgärda problemen. Kör sedan kommandot edit policy igen med parametern **FixForInconsistentItems** för att försöka redigera principen på alla säkerhets kopierings objekt som åtgärden misslyckades tidigare.
 
 ```powershell

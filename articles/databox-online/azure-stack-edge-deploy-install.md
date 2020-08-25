@@ -10,10 +10,10 @@ ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
 ms.openlocfilehash: 429fe0c4db4a7825a6a98aa5d2cd6af609a34a61
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82571002"
 ---
 # <a name="tutorial-install-azure-stack-edge"></a>Självstudie: installera Azure Stack Edge
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 > * Rackmontera enheten
 > * Kabelansluta enheten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De nödvändiga komponenterna för att installera en fysisk enhet är följande:
 
@@ -86,7 +86,7 @@ Enheten måste installeras i ett 19-tums standardrack. Använd följande procedu
 > Azure Stack gräns enheter måste vara rack montering för att fungera korrekt.
 
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - Innan du börjar läser du säkerhets anvisningarna i broschyren om säkerhet, miljö och information. Broschyren levererades med enheten.
 - Börja installera räler på det tilldelade utrymmet som är närmast botten av rack inne slutningen.

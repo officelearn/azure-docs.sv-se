@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: 33a63280f6973d2c5e29db29f7a6f3fc68c57c77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ab7c2efc499c43245680e56a7e5ca1b5261397
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424775"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88748799"
 ---
 | Resurs | Gräns |
 | --- | --- |
@@ -17,7 +17,7 @@ ms.locfileid: "84424775"
 | Resurser per resurs grupp, per resurs typ |800 – vissa resurs typer kan överskrida gränsen på 800. Se [resurser som inte är begränsade till 800 instanser per resurs grupp](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md). |
 | Distributioner per resurs grupp i distributions historiken |800<sup>1</sup> |
 | Resurser per distribution |800 |
-| Hanterings lås per unik omfattning |20 |
+| Hanterings lås per unik [omfattning](../articles/azure-resource-manager/management/overview.md#understand-scope)  |20 |
 | Antal Taggar per resurs eller resurs grupp |50 |
 | Etikett nyckel längd |512 |
 | Tagg värde längd |256 |

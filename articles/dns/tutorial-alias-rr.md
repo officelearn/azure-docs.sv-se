@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76939255"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Självstudie: Skapa en aliaspost för att referera till en resurspost för zonen
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha ett domännamn tillgängligt som du kan ha i Azure DNS för att testa med. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
 Anvisningar för att vara värd för din domän i Azure DNS finns i [Självstudie: var värd för din domän i Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -57,8 +57,8 @@ Skapa en aliaspost för som pekar mot en resurspost i zonen.
 
 ## <a name="test-the-alias-record"></a>Testa aliasposten
 
-1. Starta ditt föredragna nslookup-verktyg. Ett alternativ är att bläddra till [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Ange frågetyp för A-poster och sök efter **test.\< ditt domännamn\>**. Svaret **10.10.10.10**.
+1. Starta ditt föredragna nslookup-verktyg. Ett alternativ är att bläddra till [https://network-tools.com/nslook](https://network-tools.com/nslook) .
+2. Ange frågetyp för en post och Sök efter **test. \<your domain name\> **.. Svaret **10.10.10.10**.
 3. I Azure-portalen, ändrar du **server** A-posten till **10.11.11.11**.
 4. Vänta några minuter och använd därefter nslookup igen för att **testa** posten. Svaret **10.11.11.11**.
 

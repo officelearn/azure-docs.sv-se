@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73890392"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Självstudie: del 2 – Visa dirigerade meddelanden
@@ -96,7 +96,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="create-the-stream-analytics-job"></a>Skapa Stream Analytics-jobbet
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs** > **Sakernas Internet** > **Stream Analytics jobb**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **skapa en resurs**  >  **Sakernas Internet**  >  **Stream Analytics jobb**.
 
 2. Ange följande information för jobbet.
 
@@ -162,7 +162,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurera frågan för Stream Analytics-jobbet
 
-1. Välj **Fråga** under **Jobbtopologi**.
+1. Under **jobb sto pol Ogin**väljer du **fråga**.
 
 2. Ersätt `[YourInputAlias]` med inmatat alias för jobbet. I självstudien används **contosoinputs**.
 
@@ -176,7 +176,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
-I Stream Analytics jobb väljer du **Starta** > **nu** > **.** När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
+I Stream Analytics jobb väljer du **Starta**  >  **nu**  >  **Start**. När jobbet startar ändras jobbstatusen från **Stoppad** till **Körs**.
 
 För att konfigurera Power BI-rapporten behöver du data, så du måste konfigurera Power BI när du har skapat enheten och kör enhetssimuleringsprogrammet.
 
@@ -280,7 +280,7 @@ Logga in på ditt [Power BI](https://powerbi.microsoft.com/)-konto. Gå till din
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Rensa resurser med hjälp av Azure CLI
 
-Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup`var inställd på att **ContosoResources** tillbaka i början av den här självstudien.
+Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` var inställd på att **ContosoResources** tillbaka i början av den här självstudien.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -288,7 +288,7 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Använd PowerShell för att rensa resurser
 
-Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup`var inställd på att **ContosoResources** tillbaka i början av den här självstudien.
+Om du vill ta bort resursgruppen använder du kommandot [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` var inställd på att **ContosoResources** tillbaka i början av den här självstudien.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup

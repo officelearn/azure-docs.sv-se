@@ -16,10 +16,10 @@ ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
 ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86057015"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudiekurs: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
@@ -39,7 +39,7 @@ Mer information om hur du använder tillgänglighetszoner med standardlastbalans
 
 Om du vill kan du slutföra den här självstudien med [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md).
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -56,7 +56,7 @@ En Standard Load Balancer stöder endast offentliga IP-standardadresser. När du
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
     | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLBAZ* i textrutan.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard**.                          |
@@ -204,7 +204,7 @@ Om du vill att lastbalanseraren ska övervaka status för din app kan du använd
 
 ### <a name="create-a-load-balancer-rule"></a>Skapa en lastbalanseringsregel
 
-En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen på klientdelen för inkommande trafik och IP-poolen på serverdelen för att ta emot trafik samt nödvändig käll- och målport. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* så att du kan lyssna på port 80 i klientdelen *FrontendLoadBalancer* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
+En lastbalanseringsregel används för att definiera hur trafiken ska distribueras till de virtuella datorerna. Du definierar IP-konfigurationen för den inkommande trafiken och IP-poolen i serverdelen som ska ta emot trafiken, samt nödvändiga käll- och målportar. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* så att du kan lyssna på port 80 i klientdelen *FrontendLoadBalancer* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
 
 1. Klicka på **alla resurser** i den vänstra menyn och klicka sedan på **myLoadBalancer** i listan resurser.
 2. Klicka på **Belastningsutjämningsregler** under **Inställningar** och klicka sedan på **Lägg till**.

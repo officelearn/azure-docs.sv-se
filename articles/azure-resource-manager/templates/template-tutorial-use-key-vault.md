@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
 ms.openlocfilehash: 73a50c282eee023bff525bc737bd2170938de1dc
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119284"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Självstudie: integrera Azure Key Vault i din distribution av ARM-mallar
@@ -31,7 +31,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Verifiera distributionen
 > * Rensa resurser
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -190,7 +190,7 @@ Genom att använda metoden med statisk ID behöver du inte göra några ändring
 
 När du har distribuerat den virtuella datorn testar du inloggnings uppgifterna med hjälp av lösen ordet som lagras i nyckel valvet.
 
-1. Öppna [Azure Portal](https://portal.azure.com).
+1. Öppna [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper**  >  **\<*YourResourceGroupName*>**  >  **simpleWinVM**.
 1. Välj **Anslut** högst upp.

@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: bb9a7a32306fc76ea8852787601f3b3b3828daf8
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: df5af780730f4f5b972107f50387dc0c58b80eaa
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611814"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761754"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -115,4 +115,3 @@ Om återställnings punkten har ögonblicks bilder och det är den senaste tillg
 ### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>Jag behöver inte omedelbar återställnings funktion. Kan den inaktive ras?
 
 Funktionen omedelbar återställning är aktive rad för alla och kan inte inaktive ras. Du kan minska ögonblicks bildens kvarhållning till minst en dag.
-

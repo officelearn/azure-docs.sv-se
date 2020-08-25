@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "73044652"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Självstudie: Konfigurera Apache HBase-principer i HDInsight med Enterprise Security Package
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -95,7 +95,7 @@ Du kan använda SSH för att ansluta till HBase-kluster och sedan använda [Apac
 
 Skapa en Ranger-princip för **sales_user1** och **marketing_user1**.
 
-1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på ** \<kluster namn>_hbase** under **HBase**.
+1. Öppna **Ranger-administratörsanvändargränssnittet**. Klicka på ** \<ClusterName> _Hbase** under **HBase**.
 
    ![HDInsight Apache Ranger-administratörs gränssnitt](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -161,7 +161,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit sales_user1
    ```
 
-2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`.
+2. Öppna HBase-gränssnittet och Genomsök tabellen `Customers` .
 
    ```hbaseshell
    hbase shell
@@ -203,7 +203,7 @@ Baserat på de konfigurerade Ranger-principerna kan **sales_user1** visa alla da
    kinit marketing_user1
    ```
 
-1. Öppna HBase-gränssnittet och Genomsök tabellen `Customers`:
+1. Öppna HBase-gränssnittet och Genomsök tabellen `Customers` :
 
     ```hbaseshell
     hbase shell
@@ -239,7 +239,7 @@ Om du inte planerar att fortsätta använda det här programmet tar du bort det 
 2. I rutan **Sök** längst upp skriver du **HDInsight**. 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 1. I listan över HDInsight-kluster som visas klickar du på **...** intill det kluster som du skapade för den här självstudien. 
-1. Klicka på **ta bort**. Klicka på **Ja**.
+1. Klicka på **Ta bort**. Klicka på **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 

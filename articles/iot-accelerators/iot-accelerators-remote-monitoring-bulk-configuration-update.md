@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
 ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77565586"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
@@ -31,7 +31,7 @@ I den här kursen får du:
 > * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 <!--
 If this is going to be a tutorial - we need to split this include into two so that we can accommodate the additional prerequisites:
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 

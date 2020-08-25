@@ -15,10 +15,10 @@ ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76834696"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
@@ -30,15 +30,15 @@ En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett loka
 > * Diagnostisera ett problem med en gatewayanslutning
 > * Lösa ett problem med en gateway
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha en befintlig, aktiv VPN-gateway för att kunna använda VPN-diagnostik. Om du inte har en befintlig VPN-gateway att diagnostisera kan du distribuera en med hjälp av ett [PowerShell-skript](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Du kan köra PowerShell-skriptet från:
-- **En lokal PowerShell-installation**: skriptet kräver Azure PowerShell `Az` -modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+- **En lokal PowerShell-installation**: skriptet kräver Azure PowerShell- `Az` modulen. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-Az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 - **Azure Cloud Shell**: Den senaste versionen av PowerShell är installerad och konfigurerad i [Azure Cloud Shell](https://shell.azure.com/powershell) och loggar in dig automatiskt i Azure.
 
 Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återstående stegen förutsätter vi att den gateway som du diagnostiserar är den som distribuerats med det här skriptet. Om du diagnostiserar en egen befintlig gateway i stället, kan resultatet variera.
@@ -51,7 +51,7 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 Om du redan har en aktiv nätverksbevakare i regionen USA, östra går du vidare till [Diagnostisera en gateway](#diagnose-a-gateway).
 
-1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** anger du *Network Watcher*. När **Network Watcher** visas i resultatet markerar du det.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)

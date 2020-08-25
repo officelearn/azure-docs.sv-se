@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
 ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86109628"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
@@ -26,14 +26,14 @@ Den här självstudien är den första i en serie som visar hur du kan utvärder
 > [!NOTE]
 > Självstudier visar dig den enklaste distributions Sök vägen för ett scenario så att du snabbt kan konfigurera ett koncept för koncept bevis. Självstudier använder standard alternativ där det är möjligt, och visar inte alla möjliga inställningar och sökvägar.
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
 ## <a name="prepare-azure"></a>Förbereda Azure
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Anvisningarna följer tabellen.
 
-**Uppgift** | **Detaljer** | **Behörigheter**
+**Aktivitet** | **Information** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-V-datorer. [Läs mer](migrate-appliance-architecture.md#appliance-registration). | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
@@ -100,7 +100,7 @@ Tilldela rollen virtuell dator deltagare till kontot så att du har behörighet 
 
 Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfigurations skript. Dessa är förberedelse stegen. Om du förbereder med ett skript konfigureras dessa automatiskt.
 
-**Aktivitets** | **Över** | **Manuell**
+**Steg** | **Skript** | **Manuell**
 --- | --- | ---
 **Kontrol lera krav för Hyper-V-värden** | Skript kontrollerar att värden kör en version av Hyper-V som stöds och Hyper-V-rollen.<br/><br/> Aktiverar WinRM-tjänsten och öppnar portarna 5985 (HTTP) och 5986 (HTTPS) på värden (krävs för metadata-insamling). | Kontrol lera [kraven för Hyper-V-värden](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) för Server bedömning.<br/><br/> Se till att de [nödvändiga portarna](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-V-värdar.
 **Verifiera PowerShell-version** | Kontrollerar att du kör skriptet på en PowerShell-version som stöds. | Kontrol lera att du kör PowerShell version 4,0 eller senare på Hyper-V-värden.
@@ -133,7 +133,7 @@ Kör skriptet på följande sätt:
 
 Hash-värden är:
 
-| **Beräkna** | **Värde** |
+| **Hash** | **Värde** |
 | --- | --- |
 | **MD5** | 0ef418f31915d01f896ac42a80dc414e |
 | **SHA256** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2 |

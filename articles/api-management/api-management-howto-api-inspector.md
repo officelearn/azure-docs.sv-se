@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "75768543"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Felsöka API:er med hjälp av spårning av förfrågningar
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 ![API Inspector](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).

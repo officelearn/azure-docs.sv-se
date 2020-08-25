@@ -4,10 +4,10 @@ description: Använd C# och skapa en chattrobot som är integrerad med språkfö
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85445907"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Självstudie: använda en Web App-robot som är aktive rad med Language Understanding i C #
@@ -22,7 +22,7 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
 > * Starta roboten och emulatorn lokalt på datorn
 > * Visa uttrycksresultat i roboten
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Robotemulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/)
@@ -35,12 +35,12 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
 
 1. Ange nödvändig information i **Robottjänst**:
 
-    |Inställningen|Syfte|Rekommenderad inställning|
+    |Inställning|Syfte|Rekommenderad inställning|
     |--|--|--|
     |Robot referens|Resursnamn|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Prenumeration|Prenumeration där roboten ska skapas.|Din primära prenumeration.
     |Resursgrupp|Logisk grupp med Azure-resurser|Skapa en ny grupp för att lagra alla resurser som används med den här roboten och ge gruppen namnet `luis-csharp-bot-resource-group`.|
-    |Location|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
+    |Plats|Azure-region – Det här behöver inte vara samma som redigerings- eller publiceringsregionen för LUIS.|`westus`|
     |Prisnivå|Används för begränsningar och fakturering av tjänstbegäranden.|`F0` är den kostnadsfria nivån.
     |Appnamn|Namnet används som underdomänen när din robot distribueras till molnet (exempelvis humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, till exempel `luis-csharp-bot-johnsmith`|
     |Robotmall|Bot Framework-inställningar – se nästa tabell|
@@ -51,7 +51,7 @@ Använd C# för att bygga en chatt-robot integrerad med språk förståelse (LUI
 
 1. I **robot-mallen**väljer du följande och väljer sedan knappen **Välj** under följande inställningar:
 
-    |Inställningen|Syfte|Urval|
+    |Inställning|Syfte|Urval|
     |--|--|--|
     |SDK-språk|Programmeringsspråk för robot|**C#**|
     |Bot|Typ av bot|**Basic bot** (Grundläggande robot)|

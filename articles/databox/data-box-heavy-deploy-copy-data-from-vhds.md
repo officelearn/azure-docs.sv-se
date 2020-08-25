@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "77471337"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box Heavy för att importera data som Managed disks i Azure
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Innan du börjar ska du kontrollera att:
 
-1. Du har slutfört [självstudien: konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Du har slutfört självstudien [: Konfigurera Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Du har fått din Data Box Heavy-enhet och orderstatusen på portalen är **Levererad**.
 3. Du har anslutning till ett höghastighetsnätverk. För snabbast kopieringshastighet kan två 40-GbE-anslutningar (en per nod) användas parallellt. Om du inte har någon tillgänglig 40-GbE-anslutning rekommenderar vi att du har minst två 10 GbE-anslutningar (en per nod). 
 4. Du har granskat:
@@ -42,7 +42,7 @@ Innan du börjar ska du kontrollera att:
 
 ## <a name="connect-to-data-box-heavy"></a>Ansluta till Data Box Heavy
 
-Baserat på de angivna resurs grupperna skapar Data Box Heavy en resurs för varje associerad resurs grupp per nod. Om `mydbmdrg1` och `mydbmdrg2` till exempel skapades när ordern placerades, skapas följande resurser:
+Baserat på de angivna resurs grupperna skapar Data Box Heavy en resurs för varje associerad resurs grupp per nod. Om och till exempel `mydbmdrg1` `mydbmdrg2` skapades när ordern placerades, skapas följande resurser:
 
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
@@ -126,7 +126,7 @@ Om du använder en Linux-värddator utför du följande steg för att konfigurer
 
     `sudo mount <Data Box or Data Box Heavy IP>:/<NFS share on Data Box or Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    I följande exempel visas hur du ansluter via NFS till en Data Box-enhet eller Data Box Heavy resurs. Data Box-enhet-eller Data Box Heavy-enhetens `169.254.250.200`IP-adress `mydbmdrg1_MDisk` är, är resursen monterad på ubuntuVM, monterings punkt `/home/databoxubuntuhost/databox`.
+    I följande exempel visas hur du ansluter via NFS till en Data Box-enhet eller Data Box Heavy resurs. Data Box-enhet-eller Data Box Heavy-enhetens IP-adress är `169.254.250.200` , är resursen `mydbmdrg1_MDisk` monterad på ubuntuVM, monterings punkt `/home/databoxubuntuhost/databox` .
 
     `sudo mount -t nfs 169.254.250.200:/mydbmdrg1_MDisk /home/databoxubuntuhost/databox`
 

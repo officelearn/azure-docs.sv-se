@@ -134,8 +134,10 @@
           href: load-balancer-troubleshoot.md
         - name: Felsök vanliga distributionsfel
           href: load-balancer-common-deployment-errors.md
-        - name: Lösa vanliga problem med utgående anslutningar
+        - name: Felsöka vanliga problem med utgående anslutningar
           href: troubleshoot-outbound-connection.md
+        - name: Felsöka problem med resurshälsa och inkommande tillgänglighet
+          href: troubleshoot-rhc.md
 - name: Referens
   items:
     - name: Kodexempel

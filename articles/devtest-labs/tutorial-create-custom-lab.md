@@ -4,10 +4,10 @@ description: I den här självstudien skapar du ett labb i Azure DevTest Labs me
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/27/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85476571"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
@@ -20,7 +20,7 @@ I den här självstudien gör du följande:
 > * Lägga till virtuella datorer (VM) i labbet
 > * Lägga till en användare i rollen Labbanvändare
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="create-a-lab"></a>Skapa ett labb
 Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
@@ -84,7 +84,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
     2. Välj den **användare** som du vill lägga till. 
     3. Välj **Spara**.
 
-        ![Lägga till användare](./media/tutorial-create-custom-lab/add-user.png)
+        ![Lägg till användare](./media/tutorial-create-custom-lab/add-user.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 I nästa självstudie visar vi hur en labbanvändare kan göra anspråk på och ansluta till en virtuell dator i labbet. Om du inte vill göra självstudien och rensa de resurser som skapats som en del av självstudien följer du dessa steg: 
@@ -96,7 +96,7 @@ I nästa självstudie visar vi hur en labbanvändare kan göra anspråk på och 
 1. Välj **Ta bort resursgrupp** från verktygsfältet. När du tar bort en resursgrupp tas alla resurser i gruppen bort, inklusive labbet. 
 
     ![Labbresursgrupp](./media/tutorial-create-custom-lab/lab-resource-group.png)
-1. Upprepa dessa steg för att ta bort ytterligare resursgrupper som skapats med namnet `<your resource group name><random numbers>`. Exempel: `splab3988722144001`. Virtuella datorer skapas i den här resursgruppen i stället för resursgruppen där labbet finns. 
+1. Upprepa dessa steg för att ta bort ytterligare resursgrupper som skapats med namnet `<your resource group name><random numbers>`. Till exempel: `splab3988722144001`. Virtuella datorer skapas i den här resursgruppen i stället för resursgruppen där labbet finns. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här självstudien skapade du ett labb med en virtuell dator och gav en användare åtkomst till labbet. Mer information om hur du får åtkomst till labbet som en labbanvändare finns i nästa självstudie:

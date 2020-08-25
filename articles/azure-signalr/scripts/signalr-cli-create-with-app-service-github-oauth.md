@@ -9,10 +9,10 @@ ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: d30804d132eec3c9f324413acd68014d1adaa710
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "74158040"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Skapa en webbapp som använder SignalR Service- och GitHub-autentisering
@@ -105,7 +105,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Det visas
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |

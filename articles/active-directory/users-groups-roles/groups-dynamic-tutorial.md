@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ee5fa52f59ea2ef3332fe66c81c24ff44c64e81
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82582888"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
@@ -31,11 +31,11 @@ I den här guiden får du lära dig att:
 > * Tilldela licenser till gruppen för partnerspecifika funktioner för gästanvändare för åtkomst
 > * Bonus: skydda gruppen **Alla användare** genom att ta bort gästanvändare så att du, till exempel, kan ge medlemmarna användaråtkomst till webbplatser som är endast interna
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Den här funktionen kräver en Azure AD Premium licens för dig som organisationens globala administratör. Om du inte har någon, i Azure AD, väljer du **licenser** > **produkter** > **försök/köp**.
+Den här funktionen kräver en Azure AD Premium licens för dig som organisationens globala administratör. Om du inte har någon, i Azure AD, väljer du **licenser**  >  **produkter**  >  **försök/köp**.
 
 Du behöver inte tilldela licenser till användarna för att de ska bli medlemmar i dynamiska grupper. Du behöver bara det minsta antalet tillgängliga Azure AD Premium P1-licenser i organisationen för att omfatta alla sådana användare. 
 
@@ -43,14 +43,14 @@ Du behöver inte tilldela licenser till användarna för att de ska bli medlemma
 
 Först skapar du en grupp för dina gästanvändare som alla finns i samma partnerföretag. De behöver en speciallicens, så det är ofta effektivare att skapa en grupp för det här syftet.
 
-1. Logga in på Azure Portal (https://portal.azure.com) med ett konto som är den globala administratören för din organisation.
-2. Välj **Azure Active Directory** > **grupper** > **ny grupp**.
+1. Logga in på Azure Portal ( https://portal.azure.com) med ett konto som är den globala administratören för din organisation.
+2. Välj **Azure Active Directory**  >  **grupper**  >  **ny grupp**.
    ![Välj kommando för att starta en ny grupp](./media/groups-dynamic-tutorial/new-group.png)
 3. På bladet **Grupp**:
   
    * Välj **säkerhet** som grupptyp.
    * Ange `Guest users Contoso` som namn och beskrivning för gruppen.
-   * Ändra **medlemskaps typ** till **dynamisk användare**.
+   * Ändra **Medlemstyp** till **Dynamisk användare**.
    
 4. Välj **ägare** och Sök efter önskade ägare i bladet **Lägg till ägare** . Klicka på önskade ägare för att lägga till i valet.
 5. Stäng bladet **Lägg till ägare** genom att klicka på **Välj** .  
@@ -89,10 +89,10 @@ Kanske är din slutliga plan att tilldela alla dina gästanvändare till egna gr
 **Ta bort gästanvändargruppen**
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är den globala administratören för din organisation.
-2. Välj **Azure Active Directory** > **grupper**. Välj gruppen **Gästanvändare Contoso**, välj ellipsen (...) och välj sedan **Ta bort**. När du tar bort gruppen tas alla tilldelade licenser bort.
+2. Välj **Azure Active Directory**  >  **grupper**. Välj gruppen **Gästanvändare Contoso**, välj ellipsen (...) och välj sedan **Ta bort**. När du tar bort gruppen tas alla tilldelade licenser bort.
 
 **Återställa gruppen Alla användare**
-1. Välj **Azure Active Directory** > **grupper**. Välj namnet på gruppen **Alla användare** för att öppna gruppen.
+1. Välj **Azure Active Directory**  >  **grupper**. Välj namnet på gruppen **Alla användare** för att öppna gruppen.
 1. Välj **Regler för dynamiskt medlemskap**, ta bort all text i regeln och välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg

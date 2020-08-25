@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 8f7a971315183e867ae06b58801d5855f90462a1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "76722398"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
@@ -50,7 +50,7 @@ Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen u
 
 1. Öppna en fjärrskrivbordssession till din utvecklings-VM.
 
-1. Öppna `C:\source\IoTEdgeAndMlSample\DeviceHarness` mappen i Visual Studio Code.
+1. Öppna mappen i Visual Studio Code `C:\source\IoTEdgeAndMlSample\DeviceHarness` .
 
 1. Eftersom du använder tillägg på den här datorn för första gången, kommer vissa tillägg att uppdatera och installera deras beroenden. Du kan uppmanas att uppdatera tillägget. I så fall, väljer du **Omladdnings fönster**.
 
@@ -67,9 +67,9 @@ Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen u
 
    ![VS Code Restore-prompt](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
-   Om du inte får de här meddelandena stänger du Visual Studio Code, tar bort katalogen bin och OBJ i `C:\source\IoTEdgeAndMlSample\DeviceHarness`, öppnar Visual Studio Code och öppnar mappen DeviceHarness igen.
+   Om du inte får de här meddelandena stänger du Visual Studio Code, tar bort katalogen bin och OBJ i `C:\source\IoTEdgeAndMlSample\DeviceHarness` , öppnar Visual Studio Code och öppnar mappen DeviceHarness igen.
 
-1. Kontrol lera att din miljö har kon figurer ATS korrekt genom att utlösa en build-, **CTRL** + -**Shift** + **B**-eller **Terminal** > **Run-åtgärd**.
+1. Kontrol lera att din miljö har kon figurer ATS korrekt genom att utlösa en build-, **CTRL**-  +  **Shift**  +  **B**-eller **Terminal**  >  **Run-åtgärd**.
 
 1. Du uppmanas att välja build-uppgiften som ska köras. Välj **build**.
 
@@ -77,7 +77,7 @@ Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen u
 
    ![Genererat utdata-meddelande](media/tutorial-machine-learning-edge-03-generate-data/build-success.png)
 
-1. Du kan göra det här steget för att skapa en standard uppgift genom att välja **Terminal** > **Konfigurera standard build-aktivitet...** och välja **skapa** från prompten.
+1. Du kan göra det här steget för att skapa en standard uppgift genom att välja **Terminal**  >  **Konfigurera standard build-aktivitet...** och välja **skapa** från prompten.
 
 ## <a name="connect-to-iot-hub-and-run-deviceharness"></a>Anslut till IoT Hub och kör DeviceHarness
 
@@ -85,7 +85,7 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 ### <a name="sign-in-to-azure-in-visual-studio-code"></a>Logga in på Azure i Visual Studio Code
 
-1. Logga in på din Azure-prenumeration i Visual Studio Code genom att öppna kommando `Ctrl + Shift + P` -paletten eller **Visa** > **kommando paletten**.
+1. Logga in på din Azure-prenumeration i Visual Studio Code genom att öppna kommando-paletten `Ctrl + Shift + P` eller **Visa**  >  **kommando paletten**.
 
 1. Sök efter kommandot **Azure: Sign in** .
 
@@ -105,7 +105,7 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 ### <a name="run-the-deviceharness-project"></a>Kör DeviceHarness-projektet
 
-1. Välj **Visa** > **Terminal** för att öppna Visual Studio Code Terminal.
+1. Välj **Visa**  >  **Terminal** för att öppna Visual Studio Code Terminal.
 
    Om du inte ser någon prompt trycker du på RETUR.
 
@@ -145,7 +145,7 @@ De data som vi precis skickade till din IoT Hub dirigerades till lagrings behål
 
 1. Välj **Storage Explorer (för hands version)** i lagrings konto navigeringen.
 
-1. I Storage Explorer väljer du **BLOB-behållare** och `devicedata`sedan.
+1. I Storage Explorer väljer du **BLOB-behållare** och sedan `devicedata` .
 
 1. I rutan innehåll klickar du på mappen för namnet på IoT Hub följt av år, månad, dag och timme. Du kommer att se flera mappar som representerar minuterna när data skrevs.
 

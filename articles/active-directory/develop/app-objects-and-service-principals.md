@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 5a3e6d918f4ab94c4533e930ea73b5267deb53a4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115534"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782450"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objekt för program och tjänstens huvudnamn i Azure Active Directory
 
@@ -27,16 +27,16 @@ Den här artikeln beskriver program registrering, program objekt och tjänst huv
 ## <a name="application-registration"></a>Programregistrering
 För att kunna delegera identitets-och åtkomst hanterings funktioner till Azure AD måste ett program registreras med en Azure AD- [klient](developer-glossary.md#tenant). När du registrerar ditt program med Azure AD skapar du en identitets konfiguration för ditt program som gör det möjligt att integrera med Azure AD. När du registrerar en app i [Azure Portal][AZURE-Portal]väljer du om det är en enskild klient (endast tillgänglig i din klient) eller flera innehavare (tillgänglig för i andra klienter) och om du vill kan du ange en omdirigerings-URI (där åtkomsttoken skickas till).
 
-![Appregistrering](./media/app-objects-and-service-principals/app-registration.png)
+:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Skärm bild av Azure Portal registrera ett programfönster":::
 
 När du har slutfört registreringen av appen har du en globalt unik instans av appen (programobjektet) som finns i din hem klient eller katalog.  Du har också ett globalt unikt ID för din app (appen eller klient-ID: t).  I portalen kan du sedan lägga till hemligheter eller certifikat och omfattningar för att din app ska fungera, anpassa appens anpassning i dialog rutan för inloggning med mera.
 
 Om du registrerar ett program i portalen skapas ett program objekt och ett huvud namn för tjänsten automatiskt i din hem klient.  Om du registrerar/skapar ett program med hjälp av Microsoft Graph-API: erna, är det ett separat steg att skapa tjänstens huvud namns objekt.
 
 ## <a name="application-object"></a>Program objekt
-Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades (kallas för programmets "hem").  Ett program objekt används som en mall eller skiss för att skapa ett eller flera huvud objekt för tjänsten.  Ett huvud namn för tjänsten skapas i varje klient organisation där programmet används. I likhet med en klass i objektorienterad programmering har programobjektet några statiska egenskaper som tillämpas på alla skapade tjänst huvud namn (eller program instanser). 
+Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades (kallas för programmets "hem").  Ett program objekt används som en mall eller skiss för att skapa ett eller flera huvud objekt för tjänsten.  Ett huvud namn för tjänsten skapas i varje klient organisation där programmet används. I likhet med en klass i objektorienterad programmering har programobjektet några statiska egenskaper som tillämpas på alla skapade tjänst huvud namn (eller program instanser).
 
-Programobjektet beskriver tre aspekter av ett program: hur tjänsten kan utfärda token för att få åtkomst till programmet, resurser som programmet kan behöva åtkomst till och de åtgärder som programmet kan utföra. 
+Programobjektet beskriver tre aspekter av ett program: hur tjänsten kan utfärda token för att få åtkomst till programmet, resurser som programmet kan behöva åtkomst till och de åtgärder som programmet kan utföra.
 
 Bladet **Appregistreringar** i [Azure Portal][AZURE-Portal] används för att visa och hantera program objekt i din hem klient organisation.
 
@@ -47,7 +47,7 @@ Bladet **Appregistreringar** i [Azure Portal][AZURE-Portal] används för att vi
 ## <a name="service-principal-object"></a>Tjänstens huvud namns objekt
 För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den entitet som kräver åtkomst representeras av ett säkerhets objekt. Detta krav gäller både för både användare (användarens huvud namn) och program (tjänstens huvud namn). Säkerhets principen definierar åtkomst principen och behörigheter för användaren/programmet i Azure AD-klienten. Detta möjliggör kärn funktioner som autentisering av användaren/programmet vid inloggning och auktorisering under resurs åtkomst.
 
-Ett huvud namn för tjänsten är den lokala representationen eller program instansen för ett globalt program objekt i en enda klient eller katalog. Ett huvud namn för tjänsten är en konkret instans som skapas från programobjektet och ärver vissa egenskaper från det program objektet.  Ett huvud namn för tjänsten skapas i varje klient där programmet används och refererar till det globalt unika app-objektet.  Tjänstens huvud objekt definierar vad appen faktiskt kan göra i den angivna klienten, vem som har åtkomst till appen och vilka resurser appen kan komma åt. 
+Ett huvud namn för tjänsten är den lokala representationen eller program instansen för ett globalt program objekt i en enda klient eller katalog. Ett huvud namn för tjänsten är en konkret instans som skapas från programobjektet och ärver vissa egenskaper från det program objektet.  Ett huvud namn för tjänsten skapas i varje klient där programmet används och refererar till det globalt unika app-objektet.  Tjänstens huvud objekt definierar vad appen faktiskt kan göra i den angivna klienten, vem som har åtkomst till appen och vilka resurser appen kan komma åt.
 
 När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Du kan också skapa tjänstens huvud namns objekt i en klient med hjälp av [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), [Azure Portal][AZURE-Portal]och andra verktyg.  När du använder portalen skapas ett huvud namn för tjänsten automatiskt när du registrerar ett program.
 

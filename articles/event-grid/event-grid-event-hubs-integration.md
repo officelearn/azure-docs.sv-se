@@ -4,10 +4,10 @@ description: 'Självstudie: beskriver hur du använder Azure Event Grid och Even
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86117567"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Självstudie: strömma Big data till ett informations lager
@@ -39,7 +39,7 @@ I den här självstudien gör du följande:
 
 Du behöver följande för att kunna slutföra den här självstudiekursen:
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual studio 2019](https://www.visualstudio.com/vs/) med arbets belastningar för: .net Skriv bords utveckling, Azure-utveckling, ASP.net och webb utveckling, Node.js utveckling och python-utveckling.
 * Ladda ned [exempelprojektet EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) till din dator.
 
@@ -58,7 +58,7 @@ I det här steget distribuerar du den infrastruktur som krävs med en [Resource 
 1. Logga in på [Azure-portalen](https://portal.azure.com). 
 2. Välj **Cloud Shell**-knappen överst.
 
-    ![Azure-portalen](media/event-grid-event-hubs-integration/azure-portal.png)
+    ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
 3. Du ser att Cloud Shell öppnas längst ned i webbläsaren.
 
     ![Cloud Shell](media/event-grid-event-hubs-integration/launch-cloud-shell.png) 

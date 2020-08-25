@@ -4,10 +4,10 @@ description: Distribuera steg för CAF migration landnings zon skiss exemplet in
 ms.date: 05/06/2020
 ms.topic: sample
 ms.openlocfilehash: 109c9a2c4c5670d6f5a676498ae1010a4ab0e418
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82871178"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Distribuera den Microsoft Cloud implementerings ramverket för Azure Migrates exempel på skiss zon skiss
@@ -22,7 +22,7 @@ Följande steg måste vidtas för att distribuera insamlings exemplet för Azure
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 

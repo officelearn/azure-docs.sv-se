@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: d831d40733f9fa1d0db4c53d72de22898e493639
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037107"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795872"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -123,7 +123,7 @@ Genom att frikoppla det analytiska lagrings systemet från analys beräknings sy
 > [!NOTE]
 > Du kan bara läsa från analys lager med kör tid för Synapse analys. Du kan skriva tillbaka data till transaktions arkivet som ett betjänande lager.
 
-## <a name="pricing"></a><a id="analytical-store-pricing"></a>Priset
+## <a name="pricing"></a><a id="analytical-store-pricing"></a> Priset
 
 Analytiskt lager följer en förbruknings pris modell där du debiteras för:
 
@@ -134,17 +134,17 @@ Analytiskt lager följer en förbruknings pris modell där du debiteras för:
 * Analytiska Läs åtgärder: Läs åtgärder som utförts mot analys lagret från Synapse Analytics Spark och SQL Server-körnings tider.
 
 > [!NOTE]
-> Azure Cosmos DB Analytical Store är tillgängligt i en offentlig för hands version utan kostnad fram till den 30 augusti 2020.
+> Azure Cosmos DB Analytical Store är för närvarande tillgängligt i en offentlig för hands version utan kostnad.
 
 Priset för analytiskt lager skiljer sig från pris modellen för transaktions lager. Det finns inget koncept för etablerade ru: er i analys lagret. Se [Azure Cosmos DB prissättnings sida](https://azure.microsoft.com/pricing/details/cosmos-db/)för fullständig information om pris modellen för analys lagring.
 
 För att få en kostnads uppskattning på hög nivå för att aktivera analys av en Azure Cosmos DB behållare kan du använda [Azure Cosmos DB kapacitets planering](https://cosmos.azure.com/capacitycalculator/) och få en uppskattning av kostnaderna för analytisk lagring och skriv åtgärder. Kostnaderna för analys av Läs åtgärder beror på de analytiska arbets belastnings egenskaperna, men som en uppskattning på hög nivå, resulterar det vanligt vis i 130 000 analytiska Läs åtgärder, och resultatet kostar $0,065.
 
-## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a>Analytisk tid till Live (TTL)
+## <a name="analytical-time-to-live-ttl"></a><a id="analytical-ttl"></a> Analytisk tid till Live (TTL)
 
 TTL för analys anger hur länge data ska behållas i analysarkivet, för en container. 
 
-Infognings-, uppdaterings-och borttagnings data synkroniseras automatiskt från transaktions lagring till analytisk lagring, oavsett konfiguration av transaktions-TTL. Kvarhållning av dessa drift data i analys lagret kan styras av det analytiska TTL-värdet på behållar nivån, enligt vad som anges nedan:
+Om analytiskt arkiv är aktiverat, kommer infogningar, uppdateringar och borttagningar av användnings data automatiskt att synkroniseras från transaktions lager till analytisk lagring, oavsett konfiguration av transaktions-TTL. Kvarhållning av dessa drift data i analys lagret kan styras av det analytiska TTL-värdet på behållar nivån, enligt vad som anges nedan:
 
 Analytiskt TTL på en behållare anges med hjälp av `AnalyticalStoreTimeToLiveInSeconds` egenskapen:
 
@@ -152,7 +152,7 @@ Analytiskt TTL på en behållare anges med hjälp av `AnalyticalStoreTimeToLiveI
 
 * Om det finns och värdet är inställt på "-1": analys arkivet behåller alla historiska data, oavsett lagring av data i transaktions arkivet. Den här inställningen anger att analys lagret har oändlig kvarhållning av dina användnings data
 
-* Om detta är tillgängligt och värdet är inställt på ett positivt tal "n": objekt upphör att gälla från analys lagret "n" efter deras senaste ändrings tid i transaktions arkivet. Den här inställningen kan utnyttjas om du vill behålla dina användnings data under en begränsad tids period i analys lagret, oavsett lagring av data i transaktions arkivet.
+* Om detta är tillgängligt och värdet är inställt på ett positivt tal "n": objekt upphör att gälla från analys lagret "n" efter deras senaste ändrings tid i transaktions arkivet. Den här inställningen kan utnyttjas om du vill behålla dina användnings data under en begränsad tids period i analys lagret, oavsett lagring av data i transaktions arkivet
 
 Några saker att tänka på:
 *   När analys lagret har Aktiver ATS med ett analytiskt TTL-värde kan det uppdateras till ett annat giltigt värde senare. 

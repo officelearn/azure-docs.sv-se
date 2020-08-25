@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83747488"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrera webb tjänsten från Google Maps
@@ -24,7 +24,7 @@ I tabellen visas Azure Maps tjänst-API: er, som har liknande funktioner som lis
 
 | API för Google Maps-tjänsten | API för Azure Maps tjänsten                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Vägbeskrivning              | [Routa](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Anvisningar              | [Väg](https://docs.microsoft.com/rest/api/maps/route)                                     |
 | Avstånds mat ris         | [Väg mat ris](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
 | Geokodning               | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                   |
 | Sök efter platser           | [Sök](https://docs.microsoft.com/rest/api/maps/search)                                   |
@@ -67,9 +67,9 @@ Följande tabell innehåller en kors referens till Google Maps API-parametrar me
 |---------------------------|--------------------------------------|
 | `address`                   | `query`                            |
 | `bounds`                    | `topLeft` och `btmRight`           |
-| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality`– stad/stad<br/>`municipalitySubdivision`– till, sub/Super City<br/>`countrySubdivision`delstat eller provins<br/>`countrySecondarySubdivision`-län<br/>`countryTertiarySubdivision`– distrikt<br/>`countryCode`– landskod för land/region |
-| `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `components`                | `streetNumber`<br/>`streetName`<br/>`crossStreet`<br/>`postalCode`<br/>`municipality` – stad/stad<br/>`municipalitySubdivision` – till, sub/Super City<br/>`countrySubdivision` delstat eller provins<br/>`countrySecondarySubdivision` -län<br/>`countryTertiarySubdivision` – distrikt<br/>`countryCode` – landskod för land/region |
+| `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `region`                    | `countrySet`                       |
 
 Ett exempel på hur du använder Sök tjänsten finns dokumenterat [här](how-to-search-for-address.md). Se till att gå igenom [metod tipsen för sökning](how-to-use-best-practices-for-search.md).
@@ -91,10 +91,10 @@ Den här tabellen kors referenser till Google Maps API-parametrar med jämförba
 
 | Google Maps API-parameter   | Jämförbar Azure Maps API-parameter   |
 |-----------------------------|---------------------------------------|
-| `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `latlng`                    | `query`  |
-| `location_type`             | *EJ TILLÄMPLIGT*     |
+| `location_type`             | *Ej tillämpligt*     |
 | `result_type`               | `entityType`    |
 
 Granska [metod tips för sökning](how-to-use-best-practices-for-search.md).
@@ -138,12 +138,12 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara Azur
 
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter |
 |---------------------------|-------------------------------------|
-| `fields`                  | *EJ TILLÄMPLIGT*                               |
+| `fields`                  | *Ej tillämpligt*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *EJ TILLÄMPLIGT*                               |
-| `key`                     | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
-| `locationbias`            | `lat`, `lon` och`radius`<br/>`topLeft` och `btmRight`<br/>`countrySet`  |
+| `inputtype`               | *Ej tillämpligt*                               |
+| `key`                     | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `locationbias`            | `lat`, `lon` och `radius`<br/>`topLeft` och `btmRight`<br/>`countrySet`  |
 
 ### <a name="nearby-search"></a>Närliggande sökning
 
@@ -153,18 +153,18 @@ I tabellen visas Google Maps API-parametrar med de jämförbara Azure Maps API-p
 
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter  |
 |---------------------------|--------------------------------------|
-| `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
 | `keyword`                   | `categorySet` och `brandSet`        |
-| `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `location`                  | `lat` och `lon`                     |
-| `maxprice`                  | *EJ TILLÄMPLIGT*                               |
-| `minprice`                  | *EJ TILLÄMPLIGT*                               |
+| `maxprice`                  | *Ej tillämpligt*                               |
+| `minprice`                  | *Ej tillämpligt*                               |
 | `name`                      | `categorySet` och `brandSet`        |
-| `opennow`                   | *EJ TILLÄMPLIGT*                               |
+| `opennow`                   | *Ej tillämpligt*                               |
 | `pagetoken`                 | `ofs` och `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *EJ TILLÄMPLIGT*                               |
-| `type`                      | `categorySet –`Se dokumentation om [Sök kategorier som stöds](supported-search-categories.md) .   |
+| `rankby`                    | *Ej tillämpligt*                               |
+| `type`                      | `categorySet –` Se dokumentation om [Sök kategorier som stöds](supported-search-categories.md) .   |
 
 ## <a name="calculate-routes-and-directions"></a>Beräkna vägar och vägbeskrivningar
 
@@ -191,9 +191,9 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara API-
 | `arrival_time`                | `arriveAt`                          |
 | `avoid`                        | `avoid`                            |
 | `departure_time`              | `departAt`                          |
-| `destination`                  | `query`– koordinater i formatet`"lat0,lon0:lat1,lon1…."`  |
-| `key`                          | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                     | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .   |
+| `destination`                  | `query` – koordinater i formatet `"lat0,lon0:lat1,lon1…."`  |
+| `key`                          | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                     | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .   |
 | `mode`                         | `travelMode`                       |
 | `optimize`                     | `computeBestOrder`                 |
 | `origin`                       | `query`                            |
@@ -236,17 +236,17 @@ Tabellen kors refererar till Google Maps API-parametrar med de jämförbara API-
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter  |
 |---------------------------|--------------------------------------|
 | `center`                    | `center`                           |
-| `format`                    | `format`– anges som en del av URL-sökvägen. För närvarande stöds endast PNG. |
-| `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
-| `maptype`                   | `layer`och `style` – se dokumentation om [mappnings format som stöds](supported-map-styles.md) . |
+| `format`                    | `format` – anges som en del av URL-sökvägen. För närvarande stöds endast PNG. |
+| `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `maptype`                   | `layer` och `style` – se dokumentation om [mappnings format som stöds](supported-map-styles.md) . |
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | *Ej tillämpligt* – det här är en funktion för att koda en funktion. Använd `countrySet` parametern när du använder API: et för Azure Maps-kodning.  |
-| `scale`                     | *EJ TILLÄMPLIGT*                              |
-| `size`                      | `width`och `height` – kan vara upp till 8192x8192 i storlek. |
-| `style`                     | *EJ TILLÄMPLIGT*                              |
-| `visible`                   | *EJ TILLÄMPLIGT*                              |
+| `scale`                     | *Ej tillämpligt*                              |
+| `size`                      | `width` och `height` – kan vara upp till 8192x8192 i storlek. |
+| `style`                     | *Ej tillämpligt*                              |
+| `visible`                   | *Ej tillämpligt*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -278,14 +278,14 @@ Ange markör platser med formatet "latitud, longitud".
 
 Lägg till markör format med `optionName:value` formatet, med flera format åtskiljda med pipe ( \| )-tecken som detta "optionName1: värde1 \| optionName2: värde2". Observera att alternativ namn och värden åtskiljs med kolon (:). Använd följande namn på stil-alternativet för att formatera markörer i Google Maps:
 
-- `color`– Färgen på standard markör ikonen. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ) eller något av följande värden: `black` ,,,, `brown` `green` `purple` `yellow` , `blue` , `gray` , `orange` `red` `white` ,,.
-- `label`– Ett enkelt alfanumeriskt tecken som ska visas ovanpå ikonen.
-- `size`– Markörens storlek. Kan vara `tiny` , `mid` eller `small` .
+- `color` – Färgen på standard markör ikonen. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ) eller något av följande värden: `black` ,,,, `brown` `green` `purple` `yellow` , `blue` , `gray` , `orange` `red` `white` ,,.
+- `label` – Ett enkelt alfanumeriskt tecken som ska visas ovanpå ikonen.
+- `size` – Markörens storlek. Kan vara `tiny` , `mid` eller `small` .
 
 Använd följande format alternativ namn för anpassade ikoner i Google Maps:
 
-- `anchor`– Anger hur ikon bilden justeras mot koordinaten. Kan vara ett pixel värde (x, y) eller något av följande värden: ,,,,,,, `top` `bottom` `left` `right` `center` `topleft` `topright` `bottomleft` eller `bottomright` .
-- `icon`– En URL som pekar mot ikon bilden.
+- `anchor` – Anger hur ikon bilden justeras mot koordinaten. Kan vara ett pixel värde (x, y) eller något av följande värden: ,,,,,,, `top` `bottom` `left` `right` `center` `topleft` `topright` `bottomleft` eller `bottomright` .
+- `icon` – En URL som pekar mot ikon bilden.
 
 Vi kan till exempel lägga till en röd, medels Tor markör till kartan vid longitud:-110, latitud: 45:
 
@@ -311,21 +311,21 @@ I Azure Maps måste PIN-platsen vara i formatet "longitud latitud". Google Maps 
 
 `iconType`Anger vilken typ av PIN-kod som ska skapas. Den kan ha följande värden:
 
-- `default`– Standard ikonen för PIN-kod.
-- `none`– Ingen ikon visas, endast etiketter kommer att återges.
-- `custom`– Anger att en anpassad ikon ska användas. En URL som pekar på ikon bilden kan läggas till i slutet av `pins` parametern efter PIN-kodens plats information.
-- `{udid}`– Ett unikt data-ID (UDID) för en ikon som lagras i Azure Maps data lagrings plattform.
+- `default` – Standard ikonen för PIN-kod.
+- `none` – Ingen ikon visas, endast etiketter kommer att återges.
+- `custom` – Anger att en anpassad ikon ska användas. En URL som pekar på ikon bilden kan läggas till i slutet av `pins` parametern efter PIN-kodens plats information.
+- `{udid}` – Ett unikt data-ID (UDID) för en ikon som lagras i Azure Maps data lagrings plattform.
 
-Lägg till PIN-format med `optionNameValue` formatet. Separera flera format med pipe ( \| )-tecknen. Exempel: `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
+Lägg till PIN-format med `optionNameValue` formatet. Separera flera format med pipe ( \| )-tecknen. Till exempel: `iconType|optionName1Value1|optionName2Value2`. Alternativ namn och värden är inte separerade. Använd följande format alternativ namn till format markörer:
 
-- `al`– Anger markörens opacitet (alfa). Välj ett tal mellan 0 och 1.
-- `an`– Anger fäst punkten. Ange X-och y-pixelvärdena i formatet "X y".
-- `co`– PIN-kodens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
-- `la`– Anger etikettens ankare. Ange X-och y-pixelvärdena i formatet "X y".
-- `lc`– Etikettens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
-- `ls`– Etikettens storlek i bild punkter. Välj ett tal som är större än 0.
-- `ro`– Ett värde i grader för att rotera ikonen. Välj ett tal mellan-360 och 360.
-- `sc`– Ett skalnings värde för PIN-ikonen. Välj ett tal som är större än 0.
+- `al` – Anger markörens opacitet (alfa). Välj ett tal mellan 0 och 1.
+- `an` – Anger fäst punkten. Ange X-och y-pixelvärdena i formatet "X y".
+- `co` – PIN-kodens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
+- `la` – Anger etikettens ankare. Ange X-och y-pixelvärdena i formatet "X y".
+- `lc` – Etikettens färg. Ange en 24-bitars hexadecimal färg: `000000` till `FFFFFF` .
+- `ls` – Etikettens storlek i bild punkter. Välj ett tal som är större än 0.
+- `ro` – Ett värde i grader för att rotera ikonen. Välj ett tal mellan-360 och 360.
+- `sc` – Ett skalnings värde för PIN-ikonen. Välj ett tal som är större än 0.
 
 Ange etikett värden för varje PIN-plats. Den här metoden är mer effektiv än att använda ett enda etikett värde för alla markörer i listan över platser. Etikett svärdet kan vara en sträng med flera tecken. Omsluta strängen med enkla citat tecken för att säkerställa att den inte är förväxlad som ett format eller ett plats värde.
 
@@ -365,10 +365,10 @@ Sök vägs platser anges med `latitude1,longitude1|latitude2,longitude2|…` for
 
 Lägg till Sök vägs format med `optionName:value` formatet, separera flera format med pipe ( \| )-tecknen. Och separata alternativ namn och värden med kolon (:). Så här: `optionName1:value1|optionName2:value2` . Följande format alternativ namn kan användas för att formatera sökvägar i Google Maps:
 
-- `color`– Färgen på banan eller polygonens kontur. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
-- `fillColor`– Färgen för att fylla Ban ytan med (Polygon). Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
-- `geodesic`– Anger om sökvägen ska vara en linje som följer jordens böjning.
-- `weight`– Bredden på Sök vägs linjen i bild punkter.
+- `color` – Färgen på banan eller polygonens kontur. Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
+- `fillColor` – Färgen för att fylla Ban ytan med (Polygon). Kan vara en 24-bitars hexadecimal färg ( `0xrrggbb` ), en 32-bitars hex-färg ( `0xrrggbbbaa` ) eller något av följande värden: svart, brun, grön, lila, gul, blå, grå, orange, röd, vit.
+- `geodesic` – Anger om sökvägen ska vara en linje som följer jordens böjning.
+- `weight` – Bredden på Sök vägs linjen i bild punkter.
 
 Lägg till en röd linje opacitet och pixel tjock lek på kartan mellan koordinaterna i URL-parametern. I exemplet nedan har linjen 50% opacitet och en tjocklek på fyra bild punkter. Koordinaterna är longitud:-110, latitud: 45 och longitud:-100, latitud: 50.
 
@@ -392,12 +392,12 @@ När den kommer till Sök vägs platser kräver Azure Maps att koordinaterna ska
 
 Lägg till Sök vägs format med `optionNameValue` formatet. Separera flera format per pipe ( \| )-tecken, som det här `optionName1Value1|optionName2Value2` . Alternativ namn och värden är inte separerade. Använd följande format alternativ namn för att formatera sökvägar i Azure Maps:
 
-- `fa`– Fyllnings färg opaciteten (alpha) som används vid åter givning av polygoner. Välj ett tal mellan 0 och 1.
-- `fc`– Fyllnings färgen som används för att återge ytan i en polygon.
-- `la`– Linje färg opaciteten (alfa) som används vid åter givning av linjer och konturen av polygoner. Välj ett tal mellan 0 och 1.
-- `lc`– Linje färgen som används för att återge linjer och konturen för polygoner.
-- `lw`– Bredden på linjen i bild punkter.
-- `ra`– Anger en cirkel-radie i meter.
+- `fa` – Fyllnings färg opaciteten (alpha) som används vid åter givning av polygoner. Välj ett tal mellan 0 och 1.
+- `fc` – Fyllnings färgen som används för att återge ytan i en polygon.
+- `la` – Linje färg opaciteten (alfa) som används vid åter givning av linjer och konturen av polygoner. Välj ett tal mellan 0 och 1.
+- `lc` – Linje färgen som används för att återge linjer och konturen för polygoner.
+- `lw` – Bredden på linjen i bild punkter.
+- `ra` – Anger en cirkel-radie i meter.
 
 Lägg till en röd linje opacitet och pixel tjock lek mellan koordinaterna i URL-parametern. I exemplet nedan har linjen 50% opacitet och en tjocklek på fyra bild punkter. Koordinaterna har följande värden: longitud:-110, latitud: 45 och longitud:-100, latitud: 50.
 
@@ -425,11 +425,11 @@ Den här tabellen kors referenser till Google Maps API-parametrar med de jämfö
 | `arrivial_time`                | `arriveAt`                           |
 | `avoid`                        | `avoid`                              |
 | `depature_time`                | `departAt`                           |
-| `destinations`                 | `destination`– Ange i POSTens brödtext som en JSON. |
-| `key`                          | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
-| `language`                     | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .  |
+| `destinations`                 | `destination` – Ange i POSTens brödtext som en JSON. |
+| `key`                          | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen. |
+| `language`                     | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .  |
 | `mode`                         | `travelMode`                         |
-| `origins`                      | `origins`– Ange i POSTens brödtext som en JSON.  |
+| `origins`                      | `origins` – Ange i POSTens brödtext som en JSON.  |
 | `region`                       | *Ej tillämpligt* – den här funktionen är en kod relaterad. Använd `countrySet` parametern när du använder API: et för Azure Maps-kodning. |
 | `traffic_model`                | *Ej tillämpligt* – kan bara ange om trafik data ska användas med `traffic` parametern. |
 | `transit_mode`                 | Det finns för närvarande inte stöd för *N/A* -transit-baserade avstånds-matriser.  |
@@ -451,8 +451,8 @@ Den här tabellen kors referenser till Google Maps API-parametrar med jämförba
 
 | Google Maps API-parameter | Jämförbar Azure Maps API-parameter   |
 |---------------------------|---------------------------------------|
-| `key`                       | `subscription-key`– Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen.       |
-| `language`                  | `language`– Se dokumentation om [språk som stöds](supported-languages.md) .    |
+| `key`                       | `subscription-key` – Se även [autentiseringen med Azure Maps](azure-maps-authentication.md) -dokumentationen.       |
+| `language`                  | `language` – Se dokumentation om [språk som stöds](supported-languages.md) .    |
 | `location`                  | `query`             |
 | `timestamp`                 | `timeStamp`         |
 
@@ -468,7 +468,7 @@ Förutom detta API tillhandahåller Azure Maps ett antal API: er för tids zoner
 
 Azure Maps tillhandahåller klient bibliotek för följande programmeringsspråk:
 
-- Java Script, typescript, Node. js – [dokumentation](how-to-use-services-module.md) \| [NPM-paket](https://www.npmjs.com/package/azure-maps-rest)
+- Java Script, typescript, Node.js – [dokumentation](how-to-use-services-module.md) \| [NPM-paket](https://www.npmjs.com/package/azure-maps-rest)
 
 Dessa klient bibliotek med öppen källkod är för andra programmeringsspråk:
 

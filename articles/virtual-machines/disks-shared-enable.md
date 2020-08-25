@@ -4,16 +4,16 @@ description: Konfigurera en Azure-hanterad disk med delade diskar så att du kan
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 08/21/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f6b34cd93dcfabee2974bea5cf57258527df94d7
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ad70aa1d044649a0ca61060fff9880d4ef1e34c1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701658"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752045"
 ---
 # <a name="enable-shared-disk"></a>Aktivera delad disk
 
@@ -21,21 +21,21 @@ Den här artikeln beskriver hur du aktiverar funktionen delade diskar för Azure
 
 Om du behöver konceptuell information om hanterade diskar som har delade diskar aktiverade, se:
 
-* För Linux: [Azure delade diskar](./linux/disks-shared.md)
+* För Linux: [Azure delade diskar](linux/disks-shared.md)
 
-* För Windows: [Azure delade diskar](./windows/disks-shared.md)
+* För Windows: [Azure delade diskar](windows/disks-shared.md)
 
 ## <a name="limitations"></a>Begränsningar
 
-[!INCLUDE [virtual-machines-disks-shared-limitations](~/includes/virtual-machines-disks-shared-limitations.md)]
+[!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Delade diskar har stöd för flera operativ system. Se avsnittet [Windows](~/articles/virtual-machines/windows/disks-shared.md#windows) och [Linux](~/articles/virtual-machines/linux/disks-shared.md#linux) i den konceptuella artikeln för de operativ system som stöds.
+Delade diskar har stöd för flera operativ system. Se avsnittet [Windows](windows/disks-shared.md#windows) och [Linux](linux/disks-shared.md#linux) i den konceptuella artikeln för de operativ system som stöds.
 
 ## <a name="disk-sizes"></a>Disk storlekar
 
-[!INCLUDE [virtual-machines-disks-shared-sizes](~/includes/virtual-machines-disks-shared-sizes.md)]
+[!INCLUDE [virtual-machines-disks-shared-sizes](../../includes/virtual-machines-disks-shared-sizes.md)]
 
 ## <a name="deploy-shared-disks"></a>Distribuera delade diskar
 
@@ -147,7 +147,7 @@ Innan du använder följande mall ersätter du,,,,,, `[parameters('dataDiskName'
 När du har distribuerat en delad disk med `maxShares>1` kan du montera disken till en eller flera av dina virtuella datorer.
 
 > [!NOTE]
-> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i avsnittet [PowerShell](~/articles/virtual-machines/windows/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) eller [CLI](~/articles/virtual-machines/linux/disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) i artikeln Ultra disk.
+> Om du distribuerar en Ultra disk måste du kontrol lera att den uppfyller de nödvändiga kraven. Mer information finns i avsnittet [PowerShell](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm-1) eller [CLI](disks-enable-ultra-ssd.md#enable-ultra-disk-compatibility-on-an-existing-vm) i artikeln Ultra disk.
 
 ```azurepowershell-interactive
 

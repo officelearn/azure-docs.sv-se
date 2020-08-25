@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
 ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83725677"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrera med Kubernetes-distribution med Helm
@@ -23,14 +23,14 @@ Under publicerings processen sammanfogar Helm diagrammet med rätt konfiguration
 
 Du kan åsidosätta värdena som lagras i *Values. yaml* genom att tillhandahålla ytterligare yaml-baserade konfigurationsfiler på kommando raden när du kör Helm. Azure App-konfigurationen stöder export av konfigurations värden till YAML-filer. Genom att integrera den här export funktionen i din distribution kan dina Kubernetes-program utnyttja konfigurations värden som lagras i appens konfiguration.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Använd värden från appens konfiguration när du distribuerar ett program till Kubernetes med hjälp av Helm.
 > * Skapa en Kubernetes-hemlighet baserat på en Key Vault referens i appens konfiguration.
 
 Den här självstudien förutsätter grundläggande förståelse för att hantera Kubernetes med Helm. Lär dig mer om att installera program med Helm i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/kubernetes-helm).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Installera [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 eller senare)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 2ffe9d525e92fa2154889cea43f681a0f31a18ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214228"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796977"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Anpassa utgående kluster med en användardefinierad väg
 
@@ -19,7 +19,7 @@ Utgående från ett AKS-kluster kan anpassas så att de passar vissa scenarier. 
 
 Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att stödja anpassade nätverks scenarier, till exempel sådana som inte tillåter offentliga IP-adresser och kräver att klustret placeras bakom en virtuell nätverks installation (NVA).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Azure CLI-version 2.0.81 eller senare
 * API-version av `2020-01-01` eller större
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Översikt över utgående typer i AKS
 
-Ett AKS-kluster kan anpassas med en unik `outboundType` typ belastningsutjämnare eller användardefinierad routning.
+Ett AKS-kluster kan anpassas med en unik `outboundType` typ `loadBalancer` eller `userDefinedRouting` .
 
 > [!IMPORTANT]
 > Utgående typ påverkar bara utgående trafik i klustret. Mer information finns i Konfigurera ingångs [styrenheter](ingress-basic.md).
@@ -62,7 +62,11 @@ Om `userDefinedRouting` är inställt konfigurerar AKS inte utgående sökvägar
 
 AKS-klustret måste distribueras till ett befintligt virtuellt nätverk med ett undernät som tidigare har kon figurer ATS på grund av att det inte går att använda en SLB-arkitektur (standard Load Balancer). Därför kräver den här arkitekturen explicit sändning av utgående trafik till en enhet som en brand vägg, Gateway, proxy eller för att tillåta NAT (Network Address Translation) att utföras av en offentlig IP-adress som tilldelas till standard belastnings utjämningen eller enheten.
 
-AKS Resource Provider kommer att distribuera en standard Load Balancer (SLB). Belastningsutjämnaren är inte konfigurerad med några regler och [debiteras inte förrän en regel har placerats](https://azure.microsoft.com/pricing/details/load-balancer/). AKS etablerar inte automatiskt en offentlig IP-adress för SLB-klient **organisationen** eller automatiskt konfigurerar backend-poolen för belastningsutjämnare.
+#### <a name="load-balancer-creation-with-userdefinedrouting"></a>Skapa belastningsutjämnare med userDefinedRouting
+
+AKS-kluster med en utgående typ av UDR får en standard Load Balancer (SLB) endast när den första Kubernetes-tjänsten av typen loadBalancer har distribuerats. Belastningsutjämnaren konfigureras med en offentlig IP-adress för *inkommande* begär Anden och en backend-pool för *inkommande* begär Anden. Inkommande regler konfigureras av Azure Cloud Provider, men **ingen utgående offentlig IP-adress eller utgående regler** har kon figurer ATS som ett resultat av en utgående typ av UDR. Din UDR är fortfarande den enda källan för utgående trafik.
+
+Azure Load Balancer debiteras [inte förrän en regel har placerats](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## <a name="deploy-a-cluster-with-outbound-type-of-udr-and-azure-firewall"></a>Distribuera ett kluster med utgående typ av UDR och Azure-brandvägg
 
@@ -70,9 +74,7 @@ För att illustrera programmet för ett kluster med utgående typ med en använd
 
 > [!IMPORTANT]
 > Den utgående typen av UDR kräver att det finns en väg för 0.0.0.0/0 och nästa hopp mål för NVA (virtuell nätverks installation) i routningstabellen.
-> Routningstabellen har redan ett standardvärde 0.0.0.0/0 till Internet, utan en offentlig IP-adress till SNAT som du inte kommer att ange för att lägga till den här vägen. AKS validerar att du inte skapar en router med 0.0.0.0/0 som pekar på Internet utan i stället för NVA eller gateway osv.
-> 
-> När du använder en utgående typ av UDR, skapas ingen offentlig IP-adress för belastningsutjämnaren om inte en tjänst av typen *Loadbalancer* har kon figurer ATS.
+> Routningstabellen har redan ett standardvärde 0.0.0.0/0 till Internet, utan en offentlig IP-adress till SNAT som du inte kommer att ange för att lägga till den här vägen. AKS validerar att du inte skapar en router med 0.0.0.0/0 som pekar på Internet utan i stället för NVA eller gateway osv. När du använder en utgående typ av UDR, skapas ingen offentlig IP- **adress för belastningsutjämnaren om inte** en tjänst av typen *Loadbalancer* har kon figurer ATS. En offentlig IP-adress för **utgående begär Anden** skapas aldrig av AKS om en utgående typ av UDR har angetts.
 
 ## <a name="next-steps"></a>Nästa steg
 

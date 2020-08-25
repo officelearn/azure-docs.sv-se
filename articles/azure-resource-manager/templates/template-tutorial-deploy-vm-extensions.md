@@ -6,10 +6,10 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: fb99babfd53b26874bed62183871d13ae0ae4baf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86120134"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>Självstudie: distribuera tillägg för virtuella datorer med ARM-mallar
@@ -24,7 +24,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Redigera mallen
 > * Distribuera mallen
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

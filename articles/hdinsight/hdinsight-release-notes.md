@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2020
-ms.openlocfilehash: 82a66d88b3c7c3492e7cb90116ff8ff8e61ca1b0
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.date: 08/21/2020
+ms.openlocfilehash: ba3c7304b0ce52cb720a9e2ac7ae6cf1b5ffeeea
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036597"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751469"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -72,3 +72,7 @@ Nedan JIRAs-portarna för HBase:
 
 ## <a name="component-version-change"></a>Komponent versions ändring
 Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 och HDInsight 3,6 i [det här dokumentet](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+
+## <a name="known-issues"></a>Kända problem
+
+När du försöker skapa ett Azure HDInsight-kluster från Azure Portal och använder en SSH-autentiseringstyp av en offentlig nyckel, uppstår ett fel när användaren klickar på **Granska + skapa**. Felet i portalen är "får inte innehålla tre tecken i följd från SSH-användarnamn." Det här problemet behandlas. men om du upplever det här felet, skapar lösningen ett kluster med en ARM-mall. 

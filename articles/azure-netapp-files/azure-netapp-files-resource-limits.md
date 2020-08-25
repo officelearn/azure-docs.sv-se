@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2020
+ms.date: 08/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 0c790d1d8bec972135796533542a5efad6094d7c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9facbc1629b8e1330c6bbafb4444d5bfc237d16f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006680"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752308"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -33,7 +33,7 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Antal NetApp-konton per Azure-region   |  10    |  Ja   |
 |  Antal kapacitets pooler per NetApp-konto   |    25     |   Ja   |
-|  Antal volymer per NetApp-konto   |    500     |   Ja   |
+|  Antal volymer per prenumeration   |    500     |   Ja   |
 |  Antal volymer per kapacitets grupp     |    500   |    Ja     |
 |  Antal ögonblicks bilder per volym       |    255     |    Inga        |
 |  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    Inga    |
@@ -48,7 +48,7 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 
 Mer information finns i [vanliga frågor och svar om kapacitets hantering](azure-netapp-files-faqs.md#capacity-management-faqs).
 
-## <a name="maxfiles-limits"></a>Maxfiles-gränser<a name="maxfiles"></a> 
+## <a name="maxfiles-limits"></a>Maxfiles-gränser <a name="maxfiles"></a> 
 
 Azure NetApp Files volymer har en gräns som kallas *maxfiles*. Gränsen för maxfiles är antalet filer som en volym kan innehålla. Maxfiles-gränsen för en Azure NetApp Files volym indexeras baserat på volymens storlek (kvot). Maxfiles-gränsen för en volym ökar eller minskar med hastigheten på 20 000 000 filer per TiB med etablerad volym storlek. 
 
@@ -64,7 +64,7 @@ Tjänsten justerar dynamiskt maxfiles-gränsen för en volym baserat på dess et
 
 Om du redan har tilldelat minst 4 TiB av kvoten för en volym kan du initiera en [support förfrågan](#limit_increase) för att öka maxfiles-gränsen bortom 100 000 000.
 
-## <a name="request-limit-increase"></a>Begär gräns ökning<a name="limit_increase"></a> 
+## <a name="request-limit-increase"></a>Begär gräns ökning <a name="limit_increase"></a> 
 
 Du kan skapa en support förfrågan för Azure för att öka de justerbara gränserna från tabellen ovan. 
 
@@ -80,7 +80,7 @@ Från Azure Portal navigerings plan:
 4. På fliken information:
     1. I rutan Beskrivning anger du följande information för motsvarande resurs typ:
 
-        |  Resurs  |    Överordnade resurser      |    Begärda nya gränser     |    Orsak till kvot ökning       |
+        |  Resurs  |    Överordnade resurser      |    Begärda nya gränser     |    Orsak till kvotökning       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Konto |  *Prenumerations-ID*   |  *Begärt nytt maximalt **konto** nummer*    |  *Vilket scenario eller vilka användnings fall ber begäran?*  |
         |  Pool    |  *Prenumerations-ID, konto-URI*  |  *Begärt nytt nummer för högsta **pool***   |  *Vilket scenario eller vilka användnings fall ber begäran?*  |

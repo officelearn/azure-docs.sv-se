@@ -8,16 +8,16 @@ ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
 ms.openlocfilehash: 8af1acb67961de105e5bf5900d7b10c437cb30d8
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/25/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83835877"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Svara på händelser med Azure Monitor-aviseringar
 Med aviseringar i Azure Monitor kan du identifiera viktig information på Log Analytics-lagringsplatsen. De skapas från varningsregler som automatiskt kör regelbundna loggsökningar. Om resultatet från loggsökningen matchar särskilda kriterier, skapas en aviseringspost som kan konfigureras till en automatisk åtgärd.  Den här självstudien är en fortsättning på självstudien [Skapa och dela instrumentpaneler med Log Analytics-data](tutorial-logs-dashboards.md).   
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en varningsregel
@@ -55,7 +55,7 @@ I följande exempel skapar du ett måttaviseringsregel som baseras på frågan *
 
     ![Skapa ny åtgärdsgrupp](./media/tutorial-response/action-group-properties-01.png)
 
-10. Färdigställ åtgärdsgruppen genom att klicka på **OK**. 
+10. Klicka på **OK** för att slutföra åtgärdsgruppen. 
 11. Färdigställ aviseringsregeln genom att klicka på **Skapa aviseringsregel**. Den börjar köras omedelbart.<br><br> ![Slutför skapandet av ny aviseringsregel](./media/tutorial-response/alert-rule-01.png)<br> 
 
 ## <a name="view-your-alerts-in-azure-portal"></a>Visa dina aviseringar i Azure Portal

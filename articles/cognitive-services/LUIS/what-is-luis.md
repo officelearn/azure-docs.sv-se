@@ -1,14 +1,16 @@
 ---
 title: Vad är Language Understanding Intelligent Service (LUIS)?
-description: Language Understanding Intelligent Service (LUIS) är en molnbaserad API-tjänst som använder anpassad maskininlärningsinformation på en användares naturliga konversationsspråk för att förutsäga den övergripande betydelsen och hämta relevant, detaljerad information.
+description: Language Understanding (LUIS) – en molnbaserad API-tjänst som använder maskin inlärning till konversationer, naturligt språk för att förutsäga innebörd och extrahering av information.
+keywords: Azure, artificiell intelligens, AI, naturlig språk bearbetning, NLP, natur språks förståelse, NLU, AI-konversation, konversations-AI, AI-chattrobot, chattrobot Maker, LUIS, NLP AI, Luis AI, Azure Luis, förstå naturligt språk
 ms.topic: overview
-ms.date: 05/05/2020
-ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/07/2020
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 22fe99e1552a9612adfbc455d60852f1591a1a54
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538045"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752148"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -40,7 +42,9 @@ LUIS-appen tillhandahåller information så att klientprogrammet kan fatta smart
 <a name="Key-LUIS-concepts"></a>
 <a name="what-is-a-luis-model"></a>
 
-## <a name="natural-language-processing"></a>Bearbetning av naturligt språk
+## <a name="natural-language-understanding-nlu"></a>Natur språks förståelse (NLU)
+
+[Luis tillhandahåller artificiell intelligens (AI)](artificial-intelligence.md) i form av NLU, en delmängd av NLP (naturlig Language Processing).
 
 LUIS-appen innehåller en domänbaserad naturlig språk modell. Du kan starta LUIS-appen med en fördefinierad domänmodell, bygga din egen modell eller blanda delar av en fördefinierad modell med egen anpassad information.
 
@@ -48,10 +52,11 @@ LUIS-appen innehåller en domänbaserad naturlig språk modell. Du kan starta LU
 
 * **Anpassad modell** LUIS ger dig flera olika sätt att identifiera dina egna anpassade modeller, inklusive avsikter och entiteter. Entiteter innehåller enheter för maskin inlärning, speciella eller litterala entiteter och en kombination av Machine-Learning och Literal.
 
-## <a name="build-the-luis-model"></a>Skapa LUIS-modellen
-Skapa modellen med API: erna för [redigering](https://go.microsoft.com/fwlink/?linkid=2092087) eller med [Luis-portalen](https://www.luis.ai).
+Läs mer om [NLP](artificial-intelligence.md)och Luis NLU.
 
-LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avsikter](luis-concept-intent.md)**. Varje avsikt behöver exempel på **[yttranden](luis-concept-utterance.md)** från användaren. Varje uttryck kan tillhandahålla data som behöver extraheras.
+## <a name="step-1-design-and-build-your-model"></a>Steg 1: utforma och skapa din modell
+
+Utforma din modell med kategorier av **[användar avsikter som kallas](luis-concept-intent.md)** avsikter. Varje avsikt behöver exempel på **[yttranden](luis-concept-utterance.md)** från användaren. Varje uttryck kan tillhandahålla data som måste extraheras med [enheter för maskin inlärning](luis-concept-entity-types.md#effective-machine-learned-entities).
 
 |Exempel på användaryttrande|Avsikt|Extraherade data|
 |-----------|-----------|-----------|
@@ -59,9 +64,11 @@ LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avs
 |`When does your store open?`|StoreHoursAndLocation (Butikens öppettider och plats)|open (öppen)|
 |`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting (Boka möte)|1pm, Bob (kl. 13, Bob)|
 
-## <a name="query-prediction-endpoint"></a>Slutpunkt för frågeförutsägelse
+Skapa modellen med [redigerings](https://go.microsoft.com/fwlink/?linkid=2092087) -API: erna, eller med [**Luis-portalen**](https://www.luis.ai)eller båda. Lär dig mer om hur du skapar med [portalen](get-started-portal-build-app.md) och [SDK-klient biblioteken](quickstart-sdk.md).
 
-När din app har tränats och publicerats till slut punkten skickar klient programmet yttranden till API: et för förutsägelse [slut punkt](https://go.microsoft.com/fwlink/?linkid=2092356) . API: t tillämpar modellen på uttryck för analys och svarar med förutsägelse resultatet i JSON-format.
+## <a name="step-2-get-the-query-prediction"></a>Steg 2: Hämta frågan förutsägelse
+
+När appens modell har tränats och publicerats till slut punkten skickar ett klient program (till exempel en chatt-robot) yttranden till API: et för förutsägelse [slut punkt](https://go.microsoft.com/fwlink/?linkid=2092356) . API: t tillämpar modellen på uttryck för analys och svarar med förutsägelse resultatet i JSON-format.
 
 Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan också extrahera data som följande **kontakt typ** entitet och övergripande sentiment.
 
@@ -69,7 +76,6 @@ Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med h�
 {
     "query": "I want to call my HR rep",
     "prediction": {
-        "normalizedQuery": "i want to call my hr rep",
         "topIntent": "HRContact",
         "intents": {
             "HRContact": {
@@ -82,49 +88,52 @@ Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med h�
             ]
         },
         "sentiment": {
-            "label": "negative",
-            "score": 0.103343368
+            "label": "neutral",
+            "score": 0.5
         }
     }
 }
 ```
 
-## <a name="improve-model-prediction"></a>Förbättra modellförutsägelse
+## <a name="step-3-improve-model-prediction"></a>Steg 3: förbättra modell förutsägelsen
 
-När din LUIS-app har publicerats och tar emot verkliga användar yttranden ger LUIS [aktiv inlärning](luis-concept-review-endpoint-utterances.md) av slut punkts yttranden för att förbättra förutsägelse noggrannhet.
+När din LUIS-app har publicerats och tar emot verkliga användar yttranden ger LUIS [aktiv inlärning](luis-concept-review-endpoint-utterances.md) av slut punkts yttranden för att förbättra förutsägelse noggrannhet. Granska dessa förslag som en del av ditt vanliga underhålls arbete i utvecklings livs cykeln.
 
 <a name="using-luis"></a>
 
-## <a name="development-lifecycle"></a>Utvecklingscykel
+## <a name="development-lifecycle-and-tools"></a>Livs cykel och verktyg för utveckling
 LUIS innehåller verktyg, versions hantering och samarbete med andra LUIS-författare som kan integreras i hela [utvecklings livs cykeln](luis-concept-app-iteration.md).
 
-## <a name="implementing-luis"></a>Implementera LUIS
-Language Understanding (LUIS), som REST API, kan användas med valfri produkt, tjänst eller ramverk med en HTTP-begäran. Följande lista innehåller de främsta Microsoft-produkterna och -tjänsterna som används med LUIS.
-
-Det vanligaste klientprogram för LUIS är:
-* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) skapar snabbt en LUIS-aktiverad chattrobot för att prata med en användare via textinmatning. Använder [bot Framework][bot-framework] version [4. x](https://github.com/Microsoft/botbuilder-dotnet) för en fullständig bot-upplevelse.
+Language Understanding (LUIS), som REST API, kan användas med valfri produkt, tjänst eller ramverk med en HTTP-begäran. LUIS tillhandahåller också klient bibliotek (SDK: er) för flera viktigaste programmeringsspråk. Läs mer om de [resurser](developer-reference-resource.md) som tillhandahålls av utvecklare.
 
 Verktyg för att snabbt och enkelt använda LUIS med en robot:
 * [Luis CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM-paketet ger redigering och förutsägelse med antingen ett fristående kommando rads verktyg eller som import.
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen är ett verktyg för att generera starkt typbestämd C#- och TypeScript-källkod från en exporterad LUIS-modell.
 * Med [Dispatch](https://aka.ms/dispatch-tool) kan flera LUIS- och QnA Maker-appar användas via en överordnad app som använder en dispatcher-modell.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown är ett kommando rads verktyg som hjälper dig att hantera språk modeller för din robot.
-* [Bot Framework-Composer](https://github.com/microsoft/BotFramework-Composer) – ett integrerat utvecklingsverktyg för utvecklare och flera disciplin team för att bygga robotar-och konversations upplevelser med Microsoft bot Framework
+
+## <a name="integrate-with-a-bot"></a>Integrera med en robot
+
+Använd [Azure bot-tjänsten](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) med [Microsoft bot Framework](https://dev.botframework.com/) för att bygga och distribuera en chatt-robot. Utforma och utveckla med det grafiska gränssnitts verktyget, [Composer](https://docs.microsoft.com/composer/)eller [arbetsrobots exempel](https://github.com/microsoft/BotBuilder-Samples) som är utformade för de främsta bot scenarierna.
+
+## <a name="integrate-with-other-cognitive-services"></a>Integrera med andra Cognitive Services
 
 Andra Cognitive Services-tjänster som används med LUIS:
 * Med [QnA Maker][qnamaker] kan flera typer av text kombineras till en kunskapsbas med frågor och svar.
 * [Speech Service](../Speech-Service/overview.md) konverterar begäranden med talat språk till text.
-* Med [Conversation learner](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) kan du skapa robotkonversationer snabbare med LUIS.
 
-Exempel som använder LUIS:
-* GitHub-lagringsplatsen [Conversational AI](https://github.com/Microsoft/AI).
-* [Bot Framework – bot-exempel](https://github.com/microsoft/BotBuilder-Samples)
+LUIS tillhandahåller funktioner från Textanalys som en del av dina befintliga LUIS-resurser. Den här funktionen omfattar [sentiment analys](luis-how-to-publish-app.md#configuring-publish-settings) och [extrahering av nyckel fraser](luis-reference-prebuilt-keyphrase.md) med den fördefinierade nyckel frasen entitet.
+
+## <a name="learn-with-the-quickstarts"></a>Lär dig med snabb starter
+
+Lär dig mer om LUIS med praktiska snabb starter med hjälp av [portalen](get-started-portal-build-app.md) och [klient biblioteken för SDK](quickstart-sdk.md).
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Nyheter](whats-new.md)
-* Skapa en ny LUIS-app med en [fördefinierad](luis-get-started-create-app.md) eller [anpassad](luis-quickstart-intents-only.md) domän.
-* [Fråga slutpunkten för förutsägelse](luis-get-started-get-intent-from-browser.md) för en offentlig IoT-app.
+* [Vad är nytt](whats-new.md) med tjänsten och dokumentationen
+* [Planera din app](luis-how-plan-your-app.md) med [avsikter](luis-concept-intent.md) och [entiteter](luis-concept-entity-types.md).
+* [Fråga efter förutsägelse slut punkten](luis-get-started-get-intent-from-browser.md).
 * [Utvecklings resurser](developer-reference-resource.md) för Luis.
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/

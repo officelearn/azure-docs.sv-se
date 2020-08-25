@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c3123d22d2a13be9b9e5360e82990ba3a6320b1a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008805"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752095"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurera ett AKS-kluster
 
@@ -81,17 +81,17 @@ Om du vill skapa Node-pooler med AKS Ubuntu 16,04-avbildningen kan du göra det 
 
 En container runtime är program vara som kör behållare och hanterar behållar avbildningar på en nod. Körningen gör att du kan köra behållare på Linux eller Windows med hjälp av en viss funktion i abstrakta sys-anrop eller operativ system (OS). Idag AKS använder [Moby](https://mobyproject.org/) (överordnad Docker) som container Runtime. 
     
-![Docker-CRI](media/cluster-configuration/docker-cri.png)
+![Docker CRI 1](media/cluster-configuration/docker-cri.png)
 
-[`Containerd`](https://containerd.io/)är ett [OCI](https://opencontainers.org/) -kompatibelt (Open container Initiative)-kompatibel Core container runtime som innehåller den minsta uppsättningen nödvändiga funktioner för att köra behållare och hantera avbildningar på en nod. Den har [donerat](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) till Cloud Native Compute Foundation (CNCF) i mars 2017. Den aktuella Moby-versionen som AKS använder redan idag utnyttjar och är byggd ovanpå `containerd` , som visas ovan. 
+[`Containerd`](https://containerd.io/) är ett [OCI](https://opencontainers.org/) -kompatibelt (Open container Initiative)-kompatibel Core container runtime som innehåller den minsta uppsättningen nödvändiga funktioner för att köra behållare och hantera avbildningar på en nod. Den har [donerat](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/) till Cloud Native Compute Foundation (CNCF) i mars 2017. Den aktuella Moby-versionen som AKS använder redan idag utnyttjar och är byggd ovanpå `containerd` , som visas ovan. 
 
 Med en behållar-baserad nod och nodkonfigurationer, i stället för att prata med `dockershim` , kommer kubelet att kommunicera direkt med `containerd` via CRI-plugin-programmet (container runtime Interface) och ta bort extra hopp i flödet jämfört med Docker-CRI-implementeringen. Därför ser du bättre Pod start latens och mindre resurs (CPU-och minnes användning).
 
 Genom `containerd` att använda för AKS-noder förbättrar Pod-startsvars tiden och resursanvändningen för resurs användningen av container runtime minskar. Dessa förbättringar aktive ras i den här nya arkitekturen där kubelet `containerd` kommunicerar direkt med CRI-plugin-programmet medan Moby/Docker Architecture kubelet pratar med `dockershim` och Docker-motorn innan den når `containerd` , och därför har extra hopp i flödet.
 
-![Docker-CRI](media/cluster-configuration/containerd-cri.png)
+![Docker CRI 2](media/cluster-configuration/containerd-cri.png)
 
-`Containerd`fungerar på alla GA-versioner av Kubernetes i AKS och i varje överordnad Kubernetes-version över v 1.10 och stöder alla Kubernetes-och AKS-funktioner.
+`Containerd` fungerar på alla GA-versioner av Kubernetes i AKS och i varje överordnad Kubernetes-version över v 1.10 och stöder alla Kubernetes-och AKS-funktioner.
 
 > [!IMPORTANT]
 > När `containerd` blir allmänt tillgänglig på AKS är det standard alternativet och endast tillgängligt för container runtime på nya kluster. Du kan fortfarande använda Moby-nodepools och-kluster på äldre versioner som stöds tills de faller utanför supporten. 
@@ -159,14 +159,14 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 Om du vill skapa Node-pooler med Moby-körningsmiljön (Docker) kan du göra det genom att utesluta den anpassade `--aks-custom-headers` taggen.
 
 
-### <a name="containerd-limitationsdifferences"></a>`Containerd`begränsningar/skillnader
+### <a name="containerd-limitationsdifferences"></a>`Containerd` begränsningar/skillnader
 
 * Om du vill använda `containerd` som container runtime måste du använda AKS Ubuntu 18,04 som bas operativ system avbildning.
 * Även om Docker-verktygen fortfarande finns på noderna, används Kubernetes `containerd` som behållar körning. Eftersom Moby/Docker inte hanterar Kubernetes-skapade behållare på noderna kan du därför inte Visa eller interagera med dina behållare med hjälp av Docker-kommandon (t `docker ps` . ex.) eller Docker-API: et.
 * För `containerd` rekommenderar vi att du använder [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) som en ERSÄTTNINGS-cli i stället för Docker CLI för **fel sökning** av poddar, behållare och behållar avbildningar på Kubernetes-noder (till exempel `crictl ps` ). 
    * Den ger inte den fullständiga funktionen i Docker CLI. Den är endast avsedd för fel sökning.
-   * `crictl`ger en mer Kubernetes vy över behållare, med begrepp som poddar osv.
-* `Containerd`ställer in loggning med hjälp av standardiserat `cri` loggnings format (vilket skiljer sig från vad du för närvarande får från Docker-JSON-drivrutinen). Din loggnings lösning måste ha stöd för `cri` loggnings formatet (t. ex. [Azure Monitor för behållare](../azure-monitor/insights/container-insights-enable-new-cluster.md))
+   * `crictl` ger en mer Kubernetes vy över behållare, med begrepp som poddar osv.
+* `Containerd` ställer in loggning med hjälp av standardiserat `cri` loggnings format (vilket skiljer sig från vad du för närvarande får från Docker-JSON-drivrutinen). Din loggnings lösning måste ha stöd för `cri` loggnings formatet (t. ex. [Azure Monitor för behållare](../azure-monitor/insights/container-insights-enable-new-cluster.md))
 * Du kan inte längre komma åt Docker-motorn `/var/run/docker.sock` eller använda Docker-in-Docker (DinD).
   * Om du för närvarande extraherar program loggar eller övervakar data från Docker-motorn, bör du använda något som [Azure Monitor för behållare](../azure-monitor/insights/container-insights-enable-new-cluster.md) i stället. Dessutom har AKS inte stöd för att köra out-of-band-kommandon på de agent-noder som kan orsaka instabilitet.
   * Även om du använder Moby/Docker kan det vara starkt att skapa avbildningar och direkt dra nytta av Docker-motorn via metoderna ovan. Kubernetes är inte helt medvetna om dessa förbrukade resurser och dessa metoder visar flera problem som beskrivs [här](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) och [här](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), till exempel.
@@ -236,7 +236,7 @@ Om du vill skapa gen1 för vanliga noder kan du göra det genom att utesluta den
 
 ## <a name="ephemeral-os-preview"></a>Tillfälligt operativ system (för hands version)
 
-Som standard replikeras operativ system disken för en virtuell Azure-dator automatiskt till Azure Storage för att undvika data förlust om den virtuella datorn måste flyttas till en annan värd. Eftersom behållarna inte har utformats för att ha ett lokalt tillstånd, erbjuder det här beteendet ett begränsat värde och ger vissa nack delar, inklusive långsammare etablering av noder och lägre Läs-och skriv fördröjning.
+Som standard replikeras operativ system disken för en virtuell Azure-dator automatiskt till Azure Storage för att undvika data förlust om den virtuella datorn måste flyttas till en annan värd. Eftersom behållarna inte har utformats för att ha ett lokalt tillstånd, erbjuder det här beteendet ett begränsat värde och ger vissa nack delar, inklusive långsammare etablering av noder och högre Läs-och skriv fördröjning.
 
 Tillfälliga OS-diskar lagras däremot bara på värddatorn, precis som en tillfällig disk. Detta ger lägre Läs-och skriv fördröjning, tillsammans med snabbare nod skalning och kluster uppgraderingar.
 

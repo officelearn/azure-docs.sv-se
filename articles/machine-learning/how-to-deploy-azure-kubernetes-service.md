@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5c253abf0fa6ae95dff178847209be407fb5bca5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 03477fa46aaec04c0563ed38b085605dce5b87a1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120838"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751737"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,9 @@ Lär dig hur du använder Azure Machine Learning för att distribuera en modell 
 - Alternativ för __maskin varu acceleration__ , t. ex. GPU och fält-programmerbara grind mat ris (FPGA).
 
 > [!IMPORTANT]
-> Kluster skalning tillhandahålls inte via Azure Machine Learning SDK. Mer information om hur du skalar noderna i ett AKS-kluster finns i [skala antalet noder i ett AKS-kluster](../aks/scale-cluster.md).
+> Kluster skalning tillhandahålls inte via Azure Machine Learning SDK. Mer information om hur du skalar noderna i ett AKS-kluster finns i 
+- [Skala antalet noder manuellt i ett AKS-kluster](../aks/scale-cluster.md)
+- [Konfigurera autoskalning för kluster i AKS](../aks/cluster-autoscaler.md)
 
 När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AKS-kluster som är __anslutet till din arbets yta__. Det finns två sätt att ansluta ett AKS-kluster till din arbets yta:
 
@@ -43,7 +45,7 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 > [!IMPORTANT]
 > Vi rekommenderar att du felsökr lokalt innan du distribuerar till webb tjänsten. Mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -55,9 +57,9 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
-    * `ws`– Ställ in på din arbets yta.
-    * `model`– Ställ in på din registrerade modell.
-    * `inference_config`-Ange som modellens konfigurations konfiguration.
+    * `ws` – Ställ in på din arbets yta.
+    * `model` – Ställ in på din registrerade modell.
+    * `inference_config` -Ange som modellens konfigurations konfiguration.
 
     Mer information om hur du ställer in dessa variabler finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
@@ -65,9 +67,16 @@ AKS-klustret och arbets ytan AML kan finnas i olika resurs grupper.
 
 - Om du behöver ett Standard Load Balancer (SLB) distribuerat i klustret i stället för en grundläggande Load Balancer (BLB) skapar du ett kluster i AKS-portalen/CLI/SDK och kopplar det sedan till AML-arbetsytan.
 
-- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du IP-intervallen för AML Control plan för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
+- Om du har en Azure Policy som begränsar skapandet av offentliga IP-adresser kommer AKS-kluster inte att fungera. AKS kräver en offentlig IP-adress för [utgående trafik](https://docs.microsoft.com/azure/aks/limit-egress-traffic). Den här artikeln innehåller också vägledning för att övervaka utgående trafik från klustret via den offentliga IP-adressen förutom några få FQDN. Det finns två sätt att aktivera en offentlig IP-adress:
+  - Klustret kan använda den offentliga IP-adressen som skapas som standard med BLB eller SLB, eller
+  - Klustret kan skapas utan en offentlig IP-adress och en offentlig IP-adress konfigureras med en brand vägg med en användardefinierad väg som dokumenteras [här](https://docs.microsoft.com/azure/aks/egress-outboundtype) 
+  
+  Kontroll planet för AML pratar inte med den här offentliga IP-adressen. Den pratar med AKS-kontroll planet för distributioner. 
 
-__Authroized IP-intervall fungerar endast med Standard Load Balancer.__
+- Om du ansluter ett AKS-kluster, som har ett [auktoriserat IP-adressintervall som är aktiverat för att få åtkomst till API-servern](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges), aktiverar du AML conto-planens IP-intervall för AKS-klustret. Kontroll planet för AML distribueras i kopplade regioner och distribuerar inferencing-poddar i AKS-klustret. Inferencing-poddar kan inte distribueras utan åtkomst till API-servern. Använd [IP-intervallen](https://www.microsoft.com/en-us/download/confirmation.aspx?id=56519) för båda [kopplade regionerna]( https://docs.microsoft.com/azure/best-practices-availability-paired-regions) när du aktiverar IP-intervall i ett AKS-kluster.
+
+
+  Authroized IP-intervall fungerar endast med Standard Load Balancer.
  
  - Compute-namnet måste vara unikt inom en arbets yta
    - Namnet måste vara mellan 3 och 24 tecken långt.
@@ -76,10 +85,6 @@ __Authroized IP-intervall fungerar endast med Standard Load Balancer.__
    - Namnet måste vara unikt för alla befintliga beräkningar i en Azure-region. En avisering visas om det namn du väljer inte är unikt
    
  - Om du vill distribuera modeller till GPU-noder eller FPGA-noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
- 
- 
-
-
 
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 
@@ -290,7 +295,7 @@ I Azure Machine Learning används "distribution" i den allmänna uppfattningen f
     1. Om den inte hittas skapar systemet en ny avbildning (som kommer att cachelagras och registreras med arbets ytans ACR)
 1. Hämta den zippade projekt filen till tillfällig lagring på Compute-noden
 1. Zippa upp projekt filen
-1. Compute-noden körs`python <entry script> <arguments>`
+1. Compute-noden körs `python <entry script> <arguments>`
 1. Spara loggar, modellvariabler och andra filer som skrivs till `./outputs` det lagrings konto som är kopplat till arbets ytan
 1. Skala ned beräkning, inklusive borttagning av tillfällig lagring (relatera till Kubernetes)
 
@@ -409,7 +414,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Om du behöver återskapa en nyckel använder du[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+> Om du behöver återskapa en nyckel använder du [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autentisering med token
 
@@ -439,7 +444,7 @@ print(token)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

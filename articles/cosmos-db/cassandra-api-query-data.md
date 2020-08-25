@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.openlocfilehash: 28bb69dc21702a7c98755dc07389ea4147848f7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82853032"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Självstudie: Fråga efter data från ett konto för Cassandra-API:t i Azure Cosmos DB
@@ -27,7 +27,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här artikeln tillhör en självstudiekursen i flera delar. Innan du börjar ska du se till att slutföra de föregående stegen för att skapa API för Cassandra konto, tecken utrymme, tabell och [läsa in exempel data i tabellen](cassandra-api-load-data.md). 
 

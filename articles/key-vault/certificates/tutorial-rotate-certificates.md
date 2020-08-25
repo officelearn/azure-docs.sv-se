@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.date: 04/16/2020
 ms.author: sebansal
 ms.openlocfilehash: eeceb1279579055bfff33f0a4413f0798418faed
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83201519"
 ---
 # <a name="tutorial-configure-certificate-auto-rotation-in-key-vault"></a>Självstudie: Konfigurera automatisk rotation av certifikat i Key Vault
@@ -33,7 +33,7 @@ Självstudien visar hur du:
 
 Läs [Key Vault grundläggande koncept](../general/basic-concepts.md)innan du börjar.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -95,14 +95,14 @@ Key Vault automatiskt roterar certifikat genom upprättade partnerskap med ca: e
 1. Välj det certifikat som du vill uppdatera. I det här fallet arbetar du med ett certifikat med namnet **ExampleCertificate**.
 1. Välj **utgivnings princip** på den översta meny raden.
 
-   ![Certifikat egenskaper](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
+   ![Certifikategenskaper](../media/certificates/tutorial-rotate-cert/cert-issuance-policy.png)
 
 1. På skärmen **utgivnings princip** uppdaterar du följande värden:
 
    - **Giltighets period**: uppdatera värdet (i månader).
    - **Typ av livs längd**: Välj certifikatets automatiska förnyelse-och aviserings åtgärd och uppdatera sedan **livs längden för procent** eller **antal dagar innan det går ut**.
 
-   ![Certifikat egenskaper](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
+   ![Certifikategenskaper](../media/certificates/tutorial-rotate-cert/cert-policy-change.png)
 
 1. Välj **Spara**.
 

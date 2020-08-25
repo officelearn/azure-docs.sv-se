@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d303f8a04a9159eeb4dc5e78ef09b57f5a966c72
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dd189db10b599c0bc6bd5a3dbae2b1bc21b53b0c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691368"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795923"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -37,7 +37,7 @@ För att skydda privilegie rad åtkomst krävs ändringar av:
 * Processer, administrativa metoder och kunskaps hantering
 * Tekniska komponenter, till exempel värd skydd, konto skydd och identitets hantering
 
-Skydda privilegie rad åtkomst på ett sätt som hanteras och rapporteras i de Microsoft-tjänster du bryr dig om. Om du har lokala administratörs konton kan du läsa mer i rikt linjerna för lokal och hybrid privilegie rad åtkomst i Active Directory för att [skydda privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access).
+Skydda privilegie rad åtkomst på ett sätt som hanteras och rapporteras i de Microsoft-tjänster du bryr dig om. Om du har lokala administratörs konton kan du läsa mer i rikt linjerna för lokal och hybrid privilegie rad åtkomst i Active Directory för att [skydda privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
 > Vägledningen i den här artikeln handlar främst om funktioner i Azure Active Directory som ingår i Azure Active Directory Premium planerna P1 och P2. Azure Active Directory Premium P2 ingår i EMS E5 Suite och Microsoft 365 E5 Suite. Den här vägledningen förutsätter att din organisation redan har Azure AD Premium P2-licenser som har köpts för dina användare. Om du inte har dessa licenser kanske en del av vägledningen inte gäller för din organisation. Den globala administratören (eller den globala administratören) i den här artikeln innebär också samma sak som "företags administratör" eller "innehavaradministratör".
@@ -93,7 +93,7 @@ När du har aktiverat Azure AD Privileged Identity Management kan du Visa de anv
 * Exchange-administratör
 * SharePoint-administratör
 
-Om du inte har Azure AD Privileged Identity Management i din organisation kan du använda PowerShell- [API: et](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Börja med den globala administratörs rollen eftersom en global administratör har samma behörigheter i alla moln tjänster som din organisation prenumererar på. Dessa behörigheter beviljas oavsett var de tilldelades: i Microsoft 365 administrations Center, Azure Portal eller av Azure AD-modulen för Microsoft PowerShell.
+Om du inte har Azure AD Privileged Identity Management i din organisation kan du använda PowerShell- [API: et](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Börja med den globala administratörs rollen eftersom en global administratör har samma behörigheter i alla moln tjänster som din organisation prenumererar på. Dessa behörigheter beviljas oavsett var de tilldelades: i Microsoft 365 administrations Center, Azure Portal eller av Azure AD-modulen för Microsoft PowerShell.
 
 Ta bort alla konton som inte längre behövs i dessa roller. Kategorisera sedan de återstående konton som har tilldelats administratörs roller:
 
@@ -130,7 +130,7 @@ Steg 2 i översikten fokuserar på att begränsa de mest använda angrepps tekni
 
 * Identifiera de användare som har administrativa roller och de tjänster som de kan hantera.
 * Använd Azure AD PIM för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Azure AD.
-* Utöver de roller som definierats i Azure AD levereras Office 365 med en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Office 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [säkerhets rutiner för Office 365](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
+* Utöver de roller som definierats i Azure AD levereras Office 365 med en uppsättning administratörs roller som du kan tilldela till användare i din organisation. Varje administratörs roll mappar till vanliga affärs funktioner och ger personer i organisationen behörighet att utföra specifika uppgifter i [Microsoft 365 administrations centret](https://admin.microsoft.com). Använd Microsoft 365 administrations Center för att ta reda på vilka användare i din organisation som har administratörs åtkomst till Office 365, inklusive via roller som inte hanteras i Azure AD. Mer information finns i [om office 365-administratörs roller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) och [säkerhets rutiner för Office 365](/office365/servicedescriptions/office-365-platform-service-description/office-365-securitycompliance-center).
 * Gör inventeringen i tjänster som din organisation använder, till exempel Azure, Intune eller Dynamics 365.
 * Se till att dina konton som används i administrations syfte:
 
@@ -169,11 +169,11 @@ Aktivera:
 
 * [MFA använder principer för villkorlig åtkomst](../authentication/howto-mfa-getstarted.md) för alla användare i din organisation.
 
-Om du använder Windows Hello för företag kan MFA-kravet uppfyllas med hjälp av inloggnings upplevelsen i Windows Hello. Mer information finns i [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport).
+Om du använder Windows Hello för företag kan MFA-kravet uppfyllas med hjälp av inloggnings upplevelsen i Windows Hello. Mer information finns i [Windows Hello](/windows/uwp/security/microsoft-passport).
 
 #### <a name="configure-identity-protection"></a>Konfigurera identitets skydd
 
-Azure AD Identity Protection är ett algoritmbaserade övervaknings-och rapporterings verktyg som identifierar potentiella sårbarheter som påverkar organisationens identiteter. Du kan konfigurera automatiserade svar på de identifierade misstänkta aktiviteterna och vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Azure AD Identity Protection är ett algoritmbaserade övervaknings-och rapporterings verktyg som identifierar potentiella sårbarheter som påverkar organisationens identiteter. Du kan konfigurera automatiserade svar på de identifierade misstänkta aktiviteterna och vidta lämpliga åtgärder för att lösa dem. Mer information finns i [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Skaffa dina Office 365-säkra poäng (om du använder Office 365)
 
@@ -193,7 +193,7 @@ Att upprätta en lyckad incident svars funktion kräver avsevärd planering och 
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>Skydda lokala privilegierade administratörs konton, om de inte redan gjorts
 
-Om din Azure Active Directory organisation är synkroniserad med lokal Active Directory, följer du rikt linjerna i [säkerhets översikten för privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): det här steget omfattar:
+Om din Azure Active Directory organisation är synkroniserad med lokal Active Directory, följer du rikt linjerna i [säkerhets översikten för privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access): det här steget omfattar:
 
 * Skapa separata administratörs konton för användare som behöver utföra lokala administrativa uppgifter
 * Distribuera privilegierade åtkomst arbets stationer för Active Directory administratörer
@@ -211,13 +211,13 @@ Microsoft-konton från andra program, till exempel Xbox, Live och Outlook, bör 
 
 #### <a name="monitor-azure-activity"></a>Övervaka Azure-aktivitet
 
-Azure-aktivitetsloggen innehåller historik över händelser på prenumerationsnivå i Azure. Den innehåller information om vem som skapade, uppdaterat och tagit bort vilka resurser och när dessa händelser inträffade. Mer information finns i [Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration](../../azure-monitor/platform/quick-audit-notify-action-subscription.md).
+Azure-aktivitetsloggen innehåller historik över händelser på prenumerationsnivå i Azure. Den innehåller information om vem som skapade, uppdaterat och tagit bort vilka resurser och när dessa händelser inträffade. Mer information finns i [Granska och ta emot meddelanden om viktiga åtgärder i din Azure-prenumeration](../../azure-monitor/platform/alerts-activity-log.md).
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Ytterligare steg för organisationer som hanterar åtkomst till andra molnappar via Azure AD
 
 #### <a name="configure-conditional-access-policies"></a>Konfigurera principer för villkorlig åtkomst
 
-Förbered principer för villkorlig åtkomst för lokala och molnbaserade program. Om du har användare som är anslutna till arbets platsen kan du få mer information om hur du konfigurerar [lokal villkorlig åtkomst med hjälp av Azure Active Directory enhets registrering](../active-directory-device-registration-on-premises-setup.md).
+Förbered principer för villkorlig åtkomst för lokala och molnbaserade program. Om du har användare som är anslutna till arbets platsen kan du få mer information om hur du konfigurerar [lokal villkorlig åtkomst med hjälp av Azure Active Directory enhets registrering](../devices/overview.md).
 
 ## <a name="stage-3-take-control-of-admin-activity"></a>Steg 3: ta kontroll över administratörs aktivitet
 
@@ -255,7 +255,7 @@ Angripare kan försöka nå privilegierade konton så att de kan störa integrit
 * Personifiering av attacker
 * Attacker mot autentiseringsuppgifter som tangenttryckning, pass-The-hash och pass-The-Ticket
 
-Genom att distribuera privilegierade åtkomst arbets stationer kan du minska risken för att administratörer anger sina autentiseringsuppgifter i en stationär miljö som inte har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Genom att distribuera privilegierade åtkomst arbets stationer kan du minska risken för att administratörer anger sina autentiseringsuppgifter i en stationär miljö som inte har härdats. Mer information finns i [arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Granska National Institute of Standards och teknik rekommendationer för hantering av incidenter
 
@@ -279,7 +279,7 @@ Om du redan använder Azure AD Privileged Identity Management justerar du tids r
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Bestäm exponering för lösenordsbaserade inloggnings protokoll (om du använder Exchange Online)
 
-Vi rekommenderar att du identifierar varje potentiell användare som kan vara oåterkallelig till organisationen om deras autentiseringsuppgifter har komprometterats. För dessa användare kan du ange starka autentiseringskrav och använda villkorlig åtkomst i Azure AD för att hindra dem från att logga in på sina e-postmeddelanden med hjälp av användar namn och lösen ord. Du kan blockera [äldre autentisering med villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)och du kan [blockera grundläggande autentisering](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online.
+Vi rekommenderar att du identifierar varje potentiell användare som kan vara oåterkallelig till organisationen om deras autentiseringsuppgifter har komprometterats. För dessa användare kan du ange starka autentiseringskrav och använda villkorlig åtkomst i Azure AD för att hindra dem från att logga in på sina e-postmeddelanden med hjälp av användar namn och lösen ord. Du kan blockera [äldre autentisering med villkorlig åtkomst](../conditional-access/block-legacy-authentication.md)och du kan [blockera grundläggande autentisering](/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online.
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Slutför en gransknings bedömning för roller för Office 365-roller (om du använder Office 365)
 
@@ -291,7 +291,7 @@ Du kan hämta den här rapporten från [hantering av säkerhets incidenter i Mic
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>Fortsätt att skydda lokala privilegierade administratörs konton
 
-Om din Azure Active Directory är ansluten till den lokala Active Directory följer du rikt linjerna i [översikten över säkerhets privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 2. I det här steget:
+Om din Azure Active Directory är ansluten till den lokala Active Directory följer du rikt linjerna i [översikten över säkerhets privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access): steg 2. I det här steget:
 
 * Distribuera privilegierade åtkomst arbets stationer för alla administratörer
 * Krav på MFA
@@ -314,11 +314,11 @@ Du behöver vanligt vis inte ge användare obegränsade behörigheter till alla 
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Implementera PIM för administratörs roller i Azure AD
 
-Använd Privileged Identity Management med administratörs roller i Azure AD för att hantera, kontrol lera och övervaka åtkomst till Azure-resurser. Att använda PIM skyddar genom att minska exponerings tiden för privilegier och öka din insyn i användningen genom rapporter och aviseringar. Mer information finns i [hantera RBAC-åtkomst till Azure-resurser med Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md).
+Använd Privileged Identity Management med administratörs roller i Azure AD för att hantera, kontrol lera och övervaka åtkomst till Azure-resurser. Att använda PIM skyddar genom att minska exponerings tiden för privilegier och öka din insyn i användningen genom rapporter och aviseringar. Mer information finns i [hantera RBAC-åtkomst till Azure-resurser med Privileged Identity Management](../../role-based-access-control/best-practices.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>Använd Azures logg integrering för att skicka relevanta Azure-loggar till dina SIEM-system
 
-Med Azure logg integrering kan du integrera obehandlade loggar från dina Azure-resurser till din organisations befintliga SIEM-system (Security information and Event Management). [Azure logg integrering](../../security/fundamentals/azure-log-integration-overview.md) samlar in Windows-händelser från Windows Loggboken-loggar och Azure-resurser från:
+Med Azure logg integrering kan du integrera obehandlade loggar från dina Azure-resurser till din organisations befintliga SIEM-system (Security information and Event Management). [Azure logg integrering](/previous-versions/azure/security/fundamentals/azure-log-integration-overview) samlar in Windows-händelser från Windows Loggboken-loggar och Azure-resurser från:
 
 * Azure aktivitets loggar
 * Azure Security Center-aviseringar
@@ -332,7 +332,7 @@ Med Azure AD kan du automatisera skapandet och underhåll av användar identitet
 
 #### <a name="integrate-information-protection"></a>Integrera informations skydd
 
-Med Microsoft Cloud App Security kan du undersöka filer och ange principer baserat på Azure Information Protection klassificerings etiketter, vilket ger bättre synlighet och kontroll över dina moln data. Genomsök och klassificera filer i molnet och Använd Azure information Protection-etiketter. Mer information finns i [Azure information Protection-integrering](https://docs.microsoft.com/cloud-app-security/azip-integration).
+Med Microsoft Cloud App Security kan du undersöka filer och ange principer baserat på Azure Information Protection klassificerings etiketter, vilket ger bättre synlighet och kontroll över dina moln data. Genomsök och klassificera filer i molnet och Använd Azure information Protection-etiketter. Mer information finns i [Azure information Protection-integrering](/cloud-app-security/azip-integration).
 
 #### <a name="configure-conditional-access"></a>Konfigurera villkorlig åtkomst
 
@@ -340,7 +340,7 @@ Konfigurera villkorlig åtkomst baserat på en grupp, plats och program känslig
 
 #### <a name="monitor-activity-in-connected-cloud-apps"></a>Övervaka aktivitet i anslutna molnappar
 
-Vi rekommenderar att du använder [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) för att säkerställa att användar åtkomst också skyddas i anslutna program. Den här funktionen skyddar företagets åtkomst till molnappar och skyddar dina administratörs konton, så att du kan:
+Vi rekommenderar att du använder [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) för att säkerställa att användar åtkomst också skyddas i anslutna program. Den här funktionen skyddar företagets åtkomst till molnappar och skyddar dina administratörs konton, så att du kan:
 
 * Utöka synlighet och kontroll över molnappar
 * Skapa principer för åtkomst, aktiviteter och data delning
@@ -348,7 +348,7 @@ Vi rekommenderar att du använder [Microsoft Cloud App Security](https://docs.mi
 * Förhindra data läckage
 * Minimera risker och automatiserat skydd av hot och princip tillämpning
 
-Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Office 365-aviseringar och-aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [Siem-integrering](https://docs.microsoft.com/cloud-app-security/siem).
+Cloud App Security SIEM-agenten integrerar Cloud App Security med SIEM-servern för att aktivera centraliserad övervakning av Office 365-aviseringar och-aktiviteter. Den körs på servern och hämtar aviseringar och aktiviteter från Cloud App Security och strömmar dem till SIEM-servern. Mer information finns i [Siem-integrering](/cloud-app-security/siem).
 
 ## <a name="stage-4-continue-building-defenses"></a>Steg 4: Fortsätt att skapa försvar
 
@@ -359,7 +359,7 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
 * Policy
-* Åtgärder
+* Operations
 * Informations säkerhet
 * Servrar
 * Program
@@ -385,7 +385,7 @@ Ta reda på om de aktuella inbyggda administratörs rollerna för Azure AD fortf
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Granska användare som har administration av Azure AD-anslutna enheter
 
-Mer information finns i [så här konfigurerar du hybrid Azure Active Directory anslutna enheter](../device-management-hybrid-azuread-joined-devices-setup.md).
+Mer information finns i [så här konfigurerar du hybrid Azure Active Directory anslutna enheter](../devices/hybrid-azuread-join-plan.md).
 
 #### <a name="review-members-of-built-in-office-365-admin-roles"></a>Granska medlemmar av [inbyggda administratörs roller för Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)
 Hoppa över det här steget om du inte använder Office 365.

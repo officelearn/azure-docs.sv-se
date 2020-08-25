@@ -3,18 +3,18 @@ title: Koncept – privata moln och kluster
 description: Lär dig mer om de viktigaste funktionerna i Azure VMware-programdefinierade Data Center och vSphere-kluster i VMware-lösningar på Azure av VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 09e1fd45b1dd873509f942ef8b524783acfed4ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906997"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752293"
 ---
-# <a name="azure-vmware-solution-avs-preview-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning (AVS) för hands version av privata moln och kluster koncept
+# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Azure VMware-lösning för hands version av privata moln och kluster koncept
 
-Azure VMware-lösningen (AVS) levererar VMware-baserade privata moln i Azure. Privata moln skapas från kluster av dedikerade Bare Metal-värdar och distribueras och hanteras via Azure Portal. Kluster i privata moln är etablerade med VMware vSphere-, vCenter-, virtuellt San-och NSX-programvara. Molnets privata moln maskin-och program varu distributioner är helt integrerade och automatiserade i Azure.
+Azure VMware-lösningen levererar VMware-baserade privata moln i Azure. Privata moln skapas från kluster av dedikerade Bare Metal-värdar och distribueras och hanteras via Azure Portal. Kluster i privata moln är etablerade med VMware vSphere-, vCenter-, virtuellt San-och NSX-programvara. Azure VMware-lösningar privata moln maskin-och program varu distributioner är helt integrerade och automatiserade i Azure.
 
-Det finns en logisk relation mellan Azure-prenumerationer, molnets privata moln, virtuellt San-kluster och-värdar. I diagrammet visas två privata moln i en enda Azure-prenumeration. Privata moln är en utveckling och en produktions miljö, var och en med ett eget privat moln. I vart och ett av dessa privata moln finns det två kluster. För att visa de lägre potentiella behoven i en utvecklings miljö används mindre kluster med lägre kapacitets värdar. Alla dessa begrepp beskrivs i avsnitten nedan.
+Det finns en logisk relation mellan Azure-prenumerationer, privata moln i Azure VMware-lösningar, virtuellt San-kluster och-värdar. I diagrammet visas två privata moln i en enda Azure-prenumeration. Privata moln är en utveckling och en produktions miljö, var och en med ett eget privat moln. I vart och ett av dessa privata moln finns det två kluster. För att visa de lägre potentiella behoven i en utvecklings miljö används mindre kluster med lägre kapacitets värdar. Alla dessa begrepp beskrivs i avsnitten nedan.
 
 ![Bild av två privata moln i en kund prenumeration](./media/hosts-clusters-private-clouds-final.png)
 
@@ -34,7 +34,7 @@ Du skapar, tar bort och skalar kluster via portalen eller API: et. Du använder 
 
 ## <a name="hosts"></a>Värdar
 
-Hyper-konvergerade, Bare-Metal Infrastructure-noder används i molnets privata moln kluster. Värdens RAM-, processor-och disk kapacitet anges i tabellen nedan. 
+Hyper-konvergerade infrastruktur-noder utan operativ system används i Azure VMware-lösningar privata moln kluster. Värdens RAM-, processor-och disk kapacitet anges i tabellen nedan. 
 
 | Värdtyp              |             Processor             |   RAM (GB)   |  Virtuellt San NVMe cache-nivå (TB, RAW)  |  kapacitets nivå för virtuellt San SSD (TB, RAW)  |
 | :---                   |            :---:            |    :---:     |               :---:              |                :---:               |
@@ -44,27 +44,27 @@ Värdar som används för att bygga eller skala kluster förvärvas från en iso
 
 ## <a name="vmware-software-versions"></a>Versioner av VMware-programvara
 
-De aktuella program varu versionerna av VMware-programvaran som används i AVS-kluster för privata moln är:
+De aktuella program varu versionerna av VMware-programvaran som används i Azure VMware-lösningar privata moln kluster är:
 
 | Programvara              |    Version   |
 | :---                  |     :---:    |
 | VCSA/vSphere/ESXi |    6,7 U2    | 
 | ESXi                  |    6,7 U2    | 
 | Virtuellt San                  |    6,7 U2    |
-| NSX-T                 |      2.5     |
+| NSX-T                 |      2,5     |
 
 För alla nya kluster i ett privat moln kommer program versionen att matcha vad som för närvarande körs i det privata molnet. Den senaste versionen av program varu stacken installeras för alla nya privata moln i en kund prenumeration.
 
-De allmänna uppgraderings principerna och processerna för AVS-plattformens program vara beskrivs i avsnittet Uppgradera koncept.
+De allmänna uppgraderings principerna och processerna för Azure VMware Solution Platform-programvaran beskrivs i dokumentet för att uppgradera begrepp.
 
 ## <a name="host-maintenance-and-lifecycle-management"></a>Underhåll av värd och livs cykel hantering
 
 Värd underhåll och livs cykel hantering görs utan påverkan på kapaciteten eller prestandan för privata moln kluster. Exempel på automatiserat värd underhåll är uppgraderingar av inbyggd program vara och reparation eller ersättning av maskin vara.
 
-Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt moln privata moln är du ansvarig för NSX-T SDN-konfiguration som nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
+Microsoft ansvarar för livs cykel hantering av NSX-T-apparater som NSX-T Manager och NSX-T-Edge. Microsoft ansvarar också för start av nätverks konfiguration, till exempel att skapa nivå 0-gateway och aktivera Nord-syd-routning. Som administratör för ditt privata moln i Azure VMware-lösningen är du ansvarig för NSX-T SDN-konfiguration som nätverks segment, distribuerade brand Väggs regler, nivå 1-gatewayer och belastningsutjämnare.
 
 > [!IMPORTANT]
-> En AVS-administratör får inte ändra konfigurationen för NSX-T Edge eller nivå 0-Gateway. Detta kan leda till förlust av tjänst.
+> En Azure VMware-lösning för VMware-lösningar får inte ändra konfigurationen för NSX-T Edge eller nivå 0-Gateway. Detta kan leda till förlust av tjänst.
 
 ## <a name="backup-and-restoration"></a>Säkerhets kopiering och återställning
 

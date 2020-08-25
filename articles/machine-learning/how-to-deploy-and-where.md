@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 67a66ae94508a8d7f54d6112de95fa65a8fd5f09
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d7502414f6476cafcc85bbefd28a4ec463f62099
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185425"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751696"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -76,7 +76,7 @@ Mer information om hur du använder SDK för att ansluta till en arbets yta finn
 ---
 
 
-## <a name="register-your-model"></a><a id="registermodel"></a>Registrera din modell
+## <a name="register-your-model"></a><a id="registermodel"></a> Registrera din modell
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 
@@ -218,12 +218,12 @@ Konfiguration av konfigurations miljön använder Azure Machine Learning miljöe
 
 name: project_environment
 dependencies:
-    - python=3.6.2
-    - scikit-learn=0.20.0
-    - pip:
-        # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
+- python=3.6.2
+- scikit-learn=0.22.1
+- pip:
+ # You must list azureml-defaults as a pip dependency
+ - azureml-defaults>=1.0.45
+ - inference-schema[numpy-support]
 ```
 
 > [!IMPORTANT]
@@ -350,19 +350,19 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | Nej |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
+| Övergår | Tjänsten håller på att distribueras. | Inga |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Inga |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Inga |
 | Misslyckad | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 
 
-### <a name="batch-inference"></a><a id="azuremlcompute"></a>Batch-härledning
+### <a name="batch-inference"></a><a id="azuremlcompute"></a> Batch-härledning
 Azure Machine Learning beräknings mål skapas och hanteras av Azure Machine Learning. De kan användas för batch förutsägelse från Azure Machine Learning pipeliner.
 
 En genom gång av batch-härledning med Azure Machine Learning Compute finns i [så här kör du batch-förutsägelser](tutorial-pipeline-batch-scoring-classification.md).
 
-### <a name="iot-edge-inference"></a><a id="iotedge"></a>IoT Edge-härledning
+### <a name="iot-edge-inference"></a><a id="iotedge"></a> IoT Edge-härledning
 Stöd för att distribuera till Edge är i för hands version. Mer information finns i [distribuera Azure Machine Learning som en IoT Edge modul](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="delete-resources"></a>Ta bort resurser
@@ -371,7 +371,7 @@ Stöd för att distribuera till Edge är i för hands version. Mer information f
 
 Använd om du vill ta bort en distribuerad WebService `az ml service <name of webservice>` .
 
-Om du vill ta bort en registrerad modell från din arbets yta använder du`az ml model delete <model id>`
+Om du vill ta bort en registrerad modell från din arbets yta använder du `az ml model delete <model id>`
 
 Läs mer om att [ta bort en WebService](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-delete) och [ta bort en modell](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-delete).
 
@@ -392,7 +392,7 @@ Mer information finns i dokumentationen för [WebService. Delete ()](https://doc
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
 * [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

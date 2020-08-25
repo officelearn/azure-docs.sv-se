@@ -6,10 +6,10 @@ ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86119352"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Självstudie: Felsöka distributioner av ARM-mallar
@@ -31,7 +31,7 @@ Den här självstudien omfattar följande uppgifter:
 > - Felsöka vanliga distributionsfel
 > - Rensa resurser
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

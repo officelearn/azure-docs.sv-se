@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 6d1042ea21308dd0f82165c288824aaef000e36d
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192330"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751707"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig flera sätt att skapa en Azure Machine Lea
 
 Mer information finns i [distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -165,158 +165,50 @@ Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-secu
 
 > [!IMPORTANT]
 > Det finns vissa särskilda krav som din prenumeration måste uppfylla innan du använder den här mallen:
->
-> * __Azure Machine Learning__ programmet måste vara __deltagare__ i din Azure-prenumeration.
 > * Du måste ha en befintlig Azure Key Vault som innehåller en krypterings nyckel.
-> * Du måste ha en åtkomst princip i Azure Key Vault som beviljar __Get__-, __wrap__-och __unwrap__ -åtkomst till __Azure Cosmos DB__ programmet.
 > * Azure Key Vault måste vara i samma region där du planerar att skapa Azure Machine Learning-arbetsytan.
+> * Du måste ange ID: t för Azure Key Vault och URI för krypterings nyckeln.
 
-Använd följande kommandon __för att lägga till Azure Machine Learning-appen som deltagare__:
+Använd följande steg __för att hämta värdena__ för `cmk_keyvault` (ID för Key Vault) och `resource_cmk_uri` PARAMETRARNA (nyckel-URI) som behövs för den här mallen:    
 
-1. Logga in på ditt Azure-konto och hämta ditt prenumerations-ID. Den här prenumerationen måste vara samma som innehåller din Azure Machine Learning-arbetsyta.  
+1. Använd följande kommando för att hämta Key Vault-ID:  
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)   
 
-    ```azurecli
-    az account list --query '[].[name,id]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault show --name <keyvault-name> --query 'id' --output tsv   
+    ``` 
 
-    > [!TIP]
-    > Om du vill välja en annan prenumeration använder du `az account set -s <subscription name or ID>` kommandot och anger det prenumerations namn eller-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). 
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzSubscription
-    ```
-
-    > [!TIP]
-    > Om du vill välja en annan prenumeration använder du `Az-SetContext -SubscriptionId <subscription ID>` kommandot och anger det prenumerations namn eller-ID som du vill växla till. Mer information om val av prenumeration finns i [använda flera Azure-prenumerationer](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps?view=azps-4.3.0).
-
-    ---
-
-1. Använd följande kommando för att hämta objekt-ID: t för Azure Machine Learning-appen. Värdet kan vara ett annat för var och en av dina Azure-prenumerationer:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az ad sp list --display-name "Azure Machine Learning" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Machine Learning" | select-object DisplayName, Id
-    ```
-
-    ---
-    Det här kommandot returnerar objekt-ID: t, som är ett GUID.
-
-1. Använd följande kommando om du vill lägga till objekt-ID som deltagare i din prenumeration. Ersätt `<object-ID>` med objekt-ID: t för tjänstens huvud namn. Ersätt `<subscription-ID>` med namnet eller ID: t för din Azure-prenumeration:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az role assignment create --role 'Contributor' --assignee-object-id <object-ID> --subscription <subscription-ID>
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    New-AzRoleAssignment --ObjectId <object-ID> --RoleDefinitionName "Contributor" -Scope /subscriptions/<subscription-ID>
-    ```
-
-    ---
-
-1. Om du vill generera en nyckel i en befintlig Azure Key Vault använder du något av följande kommandon. Ersätt `<keyvault-name>` med namnet på nyckel valvet. Ersätt `<key-name>` med namnet som ska användas för nyckeln:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault key create --vault-name <keyvault-name> --name <key-name> --protection software
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Add-AzKeyVaultKey -VaultName <keyvault-name> -Name <key-name> -Destination 'Software'
-    ```
+    ```azurepowershell  
+    Get-AzureRMKeyVault -VaultName '<keyvault-name>'    
+    ``` 
     --- 
 
-__Om du vill lägga till en åtkomst princip i nyckel valvet använder du följande kommandon__:
+    Det här kommandot returnerar ett värde som liknar `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .  
 
-1. Använd följande kommando för att hämta objekt-ID: t för Azure Cosmos DB-appen. Värdet kan vara ett annat för var och en av dina Azure-prenumerationer:
+1. Använd följande kommando för att hämta värdet för URI: n för den hanterade nyckeln för kunden:    
 
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)   
 
-    ```azurecli
-    az ad sp list --display-name "Azure Cosmos DB" --query '[].[appDisplayName,objectId]' --output tsv
-    ```
+    ```azurecli 
+    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv  
+    ``` 
 
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
+    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell) 
 
-    ```azurepowershell
-    Get-AzADServicePrincipal --DisplayName "Azure Cosmos DB" | select-object DisplayName, Id
-    ```
-    ---
+    ```azurepowershell  
+    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>' 
+    ``` 
+    --- 
 
-    Det här kommandot returnerar objekt-ID: t, som är ett GUID. Spara den för senare
+    Det här kommandot returnerar ett värde som liknar `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` . 
 
-1. Använd följande kommando för att ange principen. Ersätt `<keyvault-name>` med namnet på den befintliga Azure Key Vault. Ersätt `<object-ID>` med GUID från föregående steg:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-    
-    ```azurepowershell
-    Set-AzKeyVaultAccessPolicy -VaultName <keyvault-name> -ObjectId <object-ID> -PermissionsToKeys get, unwrapKey, wrapKey
-    ```
-    ---    
-
-Använd följande steg __för att hämta värdena__ för `cmk_keyvault` (ID för Key Vault) och `resource_cmk_uri` PARAMETRARNA (nyckel-URI) som behövs för den här mallen:
-
-1. Använd följande kommando för att hämta Key Vault-ID:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault show --name <keyvault-name> --query 'id' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureRMKeyVault -VaultName '<keyvault-name>'
-    ```
-    ---
-
-    Det här kommandot returnerar ett värde som liknar `/subscriptions/{subscription-guid}/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<keyvault-name>` .
-
-1. Använd följande kommando för att hämta värdet för URI: n för den hanterade nyckeln för kunden:
-
-    # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
-
-    ```azurecli
-    az keyvault key show --vault-name <keyvault-name> --name <key-name> --query 'key.kid' --output tsv
-    ```
-
-    # <a name="azure-powershell"></a>[Azure PowerShell](#tab/azpowershell)
-
-    ```azurepowershell
-    Get-AzureKeyVaultKey -VaultName '<keyvault-name>' -KeyName '<key-name>'
-    ```
-    ---
-
-    Det här kommandot returnerar ett värde som liknar `https://mykeyvault.vault.azure.net/keys/mykey/{guid}` .
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > När en arbets yta har skapats kan du inte ändra inställningarna för konfidentiella data, kryptering, nyckel valv-ID eller nyckel identifierare. Om du vill ändra dessa värden måste du skapa en ny arbets yta med de nya värdena.
 
-När du har slutfört stegen ovan distribuerar du mallen som vanligt. Om du vill aktivera användning av Kundhanterade nycklar anger du följande parametrar:
+Om du vill aktivera användning av kund hanterade nycklar anger du följande parametrar när du distribuerar mallen:
 
 * **encryption_status** till **aktive rad**.
 * **cmk_keyvault** till `cmk_keyvault` värdet som hämtades i föregående steg.

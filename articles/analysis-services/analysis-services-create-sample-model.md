@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83697515"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
@@ -22,7 +22,7 @@ I den här självstudiekursen får du lägga till en exempeldatabas för Adventu
 > * Lägga till en färdig exempelmodell för tabelldata till en server 
 > * Ansluta till modellen med SSMS
 
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

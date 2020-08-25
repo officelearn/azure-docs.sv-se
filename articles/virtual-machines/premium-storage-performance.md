@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0e0f6df04eda45af04659edc2010e8d68b013892
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88701625"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751501"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
@@ -31,16 +31,16 @@ Den här artikeln hjälper dig att besvara vanliga frågor om hur du optimerar p
 Vi har tillhandahållit dessa rikt linjer specifikt för Premium Storage eftersom arbets belastningar som körs på Premium Storage är mycket prestanda känsliga. Vi har fått exempel där det är lämpligt. Du kan också använda vissa av dessa rikt linjer för program som körs på virtuella IaaS-datorer med standard lagrings diskar.
 
 > [!NOTE]
-> Ibland är det som verkar vara ett disk prestanda problem i själva verket en nätverks Flask hals. I dessa fall bör du optimera [nätverks prestandan](~/articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Ibland är det som verkar vara ett disk prestanda problem i själva verket en nätverks Flask hals. I dessa fall bör du optimera [nätverks prestandan](../virtual-network/virtual-network-optimize-network-bandwidth.md).
 >
 > Om du vill mäta din disk kan du läsa våra artiklar om att mäta en disk:
 >
-> * För Linux: [benchmarka ditt program på Azure-disklagring](./linux/disks-benchmarks.md)
-> * För Windows: [benchmarking a disk](./windows/disks-benchmarks.md).
+> * För Linux: [benchmarka ditt program på Azure-disklagring](linux/disks-benchmarks.md)
+> * För Windows: [benchmarking a disk](windows/disks-benchmarks.md).
 >
-> Om din virtuella dator har stöd för accelererat nätverk bör du kontrol lera att den är aktive rad. Om den inte är aktive rad kan du aktivera den på redan distribuerade virtuella datorer på både [Windows](~/articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](~/articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
+> Om din virtuella dator har stöd för accelererat nätverk bör du kontrol lera att den är aktive rad. Om den inte är aktive rad kan du aktivera den på redan distribuerade virtuella datorer på både [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) och [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Innan du börjar, om du är nybörjare på Premium Storage, läser du först [Välj en Azure-disktyp för virtuella datorer med IaaS](./linux/disks-types.md) och [skalbarhets mål för Premium Page Blob Storage-konton](~/articles/storage/blobs/scalability-targets-premium-page-blobs.md).
+Innan du börjar, om du är nybörjare på Premium Storage, läser du först [Välj en Azure-disktyp för virtuella datorer med IaaS](disks-types.md) och [skalbarhets mål för Premium Page Blob Storage-konton](../storage/blobs/scalability-targets-premium-page-blobs.md).
 
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -62,7 +62,7 @@ När du ansluter en Premium Storage-disk till en virtuell dator med hög skalnin
 
 Det finns en relation mellan genomflödet och IOPS som visas i formeln nedan.
 
-![Relation för IOPS och data flöde](~/articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
+![Relation för IOPS och data flöde](linux/media/premium-storage-performance/image1.png)
 
 Därför är det viktigt att fastställa de optimala data flödes-och IOPS-värden som programmet kräver. När du försöker optimera en, påverkas även den andra. I ett senare avsnitt, *optimera program prestanda*, diskuterar vi mer information om att optimera IOPS och data flöden.
 
@@ -144,7 +144,7 @@ I det här avsnittet finns en check lista för program krav som du har skapat f�
 
 I tabellen nedan sammanfattas prestanda faktorer och de steg som krävs för att optimera IOPS, data flöde och svars tid. I avsnitten som följer den här sammanfattningen beskrivs varje faktor mycket mer djup.
 
-Mer information om storlekar på virtuella datorer och om IOPS, data flöde och svars tid som är tillgängliga för varje typ av virtuell dator finns i storlekar för [virtuella Linux-datorer](~/articles/virtual-machines/linux/sizes.md) eller [storlekar för virtuella Windows-datorer](~/articles/virtual-machines/windows/sizes.md).
+Mer information om storlekar på virtuella datorer och om IOPS, data flöde och svars tid som är tillgängliga för varje typ av virtuell dator finns i [storlekar för virtuella datorer i Azure](sizes.md).
 
 | | **IOPS** | **Dataflöde** | **Svarstid** |
 | --- | --- | --- | --- |
@@ -206,7 +206,7 @@ Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olik
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
 
-Om du vill visa en fullständig lista över alla tillgängliga storlekar för virtuella Azure-datorer, se storlekar på [virtuella Windows-datorer](~/articles/virtual-machines/windows/sizes.md) eller [virtuella Linux-datorer](~/articles/virtual-machines/linux/sizes.md). Välj en VM-storlek som kan mötas och skalas till önskade program prestanda krav. Förutom detta bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
+Om du vill visa en fullständig lista över alla tillgängliga storlekar för virtuella Azure-datorer, se [storlekar för virtuella datorer i Azure](sizes.md) eller. Välj en VM-storlek som kan mötas och skalas till önskade program prestanda krav. Förutom detta bör du ta hänsyn till följande viktiga överväganden när du väljer VM-storlekar.
 
 *Skalnings gränser*  
 De högsta IOPS-gränserna per virtuell dator och per disk är olika och oberoende av varandra. Se till att programmet kör IOPS inom gränserna för den virtuella datorn samt de Premium-diskar som är kopplade till den. Annars kommer program prestanda att drabbas av begränsning.
@@ -238,7 +238,7 @@ När du kör Linux med Premium Storage kontrollerar du de senaste uppdateringarn
 
 Azure Premium Storage erbjuder en mängd olika storlekar så att du kan välja en som passar dina behov bäst. Varje disk storlek har en annan skalnings gräns för IOPS, bandbredd och lagring. Välj rätt Premium Storage disk storlek beroende på program kraven och den virtuella datorns storlek för hög skalning. I tabellen nedan visas disk storlekar och deras funktioner. P4-, P6-, p15-, P60-, P70-och P80-storlekarna stöds för närvarande bara för Managed Disks.
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](~/includes/disk-storage-premium-ssd-sizes.md)]
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Hur många diskar du väljer beror på vilken disk storlek som valts. Du kan använda en enskild P50-disk eller flera P10-diskar för att uppfylla ditt program krav. Ta hänsyn till de överväganden som visas nedan när du gör valet.
 
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
@@ -353,14 +353,14 @@ I Windows kan du använda lagrings utrymmen för att Stripa diskar tillsammans. 
 
 Viktigt: med Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
 
-I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](~/articles/virtual-machines/linux/configure-raid.md).
+I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](linux/configure-raid.md).
 
 *Rand storlek*  
 En viktig konfiguration i disk ränder är stripe-storleken. Stripe-storlek eller block storlek är det minsta data segmentet som programmet kan adressera på en stripe-volym. Stripe-storleken som du konfigurerar beror på typen av program och dess fråge mönster. Om du väljer fel rand storlek kan det leda till i/o-fel i i/o, vilket leder till försämrade prestanda för ditt program.
 
 Om t. ex. en IO-begäran som genererats av ditt program är större än storleken på disk stripe skriver lagrings systemet det över stripe-enhetens gränser på mer än en disk. När det är dags att komma åt dessa data måste de söka i fler än en rand enhet för att slutföra begäran. Den kumulativa påverkan av sådant beteende kan leda till avsevärd prestanda försämring. Å andra sidan, om storleken på IO-begärandena är mindre än stripe-storlek, och om den är slumpmässig i natur, kan IO-begärandena lägga till upp på samma disk som orsakar en Flask hals och i slut ändan försämra IO-prestandan.
 
-Välj en lämplig rand storlek beroende på vilken typ av arbets belastning ditt program körs på. Använd en mindre rand storlek för slumpmässiga små IO-begäranden. För stora sekventiella IO-begäranden används en större rand storlek. Ta reda på rand storleks rekommendationerna för det program som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för arbets belastningar för data lager. Mer information finns i [metod tips för prestanda för SQL Server på virtuella Azure-datorer](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
+Välj en lämplig rand storlek beroende på vilken typ av arbets belastning ditt program körs på. Använd en mindre rand storlek för slumpmässiga små IO-begäranden. För stora sekventiella IO-begäranden används en större rand storlek. Ta reda på rand storleks rekommendationerna för det program som du kommer att köra på Premium Storage. För SQL Server konfigurerar du stripe-storlek på 64 KB för OLTP-arbetsbelastningar och 256 KB för arbets belastningar för data lager. Mer information finns i [metod tips för prestanda för SQL Server på virtuella Azure-datorer](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
 
 > [!NOTE]
 > Du kan ta bort högst 32 Premium Storage-diskar på en VM för VM-serien och 64 Premium Storage-diskar på en virtuell GS-serien.
@@ -414,15 +414,15 @@ Azure Premium Storage etablerar det angivna antalet IOPS och data flöden beroen
 
 Om du vill mäta din disk kan du läsa våra artiklar om att mäta en disk:
 
-* För Linux: [benchmarka ditt program på Azure-disklagring](./linux/disks-benchmarks.md)
-* För Windows: [benchmarking a disk](./windows/disks-benchmarks.md).
+* För Linux: [benchmarka ditt program på Azure-disklagring](linux/disks-benchmarks.md)
+* För Windows: [benchmarking a disk](windows/disks-benchmarks.md).
 
 Läs mer om tillgängliga disk typer:
 
-* För Linux: [Välj en disktyp](./linux/disks-types.md)
-* För Windows: [Välj en disktyp](./windows//disks-types.md)
+* För Linux: [Välj en disktyp](disks-types.md)
+* För Windows: [Välj en disktyp](disks-types.md)
 
 För SQL Server användare läser du artiklar om bästa metoder för prestanda för SQL Server:
 
-* [Metod tips för prestanda för SQL Server i Azure Virtual Machines](~/articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Metod tips för prestanda för SQL Server i Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
 * [Azure Premium Storage ger högsta prestanda för SQL Server i Azure VM](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

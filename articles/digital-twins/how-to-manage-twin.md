@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9f140594ef18df7f9a6a3b919998962c966cde76
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587607"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88796960"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -104,8 +104,10 @@ object result = await client.GetDigitalTwin(id);
 
 Anropet returnerar dubbla data som en JSON-sträng. 
 
-> [!TIP]
-> Endast egenskaper som har angetts minst en gång returneras när du hämtar ett dubbla med `GetDigitalTwin` .
+Endast egenskaper som har angetts minst en gång returneras när du hämtar ett dubbla med `GetDigitalTwin` .
+
+>[!TIP]
+>`displayName`För en enhet är en del av modellens metadata, så den visas inte när data hämtas för den dubbla instansen. Om du vill se det här värdet kan du [Hämta det från modellen](how-to-manage-model.md#retrieve-models).
 
 Om du vill hämta flera multiplar med ett enda API-anrop, se fråge-API-exemplen i [*How-to: fråga det dubbla diagrammet*](how-to-query-graph.md).
 
@@ -164,7 +166,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
 * `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
-* Andra egenskaper i ett `$metadata` avsnitt. Dessa omfattar:
+* Andra egenskaper i ett `$metadata` avsnitt. Exempel på dessa är:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
     - Tjänstspecifika metadata, t. ex. från IoT Hub eller Azure digitala dubbla. 

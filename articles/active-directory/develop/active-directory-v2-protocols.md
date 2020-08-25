@@ -13,12 +13,12 @@ ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2be68a858773dd4e76126ba6cd04ad98a2fd6a06
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 12edbcda7354d9d6d4b03ebe32304d988b2eb579
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87313446"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88751455"
 ---
 # <a name="oauth-20-and-openid-connect-protocols-on-microsoft-identity-platform"></a>OAuth 2,0-och OpenID Connect-protokoll på Microsoft Identity Platform
 
@@ -30,7 +30,7 @@ I nästan alla OAuth 2,0-och OpenID Connect-flöden finns det fyra parter som in
 
 ![Diagram över OAuth 2,0-roller](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* **Auktoriseringsservern** är Microsoft Identity Platform-slutpunkten och ansvarig för att säkerställa användarens identitet, beviljande och återkallande av åtkomst till resurser och utfärdande av tokens. Auktoriseringsservern kallas även för identitets leverantören – den hanterar säkert något att göra med användarens information, deras åtkomst och förtroende relationer mellan parter i ett flöde.
+* **Auktoriseringsservern** är Microsoft Identity Platform-slutpunkten och ansvarig för att säkerställa användarens identitet, beviljande och återkallande av åtkomst till resurser och utfärdande av tokens. Auktoriseringsservern kallas även för identitets leverantören – den hanterar på ett säkert sätt vad som helst med användarens information, deras åtkomst och förtroende relationer mellan parter i ett flöde.
 * **Resurs ägaren** är vanligt vis slutanvändaren. Det är den part som äger data och har möjlighet att tillåta klienter att komma åt dessa data eller resurser.
 * **OAuth-klienten** är din app som identifieras av dess program-ID. OAuth-klienten är vanligt vis den part som slutanvändaren interagerar med och den begär token från auktoriseringsservern. Klienten måste beviljas behörighet att få åtkomst till resursen av resurs ägaren.
 * **Resurs servern** är den plats där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten, och använder sig av Bearer-åtkomsttoken för att säkerställa att åtkomst till en resurs kan beviljas.

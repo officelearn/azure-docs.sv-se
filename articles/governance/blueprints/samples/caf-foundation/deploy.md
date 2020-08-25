@@ -4,10 +4,10 @@ description: Distribuera steg för CAF Foundation-skissen som innehåller inform
 ms.date: 05/06/2020
 ms.topic: sample
 ms.openlocfilehash: a2d3090e5e9fe265683c077d7056ebf2b108352d
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "82871637"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Distribuera skiss exemplet Microsoft Cloud adoption Framework för Azure Foundation
@@ -19,7 +19,7 @@ Om du vill Microsoft Cloud distribuera CAF (implementering Framework for Azure) 
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
@@ -106,7 +106,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Tillåtna SKU: er för virtuella datorer|Principtilldelning|Policy_Allowed-VM-SKU: er|Tillåtna SKU: er för virtuella datorer|
 |Lägg till CostCenter-TAGGEN i resurs grupper|Principtilldelning|Policy_CostCenter_Tag|Lägg till CostCenter-TAGGEN och dess värde från resurs gruppen|
 |Resurs typer som du inte vill tillåta i din miljö|Principtilldelning|Princip _Allowed-resurs-typer|Vilka Azure-resurser du vill tillåta i din miljö|
-|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD-grupp eller <Object ID> användare för att ge behörighet till i Key Vault|
+|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD-grupp eller användare <Object ID> för att ge behörighet till i Key Vault|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_DataRetention|**Låst** – antal dagar som data kommer att behållas i Log Analytics|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_Location|**Låst** – region som används vid etablering av arbets ytan|
 

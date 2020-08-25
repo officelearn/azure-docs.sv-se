@@ -1,18 +1,18 @@
 ---
 title: Få hjälp med Azures distribution av VMware-lösningar eller etablerings fel
-description: Så här hämtar du den information du behöver från det privata molnet i Azure VMware-lösningen (AVS) för att skicka en tjänstbegäran om AVS-distribution eller etablerings fel.
+description: Så här hämtar du den information du behöver från ditt privata moln i Azure VMware-lösningen för att skicka en tjänstbegäran om distribution av Azure VMware-lösningar eller etablerings fel.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 05c9dee088b37c37cdcdee7e745cdcd2222b63e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63d5440a9e2b15463e465e1d32762889508feca1
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514585"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752235"
 ---
 # <a name="get-help-with-azure-vmware-solution-deployment-or-provisioning-failures"></a>Få hjälp med Azures distribution av VMware-lösningar eller etablerings fel
 
-I den här artikeln får du lära dig hur du får hjälp med distribution av Azure VMware-lösningar (AVS) eller etablerings fel i ditt privata moln genom att öppna en tjänstbegäran (SR) i Azure Portal. Först måste du, om du behöver samla in viktig information i Azure Portal. I de flesta fall behöver du:
+I den här artikeln får du lära dig hur du får hjälp med distribution av Azure VMware-lösningar eller etablerings fel i ditt privata moln genom att öppna en tjänstbegäran (SR) i Azure Portal. Först måste du, om du behöver samla in viktig information i Azure Portal. I de flesta fall behöver du:
 
 - Korrelations-ID (av misslyckad distribution)
 - ExpressRoute krets-ID (vid försök att skala eller peera ett befintligt privat moln med ExpressRoute-kretsen för det privata molnet och det Miss lyckas)
@@ -27,9 +27,9 @@ Här är ett exempel på utdata från en misslyckad distribution av privata moln
 
 Kopiera och spara det här korrelations-ID: t som ska ingå i tjänstbegäran. Mer information finns i [skapa en support förfrågan](#create-your-support-request) i slutet av den här artikeln.
 
-Om ett fel inträffar i för validerings stegen, innan ett privat moln distribueras, genereras inget korrelations-ID. I det här fallet kan du bara ange den information som du använde när du skapade det privata AVS-molnet, inklusive:
+Om ett fel inträffar i för validerings stegen, innan ett privat moln distribueras, genereras inget korrelations-ID. I det här fallet kan du bara ange den information som du använde när du skapade Azure VMware-lösningens privata moln, inklusive:
 
-- Position
+- Plats
 - Resursgrupp
 - Resursnamn
  
@@ -53,7 +53,7 @@ I meddelanden väljer du **Fler händelser i aktivitets loggen**.
 
 Sök sedan efter namnet på resursen eller på en annan unik information som du använde när du skapade resursen för att hitta den misslyckade distributionen och dess korrelations-ID. I följande exempel visas Sök resultat i en privat moln resurs (pc03).
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Hitta tidigare misslyckade AVS-distributioner.":::
+:::image type="content" source="media/fix-deployment-provisioning-failures/find-past-deployments.png" alt-text="Hitta tidigare misslyckade distributioner av Azure VMware-lösningar.":::
  
 Om du väljer åtgärds namnet för den misslyckade distributionen öppnas ett fönster med information. Välj JSON-fliken och leta efter correlationId. Kopiera och inkludera i SR. 
  
@@ -63,7 +63,7 @@ Kanske har du redan ett privat moln och du får ett problem när du försöker s
 
 När du visar ett privat moln i portalen väljer du **anslutning > ExpressRoute** och kopierar **ExpressRoute-ID: t** till Urklipp.
  
-:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Samla in ett ExpressRoute-ID."::: 
+:::image type="content" source="media/fix-deployment-provisioning-failures/expressroute-id.png" alt-text="Kopiera ExpressRoute-ID: t till Urklipp."::: 
  
 Klistra in ExpressRoute-ID: t i lämpligt fält i den nya support förfrågan. Mer information finns i det här avsnittet [skapa en support förfrågan](#create-your-support-request).
  
@@ -74,11 +74,11 @@ Klistra in ExpressRoute-ID: t i lämpligt fält i den nya support förfrågan. M
 
 Allmän vägledning om hur du skapar en support förfrågan finns i [så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
-Här följer ytterligare information om hur du skapar en SR-installation för AVS-distribution eller konfigurations problem.
+Här följer ytterligare information om hur du skapar en SR för distribution av VMware-lösningar eller etablerings problem i Azure.
 
 1. Välj **Hjälp** ikonen och sedan **+ ny supportbegäran**.
 
-    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Samla in ett ExpressRoute-ID.":::
+    :::image type="content" source="media/fix-deployment-provisioning-failures/open-sr-on-avs.png" alt-text="Samla in ett ExpressRoute-ID för din SR.":::
 
 2. Fyll i alla obligatoriska fält och på fliken **grundläggande** :
 

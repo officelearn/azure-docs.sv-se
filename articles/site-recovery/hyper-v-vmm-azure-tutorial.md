@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
 ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86130238"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Konfigurera haveriberedskap för lokala virtuella Hyper-V-datorer i VMM-moln till Azure
@@ -27,7 +27,7 @@ I den här guiden får du lära dig att:
 > [!NOTE]
 > Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artiklarna i avsnittet om **att gå till guider** i [Site Recovery-dokumentationen](./index.yml).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du redan har slutfört följande Självstudier:
 

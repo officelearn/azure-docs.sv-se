@@ -1,14 +1,14 @@
 ---
 title: Slutför en haveri beredskap för virtuella datorer
-description: Den här artikeln visar hur du utför en haveri beredskap för virtuella datorer med hjälp av AVS
+description: Den här artikeln visar hur du utför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76a417b9ba00c4c0e6e958e5a04d19aecfe24563
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749955"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88752264"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Slutför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 
@@ -46,7 +46,7 @@ Ange **Disaster Recovery** -sektionen och klicka på **skydda virtuella datorer*
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machine.png" alt-text="Välj skydda virtuella datorer" border="true":::
 
-I fönstret som öppnas väljer du källa och fjärranslutna platser, fjärrplatsen i det här fallet ska vara det privata molnet.
+I fönstret som öppnas väljer du källa och fjärranslutna platser, fjärrplatsen i det här fallet ska vara det privata molnet för Azure VMware-lösningen.
 
 :::image type="content" source="./media/disaster-recovery/protect-virtual-machines.png" alt-text="fönstret skydda virtuella datorer" border="true":::
 
@@ -56,7 +56,7 @@ Om det behövs väljer du standard alternativ för replikering:
 
 - **Aktivera Quiescence:** Pausar den virtuella datorn så att en konsekvent kopia synkroniseras till fjärrplatsen.
 
-- **Mål lagring:** Välj fjärrdata lager för de skyddade virtuella datorerna. I ett privat moln moln bör det här valet vara virtuellt San data lager.
+- **Mål lagring:** Välj fjärrdata lager för de skyddade virtuella datorerna. I ett privat moln i Azure VMware-lösningen ska det här valet vara virtuellt San data lager.
 
 - **Beräknings behållare:** VSphere-klustret eller resurspoolen.
 
@@ -95,7 +95,7 @@ När den virtuella datorn är påslagen startar den synkroniseringen av processe
 
 ## <a name="complete-a-test-recover-of-virtual-machines"></a>Slutför en test återställning av virtuella datorer
 
-Logga in på **vSphere-klienten** på fjärrplatsen, som är det privata AVS-molnet. I **HCX-plugin-programmet**i Disaster Recovery-avsnittet väljer du de lodräta ellipserna på valfri virtuell dator för att Visa menyn åtgärder. Välj **testa återställning av virtuell dator**.
+Logga in på **vSphere-klienten** på fjärrplatsen, som är det privata molnet för Azure VMware-lösningen. I **HCX-plugin-programmet**i Disaster Recovery-avsnittet väljer du de lodräta ellipserna på valfri virtuell dator för att Visa menyn åtgärder. Välj **testa återställning av virtuell dator**.
 
 :::image type="content" source="./media/disaster-recovery/test-recover-virtual-machine.png" alt-text="Välj Testa återställning av virtuell dator" border="true":::
 
@@ -105,7 +105,7 @@ I det nya fönstret väljer du alternativen för testet. Välj den ögonblicks b
 
 När du klickar på **test**startas återställnings åtgärden.
 
-När test återställningen är slutförd kan den nya virtuella datorn kontrol leras i molnets privata moln vCenter.
+När test återställnings åtgärden har slutförts kan den nya virtuella datorn kontrol leras i Azure VMware-lösningen privat moln vCenter.
 
 :::image type="content" source="./media/disaster-recovery/verify-test-recovery.png" alt-text="kontrol lera återställnings åtgärden" border="true":::
 
@@ -115,7 +115,7 @@ Slutligen när testningen har utförts på den virtuella datorn eller ett progra
 
 ## <a name="recover-virtual-machines"></a>Återställa virtuella datorer
 
-Logga in på **vSphere-klienten** på fjärrplatsen, som är det privata AVS-molnet och få åtkomst till HCX-plugin- **programmet**.
+Logga in på **vSphere-klienten** på fjärrplatsen, som är Azure VMware-lösningens privata moln, och få åtkomst till HCX-plugin- **programmet**.
 
 För återställnings scenariot används en grupp virtuella datorer i det här exemplet.
 
@@ -131,7 +131,7 @@ När återställningen har slutförts visas de nya virtuella datorerna i den fj�
 
 ## <a name="complete-a-reverse-replication-on-virtual-machines"></a>Slutför en omvänd replikering på virtuella datorer
 
-Logga in på **vSphere-klienten** i ditt moln privata moln och få åtkomst till HCX-plugin- **programmet**.
+Logga in på **vSphere-klienten** i ditt privata moln i Azure VMware-lösningen och få åtkomst till HCX-plugin- **programmet**.
 Det krävs att de ursprungliga virtuella datorerna på käll platsen är avstängda innan du startar den omvända replikeringen. Åtgärden kan inte utföras om de virtuella datorerna inte är avstängd.
 
 Välj de virtuella datorer som ska replikeras tillbaka till käll platsen i listan, öppna menyn **åtgärder** och välj **Omvänd**. I popup-fönstret klickar du på **Omvänd** för att starta replikeringen.

@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
 ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "83638999"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Skapa en Spatial Anchors-resurs
 
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a>.
+Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a>.
 
 I det vänstra navigerings fönstret i Azure Portal väljer du **skapa en resurs**.
 

@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a8b5ec48b64341ad9eabd087d7ee20bb703198c6
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497587"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88816243"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -65,25 +65,9 @@ På Azure Red Hat OpenShift 4. x-kluster är inte infrastruktur noder tillgängl
 
 I Azure Red Hat OpenShift 3,11-kluster ingår Infrastructure-noder som standard.
 
-## <a name="upgrades"></a>Uppgraderingen
+## <a name="how-do-i-handle-cluster-upgrades"></a>Hur gör jag för att hanterar du kluster uppgraderingar?
 
-###  <a name="what-is-the-general-upgrade-process"></a>Vad är den allmänna uppgraderings processen?
-
-Korrigeringarna tillämpas automatiskt i klustret. Du behöver inte vidta några åtgärder för att ta emot uppdaterings uppgraderingar i klustret.
-
-Att köra en uppgradering är en säker process som körs och bör inte störa kluster tjänsterna. Det gemensamma Microsoft-Red Hat-teamet kan utlösa uppgraderings processen när nya versioner är tillgängliga eller vanliga sårbarheter och exponeringar är utestående. Tillgängliga uppdateringar testas i en utvecklings miljö och tillämpas sedan på produktions kluster. Följande metod tips hjälper till att säkerställa minimal stillestånds tid.
-
-Planerat underhåll är inte förplanerat för kunden. Meddelanden som rör underhåll kan skickas via e-post.
-
-### <a name="what-is-the-azure-red-hat-openshift-maintenance-process"></a>Vad är underhålls processen i Azure Red Hat OpenShift?
-
-Det finns två typer av underhåll för Azure Red Hat OpenShift: uppgraderingar och Cloud Provider-initierat underhåll.
-- Uppgraderingar omfattar program varu uppgraderingar och vanliga sårbarheter och exponeringar.
-- Cloud Provider – initierat underhåll omfattar nätverk, lagring och regionala avbrott. Underhållet är beroende av moln leverantören och förlitar sig på uppdateringar som tillhandahålls av leverantören.
-
-### <a name="what-about-emergency-vs-planned-maintenance-windows"></a>Vad händer om det gäller nödfall kontra planerat underhålls fönster?
-
-Vi skiljer inte mellan de två typerna av underhåll. Våra team är tillgängliga 24/7/365 och använder inte traditionella schemalagda "out-of-Hour"-underhålls perioder.
+Information om uppgraderingar, underhåll och versioner som stöds finns i Guide för [Support Lifecycle](support-lifecycle.md).
 
 ### <a name="how-will-the-host-operating-system-and-openshift-software-be-updated"></a>Hur uppdateras värd operativ systemet och OpenShift-programvaran?
 
@@ -157,7 +141,7 @@ Kunder och enskilda projekt administratörer kan anpassa kors namns nätverk (in
 
 ### <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker använda peer-datorer i ett virtuellt nätverk i en annan prenumeration, men det gick inte att hämta VNet CIDR-fel.
 
-I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` providern med följande kommando:`az provider register -n Microsoft.ContainerService --wait`
+I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` providern med följande kommando: `az provider register -n Microsoft.ContainerService --wait`
 
 ### <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Kan vi ange IP-intervall för distribution på det privata virtuella nätverket, vilket undviker konflikt med andra företags virtuella nätverk när de har peer-kopplats?
 

@@ -5,16 +5,16 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 5ebb3883304584570759ea02a2de7187efcdaf26
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718687"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757681"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Självstudiekurs – hantera Azure-diskar med Azure CLI
 
@@ -50,6 +50,7 @@ Azure tillhandahåller två disktyper.
 **Premium diskar** – backas upp av SSD-baserade diskar med hög prestanda och låg latens. Passar perfekt för virtuella datorer som kör produktionsarbetsbelastningar. VM-storlekar med ett  **S** i [storleks namnet](../vm-naming-conventions.md), vanligt vis stöder Premium Storage. Till exempel DS-serien, DSv2-serien, GS-serien och FS-seriens virtuella datorer stöder Premium Storage. När du väljer en diskstorlek, avrundas värdet uppåt till nästa typ. Om disk storleken till exempel är större än 64 GB men mindre än 128 GB är disk typen P10. 
 
 <br>
+
 
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
@@ -112,16 +113,17 @@ Skapa en SSH-anslutning med den virtuella datorn. Ersätt exempel-IP-adressen me
 ssh 10.101.10.10
 ```
 
-Partitionera disken med `fdisk`.
+Partitionera disken med `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Skapa ett filsystem på partitionen med kommandot `mkfs`.
+Skapa ett filsystem på partitionen med kommandot `mkfs`. Används `partprobe` för att göra operativ systemet medveten om ändringen.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Montera den nya disken så den är tillgänglig i operativsystemet.
@@ -130,18 +132,19 @@ Montera den nya disken så den är tillgänglig i operativsystemet.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-Disken kan nu kommas åt via monteringspunkten *datadrive* som kan verifieras med kommandot `df -h`.
+Disken kan nu nås via `/datadrive` monterings punkt, som kan verifieras genom att köra `df -h` kommandot.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-Utdata visar att den nya disken är monterad på */datadrive*.
+Utdata visar den nya enhet som är monterad på `/datadrive` .
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -157,11 +160,22 @@ Utdata visar diskens UUID, i det här fallet `/dev/sdc1`.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Lägg till en rad som liknar denna i filen */etc/fstab*.
+> [!NOTE]
+> Felaktig redigering av **/etc/fstab** -filen kan leda till ett system som inte kan startas. Om du är osäker läser du distributionens dokumentation för att få information om hur du redigerar filen på rätt sätt. Vi rekommenderar också att du skapar en säkerhets kopia av/etc/fstab-filen innan du redigerar.
+
+Öppna `/etc/fstab` filen i en text redigerare enligt följande:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Lägg till en rad som liknar följande i */etc/fstab* -filen och ersätt UUID-värdet med ditt eget.
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
+
+När du är klar med att redigera filen använder `Ctrl+O` du för att skriva filen och `Ctrl+X` Avsluta redigeraren.
 
 Disken har konfigurerats, stäng SSH-sessionen.
 
@@ -175,7 +189,7 @@ När du tar en ögonblicksbild skapar Azure en skrivskyddad kopia av disken vid 
 
 ### <a name="create-snapshot"></a>Skapa en ögonblicksbild
 
-Du behöver diskens ID eller namn för att skapa en ögonblicksbild av en virtuell dator. Använd kommandot [AZ VM show](/cli/azure/vm#az-vm-show) för att returnera disk-ID: t. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
+Innan du skapar en ögonblicks bild behöver du ID: t eller namnet på disken. Använd [AZ VM show](/cli/azure/vm#az-vm-show) för att avbilda disk-ID: t. I det här exemplet sparas diskens ID i en variabel så det kan användas i ett senare steg.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -185,7 +199,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-När du har diskens ID skapar du en ögonblicksbild av disken med följande kommando.
+Nu när du har ID: t använder du [AZ Snapshot Create](/cli/azure/snapshot#az-snapshot-create) för att skapa en ögonblicks bild av disken.
 
 ```azurecli-interactive
 az snapshot create \
@@ -196,7 +210,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Skapa en disk från en ögonblicksbild
 
-Ögonblicksbilden kan omvandlas till en disk som kan användas för att återskapa den virtuella datorn.
+Den här ögonblicks bilden kan sedan konverteras till en disk med [AZ disk Create](/cli/azure/disk#az-disk-create), som kan användas för att återskapa den virtuella datorn.
 
 ```azurecli-interactive
 az disk create \
@@ -207,7 +221,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Återställa en virtuell dator från en ögonblicksbild
 
-För att demonstrera återställning av en virtuell dator tar du bort den virtuella datorn.
+För att demonstrera återställning av virtuell dator tar du bort den befintliga virtuella datorn med [AZ VM Delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete \
@@ -229,7 +243,7 @@ az vm create \
 
 Alla datadiskar måste kopplas till den virtuella datorn.
 
-Ta först reda på datadiskens namn med kommandot [az disk list](/cli/azure/disk#az-disk-list). Det här exemplet sparar diskens namn i variabeln *datadisk* som används i nästa steg.
+Hitta data diskens namn med kommandot [AZ disk List](/cli/azure/disk#az-disk-list) . I det här exemplet placeras namnet på disken i en variabel med namnet `datadisk` , som används i nästa steg.
 
 ```azurecli-interactive
 datadisk=$(az disk list \

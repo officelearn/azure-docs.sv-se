@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 1d692d0bacbcb26090d17bf905b959f870eed3f8
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 98240254a71695fa72acaf5c7f930c11d9f99cae
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660159"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756919"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -24,7 +24,7 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 
 När du har skapat och konfigurerat ett Recovery Services-valv, är det en två stegs process att identifiera databaser och konfigurera säkerhets kopiering.<br>
 
-![sql](./media/backup-azure-sql-database/sql.png)
+![Säkerhets kopierings mål – SQL Server i Azure VM](./media/backup-azure-sql-database/sql.png)
 
 Om den virtuella SQL-datorn och dess instanser inte visas i **identifierings-databaser i virtuella datorer** och **Konfigurera säkerhets kopiering** (se avbildningen ovan) i säkerhets kopierings konfigurationen kontrollerar du att:
 

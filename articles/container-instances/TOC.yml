@@ -41,7 +41,7 @@
 - name: Exempel
   items:
     - name: Kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
     - name: Mallar för Resurshanteraren
       href: container-instances-samples-rm.md
 - name: Begrepp

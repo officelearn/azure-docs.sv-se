@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella AWS-datorer 
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611440"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762427"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Upptäck, utvärdera och migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -380,7 +380,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 **Svar:** Vi stöder för närvarande inte import av utvärdering för det här arbets flödet. Som en lösning kan du exportera utvärderingen och sedan manuellt välja den virtuella dator rekommendationen under steget aktivera replikering.
   
 **Fråga:** Jag får felet "Det gick inte att hämta BIOS-GUID" vid försök att identifiera mina virtuella AWS-datorer   
-**Svar:** Granska operativ system som stöds för virtuella AWS-datorer.  
+**Svar:** Använd alltid rot inloggning för autentisering och inte någon pseudo-användare. Granska även operativ system som stöds för virtuella AWS-datorer.  
 
 **Fråga:** Min replikeringsstatus fortlöper inte    
 **Svar:** Kontrol lera om din replikeringsprincip uppfyller kraven. Kontrol lera att du har aktiverat de portar som krävs på replikerings enheten TCP-port 9443 och HTTPS 443 för data transport. Se till att det inte finns några inaktuella dubbletter av Replikerings enheten som är ansluten till samma projekt.   

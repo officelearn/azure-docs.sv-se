@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 03/05/2019
-ms.openlocfilehash: 4d0ee48a42814ab2c4229c5f8f239aa1a1c28544
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 8/6/2020
+ms.openlocfilehash: 5b5840c1b668e9a509f58d7edf65175f621d9e4c
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87314228"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794296"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics och Power BI: en real tids analys instrument panel för strömmande data
 
@@ -20,10 +20,10 @@ Med Azure Stream Analytics kan du dra nytta av ett av de ledande Business Intell
 
 Den här artikeln fortsätter från den Stream Analytics själv studie kursen om att [upptäcka bedrägerier i real tid](stream-analytics-real-time-fraud-detection.md) . Den bygger på arbets flödet som skapats i den självstudien och lägger till ett Power BI utdata så att du kan visualisera falska telefonsamtal som identifieras av ett strömmande analys jobb. 
 
-Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA) som illustrerar det här scenariot.
+Du kan titta på [en video](https://www.youtube.com/watch?v=SGUpT-a99MA)  som illustrerar det här scenariot.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande innan du börjar:
 
@@ -39,7 +39,10 @@ I självstudien om bedrägeri identifiering i real tid skickas utdata till Azure
 
 2. På den vänstra menyn väljer du **utdata** under **jobb sto pol Ogin**. Välj sedan **+ Lägg till** och välj **Power BI** på list menyn.
 
-3. Välj **+ Lägg till**  >  **Power BI**. Fyll sedan i formuläret med följande information och välj **Auktorisera**:
+3. Välj **+ Lägg till**  >  **Power BI**. Fyll sedan i formuläret med följande information och välj **auktorisera** för att använda din egen användar identitet för att ansluta till Power BI (token är giltig i 90 dagar). 
+
+>[!NOTE]
+>För produktions jobb rekommenderar vi att du ansluter till [Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
 
    |**Inställning**  |**Föreslaget värde**  |
    |---------|---------|
@@ -191,7 +194,7 @@ Du kan använda följande ekvation för att beräkna värdet för att ge ditt f�
 
 ![Ekvation till beräknings värde för att ge fönster på några sekunder](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
 
-Till exempel:
+Ett exempel:
 
 * Du har 1 000 enheter som skickar data med en sekunds intervall.
 * Du använder den Power BI Pro SKU som stöder 1 000 000 rader per timme.
@@ -230,3 +233,4 @@ När auktoriseringen har uppdaterats med Power BI visas en grön avisering i avs
 * [Stream Analytics utdata](stream-analytics-define-outputs.md)
 * [Språk referens för Azure Stream Analytics-fråga](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics hanterings REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)

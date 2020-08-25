@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
 ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85958369"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudie: använda Apache HBase i Azure HDInsight
@@ -48,7 +48,7 @@ I följande procedur används en Azure Resource Manager-mall för att skapa ett 
     |---|---|
     |Prenumeration|Välj din Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en Azure-resurs hanterings grupp eller Använd en befintlig.|
-    |Location|Ange platsen för resurs gruppen. |
+    |Plats|Ange platsen för resurs gruppen. |
     |ClusterName|Ange ett namn för HBase-klustret.|
     |Inloggningsnamn och lösenord för klustret|Standard inloggnings namnet är **admin**.|
     |SSH-användarnamn och lösenord|Standardanvändarnamnet är **sshuser**.|
@@ -314,7 +314,7 @@ Om du vill undvika inkonsekvenser rekommenderar vi att du inaktiverar HBase-tabe
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du skapar ett Apache HBase-kluster. Och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också lärt dig hur du använder en Hive-fråga på data i HBase-tabeller. Och hur du använder HBase C# REST-API: er för att skapa en HBase-tabell och hämta data från tabellen. Du kan läsa mer här:
+I den här självstudien har du lärt dig hur du skapar ett Apache HBase-kluster. Och hur du skapar tabeller och visar data i dessa tabeller från HBase-gränssnittet. Du har också lärt dig hur du använder en Hive-fråga på data i HBase-tabeller. Och hur du använder HBase C# REST-API: er för att skapa en HBase-tabell och hämta data från tabellen. Mer information finns i:
 
 > [!div class="nextstepaction"]
 > [HDInsight HBase-översikt](./apache-hbase-overview.md)

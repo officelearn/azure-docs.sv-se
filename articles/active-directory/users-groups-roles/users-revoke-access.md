@@ -13,12 +13,12 @@ ms.reviewer: krbain
 ms.date: 07/15/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb2ad8e6d37190d0473f3f9f4af7738edd3b27f
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1cc4a29c9d4b5ae93df81de5b77cb6355947813d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475217"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798422"
 ---
 # <a name="revoke-user-access-in-azure-active-directory"></a>Återkalla användar åtkomst i Azure Active Directory
 
@@ -38,7 +38,7 @@ För att minimera riskerna måste du förstå hur tokens fungerar. Det finns må
 
 Azure AD utvärderar sedan sina Auktoriseringsprinciper. Om användaren fortfarande har behörighet utfärdar Azure AD en ny åtkomsttoken och en uppdaterad token.
 
-Åtkomst-token kan vara ett säkerhets problem om åtkomst måste återkallas inom en tid som är kortare än token för token, som vanligt vis ligger runt en timme. Av den anledningen arbetar Microsoft aktivt med att göra en [utvärdering av kontinuerlig åtkomst](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-continuous-access-evaluation) till Office 365-program, vilket hjälper till att säkerställa ogiltighet av åtkomsttoken i nära real tid.  
+Åtkomst-token kan vara ett säkerhets problem om åtkomst måste återkallas inom en tid som är kortare än token för token, som vanligt vis ligger runt en timme. Av den anledningen arbetar Microsoft aktivt med att göra en [utvärdering av kontinuerlig åtkomst](../fundamentals/concept-fundamentals-continuous-access-evaluation.md) till Office 365-program, vilket hjälper till att säkerställa ogiltighet av åtkomsttoken i nära real tid.  
 
 ## <a name="session-tokens-cookies"></a>Token för sessioner (cookies)
 
@@ -60,13 +60,13 @@ För en hybrid miljö med en lokal Active Directory som är synkroniserad med Az
 
 Som administratör i Active Directory ansluter du till ditt lokala nätverk, öppnar PowerShell och vidtar följande åtgärder:
 
-1. Inaktivera användaren i Active Directory. Se [disable-ADAccount](https://docs.microsoft.com/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
+1. Inaktivera användaren i Active Directory. Se [disable-ADAccount](/powershell/module/addsadministration/disable-adaccount?view=win10-ps).
 
     ```PowerShell
     Disable-ADAccount -Identity johndoe  
     ```
 
-1. Återställ användarens lösen ord två gånger i Active Directory. Referera till [set-ADAccountPassword](https://docs.microsoft.com/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
+1. Återställ användarens lösen ord två gånger i Active Directory. Referera till [set-ADAccountPassword](/powershell/module/addsadministration/set-adaccountpassword?view=win10-ps).
 
     > [!NOTE]
     > Anledningen till att ändra en användares lösen ord två gånger är att minska risken för pass-The-hash, särskilt om det finns fördröjningar i lokal lösenordsreplikering. Om du på ett säkert sätt kan anta att det här kontot inte komprometteras kan du bara återställa lösen ordet en gång.
@@ -83,18 +83,18 @@ Som administratör i Active Directory ansluter du till ditt lokala nätverk, öp
 
 Som administratör i Azure Active Directory öppnar du PowerShell, kör ``Connect-AzureAD`` och vidtar följande åtgärder:
 
-1. Inaktivera användaren i Azure AD. Referera till [set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
+1. Inaktivera användaren i Azure AD. Referera till [set-AzureADUser](/powershell/module/azuread/Set-AzureADUser?view=azureadps-2.0).
 
     ```PowerShell
     Set-AzureADUser -ObjectId johndoe@contoso.com -AccountEnabled $false
     ```
-1. Återkalla användarens Azure AD-uppdateringstoken. Se [återkalla-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
+1. Återkalla användarens Azure AD-uppdateringstoken. Se [återkalla-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0).
 
     ```PowerShell
     Revoke-AzureADUserAllRefreshToken -ObjectId johndoe@contoso.com
     ```
 
-1. Inaktivera användarens enheter. Se [Get-AzureADUserRegisteredDevice](https://docs.microsoft.com/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
+1. Inaktivera användarens enheter. Se [Get-AzureADUserRegisteredDevice](/powershell/module/azuread/get-azureaduserregistereddevice?view=azureadps-2.0).
 
     ```PowerShell
     Get-AzureADUserRegisteredDevice -ObjectId johndoe@contoso.com | Set-AzureADDevice -AccountEnabled $false
@@ -102,9 +102,9 @@ Som administratör i Azure Active Directory öppnar du PowerShell, kör ``Connec
 
 ## <a name="optional-steps"></a>Valfria steg
 
-- [Rensa företags data från Intune-hanterade program](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe).
+- [Rensa företags data från Intune-hanterade program](/mem/intune/apps/apps-selective-wipe).
 
-- [Rensa företagsägda enheter återställer enheten till fabriks inställningarna](https://docs.microsoft.com/mem/intune/remote-actions/devices-wipe).
+- [Rensa företagsägda enheter återställer enheten till fabriks inställningarna](/mem/intune/remote-actions/devices-wipe).
 
 > [!NOTE]
 > Det går inte att återställa data på enheten efter en rensning.

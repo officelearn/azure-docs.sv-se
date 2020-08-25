@@ -262,6 +262,8 @@
           href: howto-read-replicas-powershell.md
     - name: Felsöka
       items:
+        - name: Felsöka vanliga fel
+          href: howto-troubleshoot-common-errors.md
         - name: Felsöka anslutningsfel
           href: howto-troubleshoot-common-connection-issues.md
         - name: Felsöka frågeprestanda

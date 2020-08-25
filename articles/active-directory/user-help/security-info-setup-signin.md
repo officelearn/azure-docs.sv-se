@@ -11,18 +11,18 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016e0de26bf3a9513940be161cfecf6d1c2b9d02
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747274"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798507"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Konfigurera din säkerhets information från en inloggnings tolk
 
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
 
-Du ser bara den här frågan om du inte har konfigurerat den säkerhets information som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](security-info-add-update-methods-overview.md).
+Du ser bara den här frågan om du inte har konfigurerat den säkerhets information som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](./security-info-setup-auth-app.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

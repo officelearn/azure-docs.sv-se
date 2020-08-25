@@ -13,18 +13,18 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b27bd52ad8794222d52d37032b0cd4fdf99f47b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f1b9e2af7cb6dd234e58218c6a33c01f321de947
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057934"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798524"
 ---
 # <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Tilldela anpassade administratörs roller med hjälp av Microsoft Graph API i Azure Active Directory 
 
 Du kan automatisera hur du tilldelar roller till användar konton med hjälp av Microsoft Graph API. Den här artikeln beskriver åtgärder för att skicka, hämta och ta bort på roleAssignments.
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Anslut till din Azure AD-organisation med en global administratör eller ett administratörs konto med privilegierad roll för att tilldela eller ta bort roller.
 
@@ -136,7 +136,7 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-Endast en delmängd av inbyggda roller är aktive rad för det administrativa enhets omfånget. I [den här dokumentationen](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-admin-units-assign-roles) hittar du en lista över inbyggda roller som stöds över en administrativ enhet.
+Endast en delmängd av inbyggda roller är aktive rad för det administrativa enhets omfånget. I [den här dokumentationen](./roles-admin-units-assign-roles.md) hittar du en lista över inbyggda roller som stöds över en administrativ enhet.
 
 ## <a name="get-operations-on-roleassignment"></a>Hämta åtgärder på RoleAssignment
 

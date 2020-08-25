@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2020
+ms.date: 08/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 95f8466944d4131b3356f44d65171bf1b6cc7a82
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: b437bfa205833594c9e76c6f0d8ff1923f51f117
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640811"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762739"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en offentlig lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -57,114 +57,6 @@ Skapa en resurs grupp med [AZ Group Create](https://docs.microsoft.com/cli/azure
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
 
-
-## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. 
-
-Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
-
-* Skapa en standard zon för redundant offentlig IP-adress med namnet **myPublicIP**.
-* I **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Standard
-```
-
-Så här skapar du en zonindelade redundant offentlig IP-adress i Zon 1:
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Standard \
-    --zone 1
-```
-
-## <a name="create-standard-load-balancer"></a>Skapa standard Load Balancer
-
-I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
-
-  * En IP-pool för klient delen som tar emot inkommande nätverks trafik i belastningsutjämnaren.
-  * En server dels-IP-pool där frontend-poolen skickar den belastningsutjämnade nätverks trafiken.
-  * En hälso avsökning som avgör hälso tillståndet för VM-instanser i Server delen.
-  * En belastnings Utjämnings regel som definierar hur trafiken distribueras till de virtuella datorerna.
-
-### <a name="create-the-load-balancer-resource"></a>Skapa belastnings Utjämnings resursen
-
-Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
-
-* Med namnet **myLoadBalancer**.
-* En frontend-pool med namnet ' **frontend**'.
-* En backend-pool med namnet **myBackEndPool**.
-* Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Standard \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
-
-En hälso avsökning kontrollerar alla virtuella dator instanser för att säkerställa att de kan skicka nätverks trafik. 
-
-En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från belastningsutjämnaren. Den virtuella datorn läggs tillbaka i belastningsutjämnaren när problemet är löst.
-
-Skapa en hälso avsökning med [AZ Network lb PROBE Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Övervakar hälso tillståndet för de virtuella datorerna.
-* Med namnet **myHealthProbe**.
-* Protokoll- **TCP**.
-* Övervaknings **Port 80**.
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
-
-En belastnings Utjämnings regel definierar:
-
-* IP-konfiguration för klient delen för inkommande trafik.
-* Server delens IP-pool för att ta emot trafiken.
-* Käll-och mål port som krävs. 
-
-Skapa en belastnings Utjämnings regel med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
-
-* Med namnet **myHTTPRule**
-* Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
-* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
-* Använda **myHealthProbe**för hälso avsökning.
-* Protokoll- **TCP**.
-* Aktivera utgående käll Network Address Translation (SNAT) med klient delens IP-adress.
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe \
-    --disable-outbound-snat true 
-```
-
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
 Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapar du de stödda virtuella nätverks resurserna.
@@ -174,7 +66,9 @@ Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapa
 Skapa ett virtuellt nätverk med [AZ Network VNet Create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
 * Med namnet **myVNet**.
+* Adressprefix för **10.1.0.0/16**.
 * Undernät med namnet **myBackendSubnet**.
+* Undernätsprefixet för **10.1.0.0/24**.
 * I resurs gruppen **myResourceGroupLB** .
 * Plats för **öster**.
 
@@ -183,7 +77,9 @@ Skapa ett virtuellt nätverk med [AZ Network VNet Create](https://docs.microsoft
     --resource-group myResourceGroupLB \
     --location eastus \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
@@ -208,7 +104,7 @@ Skapa en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](
 * Med namnet **myNSGRuleHTTP**.
 * I den nätverks säkerhets grupp som du skapade i föregående steg, **myNSG**.
 * I resurs gruppen **myResourceGroupLB**.
-* Protokoll- **TCP**.
+* Protokoll **(*)**.
 * Riktningen **inkommande**.
 * Källa **(*)**.
 * Mål **(*)**.
@@ -221,7 +117,7 @@ Skapa en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -242,7 +138,6 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
 * I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
 
@@ -251,9 +146,7 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -261,8 +154,6 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I resurs gruppen **myResourceGroupLB**.
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
@@ -270,9 +161,7 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
     --name myNicVM2 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -281,7 +170,6 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
 * I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
@@ -289,9 +177,7 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
     --name myNicVM3 \
     --vnet-name myVnet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
@@ -412,6 +298,161 @@ Skapa de virtuella datorerna med [AZ VM Create](https://docs.microsoft.com/cli/a
     --no-wait
 ```
 Det kan ta några minuter innan de virtuella datorerna distribueras.
+
+## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
+
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. 
+
+Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+
+* Skapa en standard zon för redundant offentlig IP-adress med namnet **myPublicIP**.
+* I **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Standard
+```
+
+Så här skapar du en zonindelade redundant offentlig IP-adress i Zon 1:
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Standard \
+    --zone 1
+```
+
+## <a name="create-standard-load-balancer"></a>Skapa standard Load Balancer
+
+I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
+
+  * En IP-pool för klient delen som tar emot inkommande nätverks trafik i belastningsutjämnaren.
+  * En server dels-IP-pool där frontend-poolen skickar den belastningsutjämnade nätverks trafiken.
+  * En hälso avsökning som avgör hälso tillståndet för VM-instanser i Server delen.
+  * En belastnings Utjämnings regel som definierar hur trafiken distribueras till de virtuella datorerna.
+
+### <a name="create-the-load-balancer-resource"></a>Skapa belastnings Utjämnings resursen
+
+Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Med namnet **myLoadBalancer**.
+* En frontend-pool med namnet ' **frontend**'.
+* En backend-pool med namnet **myBackEndPool**.
+* Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Standard \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
+
+En hälso avsökning kontrollerar alla virtuella dator instanser för att säkerställa att de kan skicka nätverks trafik. 
+
+En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från belastningsutjämnaren. Den virtuella datorn läggs tillbaka i belastningsutjämnaren när problemet är löst.
+
+Skapa en hälso avsökning med [AZ Network lb PROBE Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Övervakar hälso tillståndet för de virtuella datorerna.
+* Med namnet **myHealthProbe**.
+* Protokoll- **TCP**.
+* Övervaknings **Port 80**.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
+
+En belastnings Utjämnings regel definierar:
+
+* IP-konfiguration för klient delen för inkommande trafik.
+* Server delens IP-pool för att ta emot trafiken.
+* Käll-och mål port som krävs. 
+
+Skapa en belastnings Utjämnings regel med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Med namnet **myHTTPRule**
+* Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
+* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
+* Använda **myHealthProbe**för hälso avsökning.
+* Protokoll- **TCP**.
+* Aktivera utgående käll Network Address Translation (SNAT) med klient delens IP-adress.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe \
+    --disable-outbound-snat true 
+```
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Lägg till virtuella datorer i backend-poolen för belastnings utjämning
+
+Lägg till de virtuella datorerna i backend-poolen med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+#### <a name="vm1"></a>VM1
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM1** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM2** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM3** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 
 ## <a name="create-outbound-rule-configuration"></a>Skapa utgående regel konfiguration
 Utgående regler för belastningsutjämnare konfigurerar utgående SNAT för virtuella datorer i backend-poolen. 
@@ -598,102 +639,6 @@ Lägg till de virtuella datorerna i den utgående poolen med [AZ Network NIC IP-
 >[!NOTE]
 >Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
 
-
-## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
-
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. 
-
-Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
-
-* Skapa en standard zon för redundant offentlig IP-adress med namnet **myPublicIP**.
-* I **myResourceGroupLB**.
-
-```azurecli-interactive
-  az network public-ip create \
-    --resource-group myResourceGroupLB \
-    --name myPublicIP \
-    --sku Basic
-```
-
-## <a name="create-basic-load-balancer"></a>Skapa Basic Load Balancer
-
-I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
-
-  * En IP-pool för klient delen som tar emot inkommande nätverks trafik i belastningsutjämnaren.
-  * En server dels-IP-pool där frontend-poolen skickar den belastningsutjämnade nätverks trafiken.
-  * En hälso avsökning som avgör hälso tillståndet för VM-instanser i Server delen.
-  * En belastnings Utjämnings regel som definierar hur trafiken distribueras till de virtuella datorerna.
-
-### <a name="create-the-load-balancer-resource"></a>Skapa belastnings Utjämnings resursen
-
-Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
-
-* Med namnet **myLoadBalancer**.
-* En frontend-pool med namnet ' **frontend**'.
-* En backend-pool med namnet **myBackEndPool**.
-* Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
-
-```azurecli-interactive
-  az network lb create \
-    --resource-group myResourceGroupLB \
-    --name myLoadBalancer \
-    --sku Basic \
-    --public-ip-address myPublicIP \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool       
-```
-
-### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
-
-En hälso avsökning kontrollerar alla virtuella dator instanser för att säkerställa att de kan skicka nätverks trafik. 
-
-En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från belastningsutjämnaren. Den virtuella datorn läggs tillbaka i belastningsutjämnaren när problemet är löst.
-
-Skapa en hälso avsökning med [AZ Network lb PROBE Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
-
-* Övervakar hälso tillståndet för de virtuella datorerna.
-* Med namnet **myHealthProbe**.
-* Protokoll- **TCP**.
-* Övervaknings **Port 80**.
-
-```azurecli-interactive
-  az network lb probe create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHealthProbe \
-    --protocol tcp \
-    --port 80   
-```
-
-### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
-
-En belastnings Utjämnings regel definierar:
-
-* IP-konfiguration för klient delen för inkommande trafik.
-* Server delens IP-pool för att ta emot trafiken.
-* Käll-och mål port som krävs. 
-
-Skapa en belastnings Utjämnings regel med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
-
-* Med namnet **myHTTPRule**
-* Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
-* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
-* Använda **myHealthProbe**för hälso avsökning.
-* Protokoll- **TCP**.
-
-```azurecli-interactive
-  az network lb rule create \
-    --resource-group myResourceGroupLB \
-    --lb-name myLoadBalancer \
-    --name myHTTPRule \
-    --protocol tcp \
-    --frontend-port 80 \
-    --backend-port 80 \
-    --frontend-ip-name myFrontEnd \
-    --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe
-```
-
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
 Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapar du de stödda virtuella nätverks resurserna.
@@ -703,7 +648,9 @@ Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapa
 Skapa ett virtuellt nätverk med [AZ Network VNet Create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
 * Med namnet **myVNet**.
+* Adressprefix för **10.1.0.0/16**.
 * Undernät med namnet **myBackendSubnet**.
+* Undernätsprefixet för **10.1.0.0/24**.
 * I resurs gruppen **myResourceGroupLB** .
 * Plats för **öster**.
 
@@ -712,7 +659,9 @@ Skapa ett virtuellt nätverk med [AZ Network VNet Create](https://docs.microsoft
     --resource-group myResourceGroupLB \
     --location eastus \
     --name myVNet \
-    --subnet-name myBackendSubnet
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name myBackendSubnet \
+    --subnet-prefixes 10.1.0.0/24
 ```
 
 ### <a name="create-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
@@ -737,7 +686,7 @@ Skapa en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](
 * Med namnet **myNSGRuleHTTP**.
 * I den nätverks säkerhets grupp som du skapade i föregående steg, **myNSG**.
 * I resurs gruppen **myResourceGroupLB**.
-* Protokoll- **TCP**.
+* Protokoll **(*)**.
 * Riktningen **inkommande**.
 * Källa **(*)**.
 * Mål **(*)**.
@@ -750,7 +699,7 @@ Skapa en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](
     --resource-group myResourceGroupLB \
     --nsg-name myNSG \
     --name myNSGRuleHTTP \
-    --protocol tcp \
+    --protocol '*' \
     --direction inbound \
     --source-address-prefix '*' \
     --source-port-range '*' \
@@ -771,7 +720,6 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
 * I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
 
@@ -780,9 +728,7 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
     --name myNicVM1 \
     --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm2"></a>VM2
 
@@ -791,17 +737,14 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
 * I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM2 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 #### <a name="vm3"></a>VM3
 
@@ -810,17 +753,14 @@ Skapa tre nätverks gränssnitt med [AZ Network NIC Create](https://docs.microso
 * I virtuellt nätverk **myVNet**.
 * I undernät **myBackendSubnet**.
 * I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
 
 ```azurecli-interactive
   az network nic create \
     --resource-group myResourceGroupLB \
     --name myNicVM3 \
-    --vnet-name myVnet \
+    --vnet-name myVNet \
     --subnet myBackEndSubnet \
-    --network-security-group myNSG \
-    --lb-name myLoadBalancer \
-    --lb-address-pools myBackEndPool
+    --network-security-group myNSG
 ```
 
 ## <a name="create-backend-servers"></a>Skapa serverdelsservrar
@@ -918,8 +858,7 @@ Skapa de virtuella datorerna med [AZ VM Create](https://docs.microsoft.com/cli/a
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --availability-set myAvSet \
-    --no-wait
-    
+    --no-wait 
 ```
 #### <a name="vm2"></a>VM2
 * Med namnet **myVM2**.
@@ -962,6 +901,151 @@ Skapa de virtuella datorerna med [AZ VM Create](https://docs.microsoft.com/cli/a
 ```
 Det kan ta några minuter innan de virtuella datorerna distribueras.
 
+
+## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
+
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. 
+
+Använd [AZ Network Public-IP Create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+
+* Skapa en standard zon för redundant offentlig IP-adress med namnet **myPublicIP**.
+* I **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku Basic
+```
+
+## <a name="create-basic-load-balancer"></a>Skapa Basic Load Balancer
+
+I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
+
+  * En IP-pool för klient delen som tar emot inkommande nätverks trafik i belastningsutjämnaren.
+  * En server dels-IP-pool där frontend-poolen skickar den belastningsutjämnade nätverks trafiken.
+  * En hälso avsökning som avgör hälso tillståndet för VM-instanser i Server delen.
+  * En belastnings Utjämnings regel som definierar hur trafiken distribueras till de virtuella datorerna.
+
+### <a name="create-the-load-balancer-resource"></a>Skapa belastnings Utjämnings resursen
+
+Skapa en offentlig belastningsutjämnare med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Med namnet **myLoadBalancer**.
+* En frontend-pool med namnet ' **frontend**'.
+* En backend-pool med namnet **myBackEndPool**.
+* Kopplad till den offentliga IP- **myPublicIP** som du skapade i föregående steg. 
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group myResourceGroupLB \
+    --name myLoadBalancer \
+    --sku Basic \
+    --public-ip-address myPublicIP \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool       
+```
+
+### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
+
+En hälso avsökning kontrollerar alla virtuella dator instanser för att säkerställa att de kan skicka nätverks trafik. 
+
+En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från belastningsutjämnaren. Den virtuella datorn läggs tillbaka i belastningsutjämnaren när problemet är löst.
+
+Skapa en hälso avsökning med [AZ Network lb PROBE Create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Övervakar hälso tillståndet för de virtuella datorerna.
+* Med namnet **myHealthProbe**.
+* Protokoll- **TCP**.
+* Övervaknings **Port 80**.
+
+```azurecli-interactive
+  az network lb probe create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHealthProbe \
+    --protocol tcp \
+    --port 80   
+```
+
+### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
+
+En belastnings Utjämnings regel definierar:
+
+* IP-konfiguration för klient delen för inkommande trafik.
+* Server delens IP-pool för att ta emot trafiken.
+* Käll-och mål port som krävs. 
+
+Skapa en belastnings Utjämnings regel med [AZ Network lb Rule Create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Med namnet **myHTTPRule**
+* Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
+* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
+* Använda **myHealthProbe**för hälso avsökning.
+* Protokoll- **TCP**.
+
+```azurecli-interactive
+  az network lb rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myHTTPRule \
+    --protocol tcp \
+    --frontend-port 80 \
+    --backend-port 80 \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool \
+    --probe-name myHealthProbe
+```
+
+### <a name="add-virtual-machines-to-load-balancer-backend-pool"></a>Lägg till virtuella datorer i backend-poolen för belastnings utjämning
+
+Lägg till de virtuella datorerna i backend-poolen med [AZ Network NIC IP-config Address-pool Add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+
+#### <a name="vm1"></a>VM1
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM1** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm2"></a>VM2
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM2** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### <a name="vm3"></a>VM3
+* I backend-adresspoolen **myBackEndPool**.
+* I resurs gruppen **myResourceGroupLB**.
+* Associerad med nätverks gränssnittet **myNicVM3** och **ipconfig1**.
+* Kopplad till belastningsutjämnare **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPool \
+   --ip-config-name ipconfig1 \
+   --nic-name myNicVM3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 ---
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren

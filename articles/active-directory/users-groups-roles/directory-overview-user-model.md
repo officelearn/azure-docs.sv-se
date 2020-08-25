@@ -14,16 +14,16 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c96da30411705bf33b1c63f79a9beef11962a1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a752eb8f38c5a2ccc88d7ceed3d3b342d20d3f51
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223830"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795301"
 ---
 # <a name="what-is-enterprise-user-management"></a>Vad är Enterprise User Management?
 
-Den här artikeln ger Azure AD-administratören en introduktion till relationen mellan de vanligaste uppgifterna för [identitetshantering](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) för användare när det gäller deras grupper, licenser, distribuerade företagsappar och administratörsroller. I takt med att organisationen växer kan du använda Azure AD-grupper och administratörsroller för att:
+Den här artikeln ger Azure AD-administratören en introduktion till relationen mellan de vanligaste uppgifterna för [identitetshantering](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) för användare när det gäller deras grupper, licenser, distribuerade företagsappar och administratörsroller. I takt med att organisationen växer kan du använda Azure AD-grupper och administratörsroller för att:
 
 * Tilldela licenser till grupper i stället för individer
 * Delegera behörigheter för att distribuera arbetet med Azure AD-hantering till mindre privilegierade roller
@@ -37,7 +37,7 @@ För ytterligare flexibilitet och för att minska arbetet med att hantera gruppm
 
 ## <a name="assign-licenses-to-groups"></a>Tilldela grupper licenser
 
-Att lägga till eller ta bort licenser från en användare i taget kräver mycket tid och arbete. Om du [tilldelar grupper licenser](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) i stället kan du göra dina storskaliga licenshantering enklare.
+Att lägga till eller ta bort licenser från en användare i taget kräver mycket tid och arbete. Om du [tilldelar grupper licenser](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) i stället kan du göra dina storskaliga licenshantering enklare.
 
 I Azure AD, när användare går med i en licensierad grupp, tilldelas de automatiskt de lämpliga licenserna. När användarna lämnar gruppen tas deras licenstilldelningar i Azure AD bort. Utan Azure AD-grupper skulle du behöva skriva ett PowerShell-skript eller använda Graph API om du vill lägga till eller ta bort flera användarlicenser för användare som ansluter till eller lämnar organisationen.
 
@@ -60,7 +60,7 @@ Nya Azure AD-administratörsroller läggs till. Kontrollera Azure-portalen eller
 
 ## <a name="assign-app-access"></a>Tilldela appåtkomst
 
-Du kan använda Azure AD för att tilldela grupp åtkomst till de [företags program som distribueras i din Azure AD-organisation](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Om du vill kombinera dynamiska grupper med grupptilldelning till appar kan du automatisera dina åtkomsttilldelningar för användarappar när organisationen växer. Du behöver en Azure Active Directory Premium P1- eller Premium P2-licens för att tilldela åtkomst till företagsappar.
+Du kan använda Azure AD för att tilldela grupp åtkomst till de [företags program som distribueras i din Azure AD-organisation](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context). Om du vill kombinera dynamiska grupper med grupptilldelning till appar kan du automatisera dina åtkomsttilldelningar för användarappar när organisationen växer. Du behöver en Azure Active Directory Premium P1- eller Premium P2-licens för att tilldela åtkomst till företagsappar.
 
 Azure AD ger dig även större kontroll över de data som flödar mellan appen och de grupper som du tilldelat åtkomst. I [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) öppnar du en app och väljer **etablering** för att:
 
@@ -72,6 +72,6 @@ Azure AD ger dig även större kontroll över de data som flödar mellan appen o
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är ny som Azure AD-administratör får du en bra grundläggande översikt i [Grunderna i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
+Om du är ny som Azure AD-administratör får du en bra grundläggande översikt i [Grunderna i Azure Active Directory](../fundamentals/index.yml).
 
-Alternativt kan du börja att [skapa grupper](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [tilldela licenser](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [tilldela appåtkomst](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) eller [tilldela administratörsroller](directory-assign-admin-roles.md).
+Alternativt kan du börja att [skapa grupper](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [tilldela licenser](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [tilldela appåtkomst](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) eller [tilldela administratörsroller](directory-assign-admin-roles.md).

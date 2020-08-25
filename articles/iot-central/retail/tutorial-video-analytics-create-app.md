@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 23f9da34a123343bc4f2f5b175adc60ce80d7c42
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719180"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762785"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Självstudie: skapa ett program för video analys – identifiering av objekt och motion i Azure IoT Central
 
@@ -40,7 +40,7 @@ För att kunna slutföra den här själv studie serien behöver du:
 
 ## <a name="initial-setup"></a>Första konfigurationen
 
-I de här självstudierna uppdaterar och använder du flera konfigurationsfiler. De ursprungliga versionerna av dessa filer är tillgängliga i [lva-Gateway GitHub-](https://github.com/Azure/live-video-analytics) lagringsplatsen. Databasen innehåller också en Scratchpad-textfil där du kan hämta och använda för att registrera konfigurations värden från de tjänster som du distribuerar.
+I de här självstudierna uppdaterar och använder du flera konfigurationsfiler. De ursprungliga versionerna av dessa filer är tillgängliga i [lva-Gateway GitHub-](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway) lagringsplatsen. Databasen innehåller också en Scratchpad-textfil där du kan hämta och använda för att registrera konfigurations värden från de tjänster som du distribuerar.
 
 Skapa en mapp med namnet *lva-Configuration* på den lokala datorn för att spara kopior av filerna. Högerklicka på var och en av följande länkar och välj **Spara som** för att spara filen i mappen *lva* :
 

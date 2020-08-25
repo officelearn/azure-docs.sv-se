@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/22/2020
-ms.openlocfilehash: 0499d52a6fe3da7349d31748ca3b5add16369571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/24/2020
+ms.openlocfilehash: 1e66774d4239bdad6c8af426a28af6081bb0da3c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137662"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88782183"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
@@ -22,9 +22,11 @@ I den här artikeln beskrivs en modul i Azure Machine Learning designer (för ha
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd. 
 
-Ett utökat besluts träd är en ensemble-utbildnings metod där det andra trädet korrigerar fel i det första trädet, och det tredje trädet korrigeras för felen i de första och andra träden och så vidare.  Förutsägelser baseras på hela ensemblen för träd som utgör förutsägelsen.
+Ett utökat besluts träd är en ensemble-utbildnings metod där det andra trädet korrigerar fel i det första trädet, och det tredje trädet korrigeras för felen i de första och andra träden och så vidare. Förutsägelser baseras på hela ensemblen för träd som utgör förutsägelsen.
   
 När rätt konfigurerade besluts träd är korrekt konfigurerade är de enkla metoder som du kan använda för att få bästa prestanda på en mängd olika Machine Learning-uppgifter. De är dock också en av de mer minnes intensiva eleverna och den aktuella implementeringen innehåller allt i minnet. Därför kanske en bättre besluts träd modell inte kan bearbeta de stora data mängderna som vissa linjära lärare kan hantera.
+
+Den här modulen är baserad LightGBM-algoritm.
 
 ## <a name="how-to-configure"></a>Så här konfigurerar du
 

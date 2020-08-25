@@ -2,14 +2,14 @@
 title: Status för asynkrona åtgärder
 description: Beskriver hur du spårar asynkrona åtgärder i Azure. Det visar de värden som du använder för att hämta status för en tids krävande åtgärd.
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68a00e50c7d3e0da757ee7a3a09274c5f1dbecad
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718432"
+ms.locfileid: "88723460"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Spåra asynkrona Azure-åtgärder
 
@@ -31,7 +31,7 @@ Läs REST API- [dokumentationen](/rest/api/azure/) om du vill se svaren för den
 
 När du har hämtat 201-eller 202-svars koden är du redo att övervaka status för åtgärden.
 
-## <a name="use-url-to-monitor-status"></a>Använd URL för att övervaka status
+## <a name="url-to-monitor-status"></a>URL för att övervaka status
 
 Det finns två olika sätt att övervaka statusen för den asynkrona åtgärden. Du fastställer rätt metod genom att undersöka de huvud värden som returneras från din ursprungliga begäran. Börja med att leta efter:
 
@@ -45,7 +45,9 @@ Om `Azure-AsyncOperation` inte är ett av rubrik värden söker du efter:
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Azure – AsyncOperation-begäran och-svar
 
-Om du har en URL från `Azure-AsyncOperation` Head-värdet skickar du en get-begäran till den URL: en. Använd värdet från `Retry-After` för att schemalägga hur ofta du vill kontrol lera statusen. Svars egenskaperna kan variera, men innehåller alltid status för den asynkrona åtgärden.
+Om du har en URL från `Azure-AsyncOperation` Head-värdet skickar du en get-begäran till den URL: en. Använd värdet från `Retry-After` för att schemalägga hur ofta du vill kontrol lera statusen. Du får ett svars objekt som visar status för åtgärden. Ett annat svar returneras när du kontrollerar status för åtgärden med `Location` URL: en. Mer information om svaret från en plats-URL finns i [skapa lagrings konto (202 med plats och försök igen)](#create-storage-account-202-with-location-and-retry-after).
+
+Svars egenskaperna kan variera, men innehåller alltid status för den asynkrona åtgärden.
 
 ```json
 {

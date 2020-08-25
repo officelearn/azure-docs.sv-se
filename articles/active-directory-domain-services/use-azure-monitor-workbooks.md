@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 926f4dd94ba5b1f864a002c282004b3a9f438dca
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419605"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722746"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Granska säkerhets gransknings händelser i Azure Active Directory Domain Services att använda Azure Monitor arbets böcker
 
@@ -123,4 +123,4 @@ Om du har problem med användare kan du läsa om hur du felsöker [problem med i
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-monitor-queries]: ../azure-monitor/log-query/query-language.md
-[kusto-queries]: https://docs.microsoft.com/azure/kusto/query/tutorial?pivots=azuredataexplorer
+[kusto-queries]: /azure/kusto/query/tutorial?pivots=azuredataexplorer

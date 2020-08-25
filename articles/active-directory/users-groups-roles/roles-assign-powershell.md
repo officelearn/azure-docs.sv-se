@@ -13,20 +13,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 243bc48f7e84951c78ecab3e7f5ee47a85a538bf
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732063"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798830"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Tilldela anpassade roller med resurs omfång med PowerShell i Azure Active Directory
 
-Den här artikeln beskriver hur du skapar en roll tilldelning i en företagsomfattande omfattning i Azure Active Directory (Azure AD). Genom att tilldela en roll i hela organisationen beviljar du åtkomst i Azure AD-organisationen. Information om hur du skapar en roll tilldelning med ett omfång för en enda Azure AD-resurs finns i [så här skapar du en anpassad roll och tilldelar den vid resurs omfånget](roles-create-custom.md). Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+Den här artikeln beskriver hur du skapar en roll tilldelning i en företagsomfattande omfattning i Azure Active Directory (Azure AD). Genom att tilldela en roll i hela organisationen beviljar du åtkomst i Azure AD-organisationen. Information om hur du skapar en roll tilldelning med ett omfång för en enda Azure AD-resurs finns i [så här skapar du en anpassad roll och tilldelar den vid resurs omfånget](roles-create-custom.md). Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
 Mer information om administratörs roller i Azure AD finns [i tilldela administratörs roller i Azure Active Directory](directory-assign-admin-roles.md).
 
-## <a name="required-permissions"></a>Nödvändiga behörigheter
+## <a name="required-permissions"></a>Behörigheter som krävs
 
 Anslut till din Azure AD-organisation med ett globalt administratörs konto för att tilldela eller ta bort roller.
 
@@ -69,7 +69,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Om du vill tilldela rollen till ett huvud namn för tjänsten i stället för en användare använder du [cmdleten Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
+Om du vill tilldela rollen till ett huvud namn för tjänsten i stället för en användare använder du [cmdleten Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
 ## <a name="operations-on-roledefinition"></a>Åtgärder på roll definitions
 

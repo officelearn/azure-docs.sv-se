@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 55f2ab7008644ac084782e448e8e761cd19ea37e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: bcc7ebd8d9a6e61425ba7cd980a400c3fe756492
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225792"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762342"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Ta bort i Azure Data Factory
 
@@ -29,7 +29,7 @@ Du kan använda borttagnings aktiviteten i Azure Data Factory om du vill ta bort
 > [!WARNING]
 > Borttagna filer eller mappar kan inte återställas (om inte lagringen har mjuk borttagning aktive rad). Var försiktig när du använder aktiviteten Ta bort till att ta bort filer och mappar.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Här följer några rekommendationer för att använda borttagnings aktiviteten:
 
@@ -64,8 +64,11 @@ Här följer några rekommendationer för att använda borttagnings aktiviteten:
             "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
-        "recursive": true/false,
-        "maxConcurrentConnections": <number>,
+        "storeSettings": {
+            "type": "<source type>",
+            "recursive": true/false,
+            "maxConcurrentConnections": <number>
+        },
         "enableLogging": true/false,
         "logStorageSettings": {
             "linkedServiceName": {
@@ -133,7 +136,7 @@ Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
 
 Nu använder du borttagnings aktiviteten för att ta bort mappar eller filer genom att kombinera olika egenskaps värden från data uppsättningen och borttagnings aktiviteten:
 
-| folderPath (från data uppsättning) | Fil namn (från data uppsättning) | rekursiv (från borttagnings aktiviteten) | Resultat |
+| folderPath | fileName | rekursiva | Utdata |
 |:--- |:--- |:--- |:--- |
 | Rot-/Folder_A_2 | NULL | Falskt | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Folder_B_2/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.txt |
 | Rot-/Folder_A_2 | NULL | Sant | Skogen<br/>&nbsp;&nbsp;&nbsp;&nbsp;Folder_A_1/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.txt<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_A_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>4.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>5.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_1/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>6.txt</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>7.csv</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>Folder_B_2/</strike><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strike>8.txt</strike> |
@@ -761,7 +764,7 @@ Du kan också få mallen att flytta filer [härifrån.](solution-template-move-f
 
 -   Borttagnings aktiviteten stöder inte borttagning av lista över mappar som beskrivs med jokertecken.
 
--   När du använder filter för filattribut: modifiedDatetimeStart och modifiedDatetimeEnd för att välja vilka filer som ska tas bort, se till att ange "fileName": "*" i data uppsättningen.
+-   När du använder filter för filattribut i ta bort aktivitet: modifiedDatetimeStart och modifiedDatetimeEnd för att välja vilka filer som ska tas bort, se till att ange "wildcardFileName": "*" i ta bort aktivitet också.
 
 ## <a name="next-steps"></a>Nästa steg
 

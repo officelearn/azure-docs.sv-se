@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a286ed63d842dba08ad545b17498cb4000a5cf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256636"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88784019"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Hanterings funktioner för Azure AD-roller i Privileged Identity Management
 
@@ -56,7 +56,7 @@ Både åtgärder som initieras av användaren kräver ett godkännande från en 
 
 ## <a name="api-changes"></a>API-ändringar
 
-När kunderna har den uppdaterade versionen som är distribuerad till sin Azure AD-organisation slutar det befintliga graf-API: et att fungera. Du måste gå över till för att använda [Graph API för Azures resurs roller](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Om du vill hantera Azure AD-roller med det API: t byter du `/azureResources` till `/aadroles` i signaturen och använder katalog-ID: t för `resourceId` .
+När kunderna har den uppdaterade versionen som är distribuerad till sin Azure AD-organisation slutar det befintliga graf-API: et att fungera. Du måste gå över till för att använda [Graph API för Azures resurs roller](/graph/api/resources/privilegedidentitymanagement-resources?view=graph-rest-beta). Om du vill hantera Azure AD-roller med det API: t byter du `/azureResources` till `/aadroles` i signaturen och använder katalog-ID: t för `resourceId` .
 
 Vi har försökt med vårt bästa att kontakta alla kunder som använder föregående API för att meddela dem om den här ändringen i förväg. Om din Azure AD-organisation har flyttats till den nya versionen och du fortfarande är beroende av det gamla API: et kan du kontakta teamet på pim_preview@microsoft.com .
 

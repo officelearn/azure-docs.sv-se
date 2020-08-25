@@ -10,10 +10,10 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.openlocfilehash: 566307581b49922b9d47936f64beea73715f63ba
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "86028413"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Skapa en App Service-app och distribuera privat slut punkt med hjälp av Azure CLI

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cba89abd65844d238120726572481457f27cb
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706173"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798439"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
 
@@ -54,7 +54,7 @@ Vi har gjort ändringar i befintliga Azure Portal-kontroller för gäst använda
 
 ## <a name="update-with-the-microsoft-graph-api"></a>Uppdatera med Microsoft Graph API
 
-Vi har lagt till ett nytt Microsoft Graph-API för att konfigurera gäst behörigheter i din Azure AD-organisation. Följande API-anrop kan göras för att tilldela alla behörighets nivåer. Värdet för guestUserRoleId som används här är för att illustrera den mest begränsade gäst användar inställningen. Mer information om hur du använder Microsoft Graph för att ange gäst behörigheter finns i [resurs typen authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+Vi har lagt till ett nytt Microsoft Graph-API för att konfigurera gäst behörigheter i din Azure AD-organisation. Följande API-anrop kan göras för att tilldela alla behörighets nivåer. Värdet för guestUserRoleId som används här är för att illustrera den mest begränsade gäst användar inställningen. Mer information om hur du använder Microsoft Graph för att ange gäst behörigheter finns i [resurs typen authorizationPolicy](/graph/api/resources/authorizationpolicy).
 
 ### <a name="configuring-for-the-first-time"></a>Konfigurerar för första gången
 
@@ -168,5 +168,5 @@ Finns det några licens krav för den här funktionen? | Nej, det finns inga nya
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om befintliga gäst behörigheter i Azure AD finns i [Vad är standard användar behörigheter i Azure Active Directory?](../fundamentals/users-default-permissions.md).
-- Om du vill se Microsoft Graph-API-metoder för att begränsa gäst åtkomst, se [resurs typen authorizationPolicy](https://docs.microsoft.com/graph/api/resources/authorizationpolicy).
+- Om du vill se Microsoft Graph-API-metoder för att begränsa gäst åtkomst, se [resurs typen authorizationPolicy](/graph/api/resources/authorizationpolicy).
 - Om du vill återkalla all åtkomst till en användare läser du [återkalla användar åtkomst i Azure AD](users-revoke-access.md).

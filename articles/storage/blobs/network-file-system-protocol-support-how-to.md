@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: cb3cb41b46c2def4f99af7f1811e4ff96dff7070
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 985fbc70f15c0806c45ae43d62995590e10b1bb2
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167036"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798932"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montera Blob Storage med hjälp av Network File System (NFS) 3,0-protokollet (för hands version)
 
@@ -90,7 +90,7 @@ I för hands versionen av den här funktionen stöds NFS 3,0-protokollet endast 
 
 När du konfigurerar kontot väljer du dessa värden:
 
-|Inställning | Värde|
+|Inställningen | Värde|
 |----|---|
 |Plats|En av följande regioner: USA, östra, centrala USA, västra centrala, sydöstra Australien, norra Europa, Storbritannien, västra, Korea, centrala, Korea, södra och centrala Kanada |
 |Prestanda|Premium|
@@ -153,6 +153,15 @@ Skapa en katalog på ditt Windows-eller Linux-system och montera sedan en behål
    - Ersätt `<storage-account-name>` plats hållaren som visas i det här kommandot med namnet på ditt lagrings konto.  
 
    - Ersätt `<container-name>` plats hållaren med namnet på din behållare.
+
+3. Om du behöver Skriv behörighet kan du behöva ändra standard-UID och GID som Windows använder för att ansluta till resursen. Det gör du genom att köra följande PowerShell-kommandon som administratör:
+
+   ```
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousUid -PropertyType DWord -Value 0
+   New-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default -Name AnonymousGid -PropertyType DWord -Value 0
+   ```
+   
+   - Starta om NFS-klienttjänsten eller starta om servern när du har gjort den här ändringen.
 
 ---
 

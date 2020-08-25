@@ -4,13 +4,13 @@ description: Lär dig mer om de steg som krävs för att aktivera de nya Azure M
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/24/2020
+ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824995"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783849"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Arbets yta-baserade Application Insights resurser (förhands granskning)
 
@@ -27,7 +27,7 @@ Om du vill testa den nya upplevelsen loggar du in på [Azure Portal](https://por
 
 Om du inte redan har en befintlig Log Analytics arbets yta kan du [läsa dokumentationen för att skapa Log Analytics arbets ytor](../learn/quick-create-workspace.md).
 
-För den offentliga för hands versions **arbets ytan är resurserna för närvarande begränsade till västra USA 2, östra USA och södra centrala USA.**
+**Arbets ytans baserade resurser är för närvarande tillgängliga i alla kommersiella regioner och Azure Government**
 
 När din resurs har skapats visas motsvarande information om arbets ytan i **översikts** fönstret:
 
@@ -53,10 +53,10 @@ För kodbaserade program övervakning installerar du bara lämplig Application I
 Detaljerad dokumentation om hur du konfigurerar en Application Insights SDK för kodbaserade övervakning finns i språk-och Framework-specifik dokumentation:
 
 - [ASP.NET](./asp-net.md)
-- [ASP.NET Core](./asp-net-core.md)
+- [ASP.NET Core ](./asp-net-core.md)
 - [Bakgrunds aktiviteter & moderna konsol program (.NET/.NET Core)](./worker-service.md)
 - [Klassiska konsol program (.NET)](./console.md) 
-- [Programmeringsspråket](./java-get-started.md?tabs=maven)
+- [Programmeringsspråket ](./java-get-started.md?tabs=maven)
 - [JavaScript](./javascript.md)
 - [Node.js](./nodejs.md)
 - [Python](./opencensus-python.md)
@@ -79,7 +79,7 @@ För att få åtkomst till för hands versionen Application Insights Azure CLI-k
  az extension add -n application-insights
 ```
 
-Om du inte kör `az extension add` kommandot visas ett fel meddelande som säger:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Om du inte kör `az extension add` kommandot visas ett fel meddelande som säger: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Nu kan du köra följande för att skapa din Application Insights-resurs:
 
@@ -184,6 +184,14 @@ Fullständig Azure CLI-dokumentation för det här kommandot finns i [Azure CLI-
 }
 
 ```
+
+## <a name="new-capabilities"></a>Nya funktioner
+
+Med arbets ytans baserade Application Insights kan du dra nytta av alla de senaste funktionerna i Azure Monitor inklusive:
+
+* [Kundhanterade nycklar (CMK)](../platform/customer-managed-keys.md) tillhandahåller kryptering i vila för dina data med krypterings nycklar som bara du har åtkomst till.
+* Med [Azures privata länk](../platform/private-link-security.md) kan du på ett säkert sätt länka Azure PaaS-tjänster till ditt virtuella nätverk med hjälp av privata slut punkter.
+* [Ta med din egen lagring (BYOS) för profiler och Snapshot debugger](./profiler-bring-your-own-storage.md) ger dig fullständig kontroll över principen för kryptering vid vila, livs längds hanterings principen och nätverks åtkomst för alla data som är kopplade till Application Insights Profiler och Snapshot debugger. 
 
 ## <a name="modifying-the-associated-workspace"></a>Ändra den associerade arbets ytan
 

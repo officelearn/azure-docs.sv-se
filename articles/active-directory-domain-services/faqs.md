@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 912cf31e29854e9fcd54bbc358bb954c0d7bf389
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 6a18dbf5c00c3f3aba2b2d58f060856aba9fb080
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116707"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722907"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Vanliga frågor och svar om Azure Active Directory (AD) Domain Services
 
@@ -61,7 +61,7 @@ Nej. För att autentisera användare via NTLM eller Kerberos behöver Azure AD D
 Men om du använder Azure AD Connect för synkronisering av lösen ords-hash kan du använda Azure AD Domain Services eftersom lösen ordets hash-värden lagras i Azure AD.
 
 ### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>Kan jag göra Azure AD Domain Services tillgängliga i flera virtuella nätverk i min prenumeration?
-Själva tjänsten har inte direkt stöd för det här scenariot. Din hanterade domän är bara tillgänglig i ett virtuellt nätverk i taget. Du kan dock konfigurera anslutningar mellan flera virtuella nätverk för att exponera Azure AD Domain Services till andra virtuella nätverk. Mer information finns i [så här ansluter du virtuella nätverk i Azure med hjälp av VPN-gatewayer](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) eller [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
+Själva tjänsten har inte direkt stöd för det här scenariot. Din hanterade domän är bara tillgänglig i ett virtuellt nätverk i taget. Du kan dock konfigurera anslutningar mellan flera virtuella nätverk för att exponera Azure AD Domain Services till andra virtuella nätverk. Mer information finns i [så här ansluter du virtuella nätverk i Azure med hjälp av VPN-gatewayer](../vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md) eller [peering för virtuella nätverk](../virtual-network/virtual-network-peering-overview.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Kan jag aktivera Azure AD Domain Services med PowerShell?
 Ja. Mer information finns i [så här aktiverar du Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md).
@@ -73,14 +73,14 @@ Ja, du kan skapa en Azure AD Domain Services hanterad domän med hjälp av en Re
 Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du behöver inte etablera, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen. Dessa hanterings aktiviteter tillhandahålls som en tjänst av Microsoft. Därför kan du inte lägga till ytterligare domänkontrollanter (Läs-och skriv skydd) för den hanterade domänen.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Kan gäst användare som bjuds in till min katalog använda Azure AD Domain Services?
-Nej. Gäst användare som bjudits in till din Azure AD-katalog med [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -beställnings processen synkroniseras med din Azure AD Domain Services hanterade domänen. Lösen ord för dessa användare lagras dock inte i Azure AD-katalogen. Azure AD Domain Services har därför inget sätt att synkronisera NTLM-och Kerberos-hashvärden för dessa användare till din hanterade domän. Sådana användare kan inte logga in eller ansluta datorer till den hanterade domänen.
+Nej. Gäst användare som bjudits in till din Azure AD-katalog med [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md) -beställnings processen synkroniseras med din Azure AD Domain Services hanterade domänen. Lösen ord för dessa användare lagras dock inte i Azure AD-katalogen. Azure AD Domain Services har därför inget sätt att synkronisera NTLM-och Kerberos-hashvärden för dessa användare till din hanterade domän. Sådana användare kan inte logga in eller ansluta datorer till den hanterade domänen.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Kan jag flytta en befintlig Azure AD Domain Services hanterad domän till en annan prenumeration, resurs grupp, region eller virtuellt nätverk?
 Nej. När du har skapat en Azure AD Domain Services hanterad domän kan du inte flytta den hanterade domänen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar den hanterade domänen.
 
 ### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Innehåller Azure AD Domain Services alternativ för hög tillgänglighet?
 
-Ja. Varje Azure AD Domain Services hanterad domän innehåller två domänkontrollanter. Du hanterar eller ansluter inte till dessa domänkontrollanter, de är en del av den hanterade tjänsten. Om du distribuerar Azure AD Domain Services till en region som har stöd för Tillgänglighetszoner, distribueras domän kontrol Lanterna mellan zoner. I regioner som inte stöder Tillgänglighetszoner distribueras domän kontrol Lanterna över tillgänglighets uppsättningar. Du har inga konfigurations alternativ eller någon hanterings kontroll över den här distributionen. Mer information finns i [tillgänglighets alternativ för virtuella datorer i Azure](../virtual-machines/windows/availability.md).
+Ja. Varje Azure AD Domain Services hanterad domän innehåller två domänkontrollanter. Du hanterar eller ansluter inte till dessa domänkontrollanter, de är en del av den hanterade tjänsten. Om du distribuerar Azure AD Domain Services till en region som har stöd för Tillgänglighetszoner, distribueras domän kontrol Lanterna mellan zoner. I regioner som inte stöder Tillgänglighetszoner distribueras domän kontrol Lanterna över tillgänglighets uppsättningar. Du har inga konfigurations alternativ eller någon hanterings kontroll över den här distributionen. Mer information finns i [tillgänglighets alternativ för virtuella datorer i Azure](../virtual-machines/availability.md).
 
 ## <a name="administration-and-operations"></a>Administration och åtgärder
 
@@ -148,7 +148,7 @@ Azure AD Domain Services ingår i den kostnads fria utvärderings versionen av A
 Nej. När du har aktiverat en Azure AD Domain Services hanterad domän är tjänsten tillgänglig i det valda virtuella nätverket tills du tar bort den hanterade domänen. Det finns inget sätt att pausa tjänsten. Faktureringen fortsätter per timme tills du tar bort den hanterade domänen.
 
 ### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Kan jag redundansväxla Azure AD Domain Services till en annan region för en DR-händelse?
-Nej. Azure AD Domain Services tillhandahåller för närvarande ingen Geo-redundant distributions modell. Den är begränsad till ett enda virtuellt nätverk i en Azure-region. Om du vill använda flera Azure-regioner måste du köra dina Active Directory-domän kontrollanter på virtuella Azure IaaS-datorer. Vägledning för arkitektur finns i [Utöka din lokala Active Directory domän till Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
+Nej. Azure AD Domain Services tillhandahåller för närvarande ingen Geo-redundant distributions modell. Den är begränsad till ett enda virtuellt nätverk i en Azure-region. Om du vill använda flera Azure-regioner måste du köra dina Active Directory-domän kontrollanter på virtuella Azure IaaS-datorer. Vägledning för arkitektur finns i [Utöka din lokala Active Directory domän till Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Kan jag få Azure AD Domain Services som en del av EMS (Enterprise Mobility Suite)? Behöver jag Azure AD Premium använda Azure AD Domain Services?
 Nej. Azure AD Domain Services är en Azure-tjänst enligt principen betala per användning och ingår inte i EMS. Azure AD Domain Services kan användas med alla utgåvor av Azure AD (kostnads fri och Premium). Du faktureras per timme, beroende på användning.

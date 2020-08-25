@@ -366,6 +366,8 @@
           href: ssh.md
         - name: Prestandaverktyg för Linux
           href: troubleshoot-linux.md
+        - name: Kontrollera Resource Health-händelser (förhandsversion)
+          href: aks-resource-health.md
 - name: Referens
   items:
     - name: Azure CLI

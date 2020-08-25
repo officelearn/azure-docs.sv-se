@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10e306d26ebfd5ffafe65d7aa52753e993b085bf
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509169"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794488"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
@@ -264,9 +264,8 @@ Azure Disk Encryption fungerar inte för följande scenarier, funktioner och tek
 - Skapa en avbildning eller ögonblicks bild av en krypterad virtuell dator och använda den för att distribuera ytterligare virtuella datorer.
 - Virtuella Gen2-datorer (se: [stöd för virtuella datorer i generation 2 på Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Virtuella datorer i M-serien med Skrivningsaccelerator diskar.
-- Använda ADE på en virtuell dator som har eller *någonsin* haft diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
-- Migrera en virtuell dator som har krypterats med ADE till [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md).
-
+- Använda ADE på en virtuell dator som har diskar som är krypterade med [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md) (SSE + CMK). Att använda SSE + CMK till en datadisk på en virtuell dator som är krypterad med ADE är ett scenario som inte stöds.
+- Migrering av en virtuell dator som är krypterad med ADE eller **som har varit** krypterad med ade, till kryptering på [Server sidan med Kundhanterade nycklar](disk-encryption.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

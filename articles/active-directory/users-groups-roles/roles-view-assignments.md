@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e566a450768fca81e29692f7c8d2da3ccf5201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb64a84388a370e77f39369f78c3086ec1cd00ec
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731570"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798354"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade roll tilldelningar i Azure Active Directory
 
@@ -39,7 +39,7 @@ Den här proceduren beskriver hur du visar tilldelningar för en roll med omfatt
 
 ## <a name="view-role-assignments-using-azure-ad-powershell"></a>Visa roll tilldelningar med hjälp av Azure AD PowerShell
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av PowerShell kan du använda cmdletarna i [tilldela anpassade roller med PowerShell](roles-assign-powershell.md).
+I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av PowerShell kan du använda cmdletarna i [tilldela anpassade roller med PowerShell](roles-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Förbered PowerShell
 
@@ -82,13 +82,13 @@ I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfatt
 
 HTTP-begäran om att få en roll tilldelning för en specifik roll definition.
 
-HÄMTA
+GET
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-Svar
+Svarsåtgärder
 
 ``` HTTP
 HTTP/1.1 200 OK

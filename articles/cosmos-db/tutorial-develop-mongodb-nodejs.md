@@ -1,5 +1,5 @@
 ---
-title: Node. js, vinkel-app med Azure Cosmos DB s API för MongoB (part1)
+title: Node.Js, vinkel-app med Azure Cosmos DBs API för MongoB (part1)
 description: Lär dig hur du skapar en MongoDB-app med Angular och Node i Azure Cosmos DB med hjälp av exakt samma API:er som du använder för MongoDB i den här videobaserade självstudieserien.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: d2e7ce959edffdb2e8c929c81837e0ac3fc3da9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75444691"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Skapa en Angular-app med Azure Cosmos DB:s API för MongoDB

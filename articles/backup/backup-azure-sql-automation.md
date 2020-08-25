@@ -4,12 +4,12 @@ description: Säkerhetskopiera och Återställ SQL-databaser på virtuella Azure
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 6bd119b743ad83bcab9f92d386a5091593f6a5c0
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 51c3aa13b088eb056e8b7dcaa2af80b83a606a54
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761329"
+ms.locfileid: "88763413"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -160,7 +160,7 @@ En säkerhets kopierings princip anger schemat för säkerhets kopior och hur l�
 * Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject).
 * Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
 
-Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I exemplet nedan förutsätter du att den önskade start tiden är 01:00 AM UTC för dagliga säkerhets kopieringar.
+Som standard definieras en start tid i objektet Schemalägg princip. Använd följande exempel för att ändra start tiden till önskad start tid. Den önskade start tiden ska också vara i UTC-tid. I följande exempel antas den önskade start tiden vara 01:00 AM UTC för dagliga säkerhets kopieringar.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"

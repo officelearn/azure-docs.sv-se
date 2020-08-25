@@ -12,18 +12,18 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: e9fd4308f89873183e4f5f57cee56887ce181fae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d7bf31f7b16fa987bb9c710835d1a3aff8214604
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307292"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783271"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera säkerhet för X.509 i din Azure IoT Hub
 
 Den här självstudien visar de steg du behöver för att skydda din Azure IoT Hub med hjälp av *509 för X.*. För illustrationen använder vi verktyget OpenSSL med öppen källkod för att skapa certifikat lokalt på din Windows-dator. Vi rekommenderar att du bara använder den här självstudien i test syfte. För produktions miljö bör du köpa certifikaten från en *rot certifikat utfärdare (ca)*.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien krävs att du har följande resurser klara:
 
@@ -49,6 +49,9 @@ Du kan välja något av följande sätt för att få dina certifikat:
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrera X. 509 CA-certifikat i IoT Hub
 
 De här stegen visar hur du lägger till en ny certifikat utfärdare till din IoT-hubb via portalen.
+
+> [!NOTE]
+> Det maximala antalet X. 509 CA-certifikat som kan registreras till en IoT-hubb är 25. Mer information finns i [Azure IoT Hub kvoter och begränsning](iot-hub-devguide-quotas-throttling.md).
 
 1. I Azure Portal navigerar du till din IoT-hubb och väljer **Inställningar**  >  **certifikat** för hubben.
 

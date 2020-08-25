@@ -3,12 +3,12 @@ title: Felsöka Azure Backup Agent
 description: I den här artikeln får du lära dig hur du felsöker installationen och registreringen av den Azure Backup agenten.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 64996737a18add8ca1bee25e32929f1d602f9018
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564120"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763515"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -204,7 +204,7 @@ Azure Backup kan inte montera återställnings volymen, även efter flera minute
 
 5. Högerklicka på **Okänd enhet** och välj **Uppdatera driv rutins program vara**.
 
-6. Uppdatera driv rutinen genom att välja alternativet att **söka automatiskt efter uppdaterad driv rutins program vara**. Den här uppdateringen bör ändra den **okända enheten** till **Microsoft iSCSI-initieraren**:
+6. Uppdatera driv rutinen genom att välja alternativet att  **söka automatiskt efter uppdaterad driv rutins program vara**. Den här uppdateringen bör ändra den **okända enheten** till **Microsoft iSCSI-initieraren**:
 
     ![Skärm bild av Azure Backup Enhetshanteraren, med lagrings styrenheter markerade](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
@@ -224,7 +224,7 @@ Säkerhets kopierings åtgärden kan Miss lyckas om cache-mappen (även kallat S
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstående krav:
+För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla följande krav:
 
 - [Se till att det finns 5% till 10% ledigt volym utrymme på platsen för den tillfälliga mappen](backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Se till att mappen för arbets platsen är giltig och tillgänglig](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
@@ -238,15 +238,15 @@ Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckli
 
 - Kontrol lera det aktuella skugg lagrings utrymmet från den upphöjda kommando tolken:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
-- Öka skugg lagrings utrymmet med kommandot nedan:<br/>
+- Öka skugg lagrings utrymmet med följande kommando:<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>En annan process eller ett antivirus program blockerar åtkomst till cache-mappen
 
 Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar:  
 
-- Mappen scratch. Dess standard plats är`C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
-- Bin-mappen på`C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
+- Mappen scratch. Dess standard plats är `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+- Bin-mappen på `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`
 - CBengine.exe
 - CSC.exe
 
@@ -258,25 +258,25 @@ I det här avsnittet beskrivs vanliga fel som uppstår när du använder MARS-ag
 
 Felmeddelande | Rekommenderad åtgärd
 --|--
-Microsoft Azure Recovery Services-agenten kunde inte komma åt kontrollsumman för säkerhetskopian på den tillfälliga platsen | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Microsoft Azure Recovery Services-agenten kunde inte komma åt kontrollsumman för säkerhetskopian på den tillfälliga platsen | Lös problemet genom att utföra följande steg och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Felmeddelande | Rekommenderad åtgärd
 --|--
-Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga platsen för att initiera VHD | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om antivirus program eller andra processer låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
+Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga platsen för att initiera VHD | Lös problemet genom att utföra följande steg och starta om servern <br/> - [Kontrol lera om antivirus program eller andra processer låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för MARS-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Felmeddelande | Rekommenderad åtgärd
 --|--
-Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/>- [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
+Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Du löser problemet genom att kontrol lera följande steg och försöka utföra åtgärden igen:<br/>- [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Felmeddelande | Rekommenderad åtgärd
 --|--
-Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/> - [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
+Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Du löser problemet genom att kontrol lera följande steg och försöka utföra åtgärden igen:<br/> - [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38b474d4b454c61b83bfb1d62230930a0b569b1d
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ba22720901cf4b7505d8d5b5295ca4e0c271953f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164231"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88798405"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Dela konton med Azure AD
 
@@ -59,7 +59,7 @@ Azure AD-funktioner som möjliggör konto delning är:
 * Agent för enkel inloggning med lösen ord
 * [Grupp tilldelning](groups-self-service-management.md)
 * Anpassade Password-appar
-* [Instrument panelen för användning av appar/rapporter](../active-directory-passwords-get-insights.md)
+* [Instrument panelen för användning av appar/rapporter](../authentication/howto-sspr-reporting.md)
 * Åtkomst portaler för slutanvändare
 * [App-proxy](../manage-apps/application-proxy.md)
 * [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
@@ -72,10 +72,10 @@ Om du vill använda Azure AD för att dela ett konto måste du:
 * Konfigurera programmet för enkel inloggning med lösen ord (SSO)
 * Använd [gruppbaserad tilldelning](groups-saasapps.md) och välj alternativet för att ange en delad autentiseringsuppgift
 
-Du kan också göra ditt delade konto säkrare med Multi-Factor Authentication (MFA) (Lär dig mer om att [skydda program med Azure AD](../authentication/concept-mfa-whichversion.md)) och du kan delegera möjligheten att hantera vem som har åtkomst till programmet med hjälp av [Azure AD](groups-self-service-management.md) självbetjänings grupp hantering.
+Du kan också göra ditt delade konto säkrare med Multi-Factor Authentication (MFA) (Lär dig mer om att [skydda program med Azure AD](../authentication/concept-mfa-howitworks.md)) och du kan delegera möjligheten att hantera vem som har åtkomst till programmet med hjälp av [Azure AD](groups-self-service-management.md) självbetjänings grupp hantering.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Skydda appar med villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)
+* [Skydda appar med villkorlig åtkomst](../conditional-access/overview.md)
 * [Grupp hantering för självbetjäning/SSAA](groups-self-service-management.md)

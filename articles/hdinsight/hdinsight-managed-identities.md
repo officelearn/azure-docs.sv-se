@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: 1081865a2e138af38ba171197719f08dedf6ffdb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07a8c26f7fc314680c51270ebafe03d4e3a84757
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408944"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749850"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Hanterade identiteter i Azure HDInsight
 
@@ -25,7 +25,9 @@ Det finns två typer av hanterade identiteter: användare tilldelade och tilldel
 
 ## <a name="hdinsight-managed-identity-implementation"></a>HDInsight-hanterad identitets implementering
 
-I Azure HDInsight är hanterade identiteter etablerade på varje nod i klustret. Dessa identitets komponenter kan dock endast användas av HDInsight-tjänsten. Det finns för närvarande ingen metod som stöds för att generera åtkomsttoken med hjälp av hanterade identiteter som är installerade på HDInsight-klusternoder. För vissa Azure-tjänster implementeras hanterade identiteter med en slut punkt som du kan använda för att hämta åtkomsttoken. Använd token för att interagera med andra Azure-tjänster på egen hand.
+I Azure HDInsight kan hanterade identiteter endast användas av HDInsight-tjänsten för interna komponenter. Det finns för närvarande ingen metod som stöds för att generera åtkomsttoken med hjälp av hanterade identiteter som är installerade på HDInsight-klusternoder för åtkomst till externa tjänster. För vissa Azure-tjänster som Compute VM: ar implementeras hanterade identiteter med en slut punkt som du kan använda för att hämta åtkomsttoken. Den här slut punkten är för närvarande inte tillgänglig i HDInsight-noder.
+
+Om du behöver starta dina program för att undvika att placera hemligheter/lösen ord i analys jobben (t. ex. SCALA-jobb) kan du distrubte dina egna certifikat till klusternoderna med hjälp av skript åtgärder och sedan använda certifikatet för att erhålla en åtkomsttoken (till exempel för att komma åt Azure-nyckel valvet).
 
 ## <a name="create-a-managed-identity"></a>Skapa en hanterad identitet
 
@@ -46,7 +48,7 @@ Hanterade identiteter används i Azure HDInsight i flera scenarier. Se relaterad
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kundhanterad nyckeldiskkryptering](disk-encryption.md)
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 ### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>Vad händer om jag tar bort den hanterade identiteten när klustret har skapats?
 

@@ -9,10 +9,10 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76548296"
 ---
 # <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>Skapa och hitta ankare med grov omlokalisering i C++/WinRT

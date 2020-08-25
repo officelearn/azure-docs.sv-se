@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 0efd26272bbfc4c8f63f7f02a605d48e53577390
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: b4917129b7b6dd3799f5e79dab881a1bcaa130d5
+ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87809144"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88761669"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 >**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
 >Registrera dig för för hands versionen genom att skriva till oss på [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för för registrering gör](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) i avsnitten för att konfigurera databasen för säkerhets kopiering.
 
@@ -65,7 +65,7 @@ Om du använder nätverks säkerhets grupper (NSG) använder du tjänst tag gen 
 
 1. Välj **Lägg till**. Ange all information som krävs för att skapa en ny regel enligt beskrivningen i [säkerhets regel inställningar](../virtual-network/manage-network-security-group.md#security-rule-settings). Se till att alternativet **destination** har angetts till *service tag* och **mål tjänst tag gen** är inställt på *AzureBackup*.
 
-1. Klicka på **Lägg till** för att spara den nyligen skapade utgående säkerhets regeln.
+1. Klicka på **Lägg till**  för att spara den nyligen skapade utgående säkerhets regeln.
 
 Du kan också skapa NSG utgående säkerhets regler för Azure Storage och Azure AD. Mer information om service märken finns i [den här artikeln](../virtual-network/service-tags-overview.md).
 

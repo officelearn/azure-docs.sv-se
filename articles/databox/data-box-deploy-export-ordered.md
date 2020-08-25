@@ -2,18 +2,18 @@
 title: Självstudie för att exportera data från Azure Data Box | Microsoft Docs
 description: Lär dig mer om distributions kraven och hur du exporterar data från en Azure Data Box
 services: databox
-author: priestlg
+author: twooley
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.author: v-grpr
-ms.openlocfilehash: 5b17488ebab8dc29221723fabf8efe0c00467509
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.author: twooley
+ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209711"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783628"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Självstudie: skapa en export ordning för Azure Data Box (förhands granskning)
 
@@ -30,7 +30,7 @@ I den här självstudien lär du dig:
 
 [!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför följande konfigurations krav för Data Box-enhet tjänst och enhet innan du beställer enheten.
 
@@ -98,7 +98,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 8. I **Välj export alternativ**anger du alternativ informationen för export. Ange eller Välj följande information och välj sedan **Lägg till**.
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Lagringskonto     | Det Azure Storage konto som du vill exportera data från. |
     |Export typ     | Anger vilken typ av data som ska exporteras från **alla objekt** och **använda XML-filen**.<ul><li> **Alla objekt** – anger att jobbet ska exportera alla data beroende på ditt val av **överförings alternativ**.</li><li> **Använd XML-fil** – anger en XML-fil som innehåller en uppsättning sökvägar och prefix för blobbar och/eller filer som ska exporteras från lagrings kontot. XML-filen måste finnas i det valda lagrings kontots behållare och det finns för närvarande inte stöd för att välja från fil resurser. Filen måste vara en XML-fil som inte är tom.</li></ul>        |

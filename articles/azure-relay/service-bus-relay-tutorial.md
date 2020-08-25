@@ -4,10 +4,10 @@ description: I den här självstudien beskrivs hur du exponerar en lokal WCF RES
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.openlocfilehash: 50628073efd7114aaacfe37177d2f5beb3be3d47
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85322704"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
@@ -32,7 +32,7 @@ Du utför följande uppgifter i den här självstudien:
 > * Implementera WCF-klienten.
 > * Kör programmen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 

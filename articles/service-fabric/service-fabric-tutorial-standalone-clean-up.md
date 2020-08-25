@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
 ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75639028"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>Självstudier: Rensa fristående kluster
@@ -36,7 +36,7 @@ I del fyra i serien lär du dig att:
   .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
   ```
 
-5. `Y` När du uppmanas att göra det kommer dina utdata att se ut ungefär så här, med dina egna IP-adresser som ersätts i:
+5. `Y`När du uppmanas att göra det kommer dina utdata att se ut ungefär så här, med dina egna IP-adresser som ersätts i:
 
   ```powershell
   Best Practices Analyzer completed successfully.
@@ -54,7 +54,7 @@ I del fyra i serien lär du dig att:
 1. Logga in på ditt AWS-konto.
 2. Gå till EC2-konsolen.
 3. Välj de tre noder som du skapade i del ett av självstudien.
-4. Klicka på **åtgärder** > **instans tillstånd** > **Avsluta**.
+4. Klicka på **åtgärder**  >  **instans tillstånd**  >  **Avsluta**.
 
 ## <a name="clean-up-azure-resources"></a>Rensa Azure-resurser
 

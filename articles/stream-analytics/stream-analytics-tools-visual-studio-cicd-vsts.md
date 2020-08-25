@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75354440"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Självstudie: Distribuera ett Azure Stream Analytics-jobb med CI/CD med hjälp av Azure Pipelines
@@ -26,10 +26,10 @@ I den här guiden får du lära dig att:
 > * Skapa en versionspipeline i Azure Pipelines
 > * distribuera och uppgradera ett program automatiskt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Se till att du har följande innan du börjar:
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installera [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) och arbetsbelastningen **Azure development** (Azure-utveckling) eller **Data Storage and Processing** (Datalagring och bearbetning).
 * Skapa ett [Stream Analytics-projekt i Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
 * Skapa en [Azure DevOps](https://visualstudio.microsoft.com/team-services/) -organisation.
@@ -117,7 +117,7 @@ En versionspipeline för Azure Pipelines beskriver ett arbetsflöde som distribu
     |**Inställning**  |**Föreslaget värde**  |
     |---------|---------|
     |Prenumeration  |  Välj din prenumeration.   |
-    |Action  |  Skapa eller uppdatera resursgrupp   |
+    |Åtgärd  |  Skapa eller uppdatera resursgrupp   |
     |Resursgrupp  |  Ange ett resursgruppsnamn.   |
     |Mall  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.json   |
     |Mallparametrar  | [Lösningens sökväg]\bin\Debug\Deploy\\[Projektnamnet].JobTemplate.parameters.json   |

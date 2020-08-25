@@ -4,12 +4,12 @@ description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Ba
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2d547b1d86b95a4f90d3faaa2f676c7cc37255d3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c9d54bb8e9875bcd622c5ce5343dc6f8baa3f2be
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091138"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763583"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 
@@ -32,7 +32,7 @@ Innan du fortsätter bör du kontrol lera att alla [krav](backup-azure-dpm-intro
 * Autentiseringsuppgifter för agent och valv har laddats ned till DPM-servern.
 * Agenten är installerad på DPM-servern.
 * Autentiseringsuppgifterna för valvet användes för att registrera DPM-servern.
-* Om du skyddar Exchange 2016 ska du uppgradera till DPM 2012 R2 UR9 eller senare
+* Om du skyddar Exchange 2016 uppgraderar du till DPM 2012 R2 UR9 eller senare
 
 ## <a name="dpm-protection-agent"></a>DPM-skyddsagenten
 
@@ -83,10 +83,10 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 11. Granska det tillgängliga disk utrymmet och klicka sedan på **Nästa**.
 12. Välj den tid då DPM-servern ska skapa den inledande replikeringen och klicka sedan på **Nästa**.
 13. Välj alternativ för konsekvens kontroll och klicka sedan på **Nästa**.
-14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Exempel:
+14. Välj den databas som du vill säkerhetskopiera till Azure och klicka sedan på **Nästa**. Ett exempel:
 
     ![Ange skydds data online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Exempel:
+15. Definiera schemat för **Azure Backup**och klicka sedan på **Nästa**. Ett exempel:
 
     ![Ange schemat för onlinesäkerhetskopiering](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

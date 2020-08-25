@@ -8,10 +8,10 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: 60bb227af7cc886bb35cbd045cc8a27cf82ae903
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75372311"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Skapa en virtuell dator och ett lagringskonto för ett skalbart program
@@ -21,11 +21,11 @@ Den här självstudien ingår i en serie. Den här självstudien visar hur du di
 I del ett i den här serien lärde du dig att:
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Skapa en virtuell dator
 > * Konfigurera ett anpassat skripttillägg
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ Skapa en Azure-resursgrupp med [New-AzResourceGroup](/powershell/module/az.resou
 New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
  
 I exemplet laddas 50 stora filer upp till en blobcontainer på ett Azure Storage-konto. Ett Azure-lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt. Skapa ett lagringskonto i resursgruppen som du skapade med kommandot [New-AzStorageAccount](/powershell/module/az.Storage/New-azStorageAccount).
 
@@ -126,7 +126,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 I del ett av serien lärde du dig att skapa ett lagringskonto, distribuera en virtuell dator och konfigurera den virtuella datorn med nödvändiga förutsättningar, till exempel:
 
 > [!div class="checklist"]
-> * skapar ett lagringskonto
+> * Skapa ett lagringskonto
 > * Skapa en virtuell dator
 > * Konfigurera ett anpassat skripttillägg
 

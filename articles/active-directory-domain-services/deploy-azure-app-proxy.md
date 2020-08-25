@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 0880f697ceea9c10a070ede0a73235022ce0529d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: f02f8c0c5aabc48e7b9966898028485a4687f413
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220297"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723086"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Distribuera Azure AD-programproxy för säker åtkomst till interna program i en Azure Active Directory Domain Services hanterad domän
 
@@ -113,7 +113,7 @@ Om du distribuerar flera Azure AD-programproxy-kopplingar måste du konfigurera 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med Azure AD-programproxy integrerat med Azure AD DS kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+Med Azure AD-programproxy integrerat med Azure AD DS kan du publicera program som användare kan komma åt. Mer information finns i [Publicera program med hjälp av Azure AD-programproxy](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

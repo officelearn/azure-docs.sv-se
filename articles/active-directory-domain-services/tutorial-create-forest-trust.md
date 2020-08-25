@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 24928ec4117b321cfec7177fdad40f2a3ab7a1f4
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492164"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722729"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services
 
@@ -128,7 +128,7 @@ I följande vanliga scenarier kan du kontrol lera att skogs förtroendet autenti
 
 Du bör ha en virtuell Windows Server-dator som är ansluten till den hanterade domänen. Använd den här virtuella datorn för att testa din lokala användare kan autentiseras på en virtuell dator. Om det behövs [skapar du en virtuell Windows-dator och ansluter den till den hanterade domänen][join-windows-vm].
 
-1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av [Azure skydds](https://docs.microsoft.com/azure/bastion/bastion-overview) och dina autentiseringsuppgifter för Azure AD DS-administratören.
+1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av [Azure skydds](../bastion/bastion-overview.md) och dina autentiseringsuppgifter för Azure AD DS-administratören.
 1. Öppna en kommando tolk och Använd `whoami` kommandot för att visa det unika namnet för den för tillfället autentiserade användaren:
 
     ```console
@@ -150,7 +150,7 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 
 #### <a name="enable-file-and-printer-sharing"></a>Aktivera fil-och skrivar delning
 
-1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av [Azure skydds](https://docs.microsoft.com/azure/bastion/bastion-overview) och dina autentiseringsuppgifter för Azure AD DS-administratören.
+1. Anslut till den virtuella Windows Server-datorn som är ansluten till resurs skogen för Azure AD DS med hjälp av [Azure skydds](../bastion/bastion-overview.md) och dina autentiseringsuppgifter för Azure AD DS-administratören.
 
 1. Öppna **Windows-inställningar**och Sök sedan efter och välj **nätverks-och delnings Center**.
 1. Välj alternativet för att **Ändra avancerade delnings** inställningar.

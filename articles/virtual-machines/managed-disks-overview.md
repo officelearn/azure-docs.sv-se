@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad7101bb61324db033f57bb25c068e1ba625ef8c
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 72f68b35d171503bb07fc5e6f58a858ceea4c6cf
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718075"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88749692"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduktion till Azure Managed Disks
 
@@ -30,37 +30,37 @@ Managed disks har utformats för 99,999% tillgänglighet. Hanterade diskar uppn�
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Enkel och skalbar VM-distribution
 
-Med hanterade diskar kan du skapa upp till 50 000 VM- **diskar** av en typ i en prenumeration per region, så att du kan skapa tusentals **virtuella datorer** i en enda prenumeration. Den här funktionen ökar också skalbarheten för [virtuella dator skalnings uppsättningar](~/articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) genom att du kan skapa upp till 1 000 virtuella datorer i en skalnings uppsättning för virtuella datorer med en Marketplace-avbildning.
+Med hanterade diskar kan du skapa upp till 50 000 VM- **diskar** av en typ i en prenumeration per region, så att du kan skapa tusentals **virtuella datorer** i en enda prenumeration. Den här funktionen ökar också skalbarheten för [virtuella dator skalnings uppsättningar](../virtual-machine-scale-sets/overview.md) genom att du kan skapa upp till 1 000 virtuella datorer i en skalnings uppsättning för virtuella datorer med en Marketplace-avbildning.
 
 ### <a name="integration-with-availability-sets"></a>Integrering med tillgänglighets uppsättningar
 
-Hanterade diskar är integrerade med tillgänglighets uppsättningar för att säkerställa att diskarna för [virtuella datorer i en tillgänglighets uppsättning](~/articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Diskar placeras automatiskt i olika enheter för lagrings skalning (stämplar). Om en stämpel Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara de virtuella dator instanserna med diskar på dessa stämplar. Anta till exempel att du har ett program som körs på fem virtuella datorer och att de virtuella datorerna finns i en tillgänglighets uppsättning. Diskarna för de virtuella datorerna lagras inte i samma stämpel, så om en stämpel slutar fungera fortsätter de andra instanserna av programmet att köras.
+Hanterade diskar är integrerade med tillgänglighets uppsättningar för att säkerställa att diskarna för [virtuella datorer i en tillgänglighets uppsättning](windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) är tillräckligt isolerade från varandra för att undvika en enskild felpunkt. Diskar placeras automatiskt i olika enheter för lagrings skalning (stämplar). Om en stämpel Miss lyckas på grund av maskin-eller program varu fel, Miss lyckas bara de virtuella dator instanserna med diskar på dessa stämplar. Anta till exempel att du har ett program som körs på fem virtuella datorer och att de virtuella datorerna finns i en tillgänglighets uppsättning. Diskarna för de virtuella datorerna lagras inte i samma stämpel, så om en stämpel slutar fungera fortsätter de andra instanserna av programmet att köras.
 
 ### <a name="integration-with-availability-zones"></a>Integrering med Tillgänglighetszoner
 
-Hanterade diskar har stöd för [Tillgänglighetszoner](~/articles/availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data centers problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
+Hanterade diskar har stöd för [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket är ett erbjudande med hög tillgänglighet som skyddar dina program från data centers problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer.
 
 ### <a name="azure-backup-support"></a>Azure Backup support
 
-För att skydda mot regionala haverier kan [Azure Backup](~/articles/backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra återställning av virtuella datorer eller hanterade diskar på. För närvarande Azure Backup stöd för disk storlekar på upp till 32 tebibyte-diskar (TiB). [Läs mer](~/articles/backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
+För att skydda mot regionala haverier kan [Azure Backup](../backup/backup-overview.md) användas för att skapa ett säkerhets kopierings jobb med tidsbaserade säkerhets kopieringar och säkerhets kopierings principer. På så sätt kan du utföra återställning av virtuella datorer eller hanterade diskar på. För närvarande Azure Backup stöd för disk storlekar på upp till 32 tebibyte-diskar (TiB). [Läs mer](../backup/backup-support-matrix-iaas.md) om stöd för säkerhets kopiering av virtuella Azure-datorer.
 
 ### <a name="granular-access-control"></a>Detaljerad åtkomst kontroll
 
-Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](~/articles/role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](~/articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
+Du kan använda [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för att tilldela vissa behörigheter för en hanterad disk till en eller flera användare. Hanterade diskar visar en rad olika åtgärder, inklusive läsa, skriva (Skapa/uppdatera), ta bort och hämta en [URL för signatur för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) för disken. Du kan bevilja åtkomst till endast de åtgärder som en person behöver för att utföra sitt jobb. Om du till exempel inte vill att en person ska kopiera en hanterad disk till ett lagrings konto kan du välja att inte bevilja åtkomst till export åtgärden för den hanterade disken. Om du inte vill att en person ska använda en SAS-URI för att kopiera en hanterad disk kan du välja att inte bevilja den här behörigheten till den hanterade disken.
 
 ### <a name="upload-your-vhd"></a>Ladda upp din virtuella hård disk
 
 Med direkt uppladdning är det enkelt att överföra din virtuella hård disk till en Azure-hanterad disk. Tidigare var du tvungen att följa en mer engagerad process som inkluderade mellanlagring av dina data i ett lagrings konto. Nu finns det färre steg. Det är enklare att ladda upp lokala virtuella datorer till Azure, ladda upp till stora hanterade diskar och säkerhets kopierings-och återställnings processen för enklas. Det minskar också kostnaden genom att tillåta att du överför data till hanterade diskar direkt utan att koppla dem till virtuella datorer. Du kan använda direkt uppladdning för att ladda upp virtuella hård diskar upp till 32 TiB i storlek.
 
-Information om hur du överför din virtuella hård disk till Azure finns i [CLI](~/articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md) -eller [PowerShell](~/articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md) -artiklarna.
+Information om hur du överför din virtuella hård disk till Azure finns i [CLI](linux/disks-upload-vhd-to-managed-disk-cli.md) -eller [PowerShell](windows/disks-upload-vhd-to-managed-disk-powershell.md) -artiklarna.
 
 ## <a name="security"></a>Säkerhet
 
 ### <a name="private-links"></a>Privata länkar
 
-Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och kan användas för att importera eller exportera en hanterad disk internt i nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](~/articles/private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
+Stöd för privata Länkar för hanterade diskar är för närvarande en för hands version och kan användas för att importera eller exportera en hanterad disk internt i nätverket. Med privata länkar kan du generera en tidsbunden SAS-URI (signatur för delad åtkomst) för icke anslutna hanterade diskar och ögonblicks bilder som du kan använda för att exportera data till andra regioner för regional expansion, haveri beredskap och kriminal tekniska analys. Du kan också använda SAS-URI: n för att direkt ladda upp en virtuell hård disk till en tom disk lokalt. Nu kan du använda [privata länkar](../private-link/private-link-overview.md) för att begränsa exporten och importen av Managed disks så att den bara kan ske i det virtuella Azure-nätverket. Med privata länkar kan du se till att dina data bara skickas inom det säkra Microsoft stamnät nätverket.
 
-Information om hur du aktiverar privata Länkar för att importera eller exportera en hanterad disk finns i [CLI](~/articles/virtual-machines/linux/disks-export-import-private-links-cli.md) -eller [Portal](~/articles/virtual-machines/disks-enable-private-links-for-import-export-portal.md) artiklarna.
+Information om hur du aktiverar privata Länkar för att importera eller exportera en hanterad disk finns i [CLI](linux/disks-export-import-private-links-cli.md) -eller [Portal](disks-enable-private-links-for-import-export-portal.md) artiklarna.
 
 ### <a name="encryption"></a>Kryptering
 
@@ -70,12 +70,12 @@ Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server
 
 Kryptering på Server sidan ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. (Temporära diskar krypteras å andra sidan inte av kryptering på Server sidan om du inte aktiverar kryptering på värden. se [disk roller: temporära diskar](#temporary-disk)).
 
-Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [Server sidans kryptering av Azure-disklagring](~/articles/virtual-machines/windows/disk-encryption.md) artikel.
+Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [Server sidans kryptering av Azure-disklagring](windows/disk-encryption.md) artikel.
 
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella Linux-datorer](~/articles/virtual-machines/linux/disk-encryption-overview.md) eller [Azure Disk Encryption för virtuella Windows-datorer](~/articles/virtual-machines/windows/disk-encryption-overview.md).
+Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella Linux-datorer](linux/disk-encryption-overview.md) eller [Azure Disk Encryption för virtuella Windows-datorer](windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Diskroller
 
@@ -95,7 +95,7 @@ Den här disken har en maximal kapacitet på 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 
-De flesta virtuella datorer innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel sid-eller växlingsfiler. Data på den tillfälliga disken kan gå förlorade under en [underhålls händelse](~/articles/virtual-machines/windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuerar om en virtuell dator](~/articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå. Mer information om virtuella datorer utan temporära diskar finns i [storlekar för virtuella Azure-datorer utan lokal temporär disk](~/articles/virtual-machines/azure-vms-no-temp-disk.md)
+De flesta virtuella datorer innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, till exempel sid-eller växlingsfiler. Data på den tillfälliga disken kan gå förlorade under en [underhålls händelse](windows/manage-availability.md?toc=/azure/virtual-machines/windows/toc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du [distribuerar om en virtuell dator](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå. Mer information om virtuella datorer utan temporära diskar finns i [storlekar för virtuella Azure-datorer utan lokal temporär disk](azure-vms-no-temp-disk.md).
 
 På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB och på virtuella Windows-datorer är den temporära disken D: som standard. Den tillfälliga disken krypteras inte med kryptering på Server sidan om du inte aktiverar kryptering på värden.
 
@@ -107,8 +107,8 @@ En ögonblicks bild av en hanterad disk är en skrivskyddad, enhetlig, fullstän
 
 Mer information om hur du skapar ögonblicks bilder för Managed disks finns i följande resurser:
 
-* [Skapa en ögonblicks bild av en hanterad disk i Windows](~/articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Skapa en ögonblicks bild av en hanterad disk i Linux](~/articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+- [Skapa en ögonblicks bild av en hanterad disk i Windows](windows/snapshot-copy-managed-disk.md)
+- [Skapa en ögonblicks bild av en hanterad disk i Linux](linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Avbildningar
 
@@ -116,8 +116,8 @@ Managed disks stöder också skapande av en hanterad anpassad avbildning. Du kan
 
 Information om hur du skapar avbildningar finns i följande artiklar:
 
-* [Så här avbildar du en hanterad avbildning av en generaliserad virtuell dator i Azure](~/articles/virtual-machines/windows/capture-image-resource.md)
-* [Så här generaliserar och avbildar du en Linux-dator med hjälp av Azure CLI](~/articles/virtual-machines/linux/capture-image.md)
+- [Så här avbildar du en hanterad avbildning av en generaliserad virtuell dator i Azure](windows/capture-image-resource.md)
+- [Så här generaliserar och avbildar du en Linux-dator med hjälp av Azure CLI](linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Bilder jämfört med ögonblicks bilder
 
@@ -141,7 +141,7 @@ Som ett exempel på dessa begränsningar hindras en Standard_DS1v1 VM från att 
 
 Azure använder prioriterad nätverks kanal för disk trafik, som får företräde framför annan låg prioritet för nätverks trafik. Detta hjälper diskar att underhålla sina förväntade prestanda i händelse av nätverks innehåll. På samma sätt hanterar Azure Storage resurs innehåll och andra problem i bakgrunden med automatisk belastnings utjämning. Azure Storage allokerar nödvändiga resurser när du skapar en disk och tillämpar proaktiv och återaktiv utjämning av resurser för att hantera trafik nivån. Detta säkerställer att diskar kan hantera sina förväntade IOPS-och data flödes mål. Du kan använda mått på VM-nivå och disk nivå för att spåra prestanda-och installations aviseringar efter behov.
 
-Se vår [design för artikeln med hög prestanda](~/articles/virtual-machines/windows/premium-storage-performance.md) för att lära dig om bästa praxis för att optimera VM + diskkonfigurationer så att du kan uppnå önskade prestanda
+Se vår [design för artikeln med hög prestanda](premium-storage-performance.md) för att lära dig om bästa praxis för att optimera VM + diskkonfigurationer så att du kan uppnå önskade prestanda
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: cabc3d2a0f8eb3a75938d1768bb0085aab528391
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: e0df3de5eadfd2cc5c00c52da5c4942b42a68b2b
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584611"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88722576"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 
@@ -29,19 +29,35 @@ Behållar avbildningen för [avvikelse detektor][ad-containers] finns i `mcr.mic
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 
 ## <a name="computer-vision"></a>Visuellt innehåll
 
-[Visuellt innehåll][cv-containers] behållar avbildningen finns i `containerpreview.azurecr.io` behållar registret. Den finns i `microsoft` lagrings platsen och får namnet `cognitive-services-read` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
+Du kan hitta avbildningen [visuellt innehåll][cv-containers] Read OCR-behållare i `containerpreview.azurecr.io` behållar registret. Den finns i `microsoft` lagrings platsen och får namnet `cognitive-services-read` . Det fullständigt kvalificerade namnet på behållar avbildningen är, `containerpreview.azurecr.io/microsoft/cognitive-services-read` .
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
-| `latest`                      |       |
+| `latest ( (2.0.013250001-amd64-preview)` | • Öka minnes användningen ytterligare för containern. |
+|                                          | • Extern cache krävs för installation av multi-poddar. Du kan till exempel konfigurera Redis för cachelagring. |
+|                                          | • Åtgärda eventuella problem som saknas när Redis cache är inställd och ResultExpirationPeriod = 0.  |
+|                                          | • Ta bort text storleks begränsningen för begäran för 26MB. Container kan nu acceptera >26MB-filer.  |
+|                                          | • Lägg till tidsstämpel och build-version till konsol loggning.  |
+| `1.1.013050001-amd64-preview`            | * Har lagts till ReadEngineConfig: ResultExpirationPeriod container-initierings konfiguration för att ange när systemet ska rensa igenkännings resultat. |
+|                                          | Inställningen är i timmar och standardvärdet är 48hr.   |
+|                                          |   Inställningen kan minska minnes användningen för lagring av resultat, särskilt när behållare i minnet används.  |
+|                                          |    * Exempel 1. ReadEngineConfig: ResultExpirationPeriod = 1 rensar systemet igenkännings resultatet 1 tim efter processen.   |
+|                                          |    * Exempel 2. ReadEngineConfig: ResultExpirationPeriod = 0 rensar systemet igenkännings resultatet efter att resultatet har hämtats.  |
+|                                          | Ett internt Server fel 500 har åtgärd ATS när ogiltigt bild format skickades till systemet. Det kommer nu att returnera ett 400-fel:   |
+|                                          | `{`  |
+|                                          | `"error": {`  |
+|                                          |      `"code": "InvalidImageSize",`  |
+|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
+|                                          |          `}`  |
+|                                          | `}`  |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
@@ -52,7 +68,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -70,7 +86,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -83,7 +99,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.010330004-amd64-preview` |       |
@@ -101,7 +117,7 @@ Behållar avbildningen [Custom Speech till text][sp-cstt] finns i `containerprev
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Anteckningar |
+| Bildtaggar            | Kommentarer |
 |-----------------------|:------|
 | `latest`              |       |
 | `2.2.0-amd64-preview` |       |
@@ -116,7 +132,7 @@ Du hittar den [anpassade text till tal-][sp-ctts] behållar avbildningen i `cont
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar            | Anteckningar |
+| Bildtaggar            | Kommentarer |
 |-----------------------|:------|
 | `latest`              |       |
 | `1.3.0-amd64-preview` |       |
@@ -127,7 +143,7 @@ Du hittar en behållar avbildning från [tal till text][sp-stt] i `containerprev
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                  | Anteckningar                                    |
+| Bildtaggar                  | Kommentarer                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Behållar avbildning med `en-US` språkvarianten. |
 | `2.2.0-amd64-ar-ae-preview` | Behållar avbildning med `ar-AE` språkvarianten. |
@@ -449,7 +465,7 @@ Du hittar [text till tal-][sp-tts] behållar avbildningen i `containerpreview.az
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                                  | Anteckningar                                                                      |
+| Bildtaggar                                  | Kommentarer                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Behållar avbildning med `en-US` språket och `en-US-JessaRUS` rösten.        |
 | `1.3.0-amd64-ar-eg-hoda-preview`            | Behållar avbildning med `ar-EG` språket och `ar-EG-Hoda` rösten.            |
@@ -625,7 +641,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -640,7 +656,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar                    | Anteckningar |
+| Bildtaggar                    | Kommentarer |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
@@ -655,7 +671,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 
 Den här behållar avbildningen har följande tillgängliga Taggar:
 
-| Bildtaggar | Anteckningar                                         |
+| Bildtaggar | Kommentarer                                         |
 |------------|:----------------------------------------------|
 | `latest`   |                                               |
 | `3.0-en`   | Attitydanalys v3 (engelska)               |

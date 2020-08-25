@@ -6,17 +6,17 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/17/2019
 ms.openlocfilehash: 22d1dcd997a4ddb94aba184c5dace4c00509054d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75649941"
 ---
 # <a name="tutorial-resource-onboarding-with-azure-custom-providers"></a>Självstudie: resurs onboarding med Azure-anpassade leverantörer
 
 I den här självstudien distribuerar du till Azure en anpassad resurs leverantör som utökar Azure Resource Manager-API: t med resurs typen Microsoft. CustomProviders/associationer. I självstudien visas hur du utökar befintliga resurser som ligger utanför resurs gruppen där den anpassade Provider-instansen finns. I den här självstudien drivs den anpassade resurs leverantören av en Azure Logic-app, men du kan använda valfri offentlig API-slutpunkt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du känna till följande:
 
@@ -209,7 +209,7 @@ Den första delen av mallen distribuerar den anpassade providerns infrastruktur.
 
 Nu ska vi distribuera infrastrukturen för anpassad Provider. Kopiera, Spara och distribuera föregående mall, eller följ med och distribuera infrastrukturen med hjälp av Azure Portal.
 
-1. Gå till [Azure Portal](https://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 
 2. Sök efter **mallar** i **alla tjänster** eller med hjälp av huvud Sök rutan:
 
@@ -225,7 +225,7 @@ Nu ska vi distribuera infrastrukturen för anpassad Provider. Kopiera, Spara och
 
 5. Skapa Resource Manager-mallen genom att kopiera i JSON-mallen från avsnittet "kom igång med resurs onboarding" i den här artikeln:
 
-   ![Skapa en Azure Resource Manager-mall](media/tutorial-resource-onboarding/templatesarmtemplate.png)
+   ![Skapa en Resource Manager-mall](media/tutorial-resource-onboarding/templatesarmtemplate.png)
 
 6. Välj **Lägg till** för att skapa mallen. Om den nya mallen inte visas väljer du **Uppdatera**.
 
@@ -238,10 +238,10 @@ Nu ska vi distribuera infrastrukturen för anpassad Provider. Kopiera, Spara och
    | Inställningsnamn | Obligatoriskt? | Beskrivning |
    | ------------ | -------- | ----------- |
    | Plats | Ja | Platsen för resurserna i mallen. |
-   | Namn på Logic app | Nej | Namnet på Logic-appen. |
-   | Namn på anpassad resurs leverantör | Nej | Namnet på den anpassade resurs leverantören. |
-   | ID för anpassad resurs leverantör | Nej | En befintlig anpassad resurs leverantör som stöder Associations resursen. Om du anger ett värde här hoppas Logic app och distributionen av den anpassade providern över. |
-   | Kopplings namn | Nej | Namnet på Associations resursen. |
+   | Namn på Logic app | Inga | Namnet på Logic-appen. |
+   | Namn på anpassad resurs leverantör | Inga | Namnet på den anpassade resurs leverantören. |
+   | ID för anpassad resurs leverantör | Inga | En befintlig anpassad resurs leverantör som stöder Associations resursen. Om du anger ett värde här hoppas Logic app och distributionen av den anpassade providern över. |
+   | Kopplings namn | Inga | Namnet på Associations resursen. |
 
    Exempel parametrar:
 

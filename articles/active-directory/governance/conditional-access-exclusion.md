@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a619843f781fa24bfdc2a339e67fdb49b1bff1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078849"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783696"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd åtkomst granskningar i Azure AD för att hantera användare som uteslutits från principer för villkorlig åtkomst
 
@@ -144,7 +144,7 @@ Anta att du har en princip för villkorlig åtkomst som blockerar åtkomst för 
     ![Skapa ett åtkomst gransknings fönster till exempel 2](./media/conditional-access-exclusion/create-access-review-2.png)
 
 >[!IMPORTANT] 
->Om du har många undantags grupper och därför behöver skapa flera åtkomst granskningar, har vi nu ett API i Microsoft Graph beta-slutpunkten där du kan skapa och hantera dem program mässigt. Information om hur du kommer igång finns i [API-referens för Azure AD Access Reviews](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/accessreviews_root) och [exempel på hur du hämtar åtkomst granskningar för azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
+>Om du har många undantags grupper och därför behöver skapa flera åtkomst granskningar, har vi nu ett API i Microsoft Graph beta-slutpunkten där du kan skapa och hantera dem program mässigt. Information om hur du kommer igång finns i [API-referens för Azure AD Access Reviews](/graph/api/resources/accessreviews-root?view=graph-rest-beta) och [exempel på hur du hämtar åtkomst granskningar för azure AD via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/td-p/236096).
 
 ## <a name="access-review-results-and-audit-logs"></a>Åtkomst gransknings resultat och gransknings loggar
 

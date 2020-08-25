@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 08/22/2020
 ms.locfileid: "85391901"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av tabell-API
@@ -36,7 +36,7 @@ I [Fråga tabeller och entiteter](/rest/api/storageservices/fileservices/queryin
 
 Mer information om de förstklassiga funktioner som Azure Cosmos DB erbjuder finns i [Azure Cosmos DB Table API](table-introduction.md) och [Utveckla med tabell-API:t i .NET](tutorial-develop-table-dotnet.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB och ha entitetsdata i containern. Har du detta? Slutför [snabbstarten på fem minuter](create-table-dotnet.md) eller [självstudien för utvecklare](tutorial-develop-table-dotnet.md) om du behöver skapa ett konto och fylla i databasen.
 
@@ -44,7 +44,7 @@ För att de här frågorna ska fungera måste du ha ett konto i Azure Cosmos DB 
 
 Eftersom egenskaperna PartitionKey och RowKey utformar en entitets primärnyckel kan du använda följande specialsyntax för att identifiera entiteten:
 
-**Söka i data**
+**Query**
 
 ```
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
@@ -69,7 +69,7 @@ När du skapar en filtersträng ska du tänka på följande regler:
 
 Här är en exempelfråga som visar hur du filtrerar via PartitionKey och e-postegenskaperna med ett OData-`$filter`.
 
-**Söka i data**
+**Query**
 
 ```
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
@@ -83,7 +83,7 @@ Mer information om hur du skapar filteruttryck för olika datatyper finns i [Fr�
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
-Frågorna på datetime-egenskaper returnerar inte några data när de körs i Azure Cosmos DB Tabell-API. Medan Azure Table Storage lagrar datum värden med tids kornig het för Tick, använder Tabell-API i Azure Cosmos DB `_ts` egenskapen. `_ts`Egenskapen är en andra nivå av granularitet, vilket inte är ett OData-filter. I så fall blockeras frågorna på egenskaperna för tidsstämpeln av Azure Cosmos DB. Som en lösning kan du definiera en anpassad egenskap för data typen datetime eller Long och ange datumvärdet från klienten.
+Frågorna på datetime-egenskaper returnerar inte några data när de körs i Azure Cosmos DB Tabell-API. Medan Azure Table Storage lagrar datum värden med tids kornig het för Tick, använder Tabell-API i Azure Cosmos DB  `_ts` egenskapen. `_ts`Egenskapen är en andra nivå av granularitet, vilket inte är ett OData-filter. I så fall blockeras frågorna på egenskaperna för tidsstämpeln av Azure Cosmos DB. Som en lösning kan du definiera en anpassad egenskap för data typen datetime eller Long och ange datumvärdet från klienten.
 
 ## <a name="query-by-using-linq"></a>Fråga med hjälp av LINQ 
 Du kan också fråga med hjälp av LINQ, som översätter till motsvarande OData-frågeuttryck. Här är ett exempel på hur du skapar frågor med .NET SDK:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: bece22fa0b9d41f29f8829d47a26f4ae2075feac
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 993a73a42887b3869c097d14b6945a1093ac6889
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040120"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723069"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Ta bort en Azure Active Directory Domain Services hanterad domän med hjälp av Azure Portal
 
@@ -50,5 +50,5 @@ Det kan ta 15-20 minuter eller mer att ta bort den hanterade domänen.
 Om du vill komma igång med Azure AD DS igen, se [skapa och konfigurera en Azure Active Directory Domain Services hanterad domän][create-instance].
 
 <!-- INTERNAL LINKS -->
-[feedback]: contact-us.md
+[feedback]: https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593%3fcategory_id%3d160593
 [create-instance]: tutorial-create-instance.md

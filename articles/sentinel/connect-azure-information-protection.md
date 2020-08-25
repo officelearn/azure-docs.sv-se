@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: f06f8d3450f8907aa1be34b738565ac55e5e3d2d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 160912ef53b5c079d026c5d16230f49eadf66366
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559139"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88794433"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Anslut data från Azure Information Protection
 
@@ -35,7 +35,7 @@ Men om loggnings information från Azure Information Protection går till en ann
     
     Om du ändrar arbets ytan lagras nya rapport data för Azure Information Protection nu i arbets ytan du använder för Azure Sentinel, och historiska data är inte tillgängliga för Azure Sentinel. Om den föregående arbets ytan har kon figurer ATS för anpassade frågor, aviseringar eller REST-API: er måste de konfigureras om för Azure Sentinel-arbetsytan om du vill kunna använda dem för Azure Information Protection. Ingen omkonfiguration krävs för klienter och tjänster som använder Azure Information Protection.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En av följande Azure AD-administratörs roller för din klient organisation: 
     - Azure Information Protection administratör
@@ -57,15 +57,17 @@ Men om loggnings information från Azure Information Protection går till en ann
 
 Använd följande instruktioner om du inte har konfigurerat en Log Analytics arbets yta för Azure Information Protection eller om du behöver ändra arbets ytan som lagrar Azure Information Protection loggnings information.
 
-1. I Azure Sentinel väljer du **data kopplingar**och **Azure information Protection (för hands version)**.
+1. I Azure Sentinel väljer du **data kopplingar**  >  **Azure information Protection (för hands version)**.
 
 2. Välj **Öppna kopplings sida**.
 
-3. På bladet **Konfigurera Analytics (för hands version)** väljer du den arbets yta som du för närvarande använder för Azure Sentinel. Om du väljer en annan arbets yta är inte rapporterings data från Azure Information Protection tillgängliga för Azure Sentinel.
+3. Under **konfiguration**väljer du **Anslut Azure information Protection loggar**.
 
-4. När du har valt en arbets yta väljer du **OK** och anslutnings **statusen** ska nu ändras till **ansluten**.
+4. På bladet **Konfigurera Analytics (för hands version)** väljer du den arbets yta som du för närvarande använder för Azure Sentinel. Om du väljer en annan arbets yta är inte rapporterings data från Azure Information Protection tillgängliga för Azure Sentinel.
 
-5. Rapporterings data från Azure Information Protection lagras i **InformationProtectionLogs_CLs** tabellen på den valda arbets ytan. 
+5. När du har valt en arbets yta väljer du **OK**. Anslutnings **status** ändras till **ansluten**.
+
+6. Rapporterings data från Azure Information Protection lagras i **InformationProtectionLogs_CLs** tabellen på den valda arbets ytan. 
     
     Om du vill använda det relevanta schemat i Azure Monitor för den här rapport informationen söker du efter **InformationProtectionEvents**. Information om dessa händelse funktioner finns i avsnittet [egna schema referenser för Event Functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) i Azure information Protection-dokumentationen.
 

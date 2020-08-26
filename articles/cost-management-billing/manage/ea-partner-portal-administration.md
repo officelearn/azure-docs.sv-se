@@ -4,15 +4,16 @@ description: Beskriver portaladministrationsämnen som gäller partner
 author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6405ffa72028cfde0445ad40bfd628eaa24573
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: b9e96415c07ba317091be61dcac319aacafcdfe8
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245809"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689957"
 ---
 # <a name="azure-ea-portal-administration-for-partners"></a>Administration i Azure EA-portalen för partner
 

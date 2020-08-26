@@ -3,16 +3,16 @@ title: Om säkerhets kopiering av Azure-filresurs
 description: Lär dig hur du säkerhetskopierar Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823888"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892260"
 ---
 # <a name="about-azure-file-share-backup"></a>Om säkerhets kopiering av Azure-filresurs
 
-Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets kopierings lösning som skyddar dina data i molnet och eliminerar ytterligare underhålls kostnader som ingår i lokala säkerhets kopierings lösningar. Azure Backups tjänsten integreras smidigt med Azure File Sync och gör att du kan centralisera dina fil resurs data och dina säkerhets kopior. Med den här enkla, tillförlitliga och säkra lösningen kan du konfigurera skydd för företags fil resurser i några enkla steg med en garanti att du kan återställa dina data i händelse av ett katastrof scenario.
+Säkerhets kopiering av Azure-filresurs är en inbyggd, molnbaserad säkerhets kopierings lösning som skyddar dina data i molnet och eliminerar ytterligare underhålls kostnader som ingår i lokala säkerhets kopierings lösningar. Azure Backups tjänsten integreras smidigt med Azure File Sync och gör att du kan centralisera dina fil resurs data och dina säkerhets kopior. Med den här enkla, tillförlitliga och säkra lösningen kan du konfigurera skydd för företags fil resurser med några enkla steg med en garanti att du kan återställa dina data i ett katastrof scenario.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Viktiga fördelar med Azure File Share-säkerhetskopiering
 

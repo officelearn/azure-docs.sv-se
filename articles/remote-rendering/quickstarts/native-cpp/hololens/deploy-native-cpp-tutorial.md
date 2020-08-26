@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 6b3909281cf475a003ffaaef6f6f48441337728e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810257"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892668"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Snabb start: Distribuera inbyggt C++-exempel till HoloLens
 
@@ -24,7 +24,7 @@ I den här snabb starten får du lära dig att:
 >* Ändra ARR-autentiseringsuppgifterna i käll koden.
 >* Distribuera och kör exemplet på enheten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att få åtkomst till tjänsten Azure Remote rendering måste du först [skapa ett konto](../../../how-tos/create-an-account.md).
 
@@ -63,7 +63,6 @@ Snabb vägledningen för C++ HoloLens finns i under katalogen *NativeCpp/HoloLen
 
 Eftersom autentiseringsuppgifterna för kontot är hårdkodad i självstudiens källkod ändrar du dem till giltiga autentiseringsuppgifter. Öppna filen `HolographicAppMain.cpp` i Visual Studio och ändra den del där klient delen skapas i konstruktorn klass `HolographicAppMain` :
 
-
 ```cpp
 // 2. Create front end
 {
@@ -79,8 +78,8 @@ Eftersom autentiseringsuppgifterna för kontot är hårdkodad i självstudiens k
 ```
 
 Ändra särskilt följande värden:
-* `init.AccountId`och `init.AccountKey` för att använda dina konto data. Se stycke om hur du [hämtar konto information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
-* Region delen av `init.AccountDomain` strängen för andra regioner än `westus2` , t. ex.`"westeurope.mixedreality.azure.com"`
+* `init.AccountId` och `init.AccountKey` för att använda dina konto data. Se stycke om hur du [hämtar konto information](../../../how-tos/create-an-account.md#retrieve-the-account-information).
+* Region delen av `init.AccountDomain` strängen för andra regioner än `westus2` , t. ex. `"westeurope.mixedreality.azure.com"`
 * Dessutom `m_sessionOverride` kan ändras till ett befintligt sessions-ID. Sessioner kan skapas utanför det här exemplet, till exempel genom [att använda PowerShell-skriptet](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) eller använda [sessionen REST API](../../../how-tos/session-rest-api.md#create-a-session) direkt.
 Att skapa en session utanför exemplet rekommenderas när exemplet ska köras flera gånger. Om ingen session skickas, kommer exemplet att skapa en ny session vid varje start, vilket kan ta flera minuter.
 

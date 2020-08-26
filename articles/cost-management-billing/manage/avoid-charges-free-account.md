@@ -4,15 +4,16 @@ description: Ta reda på varför du ser debiteringar för ditt kostnadsfria Azur
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200956"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682934"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Undvik avgifter med ditt kostnadsfria Azure-konto
 
@@ -23,7 +24,6 @@ Vi ska titta på några av orsakerna till att du debiteras för ditt kostnadsfri
 ## <a name="your-credit-runs-out-or-is-expired"></a>Din kredit tar slut eller upphör att gälla
 
 Din prenumeration och dina tjänster inaktiveras när krediten tar slut eller upphör att gälla i slutet av 30-dagarsperioden. Om du vill fortsätta att använda Azure-tjänsterna måste du uppgradera ditt konto. Mer information finns i [Uppgradera ditt kostnadsfria Azure-konto](upgrade-azure-subscription.md). När du har uppgraderat har du fortfarande åtkomst till kostnadsfria tjänster i 12 månader och du debiteras bara för användning utöver de kostnadsfria tjänsterna och kvantiteterna.
-
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>Användningen överskrider gränsen för kostnadsfria tjänster
 

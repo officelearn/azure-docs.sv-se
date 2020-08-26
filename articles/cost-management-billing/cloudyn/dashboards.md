@@ -6,15 +6,16 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 892df9a6e0eb4d791f818eed0a78c96a829e25a0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 03d5e3959b85a2b0bd9ae30744051895ff026b77
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79464231"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88691232"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Visa viktiga kostnadsmått med instrumentpaneler
 
@@ -43,7 +44,7 @@ För att snabbt komma igång med en anpassad instrumentpanel kan du duplicera en
 
 Så här skapar du en anpassad instrumentpanel:
 
-1. På startsidan klickar du på **Lägg till ny +** . Sidan Min instrumentpanel visas.  
+1. På startsidan klickar du på **Lägg till ny +**. Sidan Min instrumentpanel visas.  
     ![Sidan Min instrumentpanel där du lägger till nya rapporter](./media/dashboards/my-dashboard.png)
 2. Klicka på **Lägg till ny rapport**. Rutan Lägg till rapport visas.
 3. Välj den rapport som du vill lägga till i instrumentpanelswidgeten. Widgeten läggs till på instrumentpanelen.

@@ -3,15 +3,16 @@ title: Skapa kostnadsfria tjänster med kostnadsfritt Azure-konto
 description: Lär dig hur du skapar tjänster som ingår i det kostnadsfria Azure-kontot. Du kan skapa dessa tjänster i valfri region där de är tillgängliga.
 author: amberbhargava
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 540988892a5f5f650a8594b74792e45d25ca9036
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 5e08a3e09a0db7620d65b349243cd39540fae144
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87460957"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88690008"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Skapa tjänster som ingår i det kostnadsfria Azure-kontot
 

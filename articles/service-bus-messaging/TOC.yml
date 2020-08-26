@@ -117,6 +117,8 @@
           href: network-security.md
 - name: Anvisningar
   items:
+    - name: Flytta mellan regioner
+      href: move-across-regions.md
     - name: 'Migrera från API:er för Azure Service Manager (klassisk) till API:er för Resource Manager'
       href: deprecate-service-bus-management.md
     - name: Skapa ett namnområde

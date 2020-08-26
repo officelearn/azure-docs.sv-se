@@ -510,6 +510,8 @@
           href: unique-keys.md
         - name: Kontroll över transaktioner och optimistisk samtidighet
           href: database-transactions-optimistic-concurrency.md
+        - name: Bilagor
+          href: attachments.md
     - name: Ändringsfeed
       items:
         - name: Översikt över ändringsflöde
@@ -752,7 +754,7 @@
               href: mongodb-feature-support.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: mongodb-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Guide före migrering
               href: mongodb-pre-migration.md
@@ -822,7 +824,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Diagramdatamodellering
               href: graph-modeling.md
@@ -907,7 +909,7 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: table-api-faq.md
-        - name: Anvisningar
+        - name: Instruktionsguider
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md

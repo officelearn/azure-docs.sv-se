@@ -41,6 +41,10 @@
           href: tutorial-alias-rr.md
 - name: Begrepp
   items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: Offentligt DNS
       items:
         - name: Zoner och poster

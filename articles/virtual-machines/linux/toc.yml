@@ -297,7 +297,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: Virtuella Spot-datorer
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Virtuella Azure-datorer utan temporär disk
           href: ../azure-vms-no-temp-disk.md
         - name: Namnkonventioner för Azure VM-storlekar
@@ -984,15 +984,15 @@
             - name: Aktivera kryptering på värddator – CLI
               href: disks-enable-host-based-encryption-cli.md
             - name: Aktivera kryptering på värddator – portalen
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Aktivera kundhanterade nycklar – CLI
               href: disks-enable-customer-managed-keys-cli.md
             - name: Aktivera kundhanterade nycklar – Portal
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Aktivera dubbel kryptering i vila – CLI
               href: disks-enable-double-encryption-at-rest-cli.md
             - name: Aktivera dubbel kryptering i vila – portalen
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migrering och konvertering
           items:
             - name: Migrera till Premium Storage med Azure Site Recovery
@@ -1024,7 +1024,7 @@
         - name: Använda fillagring
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Vanliga frågor och svar om diskar
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Hantera nätverk
       items:
         - name: Skapa det virtuella nätverket

@@ -88,6 +88,8 @@
           href: how-to-integrate-maps.md
         - name: Integrera med Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
+        - name: Integrera med Logic Apps
+          href: how-to-integrate-logic-apps.md
     - name: Felsöka
       items:
         - name: Visa mått i Azure Monitor

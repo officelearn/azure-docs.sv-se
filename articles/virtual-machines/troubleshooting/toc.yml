@@ -195,7 +195,7 @@
     - name: Översikt
       href: ../managed-disks-overview.md
     - name: VANLIGA FRÅGOR OCH SVAR
-      href: ../windows/faq-for-disks.md
+      href: ../faq-for-disks.md
     - name: Fel när du tar bort lagringsresurser
       href: storage-resource-deletion-errors.md
     - name: Fel när du tar bort klassiska lagringsresurser

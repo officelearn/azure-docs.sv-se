@@ -282,7 +282,7 @@
               href: ../reserved-vm-instance-size-flexibility.md
         - name: Virtuella Spot-datorer
           displayName: 'pre-empt, preempt'
-          href: spot-vms.md
+          href: ../spot-vms.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Virtuella Azure-datorer utan temporär disk
           href: ../azure-vms-no-temp-disk.md
         - name: Namnkonventioner för Azure VM-storlekar
@@ -879,15 +879,15 @@
             - name: Aktivera kryptering på värddator – PowerShell
               href: disks-enable-host-based-encryption-powershell.md
             - name: Aktivera kryptering på värddator – portalen
-              href: disks-enable-host-based-encryption-portal.md
+              href: ../disks-enable-host-based-encryption-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Aktivera kundhanterade nycklar – PowerShell
               href: disks-enable-customer-managed-keys-powershell.md
             - name: Aktivera kundhanterade nycklar – Portal
-              href: disks-enable-customer-managed-keys-portal.md
+              href: ../disks-enable-customer-managed-keys-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Aktivera dubbel kryptering i vila
               href: disks-enable-double-encryption-at-rest-powershell.md
             - name: Aktivera dubbel kryptering i vila – portalen
-              href: disks-enable-double-encryption-at-rest-portal.md
+              href: ../disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Migrering och konvertering
           items:
             - name: Konvertera en disk mellan Standard och Premium
@@ -911,7 +911,7 @@
         - name: Hitta icke anslutna diskar – portalen
           href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Vanliga frågor och svar om diskar
-          href: faq-for-disks.md
+          href: ../faq-for-disks.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Hantera nätverk
       href: ps-common-network-ref.md
       items:

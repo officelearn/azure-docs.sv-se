@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 802b7919abcd510db68396b2d9576f8cacc06a6e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 74d4d01d535f7148d3c3878a431dac2f951ae134
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756018"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88827383"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -70,7 +70,7 @@ Du kan deduplicera DPM-lagringen med Windows Server-deduplicering. Lär dig mer 
 > * En dator som kör Exchange Server
 > * En dator som är en nod i ett kluster
 >
-> Det finns inte stöd för att installera Azure Backup Server på Windows Server Core eller Microsoft Hyper-V server.
+> Installation av Azure Backup Server stöds inte på Windows Server Core eller Microsoft Hyper-V server.
 
 Anslut alltid Azure Backup Server till en domän. Om du planerar att flytta servern till en annan domän installerar du Azure Backup Server först och ansluter sedan servern till den nya domänen. Det finns *inte stöd*för att flytta en befintlig Azure Backup Server-dator till en ny domän efter distribution.
 
@@ -95,7 +95,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Om du redan har ett Recovery Services-valv öppet, Fortsätt till steg 3. Om du inte har ett Recovery Services-valv öppet, men är i Azure Portal väljer du **Bläddra**i huvud menyn.
 
    * I listan över resurser skriver du **Recovery Services**.
@@ -343,7 +343,7 @@ Använd följande steg för att uppgradera MABS:
 
    > [!NOTE]
    >
-   > Avsluta inte medan SQL-instansen håller på att uppgraderas, avinstallerar SQL repor ting-instansen och ett försök att uppgradera MABS kommer att Miss lyckas.
+   > Avsluta inte medan SQL-instansen uppgraderas. Om du avslutar avinstalleras SQL repor ting-instansen och ett försök att uppgradera MABS kommer att Miss lyckas.
 
    > [!IMPORTANT]
    >

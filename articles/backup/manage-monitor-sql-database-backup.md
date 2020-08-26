@@ -3,12 +3,12 @@ title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c9d8b9b56820182f7bf7866d38d40df8f5488a7a
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 26a1a6cf7bc011edce61a8bb60926dad2cb29a16
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756324"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88826641"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -34,7 +34,7 @@ Eftersom säkerhets kopiering av loggar sker var 15: e minut, kan det vara omst�
 
 Övervaka aviseringar om säkerhets kopiering av databas:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. På instrument panelen för valv väljer du **aviseringar och händelser**.
 
@@ -53,7 +53,7 @@ Du kan sluta säkerhetskopiera en SQL Server databas på ett par olika sätt:
 
 Om du väljer att lämna återställnings punkter bör du tänka på följande:
 
-- Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp av skyddet med data kvar.
+- Alla återställnings punkter förblir intakta för alltid och all rensning stoppas vid stopp skydd med kvarhållning av data.
 - Du debiteras för den skyddade instansen och den förbrukade lagringen. Mer information finns i [Azure Backup prissättning](https://azure.microsoft.com/pricing/details/backup/).
 - Om du tar bort en data källa utan att stoppa säkerhets kopieringen kommer nya säkerhets kopieringar att Miss lyckas. De gamla återställnings punkterna upphör att gälla enligt principen, men en sista återställnings punkt kommer alltid att finnas kvar tills du stoppar säkerhets kopieringarna och tar bort data.
 

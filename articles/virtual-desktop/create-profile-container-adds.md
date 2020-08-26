@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91f5ef4a5065079f0fe385b92af2a1c4bfa5ee84
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007717"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825621"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Skapa en profil behållare med Azure Files och Azure AD DS
 
@@ -107,25 +107,31 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Till exempel:
+    Exempel:
 
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
 
-8. Kör följande kommando för att ge användaren fullständig åtkomst till den Azure Files resursen.
+8. Kör följande kommandon för att låta dina virtuella Windows-skrivbord skapa egna profil behållare samtidigt som du blockerar åtkomsten till profil behållarna från andra användare.
 
      ```cmd
-     icacls <mounted-drive-letter>: /grant <user-email>:(f)
+     icacls <mounted-drive-letter>: /grant <user-email>:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-    - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du vill att användaren ska använda.
-    - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
+    - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du använde för att mappa enheten.
+    - Ersätt `<user-email>` med UPN för den användare eller Active Directory grupp som innehåller de användare som ska ha åtkomst till resursen.
 
-    Till exempel:
+    Exempel:
 
      ```cmd
-     icacls y: /grant john.doe@contoso.com:(f)
+     icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
+     icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
+     icacls <mounted-drive-letter>: /remove "Authenticated Users"
+     icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
 ## <a name="create-a-profile-container"></a>Skapa en profilcontainer
@@ -140,7 +146,7 @@ Så här konfigurerar du en FSLogix profil behållare:
 
 3. När installations programmet har startat väljer **du jag accepterar licens villkoren.** Ange en ny nyckel om det är tillämpligt.
 
-4. Välj **Installera**.
+4. Välj **Install** (Installera).
 
 5. Öppna **enhet C**och gå sedan till **program filer**  >  **FSLogix**-  >  **appar** för att kontrol lera att FSLogix-agenten har installerats korrekt.
 
@@ -200,7 +206,7 @@ Så här tilldelar du användare:
 
     Precis som de tidigare cmdletarna, se till att ersätta `<your-wvd-tenant>` , `<wvd-pool>` och `<user-principal>` med relevanta värden.
 
-    Till exempel:
+    Exempel:
 
      ```powershell
      $pool1 = "contoso"

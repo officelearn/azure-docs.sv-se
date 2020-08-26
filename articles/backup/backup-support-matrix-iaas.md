@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: f0783d937178c88265c33c8b7339f71520506fc5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6cb9f53bceb6caaac77dddd6828c46842e53d257
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816124"
+ms.locfileid: "88825264"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -49,7 +49,7 @@ Säkerhets kopior per dag (via DPM/MABS) | Två schemalagda säkerhets kopiering
 Månatlig/årlig säkerhets kopiering| Stöds inte vid säkerhets kopiering med Azure VM-tillägg. Endast daglig och veckovis stöds.<br/><br/> Du kan ställa in principen för att behålla dagliga/veckovis säkerhets kopieringar för månatlig/årlig kvarhållningsperiod.
 Automatisk klock justering | Stöds inte.<br/><br/> Azure Backup justeras inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en virtuell dator.<br/><br/>  Ändra principen manuellt efter behov.
 [Säkerhetsfunktioner för Hybrid säkerhets kopiering](./backup-azure-security-feature.md) |Det finns inte stöd för att inaktivera säkerhetsfunktioner.
-Säkerhetskopiera den virtuella datorn vars dator tid ändras | Stöds inte.<br/><br/> Om dator tiden ändras till en framtida datum tid efter att du aktiverat säkerhets kopiering för den virtuella datorn. men även om tids ändringen har återställts är inte den slutförda säkerhets kopieringen garanterad.
+Säkerhetskopiera den virtuella datorn vars dator tid ändras | Stöds inte.<br/><br/> Om dator tiden ändras till en framtida datum tid efter det att du har aktiverat säkerhets kopiering för den virtuella datorn, är det dock inte säkert att säkerhets kopieringen har slutförts, även om tids ändringen återställs.
 Virtuella Azure-datorer i [skalnings uppsättningar för virtuella datorer](../virtual-machine-scale-sets/overview.md) | Säkerhets kopiering och återställning stöds för virtuella datorer med [Orchestration-läge](../virtual-machine-scale-sets/orchestration-modes.md#orchestration-modes) inställt på 3. <br><br>Tillgänglighets uppsättningar stöds inte.
 
 ## <a name="operating-system-support-windows"></a>Stöd för operativ system (Windows)

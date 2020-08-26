@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009230"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825451"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -33,9 +33,9 @@ Så här konfigurerar du ett lagrings konto:
 
 2. Sök efter **lagrings konto** i Sök fältet.
 
-3. Välj **+ Lägg till**.
+3. Välj **+Lägg till**.
 
-4. Ange följande information på sidan **skapa lagrings konto** :
+4. Ange följande information på sidan  **skapa lagrings konto** :
 
     - Skapa en ny resursgrupp.
     - Ange ett unikt namn för lagringskontot.
@@ -127,11 +127,11 @@ Så här hämtar du UNC-sökvägen:
 
 5. När du har kopierat URI: n, gör du följande saker för att ändra den till UNC:
 
-    - Ta bort `https://` och Ersätt med`\\`
+    - Ta bort `https://` och Ersätt med `\\`
     - Ersätt snedstrecket `/` med ett omvänt snedstreck `\` .
     - Lägg till namnet på fil resursen som du skapade i [skapa en Azure-filresurs](#create-an-azure-file-share) i slutet av UNC-filen.
 
-        Exempel: `\\customdomain.file.core.windows.net\<fileshare-name>`
+        Exempelvis: `\\customdomain.file.core.windows.net\<fileshare-name>`
 
 ### <a name="get-the-storage-account-key"></a>Hämta lagringskontonyckeln
 
@@ -151,15 +151,15 @@ Så här konfigurerar du NTFS-behörigheter:
 
 1. Öppna en kommando tolk på en domänansluten virtuell dator.
 
-2. Kör följande cmdlet för att montera Azure-filresursen och tilldela den en enhetsbeteckning: 
+2. Kör följande kommando för att montera Azure-filresursen och tilldela den en enhets beteckning:
 
-     ```powershell
+     ```cmd
      net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
      ```
 
-3. Kör följande cmdlet för att granska åtkomst behörigheterna till Azure-fil resursen:
+3. Kör följande kommando för att granska åtkomst behörigheterna till Azure-fil resursen:
 
-    ```powershell
+    ```cmd
     icacls <mounted-drive-letter>:
     ```
 
@@ -167,9 +167,9 @@ Så här konfigurerar du NTFS-behörigheter:
 
     Både *NT Instans\Autentiserade-användare* och *BUILTIN\Users* har vissa behörigheter som standard. Dessa standard behörigheter gör att dessa användare kan läsa andra användares profil behållare. Behörigheterna som beskrivs i [Konfigurera lagrings behörigheter för användning med profil behållare och Office-behållare](/fslogix/fslogix-storage-config-ht) låter dock inte användarna läsa de andra "profil behållarna.
 
-4. Kör följande cmdlets för att låta dina Windows-användare av virtuella skriv bord skapa egna profil behållare samtidigt som du blockerar åtkomsten till deras profil behållare från andra användare.
+4. Kör följande kommandon för att låta dina virtuella Windows-skrivbord skapa egna profil behållare samtidigt som du blockerar åtkomsten till deras profil behållare från andra användare.
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -179,9 +179,9 @@ Så här konfigurerar du NTFS-behörigheter:
      - Ersätt <monterade enhets brev> med bokstaven för den enhet som du använde för att mappa enheten.
      - Ersätt <användar-e-> med UPN för den användare eller Active Directory grupp som innehåller de användare som behöver åtkomst till resursen.
 
-     Till exempel:
+     Exempel:
 
-     ```powershell
+     ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
@@ -212,7 +212,7 @@ Så här konfigurerar du FSLogix på den virtuella datorn för sessionsvärd:
 
 6. Starta om den virtuella datorn.
 
-## <a name="testing"></a>Testning
+## <a name="testing"></a>Test
 
 När du har installerat och konfigurerat FSLogix kan du testa distributionen genom att logga in med ett användar konto som har tilldelats en app-grupp eller ett skriv bord på den aktuella värddatorn. Se till att det användar konto du loggar in med har behörighet för fil resursen.
 

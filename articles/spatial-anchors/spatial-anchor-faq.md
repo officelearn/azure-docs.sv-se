@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091495"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854950"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -51,7 +51,7 @@ Mer information finns i [Översikt över Azure Spatial Anchors](overview.md).
 
 **F: Hur lagrar Azure spatiala ankare data?**
 
-**A:** Alla data lagras krypterade med en Microsoft-hanterad data krypterings nyckel.
+**A:** Alla data lagras krypterade med en Microsoft-hanterad data krypterings nyckel och alla data lagras regionalt för var och en av resurserna.
 
 **F: vilken information om en miljö överförs och lagras på tjänsten när du använder Azure spatiala ankare? Överförs och lagras bilder i miljön?**
 

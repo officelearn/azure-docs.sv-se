@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4fce5b191e0af6a69fe218c4ed7272f352c3bdd2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827502"
+ms.locfileid: "88855594"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager-mallar för Azure Logic Apps
 
@@ -119,7 +119,9 @@ Här följer de allmänna stegen för att använda Azure-pipeliner:
 
 ## <a name="authorize-oauth-connections"></a>Auktorisera OAuth-anslutningar
 
-Efter distributionen fungerar din Logic app från slut punkt till slut punkt med giltiga parametrar. Du måste dock fortfarande tillåta eller använda förauktoriserade OAuth-anslutningar för att generera giltiga åtkomsttoken för autentisering av [dina autentiseringsuppgifter](../active-directory/develop/authentication-vs-authorization.md). Här är några förslag:
+Efter distributionen fungerar din Logic app från slut punkt till slut punkt med giltiga parametrar, men för att generera giltiga åtkomsttoken för [autentisering av dina autentiseringsuppgifter](../active-directory/develop/authentication-vs-authorization.md)måste du ändå tillåta eller använda förauktoriserade OAuth-anslutningar. Men du behöver bara distribuera och autentisera resurser för API-anslutning en gång, vilket innebär att du inte behöver ta med dessa anslutnings resurser i efterföljande distributioner, såvida du inte behöver uppdatera anslutnings informationen. Om du använder en pipeline för kontinuerlig integrering och kontinuerlig distribution distribuerar du bara uppdaterade Logic Apps resurser och behöver inte godkänna anslutningarna varje gång.
+
+Här följer några förslag på hur du hanterar auktorisering av anslutningar:
 
 * Förauktorisera och dela API-anslutningsfel mellan olika Logic-appar i samma region. API-anslutningar finns som Azure-resurser oberoende av Logic Apps. Även om Logic Apps har beroenden av API-anslutnings resurser, finns det inga beroenden för API-anslutnings resurser i Logi Kap par och de är kvar när du har tagit bort beroende Logic Apps Logic Apps kan också använda API-anslutningar som finns i andra resurs grupper. Logic App Designer stöder dock bara skapande av API-anslutningar i samma resurs grupp som dina Logic Apps.
 

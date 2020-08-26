@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14ffcbf2e111e052f4b45259b0b25664049d3b3d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83201674"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855373"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 
@@ -57,11 +57,7 @@ ms.locfileid: "83201674"
 [sap-ascs-high-availability-multi-sid-wsfc]:sap-ascs-high-availability-multi-sid-wsfc.md
 
 [sap-high-availability-infrastructure-wsfc-shared-disk]:sap-high-availability-infrastructure-wsfc-shared-disk.md
-[sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]:sap-high-availability-infrastructure-wsfc-shared-disk.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a
-[sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#b22d7b3b-4343-40ff-a319-097e13f62f9e
-[sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]:sap-high-availability-infrastructure-wsfc-shared-disk.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
-[sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]:sap-high-availability-infrastructure-wsfc-shared-disk.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e
-[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#f19bd997-154d-4583-a46e-7f5a69d0153c
+[sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 [sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]:sap-high-availability-infrastructure-wsfc-shared-disk.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c
 [sap-high-availability-installation-wsfc-file-share]:sap-high-availability-installation-wsfc-file-share.md
@@ -228,7 +224,7 @@ Läs följande artikel innan du påbörjar installationen:
 
 **Tabell 1**: ASCS/SCS-kluster
 
-| SAP\<SID> | Instans nummer för SAP ASCS/SCS |
+| SAP \<SID> | Instans nummer för SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -250,19 +246,11 @@ Läs följande artikel innan du påbörjar installationen:
 
 Förbered Azure-infrastrukturen genom att slutföra följande:
 
-* [Förbered infrastrukturen för arkitektoniska mallar 1, 2 och 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+* [Distribuera de virtuella datorerna][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* [Skapa ett virtuellt Azure-nätverk][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+* [Skapa och konfigurera Azure Load Balancer för SAP ASCS][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Ange de DNS-IP-adresser som krävs][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
-
-* [Ange statiska IP-adresser för virtuella SAP-datorer][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
-
-* [Ange en statisk IP-adress för intern belastningsutjämnare i Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
-
-* [Ange standard regler för ASCS/SCS-belastning för den interna belastningsutjämnaren i Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
-
-* [Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [Om du använder ERS2 (Queue Replication Server 2) utför du Azure Load Balancer-konfigurationen för ERS2 ][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]. 
 
 * [Lägg till virtuella Windows-datorer i domänen][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 

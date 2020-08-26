@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 15c3f2de30509a7dc6836f5d39fac4c0ea8b7f25
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 708df0a8ed1085c6e7d435c6f3c3b811ef2ed64e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513275"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854339"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Använda Managed Disks i Azure Resource Manager mallar
 
@@ -263,7 +263,7 @@ Om du vill ha fullständig information om REST API-specifikationerna kan du läs
 * För fullständiga mallar som använder hanterade diskar går du till följande länkar för Azure snabb starts lagrings platsen.
     * [Virtuell Windows-dator med hanterad disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Virtuell Linux-dator med hanterad disk](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-* Gå till [översikts dokumentet för Azure Managed disks](~/articles/virtual-machines/windows/managed-disks-overview.md) om du vill veta mer om hanterade diskar.
+* Gå till [översikts dokumentet för Azure Managed disks](managed-disks-overview.md) om du vill veta mer om hanterade diskar.
 * Granska referens dokumentationen för mallen för virtuella dator resurser genom att gå till referens dokumentet för [Microsoft. Compute/virtualMachines-mallen](/azure/templates/microsoft.compute/virtualmachines) .
 * Granska referens dokumentationen för mallen för disk resurser genom att gå till referens dokumentet för [Microsoft. Compute/disks-mallen](/azure/templates/microsoft.compute/disks) .
 * Information om hur du använder hanterade diskar i skalnings uppsättningar för virtuella Azure-datorer finns i dokumentet [Använd data diskar med skalnings uppsättningar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) .

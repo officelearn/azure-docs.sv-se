@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 9ee0fbd69c0004306b67cbff0aca3b257d905eeb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cbba0dd5341ad148831ac3b1f94685bf2beddd5a
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541132"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855269"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuera en modell till Azure Container Instances
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 > [!IMPORTANT]
 > Vi rekommenderar starkt att felsöka lokalt innan du distribuerar till webb tjänsten. mer information finns i [Felsöka lokalt](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
 >
-> Du kan också se Azure Machine Learning- [Deploy till lokal Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+> Du kan också läsa Azure Machine Learning – [Distribuera till lokal notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,9 +43,9 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 
 - I __python__ -kodfragmenten i den här artikeln förutsätter vi att följande variabler har angetts:
 
-    * `ws`– Ställ in på din arbets yta.
-    * `model`– Ställ in på din registrerade modell.
-    * `inference_config`-Ange som modellens konfigurations konfiguration.
+    * `ws` – Ställ in på din arbets yta.
+    * `model` – Ställ in på din registrerade modell.
+    * `inference_config` -Ange som modellens konfigurations konfiguration.
 
     Mer information om hur du ställer in dessa variabler finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
@@ -56,8 +56,9 @@ Information om kvot-och regions tillgänglighet för ACI finns i [kvoter och reg
 Om du vill distribuera en modell till Azure Container Instances skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 > [!NOTE]
-> * ACI passar bara för små modeller <1 GB i storlek. 
-> * Vi rekommenderar att du använder en enda Node-AKS för utveckling och testning av större modeller.
+> * ACI passar bara för små modeller som är mindre än 1 GB. 
+> * Vi rekommenderar att du använder AKS med en nod för utveckling och testning av större modeller.
+> * Antalet modeller som ska distribueras är begränsat till 1 000 modeller per distribution (per behållare). 
 
 ### <a name="using-the-sdk"></a>Med SDK
 
@@ -102,7 +103,7 @@ Se [Distribuera modeller med vs Code](tutorial-train-deploy-image-classification
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
 * [Distributions fel sökning](how-to-troubleshoot-deployment.md)
 * [Uppdatera webb tjänsten](how-to-deploy-update-web-service.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Använda en ML-modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)

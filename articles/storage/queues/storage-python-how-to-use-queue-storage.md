@@ -1,35 +1,30 @@
 ---
-title: Så här använder du Azure Queue Storage v 2.1 från python-Azure Storage
-description: Lär dig hur du använder Azure Kötjänst v 2.1 från python för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden.
+title: Så här använder du Azure Queue Storage från python – Azure Storage
+description: Lär dig att använda Azure Kötjänst från python för att skapa och ta bort köer och infoga, hämta och ta bort meddelanden.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/17/2019
+ms.date: 08/25/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 97cb41a47b18d403881432098ecdda9bb26146d2
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 79334db46b6f035aabffcca133ed4f5cb8df3637
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848204"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855551"
 ---
-# <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Så här använder du Azure Queue Storage v 2.1 från python
+# <a name="how-to-use-azure-queue-storage-from-python"></a>Så här använder du Azure Queue Storage från python
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
-Den här artikeln visar vanliga scenarier med Azure Queue Storage-tjänsten. Scenarierna som beskrivs är att infoga, granska, hämta och ta bort Kömeddelanden, samt skapa och ta bort köer.
-
-> [!IMPORTANT]
-> Den här artikeln hänvisar till den äldre versionen av Azure Storage-klient biblioteket för python. För att komma igång med den senaste versionen kan du se [snabb start: Azure Queue Storage klient bibliotek för python](storage-quickstart-queues-python.md)
-
-[!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
-
 ## <a name="overview"></a>Översikt
 
-Exemplen i den här artikeln är skrivna i python och använder [Microsoft Azure Storage SDK för python]. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
+Den här artikeln visar vanliga scenarier med Azure Queue Storage-tjänsten. Scenarierna som beskrivs är att infoga, granska, hämta och ta bort Kömeddelanden. Kod för att skapa och ta bort köer omfattas också.
+
+Exemplen i den här artikeln är skrivna i python och använder [klient biblioteket för Azure Queue Storage för python]. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -39,115 +34,264 @@ Exemplen i den här artikeln är skrivna i python och använder [Microsoft Azure
 
 [Azure Storage SDK för python](https://github.com/azure/azure-storage-python) kräver python version 2,7, 3,3 eller senare.
  
-### <a name="install-via-pypi"></a>Installera via PyPi
+### <a name="install-via-pypi"></a>Installera via PyPI
 
 Om du vill installera via python-paket indexet (PyPI) skriver du:
 
-```bash
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+```console
+pip install azure-storage-queue
+```
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+```console
 pip install azure-storage-queue==2.1.0
 ```
+
+---
 
 > [!NOTE]
 > Om du uppgraderar från Azure Storage SDK för python version 0,36 eller tidigare, måste du avinstallera den äldre SDK: n med `pip uninstall azure-storage` innan du installerar det senaste paketet.
 
-Alternativa installations metoder finns i [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python/).
+Alternativa installations metoder finns i [Azure SDK för python].
 
-## <a name="view-the-sample-application"></a>Visa exempel programmet
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-Om du vill visa och köra ett exempel program som visar hur du använder python med Azure-köer, se [Azure Storage: komma igång med Azure-köer i python](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program till att komma åt Queue Storage
 
-Kontrol lera att du har installerat både-och-paketen för att köra exempel programmet `azure-storage-queue` `azure-storage-common` .
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Med [QueueClient](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient) -objektet kan du arbeta med en kö. Lägg till följande kod nära överkanten av en python-fil där du vill få åtkomst till en Azure-kö program mässigt:
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ImportStatements":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Med [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) -objektet kan du arbeta med köer. Följande kod skapar ett- `QueueService` objekt. Lägg till följande kod nära överkanten av en python-fil som du vill ha åtkomst till Azure Storage via programmering:
+
+```python
+from azure.storage.queue import (
+        QueueService, 
+        QueueMessageFormat
+)
+
+import os, uuid
+```
+
+---
+
+`os`Paketet ger stöd för att hämta en miljö variabel. `uuid`Paketet ger stöd för att skapa en unik identifierare för ett könamn.
 
 ## <a name="create-a-queue"></a>Skapa en kö
 
-Med [QueueService](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice) -objektet kan du arbeta med köer. Följande kod skapar ett- `QueueService` objekt. Lägg till följande längst upp i en python-fil som du vill ha program mässigt åtkomst till Azure Storage:
+Anslutnings strängen hämtas från `AZURE_STORAGE_CONNECTION_STRING` miljövariabeln uppsättning tidigare.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Följande kod skapar ett- `QueueClient` objekt med hjälp av lagrings anslutnings strängen.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_CreateQueue":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Följande kod skapar ett- `QueueService` objekt med hjälp av lagrings anslutnings strängen.
 
 ```python
-from azure.storage.queue import QueueService
+# Retrieve the connection string from an environment
+# variable named AZURE_STORAGE_CONNECTION_STRING
+connect_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
+
+# Create a unique name for the queue
+queue_name = "queue-" + str(uuid.uuid4())
+
+# Create a QueueService object which will
+# be used to create and manipulate the queue
+print("Creating queue: " + queue_name)
+queue_service = QueueService(connection_string=connect_str)
+
+# Create the queue
+queue_service.create_queue(queue_name)
 ```
 
-Följande kod skapar ett- `QueueService` objekt med hjälp av lagrings kontots namn och konto nyckeln. Ersätt mitt *konto* och *MyKey* med ditt konto namn och din nyckel.
-
-```python
-queue_service = QueueService(account_name='myaccount', account_key='mykey')
-
-queue_service.create_queue('taskqueue')
-```
+---
 
 ## <a name="insert-a-message-into-a-queue"></a>Infoga ett meddelande i en kö
 
-Om du vill infoga ett meddelande i en kö använder du metoden [put_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) för att skapa ett nytt meddelande och lägga till det i kön.
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Använd metoden [send_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) om du vill infoga ett meddelande i en kö.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_AddMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Om du vill infoga ett meddelande i en kö använder du metoden [put_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) för att skapa ett nytt meddelande och lägga till det i kön.
 
 ```python
-queue_service.put_message('taskqueue', u'Hello World')
+message = u"Hello World"
+print("Adding message: " + message)
+queue_service.put_message(queue_name, message)
 ```
 
-Azure Queue-meddelanden lagras som text. Om du vill lagra binära data måste du konfigurera base64-kodning och avkodnings funktioner för objektet Queue Service innan du skickar ett meddelande i kön.
+---
+
+Azure Queue-meddelanden lagras som text. Om du vill lagra binära data ställer du in base64-kodning och avkodnings funktioner innan du skickar ett meddelande i kön.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Konfigurera base64-kodning och avkodning av funktioner i kö-klientens objekt.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_EncodeMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Konfigurera base64-kodning och avkodnings funktioner för objektet Queue Service.
 
 ```python
-# setup queue Base64 encoding and decoding functions
+# Setup Base64 encoding and decoding functions
 queue_service.encode_function = QueueMessageFormat.binary_base64encode
 queue_service.decode_function = QueueMessageFormat.binary_base64decode
 ```
 
-## <a name="peek-at-the-next-message"></a>En titt på nästa meddelande
+---
 
-Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#peek-messages-queue-name--num-messages-none--timeout-none-) . Som standard `peek_messages` tittar vi på ett enskilt meddelande.
+## <a name="peek-at-messages"></a>Titta på meddelanden
 
-```python
-messages = queue_service.peek_messages('taskqueue')
-for message in messages:
-    print(message.content)
-```
+# <a name="python-v12"></a>[Python-V12](#tab/python)
 
-## <a name="dequeue-messages"></a>Ta bort meddelanden från kön
+Du kan titta på meddelanden utan att ta bort dem från kön genom att anropa metoden [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . Som standard `peek_messages` tittar vi på ett enskilt meddelande.
 
-Koden tar bort ett meddelande från en kö i två steg. När du anropar [get_messages](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)får du nästa meddelande i en kö som standard. Ett meddelande som returnerades från `get_messages` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa [delete_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-message-queue-name--message-id--pop-receipt--timeout-none-). Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Dina kod anrop `delete_message` direkt efter att meddelandet har bearbetats.
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_PeekMessage":::
 
-```python
-messages = queue_service.get_messages('taskqueue')
-for message in messages:
-    print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
-```
+# <a name="python-v2"></a>[Python v2](#tab/python2)
 
-Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används `get_messages` metoden för att hämta 16 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en for-slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
+Du kan titta på meddelanden utan att ta bort dem från kön genom att anropa metoden [peek_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) . Som standard `peek_messages` tittar vi på ett enskilt meddelande.
 
 ```python
-messages = queue_service.get_messages(
-    'taskqueue', num_messages=16, visibility_timeout=5*60)
-for message in messages:
-    print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
+messages = queue_service.peek_messages(queue_name)
+
+for peeked_message in messages:
+    print("Peeked message: " + peeked_message.content)
 ```
+
+---
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Ändra innehållet i ett meddelande i kön
 
-Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. I koden nedan används [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) -metoden för att uppdatera ett meddelande. Timeout för synlighet anges till 0, vilket innebär att meddelandet visas omedelbart och innehållet uppdateras.
+Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en uppgift kan du använda den här funktionen för att uppdatera aktivitetens status.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+I koden nedan används [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) -metoden för att uppdatera ett meddelande. Timeout för synlighet anges till 0, vilket innebär att meddelandet visas omedelbart och innehållet uppdateras.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_ChangeMessage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+I koden nedan används [update_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) -metoden för att uppdatera ett meddelande. Timeout för synlighet anges till 0, vilket innebär att meddelandet visas omedelbart och innehållet uppdateras.
 
 ```python
-messages = queue_service.get_messages('taskqueue')
+messages = queue_service.get_messages(queue_name)
+
 for message in messages:
     queue_service.update_message(
-        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+        queue_name, message.id, message.pop_receipt, 0, u"Hello World Again")
 ```
+
+---
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
 
-Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden [get_queue_metadata](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#get-queue-metadata-queue-name--timeout-none-) ber Queue Service att returnera metadata om kön och `approximate_message_count` . Resultatet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Queue Service svarar på din begäran.
+Du kan hämta en uppskattning av antalet meddelanden i en kö.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Metoden [get_queue_properties](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#get-queue-properties---kwargs-) ber Queue Service att returnera egenskaper för kön, inklusive `approximate_message_count` .
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_GetQueueLength":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Metoden [get_queue_metadata](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) ber Queue Service att returnera metadata om kön, inklusive `approximate_message_count` .
 
 ```python
-metadata = queue_service.get_queue_metadata('taskqueue')
+metadata = queue_service.get_queue_metadata(queue_name)
 count = metadata.approximate_message_count
+print("Message count: " + str(count))
 ```
+
+---
+
+Resultatet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Queue Service svarar på din begäran.
+
+## <a name="dequeue-messages"></a>Ta bort meddelanden från kön
+
+Ta bort ett meddelande från en kö i två steg. Om din kod inte kan bearbeta ett meddelande, säkerställer den här processen att du får samma meddelande och försöker igen. Anrop `delete_message` efter att meddelandet har bearbetats.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+När du anropar [receive_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-)får du nästa meddelande i kön som standard. Ett meddelande som returnerades från `receive_messages` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-message-message--pop-receipt-none----kwargs-).
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_DequeueMessages":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+När du anropar [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-)får du nästa meddelande i kön som standard. Ett meddelande som returnerades från `get_messages` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder. Om du vill slutföra borttagningen av meddelandet från kön måste du också anropa [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
+
+```python
+messages = queue_service.get_messages(queue_name)
+
+for message in messages:
+    print("Deleting message: " + message.content)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
+```
+
+---
+
+Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande.
+
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+I följande kod exempel används metoden [receive_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) för att hämta meddelanden i batchar. Sedan bearbetar den varje meddelande i varje batch med hjälp av en kapslad `for` slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_DequeueByPage":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+I följande kod exempel används metoden [get_messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) för att hämta 16 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `for` loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
+
+```python
+messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
+
+for message in messages:
+    print("Deleting message: " + message.content)
+    queue_service.delete_message(queue_name, message.id, message.pop_receipt)
+```
+
+---
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
 
-Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueservice.queueservice#delete-queue-queue-name--fail-not-exist-false--timeout-none-) .
+# <a name="python-v12"></a>[Python-V12](#tab/python)
+
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden [delete_queue](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) .
+
+:::code language="python" source="~/azure-storage-snippets/queues/howto/python/python-v12/python-howto-v12.py" id="Snippet_DeleteQueue":::
+
+# <a name="python-v2"></a>[Python v2](#tab/python2)
+
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden [delete_queue](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) .
 
 ```python
-queue_service.delete_queue('taskqueue')
+print("Deleting queue: " + queue_name)
+queue_service.delete_queue(queue_name)
 ```
+
+---
+
+[!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -157,5 +301,6 @@ Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar o
 * [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [REST-API för Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179355)
 
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[Microsoft Azure Storage SDK för python]: https://github.com/Azure/azure-storage-python
+[Klient bibliotek för Azure Queue Storage för python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
+[Azure SDK för Python]: https://github.com/azure/azure-sdk-for-python
+[Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

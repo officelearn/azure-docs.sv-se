@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 47582f941c314933baf378478b1380cb8316935b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066618"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854546"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Mjuk borttagning för behållare (förhands granskning)
 
@@ -27,8 +27,8 @@ För slut punkt till slut punkts skydd för dina BLOB-data rekommenderar Microso
 - BLOB-mjuk borttagning, för att skydda mot oavsiktlig borttagning eller överskrivning av en enskild blob. Information om hur du aktiverar mjuk borttagning av BLOB finns i [mjuk borttagning för blobbar](soft-delete-blob-overview.md).
 - BLOB-versioner (för hands version) för att automatiskt underhålla tidigare versioner av en blob. När BLOB-versioner har Aktiver ATS kan du återställa en tidigare version av en BLOB för att återställa dina data om de felaktigt ändras eller tas bort. Information om hur du aktiverar BLOB-versioner finns i [Aktivera och hantera BLOB-versioner](versioning-enable.md).
 
-> [!IMPORTANT]
-> För att förhindra oavsiktlig borttagning av ett lagrings konto konfigurerar du ett **CannotDelete** -lås på lagrings konto resursen. Mer information om hur du låser Azure-resurser finns i [låsa resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md).
+> [!WARNING]
+> Det går inte att ångra borttagningen av ett lagrings konto. Mjuk borttagning skyddar inte borttagningen av ett lagrings konto. För att förhindra oavsiktlig borttagning av ett lagrings konto konfigurerar du ett **CannotDelete** -lås på lagrings konto resursen. Mer information om hur du låser Azure-resurser finns i [låsa resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Så här fungerar mjuk borttagning av behållare
 

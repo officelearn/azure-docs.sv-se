@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 08/25/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: a734589178438fd65d9a2d156fd91fc82807f578
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76697905"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853855"
 ---
 # <a name="brokered-authentication-in-android"></a>Brokered Authentication i Android
 
@@ -58,7 +58,7 @@ Om en enhet inte redan har en Service Broker-app installerad instruerar MSAL anv
 
 När en Broker installeras på en enhet hanteras alla efterföljande interaktiva Tokenbegäran (anrop till `acquireToken()` ) av Service Broker i stället för lokalt av MSAL. SSO-tillstånd som tidigare var tillgängligt för MSAL är inte tillgängligt för Broker. Detta innebär att användaren måste autentisera igen eller välja ett konto i den befintliga listan över konton som är kända för enheten.
 
-Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver matcha en `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException`genereras av ett antal orsaker och måste lösas interaktivt. Detta är några vanliga orsaker:
+Att installera en Broker kräver inte att användaren loggar in igen. Endast när användaren behöver matcha en `MsalUiRequiredException` skickas nästa begäran till Service Broker. `MsalUiRequiredException` genereras av ett antal orsaker och måste lösas interaktivt. Detta är några vanliga orsaker:
 
 - Användaren ändrade lösen ordet som är kopplat till sitt konto.
 - Användarens konto uppfyller inte längre en princip för villkorlig åtkomst.
@@ -76,7 +76,7 @@ Om Intune-företagsportal är installerat och fungerar som den aktiva utjämning
 
 Du måste registrera en omdirigerings-URI som är kompatibel med Broker. Omdirigerings-URI för Broker måste innehålla appens paket namn, samt den base64-kodade representationen av appens signatur.
 
-Formatet för omdirigerings-URI: n är:`msauth://<yourpackagename>/<base64urlencodedsignature>`
+Formatet för omdirigerings-URI: n är: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Generera din base64 URL-kodade signatur med appens signerings nycklar. Här följer några exempel på kommandon som använder dina fel söknings signerings nycklar:
 
@@ -122,3 +122,12 @@ Om du får en `MsalClientException` med-felkod `"BROKER_BIND_FAILURE"` finns det
 
 - Be användaren att inaktivera energi optimering för Microsoft Authenticator-appen och Intune-företagsportal.
 - Be användaren att bevilja `"READ_CONTACTS"` behörigheten
+
+## <a name="verifying-broker-integration"></a>Verifiera Broker-integrering
+
+Det kan hända att den inte omedelbart rensas om Broker-integreringen fungerar, men du kan använda följande steg för att kontrol lera:
+
+1. På din Android-enhet slutför du en begäran med hjälp av Service Broker.
+1. I inställningarna på din Android-enhet letar du efter ett nytt konto som motsvarar det konto som du autentiserade med. Kontot måste vara av typen *arbets konto*.
+
+Du kan ta bort kontot från inställningarna om du vill upprepa testet.

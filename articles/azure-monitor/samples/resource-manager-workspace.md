@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: d5af288ea564c4118e010c8d0f0f86c5337ce170
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0b1914755ff0435318ab970aa6dc6e5e039d581
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024062"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855685"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Exempel på Resource Manager-mallar för Log Analytics arbets ytor i Azure Monitor
 Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Varje exempel innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
@@ -21,13 +21,13 @@ Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azur
 
 ## <a name="template-references"></a>Mal lin References
 
-- [Microsoft. OperationalInsights-arbetsytor](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces) 
-- [Microsoft. OperationalInsights-arbetsytor/data källor](/azure/templates/microsoft.operationalinsights/2020-03-01-preview/workspaces/datasources)
+- [Microsoft. OperationalInsights-arbetsytor](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces) 
+- [Microsoft. OperationalInsights-arbetsytor/data källor](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces/datasources)
 
 ## <a name="create-a-log-analytics-workspace"></a>Skapa en Log Analytics-arbetsyta
 I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Om du anger en **kostnads fri**pris nivå tar du bort **retentionInDays** -elementet.
 
@@ -35,7 +35,7 @@ I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -112,7 +112,7 @@ I följande exempel skapas en ny tom Log Analytics-arbetsyta.
       {
           "type": "Microsoft.OperationalInsights/workspaces",
           "name": "[parameters('workspaceName')]",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "location": "[parameters('location')]",
           "properties": {
               "sku": {
@@ -134,7 +134,7 @@ I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -156,7 +156,7 @@ I följande exempel skapas en ny tom Log Analytics-arbetsyta.
 ## <a name="collect-windows-events"></a>Samla in Windows-händelser
 Följande exempel lägger till en samling av [Windows-händelser](../platform/data-sources-windows-events.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Lägg till ett **data källa** element för varje händelse logg som ska samlas in. Du kan ange en annan uppsättning händelse typer för varje logg.
 
@@ -164,7 +164,7 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -177,13 +177,13 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
   "resources": [
   {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsSystem",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -203,7 +203,7 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
         },
         {
           "type": "datasources",
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "name": "WindowsEventsApplication",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -235,7 +235,7 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -251,7 +251,7 @@ Följande exempel lägger till en samling av [Windows-händelser](../platform/da
 ## <a name="collect-syslog"></a>Samla in syslog
 Följande exempel lägger till en samling av [Syslog-händelser](../platform/data-sources-syslog.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Lägg till ett **data källa** element för varje funktion som ska samlas in. Du kan ange olika uppsättningar av allvarlighets grader för varje funktion.
 
@@ -259,7 +259,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -277,14 +277,14 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogKern",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -322,7 +322,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
             },
             {
                 "type": "datasources",
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "name": "SyslogDaemon",
                 "dependsOn": [
                     "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
@@ -350,7 +350,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "SyslogCollection",
                 "dependsOn": [
@@ -373,7 +373,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -389,7 +389,7 @@ Följande exempel lägger till en samling av [Syslog-händelser](../platform/dat
 ## <a name="collect-windows-performance-counters"></a>Samla in prestanda räknare i Windows
 I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/data-sources-performance-counters.md) till i en befintlig arbets yta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Lägg till ett **data källa** element för varje räknare och instans som ska samlas in. Du kan ange olika samlings hastigheter för varje räknare och instans-kombination.
   
@@ -397,7 +397,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -415,13 +415,13 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryAvailableBytes",
             "dependsOn": [
@@ -436,7 +436,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfMemoryPercentageBytes",
             "dependsOn": [
@@ -451,7 +451,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
             }
           },
           {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "datasources",
             "name": "WindowsPerfProcessorPercentage",
             "dependsOn": [
@@ -476,7 +476,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -493,7 +493,7 @@ I följande exempel läggs insamling av [Windows-prestandaräknare](../platform/
 ## <a name="collect-linux-performance-counters"></a>Samla in Linux-prestandaräknare
 Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/data-sources-performance-counters.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Lägg till ett **data källa** element för varje objekt och instans som ska samlas in. Du kan ange olika uppsättningar med räknare för varje kombination av objekt och instanser, men du kan bara ange en enskild hastighet för alla räknare.
   
@@ -501,7 +501,7 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -519,13 +519,13 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
     },
     "resources": [
     {
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "type": "Microsoft.OperationalInsights/workspaces",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceLogicalDisk",
                 "dependsOn": [
@@ -559,7 +559,7 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
                 }
             },
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "LinuxPerformanceProcessor",
                 "dependsOn": [
@@ -590,7 +590,7 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -607,7 +607,7 @@ Följande exempel lägger till en samling [Linux-prestandaräknare](../platform/
 ## <a name="collect-custom-logs"></a>Samla in anpassade loggar
 Följande exempel lägger till en samling med [anpassade loggar](../platform/data-sources-custom-logs.md) till en befintlig arbets yta.
 
-### <a name="notes"></a>Kommentarer
+### <a name="notes"></a>Anteckningar
 
 - Konfigurationen av avgränsare och extraktioner kan vara komplex. Om du behöver hjälp kan du definiera en anpassad logg med hjälp av Azure Portal och hämta dess konfiguration med [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) med **-kind** inställt på **CustomLog**.
 
@@ -616,7 +616,7 @@ Följande exempel lägger till en samling med [anpassade loggar](../platform/dat
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "workspaceName": {
@@ -634,13 +634,13 @@ Följande exempel lägger till en samling med [anpassade loggar](../platform/dat
   },
   "resources": [
   {
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2020-08-01",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
       "resources": [
         {
-            "apiVersion": "2020-03-01-preview",
+            "apiVersion": "2020-08-01",
             "type": "dataSources",
             "name": "[concat(parameters('workspaceName'), 'armlog_timedelimited')]",
             "dependsOn": [
@@ -687,7 +687,7 @@ Följande exempel lägger till en samling med [anpassade loggar](../platform/dat
             }
         },
         {
-          "apiVersion": "2020-03-01-preview",
+          "apiVersion": "2020-08-01",
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), 'armlog_newline')]",
           "dependsOn": [
@@ -740,7 +740,7 @@ Följande exempel lägger till en samling med [anpassade loggar](../platform/dat
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {
@@ -761,7 +761,7 @@ Följande exempel lägger till en samling [IIS-loggar](../platform/data-sources-
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "workspaceName": {
@@ -780,12 +780,12 @@ Följande exempel lägger till en samling [IIS-loggar](../platform/data-sources-
     "resources": [
     {
         "type": "Microsoft.OperationalInsights/workspaces",
-        "apiVersion": "2020-03-01-preview",
+        "apiVersion": "2020-08-01",
         "name": "[parameters('workspaceName')]",
         "location": "[parameters('location')]",
         "resources": [
             {
-                "apiVersion": "2020-03-01-preview",
+                "apiVersion": "2020-08-01",
                 "type": "datasources",
                 "name": "IISLog",
                 "dependsOn": [
@@ -807,7 +807,7 @@ Följande exempel lägger till en samling [IIS-loggar](../platform/data-sources-
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "workspaceName": {

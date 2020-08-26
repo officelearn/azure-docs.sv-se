@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb74fae150d4c8e5dda6978c272d358bdec6ca25
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783611"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853030"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -283,7 +283,7 @@ Externa identiteter kan beviljas åtkomst till företags resurser via någon av 
 
 * Tilldelad en privilegie rad roll i Azure AD eller i en Azure-prenumeration
 
-Se [exempel skript](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). Skriptet visar var externa identiteter som har bjudits in till klienten ska användas. Du kan se externa användares grupp medlemskap, roll tilldelningar och program tilldelningar i Azure AD. Skriptet visar inga tilldelningar utanför Azure AD, till exempel direkt rättighets tilldelning till SharePoint-resurser, utan användning av grupper.
+Se [exempel skript](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). Skriptet visar var externa identiteter som har bjudits in till klienten ska användas. Du kan se externa användares grupp medlemskap, roll tilldelningar och program tilldelningar i Azure AD. Skriptet visar inga tilldelningar utanför Azure AD, till exempel direkt rättighets tilldelning till SharePoint-resurser, utan användning av grupper.
 
 När du skapar en åtkomst granskning för grupper eller program kan du välja att låta granskaren fokusera på alla med åtkomst eller gäst användare. Genom att välja gäst användare får granskare en fokuserad lista över externa identiteter från Azure AD B2B som har åtkomst till resursen.
 

@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 61c969bc0c0ac9731ae35e445b82db633c3c5191
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163177"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855143"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Fråga efter data från Azure Time Series Insights Gen2
 
-Azure Time Series Insights Gen2 möjliggör data frågor om händelser och metadata som lagras i miljön via API: er på offentlig yta. Dessa API: er används också av [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+Azure Time Series Insights Gen2 möjliggör data frågor om händelser och metadata som lagras i miljön via API: er på offentlig yta. Dessa API: er används också av [Azure Time Series Insights TSD-Utforskare](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
 
 Tre primära API-kategorier är tillgängliga i Azure Time Series Insights Gen2:
 
@@ -73,4 +73,4 @@ Dessa API: er är tillgängliga i båda butikerna (varm och kall) i vår lagring
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om olika variabler som kan definieras i [tids serie modellen](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Läs mer om hur du frågar efter data från [Azure Time Series Insights Gen2 Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Läs mer om hur du frågar efter data från den [Azure Time Series Insights TSD-Utforskaren](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

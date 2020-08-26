@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 719b96c9186d463ca3ee41c6fb401a8f22c4c11c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: b4f3733806eb810cff7722e6432bb274b6d46a37
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431962"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854829"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
 
@@ -165,7 +165,7 @@ Nu när vi har några data i Machine Learning Studio (klassisk) måste vi skapa 
 1. Dra och släpp **csdairydata.csv data uppsättningen** på experimentet.
 1. I rutan **Sök efter experiment objekt** längst upp i det vänstra fönstret skriver du [Kör R-skript][execute-r-script]. Du ser att modulen visas i Sök listan.
 1. Dra och släpp modulen [Kör R-skript][execute-r-script] på din lastpall.  
-1. Anslut utdata fråncsdairydata.csv data uppsättningen till indata- **datauppsättningen** till vänster (**Dataset1**) för [execute R-skriptet][execute-r-script].
+1. Anslut utdata fråncsdairydata.csv data uppsättningen till indata- ** datauppsättningen** till vänster (**Dataset1**) för [execute R-skriptet][execute-r-script].
 1. **Glöm inte att välja "Spara"!**  
 
 Nu bör experimentet se ut ungefär som bild 3.
@@ -225,7 +225,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 
 Vi har redan diskuterat inläsning av data uppsättningar i [läsa in data uppsättningen](#loading). När du har skapat och testat R-skriptet som visas i föregående avsnitt gör du följande:
 
-1. Spara R-skriptet i en. R-fil. Jag kallar min skript fil "simpleplot. R ". Här är innehållet.
+1. Spara R-skriptet i en. R-fil. Jag kallar min skript fil "simpleplot. R ". Här är what's i filen:
 
    ```r
    ## Only one of the following two lines should be used
@@ -570,11 +570,11 @@ Det verkar som om allt fungerar. Vi har den nya kolumnen med de förväntade vä
 
 I det här avsnittet ska vi utföra några enkla transformeringar för värdena i några av kolumnerna i våra dataframe. R-språket stöder nästan godtyckliga värde transformationer. Referenserna som [läser](#appendixb) nedan innehåller omfattande exempel.
 
-Om du tittar på värdena i sammanfattningarna av vår dataframe bör du se någonting udda här. Är mer glass grädde än mjölk producerad i Kalifornien? Nej, eftersom detta inte gör något självklart kan Sad som detta faktum vara en del av Lovers för US ICE-grädde. Enheterna skiljer sig åt. Priset är i enheter om US pund, mjölk är i enheter om 1 M US pund, Ice grädde är i enheter om 1 000 amerikanska gallons och Cottage ost är i enheter om 1 000 US pund. Förutsatt att Ice-grädde väger cirka 6,5 kg per liter kan vi enkelt omvandla värdena så att de är lika med 1 000 pund.
+Om du tittar på värdena i sammanfattningarna av vår dataframe bör du se någonting udda här. Är mer glass grädde än mjölk producerad i Kalifornien? Nej, eftersom detta inte gör något självklart kan Sad som detta faktum vara en del av Lovers för US ICE-grädde. Enheterna skiljer sig åt. Priset är i enheter om US pund, mjölk är i enheter om 1 M US pund, Ice grädde är i enheter om 1 000 amerikanska gallons och Cottage ost är i enheter om 1 000 US pund. Förutsatt att Ice grädde väger cirka 6,5 kg per liter kan vi enkelt omvandla dessa värden så att de är lika med 1 000 pund.
 
 För vår prognos modell använder vi en multiplicative modell för trend-och säsongs anpassning av dessa data. En logg omvandling gör att vi kan använda en linjär modell som fören klar processen. Vi kan använda logg omvandlingen i samma funktion där multiplikatorn används.
 
-I följande kod definierar jag en ny funktion `log.transform()` och tillämpar den på de rader som innehåller numeriska värden. Funktionen R `Map()` används för att tillämpa `log.transform()` funktionen på de markerade kolumnerna i dataframe. `Map()`liknar `apply()` , men tillåter mer än en lista med argument för funktionen. Observera att en lista med multiplikatorer tillhandahåller det andra argumentet för `log.transform()` funktionen. `na.omit()`Funktionen används som en del av rensningen för att se till att det inte finns saknade eller odefinierade värden i dataframe.
+I följande kod definierar jag en ny funktion `log.transform()` och tillämpar den på de rader som innehåller numeriska värden. Funktionen R `Map()` används för att tillämpa `log.transform()` funktionen på de markerade kolumnerna i dataframe. `Map()` liknar `apply()` , men tillåter mer än en lista med argument för funktionen. Observera att en lista med multiplikatorer tillhandahåller det andra argumentet för `log.transform()` funktionen. `na.omit()`Funktionen används som en del av rensningen för att se till att det inte finns saknade eller odefinierade värden i dataframe.
 
 ```r
 log.transform <- function(invec, multiplier = 1) {
@@ -773,7 +773,7 @@ Det finns en viss struktur med udda utseende i relationerna mellan dessa variabl
 
 ### <a name="correlation-analysis"></a>Korrelationsanalys
 
-För att utföra korrelations analys behöver vi både ta bort och standardisera variablerna. Vi kan bara använda R `scale()` -funktionen, som båda centrerar och skalar variabler. Den här funktionen kan köras snabbare. Jag vill dock visa ett exempel på försvars program i R.
+För att utföra korrelations analys behöver vi både ta bort och standardisera variablerna. Vi kan bara använda R `scale()` -funktionen, som båda centrerar och skalar variabler. Den här funktionen kan köras snabbare. Men jag vill visa ett exempel på en försvars-programmering i R.
 
 `ts.detrend()`Funktionen som visas nedan utför båda dessa åtgärder. Följande två rader med kod som trendar data och standardiserar sedan värdena.
 
@@ -828,7 +828,7 @@ Vi har redan diskuterat ett exempel på en försvars programmering i värde tran
 
 Observera att den linjära regressionen som används för avtrendering är en tids serie regression. Förutsägelse variabeln är ett Time Series-objekt.  
 
-När `ts.detrend()` har definierats används den för variabler av intresse i vår dataframe. Vi måste bearbeta den resulterande listan som skapats av `lapply()` till data dataframe med hjälp av `as.data.frame()` . På grund av försvars aspekter av `ts.detrend()` , förhindrar inte att en av variablerna bearbetas inte rätt bearbetning av de andra.  
+När `ts.detrend()` har definierats tillämpas den på variabler av intresse i vår dataframe. Vi måste bearbeta den resulterande listan som skapats av `lapply()` till data dataframe med hjälp av `as.data.frame()` . På grund av försvars aspekter av `ts.detrend()` , förhindrar inte att en av variablerna bearbetas inte rätt bearbetning av de andra.  
 
 Den sista kodraden skapar en scatterplot. När du har kört R-koden visas resultatet av scatterplot i bild 17.
 
@@ -1338,7 +1338,7 @@ RStudio är väl väldokumenterat. Här följer några länkar till de viktigast
 Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Azure Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 
 * [R för nybörjare](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) av Emmanuel paradis är en bra plats att börja på.  
-* [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) med W. N. Venables et. flera är lite mer djup.
+* [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) med W. N. Venables et al. går in lite mer djup.
 
 Det finns många böcker på R som kan hjälpa dig att komma igång. Här är några saker som du kan hitta användbara:
 
@@ -1355,7 +1355,8 @@ I bokens **inledande tids serie** med r av Paul Cowpertwait och Andrew Metcalfe 
 Här är några bra Internet resurser:
 
 * DataCamp undervisar R i webbläsarens bekvämlighet med video lektioner och kodnings övningar. Det finns interaktiva självstudier om de senaste R-teknikerna och paketen. Ta den kostnads fria [interaktiva R-självstudien](https://www.datacamp.com/courses/introduction-to-r).
-* [Lär dig R-programmering, den definitiva guiden](https://www.programiz.com/r-programming) från Programiz.
+* [Lär dig R-programmering, den definitiva guiden](https://www.datamentor.io/r-programming/) från DataMentor.
+* [R-programmerare](https://r-coder.com/). Detaljerade R-självstudier och en kostnads fri R-kurs för nybörjare.
 * En snabb [R-självstudie](https://www.cyclismo.org/tutorial/R/) av Kelly Black från Clarkson University.
 * Det finns över 60 R-resurser som visas på [de främsta r-språken för att förbättra dina data kunskaper](https://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html).
 

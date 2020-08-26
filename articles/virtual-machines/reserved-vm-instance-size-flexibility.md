@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: manshuk
-ms.openlocfilehash: 05119a6f9af935a0f4a2887eae53f3d5bdb1a482
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 381023a0650b078a74c01ff7b698aebacb256147
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658280"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855514"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibel storlek för virtuella datorer med reserverade VM-instanser
 
-När du köper en reserverad VM-instans kan du välja att optimera storleks flexibiliteten för instans storleken eller kapacitets prioriteten. Mer information om hur du ställer in eller ändrar optimerings inställningen för reserverade VM-instanser finns i [ändra optimerings inställningen för reserverade VM-instanser](~/articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+När du köper en reserverad VM-instans kan du välja att optimera storleks flexibiliteten för instans storleken eller kapacitets prioriteten. Mer information om hur du ställer in eller ändrar optimerings inställningen för reserverade VM-instanser finns i [ändra optimerings inställningen för reserverade VM-instanser](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 
 Med en reserverad virtuell dator instans som är optimerad för flexibilitet i instans storleken kan den reservation du köper tillämpa på storlekarna för virtuella datorer (VM) i samma instans storlek flexibilitet grupp. Om du till exempel köper en reservation för en VM-storlek som anges i DSv2-serien, som Standard_DS5_v2, kan reservations rabatten gälla för de andra fyra storlekarna som anges i samma instans storleks flexibilitet grupp:
 
@@ -52,4 +52,4 @@ Vi behåller fil-URL: en och schemat åtgärdat så att du kan använda den här
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [Vad är Azure reservations](~/articles/cost-management-billing/reservations/save-compute-costs-reservations.md).
+Mer information finns i [Vad är Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).

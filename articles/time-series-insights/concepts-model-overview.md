@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 18212bf92304e75c702c51ff12628cd670755bb0
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141728"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855195"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Tids serie modell i Azure Time Series Insights Gen2
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börja
 > [!TIP]
 >
 > * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
-> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights Gen2 Explorer.
+> * Lär dig [hur du arbetar med tids serie modellen](/azure/time-series-insights/how-to-edit-your-model) med hjälp av Azure Time Series Insights TSD-Utforskare.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -75,7 +75,7 @@ Dessa komponenter kombineras för att ange en tids serie modell och organisera d
 
 [![Översikts diagram över tids serie modellen](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-En tids serie modell kan skapas och hanteras via [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+En tids serie modell kan skapas och hanteras via [Azure Time Series Insights TSD-Utforskare](/azure/time-series-insights/concepts-model-overview). Inställningarna för tids serie modellen kan hanteras via [API: t för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Tids serie modell instanser
 
@@ -87,7 +87,7 @@ Instanser har beskrivande information som är kopplad till dem kallas *instans e
 
 *Instans fält* är en samling beskrivande information som kan innehålla värden för hierarki nivåer, samt tillverkare, operatör och så vidare.
 
-När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen2-miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Azure Time Series Insights Gen2 Explorer med hjälp av tids serie modell frågor.
+När en händelse källa har kon figurer ATS för Azure Time Series Insights Gen2-miljön identifieras och skapas instanser automatiskt i en tids serie modell. Instanserna kan skapas eller uppdateras via Azure Time Series Insights TSD-Utforskaren med hjälp av tids serie modell frågor.
 
 [Contoso lindnings grupp demonstration](https://insights.timeseries.azure.com/preview/samples) innehåller flera exempel på Live-instansen.
 
@@ -182,8 +182,8 @@ Hierarkier representeras i JSON som:
 
 I föregående JSON-exempel:
 
-* `Location`definierar en hierarki med överordnad `states` och underordnad `cities` . Varje `location` kan ha flera `states` , som i sin tur kan ha flera `cities` .
-* `ManufactureDate`definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
+* `Location` definierar en hierarki med överordnad `states` och underordnad `cities` . Varje `location` kan ha flera `states` , som i sin tur kan ha flera `cities` .
+* `ManufactureDate` definierar en hierarki med överordnad `year` och underordnad `month` . Varje `ManufactureDate` kan ha flera `years` , som i sin tur kan ha flera `months` .
 
 > [!TIP]
 > För hierarki-API skapa, läsa, uppdatera och ta bort (CRUD) support, Läs artikeln [data frågor](concepts-query-overview.md#time-series-model-query-tsm-q-apis) och [API rest-dokumentation för hierarkin](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
@@ -216,7 +216,7 @@ Utifrån de instans fält som används i den föregående definitionen och flera
 | ID4 | "skapa" = "1000", "golv" = "10"  |
 | ID5 | Ingen av "byggnad", "golv" eller "Room" har angetts. |
 
-Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) eftersom de har fullständigt definierade och korrekt beställda *Bygg*-, *vånings*-och *rums* parametrar.
+Time Series- **id1** och **ID4** visas som en del av hierarkin **H1** i [Azure Time Series Insights TSD-Utforskaren](time-series-insights-update-explorer.md) , eftersom de har fullständigt definierade och korrekt beställda *Bygg*-, *vånings*-och *rums* parametrar.
 
 De andra klassificeras under icke- *överordnade instanser* eftersom de inte överensstämmer med den angivna Datahierarkin.
 

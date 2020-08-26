@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2019
+ms.date: 08/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607106"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852932"
 ---
 # <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
 Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure och Office 365.
@@ -111,6 +111,10 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan fakturer
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
+
+## <a name="whats-new"></a><a name="new"></a>Vad är det senaste?
+
+Prenumerera på RSS-flödet och Visa de senaste ExpressRoute-funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) .
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [ExpressRoute-anslutningsmodeller](expressroute-connectivity-models.md).

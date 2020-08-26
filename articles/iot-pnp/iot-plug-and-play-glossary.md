@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 2320bed07f574c096be1883a9d82da7311e92fa7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475472"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854221"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -54,6 +54,10 @@ En anslutnings sträng kapslar in den information som krävs för att ansluta ti
 
 - Anslutnings strängar för enheter gör att [IoT plug and Play-enheter](#iot-plug-and-play-device) kan ansluta till enhetens slut punkter på en IoT-hubb. Klient koden på en enhet använder anslutnings strängen för att upprätta en säker anslutning till en IoT-hubb.
 - IoT Hub anslutnings strängar möjliggör backend-lösningar och-verktyg för att ansluta säkert till tjänsteorienterade slut punkter på en IoT-hubb. Dessa lösningar och verktyg hanterar IoT-hubben och de enheter som är anslutna till den.
+
+## <a name="device-certification"></a>Enhets certifiering
+
+IoT Plug and Play enhets certifierings programmet verifierar att en enhet uppfyller IoT-Plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
 
 ## <a name="device-model"></a>Enhetsmodell
 
@@ -103,7 +107,7 @@ IoT Plug and Play- [enheter](#iot-plug-and-play-device) förväntas följa en up
 
 När en IoT Plug and Play-enhet ansluter till en IoT Hub skickas **modell-ID: t** för den [DTDL](#digital-twins-definition-language) -modell som den implementerar. Detta gör att lösningen kan hitta enhets modellen.
 
-## <a name="model-repository"></a>Modell databas
+## <a name="model-repository"></a>Modelldatabas
 
 En [modell databas](concepts-model-repository.md) lagrar [enhets modeller](#device-model) och [gränssnitt](#interface).
 

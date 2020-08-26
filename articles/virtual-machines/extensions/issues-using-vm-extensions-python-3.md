@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/22/2020
+ms.date: 08/25/2020
 ms.assetid: 3cd520fd-eaf7-4ef9-b4d3-4827057e5028
-ms.openlocfilehash: 944abc62f25473ea52836af7dc1fdcd1e16d9269
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15ece836e172b8316222ea606ca638650795d5d7
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82120787"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852600"
 ---
 # <a name="issues-using-vm-extensions-in-python-3-enabled-linux-azure-virtual-machines-systems"></a>Problem med att använda VM-tillägg i python 3 – aktiverade Linux Azure Virtual Machines system
 
@@ -28,7 +28,7 @@ ms.locfileid: "82120787"
 >
 > Innan du installerar **python 2. x** i produktion bör du överväga frågan om långsiktig support för python 2. x, särskilt deras förmåga att ta emot säkerhets uppdateringar. Som produkter, inklusive vissa av de tillägg som nämns, uppdaterar du med **python 3,8** -stöd, men du bör inte använda python 2. x.
 
-Vissa Linux-distributioner har gått över till python 3,8 och har tagit bort den äldre `/usr/bin/python` Start punkten för python helt. Den här över gången påverkar den automatiserade distributionen av vissa virtuella dator tillägg (VM) med följande villkor:
+Vissa Linux-distributioner har gått över till python 3,8 och har tagit bort den äldre `/usr/bin/python` Start punkten för python helt. Den här över gången påverkar den automatiserade distributionen av vissa tillägg för virtuella datorer (VM) med följande två villkor:
 
 - Tillägg som fortfarande övergår till python 3. x-stöd
 - Tillägg som använder den äldre `/usr/bin/python` Start punkten
@@ -43,50 +43,52 @@ Uppgraderingar på plats, till exempel uppgradering från **Ubuntu 18,04 LTS** t
 
 ## <a name="resolution"></a>Lösning
 
-Tänk på följande allmänna rekommendationer innan du distribuerar tillägg i de kända scenarier som beskrivs tidigare i sammanfattningen:
+Överväg de här allmänna rekommendationerna innan du distribuerar tillägg i de kända scenarier som beskrivs tidigare i sammanfattningen:
 
-1.  Innan du distribuerar tillägget återställer du `/usr/bin/python` symlink med hjälp av den leverantörs metod som tillhandahålls av Linux-distribution.
+1. Innan du distribuerar tillägget återställer du `/usr/bin/python` symlink med hjälp av den leverantörs metod som tillhandahålls av Linux-distribution.
 
-    - För **Python 2,7**använder du till exempel:`sudo apt update && sudo apt install python-is-python2`
+   - För **Python 2,7**använder du till exempel: `sudo apt update && sudo apt install python-is-python2`
 
-2.  Om du redan har distribuerat en instans som uppvisar det här problemet använder du funktionen **Kör kommando** på **bladet VM** för att köra kommandona ovan. Själva kommando tillägget för körning påverkas inte av över gången till python 3,8.
+1. Den här rekommendationen är för Azure-kunder och stöds inte i Azure Stack:
 
-3.  Om du distribuerar en ny instans och behöver ange ett tillägg vid etablerings tiden använder du användar data i **Cloud-Init** för att installera de paket som anges ovan.
+   - Om du redan har distribuerat en instans som uppvisar det här problemet använder du funktionen Kör kommando på bladet VM för att köra kommandona ovan. Själva kommando tillägget för körning påverkas inte av över gången till python 3,8.
 
-    Till exempel för python 2,7:
+1. Om du distribuerar en ny instans och behöver ange ett tillägg vid etablerings tiden använder du användar data i **Cloud-Init** för att installera de paket som anges ovan.
 
-    ```
-    # create cloud-init config
-    cat > cloudinitConfig.json <<EOF
-    #cloud-config
-    package_update: true
+   Till exempel för python 2,7:
+
+   ```python
+   # create cloud-init config
+   cat > cloudinitConfig.json <<EOF
+   #cloud-config
+   package_update: true
     
-    runcmd:
-    - sudo apt update
-    - sudo apt install python-is-python2 
-    EOF
-    
-    # create VM
-    az vm create \
-        --resource-group <resourceGroupName> \
-        --name <vmName> \
-        --image <Ubuntu 20.04 Image URN> \
-        --admin-username azadmin \
-        --ssh-key-value "<sshPubKey>" \
-        --custom-data ./cloudinitConfig.json
-    ```
+   runcmd:
+   - sudo apt update
+   - sudo apt install python-is-python2 
+   EOF
 
-4.  Om din organisations princip administratörer bestämmer att tillägg inte ska distribueras på virtuella datorer kan du inaktivera tilläggs stöd vid etablerings tiden:
+   # create VM
+   az vm create \
+       --resource-group <resourceGroupName> \
+       --name <vmName> \
+       --image <Ubuntu 20.04 Image URN> \
+       --admin-username azadmin \
+       --ssh-key-value "<sshPubKey>" \
+       --custom-data ./cloudinitConfig.json
+   ```
 
-    - REST-API
+1. Om din organisations princip administratörer bestämmer att tillägg inte ska distribueras på virtuella datorer kan du inaktivera tilläggs stöd vid etablerings tiden:
 
-      Så här inaktiverar du och aktiverar tillägg när du kan distribuera en virtuell dator med den här egenskapen:
+   - REST-API
 
-      ```
-        "osProfile": {
-          "allowExtensionOperations": false
-        },
-      ```
+     Så här inaktiverar du och aktiverar tillägg när du kan distribuera en virtuell dator med den här egenskapen:
+
+     ```python
+       "osProfile": {
+         "allowExtensionOperations": false
+       },
+     ```
 
 ## <a name="next-steps"></a>Nästa steg
 

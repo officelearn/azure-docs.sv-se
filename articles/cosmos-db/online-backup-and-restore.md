@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 1ac7f27015812756a8de9736351cc1fe0e374e0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799540"
+ms.locfileid: "88853919"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Med Azure Cosmos DB, inte bara för dina data, utan även säkerhets kopior av d
 
 * Azure Cosmos DB lagrar dessa säkerhets kopior i Azure Blob Storage, medan faktiska data finns lokalt inom Azure Cosmos DB.
 
-*  För att garantera låg latens lagras ögonblicks bilden av säkerhets kopian i Azure Blob Storage i samma region som den aktuella Skriv regionen (eller **någon** av de skrivskyddade regionerna, om du har en konfiguration med flera huvud servrar). För återhämtning mot regional katastrof replikeras varje ögonblicks bild av säkerhets kopierings data i Azure Blob Storage igen till en annan region via Geo-redundant lagring (GRS). Den region som säkerhets kopian replikeras till baseras på käll regionen och det regionala paret som är associerat med käll regionen. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhets kopian direkt. Azure Cosmos DB-teamet kommer att återställa din säkerhets kopia när du begär genom en support förfrågan.
+* För att garantera låg latens lagras ögonblicks bilden av säkerhets kopian i Azure Blob Storage i samma region som den aktuella Skriv regionen (eller **någon** av de skrivskyddade regionerna, om du har en konfiguration med flera huvud servrar). För återhämtning mot regional katastrof replikeras varje ögonblicks bild av säkerhets kopierings data i Azure Blob Storage igen till en annan region via Geo-redundant lagring (GRS). Den region som säkerhets kopian replikeras till baseras på käll regionen och det regionala paret som är associerat med käll regionen. Mer information finns i [listan över geo-redundanta par av Azure-regioner](../best-practices-availability-paired-regions.md) . Du kan inte komma åt den här säkerhets kopian direkt. Azure Cosmos DB-teamet kommer att återställa din säkerhets kopia när du begär genom en support förfrågan.
 
    Följande bild visar hur en Azure Cosmos-behållare med alla de tre primära fysiska partitionerna i västra USA säkerhets kopie ras i ett fjärran slutet Azure Blob Storage-konto i USA och sedan replikeras till USA, östra:
 
@@ -42,15 +42,15 @@ Med Azure Cosmos DB SQL API-konton kan du även underhålla dina egna säkerhets
 
 * Använd Azure Cosmos DB [ändra feed](change-feed.md) för att läsa data regelbundet för fullständiga säkerhets kopieringar eller för stegvisa ändringar och lagra dem i ditt eget lagrings utrymme.
 
-## <a name="backup-interval-and-retention-period"></a>Intervall för säkerhets kopiering och bevarande period
+## <a name="modify-the-backup-interval-and-retention-period"></a>Ändra intervallet för säkerhets kopiering och kvarhållningsperiod
 
-Azure Cosmos DB automatiskt tar en säkerhets kopia av dina data var fjärde timme och när som helst, så lagras de senaste två säkerhets kopiorna. Den här konfigurationen är standard alternativet och erbjuds utan extra kostnad. Om du har arbets belastningar där standard intervallet för säkerhets kopiering och kvarhållningsperiod inte är tillräckligt, kan du ändra dem. Du kan ändra dessa värden när du skapar ett Azure Cosmos-konto eller när kontot har skapats. Konfigurationen för säkerhets kopiering anges på konto nivån för Azure-Cosmos och du måste konfigurera den för varje konto. När du har konfigurerat alternativ för säkerhets kopiering för ett konto tillämpas det på alla behållare i kontot. För närvarande kan du bara ändra säkerhets kopierings alternativen från Azure Portal.
+Azure Cosmos DB automatiskt tar en säkerhets kopia av dina data var fjärde timme och när som helst, så lagras de senaste två säkerhets kopiorna. Den här konfigurationen är standard alternativet och erbjuds utan extra kostnad. Du kan ändra standard intervallet för säkerhets kopiering och kvarhållningsperiod när du skapar ett Azure Cosmos-konto eller när kontot har skapats. Konfigurationen för säkerhets kopiering anges på konto nivån för Azure-Cosmos och du måste konfigurera den för varje konto. När du har konfigurerat alternativ för säkerhets kopiering för ett konto tillämpas det på alla behållare i kontot. För närvarande kan du bara ändra säkerhets kopierings alternativen från Azure Portal.
 
 Om du av misstag har tagit bort eller skadat dina data, **innan du skapar en support förfrågan för att återställa data, måste du öka säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar efter den här händelsen.** På så sätt har Azure Cosmos DBs teamet tillräckligt med tid för att återställa ditt konto.
 
 Använd följande steg för att ändra standard alternativ för säkerhets kopiering för ett befintligt Azure Cosmos-konto:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/)
+1. Logga in på [Azure Portal.](https://portal.azure.com/)
 1. Gå till ditt Azure Cosmos-konto och öppna fönstret **säkerhetskopiera & återställning** . Uppdatera säkerhets kopierings intervallet och lagrings perioden för säkerhets kopior som krävs.
 
    * **Säkerhets kopierings intervall** – det är det intervall med vilket Azure Cosmos DB försöker säkerhetskopiera dina data. Säkerhets kopieringen tar en tids period som inte är noll och i vissa fall kan det potentiellt uppstå problem på grund av underordnade beroenden. Azure Cosmos DB försöker med att göra en säkerhets kopia vid det konfigurerade intervallet, men garanterar inte att säkerhets kopieringen har slutförts inom detta tidsintervall. Du kan konfigurera det här värdet i timmar eller minuter. Intervallet för säkerhets kopiering kan inte vara mindre än 1 timme och större än 24 timmar. När du ändrar intervallet börjar det nya intervallet gälla från och med den tidpunkt då den senaste säkerhets kopieringen utfördes.

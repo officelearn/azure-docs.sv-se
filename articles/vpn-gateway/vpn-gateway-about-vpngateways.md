@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 06/01/2020
+ms.date: 08/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036886"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855615"
 ---
 # <a name="what-is-vpn-gateway"></a>Vad är en VPN-gateway?
 
@@ -37,7 +37,7 @@ En anslutning för VPN-gateway är beroende av flera resurser som är konfigurer
 
 Det är viktigt att känna till att det finns olika konfigurationer för VPN-gatewayanslutningar. Du måste bestämma vilken konfiguration som passar bäst för dina behov. Till exempel har punkt-till-plats-, plats-till-plats-och sambefintliga ExpressRoute/plats-till-plats-anslutningar alla olika instruktioner och konfigurations krav. Information om diagram för design-och anslutnings topologi finns i [design](design.md).
 
-### <a name="settings"></a><a name="settings"></a>Autentiseringsinställningar
+### <a name="settings"></a><a name="settings"></a>Inställningar
 
 De inställningar som du väljer för varje resurs är viktiga för att skapa en lyckad anslutning. Information om enskilda resurser och inställningar för VPN Gateway finns [Om inställningar för VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md). Den här artikeln innehåller information om gatewaytyper, gateway-SKU:er, VPN-typer, anslutningstyper, gatewayundernät, lokala nätverksgatewayer och andra resursinställningar som du kan använda.
 
@@ -68,9 +68,13 @@ När du skapar en virtuell nätverksgateway anger du vilken gateway-SKU som du v
 
 Se [Gateway-SKU:er](vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er för VPN Gateway.
 
-## <a name="faq"></a><a name="faq"></a>Vanliga frågor
+## <a name="faq"></a><a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 Vanliga frågor om VPN Gateway finns i [Vanliga frågor och svar om VPN Gateway](vpn-gateway-vpn-faq.md).
+
+## <a name="whats-new"></a><a name="new"></a>Vad är det senaste?
+
+Prenumerera på RSS-flödet och Visa de senaste VPN Gateway funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway) .
 
 ## <a name="next-steps"></a>Nästa steg
 

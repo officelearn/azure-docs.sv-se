@@ -13,12 +13,12 @@ ms.date: 08/12/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 06f15257148342879a164005a8f4fb302c539e67
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6330621aac78d5e9df52f2cd3ad9c3968bb0120d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163670"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853388"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Autentiseringsuppgifter för certifikat för Microsoft Identity Platform Application Authentication
 
@@ -36,7 +36,7 @@ Om du vill beräkna försäkran kan du använda ett av många JWT-bibliotek på 
 | --- | --- |
 | `alg` | Ska vara **RS256** |
 | `typ` | Bör vara **JWT** |
-| `x5t` | X. 509-certifikatets hash (kallas även certifikatets SHA-1- *tumavtryck*) kodat som ett base64-sträng värde. Till exempel, med ett X. 509-certifikat-hash av `84E05C1D98BCE3A5421D225B140B36E86A3D5534` , `x5t` skulle anspråk vara `hOBcHZi846VCHSJbFAs26Go9VTQ` . |
+| `x5t` | X. 509-certifikatets hash-värde (även kallat certifikatets SHA-1- *tumavtryck*) är kodat som ett base64-sträng värde. Till exempel, med ett X. 509 certifikat-hash av `84E05C1D98BCE3A5421D225B140B36E86A3D5534` (hex), `x5t` skulle anspråk vara `hOBcHZi846VCHSJbFAs26Go9VTQ=` (base64). |
 
 ### <a name="claims-payload"></a>Anspråk (nytto Last)
 

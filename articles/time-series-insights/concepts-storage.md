@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 77616afa95b61d5a0ca726db0d66734fc57133f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86495371"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855120"
 ---
 # <a name="data-storage"></a>Datalagring
 
@@ -24,7 +24,7 @@ När du skapar en Azure Time Series Insights Gen2-miljö skapar du två Azure-re
 * En Azure Time Series Insights Gen2-miljö som kan konfigureras för varm data lagring.
 * Ett Azure Storage konto för kall data lagring.
 
-Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md) och [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md). Ditt varma Store kommer att innehålla senaste data inom den [kvarhållna kvarhållningsperiod](./time-series-insights-update-plan.md#the-preview-environment) som valts när du skapade Azure Time Series Insights Gen2-miljön.
+Data i det varmt arkivet är bara tillgängliga via [Time Series-API: er](./time-series-insights-update-tsq.md) och [Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md). Ditt varma Store kommer att innehålla senaste data inom den [kvarhållna kvarhållningsperiod](./time-series-insights-update-plan.md#the-preview-environment) som valts när du skapade Azure Time Series Insights Gen2-miljön.
 
 Azure Time Series Insights Gen2 sparar dina kall data till Azure Blob Storage i [fil formatet Parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 hanterar den här kall lagrings informationen exklusivt, men den är tillgänglig så att du kan läsa direkt som standard Parquet-filer.
 
@@ -58,7 +58,7 @@ För att säkerställa frågornas prestanda och data tillgänglighet ska du inte
 
 #### <a name="accessing-cold-store-data"></a>Åtkomst till data för kall lagring
 
-Förutom att komma åt dina data från [Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md) -och [Time Series-fråge-API: er](./time-series-insights-update-tsq.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
+Förutom att komma åt dina data från [Azure Time Series Insights TSD](./time-series-insights-update-explorer.md) -och [Time Series-fråge-API: er](./time-series-insights-update-tsq.md), kanske du också vill komma åt dina data direkt från Parquet-filerna som lagras i kyl lagret. Du kan till exempel läsa, transformera och rensa data i en Jupyter Notebook och sedan använda den för att träna din Azure Machine Learning-modell i samma Spark-arbetsflöde.
 
 Om du vill komma åt data direkt från ditt Azure Storage-konto behöver du Läs behörighet till det konto som används för att lagra dina Azure Time Series Insights Gen2-data. Du kan sedan läsa valda data baserat på skapande tiden för den Parquet-fil som finns i `PT=Time` mappen som beskrivs nedan i avsnittet [fil format för Parquet](#parquet-file-format-and-folder-structure) .  Mer information om hur du aktiverar Läs åtkomst till ditt lagrings konto finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
 
@@ -84,15 +84,15 @@ Azure Time Series Insights Gen2 lagrar kopior av dina data på följande sätt:
 
 Tidsstämpeln i BLOB-namnen i `PT=Time` mappen motsvarar ankomst tiden för data till Azure Time Series Insights Gen2 och inte tidsstämpeln för händelserna.
 
-Data i `PT=TsId` mappen kommer att optimeras för frågan över tid och är inte statisk. Vid ompartitionering kan vissa händelser finnas i flera blobbar. Namngivningen av Blobbarna i den här mappen är inte garanterat oförändrad. 
+Data i `PT=TsId` mappen kommer att optimeras för frågan över tid och är inte statisk. Vid ompartitionering kan vissa händelser finnas i flera blobbar. Namngivningen av Blobbarna i den här mappen är inte garanterat oförändrad.
 
-I allmänhet, om du behöver komma åt data direkt via Parquet-filer, använder du `PT=Time` mappen.  Med framtida funktioner kan du få effektiv åtkomst till `PT=TsId` mappen. 
+I allmänhet, om du behöver komma åt data direkt via Parquet-filer, använder du `PT=Time` mappen.  Med framtida funktioner kan du få effektiv åtkomst till `PT=TsId` mappen.
 
 > [!NOTE]
 >
-> * `<YYYY>`mappar till en 4-siffrig års representation.
-> * `<MM>`mappar till en tvåsiffrig månads representation.
-> * `<YYYYMMDDHHMMSSfff>`mappar till en tids stämplings representation med fyrsiffrigt år ( `YYYY` ), tvåsiffrig månad ( `MM` ), tvåsiffrig dag (), tvåsiffrig timme (), tvåsiffrig `DD` `HH` minut () `MM` , tvåsiffrig sekund ( `SS` ) och tresiffrig MS-siffrig MS ( `fff` ).
+> * `<YYYY>` mappar till en 4-siffrig års representation.
+> * `<MM>` mappar till en tvåsiffrig månads representation.
+> * `<YYYYMMDDHHMMSSfff>` mappar till en tids stämplings representation med fyrsiffrigt år ( `YYYY` ), tvåsiffrig månad ( `MM` ), tvåsiffrig dag (), tvåsiffrig timme (), tvåsiffrig `DD` `HH` minut () `MM` , tvåsiffrig sekund ( `SS` ) och tresiffrig MS-siffrig MS ( `fff` ).
 
 Azure Time Series Insights Gen2-händelser mappas till Parquet-filinnehållet på följande sätt:
 

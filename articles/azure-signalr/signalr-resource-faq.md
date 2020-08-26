@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: c944ae3a5d647cc457edd20a5d3dd0489e19e286
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 6d104e41a0cae906c346e81a26617a9d29795fb3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192290"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853275"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
@@ -78,8 +78,8 @@ I översikts bladet för Azure SignalR service-resurser har vi redan valt rätt 
 ## <a name="what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose"></a>Vad är tjänst lägets betydelse `Default` / `Serverless` / `Classic` ? Hur kan jag välja?
 
 Lägen
-* `Default` läget **kräver** NAV Server. När det inte finns någon tillgänglig server anslutning för navet försöker klienten ansluta till hubben.
-* `Serverless` -läget tillåter **inte** någon server anslutning, dvs. det kommer att neka alla Server anslutningar, alla klienter måste ha ett Server fritt läge.
+* `Default` läget *kräver* NAV Server. I det här läget dirigerar Azure-signaler klient trafiken till anslutna NAV Server-anslutningar. Azure-SignalR söker efter en ansluten NAV Server. Om en ansluten NAV Server inte hittas avvisar Azure-Signaleraren inkommande klient anslutningar. Du kan också använda **hanterings-API** i det här läget för att hantera de anslutna klienterna direkt via Azure SignalR.
+* `Serverless` läget tillåter *inte* någon server anslutning, d.v.s. alla Server anslutningar kommer att nekas. Alla klienter måste vara i ett Server fritt läge. Klienterna ansluter till Azure-Signaleraren och användarna använder vanligt vis Server lös teknik, till exempel **Azure Function** , för att hantera Hubbs logik. Se ett [enkelt exempel](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) som använder Azure SignalR-läge utan server.
 * `Classic` läge är en blandad status. När en hubb har server anslutning dirigeras den nya klienten till NAV Server, om inte, kommer klienten att övergå i ett läge utan server.
 
   Detta kan orsaka vissa problem, till exempel om alla Server anslutningar går förlorade under en viss tid, kommer vissa klienter att övergå i ett läge utan server, i stället för att dirigera till NAV Server.

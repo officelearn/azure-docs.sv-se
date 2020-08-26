@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fab0bf956790db2860daf75866d84173bfa6cbf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: a13fa7c819dcccc101c23015214bac55d2ab26c9
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751501"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855535"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium-lagring: design för hög prestanda
 
@@ -230,7 +230,7 @@ I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot fö
 
 *Linux-distributioner*  
 
-Med Azure Premium Storage får du samma prestanda nivå för virtuella datorer som kör Windows och Linux. Vi har stöd för många varianter Linux-distributioner och du kan se den fullständiga listan [här](~/articles/virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det är viktigt att Observera att olika distributioner passar bättre för olika typer av arbets belastningar. Du kan se olika prestanda nivåer beroende på vilken distribution din arbets belastning körs på. Testa Linux-distributioner med ditt program och välj det som fungerar bäst.
+Med Azure Premium Storage får du samma prestanda nivå för virtuella datorer som kör Windows och Linux. Vi har stöd för många varianter Linux-distributioner och du kan se den fullständiga listan [här](linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Det är viktigt att Observera att olika distributioner passar bättre för olika typer av arbets belastningar. Du kan se olika prestanda nivåer beroende på vilken distribution din arbets belastning körs på. Testa Linux-distributioner med ditt program och välj det som fungerar bäst.
 
 När du kör Linux med Premium Storage kontrollerar du de senaste uppdateringarna om nödvändiga driv rutiner för att garantera höga prestanda.
 
@@ -279,7 +279,7 @@ Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Ingen |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
 | ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
 | ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 

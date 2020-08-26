@@ -7,15 +7,15 @@ author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 4f3a417eca837778f2222d92d09b191082c8b195
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b86dd714bdd7f28ba5946e23c21b601e3336211c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276199"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855278"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure Policy inbyggda definitioner för Azure SQL Database & SQL-hanterad instans
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Den här sidan är ett index över [Azure policy](../../governance/policy/overview.md) inbyggda princip definitioner för Azure SQL Database och SQL-hanterad instans. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../../governance/policy/samples/built-in-policies.md).
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: b0415542d737fa2ab926eb572855dce5ef81690e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 11fa99acda5f1c8edac3026961c426257bb74d92
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808839"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853646"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Komma igång med Azure Queue Storage med hjälp av .NET
 
@@ -27,7 +27,7 @@ I den här kursen lär du dig hur du skriver .NET-kod för några vanliga scenar
 
 **Uppskattad tidsåtgång:** 45 minuter
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 - [Azure Storage vanliga klient bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -49,7 +49,7 @@ Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur d
 
 1. Välj **Arkiv**  >  **nytt**  >  **projekt**
 2. Välj **plattforms**  >  **fönster**
-3. Välj **Konsolprogram (.NET Framework)**
+3. Välj **konsol program (.NET Framework)**
 4. Välj **Nästa**
 5. Ange ett namn för ditt program i fältet **projekt namn**
 6. Välj **Skapa**
@@ -154,6 +154,8 @@ Om du vill rikta Azurite Storage-emulatorn kan du använda en genväg som mappar
 ```
 
 ### <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 Lägg till följande `using`-direktiv längst upp i filen `Program.cs`:
 

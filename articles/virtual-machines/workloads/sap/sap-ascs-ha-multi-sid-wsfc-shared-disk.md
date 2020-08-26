@@ -13,26 +13,24 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8c235cd204b86573746be4bce615939f3b072fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332c81c8502dac6f057c6ea41c7662e1edde1599
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82977914"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855181"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och delad disk i Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows OS][Logo_Windows] Windows
 >
-
-I september 2016 släppte Microsoft en funktion där du kan hantera flera virtuella IP-adresser med hjälp av en [intern Azure-belastningsutjämnare][load-balancer-multivip-overview]. Den här funktionen finns redan i den externa Azure-belastningsutjämnaren. 
 
 Om du har en SAP-distribution måste du använda en intern belastningsutjämnare för att skapa en Windows-kluster konfiguration för ASCS/SCS-instanser (SAP Central Services).
 
-Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installation till en SAP multi-SID-konfiguration genom att installera ytterligare SAP ASCS/SCS-klustrade instanser i ett befintligt WSFC-kluster (Windows Server Failover Clustering) med delad disk. När den här processen har slutförts har du konfigurerat ett SAP multi-SID-kluster.
+Den här artikeln fokuserar på hur du flyttar från en enda ASCS/SCS-installation till en SAP multi-SID-konfiguration genom att installera ytterligare SAP ASCS/SCS-klustrade instanser i ett befintligt WSFC-kluster (Windows Server Failover Clustering) med delad disk, med SIOS för att simulera delad disk. När den här processen har slutförts har du konfigurerat ett SAP multi-SID-kluster.
 
 > [!NOTE]
 > Den här funktionen är endast tillgänglig i Azure Resource Manager distributions modell.
@@ -46,7 +44,7 @@ Mer information om gränser för belastnings utjämning finns i avsnittet "priva
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du har redan konfigurerat ett WSFC-kluster som ska användas för en SAP ASCS/SCS-instans med hjälp av **fil resurs**, som visas i det här diagrammet.
 
@@ -54,9 +52,10 @@ Du har redan konfigurerat ett WSFC-kluster som ska användas för en SAP ASCS/SC
 
 > [!IMPORTANT]
 > Installationen måste uppfylla följande villkor:
-> * SAP ASCS/SCS-instanserna måste dela samma WSFC-kluster.
-> * Varje databas hanterings system (DBMS) SID måste ha ett eget dedikerat WSFC-kluster.
-> * SAP-programservrar som tillhör ett SAP-system-SID måste ha egna dedikerade virtuella datorer.
+> * SAP ASCS/SCS-instanserna måste dela samma WSFC-kluster.  
+> * Varje databas hanterings system (DBMS) SID måste ha ett eget dedikerat WSFC-kluster.  
+> * SAP-programservrar som tillhör ett SAP-system-SID måste ha egna dedikerade virtuella datorer.  
+> * Det finns inte stöd för en blandning av kötjänsten för Server 1 och Queue server 2 i samma kluster.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-shared-disk"></a>SAP ASCS/SCS multi-SID-arkitektur med delad disk
 
@@ -70,7 +69,7 @@ Det fullständiga landskapet med två SAP-system med hög tillgänglighet skulle
 
 ![SAP med hög tillgänglighet för multi-SID-installation med två SAP-system-sid][sap-ha-guide-figure-6003]
 
-## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Förbereda infrastrukturen för ett SAP multi-SID-scenario
+## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a><a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Förbereda infrastrukturen för ett SAP multi-SID-scenario
 
 För att förbereda infrastrukturen kan du installera ytterligare en SAP ASCS/SCS-instans med följande parametrar:
 
@@ -246,8 +245,6 @@ Den övergripande proceduren är följande:
 
     Öppna även avsöknings porten för den interna Azure-belastningsutjämnaren, som är 62350 i vårt scenario. Den beskrivs [i den här artikeln][sap-high-availability-installation-wsfc-shared-disk-win-firewall-probe-port].
 
-7. [Ändra starttyp för Windows-ers (SAP evaluate Receipt)][sap-high-availability-installation-wsfc-shared-disk-change-ers-service-startup-type].
-
 8. Installera den primära SAP-programservern på den nya dedikerade virtuella datorn enligt beskrivningen i installations guiden för SAP.  
 
 9. Installera den ytterligare SAP-programservern på den nya dedikerade virtuella datorn enligt beskrivningen i installations guiden för SAP.
@@ -285,7 +282,7 @@ Den övergripande proceduren är följande:
 [sap-high-availability-installation-wsfc-shared-disk]:sap-high-availability-installation-wsfc-shared-disk.md
 [sap-hana-ha]:sap-hana-high-availability.md
 [sap-suse-ascs-ha]:high-availability-guide-suse.md
-[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#0f3ee255-b31e-4b8a-a95a-d9ed6200468b
+[sap-net-weaver-ports-ascs-scs-ports]:sap-high-availability-infrastructure-wsfc-shared-disk.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

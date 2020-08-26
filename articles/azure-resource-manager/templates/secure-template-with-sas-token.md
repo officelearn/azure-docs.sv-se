@@ -2,17 +2,20 @@
 title: Distribuera säkert en mall med SAS-token
 description: Distribuera resurser till Azure med en Azure Resource Manager-mall som skyddas av en SAS-token. Visar Azure PowerShell och Azure CLI.
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 42eaae316d4fd0575102323933f849a3058228a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/25/2020
+ms.openlocfilehash: 8b35e82da8ebca98ec9fe1fb7441612bf61fb142
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80156403"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855660"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>Distribuera privat ARM-mall med SAS-token
 
-När din Azure Resource Manager-mall (ARM) finns i ett lagrings konto kan du begränsa åtkomsten till mallen för att undvika att exponera den offentligt. Du kommer åt en skyddad mall genom att skapa en SAS-token (signatur för delad åtkomst) för mallen och tillhandahålla denna token under distributionen. Den här artikeln förklarar hur du använder Azure PowerShell eller Azure CLI för att distribuera en mall med en SAS-token.
+När din Azure Resource Manager-mall (ARM-mall) finns i ett lagrings konto kan du begränsa åtkomsten till mallen för att undvika att exponera den offentligt. Du kommer åt en skyddad mall genom att skapa en SAS-token (signatur för delad åtkomst) för mallen och tillhandahålla denna token under distributionen. Den här artikeln förklarar hur du använder Azure PowerShell eller Azure CLI för att distribuera en mall med en SAS-token.
+
+> [!IMPORTANT]
+> I stället för att skydda din mall med en SAS-token bör du överväga att använda [mall-specifikationer](template-specs.md). Med specifikationer för mallar kan du dela dina mallar med andra användare i din organisation och hantera åtkomst till mallarna via Azure RBAC.
 
 ## <a name="create-storage-account-with-secured-container"></a>Skapa lagrings konto med säker behållare
 
@@ -110,6 +113,8 @@ New-AzResourceGroupDeployment `
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Följande exempel fungerar med bash-miljön i Cloud Shell. Andra miljöer kan kräva olika syntax för att skapa förfallo tid för SAS-token.
 
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)

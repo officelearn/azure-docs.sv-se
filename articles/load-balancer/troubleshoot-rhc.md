@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2020
 ms.author: errobin
-ms.openlocfilehash: 6148cedbf004e3e63200ac50b91a40866c5b18db
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1af3ce7125d30ed0cb9b8ca6b3cb9322dc14c520
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719754"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855250"
 ---
 # <a name="troubleshoot-resource-health-frontend-and-backend-availability-issues"></a>Felsöka problem med resurs hälsa, frontend och backend-tillgänglighet 
 
@@ -30,6 +30,9 @@ Data Sök vägens tillgänglighets mått genereras av ett TCP-ping var 25: e sek
 
 ## <a name="health-probe-status"></a>Status för hälsoavsökning
 Status måttet för hälso avsökningen genereras av ett ping för det protokoll som definieras i hälso avsökningen. Ping skickas till varje instans i backend-poolen och på den port som definierats i hälso avsökningen. För HTTP-och HTTPS-avsökningar kräver en lyckad ping ett HTTP 200 OK-svar, medan TCP-avsökningar betraktas som de ska. Efter varandra följande lyckade eller misslyckade avsökningar avgör om en server dels instans är felfri och kan ta emot trafik för de belastnings Utjämnings regler som backend-poolen är tilldelad. Precis som med data Sök vägs tillgänglighet använder vi den genomsnittliga agg regeringen, som anger det genomsnittliga antalet lyckade/totala pingar under samplings intervallet. Detta status värde för hälso avsökning anger Server delens hälso tillstånd i isoleringen från belastningsutjämnaren genom att avsöka Server dels instanserna utan att skicka trafik via klient delen.
+
+>[!IMPORTANT]
+>Status för hälso avsökningen samplas på en minut. Detta kan leda till smärre variationer i ett annat stadigt värde. Om det till exempel finns två server dels instanser, en avsökad och en avläst, kan hälso avsöknings tjänsten fånga in 7 exempel för den felfria instansen och 6 för den felaktiga instansen. Detta leder till ett tidigare stabilt värde på 50 som visas som 46,15 under ett minut intervall. 
 
 ## <a name="diagnose-degraded-and-unavailable-load-balancers"></a>Diagnostisera degraderade och ej tillgängliga belastningsutjämnare
 Som beskrivs i [resurs hälso artikeln](load-balancer-standard-diagnostics.md#resource-health-status)är en degraderad belastningsutjämnare en som visar mellan 25% och 90% data Sök vägs tillgänglighet, och en otillgänglig belastningsutjämnare är en med mindre än 25% tillgänglighet för data Sök vägar, under en period på två minuter. Samma steg kan vidtas för att undersöka det fel du ser i alla hälso avsöknings status eller aviseringar om tillgänglighet för data Sök vägar som du har konfigurerat. Vi kommer att utforska det fall där vi har kontrollerat vår resurs hälsa och hittat vår belastningsutjämnare för att vara otillgänglig med en tillgänglighet för data Sök väg på 0% – vår tjänst är nere.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 1b296cd942e36817da2832467ab603ebd833f825
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87910381"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854868"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Felsöka Azure Digitals dubbla: aviseringar
 
@@ -28,13 +28,17 @@ Så här aktiverar du aviseringar för din Azure Digital-instansen:
 
 2. Välj **aviseringar** på menyn och sedan **+ ny varnings regel**.
 
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Skärm bild som visar sidan aviseringar och knapp att lägga till. Inga aviseringar har kon figurer ATS än" lightbox="media/troubleshoot-alerts/alerts-pre.png":::
-
 3. På sidan *skapa aviserings regel* som följer kan du följa anvisningarna för att definiera villkor, åtgärder som ska utlösas och aviserings information.     
-    * **Omfattnings** information ska automatiskt fylla i med information om din instans.
-    * Du definierar **villkor** och **Åtgärds grupps** information för att anpassa aviserings utlösare och svar.
+    * **Omfattnings** information ska automatiskt fylla i med information om din instans
+    * Du definierar **villkor** och **Åtgärds grupps** information för att anpassa aviserings utlösare och svar
+    * I avsnittet **aviserings regel information** anger du _aviserings regelns namn_, _Beskrivning (valfritt)_. Du kan markera kryss rutan _Aktivera aviserings regel vid skapande_ om du vill att aviseringen ska bli aktiv så fort den skapas.
+    * Baserat på vissa villkor och åtgärder som du lägger till måste du välja _Spara aviserings regel till resurs grupp_ och _allvarlighets grad_ från respektive listruta.
 
-    :::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Skärm bild som visar sidan Skapa aviserings regel med avsnitt för omfattning, villkor och åtgärds grupp" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+4. Klicka på knappen _skapa aviserings regel_ för att skapa din aviserings regel.
+
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Skärm bild som visar sidan Skapa aviserings regel med avsnitt för omfattning, villkor och åtgärds grupp" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
+
+:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Skärm bild som visar avsnittet aviserings regel information i skapa en varnings regel" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
 
 En guidad genom gång av hur du fyller i de här fälten finns i [*Översikt över aviseringar i Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Nedan visas några exempel på hur stegen kommer att se ut för Azure Digital-dubbla.
 

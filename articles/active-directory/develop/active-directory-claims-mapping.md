@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/06/2020
+ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d518dcf833a49e32d72938a31da412d53cc40037
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141541"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853366"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -44,7 +44,7 @@ En princip för anspråks mappning är en typ av **princip** objekt som ändrar 
 
 Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Description |
+| Anspråks uppsättning | Beskrivning |
 |---|---|
 | Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
 | Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
@@ -143,7 +143,6 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | onprem_sid |
 | openid2_id |
 | password |
-| platf |
 | polids |
 | pop_jwk |
 | preferred_username |
@@ -248,11 +247,11 @@ Du styr vilka anspråk som ska genereras och var data kommer från genom att anv
 
 **Sammanfattning:** Den här egenskapen avgör om den grundläggande anspråks uppsättningen ingår i tokens som påverkas av den här principen.
 
-- Om värdet är true genereras alla anspråk i den grundläggande anspråks uppsättningen i tokens som påverkas av principen. 
+- Om värdet är true genereras alla anspråk i den grundläggande anspråks uppsättningen i tokens som påverkas av principen.
 - Om värdet är false är anspråk i den grundläggande anspråks uppsättningen inte i tokens, om de inte individuellt läggs till i egenskapen anspråk schema för samma princip.
 
-> [!NOTE] 
-> Anspråk i den kärn anspråks uppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på. 
+> [!NOTE]
+> Anspråk i den kärn anspråks uppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på.
 
 ### <a name="claims-schema"></a>Anspråks schema
 
@@ -267,14 +266,14 @@ För varje anspråks schema post som definieras i den här egenskapen krävs vis
 
 **Värde:** Värdet element definierar ett statiskt värde som de data som ska genereras i anspråket.
 
-**Käll-/ID-par:** Käll-och ID-elementen definierar var data i anspråket ska hämtas från.  
+**Käll-/ID-par:** Käll-och ID-elementen definierar var data i anspråket ska hämtas från.
 
 **Käll-ExtensionID-par:** Käll-och ExtensionID-elementen definierar det katalog schemas tilläggs attribut där data i anspråket ska hämtas från. Mer information finns i [använda tillägg för katalog schema i anspråk](active-directory-schema-extensions.md).
 
-Ange käll elementet till något av följande värden: 
+Ange käll elementet till något av följande värden:
 
-- "användare": data i anspråket är en egenskap för objektet användare. 
-- "program": data i anspråket är en egenskap på program tjänstens huvud namn (klient). 
+- "användare": data i anspråket är en egenskap för objektet användare.
+- "program": data i anspråket är en egenskap på program tjänstens huvud namn (klient).
 - "resurs": data i anspråket är en egenskap för resurs tjänstens huvud namn.
 - "Audience": data i anspråket är en egenskap för tjänstens huvud namn som är mål gruppen för token (antingen klienten eller resurs tjänstens huvud namn).
 - "företag": data i anspråket är en egenskap för resurs innehavarens företags objekt.
@@ -286,7 +285,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
 
-| Källa | ID | Description |
+| Källa | ID | Beskrivning |
 |-----|-----|-----|
 | Användare | surname | Familje namn |
 | Användare | givenname | Förnamn |
@@ -322,8 +321,8 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 | Användare | extensionattribute15 | Attribut för tillägg 15 |
 | Användare | othermail | Annan e-post |
 | Användare | land | Land/region |
-| Användare | city | Stad |
-| Användare | state | Stat |
+| Användare | city | City |
+| Användare | state | Tillstånd |
 | Användare | befattning | Befattning |
 | Användare | employeeid | Anställnings-ID |
 | Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
@@ -349,7 +348,7 @@ ID-elementet identifierar vilken egenskap på källan som innehåller värdet f�
 
 **Sträng:** ClaimsTransformation
 
-**Datatyp:** JSON-BLOB med en eller flera omvandlings poster 
+**Datatyp:** JSON-BLOB med en eller flera omvandlings poster
 
 **Sammanfattning:** Använd den här egenskapen för att tillämpa vanliga transformeringar för källdata för att generera utdata för anspråk som anges i anspråks schemat.
 
@@ -361,14 +360,14 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Description|
+|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
 |-----|-----|-----|-----|
 |Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Till exempel: sträng1: " foo@bar.com ", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: " foo@bar.com.sandbox "|
 |ExtractMailPrefix|E-post eller UPN|extraherad sträng|ExtensionAttributes 1-15 eller andra schema tillägg som lagrar ett UPN-eller e-postadress värde för användaren, t. ex. johndoe@contoso.com . Extraherar den lokala delen av en e-postadress. Exempel: mail: " foo@bar.com " resulterar i outputClaim: "foo". Om det inte finns något \@ tecken returneras den ursprungliga Indatasträngen som den är.|
 
 **InputClaims:** Använd ett InputClaims-element för att skicka data från en anspråks schema post till en omvandling. Det har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** är ansluten med ID-elementet för anspråks schema posten för att hitta rätt indatamängds-anspråk. 
+- **ClaimTypeReferenceId** är ansluten med ID-elementet för anspråks schema posten för att hitta rätt indatamängds-anspråk.
 - **TransformationClaimType** används för att ge det unika namnet för den här indatamängden. Det här namnet måste matcha en av förväntade indata för omvandlings metoden.
 
 **Indataparametrar:** Använd ett indataparametrar för att skicka ett konstant värde till en Transformation. Det har två attribut: **Value** och **ID**.
@@ -387,7 +386,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
 
-|Källa|ID|Description|
+|Källa|ID|Beskrivning|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
 | Användare | userPrincipalName|UPN (User Principal Name)|
@@ -420,7 +419,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell cmdlet `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Mer information om denna Azure PowerShell-cmdlet finns i [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Appar som har aktiverat anspråks mappning måste verifiera sina token signerings nycklar genom `appid={client_id}` att lägga till i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
+Appar som har aktiverat anspråks mappning måste verifiera sina token signerings nycklar genom `appid={client_id}` att lägga till i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -464,20 +463,20 @@ Gör så här för att komma igång:
 I det här exemplet skapar du en princip som tar bort den grundläggande anspråks uppsättningen från token som utfärdats till länkade tjänstens huvud namn.
 
 1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänstens huvud namn, tar bort den grundläggande anspråks uppsättningen från tokens.
-   1. Kör följande kommando för att skapa principen: 
-    
+   1. Kör följande kommando för att skapa principen:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
    2. Kör följande kommando för att se den nya principen och hämta principen ObjectId:
-    
+
       ``` powershell
       Get-AzureADPolicy
       ```
 1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn.
    1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
-     
+   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -487,21 +486,21 @@ I det här exemplet skapar du en princip som tar bort den grundläggande ansprå
 I det här exemplet skapar du en princip som lägger till fälten Anställningsnr och TenantCountry för token som utfärdats till länkade tjänstens huvud namn. Anställningsnr genereras som namn anspråks typ i både SAML-tokens och JWTs. TenantCountry genereras som lands-/regions typ i både SAML-token och JWTs. I det här exemplet fortsätter vi att inkludera de grundläggande anspråks uppsättningarna i tokens.
 
 1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänst huvud namn, lägger till anspråken Anställningsnr och TenantCountry till tokens.
-   1. Kör följande kommando för att skapa principen:  
-     
+   1. Kör följande kommando för att skapa principen:
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/employeeid","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
+
    2. Kör följande kommando för att se den nya principen och hämta principen ObjectId:
-     
-      ``` powershell  
+
+      ``` powershell
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
+1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn.
    1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
-     
+   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
@@ -512,20 +511,20 @@ I det här exemplet skapar du en princip som ger ett anpassat anspråk "JoinedDa
 
 1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänst huvud namn, lägger till anspråken Anställningsnr och TenantCountry till tokens.
    1. Kör följande kommando för att skapa principen:
-     
+
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
-    
-   2. Kör följande kommando för att se den nya principen och hämta principen ObjectId: 
-     
+
+   2. Kör följande kommando för att se den nya principen och hämta principen ObjectId:
+
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
+1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn.
    1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando: 
-     
+   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:
+
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```

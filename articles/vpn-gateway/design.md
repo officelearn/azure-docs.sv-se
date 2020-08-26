@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 06/01/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7b9077af50115e912415d784dc98ace081c0c88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d0bcd0608796545a4982f72f276399d5f692e765
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300325"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852696"
 ---
 # <a name="vpn-gateway-design"></a>VPN Gateway design
 
@@ -26,6 +26,8 @@ Det är viktigt att känna till att det finns olika konfigurationer för VPN-gat
 En plats-till-plats-anslutning (S2S) för VPN-gateway är en anslutning via en VPN-tunnel med IPsec/IKE (IKEv1 eller IKEv2). S2S-anslutningar kan användas för konfigurationer mellan platser och för hybridkonfigurationer. En S2S-anslutning kräver en VPN-enhet som finns lokalt och som har tilldelats en offentlig IP-adress. Om du vill ha information om att välja en VPN-enhet kan du läsa [vanliga frågor och svar om VPN Gateway – VPN-enheter](vpn-gateway-vpn-faq.md#s2s).
 
 ![Exempel på Azure VPN Gateway-anslutningar för plats-till-plats](./media/design/vpngateway-site-to-site-connection-diagram.png)
+
+VPN Gateway kan konfigureras i aktivt standby-läge med hjälp av en offentlig IP-adress eller i aktivt-aktivt läge med två offentliga IP-adresser. I aktivt läge är en IPsec-tunnel aktiv och den andra tunneln är i vänte läge. I den här konfigurationen flödar trafiken genom den aktiva tunneln, och om ett problem uppstår med den här tunneln växlar trafiken över till standby-tunneln. Att ställa in VPN Gateway i aktivt-aktivt läge *rekommenderas* i vilka båda IPSec-tunnlarna är aktiva samtidigt, med data som passerar genom båda tunnlarna på samma gång. En ytterligare fördel med aktivt aktivt läge är att kunderna upplever högre data flöden.
 
 ### <a name="multi-site"></a><a name="Multi"></a>Flera platser
 
@@ -75,7 +77,7 @@ Du kan använda VNet-peering för att skapa anslutningen, förutsatt att ditt vi
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (privat anslutning)
 
-Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som tillhandahålls av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett valfritt-till-alla (IP VPN)-nätverk, ett Ethernet-nätverk från punkt till punkt eller en virtuell kors anslutning via en anslutnings leverantör till en samplacering.
+Med ExpressRoute kan du utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning som stöds av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och CRM Online. Anslutningen kan vara från ett valfritt-till-alla (IP VPN)-nätverk, ett Ethernet-nätverk från punkt till punkt eller en virtuell kors anslutning via en anslutnings leverantör till en samplacering.
 
 ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att ExpressRoute-anslutningar är tillförlitligare, snabbare, har kortare svarstider och högre säkerhet än vanliga anslutningar över Internet.
 

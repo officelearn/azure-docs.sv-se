@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8bed6c46b0660d5bf43863a5c7aaf4eeaf7e26f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853245"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852094"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
 När du arbetar med virtuell WAN-routning för virtuella WAN finns det några tillgängliga scenarier. I det här NVA-scenariot är målet att dirigera trafik via en NVA (virtuell nätverks installation) för gren till VNet och VNet till gren. Information om virtuell hubb routning finns i [om virtuell nav-routning](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Vissa funktioner för routning kan fortfarande återställas. Om distributionen ännu inte har hänt i din region kan du använda stegen i dessa versioner av artiklarna under tiden:
+> Om du redan har en konfiguration med vägar som är tidigare än de nya funktionerna som krävs för [att konfigurera virtuell hubb](how-to-virtual-hub-routing.md) blir tillgänglig, kan du följa stegen i dessa versioner av artiklarna:
 >* [Azure Portal artikel](virtual-wan-route-table-nva-portal.md)
 >* [PowerShell-artikel](virtual-wan-route-table-nva.md)
 >
 
-## <a name="design"></a><a name="design"></a>Utforma
+## <a name="design"></a><a name="design"></a>Design
 
 I det här scenariot använder vi namngivnings konventionen:
 

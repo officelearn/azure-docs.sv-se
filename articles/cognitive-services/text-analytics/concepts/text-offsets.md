@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 6e404c710a244f06676edf50c3f5c95a7d681e35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219240"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855651"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Text förskjutningar i API för textanalys utdata
 
-Stöd för flerspråkig och emoji har lett till Unicode-kodningar som använder mer än en [kod punkt](https://wikipedia.org/wiki/Code_point) för att representera ett enda visat tecken, som kallas en Grapheme. Exempel: emojis som 🌷 och 👍 kan använda flera tecken för att skapa formen med ytterligare tecken för visuella attribut, till exempel hudton. På samma sätt kodas hindi `अनुच्छेद` -ordet som fem bokstäver och tre kombinations märken.
+Stöd för flerspråkig och emoji har lett till Unicode-kodningar som använder mer än en [kod punkt](https://wikipedia.org/wiki/Code_point) för att representera ett enda visat tecken, som kallas en Grapheme. Exempel: emojis som 🌷 och 👍 kan använda flera tecken för att skapa formen med ytterligare tecken för visuella attribut, till exempel hudton. På samma sätt kodas hindi-ordet `अनुच्छेद` som fem bokstäver och tre kombinations märken.
 
 På grund av olika längd på möjliga flerspråkiga och emoji-kodningar kan API för textanalys returnera förskjutningar i svaret.
 
@@ -40,10 +40,20 @@ I .NET bör du överväga att använda klassen [StringInfo](https://docs.microso
 
 API för textanalys returnerar även dessa text element, för bekvämlighet.
 
+## <a name="offsets-in-api-version-31-preview"></a>Förskjutningar i API-version 3,1-för hands version
+
+Från och med API version 3,1 – för hands version. 1, kommer alla API för textanalys slut punkter som returnerar en förskjutning att stödja `stringIndexType` parametern. Den här parametern justerar `offset` `length` attributen och i API-utdata för att matcha det begärda sträng upprepnings schemat. För närvarande stöder vi tre typer:
+
+1. `textElement_v8` (standard): iterer över graphemes enligt definitionen i [Unicode 8.0.0](https://unicode.org/versions/Unicode8.0.0) -standarden
+2. `unicodeCodePoint`: iterer över [Unicode-kodfragment](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564), standard schema för python 3
+3. `utf16CodeUnit`: iterer över [UTF-16-kodfragment](https://unicode.org/faq/utf_bom.html#UTF16), standard schema för Java Script, Java och .net
+
+Om det `stringIndexType` begärda matchar den programmerings miljö du väljer kan del sträng extrahering göras med hjälp av standard under sträng eller sektor metoder. 
+
 ## <a name="see-also"></a>Se även
 
 * [Översikt över Textanalys](../overview.md)
-* [Sentimentanalys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Igenkänning av enhet](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)

@@ -1,5 +1,5 @@
 ---
-title: Koda en klientapp
+title: 'Självstudie: koda en klient app'
 titleSuffix: Azure Digital Twins
 description: Självstudie för att skriva den minimala koden för en klient app med hjälp av .NET (C#) SDK.
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 282c506f509adce4c616615e8b8e3580166052e6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723477"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854668"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Koda med Azure Digitals dubbla API: er
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
 Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen för utvecklare ger en introduktion till programmering mot Azure Digitals-tjänsten med [Azure IoT Digital-klient biblioteket för .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
+
+> [!div class="checklist"]
+> * Konfigurera projekt
+> * Kom igång med projekt kod   
+> * Fullständigt kod exempel
+> * Rensa resurser
+> * Nästa steg
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -561,7 +568,3 @@ Fortsätt till nästa självstudie för att utforska de saker du kan göra med e
 
 > [!div class="nextstepaction"]
 > [*Självstudie: utforska grunderna med en exempel klient program*](tutorial-command-line-app.md)
-
-Du kan också lägga till koden som du skrev i den här självstudien genom att lära dig mer om hanterings åtgärder i instruktions artiklarna eller börja titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien.
-* [*Anvisningar: Hantera anpassade modeller*](how-to-manage-model.md)
-* [*Begrepp: anpassade modeller*](concepts-models.md)

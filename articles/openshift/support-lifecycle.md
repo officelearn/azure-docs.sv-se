@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 56328500c1c220a04b3e2219c145ad5db0e07ff7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c066931cece60d14767b86254020ea5ba4bad1be
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817864"
+ms.locfileid: "88854504"
 ---
 # <a name="support-lifecycle-for-azure-red-hat-openshift-4"></a>Support livs cykel för Azure Red Hat OpenShift 4
 
@@ -97,9 +97,9 @@ Se följande guide för den [tidigare versionen av Red Hat OpenShift container P
 
 |OCP-version|Överordnad version|Azure Red Hat OpenShift allmän tillgänglighet|Uttjänta|
 |-|-|-|-|
-|4.3|23 januari 2020|28 april 2020|2 augusti 2020|
-|4.4|5 maj 2020|29 juli 2020|4,6 GA|
-|4,5|13 juli 2020|28 september 2020|4,7 GA
+|4.3|Februari 2020|Maj 2020|Augusti 2020|
+|4.4|Maj 2020|Augusti 2020|4,6 GA|
+|4,5|Juli 2020|Oktober 2020|4,7 GA
 |4,6|* Tidigt i Q4, 2020|* Sent i Q4, 2020|4,8 GA|
 
 \*_Datum bekräftelse för väntande lansering av uppladdning._

@@ -3,20 +3,20 @@ title: Använda program miljöer
 titleSuffix: Azure Machine Learning
 description: Skapa och hantera miljöer för modell utbildning och distribution. Hantera python-paket och andra inställningar för miljön.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: saachigopal
+ms.author: sagopal
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a08575ac118f38361d82198ccc86a09f7b2558d6
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783747"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853245"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -153,7 +153,7 @@ Lägg till paket i en miljö med Conda-, pip-eller privata Wheel-filer. Ange var
 
 Om ett paket är tillgängligt i en Conda-lagringsplats, rekommenderar vi att du använder Conda-installationen i stället för pip-installationen. Conda-paket levereras normalt med färdiga binärfiler som gör installationen mer tillförlitlig.
 
-Följande exempel lägger till i miljön. Den lägger till version 1.17.0 av `numpy` . Paketet läggs också till `pillow` `myenv` . Exemplet använder metoden respektive [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) metod.
+Följande exempel lägger till i miljön `myenv` . Den lägger till version 1.17.0 av `numpy` . Det lägger också till `pillow` paketet. Exemplet använder metoden respektive [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) metod.
 
 ```python
 from azureml.core.environment import Environment
@@ -245,7 +245,7 @@ build.wait_for_completion(show_output=True)
 Det är praktiskt att först bygga avbildningar lokalt med hjälp av- [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metoden. Och om du anger den valfria parametern `pushImageToWorkspaceAcr = True` skickas den resulterande avbildningen in i Azure ml-arbetsytans behållare register. 
 
 > [!WARNING]
->  Att ändra ordningen på beroenden eller kanaler i en miljö leder till en ny miljö och kräver en ny avbildnings version.
+>  Att ändra ordningen på beroenden eller kanaler i en miljö leder till en ny miljö och kräver en ny avbildnings version. Dessutom kommer anrop av `build()` metoden för en befintlig avbildning att uppdatera dess beroenden om det finns nya versioner. 
 
 ## <a name="enable-docker"></a>Aktivera Docker
 
@@ -323,7 +323,7 @@ myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 För en registrerad miljö kan du hämta avbildnings information med hjälp av följande kod där `details` är en instans av [DockerImageDetails](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockerimagedetails?view=azure-ml-py) (AzureML python SDK >= 1,11) och ger all information om miljö avbildningen, till exempel Dockerfile, register och avbildnings namn.
 
 ```python
-details = environment.get_image_details()
+details = environment.get_image_details(workspace=ws)
 ```
 
 ## <a name="use-environments-for-training"></a>Använda miljöer för utbildning

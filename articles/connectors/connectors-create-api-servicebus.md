@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2020
 tags: connectors
-ms.openlocfilehash: d02467fddcce77340b9845fe084bf5a2fb8b01f3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815760"
+ms.locfileid: "88853296"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -85,23 +85,23 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
    1. Ange ett namn för anslutningen och välj Service Bus namn område.
 
-      ![Skapa Service Bus anslutning, del 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Skärm bild som visar att ange anslutnings namn och välja Service Bus namnrymd](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       Om du vill ange anslutnings strängen manuellt i stället väljer du **Ange anslutnings information manuellt**. Om du inte har anslutnings strängen kan du läsa om [hur du hittar anslutnings strängen](#permissions-connection-string).
 
    1. Välj din Service Bus-princip och välj **skapa**.
 
-      ![Skapa Service Bus anslutning, del 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Skärm bild som visar hur du väljer Service Bus princip](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Välj den meddelande enhet som du vill använda, till exempel en kö eller ett ämne. I det här exemplet väljer du din Service Bus-kö.
    
-      ![Välj Service Bus kö](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Skärm bild som visar val av Service Bus kö](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Ange den information som krävs för den valda utlösaren. Om du vill lägga till andra tillgängliga egenskaper till åtgärden öppnar du listan **Lägg till ny parameter** och väljer de egenskaper som du vill använda.
 
    I det här exemplets utlösare väljer du avsöknings intervall och frekvens för att kontrol lera kön.
 
-   ![Konfigurera avsöknings intervall](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Skärm bild som visar avsöknings intervall i Service Bus utlösaren](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    Mer information om tillgängliga utlösare och egenskaper finns på kopplingens [referens sida](/connectors/servicebus/).
 
@@ -123,29 +123,29 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
    I det här exemplet väljer du åtgärden **Skicka meddelande** .
 
-   ![Välj Service Bus åtgärd](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Skärm bild som visar hur du väljer åtgärden Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. Om åtgärden ansluter till Service Bus namn området för första gången följer du de här stegen när du uppmanas att ange anslutnings information i Logic Apps designer.
 
    1. Ange ett namn för anslutningen och välj Service Bus namn område.
 
-      ![Skapa Service Bus anslutning, del 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Skärm bild som visar ett anslutnings namn och väljer ett Service Bus namn område](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       Om du vill ange anslutnings strängen manuellt i stället väljer du **Ange anslutnings information manuellt**. Om du inte har anslutnings strängen kan du läsa om [hur du hittar anslutnings strängen](#permissions-connection-string).
 
    1. Välj din Service Bus-princip och välj **skapa**.
 
-      ![Skapa Service Bus anslutning, del 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Skärm bild som visar hur du väljer en Service Bus-princip och hur du väljer knappen Skapa](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Välj den meddelande enhet som du vill använda, till exempel en kö eller ett ämne. I det här exemplet väljer du din Service Bus-kö.
 
-      ![Välj Service Bus kö](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Skärm bild som visar val av en Service Bus kö](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Ange nödvändig information för den valda åtgärden. Om du vill lägga till andra tillgängliga egenskaper till åtgärden öppnar du listan **Lägg till ny parameter** och väljer de egenskaper som du vill använda.
 
    Välj till exempel egenskaperna **innehåll** och **innehålls typ** så att du lägger till dem i åtgärden. Ange sedan innehållet för det meddelande som du vill skicka.
 
-   ![Tillhandahåll meddelande innehåll och information](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Skärm bild som visar meddelandets innehålls typ och information](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    Mer information om tillgängliga åtgärder och deras egenskaper finns på kopplingens [referens sida](/connectors/servicebus/).
 

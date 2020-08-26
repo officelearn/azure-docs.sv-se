@@ -13,19 +13,19 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/03/2019
+ms.date: 08/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5a356e96b82e6fbe855d0b474dcb6b1f59c98333
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87035986"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855218"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Windows OS][Logo_Windows] Windows
 >
 
 Du kan hantera flera virtuella IP-adresser med hjälp av en [intern Azure-belastningsutjämnare][load-balancer-multivip-overview]. 
@@ -61,6 +61,7 @@ _**Bild 1:** En SAP ASCS/SCS-instans och SOFS distribuerade i två kluster_
 > * Olika SAP-globala värd fil resurser som tillhör olika SAP-sid: er måste dela samma SOFS-kluster.
 > * Varje databas hanterings system (DBMS) SID måste ha ett eget dedikerat WSFC-kluster.
 > * SAP-programservrar som tillhör ett SAP-system-SID måste ha egna dedikerade virtuella datorer.
+> * Det finns inte stöd för en blandning av kötjänsten för Server 1 och Queue server 2 i samma kluster.  
 
 ## <a name="sap-ascsscs-multi-sid-architecture-with-file-share"></a>SAP ASCS/SCS multi-SID-arkitektur med fil resurs
 

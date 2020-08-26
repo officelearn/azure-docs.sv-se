@@ -9,14 +9,14 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 7f889d6730012a11ebf82a78583ef420b7621075
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 32a873af3d287c3bd1e83de6db8e17ebc1d2958b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337661"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855630"
 ---
-# <a name="what-is-iot-plug-and-play-preview"></a>Vad är IoT Plug and Play Preview?
+# <a name="what-is-iot-plug-and-play-preview"></a>Vad är förhandsversionen av IoT Plug and Play?
 
 IoT Plug and Play Preview gör det möjligt för lösnings byggare att integrera smarta enheter med sina lösningar utan manuell konfiguration. I IoT Plug and Play är en enhets _modell_ som en enhet använder för att annonsera sina funktioner till ett IoT plug and Play-aktiverat program. Den här modellen är strukturerad som en uppsättning element som definierar:
 
@@ -61,6 +61,10 @@ Som enhets byggare kan du utveckla en IoT-maskinvara som stöder IoT Plug and Pl
 
 > [!Important]
 > IoT Plug and Play-enheter måste använda MQTT eller MQTT över WebSockets. Andra protokoll som AMQP eller HTTP är inte giltiga för att implementera IoT Plug and Play-enheter.
+
+## <a name="device-certification"></a>Enhets certifiering
+
+[Iot plug and Play enhets certifierings programmet](howto-certify-device.md) verifierar att en enhet uppfyller IoT-plug and Play certifierings krav. Du kan lägga till en certifierad enhet i [katalogen för offentlig certifierad för Azure IoT-enheter](https://aka.ms/devicecatalog).
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 

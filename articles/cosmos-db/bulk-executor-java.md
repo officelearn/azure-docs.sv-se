@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: a45a47b36ca0e9c426c84bb4b9f87ee5bdeccb84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5adc15eb7beab4d54156456ee447a7e6039b6c6d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309162"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892617"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använda massexecutor-biblioteket i Java för att utföra massåtgärder på Azure Cosmos DB-data
 
@@ -183,7 +183,8 @@ Du kan uppdatera befintliga dokument med BulkUpdateAsync-API: et. I det här exe
    |int getNumberOfDocumentsUpdated ()  |   Det totala antalet dokument som har uppdaterats från de dokument som har skickats till API-anropet för Mass uppdatering.      |
    |dubbel getTotalRequestUnitsConsumed () |  Totalt antal begär ande enheter (RU) som förbrukas av API-anropet för Mass uppdatering.       |
    |Varaktighet getTotalTimeTaken ()  |   Den totala tid det tar för Mass uppdatering av API-anrop för att slutföra körningen.      |
-   |Visa lista \<Exception> getErrors ()   |       Hämtar listan över fel om några dokument från batchen som angavs för Mass uppdaterings-API-anropet inte kunde infogas.      |
+   |Visa lista \<Exception> getErrors ()   |       Hämtar listan över drift-eller nätverks problem som rör uppdaterings åtgärden.      |
+   |Visa lista \<BulkUpdateFailure> getFailedUpdates ()   |       Hämtar listan över uppdateringar som inte kunde slutföras tillsammans med de speciella undantagen som leder till fel.|
 
 3. När du har Mass uppdaterings applikationen klar skapar du kommando rads verktyget från källan genom att använda kommandot "mvn Clean Package". Det här kommandot genererar en jar-fil i målmappen:  
 

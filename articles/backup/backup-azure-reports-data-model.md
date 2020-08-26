@@ -3,12 +3,12 @@ title: Data modell för Azure Backup Diagnostics-händelser
 description: Den här data modellen refererar till det resursbaserade läget för att skicka diagnostiska händelser till Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 46d40694da4eb025afc11da0f14b28691bf13bb8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538878"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892532"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
 
@@ -53,7 +53,7 @@ Den här tabellen innehåller information om kärn säkerhets kopiering av entit
 | ProtectedContainerWorkloadType    | Text          | Typ av skyddad behållare som säkerhets kopie ras. Till exempel IaaSVMContainer |
 | SkyddsgruppNamn               | Text          | Namnet på den skydds grupp som säkerhets kopie posten skyddas i, för SC DPM och MABS, om tillämpligt |
 | ResourceGroupName                 | Text          | Resurs grupp för resursen (till exempel Recovery Services valvet) för data som samlas in |
-| Schema                     | Text          | Det här fältet anger den aktuella versionen av schemat, den är **v2** |
+| Schema                     | Text          | Det här fältet anger den aktuella versionen av schemat. Det är **v2** |
 | SecondaryBackupProtectionState    | Text          | Om sekundärt skydd har Aktiver ATS för säkerhets kopierings objekt  |
 | Tillstånd                             | Text          | Status för objektet säkerhets objekt. Till exempel aktiv, borttagen |
 | StorageReplicationType            | Text          | Typ av lagrings replikering för valvet. Till exempel, förredundant |
@@ -84,7 +84,7 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 | BackupItemUniqueId             | Text          | Unik identifierare för det säkerhets kopierings objekt som är associerat med aviseringen |
 | BackupManagementServerUniqueId | Text          | Fält för att unikt identifiera säkerhets kopierings hanterings servern som objektet skyddas med, om tillämpligt |
 | BackupManagementType           | Text          | Providertyp för server som utför säkerhets kopierings jobb, till exempel IaaSVM, FileFolder |
-| CountOfAlertsConsolidated      | Antal        | Antal aviseringar som konsolideras om det är en konsol IDE rad avisering  |
+| CountOfAlertsConsolidated      | Antal        | Antal aviseringar som konsol IDE ras om det är en konsol IDE rad avisering  |
 | ProtectedContainerUniqueId     | Text          | Unik identifierare för den skyddade servern som är associerad med aviseringen |
 | RecommendedAction              | Text          | Åtgärd som rekommenderas för att lösa aviseringen                      |
 | Schema                  | Text          | Aktuell version av schemat, till exempel **v2**            |
@@ -165,12 +165,12 @@ Den här tabellen innehåller information om principbaserad fält.
 | DiffBackupTime                  | Tid           | Tid för differentiella säkerhets kopieringar för SQL i VM-säkerhetskopiering i Azure     |
 | LogBackupFrequency              | Decimaltal | Frekvens för säkerhets kopiering av loggar för SQL                            |
 | LogBackupRetentionDuration      | Decimaltal | Retentions tid för logg säkerhets kopior för SQL i Azure VM-säkerhetskopiering |
-| MonthlyRetentionDaysOfTheMonth  | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.  Till exempel First, Last osv. |
+| MonthlyRetentionDaysOfTheMonth  | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.  Till exempel första, sista |
 | MonthlyRetentionDaysOfTheWeek   | Text           | Vecko dagar som valts för månatlig kvarhållning              |
 | MonthlyRetentionDuration        | Text           | Total Retentions tid i månader för konfigurerade säkerhets kopieringar    |
 | MonthlyRetentionFormat          | Text           | Typ av konfiguration för månatlig kvarhållning. Till exempel varje dag för dag baserat, varje vecka i veckan baserat |
 | MonthlyRetentionTimes           | Text           | Datum och tid när månatlig kvarhållning har kon figurer ATS           |
-| MonthlyRetentionWeeksOfTheMonth | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.   Till exempel First, Last osv. |
+| MonthlyRetentionWeeksOfTheMonth | Text           | Veckor i månaden då månatlig kvarhållning har kon figurer ATS.   Till exempel första, sista |
 | PolicyName                      | Text           | Namn på den princip som definierats                                   |
 | PolicyUniqueId                  | Text           | Unikt ID för att identifiera principen                             |
 | PolicyTimeZone                  | Text           | Tidszon där fälten för princip tid anges i loggarna |

@@ -4,12 +4,12 @@ description: Innehåller en sammanfattning av stödinställningar och begränsni
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 41bc06e2c63b1b35bb789636bcd269439078be70
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825196"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892192"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -133,7 +133,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
 
-**Inställning** | **Gränser**
+**Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
 **Maximal förfallo tid för en återställnings punkt** | Obegränsad
@@ -145,14 +145,14 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 ## <a name="cross-region-restore"></a>Återställning mellan regioner
 
-Azure Backup har lagt till funktionen för återställning av kors region för att förstärka data tillgänglighet och återhämtnings kapacitet, vilket ger kunderna fullständig kontroll över att återställa data till en sekundär region. Om du vill konfigurera den här funktionen går [du till artikeln ange återställning mellan regioner.](backup-create-rs-vault.md#set-cross-region-restore).. Den här funktionen stöds för följande hanterings typer:
+Azure Backup har lagt till funktionen för återställning av kors region för att förstärka data tillgänglighet och återhämtnings kapacitet, vilket ger dig fullständig kontroll för att återställa data till en sekundär region. Om du vill konfigurera den här funktionen går [du till artikeln ange återställning mellan regioner.](backup-create-rs-vault.md#set-cross-region-restore).. Den här funktionen stöds för följande hanterings typer:
 
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Inga                                                           | Saknas               |
-| SQL-/SAP HANA          | Inga                                                           | Saknas               |
-| DATABASSERVER                    | Inga                                                           | Saknas               |
+| MARS-agent/lokalt | Inga                                                           | Ej tillämpligt               |
+| SQL-/SAP HANA          | Inga                                                           | Ej tillämpligt               |
+| DATABASSERVER                    | Inga                                                           | Ej tillämpligt               |
 
 ## <a name="next-steps"></a>Nästa steg
 

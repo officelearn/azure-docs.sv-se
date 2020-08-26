@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a8f956a692fd857fc864ca0132acc85d9942bbd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021338"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891818"
 ---
 # <a name="hierarchical-state-override"></a>Åsidosätta hierarkiskt tillstånd
 
@@ -51,9 +51,9 @@ Den fasta uppsättning tillstånd som kan åsidosättas är:
 
 Varje tillstånd kan därför ställas in på något av följande:
 
-* `ForceOn`-tillstånd är aktiverat för alla nät på och under den här noden
-* `ForceOff`-statusen är inaktive rad för alla nät på och under den här noden
-* `InheritFromParent`-statusen påverkas inte av den här åsidosättning-komponenten
+* `ForceOn` -tillstånd är aktiverat för alla nät på och under den här noden
+* `ForceOff` -statusen är inaktive rad för alla nät på och under den här noden
+* `InheritFromParent` -statusen påverkas inte av den här åsidosättning-komponenten
 
 Du kan ändra tillstånd direkt eller via `SetState` funktionen:
 
@@ -74,9 +74,9 @@ component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollisi
 ApiHandle<HierarchicalStateOverrideComponent> component = ...;
 
 // set one state directly
-component->HiddenState(HierarchicalEnableState::ForceOn);
+component->SetHiddenState(HierarchicalEnableState::ForceOn);
 
-// set a state with the SetState function
+// or: set a state with the SetState function
 component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
 
 // set multiple states at once with the SetState function

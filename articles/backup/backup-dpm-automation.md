@@ -3,12 +3,12 @@ title: Använda PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med PowerShell
 ms.topic: conceptual
 ms.date: 01/23/2017
-ms.openlocfilehash: 1f77337c9b5b1dce73f39cff7090bb5d892c29cd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 91fd8559b1561ae83967c7fc74a2390ce2460c95
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825978"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892328"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 
@@ -72,7 +72,7 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Rec
 4. Ange vilken typ av lagrings redundans som ska användas. Du kan använda [Lokalt Redundant lagring (LRS)](../storage/common/storage-redundancy.md) eller [geo-REDUNDANT lagring (GRS)](../storage/common/storage-redundancy.md). I följande exempel visas alternativet-BackupStorageRedundancy för testVault som är inställt på ett inaktivt läge.
 
    > [!TIP]
-   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
+   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det lämpligt att lagra säkerhets kopierings Recovery Services valvet i en variabel.
    >
    >
 
@@ -268,7 +268,7 @@ Listan över servrar där DPM-agenten är installerad och hanteras av DPM-server
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains "productionserver01"}
 ```
 
-Nu ska du hämta listan över data källor med ```$server``` hjälp av cmdleten [Get-DPMDatasource](/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) . I det här exemplet filtreras vi efter den volym `D:\` som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) . Kom ihåg att använda objektet *ändrings* bara skydds grupp ```$MPG``` för att göra tilläggen.
+Nu ska du hämta listan över data källor med ```$server``` hjälp av cmdleten [Get-DPMDatasource](/powershell/module/dataprotectionmanager/get-dpmdatasource?view=systemcenter-ps-2019) . I det här exemplet ska vi filtrera på den volym `D:\` som vi vill konfigurera för säkerhets kopiering. Den här data källan läggs sedan till i skydds gruppen med hjälp av cmdleten [Add-DPMChildDatasource](/powershell/module/dataprotectionmanager/add-dpmchilddatasource?view=systemcenter-ps-2019) . Kom ihåg att använda objektet *ändrings* bara skydds grupp ```$MPG``` för att göra tilläggen.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains "D:\" }
@@ -289,7 +289,7 @@ Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 
 ### <a name="setting-the-retention-range"></a>Ställer in kvarhållningsintervall
 
-Ange kvarhållning för säkerhets kopierings platserna med cmdleten [set-DPMPolicyObjective](/powershell/module/dataprotectionmanager/set-dpmpolicyobjective?view=systemcenter-ps-2019) . Det kan verka konstigt att ställa in kvarhållning innan säkerhets kopierings schemat har definierats, men med ```Set-DPMPolicyObjective``` cmdleten anges automatiskt ett standard schema för säkerhets kopiering som sedan kan ändras. Det är alltid möjligt att ange schemat för säkerhets kopiering först och bevarande principen efter.
+Ange kvarhållning för säkerhets kopierings platserna med cmdleten [set-DPMPolicyObjective](/powershell/module/dataprotectionmanager/set-dpmpolicyobjective?view=systemcenter-ps-2019) . Det kan verka konstigt att ställa in kvarhållning innan säkerhets kopierings schemat har definierats, men med ```Set-DPMPolicyObjective``` cmdleten anges automatiskt ett standard schema för säkerhets kopiering som sedan kan ändras. Det är alltid möjligt att ställa in schemat för säkerhets kopiering först och bevarande principen efter.
 
 I exemplet nedan anger cmdleten bevarande parametrarna för disk säkerhets kopieringar. Detta kommer att behålla säkerhets kopior i 10 dagar och synkronisera data var 6: e timme mellan produktions servern och DPM-servern. Den ```SynchronizationFrequencyMinutes``` definierar inte hur ofta en säkerhets kopierings punkt skapas, men hur ofta data kopieras till DPM-servern.  Den här inställningen förhindrar att säkerhets kopior blir för stora.
 

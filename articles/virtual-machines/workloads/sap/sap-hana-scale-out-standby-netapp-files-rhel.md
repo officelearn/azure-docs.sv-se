@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
-ms.openlocfilehash: e018f2320b505a174850472d85ec2ebd59310560
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406579"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893178"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux 
 
@@ -110,10 +110,10 @@ Azure NetApp-volymerna finns i separata undernät, [delegerade till Azure NetApp
 
 I den här exempel konfigurationen är under näten:  
 
-  - `client`10.9.1.0/26  
-  - `storage`10.9.3.0/26  
-  - `hana`10.9.2.0/26  
-  - `anf`10.9.0.0/26 (delegerat undernät till Azure NetApp Files)
+  - `client` 10.9.1.0/26  
+  - `storage` 10.9.3.0/26  
+  - `hana` 10.9.2.0/26  
+  - `anf` 10.9.0.0/26 (delegerat undernät till Azure NetApp Files)
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Konfigurera Azure NetApp Files-infrastrukturen 
 
@@ -153,7 +153,7 @@ Följande instruktioner förutsätter att du redan har distribuerat ditt [virtue
    
    I det här exemplet använde vi en separat Azure NetApp Files volym för varje HANA-data och logg volym. För en mer kostnads optimerad konfiguration på mindre eller icke-produktiva system är det möjligt att placera alla data monteringar på en enda volym och alla loggar monteras på en annan volym.  
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
 Tänk på följande viktiga överväganden när du skapar Azure NetApp Files för SAP HANA skala ut med scenarion för stå med noder:
 
@@ -239,7 +239,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
 
 3. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `storage` virtuella nätverkets undernät (i det här exemplet **hanadb1-Storage**, **hanadb2-Storage**och **hanadb3-Storage**).  
 
-4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana` virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
+4. Skapa tre nätverks gränssnitt, ett för varje virtuell dator för det `hana`  virtuella nätverkets undernät (i det här exemplet **hanadb1-Hana**, **hanadb2-Hana**och **hanadb3-Hana**).  
 
 5. Koppla de nyligen skapade virtuella nätverks gränssnitten till motsvarande virtuella datorer genom att utföra följande steg:  
 
@@ -253,7 +253,7 @@ Nästa instruktioner förutsätter att du redan har skapat resurs gruppen, det v
     
     e. Välj **Spara**. 
  
-    f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel **hanadb2** och **hanadb3**).
+    f. Upprepa steg b till e för de återstående virtuella datorerna (i vårt exempel  **hanadb2** och **hanadb3**).
  
     ex. Lämna kvar de virtuella datorerna i stoppat tillstånd för tillfället. Därefter aktiverar vi [accelererat nätverk](../../../virtual-network/create-vm-accelerated-networking-cli.md) för alla nyligen anslutna nätverks gränssnitt.  
 
@@ -349,7 +349,9 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
     net.core.optmem_max = 16777216
     net.ipv4.tcp_rmem = 65536 16777216 16777216
     net.ipv4.tcp_wmem = 65536 16777216 16777216
-    net.core.netdev_max_backlog = 300000 net.ipv4.tcp_slow_start_after_idle=0 net.ipv4.tcp_no_metrics_save = 1
+    net.core.netdev_max_backlog = 300000 
+    net.ipv4.tcp_slow_start_after_idle=0 
+    net.ipv4.tcp_no_metrics_save = 1
     net.ipv4.tcp_moderate_rcvbuf = 1
     net.ipv4.tcp_window_scaling = 1
     net.ipv4.tcp_timestamps = 1
@@ -563,7 +565,7 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
      * Under **vill du lägga till värdar i systemet?**: ange **y**
      * För **kommaavgränsade värdnamn som ska läggas till**: ange **hanadb2, hanadb3**
      * För **rot användar namn** [root]: Tryck på RETUR för att acceptera standardvärdet
-     * För roller för värd hanadb2: ange **1** (för arbetare)
+     * För roller för värd hanadb2: ange **1**  (för arbetare)
      * För **värd växlings gruppen** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet
      * För **lagrings partitions nummer** för värd-hanadb2 [<<assign automatically>>]: Tryck på RETUR för att acceptera standardvärdet
      * För **arbets grupp** för värd hanadb2 [standard]: Tryck på RETUR för att acceptera standardvärdet

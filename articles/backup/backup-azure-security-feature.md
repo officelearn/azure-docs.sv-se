@@ -4,12 +4,12 @@ description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: a793b67b88f11988a584e3f57a296c69606cdd5f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826913"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892464"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 
@@ -112,9 +112,9 @@ Säkerhetsfunktionerna som nämns i den här artikeln ger skydds metoder mot rik
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du är på en version som inte stöds (versioner som stöds anges i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden över den minsta kvarhållningsperioden som har angetts (sju dagar i varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) för att fortsätta med principbaserad uppdatering. En önskad metod är att uppdatera säkerhets kopierings agenten, Azure Backup Server och/eller DPM-UR för att utnyttja alla säkerhets uppdateringar. |
+| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du använder en version som inte stöds (som stöds anges i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden över den minsta kvarhållningsperioden som har angetts (sju dagar i varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) för att fortsätta med principbaserad uppdatering. En önskad metod är att uppdatera säkerhets kopierings agenten, Azure Backup Server och/eller DPM-UR för att utnyttja alla säkerhets uppdateringar. |
 | Ändra lösen fras |Den angivna säkerhets koden är felaktig. (ID: 100130) Ange rätt säkerhets kod för att slutföra åtgärden. |**Orsak**<br/> Det här felet uppstår när du anger en ogiltig eller utgången säkerhets kod när du utför en kritisk åtgärd (t. ex. ändrings fras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange en giltig säkerhets kod för att slutföra åtgärden. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > inställningar > egenskaper > skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
-| Ändra lösen fras |Åtgärden misslyckades. ID: 120002 |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker ändra lösen fras och du är på en version som inte stöds (giltiga versioner som anges i den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösen frasen måste du först uppdatera säkerhets kopierings agenten till lägsta möjliga version 2.0.9052, Azure Backup server till minst uppdatering 1 och/eller DPM för att minst DPM 2012 R2 UR12 eller DPM 2016 UR2 (hämta länkar nedan). Ange sedan en giltig PIN-kod för säkerhet. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > inställningar > egenskaper > skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
+| Ändra lösen fras |Åtgärden misslyckades. ID: 120002 |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker ändra lösen frasen och du har en version som inte stöds (giltiga versioner som anges i den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösen frasen måste du först uppdatera säkerhets kopierings agenten till minst version 2.0.9052, Azure Backup Server till lägsta uppdatering 1, och/eller DPM för att minst DPM 2012 R2 UR12 eller DPM 2016 UR2 (hämta länkar nedan) och sedan ange en giltig PIN-kod för säkerhet. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > inställningar > egenskaper > skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
 
 ## <a name="next-steps"></a>Nästa steg
 

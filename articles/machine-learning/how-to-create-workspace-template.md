@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
 ms.date: 07/27/2020
-ms.openlocfilehash: 05a45a2a8aeabae2b160701020e5deb89fb3aa81
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1d405aff5233f38aee2031220fd119693da64abb
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751707"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892872"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -120,7 +120,7 @@ New-AzResourceGroupDeployment `
 Som standard är alla resurser som skapats som en del av mallen nya. Du kan dock också välja att använda befintliga resurser. Genom att ange ytterligare parametrar för mallen kan du använda befintliga resurser. Om du till exempel vill använda ett befintligt lagrings konto anger du **storageAccountOption** -värdet till **befintlig** och anger namnet på ditt lagrings konto i parametern **storageAccountName** .
 
 > [!IMPORTANT]
-> Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans standard lagrings konto.
+> Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans standard lagrings konto. Varken Premium Storage eller hierarkiska namn områden stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azcli)
 

@@ -3,18 +3,18 @@ title: Mjuk borttagning för Azure Backup
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d791b76698330cd14c56f01cf5da62c8a64bec29
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 921d04c530695ee8909fb17b216029849c4fc4a2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826981"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892481"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Mjuk borttagning för Azure Backup
 
 Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning.
 
-En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden.
+En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" medför ingen kostnad för dig.
 
 Mjuk borttagnings skydd är tillgängligt för dessa tjänster:
 

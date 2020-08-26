@@ -4,12 +4,12 @@ description: Lär dig hur du kan använda Azure Backup för att skicka data frå
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: e5761f56106989084f12b80620ffc417b781965d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187837"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892022"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbets flöde för offline-säkerhetskopiering i Azure Backup
 
@@ -148,7 +148,7 @@ I det här avsnittet beskrivs arbets flödet offline-säkerhetskopiering så att
 
     ![Inloggning för Azure-prenumeration](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 
-    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
+    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om den angivna disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
 
     I slutet av lyckad körning av verktyget har kommando tolken tre delar av informationen:
 

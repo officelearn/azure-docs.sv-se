@@ -3,20 +3,21 @@ title: Exportera ett Jupyter Notebook-projekt från Azure Notebooks för hands v
 description: Exportera snabbt ett Jupyter Notebook-projekt.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832040"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892107"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Snabb start: exportera ett Jupyter Notebook-projekt i Azure Notebooks för hands version
+# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Snabb start: exportera ett Jupyter Notebook projekt i Azure Notebooks för hands version
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 I den här snabb starten ska du ladda ned ett Azure Notebooks-projekt för användning i andra Jupyter Notebook-lösningar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 Ett befintligt Azure Notebooks-projekt.
 
 ## <a name="export-an-azure-notebooks-project"></a>Exportera ett Azure Notebooks-projekt
@@ -32,7 +33,7 @@ Ett befintligt Azure Notebooks-projekt.
 1. Du kan också klicka på knappen "Ladda ned projekt" på sidan för att ladda ned alla filer för ett specifikt projekt.
 
 När du har hämtat dina projektfiler kan du använda dem med andra Jupyter Notebook-lösningar. Vissa alternativ som beskrivs i avsnitten nedan är: 
-- [Visuell Studio-kod](#use-notebooks-in-visual-studio-code)
+- [Visual Studio Code](#use-notebooks-in-visual-studio-code)
 - [Visual Studio-Codespaces](#use-notebooks-in-visual-studio-codespaces)
 - [Azure Machine Learning](#use-notebooks-with-azure-machine-learning)
 - [Azure Lab Services](#use-azure-lab-services)

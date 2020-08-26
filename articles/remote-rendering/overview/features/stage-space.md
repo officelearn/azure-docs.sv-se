@@ -1,18 +1,18 @@
 ---
-title: Steg utrymme
+title: Utrymme för steg
 description: Beskriver steg utrymmes inställningar och användnings fall
 author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: b67294c503e513290b474e0059771a73ad526a6a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ac0aa821875acb300e31e31ef3afe6492524cb7b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86189453"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892702"
 ---
-# <a name="stage-space"></a>Steg utrymme
+# <a name="stage-space"></a>Utrymme för steg
 
 När du kör ARR på en enhet som tillhandahåller huvud spårnings data, t. ex. HoloLens 2, skickas Head-attityden till både användar programmet och servern. Utrymmet där Head-transformeringen definieras i kallas för *scen utrymmet*.
 
@@ -45,11 +45,11 @@ void ChangeStageSpace(AzureSession session)
 ```cpp
 void ChangeStageSpace(ApiHandle<AzureSession> session)
 {
-    ApiHandle<StageSpaceSettings> settings = *session->Actions()->StageSpaceSettings();
+    ApiHandle<StageSpaceSettings> settings = session->Actions()->GetStageSpaceSettings();
 
     // Set position and rotation to the world-space transform of the stage space.
-    settings->Position({0, 0, 0});
-    settings->Rotation({0, 0, 0, 1});
+    settings->SetPosition({0, 0, 0});
+    settings->SetRotation({0, 0, 0, 1});
 }
 ```
 

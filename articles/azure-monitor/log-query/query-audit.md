@@ -1,0 +1,74 @@
+---
+title: Gransknings frågor i Azure Monitor logg frågor
+description: Information om gransknings loggar för logg frågor som ger telemetri om logg frågor som körs i Azure Monitor.
+ms.subservice: logs
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 08/25/2020
+ms.openlocfilehash: cb38dcba2f61a432decb56164b816688ad3192d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893801"
+---
+# <a name="audit-queries-in-azure-monitor-logs-preview"></a>Gransknings frågor i Azure Monitor loggar (förhands granskning)
+Logg läsar gransknings loggar ger telemetri om logg frågor som körs i Azure Monitor. Detta omfattar information som när en fråga kördes, vem som körde den, vilket verktyg som användes, frågetexten och prestanda statistik som beskriver frågans körning.
+
+## <a name="current-limitations"></a>Aktuella begränsningar
+Följande begränsningar gäller under den offentliga för hands versionen:
+
+- Endast frågor som är inriktad på arbets ytan kommer att loggas. Frågor körs i resursbaserade läge eller körs mot en Application Insights som inte har kon figurer ATS som arbets yta-baserad kommer inte att loggas.
+
+
+## <a name="configure-query-auditing"></a>Konfigurera granskning av fråga
+Granskning av frågor aktive ras med en [diagnostisk inställning](../platform/diagnostic-settings.md) på arbets ytan Log Analytics. På så sätt kan du skicka gransknings data till den aktuella arbets ytan eller till en annan arbets yta i din prenumeration, till Azure Event Hubs att skicka utanför Azure eller till Azure Storage för arkivering. 
+
+### <a name="azure-portal"></a>Azure Portal
+Få åtkomst till diagnostikinställningar för en Log Analytics arbets yta i Azure Portal på någon av följande platser:
+
+- Från **Azure Monitor** -menyn väljer du **diagnostikinställningar**och letar upp och väljer arbets ytan.
+
+    [![Diagnostikinställningar Azure Monitor ](media/log-query-audit/diagnostic-setting-monitor.png)](media/log-query-audit/diagnostic-setting-monitor.png#lightbox) 
+
+- Från menyn **Log Analytics arbets ytor** väljer du arbets ytan och väljer sedan **diagnostikinställningar**.
+
+    [![Diagnostikinställningar Log Analytics arbets yta ](media/log-query-audit/diagnostic-setting-workspace.png)](media/log-query-audit/diagnostic-setting-workspace.png#lightbox) 
+
+### <a name="resource-manager-template"></a>Resource Manager-mall
+Du kan hämta en exempel Resource Manager-mall från [diagnostikinställningar för Log Analytics-arbetsyta](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-log-analytics-workspace).
+
+## <a name="audit-data"></a>Granska data
+En gransknings post skapas varje gång en fråga körs. Om du skickar data till en Log Analytics arbets yta lagras den i en tabell med namnet *LAQueryLogs*. I följande tabell beskrivs egenskaperna i varje post i gransknings data.
+
+| Fält | Beskrivning |
+|:---|:---|
+| TimeGenerated         | UTC-tid när frågan skickades. |
+| CorrelationId         | Unikt ID för att identifiera frågan. Kan användas i fel söknings scenarier när du kontaktar Microsoft för att få hjälp. |
+| AADObjectId           | Azure Active Directory-ID för det användar konto som startade frågan.  |
+| AADTenantId           | ID för klient organisationen för det användar konto som startade frågan.  |
+| AADEmail              | E-postadress till klient organisationen för det användar konto som startade frågan.  |
+| AADClientId           | ID och Matchat namn för det program som används för att starta frågan. |
+| RequestClientApp      | Löst namn på det program som användes för att starta frågan. |
+| QueryTimeRangeStart   | Början av tidsintervallet som har valts för frågan. Detta kan inte vara ifyllt i vissa scenarier, till exempel när frågan startas från Log Analytics, och tidsintervallet anges i frågan i stället för tid väljaren. |
+| QueryTimeRangeEnd     | Slutet av tidsintervallet som har valts för frågan. Detta kan inte vara ifyllt i vissa scenarier, till exempel när frågan startas från Log Analytics, och tidsintervallet anges i frågan i stället för tid väljaren.  |
+| QueryText             | Texten för frågan som kördes. |
+| RequestTarget         | API-URL användes för att skicka frågan.  |
+| RequestContext        | Lista över resurser som frågan har begärt att köras mot. Innehåller upp till tre sträng mat ris: arbets ytor, program och resurser. Prenumerations-eller resurs grupp – riktade frågor visas som *resurser*. Inkluderar det mål som underförstådda av RequestTarget. |
+| RequestContextFilters | Uppsättning filter som anges som en del av frågans anrop. Innehåller upp till tre möjliga sträng mat ris:<br>-ResourceTypes – typ av resurs för att begränsa frågans omfång<br>– Arbets ytor – lista över arbets ytor som begränsar frågan till<br>-WorkspaceRegions – lista över regioner för arbets ytor som begränsar frågan |
+| ResponseCode          | HTTP-svarskod som returnerades när frågan skickades. |
+| ResponseDurationMs    | Tid för svaret som ska returneras.  |
+| StatsCPUTimeMs       | Total beräknings tid som används för data behandling, parsning och data hämtning. Fylls bara i om frågan returnerar med status koden 200. |
+| StatsDataProcessedKB | Mängden data som har öppnats för att bearbeta frågan. Påverkas av storleken på mål tabellen, tids rymden som används, filter tillämpas och antalet kolumner som refereras. Fylls bara i om frågan returnerar med status koden 200. |
+| StatsDataProcessedStart | Tid för äldsta data som har öppnats för att bearbeta frågan. Påverkas av frågans explicita tidsintervall och filter tillämpas. Detta kan vara större än den explicita tids rymden på grund av data partitionering. Fylls bara i om frågan returnerar med status koden 200. |
+| StatsDataProcessedEnd  |Tiden för de senaste data som har öppnats för att bearbeta frågan. Påverkas av frågans explicita tidsintervall och filter tillämpas. Detta kan vara större än den explicita tids rymden på grund av data partitionering. Fylls bara i om frågan returnerar med status koden 200. |
+| StatsWorkspaceCount | Antal arbets ytor som används av frågan. Fylls bara i om frågan returnerar med status koden 200. |
+| StatsRegionCount | Antal regioner som används av frågan. Fylls bara i om frågan returnerar med status koden 200. |
+
+
+
+## <a name="next-steps"></a>Nästa steg
+
+- Läs mer om [diagnostikinställningar](../platform/diagnostic-settings.md).
+- Läs mer om hur du [optimerar logg frågor](query-optimization.md).

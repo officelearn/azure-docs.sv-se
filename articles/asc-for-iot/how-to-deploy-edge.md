@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4dd7ca8f926862487b9505731c0662e68ee3d7c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c646c750cb54228211fadb0a4f6733d495e9219
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311282"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892073"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -47,7 +47,7 @@ Använd följande steg för att distribuera en Azure Security Center för IoT-s�
     - Kontrol lera att granskningen är aktiv genom att köra följande kommando:
 
     `sudo systemctl status auditd`<br>
-    - Förväntat svar är:`active (running)`
+    - Förväntat svar är: `active (running)`
 
 ### <a name="deployment-using-azure-portal"></a>Distribution med hjälp av Azure Portal
 
@@ -93,9 +93,21 @@ Slutför varje steg för att slutföra din IoT Edge-distribution för Azure Secu
 
 1. På fliken **dubbla inställningar för modul** lägger du till följande konfiguration:
 
-    ``` json
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
-    ```
+   Modul, delad egenskap:
+   
+   ``` json
+     "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration"
+   ```
+
+   Modul, dubbla egenskaps innehåll: 
+
+   ```json
+     {
+
+     }
+   ```
+    
+   Mer information om hur du konfigurerar agenten finns i [Konfigurera säkerhets agenter](https://docs.microsoft.com/azure/asc-for-iot/how-to-agent-configuration).
 
 1. Välj **Uppdatera**.
 
@@ -165,7 +177,7 @@ Om du stöter på problem är behållar loggarna det bästa sättet att lära si
 
 1. Kontrol lera att följande behållare körs:
 
-   | Name | BILD |
+   | Namn | BILD |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

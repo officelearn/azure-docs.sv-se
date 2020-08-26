@@ -3,12 +3,12 @@ title: Säkerhetskontroller
 description: Lär dig mer om de säkerhets kontroller som används i Azure Backups tjänsten. Dessa kontroller hjälper tjänsten att förhindra, identifiera och reagera på säkerhets risker.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: e69053d4646207b34e8df31b949410994c967303
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827298"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892970"
 ---
 # <a name="security-controls-for-azure-backup"></a>Säkerhets kontroller för Azure Backup
 
@@ -29,7 +29,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
 |---|---|--|--|
-| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Log Analytics stöds via resurs loggar. Mer information finns i [övervaka Azure Backup skyddade arbets belastningar med Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Stöd för Azure-övervakning (till exempel Log Analytics, App Insights)| Ja | Log Analytics stöds via resurs loggar. Mer information finns i [övervaka Azure Backup skyddade arbets belastningar med Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Alla kunder som har utlöst åtgärder från Azure Portal loggas till aktivitets loggar. |  |
 | Loggning och granskning av data planet| Inga | Det går inte att nå Azure Backup data planet direkt.  |  |
 
@@ -54,7 +54,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation
 |---|---|--|--|
-| Konfigurations hanterings stöd (konfigurations version osv.)| Ja|  |  |
+| Konfigurations hanterings stöd (konfigurations version och så vidare)| Ja|  |  |
 
 ## <a name="next-steps"></a>Nästa steg
 

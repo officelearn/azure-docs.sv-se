@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 332b86d58e4c3f64dfbc528b4fe30399ef69d2a3
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827400"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892770"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -26,7 +26,7 @@ Du kan registrera upp till 1 000 virtuella Azure-datorer per valv. Om du använ
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hur många datakällor/objekt kan skyddas i ett valv?
 
-Du kan skydda upp till 2 000 datakällor/objekt fördelat över alla arbetsbelastningar (virtuell IaaS-dator, SQL, AFS osv.) i ett valv.
+Du kan skydda upp till 2000 data källor/objekt över alla arbets belastningar (till exempel IaaS VM, SQL, AFS) i ett valv.
 Om du till exempel redan har skyddat 500 VM och 400 Azure Files resurser i valvet kan du bara skydda upp till 1100 SQL-databaser.
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Hur många principer kan jag skapa per valv?

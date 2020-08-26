@@ -3,12 +3,12 @@ title: Säkerhetskopiera SQL Server-databaser till Azure
 description: Den här artikeln beskriver hur du säkerhetskopierar SQL Server till Azure. Den här artikeln beskriver även återställning av SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 88ac95a3e21269ccb5ca2c0fed1c1444af2f4d11
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826930"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892447"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -51,9 +51,9 @@ Innan du börjar ska du kontrol lera följande krav:
 * Skapar ett NT SERVICE\AzureWLBackupPluginSvc-konto för att identifiera databaser på den virtuella datorn. Det här kontot används för att säkerhetskopiera och återställa och kräver SQL sysadmin-behörigheter.
 * Identifierar databaser som körs på en virtuell dator, Azure Backup använder NT instans\system-kontot. Detta konto måste vara ett offentligt inloggnings konto på SQL.
 
-Om du inte skapade SQL Server VM på Azure Marketplace eller om du är på SQL 2008 och 2008 R2, kan du få ett **UserErrorSQLNoSysadminMembership** -fel.
+Om du inte skapade SQL Server VM på Azure Marketplace eller om du är på SQL 2008 eller 2008 R2 kan du få ett **UserErrorSQLNoSysadminMembership** -fel.
 
-Om du vill ge behörighet i händelse av **SQL 2008** och **2008 R2** som körs på Windows 2008 R2 kan du läsa [här](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+Om du vill ge behörighet för **SQL 2008** och **2008 R2** som körs på Windows 2008 R2 kan du läsa [här](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
 
 För alla andra versioner måste du åtgärda behörigheterna med följande steg:
 

@@ -4,17 +4,17 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: e8037af9433cc642f57c1ab6ca2709a3d92c2f81
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: ddc8e8fa460943c09f80ebb462b1dbd578f9b23b
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825859"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892634"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
 > [!NOTE]
-> Baserat på feedback från användare kan vi byta namn på **VM backup stack v2** till **omedelbar återställning** för att minska förvirring med Azure Stack funktion.
+> Baserat på feedback från användarna har vi bytt namn på **den virtuella datorns säkerhets kopierings stack v2** till **omedelbar återställning** för att minska förvirringen med Azure Stack funktion.
 > Alla Azure Backup-användare har nu uppgraderats till **omedelbar återställning**.
 
 Den nya modellen för omedelbar återställning ger följande funktions förbättringar:
@@ -76,7 +76,7 @@ $bkpPol.SnapshotRetentionInDays=5
 Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 
-Standard kvarhållning av ögonblicks bilder för varje princip är inställd på två dagar. Användaren kan ändra värdet till minst 1 och högst fem dagar. För vecko Visa-principer är kvarhållning av ögonblicks bilder åtgärdat till fem dagar.
+Standard kvarhållning av ögonblicks bilder för varje princip är inställd på två dagar. Du kan ändra värdet till minst 1 och högst fem dagar. För vecko Visa-principer är kvarhållning av ögonblicks bilder åtgärdat till fem dagar.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 

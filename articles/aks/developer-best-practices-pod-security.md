@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b09fb7cb5e631d3405adf39d5c92a72288249aff
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320688"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893157"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
 
@@ -42,7 +42,7 @@ En POD säkerhets kontext kan också definiera ytterligare funktioner eller beh�
 I följande exempel Pod YAML manifest anges säkerhets kontext inställningar för att definiera:
 
 * Pod körs som användar-ID *1000* och del av grupp-ID *2000*
-* Det går inte att eskalera privilegier att använda`root`
+* Det går inte att eskalera privilegier att använda `root`
 * Ger Linux-funktioner åtkomst till nätverks gränssnitt och värdens real tids klocka (maskin vara)
 
 ```yaml
@@ -85,7 +85,7 @@ Med följande [associerade AKS-projekt med öppen källkod][aks-associated-proje
 
 En hanterad identitet för Azure-resurser gör att en POD autentiseras mot Azure-tjänster som stöder den, till exempel Storage eller SQL. Pod tilldelas en Azure-identitet som gör att de kan autentiseras för att Azure Active Directory och ta emot en digital token. Den här digitala token kan visas för andra Azure-tjänster som kontrollerar om Pod har behörighet att komma åt tjänsten och utföra de åtgärder som krävs. Den här metoden innebär att inga hemligheter krävs för databas anslutnings strängar, till exempel. Det förenklade arbets flödet för Pod-hanterad identitet visas i följande diagram:
 
-![Förenklat arbets flöde för Pod-hanterad identitet i Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-pod-identity.svg" alt-text="Förenklat arbets flöde för Pod-hanterad identitet i Azure":::
 
 Med en hanterad identitet behöver program koden inte innehålla autentiseringsuppgifter för att få åtkomst till en tjänst, t. ex. Azure Storage. Som varje Pod autentiseras med sin egen identitet, så att du kan granska och granska åtkomst. Om ditt program ansluter till andra Azure-tjänster kan du använda hanterade identiteter för att begränsa åter användning av autentiseringsuppgifter och risk för exponering.
 
@@ -97,7 +97,7 @@ Med Pod Identity Project kan du autentisera mot stöd för Azure-tjänster. För
 
 När program behöver en autentiseringsuppgift kommunicerar de med det digitala valvet, hämtar det senaste hemliga innehållet och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbets flödet för att hämta autentiseringsuppgifter från Azure Key Vault med Pod-hanterade identiteter visas i följande diagram:
 
-![Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet](media/developer-best-practices-pod-security/basic-key-vault.png)
+:::image type="content" source="media/developer-best-practices-pod-security/basic-key-vault.svg" alt-text="Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet":::
 
 Med Key Vault kan du lagra och regelbundet rotera hemligheter som autentiseringsuppgifter, lagrings konto nycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av [Azure Key Vault providern för hemligheter från CSI-drivrutinen](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Med hemligheter för att lagra CSI-drivrutinen kan AKS-klustret Hämta hemligt innehåll från Key Vault och på ett säkert sätt tillhandahålla dem till den begär ande pod. Samar beta med din kluster operatör för att distribuera hemligheter för att lagra CSI-drivrutinen på AKS Worker-noder. Du kan använda en POD-hanterad identitet för att begära åtkomst till Key Vault och hämta det hemliga innehåll som behövs via filen CSI-driv rutinen för hemligheter.
 

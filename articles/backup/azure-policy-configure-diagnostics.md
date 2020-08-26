@@ -3,12 +3,12 @@ title: Konfigurera inställningar för valv diagnostik i skala
 description: Konfigurera inställningar för Log Analytics diagnostik för alla valv i ett angivet omfång med Azure Policy
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: dabf9798ba80600d638318304c8ef3c7e40d7ecf
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824057"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892243"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Konfigurera inställningar för valv diagnostik i skala
 
@@ -20,9 +20,9 @@ För att förenkla skapandet av diagnostikinställningar i skala (med LA som må
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-* Du kan tillämpa principen på en gång för alla Recovery Services valv i en viss prenumeration (eller till en resurs grupp i prenumerationen). Användaren som tilldelar principen måste ha ägar åtkomst till den prenumeration som principen är tilldelad till.
+* Du kan tillämpa principen på en gång för alla Recovery Services valv i en viss prenumeration (eller till en resurs grupp i prenumerationen). Användaren som tilldelar principen måste ha **ägar** åtkomst till den prenumeration som principen är tilldelad till.
 
-* Arbets ytan LA som anges av användaren (som diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha åtkomst till "läsare", "deltagare" eller "ägare" till den prenumeration där den angivna LA-arbetsytan finns.
+* Arbets ytan LA som anges av användaren (som diagnostikdata ska skickas till) kan finnas i en annan prenumeration än de valv som principen är tilldelad till. Användaren måste ha **läsare**, **deltagare** eller **ägar** åtkomst till den prenumeration där den angivna La-arbetsytan finns.
 
 * Hanterings gruppens omfång stöds inte för tillfället.
 

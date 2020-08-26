@@ -4,12 +4,12 @@ description: Lär dig hur du hanterar och övervakar säkerhets kopior av Micros
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b6f6d9ca94b2fda54c9f9aa8048660af450e0d31
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757174"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893076"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Hantera säkerhets kopior av Microsoft Azure Recovery Services (MARS) med hjälp av tjänsten Azure Backup
 
@@ -80,7 +80,7 @@ Du kan lägga till undantags regler för att hoppa över filer och mappar som du
     ![Markera de objekt som ska tas bort](./media/backup-azure-manage-mars/select-items-remove.png)
 
     > [!NOTE]
-    > Fortsätt med försiktighet när du tar bort en volym från principen helt.  Om du behöver lägga till den igen kommer den att behandlas som en ny volym. Nästa schemalagda säkerhets kopiering kommer att utföra en första säkerhets kopiering (fullständig säkerhets kopiering) i stället för stegvis säkerhets kopiering. Om du tillfälligt behöver ta bort och lägga till objekt senare, rekommenderar vi att du använder **undantags inställningar** i stället för att **ta bort objekt** för att säkerställa stegvis säkerhets kopiering i stället för fullständig säkerhets kopiering.
+    > Fortsätt med försiktighet när du tar bort en volym från principen helt.  Om du behöver lägga till den igen kommer den att behandlas som en ny volym. Nästa schemalagda säkerhets kopiering kommer att utföra en första säkerhets kopiering (fullständig säkerhets kopiering) i stället för stegvis säkerhets kopiering. Om du behöver tillfälligt ta bort och lägga till objekt senare rekommenderar vi att du använder **undantags inställningar** i stället för att **ta bort objekt** för att säkerställa en stegvis säkerhets kopiering i stället för en fullständig säkerhets kopiering.
 
 2. Slutför nästa steg och välj **Slutför** för att slutföra åtgärden.
 

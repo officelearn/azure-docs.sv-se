@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 description: Beskriver hur du säkerhetskopierar och återställer virtuella Azure-datorer med hjälp av Azure Backup med PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f5d2e10213970ce6f9d1f9c77ff8f7f4c36c3547
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826454"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892413"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -104,7 +104,7 @@ Följande steg vägleder dig genom att skapa ett Recovery Services-valv. Ett Rec
     ```
 
    > [!TIP]
-   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det praktiskt att lagra säkerhetskopians Recovery Services-valvobjekt i en variabel.
+   > Många Azure Backup-cmdletar kräver Recovery Services-valvobjekt som indata. Därför är det lämpligt att lagra säkerhets kopierings Recovery Services valvet i en variabel.
    >
    >
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 När du har definierat skydds principen måste du ändå aktivera principen för ett objekt. Använd [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) för att aktivera skydd. Att aktivera skydd kräver två objekt – objektet och principen. När principen har associerats med valvet utlöses arbets flödet för säkerhets kopiering vid den tidpunkt som anges i princip schemat.
 
 > [!IMPORTANT]
-> När du använder PowerShell för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, måste du se till att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PowerShell-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer men kontrollen har planer ATS för att läggas till i framtiden.
+> När du använder PowerShell för att aktivera säkerhets kopiering för flera virtuella datorer samtidigt, måste du se till att det inte finns fler än 100 virtuella datorer kopplade till en enda princip. Det här är en [rekommenderad metod](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). PowerShell-klienten blockerar för närvarande inte uttryckligen om det finns fler än 100 virtuella datorer, men kontrollen är planerad att läggas till i framtiden.
 
 I följande exempel aktive ras skyddet för objektet, V2VM, med hjälp av principen NewPolicy. Exemplen varierar beroende på om den virtuella datorn är krypterad och vilken typ av kryptering.
 
@@ -256,7 +256,7 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 ```
 
 > [!NOTE]
-> Om du använder Azure Government molnet använder du värdet ff281ffe-705c-4f53-9F37-a40e6f2c68f3 för parametern ServicePrincipalName i cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
+> Om du använder Azure Government molnet använder du värdet `ff281ffe-705c-4f53-9f37-a40e6f2c68f3` för parametern **servicePrincipalName** i cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) .
 >
 
 ## <a name="monitoring-a-backup-job"></a>Övervaka ett säkerhets kopierings jobb
@@ -294,7 +294,7 @@ När du skapar en skydds princip tilldelas den en start tid som standard. I föl
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that the customer wants to start the backup)
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z" (This is the time that you want to start the backup)
 $UtcTime = $UtcTime.ToUniversalTime()
 $SchPol.ScheduleRunTimes[0] = $UtcTime
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -VaultId $targetVault.ID
@@ -323,7 +323,7 @@ $bkpPol.SnapshotRetentionInDays=7
 Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol -VaultId $targetVault.ID
 ````
 
-Standardvärdet är 2, användaren kan ange värdet med minst 1 och högst 5. För veckovis säkerhets kopierings principer är perioden inställt på 5 och kan inte ändras.
+Standardvärdet är 2. Du kan ange ett värde med minst 1 och högst 5. För veckovis säkerhets kopierings principer är perioden inställt på 5 och kan inte ändras.
 
 #### <a name="creating-azure-backup-resource-group-during-snapshot-retention"></a>Skapar Azure Backup resurs grupp under kvarhållning av ögonblicks bilder
 
@@ -365,7 +365,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Ändra princip för säkerhets kopierings objekt
 
-Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) med säkerhets kopierings objekt som parameter.
+Du kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) med säkerhets kopierings objekt som parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName> -VaultId $targetVault.ID

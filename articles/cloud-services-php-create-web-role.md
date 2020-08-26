@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: fd04c6315a5a6915159c0cbb6a9640ae0695ed73
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 1bf0ea35c51b063a7720a1542a23a49fbcdbc557
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87117230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892991"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Skapa PHP webb- och arbetsroller
 
@@ -75,7 +75,7 @@ Följ dessa steg om du vill konfigurera en webbroll för att använda en PHP-kö
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-webbroll enligt beskrivningen ovan i det här avsnittet.
 2. Skapa en `php` mapp i `bin` mappen som finns i webbrollens rot Katalog och Lägg sedan till php-körningsmiljön (alla binärfiler, konfigurationsfiler, undermappar osv.) i `php` mappen.
-3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutinerna för php för SQL Server][sqlsrv drivers]måste du konfigurera din webbroll för att installera [SQL Server Native Client 2012][sql native client] när den har tillhandahållits. Det gör du genom att lägga till [installations programmet försqlncli.msi x64] i `bin` mappen i webbrollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutinerna för php för SQL Server][sqlsrv drivers]måste du konfigurera din webbroll för att installera [SQL Server Native Client 2012][sql native client] när den har tillhandahållits. Det gör du genom att lägga till [ installations programmet försqlncli.msi x64] i `bin` mappen i webbrollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -114,7 +114,7 @@ Följ dessa steg om du vill konfigurera en arbets roll för att använda en PHP-
 
 1. Skapa ett Azure Service-projekt och Lägg till en PHP-arbetsroll enligt beskrivningen ovan.
 2. Skapa en `php` mapp i arbets rollens rot Katalog och Lägg sedan till php-körningsmiljön (alla binärfiler, konfigurationsfiler, undermappar osv.) i `php` mappen.
-3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutiner för php för SQL Server][sqlsrv drivers]måste du konfigurera arbets rollen för att installera [SQL Server Native Client 2012][sql native client] när den är etablerad. Det gör du genom att lägga till [installations programmet försqlncli.msi x64] i arbets rollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
+3. VALFRITT Om din PHP-körning använder [Microsoft-drivrutiner för php för SQL Server][sqlsrv drivers]måste du konfigurera arbets rollen för att installera [SQL Server Native Client 2012][sql native client] när den är etablerad. Det gör du genom att lägga till [ installations programmet försqlncli.msi x64] i arbets rollens rot Katalog. Start skriptet som beskrivs i nästa steg kommer tyst att köra installations programmet när rollen är etablerad. Om din PHP-körning inte använder Microsoft-drivrutinerna för PHP för SQL Server, kan du ta bort följande rad från skriptet som visas i nästa steg:
 
    ```console
    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
@@ -153,7 +153,7 @@ Följ dessa steg om du vill konfigurera en arbets roll för att använda en PHP-
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Kör ditt program i beräknings-och lagrings emulatorerna
 
-Azure-emulatorer tillhandahåller en lokal miljö där du kan testa ditt Azure-program innan du distribuerar det till molnet. Det finns vissa skillnader mellan emulatorerna och Azure-miljön. För att förstå detta bättre, se [använda Azure Storage-emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
+Azure-emulatorer tillhandahåller en lokal miljö där du kan testa ditt Azure-program innan du distribuerar det till molnet. Det finns vissa skillnader mellan emulatorerna och Azure-miljön. För att förstå detta bättre, se [använd Azure Storage emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
 
 Observera att du måste ha PHP installerat lokalt för att kunna använda Compute-emulatorn. Compute-emulatorn använder den lokala PHP-installationen för att köra programmet.
 

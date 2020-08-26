@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 4f3889a0ba121cb9a3167c1f6ac95f0bed280539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 566bbca4c9b5c2f2a96ad231d69dda94374c7db2
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83759021"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893008"
 ---
 # <a name="outline-rendering"></a>Konturrendering
 
@@ -18,15 +18,15 @@ De valda objekten kan markeras visuellt genom att lägga till dispositions åter
 
 Dispositions egenskaper är en global inställning. Alla objekt som använder dispositions åter givning använder samma inställning – det går inte att använda en linje färg per objekt.
 
-## <a name="parameters-for-outlinesettings"></a>Parametrar för`OutlineSettings`
+## <a name="parameters-for-outlinesettings"></a>Parametrar för `OutlineSettings`
 
 Klassen `OutlineSettings` innehåller inställningar som rör globala dispositions egenskaper. Den exponerar följande medlemmar:
 
 | Parameter      | Typ    | Beskrivning                                             |
 |----------------|---------|---------------------------------------------------------|
 | `Color`          | Color4Ub | Färgen som används för att rita konturen. Alfa delen ignoreras.         |
-| `PulseRateHz`    | float   | Den hastighet med vilken kon tur variationer per sekund|
-| `PulseIntensity` | float   | Intensiteten för kon tur pulsen. Måste vara mellan 0,0 för ingen pulsning och 1,0 för hel pulsning. Intensitet anger den minsta opaciteten för konturen som `MinOpacity = 1.0 - PulseIntensity` . |
+| `PulseRateHz`    | flyt   | Den hastighet med vilken kon tur variationer per sekund|
+| `PulseIntensity` | flyt   | Intensiteten för kon tur pulsen. Måste vara mellan 0,0 för ingen pulsning och 1,0 för hel pulsning. Intensitet anger den minsta opaciteten för konturen som `MinOpacity = 1.0 - PulseIntensity` . |
 
 ![Beskriver ](./media/outlines.png) effekterna av att ändra `color` parametern från gult (vänster) till Magenta (mitt) och `pulseIntensity` från 0 till 0,8 (höger).
 
@@ -47,12 +47,12 @@ void SetOutlineParameters(AzureSession session)
 ```cpp
 void SetOutlineParameters(ApiHandle<AzureSession> session)
 {
-    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    ApiHandle<OutlineSettings> outlineSettings = session->Actions()->GetOutlineSettings();
     Color4Ub outlineColor;
     outlineColor.channels = { 255, 255, 0, 255 };
-    outlineSettings->Color(outlineColor);
-    outlineSettings->PulseRateHz(2.0f);
-    outlineSettings->PulseIntensity(0.5f);
+    outlineSettings->SetColor(outlineColor);
+    outlineSettings->SetPulseRateHz(2.0f);
+    outlineSettings->SetPulseIntensity(0.5f);
 }
 ```
 

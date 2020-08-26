@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 07/17/2020
-ms.openlocfilehash: cd58df3936092310e1a26aeedc3ba7599849359c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 07/31/2020
+ms.openlocfilehash: 1e5d0e37b939715eed84447ea637a0e7880ca115
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87024103"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892277"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Exempel på Resource Manager-mallar för diagnostikinställningar i Azure Monitor
 Den här artikeln innehåller exempel [Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md) för att skapa diagnostiska inställningar för en Azure-resurs. Varje exempel innehåller en mallfil och en parameter fil med exempel värden som du kan använda för mallen.
@@ -466,6 +466,88 @@ I följande exempel skapas en diagnostisk inställning för ett Azure Recovery S
       },
       "recoveryServicesName": {
         "value": "my-vault"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
+
+## <a name="diagnostic-setting-for-log-analytics-workspace"></a>Diagnostisk inställning för Log Analytics arbets yta
+I följande exempel skapas en diagnostisk inställning för ett Log Analytics arbets ytans valv genom att lägga till en resurs av typen `Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings` i mallen. I det här exemplet skickas gransknings data om frågor som körs i arbets ytan till samma arbets yta.
+
+### <a name="template-file"></a>Mallfil
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String"
+        },
+        "settingName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces/providers/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/Microsoft.Insights/', parameters('settingName'))]",
+            "dependsOn": [],
+            "properties": {
+                "workspaceId": "[parameters('workspaceId')]",
+                "storageAccountId": "[parameters('storageAccountId')]",
+                "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+                "eventHubName": "[parameters('eventHubName')]",
+                "metrics": [],
+                "logs": [
+                    {
+                        "category": "LAQueryLogs",
+                        "enabled": true
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Parameter fil
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "workspaceName": {
+        "value": "MyWorkspace"
       },
       "workspaceId": {
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"

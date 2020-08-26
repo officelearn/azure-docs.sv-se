@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8313243bf680ea1a1d63f2719b647149a04935a9
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783018"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893109"
 ---
 # <a name="material-mapping-for-model-formats"></a>Materialmappning för modellformat
 
@@ -101,29 +101,30 @@ Mappningen ovan är den mest komplexa delen av material omvandlingen, på grund 
 Vissa definitioner som används nedan:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Röd ∗ 0,2125 + `Specular` . Grönt ∗ 0,7154 + `Specular` . Blå ∗ 0,0721
-* `DiffuseBrightness`= 0,299 * `Diffuse` . Röd<sup>2</sup> + 0,587 * `Diffuse` . Grön<sup>2</sup> + 0,114 * `Diffuse` . Blå<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular` . Röd<sup>2</sup> + 0,587 * `Specular` . Grön<sup>2</sup> + 0,114 * `Specular` . Blå<sup>2</sup>
-* `SpecularStrength`= Max ( `Specular` . Röd, `Specular` . Grönt, `Specular` . Blåskärm
+* `SpecularIntensity` = `Specular`. Röd ∗ 0,2125 +  `Specular` . Grönt ∗ 0,7154 + `Specular` . Blå ∗ 0,0721
+* `DiffuseBrightness` = 0,299 * `Diffuse` . Röd<sup>2</sup> + 0,587 * `Diffuse` . Grön<sup>2</sup> + 0,114 * `Diffuse` . Blå<sup>2</sup>
+* `SpecularBrightness` = 0,299 * `Specular` . Röd<sup>2</sup> + 0,587 * `Specular` . Grön<sup>2</sup> + 0,114 * `Specular` . Blå<sup>2</sup>
+* `SpecularStrength` = Max ( `Specular` . Röd, `Specular` . Grönt, `Specular` . Blåskärm
 
 SpecularIntensity-formeln hämtas [härifrån](https://en.wikipedia.org/wiki/Luma_(video)).
 Formeln för ljus styrka beskrivs i den här [specifikationen](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
 
 ### <a name="roughness"></a>Grovhet
 
-`Roughness`beräknas från `Specular` och `ShininessExponent` med [den här formeln](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formeln är en uppskattning av grovhet från Phong spegel exponent:
+`Roughness` beräknas från `Specular` och `ShininessExponent` med [den här formeln](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formeln är en uppskattning av grovhet från Phong spegel exponent:
 
-```Cpp
+```cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 ```
 
 ### <a name="metalness"></a>Metall
 
-`Metalness`beräknas från `Diffuse` och `Specular` med den här [formeln från glTF-specifikationen](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
+`Metalness` beräknas från `Diffuse` och `Specular` med den här [formeln från glTF-specifikationen](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
 Tanken här är att vi löser ekvationen: AX<sup>2</sup> + BX + C = 0.
 Dielectric ytor återspeglar i princip ungefär 4% av ljus på ett spegel sätt och resten är diffus. Metallisk ytor reflekterar inget ljus på ett diffust sätt, men allt på ett spegel sätt.
 Den här formeln har några nack delar, eftersom det inte finns något sätt att skilja mellan blank plast och glansiga metallisk ytor. Vi antar att ytan har metallisk egenskaper, och därför kanske det inte ser ut som förväntat.
+
 ```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
@@ -138,12 +139,12 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`beräknas från `Diffuse` , `Specular` och `Metalness` .
+`Albedo` beräknas från `Diffuse` , `Specular` och `Metalness` .
 
 Som det beskrivs i avsnittet Metallhet, dielectric ytorna runt 4% av ljuset.  
 Idén här är att du linjärt interpolerar mellan `Dielectric` och `Metal` färger med `Metalness` värde som en faktor. Om det är något som är `0.0` så är det, beroende på speglad kvalitet, antingen en mörk färg (om spegeln är hög) eller om diffusionen inte ändras (om det inte finns någon spegel). Om metal är ett stort värde försvinner den diffusa färgen för att spegla färg.
 
-```Cpp
+```cpp
 dielectricSpecularReflectance = 0.04
 oneMinusSpecularStrength = 1 - SpecularStrength
 
@@ -153,13 +154,13 @@ albedoRawColor = lerpColors(dielectricColor, metalColor, metalness * metalness)
 AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 ```
 
-`AlbedoRGB`har beräknats av formeln ovan, men alfa kanalen kräver ytterligare beräkningar. FBX-formatet är vagt om genomskinlighet och har många sätt att definiera det. Olika innehålls verktyg använder olika metoder. Tanken här är att förena dem till en formel. Det gör vissa till gångar felaktigt visade som transparenta, men om de inte skapas på ett vanligt sätt.
+`AlbedoRGB` har beräknats av formeln ovan, men alfa kanalen kräver ytterligare beräkningar. FBX-formatet är vagt om genomskinlighet och har många sätt att definiera det. Olika innehålls verktyg använder olika metoder. Tanken här är att förena dem till en formel. Det gör vissa till gångar felaktigt visade som transparenta, men om de inte skapas på ett vanligt sätt.
 
 Detta beräknas från `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Om `Opacity` är definierat använder du den direkt: `AlbedoAlpha`  =  `Opacity` annars  
 Om `TransparencyColor` är definierat `AlbedoAlpha` = 1,0-(( `TransparentColor` . Röd + `TransparentColor` . Grön + `TransparentColor` . Blå)/3,0) Else  
-Om `TransparencyFactor` , sedan `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Om `TransparencyFactor` , sedan `AlbedoAlpha` = 1,0- `TransparencyFactor`
 
 Den slutliga `Albedo` färgen har fyra kanaler som kombinerar `AlbedoRGB` med `AlbedoAlpha` .
 

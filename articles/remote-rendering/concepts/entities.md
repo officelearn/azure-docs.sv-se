@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5f6f7fc52a186117afcb92f6a2f80bf068e50ab9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac0bf539cc345f326027f4707b7b50204e2b7850
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893059"
 ---
 # <a name="entities"></a>Entiteter
 
@@ -18,7 +18,7 @@ En *entitet* representerar ett rörligt objekt i utrymme och är det grundlägga
 
 ## <a name="entity-properties"></a>Egenskaper för entitet
 
-Entiteter har en transformering som definieras av en position, rotation och skala. Själva entiteten har inte någon funktion som kan ha någon funktion. I stället läggs beteendet till i-komponenter som är kopplade till entiteter. Om du till exempel bifogar ett [CutPlaneComponent](../overview/features/cut-planes.md) skapas ett klipp plan i entitetens position.
+Entiteter har en transformering som definieras av en position, rotation och skala. Själva entiteten har inte någon funktion som kan ha någon funktion. I stället läggs beteendet till i-komponenter som är kopplade till entiteter. Om du till exempel bifogar ett [CutPlaneComponent](../overview/features/cut-planes.md)  skapas ett klipp plan i entitetens position.
 
 Den viktigaste aspekten av själva entiteten är hierarkin och den resulterande hierarkiska omvandlingen. Till exempel när flera entiteter är kopplade som underordnade till en delad överordnad entitet, kan alla dessa entiteter flyttas, roteras och skalas i dem samtidigt genom att ändra den överordnade entitetens omvandling.
 
@@ -46,7 +46,7 @@ ApiHandle<Entity> CreateNewEntity(ApiHandle<AzureSession> session)
     if (auto entityRes = session->Actions()->CreateEntity())
     {
         entity = entityRes.value();
-        entity->Position(Double3{ 1, 2, 3 });
+        entity->SetPosition(Double3{ 1, 2, 3 });
         return entity;
     }
     return entity;
@@ -72,7 +72,7 @@ CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
 ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
 
 // or alternatively:
-ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### <a name="querying-transforms"></a>Fråga transformeringar
@@ -90,8 +90,8 @@ Quaternion rotation = entity.Rotation;
 
 ```cpp
 // local space transform of the entity
-Double3 translation = *entity->Position();
-Quaternion rotation = *entity->Rotation();
+Double3 translation = entity->GetPosition();
+Quaternion rotation = entity->GetRotation();
 ```
 
 
@@ -124,11 +124,11 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
 ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
 metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
     {
-        if (query->IsRanToCompletion())
+        if (query->GetIsRanToCompletion())
         {
-            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaData> metaData = query->GetResult();
             ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
-            int64_t intValue = *entry->AsInt64();
+            int64_t intValue = *entry->GetAsInt64();
 
             // ...
         }

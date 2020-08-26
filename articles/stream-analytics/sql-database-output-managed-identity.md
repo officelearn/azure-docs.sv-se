@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: fff44617a5621d4edd84bee8f9b1e6b6e6924cd8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305932"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870195"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Använda hanterade identiteter för att få åtkomst till Azure SQL Database från ett Azure Stream Analytics jobb (förhands granskning)
 
@@ -19,7 +19,7 @@ Azure Stream Analytics stöder [autentisering med hanterad identitet](../active-
 
 En hanterad identitet är ett hanterat program registrerat i Azure Active Directory som representerar ett angivet Stream Analytics jobb. Det hanterade programmet används för att autentisera till en mål resurs. Den här artikeln visar hur du aktiverar hanterad identitet för en Azure SQL Database utdata för ett Stream Analytics jobb via Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för den här funktionen:
 
@@ -122,7 +122,7 @@ Se till att du har skapat en tabell i SQL Database med lämpligt schema för utd
 
 1. Välj **Lägg till > SQL Database**. Välj **hanterad identitet** i list rutan autentiseringsläge i fönstret utmatnings egenskaper i SQL Database utgående mottagare.
 
-1. Fyll i resten av egenskaperna. Mer information om hur du skapar en SQL Database utdata finns i [skapa ett SQL Database utdata med Stream Analytics](stream-analytics-define-outputs.md#sql-database). När du är färdig väljer du **Spara**. 
+1. Fyll i resten av egenskaperna. Mer information om hur du skapar en SQL Database utdata finns i [skapa ett SQL Database utdata med Stream Analytics](sql-database-output.md). När du är färdig väljer du **Spara**. 
 
 ## <a name="next-steps"></a>Nästa steg
 

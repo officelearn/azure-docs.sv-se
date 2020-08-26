@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 90d3507a8867ad3556891f6001f0e15ebda8c4f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345367"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869872"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Strömma data till Azure SQL Database med Azure Stream Analytics integration (för hands version)
 
@@ -31,9 +31,9 @@ Användarna kan nu mata in, bearbeta, Visa och analysera real tids strömnings d
 - Enklare att använda med förhands gransknings data: Förhandsgranska inkommande data från händelse källan (Händelsehubben/IoT Hub) i kontexten för den valda tabellen
 
 > [!IMPORTANT]
-> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/stream-analytics-define-outputs.md#sql-database).
+> Ett Azure Stream Analytics jobb kan skriva ut till Azure SQL Database, Azure SQL-hanterad instans eller Azure Synapse Analytics (tidigare Azure SQL Data Warehouse). Mer information finns i [utdata](../../stream-analytics/sql-database-output.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
@@ -50,7 +50,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 3. Om du vill börja mata in dina strömmande data i den här databasen väljer du **skapa** och ger ditt strömnings jobb ett namn och väljer sedan **Nästa: indata**.
 
-    ![Skapa Stream Analytics jobb](./media/stream-data-stream-analytics-integration/create-job.png)
+    ![Konfigurera grunderna för Stream Analytics jobb](./media/stream-data-stream-analytics-integration/create-job.png)
 
 4. Ange information om händelse källan och välj sedan **Nästa: utdata**.
 
@@ -64,7 +64,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
       Vi rekommenderar att du skapar en konsument grupp och en princip för varje nytt Azure Stream Analytics jobb som du skapar härifrån. Konsument grupper tillåter endast fem samtidiga läsare, så att en dedikerad konsument grupp för varje jobb kommer att undvika eventuella fel som kan uppstå från att överskrida den gränsen. Med en dedikerad princip kan du rotera nyckeln eller återkalla behörigheter utan att påverka andra resurser.
 
-     ![Skapa Stream Analytics jobb](./media/stream-data-stream-analytics-integration/create-job-output.png)
+     ![Konfigurera Stream Analytics jobbets utdata](./media/stream-data-stream-analytics-integration/create-job-output.png)
 
 5. Välj vilken tabell som du vill mata in strömmande data till. När du är färdig väljer du **skapa**.
 

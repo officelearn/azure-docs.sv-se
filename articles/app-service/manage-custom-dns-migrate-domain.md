@@ -4,14 +4,14 @@ description: Lär dig hur du migrerar ett anpassat DNS-domännamn som redan har 
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
-ms.date: 10/21/2019
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: bd11690f2a3597d6e1a835ad7ca9c5880117eeea
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782217"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871402"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrera ett aktivt DNS-namn till Azure App Service
 
@@ -59,31 +59,27 @@ På sidan DNS-poster noterar du post typen för det DNS-namn som du vill migrera
 
 ### <a name="enable-the-domain-for-your-app"></a>Aktivera domänen för din app
 
-I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret på sidan app väljer du **anpassade domäner**. 
+1. I [Azure Portal](https://portal.azure.com)i det vänstra navigerings fönstret på sidan app väljer du **anpassade domäner**. 
 
-![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+    ![Meny för anpassad domän](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-På sidan **anpassade domäner** väljer du **+** ikonen bredvid **Lägg till värdnamn**.
+1. På sidan **anpassade domäner** väljer du **Lägg till anpassad domän**.
 
-![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+    ![Lägg till värddatornamn](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Skriv det fullständigt kvalificerade domän namnet som du vill migrera, som motsvarar den TXT-post som du skapar, till exempel `contoso.com` , `www.contoso.com` eller `*.contoso.com` .
+1. Skriv det fullständigt kvalificerade domän namnet som du vill migrera, som motsvarar den TXT-post som du skapar, till exempel `contoso.com` , `www.contoso.com` eller `*.contoso.com` . Välj **Verifiera**.
 
-Välj **Verifiera**.
+    Knappen **Lägg till anpassad domän** är aktive rad. 
 
-Knappen **Lägg till värddatornamn** aktiveras. 
+1. Se till att **post typen hostname** är inställd på den DNS-posttyp som du vill migrera. Välj **Lägg till värddatornamn**.
 
-Se till att **post typen hostname** är inställd på den DNS-posttyp som du vill migrera.
+    ![Lägg till DNS-namnet i appen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-Välj **Lägg till värddatornamn**.
+    Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
 
-![Lägg till DNS-namnet i appen](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+    ![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
-Det kan ta en stund innan det nya värdnamnet återspeglas på sidan **Anpassade domäner** för appen. Försök att uppdatera webbläsaren så att informationen uppdateras.
-
-![CNAME-posten har lagts till](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
-
-Ditt anpassade DNS-namn är nu aktiverat i din Azure-App. 
+    Ditt anpassade DNS-namn är nu aktiverat i din Azure-App. 
 
 ## <a name="remap-the-active-dns-name"></a>Mappa om det aktiva DNS-namnet
 
@@ -96,8 +92,6 @@ Det enda som återstår att göra är att mappa om den aktiva DNS-posten så att
 Hoppa över det här avsnittet om du mappar om en CNAME-post. 
 
 Om du vill mappa om en A-post behöver du App Service appens externa IP-adress, som visas på sidan **anpassade domäner** .
-
-Stäng sidan **Lägg till värdnamn** genom att välja **X** i det övre högra hörnet. 
 
 På sidan **Anpassade domäner** kopierar du appens IP-adress.
 

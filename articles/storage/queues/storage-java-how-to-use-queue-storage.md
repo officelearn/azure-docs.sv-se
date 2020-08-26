@@ -9,16 +9,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 78e2bd80b689394b654a85ea913c618c08120091
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 9c2f8ea55f99ac893dca0fa380729b7cc866812e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854012"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871299"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Använda Queue Storage från Java
 
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
+
+## <a name="overview"></a>Översikt
 
 I den här guiden får du lära dig hur du kodar vanliga scenarier med Azure Queue Storage-tjänsten. Exemplen är skrivna i Java och använder [Azure Storage SDK för Java][Azure Storage SDK for Java]. Scenarier innefattar att **Infoga**, **Granska**, **Hämta**och **ta bort** Kömeddelanden. Kod för att **skapa** och **ta bort** köer omfattas också. Mer information om köer finns i avsnittet [Nästa steg](#next-steps) .
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e75ea5a8f5fdeaf7c3562e50d9493341d41ce393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037158"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871249"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -306,7 +306,8 @@ Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort file
 >
 > |Scenario|Flagga|
 > |---|---|
-> |Ange hur strikta MD5-hashar ska verifieras vid hämtning.|**--kontrol lera-MD5** = \[ Nocheck \| \| FailIfDifferent \| FailIfDifferentOrMissing\]|
+> |Kopiera åtkomst kontrol listor (ACL: er) tillsammans med filerna.|**--bevara-SMB-Permissions** = \[ Sant \| falskt\]|
+> |Kopiera information om SMB-egenskaper tillsammans med filerna.|**--Behåll-SMB-info** = \[ Sant \| falskt\]|
 > |Undanta filer baserat på ett mönster.|**--Exkludera-sökväg**|
 > |Ange hur detaljerad du vill att dina Sync-relaterade logg poster ska vara.|**--inloggnings nivå** = \[ VARNINGs \| fel \| information \| ingen\]|
 > 

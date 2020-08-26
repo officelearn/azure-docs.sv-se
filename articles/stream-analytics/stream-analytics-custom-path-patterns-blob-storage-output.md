@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747625"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869821"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partitionering av anpassad BLOB-utdata
 
@@ -44,7 +44,7 @@ När jobbet börjar köras kan *klienternas* behållare se ut så här:
 
 ![Behållare för klienter](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-Varje mapp kan innehålla flera blobbar där varje BLOB innehåller en eller flera poster. I exemplet ovan finns det en enda BLOB i en mapp med etiketten "06000000" med följande innehåll:
+Varje mapp kan innehålla flera blobbar där varje BLOB innehåller en eller flera poster. I exemplet ovan finns det en enda BLOB i en mapp med namnet "06000000" med följande innehåll:
 
 ![BLOB-innehåll](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -113,7 +113,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>Exempel
 
-Skapa ett lagrings konto, en resurs grupp, ett Stream Analytics jobb och en indatakälla Azure Stream Analytics enligt snabb starts guiden för [Azure Portal](stream-analytics-quick-create-portal.md) . Använd samma exempel data som används i snabb starts guiden, som också finns på [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
+Skapa ett lagrings konto, en resurs grupp, ett Stream Analytics jobb och en indatakälla enligt snabb starts guiden för [Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) . Använd samma exempel data som används i snabb starts guiden, som också finns på [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 
 Skapa en BLOB-utgående mottagare med följande konfiguration:
 

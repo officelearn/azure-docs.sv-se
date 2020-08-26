@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 55e79877fb186a5ba2aece316c61f542adeda60c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6318f426e42612f21da7a43c9857894ae610f68e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796943"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871196"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Felsöka replikeringsfel i VM-migrering utan agent
 
@@ -30,13 +30,36 @@ Använd följande steg för att övervaka replikeringsstatus för dina virtuella
 
   1. Gå till sidan servrar i Azure Migrate på Azure Portal.
   2. Gå till sidan "replikera datorer" genom att klicka på "replikera servrar" i panelen Server migrering.
-  3. Du ser en lista över replikering av servrar och ytterligare information som status, hälsa, senaste synkroniseringstid osv. I kolumnen hälsa anges den aktuella replikeringens aktuella hälso tillstånd för den virtuella datorn. Ett "Critical'or"-varnings värde i hälso kolumnen indikerar vanligt vis att den tidigare replikeringen för den virtuella datorn misslyckades. Om du vill ha mer information högerklickar du på den virtuella datorn och väljer fel information. Sidan fel information innehåller information om felet och ytterligare information om hur du felsöker. Du ser också länken "senaste händelser" som kan användas för att navigera till sidan händelser för den virtuella datorn.
+  3. Du ser en lista över replikering av servrar och ytterligare information som status, hälsa, senaste synkroniseringstid osv. I kolumnen hälsa anges den aktuella replikeringens aktuella hälso tillstånd för den virtuella datorn. Värdet "kritisk" eller "varning" i hälso kolumnen indikerar vanligt vis att den tidigare replikeringen för den virtuella datorn misslyckades. Om du vill ha mer information högerklickar du på den virtuella datorn och väljer fel information. Sidan fel information innehåller information om felet och ytterligare information om hur du felsöker. Du ser också länken "senaste händelser" som kan användas för att navigera till sidan händelser för den virtuella datorn.
   4. Klicka på senaste händelser om du vill se tidigare Körfel för den virtuella datorn. På sidan händelser söker du efter den senaste händelsen av typen "Replikeringsinitieringen misslyckades" eller "Det gick inte att utföra replikering för disken" för den virtuella datorn.
   5. Klicka på händelsen för att förstå möjliga orsaker till felet och rekommenderade reparations steg. Använd informationen som visas för att felsöka och åtgärda felet.
     
 ## <a name="common-replication-errors"></a>Vanliga replikeringsfel
 
 I det här avsnittet beskrivs några vanliga fel och hur du kan felsöka dem.
+
+## <a name="key-vault-operation-failed-error-when-trying-to-replicate-vms"></a>Key Vault åtgärden misslyckades vid försök att replikera virtuella datorer
+
+**Fel:** "Key Vault åtgärden misslyckades. Åtgärd: Konfigurera hanterat lagrings konto, Key Vault: nyckel-valv-namn, lagrings konto: lagrings konto namnet misslyckades med felet: "
+
+**Fel:** "Key Vault åtgärden misslyckades. Åtgärd: Skapa signatur definition för delad åtkomst, Key Vault: nyckel-valv-namn, lagrings konto: lagrings konto namnet misslyckades med felet: "
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+Det här felet uppstår vanligt vis på grund av att användar åtkomst principen för Key Vault inte ger den inloggade användaren de behörigheter som krävs för att konfigurera lagrings konton som ska Key Vault hanteras. Om du vill kontrol lera användar åtkomst principen i nyckel valvet går du till sidan med nyckel valvet i portalen för nyckel valvet och väljer åtkomst principer 
+
+När portalen skapar nyckel valvet lägger det också till en princip för användar åtkomst som beviljar den inloggade användaren behörighet att konfigurera lagrings konton som ska Key Vault hanteras. Detta kan inte utföras av två orsaker
+
+- Den inloggade användaren är ett fjär huvud konto på Azure-klienten för kunder (CSP-prenumeration – och den inloggade användaren är partner administratör). Lösningen i det här fallet är att ta bort nyckel valvet, logga ut från portalen och sedan logga in med ett användar konto från kund klienten (inte ett fjär huvud konto) och försöka utföra åtgärden igen. CSP-partnern har vanligt vis ett användar konto i kunderna Azure Active Directory klient som de kan använda. Om de inte kan skapa ett nytt användar konto för sig själva i kunderna Azure Active Directory-klienten loggar du in på portalen som den nya användaren och försöker sedan utföra åtgärden replikera igen. Kontot som används måste ha behörighet som ägare eller deltagare och administratör för användar åtkomst till kontot i resurs gruppen (migrera projekt resurs gruppen)
+
+- Det andra fallet var det kan inträffa när en användare (Användare1) försökte konfigurera replikeringen från början och påträffade ett fel, men nyckel valvet har redan skapats (och användar åtkomst principen har tilldelats korrekt till den här användaren). Nu vid ett senare tillfälle försöker en annan användare (användare2) Konfigurera replikering, men åtgärden konfigurera hanterat lagrings konto eller skapa SAS-definition Miss lyckas eftersom det inte finns någon princip för användar åtkomst som motsvarar användare2 i nyckel valvet.
+
+**Lösning**: Lös problemet genom att skapa en princip för användar åtkomst för användare2 i användare2-behörighet för att konfigurera hanterat lagrings konto och generera SAS-definitioner. Användare2 kan göra detta från Azure PowerShell med hjälp av nedanstående cmdlets:
+
+$userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). Identitet
+
+Set-AzureRmKeyVaultAccessPolicy-VaultName "keyvaultname"-ObjectId $userPrincipalId-PermissionsToStorage Hämta, lista, ta bort, ange, uppdatera, regeneratekey, hämtas, listor, rader, rader, uppsättningar, återställning, säkerhets kopiering, återställning, rensa
+
 
 ## <a name="disposeartefactstimedout"></a>DisposeArtefactsTimedOut
 

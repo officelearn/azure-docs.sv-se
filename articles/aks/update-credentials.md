@@ -5,12 +5,12 @@ description: Läs om hur du uppdaterar eller återställer autentiseringsuppgift
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e787322f421094cf9ac6681df0119ba820b654ea
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386936"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871232"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för Azure Kubernetes service (AKS)
 
@@ -31,7 +31,8 @@ När du vill uppdatera autentiseringsuppgifterna för ett AKS-kluster kan du ant
 * Uppdatera autentiseringsuppgifterna för det befintliga huvud namnet för tjänsten.
 * Skapa ett nytt huvud namn för tjänsten och uppdatera klustret för att använda dessa nya autentiseringsuppgifter. 
 
-> ! HONOM Om du väljer att skapa ett *nytt* huvud namn för tjänsten kan det ta lång tid att uppdatera ett stort AKS-kluster för att använda dessa autentiseringsuppgifter.
+> [!WARNING]
+> Om du väljer att skapa ett *nytt* huvud namn för tjänsten kan det ta lång tid att uppdatera ett stort AKS-kluster för att använda dessa autentiseringsuppgifter.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Kontrol lera förfallo datumet för tjänstens huvud namn
 

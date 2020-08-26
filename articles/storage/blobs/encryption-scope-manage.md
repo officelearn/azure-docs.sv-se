@@ -4,23 +4,25 @@ description: Lär dig hur du skapar en krypterings omfattning för att isolera B
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/04/2020
+ms.date: 08/25/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: d4dd3f3ced8aac6852fe8516a4a5cadca2ebdc49
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564154"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870263"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Skapa och hantera krypterings omfång (förhands granskning)
 
-Krypterings omfång (för hands version) gör att du kan hantera kryptering på nivån för en enskild BLOB eller behållare. En krypterings omfattning isolerar BLOB-data i en säker enklaven i ett lagrings konto. Du kan använda krypterings omfång för att skapa säkra gränser mellan data som finns i samma lagrings konto men som tillhör olika kunder. Mer information om krypterings omfång finns i [krypterings omfång för Blob Storage (för hands version)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Krypterings omfång (för hands version) gör att du kan hantera kryptering på nivån för en enskild BLOB eller behållare. En krypteringsomfattning isolerar blob-data i en säker enklav i ett lagringskonto. Du kan använda krypterings omfång för att skapa säkra gränser mellan data som finns i samma lagrings konto men som tillhör olika kunder. Mer information om krypterings omfång finns i [krypterings omfång för Blob Storage (för hands version)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
 
 Den här artikeln visar hur du skapar en krypterings omfattning. Det visar också hur du anger ett krypterings omfång när du skapar en BLOB eller behållare.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-an-encryption-scope"></a>Skapa ett krypterings omfång
 

@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a04f4879bbd06c2fa6c1af921d7adafdef9417d6
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706383"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871453"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Anslut ditt program till en Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Att ansluta ett program när det finns i ett annat virtuellt nätverk från SQL 
 
 Det finns två alternativ för att ansluta virtuella nätverk:
 
-- [Azure VPN-peering](../../virtual-network/virtual-network-peering-overview.md)
+- [Azure VNet-peering](../../virtual-network/virtual-network-peering-overview.md)
 - VNet-till-VNet VPN-gateway ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [POWERSHELL](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 Peering är att föredra eftersom det använder Microsoft stamnät nätverket, så från anslutnings perspektivet, finns det ingen märkbar skillnad i fördröjning mellan virtuella datorer i ett peer-kopplat virtuellt nätverk och i samma virtuella nätverk. Peering av virtuella nätverk är begränsat till nätverken i samma region.  
@@ -63,13 +63,13 @@ Om du har upprättat en lokal anslutning till Azure-anslutningen och du inte kan
 
 ## <a name="connect-the-developer-box"></a>Anslut rutan utvecklare
 
-Du kan också ansluta din utvecklings ruta till SQL-hanterad instans. SQL-hanterad instans kan endast nås via en privat IP-adress, så för att få åtkomst till den från din utvecklare måste du först skapa en anslutning mellan din utvecklings ruta och det virtuella SQL Managed instance-nätverket. Det gör du genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering. Mer information finns i [Konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL-hanterad instans från en lokal dator](point-to-site-p2s-configure.md).
+Du kan också ansluta din utvecklings ruta till SQL-hanterad instans. SQL-hanterad instans kan endast nås via en privat IP-adress, så för att få åtkomst till den från din utvecklare måste du först skapa en anslutning mellan din utvecklings ruta och det virtuella SQL Managed instance-nätverket. Det gör du genom att konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering. Mer information finns i  [Konfigurera en punkt-till-plats-anslutning för att ansluta till en Azure SQL-hanterad instans från en lokal dator](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Anslut med VNet-peering
 
 Ett annat scenario som implementeras av kunder är var en VPN-gateway installeras i ett separat virtuellt nätverk och en prenumeration från den som är värd för SQL-hanterad instans. De två virtuella nätverken är sedan peer-kopplade. Följande exempel arkitektur diagram visar hur detta kan implementeras.
 
-![Virtuell nätverkspeering](./media/connect-application-instance/vnet-peering.png)
+![Peering för virtuella nätverk](./media/connect-application-instance/vnet-peering.png)
 
 När du har konfigurerat den grundläggande infrastrukturen måste du ändra vissa inställningar så att VPN-gatewayen kan se IP-adresserna i det virtuella nätverket som är värd för SQL-hanterad instans. Det gör du genom att göra följande mycket speciella ändringar under **peering-inställningarna**.
 

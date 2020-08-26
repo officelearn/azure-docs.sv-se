@@ -8,12 +8,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 8/20/2020
 ms.author: allensu
-ms.openlocfilehash: ed6c60b4f66361e87f67f3c64bb60846b2df757b
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817837"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870480"
 ---
 # <a name="azure-cdn-endpoint-multi-origin"></a>Azure CDN slut punkt multi-Origin
 
@@ -42,7 +42,7 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 5. I **Lägg till konfiguration av ursprungs grupp** anger eller väljer du följande information:
 
-   | Inställningen           | Värde                                                                 |
+   | Inställning           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
    | Namn på ursprungs grupp | Ange ett namn för din ursprungs grupp.                                   |
    | Avsöknings status      | Välj **Aktiverad**. </br> Azure CDN kommer att köra hälso avsökningar från olika platser i hela världen för att fastställa hälso tillståndet. Aktivera inte om den aktuella ursprungs gruppen inte är aktiv för att undvika ytterligare kostnader.
@@ -64,8 +64,9 @@ Konfigurera en eller flera ursprungs grupper och välj en standard ursprungs gru
 
 2. Ange eller Välj följande information i **Lägg till ursprung** -konfiguration:
 
-   | Inställningen           | Värde                                                                 |
+   | Inställning           | Värde                                                                 |
    |-------------------|-----------------------------------------------------------------------|
+   | Namn        | Ange ett namn för ursprunget.        |
    | Typ av ursprung | Välj **lagring**, **moln tjänst**, **webbapp**eller **anpassat ursprung**.                                   |
    | Ursprungets värdnamn        | Välj eller ange ditt ursprungs namn.  I list rutan visas alla tillgängliga ursprung av den typ som du angav i föregående inställning. Om du valde **anpassat ursprung** som typ av ursprung anger du domänen för din kund ursprungs Server. |
    | Ursprungsvärdadress    | Ange värd huvudet som du vill Azure CDN skicka med varje begäran, eller lämna standardvärdet.                        |
@@ -114,6 +115,34 @@ När du har flera ursprung och en ursprungs grupp kan du lägga till eller ta bo
 2. Om du vill ta bort ett ursprung från gruppen original, väljer du pappers korgs ikonen bredvid ursprunget och väljer **Spara**:
 
     :::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-11.png" alt-text="Uppdatera ursprungs grupp ta bort ursprung" border="true":::
+
+## <a name="override-origin-group-with-rules-engine"></a>Åsidosätt ursprungs grupp med regel motor
+
+Anpassa hur trafiken distribueras till olika ursprungs grupper med hjälp av standard regel motorn.
+
+Distribuera trafik till en annan grupp baserat på URL: en för begäran.
+
+1. I CDN-slutpunkten väljer du **regel motor** under **Inställningar**:
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-12.png" alt-text="Regel motor" border="true":::
+
+2. Välj **+ Lägg till regel**.
+
+3. Ange ett namn för regeln i **namn**.
+
+4. Välj **+ villkor**och välj sedan **URL-sökväg**.
+
+5. I **operatorns** listruta väljer du **innehåller**.
+
+6. I **värde**anger du **/images**.
+
+7. Välj **+ Lägg till åtgärd**och välj sedan **åsidosättande av ursprungs grupp**.
+
+8. I **gruppen original**väljer du gruppen ursprung i den nedrullningsbara rutan.
+
+:::image type="content" source="./media/endpoint-multiorigin/endpoint-multiorigin-13.png" alt-text="Regel motor villkor" border="true":::
+
+För alla inkommande begär Anden om URL-sökvägen innehåller **/images**, kommer begäran att tilldelas ursprungs gruppen i åtgärds avsnittet **(myorigingroup)**. 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du aktiverat Azure CDN slut punkt multi-Origin.

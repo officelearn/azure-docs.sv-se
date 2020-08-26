@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 30b90b89300d6ca63255a000c7a6f7723f648056
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 64b38d0e776a0e3dab155704dcc368cc738c278e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118779"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855426"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Webbapp som loggar in användare: kod konfiguration
 
@@ -132,7 +132,7 @@ I ASP.NET Core innehåller en annan fil ([properties\launchSettings.jspå](https
 }
 ```
 
-I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. För de två föregående konfigurationsfilerna är de `https://localhost:44321/signin-oidc` . Orsaken är att `applicationUrl` `http://localhost:3110` , men har `sslPort` angetts (44321). `CallbackPath`är `/signin-oidc` , enligt definitionen i `appsettings.json` .
+I Azure Portal måste de svars-URI: er som du måste registrera på sidan **autentisering** för programmet matcha dessa URL: er. För de två föregående konfigurationsfilerna är de `https://localhost:44321/signin-oidc` . Orsaken är att `applicationUrl` `http://localhost:3110` , men har `sslPort` angetts (44321). `CallbackPath` är `/signin-oidc` , enligt definitionen i `appsettings.json` .
 
 På samma sätt skulle utloggnings-URI: n vara inställd på `https://localhost:44321/signout-oidc` .
 
@@ -225,7 +225,7 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
 
 1. Lägg till NuGet-paketen [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) och [Microsoft. Identity. Web. UI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) i projektet. Ta bort paketet Microsoft. AspNetCore. Authentication. AzureAD. UI NuGet om det finns.
 
-2. Uppdatera koden i `ConfigureServices` så att den använder- `AddMicrosoftWebAppAuthentication` och- `AddMicrosoftIdentityUI` metoderna.
+2. Uppdatera koden i `ConfigureServices` så att den använder- `AddMicrosoftIdentityWebAppAuthentication` och- `AddMicrosoftIdentityUI` metoderna.
 
    ```c#
    public class Startup
@@ -234,7 +234,7 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-     services.AddMicrosoftWebAppAuthentication(Configuration, "AzureAd");
+     services.AddMicrosoftIdentityWebAppAuthentication(Configuration, "AzureAd");
 
      services.AddRazorPages().AddMvcOptions(options =>
      {
@@ -245,7 +245,7 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
      }).AddMicrosoftIdentityUI();
     ```
 
-3. I `Configure` -metoden i *startup.cs*aktiverar du autentisering med ett anrop till`app.UseAuthentication();`
+3. I `Configure` -metoden i *startup.cs*aktiverar du autentisering med ett anrop till `app.UseAuthentication();`
 
    ```c#
    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -259,20 +259,20 @@ Om du vill lägga till autentisering med Microsoft Identity Platform (tidigare A
    ```
 
 I koden ovan:
-- `AddMicrosoftWebAppAuthentication`Tilläggs metoden definieras i **Microsoft. Identity. Web**. Företaget
+- `AddMicrosoftIdentityWebAppAuthentication`Tilläggs metoden definieras i **Microsoft. Identity. Web**. Företaget
   - Lägger till Autentiseringstjänsten.
   - Konfigurerar alternativ för att läsa konfigurations filen (här från avsnittet "AzureAD")
   - Konfigurerar anslutnings alternativen för OpenID så att utfärdaren är Microsoft Identity Platform-slutpunkten.
   - Verifierar utfärdaren av token.
   - Säkerställer att de anspråk som motsvarar namnet mappas från `preferred_username` anspråket i ID-token.
 
-- Förutom konfigurationsobjektet kan du ange namnet på konfigurations avsnittet när du anropar `AddMicrosoftWebAppAuthentication` . Som standard är det `AzureAd` .
+- Förutom konfigurationsobjektet kan du ange namnet på konfigurations avsnittet när du anropar `AddMicrosoftIdentityWebAppAuthentication` . Som standard är det `AzureAd` .
 
-- `AddMicrosoftWebAppAuthentication`har andra parametrar för avancerade scenarier. Till exempel kan spårning av OpenID ansluta mellanprogram händelser hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar. Om du anger den valfria parametern `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visas hur information bearbetas med en uppsättning ASP.net Core mellanprogram när den fortskrider från http-svaret till användarens identitet i `HttpContext.User` .
+- `AddMicrosoftIdentityWebAppAuthentication` har andra parametrar för avancerade scenarier. Till exempel kan spårning av OpenID ansluta mellanprogram händelser hjälpa dig att felsöka ditt webb program om autentiseringen inte fungerar. Om du anger den valfria parametern `subscribeToOpenIdConnectMiddlewareDiagnosticsEvents` till `true` visas hur information bearbetas med en uppsättning ASP.net Core mellanprogram när den fortskrider från http-svaret till användarens identitet i `HttpContext.User` .
 
 - `AddMicrosoftIdentityUI`Tilläggs metoden definieras i **Microsoft. Identity. Web. UI**. Den tillhandahåller en standardkontrollant för att hantera inloggning och utloggning.
 
-Du hittar mer information om hur Microsoft. Identity. Web ger dig möjlighet att skapa webbappar i<https://aka.ms/ms-id-web/webapp>
+Du hittar mer information om hur Microsoft. Identity. Web ger dig möjlighet att skapa webbappar i <https://aka.ms/ms-id-web/webapp>
 
 > [!WARNING]
 > För närvarande stöder inte Microsoft. Identity. Web scenariot för **enskilda användar konton** (som lagrar användar konton i appen) när du använder Azure AD som och extern inloggnings leverantör. Mer information finns i: [AzureAD/Microsoft-Identity-Web # 133](https://github.com/AzureAD/microsoft-identity-web/issues/133)

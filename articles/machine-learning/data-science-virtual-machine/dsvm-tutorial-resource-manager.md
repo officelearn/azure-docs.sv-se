@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: f6d128ace64f7c100a974883bff82435a496be97
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815461"
+ms.locfileid: "88855064"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Snabb start: skapa en Ubuntu-Data Science Virtual Machine med en ARM-mall
 
@@ -37,12 +37,17 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 ## <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Den fullständiga mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa hela mallen går du till [azuredeploy.jspå](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Den del som definierar de olika DSVM visas här:
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/).
 
-:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
+:::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json":::
 
 Följande resurser definieras i mallen:
 
+* [Microsoft. Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft. Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft. Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft. Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
 * [Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): skapa en molnbaserad virtuell dator. I den här mallen är den virtuella datorn konfigurerad som en Data Science Virtual Machine som kör Ubuntu 18,04.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen

@@ -5,18 +5,18 @@ description: Azure SQL Database och Azure SQL-hanterad instans skapar automatisk
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=2
+ms.custom: references_regions
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 08/04/2020
-ms.openlocfilehash: 5fd835418a8429fa07325c22b106ee675ba3e2e1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 485a137f552ca06fba366d261eb38268d821ccaf
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756732"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853207"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Automatiserade säkerhets kopieringar – Azure SQL Database & SQL-hanterad instans
 
@@ -46,7 +46,14 @@ Alternativet för att konfigurera redundans för säkerhets kopiering ger flexib
 > [!IMPORTANT]
 > I SQL-hanterad instans tillämpas den konfigurerade redundansen för säkerhets kopiering på både kortsiktiga säkerhets kopior som används för återställnings punkt i tid (PITR) och säkerhets kopior med långsiktig kvarhållning som används för långsiktiga säkerhets kopior (brv).
 
+
+> [!NOTE]
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande tillgängligt som en begränsad privat för hands version för vissa kunder i Sydostasien Azure-region. Om du vill ta hänsyn till registreringen i den här privata förhands granskningen kontaktar du [sqlbackuppreview@microsoft.com](mailto:sqlbackuppreview@microsoft.com) . 
+
+Om dina data skydds regler kräver att dina säkerhets kopior är tillgängliga under en längre tid (upp till 10 år) kan du konfigurera [långsiktig kvarhållning](long-term-retention-overview.md) för både enkla databaser och databaser i pooler.
+
 ### <a name="backup-usage"></a>Säkerhets kopierings användning
+
 
 Du kan använda de här säkerhetskopiorna för att:
 

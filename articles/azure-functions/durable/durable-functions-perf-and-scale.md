@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 58c28160de15bc99c94c84ab23fdbb358125132d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e98792c81604b0f867343db289a44dfec9704b5e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033589"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88853697"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestanda och skalning i Durable Functions (Azure Functions)
 
@@ -224,6 +224,10 @@ Det finns två möjliga nack delen med den här inställningen för att vara med
 Exempel: om `durableTask/extendedSessionIdleTimeoutInSeconds` är inställt på 30 sekunder, kan ett avsnitt med en kort livs längd för Orchestrator-eller enhets funktioner som körs på mindre än 1 sekund fortfarande uppta minne i 30 sekunder. Det räknas även mot den `durableTask/maxConcurrentOrchestratorFunctions` kvot som anges ovan, vilket kan förhindra att andra Orchestrator-eller entitet-funktioner körs.
 
 De olika effekterna av utökade sessioner i funktionerna för Orchestrator och entiteter beskrivs i nästa avsnitt.
+
+> [!NOTE]
+> Utökade sessioner stöds för närvarande bara på .NET-språk, t. ex. C# eller F #. Inställningen `extendedSessionsEnabled` till `true` för andra plattformar kan leda till körnings problem, t. ex. tyst misslyckad körning av aktivitet och Orchestration-utlösta funktioner.
+
 
 ### <a name="orchestrator-function-replay"></a>Uppspelning av Orchestrator-funktion
 

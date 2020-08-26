@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 830bdd45be4b0365ac45bc3ea366b99a34882a4c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074048"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871487"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Tidssynkronisering för virtuella Windows-datorer i Azure
 
@@ -60,7 +60,7 @@ Som standard konfigureras virtuella Windows OS-avbildningar för W32Time för sy
 - NtpClient-providern, som hämtar information från time.windows.com.
 - VMICTimeSync-tjänsten används för att kommunicera värd tiden med de virtuella datorerna och göra ändringar efter att den virtuella datorn har pausats för underhåll. Azure-värdar använder Microsoft-ägda stratum 1-enheter för att hålla rätt tid.
 
-W32Time föredrar Tidsprovidern i följande prioritetsordning: stratum-nivå, rot fördröjning, rot-spridning, tids förskjutning. I de flesta fall skulle W32Time föredra time.windows.com till värden eftersom time.windows.com rapporterar lägre stratum. 
+W32Time föredrar Tidsprovidern i följande prioritetsordning: stratum-nivå, rot fördröjning, rot-spridning, tids förskjutning. I de flesta fall föredrar W32Time på en virtuell Azure-dator värd tiden på grund av utvärderingen att det skulle göra att jämföra båda tids källorna. 
 
 För domänanslutna datorer upprättar själva domänen tidssynkronisering, men skogs roten måste fortfarande ta tid från en plats och följande överväganden skulle fortfarande vara sant.
 
@@ -115,8 +115,8 @@ w32tm /query /source
 
 Här är de utdata du kan se och vad det skulle innebära:
     
-- **Time.Windows.com** – i standard konfigurationen skulle W32Time Hämta tid från Time.Windows.com. Tidssynkroniseringens kvalitet beror på Internet anslutning till den och påverkas av paket fördröjningar. Detta är vanliga utdata från standard konfigurationen.
-- **Provider för konc.int. tidssynkronisering för virtuell dator** – den virtuella datorn synkroniseras tid från värden. Detta är vanligt vis resultatet om du väljer att inte använda tidssynkronisering för enbart värd eller när NtpServer inte är tillgänglig just nu. 
+- **Time.Windows.com** – i standard konfigurationen skulle W32Time Hämta tid från Time.Windows.com. Tidssynkroniseringens kvalitet beror på Internet anslutning till den och påverkas av paket fördröjningar. Detta är de vanligaste utdata som du skulle få på en fysisk dator.
+- **Provider för konc.int. tidssynkronisering för virtuell dator**  – den virtuella datorn synkroniseras tid från värden. Detta är de vanligaste utdata som du skulle få på en virtuell dator som körs på Azure. 
 - *Din domän Server* – den aktuella datorn finns i en domän och domänen definierar tidssynkroniseringens hierarki.
 - *Vissa andra server* -W32Time konfigurerades explicit för att hämta tiden från den andra servern. Tidssynkroniseringens kvalitet beror på denna tids Server kvalitet.
 - **Lokal CMOS-klocka** är inte synkroniserad. Du kan hämta dessa utdata om W32Time inte hade tillräckligt med tid för att starta efter en omstart eller när alla konfigurerade tids källor inte är tillgängliga.
@@ -160,7 +160,7 @@ reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\Config /v U
 w32tm /config /update
 ```
 
-För att W32Time ska kunna använda de nya avsöknings intervallen markeras NtpServers som att använda dem. Om servrarna är kommenterade med 0x1 bitflag-masken åsidosätter den här mekanismen och W32Time använder SpecialPollInterval i stället. Se till att de angivna NTP-servrarna antingen använder flaggan 0x8 eller ingen flagga alls:
+För att W32Time ska kunna använda de nya avsöknings intervallen måste NtpServers markeras som att använda dem. Om servrarna är kommenterade med 0x1 bitflag-masken åsidosätter den här mekanismen och W32Time använder SpecialPollInterval i stället. Se till att de angivna NTP-servrarna antingen använder flaggan 0x8 eller ingen flagga alls:
 
 Kontrol lera vilka flaggor som används för använda NTP-servrar.
 
@@ -173,6 +173,6 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 Nedan visas länkar till mer information om tidssynkroniseringen:
 
 - [Verktyg och inställningar för Windows tidstjänst](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings)
-- [Förbättringar i Windows Server 2016](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Förbättringar i Windows Server 2016 ](/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Korrekt tid för Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time)
 - [Stöd gräns för att konfigurera Windows tids tjänst för miljöer med hög noggrannhet](/windows-server/networking/windows-time-service/support-boundary)

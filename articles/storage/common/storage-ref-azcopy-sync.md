@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285211"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869447"
 ---
 # <a name="azcopy-sync"></a>azcopy synkronisering
 
@@ -143,13 +143,17 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Exempelvis: `*.jpg;*.pdf;exactName`
 
-**--Hjälp** för synkronisering.
+**--Hjälp**    för synkronisering.
 
 **--include-attribut** sträng (endast Windows) innehåller bara filer vars attribut matchar attributlistan. Exempelvis: `A;S;R`
 
 **--Inkludera-mönster** sträng inkludera bara filer där namnet matchar mönster listan. Exempelvis: `*.jpg;*.pdf;exactName`
 
 **--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: `INFO` (alla begär Anden och svar) `WARNING` (långsamma svar), `ERROR` (endast misslyckade förfrågningar) och `NONE` (inga utgående loggar). (standard `INFO` ). 
+
+**--Behåll-SMB-info**     Falskt som standard.Bevarar information om SMB-egenskaper (senaste skrivnings tid, skapande tid, attribut bitar) mellan SMB-medvetna resurser (Windows och Azure Files).Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel include-Pattern).Informationen som överförs för mappar är samma som för filer, förutom senaste skrivnings tid som inte bevaras för mappar.
+
+**--bevara-SMB-Permissions**     Falskt som standard.Bevarar SMB ACL: er mellan medvetna resurser (Windows och Azure Files).Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel  `include-pattern` ).
 
 **--Skicka-MD5**     Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
 
@@ -167,4 +171,4 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="see-also"></a>Se även
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

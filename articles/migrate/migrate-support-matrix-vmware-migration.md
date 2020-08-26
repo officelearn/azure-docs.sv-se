@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9de0609361e67d5251b25df798b61a4ab13e432c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387429"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869107"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -116,7 +116,7 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för VMware-migrering.
 **Mobilitets tjänst** | Mobilitets tjänst agenten måste vara installerad på varje virtuell dator som du vill migrera.
-**UEFI-start** | Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start.<br/><br/> OS-disken bör ha upp till fyra partitioner och volymer ska formateras med NTFS.
+**UEFI-start** | Stöds.
 **Mål disk** | Virtuella datorer kan bara migreras till Managed disks (standard HDD, Premium SSD) i Azure.
 **Diskstorlek** | 2 TB OS-disk; 8 TB för data diskar.
 **Disk gränser** |  Upp till 63 diskar per virtuell dator.
@@ -125,7 +125,7 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Oberoende diskar** | Stöds.
 **Genom strömnings diskar** | Stöds.
 **NFS** | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte.
-**iSCSI-mål** | Virtuella datorer med iSCSI-mål stöds inte för migrering utan agent.
+**iSCSI-mål** | Stöds.
 **Multipath i/o** | Stöds inte.
 **Lagrings vMotion** | Stöds
 **Grupperade nätverkskort** | Stöds inte.

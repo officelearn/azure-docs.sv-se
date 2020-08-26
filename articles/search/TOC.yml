@@ -155,7 +155,7 @@
           href: search-howto-large-index.md
         - name: Hantera samtidiga uppdateringar
           href: search-howto-concurrency.md
-    - name: Mata in Azure-data
+    - name: Mata in data som endast finns i Azure
       items:
         - name: Konfigurera indexerare
           href: search-indexer-overview.md
@@ -203,7 +203,7 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
-    - name: Mata in med AI
+    - name: Använda färdigheter (AI)
       items:
         - name: Bifoga en resurs för Cognitive Services
           href: cognitive-search-attach-cognitive-services.md
@@ -215,7 +215,7 @@
               href: cognitive-search-concept-annotations-syntax.md
             - name: Mappa till indexfält
               href: cognitive-search-output-field-mapping.md
-            - name: Extrahera information från bilder
+            - name: Bearbeta bildfiler
               href: cognitive-search-concept-image-scenarios.md
             - name: Cachelagra (inkrementellt) berikande
               href: search-howto-incremental-index.md
@@ -526,5 +526,5 @@
       href: search-faq-frequently-asked-questions.md
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/search/'
-    - name: Videoklipp
+    - name: Video
       href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

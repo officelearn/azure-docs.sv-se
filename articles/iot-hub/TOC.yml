@@ -53,6 +53,9 @@
           href: quickstart-device-streams-proxy-nodejs.md
         - name: C
           href: quickstart-device-streams-proxy-c.md
+    - name: Dirigera meddelanden automatiskt med hjälp av en ARM-mall
+      displayName: Resource Manager
+      href: horizontal-arm-route-messages.md
 - name: Självstudier
   items:
     - name: Meddelanderoutning

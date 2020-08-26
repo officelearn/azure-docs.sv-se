@@ -3,12 +3,12 @@ title: Återställa filer till Windows Server med MARS-agenten
 description: I den här artikeln får du lära dig hur du återställer data som lagras i Azure till en Windows Server-eller Windows-dator med den Microsoft Azure Recovery Services MARS-agenten.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e5158681971c5c10e813187fedb61bc0022ee9e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 78663edadfdef581dbdd259882a6dd4afe5a4b0b
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827077"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871266"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Återställa filer till Windows Server med MARS-agenten
 
@@ -50,7 +50,7 @@ Om du av misstag har tagit bort en fil och vill återställa den till samma dato
    > Alternativet för att återställa enskilda filer och mappar kräver .NET Framework 4.5.2 eller senare. Om du inte ser alternativet **enskilda filer och mappar** måste du uppgradera .NET Framework till version 4.5.2 eller senare och försöka igen.
 
    > [!TIP]
-   > Alternativet **enskilda filer och mappar** ger snabb åtkomst till återställnings punkt data. Det är lämpligt för att återställa enskilda filer, med storlekar som totalt inte är större än 80 GB, och erbjuder överförings-eller kopierings hastigheter upp till 6 MBps under återställningen. Alternativet **volym** återställer alla säkerhetskopierade data på en angiven volym. Det här alternativet ger snabbare överförings hastigheter (upp till 40 Mbit/s), vilket är idealiskt för att kunna återskapa stora data mängder eller hela volymer.
+   > Alternativet **enskilda filer och mappar** ger snabb åtkomst till återställnings punkt data. Det är lämpligt för att kunna återskapa enskilda filer och rekommenderas för en total storlek på mindre än 80 GB. Den erbjuder överförings-eller kopierings hastigheter upp till 6 MBps under återställningen. Alternativet **volym** återställer alla säkerhetskopierade data på en angiven volym. Det här alternativet ger snabbare överföringshastighet (upp till 40 Mbit/s) och rekommenderas för att återskapa stora data eller hela volymer.
 
 5. På sidan **Välj volym och datum** väljer du den volym som innehåller de filer och mappar som du vill återställa.
 

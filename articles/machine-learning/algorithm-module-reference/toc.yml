@@ -192,3 +192,5 @@
       href: web-service-input-output.md
 - name: Modulfel och felsökning
   href: designer-error-codes.md
+- name: Syntax för sökfråga i Graph
+  href: graph-search-syntax.md

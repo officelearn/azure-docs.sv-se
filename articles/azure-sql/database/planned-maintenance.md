@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
-ms.date: 01/30/2019
-ms.openlocfilehash: f0bda1f4b9894b1ea5a68f44a728f715676d500e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 08/25/2020
+ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661154"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869125"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planera för Azures underhålls händelser i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,15 +29,15 @@ För varje databas upprätthåller Azure SQL Database och Azure SQL-hanterad ins
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>Vad som ska förväntas under en planerad underhålls händelse
 
-Omkonfigurationer/redundans slutförs vanligt vis inom 30 sekunder. Genomsnittet är 8 sekunder. Om det redan är anslutet måste ditt program återansluta till den felfria kopian av databasen. Om en ny anslutning görs medan databasen genomgår en omkonfiguration innan den nya primära repliken är online får du fel 40613 (databasen är inte tillgänglig): "databasen {databasename} på servern {servername} är inte tillgänglig för tillfället. Gör ett nytt försök med anslutningen senare". Om din databas har en tids krävande fråga avbryts den här frågan under en omkonfiguration och måste startas om.
+Underhålls händelser kan producera enstaka eller flera redundans, beroende på Constellation för de primära och sekundära replikerna i början av underhålls händelsen. I genomsnitt sker 1,7 redundans per planerat underhålls evenemang. Omkonfigurationer/redundans slutförs vanligt vis inom 30 sekunder. Genomsnittet är 8 sekunder. Om det redan är anslutet måste ditt program återansluta till den nya primära repliken av databasen. Om en ny anslutning görs medan databasen genomgår en omkonfiguration innan den nya primära repliken är online får du fel 40613 (databasen är inte tillgänglig): *"databasen {databasename} på servern {servername} är inte tillgänglig för tillfället. Försök att ansluta igen senare. "* Om din databas har en tids krävande fråga avbryts den här frågan under en omkonfiguration och måste startas om.
+
+## <a name="how-to-simulate-a-planned-maintenance-event"></a>Så här simulerar du ett planerat underhålls evenemang
+
+Att se till att klient programmet är elastiskt för underhålls händelser innan distribution till produktion bidrar till att minska risken för program fel och kommer att bidra till programmets tillgänglighet för slutanvändarna. Du kan testa beteendet för klient programmet under planerade underhålls händelser genom att [initiera manuell redundansväxling](https://aka.ms/mifailover-techblog) via POWERSHELL, CLI eller REST API. Den genererar samma beteende som underhålls händelse som tar den primära repliken offline.
 
 ## <a name="retry-logic"></a>Logik för omprövning
 
-Alla klient produktions program som ansluter till en moln databas tjänst bör implementera en robust logik för anslutnings [försök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). Detta hjälper till att minimera dessa situationer och bör vanligt vis göra felen transparent för slutanvändaren.
-
-## <a name="frequency"></a>Frequency
-
-I genomsnitt sker 1,7 planerade underhålls händelser varje månad.
+Alla klient produktions program som ansluter till en moln databas tjänst bör implementera en robust logik för anslutnings [försök](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors). Detta hjälper till att göra redundansväxlingen transparent för slutanvändarna eller minst minimera negativa effekter.
 
 ## <a name="resource-health"></a>Resurshälsa
 

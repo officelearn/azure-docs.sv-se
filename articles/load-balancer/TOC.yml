@@ -16,6 +16,8 @@
       href: quickstart-load-balancer-standard-public-template.md
     - name: Skapa intern lastbalanserare – portalen
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Skapa en intern lastbalanserare – Azure CLI
+      href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
 - name: Självstudier
   items:

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/27/2020
+ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1dcc98366e37455f462fe1a0740aa161201912f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869679"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Tilldela berättigande till en privilegie rad åtkomst grupp (för hands version) i Privileged Identity Management
 
@@ -33,19 +33,14 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan hjäl
 
 Följ de här stegen för att göra en användare berättigad att vara medlem eller ägare av en privilegie rad åtkomst grupp.
 
-1. Logga in på [Privileged Identity Management](https://portal.azure.com/) i Azure Portal med roll behörigheter för [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. [Logga in på Azure AD](https://aad.portal.azure.com) med behörigheter för global administratör eller grupp ägare.
+1. Välj **grupper** och välj sedan den roll tilldelnings bara grupp som du vill hantera. Du kan söka eller filtrera listan.
 
-    Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
+    ![Hitta en roll tilldelnings bara grupp att hantera i PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna gruppen och välj **privilegie rad åtkomst (förhands granskning)**.
 
-1. Välj **privilegie rad åtkomst (för hands version)**.
-
-1. Du kan söka efter ett grupp namn och använda **grupp typen** för att filtrera listan för att välja den grupp som du vill hantera.
-
-    ![Lista över privilegierade åtkomst grupper som ska hanteras](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Under **Hantera**, Välj **tilldelningar**.
+    ![Öppna Privileged Identity Managements upplevelsen](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Välj **Lägg till tilldelningar**.
 
@@ -77,21 +72,20 @@ Följ de här stegen för att göra en användare berättigad att vara medlem el
 
 Följ dessa steg om du vill uppdatera eller ta bort en befintlig roll tilldelning.
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. [Logga in på Azure AD](https://aad.portal.azure.com) med behörigheter för global administratör eller grupp ägare.
+1. Välj **grupper** och välj sedan den roll tilldelnings bara grupp som du vill hantera. Du kan söka eller filtrera listan.
 
-1. Välj **privilegie rad åtkomst (för hands version)**.
+    ![Hitta en roll tilldelnings bara grupp att hantera i PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)
 
-1. Du kan söka efter ett grupp namn och använda **grupp typen** för att filtrera listan för att välja den grupp som du vill hantera.
+1. Öppna gruppen och välj **privilegie rad åtkomst (förhands granskning)**.
 
-    ![Lista över privilegierade åtkomst grupper som ska hanteras](./media/groups-assign-member-owner/privileged-access-list.png)
-
-1. Under **Hantera**, Välj **tilldelningar**.
+    ![Öppna Privileged Identity Managements upplevelsen](./media/groups-assign-member-owner/groups-discover-groups.png)
 
 1. Välj den roll som du vill uppdatera eller ta bort.
 
 1. Hitta roll tilldelningen på flikarna **berättigade roller** eller **aktiva roller** .
 
-    ![Uppdatera eller ta bort roll tilldelning](./media/groups-assign-member-owner/groups-add-assignment.png)
+    ![Uppdatera eller ta bort roll tilldelning](./media/groups-assign-member-owner/groups-bring-under-management.png)
 
 1. Välj **Uppdatera** eller **ta bort** om du vill uppdatera eller ta bort roll tilldelningen.
 

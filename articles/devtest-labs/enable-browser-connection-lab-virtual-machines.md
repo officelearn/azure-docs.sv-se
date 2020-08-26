@@ -3,12 +3,12 @@ title: Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer
 description: DevTest Labs integreras nu med Azure skydds som en ägare till labbet som du kan använda för att få åtkomst till alla virtuella labb datorer via en webbläsare.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 8c78b872855b3fe21f2cb41d394c599aeca7a790
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 28a3c11f3df578265f9746a173fcb3029a132b26
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272359"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870501"
 ---
 # <a name="enable-browser-connection-on-azure-devtest-labs-virtual-machines"></a>Aktivera webb läsar anslutning på Azure DevTest Labs virtuella datorer 
 DevTest Labs integreras med [Azure skydds](../bastion/index.yml), vilket gör att du kan ansluta till dina virtuella datorer via en webbläsare. Du måste först aktivera webb läsar anslutning på virtuella labb datorer.
@@ -18,22 +18,20 @@ Som ägare till ett labb kan du aktivera åtkomst till alla virtuella labb dator
 
 Den här artikeln visar hur du aktiverar webb läsar anslutning på virtuella labb datorer.
 
-## <a name="prerequisites"></a>Krav 
-Distribuera en skydds-värd i det befintliga Labbets virtuella nätverk **(eller)** Anslut ditt labb med ett skydds konfigurerat virtuellt nätverk. 
-
-Information om hur du distribuerar en skydds-värd i ett virtuellt nätverk finns i [skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md). När du skapar skydds-värden väljer du Labbets virtuella nätverk. 
-
-Först måste du skapa ett andra undernät i det virtuella skydds-nätverket eftersom AzureBastionSubnet inte tillåter att icke-skydds resurser skapas. 
+## <a name="prerequisites"></a>Förutsättningar 
+- Distribuera en skydds-värd i det befintliga Labbets virtuella nätverk **(eller)** Anslut ditt labb med ett skydds konfigurerat virtuellt nätverk.
+Information om hur du distribuerar en skydds-värd i ett virtuellt nätverk finns i  [skapa en Azure skydds-värd](../bastion/bastion-create-host-portal.md). När du skapar skydds-värden väljer du Labbets virtuella nätverk. 
+- Labb användaren måste ha en **läsar** roll på skydds-värden och det virtuella nätverk som har skydds konfigurerat. 
 
 ## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>Skapa ett andra under nät i det virtuella skydds-nätverket
-Du kan inte skapa virtuella labb datorer i ett Azure skydds-undernät. Skapa ett annat undernät i det virtuella skydds-nätverket som det visas i följande bild:
+Först måste du skapa ett andra undernät i det virtuella skydds-nätverket eftersom AzureBastionSubnet inte tillåter att icke-skydds resurser skapas. Skapa ett annat undernät i det virtuella skydds-nätverket som det visas i följande bild:
 
 ![Andra undernät i Azure skydds Virtual Network](./media/connect-virtual-machine-through-browser/second-subnet.png)
 
 ## <a name="enable-vm-creation-in-the-subnet"></a>Aktivera skapande av virtuell dator i under nätet
 Nu ska du aktivera skapandet av virtuella datorer i det här under nätet genom att följa dessa steg: 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **alla tjänster** i den vänstra navigerings menyn. 
 1. Välj **DevTest Labs** från listan. 
 1. I listan med labb väljer *du ditt labb*. 

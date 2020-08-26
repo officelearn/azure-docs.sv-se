@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-migrering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-migrering med Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 1ea7d139b3d3cc8c14e43ccfb7c233fcbe4c564c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5af2c296147bb972d121183a7d552157b4b824c7
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122072"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871504"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Support mat ris för Hyper-V-migrering
 
@@ -21,24 +21,24 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 
 ## <a name="hyper-v-host-requirements"></a>Krav för Hyper-V-värd
 
-| **Support**                | **Detaljer**               
+| **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. <br/>Azure Migrate Replication-programvara (Hyper-V-Replikeringsprovider) är installerad på Hyper-V-värdarna.|
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. |
-| **Värd operativ system** | Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2. |
+| **Värd operativ system** | Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2 med de senaste uppdateringarna. Observera att Server Core-installation av dessa operativ system också stöds. |
 | **Port åtkomst** |  Utgående anslutningar på HTTPS-port 443 för att skicka data för VM-replikering.
 
 
 ## <a name="hyper-v-vms"></a>Hyper-V:s virtuella datorer
 
-| **Support**                  | **Detaljer**               
+| **Support**                  | **Information**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](../virtual-machines/linux/endorsed-distros.md) -operativsystem som stöds av Azure. |
 **Windows Server 2003** | För virtuella datorer som kör Windows Server 2003 måste du [Installera Hyper-V Integration Services](prepare-windows-server-2003-migration.md) innan du migrerar. | 
 **Virtuella Linux-datorer i Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure.<br/><br/> För Linux gör Azure Migrate ändringarna automatiskt för dessa operativ system:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. För andra operativ system gör du [nödvändiga ändringar](prepare-for-migration.md#linux-machines) manuellt.
 | **Nödvändiga ändringar för Azure** | Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Gör justeringar manuellt innan migreringen. Relevanta artiklar innehåller instruktioner om hur du gör detta. |
 | **Linux-start**                 | Om/boot finns på en dedikerad partition bör den finnas på OS-disken och inte spridas över flera diskar.<br/> Om/Boot är en del av rot-partitionen (/) bör partitionen/-partitionen finnas på OS-disken och inte omfatta andra diskar. |
-| **UEFI-start**                  | Den migrerade virtuella datorn i Azure kommer automatiskt att konverteras till en virtuell dator med BIOS-start. Den virtuella datorn ska endast köra Windows Server 2012 och senare. OS-disken bör ha upp till fem partitioner eller färre och storleken på OS-disken måste vara mindre än 300 GB.|
+| **UEFI-start**                  | Stöds. Se till att du väljer en VM-storlek som stöds av Azure generation 2 VM  |
 | **Diskstorlek**                  | 2 TB för OS-disken, 4 TB för data diskar.|
 | **Disk nummer** | Högst 16 diskar per virtuell dator.|
 | **Krypterade diskar/volymer**    | Stöds inte för migrering.|
@@ -50,13 +50,13 @@ Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du
 | **IPv6** | Stöds inte.|
 | **NIC-teamning** | Stöds inte.|
 | **Azure Site Recovery** | Du kan inte replikera med Azure Migrate Server-migrering om den virtuella datorn är aktive rad för replikering med Azure Site Recovery.|
-| **Hamnarna** | Utgående anslutningar på HTTPS-port 443 för att skicka data för VM-replikering.|
+| **Portar** | Utgående anslutningar på HTTPS-port 443 för att skicka data för VM-replikering.|
 
 ### <a name="url-access-public-cloud"></a>URL-åtkomst (offentligt moln)
 
 Providerns program vara på Hyper-V-värdarna måste ha åtkomst till dessa URL: er.
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 login.microsoftonline.com | Åtkomst kontroll och identitets hantering med hjälp av Active Directory.
 backup.windowsazure.com | Överföring och samordning av replikeringsdata.
@@ -69,7 +69,7 @@ time.windows.com | Verifierar tidssynkronisering mellan system och global tid.
 
 Providerns program vara på Hyper-V-värdarna måste ha åtkomst till dessa URL: er.
 
-**URL** | **Detaljer**
+**URL** | **Information**
 --- | ---
 login.microsoftonline.us | Åtkomst kontroll och identitets hantering med hjälp av Active Directory.
 backup.windowsazure.us | Överföring och samordning av replikeringsdata.
@@ -82,7 +82,7 @@ time.nist.gov | Verifierar tidssynkronisering mellan system och global tid.
 
 Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav för virtuella Azure-datorer som sammanfattas i den här tabellen.
 
-**Komponent** | **Krav** | **Detaljer**
+**Komponent** | **Krav** | **Information**
 --- | --- | ---
 Storlek på operativsystemdisk | Upp till 2 048 GB. | Kontrollen Miss lyckas om den inte stöds.
 Antal operativsystemdiskar | 1 | Kontrollen Miss lyckas om den inte stöds.

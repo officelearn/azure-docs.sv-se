@@ -122,7 +122,7 @@
       href: stream-analytics-concepts-checkpoint-replay.md
     - name: Felprincip
       href: stream-analytics-output-error-policy.md
-- name: Anvisningar
+- name: Instruktionsguider
   items:
     - name: Hantera
       items:
@@ -172,6 +172,8 @@
           href: stream-analytics-real-time-fraud-detection.md
         - name: Köra jobb i IoT Edge
           href: stream-analytics-edge.md
+        - name: Köra jobb på Azure Stack
+          href: on-azure-stack.md
         - name: Vägtull för sensordataanalys
           href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
         - name: Handel med hög frekvens

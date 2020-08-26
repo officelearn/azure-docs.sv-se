@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6eaabac35676e9c836d07ffe6942ef9fc8c20cd8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f389581d8fbeb912507b303c46109dd08fcab8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855400"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871524"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -540,7 +540,7 @@ När du har installerat SIOS DataKeeper på båda noderna startar du konfigurati
 
    ![Bild 43: Välj Ja för att ställa in den replikerade volymen som en kluster volym][sap-ha-guide-figure-3043]
 
-   _ Välj **Ja** för att ställa in den replikerade volymen som ett kluster volume_
+   _Välj **Ja** för att ställa in den replikerade volymen som en kluster volym_
 
    När volymen har skapats visar hanterings-och konfigurations verktyget för DataKeeper att replikeringsläget är aktivt.
 

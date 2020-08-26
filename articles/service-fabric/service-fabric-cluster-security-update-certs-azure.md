@@ -3,12 +3,12 @@ title: Hantera certifikat i ett Azure Service Fabric-kluster
 description: Beskriver hur du lägger till nya certifikat, förnyar certifikat och tar bort certifikat till eller från ett Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 43e9c95e0fb8484f7b24c5a0c409d3aa6a68eabc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1ccf83e666f9106a31809ff41d55062826be78c
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83658382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869770"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Lägga till eller ta bort certifikat för ett Service Fabric-kluster i Azure
 Vi rekommenderar att du bekantar dig med hur Service Fabric använder X. 509-certifikat och känner till [kluster säkerhets scenarier](service-fabric-cluster-security.md). Du måste förstå vad ett kluster certifikat är och vad som används för, innan du fortsätter.
@@ -260,7 +260,7 @@ Förutom kluster certifikat kan du lägga till klient certifikat för att utför
 
 Du kan lägga till två typer av klient certifikat – admin eller skrivskyddad. Dessa kan sedan användas för att styra åtkomsten till de administrativa åtgärderna och frågans åtgärder i klustret. Som standard läggs kluster certifikaten till i listan över tillåtna administratörs certifikat.
 
-Du kan ange valfritt antal klient certifikat. Varje tillägg/borttagning-resultat i en konfigurations uppdatering av Service Fabric-klustret
+Du kan ange valfritt antal klient certifikat. Varje tillägg/borttagning-resultat i en konfigurations uppdatering av Service Fabric klustret.
 
 
 ### <a name="adding-client-certificates---admin-or-read-only-via-portal"></a>Lägga till klient certifikat – admin eller skrivskyddad via portalen

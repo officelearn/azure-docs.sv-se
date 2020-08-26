@@ -1,19 +1,22 @@
 ---
 title: Integrera Azure Key Vault med Kubernetes
 description: I den här självstudien får du åtkomst till och hämtar hemligheter från Azure Key Vault med hjälp av CSI-drivrutinen (hemligheter Store container Storage Interface) för att montera i Kubernetes poddar.
-author: rkarlin
-ms.author: rkarlin
+author: ShaneBala-keyvault
+ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 06/04/2020
-ms.openlocfilehash: 1942576037c7367612580a04d4187ccf4655aade
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 08/25/2020
+ms.openlocfilehash: bfcaf9d4b1d03457f2e4cddd2e0eaf9d9d58eee2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685892"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869192"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
+
+> [!IMPORTANT]
+> CSI-drivrutinen är ett projekt med öppen källkod som inte stöds av teknisk support för Azure. Rapportera all feedback och eventuella problem som rör CSI-drivrutinen Key Vault integration på github-länken längst ned på sidan. Det här verktyget tillhandahålls för användare att själv installera i kluster och samla in feedback från vår community.
 
 I den här självstudien får du åtkomst till och hämtar hemligheter från Azure Key Vault med hjälp av CSI-drivrutinen (hemligheter Store container Storage Interface) för att montera hemligheterna i Kubernetes poddar.
 

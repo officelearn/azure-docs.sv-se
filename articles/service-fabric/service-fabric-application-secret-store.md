@@ -3,16 +3,19 @@ title: Azure Service Fabric centrala hemligheter
 description: Den här artikeln beskriver hur du använder Central hemligheter i Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9fd435803ad5354b0eb2d4f5de50009a8cbbfe2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83197769"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869763"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Centrala hemligheter i Azure Service Fabric 
 Den här artikeln beskriver hur du använder den centrala hemligheter Store (CSS) i Azure Service Fabric för att skapa hemligheter i Service Fabric program. CSS är en lokal hemlighet som lagrar känsliga data, till exempel lösen ord, tokens och nycklar, krypterade i minnet.
 
+  > [!NOTE] 
+  > När du aktiverar CSS för första gången innan du sa version 7,1. CU3 kan aktive ras och lämna CSS i fel tillstånd permanent om: CSS är aktiverat på ett Windows-autentiserat kluster. CSS aktive ras på ett kluster `EncryptionCertificateThumbprint` , men har deklarerats felaktigt eller motsvarande certifikat är inte installerat/ACL-ed på noder. För Windows auth-kluster kan du komma till 7,1. CU3 innan du fortsätter. För andra kluster måste du kontrol lera dessa invarianter eller komma till 7,1. CU3.
+  
 ## <a name="enable-central-secrets-store"></a>Aktivera Central hemligheter Arkiv
 Lägg till följande skript i kluster konfigurationen under `fabricSettings` för att aktivera CSS. Vi rekommenderar att du använder ett annat certifikat än ett kluster certifikat för CSS. Se till att krypterings certifikatet har installerats på alla noder och att det `NetworkService` har Läs behörighet till certifikatets privata nyckel.
   ```json

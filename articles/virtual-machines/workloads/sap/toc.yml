@@ -227,6 +227,8 @@
               href: high-availability-guide-rhel-netapp-files.md
         - name: SAP – flera säkerhetsidentifierare
           items:
+            - name: Windows med delad disk i Azure för (A)SCS-instans
+              href: sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
             - name: Windows med delad disk för (A)SCS-instans
               href: sap-ascs-ha-multi-sid-wsfc-shared-disk.md
             - name: Windows med SOFS-filresurs för (A)SCS-instans

@@ -62,12 +62,14 @@
           href: users-revoke-access.md
         - name: Stänga ett konto i en ohanterad katalog
           href: users-close-account.md
-        - name: Lägga till B2B-användare
-          href: ../external-identities/what-is-b2b.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-        - name: Tilldela en roll till en B2B-användare
-          href: ../external-identities/add-guest-to-role.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-        - name: Dynamiska grupper och B2B
-          href: ../external-identities/use-dynamic-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+        - name: Lägga till gästanvändare
+          href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Tilldela en roll till en gästanvändare
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Begränsa gästanvändares åtkomst
+          href: users-restrict-guest-permissions.md
+        - name: Dynamiska grupper och gäster
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Hantera din katalog
       items:
         - name: Azure AD-organisationer

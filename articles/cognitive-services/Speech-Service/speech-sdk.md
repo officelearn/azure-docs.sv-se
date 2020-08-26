@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 79f7924b021de9426eeb66adf2ec12f8033efcea
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad26fe0d869a2e892a419b1732727c3ff1d1e9a2
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056864"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870722"
 ---
 # <a name="about-the-speech-sdk"></a>Om Speech SDK
 
@@ -31,17 +31,52 @@ Tal-SDK: n visar många funktioner från tal tjänsten, men inte alla. Funktione
 
 [Tal till text](speech-to-text.md) (kallas även *tal igenkänning*) drar av ljud strömmar till text som dina program, verktyg eller enheter kan använda eller Visa. Använd tal-till-text med [language Understanding (Luis)](../luis/index.yml) för att härleda användar avsikter från inställt tal och agera på röst kommandon. Använd [tal översättning](speech-translation.md) för att översätta tal ingångar till ett annat språk med ett enda anrop. Mer information finns i [grunderna för tal till text](speech-to-text-basics.md).
 
+**Tal igenkänning (SR), fras lista, avsikt, översättning och lokala behållare** är tillgängliga på följande plattformar:
+
+  - C++/Windows & Linux & macOS
+  - C# (Framework & .NET Core)/Windows & UWP & Unity & Xamarin & Linux & macOS
+  - Java (JRE och Android)
+  - Java Script (webbläsaren och NodeJS)
+  - Python
+  - Swift
+  - Objective-C  
+  - Gå till (endast SR)
+
 ### <a name="text-to-speech"></a>Text till tal
 
 [Text till tal](text-to-speech.md) (kallas även *tal syntes*) konverterar text till humant syntetiskt tal. Inmatad text är antingen sträng litteraler eller med [SSML (Speech syntes Markup Language)](speech-synthesis-markup.md). Mer information om standard-och neurala-röster finns i [text-till-tal-språk och röst stöd](language-support.md#text-to-speech).
+
+**Text till tal (TTS)** är tillgänglig på följande plattformar:
+
+  - C++/Windows & Linux
+  - C#/Windows & UWP & Unity
+  - Java (JRE och Android)
+  - Python
+  - Swift
+  - Objective-C
+  - TTS-REST API kan användas i alla andra situationer.
 
 ### <a name="voice-assistants"></a>Röstassistenter
 
 [Röst assistenter](voice-assistants.md) som använder tal-SDK gör det möjligt för utvecklare att skapa naturliga, mänskliga konversations gränssnitt för sina program och upplevelser. Röst assistents tjänsten ger snabb och tillförlitlig interaktion mellan en enhet och en assistent. I implementeringen används bot-ramverkets direkta rad tal kanal eller den integrerade anpassade kommandona (för hands version) för att slutföra uppgiften. Dessutom kan röst assistenter använda anpassade röster som skapats i den [anpassade röst portalen](https://aka.ms/customvoice) för att lägga till en unik röst utmatnings upplevelse.
 
+**Röst assistenter** är tillgängliga på följande plattformar:
+
+  - C++/Windows & Linux & macOS
+  - C#/Windows
+  - Java/Windows & Linux & macOS & Android (tal enheter SDK)
+
 #### <a name="keyword-spotting"></a>Nyckelord upptäcka
 
 Konceptet för [nyckelordet upptäcka](speech-devices-sdk-create-kws.md) stöds i tal-SDK: n. Nyckelordet upptäcka är en handling som identifierar ett nyckelord i tal, följt av en åtgärd för att höra nyckelordet. Till exempel "Hej Cortana" aktiverar Cortana-assistenten.
+
+**Nyckelordet upptäcka (KWS)** är tillgängligt på följande plattformar:
+
+  - C++/Windows & Linux
+  - C#/Windows & Linux
+  - Python/Windows & Linux
+  - Java/Windows & Linux & Android (Speech-enheter SDK)
+  - Nyckelordet upptäcka (KWS) fungerar med valfri mikrofon typ, officiell KWS support, men är för närvarande begränsad till de mikrofoner som finns i Azure Kinect DK-maskinvara eller tal enheter SDK
 
 ### <a name="meeting-scenarios"></a>Mötes scenarier
 
@@ -51,9 +86,20 @@ Tal-SDK är perfekt för att skriva över Mötes scenarier, oavsett om det är e
 
 [Konversations avskrift](conversation-transcription.md) möjliggör real tids (och asynkron) tal igenkänning, högtalar identifiering och menings tilldelning till varje talare (kallas även *diarization*). Det är perfekt för att skriva över person möten med möjlighet att skilja på högtalare.
 
+**Konversations avskrift** är tillgängligt på följande plattformar:
+
+  - C++/Windows & Linux
+  - C# (Framework & .NET Core)/Windows & UWP & Linux
+  - Java/Windows & Linux & Android (Speech-enheter SDK)
+
 #### <a name="multi-device-conversation"></a>Konversation med flera enheter
 
 Med en [konversation med flera enheter](multi-device-conversation.md)ansluter du flera enheter eller klienter i en konversation för att skicka talbaserade eller textbaserade meddelanden, med enkel support för avskrifter och översättning.
+
+**Konversation med flera enheter** är tillgängligt på följande plattformar:
+
+  - C++-/Windows
+  - C# (Framework & .NET Core)/Windows
 
 ### <a name="custom--agent-scenarios"></a>Anpassade/agent-scenarier
 
@@ -63,9 +109,17 @@ Tal-SDK: n kan användas för att skriva över samtals Center scenarier där tel
 
 [Avskrift av samtals Center](call-center-transcription.md) är ett vanligt scenario för tal till text för att skriva över stora volymer av telefoni data som kan komma från olika system, till exempel interaktivt röst svar (IVR). De senaste tal igenkännings modellerna från tal tjänsten Excel vid inmatning av dessa telefoni data, även i fall då det är svårt för en mänsklig att förstå.
 
+**Svars Center-avskriften** är tillgänglig via batch-tjänsten för tal trafik via den REST API och kan användas i alla situationer.
+
 ### <a name="codec-compressed-audio-input"></a>Codec-komprimerad ljud inspelning
 
 Flera av programmeringsspråken för tal-SDK stöder codec-komprimerade ljud inspelnings strömmar. Mer information finns i <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">använda komprimerade ljud inspelnings <span class="docon docon-navigate-external x-hidden-focus"></span> format </a>.
+
+**Codec-komprimerade ljud indata** är tillgängliga på följande plattformar:
+
+  - C++-/Linux
+  - C#-/Linux
+  - Java/Linux, Android och iOS
 
 ## <a name="rest-api"></a>REST-API
 

@@ -509,6 +509,8 @@
       href: monitor-resource-reference.md
     - name: YAML-referens för maskininlärningspipeline
       href: reference-pipeline-yaml.md
+    - name: Paritet för nationellt moln
+      href: reference-machine-learning-cloud-parity.md
 - name: Resurser
   items:
     - name: Viktig information

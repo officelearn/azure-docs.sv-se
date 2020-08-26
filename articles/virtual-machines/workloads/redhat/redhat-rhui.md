@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 685d337f9e6448f44d34a980ed884026d8a0a168
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 641ac1f6a2cc98e48694c42ec1531f679621640d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525423"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869226"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat-uppdatering av infrastruktur för Red Hat Enterprise Linux virtuella datorer på begäran i Azure
  Med [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kan moln leverantörer, till exempel Azure, spegla innehåll i Red Hat-värdbaserade databaser, skapa anpassade databaser med Azure-särskilt innehåll och göra det tillgängligt för slutanvändarens virtuella datorer.
@@ -49,7 +49,7 @@ För en fullständig avbildnings lista kan `az vm image list --publisher redhat 
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Avbildningar som är anslutna till icke-EUS-databaser
 
-Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste RHEL-versionen när du kör `sudo yum update` . Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning och kör `sudo yum update` , slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste RHEL-versionen när du kör `sudo yum update` . Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning och kör `sudo yum update` , slutar du med en RHEL 7,8-dator (den senaste lägre versionen i RHEL7-serien).
 
 Avbildningar som är anslutna till icke-EUS-lagringsplatser kommer inte att innehålla ett lägre versions nummer i SKU: n. SKU: n är det tredje elementet i URN (fullständigt namn på avbildningen). Till exempel är alla följande avbildningar kopplade till icke-EUS-databaser:
 

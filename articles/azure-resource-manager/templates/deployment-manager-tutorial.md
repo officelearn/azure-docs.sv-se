@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 43291bdaa277c06262be2d7bb5ba8d3f61ff35ea
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d7d0979a52b4762ec4cc2fa82f507e8ce2b083c9
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86056896"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870696"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
@@ -61,7 +61,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="understand-the-scenario"></a>Förstå scenariot
 
-Mallen för tjänsttopologin beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
+Mallen för tjänstmall beskriver de Azure-resurser som utgör tjänsten och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
 
 * Tjänsttopologi
   * Tjänster
@@ -186,7 +186,7 @@ Senare i självstudien ska du distribuera en distribution. En användartilldelad
 
 Du måste skapa en användartilldelad hanterad identitet och konfigurera åtkomstkontrollen för din prenumeration.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Skapa en [användardefinierad hanterad identitet](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 3. Från portalen väljer du **Prenumerationer** på den vänstra menyn och väljer sedan din prenumeration.
 4. Välj **Åtkomstkontroll (IAM)** och sedan **Lägg till rolltilldelning**.

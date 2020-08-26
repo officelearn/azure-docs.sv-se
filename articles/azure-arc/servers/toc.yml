@@ -1,0 +1,51 @@
+- name: Dokumentation om Azure Arc-aktiverade servrar
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure Arc-aktiverade servrar
+      href: overview.md
+- name: Snabbstarter
+  items:
+    - name: Aktivera Azure Arc-aktiverad agent för servrar
+      href: ./learn/quick-enable-hybrid-vm.md
+- name: Självstudier
+  items:
+    - name: Tilldela principer för utvärdering av efterlevnad
+      href: ./learn/tutorial-assign-policy-portal.md
+    - name: Övervaka dator
+      href: ./learn/tutorial-enable-vm-insights.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      items:
+        - name: Arc-aktiverade servrar
+          href: policy-samples.md
+- name: Begrepp
+  items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: security-controls-policy.md
+- name: Anvisningar
+  items:
+    - name: Ansluta till Azure Arc
+      items:
+        - name: Översikt över Connected Machine-agent
+          href: agent-overview.md
+        - name: Ansluta datorer till Azure Arc från Microsoft Azure-portalen
+          href: onboard-portal.md
+        - name: Ansluta datorer i stor skala med ett huvudnamn för tjänsten
+          href: onboard-service-principal.md
+        - name: Ansluta datorer till Azure Arc med PowerShell DSC
+          href: onboard-dsc.md
+    - name: Hantera
+      items:
+        - name: Hantera och använda tillägg för virtuella Azure-datorer
+          href: manage-vm-extensions.md
+        - name: Hantera agent
+          href: manage-agent.md
+    - name: Felsökning
+      items:
+        - name: Problem med agentanslutning
+          href: troubleshoot-agent-onboard.md

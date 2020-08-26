@@ -1,20 +1,40 @@
 ---
-title: Få information om en konverterad modell
-description: Beskrivning av alla modell konverterings parametrar
+title: Hämta information om konverteringar
+description: Hämta information om konverteringar
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: f5c38ac88503416b37b720a091c9e46d819a3146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870297"
 ---
-# <a name="get-information-about-a-converted-model"></a>Få information om en konverterad modell
+# <a name="get-information-about-conversions"></a>Hämta information om konverteringar
 
-Den arrAsset-fil som skapas av konverterings tjänsten är enbart avsedd att användas av åter givnings tjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en rendering-session. Därför placerar konverterings tjänsten en JSON-fil bredvid filen arrAsset i behållaren utdata. Om en fil exempelvis `buggy.gltf` konverteras innehåller behållaren utdata en fil med namnet `buggy.info.json` bredvid den konverterade till gången `buggy.arrAsset` . Den innehåller information om käll modellen, den konverterade modellen och om konverteringen.
+## <a name="information-about-a-conversion-the-result-file"></a>Information om en konvertering: resultat filen
+
+När konverterings tjänsten konverterar en till gång, skriver den en sammanfattning av eventuella problem i en "resultat fil". Om en fil exempelvis `buggy.gltf` konverteras, innehåller behållaren utdata en fil med namnet `buggy.result.json` .
+
+Resultat filen visar eventuella fel och varningar som inträffat under konverteringen och ger en resultat sammanfattning, som är en `succeeded` av `failed` eller `succeeded with warnings` .
+Resultat filen är strukturerad som en JSON-matris med objekt, som var och en har en sträng egenskap som är en av,,, `warning` `error` `internal warning` `internal error` och `result` . Det får finnas högst ett fel (antingen `error` eller `internal error` ) och det finns alltid ett `result` .
+
+## <a name="example-result-file"></a>Exempel på *resultat* fil
+
+I följande exempel beskrivs en konvertering som har genererat en arrAsset. Men eftersom en struktur saknas kanske den resulterande arrAsset inte är så tänkt.
+
+```JSON
+[
+  {"warning":"4004","title":"Missing texture","details":{"texture":"buggy_baseColor.png","material":"buggy_col"}},
+  {"result":"succeeded with warnings"}
+]
+```
+
+## <a name="information-about-a-converted-model-the-info-file"></a>Information om en konverterad modell: informations filen
+
+Den arrAsset-fil som skapas av konverterings tjänsten är enbart avsedd att användas av åter givnings tjänsten. Det kan dock finnas tillfällen när du vill komma åt information om en modell utan att starta en rendering-session. För att stödja det här arbets flödet placerar konverterings tjänsten en JSON-fil bredvid arrAsset-filen i behållaren utdata. Om en fil exempelvis `buggy.gltf` konverteras innehåller behållaren utdata en fil med namnet `buggy.info.json` bredvid den konverterade till gången `buggy.arrAsset` . Den innehåller information om käll modellen, den konverterade modellen och om konverteringen.
 
 ## <a name="example-info-file"></a>Exempel på *informations* fil
 
@@ -124,6 +144,11 @@ I det här avsnittet registreras information som beräknas från den konverterad
 * `numMeshPartsInstanced`: Antalet maskor som återanvänds i arrAsset.
 * `recenteringOffset`: När `recenterToOrigin` alternativet i [ConversionSettings](configure-model-conversion.md) har Aktiver ATS är det här värdet översättningen som flyttar den konverterade modellen tillbaka till dess ursprungliga plats.
 * `boundingBox`: Modellens gränser.
+
+## <a name="deprecated-features"></a>Föråldrade funktioner
+
+Konverterings tjänsten skriver filerna `stdout.txt` och `stderr.txt` till behållaren för utdata, och de hade den enda källan till varningar och fel.
+De här filerna är nu föråldrade. Använd i stället [resultat filer](#information-about-a-conversion-the-result-file) för detta ändamål.
 
 ## <a name="next-steps"></a>Nästa steg
 

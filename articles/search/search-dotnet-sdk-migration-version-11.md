@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
-ms.openlocfilehash: 6880706300597e925267dae1230a87d17cd5c028
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5dd061309447dd6037d2dd664e7c5db2c7df38cc
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688359"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870212"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 11
 
@@ -153,6 +153,8 @@ Följande steg hjälper dig att komma igång med en kod migrering genom att gå 
    using Azure.Search.Documents.Indexes.Models;
    using Azure.Search.Documents.Models;
    ```
+
+1. För klasser som kräver JSON-serialisering ersätter du `using Newtonsoft.Json` med `using System.Text.Json.Serialization` .
 
 1. Ändra koden för klientautentisering. I tidigare versioner skulle du använda egenskaperna för klient objekt för att ange API-nyckeln (till exempel egenskapen [SearchServiceClient. credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) ). I den aktuella versionen använder du klassen [AzureKeyCredential](https://docs.microsoft.com/dotnet/api/azure.azurekeycredential) för att skicka nyckeln som en autentiseringsuppgift, så om det behövs kan du uppdatera API-nyckeln utan att skapa nya klient objekt.
 

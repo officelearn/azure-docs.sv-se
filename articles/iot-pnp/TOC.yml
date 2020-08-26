@@ -69,6 +69,8 @@
       href: howto-use-iot-pnp-cli.md
     - name: Hantera digitala tvillingar
       href: howto-manage-digital-twin.md
+    - name: Certifiera en enhet
+      href: howto-certify-device.md
 - name: Referens
   items:
     - name: 'Bibliotek och SDK:er'

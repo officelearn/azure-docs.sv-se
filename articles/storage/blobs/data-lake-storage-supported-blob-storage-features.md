@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0d915c0b293e9f3deadbfb2a5fb0ff7f379e1717
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 87e0fe7baaf3d83c18b12227e9ecb5bf1d2fb361
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053481"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869464"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -47,12 +47,13 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 |Oåterkalleligt lagrings utrymme|Förhandsgranskning|Stöds inte ännu|[Lagra affärs kritiska BLOB-data med oföränderlig lagring](storage-blob-immutable-storage.md)|
 |Principer för livs cykel hantering|Förhandsgranskning|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Mjuk borttagning av behållare|Förhandsgranskning|Förhandsgranskning|[Mjuk borttagning för behållare (förhands granskning)](soft-delete-container-overview.md)|
-|BLOB-mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för blobbar](storage-blob-soft-delete.md)|
+|BLOB-mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för blobar](storage-blob-soft-delete.md)|
 |Blobfuse|Förhandsgranskning|Stöds inte ännu|[Montera Blob Storage som ett fil system med blobfuse](storage-how-to-mount-container-linux.md)|
 |Ändringsfeed|Stöds inte ännu|Stöds inte ännu|[Ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md)|
 |Redundansväxling av konto|Stöds inte ännu|Stöds inte ännu|[Haveri beredskap och redundansväxling av konto](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |BLOB container ACL|Stöds inte ännu<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Stöds inte ännu<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Ange behållar-ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Anpassade domäner|Stöds inte ännu|Stöds inte ännu|[Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)|
+|Krypterings omfång|Stöds inte ännu|Stöds inte ännu|[Skapa och hantera krypterings omfång (förhands granskning)](encryption-scope-manage.md)|
 
 <div id="diagnostic-logging"><sup>1</sup> för Premium Block Blob Storage-konton går det inte att aktivera diagnostikloggar (klassisk) med hjälp av Azure Portal. Aktivera dem med hjälp av PowerShell.</div><br>
 

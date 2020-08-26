@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/21/2020
+ms.date: 08/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b1705fbfae297c7f92de6b4080569deaad3de98
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 704d4c1b4e4e4229f35526748494aaac2e351f99
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749664"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871385"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -88,6 +88,9 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 08/25/2020: ändra i [ha-guide för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-guide-wsfc-shared-disk.md), [Förbered Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md) och [Installera SAP NW ha med WSFC och delad disk](./sap-high-availability-guide-wsfc-shared-disk.md) för att presentera möjligheten att använda Azure Shared disk and Document SAP ERS2 Architecture
+- 08/25/2020: version av [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md)
+- 08/25/2020: ändra i [ha-guide för SAP ASCS/SCS med WSFC och Azure NetApp Files (SMB)](./high-availability-guide-windows-netapp-files-smb.md). [Förbered Azure-infrastrukturen för SAP ASCS/SCS med WSFC-och fil resurs](./sap-high-availability-infrastructure-wsfc-file-share.md), [multi-sid ha guide för SAP ASCS/SCS med WSFC-och Shared disk](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) -och [multi-sid-guide för SAP ASCS/SCS med WSFC-och SOFS-filresursen](./sap-ascs-ha-multi-sid-wsfc-file-share.md) som ett resultat av innehålls uppdateringar och omstrukturering i TILLGÄNGLIGHETs guiderna för SAP ASCS/SCS med WFC och delad disk 
 - 08/21/2020: lägger till en ny OS-version i [kompatibla operativ system för Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-compatibility-matrix-hana-large-instance) som tillgängligt operativ system för HLI-enheter av typen i och II
 - 08/18/2020: version av [ha för SAP HANA skala upp med ANF på RHEL](./sap-hana-high-availability-netapp-files-red-hat.md)
 - 08/17/2020: Lägg till information om hur du använder Azure Site Recovery för att flytta SAP NetWeaver-system från lokala datorer till Azure i artikel [azure Virtual Machines planera och implementera för SAP NetWeaver](./planning-guide.md)

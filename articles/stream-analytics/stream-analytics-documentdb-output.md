@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: d5a0f7517d2649ceac45e68c2e7a5d574a7c25d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbeb1305a64fcace0be527708bc9122a4ffb931d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83848049"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870841"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
 Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen.
@@ -95,7 +95,7 @@ Antalet inkommande händelser i Event Hubs är två gånger högre än Azure Cos
 
 ![Jämförelse av Azure Cosmos DB mått](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
-Med 1,2 är Stream Analytics mer intelligent med att använda 100 procent av det tillgängliga data flödet i Azure Cosmos DB med mycket få återsändningar från begränsning eller hastighets begränsning. Detta ger en bättre upplevelse för andra arbets belastningar, t. ex. frågor som körs på behållaren på samma gång. Om du vill se hur Stream Analytics skalas ut med Azure Cosmos DB som mottagare för 1 000 till 10 000 meddelanden per sekund, kan du prova [det här Azure-exempelprojektet](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
+Med 1,2 är Stream Analytics mer intelligent med att använda 100 procent av det tillgängliga data flödet i Azure Cosmos DB med mycket få återsändningar från begränsning eller hastighets begränsning. Detta ger en bättre upplevelse för andra arbets belastningar, t. ex. frågor som körs på behållaren på samma gång. Om du vill se hur Stream Analytics skalas ut med Azure Cosmos DB som mottagare för 1 000 till 10 000 meddelanden per sekund, kan du prova  [det här Azure-exempelprojektet](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb).
 
 Data flödet för Azure Cosmos DB utdata är identiskt med 1,0 och 1,1. Vi *rekommenderar starkt* att du använder kompatibilitetsnivån 1,2 i Stream Analytics med Azure Cosmos dB.
 

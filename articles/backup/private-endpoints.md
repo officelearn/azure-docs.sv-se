@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 5c2c994b48fb2b950afb67f5c8b6d3c4f7d01e39
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826658"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871555"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -21,7 +21,7 @@ Den här artikeln hjälper dig att förstå processen med att skapa privata slut
 - Privata slut punkter kan bara skapas för nya Recovery Services-valv (som inte har några registrerade objekt i valvet). Därför måste privata slut punkter skapas innan du försöker skydda några objekt i valvet.
 - Ett virtuellt nätverk kan innehålla privata slut punkter för flera Recovery Services-valv. Ett Recovery Services valv kan också ha privata slut punkter för det i flera virtuella nätverk. Det maximala antalet privata slut punkter som kan skapas för ett valv är dock 12.
 - När en privat slut punkt har skapats för ett valv kommer valvet att låsas upp. Den är inte tillgänglig (för säkerhets kopiering och återställning) från nätverk som skiljer sig från dem som innehåller en privat slut punkt för valvet. Om alla privata slut punkter för valvet tas bort, kommer valvet att vara tillgängligt från alla nätverk.
-- En privat slut punkts anslutning för säkerhets kopiering använder totalt 11 privata IP-adresser i ditt undernät. Det här antalet kan vara högre (upp till 25) för vissa Azure-regioner. Vi föreslår att du har tillräckligt med privata IP-adresser tillgängliga när du försöker skapa privata slut punkter för säkerhets kopiering.
+- En privat slut punkts anslutning för säkerhets kopiering använder totalt 11 privata IP-adresser i ditt undernät, inklusive de som används av Azure Backup för lagring. Det här antalet kan vara högre (upp till 25) för vissa Azure-regioner. Vi föreslår att du har tillräckligt med privata IP-adresser tillgängliga när du försöker skapa privata slut punkter för säkerhets kopiering.
 - Även om ett Recovery Services valv används av (både) Azure Backup och Azure Site Recovery, diskuterar den här artikeln användning av privata slut punkter för enbart Azure Backup.
 - Azure Active Directory stöder för närvarande inte privata slut punkter. IP-adresser och FQDN: er som krävs för att Azure Active Directory ska fungera i en region måste vara tillåtna utgående åtkomst från det skyddade nätverket när du säkerhetskopierar databaser i virtuella Azure-datorer och säkerhets kopiering med MARS-agenten. Du kan också använda NSG-Taggar och Azure Firewall-taggar för att tillåta åtkomst till Azure AD, efter vad som är tillämpligt.
 - Virtuella nätverk med nätverks principer stöds inte för privata slut punkter. Du måste inaktivera nätverks principer innan du fortsätter.

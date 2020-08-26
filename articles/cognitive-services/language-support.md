@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592159"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88869889"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Stöd för naturligt språk för Azure Cognitive Services
 
@@ -37,7 +37,7 @@ Dessa Cognitive Services är språk oberoende och har inga begränsningar basera
 
 ## <a name="language"></a>Språk
 
-* [Avancerad läsare (förhandsversion)](./immersive-reader/language-support.md)
+* [Avancerad läsare](./immersive-reader/language-support.md)
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
 * [Textanalys](./text-analytics/text-analytics-supported-languages.md)

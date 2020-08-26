@@ -4,12 +4,12 @@ description: Scenarier, resurser och begränsningar för att distribuera behåll
 ms.topic: article
 ms.date: 08/11/2020
 ms.author: danlep
-ms.openlocfilehash: d904f1333ddf4b22bfca2546bd064b1ae8f299dd
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0474a5f85829080a89a74195483484c464de5840
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797876"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88870773"
 ---
 # <a name="virtual-network-scenarios-and-resources"></a>Scenarier och resurser för virtuella nätverk
 
@@ -80,6 +80,7 @@ I följande diagram har flera behållar grupper distribuerats till ett undernät
 * Exempel på distributions exempel med Azure CLI finns i [distribuera behållar instanser i ett virtuellt Azure-nätverk](container-instances-vnet.md).
 * Om du vill distribuera ett nytt virtuellt nätverk, undernät, nätverks profil och behållar grupp med hjälp av en Resource Manager-mall, se [skapa en Azure Container Group med VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 ).
+* När du använder [Azure Portal](container-instances-quickstart-portal.md) för att skapa en behållar instans kan du också ange inställningar för ett nytt eller exsting virtuellt nätverk på fliken **nätverk** .
 
 
 <!-- IMAGES -->

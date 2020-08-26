@@ -1,0 +1,38 @@
+### YamlMime:Landing
+title: Azure Arc Kubernetes (förhandsversion)
+summary: Läs mer om hur du hanterar Kubernetes-kluster med Azure Arc
+metadata:
+  title: Azure Arc Kubernetes
+  description: Läs mer om hur du hanterar lokala datorer i Azure
+  author: 
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 06/26/2020
+  ms.author: 
+  ms.openlocfilehash: 7c643d10971d93a3c6194bc7390d2271c1ed561b
+  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/24/2020
+  ms.locfileid: "88763773"
+landingContent:
+- title: Anslut Kubernetes-kluster till Azure med Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Arc-aktiverade Kubernetes?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Anslut kluster
+      url: connect-cluster.md
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera konfigurationer med GitOps
+      url: use-gitops-connected-cluster.md
+    - text: Distribuera Helm-diagram med GitOps
+      url: use-gitops-with-helm.md
+    - text: Framtvinga GitOps med hjälp av Azure Policy
+      url: use-azure-policy.md
+    - text: Distribuera Azure IoT Edge-arbetsbelastningar
+      url: deploy-azure-iot-edge-workloads.md

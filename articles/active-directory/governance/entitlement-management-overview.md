@@ -12,16 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25c43281ac213137d4a2ef39e76b3f13ffdad746
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783900"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871215"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -38,7 +39,7 @@ Företags organisationer är ofta inriktade på utmaningar när de hanterar pers
 - Användare kanske inte vet vilken åtkomst de ska ha, och även om de gör det kan de ha svårt att hitta rätt personer för att godkänna deras åtkomst
 - När användarna hittar och får åtkomst till en resurs, kan de vänta på att få åtkomst längre än vad som krävs i affärs syfte
 
-Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Ett exempel:
+Dessa problem är sammansatta för användare som behöver åtkomst från en annan organisation, t. ex. externa användare som är från att tillhandahålla kedjas organisationer eller andra affärs partner. Exempel:
 
 - Ingen person vet att alla enskilda personer i andra organisations kataloger kan bjuda in dem
 - Även om de kunde bjuda in dessa användare kan ingen i organisationen komma ihåg att hantera alla användares åtkomst konsekvent
@@ -54,7 +55,10 @@ Här följer några funktioner för hantering av rättigheter:
 - Delegera till icke-administratörer möjligheten att skapa åtkomst paket. Dessa åtkomst paket innehåller resurser som användarna kan begära, och de delegerade paket ansvariga kan definiera principer med regler för vilka användare kan begära, vem som måste godkänna åtkomsten och när åtkomsten upphör att gälla.
 - Välj anslutna organisationer vars användare kan begära åtkomst.  När en användare som ännu inte befinner sig i din katalog begär åtkomst och har godkänts, bjuds de automatiskt in till din katalog och tilldelad åtkomst.  Om de inte har några andra paket tilldelningar för åtkomst upphör deras B2B-konto i din katalog automatiskt att tas bort.
 
-Du kan komma igång med vår [självstudie för att skapa ditt första Access-paket](entitlement-management-access-package-first.md). Du kan också läsa [vanliga scenarier](entitlement-management-scenarios.md)eller titta på videor, inklusive
+>[!NOTE]
+>Om du är redo att testa hantering av rättigheter kan du komma igång med vår [självstudie för att skapa ditt första Access-paket](entitlement-management-access-package-first.md).
+
+Du kan också läsa [vanliga scenarier](entitlement-management-scenarios.md)eller titta på videor, inklusive
 
 - [Så här distribuerar du hantering av Azure AD-rättigheter i din organisation](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Övervaka och skala din användning av hantering av Azure AD-rättigheter](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -71,7 +75,7 @@ Hantering av rättigheter ger Azure AD konceptet för ett *Access-paket*. Ett Ac
 - Tilldelning till Azure AD Enterprise-program, inklusive SaaS-program och anpassade integrerade program som stöder Federation/enkel inloggning och/eller etablering
 - Medlemskap i SharePoint Online-webbplatser
 
-Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Ett exempel:
+Du kan också styra åtkomsten till andra resurser som förlitar sig på Azure AD-säkerhetsgrupper eller Microsoft 365 grupper.  Exempel:
 
 - Du kan ge användare licenser för Microsoft 365 med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för gruppen
 - Du kan ge användarna åtkomst till att hantera Azure-resurser med hjälp av en Azure AD-säkerhetsgrupp i ett Access-paket och skapa en [Azure-roll tilldelning](../../role-based-access-control/role-assignments-portal.md) för gruppen
@@ -99,16 +103,16 @@ I följande diagram visas ett exempel på de olika elementen i hantering av rät
 
 ## <a name="when-should-i-use-access-packages"></a>När ska jag använda Access-paket?
 
-Åtkomst paket ersätter inte andra mekanismer för åtkomst tilldelning.  De passar bäst i situationer som följande:
+Åtkomst paket ersätter inte andra mekanismer för åtkomst tilldelning.  De passar bäst i situationer som:
 
 - Anställda behöver tidsbegränsad åtkomst för en viss uppgift.  Du kan till exempel använda gruppbaserad licensiering och en dynamisk grupp för att se till att alla anställda har en Exchange Online-postlåda och sedan använda åtkomst paket för situationer där anställda behöver ytterligare åtkomst, till exempel för att läsa avdelnings resurser från en annan avdelning.
-- Åtkomst måste godkännas av en medarbetares chef eller andra utsedda individer.
+- Åtkomst som kräver godkännande av en medarbetares chef eller andra utsedda individer.
 - Avdelningar vill hantera sina egna åtkomst principer för sina resurser utan den inblandning.  
 - Två eller flera organisationer samarbetar i ett projekt, och därför måste flera användare från en organisation tas i bruk via Azure AD B2B för att få åtkomst till en annan organisations resurser.
 
 ## <a name="how-do-i-delegate-access"></a>Hur gör jag för att delegera åtkomst?
 
- Åtkomst paket definieras i behållare som kallas *kataloger*.  Du kan ha en enda katalog för alla dina åtkomst paket, eller så kan du ange att enskilda personer ska kunna skapa och äga sina egna kataloger. En administratör kan lägga till resurser i valfri katalog, men en icke-administratör kan bara lägga till i en katalog de resurser som de äger. En katalog ägare kan lägga till andra användare som katalog medägare eller som åtkomst paket hanterare.  De här scenarierna beskrivs ytterligare i artikeln [delegering och roller i hantering av Azure AD-rättigheter](entitlement-management-delegate.md).
+ Åtkomst paket definieras i behållare som kallas *kataloger*.  Du kan ha en enda katalog för alla dina åtkomst paket, eller så kan du ange att enskilda personer ska kunna skapa och äga sina egna kataloger. En administratör kan lägga till resurser i valfri katalog, men en icke-administratör kan bara lägga till en katalog med de resurser som de äger. En katalog ägare kan lägga till andra användare som katalog medägare eller som åtkomst paket hanterare.  De här scenarierna beskrivs ytterligare i artikeln [delegering och roller i hantering av Azure AD-rättigheter](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Översikt över terminologi
 

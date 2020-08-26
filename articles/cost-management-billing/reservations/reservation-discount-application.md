@@ -4,15 +4,16 @@ description: Den här artikeln förklarar hur rabatter för reserverade instanse
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 03/22/2020
 ms.author: banders
-ms.openlocfilehash: cd09bb7bde759c543b066070c5d2450404949610
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 1c038e896a9f9fc65c3b2201b3e763e966285c56
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627117"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684685"
 ---
 # <a name="how-a-reservation-discount-is-applied"></a>Så tillämpas en reservationsrabatt
 
@@ -38,7 +39,7 @@ När du köper en reservation kan rabatten tillämpas på andra instanser med at
 
 Tjänstplaner:
 
-- Reserverade VM-instanser: När du köper reservationen och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserverade VM-instanser: När du köper reservationen och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek som du väljer. Reservationen kan tillämpas på de virtuella datorernas (VM) storlekar i seriegrupp med samma storlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 - Reserverad kapacitet i Azure Storage: Du kan köpa reserverad kapacitet för Azure Storage-standardkonton på 100 TiB eller 1 PiB per månad. Information om vilka regioner som stöder reserverad kapacitet i Azure Storage finns i [Prissättning för blockblobar](https://azure.microsoft.com/pricing/details/storage/blobs/). Reserverad kapacitet i Azure Storage är tillgänglig för alla åtkomstnivåer (frekvent, lågfrekvent eller arkiv) och alla replikeringskonfigurationer (LRS, GRS eller ZRS).
 - Reserverad SQL Database-kapacitet: Rabattens täckning beror på vilken prestandanivå du väljer. Mer information finns i artikeln om [hur en Azure-reservationsrabatt tillämpas](understand-reservation-charges.md).
 - Reserverad Azure Cosmos DB-kapacitet: Rabattens täckning beror på det etablerade dataflödet. Mer information finns i artikeln om [hur en Azure Cosmos DB-reservationsrabatt tillämpas](understand-cosmosdb-reservation-charges.md).

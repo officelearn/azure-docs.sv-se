@@ -4,15 +4,16 @@ description: Den här artikeln hjälper dig att välja rätt reservation för di
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: banders
-ms.openlocfilehash: 909d712e0c8e8ea242c27ab93f16a36e22d36aae
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759909"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684753"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Välja rätt reservation
 
@@ -38,7 +39,7 @@ Tillämpa följande filter på dina användningsdata för att filtrera fram kval
 
 Ignorera resurser som har mindre än 24 timmars användning per dag.
 
-Om du vill analysera på nivån för instansstorleksfamilj kan du hämta de olika värdena för instansstorlekarna från [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Kombinera värdena med dina data för att utföra analysen. Mer information om flexibel instansstorlek finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+Om du vill analysera på nivån för instansstorleksfamilj kan du hämta de olika värdena för instansstorlekarna från [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Kombinera värdena med dina data för att utföra analysen. Mer information om flexibel instansstorlek finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analysera användning för ett köp av reserverade instanser i Azure Synapse Analytics
 

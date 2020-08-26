@@ -3,12 +3,12 @@ title: Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 description: Beskriver hur du aktiverar säkerhets kopiering när du skapar en virtuell Azure-dator med Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 8612061ca21b4609600f5b9822ca4f6fe3b673f1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825961"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892311"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Aktivera säkerhetskopiering när du skapar en virtuell Azure-dator
 
@@ -66,7 +66,7 @@ Poäng till Anmärkning:
 4. Det första `<alpha-numeric-string>` är obligatoriskt medan den andra efter "n" är valfri. Detta gäller endast om du ger ett anpassat namn. Om du inte anger något i någon av text rutorna används standard namnet.
 5. Du kan redigera namnet på RG genom att ändra principen om och när det behövs. Om namn mönstret ändras kommer nya RPs att skapas i den nya RG. Den gamla RPs kommer dock fortfarande att finnas i den gamla RG och flyttas inte, eftersom RP-samlingen inte stöder resurs flytt. Slutligen kommer RPs att få skräp insamlat när poängen går ut.
 ![Ändra namn vid ändring av princip](./media/backup-during-vm-creation/modify-policy.png)
-6. Det rekommenderas inte att låsa resurs gruppen som skapas för användning av säkerhets kopierings tjänsten.
+6. Du uppmanas inte att låsa resurs gruppen som skapats för användning av säkerhets kopierings tjänsten.
 
 Information om hur du konfigurerar Azure Backup resurs grupp för Virtual Machines med hjälp av PowerShell finns i [skapa Azure Backup resurs grupp under kvarhållning av ögonblicks bilder](backup-azure-vms-automation.md#creating-azure-backup-resource-group-during-snapshot-retention).
 

@@ -12,12 +12,12 @@ ms.date: 08/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3d810d14dd6b49bc054e3844a60ec33c62dc084c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ce8f376d3264a06618cb7321c75142dcf92d9ea
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271251"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891869"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -61,7 +61,7 @@ Stegen för att publicera din app i Azure AD App-galleriet är:
 6. Delta i Microsoft Partner Network.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver ett permanent konto för testning med minst två användare registrerade.
 
@@ -98,7 +98,7 @@ OAuth 2,0 är ett [bransch standard](https://oauth.net/2/) protokoll för auktor
 
 ### <a name="saml-20-or-ws-fed"></a>SAML 2,0 eller WS-utfodras
 
-SAML är en vuxen, och ofta förekommande, enkel inloggnings standard för webb program. Mer information om hur Azure använder SAML finns i [hur Azure använder SAML-protokollet](active-directory-saml-protocol-reference.md). 
+SAML är en vuxen, och ofta förekommande, [enkel inloggnings standard](https://www.oasis-open.org/standards#samlv2.0) för webb program. Mer information om hur Azure använder SAML finns i [hur Azure använder SAML-protokollet](active-directory-saml-protocol-reference.md). 
 
 Web Services Federation (WS-utfodras) är en [bransch standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) som används vanligt vis för webb program som utvecklas med hjälp av .NET-plattformen.
 

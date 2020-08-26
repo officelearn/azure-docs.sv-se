@@ -3,16 +3,17 @@ title: REST-API:er för Azure Enterprise
 description: I den här artikeln beskrivs de REST-API:er du använder med din Azure Enterprise-registrering.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 38662109b03caf63f72f2c1ad3132611ee91d1c3
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: d9ea567f3285ad773007a69a651e406eb2c94821
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244099"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88687441"
 ---
 # <a name="azure-enterprise-rest-apis"></a>REST-API:er för Azure Enterprise
 

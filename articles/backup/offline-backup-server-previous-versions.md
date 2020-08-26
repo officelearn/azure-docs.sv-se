@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline för Data Protection Manager (DPM) och Micro
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för tidigare versioner av DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 45518607b96848dc211c1a787ecfa85432cd842e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826607"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890101"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (tidigare versioner)
 
@@ -203,7 +203,7 @@ Verktyget *AzureOfflineBackupDiskPrep* används för att förbereda SATA-enheter
 
 1. Ange enhets beteckningen utan avslutande kolon för den monterade disk som du vill förbereda för överföring till Azure. När du uppmanas till det anger du en bekräftelse av enhetens formatering.
 
-    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
+    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om den angivna disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
 
     När verktyget har slutförts förbereds en eller flera diskar som du har angett för leverans till Azure. Ett import jobb med det namn som du angav under arbets flödet i avsnittet "initiera offline-säkerhetskopiering" skapas också i Azure. Slutligen visar verktyget leverans adressen till det Azure-datacenter där diskarna måste skickas.
 

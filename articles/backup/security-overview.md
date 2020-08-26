@@ -3,12 +3,12 @@ title: Översikt över säkerhetsfunktioner
 description: Lär dig mer om säkerhetsfunktioner i Azure Backup som hjälper dig att skydda dina säkerhets kopierings data och uppfylla verksamhetens säkerhets behov.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 0354e319c82e02072a8771f9aae383bf0b6240f6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824602"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890475"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Översikt över säkerhetsfunktioner i Azure Backup
 
@@ -56,7 +56,7 @@ Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säke
 
 ## <a name="protection-of-backup-data-from-unintentional-deletes"></a>Skydd av säkerhets kopierings data från oavsiktliga borttagningar
 
-Azure Backup innehåller säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning. Om en användare tar bort en virtuell dator med alternativet mjuk borttagning behålls säkerhets kopierings data under 14 ytterligare dagar, vilket gör det möjligt att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden. [Läs mer om mjuk borttagning](backup-azure-security-feature-cloud.md).
+Azure Backup innehåller säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning. Om en användare tar bort en virtuell dator med alternativet mjuk borttagning behålls säkerhets kopierings data under 14 ytterligare dagar, vilket gör det möjligt att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar inga kostnader för dig. [Läs mer om mjuk borttagning](backup-azure-security-feature-cloud.md).
 
 ## <a name="monitoring-and-alerts-of-suspicious-activity"></a>Övervakning och aviseringar för misstänkt aktivitet
 

@@ -3,12 +3,12 @@ title: Privata slutpunkter
 description: Förstå processen med att skapa privata slut punkter för Azure Backup och scenarier där privata slut punkter används för att upprätthålla säkerheten för dina resurser.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b7f7c6461701b6f4e438cbead60456b327c7c207
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4f41eee7a84308eb9f4da56f087b2c36e09148f0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871555"
+ms.locfileid: "88890900"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Privata slut punkter för Azure Backup
 
@@ -99,7 +99,7 @@ Det finns två obligatoriska DNS-zoner som måste skapas:
 
 ### <a name="optional-dns-zone"></a>Valfri DNS-zon
 
-Kunderna kan välja att integrera sina privata slut punkter med privata DNS-zoner för Azure Backup (beskrivs i avsnittet om att skapa privata slut punkter) för service kommunikation. Om du inte vill integrera med den privata DNS-zonen kan du välja att använda din egen DNS-server eller skapa en privat DNS-zon separat. Detta gäller utöver de två obligatoriska privata DNS-zoner som diskuteras i föregående avsnitt.
+Du kan välja att integrera dina privata slut punkter med privata DNS-zoner för Azure Backup (beskrivs i avsnittet [skapa och använda privata slut punkter för säkerhets kopiering](#creating-and-using-private-endpoints-for-backup)) för tjänst kommunikation. Om du inte vill integrera med den privata DNS-zonen kan du välja att använda din egen DNS-server eller skapa en privat DNS-zon separat. Detta gäller utöver de två obligatoriska privata DNS-zoner som diskuteras i föregående avsnitt.
 
 Om du vill skapa en separat privat DNS-zon i Azure kan du göra samma sak med samma steg som används för att skapa obligatoriska DNS-zoner. Informationen om namngivning och prenumerationer delas nedan:
 

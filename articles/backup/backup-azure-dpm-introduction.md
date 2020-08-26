@@ -3,12 +3,12 @@ title: Förbereda DPM-servern för säkerhets kopiering av arbets belastningar
 description: I den här artikeln lär du dig att förbereda för säkerhets kopiering av System Center Data Protection Manager (DPM) till Azure med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 86becc2b989c55ac080b9bdcbfcca182987e9fb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 96eadb4d600b6aa842cdbded2a906d70f27cf55e
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827315"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890815"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -90,7 +90,7 @@ Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgi
 - Autentiseringsuppgifterna för valvet används endast under registrerings arbets flödet.
 - Det är ditt ansvar att se till att valv filen för autentiseringsuppgifter är säker och inte komprometterad.
   - Om kontrollen av autentiseringsuppgifterna förloras kan autentiseringsuppgifterna för valvet användas för att registrera andra datorer i valvet.
-  - Säkerhetskopierade data krypteras dock med en lösen fras som tillhör kunden, så befintliga säkerhets kopierings data kan inte komprometteras.
+  - Men säkerhets kopierings data krypteras med en lösen fras som tillhör dig, så befintliga säkerhets kopierings data kan inte komprometteras.
 - Se till att filen sparas på en plats som kan nås från DPM-servern. Om den är lagrad i en fil resurs/SMB, kontrol lera åtkomst behörigheterna.
 - Valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Du kan hämta nya autentiseringsuppgifter för valvet så många gånger som det behövs. Men endast den senaste filen med valv behörighet kan användas under registrerings arbets flödet.
 - Den Azure Backup tjänsten är inte medveten om certifikatets privata nyckel och den privata nyckeln är inte tillgänglig i portalen eller tjänsten.

@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: c69883a88473cd304bb772430ddfe662da4d8fac
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 6b6550bc8c5221547d55ad1e81a985b8ecd303e0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757106"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889625"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs funktionerna i ett Recovery Services-valv. Ett Reco
 
 - **Rollbaserad Access Control (RBAC)**: RBAC ger detaljerad åtkomst hanterings kontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md)och Azure Backup har tre [inbyggda roller för att hantera återställnings punkter](backup-rbac-rs-vault.md). Recovery Services-valv är kompatibla med RBAC, vilket begränsar säkerhets kopiering och återställning av åtkomst till den definierade uppsättningen användar roller. [Läs mer](backup-rbac-rs-vault.md)
 
-- **Mjuk borttagning**: med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden. [Läs mer](backup-azure-security-feature-cloud.md).
+- **Mjuk borttagning**: med mjuk borttagning, även om en obehörig aktör tar bort en säkerhets kopia (eller säkerhetskopierade data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket gör att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagarna för kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar inga kostnader för dig. [Läs mer](backup-azure-security-feature-cloud.md).
 
 - **Återställning mellan regioner**: kors regions återställning (CRR) gör att du kan återställa virtuella Azure-datorer i en sekundär region, som är en Azure-kopplad region. Om Azure deklarerar en katastrof i den primära regionen, är de data som replikeras i den sekundära regionen tillgänglig för återställning i den sekundära regionen för att minimera den verkliga stillestånds tiden i den primära regionen för deras miljö. [Läs mer](backup-azure-arm-restore-vms.md#cross-region-restore).
 

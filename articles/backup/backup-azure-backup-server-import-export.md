@@ -3,12 +3,12 @@ title: Offlinesäkerhetskopiering för DPM och Azure Backup Server
 description: Med Azure Backup kan du skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln beskrivs arbets flödet offline-säkerhetskopiering för DPM och Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 30c8526271a636b8890dde0079e27374df9c38af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757276"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890084"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server (MABS)
 
@@ -136,7 +136,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbets flödet fö
 
     ![Azure-inloggnings skärm](./media/backup-azure-backup-server-import-export/signin-disk-prep.png)
 
-    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
+    Verktyget börjar sedan förbereda disken och kopiera säkerhetskopierade data. Du kan behöva koppla ytterligare diskar när du uppmanas att göra det om den angivna disken inte har tillräckligt med utrymme för säkerhets kopierings data. <br/>
 
     I slutet av lyckad körning av verktyget har kommando tolken tre delar av informationen:
     * En eller flera diskar som du har angett är för beredda för leverans till Azure.

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 3bf9dc0e69707eaed8c2a844f6ed3169e65a5342
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564081"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891104"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Lucene-frågesyntax i Azure Kognitiv sökning
 
@@ -65,7 +65,7 @@ Fler exempel finns i exempel på Lucene-frågesyntax [för att skapa frågor i A
 > [!NOTE]  
 >  Azure Kognitiv sökning stöder också [enkel frågesyntax](query-simple-syntax.md), ett enkelt och robust frågespråk som kan användas för enkel nyckelords sökning.  
 
-##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a>Grundläggande syntax  
+##  <a name="syntax-fundamentals"></a><a name="bkmk_syntax"></a> Grundläggande syntax  
 
 följande grundläggande syntax gäller för alla frågor som använder Lucene-syntaxen.  
 
@@ -95,7 +95,7 @@ Kontrol lera att alla osäkra och reserverade tecken är kodade i en URL. Till e
 
 Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]`` . Reserverade tecken är `; / ? : @ = + &` .
 
-###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a>Storleks gränser för fråga
+###  <a name="query-size-limits"></a><a name="bkmk_querysizelimits"></a> Storleks gränser för fråga
 
  Det finns en gräns för hur många frågor du kan skicka till Azure Kognitiv sökning. Mer specifikt kan du ha högst 1024-satser (uttryck avgränsade med och, eller, och så vidare). Det finns också en gräns på ungefär 32 KB på storleken på en enskild term i en fråga. Om programmet genererar Sök frågor program mässigt rekommenderar vi att du utformar det på ett sådant sätt att det inte genererar frågor om obegränsad storlek.  
 
@@ -105,31 +105,31 @@ Osäkra tecken är ``" ` < > # % { } | \ ^ ~ [ ]`` . Reserverade tecken är `; /
 
 Fält grupperingen liknar varandra men omfångerar grupperingen till ett enda fält. Söker till exempel `hotelAmenities:(gym+(wifi||pool))` fältet "hotelAmenities" för "gymmet" och "WiFi", eller "gymmet" och "pool".  
 
-##  <a name="boolean-search"></a><a name="bkmk_boolean"></a>Boolesk sökning
+##  <a name="boolean-search"></a><a name="bkmk_boolean"></a> Boolesk sökning
 
  Ange alltid text booleska operatorer (och, eller, inte) med versaler.  
 
-### <a name="or-operator-or-or-"></a>ELLER-operator `OR` eller`||`
+### <a name="or-operator-or-or-"></a>ELLER-operator `OR` eller `||`
 
-Operatorn OR är ett lodrätt streck eller ett vertikalstreck. Till exempel: `wifi || luxury` söker efter dokument som innehåller antingen "WiFi" eller "lyxen" eller både och. Eftersom eller är standard operatorn, kan du också lämna ut den, till exempel `wifi luxury` motsvarande `wifi || luxury` .
+Operatorn OR är ett lodrätt streck eller ett vertikalstreck. Till exempel: `wifi || luxury` söker efter dokument som innehåller antingen "WiFi" eller "lyxen" eller både och. Eftersom eller är standard operatorn, kan du också lämna ut den, till exempel `wifi luxury` motsvarande  `wifi || luxury` .
 
-### <a name="and-operator-and--or-"></a>AND `AND` -operatör `&&` eller`+`
+### <a name="and-operator-and--or-"></a>AND `AND` -operatör `&&` eller `+`
 
 Operatorn och är ett et-tecken eller ett plus tecken. Exempel: `wifi && luxury` söker efter dokument som innehåller både "WiFi" och "lyxen". Plus tecknet (+) används för obligatoriska villkor. Till exempel `+wifi +luxury` föreskriver att båda termerna måste visas någonstans i fältet i ett enda dokument.
 
-### <a name="not-operator-not--or--"></a>NOT `NOT` -operator `!` eller`-`
+### <a name="not-operator-not--or--"></a>NOT `NOT` -operator `!` eller `-`
 
 Operatorn NOT är ett minus tecken. Söker till exempel `wifi –luxury` efter dokument som har `wifi` termen och/eller inte har `luxury` .
 
 Parametern **searchMode** i en förfrågan styr om en term med operatorn inte är ANDed eller Ored med andra villkor i frågan (förutsatt att det inte finns någon `+` eller `|` operator på de andra villkoren). Giltiga värden är `any` eller `all` .
 
-`searchMode=any`ökar åter kallelsen av frågor genom att inkludera fler resultat och `-` tolkas som standard som "eller inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller den `wifi` eller de som inte innehåller någon term `luxury` .
+`searchMode=any` ökar åter kallelsen av frågor genom att inkludera fler resultat och `-` tolkas som standard som "eller inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller den `wifi` eller de som inte innehåller någon term `luxury` .
 
-`searchMode=all`ökar precisionen för frågor genom att inkludera färre resultat och som standard tolkas som "och inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller termen `wifi` och som inte innehåller termen "lyxen". Det här är utan tvekan ett mer intuitivt beteende för `-` operatorn. Därför bör du överväga att använda `searchMode=all` i stället för `searchMode=any` om du vill optimera sökningarna efter precision i stället för att återkalla, *och* användarna använder ofta `-` operatorn i sökningar.
+`searchMode=all` ökar precisionen för frågor genom att inkludera färre resultat och som standard tolkas som "och inte". Kommer till exempel `wifi -luxury` att matcha dokument som innehåller termen `wifi` och som inte innehåller termen "lyxen". Det här är utan tvekan ett mer intuitivt beteende för `-` operatorn. Därför bör du överväga att använda `searchMode=all` i stället för `searchMode=any` om du vill optimera sökningarna efter precision i stället för att återkalla, *och* användarna använder ofta `-` operatorn i sökningar.
 
 När du bestämmer dig för en **searchMode** -inställning bör du tänka på användar interaktions mönstren för frågor i olika program. Användare som söker efter information är mer sannolika att inkludera en operatör i en fråga, i stället för e-handelsplatser som har fler inbyggda navigerings strukturer.
 
-##  <a name="fielded-search"></a><a name="bkmk_fields"></a>Sökning efter fält
+##  <a name="fielded-search"></a><a name="bkmk_fields"></a> Sökning efter fält
 
 Du kan definiera en fält Sök åtgärd med `fieldName:searchExpression` syntaxen, där Sök uttrycket kan vara ett enstaka ord eller en fras, eller ett mer komplext uttryck inom parentes, eventuellt med booleska operatorer. Några exempel är följande:  
 
@@ -144,7 +144,7 @@ Fältet som anges i `fieldName:searchExpression` måste vara ett `searchable` f�
 > [!NOTE]
 > När du använder ett fält med sökuttryck behöver du inte använda `searchFields` parametern eftersom varje fält som är angivet i uttrycket har ett explicit angivet fält namn. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan skulle till exempel `search=genre:jazz NOT history&searchFields=description` matcha `jazz` enbart till `genre` fältet, men den matchar `NOT history` `description` fältet. Fält namnet som har angetts i `fieldName:searchExpression` har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `genre` i parametern i det här exemplet `searchFields` .
 
-##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a>Fuzzy-sökning
+##  <a name="fuzzy-search"></a><a name="bkmk_fuzzy"></a> Fuzzy-sökning
 
 En Fuzzy-sökning hittar matchningar i termer som har en liknande konstruktion, vilket utökar en period upp till högst 50 villkor som uppfyller avstånds kriterierna på två eller färre. Mer information finns i [fuzzy search](search-query-fuzzy.md).
 
@@ -152,27 +152,27 @@ En Fuzzy-sökning hittar matchningar i termer som har en liknande konstruktion, 
 
  En Fuzzy-sökning kan bara tillämpas på termer, inte fraser, men du kan lägga till Tilde till varje term individuellt i ett namn eller en fras i flera delar. Exempel: "Unviersty ~ ~" Wshington ~ "skulle matcha" University of Washington ".
  
-##  <a name="proximity-search"></a><a name="bkmk_proximity"></a>Närhets sökning
+##  <a name="proximity-search"></a><a name="bkmk_proximity"></a> Närhets sökning
 
 Närhets sökningar används för att hitta termer som ligger nära varandra i ett dokument. Infoga en tilde ~-symbol i slutet av en fras följt av antalet ord som skapar närhets kanten. Hittar till exempel `"hotel airport"~5` villkoren "hotell" och "flyg plats" inom 5 ord för varandra i ett dokument.  
 
 
-##  <a name="term-boosting"></a><a name="bkmk_termboost"></a>Term förstärkning
+##  <a name="term-boosting"></a><a name="bkmk_termboost"></a> Term förstärkning
 
 Term förstärkning syftar på att rangordna ett dokument högre om det innehåller den ökade perioden, i förhållande till dokument som inte innehåller termen. Detta skiljer sig från bedömnings profiler i dessa bedömnings profiler och ökar vissa fält i stället för specifika villkor.  
 
-I följande exempel kan du illustrera skillnaderna. Anta att det finns en bedömnings profil som höjer matchningar i ett visst fält, t. ex. *Genre* i [musicstoreindex-exemplet](index-add-scoring-profiles.md#bkmk_ex). Termen förstärkning kan användas för att ytterligare öka vissa Sök villkor som är större än andra. Höjer till exempel `rock^2 electronic` dokument som innehåller Sök villkoren i fältet Genre högre än andra sökbara fält i indexet. Dessutom rangordnas dokument som innehåller Sök termen *rock* högre än den andra Sök termen *elektroniskt* som ett resultat av termen förstärknings värde (2).  
+I följande exempel kan du illustrera skillnaderna. Anta att det finns en bedömnings profil som höjer matchningar i ett visst fält, t. ex. *Genre* i  [musicstoreindex-exemplet](index-add-scoring-profiles.md#bkmk_ex). Termen förstärkning kan användas för att ytterligare öka vissa Sök villkor som är större än andra. Höjer till exempel `rock^2 electronic` dokument som innehåller Sök villkoren i fältet Genre högre än andra sökbara fält i indexet. Dessutom rangordnas dokument som innehåller Sök termen *rock* högre än den andra Sök termen *elektroniskt* som ett resultat av termen förstärknings värde (2).  
 
  Om du vill förstärka en term använder du cirkumflex, "^", symbol med en förstärknings faktor (ett tal) i slutet av den period som du söker. Du kan också öka fraser. Ju högre förstärknings faktor, desto mer relevant är termen i förhållande till andra Sök villkor. Som standard är förstärknings faktorn 1. Förstärknings faktorn måste vara positiv, men den kan vara mindre än 1 (till exempel 0,20).  
 
-##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a>Sökning efter reguljära uttryck  
+##  <a name="regular-expression-search"></a><a name="bkmk_regex"></a> Sökning efter reguljära uttryck  
  En sökning efter reguljära uttryck hittar en matchning baserat på mönster som är giltiga under Apache Lucene, enligt beskrivningen i [klassen RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). I Azure Kognitiv sökning omges ett reguljärt uttryck mellan snedstreck `/` .
 
  Om du till exempel vill hitta dokument som innehåller "Motel" eller "hotell" anger du `/[mh]otel/` . Sökningar i reguljära uttryck matchas mot enstaka ord.
 
 Vissa verktyg och språk har ytterligare krav på escape-tecken. För JSON undantas strängar som innehåller ett snedstreck med ett omvänt snedstreck: "microsoft.com/azure/" blir `search=/.*microsoft.com\/azure\/.*/` där `search=/.* <string-placeholder>.*/` anger det reguljära uttrycket och `microsoft.com\/azure\/` är strängen med ett escapeat snedstreck.
 
-##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a>Sökning med jokertecken
+##  <a name="wildcard-search"></a><a name="bkmk_wildcard"></a> Sökning med jokertecken
 
 Du kan använda allmänt identifierad syntax för jokertecken för flera ( `*` ) eller enkla ( `?` )-Character-sökningar. Ett frågeuttryck till exempel `search=alpha*` returnerar "alfanumerisk" eller "alfabetisk". Observera att funktionen Lucene Query parser stöder användningen av dessa symboler med en enda term och inte en fras.
 
@@ -183,9 +183,18 @@ Matchning av suffix, där `*` eller `?` föregår strängen (som i `search=/.*nu
 > [!NOTE]  
 > Som regel är mönster matchning långsam, så du kanske vill utforska alternativa metoder, till exempel Edge n-gram tokenisering som skapar tokens för sekvenser av tecken på en term. Indexet är större, men frågor kan köras snabbare, beroende på mönster konstruktion och längden på de strängar som du indexerar.
 >
-> Vid frågans parsning skickas frågor som formuleras som prefix, suffix, jokertecken eller reguljära uttryck som de är i frågans träd, vilket kringgår [lexikal analys](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matchningar hittas bara om indexet innehåller strängarna i formatet som frågan anger. I de flesta fall behöver du en alternativ analys under indexeringen som bevarar sträng integritet så att partiell term och mönster matchning lyckas. Mer information finns i [partiell terms ökning i Azure kognitiv sökning-frågor](search-query-partial-matching.md).
 
-##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a>Poängsättnings-och regex-frågor
+### <a name="impact-of-an-analyzer-on-wildcard-queries"></a>Effekt av en analys av jokertecken för frågor
+
+Vid frågans parsning skickas frågor som formuleras som prefix, suffix, jokertecken eller reguljära uttryck som de är i frågans träd, vilket kringgår [lexikal analys](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matchningar hittas bara om indexet innehåller strängarna i formatet som frågan anger. I de flesta fall behöver du en analys under indexeringen som bevarar sträng integritet så att partiell term och mönster matchning lyckas. Mer information finns i [partiell terms ökning i Azure kognitiv sökning-frågor](search-query-partial-matching.md).
+
+Tänk dig en situation där du kanske vill att Sök frågan "avsluta *" ska returnera resultat som innehåller villkor som "avsluta", "avsluta" och "avsluta".
+
+Om du använder en. Lucene-analys (English Lucene) skulle den tillämpa aggressiva anspråks igenkänning av varje term. Till exempel avslutas "Terminate", "Termination", "Terminate" på token "termi" i indexet. På den andra sidan analyseras inte termer i frågor som använder jokertecken eller en Fuzzy-sökning alls., så det skulle inte finnas några resultat som skulle matcha frågan "avsluta *".
+
+På den andra sidan är Microsofts analys verktyg (i det här fallet en. Microsoft-analys) en lite mer avancerad och Använd lemmatisering i stället för att det ingår. Det innebär att alla genererade tokens ska vara giltiga engelska ord. Till exempel är ' Terminate ', ' Terminate ' och ' terminion ' kvar i indexet och det är ett bättre alternativ för scenarier som är beroende av många jokertecken och en suddig sökning.
+
+##  <a name="scoring-wildcard-and-regex-queries"></a><a name="bkmk_searchscoreforwildcardandregexqueries"></a> Poängsättnings-och regex-frågor
 
 Azure Kognitiv sökning använder frekvens-baserad poängsättning ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) för text frågor. För jokertecken och regexfrågor där termernas omfattning kan vara breda, ignoreras dock frekvens faktorn för att förhindra att rankningen prioriteras mot matchningar från rarer villkor. Alla matchningar behandlas lika för jokertecken och regex-sökningar.
 

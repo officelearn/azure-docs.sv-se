@@ -4,12 +4,12 @@ description: Lär dig hur du återställer en disk och återskapar en virtuell d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f13ff10579e7413a2ee7c64cafc2db856559a9d7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824452"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890730"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Återställa en VM med Azure CLI
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Återställa en disk från en virtuell dator
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder AZ CLI version 2.0.74 eller senare för att få alla fördelar med en snabb återställning, inklusive hanterad disk återställning. Det är bäst om användaren alltid använder den senaste versionen.
+> Vi rekommenderar starkt att du använder AZ CLI version 2.0.74 eller senare för att få alla fördelar med en snabb återställning, inklusive hanterad disk återställning. Det är bäst om du alltid använder den senaste versionen.
 
 ### <a name="managed-disk-restore"></a>Återställning av hanterad disk
 
@@ -88,7 +88,7 @@ Om den säkerhetskopierade virtuella datorn har hanterade diskar och om avsikten
     ```
 
     > [!WARNING]
-    > Om **mål resurs gruppen** inte anges återställs de hanterade diskarna som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Kunderna får bara nytta av omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange parametern **-resurs-grupp** och i stället ange parametern **restore-as-unmanaged-disk** som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
+    > Om **mål resurs gruppen** inte anges återställs de hanterade diskarna som ohanterade diskar till det angivna lagrings kontot. Detta kommer att ha betydande konsekvenser för återställnings tiden eftersom den tid det tar att återställa diskarna i sin helhet beror på det aktuella lagrings kontot. Du får bara fördelen med omedelbar återställning när parametern mål resurs-grupp anges. Om avsikten är att återställa hanterade diskar som ohanterade ska du inte ange parametern **-resurs-grupp** och i stället ange parametern **restore-as-unmanaged-disk** som visas nedan. Den här parametern är tillgänglig från AZ 3.4.0 och senare.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -105,7 +105,7 @@ Detta kommer att återställa hanterade diskar som ohanterade diskar till det ak
 
 ### <a name="unmanaged-disks-restore"></a>Återställning av ohanterade diskar
 
-Om den säkerhetskopierade virtuella datorn innehåller ohanterade diskar och om avsikten är att återställa diskar från återställnings punkten ger du först ett Azure Storage-konto. Det här lagrings kontot används för att lagra VM-konfigurationen och distributions mal len som senare kan användas för att distribuera den virtuella datorn från de återställda diskarna. Som standard kommer de ohanterade diskarna att återställas till sina ursprungliga lagrings konton. Om användaren vill återställa alla ohanterade diskar till en enda plats, kan det aktuella lagrings kontot även användas som mellanlagringsplats för dessa diskar.
+Om den säkerhetskopierade virtuella datorn innehåller ohanterade diskar och om avsikten är att återställa diskar från återställnings punkten ger du först ett Azure Storage-konto. Det här lagrings kontot används för att lagra VM-konfigurationen och distributions mal len som senare kan användas för att distribuera den virtuella datorn från de återställda diskarna. Som standard kommer de ohanterade diskarna att återställas till sina ursprungliga lagrings konton. Om du vill återställa alla ohanterade diskar till en enda plats, kan det aktuella lagrings kontot även användas som mellanlagringsplats för dessa diskar.
 
 I senare steg används den återställda disken för att skapa en virtuell dator.
 

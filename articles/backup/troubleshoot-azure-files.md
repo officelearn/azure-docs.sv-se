@@ -3,12 +3,12 @@ title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e6aec34bea32d33e7a202cb9afb1aae6e1047f18
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: b6f4c74f6e2e8c463d1bcbd78d6ff79d3fb6ee56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825468"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889816"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
@@ -25,7 +25,7 @@ Den här artikeln innehåller felsöknings information för att åtgärda eventu
   >Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. Du kan använda [det här skriptet](scripts/backup-powershell-script-find-recovery-services-vault.md) för att hitta Recovery Services valv där ditt lagrings konto är registrerat.
 
 - Se till att fil resursen inte finns i något av de lagrings konton som inte stöds. Du kan läsa [support mat ris för Azure-filresursen](azure-file-share-support-matrix.md) för att hitta lagrings konton som stöds.
-- Se till att den kombinerade längden på lagrings kontots namn och resurs gruppens namn inte överskrider 84 tecken i händelse av nya lagrings konton och 77 tecken i händelse av klassiska lagrings konton.
+- Se till att den kombinerade längden på lagrings kontots namn och resurs gruppens namn inte överskrider 84 tecken i fallet med nya lagrings konton och 77 tecken om det är klassiska lagrings konton.
 - Kontrol lera brand Väggs inställningarna för lagrings kontot för att säkerställa att alternativet att tillåta att betrodda Microsoft-tjänster har åtkomst till lagrings kontot har Aktiver ATS.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Fel i portalen anger att identifieringen av lagringskonton misslyckades
@@ -300,7 +300,7 @@ Fel meddelande: listade återställnings punkter är inte tillgängliga eftersom
 Kontrol lera att den säkerhetskopierade fil resursen har tagits bort. Om den var i läget tyst Borttagning kontrollerar du om den mjuka borttagnings perioden är över och återställdes inte tillbaka. I något av dessa fall förlorar du alla ögonblicks bilder permanent och kommer inte att kunna återställa data.
 
 >[!NOTE]
-> Vi rekommenderar att du inte tar bort den säkerhetskopierade fil resursen, eller om den är i läget tyst Borttagning, ångra borttagningen innan perioden för mjuk borttagning upphör, för att undvika att alla återställnings punkter går förlorade.
+> Vi rekommenderar att du inte tar bort den säkerhetskopierade fil resursen, eller om den är i tyst borttagen tillstånd, ångrar borttagningen innan perioden för mjuk borttagning upphör, för att undvika att alla återställnings punkter går förlorade.
 
 ### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState – det gick inte att säkerhetskopiera eftersom Azure-filresursen är i läget Soft-Deleted
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 437c2b8e42ed5128cc716eee23b8702ec012b481
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890922"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -52,7 +52,7 @@ Du kan interagera med din arbets yta på följande sätt:
 > För hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 + På webben:
-    + [Azure Machine Learning Studio](https://ml.azure.com) 
+    + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer (för hands version)](concept-designer.md) – endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor.
 + I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + I valfri R-miljö med [Azure Machine Learning SDK för R (för hands version)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
@@ -87,7 +87,7 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 > [!WARNING]
 > Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
 
-## <a name="create-a-workspace"></a><a name='create-workspace'></a>Skapa en arbets yta
+## <a name="create-a-workspace"></a><a name='create-workspace'></a> Skapa en arbets yta
 
 När du skapar en arbets yta bestämmer du om du vill skapa den med [Basic-eller Enterprise-versionen](overview-what-is-azure-ml.md#sku). Versionen avgör vilka funktioner som är tillgängliga i arbets ytan. Med Enterprise Edition får du till gång till [Azure Machine Learning designer](concept-designer.md) och Studio versionen av att skapa [automatiserade maskin inlärnings experiment](tutorial-first-experiment-automated-ml.md).  Mer information och pris information finns i [Azure Machine Learning prissättning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
@@ -101,11 +101,11 @@ Det finns flera sätt att skapa en arbets yta:
 > [!NOTE]
 > Namnet på arbets ytan är Skift läges okänsligt.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Uppgradera till Enterprise Edition
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Uppgradera till Enterprise Edition
 
 Du kan [uppgradera din arbets yta från Basic till Enterprise Edition](how-to-manage-workspace.md#upgrade) med Azure Portal. Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta. 
 
-## <a name="associated-resources"></a><a name="resources"></a>Associerade resurser
+## <a name="associated-resources"></a><a name="resources"></a> Associerade resurser
 
 När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som används av arbets ytan:
 
@@ -117,8 +117,16 @@ När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som 
 > [!NOTE]
 > Förutom att skapa nya versioner kan du också använda befintliga Azure-tjänster.
 
+### <a name="azure-storage-account"></a>Azure Storage-konto
+
+Det Azure Storage konto som skapas som standard med arbets ytan är ett allmänt v1-konto. Du kan uppgradera detta till General-Purpose v2 När arbets ytan har skapats genom att följa stegen i artikeln [Uppgradera till ett allmänt lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
+
 > [!IMPORTANT]
-> Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiskt namn område stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
+> Aktivera inte hierarkiskt namn område på lagrings kontot efter uppgraderingen till General-Purpose v2.
+
+Om du vill använda ett befintligt Azure Storage-konto kan det inte vara ett Premium-konto (Premium_LRS och Premium_GRS). Det får inte heller ha ett hierarkiskt namn område (används med Azure Data Lake Storage Gen2). Varken Premium Storage eller hierarkiska namn områden stöds med arbets ytans _standard_ lagrings konto. Du kan använda Premium Storage eller hierarkiskt namnrymd med lagrings konton som _inte är standard_ .
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

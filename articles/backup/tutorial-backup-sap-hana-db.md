@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ebda6eec0f2e0866a13f04859c491662a8f9ca43
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 65f2a7ba51fcf811e36839d3998902ba37a90fc4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825655"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889999"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -105,7 +105,7 @@ Att köra skriptet för för registrering utför följande funktioner:
 * Den utför utgående nätverks anslutnings kontroller med Azure Backup servrar och beroende tjänster som Azure Active Directory och Azure Storage.
 * Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och användar nyckeln kan tas bort när skriptet för för registrering har körts.
 * AZUREWLBACKUPHANAUSER har tilldelats följande obligatoriska roller och behörigheter:
-  * DATABAS administratör (i händelse av MDC) och säkerhets kopierings administratör (om SDC): för att skapa nya databaser under återställningen.
+  * DATABAS administratör (när det gäller MDC) och säkerhets kopierings administratör (när det gäller SDC): för att skapa nya databaser under återställningen.
   * Katalog läsning: för att läsa säkerhets kopierings katalogen.
   * SAP_INTERNAL_HANA_SUPPORT: för att få åtkomst till några privata tabeller.
 * Skriptet lägger till en nyckel till **hdbuserstore** för AZUREWLBACKUPHANAUSER för plugin-programmet Hana backup för att hantera alla åtgärder (databas frågor, återställnings åtgärder, konfigurera och köra säkerhets kopiering).

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7d270ac9a6597645c5a98b6af77d19021ef00329
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 581feff516e0f0cd820c94290d4aaa729cc4d3a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827434"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889948"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom en brand vägg för Azure Machine Learning
 
@@ -24,9 +24,9 @@ I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för att 
 
 Informationen i det här dokumentet baseras på användningen av [Azure-brandväggen](../firewall/tutorial-firewall-deploy-portal.md), men du bör kunna använda den med andra brand Väggs produkter. Om du har frågor om hur du tillåter kommunikation via brand väggen kan du läsa dokumentationen för den brand vägg som du använder.
 
-## <a name="network-rules"></a>Nätverksregler
+## <a name="application-rules"></a>Programregler
 
-I brand väggen skapar du en nätverks regel som tillåter trafik till och från adresserna i den här artikeln.
+I brand väggen skapar du en _program regel_ som tillåter trafik till och från adresserna i den här artikeln.
 
 > [!TIP]
 > När du lägger till nätverks regeln ställer du in __protokollet__ på valfri, och portarna till `*` .

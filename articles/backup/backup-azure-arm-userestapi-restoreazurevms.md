@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 03815cd9956e323583d6d66097e0eeaa3d492f44
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 2588ca87e2dc2209fbaa5eae411fe5895d5f5669
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826370"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889659"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -19,7 +19,7 @@ För alla återställnings åtgärder måste en av dem identifiera den relevanta
 
 ## <a name="select-recovery-point"></a>Välj återställnings punkt
 
-Tillgängliga återställnings punkter för ett säkerhets kopierings objekt kan listas med hjälp av [listan återställnings punkt REST API](/rest/api/backup/recoverypoints/list). Det är en enkel *Get* -åtgärd med alla relevanta värden.
+Tillgängliga återställnings punkter för ett säkerhets kopierings objekt kan listas med hjälp av [listan återställnings punkt REST API](/rest/api/backup/recoverypoints/list). Det är en enkel åtgärd för att *Hämta* alla relevanta värden.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13

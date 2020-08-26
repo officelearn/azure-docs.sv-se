@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: c68d3accfc6963d7a5eebfef128e3521b45ac886
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 3ee2d57b5589daa756020ebb787a5400ed244506
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827264"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890050"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -17,7 +17,7 @@ I den här artikeln beskrivs hur du uppdaterar säkerhets kopierings-relaterade 
 
 ## <a name="soft-delete-state"></a>Läge för mjuk borttagning
 
-Att ta bort säkerhets kopior av ett skyddat objekt är en viktig åtgärd som måste övervakas. För att skydda mot oavsiktlig borttagning har Azure Recovery Services Vault en funktion för mjuk borttagning. Den här funktionen gör det möjligt för kunder att återställa borttagna säkerhets kopior, om det behövs inom en tids period efter borttagningen.
+Att ta bort säkerhets kopior av ett skyddat objekt är en viktig åtgärd som måste övervakas. För att skydda mot oavsiktlig borttagning har Azure Recovery Services Vault en funktion för mjuk borttagning. Med den här funktionen kan du återställa borttagna säkerhets kopior om det behövs inom en tids period efter borttagningen.
 
 Men det finns scenarier där den här funktionen inte krävs. Det går inte att ta bort ett Azure Recovery Services-valv om det finns säkerhets kopierings objekt i det, även mjuk borttagning av dem. Detta kan innebära ett problem om valvet måste tas bort omedelbart. Till exempel: distributions åtgärder rensar ofta de skapade resurserna i samma arbets flöde. En distribution kan skapa ett valv, konfigurera säkerhets kopior för ett objekt, göra en test återställning och sedan fortsätta att ta bort säkerhets kopierings objekt och valvet. Om valvet inte kan tas bort kan hela distributionen Miss lyckas. Att inaktivera mjuk borttagning är det enda sättet att garantera omedelbar borttagning.
 
@@ -83,7 +83,7 @@ Följande vanliga definitioner används för att skapa en begär ande text
 
 Mer information finns i REST API- [dokumentationen](/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
-|Name  |Krävs  |Typ  |Beskrivning  |
+|Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
 |location     |  true       |Sträng         |   Resurs plats      |

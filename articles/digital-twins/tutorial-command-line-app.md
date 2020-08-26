@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fc79cab5868ec7d676c956581407dce308d80ad
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855857"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891510"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -288,24 +288,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
 Projektet i den här självstudien utgör grunden för nästa självstudie, [*Självstudier: ansluta en komplett lösning*](tutorial-end-to-end.md). Om du planerar att fortsätta till nästa självstudie kan du behålla de resurser som du har ställt in här för att fortsätta använda den här Azure Digital-instansen och den konfigurerade exempel appen.
 * I det här fallet kan du använda exempel appens `DeleteAllTwins` och- `DeleteAllModels` kommandon för att rensa de dubbla och modellerna i din instans. Detta ger dig en ren arbets gång för nästa självstudie.
 
-Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan.
-
-Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) . Detta tar bort resurs gruppen och Azures digitala dubbla instansen.
-
-> [!IMPORTANT]
-> Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
-
-Öppna en Azure Cloud Shell och kör följande kommando för att ta bort resurs gruppen och allt den innehåller.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Ta sedan bort den Azure Active Directory app-registrering som du skapade för din klient app med det här kommandot:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Slutligen tar du bort exempel mappen Project som du laddade ned till din lokala dator.
 

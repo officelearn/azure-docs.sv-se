@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 40b966d719360570a472b17fbf733aa4c8795b4d
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: ca49f1ad48ab0534b27b91ad6a5a50b393cda782
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757803"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890356"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 
@@ -132,7 +132,7 @@ I följande steg förklaras hur du kan konfigurera säkerhets kopiering för ens
        ![Skapa nytt valv](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >Om lagrings kontot har registrerats med ett valv, eller om det finns några skyddade resurser inom lagrings kontot som är värd för den fil resurs som du försöker skydda, så fylls Recovery Services valv namnet i förväg och du får inte redigera det mer [här](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >Om lagrings kontot har registrerats med ett valv, eller om det finns några skyddade resurser inom lagrings kontot som är värd för den fil resurs som du försöker skydda, kommer namnet på Recovery Services valvet att fyllas i och du får inte redigera det [mer här](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
 
 1. Gör något av följande för val av **säkerhets kopierings princip** :
 

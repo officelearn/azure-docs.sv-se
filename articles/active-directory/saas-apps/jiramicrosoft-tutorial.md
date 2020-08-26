@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 08f5829eb624f13be44bba633f3188d8d9876058
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 99f29f884997fbdd4761a5aa2d1f3a8bc15aa797
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547468"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891614"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera JIRA SAML SSO från Mic
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="description"></a>Description
+## <a name="description"></a>Beskrivning
 
 Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern för att aktivera enkel inloggning. På så sätt kan alla organisations användare använda Azure AD-autentiseringsuppgifterna för att logga in i JIRA-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
@@ -37,7 +37,7 @@ Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern f
 För att konfigurera Azure AD-integrering med JIRA SAML SSO från Microsoft behöver du följande:
 
 - En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-- JIRA Core och program vara 6,4 till 8.11.0 eller JIRA Service Desk 3,0 till 4.8.0 bör installeras och konfigureras på Windows 64-bitars version
+- JIRA Core och program vara 6,4 till 8.11.0 eller JIRA Service Desk 3,0 till 4.11.1 bör installeras och konfigureras på Windows 64-bitars version
 - JIRA-servern är HTTPS-aktiverad
 - Observera att de versioner som stöds för JIRA-plugin-programmet anges i avsnittet nedan.
 - JIRA-servern kan nås via Internet, särskilt för Azure AD-inloggningssidan för autentisering, och bör kunna ta emot token från Azure AD
@@ -59,7 +59,7 @@ För att komma igång behöver du följande objekt:
 ## <a name="supported-versions-of-jira"></a>Versioner av JIRA som stöds
 
 * JIRA Core och program vara: 6,4 till 8.11.0
-* JIRA Service Desk 3.0.0 till 4.8.0
+* JIRA Service Desk 3.0.0 till 4.11.1
 * JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 
 > [!NOTE]

@@ -4,12 +4,12 @@ description: I den här självstudien får du lära dig hur du säkerhetskopiera
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 505c4502281f4d32e1e28d913ed5a040e533cfb2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fbf50a9b1fa33e86777c25dcbeee9681aa2dda62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824329"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890611"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Självstudie: säkerhetskopiera SAP HANA databaser i en virtuell Azure-dator med Azure CLI
 
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-[AZ för säkerhets kopierings jobb lista](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) visar en lista över alla säkerhets kopierings jobb (schemalagda eller på begäran) som har körts eller som för närvarande körs på den skyddade databasen, förutom andra åtgärder som registrera, konfigurera säkerhets kopiering, ta bort säkerhetskopierade data osv.
+[AZ för säkerhets kopierings jobb lista](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) visar en lista över alla säkerhets kopierings jobb (schemalagda eller på begäran) som har körts eller som för närvarande körs på den skyddade databasen, förutom andra åtgärder som registrera, konfigurera säkerhets kopiering och ta bort säkerhetskopierade data.
 
 >[!NOTE]
 >Azure Backup anpassas inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en SAP HANA databas som körs på en virtuell Azure-dator.

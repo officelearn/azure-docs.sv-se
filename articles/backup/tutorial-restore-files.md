@@ -4,12 +4,12 @@ description: Lär dig att utföra återställningar på filnivå på en virtuell
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: bb327d014efc3df02edd14afafe1e2e7c1ea9d73
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: f972913bcae68297ed166f82fd78a047ce9d475d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824516"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890668"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 
@@ -23,7 +23,7 @@ Med Azure Backup skapas återställningspunkter som lagras i geo-redundanta åte
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver de här självstudierna att du kör Azure CLI version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.0.18 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -139,7 +139,7 @@ När återställningsskriptet har kopierats till den virtuella datorn kan du nu 
     ./myVM_we_1571974050985163527.sh
     ```
 
-    När skriptet har körts uppmanas du att ange ett lösenord för att komma åt återställningspunkten. Ange lösenordet som visas i utdata från det tidigare kommandot [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) som genererade återställningsskriptet.
+    När skriptet körs uppmanas du att ange ett lösen ord för att få åtkomst till återställnings punkten. Ange lösenordet som visas i utdata från det tidigare kommandot [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) som genererade återställningsskriptet.
 
     Utdata från skriptet ger dig sökvägen till återställningspunkten. Följande exempel visar att återställningspunkten är monterad på */home/azureuser/myVM-20170919213536/Volume1*:
 

@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 577f6637ebe96dcabcb1357ca09da75bd9552c30
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d69a2aff900dc3185aafbcb2d655a29d2fff06e3
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827247"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890564"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -68,7 +68,7 @@ Azure Backup Recovery Services-valvet kan identifiera och skydda alla noder i sa
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>Skapar lyckade säkerhetskopieringsjobb aviseringar?
 
-Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas. Detaljerade funktioner för Portal varningar dokumenteras [här](backup-azure-monitoring-built-in-monitor.md). Om du däremot är intresse rad av aviseringar även för lyckade jobb kan du använda [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+Nej. Lyckade säkerhetskopieringsjobb genererar inte aviseringar. Aviseringar skickas bara för säkerhetskopieringsjobb som misslyckas. Detaljerade funktioner för Portal varningar dokumenteras [här](backup-azure-monitoring-built-in-monitor.md). Men om du är intresse rad av aviseringar även för lyckade jobb kan du använda [övervakning med hjälp av Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>Kan jag se schemalagda säkerhets kopierings jobb på menyn säkerhets kopierings jobb?
 

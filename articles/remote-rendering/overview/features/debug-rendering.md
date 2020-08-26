@@ -5,12 +5,12 @@ author: jumeder
 ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
-ms.openlocfilehash: aa6e6dced3dfd32896489db2ed76704304dbc745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4c6883753e9acbe66aa11dd6c26a5af67143f44
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565445"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891427"
 ---
 # <a name="debug-rendering"></a>Rendering av felsökning
 
@@ -18,7 +18,7 @@ API för fel söknings åter givning innehåller en uppsättning globala alterna
 
 ## <a name="available-debug-rendering-effects"></a>Tillgängliga fel söknings åter givnings effekter
 
-|Inställningen                          | Verkan                               |
+|Inställning                          | Effekt                               |
 |---------------------------------|:-------------------------------------|
 |Bild Rute räknare                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar det aktuella ram-ID: t för Server sidan, som kontinuerligt ökar när åter givningen fortsätter. |
 |Antal polygoner                    | Återger ett text överlägg i det övre vänstra hörnet av ramen. Texten visar den aktuella åter givnings mängden av polygoner, samma värde som efter frågas av [prestanda frågor på Server sidan](performance-queries.md)| 
@@ -45,16 +45,16 @@ void EnableDebugRenderingEffects(AzureSession session, bool highlight)
 ```cpp
 void EnableDebugRenderingEffects(ApiHandle<AzureSession> session, bool highlight)
 {
-    ApiHandle<DebugRenderingSettings> settings = *session->Actions()->DebugRenderingSettings();
+    ApiHandle<DebugRenderingSettings> settings = session->Actions()->GetDebugRenderingSettings();
 
     // Enable frame counter text overlay on the server side rendering
-    settings->RenderFrameCount(true);
+    settings->SetRenderFrameCount(true);
 
     // Enable polygon count text overlay on the server side rendering
-    settings->RenderPolygonCount(true);
+    settings->SetRenderPolygonCount(true);
 
     // Enable wireframe rendering of object geometry on the server
-    settings->RenderWireframe(true);
+    settings->SetRenderWireframe(true);
 }
 ```
 

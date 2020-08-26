@@ -4,12 +4,12 @@ description: Lär dig hur mjuk borttagning för virtuella datorer gör säkerhet
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: 90d55e8ed6c831adf4efaf0663d191697177ea63
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826488"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88889834"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Mjuk borttagning för virtuella datorer
 
@@ -110,7 +110,7 @@ DeleteState för säkerhets kopierings objekt återgår till ' NotDeleted '. Men
 ## <a name="soft-delete-for-vms-using-rest-api"></a>Mjuk borttagning för virtuella datorer som använder REST API
 
 - Ta bort säkerhets kopiorna med REST API som anges [här](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
-- Om användaren vill ångra dessa borttagnings åtgärder, se de steg som beskrivs [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
+- Om du vill ångra dessa borttagnings åtgärder, se de steg som beskrivs [här](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
 
 ## <a name="how-to-disable-soft-delete"></a>Så här inaktiverar du mjuk borttagning
 

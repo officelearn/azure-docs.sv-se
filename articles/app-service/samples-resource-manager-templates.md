@@ -4,15 +4,15 @@ description: Hitta Azure Resource Manager mal sampel för några vanliga App Ser
 author: tfitzmac
 tags: azure-service-management
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 4ac8e7d51ce9a3d5694f2853219bb04869a91734
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5129fccceb633991767cdd3b52bbb5b6af067270
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517713"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88891053"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Azure Resource Manager-mallar för App Service
 
@@ -44,6 +44,7 @@ Mer information om JSON-syntaxen och egenskaper för App Services-resurser finns
 | [App med en databas i Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Distribuerar en App Service app och en databas i Azure SQL Database på den grundläggande service nivån. |
 | [App med Blob-lagringsanslutning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Distribuerar en App Service-app med en Azure Blob Storage-anslutningssträng. Du kan sedan använda Blob-lagring från appen. |
 | [App med en Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Distribuerar en App Service-app med en Azure Cache for Redis. |
+| [App ansluten till en server dels webapp](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Distribuerar två webbappar (klient dels-och Server del) på ett säkert sätt tillsammans med VNet-injektering och privat slut punkt. |
 |**App Service Environment**| **Beskrivning** |
 | [Skapa en App Service-miljö v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Skapar en App Service-miljö v2 i det virtuella nätverket. |
 | [Skapa en App Service-miljö v2 med en ILB-adress](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Skapar en App Service-miljö v2 i det virtuella nätverket med en privat intern adress för lastbalanseraren. |

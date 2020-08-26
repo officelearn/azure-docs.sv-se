@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 08/25/2020
 ms.author: allensu
-ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135818"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855798"
 ---
 # <a name="what-is-virtual-network-nat"></a>Vad är Virtual Network NAT?
 
@@ -123,31 +123,17 @@ Du kan övervaka hur din NAT fungerar genom flerdimensionella mått som visas i 
 
 Vid allmän tillgänglighet är NAT-datasökvägen minst 99,9% tillgänglig.
 
-
 ## <a name="pricing"></a>Prissättning
 
-NAT-gateway faktureras med två separata mätare:
-
-| Mätare | Pris |
-| --- | --- |
-| Resurs timmar | $0.045/timme |
-| Bearbetade data | $0.045/GB |
-
-Resurs timmar konton för den varaktighet under vilken en NAT-gateway-resurs finns.
-Bearbetade data konton för all trafik som bearbetas av en NAT-gateway-resurs.
+Pris information finns i [Virtual Network prissättning](https://azure.microsoft.com/pricing/details/virtual-network).
 
 ## <a name="availability"></a>Tillgänglighet
 
-Virtual Network NAT och NAT-gateway-resursen är tillgänglig i alla Azures offentliga moln [regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-
-## <a name="support"></a>Support
-
-NAT stöds via normala Support kanaler.
+Virtual Network NAT och NAT-gateway-resursen är tillgänglig i alla regioner i alla Azure-moln [regioner](https://azure.microsoft.com/global-infrastructure/regions/).
 
 ## <a name="suggestions"></a>Förslag
 
 Vi vill veta hur vi kan förbättra tjänsten. Föreslå och rösta på det vi ska bygga nästa på [UserVoice för NAT](https://aka.ms/natuservoice).
-
 
 ## <a name="limitations"></a>Begränsningar
 

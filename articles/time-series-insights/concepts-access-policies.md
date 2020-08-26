@@ -9,14 +9,14 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: 149d1eab696ae8419bed79cd2cdc0b066c32060c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 35a2be5c9f418bc423ae56c456db0062677a33c2
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86531934"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856118"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bevilja data åtkomst till en miljö
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs de två typerna av Azure Time Series Insights åtko
 
 ## <a name="sign-in-to-azure-time-series-insights"></a>Logga in på Azure Time Series Insights
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. Leta upp din Azure Time Series Insights-miljö genom att ange `Time Series Insights environments` i sökrutan. **Search** Välj `Time Series Insights environments` i Sök resultaten.
 1. Välj din Azure Time Series Insights-miljö i listan.
 
@@ -64,7 +64,7 @@ Följ dessa steg om du vill bevilja data åtkomst för ett huvud konto för anv�
 
 Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights miljö till en Azure AD-användare från en annan klient.
 
-1. Gå till Azure Portal, klicka på **Azure Active Directory**, rulla ned på fliken **Översikt** och välj **gäst användare**.
+1. Gå till Azure Portal, klicka på  **Azure Active Directory**, rulla ned på fliken **Översikt** och välj **gäst användare**.
 
     [![Välj data åtkomst principer och sedan + Bjud in](media/data-access/data-access-invite-another-aad-tenant.png)](media/data-access/data-access-invite-another-aad-tenant.png#lightbox)
 
@@ -106,7 +106,7 @@ Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights
 
 1. Administratören [delar miljöns URL](time-series-insights-parameterized-urls.md) med sin gäst.
 
-1. När gäst användaren är inloggad på den e-postadress som du använde för att bjuda in dem, och de accepterar inbjudan, kommer de att dirigeras till Azure Portal. 
+1. När gäst användaren är inloggad på den e-postadress som du använde för att bjuda in dem, och de accepterar inbjudan, kommer de att dirigeras till Azure Portal.
 
 1. Gästen kan nu komma åt den delade miljön med hjälp av den miljö-URL som tillhandahålls av administratören. De kan ange URL-adressen i webbläsaren för omedelbar åtkomst.
 
@@ -114,14 +114,14 @@ Följ dessa steg om du vill ge gäst åtkomst till en Azure Time Series Insights
 
     [![Val av avatar på insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    När gäst användaren väljer administratörens klient, kan de välja den delade Azure Time Series Insightss miljön.
 
-    När gäst användaren väljer administratörens klient, kan de välja den delade Azure Time Series Insightss miljön. 
-    
     De har nu alla funktioner som är kopplade till den roll som du angav i **steg 5**.
 
     [![Gäst användare väljer din Azure-klient från listruta](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Läs [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md) för Azure Active Directory registrerings steg för appar.
 
-* Visa [din miljö i Azure Time Series Insights Gen2 Explorer](./time-series-insights-update-explorer.md).
+* Visa [din miljö i Azure Time Series Insights TSD-Utforskare](./time-series-insights-update-explorer.md).

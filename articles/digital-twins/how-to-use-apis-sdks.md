@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 885394b2dd50b9f8a94ece409c47609c8f7f18fd
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 39c33efb4896893c8baa18d06f62defc26c64949
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587573"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855884"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -63,7 +63,7 @@ Du kan också utföra API: er för datum plan genom att interagera med Azure Dig
 Azure Digitals .NET (C#) SDK är en del av Azure SDK för .NET. Det är öppen källkod och baseras på Azures digitala dubbla data Plans-API: er.
 
 > [!NOTE]
-> Detaljerad information om SDK-design finns i allmänna [design principer för Azure SDK](https://azure.github.io/azure-sdk/general_introduction.html) : er och de aktuella [.net-design rikt linjerna](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+> Mer information om SDK-design finns i allmänna [design principer för Azure SDK](https://azure.github.io/azure-sdk/general_introduction.html) : er och de aktuella [.net-design rikt linjerna](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
 Om du vill använda SDK inkluderar du NuGet-paketet **Azure. DigitalTwins. Core** med ditt projekt. Du kommer också att behöva **Azure. Identity** -paketet (version 1.1.1).
 
@@ -143,7 +143,7 @@ Du kan också hitta ytterligare exempel i [GitHub-lagrings platsen för .net (C#
 
 #### <a name="serialization-helpers"></a>Hjälp program för serialisering
 
-Som tidigare beskrivits returnerar Core SDK-metoderna dubbla data som JSON. SDK: n innehåller dock även hjälp klasser för serialisering. Med dessa hjälp funktioner kan du snabbt skapa eller deserialisera dubbla data för åtkomst till grundläggande information.
+Hjälp för serialisering är hjälp funktioner som är tillgängliga i SDK för att snabbt skapa eller avserialisera dubbla data för åtkomst till grundläggande information. Eftersom Core SDK-metoderna returnerar dubbla data som JSON som standard, kan det vara bra att använda dessa hjälp klasser för att dela upp de dubbla data nedåt.
 
 Tillgängliga hjälp klasser är:
 * `BasicDigitalTwin`: Representerar huvud data för en digital, dubbel
@@ -230,7 +230,7 @@ foreach (string prop in rel.CustomProperties.Keys)
 
 ##### <a name="create-a-relationship"></a>Skapa en relation
 
-Med hjälp av `BasicDigitalTwin` klassen kan du också förbereda data för att skapa relationer på en delad instans:
+Med hjälp av `BasicRelationship` klassen kan du också förbereda data för att skapa relationer på en delad instans:
 
 ```csharp
 BasicRelationship rel = new BasicRelationship();

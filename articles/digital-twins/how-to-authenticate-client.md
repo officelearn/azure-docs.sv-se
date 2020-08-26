@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 008d5f22a48fdd31c90e63643adc94b26a975ca2
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00219dbebb8e84c21b9e5b84cf71309c63fc518e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589375"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855963"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -39,18 +39,19 @@ Ta först med följande paket i projektet för att använda .NET SDK och autenti
 
 Beroende på vilka verktyg du väljer kan du inkludera paketen med hjälp av Visual Studio Package Manager eller `dotnet` kommando rads verktyget. 
 
-Om du vill autentisera med .NET SDK använder du en av de metoder för autentisering som har definierats i [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket.
-
-Här är två som används ofta: 
-* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet). Den här metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering.
-* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet). Den här metoden fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), till exempel när du arbetar med Azure Functions. 
-
 Du behöver också följande using-instruktioner:
 
 ```csharp
 using Azure.Identity;
 using Azure.DigitalTwins.Core;
 ```
+Om du vill autentisera med .NET SDK använder du en av de metoder för autentisering som har definierats i [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket. Här är två som används ofta (även tillsammans i samma program):
+
+* [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) är avsett för interaktiva program och kan användas för att skapa en autentiserad SDK-klient
+* [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fungerar bra i de fall där du behöver hanterade identiteter (MSI) och är en bra kandidat för att arbeta med Azure Functions
+
+### <a name="interactivebrowsercredential-method"></a>InteractiveBrowserCredential-metod
+[InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering.
 
 Om du vill använda de interaktiva webb läsar autentiseringsuppgifterna för att skapa en autentiserad SDK-klient lägger du till följande kod:
 
@@ -79,7 +80,9 @@ try
 >[!NOTE]
 > Även om du kan placera klient-ID, klient-ID och instans-URL direkt i koden som visas ovan, är det en bra idé att låta koden hämta dessa värden från en konfigurations fil eller en miljö variabel i stället.
 
-I en Azure-funktion kan du sedan använda autentiseringsuppgifterna för hanterad identitet som detta:
+### <a name="managedidentitycredential-method"></a>ManagedIdentityCredential-metod
+ Metoden [ManagedIdentityCredential](https://docs.microsoft.com/dotnet/api/azure.identity.managedidentitycredential?view=azure-dotnet) fungerar bra i de fall där du behöver [hanterade identiteter (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), till exempel när du arbetar med Azure Functions.
+I en Azure-funktion kan du använda autentiseringsuppgifterna för hanterad identitet som detta:
 
 ```csharp
 ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);

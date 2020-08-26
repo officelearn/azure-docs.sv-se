@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 335b2f345cbebc55ad7ddd60487cfd17288d547d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: c0627dd0833e3b20468eb5f50fbeb9fd9d9ae2b3
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88703394"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864825"
 ---
 **Utgående data överföringar**: [utgående data överföringar](https://azure.microsoft.com/pricing/details/bandwidth/) (data som går ut från Azures Data Center) debiteras för bandbredds användning.
 
@@ -26,7 +26,7 @@ Detaljerad information om priser för Managed Disks, inklusive transaktionskostn
 Virtuella Azure-datorer har möjlighet att ange om de är kompatibla med Ultra disks. En Ultra disk-kompatibel virtuell dator allokerar dedikerad bandbredds kapacitet mellan den virtuella Compute VM-instansen och block lagrings enheten för att optimera prestandan och minska svars tiden. Genom att lägga till den här funktionen på den virtuella datorn får du en reservations avgift som bara införs om du har aktiverat Ultra disk-kapacitet på den virtuella datorn utan att koppla en Ultra disk till den. När en Ultra disk är ansluten till den Ultra disk-kompatibla virtuella datorn gäller inte avgiften. Den här avgiften är per vCPU etablerad på den virtuella datorn. 
 
 > [!Note]
-> För [begränsade KÄRN VM-storlekar](~/articles/virtual-machines/constrained-vcpu.md)baseras reservations avgiften på det faktiska antalet virtuella processorer och inte begränsade kärnor. Reservations avgiften för Standard_E32-8s_v3 baseras på 32 kärnor. 
+> För [begränsade KÄRN VM-storlekar](../articles/virtual-machines/constrained-vcpu.md)baseras reservations avgiften på det faktiska antalet virtuella processorer och inte begränsade kärnor. Reservations avgiften för Standard_E32-8s_v3 baseras på 32 kärnor. 
 
 Se pris [sidan för Azure-diskar](https://azure.microsoft.com/pricing/details/managed-disks/) för pris information för Ultra disk.
 

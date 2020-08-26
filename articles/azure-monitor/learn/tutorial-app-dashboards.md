@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829687"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856018"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Skapa anpassade KPI-instrumentpaneler med Azure Application Insights
 
@@ -40,6 +40,9 @@ För att slutföra den här kursen behöver du:
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Skapa en ny instrumentpanel
+> [!WARNING]
+> Om du flyttar din Application Insights-resurs till en annan resurs grupp eller prenumeration måste du uppdatera instrument panelen manuellt genom att ta bort de gamla panelerna och fästa nya paneler från samma Application Insights-resurs på den nya platsen. 
+
 En enda instrumentpanel kan innehålla resurser från flera program, resursgrupper och prenumerationer.  Börja självstudien genom att skapa en ny instrumentpanel för ditt program.  
 
 1. I instrumentpanelen väljer du **Ny instrumentpanel**.

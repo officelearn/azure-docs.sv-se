@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81007868"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864867"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generera filen för certifikat signerings förfrågan
 
@@ -95,7 +95,7 @@ Den nyare metoden har ett antal fördelar (jämfört med att använda certifikat
     Skärmen **skapa ett nytt certifikat** visas.
 
     > [!NOTE]
-    > Den här guiden använder ett utvecklarcertifikat. Du använder samma process när du registrerar ett driftscertifikat. Se bara till att du använder samma certifikattyp när du skickar meddelanden.
+    > I den här självstudien används ett utvecklings certifikat, som appen använder för att generera en unik enhets-token. Du använder samma process när du registrerar ett driftscertifikat. Se bara till att du använder samma certifikattyp när du skickar meddelanden.
 
 3. Välj **Välj fil**, bläddra till den plats där du sparade CSR-filen från den första aktiviteten och dubbelklicka sedan på certifikat namnet för att läsa in det. Välj sedan **Fortsätt**.
 
@@ -211,7 +211,7 @@ I det här avsnittet skapar du en Notification Hub och konfigurerar autentiserin
 Under **Notification Services**väljer du **Apple (APNs)** och följer sedan lämpliga steg baserat på den metod som du valde tidigare i avsnittet [skapa ett certifikat för Notification Hubs](#creating-a-certificate-for-notification-hubs) .  
 
 > [!NOTE]
-> Använd endast **produktion** för **program läge** om du vill skicka push-meddelanden till användare som har köpt din app från Store.
+> Om du skapar appen med App Store eller ad hoc-postdistributionsgrupp använder du **produktion** för **program läge**. Detta gör att enheten kan skicka push-meddelanden till användare som har köpt din app från Store.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>ALTERNATIV 1: använda ett. p12-Push-certifikat
 

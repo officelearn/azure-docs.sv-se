@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 24f92443acddb17c0a2d337f51dbf9183996c49f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520538"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864697"
 ---
 Azure Files erbjuder fyra olika nivåer av lagring, Premium, transaktion optimerad, frekvent och låg frekvent så att du kan skräddarsy dina resurser efter prestanda-och pris krav för ditt scenario:
 
@@ -32,7 +32,22 @@ Frekventa och häftiga fil resurser är för närvarande tillgängliga i följan
 - Australien, sydöstra
 - Frankrike, centrala
 - Frankrike, södra
+- Tyskland, norra (offentlig)
+- Tyskland, västra centrala (offentlig)
+- Indien, centrala
+- Södra Indien
+- Indien, västra
+- Japan, östra
+- Japan, västra
 - Sydkorea, centrala
 - Sydkorea, södra
+- Östra Norge
+- Norge, väst
+- Sydafrika, norra
+- Sydafrika, västra
+- Förenade Arabemiraten Central
+- Förenade Arabemiraten, norra
+- Storbritannien, södra
+- Storbritannien, västra
 
 Information om hur du distribuerar en frekvent eller svag fil resurs finns i [skapa en frekvent eller låg frekvent fil resurs](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: f423ae957d11248b16a180e22647d6566157b7be
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782846"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852165"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -178,6 +178,7 @@ I följande tabell sammanfattas dessa ytterligare parametrar. I [referens dokume
 |`enable_dnn`|[Aktivera Prognosticering av hyperoptimerade]().||
 |`time_series_id_column_names`|Kolumn namn som används för att unikt identifiera tids serier i data som har flera rader med samma tidsstämpel. Om Time Series-identifierare inte har definierats antas data uppsättningen vara en tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).||
 |`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. ||
+|`feature_lags`| Funktionerna i fördröjningen väljs automatiskt av automatisk ML när `target_lags` har angetts och `feature_lags` är inställt på `auto` . Att aktivera funktionen lags kan hjälpa till att förbättra noggrannheten. Funktionen lags är inaktive rad som standard. ||
 |`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden <= storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen. Lär dig mer om [agg regerings fönster för mål](#target-rolling-window-aggregation).||
 
 

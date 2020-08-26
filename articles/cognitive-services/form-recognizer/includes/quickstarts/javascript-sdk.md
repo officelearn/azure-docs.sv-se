@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 34f972624d1b7dd56fd6271baeaa855627eb870c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1c24eba79c26c4540e9d97a3e2b6646fd0b5439c
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753005"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864732"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -66,6 +66,8 @@ Appens `package.json` fil kommer att uppdateras med beroenden.
 
 ## <a name="object-model"></a>Objekt modell 
 
+Med formulär tolken kan du skapa två olika klient typer. Det första `FormRecognizerClient` används för att fråga tjänsten om identifierade formulär fält och innehåll. Den andra används `FormTrainingClient` för att skapa och hantera anpassade modeller som du kan använda för att förbättra igenkänningen. 
+
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient` tillhandahåller åtgärder för:
 
@@ -76,12 +78,12 @@ Appens `package.json` fil kommer att uppdateras med beroenden.
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient` tillhandahåller åtgärder för:
 
-* Utbilda anpassade modeller för att identifiera alla fält och värden som finns i dina anpassade formulär. En `CustomFormModel` returneras som anger vilka formulär som modellen ska identifiera och vilka fält som ska extraheras för varje formulär typ. Mer detaljerad information om hur du skapar en tränings data uppsättning finns i [tjänstens dokumentation om omärkt modell utbildning] [fr-träna-utan-etiketter].
-* Utbilda anpassade modeller för att identifiera vissa fält och värden som du anger genom att namnge dina anpassade formulär. En `CustomFormModel` returneras som anger de fält som modellen extraherar, samt den uppskattade noggrannheten för varje fält. Se [tjänstens dokumentation om etiketterad modell utbildning] [fr-träna-with-Labels] om du vill ha en mer detaljerad förklaring av hur du använder etiketter i en tränings data uppsättning.
+* Utbilda anpassade modeller för att identifiera alla fält och värden som finns i dina anpassade formulär. En `CustomFormModel` returneras som anger vilka formulär som modellen ska identifiera och vilka fält som ska extraheras för varje formulär typ. Mer detaljerad information om hur du skapar en tränings data uppsättning finns i [tjänstens dokumentation om etiketterad modell utbildning](#train-a-model-without-labels) .
+* Utbilda anpassade modeller för att identifiera vissa fält och värden som du anger genom att namnge dina anpassade formulär. En `CustomFormModel` returneras som anger de fält som modellen extraherar, samt den uppskattade noggrannheten för varje fält. Se [tjänst dokumentationen om etiketterad modell utbildning](#train-a-model-with-labels) för en mer detaljerad förklaring av hur du använder etiketter i en tränings data uppsättning.
 * Hantera modeller som skapats i ditt konto.
 * Kopiera en anpassad modell från en formulär igenkännings resurs till en annan.
 
-Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [formulär tolkens etikett verktyg] [ https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool ].
+Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -256,7 +258,7 @@ Följande funktion tågen en modell på en specifik uppsättning dokument och sk
 ```javascript
 async function trainModel() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, false, {
@@ -342,7 +344,7 @@ Du kan också träna anpassade modeller genom att manuellt märka utbildnings do
 ```javascript
 async function trainModelLabels() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, true, {

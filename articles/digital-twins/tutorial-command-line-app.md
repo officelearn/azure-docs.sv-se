@@ -1,5 +1,5 @@
 ---
-title: Utforska grunderna med en exempelklientapp
+title: 'Självstudie: utforska grunderna med en exempel klient program'
 titleSuffix: Azure Digital Twins
 description: Självstudie för att utforska de digitala Azure-distributionerna med ett exempel på kommando rads program
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 58013ba84e1ede36ed54284af4d20b943d63436f
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986280"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855857"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Utforska digitala Azure-enheter med ett exempel på en klient
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
 I den här självstudien introduceras ett exempel program som implementerar ett kommando rads klient program för att interagera med en digital Azure-instans. Klient programmet liknar den som skrevs i [*Självstudier: koda en klient app*](tutorial-code.md).
 
@@ -314,12 +314,5 @@ Slutligen tar du bort exempel mappen Project som du laddade ned till din lokala 
 I den här självstudien kommer du igång med Azure Digitals dubbla, genom att konfigurera en instans och ett klient program som interagerar med instansen. Du använde klient appen för att utforska Azure Digitals, skapa modeller, digitala sammanflätade och relationer. Du körde också några frågor om lösningen, för att få en uppfattning om vilka typer av frågor som Azure Digitals, kan svara på en miljö.
 
 Fortsätt till nästa självstudie om du vill använda exempel kommando rads appen i kombination med andra Azure-tjänster för att slutföra ett data drivet, slut punkt till slut punkts scenario:
-
 > [!div class="nextstepaction"]
 > [*Självstudie: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)
-
-Du kan också börja titta närmare på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien:
-* [*Begrepp: anpassade modeller*](concepts-models.md)
-
-Du kan också gå djupare i de här självstudierna genom att starta instruktions artiklar:
-* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)

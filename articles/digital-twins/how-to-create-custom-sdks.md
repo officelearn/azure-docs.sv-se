@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-javascript
-ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 3cf14ce3e8ef9b1d783191fe6c01c5e311d57786
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420047"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855955"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Skapa anpassade SDK: er för Azure Digitals dubbla med AutoRest
 
@@ -41,10 +41,10 @@ npm install -g autorest@2.0.4413
 Följ dessa steg om du vill köra AutoRest mot Azure Digitals Swagger-filen:
 1. Kopiera Azure Digitals Swagger-fil och dess tillhör ande mapp med exempel till en arbets katalog.
 2. Använd ett kommando tolks fönster för att växla till den arbets katalogen.
-3. Kör AutoRest med följande kommando. Ersätt `<language>` plats hållaren med önskat språk: `--python` ,, `--java` `--go` och så vidare. (Du hittar den fullständiga listan med alternativ i README- [filen för AutoRest](https://github.com/Azure/autorest).)
+3. Kör AutoRest med följande kommando. Ersätt `<language>` plats hållaren med önskat språk: `python` ,, `java` `go` och så vidare. (Du hittar den fullständiga listan med alternativ i README- [filen för AutoRest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
 Därför visas en ny mapp med namnet *ADTApi* i din arbets katalog. De genererade SDK-filerna kommer att ha namn området *ADTApi*. Du kommer att fortsätta att använda det namn området genom resten av användnings exemplen i den här artikeln.
@@ -83,7 +83,7 @@ Nu kan du skapa projektet och inkludera det som en projekt referens i Azure Digi
 
 ## <a name="general-guidelines-for-generated-sdks"></a>Allmänna rikt linjer för genererade SDK: er
 
-Det här avsnittet innehåller allmän information om och rikt linjer för att använda den genererade SDK: n.
+Det här avsnittet innehåller allmän information och rikt linjer för att använda den genererade SDK: n.
 
 ### <a name="synchronous-and-asynchronous-calls"></a>Synkrona och asynkrona anrop
 

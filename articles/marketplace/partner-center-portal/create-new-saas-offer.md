@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/07/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6344cb5f1a4bd52395378f97ba2848eeec336572
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c1550b941c6d0f58feba7d505c7206993e14226b
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817025"
+ms.locfileid: "88856072"
 ---
 # <a name="create-a-saas-offer-in-the-commercial-marketplace"></a>Skapa ett SaaS-erbjudande på den kommersiella Marketplace
 
@@ -234,7 +234,7 @@ Det finns två typer av ändringar som är tillgängliga för kommersiella Marke
 
 #### <a name="terms-and-conditions"></a>Villkor
 
-Om du vill ange egna anpassade villkor kan du välja att ange dem i fältet allmänna villkor. Du kan ange upp till 10 000 tecken text i det här fältet. Om dina villkor kräver en längre Beskrivning anger du en enda URL-länk i det här fältet där du kan hitta dina villkor. Den kommer att visas för kunder som en aktiv länk.
+Om du vill ange egna anpassade villkor kan du välja att ange dem i fältet allmänna villkor. Du kan ange upp till 10 000 tecken text i det här fältet. Om dina villkor kräver en längre Beskrivning anger du en enda URL-länk i det här fältet där du kan hitta dina villkor.
 
 Kunder måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 

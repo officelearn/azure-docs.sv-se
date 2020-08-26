@@ -1,5 +1,5 @@
 ---
-title: Ansluta en lösning från slutpunkt till slutpunkt
+title: 'Självstudie: Anslut en lösning från slut punkt till slut punkt'
 titleSuffix: Azure Digital Twins
 description: Självstudie för att bygga ut en Azure digital-lösning från slut punkt till slut punkt som drivs av enhets data.
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f4155c479151c5af64049e0cf9a6a1c4dc4a553
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827392"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855903"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Bygg ut en lösning från slut punkt till slut punkt
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
 Om du vill konfigurera en fullständig lösning från slut punkt till slut punkt som drivs av real tids data från din miljö kan du ansluta din Azure Digital-instans till andra Azure-tjänster för hantering av enheter och data.
 
@@ -455,7 +455,5 @@ Slutligen tar du bort exempel mappen Project som du laddade ned från den lokala
 I den här självstudien har du skapat ett scenario från slut punkt till slut punkt som visar att Azure Digitals dubbla enheter drivs av direktsänd enhets data.
 
 Börja sedan titta på begrepps dokumentationen för att lära dig mer om element som du har arbetat med i självstudien:
-* [*Begrepp: anpassade modeller*](concepts-models.md)
-
-Du kan också gå djupare med processerna i den här självstudien genom att starta instruktions artiklar:
-* [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Begrepp: anpassade modeller*](concepts-models.md)

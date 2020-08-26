@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 08/21/2020
 ms.author: pafarley
-ms.openlocfilehash: b7ee606ab17171c5f2fcf20d94ff18de8b05b773
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b178a0b347888f22d9a3c0ee88a203e377cb15be
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88753018"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864659"
 ---
 > [!IMPORTANT]
 > * Formulär igenkännings-SDK: n är riktad mot v 2.0 från tolk tjänsten.
@@ -30,6 +30,27 @@ ms.locfileid: "88753018"
 * När du har en Azure-prenumeration kan du <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" skapa en formulär igenkännings resurs "  target="_blank"> skapa en formulär igenkännings resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. När den har distribuerats klickar **du på gå till resurs**.
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till Forms igenkännings-API: et. Du klistrar in nyckeln och slut punkten i koden nedan i snabb starten.
     * Du kan använda den kostnads fria pris nivån ( `F0` ) för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
+
+## <a name="object-model"></a>Objekt modell 
+
+Med formulär tolken kan du skapa två olika klient typer. Det första `form_recognizer_client` används för att fråga tjänsten om identifierade formulär fält och innehåll. Den andra används `form_training_client` för att skapa och hantera anpassade modeller som du kan använda för att förbättra igenkänningen. 
+
+### <a name="formrecognizerclient"></a>FormRecognizerClient
+`form_recognizer_client` tillhandahåller åtgärder för:
+
+ * Igenkänning av formulär fält och innehåll med anpassade modeller utbildade för att identifiera dina anpassade formulär. 
+ * Igenkänning av formulär innehåll, inklusive tabeller, rader och ord, utan att behöva träna en modell. 
+ * Att känna igen vanliga fält från inleveranser, med en förtränad kvitto modell på formulär igenkännings tjänsten.
+
+### <a name="formtrainingclient"></a>FormTrainingClient
+`form_training_client` tillhandahåller åtgärder för:
+
+* Utbilda anpassade modeller för att identifiera alla fält och värden som finns i dina anpassade formulär. Mer detaljerad information om hur du skapar en tränings data uppsättning finns i [tjänstens dokumentation om etiketterad modell utbildning](#train-a-model-without-labels) .
+* Utbilda anpassade modeller för att identifiera vissa fält och värden som du anger genom att namnge dina anpassade formulär. Se [tjänst dokumentationen om etiketterad modell utbildning](#train-a-model-with-labels) för en mer detaljerad förklaring av hur du använder etiketter i en tränings data uppsättning.
+* Hantera modeller som skapats i ditt konto.
+* Kopiera en anpassad modell från en formulär igenkännings resurs till en annan.
+
+Observera att modeller också kan tränas med hjälp av ett grafiskt användar gränssnitt, till exempel [etikett verktyget för formulär igenkänning](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -346,9 +367,7 @@ Det här avsnittet visar hur du extraherar nyckel/värde-information och annat i
 > [!IMPORTANT]
 > För att implementera det här scenariot måste du redan ha tränat en modell så att du kan skicka dess ID till metoden nedan. Se avsnittet [träna en modell](#train-a-model-without-labels) .
 
-<<<<<<< s huvud använder du `begin_recognize_custom_forms_from_url` metoden. Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas. Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
-= = = = = = = Du använder metoden **begin_recognize_custom_forms_from_url** . Det returnerade värdet är en samling **RecognizedForm** -objekt. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
->>>>>>> 4c76de6b4e93d2a4669953300c5686837b3be13c
+Du använder- `begin_recognize_custom_forms_from_url` metoden. Det returnerade värdet är en samling `RecognizedForm` objekt: ett för varje sida i det dokument som skickas. Följande kod skriver ut analys resultaten till-konsolen. Det skriver ut varje identifierat fält och motsvarande värde, tillsammans med en förtroende poäng.
 
 ```python
 # Model ID from when you trained your model.
@@ -483,7 +502,7 @@ except ResourceNotFoundError:
 
 ## <a name="run-the-application"></a>Kör programmet
 
-Kör programmet med `python` kommandot på snabb starts filen.
+Du kan köra programmet när som helst med ett antal funktioner som du har läst om i den här snabb starten med det här kommandot:
 
 ```console
 python quickstart-file.py

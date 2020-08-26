@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5a3ec1d6e33c08b460088c9aeb4fd18f6bf29ff
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78668763"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864853"
 ---
 ## <a name="authentication"></a>Autentisering
 
@@ -17,10 +17,10 @@ Varje begäran kräver ett Authorization-huvud. I den här tabellen visas vilka 
 
 | Begärandehuvuden som stöds | Tal till text | Text till tal |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Ja | Nej |
+| Ocp-Apim-Subscription-Key | Ja | Inga |
 | Auktorisering: Bearer | Ja | Ja |
 
-När du använder `Ocp-Apim-Subscription-Key` -huvudet behöver du bara ange din prenumerations nyckel. Ett exempel:
+När du använder `Ocp-Apim-Subscription-Key` -huvudet behöver du bara ange din prenumerations nyckel. Exempel:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
@@ -32,7 +32,7 @@ När du använder `Authorization: Bearer` sidhuvudet måste du göra en begäran
 
 Om du vill hämta en åtkomsttoken måste du göra en begäran till `issueToken` slut punkten med hjälp av `Ocp-Apim-Subscription-Key` och din prenumerations nyckel.
 
-`issueToken` Slut punkten har följande format:
+`issueToken`Slut punkten har följande format:
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -82,7 +82,7 @@ $OAuthToken
 Sväng är ett kommando rads verktyg som är tillgängligt i Linux (och i Windows-undersystemet för Linux). Detta spiral kommando visar hur du hämtar en åtkomsttoken. Ersätt `YOUR_SUBSCRIPTION_KEY` med din prenumerations nyckel för röst tjänsten. Se till att använda rätt slut punkt för den region som matchar din prenumeration. Det här exemplet är för närvarande inställt på västra USA.
 
 ```console
-curl -v -X POST
+curl -v -X POST \
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
  -H "Content-Length: 0" \
@@ -91,7 +91,7 @@ curl -v -X POST
 
 #### <a name="c-sample"></a>C#-exempel
 
-Den här C#-klassen illustrerar hur du får en åtkomsttoken. Skicka din prenumerations nyckel för röst tjänsten när du instansierar klassen. Om din prenumeration inte finns i regionen USA, västra, ändrar du värdet `FetchTokenUri` för för att matcha regionen för din prenumeration.
+Den här C#-klassen illustrerar hur du får en åtkomsttoken. Skicka din prenumerations nyckel för röst tjänsten när du instansierar klassen. Om din prenumeration inte finns i regionen USA, västra, ändrar du värdet för för `FetchTokenUri` att matcha regionen för din prenumeration.
 
 ```csharp
 public class Authentication

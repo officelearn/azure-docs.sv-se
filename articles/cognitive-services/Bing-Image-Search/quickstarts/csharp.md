@@ -10,12 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: f35b69a3ca44308a7d314f448bf35b81d7119228
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a5e957e21b431ede445fd64774fa4727eda7f803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603527"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922250"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och C #
 
@@ -23,7 +24,7 @@ Använd den här snabb starten för att lära dig hur du skickar Sök begär and
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).

@@ -4,14 +4,15 @@ description: I många skalnings scenarier behöver kunden ofta etablera flera in
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74158153"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921995"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Hur skalar jag SignalR-tjänsten med flera instanser?
 Den senaste tjänsten för SignalR service SDK stöder flera slut punkter för signalerande tjänst instanser. Du kan använda den här funktionen för att skala samtidiga anslutningar eller använda den för meddelanden över flera regioner.
@@ -217,7 +218,7 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 `ServiceEndpoint`Objektet har en `EndpointType` egenskap med Value `primary` eller `secondary` .
 
-`primary`slut punkter är önskade slut punkter för att ta emot klient trafik och anses ha mer pålitliga nätverks anslutningar. `secondary`slut punkter anses ha mindre pålitliga nätverks anslutningar och används endast för att ta server till klient trafik, till exempel broadcast-meddelanden, inte för att ta klient till Server trafik.
+`primary` slut punkter är önskade slut punkter för att ta emot klient trafik och anses ha mer pålitliga nätverks anslutningar. `secondary` slut punkter anses ha mindre pålitliga nätverks anslutningar och används endast för att ta server till klient trafik, till exempel broadcast-meddelanden, inte för att ta klient till Server trafik.
 
 I frågor över flera regioner kan nätverket vara instabilt. För en app-server i *östra USA*kan SignalR service-slutpunkten i samma region i *östra USA* konfigureras som `primary` och slut punkter i andra regioner som har marker ATS som `secondary` . I den här konfigurationen kan tjänst slut punkter i andra regioner **ta emot** meddelanden från den här *amerikanska* app-servern, men det finns inga klienter **över flera regioner** som skickas till den här program servern. Arkitekturen visas i diagrammet nedan:
 

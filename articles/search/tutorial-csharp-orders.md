@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6a9564576715c32f8bcc871d10fae50f139aacdb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420642"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932159"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
@@ -115,7 +115,7 @@ Du behöver inte ändra någon av modellerna för att möjliggöra sortering. Vy
     ```
 
     >[!Tip]
-    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Exempel:
+    >Webbläsare cachelagrar vanligt vis CSS-filer och det kan leda till att en gammal CSS-fil används och redigeringarna ignoreras. Ett bra sätt att avrunda detta är att lägga till en frågesträng med en versions parameter till länken. Ett exempel:
     >
     >```html
     >   <link rel="stylesheet" href="~/css/hotels.css?v1.1" />
@@ -462,8 +462,8 @@ För att visa resultat baserat på geografisk avstånd krävs flera steg.
 
 4. Nu måste du knyta dessa begrepp till varandra. De här kodfragmenten är i mån av den här själv studie kursen, och du får hjälp att skapa en mappad app som en övning för läsaren. Om du vill göra det här exemplet ytterligare, kan du antingen ange ett Orts namn med en radie eller hitta en punkt på en karta och välja en radie. Information om hur du undersöker dessa alternativ finns i följande resurser:
 
-* [Azure Maps-dokumentation](https://docs.microsoft.com/azure/azure-maps/)
-* [Hitta en adress med hjälp av Azure Maps Search-tjänsten](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Azure Maps-dokumentation](../azure-maps/index.yml)
+* [Hitta en adress med hjälp av Azure Maps Search-tjänsten](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Beställ resultat baserat på en bedömnings profil
 
@@ -959,7 +959,7 @@ Nu ska vi titta på tre exempel på bedömnings profiler och fundera över hur v
 
 ### <a name="resources"></a>Resurser
 
-Mer information finns i följande [lägga till bedömnings profiler i ett Azure kognitiv sökning-index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Mer information finns i följande [lägga till bedömnings profiler i ett Azure kognitiv sökning-index](/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Lärdomar
 
@@ -975,4 +975,4 @@ Tänk på följande takeaways från det här projektet:
 
 Du har slutfört den här serien med C#-självstudier – du bör ha fått värdefull kunskap om Azure Kognitiv sökning API: er.
 
-Om du vill ha mer information och själv studie kurser kan du läsa [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)eller de andra självstudierna i [Azure kognitiv sökning-dokumentationen](https://docs.microsoft.com/azure/search/).
+Om du vill ha mer information och själv studie kurser kan du läsa [Microsoft Learn](/learn/browse/?products=azure)eller de andra självstudierna i [Azure kognitiv sökning-dokumentationen](./index.yml).

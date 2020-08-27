@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 1554722308675a44a9c144059cc9886996fa3166
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723919"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918442"
 ---
 # <a name="language-support-for-form-recognizer"></a>Språk stöd för formulär tolken
 
@@ -26,11 +26,11 @@ I den här artikeln anges vilka språk som stöds av tjänsten för formulär ig
 |:-----|:----:|:-----:|:---:|:---:|
 |Kinesiska (förenklad) | `zh-Hans`| | ✔ |
 |Nederländska | `nl` | |✔ |
-|Engelska | `en` |✔ |
+|Engelska (utskrift av &s hand) | `en` |✔ |
 |Franska | `fr` | |✔ |
 |Tyska | `de` | |✔ |
 |Italienska | `it` | |✔ |
 |Portugisiska | `pt` | |✔ |
 |Spanska | `es` | |✔ |
 
-* Formulär igenkänning v 2.1 Public Preview stöder dessa språk för `Analyze Layout` och `Train Custom Model` (_träna med etiketter_ och _träna utan etiketter_) åtgärder. `Analyze Receipt` och `Analyze Business Card` stöds endast på engelska.
+* Formulär igenkänning v 2.1 Public Preview stöder dessa språk för layout och anpassad. Färdiga Reciept och förskapade Business-kort stöds bara på engelska.

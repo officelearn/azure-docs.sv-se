@@ -2,17 +2,18 @@
 title: Hantera Azure-reservationer
 description: Lär dig hur du hanterar Azure-reservationer. Se anvisningar om hur du ändrar reservationens omfång, delar upp en reservation och optimerar reservationsanvändningen.
 ms.service: cost-management-billing
+ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f3e4a772382606178d6cd5b0dcb92b0d1bc28695
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87461824"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88684787"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 

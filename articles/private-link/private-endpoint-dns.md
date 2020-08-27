@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1896caaa0cba1f62dc1466124b393337fa8c83
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985792"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918136"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -27,12 +27,15 @@ Du kan använda följande alternativ för att konfigurera dina DNS-inställninga
 - **Använd DNS-vidarebefordraren (valfritt)**. Du kan använda DNS-vidarebefordraren för att åsidosätta DNS-matchningen för en viss privat länk resurs. Om din [DNS-Server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) finns i ett virtuellt nätverk kan du skapa en regel för vidarebefordran av DNS för att använda en privat DNS-zon för att förenkla konfigurationen för alla privata länk resurser.
  
 > [!IMPORTANT]
-> Vi rekommenderar inte att du åsidosätter en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 
+> Rekommenderas inte för att åsidosätta en zon som används aktivt för att lösa offentliga slut punkter. Anslutningar till resurser kan inte lösas korrekt utan DNS-vidarebefordran till den offentliga DNS-tjänsten. Du kan undvika problem genom att skapa ett annat domän namn eller följa det föreslagna namnet för varje tjänst nedan. 
 
 ## <a name="azure-services-dns-zone-configuration"></a>Konfiguration av DNS-zon för Azure-tjänster
 Azure-tjänster skapar en DNS-post för kanoniskt namn (CNAME) på den offentliga DNS-tjänsten för att omdirigera matchningen till det föreslagna privata domän namnet. Du kan åsidosätta upplösningen med den privata IP-adressen för dina privata slut punkter. 
  
 Dina program behöver inte ändra anslutnings-URL: en. När du försöker matcha med en offentlig DNS-tjänst kommer DNS-servern nu att matcha dina privata slut punkter. Processen påverkar inte dina befintliga program. 
+
+> [!IMPORTANT]
+> Privata nätverk använder redan den privata DNS-zonen för en specifik typ, kan bara ansluta till offentliga resurser om de inte har några privata slut punkts anslutningar, annars krävs en motsvarande DNS-konfiguration i den privata DNS-zonen för att DNS-namnmatchningen ska kunna slutföras. 
 
 För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivningen i följande tabell:
 
@@ -100,7 +103,7 @@ För att konfigurera korrekt behöver du följande resurser:
 
 - Virtuellt klient nätverk
 
-- Privat DNS zon [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md) med [typen A Record](../dns/dns-zones-records.md#record-types)
+- Privat DNS zon [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  med [typen A Record](../dns/dns-zones-records.md#record-types)
 
 - Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
 

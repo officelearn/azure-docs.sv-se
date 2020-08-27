@@ -2,13 +2,14 @@
 title: Azure Relay Hybridanslutningar HTTP-begäranden i .NET
 description: Skriva ett C#-konsolprogram för HTTP-begäranden för Azure Relay-hybridanslutningar i .NET.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 270e1bf0f9655705afe4d3657af03152957227c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a11abb984da3601a4d6aa921224e01f94d0871c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317063"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922590"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -23,7 +24,7 @@ I den här snabbstarten gör du följande:
 4. Skriva ett klientkonsolprogram (avsändare) för att ta emot meddelanden.
 5. Kör program. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 

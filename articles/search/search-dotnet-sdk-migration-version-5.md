@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81159b1d19c4c5d46b223158df3ba2c81665c7d7
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ade326b7dda19478398de4ec3ab2be8996d98535
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171915"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923219"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 
-Om du använder version 4,0 – för hands version eller äldre av [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 5.
+Om du använder version 4,0 – för hands version eller äldre av [.NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 5.
 
 En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -35,7 +35,7 @@ Version 5 av Azure Search .NET SDK innehåller vissa ändringar från tidigare v
 Version 5 av Azure Search .NET SDK riktar sig till den senaste allmänt tillgängliga versionen av Azure Search REST API, särskilt 2017-11-11. Detta gör det möjligt att använda nya funktioner i Azure Search från ett .NET-program, inklusive följande:
 
 * [Synonymer](search-synonyms.md).
-* Du kan nu program mässigt komma åt varningar i körnings historiken för Indexer (se `Warning` egenskapen för `IndexerExecutionResult` i [.net-referensen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) för mer information).
+* Du kan nu program mässigt komma åt varningar i körnings historiken för Indexer (se `Warning` egenskapen för `IndexerExecutionResult` i [.net-referensen](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet) för mer information).
 * Stöd för .NET Core 2.
 * Den nya paket strukturen stöder bara de delar av SDK: n som du behöver (se [bryta ändringar i version 5](#ListOfChanges) för mer information).
 

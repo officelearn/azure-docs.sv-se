@@ -3,13 +3,13 @@ title: Automatisk skalning av compute-noder i en Azure Batch-pool
 description: Aktivera automatisk skalning i en molnbaserad pool för att dynamiskt justera antalet datornoder i poolen.
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 0309a5665cf9338340a21f4c8d0eb5bc3c848a04
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: e3e7a354e015ffa8a6164de59edcf572ab773319
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387480"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932329"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -188,11 +188,11 @@ De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 
 När du testar ett dubbelt värde med en ternär operator ( `double ? statement1 : statement2` ), är noll **Sant**och noll är **falskt**.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 Du kan använda dessa fördefinierade **funktioner** när du definierar en formel för autoskalning.
 
-| Funktion | Returtyp | Description |
+| Funktion | Returtyp | Beskrivning |
 | --- | --- | --- |
 | AVG (doubleVecList) |double |Returnerar det genomsnittliga värdet för alla värden i doubleVecList. |
 | längd (doubleVecList) |double |Returnerar längden på den Vector som skapas från doubleVecList. |
@@ -283,11 +283,11 @@ Följande metoder kan användas för att hämta exempel data om tjänstedefinier
 
 | Metod | Beskrivning |
 | --- | --- |
-| GetSample() |`GetSample()`Metoden returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`: Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in. `GetSample(1)`Returnerar det senaste tillgängliga exemplet. För mått som till exempel bör `$CPUPercent` dock `GetSample(1)` inte användas, eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen. Skulle till exempel `$CPUPercent.GetSample(TimeInterval_Minute * 10)` kunna returnera 20 exempel om alla exempel för de senaste 10 minuterna finns i `CPUPercent` historiken. Om den sista minuten i historiken inte var tillgänglig returneras bara 18 exempel. I detta fall `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` Miss lyckas eftersom endast 90 procent av exemplen är tillgängliga, men `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Anger en tidsram för insamling av data, med både en start tid och en slut tid. Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det blir tillgängligt för en formel. Ta hänsyn till den här fördröjningen när du använder- `GetSample` metoden. Se `GetSamplePercent` nedan. |
+| GetSample() |`GetSample()`Metoden returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`: Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in. `GetSample(1)` Returnerar det senaste tillgängliga exemplet. För mått som till exempel bör `$CPUPercent` dock `GetSample(1)` inte användas, eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen. Skulle till exempel `$CPUPercent.GetSample(TimeInterval_Minute * 10)` kunna returnera 20 exempel om alla exempel för de senaste 10 minuterna finns i `CPUPercent` historiken. Om den sista minuten i historiken inte var tillgänglig returneras bara 18 exempel. I detta fall `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` Miss lyckas eftersom endast 90 procent av exemplen är tillgängliga, men `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Anger en tidsram för insamling av data, med både en start tid och en slut tid. Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det blir tillgängligt för en formel. Ta hänsyn till den här fördröjningen när du använder- `GetSample` metoden. Se `GetSamplePercent` nedan. |
 | GetSamplePeriod() |Returnerar den period med exempel som togs i en historisk exempel data uppsättning. |
 | Count () |Returnerar det totala antalet exempel i mått historiken. |
 | HistoryBeginTime() |Returnerar tidstämpeln för det äldsta tillgängliga data exemplet för måttet. |
-| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Exempelvis `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre än den `samplePercent` angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
+| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Till exempel `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre än den `samplePercent` angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
 
 ### <a name="samples"></a>Exempel
 
@@ -667,7 +667,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-`$curTime`kan justeras för att avspegla din lokala tidszon genom att lägga till `time()` produkten av `TimeZoneInterval_Hour` och din UTC-förskjutning. Används till exempel `$curTime = time() + (-6 * TimeInterval_Hour);` för Mountain, sommar tid (MDT). Tänk på att förskjutningen skulle behöva justeras i början och slutet av sommar tid (om tillämpligt).
+`$curTime` kan justeras för att avspegla din lokala tidszon genom att lägga till `time()` produkten av `TimeZoneInterval_Hour` och din UTC-förskjutning. Används till exempel `$curTime = time() + (-6 * TimeInterval_Hour);` för Mountain, sommar tid (MDT). Tänk på att förskjutningen skulle behöva justeras i början och slutet av sommar tid (om tillämpligt).
 
 ### <a name="example-2-task-based-adjustment"></a>Exempel 2: uppgifts-baserad justering
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206928"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922828"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>OData- `search.in` funktion i Azure kognitiv sökning
 
@@ -82,7 +82,7 @@ Parametrarna definieras i följande tabell:
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Prestanda för`search.in`
+### <a name="performance-of-searchin"></a>Prestanda för `search.in`
 
 Om du använder `search.in` kan du förväntar dig svars tid under andra när den andra parametern innehåller en lista över hundratals eller tusentals värden. Det finns ingen uttrycklig gräns för antalet objekt som du kan skicka till `search.in` , även om du fortfarande är begränsad till den maximala storleken för begäran. Svars tiden kommer dock att växa när antalet värden växer.
 
@@ -123,4 +123,4 @@ Hitta alla hotell utan taggen ' Motel ' eller ' cabin':
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565920"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917966"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Full texts ökning i Azure Kognitiv sökning
 
@@ -49,7 +49,7 @@ Diagrammet nedan visar de komponenter som används för att bearbeta en Sök fö
 
 En Sök förfrågan är en fullständig specifikation av vad som ska returneras i en resultat uppsättning. I enklaste form är det en tom fråga utan några kriterier av något slag. Ett mer realistiskt exempel inkluderar parametrar, flera sökord, som kan omfatta vissa fält, med eventuellt ett filter uttryck och ordnings regler.  
 
-Följande exempel är en Sök förfrågan som du kan skicka till Azure Kognitiv sökning med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+Följande exempel är en Sök förfrågan som du kan skicka till Azure Kognitiv sökning med hjälp av [REST API](/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2020-06-30
@@ -69,7 +69,7 @@ I den här förfrågan gör sökmotorn följande:
 2. Kör frågan. I det här exemplet består Sök frågan av fraser och villkor: `"Spacious, air-condition* +\"Ocean view\""` (användarna brukar inte ange interpunktion, utan även i exemplet kan vi förklara hur analys verktyget hanterar det). I den här frågan genomsöker sökmotorn beskrivningen och rubrik fälten som anges i `searchFields` för dokument som innehåller "Oceanien", och dessutom på termen "Spacious" eller på villkor som börjar med prefixet "Air-condition". `searchMode`Parametern används för att matcha på valfri term (standard) eller alla, för fall där en term inte uttryckligen krävs ( `+` ).
 3. Beställer den resulterande uppsättningen hotell genom närhet till en angiven geografisk plats och sedan tillbaka till det anropande programmet. 
 
-Merparten av den här artikeln är om bearbetning av *Sök frågan*: `"Spacious, air-condition* +\"Ocean view\""` . Filtrering och sortering är utanför omfånget. Mer information finns i [referens dokumentationen för Sök-API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Merparten av den här artikeln är om bearbetning av *Sök frågan*: `"Spacious, air-condition* +\"Ocean view\""` . Filtrering och sortering är utanför omfånget. Mer information finns i [referens dokumentationen för Sök-API](/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Steg 1: fråga parsing 
@@ -86,7 +86,7 @@ Frågans parser delar upp operatorer (till exempel `*` och `+` i exemplet) från
 + *fras fråga* för citerade villkor (t. ex. havs Visa)
 + *prefix fråga* för villkor följt av en prefix operator `*` (t. ex. Air-villkor)
 
-En fullständig lista över frågetyper som stöds finns i [Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) -frågesyntax
+En fullständig lista över frågetyper som stöds finns i [Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) -frågesyntax
 
 Operatorer som är associerade med en under fråga avgör om frågan "måste vara" eller "ska vara" nöjd i ordningen för att ett dokument ska anses vara en matchning. Till exempel `+"Ocean view"` är "måste" på grund av `+` operatorn. 
 
@@ -96,7 +96,7 @@ Frågans parser omstrukturerar under frågorna till ett *frågeuttryck* (en inte
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Parsar som stöds: enkel och fullständig Lucene 
 
- Azure Kognitiv sökning visar två olika frågespråk, `simple` (standard) och `full` . Genom att ange `queryType` parametern med din sökbegäran, anger du det Query-tolkare som du väljer så att det vet hur du kan tolka operatorer och syntax. Det [enkla frågespråket](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) är intuitivt och robust, vilket ofta är lämpligt att tolka användarindata som-är utan bearbetning på klient sidan. Det stöder sökoperatörer som är bekanta med Webbs öknings motorer. Det [fullständiga Lucene-frågespråket](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), som du får genom att ställa in `queryType=full` , utökar standard språket för enkla frågor genom att lägga till stöd för fler operatorer och frågetyper som jokertecken, fuzzy, regex och fält omfattningar frågor. Ett reguljärt uttryck som skickas i en enkel frågesyntax tolkas exempelvis som en frågesträng och inte ett uttryck. I exempel förfrågan i den här artikeln används hela Lucene-frågespråket.
+ Azure Kognitiv sökning visar två olika frågespråk, `simple` (standard) och `full` . Genom att ange `queryType` parametern med din sökbegäran, anger du det Query-tolkare som du väljer så att det vet hur du kan tolka operatorer och syntax. Det [enkla frågespråket](/rest/api/searchservice/simple-query-syntax-in-azure-search) är intuitivt och robust, vilket ofta är lämpligt att tolka användarindata som-är utan bearbetning på klient sidan. Det stöder sökoperatörer som är bekanta med Webbs öknings motorer. Det [fullständiga Lucene-frågespråket](/rest/api/searchservice/lucene-query-syntax-in-azure-search), som du får genom att ställa in `queryType=full` , utökar standard språket för enkla frågor genom att lägga till stöd för fler operatorer och frågetyper som jokertecken, fuzzy, regex och fält omfattningar frågor. Ett reguljärt uttryck som skickas i en enkel frågesyntax tolkas exempelvis som en frågesträng och inte ett uttryck. I exempel förfrågan i den här artikeln används hela Lucene-frågespråket.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Effekt av searchMode på parsern 
 
@@ -123,7 +123,7 @@ Ett ändrat frågeuttryck för den här frågan skulle vara följande, där ett 
  ![Boolesk fråga searchmode alla][3]
 
 > [!Note] 
-> Att välja `searchMode=any` över `searchMode=all` är ett beslut som vi har kommit till genom att köra representativa frågor. Användare som troligen kommer att inkludera operatorer (vanligt vid sökning i dokument Arkiv) kan hitta resultat mer intuitivt om `searchMode=all` informerar booleska frågans konstruktioner. Mer information om mellanuppspelning mellan `searchMode` och-operatorer finns i [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Att välja `searchMode=any` över `searchMode=all` är ett beslut som vi har kommit till genom att köra representativa frågor. Användare som troligen kommer att inkludera operatorer (vanligt vid sökning i dokument Arkiv) kan hitta resultat mer intuitivt om `searchMode=all` informerar booleska frågans konstruktioner. Mer information om mellanuppspelning mellan `searchMode` och-operatorer finns i [enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Steg 2: lexikal analys 
@@ -137,10 +137,10 @@ Den vanligaste typen av lexikal analys är *språklig analys* som omvandlar sök
 * Dela upp ett sammansatt ord i komponent delar 
 * Gement versal i ett versal ord 
 
-Alla dessa åtgärder tenderar att radera skillnader mellan text indata från användaren och de termer som lagras i indexet. Sådana åtgärder går utöver text bearbetningen och kräver djupgående kunskap om själva språket. För att lägga till det här lagret av språklig medvetenhet stöder Azure Kognitiv sökning en lång lista med [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg från både Lucene och Microsoft.
+Alla dessa åtgärder tenderar att radera skillnader mellan text indata från användaren och de termer som lagras i indexet. Sådana åtgärder går utöver text bearbetningen och kräver djupgående kunskap om själva språket. För att lägga till det här lagret av språklig medvetenhet stöder Azure Kognitiv sökning en lång lista med [språk analys](/rest/api/searchservice/language-support) verktyg från både Lucene och Microsoft.
 
 > [!Note]
-> Analys kraven kan vara från minimal till att utveckla beroende på ditt scenario. Du kan kontrol lera komplexiteten för en lexikal analys genom att välja en av de fördefinierade analyserna eller genom att skapa en egen [anpassad analys](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analyser är begränsade till sökbara fält och anges som en del av en fält definition. På så sätt kan du variera lexikal analys baserat på varje fält. Ospecificerad används *standard* Lucene Analyzer.
+> Analys kraven kan vara från minimal till att utveckla beroende på ditt scenario. Du kan kontrol lera komplexiteten för en lexikal analys genom att välja en av de fördefinierade analyserna eller genom att skapa en egen [anpassad analys](/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analyser är begränsade till sökbara fält och anges som en del av en fält definition. På så sätt kan du variera lexikal analys baserat på varje fält. Ospecificerad används *standard* Lucene Analyzer.
 
 I vårt exempel har det första frågeuttrycket, "Spacious", med ett versaler och ett kommatecken att frågan tolkar som en del av frågeintervallet (ett kommatecken betraktas inte som en frågespråk).  
 
@@ -150,7 +150,7 @@ När standard analys processen bearbetar termen kommer den att vara i gemener oc
 
 ### <a name="testing-analyzer-behaviors"></a>Testa Analyzer-beteenden 
 
-Beteendet för en analys kan testas med hjälp av [analys-API: et](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Ange den text som du vill analysera för att se vilka termer som visas i Analyzer. Om du till exempel vill se hur standard analys processen bearbetar texten "Air-condition" kan du utfärda följande begäran:
+Beteendet för en analys kan testas med hjälp av [analys-API: et](/rest/api/searchservice/test-analyzer). Ange den text som du vill analysera för att se vilka termer som visas i Analyzer. Om du till exempel vill se hur standard analys processen bearbetar texten "Air-condition" kan du utfärda följande begäran:
 
 ~~~~
 {
@@ -251,7 +251,7 @@ Det är vanligt, men krävs inte, för att använda samma analyser för sökning
 
 I vårt exempel, för fältet **title** ser det inverterade indexet ut så här:
 
-| Term | Dokument lista |
+| Period | Dokument lista |
 |------|---------------|
 | atman | 1 |
 | bollar | 2 |
@@ -265,7 +265,7 @@ I fältet Rubrik visas bara *hotell* i två dokument: 1, 3.
 
 I fältet **Beskrivning** ser indexet ut så här:
 
-| Term | Dokument lista |
+| Period | Dokument lista |
 |------|---------------|
 | löst | 3
 | och | 4
@@ -286,7 +286,7 @@ I fältet **Beskrivning** ser indexet ut så här:
 | Shore | 2
 | spacious | 1
 | Det | 1, 2
-| till | 1
+| på | 1
 | visa | 1, 2, 3
 | vandra | 1
 | med | 3
@@ -359,8 +359,8 @@ Ett exempel illustrerar varför den här saken. Sökningar i jokertecken, inklus
 
 Det finns två sätt att justera relevans poängen i Azure Kognitiv sökning:
 
-1. **Bedömnings profiler** marknadsför dokument i den rangordnade listan över resultat baserat på en uppsättning regler. I vårt exempel kan vi överväga dokument som matchades i rubrik fältet mer relevanta än dokument som matchar i fältet Beskrivning. Om vårt index har ett pris fält för varje hotell skulle vi dessutom kunna befordra dokument med lägre pris. Läs mer om hur du [lägger till bedömnings profiler i ett sökindex.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Term ökning** (endast tillgängligt i fullständig Lucene-frågesyntax) tillhandahåller en förstärknings operator `^` som kan tillämpas på alla delar av frågans träd. I vårt exempel, i stället för att söka efter prefixet *Air-condition* \* , kan en söka efter antingen den exakta termen *Air-villkor* eller prefix, men dokument som matchar den exakta termen rangordnas högre genom att tillämpa Boost på term frågan: * Air-villkor ^ 2 | | luft-villkor * *. Läs mer om [term ökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. **Bedömnings profiler** marknadsför dokument i den rangordnade listan över resultat baserat på en uppsättning regler. I vårt exempel kan vi överväga dokument som matchades i rubrik fältet mer relevanta än dokument som matchar i fältet Beskrivning. Om vårt index har ett pris fält för varje hotell skulle vi dessutom kunna befordra dokument med lägre pris. Läs mer om hur du [lägger till bedömnings profiler i ett sökindex.](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+2. **Term ökning** (endast tillgängligt i fullständig Lucene-frågesyntax) tillhandahåller en förstärknings operator `^` som kan tillämpas på alla delar av frågans träd. I vårt exempel, i stället för att söka efter prefixet *Air-condition* \* , kan en söka efter antingen den exakta termen *Air-villkor* eller prefix, men dokument som matchar den exakta termen rangordnas högre genom att tillämpa Boost på term frågan: * Air-villkor ^ 2 | | luft-villkor * *. Läs mer om [term ökning](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Poängsättning i ett distribuerat index
@@ -383,23 +383,23 @@ I den här artikeln utforskas fullständig texts ökning i samband med Azure-Kog
 
 + Bygg exempel indexet, prova olika frågor och granska resultaten. Instruktioner finns i [bygga och fråga ett index i portalen](search-get-started-portal.md#query-index).
 
-+ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sök Utforskaren i portalen.
++ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sök Utforskaren i portalen.
 
-+ Granska [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) om du vill justera rangordningen i Sök programmet.
++ Granska [bedömnings profiler](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) om du vill justera rangordningen i Sök programmet.
 
-+ Lär dig hur du använder [språkspecifika lexikala analyser](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Lär dig hur du använder [språkspecifika lexikala analyser](/rest/api/searchservice/language-support).
 
-+ [Konfigurera anpassade analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) verktyg för minimal bearbetning eller specialiserad bearbetning på specifika fält.
++ [Konfigurera anpassade analys](/rest/api/searchservice/custom-analyzers-in-azure-search) verktyg för minimal bearbetning eller specialiserad bearbetning på specifika fält.
 
 ## <a name="see-also"></a>Se även
 
-[REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[REST API för dokumentsökning](/rest/api/searchservice/search-documents) 
 
-[Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+[Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Fullständigt Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Fullständigt Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
-[Hantera sökresultat](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+[Hantera sökresultat](./search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

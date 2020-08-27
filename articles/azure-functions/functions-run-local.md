@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: bbdc05d2b5a770791bb81f26a71b9dc3eb7523d5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505724"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929505"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -37,9 +37,9 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 + **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
-Om inget annat anges är exemplen i den här artikeln för version 3. x.
+Du kan bara installera en version av Core-verktyg på en specifik dator. Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
@@ -257,20 +257,21 @@ När ingen giltig lagrings anslutnings sträng har angetts för [`AzureWebJobsSt
 
   ![Kopiera anslutnings strängen från Storage Explorer](./media/functions-run-local/storage-explorer.png)
 
-+ Använd kärn verktyg för att hämta anslutnings strängen från Azure med något av följande kommandon:
++ Använd kärn verktyg från projekt roten för att hämta anslutnings strängen från Azure med något av följande kommandon:
 
   + Hämta alla inställningar från en befintlig Function-app:
 
     ```
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
+
   + Hämta anslutnings strängen för ett angivet lagrings konto:
 
     ```
     func azure storage fetch-connection-string <StorageAccountName>
     ```
 
-    När du inte redan har loggat in på Azure uppmanas du att göra det.
+    När du inte redan har loggat in på Azure uppmanas du att göra det. De här kommandona skriver över alla befintliga inställningar i local.settings.jspå filen. 
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Skapa en funktion
 

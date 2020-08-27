@@ -3,16 +3,17 @@ title: Fakturor för Azure Enterprise-registrering
 description: Den här artikeln förklarar hur du hanterar och använder din Azure Enterprise-faktura.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2020
+ms.date: 08/20/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 89b344a4fc97ccc65a123a2892eac998eaf18b28
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 983cf6e7c9596d40f9db6221739af86175c58e87
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244116"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88689872"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 

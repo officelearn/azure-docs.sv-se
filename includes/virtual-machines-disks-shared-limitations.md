@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 08/26/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cdee82ddae7f6edf43765063bb610b743dbf0121
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88809786"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944421"
 ---
 Att aktivera delade diskar är bara tillgängligt för en delmängd disk typer. För närvarande kan endast Ultra disks och Premium-SSD aktivera delade diskar. Varje hanterad disk som har delade diskar aktiverade omfattas av följande begränsningar, ordnade efter disk typ:
 
@@ -50,10 +50,15 @@ Shared Premium-SSD stöds endast i följande regioner:
 - USA, västra 2
 - USA, västra centrala
 - USA, södra centrala
-- Central US
+- USA, norra centrala
+- USA, centrala
+- Europa, västra
+- Norra Europa
 - Sydkorea, centrala
 - Kanada, centrala
 - Kanada, östra
+- Japan, östra
+- Japan, västra
 - US Gov, Virginia
 - US Gov, Arizona
 

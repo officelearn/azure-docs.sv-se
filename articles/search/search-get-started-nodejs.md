@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420863"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917898"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Node.js med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -84,7 +84,7 @@ Börja med att öppna en PowerShell-konsol eller en annan miljö där du har ins
     npm install --save-dev eslint eslint-config-prettier eslint-config-airbnb-base eslint-plugin-import prettier
     ```
 
-4. Bekräfta att du har konfigurerat projekten och dess beroenden genom att kontrol lera att **package.jspå** filen ser ut ungefär så här:
+4. Bekräfta att du har konfigurerat projekten och dess beroenden genom att kontrol lera att  **package.jspå** filen ser ut ungefär så här:
 
     ```json
     {
@@ -130,7 +130,7 @@ Ersätt `[SERVICE_NAME]` värdet med namnet på Sök tjänsten. Ersätt `[ADMIN_
 
 ## <a name="1---create-index"></a>1 – Skapa index 
 
-Skapa en fil **hotels_quickstart_index.jspå**.  Den här filen definierar hur Azure Kognitiv sökning fungerar med de dokument som ska läsas in i nästa steg. Varje fält identifieras av en `name` och har en angiven `type` . Varje fält har också en serie med indexfiler som anger om Azure Kognitiv sökning kan söka, filtrera, sortera och fasett vid fältet. De flesta fält är enkla data typer, men vissa, som `AddressType` är komplexa typer, som gör att du kan skapa omfattande data strukturer i ditt index.  Du kan läsa mer om [vilka data typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [index-attribut](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)som stöds. 
+Skapa en fil **hotels_quickstart_index.jspå**.  Den här filen definierar hur Azure Kognitiv sökning fungerar med de dokument som ska läsas in i nästa steg. Varje fält identifieras av en `name` och har en angiven `type` . Varje fält har också en serie med indexfiler som anger om Azure Kognitiv sökning kan söka, filtrera, sortera och fasett vid fältet. De flesta fält är enkla data typer, men vissa, som `AddressType` är komplexa typer, som gör att du kan skapa omfattande data strukturer i ditt index.  Du kan läsa mer om [vilka data typer](/rest/api/searchservice/supported-data-types) och [index-attribut](./search-what-is-an-index.md#index-attributes)som stöds. 
 
 Lägg till följande för att **hotels_quickstart_index.jspå** eller [Ladda ned filen](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -346,8 +346,8 @@ static throwOnHttpError(response) {
 Slutligen lägger du till metoderna för att identifiera, ta bort och skapa Azure Kognitiv sökning-indexet. Dessa metoder har samma struktur:
 
 * Hämta slut punkten som begäran görs till.
-* Generera begäran med lämplig slut punkt, HTTP-verb, API-nyckel och, om det behövs, en JSON-text. `indexExistsAsync()`och `deleteIndexAsync()` har ingen JSON-text, men `createIndexAsync(definition)` gör.
-* `await`svaret på begäran.  
+* Generera begäran med lämplig slut punkt, HTTP-verb, API-nyckel och, om det behövs, en JSON-text. `indexExistsAsync()` och `deleteIndexAsync()` har ingen JSON-text, men `createIndexAsync(definition)` gör.
+* `await` svaret på begäran.  
 * Arbeta med svarets status kod.
 * Returnera ett löfte av ett lämpligt värde (ett booleskt värde, `this` eller frågeresultaten). 
 
@@ -610,7 +610,7 @@ Kör programmet igen med `node index.js` . Du bör se en något annorlunda upps�
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Gå tillbaka till fliken **index** i **översikten** för din Sök tjänst på Azure Portal. Ditt index innehåller nu fyra dokument och använder en del lagrings utrymme (det kan ta några minuter innan gränssnittet återger det underliggande indexets tillstånd korrekt). Klicka på index namnet som ska hämtas till **Sök Utforskaren**. På den här sidan kan du experimentera med data frågor. Försök att söka efter en frågesträng av `*&$count=true` och du bör få tillbaka alla dokument och antalet resultat. Försök med frågesträngen `historic&highlight=Description&$filter=Rating gt 4` och du bör komma tillbaka till ett enda dokument, med ordet "historiskt" inkapslat i `<em></em>` taggar. Läs mer om [hur du skapar en fråga i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-query-overview). 
+Gå tillbaka till fliken **index** i **översikten** för din Sök tjänst på Azure Portal. Ditt index innehåller nu fyra dokument och använder en del lagrings utrymme (det kan ta några minuter innan gränssnittet återger det underliggande indexets tillstånd korrekt). Klicka på index namnet som ska hämtas till **Sök Utforskaren**. På den här sidan kan du experimentera med data frågor. Försök att söka efter en frågesträng av `*&$count=true` och du bör få tillbaka alla dokument och antalet resultat. Försök med frågesträngen `historic&highlight=Description&$filter=Rating gt 4` och du bör komma tillbaka till ett enda dokument, med ordet "historiskt" inkapslat i `<em></em>` taggar. Läs mer om [hur du skapar en fråga i Azure kognitiv sökning](./search-query-overview.md). 
 
 Återskapa dessa frågor i kod genom att öppna **index.js** och lägga till den här koden längst upp:
 

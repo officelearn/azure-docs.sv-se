@@ -188,6 +188,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Skydda distributionen av IoT
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Skydda med X.509 CA-certifikat
       items:
         - name: Översikt över certifikatsäkerhet med X.509 CA

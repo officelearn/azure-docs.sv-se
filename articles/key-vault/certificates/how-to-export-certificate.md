@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: ee05d331e953aa39855033d0987cb85cbfddb744
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 408b507ff23a2a20c5ed6d2fc32fd5dbf5dbab5d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827519"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930901"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Exportera certifikat från Azure Key Vault
 
@@ -36,10 +36,7 @@ När ett Key Vault-certifikat har skapats kan du hämta det från den adresser b
 - Kan **exporteras**: den princip som används för att skapa certifikatet anger att nyckeln kan exporteras.
 - Kan **inte exporteras**: den princip som används för att skapa certifikatet anger att nyckeln inte kan exporteras. I det här fallet är den privata nyckeln inte en del av värdet när den hämtas som en hemlighet.
 
-Key Vault stöder två typer av nycklar:
-
-- **RSA**: kan exporteras
-- **HSM RSA**: kan inte exporteras
+Typer som stöds: RSA, RSA-HSM, EC, EC-HSM, okt (listade [här](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) kan exporteras endast med RSA, ec. HSM-nycklar kan inte exporteras.
 
 Mer information finns i [om Azure Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) .
 

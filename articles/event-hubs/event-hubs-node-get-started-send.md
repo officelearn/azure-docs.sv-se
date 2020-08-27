@@ -1,192 +1,190 @@
 ---
-title: Skicka eller ta emot händelser från Azure Event Hubs med Java Script (bakåtkompatibelt)
-description: Den här artikeln innehåller en genom gång av hur du skapar ett JavaScript-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av det gamla Azure/Event-Hub version 2-paketet.
+title: Skicka eller ta emot händelser från Azure Event Hubs med hjälp av Java Script (senaste)
+description: Den här artikeln innehåller en genom gång av hur du skapar ett JavaScript-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av de senaste Azure/Event-Hub version 5-paketet.
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ffa6b821d617731bd6ee5cbb9bec8bd6d856a7a6
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 6f1fe30cad3a1bc0d5bce7a885650dd84fcb2215
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414130"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933995"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-javascript-azureevent-hubs-version-2"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med hjälp av Java Script ( @azure/event-hubs version 2)
-Den här snabb starten visar hur du skapar JavaScript-program för att skicka händelser till och ta emot händelser från en händelsehubben med hjälp av JavaScript-paketet Azure/Event-Hubbs version 2. 
-
-> [!WARNING]
-> Den här snabb starten använder det gamla Azure/Event-Hub version 2-paketet. En snabb start som använder den senaste **versionen 5** av paketet finns i [skicka och ta emot händelser med hjälp av Azure/eventhubs version 5](get-started-node-send-v2.md). Information om hur du flyttar ditt program från med det gamla paketet till New finns i [guiden för att migrera från Azure/eventhubs version 1 till version 5](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md). 
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Skicka händelser till eller ta emot händelser från Event Hub med hjälp av Java Script (Azure/Event-Hub version 5)
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med hjälp av JavaScript-paketet **Azure/Event-Hubbs version 5** . 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-
 Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 - **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
-- Node.js version 8. x och högre. Hämta den senaste versionen av LTS från [https://nodejs.org](https://nodejs.org) .
-- Visual Studio Code (rekommenderas) eller någon annan IDE
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namn område och en Event Hub följer du stegen i [den här artikeln](event-hubs-create.md)och fortsätter sedan med följande steg i den här självstudien. Hämta sedan anslutnings strängen för Event Hub-namnområdet genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
+- Node.js version 8. x eller senare. Hämta den senaste [versionen av LTS (Long-term support)](https://nodejs.org).  
+- Visual Studio Code (rekommenderas) eller andra Integrated Development Environment (IDE).  
+- Ett aktivt Event Hubs namn område och händelsehubben. Gör så här för att skapa dem: 
 
+   1. Skapa ett namn område av typen *Event Hubs*i [Azure Portal](https://portal.azure.com)och hämta sedan de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. 
+   1. Om du vill skapa namn området och händelsehubben följer du anvisningarna i [snabb start: skapa en Event Hub med hjälp av Azure Portal](event-hubs-create.md).
+   1. Fortsätt genom att följa anvisningarna i den här snabb starten. 
+   1. Följ anvisningarna i [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)för att hämta anslutnings strängen för Event Hub-namnområdet. Registrera anslutnings strängen som ska användas senare i den här snabb starten.
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hubs namn området genom att** följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder anslutnings strängen senare i den här snabb starten.
 
-### <a name="install-npm-package"></a>Installera NPM-paket
-Om du vill installera [NPM-paketet för Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0)öppnar du en kommando tolk som har `npm` i sökvägen och ändrar katalogen till den mapp där du vill ha dina exempel och kör sedan det här kommandot
+### <a name="install-the-npm-package"></a>Installera NPM-paketet
+Om du vill installera [NPM-paketet (Node Package Manager) för Event Hubs](https://www.npmjs.com/package/@azure/event-hubs)öppnar du en kommando tolk som har *NPM* i sökvägen, ändrar katalogen till den mapp där du vill behålla dina exempel och kör sedan kommandot:
 
 ```shell
-npm install @azure/event-hubs@2
+npm install @azure/event-hubs
 ```
 
-Om du vill installera [NPM-paketet för Event processor-värden](https://www.npmjs.com/package/@azure/event-processor-host)kör du kommandot nedan i stället
+Du måste installera två fler paket för den mottagande sidan. I den här snabb starten använder du Azure Blob Storage för att bevara kontroll punkter så att programmet inte läser de händelser som redan har lästs. Den utför kontroll punkter för metadata på mottagna meddelanden med jämna mellanrum i en blob. Den här metoden gör det enkelt att fortsätta att ta emot meddelanden senare, där du slutade.
+
+Kör följande kommandon:
 
 ```shell
-npm install @azure/event-processor-host
+npm install @azure/storage-blob
+```
+
+```shell
+npm install @azure/eventhubs-checkpointstore-blob
 ```
 
 ## <a name="send-events"></a>Skicka händelser
 
-Det här avsnittet visar hur du skapar ett JavaScript-program som skickar händelser till en händelsehubben. 
+I det här avsnittet skapar du ett JavaScript-program som skickar händelser till en Event Hub.
 
-> [!NOTE]
-> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
-
-1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
-2. Skapa en fil med namnet `send.js` och klistra in nedanstående kod i den. Hämta anslutnings strängen för Event Hub-namnområdet genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
+1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com).
+1. Skapa en fil med namnet *send.js*och klistra in följande kod i den:
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs@2");
+    const { EventHubProducerClient } = require("@azure/event-hubs");
 
-    // Connection string - primary key of the Event Hubs namespace. 
-    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
-
-    // Name of the event hub. For example: myeventhub
-    const eventHubsName = "<EVENT HUB NAME>";
+    const connectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+    const eventHubName = "EVENT HUB NAME";
 
     async function main() {
-      const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
 
-      for (let i = 0; i < 100; i++) {
-        const eventData = {body: `Event ${i}`};
-        console.log(`Sending message: ${eventData.body}`);
-        await client.send(eventData);
-      }
+      // Create a producer client to send messages to the event hub.
+      const producer = new EventHubProducerClient(connectionString, eventHubName);
 
-      await client.close();
+      // Prepare a batch of three events.
+      const batch = await producer.createBatch();
+      batch.tryAdd({ body: "First event" });
+      batch.tryAdd({ body: "Second event" });
+      batch.tryAdd({ body: "Third event" });    
+
+      // Send the batch to the event hub.
+      await producer.sendBatch(batch);
+
+      // Close the producer client.
+      await producer.close();
+
+      console.log("A batch of three events have been sent to the event hub");
     }
 
-    main().catch(err => {
+    main().catch((err) => {
       console.log("Error occurred: ", err);
     });
     ```
-3. Ange anslutnings strängen och namnet på Händelsehubben i ovanstående kod
-4. Kör sedan kommandot `node send.js` i en kommando tolk för att köra den här filen. Detta kommer att skicka 100-händelser till Händelsehubben
+1. I koden använder du verkliga värden för att ersätta följande:
+    * `EVENT HUBS NAMESPACE CONNECTION STRING` 
+    * `EVENT HUB NAME`
+1. Kör `node send.js` för att köra den här filen. Det här kommandot skickar en batch med tre händelser till händelsehubben.
+1. I Azure Portal kontrollerar du att händelsehubben har tagit emot meddelandena. I avsnittet **mått** växlar du till vyn **meddelanden** . Uppdatera sidan för att uppdatera diagrammet. Det kan ta några sekunder innan det visar att meddelandena har mottagits.
+
+    [![Verifiera att händelsehubben tog emot meddelanden](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
+
+    > [!NOTE]
+    > För den fullständiga käll koden, inklusive ytterligare informations kommentarer, går du till [sidan GitHub sendEvents.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js).
 
 Grattis! Du har nu skickat händelser till en händelsehubben.
 
 
 ## <a name="receive-events"></a>Ta emot händelser
+I det här avsnittet får du händelser från en händelsehubben genom att använda en Azure Blob Storage-kontrollpunkt i ett JavaScript-program. Den utför kontroll punkter för metadata på mottagna meddelanden med jämna mellanrum i en Azure Storage-blob. Den här metoden gör det enkelt att fortsätta att ta emot meddelanden senare, där du slutade.
 
-Det här avsnittet visar hur du skapar ett JavaScript-program som tar emot händelser från en enda partition av standard konsument gruppen i en Event Hub. 
+> [!NOTE]
+> Om du kör på Azure Stack hubb, kan plattformen stödja en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure. Om du till exempel kör [på Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I det här fallet, förutom följande steg i det här avsnittet, måste du också lägga till kod som mål för Storage Service API-versionen 2017-11-09. Ett exempel på hur du kan rikta en speciell lagrings-API-version finns i [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsWithApiSpecificStorage.js) -och  [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript/src/receiveEventsWithApiSpecificStorage.ts) -exempel på GitHub. Mer information om Azure Storage tjänst versioner som stöds på Azure Stack Hub finns i [Azure Stack hubb lagring: skillnader och överväganden](/azure-stack/user/azure-stack-acs-differences).
 
-1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
-2. Skapa en fil med namnet `receive.js` och klistra in nedanstående kod i den.
+
+### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Skapa ett Azure Storage-konto och en BLOB-behållare
+Om du vill skapa ett Azure Storage-konto och en BLOB-behållare i det gör du följande:
+
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal)  
+2. [Skapa en blob-container i lagringskontot](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
+3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md)
+
+Se till att du registrerar anslutnings strängen och behållar namnet för senare användning i mottagar koden.
+
+### <a name="write-code-to-receive-events"></a>Skriva kod för att ta emot händelser
+
+1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com).
+1. Skapa en fil med namnet *receive.js*och klistra in följande kod i den:
+
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs@2");
+    const { EventHubConsumerClient } = require("@azure/event-hubs");
+    const { ContainerClient } = require("@azure/storage-blob");    
+    const { BlobCheckpointStore } = require("@azure/eventhubs-checkpointstore-blob");
 
-    // Connection string - primary key of the Event Hubs namespace. 
-    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    const connectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
-
-    // Name of the event hub. For example: myeventhub
-    const eventHubsName = "<EVENT HUB NAME>";
+    const connectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";    
+    const eventHubName = "EVENT HUB NAME";
+    const consumerGroup = "$Default"; // name of the default consumer group
+    const storageConnectionString = "AZURE STORAGE CONNECTION STRING";
+    const containerName = "BLOB CONTAINER NAME";
 
     async function main() {
-      const client = EventHubClient.createFromConnectionString(connectionString, eventHubsName);
-      const allPartitionIds = await client.getPartitionIds();
-      const firstPartitionId = allPartitionIds[0];
+      // Create a blob container client and a blob checkpoint store using the client.
+      const containerClient = new ContainerClient(storageConnectionString, containerName);
+      const checkpointStore = new BlobCheckpointStore(containerClient);
 
-      const receiveHandler = client.receive(firstPartitionId, eventData => {
-        console.log(`Received message: ${eventData.body} from partition ${firstPartitionId}`);
-      }, error => {
-        console.log('Error when receiving message: ', error)
-      });
+      // Create a consumer client for the event hub by specifying the checkpoint store.
+      const consumerClient = new EventHubConsumerClient(consumerGroup, connectionString, eventHubName, checkpointStore);
 
-      // Sleep for a while before stopping the receive operation.
-      await delay(15000);
-      await receiveHandler.stop();
+      // Subscribe to the events, and specify handlers for processing the events and errors.
+      const subscription = consumerClient.subscribe({
+          processEvents: async (events, context) => {
+            for (const event of events) {
+              console.log(`Received event: '${event.body}' from partition: '${context.partitionId}' and consumer group: '${context.consumerGroup}'`);
+            }
+            // Update the checkpoint.
+            await context.updateCheckpoint(events[events.length - 1]);
+          },
 
-      await client.close();
-    }
-
-    main().catch(err => {
-      console.log("Error occurred: ", err);
-    });
-    ```
-3. Ange anslutnings strängen och namnet på Händelsehubben i ovanstående kod.
-4. Kör sedan kommandot `node receive.js` i en kommando tolk för att köra den här filen. Detta tar emot händelser från en av partitionerna i standard konsument gruppen i Händelsehubben
-
-Grattis! Du har nu tagit emot händelser från händelsehubben.
-
-## <a name="receive-events-using-event-processor-host"></a>Ta emot händelser med hjälp av värden för händelsebearbetning
-
-I det här avsnittet visas hur du tar emot händelser från en Event Hub med hjälp av Azure- [EventProcessorHost](event-hubs-event-processor-host.md) i ett JavaScript-program. EventProcessorHost (EPH) hjälper dig att effektivt ta emot händelser från en händelsehubben genom att skapa mottagare över alla partitioner i konsument gruppen för en Event Hub. Den kontroll punkten tar emot metadata på mottagna meddelanden med jämna mellanrum i en Azure Storage Blob. Den här metoden gör det enkelt att fortsätta ta emot meddelanden där du slutade vid ett senare tillfälle.
-
-1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
-2. Skapa en fil med namnet `receiveAll.js` och klistra in nedanstående kod i den.
-    ```javascript
-    const { EventProcessorHost, delay } = require("@azure/event-processor-host");
-
-    // Connection string - primary key of the Event Hubs namespace. 
-    // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    const eventHubConnectionString = "Endpoint=sb://<EVENT HUBS NAMESPACE NAME>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<SHARED ACCESS KEY>";
-
-    // Name of the event hub. For example: myeventhub
-    const eventHubName = "<EVENT HUB NAME>";
-
-    // Azure Storage connection string
-    const storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=<STORAGE ACCOUNT NAME>;AccountKey=<STORAGE ACCOUNT KEY>;EndpointSuffix=core.windows.net";
-
-    async function main() {
-      const eph = EventProcessorHost.createFromConnectionString(
-        "my-eph",
-        storageConnectionString,
-        "my-storage-container-name",
-        eventHubConnectionString,
-        {
-          eventHubPath: eventHubName,
-          onEphError: (error) => {
-            console.log("[%s] Error: %O", error);
+          processError: async (err, context) => {
+            console.log(`Error : ${err}`);
           }
         }
       );
 
-
-      eph.start((context, eventData) => {
-        console.log(`Received message: ${eventData.body} from partition ${context.partitionId}`);
-      }, error => {
-        console.log('Error when receiving message: ', error)
+      // After 30 seconds, stop processing.
+      await new Promise((resolve) => {
+        setTimeout(async () => {
+          await subscription.close();
+          await consumerClient.close();
+          resolve();
+        }, 30000);
       });
-
-      // Sleep for a while before stopping the receive operation.
-      await delay(15000);
-      await eph.stop();
     }
 
-    main().catch(err => {
+    main().catch((err) => {
       console.log("Error occurred: ", err);
-    });
-
+    });    
     ```
-3. Ange anslutnings strängen och namnet på Händelsehubben i ovanstående kod tillsammans med anslutnings strängen för en Azure-Blob Storage
-4. Kör sedan kommandot `node receiveAll.js` i en kommando tolk för att köra den här filen.
+1. I koden använder du verkliga värden för att ersätta följande värden:
+    - `EVENT HUBS NAMESPACE CONNECTION STRING`
+    - `EVENT HUB NAME`
+    - `AZURE STORAGE CONNECTION STRING`
+    - `BLOB CONTAINER NAME`
+1. Kör `node receive.js` i en kommando tolk för att köra den här filen. Fönstret ska visa meddelanden om mottagna händelser.
 
-Grattis! Du har nu tagit emot händelser från händelsehubben med händelse bearbetnings värd. Detta tar emot händelser från alla partitioner i standard konsument gruppen i Händelsehubben
+    > [!NOTE]
+    > För den fullständiga käll koden, inklusive ytterligare informations kommentarer, går du till [sidan GitHub receiveEventsUsingCheckpointStore.js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
+
+Grattis! Du har nu tagit emot händelser från händelsehubben. Mottagar programmet tar emot händelser från alla partitioner i standard gruppen för användare i händelsehubben.
 
 ## <a name="next-steps"></a>Nästa steg
-Läs följande artiklar:
+Kolla in de här exemplen på GitHub:
 
-- [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)
-- [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
-- Kolla in andra JavaScript-exempel för [Event Hubs](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) och [händelse bearbetnings värd](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-processor-host/samples) på GitHub
+- [JavaScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/javascript)
+- [TypeScript-exempel](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples/typescript)

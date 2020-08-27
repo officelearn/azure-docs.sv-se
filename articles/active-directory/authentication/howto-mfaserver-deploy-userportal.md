@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719469"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919598"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -29,7 +29,11 @@ Administratörer av användarportalen kan konfigureras och beviljas behörighet 
 Beroende på din miljö kan du distribuera användarportalen på samma server som Azure Multi-Factor Authentication-servern eller på en annan Internet-ansluten server.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+>
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 ![Inloggnings sida för MFA Server-användargrupp](./media/howto-mfaserver-deploy-userportal/portal.png)
 

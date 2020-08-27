@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 08/25/2020
 ms.author: aahi
-ms.openlocfilehash: e7dca6f74145d1ea50c5a9bfc57b52e1cbdfcab3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869838"
+ms.locfileid: "88933026"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -40,7 +40,7 @@ Attitydanalys stöder en mängd olika språk, med mer i för hands version. Mer 
 
 Attitydanalys i v3 tillämpar sentiment-etiketter på text, som returneras på en mening och dokument nivå, med en förtroende poäng för var och en. 
 
-Etiketterna är `positive` , `negative` och `neutral` . På dokument nivå `mixed` kan du också returnera sentiment-etiketten. Sentiment för dokumentet fastställs nedan:
+Etiketterna är *positiva*, *negativa*och *neutrala*. På dokument nivå kan du också returnera den *blandade* sentiment-etiketten. Sentiment för dokumentet fastställs nedan:
 
 | Mening sentiment                                                                            | Etikett för returnerat dokument |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -49,7 +49,7 @@ Etiketterna är `positive` , `negative` och `neutral` . På dokument nivå `mixe
 | Minst en `negative` mening och minst en `positive` mening finns i dokumentet.    | `mixed`                 |
 | Alla meningar i dokumentet är `neutral` .                                                  | `neutral`               |
 
-Förtroendet sträcker sig från 1 till 0. Resultat närmare 1 anger en högre exakthet i etikettens klassificering, medan lägre poäng visar lägre exakthet. Förtroende poängen i varje mening (inte dokument) är upp till 1.
+Förtroendet sträcker sig från 1 till 0. Resultat närmare 1 anger en högre exakthet i etikettens klassificering, medan lägre poäng visar lägre exakthet. För varje dokument eller varje mening är de förväntade poängen som är kopplade till etiketterna (positiva, negativa och neutrala) upp till 1.
 
 ### <a name="opinion-mining"></a>Åsikts utvinning
 
@@ -90,7 +90,7 @@ Skicka en POST-begäran. Du kan [använda Postman](text-analytics-how-to-call-ap
 
 ### <a name="request-endpoints"></a>Begär slut punkter
 
-Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera rätt URL för den version som du vill använda. Exempel:
+Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera rätt URL för den version som du vill använda. Ett exempel:
 
 > [!NOTE]
 > Du kan hitta din nyckel och slut punkt för din Textanalys-resurs på Azure-portalen. De kommer att finnas på resursens **snabb start** sida under **resurs hantering**. 
@@ -103,7 +103,7 @@ Ange HTTPS-slutpunkten för sentiment-analys genom att antingen använda en Text
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
 
-Du måste inkludera parametern för att få ett utgångs resultat för utåsikts utvinning `opinionMining=true` . Exempel:
+Du måste inkludera parametern för att få ett utgångs resultat för utåsikts utvinning `opinionMining=true` . Ett exempel:
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 

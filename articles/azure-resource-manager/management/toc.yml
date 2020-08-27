@@ -116,7 +116,7 @@
           href: tag-support.md
     - name: Hantera resursgrupper
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
           href: manage-resource-groups-portal.md
         - name: Azure CLI
@@ -139,9 +139,9 @@
     - name: EA-prenumerationer
       items:
         - name: Skapa
-          href: programmatically-create-subscription.md
+          href: ../../cost-management-billing/manage/programmatically-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
         - name: Bevilja åtkomst för att skapa
-          href: grant-access-to-create-subscription.md
+          href: ../../cost-management-billing/manage/grant-access-to-create-subscription.md?toc=/azure/azure-resource-manager/management/toc.json
     - name: Resursprovidrar och resurstyper
       href: resource-providers-and-types.md
     - name: Ta bort resurser och resursgrupper

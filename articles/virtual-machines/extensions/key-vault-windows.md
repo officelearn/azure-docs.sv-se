@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c41207bedbea96c76f0a9a6ffd45ea6efa09138b
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641780"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932584"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -130,6 +130,8 @@ JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den 
 
 
 ## <a name="azure-powershell-deployment"></a>Azure PowerShell distribution
+> [!WARNING]
+> PowerShell-klienter lägger ofta `\` till `"` i settings.jspå vilket gör att akvvm_service Miss lyckas med felet: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 Azure PowerShell kan användas för att distribuera Key Vault VM-tillägget till en befintlig virtuell dator eller skalnings uppsättning för virtuella datorer. 
 

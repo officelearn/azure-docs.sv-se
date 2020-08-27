@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: d00fa5cf475eb2311bfa4b6f7dbe7dba70d080fd
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: b5f3a6b8b8a04cca9543a5343d4496524a166c39
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642341"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919615"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code
 
@@ -52,35 +52,35 @@ Innan du börjar bör du kontrol lera att du har följande krav på plats:
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
 + [Node.js](https://nodejs.org/)som krävs av Windows för NPM. Endast [aktiva LTS-och underhålls LTS-versioner](https://nodejs.org/about/releases/). Använd `node --version` kommandot för att kontrol lera din version.
     Krävs inte för lokal utveckling på macOS och Linux.   
-::: zone-end  
+::: zone-end   
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js](https://nodejs.org/), aktiva LTS och underhåll LTS-versioner (10.14.1 rekommenderas). Använd `node --version` kommandot för att kontrol lera din version.
-::: zone-end 
++ [Node.js](https://nodejs.org/), aktiva LTS och underhåll LTS-versioner (10.14.1 rekommenderas). Använd `node --version` kommandot för att kontrol lera din version.  
+::: zone-end  
 ::: zone pivot="programming-language-python"
 + [Python 3,8](https://www.python.org/downloads/release/python-381/), [python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) stöds av Azure Functions (x64).
 ::: zone-end   
 ::: zone pivot="programming-language-powershell"
 + [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.NET Core SDK 3,1](https://www.microsoft.com/net/download)  
++ Både [.net core 3,1](https://www.microsoft.com/net/download) och [.net Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)  
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
 
 + [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 ::: zone-end  
-+ [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).  
++ [Visual Studio Code](https://code.visualstudio.com/) på en av de [plattformar som stöds](https://code.visualstudio.com/docs/supporting/requirements#_platforms).    
 ::: zone pivot="programming-language-csharp"  
 + [C#-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) för Visual Studio Code.  
 ::: zone-end  
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python"  
 + [Python-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-python.python) för Visual Studio Code.  
 ::: zone-end  
-::: zone pivot="programming-language-powershell"
-+ [PowerShell-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
+::: zone pivot="programming-language-powershell"  
++ [PowerShell-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 ::: zone-end  
-::: zone pivot="programming-language-java"  
-+ [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+::: zone pivot="programming-language-java"   
++ [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
 ::: zone-end  
 
 + [Azure Functions-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) för Visual Studio Code. 

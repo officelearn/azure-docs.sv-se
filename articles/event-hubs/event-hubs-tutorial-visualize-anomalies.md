@@ -3,12 +3,12 @@ title: Azure Event Hubs – visualisera data avvikelser i real tids händelser
 description: 'Självstudie: visualisera data avvikelser i real tids händelser som skickas till Microsoft Azure Event Hubs'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315615"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934063"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Självstudie: Visualisera dataavvikelser i realtidshändelser som skickats till Azure Event Hubs
 
@@ -308,7 +308,7 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
    ![Skärmbild av hur du anger datauppsättning.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Välj **Kort** som visualiseringstyp. Klicka på **Lägg till värde** under **Fält** och välj sedan **fraudulentuses**.
+9. Välj **Kort** som visualiseringstyp. Under **fält**klickar du på **Lägg till värde**och väljer sedan `fraudulentuses` .
 
    ![Skärmbild av hur du anger visualiseringstyp och fält.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +329,9 @@ I Stream Analytics-jobbet klickar du på **Starta**, på **Nu** och sedan på **
 
 12. Välj **Linjediagram** under **Visualiseringstyp**.
 
-13. Klicka på **Lägg till värde** under **Axel** och välj **windowend**. 
+13. Under **axel**klickar du på **Lägg till värde**och väljer `windowend` . 
 
-14. Klicka på **Lägg till värde** under **Värden** och välj **fraudulentuses**.
+14. Under **värden**klickar du på **Lägg till värde** och väljer `fraudulentuses` .
 
 15. Under **Tidsfönster att visa** väljer du de senaste fem minuterna. Klicka på **Nästa**.
 
@@ -378,6 +378,6 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa artikel om du vill lära dig mer om Azure Event Hubs.
 
 > [!div class="nextstepaction"]
-> [Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Komma igång med att skicka meddelanden till Azure Event Hubs med .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [skapa ett kostnads fritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

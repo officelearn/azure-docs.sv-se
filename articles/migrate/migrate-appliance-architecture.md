@@ -3,12 +3,12 @@ title: Programarkitektur för Azure Migrate
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 0752f7afa7ff8d25f938084fd9e6e863d885f9aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770908"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919751"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Programarkitektur för Azure Migrate
 
@@ -31,7 +31,7 @@ Enheten har ett antal komponenter.
 
 - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.
 - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure. 
-- **Bedömnings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.
+- **Insamlings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.
 - **Dra-agent**: dirigerar VM-replikering och samordnar kommunikationen mellan replikerade datorer och Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.
 - **Gateway**: skickar replikerade data till Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.
 - **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
@@ -48,7 +48,7 @@ Enheten har ett antal komponenter.
 
 Under installationen av installationen registrerar du enheten med Azure Migrate och de åtgärder som sammanfattas i tabellen sker.
 
-**Åtgärd** | **Detaljer** | **Behörigheter**
+**Åtgärd** | **Information** | **Behörigheter**
 --- | --- | ---
 **Registrera käll leverantörer** | Dessa resurs leverantörer registreras i den prenumeration du väljer under installationen av installationen: Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv.<br/><br/> När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. | Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
 **Skapa Azure AD-App – kommunikation** | Azure Migrate skapar en Azure Active Directory (Azure AD)-app för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten och deras respektive tjänster som körs på Azure.<br/><br/> Den här appen har inte behörighet att göra Azure Resource Manager-anrop eller RBAC-åtkomst på alla resurser. | Du behöver [dessa behörigheter](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) för att Azure Migrate ska kunna skapa appen.

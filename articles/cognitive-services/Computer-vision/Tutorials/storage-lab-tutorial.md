@@ -10,12 +10,13 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: f350aae32909de2b9be4384d921f7507a158f6ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 985060d1acb9e3bf0babc8303b997ceddfff8f05
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243861"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931955"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudie: Använd Visuellt innehåll för att skapa metadata för bilder i Azure Storage
 
@@ -33,7 +34,7 @@ I den här självstudiekursen lär du dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) eller senare med arbetsbelastningarna ”ASP.NET and web development” (ASP.NET och webbutveckling) och ”Azure development” (Azure-utveckling) installerade.
 - Ett Azure Storage konto med en BLOB-behållare som kon figurer ATS för avbildnings lagring (Följ [Övning 1 i Azure Storage labb](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) om du behöver hjälp med det här steget).

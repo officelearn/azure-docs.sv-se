@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: 06c36b3f3939c8804149448ecb770a22d658fcbf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854730"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930918"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -27,6 +27,7 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 
 * Modell version `2020-07-01` för v3 `/keyphrases` - `/pii` och `/languages` slut punkter som lägger till:
     * Ytterligare myndigheter och landsspecifika [entiteter](named-entity-types.md?tabs=personal) för namngiven enhets igenkänning.
+    * Stöd för norska och turkiska i Attitydanalys v3.
 * Ett HTTP 400-fel kommer nu att returneras för v3 API-begäranden som överskrider [gränserna](concepts/data-limits.md)för publicerade data. 
 * Slut punkter som returnerar en förskjutning stöder nu den valfria `stringIndexType` parametern, som justerar de returnerade `offset` och `length` värdena så att de matchar ett [sträng index schema](concepts/text-offsets.md)som stöds.
 
@@ -194,5 +195,5 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
 * [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -172,6 +172,10 @@
               href: manage/pay-by-invoice.md
             - name: Skapa ytterligare prenumerationer
               href: manage/create-subscription.md
+            - name: Skapa prenumerationer programmässigt
+              href: manage/programmatically-create-subscription.md
+            - name: Bevilja åtkomst för att skapa EA-prenumerationer
+              href: manage/grant-access-to-create-subscription.md
             - name: Exportera prenumerationsinformation
               href: manage/export-subscriptions.md
             - name: Ändra kreditkort

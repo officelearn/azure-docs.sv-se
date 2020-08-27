@@ -3,12 +3,12 @@ title: Geo-haveri beredskap – Azure Event Hubs | Microsoft Docs
 description: Använda geografiska regioner för att redundansväxla och utföra haveri beredskap i Azure Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320554"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934080"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs-geo-haveri beredskap 
 När hela Azure-regioner eller data Center (om inga [tillgänglighets zoner](../availability-zones/az-overview.md) används) upplever drift stopp, är det viktigt att data bearbetningen fortsätter att fungera i en annan region eller data Center. Därför är *geo-haveri beredskap* och *geo-replikering* viktiga funktioner för alla företag. Azure Event Hubs stöder både geo-haveri återställning och geo-replikering på namn områdes nivå. 
@@ -48,7 +48,7 @@ Följande kombinationer av primära och sekundära namn rymder stöds:
 | Standard | Standard | Ja | 
 | Standard | Dedikerad | Ja | 
 | Dedikerad | Dedikerad | Ja | 
-| Dedikerad | Standard | No | 
+| Dedikerad | Standard | Inga | 
 
 > [!NOTE]
 > Det går inte att para ihop namn områden som finns i samma dedicerade kluster. Du kan para ihop namn områden som finns i separata kluster. 
@@ -94,7 +94,7 @@ Om du har gjort ett misstag, Du kan till exempel para ihop fel regioner under de
 - Steg som krävs för att köra exempel koden. 
 - Skicka och ta emot från aktuellt primärt namn område. 
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 
 Tänk på följande när du är i åtanke med den här versionen:
 
@@ -150,7 +150,7 @@ Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och s
 
 ![Privata slut punkter och virtuella nätverk](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
-Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Event Hubs namn område. Beakta följande scenarier: 
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Event Hubs namn område. Fundera över följande scenarier: 
 
 **Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
 
@@ -167,10 +167,10 @@ Fördelen med den här metoden är att redundansväxlingen kan ske i program lag
 Besök följande länkar för mer utförlig information om Event Hubs:
 
 - Kom igång med händelsehubbar
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

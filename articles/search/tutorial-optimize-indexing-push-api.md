@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 5cafb7927bb3ec697446b37df8936da65748a9ba
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3e1845eee9832770cc289821c60097e69eec6c08
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749459"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932023"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Självstudie: optimera indexering med push-API
 
@@ -21,7 +21,7 @@ Azure Kognitiv sökning stöder [två grundläggande metoder](search-what-is-dat
 
 I den här självstudien beskrivs hur du effektivt indexerar data med [push-modellen](search-what-is-data-import.md#pushing-data-to-an-index) genom batching-begäranden och en exponentiell backoff-strategi för återförsök. Du kan [Hämta och köra programmet](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). I den här artikeln beskrivs viktiga aspekter av programmet och faktorer som du bör tänka på när du indexerar data.
 
-I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
+I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa ett index
@@ -111,7 +111,7 @@ Den här enkla/.NET-distribution.-konsolen i C# utför följande uppgifter:
 
 ### <a name="creating-the-index"></a>Skapar indexet
 
-Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C#-data modell klass.
+Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C#-data modell klass.
 
 Data modellen definieras av hotell klassen, som också innehåller referenser till klassen address. FieldBuilder går igenom flera klass definitioner för att generera en komplex data struktur för indexet. Metadata-Taggar används för att definiera attributen för varje fält, till exempel om det är sökbart eller sorterbart.
 
@@ -162,8 +162,8 @@ Schemat för ditt index kan ha en betydande inverkan på indexerings hastigheten
 
 Azure Kognitiv sökning stöder följande API: er för att läsa in enstaka eller flera dokument i ett index:
 
-+ [Lägg till, uppdatera eller ta bort dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [indexAction-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
++ [Lägg till, uppdatera eller ta bort dokument (REST API)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [indexAction-klass](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) eller [indexBatch-klass](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet)
 
 Indexering av dokument i batchar kan förbättra indexerings prestanda avsevärt. Dessa batchar kan vara upp till 1000 dokument eller upp till ungefär 16 MB per batch.
 
@@ -258,14 +258,14 @@ För att dra full nytta av Azures Kognitiv söknings indexerings hastigheter må
 
 Flera av de viktigaste aspekterna som nämns ovan påverkar det bästa antalet trådar. Du kan ändra det här exemplet och testa med olika antal trådar för att fastställa det optimala antalet trådar för ditt scenario. Men så länge du har flera trådar som körs samtidigt, bör du kunna utnyttja de flesta av effektivitets vinsterna.
 
-När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP-statuskod](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) som indikerar att begäran inte lyckades fullständigt. Under indexeringen är två vanliga HTTP-status koder:
+När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP-statuskod](/rest/api/searchservice/http-status-codes) som indikerar att begäran inte lyckades fullständigt. Under indexeringen är två vanliga HTTP-status koder:
 
 + **503 tjänsten är inte tillgänglig** – det här felet innebär att systemet är hårt belastat och att din begäran inte kan bearbetas just nu.
 + **207 multi-status** – det här felet innebär att vissa dokument lyckades, men att minst en misslyckades.
 
 ### <a name="implement-an-exponential-backoff-retry-strategy"></a>Implementera en strategi för exponentiell backoff-återförsök
 
-Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyckade förfrågningar, men du måste implementera din egen logik för att försöka igen 207s. Verktyg med öppen källkod, till exempel [Polly](https://github.com/App-vNext/Polly) , kan också användas för att implementera en strategi för återförsök. 
 
@@ -281,7 +281,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Det är viktigt att fånga [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) som dessa undantag anger att indexerings åtgärden endast delvis lyckades (207s). Misslyckade objekt bör göras om med hjälp av `FindFailedActionsToRetry` metoden som gör det enkelt att skapa en ny batch som bara innehåller de misslyckade objekten.
+Det är viktigt att fånga [IndexBatchException](/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) som dessa undantag anger att indexerings åtgärden endast delvis lyckades (207s). Misslyckade objekt bör göras om med hjälp av `FindFailedActionsToRetry` metoden som gör det enkelt att skapa en ny batch som bara innehåller de misslyckade objekten.
 
 Andra undantag än `IndexBatchException` bör också fångas och tyder på att begäran inte kunde slutföras fullständigt. Dessa undantag är mindre vanliga, särskilt med .NET SDK när det försöker 503s automatiskt.
 
@@ -346,7 +346,7 @@ Du kan utforska det ifyllda Sök indexet när programmet har kört program mäss
 
 ### <a name="programatically"></a>Program mässigt
 
-Det finns två huvud alternativ för att kontrol lera antalet dokument i ett index: API för [antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents) och [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics). Båda vägarna kan kräva ytterligare tid för att uppdateras, så du behöver inte göra något larm om antalet returnerade dokument är lägre än förväntat.
+Det finns två huvud alternativ för att kontrol lera antalet dokument i ett index: API för [antal dokument](/rest/api/searchservice/count-documents) och [Hämta index statistik](/rest/api/searchservice/get-index-statistics). Båda vägarna kan kräva ytterligare tid för att uppdateras, så du behöver inte göra något larm om antalet returnerade dokument är lägre än förväntat.
 
 #### <a name="count-documents"></a>Räkna dokument
 
@@ -370,7 +370,7 @@ I Azure Portal öppnar du sidan Sök tjänst **Översikt** och letar rätt på *
 
   ![Lista över Azure Kognitiv sökning-index](media/tutorial-optimize-data-indexing/portal-output.png "Lista över Azure Kognitiv sökning-index")
 
-*Antalet dokument* och *lagrings storleken* baseras på [Hämta index statistik-API](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) och kan ta flera minuter att uppdatera.
+*Antalet dokument* och *lagrings storleken* baseras på [Hämta index statistik-API](/rest/api/searchservice/get-index-statistics) och kan ta flera minuter att uppdatera.
 
 ## <a name="reset-and-rerun"></a>Återställa och köra igen
 
@@ -382,7 +382,7 @@ Du kan också använda portalen för att ta bort index.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

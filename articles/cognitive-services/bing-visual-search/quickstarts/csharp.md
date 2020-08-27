@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: b64a3e9d3e6f5393fb47c41ad34a9f1ed78cb44a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e5f772fe8152f209a8188ab5bf2d0010248feabf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872769"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934318"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Snabb start: Hämta bild insikter med hjälp av Visuell sökning i Bing REST API och C #
 
 Den här snabb starten visar hur du laddar upp en avbildning till API för visuell sökning i Bing och visar de insikter som returneras.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En version av [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * [JSON.net-ramverket](https://www.newtonsoft.com/json), som är tillgängligt som ett NuGet-paket.

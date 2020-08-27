@@ -7,14 +7,14 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 0a0ada50899191ce089eec696926aa36c1d24c1f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 805a88824d0fdf3102fb56ebcb02eb0d6dfa36bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508568"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919392"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-client-library"></a>Snabb start: skapa ett bild klassificerings projekt med Custom Vision klient biblioteket
 

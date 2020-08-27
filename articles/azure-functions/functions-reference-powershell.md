@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 04/22/2019
-ms.openlocfilehash: 206f941360b5c7912db548c6d2cfdc9d3d6a41dc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 8af1e52477cf047bbbec46884717166ec014fc6c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933534"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -384,14 +384,60 @@ När du skapar en Function-app med hjälp av verktyg, till exempel Visual Studio
 
 ## <a name="powershell-versions"></a>PowerShell-versioner
 
-I följande tabell visas de PowerShell-versioner som stöds av varje huvud version av Functions-körningen och .NET-versionen som krävs:
+I följande tabell visas de PowerShell-versioner som är tillgängliga för varje huvud version av Functions-körningen och .NET-versionen som krävs:
 
 | Funktions version | PowerShell-version                               | .NET-version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3. x (rekommenderas) | PowerShell 7 (rekommenderas)<br/>PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 3,1 |
+| 3. x (rekommenderas) | PowerShell 7 (rekommenderas)<br/>PowerShell Core 6 | .NET Core 3,1<br/>.NET Core 2.1 |
 | 2x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 Du kan se den aktuella versionen genom att skriva ut `$PSVersionTable` från vilken funktion som helst.
+
+### <a name="running-local-on-a-specific-version"></a>Körs lokalt på en angiven version
+
+När du kör lokalt körs Azure Functions runtime som standard med PowerShell Core 6. Om du i stället vill använda PowerShell 7 när du kör lokalt måste du lägga till inställningen i `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` `Values` matrisen i local.setting.jsfilen i projekt roten. När du kör lokalt på PowerShell 7 ser ditt local.settings.jspå filen ut som i följande exempel: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### <a name="changing-the-powershell-version"></a>Ändra PowerShell-versionen
+
+Din Function-app måste köras på version 3. x för att kunna uppgraderas från PowerShell Core 6 till PowerShell 7. Information om hur du gör detta finns i [Visa och uppdatera den aktuella körnings versionen](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+Använd följande steg för att ändra den PowerShell-version som används av din Function-app. Du kan göra detta antingen i Azure Portal eller med hjälp av PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/portal)
+
+1. I [Azure-portalen](https://portal.azure.com) bläddrar du till din funktionsapp.
+
+1. Under **Inställningar**väljer du **konfiguration**. På fliken **allmänna inställningar** letar du upp **PowerShell-versionen**. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Välj den PowerShell-version som används av Function-appen"::: 
+
+1. Välj önskad **PowerShell Core-version** och välj **Spara**. När du varnas om väntande omstart väljer du **Fortsätt**. Function-appen startas om på den valda PowerShell-versionen. 
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Kör följande skript för att ändra PowerShell-versionen: 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+Ersätt `<SUBSCRIPTION_ID>` , `<RESOURCE_GROUP>` , och `<FUNCTION_APP>` med ID: t för din Azure-prenumeration, namnet på din resurs grupp och din Function-app.  Ersätt också `<VERSION>` med antingen `~6` eller `~7` . Du kan kontrol lera det uppdaterade värdet för `powerShellVersion` inställningen i i `Properties` den returnerade hash-tabellen. 
+
+---
+
+Function-appen startar om när ändringen har gjorts i konfigurationen.
 
 ## <a name="dependency-management"></a>Beroendehantering
 

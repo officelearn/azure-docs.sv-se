@@ -1,170 +1,157 @@
 ---
-title: Skicka eller ta emot händelser från Azure Event Hubs med python (gammal)
-description: Den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs med hjälp av det gamla Azure-eventhub version 1-paketet.
+title: Skicka eller ta emot händelser från Azure Event Hubs med python (senaste)
+description: Den här artikeln innehåller en genom gång av hur du skapar ett python-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av det senaste Azure-eventhub version 5-paketet.
 ms.topic: quickstart
-ms.date: 06/23/2020
-ms.openlocfilehash: 4ce53d2d82a00f98dbbd538bd7a61da9ba44e832
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 02/11/2020
+ms.openlocfilehash: b6a30ba0cef8c460a2a3035b3ab40fd8173d7b2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314483"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933910"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python (Azure-eventhub version 1)
-Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med **Azure-eventhub version 1** python-paketet. 
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-python-azure-eventhub-version-5"></a>Skicka händelser till eller ta emot händelser från Event Hub med python (Azure-eventhub version 5)
+Den här snabb starten visar hur du skickar händelser till och tar emot händelser från en händelsehubben med **Azure-eventhub version 5 python-** paketet.
 
-> [!WARNING]
-> Den här snabb starten använder det gamla Azure-eventhub version 1-paketet. En snabb start som använder den senaste **versionen 5** av paketet finns i [skicka och ta emot händelser med Azure-eventhub version 5](get-started-python-send-v2.md). Information om hur du flyttar ditt program från att använda det gamla paketet till ett nytt finns i [guiden för att migrera från Azure-eventhub version 1 till version 5](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
- 
-
-## <a name="prerequisites"></a>Krav
-Om du är nybörjare på Azure Event Hubs, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
+## <a name="prerequisites"></a>Förutsättningar
+Om du inte har använt Azure Event Hubs tidigare, se [Event Hubs översikt](event-hubs-about.md) innan du gör den här snabb starten. 
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 - **Microsoft Azure prenumeration**. Om du vill använda Azure-tjänster, inklusive Azure Event Hubs, behöver du en prenumeration.  Om du inte har ett befintligt Azure-konto kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/free/) eller använda dina förmåner för MSDN-prenumeranter när du [skapar ett konto](https://azure.microsoft.com).
-- Python 3,4 eller senare, med `pip` installerad och uppdaterad.
-- Python-paketet för Event Hubs. Installera paketet genom att köra det här kommandot i en kommando tolk med python i sökvägen: 
-  
-  ```cmd
-  pip install azure-eventhub==1.3.*
-  ```
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomst nyckeln i koden som du skriver senare i den här snabb starten. Standard nyckel namnet är: **RootManageSharedAccessKey**. 
+- Python 2,7 eller 3,5 eller senare, med PIP installerat och uppdaterat.
+- Python-paketet för Event Hubs. 
 
+    Installera paketet genom att köra det här kommandot i en kommando tolk med python i sökvägen:
+
+    ```cmd
+    pip install azure-eventhub
+    ```
+
+    Installera följande paket för att ta emot händelser med hjälp av Azure Blob Storage som kontroll punkts Arkiv:
+
+    ```cmd
+    pip install azure-eventhub-checkpointstoreblob-aio
+    ```
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hubs namn området genom att** följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder anslutnings strängen senare i den här snabb starten.
 
 ## <a name="send-events"></a>Skicka händelser
+I det här avsnittet skapar du ett Python-skript för att skicka händelser till händelsehubben som du skapade tidigare.
 
-Så här skapar du ett python-program som skickar händelser till en Event Hub:
+1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code](https://code.visualstudio.com/).
+2. Skapa ett skript med namnet *send.py*. Det här skriptet skickar en batch med händelser till händelsehubben som du skapade tidigare.
+3. Klistra in följande kod i *send.py*:
 
-> [!NOTE]
-> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt- `EventHubConnectionString` och- `EventHubName` strängarna med dina Event Hub-värden.
+    ```python
+    import asyncio
+    from azure.eventhub.aio import EventHubProducerClient
+    from azure.eventhub import EventData
 
-1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100-händelser till händelsehubben.
-3. Klistra in följande kod i *send.py*, och ersätt Event Hubs \<namespace> , \<eventhub> ,, \<AccessKeyName> och \<primary key value> med dina värden: 
-   
-   ```python
-   import sys
-   import logging
-   import datetime
-   import time
-   import os
-   
-   from azure.eventhub import EventHubClient, Sender, EventData
-   
-   logger = logging.getLogger("azure")
-   
-   # Address can be in either of these formats:
-   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<namespace>.servicebus.windows.net/eventhub"
-   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
-   # SAS policy and key are not required if they are encoded in the URL
-   
-   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
-   USER = "<AccessKeyName>"
-   KEY = "<primary key value>"
-   
-   try:
-       if not ADDRESS:
-           raise ValueError("No EventHubs URL supplied.")
-   
-       # Create Event Hubs client
-       client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
-       sender = client.add_sender(partition="0")
-       client.run()
-       try:
-           start_time = time.time()
-           for i in range(100):
-               print("Sending message: {}".format(i))
-               message = "Message {}".format(i)
-               sender.send(EventData(message))
-       except:
-           raise
-       finally:
-           end_time = time.time()
-           client.stop()
-           run_time = end_time - start_time
-           logger.info("Runtime: {} seconds".format(run_time))
-   
-   except KeyboardInterrupt:
-       pass
-   ```
-   
-4. Spara filen. 
+    async def run():
+        # Create a producer client to send messages to the event hub.
+        # Specify a connection string to your event hubs namespace and
+            # the event hub name.
+        producer = EventHubProducerClient.from_connection_string(conn_str="EVENT HUBS NAMESPACE - CONNECTION STRING", eventhub_name="EVENT HUB NAME")
+        async with producer:
+            # Create a batch.
+            event_data_batch = await producer.create_batch()
 
-Kör skriptet från katalogen där du sparade *send.py*genom att köra det här kommandot:
+            # Add events to the batch.
+            event_data_batch.add(EventData('First event '))
+            event_data_batch.add(EventData('Second event'))
+            event_data_batch.add(EventData('Third event'))
 
-```cmd
-start python send.py
-```
+            # Send the batch of events to the event hub.
+            await producer.send_batch(event_data_batch)
 
-Grattis! Du har nu skickat meddelanden till en händelsehubb.
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run())
+
+    ```
+
+    > [!NOTE]
+    > För den fullständiga käll koden, inklusive informations kommentarer, går du till [sidan GitHub send_async. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/send_async.py).
+    
 
 ## <a name="receive-events"></a>Ta emot händelser
+Den här snabb starten använder Azure Blob Storage som ett kontroll punkts arkiv. Kontroll punkts arkivet används för att bevara kontroll punkter (det vill säga de senaste Läs positionerna).  
 
-Så här skapar du ett python-program som tar emot händelser från en Event Hub:
+> [!NOTE]
+> Om du kör på Azure Stack hubb, kan plattformen stödja en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure. Om du till exempel kör [på Azure Stack Hub version 2002](/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I det här fallet, förutom följande steg i det här avsnittet, måste du också lägga till kod som mål för Storage Service API-versionen 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i [synkrona](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/samples/receive_events_using_checkpoint_store_storage_api_version.py) och [asynkrona](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/receive_events_using_checkpoint_store_storage_api_version_async.py) exempel på GitHub. Mer information om Azure Storage tjänst versioner som stöds på Azure Stack Hub finns i [Azure Stack hubb lagring: skillnader och överväganden](/azure-stack/user/azure-stack-acs-differences).
 
-1. Skapa en fil med namnet *Recv.py*i python-redigeraren.
-2. Klistra in följande kod i *Recv.py*, och ersätt Event Hubs \<namespace> , \<eventhub> ,, \<AccessKeyName> och \<primary key value> med dina värden: 
-   
-   ```python
-   import os
-   import sys
-   import logging
-   import time
-   from azure.eventhub import EventHubClient, Receiver, Offset
-   
-   logger = logging.getLogger("azure")
-   
-   # Address can be in either of these formats:
-   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
-   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
-   # SAS policy and key are not required if they are encoded in the URL
-   
-   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
-   USER = "<AccessKeyName>"
-   KEY = "<primary key value>"
-   
-   
-   CONSUMER_GROUP = "$default"
-   OFFSET = Offset("-1")
-   PARTITION = "0"
-   
-   total = 0
-   last_sn = -1
-   last_offset = "-1"
-   client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
-   try:
-       receiver = client.add_receiver(
-           CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
-       client.run()
-       start_time = time.time()
-       for event_data in receiver.receive(timeout=100):
-           print("Received: {}".format(event_data.body_as_str(encoding='UTF-8')))
-           total += 1
-   
-       end_time = time.time()
-       client.stop()
-       run_time = end_time - start_time
-       print("Received {} messages in {} seconds".format(total, run_time))
-   
-   except KeyboardInterrupt:
-       pass
-   finally:
-       client.stop()
-   ```
-   
-4. Spara filen.
 
-Kör skriptet från katalogen där du sparade *Recv.py*genom att köra det här kommandot:
+### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Skapa ett Azure Storage-konto och en BLOB-behållare
+Skapa ett Azure Storage-konto och en BLOB-behållare i det genom att utföra följande steg:
 
-```cmd
-start python recv.py
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal)
+2. [Skapa en blobcontainer](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md)
+
+Se till att du registrerar anslutnings strängen och behållar namnet för senare användning i mottagar koden.
+
+
+### <a name="create-a-python-script-to-receive-events"></a>Skapa ett Python-skript för att ta emot händelser
+
+I det här avsnittet skapar du ett Python-skript för att ta emot händelser från händelsehubben:
+
+1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code](https://code.visualstudio.com/).
+2. Skapa ett skript med namnet *Recv.py*.
+3. Klistra in följande kod i *Recv.py*:
+
+    ```python
+    import asyncio
+    from azure.eventhub.aio import EventHubConsumerClient
+    from azure.eventhub.extensions.checkpointstoreblobaio import BlobCheckpointStore
+
+
+    async def on_event(partition_context, event):
+        # Print the event data.
+        print("Received the event: \"{}\" from the partition with ID: \"{}\"".format(event.body_as_str(encoding='UTF-8'), partition_context.partition_id))
+
+        # Update the checkpoint so that the program doesn't read the events
+        # that it has already read when you run it next time.
+        await partition_context.update_checkpoint(event)
+
+    async def main():
+        # Create an Azure blob checkpoint store to store the checkpoints.
+        checkpoint_store = BlobCheckpointStore.from_connection_string("AZURE STORAGE CONNECTION STRING", "BLOB CONTAINER NAME")
+
+        # Create a consumer client for the event hub.
+        client = EventHubConsumerClient.from_connection_string("EVENT HUBS NAMESPACE CONNECTION STRING", consumer_group="$Default", eventhub_name="EVENT HUB NAME", checkpoint_store=checkpoint_store)
+        async with client:
+            # Call the receive method. Read from the beginning of the partition (starting_position: "-1")
+            await client.receive(on_event=on_event,  starting_position="-1")
+
+    if __name__ == '__main__':
+        loop = asyncio.get_event_loop()
+        # Run the main method.
+        loop.run_until_complete(main())    
+    ```
+
+    > [!NOTE]
+    > För den fullständiga käll koden, inklusive ytterligare informations kommentarer, går du till [sidan GitHub recv_with_checkpoint_store_async. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/samples/async_samples/recv_with_checkpoint_store_async.py).
+
+
+### <a name="run-the-receiver-app"></a>Köra mottagar appen
+
+Kör skriptet genom att öppna en kommando tolk som har python i sökvägen och kör sedan följande kommando:
+
+```bash
+python recv.py
 ```
 
+### <a name="run-the-sender-app"></a>Köra avsändar programmet
+
+Kör skriptet genom att öppna en kommando tolk som har python i sökvägen och kör sedan följande kommando:
+
+```bash
+python send.py
+```
+
+Mottagar fönstret ska visa de meddelanden som skickats till händelsehubben.
+
+
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Event Hubs finns i följande artiklar:
+I den här snabb starten har du skickat och tagit emot händelser asynkront. Information om hur du skickar och tar emot händelser synkront finns på [sidan GitHub sync_samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples/sync_samples).
 
-- [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)
-- [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
-
+För alla exempel (både synkrona och asynkrona) på GitHub går du till [Azure Event Hubs-klient bibliotek för python-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples).

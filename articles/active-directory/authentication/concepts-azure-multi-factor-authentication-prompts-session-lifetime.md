@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169348"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919683"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Optimera omautentiserings-prompter och förstå sessionens livs längd för Azure Multi-Factor Authentication
 
@@ -45,6 +45,8 @@ Om du vill optimera frekvensen för autentiserings-prompter för dina användare
 ### <a name="evaluate-session-lifetime-policies"></a>Utvärdera livs längds principer för sessioner
 
 Utan några livstids inställningar för sessioner finns det inga permanenta cookies i webbläsarsessionen. Varje gång en användare stänger och öppnar webbläsaren, får de en uppvarning om omautentisering. I Office-klienter är standard tids perioden ett rullande fönster på 90 dagar. Med den här standard-Office-konfigurationen, om användaren har återställt sitt lösen ord eller om det har varit inaktivt över 90 dagar, måste användaren autentiseras igen med alla nödvändiga faktorer (första och andra faktorn).
+
+En användare kan se flera MFA-prompter på en enhet som inte har en identitet i Azure AD. Flera prompter resulterar i att varje program har en egen OAuth-uppdateringstoken som inte delas med andra klient program. I det här scenariot frågar MFA flera gånger när varje program begär en OAuth-uppdateringstoken som ska verifieras med MFA.
 
 I Azure AD avgör den mest restriktiva principen för sessionens livs längd när användaren behöver autentiseras igen. Föreställ dig följande scenario:
 

@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 47b6b35e62d484b4d7a33f6a53796c59e01817fe
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102454"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929983"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
 
@@ -36,7 +36,7 @@ Hyper-V | Windows Server 2016 med 16 GB minne, åtta virtuella processorer, cirk
 
 ## <a name="set-up-the-appliance-for-vmware"></a>Konfigurera enheten för VMware
 
-Om du vill konfigurera en installation för VMware laddar du ned den zippade filen med namnet [AzureMigrateInstaller.zip härifrån och](https://go.microsoft.com/fwlink/?linkid=2105112)extraherar innehållet. Du kör PowerShell-skriptet för att starta installations programmets webbapp. Du konfigurerar installationen och konfigurerar den för första gången. Sedan registrerar du enheten med Azure Migrate-projektet.
+Om du vill konfigurera en installation för VMware laddar du ned den zippade filen med namnet AzureMigrateInstaller-Server-Public.zip antingen från portalen [eller härifrån och](https://go.microsoft.com/fwlink/?linkid=2140334)extraherar innehållet. Du kör PowerShell-skriptet för att starta installations programmets webbapp. Du konfigurerar installationen och konfigurerar den för första gången. Sedan registrerar du enheten med Azure Migrate-projektet.
 
 
 ### <a name="verify-file-security"></a>Verifiera fil säkerhet
@@ -46,12 +46,12 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
 3. Kontrol lera den senaste versionen och skriptet för det offentliga Azure-molnet:
 
     **Integritetsalgoritm** | **Ladda ned** | **SHA256**
     --- | --- | ---
-    VMware (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
+    VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
 
 
 
@@ -74,7 +74,7 @@ Kör skriptet så här:
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
 4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:
 
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario VMware ```
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario VMware ```
    
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
@@ -84,7 +84,7 @@ Kontrol lera att enheten kan ansluta till Azure-URL: er för det [offentliga](mi
 
 ## <a name="set-up-the-appliance-for-hyper-v"></a>Konfigurera enheten för Hyper-V
 
-Om du vill konfigurera enheten för Hyper-V laddar du ned den zippade filen med namnet [AzureMigrateInstaller.zip härifrån och](https://go.microsoft.com/fwlink/?linkid=2105112)extraherar innehållet. Du kör PowerShell-skriptet för att starta installations programmets webbapp. Du konfigurerar installationen och konfigurerar den för första gången. Sedan registrerar du enheten med Azure Migrate-projektet.
+Om du vill konfigurera enheten för Hyper-V laddar du ned den zippade filen med namnet AzureMigrateInstaller-Server-Public.zip antingen från portalen [eller härifrån och](https://go.microsoft.com/fwlink/?linkid=2105112)extraherar innehållet. Du kör PowerShell-skriptet för att starta installations programmets webbapp. Du konfigurerar installationen och konfigurerar den för första gången. Sedan registrerar du enheten med Azure Migrate-projektet.
 
 
 ### <a name="verify-file-security"></a>Verifiera fil säkerhet
@@ -94,13 +94,13 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
 1. Öppna ett kommandofönster för administratör på den dator som du laddade ned filen till.
 2. Kör följande kommando för att generera hashen för den zippade filen
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
+    - Exempel: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
 
 3. Kontrol lera den senaste versionen och skriptet för det offentliga Azure-molnet:
 
     **Scenario** | **Ladda ned** | **SHA256**
     --- | --- | ---
-    Hyper-V (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2105112) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+    Hyper-V (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
 
 ### <a name="run-the-script"></a>Kör skriptet
 
@@ -119,7 +119,9 @@ Kör skriptet så här:
 1. Extrahera den zippade filen till en mapp på den dator som ska vara värd för-enheten. Kontrol lera att du inte kör skriptet på en dator på en befintlig Azure Migrate-installation.
 2. Starta PowerShell på datorn med administratörs behörighet (förhöjt).
 3. Ändra PowerShell-katalogen till den mapp som innehåller innehållet som extraheras från den hämtade zippade filen.
-4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 -scenario Hyperv ```
+4. Kör skriptet **AzureMigrateInstaller.ps1**enligt följande: 
+
+    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 -scenario Hyperv ```
    
 5. När skriptet har körts startar det program webb programmet så att du kan konfigurera installationen. Om det uppstår några problem granskar du skript loggarna på C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 

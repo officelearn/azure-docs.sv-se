@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 0e6759837519feccf6069e805e3fe0f72562fb7b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85559016"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929711"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Självstudie: indexera JSON-blobbar från Azure Storage med REST
 
 Azure Kognitiv sökning kan indexera JSON-dokument och matriser i Azure Blob Storage med hjälp av en [indexerare](search-indexer-overview.md) som vet hur man kan läsa semi-strukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Den delar skillnaden mellan ostrukturerade data som måste vara fullständigt indexerad och formellt strukturerade data som följer en data modell, till exempel ett Relations databas schema, som kan indexeras per fält.
 
-I den här självstudien används Postman och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
+I den här självstudien används Postman och [Sök REST-API: er](/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Kognitiv sökning-datakälla för en Azure Blob-behållare
@@ -31,7 +31,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Storage](../storage/common/storage-account-create.md)
 + [Skrivbordsappen Postman](https://www.getpostman.com/)
 + [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -72,7 +72,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. Klicka på **blobs** -tjänsten.
 
-1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempel data. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
+1. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md) som innehåller exempel data. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
 1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet.
 
@@ -116,7 +116,7 @@ URI: er måste ange en API-version och varje anrop ska returnera en **201 som sk
 
 ## <a name="3---create-a-data-source"></a>3-skapa en data Källa
 
-Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
+Med [skapa data källans API](/rest/api/searchservice/create-data-source) skapas ett Azure kognitiv sökning-objekt som anger vilka data som ska indexeras.
 
 1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/datasources?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten. 
 
@@ -159,7 +159,7 @@ Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/
 
 ## <a name="4---create-an-index"></a>4 – skapa ett index
     
-Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
+Det andra anropet är [skapa index-API](/rest/api/searchservice/create-index), vilket skapar ett Azure kognitiv sökning-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
 1. Ange slut punkten för det här anropet till `https://[service name].search.windows.net/indexes?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten.
 
@@ -234,7 +234,7 @@ Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/sear
 
 ## <a name="5---create-and-run-an-indexer"></a>5 – skapa och kör en indexerare
 
-En indexerare ansluter till data källan, importerar data till mål Sök indexet och tillhandahåller eventuellt ett schema för att automatisera data uppdateringen. REST API är [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+En indexerare ansluter till data källan, importerar data till mål Sök indexet och tillhandahåller eventuellt ett schema för att automatisera data uppdateringen. REST API är [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 1. Ange URI för det här anropet `https://[service name].search.windows.net/indexers?api-version=2020-06-30` . Ersätt `[service name]` med namnet på söktjänsten.
 
@@ -340,7 +340,7 @@ Statuskod 204 returneras vid borttagning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

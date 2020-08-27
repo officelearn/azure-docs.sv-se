@@ -1,15 +1,15 @@
 ---
 title: Kontinuerlig integrering med Azure Pipelines
 description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure Resource Manager mallar.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86118927"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892685"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -175,8 +175,8 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
     * **Plats**: Välj en plats för resurs gruppen, till exempel **centrala USA**.
     * **Mallens plats**: Välj **länkad artefakt**, vilket innebär att aktiviteten söker efter mallfilen direkt från den anslutna lagrings platsen.
     * **Mall**: ange **CreateWebApp/azuredeploy.jspå**. Om du har ändrat mappnamnet och fil namnet måste du ändra det här värdet.
-    * **Mallparametrar**: lämna fältet tomt. Du kommer att ange parameter värden i * * åsidosätta mallparametrar.
-    * **overrideParameters**: ange **-projectName [EnterAProjectName]-linkedTemplateUri [EnterTheLinkedTemplateURL]**. Ersätt projekt namnet och den länkade mallens URL. Den länkade mallens URL är det du skrev ned i slutet av [skapa en GitHub-lagringsplats](#create-a-github-repository).
+    * **Mallparametrar**: lämna fältet tomt. Du kommer att ange parameter värden i **parametrarna för åsidosättning-mallen**.
+    * **Åsidosätt mallparametrar**: Enter **-projectName [EnterAProjectName]-linkedTemplateUri [EnterTheLinkedTemplateURL]**. Ersätt projekt namnet och den länkade mallens URL. Den länkade mallens URL är det du skrev ned i slutet av [skapa en GitHub-lagringsplats](#create-a-github-repository). Den börjar med **https://raw.githubusercontent.com** .
     * **Distributions läge**: Välj **stegvis**.
     * **Distributions namn**: ange **DeployPipelineTemplate**. Välj **Avancerat** innan du kan se **distributions namnet**.
 
@@ -198,7 +198,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
 1. Välj lagrings kontots namn för att öppna det.
 1. Välj **Egenskaper**. Observera att **replikeringen** är **lokalt REDUNDANT lagring (LRS)**.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: d94e19753a93d2682043d7b67b867325067cee5d
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762308"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931972"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Hantera Azure DDoS Protection standard med hjälp av Azure Portal
 
@@ -42,7 +42,7 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
 3. Välj **Skapa**.
 4. Ange eller Välj dina egna värden eller ange eller Välj följande exempel värden och välj sedan **skapa**:
 
-    |Inställningen        |Värde                                              |
+    |Inställning        |Värde                                              |
     |---------      |---------                                          |
     |Namn           | myDdosProtectionPlan                              |
     |Prenumeration   | Välj din prenumeration.                         |
@@ -55,13 +55,13 @@ Det krävs inte att skapa mer än en plan för de flesta organisationer. Det gå
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
 3. Ange eller Välj dina egna värden, av ange eller Välj följande exempel värden, acceptera återstående standardvärden och välj sedan **skapa**:
 
-    | Inställningen         | Värde                                                        |
+    | Inställning         | Värde                                                        |
     | ---------       | ---------                                                    |
     | Namn            | myVirtualNetwork                                             |
     | Prenumeration    | Välj din prenumeration.                                    |
     | Resursgrupp  | Välj **Använd befintlig**och välj sedan **myResourceGroup** |
     | Plats        | USA, östra                                                      |
-    | DDos skydd | Välj **standard** och välj **myDdosProtectionPlan**under **DDoS Protection**. Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
+    | DDoS Protection standard | Välj **Aktivera**. Den plan du väljer kan vara i samma eller en annan prenumeration än det virtuella nätverket, men båda prenumerationerna måste vara kopplade till samma Azure Active Directory-klient.|
 
 Du kan inte flytta ett virtuellt nätverk till en annan resurs grupp eller prenumeration när DDoS standard är aktive rad för det virtuella nätverket. Om du behöver flytta ett virtuellt nätverk med DDoS standard aktiverat inaktiverar du DDoS standard först, flyttar det virtuella nätverket och aktiverar sedan DDoS standard. Efter flyttningen återställs automatiskt justerade princip tröskelvärden för alla skyddade offentliga IP-adresser i det virtuella nätverket.
 
@@ -104,7 +104,7 @@ Du kan välja något av de tillgängliga DDoS-skydds måtten för att varna dig 
 3. Välj **mått** under **delade tjänster**.
 4. Ange eller Välj dina egna värden eller ange följande exempel värden, Godkänn återstående standardvärden och välj sedan **OK**:
 
-    |Inställningen                  |Värde                                                                                               |
+    |Inställning                  |Värde                                                                                               |
     |---------                |---------                                                                                           |
     |Namn                     | myDdosAlert                                                                                        |
     |Prenumeration             | Välj den prenumeration som innehåller den offentliga IP-adress som du vill ta emot aviseringar för.        |
@@ -229,7 +229,7 @@ Aviseringarna inkluderar allmän information om den offentliga IP-adressen som �
 
 För att kunna arbeta med DDoS-skydds planer måste ditt konto tilldelas rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) eller en [anpassad](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) roll som har tilldelats lämpliga åtgärder i följande tabell:
 
-| Action                                            | Namn                                     |
+| Åtgärd                                            | Namn                                     |
 | ---------                                         | -------------                            |
 | Microsoft. Network/ddosProtectionPlans/Read        | Läs en DDoS skydds plan              |
 | Microsoft. Network/ddosProtectionPlans/Write       | Skapa eller uppdatera en DDoS-skydds plan  |

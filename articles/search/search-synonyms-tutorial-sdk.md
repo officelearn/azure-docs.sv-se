@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27822ee6be26f955e4db52548da7fa2a22236c2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079440"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922760"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Exempel: Lägg till synonymer för Azure Kognitiv sökning i C #
 
@@ -22,8 +22,8 @@ Med synonymer kan du utöka en fråga genom att matcha mot termer som anses bety
 I Azure Kognitiv sökning definieras synonymer i en *synonym mappning*genom *mappnings regler* som associerar motsvarande villkor. I det här exemplet beskrivs viktiga steg för att lägga till och använda synonymer med ett befintligt index. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en synonym mappning med klassen [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Ange egenskapen [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) för fält som ska ha stöd för frågans expansion via synonymer.
+> * Skapa en synonym mappning med klassen  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
+> * Ange egenskapen [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) för fält som ska ha stöd för frågans expansion via synonymer.
 
 Du kan fråga ett synonymt-aktiverat fält som vanligt. Det krävs ingen ytterligare frågesyntax som krävs för att komma åt synonymer.
 
@@ -32,14 +32,14 @@ Du kan skapa flera synonymmappningar, publicera dem som en resurs på tjänstniv
 > [!NOTE]
 > Synonymer kan skapas program mässigt, men inte i portalen. Om du skulle ha nytta av funktionen Synonymer på Azure Portal vill vi gärna att du skickar din feedback via [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien behöver du följande:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Kognitiv sökning-tjänst](search-create-service-portal.md)
-* [.NET-biblioteket Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/overview/azure/search)
-* [Använda Azure Kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [.NET-biblioteket Microsoft.Azure.Search](/dotnet/api/overview/azure/search)
+* [Använda Azure Kognitiv sökning från ett .NET-program](./search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>Översikt
 
@@ -77,7 +77,7 @@ Med före-och-efter-frågor kan du se hur användbara synonymer kan vara. I det 
       Console.ReadKey();
   }
 ```
-Stegen för att skapa och fylla i exempel indexet beskrivs i [använda Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Stegen för att skapa och fylla i exempel indexet beskrivs i [använda Azure kognitiv sökning från ett .NET-program](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>”Före”-frågor
 
@@ -173,7 +173,7 @@ Det snabbaste sättet att rensa efter ett exempel är genom att ta bort resurs g
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här exemplet demonstreras funktionen synonymer i C#-kod för att skapa och publicera mappnings regler och sedan anropa synonym kartan på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) och [REST-API:t](https://docs.microsoft.com/rest/api/searchservice/).
+I det här exemplet demonstreras funktionen synonymer i C#-kod för att skapa och publicera mappnings regler och sedan anropa synonym kartan på en fråga. Mer information finns i referensdokumentationen för [.NET SDK](/dotnet/api/microsoft.azure.search) och [REST-API:t](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Så här använder du synonymer i Azure Kognitiv sökning](search-synonyms.md)

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/16/2018
+ms.date: 08/26/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27144dcd4c7d7490aba3626264e1cb4b64fbb162
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 348d436d1cb1fa838a34c9ebe86f5e37f0f85803
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019207"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930577"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, Visa, ta bort eller tilldela en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal
 
 Hanterade identiteter för Azure-resurser ger Azure-tjänster med en hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till tjänster som stöder Azure AD-autentisering, utan att behöva ange autentiseringsuppgifter i koden. 
 
-I den här artikeln får du lära dig hur du skapar, visar, tar bort eller tilldelar en roll till en användardefinierad hanterad identitet med hjälp av Azure Portal.
+I den här artikeln får du lära dig hur du skapar, visar, tar bort eller tilldelar en roll till en användare som tilldelats en hanterad identitet med hjälp av Azure Portal.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -40,13 +40,13 @@ För att skapa en användardefinierad hanterad identitet måste ditt konto ha ro
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är kopplat till Azure-prenumerationen för att skapa den tilldelade hanterade identiteten.
 2. I rutan Sök skriver du *hanterade identiteter*och under **tjänster**klickar du på **hanterade identiteter**.
 3. Klicka på **Lägg till** och ange värden i följande fält under **skapa användare tilldelade hanterade** identitets fönster:
-   - **Resurs namn**: det här är namnet på den användar tilldelnings hanterade identiteten, till exempel UAI1.
-   - **Prenumeration**: Välj den prenumeration som du vill skapa den användarspecifika hanterade identiteten under
-   - **Resurs grupp**: skapa en ny resurs grupp som innehåller din användarspecifika hanterade identitet eller Välj **Använd befintlig** för att skapa den tilldelade hanterade identiteten i en befintlig resurs grupp.
-   - **Plats**: Välj en plats där du vill distribuera den tilldelade hanterade identiteten, till exempel **västra USA**.
-4. Klicka på **Skapa**.
-
-![Skapa en användartilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+    - **Prenumeration**: Välj den prenumeration som du vill skapa den användarspecifika hanterade identiteten för under.
+    - **Resurs grupp**: Välj en resurs grupp om du vill skapa den användar tilldelnings hanterade identiteten i eller klicka på **Skapa ny** för att skapa en ny resurs grupp.
+    - **Region**: Välj en region för att distribuera den tilldelade hanterade identiteten, till exempel **västra USA**.
+    - **Namn**: det här är namnet på din användarspecifika hanterade identitet, till exempel UAI1.
+    ![Skapa en användartilldelad hanterad identitet](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
+4. Granska ändringarna genom att klicka på **Granska + häck** .
+5. Klicka på **Skapa**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista användare-tilldelade hanterade identiteter
 
@@ -83,7 +83,7 @@ För att tilldela en roll till en användardefinierad hanterad identitet måste 
 
 5. Konfigurera följande värden i bladet Lägg till roll tilldelning och klicka sedan på **Spara**:
    - **Roll** – rollen som ska tilldelas
-   - **Tilldela åtkomst till** -resursen för att tilldela den användare tilldelade hanterade identiteten
+   - **Tilldela åtkomst till**  -resursen för att tilldela den användare tilldelade hanterade identiteten
    - **Välj** -medlemmen att tilldela åtkomst
    
    ![Användarens tilldelade hanterade identitet-IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  

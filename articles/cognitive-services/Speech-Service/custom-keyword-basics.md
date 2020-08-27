@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
-ms.openlocfilehash: cef47d1c6598e73d2c17c6799f3de90458206a8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099968"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919020"
 ---
-# <a name="custom-keyword-basics"></a>Grundläggande om anpassade nyckelord
+# <a name="custom-keyword-basics"></a>Grundläggande anpassade nyckelord
 
 I den här artikeln får du lära dig grunderna i att arbeta med anpassade nyckelord, med tal Studio och talet SDK. Ett nyckelord är ett ord eller en kort fras som gör att produkten röst aktive rad. Du skapar nyckelords modeller i tal Studio och exporterar sedan en modell fil som du använder med talet SDK i dina program.
 

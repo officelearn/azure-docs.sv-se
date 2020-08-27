@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: e2241a452bdcf974282814eb118da68517b02369
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323198"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931479"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
@@ -32,7 +33,7 @@ _Recognition_03_ modellen (publicerad 2020) är den mest exakta modellen som är
 Läs vidare om du vill veta hur du anger en vald modell i olika ansikts operationer samtidigt som du undviker modell konflikter. Om du är en avancerad användare och vill bestämma om du ska växla till den senaste modellen går du till avsnittet [utvärdera olika modeller](#evaluate-different-models) för att utvärdera den nya modellen och jämför resultat med den aktuella data uppsättningen.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du bör känna till begreppen AI-ansikts identifiering och identifiering. Om du inte gör det kan du läsa följande instruktions guider först:
 

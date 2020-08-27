@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d926d027b59a225d76f6a73ab3ee4ec09b595e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253315"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922127"
 ---
 # <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
@@ -33,11 +33,11 @@ Kopiera JSON-data och klistra sedan in den i den relaterade text rutan. Gör ing
 
 Alternativet för att skapa en anpassad kontroll finns i avsnittet **Hantera** på sidan för **villkorlig åtkomst** .
 
-![Kontroll](./media/controls/82.png)
+![Gränssnitt för anpassade kontroller i villkorlig åtkomst](./media/controls/custom-controls-conditional-access.png)
 
 Om du klickar på **ny anpassad kontroll**öppnas ett blad med en text ruta för dina KONTROLLers JSON-data.  
 
-![Kontroll](./media/controls/81.png)
+![Ny anpassad kontroll](./media/controls/new-custom-controls-conditional-access.png)
 
 ## <a name="deleting-custom-controls"></a>Tar bort anpassade kontroller
 
@@ -53,7 +53,7 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure-Multi-Factor Authentication, Azure AD självbetjänings återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-anspråk, eller för att höja roller i Privileged Identity Manager (PIM).
+Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure-Multi-Factor Authentication, Azure AD självbetjäning för återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-krav, för att höja roller i Privileged Identity Manager (PIM) eller som en del av Intune-enhets registreringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

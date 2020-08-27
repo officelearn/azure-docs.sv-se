@@ -7,12 +7,12 @@ ms.date: 06/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 7645600a476a1c2294ddd4a24fe01e2ffe51d5ac
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6336a0d4d8aa9c781befed0470d9a190af5aa9eb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589991"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930867"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autentisera till Azure Key Vault
 
@@ -92,7 +92,7 @@ Det här dokumentet kommer att avse:
 3.  Konfigurera nyckel valvs brand väggen. Du kan hålla Key Vault-brandväggen inaktive rad och tillåta åtkomst från det offentliga Internet (mindre säker, enklare att konfigurera). Du kan också begränsa åtkomsten till vissa IP-intervall, tjänst slut punkter, virtuella nätverk eller privata slut punkter (säkrare).
 4.  Lägg till en åtkomst princip för tjänstens huvud namn, det här är en lista över åtgärder som tjänstens huvud namn kan utföra i nyckel valvet. Du bör använda huvud kontot för lägst privilegium och begränsa de åtgärder som tjänstens huvud namn kan utföra. Men om du inte ger tillräcklig behörighet nekas tjänstens huvud namn åtkomst.
 
-## <a name="tutorial"></a>Självstudier
+## <a name="tutorial"></a>Självstudie
 
 I den här självstudien får du lära dig hur du konfigurerar ett huvud namn för tjänsten för att autentisera till nyckel valv och hämta en hemlighet. 
 
@@ -112,14 +112,9 @@ Nu har du ett registrerat huvud namn för tjänsten. Du kan visa den genom att v
 1. Skapa ett certifikat
 
     * Alternativ 1: skapa ett certifikat med [openssl](https://www.openssl.org/) (endast för test syfte, Använd inte självsignerade certifikat i produktion)
-
-    ```console
-    openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-    ```
-
     * Alternativ 2: skapa ett certifikat med Key Vault. [Skapa ett certifikat i Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/certificate-scenarios#creating-your-first-key-vault-certificate)
 
-1. Hämta certifikatet i PEM-format
+1. Hämta certifikatet i formatet PEM/PFX
 1. Logga in på Azure Portal och navigera till Azure Active Directory
 1. Klicka på "app-registreringar"
 1. Välj tjänstens huvud namn som du skapade i del 1.
@@ -192,6 +187,6 @@ if __name__ == "__main__":
 ![BILD](../media/authentication-3.png)
 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 1. Lär dig hur du felsöker Key Vault-autentiseringsfel. [Key Vault fel söknings guide](https://docs.microsoft.com/azure/key-vault/general/rest-error-codes)

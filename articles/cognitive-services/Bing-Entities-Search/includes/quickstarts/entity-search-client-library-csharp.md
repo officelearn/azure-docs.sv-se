@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: aahi
-ms.openlocfilehash: 39a6c21ad056980e8c7b146e36a6e185cb3ed95e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 27951a6da2c5e4a9d17e8b332d8ee9706701649d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136783"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931903"
 ---
 Använd den här snabb starten för att börja söka efter entiteter med Entitetssökning i Bing klient bibliotek för C#. Även om Entitetssökning i Bing har en REST API som är kompatibel med de flesta programmeringsspråk, är klient biblioteket ett enkelt sätt att integrera tjänsten i dina program. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
@@ -28,7 +28,7 @@ Använd den här snabb starten för att börja söka efter entiteter med Entitet
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Om du vill lägga till Entitetssökning i Bing klient biblioteket i Visual Studio-projektet använder du alternativet **Hantera NuGet-paket** från **Solution Explorer**och lägger `Microsoft.Azure.CognitiveServices.Search.EntitySearch` till paketet.
+Om du vill lägga till Entitetssökning i Bing klient biblioteket i Visual Studio-projektet använder du alternativet **Hantera NuGet-paket** från **Solution Explorer**och lägger till `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paketet.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-entity-search-signup-requirements.md)]

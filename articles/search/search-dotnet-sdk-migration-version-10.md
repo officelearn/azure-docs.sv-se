@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905789"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923236"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uppgradera till Azure Kognitiv sökning .NET SDK version 10
 
-Om du använder version 9,0 eller äldre av [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 10.
+Om du använder version 9,0 eller äldre av [.NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 10.
 
 Azure Search får ett nytt namn till Azure Kognitiv sökning i version 10, men namn rymder och paket namn är oförändrade. Tidigare versioner av SDK (9,0 och tidigare) fortsätter att använda det tidigare namnet. Mer information om hur du använder SDK, inklusive exempel, finns i [så här använder du Azure kognitiv sökning från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -35,13 +35,13 @@ Version 10 lägger till flera funktioner och fel korrigeringar, och får samma f
 Version 10 av Azure Kognitiv sökning .NET SDK-målen REST API `2019-05-06` med de här uppdateringarna:
 
 * Introduktion av två nya kompetenser för [villkorliga](cognitive-search-skill-conditional.md) färdigheter och [text översättning](cognitive-search-skill-text-translation.md).
-* [Formaren kompetens](cognitive-search-skill-shaper.md) indata har omstruktureras för att hantera konsolidering från kapslade kontexter. Mer information finns i den här [exempel-JSON-definitionen](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
+* [Formaren kompetens](cognitive-search-skill-shaper.md) indata har omstruktureras för att hantera konsolidering från kapslade kontexter. Mer information finns i den här [exempel-JSON-definitionen](./cognitive-search-skill-shaper.md#scenario-3-input-consolidation-from-nested-contexts).
 * Tillägg av två nya [fält mappnings funktioner](search-indexer-field-mappings.md):
-    - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
-    - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
-* Vid vissa tillfällen kan fel och varningar som visas i [körnings status för indexerare](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) ha ytterligare information som hjälp vid fel sökning. `IndexerExecutionResult`har uppdaterats för att återspegla det här beteendet.
+    - [urlEncode](./search-indexer-field-mappings.md#urlencode-function)
+    - [urlDecode](./search-indexer-field-mappings.md#urldecode-function)
+* Vid vissa tillfällen kan fel och varningar som visas i [körnings status för indexerare](/rest/api/searchservice/get-indexer-status) ha ytterligare information som hjälp vid fel sökning. `IndexerExecutionResult` har uppdaterats för att återspegla det här beteendet.
 * Enskilda kunskaper som definieras inom en [färdigheter](cognitive-search-defining-skillset.md) kan alternativt identifieras genom att ange en `name` egenskap.
-* `ServiceLimits`visar gränser för [komplexa typer](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) och `IndexerExecutionInfo` visar relevanta indexerare gränser/kvoter.
+* `ServiceLimits` visar gränser för [komplexa typer](./search-howto-complex-data-types.md) och `IndexerExecutionInfo` visar relevanta indexerare gränser/kvoter.
 
 <a name="UpgradeSteps"></a>
 
@@ -139,13 +139,13 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`tilldelas ett namn `#1` , tilldelas `WebApiSkill` `#2` , tilldelas, `ShaperSkill` `#3` och så vidare.
+`SentimentSkill` tilldelas ett namn `#1` , tilldelas `WebApiSkill` `#2` , tilldelas, `ShaperSkill` `#3` och så vidare.
 
 Om du väljer att identifiera färdigheter med ett anpassat namn, måste du först uppdatera alla instanser av dina klienter till version 10 av SDK. I annat fall finns det en möjlighet att en klient som använder en äldre version av SDK `null` : n kan `Name` hamna i en kunskaps egenskap, vilket gör att klienten kan återgå till standard namngivnings schemat.
 
 ## <a name="details-about-errors-and-warnings"></a>Information om fel och varningar
 
-`ItemError`och `ItemWarning` modeller som kapslar in information om fel och varningar som inträffar under en indexerare-körning har ändrats för att inkludera tre nya egenskaper med målet att hjälpa till med fel sökning av indexeraren. Dessa egenskaper är:
+`ItemError` och `ItemWarning` modeller som kapslar in information om fel och varningar som inträffar under en indexerare-körning har ändrats för att inkludera tre nya egenskaper med målet att hjälpa till med fel sökning av indexeraren. Dessa egenskaper är:
 
 - `Name`: Namnet på den källa där felet kommer. Det kan till exempel referera till en viss färdighet i den bifogade färdigheter.
 - `Details`: Ytterligare utförlig information om felet eller varningen.
@@ -159,4 +159,3 @@ Om du väljer att identifiera färdigheter med ett anpassat namn, måste du för
 - Ändringar i formaren-kompetensen har den mest potentiella påverkan på ny eller befintlig kod. I nästa steg ska du gå tillbaka till det här exemplet som illustrerar ingångs strukturen: [formaren skicklighet JSON definition exempel](cognitive-search-skill-shaper.md)
 - Gå igenom [Översikt över AI-anrikningen](cognitive-search-concept-intro.md).
 - Vi välkomnar din feedback om SDK. Om du stöter på problem kan du be oss om hjälp om [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Om du hittar en bugg kan du ange ett problem i [Azure .NET SDK GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/issues). Kontrol lera att du har angett din ärende rubrik med "[Azure Kognitiv sökning]".
-

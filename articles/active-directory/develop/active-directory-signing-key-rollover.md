@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115602"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948138"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Signering av nyckel förnyelse i Microsoft Identity Platform
-Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används av Microsoft Identity Platform för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Microsoft Identity Platform bör kunna hantera nyckel förnyelse processen program mässigt eller upprätta en periodisk manuell förnyelse process. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
+Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används av Microsoft Identity Platform för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Microsoft Identity Platform bör kunna hantera nyckel förnyelse processen program mässigt. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
 
 ## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Översikt över signerings nycklar i Microsoft Identity Platform
-Microsoft Identity Platform använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Microsoft Identity Platform använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Microsoft Identity Platform för autentisering, skapar Microsoft Identity Platform en säkerhetstoken som innehåller information om användaren. Den här token signeras av Microsoft Identity Platform med sin privata nyckel innan den skickas tillbaka till programmet. För att verifiera att token är giltig och härstammar från Microsoft Identity Platform, måste programmet verifiera token signaturen med hjälp av den offentliga nyckel som exponeras av Microsoft Identity Platform som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [Federation Metadata Document](../azuread-dev/azure-ad-federation-metadata.md).
+Microsoft Identity Platform använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Microsoft Identity Platform använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Microsoft Identity Platform för autentisering, skapar Microsoft Identity Platform en säkerhetstoken som innehåller information om användaren. Den här token signeras av Microsoft Identity Platform med sin privata nyckel innan den skickas tillbaka till programmet. För att verifiera att token är giltig och härstammar från Microsoft Identity Platform, måste programmet verifiera token signaturen med hjälp av de offentliga nycklar som exponeras av Microsoft Identity Platform som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [Federation Metadata Document](../azuread-dev/azure-ad-federation-metadata.md).
 
-Av säkerhets synpunkt kan Microsoft Identity Platforms signerings nyckel slås samman regelbundet och, i händelse av en nöd situation, kunna överföras omedelbart. Alla program som integreras med Microsoft Identity Platform bör förberedas för att hantera en nyckel förnyelse händelse oavsett hur ofta den kan inträffa. Om det inte är det och ditt program försöker använda en nyckel som har gått ut för att verifiera signaturen på en token, kommer inloggnings förfrågan att Miss lyckas.
+Av säkerhets synpunkt kan Microsoft Identity Platforms signerings nyckel slås samman regelbundet och, i händelse av en nöd situation, kunna överföras omedelbart. Det finns ingen angiven eller garanterad tid mellan dessa nyckel kast – alla program som integreras med Microsoft Identity Platform bör förberedas för att hantera en nyckel förnyelse händelse oavsett hur ofta den kan inträffa. Om det inte är det och ditt program försöker använda en nyckel som har gått ut för att verifiera signaturen på en token, kommer inloggnings förfrågan att Miss lyckas.  Att kontrol lera var 24: e timme för uppdateringar är ett bra tillvägagångs sätt, med en begränsning (en gång var femte minut högst) omedelbart uppdateringar av nyckel dokumentet om en token påträffas med en okänd nyckel identifierare. 
 
-Det finns alltid fler än en giltig nyckel som är tillgänglig i OpenID Connect Discovery-dokumentet och federationsmetadata. Ditt program bör vara förberett för att använda någon av de nycklar som anges i dokumentet, eftersom en nyckel kan ställas in snart, en annan kan ersätta och så vidare.
+Det finns alltid fler än en giltig nyckel som är tillgänglig i OpenID Connect Discovery-dokumentet och federationsmetadata. Ditt program bör förberedas för användning av alla nycklar och alla nycklar som anges i dokumentet, eftersom en nyckel kan ställas in snart, en annan kan ersätta den och så vidare.  Antalet nycklar som finns kan ändras över tid baserat på den interna arkitekturen hos Microsoft Identity Platform när vi stöder nya plattformar, nya moln eller nya autentiseringsprotokoll. Varken ordningen på nycklarna i JSON-svaret eller i vilken ordning de exponerades bör anses vara meaninful i din app. 
+
+Program som bara har stöd för en enda signerings nyckel eller de som kräver manuella uppdateringar av signerings nycklarna är i själva fall mindre säkra och tillförlitliga.  De bör uppdateras för att använda [standard bibliotek](reference-v2-libraries.md) för att säkerställa att de alltid använder uppdaterade signerings nycklar, bland annat bästa praxis. 
 
 ## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Så här bedömer du om ditt program kommer att påverkas och vad du ska göra
 Hur ditt program hanterar nyckel förnyelse beror på variabler som typ av program eller vilka identitets protokoll och bibliotek som användes. I avsnitten nedan bedöms om de vanligaste typerna av program påverkas av nyckel förnyelsen och ger vägledning om hur du uppdaterar programmet så att det stöder automatisk förnyelse eller manuellt uppdaterar nyckeln.
@@ -58,7 +60,7 @@ Interna klient program, oavsett om de är Station ära eller mobila, omfattas av
 ### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Webb program/API: er som har åtkomst till resurser
 Program som bara kommer åt resurser (dvs. Microsoft Graph, nyckel valv, Outlook-API och andra Microsoft API: er (Microsoft API: er) kan vanligt vis bara hämta en token och skicka den till resurs ägaren. Med tanke på att de inte skyddar några resurser, kontrollerar de inte token och behöver därför inte kontrol lera att de är korrekt signerade.
 
-Webb program och webb-API: er som använder app-only-flödet (klient-autentiseringsuppgifter/klient certifikat) ingår i den här kategorin och påverkas därför inte av förnyelsen.
+Webb program och webb-API: er som använder app-only-flödet (klientautentiseringsuppgifter/klient certifikat) för att begära token tillhör den här kategorin och påverkas därför inte av förnyelsen.
 
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Webb program/API: er som skyddar resurser och bygger på Azure App Services
 Azure App Services-funktionen för autentisering/auktorisering (EasyAuth) har redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
@@ -148,7 +150,7 @@ Om du har skapat ett webb-API-program i Visual Studio 2013 med hjälp av webb-AP
 
 Om du har konfigurerat autentisering manuellt följer du anvisningarna nedan och lär dig hur du konfigurerar ditt webb-API för att automatiskt uppdatera dess nyckelinformation.
 
-Följande kodfragment visar hur du hämtar de senaste nycklarna från federationsmetadata och använder sedan [JWT token-hanteraren](/previous-versions/dotnet/framework/security/json-web-token-handler) för att validera token. Kodfragmentet förutsätter att du använder din egen caching-mekanism för att spara nyckeln för att validera framtida token från Microsoft Identity Platform, oavsett om det är en databas, en konfigurations fil eller någon annan stans.
+Följande kodfragment visar hur du hämtar de senaste nycklarna från federationsmetadata och använder sedan [JWT token-hanteraren](https://msdn.microsoft.com/library/dn205065.aspx) för att validera token. Kodfragmentet förutsätter att du använder din egen caching-mekanism för att spara nyckeln för att validera framtida token från Microsoft Identity Platform, oavsett om det är en databas, en konfigurations fil eller någon annan stans.
 
 ```
 using System;
@@ -239,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2012
-Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Microsoft Identity Platform) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
+Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Microsoft Identity Platform) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
 
 Om du har skapat programmet med något av kod exemplen eller genom gångs dokumentationen från Microsoft ingår nyckel förnyelse logiken redan i projektet. Du ser att koden nedan redan finns i ditt projekt. Om programmet inte redan har den här logiken följer du stegen nedan för att lägga till den och kontrol lera att den fungerar som den ska.
 
@@ -288,14 +290,14 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
 Om du har byggt ett program på WIF v 1.0 finns det ingen funktion för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.
 
 * *Enklaste sättet* Använd FedUtil-verktyget som ingår i WIF SDK, som kan hämta det senaste Metadatadokumentet och uppdatera konfigurationen.
-* Uppdatera ditt program till .NET 4,5, som innehåller den senaste versionen av WIF som finns i systemets namnrymd. Du kan sedan använda [verifiering av utfärdarens namn register (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) för att utföra automatiska uppdateringar av programmets konfiguration.
+* Uppdatera ditt program till .NET 4,5, som innehåller den senaste versionen av WIF som finns i systemets namnrymd. Du kan sedan använda [verifiering av utfärdarens namn register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) för att utföra automatiska uppdateringar av programmets konfiguration.
 * Utför en manuell förnyelse enligt anvisningarna i slutet av det här vägledning dokumentet.
 
 Instruktioner för att använda FedUtil för att uppdatera konfigurationen:
 
 1. Kontrol lera att WIF v 1.0 SDK är installerat på utvecklings datorn för Visual Studio 2008 eller 2010. Du kan [Ladda ned det här](https://www.microsoft.com/en-us/download/details.aspx?id=4451) om du inte har installerat det än.
 2. Öppna lösningen i Visual Studio och högerklicka sedan på tillämpligt projekt och välj **Uppdatera federationsmetadata**. Om det här alternativet inte är tillgängligt är FedUtil och/eller WIF v 1.0 SDK inte installerat.
-3. I prompten väljer du **Uppdatera** för att börja uppdatera federationsmetadata. Om du har åtkomst till den server miljö där programmet finns kan du välja att använda FedUtil för [Automatisk uppdatering av metadata](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
+3. I prompten väljer du **Uppdatera** för att börja uppdatera federationsmetadata. Om du har åtkomst till den server miljö där programmet finns kan du välja att använda FedUtil för [Automatisk uppdatering av metadata](https://msdn.microsoft.com/library/ee517272.aspx).
 4. Slutför uppdaterings processen genom att klicka på **Slutför** .
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Webb program/API: er som skyddar resurser med andra bibliotek eller manuellt implementerar något av de protokoll som stöds

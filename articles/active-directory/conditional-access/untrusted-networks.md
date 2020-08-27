@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7986ca441f7d274670d8fa0238e7dcfa01497b6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253179"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948172"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Gör så här: Kräv MFA för åtkomst från ej betrodda nätverk med villkorlig åtkomst   
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) möjliggör enkel inloggning till enheter, app
 
 Den här artikeln innehåller den information du behöver för att konfigurera en princip för villkorlig åtkomst som kräver MFA för åtkomst från ej betrodda nätverk. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du är bekant med: 
 
@@ -69,4 +69,4 @@ Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om villkorlig åtkomst, se [Vad är villkorlig åtkomst i Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Om du vill veta mer om villkorlig åtkomst, se [Vad är villkorlig åtkomst i Azure Active Directory?](./overview.md)

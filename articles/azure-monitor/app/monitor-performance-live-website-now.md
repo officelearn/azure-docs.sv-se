@@ -3,12 +3,13 @@ title: Övervaka en ASP.NET-livewebbapp med Azure Application Insights | Microso
 description: Övervaka prestanda för en webbplats utan att distribuera den igen. Fungerar med ASP.NET-webbappar som finns lokalt eller i virtuella datorer.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310454"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923831"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
 
@@ -43,10 +44,10 @@ Här är en sammanfattning av vad du får med respektive väg:
 | **[Mer detaljerade undantag](./asp-net-exceptions.md)** | |Ja |
 | **[Beroendediagnostik](./asp-net-dependencies.md)** |I .NET 4.6+, men färre detaljer |Ja, fullständiga detaljer: resultatkoder, SQL-kommandotext, HTTP verb|
 | **[Systemprestandaräknare](./performance-counters.md)** |Ja |Ja |
-| **[API för anpassad telemetri][api]** |Ja |Nej |
-| **[Spårningsloggsintegrering](./asp-net-trace-logs.md)** |Ja |Nej |
-| **[Sid visning & användar data](./javascript.md)** |Ja |Nej |
-| **Du måste återskapa koden** |Ja | Nej |
+| **[API för anpassad telemetri][api]** |Ja |Inga |
+| **[Spårningsloggsintegrering](./asp-net-trace-logs.md)** |Ja |Inga |
+| **[Sid visning & användar data](./javascript.md)** |Ja |Inga |
+| **Du måste återskapa koden** |Ja | Inga |
 
 
 
@@ -140,14 +141,14 @@ Vi spårar det här problemet [här](https://github.com/Microsoft/ApplicationIns
   
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-* Som standard kommer Statusövervakare att utgående diagnostikloggar vid:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* Som standard kommer Statusövervakare att utgående diagnostikloggar vid: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
 * Ändra konfigurations filen för att mata ut utförliga loggar: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` och Lägg till `<add key="TraceLevel" value="All" />` i `appsettings` .
 Starta sedan om status övervakaren.
 
 * Som Statusövervakare är ett .NET-program kan du också aktivera [.net-spårning genom att lägga till lämplig diagnostik i konfigurations filen](/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). I vissa fall kan det till exempel vara användbart att se vad som händer på nätverks nivå genom att [Konfigurera nätverks spårning](/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
-### <a name="insufficient-permissions"></a>Otillräcklig behörighet
+### <a name="insufficient-permissions"></a>Otillräckliga behörigheter
   
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
@@ -243,7 +244,7 @@ Ta reda på vilka appar som övervakas:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: Namnet på en webbapp i IIS.
-* `-InstrumentationKey`(Valfritt) Använd detta för att ändra den resurs som appens telemetri skickas till.
+* `-InstrumentationKey` (Valfritt) Använd detta för att ändra den resurs som appens telemetri skickas till.
 * Den här cmdleten:
   * Uppgraderar den namngivna appen till den version av SDK som senast laddades ned till datorn. (Fungerar bara om `SdkState==EnabledAfterDeployment`)
   * Om du anger en instrumenteringsnyckel konfigureras den namngivna appen så att den skickar telemetri till resursen med den nyckeln. (Fungerar om `SdkState != Disabled`)

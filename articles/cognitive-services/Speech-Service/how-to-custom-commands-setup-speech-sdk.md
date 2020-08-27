@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027638"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918833"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integrera med ett klient program med hjälp av tal-SDK
 
@@ -24,7 +25,7 @@ I den här artikeln får du lära dig hur du gör förfrågningar till ett publi
 - Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
 - Skapa en Universell Windows-plattform-klientsession (UWP) med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det krävs ett program med anpassade kommandon för att kunna slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon kan du göra det efter snabb starterna:
 > [!div class = "checklist"]
@@ -64,7 +65,7 @@ I det här steget lägger vi till XAML-koden som definierar programmets använda
 
 Skapa programmets användar gränssnitt genom att lägga till XAML-koden.
 
-1. I **Solution Explorer**öppnar du`MainPage.xaml`
+1. I **Solution Explorer**öppnar du `MainPage.xaml`
 
 1. I designerns XAML-vy ersätter du hela innehållet med följande kodfragment:
 
@@ -302,7 +303,7 @@ Lägg till koden bakom källan enligt följande:
     > 1. Välj **Hantera NuGet-paket för lösningen**, Välj **uppdateringar** 
     > 1. Om du ser **Microsoft. NetCore. UniversalWindowsPlatform** i uppdaterings listan uppdaterar du **Microsoft. NetCore. UniversalWindowsPlatform** till den senaste versionen
 
-1. Lägg till följande kod i metod texten i`InitializeDialogServiceConnector`
+1. Lägg till följande kod i metod texten i `InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -319,7 +320,7 @@ Lägg till koden bakom källan enligt följande:
 
 1. Ersätt strängarna `YourApplicationId` , `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din app, tal prenumeration och [region](regions.md)
 
-1. Lägg till följande kodfragment i slutet av metod texten i`InitializeDialogServiceConnector`
+1. Lägg till följande kodfragment i slutet av metod texten i `InitializeDialogServiceConnector`
 
    ```csharp
    //
@@ -403,7 +404,7 @@ Lägg till koden bakom källan enligt följande:
 
 1. Välj **Arkiv**  >  **Spara alla** på Meny raden för att spara ändringarna
 
-## <a name="try-it-out"></a>Prova nu
+## <a name="try-it-out"></a>Prova
 
 1. Välj **bygge**  >  **build-lösning** i meny raden för att bygga programmet. Koden ska kompileras utan fel.
 

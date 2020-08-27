@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: d63e437090b2875c7e6a8273fdf22d49597d408f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 815709611c0d7985a97ce52584b9e223c6d79aa2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85262216"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924120"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Självstudie: index från flera data källor med hjälp av .NET SDK
 
@@ -21,7 +21,7 @@ Azure Kognitiv sökning kan importera, analysera och indexera data från flera d
 
 I den här självstudien beskrivs hur du kan indexera hotell data från en Azure Cosmos DB data källa och slå samman med information om hotell rums information från Azure Blob Storage dokument. Resultatet blir ett kombinerat hotell Sök index som innehåller komplexa data typer.
 
-I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). I den här självstudien utför du följande uppgifter:
+I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/search). I den här självstudien utför du följande uppgifter:
 
 > [!div class="checklist"]
 > * Ladda upp exempel data och skapa data källor
@@ -34,8 +34,8 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-+ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
-+ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Azure Cosmos DB](../cosmos-db/create-cosmosdb-resources-portal.md)
++ [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio 2019](https://visualstudio.microsoft.com/)
 + [Skapa](search-create-service-portal.md) eller [hitta en befintlig Sök tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -80,7 +80,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. Logga in på [Azure Portal](https://portal.azure.com), navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
 
-1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) med namnet **hotell-rum** där du kan lagra JSON-filer för hotell rummet. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
+1. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md) med namnet **hotell-rum** där du kan lagra JSON-filer för hotell rummet. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
    ![Skapa en blobcontainer](media/tutorial-multiple-data-sources/blob-add-container.png "Skapa en blobcontainer")
 
@@ -171,7 +171,7 @@ Den här enkla/.NET-distribution.-konsolen i C# utför följande uppgifter:
 
 ### <a name="create-an-index"></a>Skapa ett index
 
-Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C#-data modell klass.
+Det här exempel programmet använder .NET SDK för att definiera och skapa ett Azure Kognitiv sökning-index. Det drar nytta av klassen [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder) för att generera en index struktur från en C#-data modell klass.
 
 Data modellen definieras av hotell klassen, som också innehåller referenser till adress-och rums klasserna. FieldBuilder går igenom flera klass definitioner för att generera en komplex data struktur för indexet. Metadata-Taggar används för att definiera attributen för varje fält, till exempel om det är sökbart eller sorterbart.
 
@@ -319,7 +319,7 @@ JSON-blobbar innehåller ett nyckel fält med namnet **`Id`** i stället för **
 
 Blob Storage-indexerare kan använda parametrar som identifierar vilket tolknings läge som ska användas. Tolknings läget skiljer sig för blobbar som representerar ett enda dokument eller flera dokument inom samma blob. I det här exemplet representerar varje BLOB ett enda index dokument, så koden använder- `IndexingParameters.ParseJson()` parametern.
 
-Mer information om indexerare som analyserar parametrar för JSON-blobar finns i [index JSON-blobbar](search-howto-index-json-blobs.md). Mer information om hur du anger dessa parametrar med .NET SDK finns i klassen [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
+Mer information om indexerare som analyserar parametrar för JSON-blobar finns i [index JSON-blobbar](search-howto-index-json-blobs.md). Mer information om hur du anger dessa parametrar med .NET SDK finns i klassen [IndexerParametersExtension](/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
 
 Programmet tar bort alla befintliga indexerare med samma namn innan du skapar det nya, om du vill köra det här exemplet mer än en gång.
 
@@ -365,7 +365,7 @@ Du kan också använda portalen för att ta bort index, indexerare och data käl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

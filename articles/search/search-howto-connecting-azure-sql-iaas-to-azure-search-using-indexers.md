@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: eacfc75b31efaf9a53ed116ed9e75983146d8575
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec1e74c6a029ab0f8defc3ae783c9e974f387289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084134"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922981"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL Server på en virtuell Azure-dator
 
@@ -29,7 +29,7 @@ Azure Kognitiv sökning kräver en krypterad kanal för alla indexerare begär A
 
 1. Kontrol lera egenskaperna för certifikatet för att verifiera att ämnes namnet är det fullständigt kvalificerade domän namnet (FQDN) för den virtuella Azure-datorn. Du kan använda ett verktyg som CertUtil eller snapin-modulen certifikat för att visa egenskaperna. Du kan hämta det fullständiga domän namnet från bladet grundläggande för VM-tjänsten i fältet **offentlig IP-adress/DNS-namn etikett** i [Azure Portal](https://portal.azure.com/).
    
-   * För virtuella datorer som skapats med den nyare **Resource Manager** -mallen formateras FQDN som`<your-VM-name>.<region>.cloudapp.azure.com`
+   * För virtuella datorer som skapats med den nyare **Resource Manager** -mallen formateras FQDN som `<your-VM-name>.<region>.cloudapp.azure.com`
    * För äldre virtuella datorer som skapats som en **klassisk** virtuell dator formateras FQDN som `<your-cloud-service-name.cloudapp.net>` .
 
 2. Konfigurera SQL Server att använda certifikatet med Registereditorn (regedit). 
@@ -53,7 +53,7 @@ Azure Kognitiv sökning kräver en krypterad kanal för alla indexerare begär A
 När du har konfigurerat den krypterade anslutningen som krävs av Azure Kognitiv sökning finns ytterligare konfigurations steg som är inbyggda för SQL Server på virtuella Azure-datorer. Om du inte redan har gjort det är nästa steg att slutföra konfigurationen med hjälp av någon av följande artiklar:
 
 * En virtuell **Resource Manager** -dator finns i [ansluta till en SQL Server virtuell dator på Azure med Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
-* En **klassisk** virtuell dator finns i [ansluta till en SQL Server virtuell dator på den klassiska Azure-datorn](../virtual-machines/windows/classic/sql-connect.md).
+* En **klassisk** virtuell dator finns i [ansluta till en SQL Server virtuell dator på den klassiska Azure-datorn](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 
 Läs särskilt avsnittet i varje artikel för "ansluta via Internet".
 
@@ -68,16 +68,16 @@ Länkarna nedan innehåller instruktioner om NSG-konfiguration för distribution
 > 
 
 * En virtuell **Resource Manager** -dator finns i [så här skapar du NSG: er för arm-distributioner](../virtual-network/tutorial-filter-network-traffic.md). 
-* En **klassisk** virtuell dator finns i [så här skapar du NSG: er för klassiska distributioner](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
+* En **klassisk** virtuell dator finns i [så här skapar du NSG: er för klassiska distributioner](/previous-versions/azure/virtual-network/virtual-networks-create-nsg-classic-ps).
 
 IP-adresser kan innebära några utmaningar som är lätta att lösa om du är medveten om problemet och möjliga lösningar. I de återstående avsnitten finns rekommendationer för att hantera problem som rör IP-adresser i åtkomst kontrol listan.
 
 #### <a name="restrict-access-to-the-azure-cognitive-search"></a>Begränsa åtkomsten till Azure-Kognitiv sökning
-Vi rekommenderar starkt att du begränsar åtkomsten till IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i ACL i stället för att göra dina SQL Azure virtuella datorer öppna för alla anslutnings begär Anden.
+Vi rekommenderar starkt att du begränsar åtkomsten till IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) i ACL i stället för att göra dina SQL Azure virtuella datorer öppna för alla anslutnings begär Anden.
 
 Du kan ta reda på IP-adressen genom att pinga FQDN (till exempel `<your-search-service-name>.search.windows.net` ) för Sök tjänsten.
 
-Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [nedladdnings bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
+Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](../virtual-network/service-tags-overview.md#available-service-tags) genom att antingen använda [nedladdnings bara JSON-filer](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
 #### <a name="managing-ip-address-fluctuations"></a>Hantera IP-adressernas fluktuationer
 Om Sök tjänsten bara har en Sök enhet (det vill säga en replik och en partition) ändras IP-adressen när rutin tjänsten startas om, vilket gör att en befintlig ACL verifieras med Sök tjänstens IP-adress.
@@ -93,4 +93,3 @@ Om du använder Azure Portal för att skapa en indexerare, behöver Azure Kognit
 
 ## <a name="next-steps"></a>Nästa steg
 Med konfigurationen av kan du nu ange en SQL Server på den virtuella Azure-datorn som data källa för en Azure Kognitiv sökning-indexerare. Mer information finns i [ansluta Azure SQL Database till Azure kognitiv sökning med indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) .
-

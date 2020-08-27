@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
-ms.openlocfilehash: 591bff468c90b17812554b02810d9a6cd4f874d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a05d58108561856f61a8c484882c996eee96e44d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262165"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918085"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
@@ -48,7 +48,7 @@ I följande lista beskrivs vilka analys verktyg som är tillgängliga i Azure Ko
 |----------|-------------|
 | [Standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standard. Ingen specifikation eller konfiguration krävs. Den här generella analysen fungerar bra för många språk och scenarier.|
 | Fördefinierade analys verktyg | Erbjuds som en färdig produkt som är avsedd att användas i befintligt skick. <br/>Det finns två typer: specialiserade och språk. Vad gör dem "fördefinierade" är att du refererar till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserade oberoende-analyser (Language-)](index-add-custom-analyzers.md#AnalyzerTable) används när text inmatningar kräver specialiserad bearbetning eller minimal bearbetning. Icke-språkdefinierade analys verktyg omfattar **Asciifolding**, **nyckelord**, **mönster**, **enkel**, **stopp**, **blank steg**.<br/><br/>[Språk analys](index-add-language-analyzers.md) verktyg används när du behöver omfattande språk stöd för enskilda språk. Azure Kognitiv sökning stöder 35 Lucene-språkanalyser och 50 Microsoft Natural Language Processing-analyser. |
-|[Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av ett tokenizer (obligatoriskt) och valfria filter (Char eller token).|
+|[Anpassade analysverktyg](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av ett tokenizer (obligatoriskt) och valfria filter (Char eller token).|
 
 Några fördefinierade analyser, till exempel **mönster** eller **stopp**, stöder en begränsad uppsättning konfigurations alternativ. Om du vill ange de här alternativen skapar du en anpassad analys som består av den fördefinierade analysen och ett av de alternativa alternativen som dokumenteras i den [fördefinierade analys referensen](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration kan du ange en ny konfiguration med ett namn, till exempel *myPatternAnalyzer* , för att skilja den från Lucene Pattern Analyzer.
 
@@ -56,7 +56,7 @@ Några fördefinierade analyser, till exempel **mönster** eller **stopp**, stö
 
 Att ställa in en analys är valfritt. Som en allmän regel kan du prova att använda standard standard-Lucene Analyzer först för att se hur det fungerar. Om frågor inte kan returnera de förväntade resultaten är det ofta rätt lösning att växla till en annan analys.
 
-1. När du skapar en fält definition i [indexet](https://docs.microsoft.com/rest/api/searchservice/create-index)ställer du in egenskapen **Analyzer** på något av följande: en [fördefinierad analys](index-add-custom-analyzers.md#AnalyzerTable) , till exempel, `keyword` en [språk analys](index-add-language-analyzers.md) , till exempel `en.microsoft` eller en anpassad analys (definieras i samma index schema).  
+1. När du skapar en fält definition i [indexet](/rest/api/searchservice/create-index)ställer du in egenskapen  **Analyzer** på något av följande: en [fördefinierad analys](index-add-custom-analyzers.md#AnalyzerTable) , till exempel, `keyword` en [språk analys](index-add-language-analyzers.md) , till exempel `en.microsoft` eller en anpassad analys (definieras i samma index schema).  
  
    ```json
      "fields": [
@@ -88,7 +88,7 @@ Att ställa in en analys är valfritt. Som en allmän regel kan du prova att anv
     },
    ```
 
-1. För anpassade analys verktyg skapar du en post i avsnittet **[analyserare]** i indexet och tilldelar sedan den anpassade analysen till fält definitionen enligt något av de föregående två stegen. Mer information finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) och även [lägga till anpassade analys](index-add-custom-analyzers.md)verktyg.
+1. För anpassade analys verktyg skapar du en post i avsnittet **[analyserare]** i indexet och tilldelar sedan den anpassade analysen till fält definitionen enligt något av de föregående två stegen. Mer information finns i [skapa index](/rest/api/searchservice/create-index) och även [lägga till anpassade analys](index-add-custom-analyzers.md)verktyg.
 
 ## <a name="when-to-add-analyzers"></a>När du ska lägga till analyser
 
@@ -96,11 +96,11 @@ Den bästa tiden för att lägga till och tilldela analyserare är under aktiv u
 
 Eftersom analys verktyg används för att Tokenize villkor, bör du tilldela en analys när fältet har skapats. I själva verket är det inte tillåtet att tilldela **Analyzer** -eller **indexAnalyzer** till ett fält som redan har skapats fysiskt (men du kan ändra egenskapen **searchAnalyzer** när som helst utan att påverka indexet).
 
-Om du vill ändra Analyzer för ett befintligt fält måste du [återskapa indexet helt](search-howto-reindex.md) (du kan inte återskapa enskilda fält). För index i produktion kan du skjuta upp en ny version genom att skapa ett nytt fält med den nya Analyzer-tilldelningen och börja använda den i stället för den gamla. Använd [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det. Som en del av den planerade indexerings servicen kan du senare rensa indexet för att ta bort föråldrade fält.
+Om du vill ändra Analyzer för ett befintligt fält måste du [återskapa indexet helt](search-howto-reindex.md) (du kan inte återskapa enskilda fält). För index i produktion kan du skjuta upp en ny version genom att skapa ett nytt fält med den nya Analyzer-tilldelningen och börja använda den i stället för den gamla. Använd [Uppdatera index](/rest/api/searchservice/update-index) för att lägga till det nya fältet och [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det. Som en del av den planerade indexerings servicen kan du senare rensa indexet för att ta bort föråldrade fält.
 
-För att lägga till ett nytt fält i ett befintligt index, anropa [uppdaterings index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det.
+För att lägga till ett nytt fält i ett befintligt index, anropa [uppdaterings index](/rest/api/searchservice/update-index) för att lägga till fältet och [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det.
 
-För att lägga till en anpassad analys i ett befintligt index, skicka flaggan **allowIndexDowntime** i [Update index](https://docs.microsoft.com/rest/api/searchservice/update-index) om du vill undvika det här felet:
+För att lägga till en anpassad analys i ett befintligt index, skicka flaggan **allowIndexDowntime** i [Update index](/rest/api/searchservice/update-index) om du vill undvika det här felet:
 
 *"Index uppdatering tillåts inte eftersom det skulle orsaka drift stopp. För att lägga till nya analys verktyg, tokenizers, token-filter eller Character-filter i ett befintligt index ställer du in frågeparametern "allowIndexDowntime" till "true" i begäran om index uppdatering. Observera att den här åtgärden kommer att spara indexet offline under minst några sekunder, vilket gör att dina indexerings-och fråge begär Anden Miss söker. Prestanda-och skrivnings tillgänglighet för indexet kan vara försämrade i flera minuter efter att indexet har uppdaterats, eller längre för mycket stora index. "*
 
@@ -120,7 +120,7 @@ Att åsidosätta standard Analyzer kräver en index återuppbyggnad. Om möjligt
 
 ### <a name="inspect-tokenized-terms"></a>Inspektera token-villkor
 
-Om en sökning inte kan returnera förväntade resultat, är det mest sannolika scenariet token avvikelser mellan term inmatningar i frågan och token-termer i indexet. Om tokens inte är desamma matchar inte materialisera. Om du vill kontrol lera tokenizer-utdata rekommenderar vi att du använder [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) som ett verktyg för undersökning. Svaret består av tokens, som genereras av en speciell analys.
+Om en sökning inte kan returnera förväntade resultat, är det mest sannolika scenariet token avvikelser mellan term inmatningar i frågan och token-termer i indexet. Om tokens inte är desamma matchar inte materialisera. Om du vill kontrol lera tokenizer-utdata rekommenderar vi att du använder [analysera API](/rest/api/searchservice/test-analyzer) som ett verktyg för undersökning. Svaret består av tokens, som genereras av en speciell analys.
 
 <a name="examples"></a>
 
@@ -316,7 +316,7 @@ En analys som används i befintligt skick, utan konfiguration, anges i en fält 
 
 I det här exemplet tilldelas Microsoft English-och franska-analyser för att beskriva fält. Det är ett kodfragment som tas från en större definition av hotell indexet, vilket skapar med hjälp av hotell klassen i hotels.cs-filen i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) -exemplet.
 
-Anropa [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), som anger [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) -typ som ger stöd för text analys i Azure kognitiv sökning.
+Anropa [Analyzer](/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), som anger [AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) -typ som ger stöd för text analys i Azure kognitiv sökning.
 
 ```csharp
     public partial class Hotel
@@ -342,7 +342,7 @@ Anropa [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.m
 
 När anpassning eller konfiguration krävs måste du lägga till en analys-konstruktion i ett index. När du har definierat det kan du lägga till den som fält definition som visas i föregående exempel.
 
-Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) -objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
+Skapa ett [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) -objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -368,7 +368,7 @@ Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 
 + Läs vår omfattande förklaring av [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md). I den här artikeln används exempel för att förklara vilka beteenden som kan vara till hjälp för den aktuella ytan.
 
-+ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](query-simple-syntax.md) i Sök Utforskaren i portalen.
++ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](query-simple-syntax.md) i Sök Utforskaren i portalen.
 
 + Lär dig hur du använder [språkspecifika lexikala analyser](index-add-language-analyzers.md).
 
@@ -376,7 +376,7 @@ Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 
 ## <a name="see-also"></a>Se även
 
- [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [REST API för dokumentsökning](/rest/api/searchservice/search-documents) 
 
  [Enkel frågesyntax](query-simple-syntax.md) 
 

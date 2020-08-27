@@ -4,12 +4,12 @@ description: Felsöka installation, registrering av Azure Backup Server och säk
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 40f461c1c2e62b12497800bb1a4d1c0ee0b04579
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763498"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893025"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -71,7 +71,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Backup | Repliken är inkonsekvent | Kontrol lera att alternativet automatisk konsekvens kontroll i guiden skydds grupp är aktiverat. Mer information om replikeringsalternativ och konsekvens kontroller finns i [den här artikeln](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .<br> <ol><li> Kontrol lera att Windows Server Backup är installerat på den skyddade servern i händelse av system tillstånd/BMR säkerhets kopiering.</li><li> Kontrol lera om det finns problem med problem i DPM-lagringspoolen på DPM/Microsoft Azure Backup-servern och allokera lagrings utrymme efter behov.</li><li> Kontrol lera status för tjänsten Volume Shadow Copy på den skyddade servern. Om den är i ett inaktiverat tillstånd ställer du in den så att den startar manuellt. Starta tjänsten på-servern. Gå sedan tillbaka till DPM/Microsoft Azure Backup Server-konsolen och starta synkroniseringen med konsekvens kontroll jobbet.</li></ol>|
+| Backup | Repliken är inkonsekvent | Kontrol lera att alternativet automatisk konsekvens kontroll i guiden skydds grupp är aktiverat. Mer information om replikeringsalternativ och konsekvens kontroller finns i [den här artikeln](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) .<br> <ol><li> Kontrol lera att Windows Server Backup är installerat på den skyddade servern om system tillstånd/BMR säkerhets kopiering ska installeras.</li><li> Kontrol lera om det finns problem med problem i DPM-lagringspoolen på DPM/Microsoft Azure Backup-servern och allokera lagrings utrymme efter behov.</li><li> Kontrol lera status för tjänsten Volume Shadow Copy på den skyddade servern. Om det är i inaktiverat tillstånd anger du att det ska starta manuellt. Starta tjänsten på-servern. Gå sedan tillbaka till DPM/Microsoft Azure Backup Server-konsolen och starta synkroniseringen med konsekvens kontroll jobbet.</li></ol>|
 
 ## <a name="online-recovery-point-creation-failed"></a>Det gick inte att skapa återställningspunkten online
 

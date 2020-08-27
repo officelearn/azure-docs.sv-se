@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf3fd50b907e69311c475af844c7969f081a3094
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d3fbb06355772794fbe3fab5cdf3c8622c2baf4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849935"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948835"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -24,11 +24,11 @@ I en mobil-och mellanliggande värld, kan Azure Active Directory (Azure AD) anv�
 
 Den här artikeln förklarar hur du kan konfigurera principer för villkorlig åtkomst som kräver att hanterade enheter får åtkomst till vissa molnappar i din miljö. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Krav på hanterade enheter för åtkomst till molnbaserad **Azure AD-villkorlig åtkomst** och **Azure AD-enhets hantering** . Om du inte är bekant med något av dessa områden än bör du läsa följande avsnitt, först:
 
-- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** – den här artikeln ger en konceptuell översikt över villkorlig åtkomst och den relaterade terminologin.
+- **[Villkorlig åtkomst i Azure Active Directory](./overview.md)** – den här artikeln ger en konceptuell översikt över villkorlig åtkomst och den relaterade terminologin.
 - **[Introduktion till enhets hantering i Azure Active Directory](../devices/overview.md)** – den här artikeln ger dig en översikt över de olika alternativen för att hämta enheter under organisations kontroll. 
 - För Chrome-stöd i **Windows 10 Creators Update (version 1703)** eller senare installerar du [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Det här tillägget krävs när en princip för villkorlig åtkomst kräver enhetsspecifika uppgifter.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: eb5771a6e615535a9a158e6378cd36b6e0df58bc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084219"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923134"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Så här skapar du ett aspekt filter i Azure Kognitiv sökning 
 
@@ -38,12 +38,12 @@ FACET kan beräknas över enskilda värde fält och samlingar. Fält som fungera
 
 Fasettering aktive ras baserat på fält när du skapar indexet genom `facetable` att ange attributet till `true` . Du bör vanligt vis också ställa in `filterable` attributet på `true` för sådana fält så att ditt sökprogram kan filtrera efter de fälten baserat på FACET som slutanvändaren väljer. 
 
-När du skapar ett index med hjälp av REST API, markeras alla [fält typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) som kan användas i fasetten navigering som `facetable` standard:
+När du skapar ett index med hjälp av REST API, markeras alla [fält typer](/rest/api/searchservice/supported-data-types) som kan användas i fasetten navigering som `facetable` standard:
 
 + `Edm.String`
 + `Edm.DateTimeOffset`
 + `Edm.Boolean`
-+ Numeriska fält typer: `Edm.Int32` , `Edm.Int64` ,`Edm.Double`
++ Numeriska fält typer: `Edm.Int32` , `Edm.Int64` , `Edm.Double`
 + Samlingar av ovanstående typer (till exempel `Collection(Edm.String)` eller `Collection(Edm.Double)` )
 
 Du kan inte använda `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)` fält i en fasett-navigering. FACET fungerar bäst på fält med låg kardinalitet. På grund av upplösningen av geo-koordinater är det sällsynt att två uppsättningar av co-koordinater kommer att vara identiska i en specifik data uppsättning. Därför stöds inte FACET för geo-koordinater. Du behöver ett stads-eller region fält för att fasetta efter plats.
@@ -77,11 +77,11 @@ Indexera attribut som styr hur ett fält används läggs till i definitioner fö
 ```
 
 > [!Note]
-> Den här index definitionen kopieras från [skapa ett Azure kognitiv sökning-index med hjälp av REST API](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Det är identiskt med undantag för ytliga skillnader i fält definitionerna. `filterable` `facetable` Attributen och läggs uttryckligen till i fälten,,, `category` `tags` `parkingIncluded` `smokingAllowed` och `rating` . I praktiken `filterable` och `facetable` aktive ras som standard i de här fälten när du använder REST API. När du använder .NET SDK måste dessa attribut aktive ras explicit.
+> Den här index definitionen kopieras från [skapa ett Azure kognitiv sökning-index med hjälp av REST API](./search-get-started-powershell.md). Det är identiskt med undantag för ytliga skillnader i fält definitionerna. `filterable` `facetable` Attributen och läggs uttryckligen till i fälten,,, `category` `tags` `parkingIncluded` `smokingAllowed` och `rating` . I praktiken `filterable` och `facetable` aktive ras som standard i de här fälten när du använder REST API. När du använder .NET SDK måste dessa attribut aktive ras explicit.
 
 ## <a name="build-and-load-an-index"></a>Bygga och läsa in ett index
 
-Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](https://docs.microsoft.com/azure/search/search-get-started-dotnet#1---create-index) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
+Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](./search-get-started-dotnet.md#1---create-an-index) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
 
 ## <a name="add-facet-filters-to-a-query"></a>Lägga till fasett-filter till en fråga
 
@@ -107,7 +107,7 @@ if (!String.IsNullOrEmpty(categoryFacet))
     filter = $"category eq '{categoryFacet}'";
 ```
 
-Om användaren klickar på ett fasett-värde för ett samlings fält `tags` , till exempel värdet "pool", ska programmet använda följande syntax:`$filter=tags/any(t: t eq 'pool')`
+Om användaren klickar på ett fasett-värde för ett samlings fält `tags` , till exempel värdet "pool", ska programmet använda följande syntax: `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Tips och lösningar
 
@@ -124,5 +124,5 @@ En av utmaningarna med aspekt navigering i Azure Kognitiv sökning är att Facet
 ## <a name="see-also"></a>Se även
 
 + [Filter i Azure Kognitiv sökning](search-filters.md)
-+ [Skapa index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Skapa index REST API](/rest/api/searchservice/create-index)
++ [REST API för dokumentsökning](/rest/api/searchservice/search-documents)

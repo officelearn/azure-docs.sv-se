@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6295dfbbee2d44b61b5dc832163adc8d643ab0f1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036155"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924103"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -32,8 +32,8 @@ BLOB-indexeraren kan extrahera text från följande dokument format:
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
 * [Azure-portalen](https://ms.portal.azure.com)
-* Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* Azure Kognitiv sökning [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Kognitiv sökning [.NET SDK](/dotnet/api/overview/azure/search)
 
 > [!NOTE]
 > Vissa funktioner (till exempel fält mappningar) är ännu inte tillgängliga i portalen och måste användas program mässigt.
@@ -66,7 +66,7 @@ Så här skapar du en data Källa:
     }   
 ```
 
-Mer information om API för att skapa DataSource finns i [skapa data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Mer information om API för att skapa DataSource finns i [skapa data källa](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="how-to-specify-credentials"></a>Ange autentiseringsuppgifter ####
@@ -77,7 +77,7 @@ Du kan ange autentiseringsuppgifter för BLOB-behållaren på något av följand
 - Anslutnings sträng för **signatur för delad åtkomst för lagrings konto** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS ska ha listan och Läs behörigheter för behållare och objekt (blobbar i detta fall).
 -  **Signatur för delad åtkomst till container**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS ska ha list-och Läs behörighet för behållaren.
 
-Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Om du använder SAS-autentiseringsuppgifter måste du uppdatera autentiseringsuppgifterna för data källan regelbundet med förnyade signaturer för att förhindra att de upphör att gälla. Om autentiseringsuppgifter för SAS går ut Miss Miss känner indexeraren med ett fel meddelande som liknar `Credentials provided in the connection string are invalid or have expired.` .  
@@ -101,7 +101,7 @@ Så här skapar du ett index med ett sökbart `content` fält för att lagra tex
     }
 ```
 
-Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Mer information om hur du skapar index finns i [skapa index](/rest/api/searchservice/create-index)
 
 ### <a name="step-3-create-an-indexer"></a>Steg 3: skapa en indexerare
 En indexerare ansluter en data källa med ett mål Sök index och innehåller ett schema för att automatisera data uppdateringen.
@@ -123,7 +123,7 @@ När indexet och data källan har skapats är du redo att skapa indexeraren:
 
 Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är 5 minuter. Schemat är valfritt – om det utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
-Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
@@ -169,8 +169,8 @@ I Azure Kognitiv sökning identifierar dokument nyckeln ett dokument unikt. Varj
 
 Du bör noga överväga vilka extraherade fält som ska mappas till nyckel fältet för ditt index. Kandidater är:
 
-* ** \_ lagrings \_ namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för det syftet).
-* ** \_ lagrings \_ Sök väg för metadata** – genom att använda den fullständiga sökvägen ser du till att sökvägen är unik, men sökvägen innehåller definitivt `/` [ogiltiga tecken i en dokument nyckel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp av `base64Encode` [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
+* ** \_ lagrings \_ namn för metadata** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) för det syftet).
+* ** \_ lagrings \_ Sök väg för metadata** – genom att använda den fullständiga sökvägen ser du till att sökvägen är unik, men sökvägen innehåller definitivt `/` [ogiltiga tecken i en dokument nyckel](/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp av `base64Encode` [funktionen](search-indexer-field-mappings.md#base64EncodeFunction).
 * Om inget av alternativen ovan fungerar kan du lägga till en anpassad metadata-egenskap till Blobbarna. Det här alternativet kräver dock att BLOB-uppladdnings processen lägger till denna metadata-egenskap till alla blobbar. Eftersom nyckeln är en obligatorisk egenskap, kommer alla blobar som inte har denna egenskap att kunna indexeras.
 
 > [!IMPORTANT]
@@ -268,9 +268,9 @@ Om både `indexedFileNameExtensions` och `excludedFileNameExtensions` -parametra
 
 Du kan styra vilka delar av blobbar som indexeras med hjälp av `dataToExtract` konfigurations parametern. Det kan ha följande värden:
 
-* `storageMetadata`-anger att endast [standard-BLOB-egenskaperna och användardefinierade metadata](../storage/blobs/storage-properties-metadata.md) indexeras.
-* `allMetadata`-anger att lagrings-metadata och de [innehålls typbaserade metadata](#ContentSpecificMetadata) som extraherats från BLOB-innehållet indexeras.
-* `contentAndMetadata`-anger att alla metadata och text innehåll som extraheras från blobben indexeras. Detta är standardvärdet.
+* `storageMetadata` -anger att endast [standard-BLOB-egenskaperna och användardefinierade metadata](../storage/blobs/storage-blob-container-properties-metadata.md) indexeras.
+* `allMetadata` -anger att lagrings-metadata och de [innehålls typbaserade metadata](#ContentSpecificMetadata) som extraherats från BLOB-innehållet indexeras.
+* `contentAndMetadata` -anger att alla metadata och text innehåll som extraheras från blobben indexeras. Detta är standardvärdet.
 
 Om du till exempel bara vill indexera lagringens metadata använder du:
 
@@ -316,7 +316,7 @@ För vissa blobbar går det inte att identifiera innehålls typen i Azure Kognit
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
 ```
 
-Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här gränserna dokumenteras i [tjänst begränsningar i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Överändrade blobbar behandlas som standard som fel. Du kan dock fortfarande indexera lagrings metadata för överändrade blobbar om du anger `indexStorageMetadataOnlyForOversizedDocuments` parametern för konfiguration till True: 
+Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här gränserna dokumenteras i [tjänst begränsningar i Azure kognitiv sökning](./search-limits-quotas-capacity.md). Överändrade blobbar behandlas som standard som fel. Du kan dock fortfarande indexera lagrings metadata för överändrade blobbar om du anger `indexStorageMetadataOnlyForOversizedDocuments` parametern för konfiguration till True: 
 
 ```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
@@ -345,15 +345,15 @@ Det finns två sätt att implementera metoden för mjuk borttagning. Båda beskr
 ### <a name="native-blob-soft-delete-preview"></a>Intern BLOB-mjuk borttagning (förhands granskning)
 
 > [!IMPORTANT]
-> Stöd för intern BLOB-mjuk borttagning är i för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2020-06-30 – för hands version](https://docs.microsoft.com/azure/search/search-api-preview) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
+> Stöd för intern BLOB-mjuk borttagning är i för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2020-06-30 – för hands version](./search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
 > [!NOTE]
 > När du använder den inbyggda principen för mjuk borttagning av BLOB måste dokument nycklarna för dokumenten i ditt index antingen vara en BLOB-egenskap eller BLOB-metadata.
 
-I den här metoden ska du använda den inbyggda funktionen för [mjuk borttagning av BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) som erbjuds av Azure Blob Storage. Om den inbyggda BLOB-borttagningen är aktive rad på ditt lagrings konto har data källan en inbyggd princip uppsättning för mjuk borttagning och indexeraren hittar en blob som har överförts till ett mjukt borttaget läge, tar indexeraren bort dokumentet från indexet. Den inbyggda principen för mjuk borttagning av BLOB stöds inte när du indexerar blobbar från Azure Data Lake Storage Gen2.
+I den här metoden ska du använda den inbyggda funktionen för [mjuk borttagning av BLOB](../storage/blobs/soft-delete-blob-overview.md) som erbjuds av Azure Blob Storage. Om den inbyggda BLOB-borttagningen är aktive rad på ditt lagrings konto har data källan en inbyggd princip uppsättning för mjuk borttagning och indexeraren hittar en blob som har överförts till ett mjukt borttaget läge, tar indexeraren bort dokumentet från indexet. Den inbyggda principen för mjuk borttagning av BLOB stöds inte när du indexerar blobbar från Azure Data Lake Storage Gen2.
 
 Gör så här:
-1. Aktivera [inbyggd mjuk borttagning för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete). Vi rekommenderar att du anger bevarande principen till ett värde som är mycket högre än schemats intervall schema. På det här sättet är det mycket tid för indexeraren att bearbeta de mjuka borttagna blobarna om det uppstår ett problem med att köra indexeraren eller om du har ett stort antal dokument att indexera. Azure Kognitiv sökning-indexerare tar bara bort ett dokument från indexet om det bearbetar blobben när det är i ett mjukt borttaget tillstånd.
+1. Aktivera [inbyggd mjuk borttagning för Azure Blob Storage](../storage/blobs/soft-delete-blob-overview.md). Vi rekommenderar att du anger bevarande principen till ett värde som är mycket högre än schemats intervall schema. På det här sättet är det mycket tid för indexeraren att bearbeta de mjuka borttagna blobarna om det uppstår ett problem med att köra indexeraren eller om du har ett stort antal dokument att indexera. Azure Kognitiv sökning-indexerare tar bara bort ett dokument från indexet om det bearbetar blobben när det är i ett mjukt borttaget tillstånd.
 1. Konfigurera en intern identifierings princip för mjuk borttagning av BLOB på data källan. Ett exempel på detta visas nedan. Eftersom den här funktionen är i för hands version måste du använda REST API för förhands granskning.
 1. Kör indexeraren eller Ställ in indexeraren så att den körs enligt ett schema. När indexeraren kör och bearbetar blobben tas dokumentet bort från indexet.
 
@@ -434,7 +434,7 @@ Indexering av blobbar kan vara en tids krävande process. I de fall där du har 
 
 Du kanske vill montera dokument från flera källor i ditt index. Du kanske till exempel vill koppla text från blobbar med andra metadata som lagras i Cosmos DB. Du kan även använda API för push-indexering tillsammans med olika indexerare för att skapa Sök dokument från flera delar. 
 
-För att detta ska fungera måste alla indexerare och andra komponenter godkänna dokument nyckeln. Mer information om det här ämnet finns i [index flera Azure-datakällor](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). En detaljerad genom gång finns i den här externa artikeln: [kombinera dokument med andra data i Azure kognitiv sökning](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+För att detta ska fungera måste alla indexerare och andra komponenter godkänna dokument nyckeln. Mer information om det här ämnet finns i [index flera Azure-datakällor](./tutorial-multiple-data-sources.md). En detaljerad genom gång finns i den här externa artikeln: [kombinera dokument med andra data i Azure kognitiv sökning](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Indexera oformaterad text 

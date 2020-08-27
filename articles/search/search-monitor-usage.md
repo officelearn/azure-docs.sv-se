@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806819"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935015"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Övervaka åtgärder och aktiviteter i Azure Kognitiv sökning
 
@@ -59,7 +59,7 @@ Du kan använda följande API: er för att hämta samma information som finns p�
 
 ### <a name="activity-logs-and-service-health"></a>Aktivitets loggar och service hälsa
 
-På sidan [**aktivitets logg**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) i portalen samlas information från Azure Resource Manager och rapporter om ändringar av tjänstens hälsa. Du kan övervaka aktivitets loggen för kritiska, fel och varnings villkor relaterade till tjänstens hälsa.
+På sidan [**aktivitets logg**](../azure-monitor/platform/activity-log.md#view-the-activity-log) i portalen samlas information från Azure Resource Manager och rapporter om ändringar av tjänstens hälsa. Du kan övervaka aktivitets loggen för kritiska, fel och varnings villkor relaterade till tjänstens hälsa.
 
 Vanliga poster innehåller referenser till API-nycklar – allmänna informations meddelanden som *Hämta administratörs nyckel* och *Hämta frågeinställningar*. Dessa aktiviteter visar begär Anden som har gjorts med hjälp av administratörs nyckeln (skapa eller ta bort objekt) eller frågeinställningar, men som inte visar själva förfrågningen. För information om denna kornig het måste du konfigurera diagnostisk loggning.
 
@@ -75,13 +75,13 @@ Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3
  "Användnings status relativt nivå gränser")
 
 > [!NOTE]
-> Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. För att få lagrings aviseringar måste du [skapa en anpassad lösning som utvecklar](../azure-monitor/insights/solutions-creating.md) resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret.
+> Aviseringar relaterade till lagring är inte tillgängliga för närvarande. lagrings förbrukningen är inte aggregerad eller inloggad i **AzureMetrics** -tabellen i Azure Monitor. För att få lagrings aviseringar måste du [skapa en anpassad lösning som utvecklar](../azure-monitor/insights/solutions.md) resursbaserade meddelanden, där koden söker efter lagrings storlek och hanterar svaret.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Övervakning av tillägg med Azure Monitor
 
-Många tjänster, inklusive Azure Kognitiv sökning, integreras med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) för ytterligare aviseringar, mått och loggning av diagnostikdata. 
+Många tjänster, inklusive Azure Kognitiv sökning, integreras med [Azure Monitor](../azure-monitor/index.yml) för ytterligare aviseringar, mått och loggning av diagnostikdata. 
 
 [Aktivera diagnostisk loggning](search-monitor-logs.md) för en Sök tjänst om du vill ha kontroll över insamling och lagring av data. Loggade händelser som registrerats av Azure Monitor lagras i tabellen **AzureDiagnostics** och består av drift data som rör frågor och indexering.
 
@@ -107,4 +107,4 @@ Det finns inget sätt att logga den här informationen separat från frågesträ
 Fluency med Azure Monitor är viktigt för att kunna ta hänsyn till alla Azure-tjänster, inklusive resurser som Azure Kognitiv sökning. Om du inte är bekant med Azure Monitor tar du tid att granska artiklar som är relaterade till resurser. Förutom självstudierna är följande artikel en bra plats att börja med.
 
 > [!div class="nextstepaction"]
-> [Övervaka Azure-resurser med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Övervaka Azure-resurser med Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md)

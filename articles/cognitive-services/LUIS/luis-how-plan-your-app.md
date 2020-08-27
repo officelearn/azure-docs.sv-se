@@ -3,12 +3,12 @@ title: Planera din app-LUIS
 description: Disponera relevanta appar och entiteter och skapa sedan dina program planer i Language Understanding intelligenta tjänster (LUIS).
 ms.topic: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 8141e2a47e2a550a5dba50bc22117649c0bd04e2
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38d80a77303e248ab137f87f8063b5cbc358f51a
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340240"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892923"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planera ditt LUIS-AppData med ämnes domän och data extrahering
 
@@ -64,7 +64,7 @@ Tänk på följande två yttranden som är mycket nära att tänka på när du v
 
 I stället för att ha två separata intentor skapar du en enda avsikt med en `FlightAction` Machine Learning-entitet. Machine Learning-entiteten bör extrahera information om åtgärden för både en schemaläggning och en avbrotts förfrågan samt antingen en ursprungs plats eller en målplats.
 
-`FlightAction`Entiteten är strukturerad i följande väckning-schema för Machine Learning-entiteten och-underentiteter:
+`FlightAction`Entiteten är strukturerad i följande pseudo-schema för Machine Learning-entiteten och-underentiteter:
 
 * FlightAction
     * Åtgärd

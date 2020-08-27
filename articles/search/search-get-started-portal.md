@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083567"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935321"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Azure Portal
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ I den här självstudien använder vi en inbyggd exempel data uppsättning som k
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Steg 1 – starta guiden Importera data och skapa en datakälla
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att skapa och fylla i ett sökindex på sidan Översikt.
 
@@ -140,7 +140,7 @@ Andra konstruktioner, t.ex. bedömningsprofiler och CORS-alternativ, kan läggas
 
 Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av den inbyggda frågesidan [**Sökutforskaren**](search-explorer.md). Den innehåller en sökruta så att du kan testa godtyckliga frågesträngar.
 
-**Sökutforskaren** kan endast hantera [REST-API-förfrågningar](https://docs.microsoft.com/rest/api/searchservice/search-documents), men stöder syntax för både [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig Lucene-frågeparser](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), samt alla tillgängliga sökparametrar i åtgärder med [REST-API:et för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+**Sökutforskaren** kan endast hantera [REST-API-förfrågningar](/rest/api/searchservice/search-documents), men stöder syntax för både [enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) och [fullständig Lucene-frågeparser](/rest/api/searchservice/lucene-query-syntax-in-azure-search), samt alla tillgängliga sökparametrar i åtgärder med [REST-API:et för dokumentsökning](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > Följande steg visas på 6m08s i [Azure kognitiv sökning översikts video](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -150,7 +150,7 @@ Nu bör du ha ett sökindex som du kan börja köra frågor mot med hjälp av de
 
    ![Kommandot Sökutforskaren](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. I list rutan **index** väljer du *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2020-06-30) för frågorna nedan.
+2. I list rutan **index** väljer du  *hotell-Sample-index*. Klicka på list rutan **API-version** för att se vilka REST-API: er som är tillgängliga. Använd den allmänt tillgängliga versionen (2020-06-30) för frågorna nedan.
 
    ![Index- och API-kommandon](media/search-get-started-portal/search-explorer-changeindex.png)
 
@@ -188,7 +188,7 @@ Filter tas med i sökbegäranden när du lägger till parametern **$filter**.
 
 * Parametern **$filter** returnerar resultat som matchar de kriterier som du har angett. I det här fallet är klassificeringarna större än 4.
 
-* Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* Syntaxen för filtret är en OData-konstruktion. Mer information finns i [OData-filtersyntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Fasettera frågan
 
@@ -207,7 +207,7 @@ Fasettfilter tas med i sökbegäranden. Du kan använda parametern facet för at
 
 * Endast filtrerbara fält kan fasetteras. Endast hämtningsbara fält kan returneras i resultatet.
 
-* Fältet *gradering* är en flyttal med dubbel precision och grupperingen kommer att vara med exakt värde. Mer information om gruppering efter intervall (till exempel "3 stjärn klassificeringar," "4 stjärnor" osv.) finns i [så här implementerar du fasett-navigering i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Fältet *gradering* är en flyttal med dubbel precision och grupperingen kommer att vara med exakt värde. Mer information om gruppering efter intervall (till exempel "3 stjärn klassificeringar," "4 stjärnor" osv.) finns i [så här implementerar du fasett-navigering i Azure kognitiv sökning](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Markera sökresultat
@@ -240,11 +240,11 @@ När **queryType** inte är angivet används den enklare standardfrågeparsern. 
 
 Fuzzy-sökning och sökning med jokertecken påverkar sökresultatet. Språkliga analyser utförs inte med dessa frågeformat. Innan du använder Fuzzy-och jokertecken kan du läsa [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md#stage-2-lexical-analysis) och leta efter avsnittet om undantag från lexikal analys.
 
-Mer information om de scenarier som har Aktiver ATS med fullständig fråga i parsern finns [i Lucene-frågesyntax i Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Mer information om de scenarier som har Aktiver ATS med fullständig fråga i parsern finns [i Lucene-frågesyntax i Azure kognitiv sökning](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Prova geospatial sökning
 
- Geospatial sökning stöds av [datatypen edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+ Geospatial sökning stöds av [datatypen edm.GeographyPoint](/rest/api/searchservice/supported-data-types) i fält som innehåller koordinater. Geosearch är en filtertyp som finns med i [OData-filtersyntaxen](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Exempel (geo-koordinatfilter): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +256,7 @@ Geospatial sökning kan vara användbart om sökprogrammet har en funktion av ty
 
 I den här självstudien får du en snabb introduktion till Azure Kognitiv sökning med hjälp av Azure Portal.
 
-Du lärde dig hur du skapar ett sökindex med hjälp av guiden **Importera data**. Du lärde dig om [indexerare](search-indexer-overview.md), som är den drivande kraften bakom guiden, samt om det grundläggande arbetsflödet vid indexgenerering, inklusive vilka [ändringar du kan göra i ett publicerat index](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Du lärde dig hur du skapar ett sökindex med hjälp av guiden **Importera data**. Du lärde dig om [indexerare](search-indexer-overview.md), som är den drivande kraften bakom guiden, samt om det grundläggande arbetsflödet vid indexgenerering, inklusive vilka [ändringar du kan göra i ett publicerat index](/rest/api/searchservice/update-index).
 
 Med hjälp av **Sökutforskaren** i Azure-portalen lärde du dig grundläggande frågesyntax genom praktiska exempel som demonstrerade viktiga funktioner som filter, markering av träffar, fuzzy-sökning och geo-sökning.
 
@@ -264,7 +264,7 @@ Du har också läst hur du hittar index, indexerare och datakällor i portalen. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -280,4 +280,4 @@ Använd en portal guide för att skapa en färdig webb program som körs i en we
 Vill du optimera och Spara på dina moln utgifter?
 
 > [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Börja analysera kostnaderna med Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

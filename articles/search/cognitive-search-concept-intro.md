@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319056"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935508"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>AI-anrikning i Azure Kognitiv sökning
 
@@ -29,7 +29,7 @@ Inbyggda kunskaper ingår i följande kategorier:
 
 ![Pipeline-diagram för anrikning](./media/cognitive-search-intro/cogsearch-architecture.png "Översikt över anriknings pipeline")
 
-Inbyggda kunskaper i Azure Kognitiv sökning baseras på förtränade maskin inlärnings modeller i API:er för Cognitive Services: [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) och [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Du kan koppla en Cognitive Services-resurs om du vill utnyttja dessa resurser under innehålls bearbetning.
+Inbyggda kunskaper i Azure Kognitiv sökning baseras på förtränade maskin inlärnings modeller i API:er för Cognitive Services: [visuellt innehåll](../cognitive-services/computer-vision/index.yml) och [textanalys](../cognitive-services/text-analytics/overview.md). Du kan koppla en Cognitive Services-resurs om du vill utnyttja dessa resurser under innehålls bearbetning.
 
 Naturligt språk och bild bearbetning används under fasen för data inmatning, med resultat som blir en del av ett dokuments sammansättning i ett sökbart index i Azure Kognitiv sökning. Data visas som en Azure-datauppsättning och flyttas sedan till en indexerings pipeline med hjälp av de [inbyggda kunskaper](cognitive-search-predefined-skills.md) du behöver.  
 
@@ -57,9 +57,9 @@ En [färdigheter](cognitive-search-defining-skillset.md) som samlas in med inbyg
 
 ### <a name="more-about-custom-skills"></a>Mer om anpassade kunskaper
 
-Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](/azure/cognitive-services/form-recognizer/overview), integrering av [API för entitetsökning i Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Anpassade kunskaper kan stödja mer komplexa scenarier, till exempel igenkänning av formulär eller anpassad identifiering av entiteter med hjälp av en modell som du anger och omsluter i det [anpassade webb gränssnittet för kompetens](cognitive-search-custom-skill-interface.md). Flera exempel på anpassade kunskaper är [formulär igenkänning](../cognitive-services/form-recognizer/overview.md), integrering av [API för entitetsökning i Bing](./cognitive-search-create-custom-skill-example.md)och [anpassad enhets igenkänning](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-## <a name="steps-in-an-enrichment-pipeline"></a>Steg i en pipeline för berikning<a name="enrichment-steps"></a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Steg i en pipeline för berikning <a name="enrichment-steps"></a>
 
 En pipeline för anrikning baseras på [*indexerare*](search-indexer-overview.md). Indexerare fyller ett index baserat på fält-till-fält-mappningar mellan indexet och data källan för dokument sprickor. Färdigheter, som nu är kopplade till indexerare, utsnappa och utöka dokument enligt de färdigheter som du definierar. När du har indexerat kan du komma åt innehåll via Sök begär Anden via alla [frågetyper som stöds av Azure kognitiv sökning](search-query-overview.md).  Om du inte har använt indexerare i det här avsnittet vägleder vi dig genom stegen.
 
@@ -83,7 +83,7 @@ Internt genererar pipelinen en samling av förrikade dokument. Du kan bestämma 
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Lägg till ett knowledgeStore-element för att spara dina berikare
 
-[Search REST API-version = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) utökar färdighetsuppsättningar med en `knowledgeStore` definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store](knowledge-store-concept-intro.md).
+[Search REST API-version = 2020-06-30](/rest/api/searchservice/) utökar färdighetsuppsättningar med en `knowledgeStore` definition som tillhandahåller en Azure Storage-anslutning och projektioner som beskriver hur de är lagrade. Detta är förutom ditt index. I en standard-AI-pipeline är berikade dokument övergående, som endast används vid indexering och sedan ignoreras. Med kunskaps lager bevaras de dokument som är omfattande. Mer information finns i [Knowledge Store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Steg 3: Sök efter index och fråge baserad åtkomst
 
@@ -99,13 +99,13 @@ Index genereras från ett index schema som definierar fält, attribut och andra 
 
 1. Delmängd dina Azure-källdata i ett representativt exempel. Indexeringen tar tid så att den börjar med en liten, representativ data uppsättning och sedan skapar den stegvis i takt med att din lösning är vuxen.
 
-1. Skapa ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure kognitiv sökning för att tillhandahålla en anslutnings sträng för data hämtning.
+1. Skapa ett [data käll objekt](/rest/api/searchservice/create-data-source) i Azure kognitiv sökning för att tillhandahålla en anslutnings sträng för data hämtning.
 
-1. Skapa en [färdigheter](https://docs.microsoft.com/rest/api/searchservice/create-skillset) med hjälp av anriknings steg.
+1. Skapa en [färdigheter](/rest/api/searchservice/create-skillset) med hjälp av anriknings steg.
 
-1. Definiera [index schemat](https://docs.microsoft.com/rest/api/searchservice/create-index). *Fält* samlingen innehåller fält från källdata. Du bör också utvärderar ytterligare fält för att innehålla genererade värden för innehåll som skapas under anrikning.
+1. Definiera [index schemat](/rest/api/searchservice/create-index). *Fält* samlingen innehåller fält från källdata. Du bör också utvärderar ytterligare fält för att innehålla genererade värden för innehåll som skapas under anrikning.
 
-1. Definiera [indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer) som refererar till data källan, färdigheter och indexet.
+1. Definiera [indexeraren](/rest/api/searchservice/create-indexer) som refererar till data källan, färdigheter och indexet.
 
 1. I indexeraren lägger du till *outputFieldMappings*. Det här avsnittet mappar utdata från färdigheter (i steg 3) till indata-fälten i index schemat (i steg 4).
 

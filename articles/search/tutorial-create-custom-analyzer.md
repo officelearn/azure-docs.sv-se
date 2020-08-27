@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 667ee4b362d62cd4b7bd1b6c5a8ecf762adb0730
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021893"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936630"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Självstudie: skapa en anpassad analys för telefonnummer
 
@@ -21,7 +21,7 @@ ms.locfileid: "87021893"
 
 I vissa fall, t. ex. med ett fritext fält, behöver du bara välja rätt [språk analys](index-add-language-analyzers.md) för att förbättra Sök resultaten. Vissa scenarier, till exempel korrekt sökning av telefonnummer, URL: er eller e-postmeddelanden kan kräva att anpassade analys verktyg används.
 
-Den här självstudien använder [REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för Postman och Azure kognitiv sökning för att:
+Den här självstudien använder [REST-API: er](/rest/api/searchservice/) för Postman och Azure kognitiv sökning för att:
 
 > [!div class="checklist"]
 > * Förklara hur analyserare fungerar
@@ -201,7 +201,7 @@ Den här frågan returnerar **tre av fyra förväntade resultat** , men returner
 }
 ```
 
-Nu ska vi söka efter ett tal utan formatering`4255550100`
+Nu ska vi söka efter ett tal utan formatering `4255550100`
 
 ```http
 GET https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/tutorial-basic-index/docs?api-version=2019-05-06&search=4255550100
@@ -225,7 +225,7 @@ Om du hittar dessa resultat förvirrande är du inte ensam. I nästa avsnitt få
 
 ## <a name="4---debug-search-results"></a>4 – Felsök Sök Resultat
 
-För att förstå dessa Sök resultat är det viktigt att du först förstår hur analys programmet fungerar. Därifrån kan vi testa standard analys verktyget med [analysera text-API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) och sedan skapa en analys som uppfyller våra behov.
+För att förstå dessa Sök resultat är det viktigt att du först förstår hur analys programmet fungerar. Därifrån kan vi testa standard analys verktyget med [analysera text-API](/rest/api/searchservice/test-analyzer) och sedan skapa en analys som uppfyller våra behov.
 
 ### <a name="how-analyzers-work"></a>Så här fungerar analys verktyg
 
@@ -260,7 +260,7 @@ Om villkoren i frågan inte matchar villkoren i det inverterade indexet returner
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Test analys med hjälp av API för analys av text
 
-Azure Kognitiv sökning innehåller ett [analys text-API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) som gör att du kan testa analyser för att förstå hur de bearbetar text.
+Azure Kognitiv sökning innehåller ett [analys text-API](/rest/api/searchservice/test-analyzer) som gör att du kan testa analyser för att förstå hur de bearbetar text.
 
 API för analys av text anropas med följande begäran:
 
@@ -404,7 +404,7 @@ Vi behöver inte använda något av dessa filter för det här scenariot, vi anv
 
 [Filtret för nGram_v2 token](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/NGramTokenFilter.html) delar upp tokens i n-gram av en särskild storlek baserat på `minGram` parametrarna och `maxGram` .
 
-För telefon analys är vi inställt `minGram` på `3` eftersom det är den kortaste under sträng som användarna förväntar sig att söka. `maxGram`är inställt på `20` att se till att alla telefonnummer, även med tillägg, får plats i en enda n-gram.
+För telefon analys är vi inställt `minGram` på `3` eftersom det är den kortaste under sträng som användarna förväntar sig att söka. `maxGram` är inställt på `20` att se till att alla telefonnummer, även med tillägg, får plats i en enda n-gram.
 
  Den olycklig sido effekt på n-gram är att vissa falska positiva identifieringar returneras. Vi åtgärdar detta i steg 7 genom att skapa en separat analys för sökningar som inte inkluderar token-filtret i n g.
 

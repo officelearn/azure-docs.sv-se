@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 5d21508a794683096009f53314bebca4e4f2ac98
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565303"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924375"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -23,7 +23,7 @@ En pipeline accepterar ostrukturerad text-och bild innehåll, använder AI som d
 
 I den här snabb starten ska du kombinera tjänster och data i Azure-molnet för att skapa ett kunskaps lager. När allt är på plats kör du guiden **Importera data** i portalen för att hämta den tillsammans. Slut resultatet är original text innehåll och AI-genererat innehåll som du kan visa i portalen ([Storage Explorer](knowledge-store-view-storage-explorer.md)).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du ha följande:
 
@@ -31,7 +31,7 @@ Innan du börjar måste du ha följande:
 
 + En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
-+ Ett Azure Storage konto med [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/).
++ Ett Azure Storage konto med [Blob Storage](../storage/blobs/index.yml).
 
 > [!NOTE]
 > I den här snabb starten används även [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. Eftersom arbets belastningen är så liten, överCognitive Servicess i bakgrunden för kostnads fri bearbetning för upp till 20 transaktioner. Det innebär att du kan slutföra den här övningen utan att behöva skapa ytterligare Cognitive Services-resurser.
@@ -42,7 +42,7 @@ I följande steg konfigurerar du en BLOB-behållare i Azure Storage att lagra he
 
 1. [Ladda ned HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Dessa data är hotell gransknings data som sparats i en CSV-fil (härstammar från Kaggle.com) och innehåller 19 stycken kundfeedback om ett enda hotell. 
 
-1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
 
    + Välj konto typen **StorageV2 (General Purpose v2)** .
 
@@ -56,13 +56,13 @@ I följande steg konfigurerar du en BLOB-behållare i Azure Storage att lagra he
 
     ![Skapa Azure Blob-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa Azure Blob-behållaren")
 
-1. Innan du avslutar Blob Storage-sidorna använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Innan du avslutar Blob Storage-sidorna använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 Nu kan du gå vidare till guiden **Importera data** .
 
 ## <a name="run-the-import-data-wizard"></a>Kör guiden Importera data
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 1. [Hitta Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att skapa ett kunskaps lager i fyra steg på sidan Översikt.
 
@@ -101,7 +101,7 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
 1. Välj **sidor (5000-segment)** för **detaljerad granularitet nivå**
 
 1. Välj dessa kognitiva kunskaper:
-    + **Extrahera nyckelfraser**
+    + **Extrahering av diskussionsämne**
     + **Översätt text**
     + **Identifiera sentiment**
 

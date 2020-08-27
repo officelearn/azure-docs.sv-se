@@ -9,31 +9,31 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: b74deaecd1a71fec14e31f0a6aca2fed34361d76
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b95880c8cdda67f895615f9a3ba8daf3ab5e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506013"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935898"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i PowerShell med REST API: er
 > [!div class="op_single_selector"]
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)]()
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor mot ett Azure Kognitiv sökning-index med PowerShell och [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
+Den här artikeln vägleder dig genom processen att skapa, läsa in och skicka frågor mot ett Azure Kognitiv sökning-index med PowerShell och [Azure KOGNITIV sökning REST-API: er](/rest/api/searchservice/). Den här artikeln förklarar hur du kör PowerShell-kommandon interaktivt. Du kan också [Hämta och köra ett PowerShell-skript](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) som utför samma åtgärder.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här snabb starten. 
 
-+ [PowerShell 5,1 eller senare](https://github.com/PowerShell/PowerShell), med [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) för sekventiella och interaktiva steg.
++ [PowerShell 5,1 eller senare](https://github.com/PowerShell/PowerShell), med [Invoke-RestMethod](/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) för sekventiella och interaktiva steg.
 
 + [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
@@ -85,7 +85,7 @@ Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din 
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. Det här steget definierar indexet och pushar det till tjänsten. [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för det här steget.
+Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. Det här steget definierar indexet och pushar det till tjänsten. [Create Index REST API](/rest/api/searchservice/create-index) används för det här steget.
 
 Obligatoriska element i ett index innehåller ett namn och en fält samling. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur det används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen anges `Edm.String` som *nyckel* för dokument identitet.
 
@@ -179,7 +179,7 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
 
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API för den här aktiviteten är [Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API för den här aktiviteten är [Lägg till, uppdatera eller ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents).
 
 1. Klistra in det här exemplet i PowerShell för att skapa ett **$Body** -objekt som innehåller de dokument som du vill ladda upp. 
 
@@ -281,7 +281,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
     ```powershell
     Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body | ConvertTo-Json
     ```
-    Resultatet bör se ut som i följande exempel. Du bör se [status koden 201](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+    Resultatet bör se ut som i följande exempel. Du bör se [status koden 201](/rest/api/searchservice/HTTP-status-codes).
 
     ```
     {
@@ -317,7 +317,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Det här steget visar hur du frågar ett index med hjälp av [API: et search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Det här steget visar hur du frågar ett index med hjälp av [API: et search Documents](/rest/api/searchservice/search-documents).
 
 Se till att använda enkla citat tecken vid sökning $urls. Frågesträngar innehåller **$** tecken och du kan utelämna dem om hela strängen omges av enkla citat tecken.
 
@@ -393,7 +393,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 ```
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

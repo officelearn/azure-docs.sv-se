@@ -2,15 +2,16 @@
 title: Azure Application Insights-beroende automatisk insamling | Microsoft Docs
 description: Application Insights automatiskt samla in och visualisera beroenden
 ms.topic: reference
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324190"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936443"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -24,7 +25,7 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | ASP.NET MVC | 4 + |
 | ASP.NET WebAPI | 4,5 + |
 | ASP.NET Core | 1.1 + |
-| <b>Kommunikations bibliotek</b> |
+| <b> Kommunikations bibliotek</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4,5 +, .NET core 1.1 + |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET core 1.0 +, NuGet 4.3.0 |
 | [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 – senaste stabila versionen. (Se kommentaren nedan.)
@@ -43,8 +44,8 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | [Tomcat](https://tomcat.apache.org/) | 7, 8 | 
 | [JBoss-EAP](https://developers.redhat.com/products/eap/download/) | 6, 7 |
 | [Jetty](https://www.eclipse.org/jetty/) | 9 |
-| <b>App-ramverk</b> |  |
-| [Spring](https://spring.io/) | 3.0 |
+| <b>App-ramverk </b> |  |
+| [Spring](https://spring.io/) | 3,0 |
 | [Spring Boot](https://spring.io/projects/spring-boot) | 1.5.9 +<sup>*</sup> |
 | Java-servlet | 3.1 + |
 | <b>Kommunikations bibliotek</b> |  |

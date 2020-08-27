@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf7ae504e57d0b7947f4ff7dc48d50b2e0141eea
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529752"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936647"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Övervaka status och resultat för Azure Kognitiv sökning Indexer
 
@@ -80,7 +80,7 @@ Mer information om hur du undersöker index fel och varningar finns i [Felsöka 
 
 ## <a name="monitor-using-rest-apis"></a>Övervaka med hjälp av REST API: er
 
-Du kan hämta status och körnings historik för en indexerare med hjälp av [status kommandot Get indexerare](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+Du kan hämta status och körnings historik för en indexerare med hjälp av [status kommandot Get indexerare](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -125,7 +125,7 @@ Varje körning av indexeraren har också sin egen status som anger om den specif
 
 När en indexerare återställs för att uppdatera status för ändrings spårning läggs en separat post för körnings historik till med en **återställnings** status.
 
-Mer information om status koder och övervaknings data för indexerare finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Mer information om status koder och övervaknings data för indexerare finns i [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -184,8 +184,8 @@ Varje körning av indexeraren har också sin egen status för huruvida den speci
 
 När en indexerare återställs för att uppdatera ändrings spårnings statusen läggs en separat historik post till med en **återställnings** status.
 
-Mer information om status koder och information om övervakning av indexerare finns i [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) i REST API.
+Mer information om status koder och information om övervakning av indexerare finns i [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) i REST API.
 
 Information om användarspecifika fel eller varningar kan hämtas genom att räkna upp listor `IndexerExecutionResult.Errors` och `IndexerExecutionResult.Warnings` .
 
-Mer information om de .NET SDK-klasser som används för att övervaka indexerare finns i [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) och [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Mer information om de .NET SDK-klasser som används för att övervaka indexerare finns i [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) och [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

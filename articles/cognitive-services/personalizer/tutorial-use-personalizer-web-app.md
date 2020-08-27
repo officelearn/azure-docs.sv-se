@@ -3,12 +3,13 @@ title: Använda Web App-personanpassar
 description: Anpassa en C# .NET-webbapp med en personanpassa-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e9ce4c433a038008b1ffd75dc6c4b2f9d0b57fde
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446362"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935627"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Självstudie: Lägg till en Personanpassare till en .NET-webbapp
 
@@ -152,7 +153,7 @@ private string GetUsersTastePreference()
 ## <a name="how-does-the-web-app-use-personalizer"></a>Hur använder webbappen personanpassar?
 
 Webbappen använder sig av Personanpassare för att välja den bästa åtgärden i listan med alternativ för livsmedel. Detta görs genom att skicka följande information med varje rang-API-anrop:
-* **åtgärder** med deras funktioner, till exempel `taste` och`spiceLevel`
+* **åtgärder** med deras funktioner, till exempel `taste` och `spiceLevel`
 * **kontext** funktioner som `time` dag, användarens `taste` preferens och webbläsarens användar agent information och kontext funktioner
 * **åtgärder för att undanta** till exempel juice
 * **eventId**, som skiljer sig för varje anrop till Range-API.
@@ -248,7 +249,7 @@ Installera följande programvara:
 Skapa och kör HttpRequestFeaturesExample med någon av följande metoder:
 
 * Visual Studio 2019: Tryck på **F5**
-* .NET Core CLI: `dotnet build` sedan`dotnet run`
+* .NET Core CLI: `dotnet build` sedan `dotnet run`
 
 Via en webbläsare kan du skicka en rang-begäran och en belönings förfrågan och se deras svar, samt de funktioner för HTTP-begäranden som har extraherats från din miljö.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260992"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935780"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell terms ökning och mönster med specialtecken (jokertecken, regex, mönster)
 
@@ -51,7 +51,7 @@ När du behöver söka efter fragment eller mönster eller specialtecken kan du 
 + Bygg och testa indexet
 
 > [!TIP]
-> Utvärderings versioner är en iterativ process som kräver upprepade index återuppbyggnadar. Du kan göra det här steget enklare genom att använda Postman, REST-API: er för [create index](https://docs.microsoft.com/rest/api/searchservice/create-index), [ta bort index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[läsa in dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)och [söka dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). För Läs dokument bör begär ande texten innehålla en liten representativ data uppsättning som du vill testa (till exempel ett fält med telefonnummer eller produkt koder). Med dessa API: er i samma Postman-samling kan du snabbt gå igenom de här stegen.
+> Utvärderings versioner är en iterativ process som kräver upprepade index återuppbyggnadar. Du kan göra det här steget enklare genom att använda Postman, REST-API: er för [create index](/rest/api/searchservice/create-index), [ta bort index](/rest/api/searchservice/delete-index),[läsa in dokument](/rest/api/searchservice/addupdate-or-delete-documents)och [söka dokument](/rest/api/searchservice/search-documents). För Läs dokument bör begär ande texten innehålla en liten representativ data uppsättning som du vill testa (till exempel ett fält med telefonnummer eller produkt koder). Med dessa API: er i samma Postman-samling kan du snabbt gå igenom de här stegen.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Duplicera fält för olika scenarier
 
@@ -85,7 +85,7 @@ När du väljer en analys som producerar token för en hel period är följande 
 | [blank steg](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separerar bara på blank steg. Termer som innehåller bindestreck eller andra tecken behandlas som en enda token. |
 | [anpassad analys](index-add-custom-analyzers.md) | rekommenderas Genom att skapa en anpassad analys kan du ange både tokenizer och token-filtret. Föregående analyser måste användas som de är. Med en anpassad analys kan du välja vilka tokenizers och token filter som ska användas. <br><br>En rekommenderad kombination är [nyckelordet tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) med ett [lägsta token-filter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Den fördefinierade [nyckelords analysen](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) innehåller i själva fall inte gemener och versaler, vilket kan orsaka att frågor Miss söker. Med en anpassad analys får du en mekanism för att lägga till det nedre token-filtret. |
 
-Om du använder ett webb-API-testverktyg som Postman kan du lägga till [test analys rest-anropet](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) för att inspektera token-utdata.
+Om du använder ett webb-API-testverktyg som Postman kan du lägga till [test analys rest-anropet](/rest/api/searchservice/test-analyzer) för att inspektera token-utdata.
 
 Du måste ha ett ifyllt index för att arbeta med. Om du har ett befintligt index och ett fält som innehåller bindestreck eller delar av termer kan du prova olika analys verktyg över vissa villkor för att se vilka tokens som genereras.  
 
@@ -160,7 +160,7 @@ Oavsett om du utvärderar analyser eller om du flyttar framåt med en speciell k
 
 Inbyggda eller fördefinierade analyser kan anges efter namn på en `analyzer` egenskap i en fält definition, utan ytterligare konfiguration som krävs i indexet. Följande exempel visar hur du ställer in analys funktionen `whitespace` för ett fält. 
 
-För andra scenarier och mer information om andra inbyggda analyser, se [fördefinierade analys listor](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
+För andra scenarier och mer information om andra inbyggda analyser, se [fördefinierade analys listor](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference). 
 
 ```json
     {
@@ -222,19 +222,19 @@ När du har definierat ett index med analys verktyg och fält definitioner som s
 
 I föregående avsnitt förklaras logiken. I det här avsnittet beskrivs varje API som du bör anropa när du testar din lösning. Om du använder ett interaktivt webb test verktyg, till exempel Postman, som tidigare antecknas, kan du snabbt gå igenom dessa uppgifter.
 
-+ [Ta bort index](https://docs.microsoft.com/rest/api/searchservice/delete-index) tar bort ett befintligt index med samma namn så att du kan återskapa det.
++ [Ta bort index](/rest/api/searchservice/delete-index) tar bort ett befintligt index med samma namn så att du kan återskapa det.
 
-+ [Skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) skapar index strukturen för Sök tjänsten, inklusive analys definitioner och fält med en analys specifikation.
++ [Skapa index](/rest/api/searchservice/create-index) skapar index strukturen för Sök tjänsten, inklusive analys definitioner och fält med en analys specifikation.
 
-+ [Läs in dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importerar dokument med samma struktur som ditt index, samt sökbart innehåll. Efter det här steget är indexet redo att fråga eller testa.
++ [Läs in dokument](/rest/api/searchservice/addupdate-or-delete-documents) importerar dokument med samma struktur som ditt index, samt sökbart innehåll. Efter det här steget är indexet redo att fråga eller testa.
 
-+ [Test analys](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) introducerades i [Välj en analys](#choose-an-analyzer). Testa några av strängarna i ditt index med hjälp av en rad olika analys verktyg för att förstå hur termerna är tokens.
++ [Test analys](/rest/api/searchservice/test-analyzer) introducerades i [Välj en analys](#choose-an-analyzer). Testa några av strängarna i ditt index med hjälp av en rad olika analys verktyg för att förstå hur termerna är tokens.
 
-+ [Sök i dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents) förklarar hur du skapar en fråga med hjälp av antingen [enkel syntax](query-simple-syntax.md) eller [fullständig Lucene-syntax](query-lucene-syntax.md) för jokertecken och reguljära uttryck.
++ [Sök i dokument](/rest/api/searchservice/search-documents) förklarar hur du skapar en fråga med hjälp av antingen [enkel syntax](query-simple-syntax.md) eller [fullständig Lucene-syntax](query-lucene-syntax.md) för jokertecken och reguljära uttryck.
 
   För partiella term frågor, till exempel frågan "3-6214" för att hitta en matchning på "+ 1 (425) 703-6214", kan du använda den enkla syntaxen: `search=3-6214&queryType=simple` .
 
-  För infix-och suffix-frågor, till exempel fråga "NUM" eller "numeric för att hitta en matchning på" alfanumerisk ", använder du fullständig Lucene-syntax och ett reguljärt uttryck:`search=/.*num.*/&queryType=full`
+  För infix-och suffix-frågor, till exempel fråga "NUM" eller "numeric för att hitta en matchning på" alfanumerisk ", använder du fullständig Lucene-syntax och ett reguljärt uttryck: `search=/.*num.*/&queryType=full`
 
 ## <a name="tune-query-performance"></a>Justera prestanda för frågor
 
@@ -287,5 +287,5 @@ Den här artikeln förklarar hur analyserare båda bidrar till att fråga efter 
 
 + [Språkanalysverktyg](search-language-support.md)
 + [Analys verktyg för text bearbetning i Azure Kognitiv sökning](search-analyzers.md)
-+ [Analysera text-API (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Analysera text-API (REST)](/rest/api/searchservice/test-analyzer)
 + [Så här fungerar full texts ökning (fråga arkitektur)](search-lucene-query-architecture.md)

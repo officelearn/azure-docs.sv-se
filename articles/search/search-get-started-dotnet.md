@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/05/2020
-ms.openlocfilehash: a2a860a2ff96c74f9d19fe7abfd845bbae8023cd
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4569137bc80fc2a9af26d58bb2ba3863325a3368
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922276"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936698"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>Snabb start: skapa ett sökindex med hjälp av klient biblioteket för Azure.Search.Documents
 
-Använd det nya [klient biblioteket förAzure.Search.Documents (version 11)](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) för att skapa ett .net Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett sökindex.
+Använd det nya [ klient biblioteket förAzure.Search.Documents (version 11)](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) för att skapa ett .net Core-konsolprogram i C# som skapar, läser in och skickar frågor till ett sökindex.
 
 [Ladda ned käll koden](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v11) för att börja med ett färdigt projekt eller följ stegen i den här artikeln för att skapa en egen.
 
@@ -77,7 +77,7 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
    using Azure.Search.Documents.Models;
    ```
 
-1. Skapa två klienter: [SearchIndexClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient) skapar indexet och [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) fungerar med ett befintligt index. Båda behöver tjänstens slut punkt och en administrations-API-nyckel för autentisering med behörigheterna Skapa/ta bort.
+1. Skapa två klienter: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) skapar indexet och [SearchClient](/dotnet/api/azure.search.documents.searchclient) fungerar med ett befintligt index. Båda behöver tjänstens slut punkt och en administrations-API-nyckel för autentisering med behörigheterna Skapa/ta bort.
 
    ```csharp
    static void Main(string[] args)
@@ -99,7 +99,7 @@ När projektet har skapats lägger du till klient biblioteket. [Azure.Search.Doc
 
 Den här snabb starten skapar ett hotell index som du läser in med hotell data och kör frågor på. I det här steget definierar du fälten i indexet. Varje fält definition innehåller ett namn, data typ och attribut som avgör hur fältet används.
 
-I det här exemplet används synkrona metoder för Azure.Search.Documents-biblioteket för enkelhet och läsbarhet. I produktions scenarier bör du dock använda asynkrona metoder för att hålla din app skalbar och svarar. Du kan till exempel använda [CreateIndexAsync](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) i stället för [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex).
+I det här exemplet används synkrona metoder för Azure.Search.Documents-biblioteket för enkelhet och läsbarhet. I produktions scenarier bör du dock använda asynkrona metoder för att hålla din app skalbar och svarar. Du kan till exempel använda [CreateIndexAsync](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindexasync) i stället för [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex).
 
 1. Lägg till en tom klass definition i projektet: **Hotel.cs**
 
@@ -131,7 +131,7 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
     }
     ```
 
-1. I **program.cs**anger du fälten och attributen. [SearchIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindex) och [CreateIndex](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) används för att skapa ett index.
+1. I **program.cs**anger du fälten och attributen. [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) och [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) används för att skapa ett index.
 
    ```csharp
     // Define an index schema using SearchIndex
@@ -154,9 +154,9 @@ I det här exemplet används synkrona metoder för Azure.Search.Documents-biblio
 
 Attributen i fältet avgör hur det används i ett program. Till exempel `IsFilterable` måste attributet tilldelas till alla fält som har stöd för ett filter uttryck.
 
-Till skillnad från tidigare versioner av .NET SDK som kräver [IsSearchable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.issearchable) i sökbara sträng fält kan du använda [SearchableField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchablefield) och [SimpleField](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.simplefield) för att förenkla fält definitionerna.
+Till skillnad från tidigare versioner av .NET SDK som kräver [IsSearchable](/dotnet/api/microsoft.azure.search.models.field.issearchable) i sökbara sträng fält kan du använda [SearchableField](/dotnet/api/azure.search.documents.indexes.models.searchablefield) och [SimpleField](/dotnet/api/azure.search.documents.indexes.models.simplefield) för att förenkla fält definitionerna.
 
-I likhet med tidigare versioner krävs andra attribut fortfarande i själva definitionen. Till exempel måste [IsFilterable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)och [IsFacetable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) uttryckligen vara attribut som visas i exemplet ovan. 
+I likhet med tidigare versioner krävs andra attribut fortfarande i själva definitionen. Till exempel måste [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable), [IsSortable](/dotnet/api/azure.search.documents.indexes.models.searchfield.issortable)och [IsFacetable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfacetable) uttryckligen vara attribut som visas i exemplet ovan. 
 
 <a name="load-documents"></a>
 
@@ -166,7 +166,7 @@ Azure Kognitiv sökning söker efter innehåll som lagras i tjänsten. I det hä
 
 I Azure Kognitiv sökning är dokument data strukturer som båda är indata för indexering och utdata från frågor. Som hämtas från en extern data källa kan dokument indata vara rader i en databas, blobbar i blob-lagring eller JSON-dokument på disk. I det här exemplet ska vi ta en genväg och bädda in JSON-dokument för fem hotell i själva koden. 
 
-När du överför dokument måste du använda ett [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objekt. En IndexDocumentsBatch innehåller en samling [åtgärder](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
+När du överför dokument måste du använda ett [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objekt. En IndexDocumentsBatch innehåller en samling [åtgärder](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1.actions)som innehåller ett dokument och en egenskap som talar om för Azure kognitiv sökning vilken åtgärd som ska utföras ([Ladda upp, sammanfoga, ta bort och mergeOrUpload](search-what-is-data-import.md#indexing-actions)).
 
 1. I **program.cs**skapar du en matris med dokument-och index åtgärder och skickar sedan matrisen till `ndexDocumentsBatch` dokumenten nedan och följer sedan den hotell-snabb start-V11-index som definieras av hotell klassen.
 
@@ -185,7 +185,7 @@ När du överför dokument måste du använda ett [IndexDocumentsBatch](https://
     qryclient.IndexDocuments(batch, idxoptions);
     ```
 
-    När du har initierat [IndexDocumentsBatch](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objektet kan du skicka det till indexet genom att anropa [IndexDocuments](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.indexdocuments) på [SearchClient](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient) -objektet.
+    När du har initierat [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch-1) -objektet kan du skicka det till indexet genom att anropa [IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments) på [SearchClient](/dotnet/api/azure.search.documents.searchclient) -objektet.
 
 1. Eftersom det här är en konsol app som kör alla kommandon i tur och ordning, lägger du till en vänte tid på 2 sekunder mellan indexering och frågor.
 
@@ -201,9 +201,9 @@ När du överför dokument måste du använda ett [IndexDocumentsBatch](https://
 
 Du kan få frågeresultat så snart det första dokumentet har indexerats, men den faktiska testningen av indexet ska vänta tills alla dokument har indexerats.
 
-I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och resultat. Använd [Sök](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) metoden för frågor. Den här metoden tar Sök text (frågesträngen) och andra [alternativ](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions).
+I det här avsnittet läggs två delar av funktionalitet: fråga efter logik och resultat. Använd [Sök](/dotnet/api/azure.search.documents.searchclient.search) metoden för frågor. Den här metoden tar Sök text (frågesträngen) och andra [alternativ](/dotnet/api/azure.search.documents.searchoptions).
 
-[SearchResults](https://docs.microsoft.com/dotnet/api/azure.search.documents.models.searchresults-1) -klassen representerar resultatet.
+[SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) -klassen representerar resultatet.
 
 1. I **program.cs**skapar du en WriteDocuments-metod som skriver ut Sök resultat till-konsolen.
 
@@ -267,17 +267,17 @@ I det här exemplet visas två [olika sätt att matcha termer i en fråga](searc
 
 + Full texts öknings frågor för en eller flera termer i sökbara fält i ditt index. Den första frågan är full texts ökning. Full texts ökning ger relevans-Poäng som används för att rangordna resultaten.
 
-+ Filter är ett booleskt uttryck som utvärderas över [IsFilterable](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fält i ett index. Filtrera frågor, antingen inkludera eller exkludera värden. Därför finns det inga relevans-Poäng för en filter fråga. De två sista frågorna demonstrerar filter sökningen.
++ Filter är ett booleskt uttryck som utvärderas över [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fält i ett index. Filtrera frågor, antingen inkludera eller exkludera värden. Därför finns det inga relevans-Poäng för en filter fråga. De två sista frågorna demonstrerar filter sökningen.
 
 Du kan använda full texts ökning och filter tillsammans eller separat.
 
-Både sökningar och filter utförs med metoden [SearchClient. search](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) . En Sök fråga kan skickas i `searchText` strängen, medan ett filter uttryck kan skickas i egenskapen [filter](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions.filter) i klassen [SearchOptions](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchoptions) . Om du vill filtrera utan att söka behöver du bara skicka `"*"` för `searchText` parametern för [Sök](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchclient.search) metoden. Om du vill söka utan filtrering lämnar du `Filter` egenskapen unset eller skickar den inte i en `SearchOptions` instans alls.
+Både sökningar och filter utförs med metoden [SearchClient. search](/dotnet/api/azure.search.documents.searchclient.search) . En Sök fråga kan skickas i `searchText` strängen, medan ett filter uttryck kan skickas i egenskapen [filter](/dotnet/api/azure.search.documents.searchoptions.filter) i klassen [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) . Om du vill filtrera utan att söka behöver du bara skicka `"*"` för `searchText` parametern för [Sök](/dotnet/api/azure.search.documents.searchclient.search) metoden. Om du vill söka utan filtrering lämnar du `Filter` egenskapen unset eller skickar den inte i en `SearchOptions` instans alls.
 
 ## <a name="run-the-program"></a>Köra programmet
 
 Tryck på F5 för att återskapa appen och köra programmet i sin helhet. 
 
-Utdata innehåller meddelanden från [Console. WriteLIne](https://docs.microsoft.com/dotnet/api/system.console.writeline), med tillägget av frågans information och resultat.
+Utdata innehåller meddelanden från [Console. WriteLIne](/dotnet/api/system.console.writeline), med tillägget av frågans information och resultat.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -297,4 +297,4 @@ I den här snabb starten av C# fungerade du genom en serie aktiviteter för att 
 Vill du optimera och Spara på dina moln utgifter?
 
 > [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Börja analysera kostnaderna med Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

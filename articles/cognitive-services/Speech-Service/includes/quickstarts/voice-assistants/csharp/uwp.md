@@ -4,14 +4,15 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e2d43290946969643b10d2ecad2f076df208a5d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84754628"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925451"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -85,7 +86,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 1. Öppna käll filen bakomliggande kod i **Solution Explorer** `MainPage.xaml.cs` . (Det är grupperat under `MainPage.xaml` .) Ersätt innehållet i den här filen med följande, som innehåller:
 
-- `using`instruktioner för `Speech` `Speech.Dialog` namn områdena och
+- `using` instruktioner för `Speech` `Speech.Dialog` namn områdena och
 - En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
 - Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
 - En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare

@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
 description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: dc135e74564d4104c61ffef6f1403eddc08586be
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823972"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892821"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
@@ -149,7 +149,7 @@ När du kan återställa en säkerhetskopierade virtuell dator använder du guid
     - Välj **Aktivera SAN-baserad återställning med hjälp av ögonblicksbilder av maskinvara** om du har konfigurerat nätverket.
     - Välj **Send an e-mail when the recovery complete (Skicka ett e-postmeddelande när återställningen har slutförts)** och ange de e-postadresserna om du vill att e-postmeddelandena ska skickas när återställningen är klar.
 
-6. Kontrollera att alla uppgifter i fönstret Sammanfattning är korrekta. Om uppgifterna inte är korrekta, eller om du vill göra en ändring, klickar du på **Tillbaka**. Om du är nöjd med inställningarna klickar du på **Återställ** så startar återställningsprocessen.
+6. Kontrollera att alla uppgifter i fönstret Sammanfattning är korrekta. Om uppgifterna inte är korrekta, eller om du vill göra en ändring, klickar du på **Tillbaka**. Om du är nöjd med inställningarna klickar du på **Återställ** för att starta återställnings processen.
 
 7. Skärmen **Återställningsstatus** innehåller information om återställningsjobbet.
 

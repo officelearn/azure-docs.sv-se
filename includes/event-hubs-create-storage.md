@@ -18,11 +18,11 @@ ms.locfileid: "75692587"
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Skapa ett lagringskonto för Event Processor Host
 Event Processor Host är en smart agent som gör det enklare att ta emot händelser från Event Hubs genom hantering av permanenta kontrollpunkter och parallella mottaganden. För att kunna använda kontrollpunkter måste Event Processor Host ha ett lagringskonto. I följande exempel visas hur du skapar ett lagringskonto och hur du kommer åt dess åtkomstnycklar:
 
-1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+1. I menyn i Azure-portalen väljer du **Skapa en resurs**.
 
     ![Skapa ett resurs meny objekt Microsoft Azure-portalen](./media/event-hubs-create-storage/create-resource.png)
 
-2. Välj **lagrings**  >  **lagrings konto**.
+2. Välj **Storage** > **Lagringskonto**.
    
     ![Välj lagrings konto Microsoft Azure-portalen](./media/event-hubs-create-storage/select-storage-account.png)
 

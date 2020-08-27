@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
-ms.openlocfilehash: eb770dab33e1ec0e1a35f7ebcb6e620fc93692aa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: da0c3284b42be6d9054b7386839004b57d8ca274
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383026"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935746"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -59,7 +59,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 
 3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
-    | Inställningsnamn | Föreslaget värde | Description |
+    | Inställningsnamn | Föreslaget värde | Beskrivning |
     | ------------ | --------------- | ----------- |
     | Programnamn | *Azure SignalR-chatt* | GitHub-användaren ska kunna känna igen och lita på den app som används för att autentisera.   |
     | Hemsides-URL | `http://localhost:5000/home` | |
@@ -554,7 +554,7 @@ Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adres
 
 2. Klicka på autentiseringsappen och uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** som det visas nedan:
 
-    | Inställningen | Exempel |
+    | Inställning | Exempel |
     | ------- | ------- |
     | Hemsides-URL | `https://signalrtestwebapp22665120.azurewebsites.net/home` |
     | URL-adress för återanrop av auktorisering | `https://signalrtestwebapp22665120.azurewebsites.net/signin-github` |

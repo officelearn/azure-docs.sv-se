@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146177"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934930"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
 I den här artikeln förklaras hur du får ett svar på frågan som kommer tillbaka med ett totalt antal matchande dokument, rad brytnings resultat, sorterade resultat och träff markerade termer.
 
-Strukturen för ett svar bestäms av parametrarna i frågan: [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) i REST API-eller [DocumentSearchResult-klassen](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
+Strukturen för ett svar bestäms av parametrarna i frågan: [Sök dokument](/rest/api/searchservice/Search-Documents) i REST API-eller [DocumentSearchResult-klassen](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) i .NET SDK.
 
 ## <a name="result-composition"></a>Resultat sammansättning
 
@@ -47,9 +47,9 @@ Om du vill returnera ett annat antal matchande dokument lägger du till `$top` o
 
 + Lägg till `$count=true` för att få en räkning av det totala antalet matchande dokument i ett index.
 
-+ Returnera den första uppsättningen av 15 matchande dokument plus totalt antal matchningar:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Returnera den första uppsättningen av 15 matchande dokument plus totalt antal matchningar: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15` . Gör samma sak för den tredje uppsättningen 15:`$top=15&$skip=30`
++ Returnera den andra uppsättningen, hoppa över de första 15 för att få nästa 15: `$top=15&$skip=15` . Gör samma sak för den tredje uppsättningen 15: `$top=15&$skip=30`
 
 Resultatet av sid brytnings frågor är inte garanterat stabilt om det underliggande indexet ändras. Växling ändrar värdet för `$skip` för varje sida, men varje fråga är oberoende och fungerar på den aktuella vyn av data som finns i indexet vid tidpunkten (med andra ord finns det ingen cachelagring eller ögonblicks bild av resultat, till exempel de som finns i en databas för generell användning).
  
@@ -98,7 +98,7 @@ Ett annat alternativ är att använda en [anpassad bedömnings profil](index-add
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 
-Träff markering avser textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande termer i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Träff markering avser textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande termer i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](/rest/api/searchservice/search-documents). 
 
 Om du vill aktivera träff markering, Lägg till `highlight=[comma-delimited list of string fields]` för att ange vilka fält som ska använda markering. Markering är användbart för längre innehålls fält, till exempel ett beskrivnings fält där matchningen inte är direkt uppenbar. Endast fält definitioner som attributas som **sökbara** kvalificerare för träff markering.
 

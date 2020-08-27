@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dfa105b7af146086da6b72dd55f6fe679832f44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845059"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936035"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd python och AI för att generera sökbart innehåll från Azure-blobbar
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder fokuserar den här python-kursen på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-Den här självstudien använder python och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
+Den här självstudien använder python och [Sök REST-API: er](/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
@@ -163,7 +163,7 @@ I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmat
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
-Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
+Ett [data käll objekt](/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
 
 I följande skript ersätter du plats hållaren YOUR-BLOB-RESOURCE-STRING med anslutnings strängen för blobben som du skapade i föregående steg. Ersätt platshållartexten för behållaren. Kör sedan skriptet för att skapa en data källa med namnet `cogsrch-py-datasource` .
 
@@ -375,11 +375,11 @@ print(r.status_code)
 
 Begäran ska returnera status koden 201 som bekräftar att det lyckades.
 
-Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Steg 4: skapa och köra en indexerare
 
-En [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (data källa, färdigheter, index) är indata till en indexerare. Att skapa indexeraren på Azure Kognitiv sökning är den händelse som placerar hela pipelinen i rörelse. 
+En [indexerare](/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (data källa, färdigheter, index) är indata till en indexerare. Att skapa indexeraren på Azure Kognitiv sökning är den händelse som placerar hela pipelinen i rörelse. 
 
 Om du vill koppla ihop dessa objekt i en indexerare måste du definiera fält mappningar.
 
@@ -512,7 +512,7 @@ Resultatet bör se ut som i följande exempel. Skärm bilden visar bara en del a
 
 Upprepa för ytterligare fält: `content` , `languageCode` , `keyPhrases` och `organizations` i den här övningen. Du kan returnera flera fält via `$select` med hjälp av en kommaavgränsad lista.
 
-Du kan använda GET eller POST, beroende på frågesträngens komplexitet och längd. Mer information finns i [Query using the REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (Fråga med REST API).
+Du kan använda GET eller POST, beroende på frågesträngens komplexitet och längd. Mer information finns i [Query using the REST API](/rest/api/searchservice/search-documents) (Fråga med REST API).
 
 <a name="reset"></a>
 

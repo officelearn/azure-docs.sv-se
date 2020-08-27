@@ -3,14 +3,14 @@ title: Använda Azure AD i Azure Kubernetes-tjänsten
 description: Lär dig hur du använder Azure AD i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661069"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88937004"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>AKS-hanterad Azure Active Directory-integrering
 
@@ -37,17 +37,19 @@ AKS-hanterad Azure Active Directory-integrering är tillgänglig i offentliga re
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Azure CLI-version 2.9.0 eller senare
-* Kubectl med en lägsta version av [1,18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
+* Azure CLI-version 2.11.0 eller senare
+* Kubectl med en lägsta version av [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) eller [kubelogin](https://github.com/Azure/kubelogin)
+* Om du använder [Helm](https://github.com/helm/helm), den lägsta versionen av Helm 3,3.
 
 > [!Important]
-> Du måste använda Kubectl med en lägsta version av 1,18
+> Du måste använda Kubectl med en lägsta version av 1.18.1 eller kubelogin. Om du inte använder rätt version kommer du att märka problem med autentiseringen.
 
-Om du vill installera kubectl använder du följande kommandon:
+Använd följande kommandon för att installera kubectl och kubelogin:
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 Använd [de här anvisningarna](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för andra operativ system.

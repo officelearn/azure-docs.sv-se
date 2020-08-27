@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230765"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935032"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Design mönster för SaaS-program med flera innehavare och Azure Kognitiv sökning
 
@@ -41,7 +41,7 @@ Genom att lägga till och ta bort partitioner och repliker på kan du öka kapac
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Tjänst-och index gränser i Azure Kognitiv sökning
 Det finns några olika [pris nivåer](https://azure.microsoft.com/pricing/details/search/) i Azure kognitiv sökning, var och en av nivåerna har olika [gränser och kvoter](search-limits-quotas-capacity.md). Några av dessa begränsningar finns på tjänst nivå, vissa finns på index-nivå och några finns på partition-nivå.
 
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Grundläggande | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | **Maximalt antal repliker per tjänst** |3 |12 |12 |12 |12 |
 | **Maximalt antal partitioner per tjänst** |1 |12 |12 |12 |3 |
@@ -119,7 +119,7 @@ Design mönstren ovan för att modellera scenarier för flera innehavare i Azure
 
 Om modeller för tjänst per klient och index per klient inte är tillräckligt små omfattningar, är det möjligt att modellera ett index för att uppnå en ännu bättre grad av granularitet.
 
-Om ett enskilt index beter sig annorlunda för olika klient slut punkter kan ett fält läggas till i ett index som anger ett visst värde för varje möjlig klient. Varje gången en klient anropar Azure Kognitiv sökning för att fråga eller ändra ett index, anger koden från klient programmet lämpligt värde för fältet med hjälp av Azure Kognitiv söknings [filter](https://msdn.microsoft.com/library/azure/dn798921.aspx) funktion vid tidpunkten för frågan.
+Om ett enskilt index beter sig annorlunda för olika klient slut punkter kan ett fält läggas till i ett index som anger ett visst värde för varje möjlig klient. Varje gången en klient anropar Azure Kognitiv sökning för att fråga eller ändra ett index, anger koden från klient programmet lämpligt värde för fältet med hjälp av Azure Kognitiv söknings [filter](./query-odata-filter-orderby-syntax.md) funktion vid tidpunkten för frågan.
 
 Den här metoden kan användas för att uppnå funktioner i separata användar konton, olika behörighets nivåer och till och med helt separata program.
 
@@ -132,4 +132,3 @@ Den här metoden kan användas för att uppnå funktioner i separata användar k
 Azure Kognitiv sökning är ett övertygande val för många program. När du utvärderar de olika design mönstren för program med flera klienter bör du överväga de [olika pris nivåerna](https://azure.microsoft.com/pricing/details/search/) och respektive [tjänst begränsningar](search-limits-quotas-capacity.md) för att skräddarsy Azure-kognitiv sökning så att den passar program arbets belastningar och arkitekturer i alla storlekar.
 
 Alla frågor om Azure Kognitiv sökning och scenarier med flera innehavare kan dirigeras till azuresearch_contact@microsoft.com .
-

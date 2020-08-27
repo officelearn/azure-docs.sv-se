@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella VMware-datorer för migr
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7616ff48c03c0de61d9179724fd8e351c6440319
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290226"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936256"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Utvärdera virtuella VMware-datorer med Server Assessment
 
@@ -29,7 +29,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Slutför den första självstudien](tutorial-prepare-vmware.md) i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -66,19 +66,30 @@ Konfigurera ett nytt Azure Migrate projekt enligt följande:
 
 Azure Migrate: Server utvärderingen använder en förenklad Azure Migrate-apparat. Installationen utför VM-identifiering och skickar metadata för virtuella datorer och prestanda data till Azure Migrate. Installationen kan ställas in på flera olika sätt.
 
-- Konfigurera på en virtuell VMware-dator med en Hämtad mall för ägg. Detta är den metod som används i den här självstudien.
+- Konfigurera på en virtuell VMware-dator med en Hämtad mall för ägg. **Detta är den metod som används i den här självstudien.**
 - Konfigurera på en virtuell VMware-dator eller en fysisk dator med ett PowerShell-skript. [Den här metoden](deploy-appliance-script.md) ska användas om du inte kan konfigurera en virtuell dator med en behållar mall eller om du är i Azure Government.
 
 När du har skapat enheten kontrollerar du att den kan ansluta till Azure Migrate: Server utvärdering, konfigurera den för första gången och registrera den med Azure Migrate projektet.
 
 
-### <a name="download-the-ova-template"></a>Ladda ned mallen för ägg
+### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
 1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
 2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med VMware vSphere hypervisor**.
-3. Välj **Ladda ned** för att ladda ned filer för embryon.
+3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av virtuella VMware-datorer. namnet måste vara alfanumeriskt med 14 tecken eller färre.
+1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
+1. När Azure-resurserna har skapats skapas en **Azure Migrate projekt nyckel** .
+1. Kopiera nyckeln på samma sätt som du behöver den för att slutföra registreringen av enheten under konfigurationen.
 
-   ![Alternativ för att ladda ned en ägg fil](./media/tutorial-assess-vmware/download-ova.png)
+### <a name="download-the-ova-template"></a>Ladda ned mallen för ägg
+I **2: Ladda ned Azure Migrate-enheten**väljer du. ÄGG filen och klicka på **Hämta**. 
+
+
+   ![Val för identifiering av datorer](./media/tutorial-assess-vmware/servers-discover.png)
+
+
+   ![Val för generera nyckel](./media/tutorial-assess-vmware/generate-key-vmware.png)
+
 
 ### <a name="verify-security"></a>Verifiera säkerhet
 
@@ -97,13 +108,13 @@ Kontrol lera att ägg filen är säker innan du distribuerar den:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        VMware (10,9 GB) | [Senaste version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+        VMware (11,6 GB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140333) | 9a06a316199330481f95b381a4d1d558f3869614a0ded68f1cc4f2584aa4f353
 
     - För Azure Government:
     
         **Integritetsalgoritm** | **Ladda ned** | **SHA256**
         --- | --- | ---
-        VMware (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+        VMware (85 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
 
 
 ### <a name="create-the-appliance-vm"></a>Skapa VM-enheten
@@ -138,49 +149,49 @@ Konfigurera enheten för första gången.
 3. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
 
    Alternativt kan du öppna appen från apparatens skriv bord genom att välja genvägen till appen.
+1. Godkänn **licens villkoren**och Läs informationen från tredje part.
 1. I webbappen > **Konfigurera krav**gör du följande:
-   - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
    - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-     - Välj **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
+     - Klicka på **Konfigurera proxy** för att ange proxyadress (i formuläret http://ProxyIPAddress eller http://ProxyFQDN) lyssnande port.
      - Ange autentiseringsuppgifter om proxyn kräver autentisering.
      - Endast HTTP-proxy stöds.
+     - Om du har lagt till proxyinformation eller inaktiverat proxyn och/eller autentiseringen, klickar du på **Spara** för att utlösa anslutnings kontrollen igen.
    - **Tidssynkronisering**: tiden för installationen bör vara synkroniserad med Internet-tid för att identifieringen ska fungera korrekt.
-   - **Installera uppdateringar: installationen**säkerställer att de senaste uppdateringarna är installerade.
-   - **Installera vddk: installations**programmet kontrollerar att VMware vSphere Virtual Disk Development Kit (vddk) har installerats. Om den inte är installerad laddar du ned VDDK 6,7 från VMware och extraherar det hämtade ZIP-innehållet till den angivna platsen på enheten.
+   - **Installera uppdateringar: installationen**säkerställer att de senaste uppdateringarna är installerade. När kontrollen är klar kan du klicka på **Visa apparat-tjänster** för att se status och versioner för komponenterna som körs på produkten.
+   - **Installera vddk: installations**programmet kontrollerar att VMware vSphere Virtual Disk Development Kit (vddk) har installerats. Om den inte är installerad laddar du ned VDDK 6,7 från VMware och extraherar det hämtade ZIP-innehållet till den angivna platsen på enheten, enligt **anvisningarna i installations anvisningarna**.
 
-     Azure Migrate Server-migrering använder VDDK för att replikera datorer under migreringen till Azure.       
+     Azure Migrate Server-migrering använder VDDK för att replikera datorer under migreringen till Azure. 
+1. Om du vill kan du **köra nödvändiga komponenter** när som helst under installationen av konfigurationen för att kontrol lera om installationen uppfyller alla krav.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
-1. Välj **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-2. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
+1. Klistra in **Azure Migrate projekt nyckeln** som har kopierats från portalen. Om du inte har nyckeln går du till **Server utvärdering> identifiera> hantera befintliga apparater**, väljer det installations namn som du angav vid tidpunkten för att generera nyckeln och kopierar motsvarande nyckel.
+1. Klicka på **Logga**in. En Azure-inloggning visas i en ny flik i webbläsaren. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
+1. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
    
    Inloggning med en PIN-kod stöds inte.
-3. När du har loggat in går du tillbaka till webbappen.
-4. Välj den prenumeration där Azure Migrate projektet skapades och välj sedan projektet.
-5. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller färre.
-6. Välj **Registrera**.
+3. När du har loggat in går du tillbaka till webbappen. 
+4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](tutorial-prepare-vmware.md#prepare-azure) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
+1. När installationen av enheten har registrerats kan du se registrerings informationen genom att klicka på **Visa information**.
 
 
 ## <a name="start-continuous-discovery"></a>Starta kontinuerlig identifiering
 
 Installations programmet måste ansluta till vCenter Server för att identifiera konfigurations-och prestanda data för de virtuella datorerna.
 
-### <a name="specify-vcenter-server-details"></a>Ange vCenter Server-information
-1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server-instansen. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
-2. I **användar namn** och **lösen ord**anger du vCenter Server kontoautentiseringsuppgifter som installeras av installations programmet för att identifiera virtuella datorer på vCenter Server-instansen. 
-
+1. I **steg 1: ange vCenter Server autentiseringsuppgifter**klickar du på **Lägg till autentiseringsuppgifter** för att ange ett eget namn för autentiseringsuppgifter, Lägg till **användar namn** och **lösen ord** för det vCenter servers konto som ska användas för att identifiera virtuella datorer på vCenter Server-instansen.
     - Du bör ha skapat ett konto med de behörigheter som krävs i [föregående självstudie](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Om du vill begränsa identifieringen till specifika VMware-objekt (vCenter Server Data Center, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer) läser du anvisningarna i [den här artikeln](set-discovery-scope.md) för att begränsa det konto som används av Azure Migrate.
-
-3. Välj **Verifiera anslutning** för att kontrol lera att enheten kan ansluta till vCenter Server.
-4. I **identifiera program och beroenden på virtuella datorer**kan du, om du vill, klicka på **Lägg till autentiseringsuppgifter**och ange det operativ system som autentiseringsuppgifterna är relevanta för och autentiseringsuppgifterna för användar namn och lösen ord. Klicka sedan på **Lägg till**.
+1. I **steg 2: ange vCenter Server information**klickar du på **Lägg till identifierings källa** och väljer det egna namnet för autentiseringsuppgifter i list rutan. Ange **IP-adressen/FQDN** för vCenter Server-instansen. Du kan lämna **porten** till standard (443) eller ange en anpassad Port där vCenter Server lyssnar och klicka på **Spara**.
+1. När du klickar på Spara kommer installations programmet att försöka verifiera anslutningen till vCenter Server med de angivna autentiseringsuppgifterna och visa **verifierings status** i tabellen mot vCenter Server IP-adress/FQDN.
+1. Du kan **omverifiera** anslutningen till vCenter Server när som helst innan du påbörjar identifieringen.
+1. I **steg 3: ange autentiseringsuppgifter för virtuella datorer för att identifiera installerade program och utföra en agent lös beroende mappning**, klickar du på **Lägg till autentiseringsuppgifter**och anger det operativ system för vilket autentiseringsuppgifterna anges, eget namn för autentiseringsuppgifter och **användar namn** och **lösen ord**. Klicka sedan på **Spara**.
 
     - Du kan också lägga till autentiseringsuppgifter här om du har skapat ett konto som ska användas för [program identifierings funktionen](how-to-discover-applications.md)eller [funktionen för beroende analys av agent](how-to-create-group-machine-dependencies-agentless.md).
-    - Om du inte använder dessa funktioner kan du hoppa över den här inställningen.
-    - Granska de autentiseringsuppgifter som krävs för [identifiering av appar](migrate-support-matrix-vmware.md#application-discovery-requirements), eller för att kunna utföra analyser utan [agent](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
+    - Om du inte vill använda dessa funktioner kan du klicka på skjutreglaget för att hoppa över steget. Du kan ändra avsikten när som helst senare.
+    - Granska de autentiseringsuppgifter som krävs för [identifiering av program](migrate-support-matrix-vmware.md#application-discovery-requirements)eller för analys av [beroenden för agenter](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
-5. **Spara och starta identifiering**för att starta identifiering av virtuella datorer.
+5. Klicka på **Starta identifiering**för att starta identifiering av virtuell dator. När identifieringen har startats kan du kontrol lera identifierings statusen mot vCenter Server IP-adress/FQDN i tabellen.
 
 Identifiering fungerar på följande sätt:
 - Det tar ungefär 15 minuter för identifierade VM-metadata som visas i portalen.

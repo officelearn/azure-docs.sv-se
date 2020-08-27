@@ -3,13 +3,13 @@ title: Application Insights-API för anpassade händelser och mått | Microsoft 
 description: Infoga några rader kod i din enhet eller Skriv bords app, webb sida eller tjänst, för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366880"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936579"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -59,7 +59,7 @@ Hämta en instans av `TelemetryClient` (förutom i Java Script på webb sidor):
 
 För [ASP.net Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) appar och [icke-http/arbetare för .net/.net Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) -appar rekommenderar vi att du hämtar en instans av `TelemetryClient` från behållaren för beroende inmatning enligt beskrivningen i respektive dokumentation.
 
-Om du använder AzureFunctions v2 + eller Azure WebJobs v3 +-följer du det här dokumentet:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Om du använder AzureFunctions v2 + eller Azure WebJobs v3 +-följer du det här dokumentet: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -204,8 +204,8 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 Telemetrin är tillgänglig i `customMetrics` tabellen i [Application Insights Analytics](../log-query/log-query-overview.md). Varje rad representerar ett anrop till `trackMetric(..)` i din app.
 
-* `valueSum`– Det här är summan av måtten. Hämta medelvärdet genom att dividera med `valueCount` .
-* `valueCount`-Antalet mått som samlats in i det här `trackMetric(..)` anropet.
+* `valueSum` – Det här är summan av måtten. Hämta medelvärdet genom att dividera med `valueCount` .
+* `valueCount` -Antalet mått som samlats in i det här `trackMetric(..)` anropet.
 
 ## <a name="page-views"></a>Sid visningar
 
@@ -437,7 +437,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Till exempel:
+De flesta viktiga stack-uppgifter har redan extraherats i separata variabler, men du kan dra isär `details` strukturen för att få mer information. Eftersom den här strukturen är dynamisk bör du omvandla resultatet till den typ som du förväntar dig. Ett exempel:
 
 ```kusto
 exceptions
@@ -500,7 +500,7 @@ Du kan söka efter meddelande innehåll, men (till skillnad från egenskaps vär
 Storleks gränsen på `message` är mycket högre än gränsen för egenskaper.
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.  
 
-Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
+Dessutom kan du lägga till en allvarlighets grad i meddelandet. Liksom andra telemetri kan du lägga till egenskaps värden som hjälper dig att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
 
 *C#*
 
@@ -825,7 +825,7 @@ Observera att:
 * När du extraherar ett värde från customDimensions-eller customMeasurements-JSON har den dynamisk typ, så du måste konvertera det `tostring` eller `todouble` .
 * För att ta hänsyn till möjligheten till [samplingen](./sampling.md)bör du `sum(itemCount)` inte använda `count()` .
 
-## <a name="timing-events"></a><a name="timed"></a>Tids händelser
+## <a name="timing-events"></a><a name="timed"></a> Tids händelser
 
 Ibland vill du skapa ett diagram över hur lång tid det tar att utföra en åtgärd. Du kanske till exempel vill veta hur lång tid det tar för användare att överväga alternativ i ett spel. Du kan använda mått parametern för detta.
 
@@ -972,7 +972,7 @@ applicationInsights.setup()
     .start();
 ```
 
-Om du vill inaktivera de här insamlarna efter initiering använder du konfigurationsobjektet:`applicationInsights.Configuration.setAutoCollectRequests(false)`
+Om du vill inaktivera de här insamlarna efter initiering använder du konfigurationsobjektet: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="developer-mode"></a><a name="debug"></a>Utvecklarläge
 
@@ -1001,7 +1001,7 @@ applicationInsights.setup("ikey")
 applicationInsights.defaultClient.config.maxBatchSize = 0;
 ```
 
-## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a>Ange instrument ställnings nyckeln för vald anpassad telemetri
+## <a name="setting-the-instrumentation-key-for-selected-custom-telemetry"></a><a name="ikey"></a> Ange instrument ställnings nyckeln för vald anpassad telemetri
 
 *C#*
 
@@ -1011,7 +1011,7 @@ telemetry.InstrumentationKey = "---my key---";
 // ...
 ```
 
-## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Dynamisk Instrumentation-nyckel
+## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a> Dynamisk Instrumentation-nyckel
 
 För att undvika att kombinera telemetri från utvecklings-, test-och produktions miljöer, kan du [skapa separata Application Insights resurser](./create-new-resource.md) och ändra deras nycklar, beroende på miljön.
 
@@ -1063,7 +1063,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Till exempel:
+TelemetryClient har en kontext egenskap som innehåller värden som skickas tillsammans med alla telemetridata. De anges normalt av standardmodulerna för telemetri, men du kan också ställa in dem själv. Ett exempel:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";

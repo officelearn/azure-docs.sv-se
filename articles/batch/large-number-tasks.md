@@ -3,13 +3,13 @@ title: Skicka ett stort antal aktiviteter
 description: Hur man effektivt skickar ett mycket stort antal uppgifter i ett enda Azure Batch jobb
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.custom: devx-track-python
-ms.openlocfilehash: 317cd3514bfa5641c163e82fb8ac17465cb02079
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: 0442be6f0c56aecc401ac4322c565a9ef999df63
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848765"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936902"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka in ett stort antal uppgifter till ett batch-jobb
 
@@ -54,7 +54,7 @@ Det kan ta lite tid att lägga till en stor mängd aktiviteter i ett jobb – ti
 
 Följande C#-kodfragment visar inställningar som du kan konfigurera när du lägger till ett stort antal aktiviteter med hjälp av batch .NET-API: et.
 
-Öka aktivitetens data flöde genom att öka värdet för egenskapen [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) för [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Exempel:
+Öka aktivitetens data flöde genom att öka värdet för egenskapen [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) för [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ett exempel:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -64,7 +64,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Lägg till en aktivitets samling i jobbet med lämplig överlagring för metoden [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) eller [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) . Exempel:
+) . Ett exempel:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -135,7 +135,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-Skapa en samling uppgifter som ska läggas till i ett jobb. Exempel:
+Skapa en samling uppgifter som ska läggas till i ett jobb. Ett exempel:
 
 
 ```python

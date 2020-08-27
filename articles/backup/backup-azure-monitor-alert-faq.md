@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Azure Bac
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827179"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892566"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup övervaknings avisering – vanliga frågor och svar
 
@@ -46,7 +46,7 @@ Ja, du kan visa rapporter över valv och prenumerationer samt regioner. Dina dat
 
 ### <a name="can-i-view-reports-across-tenants"></a>Kan jag visa rapporter mellan klienter?
 
-Om du är en [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) -användare med delegerad åtkomst till dina kunders prenumerationer eller La arbets ytor kan du använda säkerhets kopierings rapporter för att visa data över alla dina klienter.
+Om du är en [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) -användare med delegerad åtkomst till dina kunders prenumerationer eller La arbets ytor, kan du använda säkerhets kopierings rapporter för att visa data över alla dina klienter.
 
 ## <a name="recovery-services-vault"></a>Recovery Services-valv
 

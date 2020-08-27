@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510870"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935474"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Tips för AI-anrikning i Azure Kognitiv sökning
 
@@ -54,7 +54,7 @@ I så fall kanske du vill be indexeraren att ignorera fel. Det gör du genom att
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Tips 4: Använd debug-sessioner för att identifiera och lösa problem med din färdigheter 
 
-Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och spara ändringar i en produktions färdigheter i AI-pipeline för anrikning. Detta är en förhands gransknings funktion som [läser dokumentationen](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Mer information om begrepp och hur du kommer igång finns i [Felsöka sessioner](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Debug-sessioner är en visuell redigerare som fungerar med en befintlig färdigheter i Azure Portal. Inom en felsökningssession kan du identifiera och lösa fel, verifiera ändringar och spara ändringar i en produktions färdigheter i AI-pipeline för anrikning. Detta är en förhands gransknings funktion som [läser dokumentationen](./cognitive-search-debug-session.md). Mer information om begrepp och hur du kommer igång finns i [Felsöka sessioner](./cognitive-search-tutorial-debug-sessions.md).
 
 Debug-sessioner fungerar på ett enda dokument är ett bra sätt för dig att på ett iterativt sätt bygga mer komplexa anriknings pipeliner.
 

@@ -29,16 +29,16 @@ I det här avsnittet ska du skapa en Function-app och relaterade resurser i din 
 
     + **Välj prenumeration**: Välj den prenumeration som ska användas. Du ser inte det här om du bara har en prenumeration.
 
-    + **Välj Funktionsapp i Azure**: Välj `+ Create new Function App`. (Välj inte `Advanced` alternativet, som inte beskrivs i den här artikeln.)
+    + **Välj Funktionsapp i Azure**: Välj `+ Create new Function App` . (Välj inte `Advanced` alternativet, som inte beskrivs i den här artikeln.)
       
     + **Ange ett globalt unikt namn för Function-appen**: Ange ett namn som är giltigt i en URL-sökväg. Namnet du skriver verifieras för att säkerställa att det är unikt i Azure Functions. 
     
     ::: zone pivot="programming-language-python"
-    + **Välj en körning**: Välj den version av python som du har kört lokalt. Du kan kontrol lera `python --version` din version med hjälp av kommandot.
+    + **Välj en körning**: Välj den version av python som du har kört lokalt. Du kan `python --version` kontrol lera din version med hjälp av kommandot.
     ::: zone-end
 
     ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    + **Välj en körning**: Välj den version av Node. js som du har kört lokalt. Du kan kontrol lera `node --version` din version med hjälp av kommandot.
+    + **Välj en körnings miljö**: Välj den version av Node.js som du har kört lokalt. Du kan `node --version` kontrol lera din version med hjälp av kommandot.
     ::: zone-end
 
     + **Välj en plats för nya resurser**: om du vill ha bättre prestanda väljer du en [region](https://azure.microsoft.com/regions/) nära dig. 

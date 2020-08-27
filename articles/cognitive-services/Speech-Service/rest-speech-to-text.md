@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056830"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934590"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -51,7 +52,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Obligatorisk |
+| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
 | `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed` . Enkla resultat inkluderar `RecognitionStatus` , `DisplayText` , `Offset` och `Duration` . Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfritt |
 | `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked` , som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet, eller `raw` som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
 | `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfritt |
@@ -65,7 +66,7 @@ I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om
 | `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
 | `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
 | `Pronunciation-Assessment` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här rubriken. | Valfritt |
-| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus` . | Obligatorisk |
+| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus` . | Krävs |
 | `Transfer-Encoding` | Anger att segmenterade ljud data ska skickas i stället för en enda fil. Använd endast den här rubriken om du segmenterar ljuddata. | Valfritt |
 | `Expect` | Skicka om du använder segmenterad överföring `Expect: 100-continue` . Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljud data. |
 | `Accept` | Om det anges måste det vara `application/json` . Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept` . | Valfritt, men rekommenderas. |
@@ -88,7 +89,7 @@ I den här tabellen listas obligatoriska och valfria parametrar för uttal-utvä
 
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Obligatorisk |
+| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Krävs |
 | GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark` . Standardinställningen är `FivePoint`. | Valfritt |
 | Precision | Utvärderings precisionen. Godkända värden är `Phoneme` , som visar poängen på den fullständiga text-, Word-och fonem-nivån, `Word` som visar poängen på den fullständiga text-och ord nivån, `FullText` som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfritt |
 | Dimension | Definierar kriterierna för utdata. Godkända värden är `Basic` , som bara visar noggrannhets poängen, `Comprehensive` visar poängen på fler dimensioner (t. ex. Fluency Poäng och total poäng på nivån full text nivå, fel typ på ord nivå). Kontrol lera [svars parametrar](#response-parameters) för att se definitioner av olika Poäng dimensioner och ord fel typer. Standardinställningen är `Basic`. | Valfritt |
@@ -155,7 +156,7 @@ HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 
 Segmenterad överföring ( `Transfer-Encoding: chunked` ) kan hjälpa till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API innehåller inte partiella eller interimistiska resultat.
 
-I det här kod exemplet visas hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens rubrik. `request`är ett `HttpWebRequest` objekt som är kopplat till lämplig REST-slutpunkt. `audioFile`är sökvägen till en ljudfil på disk.
+I det här kod exemplet visas hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens rubrik. `request` är ett `HttpWebRequest` objekt som är kopplat till lämplig REST-slutpunkt. `audioFile` är sökvägen till en ljudfil på disk.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);

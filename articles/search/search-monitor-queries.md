@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/18/2020
-ms.openlocfilehash: f6594bbeb9899a255d0c38b6a5b2a378388501b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5589a46a63437fb395db280222f8a9e84775df3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552518"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935083"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Övervaka fråge förfrågningar i Azure Kognitiv sökning
 
@@ -38,8 +38,8 @@ Det är vanligt att frågor körs i millisekunder, så endast frågor som mäter
 
 | Sammansättningstyp | Beskrivning |
 |------------------|-------------|
-| Medel | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Medelvärde | Genomsnittligt antal sekunder inom en minut under vilken frågekörningen genomfördes.|
+| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Det högsta antalet Sök frågor per sekund som registrerats under en minut. |
 | Minimum | Det lägsta antalet Sök frågor per sekund som registrerats under en minut.  |
 | Summa | Summan av alla frågor som körs inom minuten.  |
@@ -56,8 +56,8 @@ I hela världen mäts frågans prestanda som Sök fördröjning (hur lång tid e
 
 | Sammansättningstyp | Svarstid | 
 |------------------|---------|
-| Medel | Genomsnittlig fråge varaktighet i millisekunder. | 
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Medelvärde | Genomsnittlig fråge varaktighet i millisekunder. | 
+| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Den längsta aktiva frågan i exemplet. | 
 | Minimum | Kortast körning av fråga i exemplet.  | 
 | Totalt | Total körnings tid för alla frågor i exemplet, som körs inom intervallet (en minut).  |
@@ -84,8 +84,8 @@ För att bekräfta begränsade frågor, Använd **begränsade Sök frågor** må
 
 | Sammansättningstyp | Begränsning |
 |------------------|-----------|
-| Medel | Procent andel frågor som tagits bort inom intervallet. |
-| Antal | Antalet mått som har spridits till loggen inom en minuters intervall. |
+| Medelvärde | Procent andel frågor som tagits bort inom intervallet. |
+| Count | Antalet mått som har spridits till loggen inom en minuters intervall. |
 | Maximal | Procent andel frågor som tagits bort inom intervallet.|
 | Minimum | Procent andel frågor som tagits bort inom intervallet. |
 | Totalt | Procent andel frågor som tagits bort inom intervallet. |
@@ -100,7 +100,7 @@ I följande skärm bild är det första talet antalet (eller antalet mått som s
 
 För en snabb titt på aktuella siffror visar fliken **övervakning** på sidan för tjänst översikt tre mått (**Sök svars tid**, **Sök frågor per sekund (per söknings enhet)**, **begränsade Sök frågor i procent**) över fasta intervall mätt i timmar, dagar och veckor, med alternativet att ändra agg regerings typen.
 
-Öppna Metrics Explorer från **övervaknings** menyn för djupare utforskning, så att du kan skikta, zooma in och visualisera data för att utforska trender eller avvikelser. Lär dig mer om Metrics Explorer genom att slutföra den här [självstudien om hur du skapar ett mått diagram](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-metrics-explorer).
+Öppna Metrics Explorer från **övervaknings** menyn för djupare utforskning, så att du kan skikta, zooma in och visualisera data för att utforska trender eller avvikelser. Lär dig mer om Metrics Explorer genom att slutföra den här [självstudien om hur du skapar ett mått diagram](../azure-monitor/learn/tutorial-metrics-explorer.md).
 
 1. Under avsnittet övervakning väljer du **mått** för att öppna mått Utforskaren med omfånget som angetts till din Sök tjänst.
 
@@ -179,7 +179,7 @@ När du överför gränserna för en viss konfiguration av replik-partitionen, �
 
 1. Sista, ange aviserings information. Namnge och beskriv aviseringen, tilldela ett allvarlighets värde och ange om regeln ska skapas i ett aktiverat eller inaktiverat tillstånd.
 
-   ![Aviserings information](./media/search-monitor-usage/alert-details.png "Aviseringsinformation")
+   ![Aviseringsinformation](./media/search-monitor-usage/alert-details.png "Aviseringsinformation")
 
 Om du har angett ett e-postmeddelande får du ett e-postmeddelande från "Microsoft Azure" med ämnes raden "Azure: activated allvarlighets grad: 3 `<your rule name>` ".
 

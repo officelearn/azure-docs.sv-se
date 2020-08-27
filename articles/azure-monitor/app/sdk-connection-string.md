@@ -5,14 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
-ms.custom: devx-track-javascript
+ms.custom: devx-track-javascript, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 944257c93e00dca77507f26db15f7bf45fbb387e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87383638"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936426"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
@@ -56,19 +56,19 @@ Anslutningen har en maximal längd på 4096 tecken som stöds.
 
 #### <a name="key-value-pairs"></a>Nyckel/värde-par
 
-Anslutnings strängen består av en lista med inställningar som representeras som nyckel/värde-par avgränsade med semikolon:`key1=value1;key2=value2;key3=value3`
+Anslutnings strängen består av en lista med inställningar som representeras som nyckel/värde-par avgränsade med semikolon: `key1=value1;key2=value2;key3=value3`
 
 #### <a name="syntax"></a>Syntax
 
-- `InstrumentationKey`(t. ex.: 00000000-0000-0000-0000-000000000000)  Anslutnings strängen är ett **obligatoriskt** fält.
-- `Authorization`(t. ex.: iKey) (Den här inställningen är valfri eftersom vi bara har stöd för iKey-auktorisering i dag.)
-- `EndpointSuffix`(t. ex.: applicationinsights.azure.cn) Genom att ställa in Endpoint-suffixet instruerar du SDK: n som Azure-molnet ska ansluta till. SDK monterar resten av slut punkten för enskilda tjänster.
+- `InstrumentationKey` (t. ex.: 00000000-0000-0000-0000-000000000000)  Anslutnings strängen är ett **obligatoriskt** fält.
+- `Authorization` (t. ex.: iKey) (Den här inställningen är valfri eftersom vi bara har stöd för iKey-auktorisering i dag.)
+- `EndpointSuffix` (t. ex.: applicationinsights.azure.cn) Genom att ställa in Endpoint-suffixet instruerar du SDK: n som Azure-molnet ska ansluta till. SDK monterar resten av slut punkten för enskilda tjänster.
 - Explicita slut punkter.
   Alla tjänster kan åsidosättas explicit i anslutnings strängen.
-   - `IngestionEndpoint`(t. ex.: `https://dc.applicationinsights.azure.com` )
-   - `LiveEndpoint`(t. ex.: `https://live.applicationinsights.azure.com` )
-   - `ProfilerEndpoint`(t. ex.: `https://profiler.applicationinsights.azure.com` )
-   - `SnapshotEndpoint`(t. ex.: `https://snapshot.applicationinsights.azure.com` )
+   - `IngestionEndpoint` (t. ex.: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint` (t. ex.: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint` (t. ex.: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint` (t. ex.: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Slut punkts schema
 
@@ -83,15 +83,15 @@ Här är en lista över giltiga suffix
 - applicationinsights.us
 
 
-Se även:https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
+Se även: https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification
 
 
 ##### <a name="valid-prefixes"></a>Giltiga prefix
 
 - Inmatning av [telemetri](./app-insights-overview.md):`dc`
-- [Live-mått](./live-stream.md):`live`
-- [Profiler](./profiler-overview.md):`profiler`
-- [Ögonblicks bild](./snapshot-debugger.md):`snapshot`
+- [Live-mått](./live-stream.md): `live`
+- [Profiler](./profiler-overview.md): `profiler`
+- [Ögonblicks bild](./snapshot-debugger.md): `snapshot`
 
 
 
@@ -107,10 +107,10 @@ I det här exemplet har endast Instrumentation-nyckeln angetts.
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på [SDK-standardvärdena](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) och kommer att ansluta till den offentliga globala Azure:
-   - Inmatning`https://dc.services.visualstudio.com/`
-   - Live-mått:`https://rt.services.visualstudio.com/`
-   - Profiler`https://agent.azureserviceprofiler.net/`
-   - Fel sökare`https://agent.azureserviceprofiler.net/`
+   - Inmatning `https://dc.services.visualstudio.com/`
+   - Live-mått: `https://rt.services.visualstudio.com/`
+   - Profiler `https://agent.azureserviceprofiler.net/`
+   - Fel sökare `https://agent.azureserviceprofiler.net/`
 
 
 
@@ -123,10 +123,10 @@ I det här exemplet anger den här anslutnings strängen slut punktens suffix oc
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på angivet slut punkts suffix: 
-   - Inmatning`https://dc.ai.contoso.com`
-   - Live-mått:`https://live.ai.contoso.com`
-   - Profiler`https://profiler.ai.contoso.com`
-   - Fel sökare`https://snapshot.ai.contoso.com`  
+   - Inmatning `https://dc.ai.contoso.com`
+   - Live-mått: `https://live.ai.contoso.com`
+   - Profiler `https://profiler.ai.contoso.com`
+   - Fel sökare `https://snapshot.ai.contoso.com`  
 
 
 
@@ -139,10 +139,10 @@ I det här exemplet anger den här anslutnings strängen explicita åsidosättni
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på de explicita värdena för åsidosättning: 
-   - Inmatning`https://custom.com:111/`
-   - Live-mått:`https://custom.com:222/`
-   - Profiler`https://custom.com:333/`
-   - Fel sökare`https://custom.com:444/`  
+   - Inmatning `https://custom.com:111/`
+   - Live-mått: `https://custom.com:222/`
+   - Profiler `https://custom.com:333/`
+   - Fel sökare `https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Ange en anslutnings sträng
@@ -160,11 +160,11 @@ En anslutnings sträng kan anges antingen i kod, i en miljö variabel eller i en
 
 ### <a name="environment-variable"></a>Miljövariabel
 
-- Anslutnings sträng:`APPLICATIONINSIGHTS_CONNECTION_STRING`
+- Anslutnings sträng: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 # <a name="netnetcore"></a>[.NET/. NetCore](#tab/net)
 
-TelemetryConfiguration. ConnectionString:https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
+TelemetryConfiguration. ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
 .NET har uttryckligen angetts:
 ```csharp

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1e19fd41b4d98cb401582cd86232d8ada25733
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76838266"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935525"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
 
@@ -42,7 +42,7 @@ Ange parametern **parsingMode** till `json` (för att indexera varje blob som et
 
 Standardvärdet på 2000 bild punkter för de normaliserade bildernas maximala bredd och höjd baseras på de maximala storlekar som stöds av [OCR-kompetensen](cognitive-search-skill-ocr.md) och [bild analysens färdighet](cognitive-search-skill-image-analysis.md). [OCR-kunskaper](cognitive-search-skill-ocr.md) stöder maximal bredd och höjd på 4200 för andra språk än engelska och 10000 för engelska.  Om du ökar Max gränsen kan bearbetningen av större avbildningar gå sönder beroende på din färdigheter-definition och dokumentets språk. 
 
-Du anger imageAction i [Indexer-definitionen](https://docs.microsoft.com/rest/api/searchservice/create-indexer) enligt följande:
+Du anger imageAction i [Indexer-definitionen](/rest/api/searchservice/create-indexer) enligt följande:
 
 ```json
 {
@@ -64,7 +64,7 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
 |--------------------|-----------------------------------------|
 | data               | BASE64-kodad sträng för den normaliserade bilden i JPEG-format.   |
 | bredd              | Den normaliserade bildens bredd i bild punkter. |
-| höjd             | Den normaliserade bildens höjd i bild punkter. |
+| mankhöjd             | Den normaliserade bildens höjd i bild punkter. |
 | originalWidth      | Bildens ursprungliga bredd före normalisering. |
 | originalHeight      | Bildens ursprungliga höjd innan normalisering. |
 | rotationFromOriginal |  Räknaren medsols rotation i grader som uppstod när den normaliserade bilden skulle skapas. Ett värde mellan 0 och 360 grader. Det här steget läser metadata från den avbildning som genereras av en kamera eller skanner. Vanligt vis en multipel av 90 grader. |
@@ -214,7 +214,7 @@ Om du behöver transformera normaliserade koordinater till det ursprungliga koor
 ```
 
 ## <a name="see-also"></a>Se även
-+ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Skapa indexerare (REST)](/rest/api/searchservice/create-indexer)
 + [Bild analys kunskaper](cognitive-search-skill-image-analysis.md)
 + [OCR-kunskaper](cognitive-search-skill-ocr.md)
 + [Text sammanfognings kunskaper](cognitive-search-skill-textmerger.md)

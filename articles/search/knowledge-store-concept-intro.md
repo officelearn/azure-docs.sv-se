@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230782"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924307"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Kunskaps lager i Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ Kunskaps lager är en funktion i Azure Kognitiv sökning som sparar utdata från
 
 Om du har använt kognitiva färdigheter tidigare vet du redan att *färdighetsuppsättningar* flyttar ett dokument genom en sekvens av anrikninger. Resultatet kan vara ett sökindex eller prognoser i ett kunskaps lager. De två utmatningarna, Sök indexet och kunskaps lagret är produkter av samma pipeline. härleds från samma indata, men resulterar i utdata som är strukturerade, lagrade och används på olika sätt.
 
-Fysiskt är ett kunskaps lager [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), antingen Azure Table Storage, Azure Blob Storage eller båda. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
+Fysiskt är ett kunskaps lager [Azure Storage](../storage/common/storage-account-overview.md), antingen Azure Table Storage, Azure Blob Storage eller båda. Alla verktyg eller processer som kan ansluta till Azure Storage kan använda innehållet i ett kunskaps lager.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Räknat, fördelarna med kunskaps lager inkluderar följande:
 
 + Använd omfattande dokument i andra [analys-och rapporterings verktyg](#tools-and-apps) än Sök. Power BI med Power Query är ett övertygande val, men alla verktyg och appar som kan ansluta till Azure Storage kan hämta från ett kunskaps lager som du skapar.
 
-+ Förfina en AI-indexerings pipeline vid fel sökning av steg och färdigheter definitioner. I ett kunskaps lager visas produkten av en färdigheter-definition i en AI-indexerad pipeline. Du kan använda dessa resultat för att utforma en bättre färdigheter, eftersom du kan se exakt vad som kan se ut. Du kan använda [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) i Azure Storage om du vill visa innehållet i ett kunskaps lager.
++ Förfina en AI-indexerings pipeline vid fel sökning av steg och färdigheter definitioner. I ett kunskaps lager visas produkten av en färdigheter-definition i en AI-indexerad pipeline. Du kan använda dessa resultat för att utforma en bättre färdigheter, eftersom du kan se exakt vad som kan se ut. Du kan använda [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) i Azure Storage om du vill visa innehållet i ett kunskaps lager.
 
 + Forma data till nya formulär. Omformningen är att kodifiera i färdighetsuppsättningar, men punkten är att en färdigheter nu kan tillhandahålla den här funktionen. [Formaren-kunskapen](cognitive-search-skill-shaper.md) i Azure kognitiv sökning har utökats för att kunna hantera den här uppgiften. Med hjälp av omformningen kan du definiera en projektion som anpassas efter den avsedda användningen av data medan du bevarar relationer.
 
@@ -84,7 +84,7 @@ Det är dock möjligt att skapa flera uppsättningar av `table` - `object` - `fi
 
 ## <a name="requirements"></a>Krav 
 
-[Azure Storage](https://docs.microsoft.com/azure/storage/) krävs. Den tillhandahåller fysisk lagring. Du kan använda Blob Storage, Table Storage eller båda. Blob Storage används för informativt omfattande dokument, vanligt vis när utdata ska gå till efterföljande processer. Table Storage är till för segment av omfattande dokument, som ofta används för analys och rapportering.
+[Azure Storage](../storage/index.yml) krävs. Den tillhandahåller fysisk lagring. Du kan använda Blob Storage, Table Storage eller båda. Blob Storage används för informativt omfattande dokument, vanligt vis när utdata ska gå till efterföljande processer. Table Storage är till för segment av omfattande dokument, som ofta används för analys och rapportering.
 
 [Färdigheter](cognitive-search-working-with-skillsets.md) krävs. Den innehåller `knowledgeStore` definitionen och bestämmer strukturen och sammansättningen för ett berikat dokument. Du kan inte skapa ett kunskaps lager med en tom färdigheter. Du måste ha minst en färdighet i en färdigheter.
 
@@ -130,16 +130,16 @@ När det finns lagrings utrymme kan alla verktyg och tekniker som ansluter till 
 
 + [Power BI](knowledge-store-connect-power-bi.md) för rapportering och analys. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) för ytterligare modifiering.
++ [Azure Data Factory](../data-factory/index.yml) för ytterligare modifiering.
 
 <a name="kstore-rest-api"></a>
 
 ## <a name="api-reference"></a>API-referens
 
-REST API version `2020-06-30` ger kunskaps lager genom ytterligare definitioner på färdighetsuppsättningar. Förutom referensen kan du läsa [skapa ett kunskaps lager med Postman](knowledge-store-create-rest.md) för information om hur du anropar API: erna.
+REST API version `2020-06-30` ger kunskaps lager genom ytterligare definitioner på färdighetsuppsättningar. Förutom referensen kan du läsa  [skapa ett kunskaps lager med Postman](knowledge-store-create-rest.md) för information om hur du anropar API: erna.
 
-+ [Skapa färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Uppdatera färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Skapa färdigheter (API-version = 2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Uppdatera färdigheter (API-version = 2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 5b3df38e8feef2a7b9bbc090e11a669164010f32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 300da87ecff13fc160ec08684cf1d032f9a19f71
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213208"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924494"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Likhet och bedömning i Azure Kognitiv sökning
 
@@ -21,11 +21,11 @@ Poängsättning avser beräkningen av en Sök Poäng för varje objekt som retur
 
 Som standard returneras de översta 50 i svaret, men du kan använda parametern **$Top** för att returnera ett mindre eller större antal objekt (upp till 1000 i ett enda svar) och **$Skip** för att hämta nästa uppsättning resultat.
 
-Sök poängen beräknas baserat på statistiska egenskaper för data och frågan. Azure Kognitiv sökning hittar dokument som matchar på Sök villkoren (vissa eller alla, beroende på [searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents#searchmodeany--all-optional)) och prioriterar dokument som innehåller många instanser av Sök termen. Sök poängen går till ännu högre om termen är sällsynt över data indexet, men vanligt i dokumentet. Grunden för den här metoden för att beräkna relevans kallas *TF-IDF eller* term frekvens – invertering av dokument frekvens.
+Sök poängen beräknas baserat på statistiska egenskaper för data och frågan. Azure Kognitiv sökning hittar dokument som matchar på Sök villkoren (vissa eller alla, beroende på [searchMode](/rest/api/searchservice/search-documents#searchmodeany--all-optional)) och prioriterar dokument som innehåller många instanser av Sök termen. Sök poängen går till ännu högre om termen är sällsynt över data indexet, men vanligt i dokumentet. Grunden för den här metoden för att beräkna relevans kallas *TF-IDF eller* term frekvens – invertering av dokument frekvens.
 
 Sök Resultat värden kan upprepas i en resultat uppsättning. Om flera träffar har samma Sök poäng, är ordningen för samma poäng objekt inte definierad och är inte stabil. Kör frågan igen så kan du se objekt förändrings positionen, särskilt om du använder den kostnads fria tjänsten eller en fakturerbar tjänst med flera repliker. Om två objekt har samma poäng finns det ingen garanti för att det visas först.
 
-Om du vill dela upp anknyten mellan upprepade Poäng kan du lägga till en **$OrderBy** -sats i första ordningen efter poäng och sedan Sortera efter ett annat sorterbart fält (till exempel `$orderby=search.score() desc,Rating desc` ). Mer information finns i [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Om du vill dela upp anknyten mellan upprepade Poäng kan du lägga till en **$OrderBy** -sats i första ordningen efter poäng och sedan Sortera efter ett annat sorterbart fält (till exempel `$orderby=search.score() desc,Rating desc` ). Mer information finns i [$OrderBy](./search-query-odata-orderby.md).
 
 > [!NOTE]
 > A `@search.score = 1.00` indikerar en oväntad resultat uppsättning. Poängen är enhetlig för alla resultat. Oväntade resultat inträffar när fråge formuläret är suddigt Sök-, jokertecken-eller regex-frågor eller ett **$filter** -uttryck. 
@@ -44,7 +44,7 @@ För skalbarhet distribuerar Azure Kognitiv sökning varje index vågrätt genom
 
 Som standard beräknas poängen för ett dokument baserat på statistiska egenskaper för data *i en Shard*. Den här metoden är vanligt vis inte ett problem för en stor sökkorpus och ger bättre prestanda än att behöva beräkna poängen baserat på information i alla Shards. Detta innebär att med hjälp av den här prestanda optimeringen kan det orsaka två mycket lika stora dokument (eller till och med identiska dokument) för att få en annan relevans om de blir i olika Shards.
 
-Om du föredrar att beräkna poängen baserat på de statistiska egenskaperna för alla Shards kan du göra det genom att lägga till *scoringStatistics = global* som en [frågeparameter](https://docs.microsoft.com/rest/api/searchservice/search-documents) (eller lägga till *"scoringStatistics": "global"* som en text parameter för [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
+Om du föredrar att beräkna poängen baserat på de statistiska egenskaperna för alla Shards kan du göra det genom att lägga till *scoringStatistics = global* som en [frågeparameter](/rest/api/searchservice/search-documents) (eller lägga till *"scoringStatistics": "global"* som en text parameter för [förfrågan](/rest/api/searchservice/search-documents)).
 
 ```http
 GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2020-06-30&search=[search term]
@@ -77,7 +77,7 @@ Följande video segment snabb Spolar framåt till en förklaring av de rangordni
 
 ## <a name="featuresmode-parameter-preview"></a>featuresMode-parameter (förhands granskning)
 
-[Search Documents](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents) -begäranden har en ny [featuresMode](https://docs.microsoft.com/rest/api/searchservice/preview-api/search-documents#featuresmode) -parameter som kan ge ytterligare information om relevans på fält nivå. Det `@searchScore` beräknas för hela dokumentet (hur relevant är det här dokumentet inom ramen för den här frågan) genom featuresMode. du kan få information om enskilda fält som uttrycks i en `@search.features` struktur. Strukturen innehåller alla fält som används i frågan (antingen vissa fält via **searchFields** i en fråga, eller alla fält som har attribut som **sökbara** i ett index). För varje fält får du följande värden:
+[Search Documents](/rest/api/searchservice/preview-api/search-documents) -begäranden har en ny [featuresMode](/rest/api/searchservice/preview-api/search-documents#featuresmode) -parameter som kan ge ytterligare information om relevans på fält nivå. Det `@searchScore` beräknas för hela dokumentet (hur relevant är det här dokumentet inom ramen för den här frågan) genom featuresMode. du kan få information om enskilda fält som uttrycks i en `@search.features` struktur. Strukturen innehåller alla fält som används i frågan (antingen vissa fält via **searchFields** i en fråga, eller alla fält som har attribut som **sökbara** i ett index). För varje fält får du följande värden:
 
 + Antalet unika tokens som hittades i fältet
 + Likhets poäng, eller ett mått på hur likartat innehållet i fältet är, relativt till frågeterm
@@ -107,6 +107,6 @@ Du kan använda dessa data punkter i [anpassade bedömnings lösningar](https://
 
 ## <a name="see-also"></a>Se även
 
- [Bedömnings profiler](index-add-scoring-profiles.md) [REST API referens](https://docs.microsoft.com/rest/api/searchservice/)   
- [Sök i dokument-API](https://docs.microsoft.com/rest/api/searchservice/search-documents)   
- [Azure Kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+ [Bedömnings profiler](index-add-scoring-profiles.md) [REST API referens](/rest/api/searchservice/)   
+ [Sök i dokument-API](/rest/api/searchservice/search-documents)   
+ [Azure Kognitiv sökning .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)

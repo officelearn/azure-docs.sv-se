@@ -8,20 +8,20 @@ ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b35af58141dc46e0cc36efe009023c1bf52850e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4889ecd02be1b8f59c30550b7813ed5e5935f20f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080065"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924702"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Kognitiv kompetens för text översättning
 
-**Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) som finns i Cognitive Services.
+**Text översättnings** kunskapen utvärderar text och returnerar texten översatt till det angivna mål språket för varje post. Den här kunskapen använder [Translator text API v 3.0](../cognitive-services/translator/reference/v3-0-translate.md) som finns i Cognitive Services.
 
 Den här funktionen är användbar om du förväntar dig att dokumenten kanske inte är på ett språk, vilket innebär att du kan normalisera texten till ett enda språk innan du indexerar den genom att översätta den.  Det är också användbart vid lokalisering av användnings fall där du kanske vill ha kopior av samma text som finns på flera språk.
 
-[Translator text API v 3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) är en icke-regional kognitiv tjänst, vilket innebär att dina data inte garanterar att de stannar i samma region som din Azure kognitiv sökning eller anslutna Cognitive Services resurs.
+[Translator text API v 3.0](../cognitive-services/translator/reference/v3-0-reference.md) är en icke-regional kognitiv tjänst, vilket innebär att dina data inte garanterar att de stannar i samma region som din Azure kognitiv sökning eller anslutna Cognitive Services resurs.
 
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
@@ -32,7 +32,7 @@ Den här funktionen är användbar om du förväntar dig att dokumenten kanske i
 Microsoft. färdigheter. text. TranslationSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till text översättnings kunskapen bör du överväga att använda [text delnings kunskaper](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till text översättnings kunskapen bör du överväga att använda [text delnings kunskaper](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -40,17 +40,17 @@ Parametrar är skiftlägeskänsliga.
 
 | Indata                | Beskrivning |
 |---------------------|-------------|
-| defaultToLanguageCode | Kunna Språk koden som dokumenten ska konverteras till för dokument som inte uttryckligen anger till språk. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| defaultFromLanguageCode | Valfritt Språk koden som översätter dokument från för dokument som inte anger från språket explicit.  Om defaultFromLanguageCode inte anges kommer den automatiska språk identifieringen som tillhandahålls av Translator Text API att användas för att fastställa från språket. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
-| suggestedFrom | Valfritt Språk koden som används för att översätta dokument från när varken fromLanguageCode-indata eller defaultFromLanguageCode-parametern anges och den automatiska språk identifieringen Miss lyckas.  Om suggestedFrom-språket inte anges kommer engelska (en) att användas som suggestedFrom-språk. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support). |
+| defaultToLanguageCode | Kunna Språk koden som dokumenten ska konverteras till för dokument som inte uttryckligen anger till språk. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/translator/language-support.md). |
+| defaultFromLanguageCode | Valfritt Språk koden som översätter dokument från för dokument som inte anger från språket explicit.  Om defaultFromLanguageCode inte anges kommer den automatiska språk identifieringen som tillhandahålls av Translator Text API att användas för att fastställa från språket. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/translator/language-support.md). |
+| suggestedFrom | Valfritt Språk koden som används för att översätta dokument från när varken fromLanguageCode-indata eller defaultFromLanguageCode-parametern anges och den automatiska språk identifieringen Miss lyckas.  Om suggestedFrom-språket inte anges kommer engelska (en) att användas som suggestedFrom-språk. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/translator/language-support.md). |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
 | Inmatat namn     | Beskrivning |
 |--------------------|-------------|
 | text | Den text som ska översättas.|
-| toLanguageCode    | En sträng som anger vilket språk texten ska översättas till. Om den här indatamängden inte anges kommer defaultToLanguageCode att användas för att översätta texten. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
-| fromLanguageCode  | En sträng som anger det aktuella språket för texten. Om den här parametern inte anges kommer defaultFromLanguageCode (eller automatisk språk identifiering om defaultFromLanguageCode inte anges) att användas för att översätta texten. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/translator/language-support)|
+| toLanguageCode    | En sträng som anger vilket språk texten ska översättas till. Om den här indatamängden inte anges kommer defaultToLanguageCode att användas för att översätta texten. <br/>Se en [fullständig lista över språk som stöds](../cognitive-services/translator/language-support.md)|
+| fromLanguageCode  | En sträng som anger det aktuella språket för texten. Om den här parametern inte anges kommer defaultFromLanguageCode (eller automatisk språk identifiering om defaultFromLanguageCode inte anges) att användas för att översätta texten. <br/>Se en [fullständig lista över språk som stöds](../cognitive-services/translator/language-support.md)|
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
@@ -91,7 +91,7 @@ Parametrar är skiftlägeskänsliga.
   }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -115,7 +115,7 @@ Parametrar är skiftlägeskänsliga.
 ```
 
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 ```json
 {

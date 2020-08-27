@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560381"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936171"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Felsöka sessioner i Azure Kognitiv sökning
 
@@ -95,4 +95,4 @@ Fel söknings sesisons fungerar med alla allmänt tillgängliga data källor AMD
 Nu när du förstår elementen i fel söknings sessioner, prova själv studie kursen om du vill ha en praktisk upplevelse.
 
 > [!div class="nextstepaction"]
-> [Utforska själv studie kursen om funktionen för att felsöka sessioner](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Utforska själv studie kursen om funktionen för att felsöka sessioner](./cognitive-search-tutorial-debug-sessions.md)

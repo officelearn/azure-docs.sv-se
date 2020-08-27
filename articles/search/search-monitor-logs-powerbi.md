@@ -7,15 +7,15 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/24/2020
-ms.openlocfilehash: d529e4e4b79f0c34eb8f95b028cca730b316d5f6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2caf4c66cdbb11ed42c4131ef1584c372ec10332
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060311"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935117"
 ---
 # <a name="visualize-azure-cognitive-search-logs-and-metrics-with-power-bi"></a>Visualisera Azure Kognitiv sökning-loggar och mät värden med Power BI
-Med [Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-what-is-azure-search) kan du lagra åtgärds loggar och tjänste mått för din Sök tjänst i ett Azure Storage konto. Den här sidan innehåller instruktioner för hur du kan visualisera informationen via en Power BI Template-app. Appen innehåller detaljerade insikter om din Sök tjänst, inklusive information om Sök-, indexerings-, drift-och tjänst mått.
+Med [Azure kognitiv sökning](./search-what-is-azure-search.md) kan du lagra åtgärds loggar och tjänste mått för din Sök tjänst i ett Azure Storage konto. Den här sidan innehåller instruktioner för hur du kan visualisera informationen via en Power BI Template-app. Appen innehåller detaljerade insikter om din Sök tjänst, inklusive information om Sök-, indexerings-, drift-och tjänst mått.
 
 Du hittar Power BI Template app Azure- **kognitiv sökning: Analysera loggar och mått** på [Power BI-appar på marknaden](https://appsource.microsoft.com/marketplace/apps).
 
@@ -23,7 +23,7 @@ Du hittar Power BI Template app Azure- **kognitiv sökning: Analysera loggar och
 
 1. Aktivera mått-och resurs loggning för Sök tjänsten:
 
-    1. Skapa eller identifiera ett befintligt [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) där du kan arkivera loggarna
+    1. Skapa eller identifiera ett befintligt [Azure Storage-konto](../storage/common/storage-account-create.md) där du kan arkivera loggarna
     1. Gå till Azure Kognitiv sökning-tjänsten i Azure Portal
     1. Under avsnittet övervakning i den vänstra kolumnen väljer du **diagnostikinställningar**
 
@@ -98,8 +98,8 @@ Om du upptäcker att du inte kan se dina data följer du dessa fel söknings ste
 1. Kontrol lera om data uppsättningen fortfarande uppdateras. Indikatorn för uppdaterings status visas i steg 8 ovan. Om den fortfarande uppdateras väntar du tills uppdateringen är klar för att öppna och uppdatera rapporten.
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om Azure Kognitiv sökning](https://docs.microsoft.com/azure/search/)
+[Läs mer om Azure Kognitiv sökning](./index.yml)
 
-[Vad är Power BI?](https://docs.microsoft.com/power-bi/fundamentals/power-bi-overview)
+[Vad är Power BI?](/power-bi/fundamentals/power-bi-overview)
 
-[Grundläggande begrepp för designers i Power BI-tjänsten](https://docs.microsoft.com/power-bi/service-basic-concepts)
+[Grundläggande begrepp för designers i Power BI-tjänsten](/power-bi/service-basic-concepts)

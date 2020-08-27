@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113866"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935542"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Så här refererar du till anteckningar i ett Azure Kognitiv sökning-färdigheter
 
@@ -25,7 +25,7 @@ Exemplen i den här artikeln baseras på *innehålls* fältet som genereras auto
 
 Innan du tittar på syntaxen ska vi gå tillbaka till några viktiga begrepp för att bättre förstå de exempel som beskrivs längre fram i den här artikeln.
 
-| Term | Beskrivning |
+| Period | Beskrivning |
 |------|-------------|
 | Omfattande dokument | Ett berikat dokument är en intern struktur som skapas och används av pipelinen för att innehålla alla anteckningar relaterade till ett dokument. Tänk på ett berikat dokument som ett träd med anteckningar. En anteckning som skapats från en tidigare anteckning blir i allmänhet dess underordnade.<p/>Omfattande dokument finns bara för varaktigheten för färdigheter-körning. När innehållet har mappats till Sök indexet behövs inte längre det berikade dokumentet. Även om du inte interagerar med berikade dokument direkt, är det praktiskt att ha en psykiska modell av dokumenten när du skapar en färdigheter. |
 | Anriknings kontext | Sammanhanget där berikning sker, vad gäller vilket element som är berikat. Som standard är anriknings kontexten på `"/document"` nivån, begränsad till enskilda dokument. När en kunskap körs, blir utmatningarna för den aktuella egenskapen [Egenskaper för den definierade kontexten](#example-2).|
@@ -95,7 +95,7 @@ När anteckningar är matriser eller samlings samlingar kan du vilja rikta in si
 
 Ibland måste du gruppera alla anteckningar av en viss typ för att skicka dem till en viss färdighet. Överväg en hypotetisk anpassad färdighet som identifierar det vanligaste efter namnet från alla efter namn som extraherats i exempel 2. Om du bara vill använda de sista namnen på den anpassade kunskapen anger du kontexten som `"/document"` och inmatat som `"/document/people/*/lastname"` .
 
-Observera att kardinalitet för `"/document/people/*/lastname"` är större än dokumentet. Det kan finnas 10 LastName-noder när det bara finns en dokument-nod för det här dokumentet. I så fall kommer systemet automatiskt att skapa en matris `"/document/people/*/lastname"` som innehåller alla element i dokumentet.
+Observera att kardinalitet för `"/document/people/*/lastname"` är större än dokumentet. Det kan finnas 10 LastName-noder när det bara finns en dokument-nod för det här dokumentet. I så fall kommer systemet automatiskt att skapa en matris  `"/document/people/*/lastname"` som innehåller alla element i dokumentet.
 
 ```json
   {
@@ -123,5 +123,5 @@ Observera att kardinalitet för `"/document/people/*/lastname"` är större än 
 ## <a name="see-also"></a>Se även
 + [Så här integrerar du en anpassad färdighet i en anriknings pipeline](cognitive-search-custom-skill-interface.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Skapa färdigheter (REST)](/rest/api/searchservice/create-skillset)
 + [Så här mappar du omfattande fält till ett index](cognitive-search-output-field-mapping.md)

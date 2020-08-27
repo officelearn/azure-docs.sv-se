@@ -9,29 +9,29 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510920"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929779"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Den här artikeln förklarar hur du formulerar REST API begär Anden interaktivt med [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice) och en API-klient för att skicka och ta emot förfrågningar. Med en API-klient och dessa instruktioner kan du skicka begär Anden och Visa svar innan du skriver någon kod.
+Den här artikeln förklarar hur du formulerar REST API begär Anden interaktivt med [Azure KOGNITIV sökning REST-API: er](/rest/api/searchservice) och en API-klient för att skicka och ta emot förfrågningar. Med en API-klient och dessa instruktioner kan du skicka begär Anden och Visa svar innan du skriver någon kod.
 
 I artikeln används Postman-programmet. Du kan [Hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) om du föredrar att använda fördefinierade begär Anden. 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster och verktyg krävs för den här snabb starten. 
 
@@ -74,7 +74,7 @@ I Postman formulerar du en begäran som ser ut som på följande skärm bild. V�
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-I Azure Kognitiv sökning skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här aktiviteten. 
+I Azure Kognitiv sökning skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](/rest/api/searchservice/create-index) används för den här aktiviteten. 
 
 URL: en utökas till att inkludera `hotels` index namnet.
 
@@ -128,7 +128,7 @@ När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet h
 
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-Att skapa ett index och att fylla det, är två separata steg. I Azure Kognitiv sökning innehåller indexet alla sökbara data. I det här scenariot tillhandahålls data som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
+Att skapa ett index och att fylla det, är två separata steg. I Azure Kognitiv sökning innehåller indexet alla sökbara data. I det här scenariot tillhandahålls data som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
 
 URL: en utökas till att omfatta `docs` samlingarna och `index` åtgärden.
 
@@ -236,12 +236,12 @@ Om några sekunder bör du se ett HTTP 201-svar i listan över sessioner. Detta 
 Om ett 207-svar returneras misslyckades uppladdningen av minst ett dokument. Om ett 404-svar returneras beror det på ett syntaxfel i begärandehuvudet eller i begärandetexten. Kontrollera att du har ändrat slutpunkten så att den inkluderar följande: `/docs/index`.
 
 > [!Tip]
-> För vissa utvalda datakällor kan du välja en alternativ *indexerare* för att förenkla och minska mängden kod som krävs för indexering. Mer information finns i [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) (Indexeringsåtgärder).
+> För vissa utvalda datakällor kan du välja en alternativ *indexerare* för att förenkla och minska mängden kod som krävs för indexering. Mer information finns i [Indexer operations](/rest/api/searchservice/indexer-operations) (Indexeringsåtgärder).
 
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Nu när ett index och en dokument uppsättning har lästs in kan du skicka frågor mot dem med hjälp av [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Nu när ett index och en dokument uppsättning har lästs in kan du skicka frågor mot dem med hjälp av [Sök dokument REST API](/rest/api/searchservice/search-documents).
 
 URL: en utökas till att innehålla ett frågeuttryck som anges med Sök operatorn.
 
@@ -278,7 +278,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>Hämta index egenskaper
-Du kan också använda [Hämta statistik](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) för frågor om antal dokument och index storlek: 
+Du kan också använda [Hämta statistik](/rest/api/searchservice/get-index-statistics) för frågor om antal dokument och index storlek: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
@@ -292,7 +292,7 @@ Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

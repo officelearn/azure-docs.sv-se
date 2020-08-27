@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d52cd57d48a03c5dab8cb8098cd212e76ca76a1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84986676"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929082"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
 
@@ -23,7 +24,7 @@ Den här guiden visar hur du flyttar ansikts data, till exempel ett sparat Perso
 
 Samma migrations strategi gäller även för LargePersonGroup-och LargeFaceList-objekt. Om du inte är bekant med begreppen i den här hand boken kan du se deras definitioner i rikt linjer för [ansikts igenkänning](../concepts/face-recognition.md) . Den här guiden använder sitt ansikte .NET-klient bibliotek med C#.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande objekt:
 

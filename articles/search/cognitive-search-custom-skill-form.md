@@ -8,18 +8,18 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321314"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935440"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exempel: skapa en anpassad färdighet för formulär igenkänning
 
 I det här Azure Kognitiv sökning färdigheter-exemplet får du lära dig hur du skapar en anpassad kunskap för formulär igenkänning med C# och Visual Studio. Formulär tolken analyserar dokument och extraherar nyckel/värde-par och tabell data. Genom att använda igenkänning av formulär i det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md)kan du lägga till den här funktionen som ett steg i en pipeline för omfattande anrikning. Pipelinen kan sedan läsa in dokumenten och utföra andra transformeringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (vilken utgåva som helst).
 - Minst fem formulär av samma typ. Du kan använda exempel data som finns i den här guiden.
@@ -28,20 +28,20 @@ I det här Azure Kognitiv sökning färdigheter-exemplet får du lära dig hur d
 
 [!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
 
-## <a name="train-your-model"></a>Träna din modell
+## <a name="train-your-model"></a>Träna modellen
 
-Du måste träna en formulär igenkännings modell med dina ingångs formulär innan du använder den här kunskapen. Följ [snabb](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) starten för att lära dig hur du tränar en modell. Du kan använda exempel formulären som tillhandahålls i snabb starten, eller så kan du använda dina egna data. När modellen har tränats kopierar du dess ID-värde till en säker plats.
+Du måste träna en formulär igenkännings modell med dina ingångs formulär innan du använder den här kunskapen. Följ [snabb](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) starten för att lära dig hur du tränar en modell. Du kan använda exempel formulären som tillhandahålls i snabb starten, eller så kan du använda dina egna data. När modellen har tränats kopierar du dess ID-värde till en säker plats.
 
 ## <a name="set-up-the-custom-skill"></a>Konfigurera den anpassade kompetensen
 
 I den här självstudien används [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) -projektet i GitHub-lagringsplatsen [Azure Search Power skicklighet](https://github.com/Azure-Samples/azure-search-power-skills) . Klona den här lagrings platsen till din lokala dator och gå till **vision/AnalyzeForm/** för att få åtkomst till projektet. Öppna sedan _AnalyzeForm. CSPROJ_ i Visual Studio. Det här projektet skapar en Azure Function-resurs som uppfyller det [anpassade kunskaps gränssnittet](cognitive-search-custom-skill-interface.md) och kan användas för Azure kognitiv sökning-anrikning. Den tar formulär dokument som indata och matas in (som text) de nyckel/värde-par som du anger.
 
 Lägg först till miljövariabler på projekt nivå. Leta upp projektet **AnalyzeForm** i det vänstra fönstret, högerklicka på det och välj **Egenskaper**. I fönstret **Egenskaper** klickar du på fliken **Felsök** och letar sedan upp fältet **miljövariabler** . Klicka på **Lägg** till för att lägga till följande variabler:
-* `FORMS_RECOGNIZER_ENDPOINT_URL`med värdet inställt på slut punktens URL.
-* `FORMS_RECOGNIZER_API_KEY`med värdet inställt på din prenumerations nyckel.
-* `FORMS_RECOGNIZER_MODEL_ID`med värdet inställt på ID: t för den modell som du har tränat.
-* `FORMS_RECOGNIZER_RETRY_DELAY`med värdet inställt på 1000. Det här värdet är den tid i millisekunder som programmet väntar innan den försöker köra frågan igen.
-* `FORMS_RECOGNIZER_MAX_ATTEMPTS`med värdet inställt på 100. Det här värdet är antalet gånger som programmet kommer att fråga tjänsten vid försök att få ett lyckat svar.
+* `FORMS_RECOGNIZER_ENDPOINT_URL` med värdet inställt på slut punktens URL.
+* `FORMS_RECOGNIZER_API_KEY` med värdet inställt på din prenumerations nyckel.
+* `FORMS_RECOGNIZER_MODEL_ID` med värdet inställt på ID: t för den modell som du har tränat.
+* `FORMS_RECOGNIZER_RETRY_DELAY` med värdet inställt på 1000. Det här värdet är den tid i millisekunder som programmet väntar innan den försöker köra frågan igen.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS` med värdet inställt på 100. Det här värdet är antalet gånger som programmet kommer att fråga tjänsten vid försök att få ett lyckat svar.
 
 Öppna sedan _AnalyzeForm.cs_ och hitta `fieldMappings` variabeln som refererar till *field-mappings.jspå* filen. Den här filen (och variabeln som refererar till den) definierar listan över nycklar som du vill extrahera från formulären och en anpassad etikett för varje nyckel. Ett värde på innebär till exempel att `{ "Address:", "address" }, { "Invoice For:", "recipient" }` skriptet bara sparar värdena för fälten identifierad och som `Address:` `Invoice For:` kommer att märka dessa värden med respektive `"address"` `"recipient"` .
 
@@ -87,7 +87,7 @@ Om du vill analysera ett fjärrdokument som inte finns i Azure Blob Storage klis
 > [!NOTE]
 > När kunskapen är integrerad i en färdigheter, kommer URL: en och token att tillhandahållas av Kognitiv sökning.
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 
 Du bör se ett svar som liknar följande exempel:
 
@@ -167,5 +167,5 @@ I den här hand boken har du skapat en anpassad kunskap från Azure formulär ig
 * [Azure Search energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
 * [Definiera en kunskapsuppsättning](cognitive-search-defining-skillset.md)
-* [Skapa en färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+* [Skapa en färdigheter (REST)](/rest/api/searchservice/create-skillset)
 * [Mappa sammanrikade fält](cognitive-search-output-field-mapping.md)

@@ -4,14 +4,15 @@ description: Skriv kod för att spåra begär Anden med Application Insights så
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
+ms.custom: devx-track-csharp
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aaa1d6df9faa20b1a561bfccdfea682af7645c18
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671604"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930255"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Skriv kod för att spåra begär Anden med Application Insights
 
@@ -45,7 +46,7 @@ Gör så här om du vill spåra begär Anden manuellt:
         }
         ```
 
-        Det `StartOperation<RequestTelemetry>` finns inte stöd för att anropa i ett annat `StartOperation<RequestTelemetry>` omfång. Du kan använda `StartOperation<DependencyTelemetry>` i det kapslade omfånget i stället. Ett exempel:  
+        Det `StartOperation<RequestTelemetry>` finns inte stöd för att anropa i ett annat `StartOperation<RequestTelemetry>` omfång. Du kan använda `StartOperation<DependencyTelemetry>` i det kapslade omfånget i stället. Exempel:  
         
         ```csharp
         using (var getDetailsOperation = client.StartOperation<RequestTelemetry>("GetProductDetails"))

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 10e6d0a183afdda2bf89014bb72f58d03a3013ec
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3b3d88c9e605889846808bb53063b06a3e980049
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171898"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929762"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Uppgradera till Azure Search .NET SDK version 3
 
@@ -25,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-Om du använder version 2,0 – för hands version eller äldre av [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 3.
+Om du använder version 2,0 – för hands version eller äldre av [Azure Search .NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 3.
 
 En mer allmän genom gång av SDK inklusive exempel finns i [så här använder du Azure Search från ett .NET-program](search-howto-dotnet-sdk.md).
 
@@ -63,7 +63,7 @@ Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft
 
 Nästa steg är att åtgärda det här build-felet. Mer information om vad som orsakar felet och hur du kan åtgärda det finns i avsnittet om att [bryta ändringar i version 3](#ListOfChanges) .
 
-Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningarna innehåller instruktioner om vad som ska användas i stället för den föråldrade funktionen. Om ditt program exempelvis använder `IndexingParameters.Base64EncodeKeys` egenskapen, ska du få en varning om att`"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
+Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningarna innehåller instruktioner om vad som ska användas i stället för den föråldrade funktionen. Om ditt program exempelvis använder `IndexingParameters.Base64EncodeKeys` egenskapen, ska du få en varning om att `"This property is obsolete. Please create a field mapping using 'FieldMapping.Base64Encode' instead."`
 
 När du har åtgärdat eventuella build-fel kan du göra ändringar i programmet för att dra nytta av nya funktioner om du vill. Nya funktioner i SDK beskrivs i [Vad är nytt i version 3](#WhatsNew).
 
@@ -132,7 +132,7 @@ index.Analyzers = new Analyzer[]
 
 Du kan se build-fel relaterade till metoder eller egenskaper som marker ATS som föråldrade i version 2,0 – för hands version och sedan tas bort i version 3. Gör så här om du stöter på sådana fel:
 
-- Om du använder den här konstruktorn: `ScoringParameter(string name, string value)` använder du den här i stället:`ScoringParameter(string name, IEnumerable<string> values)`
+- Om du använder den här konstruktorn: `ScoringParameter(string name, string value)` använder du den här i stället: `ScoringParameter(string name, IEnumerable<string> values)`
 - Om du använder `ScoringParameter.Value` egenskapen använder du `ScoringParameter.Values` egenskapen eller `ToString` metoden i stället.
 - Om du använder `SearchRequestOptions.RequestId` egenskapen använder du `ClientRequestId` egenskapen i stället.
 

@@ -8,19 +8,19 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/12/2020
-ms.openlocfilehash: 598a8383350cae98d61b8ab74f7687161d3d33e8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a3916a41635a1c76bddbb092294f6d362fc6050
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924719"
 ---
 # <a name="aml-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>AML-kunskaper i en pipeline för Azure Kognitiv sökning-anrikning
 
 > [!IMPORTANT] 
 > Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för .NET SDK.
 
-Med **AML** -kompetensen kan du utöka AI-anrikningen med en anpassad [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) -modell (AML). När en AML-modell har [tränats och distribuerats](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workflow)integreras en **AML** -skicklighet i AI-anrikning.
+Med **AML** -kompetensen kan du utöka AI-anrikningen med en anpassad [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) -modell (AML). När en AML-modell har [tränats och distribuerats](../machine-learning/concept-azure-machine-learning-architecture.md#workspace)integreras en **AML** -skicklighet i AI-anrikning.
 
 Precis som inbyggda kunskaper har en **AML** -färdighet indata och utdata. Indata skickas till den distribuerade AML-tjänsten som ett JSON-objekt, som matar ut en JSON-nyttolast som ett svar tillsammans med status koden lyckades. Svaret förväntas ha de utdata som anges av din **AML** -färdighet. Andra svar betraktas som ett fel och inga berikningar utförs.
 
@@ -29,11 +29,11 @@ Precis som inbyggda kunskaper har en **AML** -färdighet indata och utdata. Inda
 > * `503 Service Unavailable`
 > * `429 Too Many Requests`
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* En [AML-arbetsyta](https://docs.microsoft.com/azure/machine-learning/concept-workspace)
-* En [Azure Kubernetes-tjänst AML Compute Target](https://docs.microsoft.com/azure/machine-learning/concept-compute-target) på den här arbets ytan med en [distribuerad modell](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
-  * [Beräknings målet ska ha SSL aktiverat](https://docs.microsoft.com/azure/machine-learning/how-to-secure-web-service#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Kognitiv sökning tillåter endast åtkomst till **https** -slutpunkter
+* En [AML-arbetsyta](../machine-learning/concept-workspace.md)
+* En [Azure Kubernetes-tjänst AML Compute Target](../machine-learning/concept-compute-target.md) på den här arbets ytan med en [distribuerad modell](../machine-learning/how-to-deploy-azure-kubernetes-service.md)
+  * [Beräknings målet ska ha SSL aktiverat](../machine-learning/how-to-secure-web-service.md#deploy-on-aks-and-field-programmable-gate-array-fpga). Azure Kognitiv sökning tillåter endast åtkomst till **https** -slutpunkter
   * Självsignerade certifikat kan inte användas.
 
 ## <a name="odatatype"></a>@odata.type  
@@ -45,8 +45,8 @@ Parametrar är skiftlägeskänsliga. Vilka parametrar du väljer att använda be
 
 | Parameternamn | Beskrivning |
 |--------------------|-------------|
-| `uri` | (Krävs endast för [autentisering eller nyckeltoken](#WhatSkillParametersToUse)) [Beräknings-URI: n för den AML-tjänst](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service) som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schemat är tillåtet. |
-| `key` | (Krävs för [nyckel autentisering](#WhatSkillParametersToUse)) [Nyckeln för AML-tjänsten](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service#authentication-with-keys). |
+| `uri` | (Krävs endast för [autentisering eller nyckeltoken](#WhatSkillParametersToUse)) [Beräknings-URI: n för den AML-tjänst](../machine-learning/how-to-consume-web-service.md) som _JSON_ -nyttolasten ska skickas till. Endast **https** URI-schemat är tillåtet. |
+| `key` | (Krävs för [nyckel autentisering](#WhatSkillParametersToUse)) [Nyckeln för AML-tjänsten](../machine-learning/how-to-consume-web-service.md#authentication-with-keys). |
 | `resourceId` | (Krävs för [token-autentisering](#WhatSkillParametersToUse)). Azure Resource Manager resurs-ID för AML-tjänsten. Den ska vara i formatet prenumerationer/{GUID}/resourceGroups/{Resource-Group-name}/Microsoft. MachineLearningServices/arbetsytes/{arbetsyte-Name}/Services/{service_name}. |
 | `region` | (Valfritt för [token-autentisering](#WhatSkillParametersToUse)). [Regionen](https://azure.microsoft.com/global-infrastructure/regions/) som AML-tjänsten har distribuerats i. |
 | `timeout` | Valfritt Anger tids gränsen för http-klienten som gör API-anropet. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett [varaktighets värde på ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Till exempel `PT60S` i 60 sekunder. Om inget värde anges väljs ett standardvärde på 30 sekunder. Tids gränsen kan anges till högst 230 sekunder och minst 1 sekund. |
@@ -58,9 +58,9 @@ Parametrar är skiftlägeskänsliga. Vilka parametrar du väljer att använda be
 
 Vilka AML kvalifikations parametrar som krävs beror på vilken autentisering din AML-tjänst använder, om det finns någon. AML Services tillhandahåller tre autentiseringsalternativ:
 
-* [Nyckelbaserad autentisering](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication-for-web-service-deployment). En statisk nyckel tillhandahålls för att autentisera Poäng förfrågningar från AML-färdigheter
+* [Nyckelbaserad autentisering](../machine-learning/concept-enterprise-security.md#authentication-for-web-service-deployment). En statisk nyckel tillhandahålls för att autentisera Poäng förfrågningar från AML-färdigheter
   * Använd _URI_ och _nyckel_ parametrar
-* [Tokenbaserad autentisering](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#authentication). AML-tjänsten [distribueras med hjälp av token-baserad autentisering](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service#authentication-with-tokens). Den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för Azure kognitiv sökning-tjänsten beviljas [rollen läsare](https://docs.microsoft.com/azure/machine-learning/how-to-assign-roles) i AML-tjänstens arbets yta. AML-kompetensen använder sedan Azure Kognitiv sökning tjänstens hanterade identitet för att autentisera mot AML-tjänsten, utan att det krävs några statiska nycklar.
+* [Tokenbaserad autentisering](../machine-learning/concept-enterprise-security.md#authentication). AML-tjänsten [distribueras med hjälp av token-baserad autentisering](../machine-learning/how-to-deploy-azure-kubernetes-service.md#authentication-with-tokens). Den [hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md) för Azure kognitiv sökning-tjänsten beviljas [rollen läsare](../machine-learning/how-to-assign-roles.md) i AML-tjänstens arbets yta. AML-kompetensen använder sedan Azure Kognitiv sökning tjänstens hanterade identitet för att autentisera mot AML-tjänsten, utan att det krävs några statiska nycklar.
   * Använd parametern _resourceId_ .
   * Om Azure Kognitiv sökning-tjänsten finns i en annan region än arbets ytan AML använder du parametern _region_ för att ange den region som AML-tjänsten distribuerades i
 * Ingen autentisering. Ingen autentisering krävs för att använda AML-tjänsten
@@ -171,4 +171,4 @@ När AML-tjänsten inte är tillgänglig eller returnerar ett HTTP-fel läggs et
 ## <a name="see-also"></a>Se även
 
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Fel sökning av AML-tjänsten](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment)
++ [Fel sökning av AML-tjänsten](../machine-learning/how-to-troubleshoot-deployment.md)

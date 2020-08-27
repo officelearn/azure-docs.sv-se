@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 8f0909ee1cdce1e6180b91a30b2e9b281098c826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130559"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935894"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till språk analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
@@ -59,9 +59,9 @@ Språk analys verktyg används i befintligt skick. För varje fält i index defi
 > [!NOTE]
 > Det går inte att använda en annan språk analys vid indexerings tiden än vid frågans tid för ett fält. Den funktionen är reserverad för [anpassade analys](index-add-custom-analyzers.md)verktyg. Av den anledningen, om du försöker ange **searchAnalyzer** -eller **indexAnalyzer** -egenskaperna till namnet på en språk analys, returnerar REST API ett fel svar. Du måste använda **Analyzer** -egenskapen i stället.
 
-Använd Frågeparametern **searchFields** för att ange vilket språkspecifika fält som ska genomsökas i dina frågor. Du kan granska exempel på frågor som innehåller analys egenskapen i [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+Använd Frågeparametern **searchFields** för att ange vilket språkspecifika fält som ska genomsökas i dina frågor. Du kan granska exempel på frågor som innehåller analys egenskapen i [Sök dokument](/rest/api/searchservice/search-documents). 
 
-Mer information om index egenskaper finns i [skapa index &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). Mer information om analyser i Azure Kognitiv sökning finns i [analyserare i azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-analyzers).
+Mer information om index egenskaper finns i [skapa index &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/create-index). Mer information om analyser i Azure Kognitiv sökning finns i [analyserare i azure kognitiv sökning](./search-analyzers.md).
 
 <a name="language-analyzer-list"></a>
 
@@ -131,7 +131,6 @@ Mer information om index egenskaper finns i [skapa index &#40;Azure Kognitiv sö
 
 ## <a name="see-also"></a>Se även  
 
-+ [Skapa index &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
++ [Skapa index &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/create-index)  
 
-+ [AnalyzerName-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername)  
-
++ [AnalyzerName-klass](/dotnet/api/microsoft.azure.search.models.analyzername)

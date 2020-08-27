@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562620"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927144"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Uppgradera till den senaste versionen av Azure Kognitiv sökning service REST API
 
-Om du använder en tidigare version av [sök REST API](https://docs.microsoft.com/rest/api/searchservice/)kan den här artikeln hjälpa dig att uppgradera ditt program till att använda den senaste allmänt tillgängliga API-versionen, 2020-06-30.
+Om du använder en tidigare version av [sök REST API](/rest/api/searchservice/)kan den här artikeln hjälpa dig att uppgradera ditt program till att använda den senaste allmänt tillgängliga API-versionen, 2020-06-30.
 
 Version 2020-06-30 av REST API innehåller vissa ändringar från tidigare versioner. Dessa är huvudsakligen bakåtkompatibla, så att ändringar i din kod bara kräver minimal ansträngning, beroende på vilken version du använde tidigare. [Steg för att uppgradera](#UpgradeSteps) beskriver de kod ändringar som krävs för att använda nya funktioner.
 
@@ -32,7 +32,7 @@ När du uppgraderar till nya versioner behöver du förmodligen inte göra någr
 
 * Koden fungerar inte när okända egenskaper returneras i ett API-svar. Som standard ska programmet ignorera egenskaper som det inte förstår.
 
-* Din kod behåller API-begärandena och försöker skicka om dem till den nya API-versionen. Detta kan till exempel inträffa om ditt program behåller fortsättnings-token som returneras från Sök-API: et (mer information finns `@search.nextPageParameters` i [Sök-API-referensen](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)).
+* Din kod behåller API-begärandena och försöker skicka om dem till den nya API-versionen. Detta kan till exempel inträffa om ditt program behåller fortsättnings-token som returneras från Sök-API: et (mer information finns `@search.nextPageParameters` i [Sök-API-referensen](/rest/api/searchservice/Search-Documents)).
 
 * Din kod refererar till en API-version som fördaterar 2019-05-06 och omfattas av en eller flera av de större ändringarna i den versionen. Avsnittet [Uppgradera till 2019-05-06](#upgrade-to-2019-05-06) innehåller mer information. 
 
@@ -146,4 +146,4 @@ Du kan uppdatera "platta" index till det nya formatet med följande steg med hj�
 Läs REST API referens dokumentation för Sök. Om du stöter på problem ber vi oss om hjälp med [Stack Overflow](https://stackoverflow.com/) eller [kontakta supporten](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Sök tjänst REST API referens](https://docs.microsoft.com/rest/api/searchservice/)
+> [Sök tjänst REST API referens](/rest/api/searchservice/)

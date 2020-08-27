@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109584"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927314"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -32,12 +32,12 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Instruktioner för varje aktivitet följer tabellen.
 
-**Aktivitet** | **Information** | **Behörigheter**
+**Uppgift** | **Information** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-enhet för att identifiera virtuella datorer, för att utvärdera dem med Server bedömnings verktyget och för att migrera dem med hjälp av återställning utan agent med Migreringsverktyg för Server. [Läs mer](migrate-appliance-architecture.md#appliance-registration) om registrering. | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
-**Skapa Azure AD-appar** | När du registrerar en installation skapar Azure Migrate Azure Active Directory (Azure AD)-appar. <br/><br/> – Den första appen används för kommunikation mellan de agenter som körs på enheten och Azure Migrate. <br/><br/> – Den andra appen används exklusivt för att få åtkomst till nyckel valvet som skapats i användarens prenumeration för migrering av virtuella VMware-datorer.   | Ditt Azure-konto måste ha behörighet att skapa Azure AD-appar.
-**Skapa en Key Vault-lösning** | För att migrera virtuella VMware-datorer med hjälp av en utan agent skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till replikeringssystemet i din prenumeration. | Om du vill tillåta Azure Migrate att skapa Key Vault ställer du in behörigheter (ägare eller deltagare och administratör för användar åtkomst) på resurs gruppen där Azure Migrate-projektet finns.
+**Skapa Azure AD-appar** | När du registrerar en installation skapar Azure Migrate Azure AD-appar med två Active Directory (Azure AD). <br/><br/> – Den första appen används för kommunikation mellan de agenter som körs på enheten och Azure Migrate. <br/><br/> – Den andra appen används exklusivt för att få åtkomst till nyckel valvet som skapats i användarens prenumeration för migrering av virtuella VMware-datorer.   | Ditt Azure-konto behöver de här [behörigheterna](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) för att skapa Azure AD-appar.
+**Skapa en Key Vault-lösning** | – Den första Key Vault skapas som en del av installations registreringen och används för hantering av det certifikat som laddats ned på enheten under konfigurationen. <br/><br/> – Om du vill migrera virtuella VMware-datorer med hjälp av utan agent skapar Azure Migrate ytterligare Key Vault för att hantera åtkomst nycklar till replikeringssystemet i din prenumeration.| Om du vill tillåta Azure Migrate att skapa Key Vault ställer du in behörigheter (ägare eller deltagare och administratör för användar åtkomst) på resurs gruppen där Azure Migrate-projektet finns.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Tilldela behörigheter för att skapa projekt

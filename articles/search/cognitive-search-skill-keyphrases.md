@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 145d8265412c4efcaa2afad97feb23528a36191d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080824"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936069"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extrahering av diskussionsämne kognitiva kunskaper
 
-Den **extrahering av diskussionsämnea** kunskapen utvärderar ostrukturerad text och returnerar en lista över viktiga fraser för varje post. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+Den **extrahering av diskussionsämnea** kunskapen utvärderar ostrukturerad text och returnerar en lista över viktiga fraser för varje post. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](../cognitive-services/text-analytics/overview.md) i Cognitive Services.
 
 Den här funktionen är användbar om du snabbt behöver identifiera de viktigaste pratar punkterna i posten. Till exempel, den inmatade texten "livsmedlet var Delicious och det var en fantastiskt anställd", returnerar tjänsten "mat" och "trevlig personal".
 
@@ -31,7 +31,7 @@ Den här funktionen är användbar om du snabbt behöver identifiera de viktigas
 Microsoft. färdigheter. text. KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -39,7 +39,7 @@ Parametrar är skiftlägeskänsliga.
 
 | Indata                | Beskrivning |
 |---------------------|-------------|
-| `defaultLanguageCode` | Valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk.  Om standard språk koden inte anges används engelska (en) som standard språk kod. <br/> Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `defaultLanguageCode` | Valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk.  Om standard språk koden inte anges används engelska (en) som standard språk kod. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | Valfritt Det maximala antalet nyckel fraser som ska skapas. |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -47,11 +47,11 @@ Parametrar är skiftlägeskänsliga.
 | Indata  | Beskrivning |
 |--------------------|-------------|
 | `text` | Den text som ska analyseras.|
-| `languageCode`    |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `languageCode`    |  En sträng som anger språket för posterna. Om den här parametern inte anges används standard språk koden för att analysera posterna. <br/>Se en [fullständig lista över språk som stöds](../cognitive-services/text-analytics/language-support.md)|
 
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
-| Utdata     | Beskrivning |
+| Resultat     | Beskrivning |
 |--------------------|-------------|
 | `keyPhrases` | En lista med nyckel fraser extraherade från inmatad text. Viktiga fraser returneras i prioritetsordning. |
 
@@ -91,7 +91,7 @@ Sedan kan din kunskaps definition se ut så här:
   }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 I exemplet ovan skrivs resultatet av din färdighet till en ny nod i det fördjupade trädet "Document/myKeyPhrases" eftersom det är det `targetName` som vi har angett. Om du inte anger någon `targetName` , blir det "dokument/diskussions fraser".
 

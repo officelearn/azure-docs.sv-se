@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853245"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927552"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -242,7 +242,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-Det är praktiskt att först bygga avbildningar lokalt med hjälp av- [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metoden. Och om du anger den valfria parametern `pushImageToWorkspaceAcr = True` skickas den resulterande avbildningen in i Azure ml-arbetsytans behållare register. 
+Det är praktiskt att först bygga avbildningar lokalt med hjälp av- [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metoden. Ange den valfria parametern om du vill skapa en Docker-avbildning `useDocker=True` . Ange om du vill skicka den resulterande avbildningen till AzureML-arbetsytans behållare register `pushImageToWorkspaceAcr=True` .
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
 >  Att ändra ordningen på beroenden eller kanaler i en miljö leder till en ny miljö och kräver en ny avbildnings version. Dessutom kommer anrop av `build()` metoden för en befintlig avbildning att uppdatera dess beroenden om det finns nya versioner. 

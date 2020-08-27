@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85f3b9862bd8155c1a4b11860dc82d92a2f9e810
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72792025"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936103"
 ---
 # <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Föråldrade kognitiva kunskaper i Azure Kognitiv sökning
 
@@ -38,7 +38,7 @@ Det här dokumentet beskriver kognitiva kunskaper som betraktas som föråldrade
 
 Använd [Microsoft. skicklighets. text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) i stället. Den innehåller de flesta funktioner i NamedEntityRecognitionSkill med högre kvalitet. Den innehåller också utförlig information i komplexa utdatakolumner.
 
-Om du vill migrera till [kunskap om enhets igenkänning](cognitive-search-skill-entity-recognition.md)måste du utföra en eller flera av följande ändringar i din kunskaps definition. Du kan uppdatera kunskaps definitionen med [Update färdigheter-API: et](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
+Om du vill migrera till [kunskap om enhets igenkänning](cognitive-search-skill-entity-recognition.md)måste du utföra en eller flera av följande ändringar i din kunskaps definition. Du kan uppdatera kunskaps definitionen med [Update färdigheter-API: et](/rest/api/searchservice/update-skillset).
 
 > [!NOTE]
 > För närvarande stöds inte säkerhets Poäng som ett begrepp. `minimumPrecision`Parametern finns i `EntityRecognitionSkill` för framtida användning och bakåtkompatibilitet.

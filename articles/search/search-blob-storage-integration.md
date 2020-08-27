@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fd405513f8bdef09e6d3ab996fc2c04bd397db13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72d00b70cf3568466715668aa441ee295614c740
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659434"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935253"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Lägg till fullständig texts ökning i Azure blob-data med Azure Kognitiv sökning
 
@@ -27,7 +27,7 @@ Azure Kognitiv sökning integreras med Azure Blob Storage i indexerings skiktet,
 
 När indexet har skapats och fyllts i finns det oberoende av BLOB-behållaren, men du kan köra om indexerings åtgärder för att uppdatera indexet med ändringar i den underliggande behållaren. Tidsstämpel-information om enskilda blobbar används för ändrings identifiering. Du kan välja antingen schemalagd körning eller indexering på begäran som uppdaterings metod.
 
-Indata är dina blobbar i en enda behållare i Azure Blob Storage. Blobbar kan vara nästan alla typer av text data. Om Blobbarna innehåller bilder kan du lägga till [AI-anrikning till BLOB-indexering](search-blob-ai-integration.md) för att skapa och extrahera text från bilder.
+Indata är dina blobbar i en enda behållare i Azure Blob Storage. Blobbar kan vara nästan alla typer av text data. Om Blobbarna innehåller bilder kan du lägga till [AI-anrikning till BLOB-indexering ](search-blob-ai-integration.md) för att skapa och extrahera text från bilder.
 
 Utdata är alltid ett Azure Kognitiv sökning-index som används för snabb texts ökning, hämtning och utforskning i klient program. I mellan är själva arkitekturen för indexerings pipelinen. Pipelinen baseras på *indexerings* funktionen, som beskrivs i den här artikeln.
 
@@ -75,5 +75,5 @@ En permanent lösning är att samla in indata från frågor och presentera svare
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Konfigurera en BLOB-indexerare (Azure Kognitiv sökning)](search-howto-indexing-azure-blob-storage.md) 
++ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
++ [Konfigurera en BLOB-indexerare (Azure Kognitiv sökning)](search-howto-indexing-azure-blob-storage.md)

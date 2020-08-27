@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496425"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928531"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Säkerhets filter för att trimma resultat i Azure Kognitiv sökning
 
@@ -109,13 +109,13 @@ Om du behöver uppdatera ett befintligt dokument med listan över grupper kan du
 }
 ```
 
-För fullständig information om hur du lägger till eller uppdaterar dokument kan du läsa [Redigera dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+För fullständig information om hur du lägger till eller uppdaterar dokument kan du läsa [Redigera dokument](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Tillämpa säkerhets filtret
 
 För att kunna rensa dokument baserat på `group_ids` åtkomst bör du utfärda en Sök fråga med ett `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))` filter, där group_id1 group_id2,... är de grupper som utfärdaren av Sök begär Anden tillhör.
 Det här filtret matchar alla dokument som `group_ids` fältet innehåller ett av de identifierade identifierarna.
-Fullständig information om hur du söker efter dokument med hjälp av Azure Kognitiv sökning kan du läsa [Sök dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Fullständig information om hur du söker efter dokument med hjälp av Azure Kognitiv sökning kan du läsa [Sök dokument](/rest/api/searchservice/search-documents).
 Observera att det här exemplet visar hur du söker efter dokument med en POST-begäran.
 
 Utfärda HTTP POST-begäran:

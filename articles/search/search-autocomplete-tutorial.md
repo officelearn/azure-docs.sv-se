@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2de282da56a40c92eacde84ac913be0ceacf9e2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: be873ed122bb521ce00e2d18d55a9be8197a0048
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413025"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936766"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Lägg till komplettera automatiskt och förslag till klient program
 
@@ -23,7 +23,7 @@ Sökning efter typ är en vanlig teknik för att förbättra produktiviteten fö
 Om du vill implementera dessa upplevelser i Azure Kognitiv sökning behöver du:
 
 + En *förslags ställare* på Server delen.
-+ En *fråga* som anger [Autoavsluta](https://docs.microsoft.com/rest/api/searchservice/autocomplete) -eller [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) -API: et för begäran.
++ En *fråga* som anger [Autoavsluta](/rest/api/searchservice/autocomplete) -eller [Suggestions](/rest/api/searchservice/suggestions) -API: et för begäran.
 + En *gränssnitts kontroll* som hanterar interaktioner från sökning till typ i klient programmet. Vi rekommenderar att du använder ett befintligt JavaScript-bibliotek för detta ändamål.
 
 I Azure Kognitiv sökning hämtas kompletterade frågor och föreslagna resultat från Sök indexet från valda fält som du har registrerat med en förslags ställare. En förslags ställare är en del av indexet och anger vilka fält som ska tillhandahålla innehåll som antingen fyller i en fråga, föreslår ett resultat eller båda. När indexet skapas och läses in skapas en förslags data struktur internt för att lagra prefix som används för att matcha delar av frågor. För förslag bör du välja lämpliga fält som är unika eller som minst inte upprepas. Mer information finns i [skapa en förslags ställare](index-add-suggesters.md).
@@ -54,16 +54,16 @@ Matchningar är i början av en term var som helst i Indatasträngen. Med "Quick
 
 Följ dessa länkar för referens sidorna REST och .NET SDK:
 
-+ [Förslag REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [Autoavsluta-REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync-metod](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync-metod](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Förslag REST API](/rest/api/searchservice/suggestions) 
++ [Autoavsluta-REST API](/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync-metod](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 ## <a name="structure-a-response"></a>Strukturera ett svar
 
-Svar för Autoavsluta och förslag är vad du kan förväntat dig för mönstret: [Autoavsluta](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) returnerar en lista med villkor, [förslag](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) returnerar villkor plus ett dokument-ID så att du kan hämta dokumentet (Använd sökverktygets API för att hämta det [aktuella dokumentet för](https://docs.microsoft.com/rest/api/searchservice/lookup-document) en informations sida).
+Svar för Autoavsluta och förslag är vad du kan förväntat dig för mönstret: [Autoavsluta](/rest/api/searchservice/autocomplete#response) returnerar en lista med villkor, [förslag](/rest/api/searchservice/suggestions#response) returnerar villkor plus ett dokument-ID så att du kan hämta dokumentet (Använd sökverktygets API för att hämta det [aktuella dokumentet för](/rest/api/searchservice/lookup-document) en informations sida).
 
-Svar definieras av parametrarna på begäran. För Autoavsluta ställer du in [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) för att avgöra om text komplettering sker på en eller två villkor. För förslag bestämmer det fält du väljer innehållet i svaret.
+Svar definieras av parametrarna på begäran. För Autoavsluta ställer du in [**autocompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) för att avgöra om text komplettering sker på en eller två villkor. För förslag bestämmer det fält du väljer innehållet i svaret.
 
 För förslag bör du ytterligare förfina svaret för att undvika dubbletter eller vad som verkar vara orelaterade resultat. Om du vill kontrol lera resultatet inkluderar du fler parametrar i begäran. Följande parametrar gäller för både Autoavsluta och förslag, men är kanske mer nödvändiga för förslag, särskilt när en förslags ställare innehåller flera fält.
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Om du använder C# och ett MVC-program är **HomeController.cs** -filen under katalogen kontrollanter där du kan skapa en klass för föreslagna resultat. I .NET baseras en förslags funktion på [metoden DocumentsOperationsExtensions. föreslå](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-`InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+`InitSearch`Metoden skapar en autentiserad HTTP-index-klient till Azure kognitiv sökning-tjänsten. Mer information om .NET SDK finns i [så här använder du Azure kognitiv sökning från ett .NET-program](./search-howto-dotnet-sdk.md).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -175,7 +175,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarkeringar returneras eller om fuzzy-matchning används utöver sökordsindata. Metoden skapar ett [SuggestParameters-objekt](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), som sedan skickas till föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
+Funktionen Suggest (Föreslå) tar två parametrar som bestämmer om träffmarkeringar returneras eller om fuzzy-matchning används utöver sökordsindata. Metoden skapar ett [SuggestParameters-objekt](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), som sedan skickas till föreslå API. Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
 
 ## <a name="autocomplete"></a>Komplettera automatiskt
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funktionen Komplettera automatiskt
 
-Autoavsluta baseras på [metoden DocumentsOperationsExtensions. Autocomplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Som med förslag skulle det här kod blocket gå till filen **HomeController.cs** .
+Autoavsluta baseras på [metoden DocumentsOperationsExtensions. Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Som med förslag skulle det här kod blocket gå till filen **HomeController.cs** .
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -243,7 +243,7 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-Funktionen Autoavsluta tar search term-indatamängden. Metoden skapar ett [AutoCompleteParameters-objekt](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
+Funktionen Autoavsluta tar search term-indatamängden. Metoden skapar ett [AutoCompleteParameters-objekt](/rest/api/searchservice/autocomplete). Resultatet konverteras sedan till JSON, så att det kan visas i klienten.
 
 ## <a name="next-steps"></a>Nästa steg
 

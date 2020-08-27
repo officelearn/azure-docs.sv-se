@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: ba30584ca40e7d093ecd9090b82b977d71fc1e0e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503310"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936018"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd REST och AI för att generera sökbart innehåll från Azure-blobbar
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. Även om en pipeline kan bearbeta bilder, fokuserar denna REST-guide på text, använder språk identifiering och bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-I den här självstudien används Postman och [Sök REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) för att utföra följande uppgifter:
+I den här självstudien används Postman och [Sök REST-API: er](/rest/api/searchservice/) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med hela dokument (ostrukturerad text) som PDF, HTML, DOCX och PPTX i Azure Blob Storage.
@@ -135,7 +135,7 @@ I Azure Kognitiv sökning sker AI-bearbetning under indexering (eller data inmat
 
 ### <a name="step-1-create-a-data-source"></a>Steg 1: Skapa en datakälla
 
-Ett [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
+Ett [data käll objekt](/rest/api/searchservice/create-data-source) ger anslutnings strängen till BLOB-behållaren som innehåller filerna.
 
 1. Använd **post** och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst.
 
@@ -165,7 +165,7 @@ Om du ser felet 403 eller 404 ska du kontrollera konstruktionen för begäran: `
 
 ### <a name="step-2-create-a-skillset"></a>Steg 2: skapa en färdigheter
 
-Ett [färdigheter-objekt](https://docs.microsoft.com/rest/api/searchservice/create-skillset) är en uppsättning av anriknings steg som tillämpas på ditt innehåll. 
+Ett [färdigheter-objekt](/rest/api/searchservice/create-skillset) är en uppsättning av anriknings steg som tillämpas på ditt innehåll. 
 
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst.
 
@@ -250,7 +250,7 @@ Ett [färdigheter-objekt](https://docs.microsoft.com/rest/api/searchservice/crea
 
 ### <a name="step-3-create-an-index"></a>Steg 3: skapa ett index
 
-Ett [index](https://docs.microsoft.com/rest/api/searchservice/create-index) ger det schema som används för att skapa det fysiska uttrycket för ditt innehåll i inverterade index och andra konstruktioner i Azure kognitiv sökning. Den största komponenten i ett index är fält samlingen där data typen och attributen avgör innehåll och beteenden i Azure Kognitiv sökning.
+Ett [index](/rest/api/searchservice/create-index) ger det schema som används för att skapa det fysiska uttrycket för ditt innehåll i inverterade index och andra konstruktioner i Azure kognitiv sökning. Den största komponenten i ett index är fält samlingen där data typen och attributen avgör innehåll och beteenden i Azure Kognitiv sökning.
 
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att namnge ditt index.
 
@@ -334,7 +334,7 @@ Ett [index](https://docs.microsoft.com/rest/api/searchservice/create-index) ger 
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Steg 4: skapa och köra en indexerare
 
-En [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (data källa, färdigheter, index) är indata till en indexerare. Att skapa indexeraren på Azure Kognitiv sökning är den händelse som placerar hela pipelinen i rörelse. 
+En [indexerare](/rest/api/searchservice/create-indexer) driver pipelinen. De tre komponenter som du har skapat hittills (data källa, färdigheter, index) är indata till en indexerare. Att skapa indexeraren på Azure Kognitiv sökning är den händelse som placerar hela pipelinen i rörelse. 
 
 1. Använd **Lägg** till och följande URL och ersätt ditt-service-namn med det faktiska namnet på din tjänst, för att ge indexeraren ett namn.
 
@@ -486,7 +486,7 @@ Kom ihåg att vi startade med BLOB-innehåll, där hela dokumentet paketeras i e
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
    ```
 
-Dessa frågor illustrerar några av de olika sätten att arbeta med frågesyntax och filter på nya fält som skapats av kognitiv sökning. Fler fråge exempel finns i [exemplen i search documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax Query exempel](search-query-simple-examples.md)och [fullständiga Lucene-fråge exempel](search-query-lucene-examples.md).
+Dessa frågor illustrerar några av de olika sätten att arbeta med frågesyntax och filter på nya fält som skapats av kognitiv sökning. Fler fråge exempel finns i [exemplen i search documents REST API](/rest/api/searchservice/search-documents#bkmk_examples), [Simple syntax Query exempel](search-query-simple-examples.md)och [fullständiga Lucene-fråge exempel](search-query-lucene-examples.md).
 
 <a name="reset"></a>
 
@@ -516,7 +516,7 @@ Slutligen lärde du dig att testa resultat och återställa systemet för ytterl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

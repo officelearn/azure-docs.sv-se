@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 9d96e3f7d127f4839592e766537cbdb07cc697dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414931"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949972"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory-priser genom exempel
 
@@ -166,6 +166,46 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 - Körning av pipeline-dirigering &amp; = **$1,463**
   - Aktivitet körs = 001 \* 2 = 0,002 [1 körning = $1/1000 = 0,001]
   - Data flödes aktiviteter = $1,461 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.274/timme på Azure Integration Runtime med 16 kärnor allmän beräkning
+
+## <a name="data-integration-in-azure-data-factory-managed-vnet"></a>Data integrering i Azure Data Factory hanterat VNET
+I det här scenariot vill du ta bort original filerna på Azure Blob Storage och kopiera data från Azure SQL Database till Azure Blob Storage. Du kommer att utföra den här körningen två gånger på olika pipeliner. Körnings tiden för dessa två pipeliner överlappar varandra.
+![Scenario4 ](media/pricing-concepts/scenario-4.png) för att uppnå scenariot måste du skapa två pipeliner med följande objekt:
+  - En pipeline-aktivitet – ta bort aktivitet.
+  - En kopierings aktivitet med en indata-datauppsättning för de data som ska kopieras från Azure Blob Storage.
+  - En data uppsättning för data i Azure SQL Database.
+  - Ett schema utlöses för att köra pipelinen.
+
+
+| **Åtgärder** | **Typer och enheter** |
+| --- | --- |
+| Skapa länkad tjänst | 4 Läs/skriv-entitet |
+| Skapa data uppsättningar | 8 Läs/skriv-entiteter (4 för skapande av data uppsättning, 4 för länkade tjänst referenser) |
+| Skapa pipeline | 6 Läs/skriv-entiteter (2 för skapande av pipeline, 4 för data uppsättnings referenser) |
+| Hämta pipeline | 2 Läs/skriv-entitet |
+| Kör pipeline | 6 aktivitets körningar (2 för körning av utlösare, 4 för aktivitets körningar) |
+| Utför borttagnings aktivitet: varje körnings tid = 5 min. Körningen av borttagnings aktiviteten i den första pipelinen är från 10:00 AM UTC till 10:05 AM UTC. Körningen av borttagnings aktiviteten i den andra pipelinen är från 10:02 AM UTC till 10:07 AM UTC.|Totalt 7 min körning av pipeline-aktiviteter i hanterat VNET. Pipeline-aktiviteten har stöd för upp till 50 samtidighet i hanterat VNET. |
+| Kopiera data antagande: varje körnings tid = 10 min. Kopierings körningen i första pipelinen är från 10:06 AM UTC till 10:15 AM UTC. Körningen av borttagnings aktiviteten i den andra pipelinen är från 10:08 AM UTC till 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 2 körningar inträffade | 6 övervaknings körnings poster har gjorts om (2 för pipeline-körning, 4 för aktivitets körning) |
+
+
+**Pris för total scenario: $0,45523**
+
+- Data Factory åtgärder = $0,00023
+  - Läs/skriv = 20 * 00001 = $0,0002 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 6 * 000005 = $0,00003 [1 övervakning = $0,25/50000 = 0,000005]
+- Pipeline-Orchestration & körning = $0,455
+  - Aktiviteten körs = 0,001 * 6 = 0,006 [1 Run = $1/1000 = 0,001]
+  - Data förflyttnings aktiviteter = $0,333 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
+  - Pipeline-aktivitet = $0,116 (beräknas för 7 minuters körnings tid. $1/timme på Azure Integration Runtime)
+
+> [!NOTE]
+> Dessa priser är endast till exempel syfte.
+
+**Vanliga frågor och svar**
+
+F: kan de här aktiviteterna köras samtidigt om jag vill köra fler än 50 pipeline-aktiviteter?
+
+A: högst 50 samtidiga pipeline-aktiviteter kommer att tillåtas.  51th pipeline-aktiviteten placeras i kö tills en "ledig plats" öppnas. Samma för extern aktivitet. Högst 800 samtidiga externa aktiviteter kommer att tillåtas.
 
 ## <a name="next-steps"></a>Nästa steg
 

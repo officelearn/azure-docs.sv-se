@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c3715995d0d53cd72acf7277f46a279fa4cfb2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 86d88f841f76b367e83f0ae6b81e604e1b7f3e4b
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019666"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950127"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
-Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -API: er. Det finns tre API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. 
+Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](./overview-identity-protection.md) -API: er. Det finns tre API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. 
 
 Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
 
@@ -86,9 +86,9 @@ I det här läget bör du ha:
 Du autentiserar genom att skicka en post-begäran till `https://login.microsoft.com` med följande parametrar i texten:
 
 - grant_type: "**client_credentials**"
-- klusterresursen`https://graph.microsoft.com`
-- client_id:\<your client ID\>
-- client_secret:\<your key\>
+- klusterresursen `https://graph.microsoft.com`
+- client_id: \<your client ID\>
+- client_secret: \<your key\>
 
 Om det lyckas returnerar den här begäran en autentiseringstoken.  
 Om du vill anropa API: et skapar du ett sidhuvud med följande parameter:
@@ -99,7 +99,7 @@ Om du vill anropa API: et skapar du ett sidhuvud med följande parameter:
 
 Vid autentisering kan du hitta tokentyp och åtkomsttoken i den returnerade token.
 
-Skicka den här rubriken som en begäran till följande API-URL:`https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
+Skicka den här rubriken som en begäran till följande API-URL: `https://graph.microsoft.com/v1.0/identityProtection/riskDetections`
 
 Svaret, om det lyckas, är en samling identitets risk identifieringar och tillhör ande data i OData JSON-format, som kan tolkas och hanteras på det sätt som visas.
 
@@ -167,8 +167,8 @@ Om du vill veta mer om Microsoft Graph och hur du skapar program med hjälp av G
 
 Relaterad information finns i:
 
-- [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
-- [Typer av risk identifieringar som upptäckts av Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Identitetsskydd för Azure Active Directory](./overview-identity-protection.md)
+- [Typer av risk identifieringar som upptäckts av Azure Active Directory Identity Protection](./overview-identity-protection.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Översikt över Microsoft Graph](https://developer.microsoft.com/graph/docs)
-- [Azure AD Identity Protection tjänst roten](https://docs.microsoft.com/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)
+- [Azure AD Identity Protection tjänst roten](/graph/api/resources/identityprotectionroot?view=graph-rest-1.0)

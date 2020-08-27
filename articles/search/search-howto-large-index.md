@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484569"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927025"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Så här indexerar du stora data uppsättningar i Azure Kognitiv sökning
 
@@ -50,7 +50,7 @@ I allmänhet rekommenderar vi att du bara lägger till ytterligare egenskaper ti
 
 ### <a name="batch-size"></a>Batchstorlek
 
-En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
+En av de enklaste mekanismerna för att indexera en större data uppsättning är att skicka flera dokument eller poster i en och samma begäran. Så länge hela nytto lasten är under 16 MB kan en begäran hantera upp till 1000 dokument i en Mass överförings åtgärd. Dessa begränsningar gäller oavsett om du använder [Lägg till dokument REST API](/rest/api/searchservice/addupdate-or-delete-documents) eller [index-metoden](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) i .NET SDK. För båda API: erna kommer du att paketera 1000-dokument i bröd texten för varje begäran.
 
 Att använda batchar för att indexera dokument kommer att förbättra indexerings prestanda avsevärt. Att fastställa den optimala batchstorleken för dina data är en viktig komponent i optimering av indexerings hastigheter. De två primära faktorerna som påverkar den optimala batchstorleken är:
 + Schemat för ditt index
@@ -74,14 +74,14 @@ Du kan ändra det här exemplet och testa med olika antal trådar för att fasts
 > [!NOTE]
 > När du ökar nivån på din Sök tjänst eller ökar partitionerna bör du också öka antalet samtidiga trådar.
 
-När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP-statuskod](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) som indikerar att begäran inte lyckades fullständigt. Under indexeringen är två vanliga HTTP-status koder:
+När du ramperar de begär Anden som når Sök tjänsten kan du stöta på [HTTP-statuskod](/rest/api/searchservice/http-status-codes) som indikerar att begäran inte lyckades fullständigt. Under indexeringen är två vanliga HTTP-status koder:
 
 + **503 tjänsten är inte tillgänglig** – det här felet innebär att systemet är hårt belastat och att din begäran inte kan bearbetas just nu.
 + **207 multi-status** – det här felet innebär att vissa dokument lyckades, men att minst en misslyckades.
 
 ### <a name="retry-strategy"></a>Återförsöksstrategi 
 
-Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
+Om ett fel inträffar ska förfrågningarna göras om med en [exponentiell backoff-strategi för återförsök](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
 Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyckade förfrågningar, men du måste implementera din egen logik för att försöka igen 207s. Verktyg med öppen källkod, till exempel [Polly](https://github.com/App-vNext/Polly) , kan också användas för att implementera en strategi för återförsök.
 
@@ -95,14 +95,14 @@ Azure Kognitiv söknings .NET SDK försöker automatiskt 503s och andra misslyck
 
 + Med Schemaläggaren kan du regelbundet indexera index med jämna mellanrum så att du kan sprida ut det över tid.
 + Schemalagd indexering kan återupptas vid den senast kända stopp punkten. Om en data källa inte är fullständigt crawlad inom ett 24-timmarsformat, kommer indexeraren att återuppta indexeringen på dag två på var den slutade.
-+ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp källdata i mindre komponenter, t. ex. i flera behållare i Azure Blob Storage, och sedan skapa motsvarande flera [data käll objekt](https://docs.microsoft.com/rest/api/searchservice/create-data-source) i Azure kognitiv sökning som kan indexeras parallellt.
++ Att partitionera data i mindre enskilda data källor möjliggör parallell bearbetning. Du kan dela upp källdata i mindre komponenter, t. ex. i flera behållare i Azure Blob Storage, och sedan skapa motsvarande flera [data käll objekt](/rest/api/searchservice/create-data-source) i Azure kognitiv sökning som kan indexeras parallellt.
 
 > [!NOTE]
 > Indexerare är data källa-/regionsspecifika, så användning av en indexerare-metod är endast livskraftig för valda data källor på Azure: [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Blob Storage](search-howto-indexing-azure-blob-storage.md), [Table Storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
 ### <a name="batch-size"></a>Batchstorlek
 
-Som med push-API: et kan du med indexerare konfigurera antalet objekt per batch. För indexerare som baseras på [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)kan du ange argumentet för att `batchSize` Anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
+Som med push-API: et kan du med indexerare konfigurera antalet objekt per batch. För indexerare som baseras på [skapa indexerare REST API](/rest/api/searchservice/Create-Indexer)kan du ange argumentet för att `batchSize` Anpassa den här inställningen för att bättre matcha egenskaperna för dina data. 
 
 Standardvärden för batch-storlek är data källa. Azure SQL Database och Azure Cosmos DB har en standard grupp storlek på 1000. Azure Blob-indexering ställer däremot in batchstorleken vid 10 dokument i redovisningen av den större genomsnittliga dokument storleken. 
 
@@ -112,7 +112,7 @@ Schemaläggning av indexering är en viktig mekanism för att bearbeta stora dat
 
 Enligt design börjar schemalagd indexering i bestämda intervall, med ett jobb som normalt slutförs innan nästa schemalagda intervall återupptas. Men om bearbetningen inte slutförs inom intervallet stoppas indexeraren (på grund av att tids gränsen uppnåddes). Vid nästa intervall återupptas bearbetningen där det senast slutade, med systemet som håller koll på var det inträffar. 
 
-I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
+I praktiska villkor kan du använda ett 24-timmarsformat för index belastningar som sträcker sig över flera dagar. När indexeringen återupptas för nästa 24-timmars cykel, startas den om i det senast fungerande dokumentet. På så sätt kan en indexerare arbeta på ett sätt genom ett dokument efter släpning under en serie dagar tills alla obearbetade dokument har bearbetats. Mer information om den här metoden finns i [Indexera stora data uppsättningar i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Mer information om hur du ställer in scheman i allmänhet finns i [skapa indexerare REST API](/rest/api/searchservice/Create-Indexer) eller se [hur du schemalägger indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 
@@ -125,8 +125,8 @@ För icke-rutinmässigt, beräknings intensiva indexerings krav, till exempel OC
 Parallell bearbetning har följande element:
 
 + Dela upp käll data mellan flera behållare eller flera virtuella mappar i samma behållare. 
-+ Mappa varje mini-data till en egen [data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source), kopplade till sin egen [indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
-+ För kognitiv sökning refererar du till samma [färdigheter](https://docs.microsoft.com/rest/api/searchservice/create-skillset) i varje indexare-definition.
++ Mappa varje mini-data till en egen [data källa](/rest/api/searchservice/create-data-source), kopplade till sin egen [indexerare](/rest/api/searchservice/create-indexer).
++ För kognitiv sökning refererar du till samma [färdigheter](/rest/api/searchservice/create-skillset) i varje indexare-definition.
 + Skriv till samma mål Sök index. 
 + Schemalägg alla indexerare att köras samtidigt.
 

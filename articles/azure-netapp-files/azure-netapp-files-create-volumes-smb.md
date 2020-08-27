@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/26/2020
 ms.author: b-juche
-ms.openlocfilehash: 3299865837bd14566cca54ec84b2dce452c633da
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e85a78582c0f7aac188198ad91f9ac91ddf62961
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950382"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -177,6 +177,8 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
         ```azurepowershell-interactive
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
+        
+        Du kan också använda Azure CLI-kommandon [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) och [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) Registrera funktionen och Visa registrerings status. 
 
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
@@ -237,7 +239,7 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
 4. Klicka på **protokoll** och Slutför följande information:  
     * Välj **SMB** som protokoll typ för volymen. 
     * Välj din **Active Directory** anslutning i list rutan.
-    * Ange namnet på den delade volymen i **resurs namn**.
+    * Ange namnet på den delade volymen i  **resurs namn**.
 
     ![Ange SMB-protokoll](../media/azure-netapp-files/azure-netapp-files-protocol-smb.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922127"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948308"
 ---
 # <a name="custom-controls-preview"></a>Anpassade kontroller (förhands granskning)
 
@@ -53,7 +53,7 @@ Om du vill redigera en anpassad kontroll måste du ta bort den aktuella kontroll
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
-Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure-Multi-Factor Authentication, Azure AD självbetjäning för återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-krav, för att höja roller i Privileged Identity Manager (PIM) eller som en del av Intune-enhets registreringen.
+Det går inte att använda anpassade kontroller med identitets skydds automatisering som kräver Azure Multi-Factor Authentication, Azure AD självbetjäning för återställning av lösen ord (SSPR), som uppfyller kraven för Multi-Factor Authentication-krav, för att höja roller i Privileged Identity Manager (PIM), som en del av Intune-registreringen eller när du ansluter enheter till Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

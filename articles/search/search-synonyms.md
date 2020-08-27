@@ -7,23 +7,23 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529577"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948648"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Synonymer i Azure Kognitiv sökning
 
 Synonymer i sökmotorer associerar likvärdiga villkor som implicit expanderar omfånget för en fråga utan att användaren behöver ange termen. Till exempel, med tanke på termen "hund" och synonym associationer för "Canine" och "Puppy", kommer alla dokument som innehåller "hund", "Canine" eller "Puppy" att falla inom frågans omfång.
 
-I Azure Kognitiv sökning görs synonym expansion vid tidpunkten för frågan. Du kan lägga till synonym Maps till en tjänst utan avbrott i befintliga åtgärder. Du kan lägga till en **synonymMaps** -egenskap i en fält definition utan att behöva bygga om indexet.
+I Azure Kognitiv sökning görs synonym expansion vid tidpunkten för frågan. Du kan lägga till synonym Maps till en tjänst utan avbrott i befintliga åtgärder. Du kan lägga till en  **synonymMaps** -egenskap i en fält definition utan att behöva bygga om indexet.
 
 ## <a name="create-synonyms"></a>Skapa synonymer
 
-Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C#-utvecklare kan du komma igång med att [lägga till synonymer i Azure kognitiv sökning med C#](search-synonyms-tutorial-sdk.md).
+Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](/rest/api/searchservice/create-synonym-map). För C#-utvecklare kan du komma igång med att [lägga till synonymer i Azure kognitiv sökning med C#](search-synonyms-tutorial-sdk.md).
 
 Om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
 
@@ -92,6 +92,21 @@ Explicit mappning betecknas av en pil "=>". När det här alternativet har anget
 
 ```
 Washington, Wash., WA => WA
+```
+
+Om du behöver definiera synonymer som innehåller kommatecken kan du kringgå dem med ett omvänt snedstreck, som i det här exemplet:
+
+```
+WA\, USA, WA, Washington
+```
+
+Eftersom omvänt snedstreck själva är ett specialtecken i andra språk som JSON och C#, behöver du förmodligen dubbla escape-tecken. Till exempel skulle JSON som skickas till REST API för ovanstående synonym karta se ut så här:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Visa en lista över synonym mappningar under din tjänst.
@@ -173,4 +188,4 @@ Om du har ett befintligt index i en utvecklings miljö (icke-produktion) kan du 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa en synonym karta](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Skapa en synonym karta](/rest/api/searchservice/create-synonym-map)

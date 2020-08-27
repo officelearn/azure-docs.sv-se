@@ -5,34 +5,47 @@ description: Felsöka Azure Machine Learning pipelines i python. Lär dig vanlig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: likebupt
-ms.author: keli19
-ms.date: 03/18/2020
+author: lobrien
+ms.author: laobri
+ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: ac8896bae4b3bf36ee6e943581bbf6791401c821
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a036cb4212b0237bea1c8509532dc78d469acb17
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904657"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950161"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Information finns i How to:
+I den här artikeln får du lära dig hur du felsöker och felsöker [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
 
-* Felsöka med hjälp av Azure Machine Learning SDK
-* Felsöka med hjälp av Azure Machine Learning designer
-* Felsöka med hjälp av Application Insights
-* Felsöka interaktivt med Visual Studio Code (VS Code) och Python Tools for Visual Studio (PTVSD)
+## <a name="troubleshooting-tips"></a>Felsökningstips
 
-## <a name="azure-machine-learning-sdk"></a>Azure Machine Learning SDK
-I följande avsnitt får du en översikt över vanliga fall GRO par när du skapar pipelines och olika strategier för fel sökning av kod som körs i en pipeline. Använd följande tips när du har problem med att få en pipeline att köras som förväntat.
+Följande tabell innehåller vanliga problem under utveckling av pipeline, med möjliga lösningar.
 
-### <a name="testing-scripts-locally"></a>Testa skript lokalt
+| Problem | Möjlig lösning |
+|--|--|
+| Det gick inte att skicka data till `PipelineData` katalogen | Se till att du har skapat en katalog i skriptet som motsvarar var din pipeline förväntar dig utdata från steget. I de flesta fall definierar ett indataargument utdata-katalogen och du skapar katalogen explicit. Använd `os.makedirs(args.output_dir, exist_ok=True)` för att skapa utdatakatalogen. Se [självstudien](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) för ett bedömnings skript exempel som visar det här design mönstret. |
+| Beroende buggar | Om du ser beroende fel i din fjärrpipeline som inte uppnåddes vid en lokal testning, bekräftar du beroenden för fjärrmiljön och versioner som matchar dem i din test miljö. (Se [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
+| Tvetydiga fel med beräknings mål | Försök att ta bort och återskapa Compute-mål. Det går snabbt och kan lösa vissa tillfälliga problem genom att återskapa beräknings mål. |
+| Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad `allow_reuse` kommer parametern i steget att ställas in på `False` . |
+| Pipelinen körs inte nödvändigt vis | Om du vill se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla från dina käll kods kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
 
-Ett av de vanligaste felen i en pipeline är att ett kopplat skript (data rengörings skript, bedömnings skript osv.) inte körs som avsett eller innehåller körnings fel i fjärrberäknings kontexten som är svåra att felsöka i arbets ytan i Azure Machine Learning Studio. 
+
+## <a name="debugging-techniques"></a>Fel söknings tekniker
+
+Det finns tre huvud tekniker för fel sökning av pipeliner: 
+
+* Felsöka enskilda pipeline-steg på din lokala dator
+* Använd loggning och Application Insights för att isolera och diagnostisera problemets källa
+* Koppla en fjärr fel sökare till en pipeline som körs i Azure
+
+### <a name="debug-scripts-locally"></a>Felsöka skript lokalt
+
+Ett av de vanligaste felen i en pipeline är att domän skriptet inte körs som avsett eller innehåller körnings fel i fjärrberäknings kontexten som är svåra att felsöka.
 
 Det går inte att köra pipeliner lokalt, men om du kör skripten i isolering på din lokala dator kan du felsöka snabbare eftersom du inte behöver vänta på bearbetningen av beräknings-och miljö versionen. Det krävs en del utvecklings arbete för att göra detta:
 
@@ -49,41 +62,9 @@ När du har en skript konfiguration som ska köras i din lokala miljö är det m
 > [!TIP] 
 > När du kan kontrol lera att skriptet körs som förväntat kör du ett lämpligt nästa steg i en pipeline för ett enda steg innan du försöker köra det i en pipeline med flera steg.
 
-### <a name="debugging-scripts-from-remote-context"></a>Felsöka skript från fjärr kontext
+## <a name="configure-write-to-and-review-pipeline-logs"></a>Konfigurera, skriva till och granska pipeline-loggar
 
 Att testa skript lokalt är ett bra sätt att felsöka större kodfragment och komplex logik innan du börjar skapa en pipeline, men ibland behöver du felsöka skript under själva pipeline-körningen, särskilt när du diagnostiserar beteende som inträffar under interaktionen mellan pipeline-steg. Vi rekommenderar att du använder `print()` instruktioner i dina steg skript så att du kan se objekt status och förväntade värden under fjärrkörning, på samma sätt som du skulle felsöka JavaScript-kod.
-
-Logg filen `70_driver_log.txt` innehåller: 
-
-* Alla uttryckta instruktioner under körningen av skriptet
-* Stack spårning för skriptet 
-
-Om du vill hitta den här och andra loggfiler i portalen börjar du med att klicka på pipeline-körningen i din arbets yta.
-
-![Sidan körnings lista för pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Gå till sidan körnings information för pipeline.
-
-![Sidan körnings information för pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Klicka på modulen för det aktuella steget. Gå till fliken **loggar** . Andra loggar innehåller information om bygg processen för miljö avbildning och steg förberedelse skript.
-
-![Fliken logg för körning av informations sida](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> Körningar för *publicerade pipelines* finns på fliken **slut punkter** i din arbets yta. Körningar för *icke-publicerade pipelines* kan hittas i **experiment** eller **pipeliner**.
-
-### <a name="troubleshooting-tips"></a>Felsökningstips
-
-Följande tabell innehåller vanliga problem under utveckling av pipeline, med möjliga lösningar.
-
-| Problem | Möjlig lösning |
-|--|--|
-| Det gick inte att skicka data till `PipelineData` katalogen | Se till att du har skapat en katalog i skriptet som motsvarar var din pipeline förväntar dig utdata från steget. I de flesta fall definierar ett indataargument utdata-katalogen och du skapar katalogen explicit. Använd `os.makedirs(args.output_dir, exist_ok=True)` för att skapa utdatakatalogen. Se [självstudien](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) för ett bedömnings skript exempel som visar det här design mönstret. |
-| Beroende buggar | Om du har utvecklat och testat skript lokalt men hittar beroende problem när du kör på en fjärrberäkning i pipelinen bör du se till att dina beräknings miljö beroenden och versioner matchar din test miljö. (Se [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
-| Tvetydiga fel med beräknings mål | Att ta bort och återskapa beräknings mål kan lösa vissa problem med beräknings mål. |
-| Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad `allow_reuse` kommer parametern i steget att ställas in på `False` . |
-| Pipelinen körs inte nödvändigt vis | För att se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla ihop dina kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory` parametern i ett pipeline-steg-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
 
 ### <a name="logging-options-and-behavior"></a>Loggnings alternativ och beteende
 
@@ -92,8 +73,8 @@ Tabellen nedan innehåller information om olika fel söknings alternativ för pi
 | Bibliotek                    | Typ   | Exempel                                                          | Mål                                  | Resurser                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | Mått | `run.log(name, val)`                                             | Azure Machine Learning portalens användar gränssnitt             | [Spåra experiment](how-to-track-experiments.md)<br>[azureml. Core. Run-klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
-| Python-utskrift/-loggning    | Loggas    | `print(val)`<br>`logging.info(message)`                          | Driv rutins loggar, Azure Machine Learning designer | [Spåra experiment](how-to-track-experiments.md)<br><br>[Python-loggning](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
-| Python-räkningar          | Loggas    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
+| Python-utskrift/-loggning    | Logga    | `print(val)`<br>`logging.info(message)`                          | Driv rutins loggar, Azure Machine Learning designer | [Spåra experiment](how-to-track-experiments.md)<br><br>[Python-loggning](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| OpenCensus Python          | Logga    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights-spår                | [Felsöka pipelines i Application Insights.](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor-exportörer](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Cookbook för python-loggning](https://docs.python.org/3/howto/logging-cookbook.html) |
 
 #### <a name="logging-options-example"></a>Exempel på loggnings alternativ
 
@@ -127,9 +108,31 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## <a name="azure-machine-learning-designer-preview"></a>Azure Machine Learning designer (för hands version)
+### <a name="finding-and-reading-pipeline-log-files"></a>Söka efter och läsa pipeline-loggfiler
 
-Det här avsnittet innehåller en översikt över hur du felsöker pipelines i designern. För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på antingen sidan redigering eller på sidan körnings information för pipelinen.
+Logg filen `70_driver_log.txt` innehåller: 
+
+* Alla uttryckta instruktioner under körningen av skriptet
+* Stack spårning för skriptet 
+
+Om du vill hitta den här och andra loggfiler i portalen börjar du med att klicka på pipeline-körningen i din arbets yta.
+
+![Sidan körnings lista för pipeline](./media/how-to-debug-pipelines/pipelinerun-01.png)
+
+Gå till sidan körnings information för pipeline.
+
+![Sidan körnings information för pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
+
+Klicka på modulen för det aktuella steget. Gå till fliken **loggar** . Andra loggar innehåller information om bygg processen för miljö avbildning och steg förberedelse skript.
+
+![Fliken logg för körning av informations sida](./media/how-to-debug-pipelines/pipelinerun-03.png)
+
+> [!TIP]
+> Körningar för *publicerade pipelines* finns på fliken **slut punkter** i din arbets yta. Körningar för *icke-publicerade pipelines* kan hittas i **experiment** eller **pipeliner**.
+
+## <a name="logging-in-azure-machine-learning-designer-preview"></a>Logga in Azure Machine Learning designer (förhands granskning)
+
+För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på antingen sidan redigering eller på sidan körnings information för pipelinen.
 
 ### <a name="enable-logging-for-real-time-endpoints"></a>Aktivera loggning för slut punkter i real tid
 
@@ -140,7 +143,7 @@ För att felsöka och felsöka real tids slut punkter i designern måste du akti
 När du skickar en pipeline-körning och stannar på sidan redigering kan du hitta de loggfiler som genereras för varje modul när varje modul har slutförts.
 
 1. Välj en modul som har körts klart på redigerings arbets ytan.
-1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
+1. I den högra rutan i modulen går du till fliken  **utdata + loggar** .
 1. Expandera den högra rutan och välj **70_driver_log.txt** för att visa filen i webbläsaren. Du kan också hämta loggar lokalt.
 
     ![Fönster för utökad utdata i designern](./media/how-to-debug-pipelines/designer-logs.png)
@@ -154,7 +157,7 @@ Du kan också hitta loggfilerna för vissa körningar på sidan körnings inform
     ![Sidan pipeline-körning](./media/how-to-debug-pipelines/designer-pipelines.png)
 
 1. Välj en modul i förhands gransknings fönstret.
-1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
+1. I den högra rutan i modulen går du till fliken  **utdata + loggar** .
 1. Expandera den högra rutan om du vill visa **70_driver_log.txt** filen i webbläsaren eller välj filen för att ladda ned loggarna lokalt.
 
 > [!IMPORTANT]
@@ -163,7 +166,7 @@ Du kan också hitta loggfilerna för vissa körningar på sidan körnings inform
 ## <a name="application-insights"></a>Application Insights
 Mer information om hur du använder python-biblioteket för openräkning på det här sättet finns i den här guiden: [Felsöka och Felsök maskin inlärnings pipeliner i Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## <a name="visual-studio-code"></a>Visual Studio-koden
+## <a name="interactive-debugging-with-visual-studio-code"></a>Interaktiv fel sökning med Visual Studio Code
 
 I vissa fall kan du behöva interaktivt felsöka python-koden som används i ML-pipeline. Genom att använda Visual Studio Code (VS Code) och debugpy kan du ansluta till koden när den körs i tränings miljön. Mer information finns [i interaktiv fel sökning i vs Code guide](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines).
 

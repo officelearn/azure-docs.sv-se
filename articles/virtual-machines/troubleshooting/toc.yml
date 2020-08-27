@@ -99,10 +99,14 @@
           href: troubleshoot-guide-windows-boot-manager-menu.md
         - name: Den virtuella datorn svarar inte på grund av uppdatering
           href: unresponsive-vm-apply-windows-update.md
+        - name: Den virtuella datorn svarar inte när granskningskonfigurationsprincipen tillämpas
+          href: vm-unresponsive-applying-audit-configuration-policy.md
         - name: Den virtuella datorn svarar inte när grupprincipen tillämpas
           href: unresponsive-vm-apply-group-policy.md
         - name: Den virtuella datorn svarar inte när säkerhetsprincipen tillämpas
           href: unresponsive-vm-apply-security-policy.md
+        - name: Windows-stoppfel – felaktig systemkonfigurationsinformation
+          href: windows-stop-error-bad-system-config-info.md
         - name: Windows-stoppfel – status slut på minne
           href: troubleshoot-windows-stop-error.md
 - name: Det går inte att ansluta till min virtuella dator

@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275436"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948461"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
-Med [Azure Active Directory (Azure AD) villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md)kan du styra hur behöriga användare får åtkomst till dina molnappar. Den här artikeln innehåller information om:
+Med [Azure Active Directory (Azure AD) villkorlig åtkomst](./overview.md)kan du styra hur behöriga användare får åtkomst till dina molnappar. Den här artikeln innehåller information om:
 
 - Saker du bör känna till 
 - Det bör du undvika när du konfigurerar principer för villkorlig åtkomst. 
 
-Den här artikeln förutsätter att du är bekant med begreppen och terminologin som beskrivs i [Vad är villkorlig åtkomst i Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+Den här artikeln förutsätter att du är bekant med begreppen och terminologin som beskrivs i [Vad är villkorlig åtkomst i Azure Active Directory?](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>Vad krävs för att en princip ska fungera?
 
@@ -154,5 +154,5 @@ Mer information finns i [Migrera klassiska principer i Azure Portal](policy-migr
 
 Om du vill veta:
 
-- Hur du konfigurerar en princip för villkorlig åtkomst finns i [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md).
+- Hur du konfigurerar en princip för villkorlig åtkomst finns i [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../authentication/tutorial-enable-azure-mfa.md).
 - Hur du planerar dina principer för villkorlig åtkomst finns i [Planera distribution av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).

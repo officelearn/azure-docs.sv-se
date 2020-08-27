@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295315"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948393"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
@@ -42,9 +42,9 @@ Tilldelnings delen styr vem, vad och var för principen för villkorlig åtkomst
 
 En princip kan innehålla flera [villkor](concept-conditional-access-conditions.md).
 
-#### <a name="sign-in-risk"></a>Inloggnings risk
+#### <a name="sign-in-risk"></a>Inloggningsrisk
 
-För organisationer med [Azure AD Identity Protection](../identity-protection/overview.md)kan de risk identifieringar som genererats påverka dina principer för villkorlig åtkomst.
+För organisationer med [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md)kan de risk identifieringar som genererats påverka dina principer för villkorlig åtkomst.
 
 #### <a name="device-platforms"></a>Enhetsplattformar
 
@@ -115,10 +115,10 @@ Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla
 En princip för villkorlig åtkomst måste innehålla minst följande för att kunna tillämpas:
 
 - **Namnet** på principen.
-- **Kopplingar**
+- **Tilldelningar**
    - **Användare och/eller grupper** som principen ska tillämpas på.
    - **Molnappar eller åtgärder** för att tillämpa principen på.
-- **Åtkomst kontroller**
+- **Åtkomstkontroller**
    - **Bevilja** eller **blockera** kontroller
 
 ![Tom princip för villkorlig åtkomst](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)

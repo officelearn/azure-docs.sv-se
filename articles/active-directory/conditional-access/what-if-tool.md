@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032891"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948206"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i villkorlig åtkomst
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Felsöka med hjälp av What If-verktyget i Villkorsstyrd åtkomst
 
-[Villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) är en funktion i Azure Active Directory (Azure AD) som gör att du kan styra hur auktoriserade användare får åtkomst till dina molnappar. Hur vet du vad du kan förväntar dig från principer för villkorlig åtkomst i din miljö? Om du vill besvara den här frågan kan du använda **verktyget för villkorlig åtkomst what if**.
+[Villkorlig åtkomst](./overview.md) är en funktion i Azure Active Directory (Azure AD) som gör att du kan styra hur auktoriserade användare får åtkomst till dina molnappar. Hur vet du vad du kan förväntar dig från principer för villkorlig åtkomst i din miljö? Om du vill besvara den här frågan kan du använda **verktyget för villkorlig åtkomst what if**.
 
 Den här artikeln förklarar hur du kan använda det här verktyget för att testa dina principer för villkorlig åtkomst.
 
@@ -105,4 +105,4 @@ I listan över principer som inte gäller för din användare kan du även se va
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om principer för villkorlig åtkomst finns i princip läget endast rapport läge med hjälp av [villkorlig åtkomst insikter och rapportering](howto-conditional-access-insights-reporting.md).
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md). 
+- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa [vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md).

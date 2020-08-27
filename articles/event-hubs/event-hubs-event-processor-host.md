@@ -3,22 +3,20 @@ title: Ta emot händelser med hjälp av händelse processor värden – Azure Ev
 description: I den här artikeln beskrivs händelse bearbetnings värden i Azure Event Hubs, vilket fören klar hanteringen av kontroll punkter, leasing och läsning av händelser Jon parallellt.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7c6d08c385174597ce80e3ddfd6204db6b0b14a5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936188"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949090"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]
-> Den här artikeln gäller för den gamla versionen av Azure Event Hubs SDK. Information om hur du migrerar din kod till den nya versionen av SDK finns i dessa guider för migrering. 
+> Den här artikeln gäller för den gamla versionen av Azure Event Hubs SDK. För aktuell version av SDK, se [belastningsutjämna partition belastning över flera instanser av programmet](event-processor-balance-partition-load.md). Information om hur du migrerar din kod till den nya versionen av SDK finns i dessa guider för migrering. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Java-skript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Se även [utjämna belastningen på partitionen över flera instanser av programmet](event-processor-balance-partition-load.md).
 
 Azure Event Hubs är en kraftfull tjänst för telemetri-inmatning som kan användas för att strömma miljon tals händelser till låg kostnad. I den här artikeln beskrivs hur du använder insamlade händelser med *händelse bearbetnings värden* (EPH). en intelligent konsument agent som fören klar hanteringen av kontroll punkter, leasing och parallella händelse läsare.  
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: defb959a56446da337c4c7c16ee118ceecd3e674
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87846317"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948410"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -115,7 +115,7 @@ Förutom Microsoft-appar kan administratörer lägga till alla registrerade Azur
 
 - Program som publicerats via [Azure AD-programproxy](../manage-apps/what-is-application-proxy.md)
 - [Program som har lagts till från galleriet](../manage-apps/add-application-portal.md)
-- [Anpassade program som inte är i galleriet](../manage-apps/add-non-gallery-app.md)
+- [Anpassade program som inte är i galleriet](../manage-apps/view-applications-portal.md)
 - [Äldre program som publicerats via app Delivery controllers och Networks](../manage-apps/secure-hybrid-access.md)
 - Program som använder lösenordsbaserad [enkel inloggning](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 73037ac3725ad1e7e9dd84597936c47406244630
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918119"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949889"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -24,7 +24,24 @@ Som regel publicerar Azure Kognitiv sökning-teamet nya versioner endast när de
 Samma regel gäller för SDK-uppdateringar. Azure Kognitiv sökning SDK följer reglerna för [semantisk version](https://semver.org/) , vilket innebär att dess version har tre delar: Major, mindre och build-nummer (till exempel 1.1.0). En ny huvud version av SDK släpps bara för ändringar som bryter mot bakåtkompatibilitet. Icke-brytande funktions uppdateringar kommer att öka den lägre versionen, och fel korrigeringarna ökar bara versions versionen.
 
 > [!Important]
-> Azure-SDK: er för .NET, Java, python och Java Script tar bort nya klient bibliotek för Azure Kognitiv sökning. För närvarande har inget av Azure SDK-biblioteken fullständigt stöd för de senaste Sök REST-API: erna (2020-06-30) eller hantering REST API: er (2020-03-13), men det kommer att ändras med tiden. Du kan regelbundet kontrol lera den här sidan eller [vad som är nytt](whats-new.md) för meddelanden om funktionella förbättringar. 
+> Azure-SDK: er för .NET, Java, python och Java Script tar bort nya klient bibliotek för Azure Kognitiv sökning. För närvarande har inget av Azure SDK-biblioteken fullständigt stöd för de senaste Sök REST-API: erna (2020-06-30) eller hantering REST API: er (2020-03-13), men det kommer att ändras med tiden. Du kan regelbundet kontrol lera den här sidan eller [vad som är nytt](whats-new.md) för meddelanden om funktionella förbättringar.
+
+<a name="unsupported-versions"></a>
+
+## <a name="unsupported-versions"></a>Versioner som inte stöds
+
+Uppgradera befintliga Sök lösningar till den senaste versionen av REST API den 15 oktober 2020. Vid detta tillfälle kommer följande versioner av Azure Kognitiv sökning REST API att dras tillbaka och stöds inte längre:
+
++ **2015-02-28**
++ **2015-02-28 – för hands version**
++ **2014-07-31 – för hands version**
++ **2014-10-20 – för hands version**
+
+Dessutom dras versioner av Azure Kognitiv sökning .NET SDK som är äldre än [**3.0.0-RC**](https://www.nuget.org/packages/Microsoft.Azure.Search/3.0.0-rc) tillbaka, eftersom de är riktade mot någon av dessa REST API-versioner. 
+
+Efter det här datumet kommer program som använder någon av de inaktuella REST API-eller SDK-versionerna inte längre att fungera och måste uppgraderas. Som med alla ändringar av den här typen ger vi 12 månaders varsel, så du har tillräckligt med tid för att justera.
+
+Om du vill fortsätta att använda Azure Kognitiv sökning måste du migrera den befintliga koden som är avsedd för [REST API](search-api-migration.md) till [REST API version 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) eller till en nyare SDK senast den 15 oktober 2020.  Om du har frågor om att uppdatera till den senaste versionen skickar du e-post till den azuresearch_contact@microsoft.com 15 maj 2020 för att se till att du har tillräckligt med tid för att uppdatera koden.
 
 ## <a name="rest-apis"></a>REST API:er
 
@@ -40,16 +57,16 @@ Skapa och hantera innehåll i en Sök tjänst.
 |-------------------------|--------|------------------------------|
 | [Search 2020-06-30](/rest/api/searchservice/index)| Stable | Den senaste stabila versionen av Sök REST-API: er, med framsteg i relevans-Poäng och allmänt tillgängliga för kunskaps lager.|
 | [Search 2020-06-30-förhandsversion](/rest/api/searchservice/index-preview)| Förhandsgranskning | För hands version som är associerad med stabil version. Innehåller flera för [hands versions funktioner](search-api-preview.md). |
-| Sökning 2019-05-06 | Stable | Lägger till [komplexa typer](search-howto-complex-data-types.md). |
+| Sökning 2019-05-06 | Stable  | Lägger till [komplexa typer](search-howto-complex-data-types.md). |
 | Search 2019-05-06-Preview | Förhandsgranskning | För hands version som är associerad med stabil version. |
-| Sök 2017-11-11 | Stable  | Lägger till färdighetsuppsättningar och [AI-anrikning](cognitive-search-concept-intro.md). |
+| Sök 2017-11-11 | Stable | Lägger till färdighetsuppsättningar och [AI-anrikning](cognitive-search-concept-intro.md). |
 | Sök 2017-11-11 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version. |
 | Sök 2016-09-01 |Stable | Lägger till [indexerare](search-indexer-overview.md). |
 | Sök 2016-09-01 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version.|
-| Sök 2015-02-28 | Stable  | Första allmänt tillgängliga version.  |
-| Sök 2015-02-28 – för hands version | Förhandsgranskning | För hands version som är associerad med stabil version. |
-| Sök 2014-10-20 – för hands version | Förhandsgranskning | Andra offentliga för hands versionen. |
-| Sök 2014-07-31 – för hands version | Förhandsgranskning | Första offentliga för hands versionen. |
+| Sök 2015-02-28 | Stöds inte efter 10-10-2020   | Första allmänt tillgängliga version.  |
+| Sök 2015-02-28 – för hands version | Stöds inte efter 10-10-2020  | För hands version som är associerad med stabil version. |
+| Sök 2014-10-20 – för hands version | Stöds inte efter 10-10-2020 | Andra offentliga för hands versionen. |
+| Sök 2014-07-31 – för hands version | Stöds inte efter 10-10-2020  | Första offentliga för hands versionen. |
 
 ### <a name="management-rest-apis"></a>Management REST API:er
 
@@ -64,8 +81,7 @@ Skapa och konfigurera en Sök tjänst och hantera API-nycklar.
 
 ## <a name="azure-sdk-for-net"></a>Azure SDK för .NET
 
-Paket versions historik finns på NuGet.org. Den här tabellen innehåller länkar till varje paket sida.
-
+Följande tabell innehåller länkar till nyare SDK-versioner. 
 
 | SDK-version | Status | Beskrivning |
 |-------------|--------|------------------------------|
@@ -73,6 +89,8 @@ Paket versions historik finns på NuGet.org. Den här tabellen innehåller länk
 | [Microsoft. Azure. search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Lanserad maj 2019. Mål för search REST API-version = 2019-05-06.|
 | [Microsoft. Azure. search 8,0 – för hands version](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Förhandsgranskning | lanserad 2019 april. Riktar in the search REST API-version = 2019-05 -06 – Preview.|
 | [Microsoft. Azure. Management. search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Rikta in the Management REST API-version = 2015-08-19.  |
+
+Om du vill ha mer information om tidigare versioner av Microsoft. Azure. Sök, går du till [NuGet-paket sidan](https://www.nuget.org/packages/Microsoft.Azure.Search/) för alla versioner, bläddrar ned till **versions historik**och expanderar avsnittet för att visa en fullständig lista över versioner.
 
 ## <a name="azure-sdk-for-java"></a>Azure SDK för Java
 

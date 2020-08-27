@@ -4,19 +4,20 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 871f992f6457a846d29a7145d53a7e382cbe10dd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 63fc699cfd2f02a322f71324519b2f0b5b22234b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400689"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926474"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar:
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * [Konfigurera utvecklings miljön och skapa ett tomt projekt](../../../../quickstarts/setup-platform.md?tabs=dotnet&pivots=programming-language-csharp)
 > * Kontrol lera att du har åtkomst till en mikrofon för ljud inspelning
 
@@ -93,8 +94,8 @@ namespace Speech.Recognition
 
 Nu är du redo att återskapa appen och testa funktionen för tal igenkänning med hjälp av tal tjänsten.
 
-1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge** > **build-lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **bygge**  >  **build-lösning**.
+2. **Starta din app** – från meny raden väljer du **Felsök**  >  **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
 3. **Starta igenkänning** – du uppmanas att tala om en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg

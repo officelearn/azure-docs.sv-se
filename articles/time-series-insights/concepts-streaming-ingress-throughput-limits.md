@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb10effce8b94a6443e1daa8dadaa99111da0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100259"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950467"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Data flödes gränser för strömning
 
@@ -34,7 +34,7 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
 
 > [!TIP]
 >
-> * Miljö stöd för att mata in hastigheter på upp till 16 MBps kan tillhandahållas av begäran.
+> * Miljö stöd för att mata in hastigheter på upp till 8 Mbit/s kan tillhandahållas av begäran.
 > * Kontakta oss om du behöver mer data flöde genom att skicka in ett support ärende via Azure Portal.
  
 * **Exempel 1:**
@@ -42,16 +42,16 @@ Som standard kan Azure Time Series Insights Gen2 mata in inkommande data med en 
     Contoso-leverans har 100 000 enheter som genererar en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en IoT Hub med fyra partitioner som Azure Time Series Insights Gen2 händelse källa.
 
     * Inmatnings takten för Azure Time Series Insights Gen2-miljön skulle vara: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s**.
-    * Inmatnings hastigheten per partition blir 0,25 Mbit/s.
-    * Contosos överförings takt skulle ligga inom skalnings begränsningen.
+    * Om du antar balanserade partitioner blir inmatnings takten per partition 0,25 Mbit/s.
+    * Contosos överförings takt skulle ligga inom skalnings begränsningarna.
 
 * **Exempel 2:**
 
-    Contoso flotta Analytics har 60 000 enheter som genererar en händelse varje sekund. De använder en Event Hub med ett antal partitioner på 4 som den Azure Time Series Insights händelse källan för Gen2. Storleken på en händelse är 200 byte.
+    Contoso flotta Analytics har 40 000 enheter som genererar en händelse varje sekund. De använder en Event Hub med ett antal partitioner på 2 som Azure Time Series Insights händelse källa för Gen2. Storleken på en händelse är 200 byte.
 
-    * Miljöns utmatnings frekvens skulle vara: **60 000 enheter * 200 byte/event * 1 händelse/SEK = 12 Mbit/s**.
-    * Antalet per partition skulle bli 3 Mbit/s.
-    * Contoso flottans analys "inmatnings takt är över miljön och partitionens gränser. De kan skicka en begäran till Azure Time Series Insights Gen2 via Azure Portal för att öka inmatnings takten för deras miljö och skapa en Händelsehubben med fler partitioner för att ligga inom gränserna.
+    * Miljöns utmatnings frekvens skulle vara: **40 000 enheter * 200 byte/event * 1 händelse/SEK = 8 Mbit/s**.
+    * Om du antar balanserade partitioner, blir deras per partition 4 Mbit/s.
+    * Contoso flottans analys "inmatnings takt är över miljön och partitionens gränser. De kan skicka en begäran om att Azure Time Series Insights Gen2 genom Azure Portal för att öka inmatnings takten för deras miljö, och skapa en Händelsehubben med fler partitioner som ligger inom gränserna.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>NAV partitioner och gränser per partition
 

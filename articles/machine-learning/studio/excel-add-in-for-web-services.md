@@ -9,12 +9,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 29fe1a7a05085d8751e249d58b64b31e6ff3dac1
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: fd406535b00ed0e25f44d875ee9b5fe716971bab
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432474"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950059"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel-tillägg för Azure Machine Learning Studio (klassiska) webb tjänster
 
@@ -28,7 +28,10 @@ Excel gör det enkelt att anropa webb tjänster direkt utan att behöva skriva n
 1. Öppna [exempel Excel-filen](https://aka.ms/amlexcel-sample-2)som innehåller Excel-tillägget och data om passagerare på Titanic. 
  
     > [!NOTE]
-    > Du ser listan över webb tjänster som är relaterade till filen och längst ned i en kryss ruta för "automatisk förutsägelse". Om du aktiverar automatisk förutsägelse kommer förutsägelserna för **alla** dina tjänster att uppdateras varje gång en ändring görs av indata. Om alternativet är avmarkerat måste du klicka på "förutse alla" för att uppdatera. För att aktivera automatisk förutsägelse på en service nivå går du till steg 6.
+    > - Du ser listan över webb tjänster som är relaterade till filen och längst ned i en kryss ruta för "automatisk förutsägelse". Om du aktiverar automatisk förutsägelse kommer förutsägelserna för **alla** dina tjänster att uppdateras varje gång en ändring görs av indata. Om alternativet är avmarkerat måste du klicka på "förutse alla" för att uppdatera. För att aktivera automatisk förutsägelse på en service nivå går du till steg 6.
+    > - Azure Machine Learning Excel-tillägget kommer att anropa Office-tillägg som ska läsas in. Om din organisation förbjuder åtkomst till Office-tilläggsprogram, visas ett fel meddelande när du läser in tillägget. I det här fallet ska du Distribuera Azure Machine Learning Excel-tillägget från Microsoft 365 administrations Center. Anropa sedan tillägget och Lägg till webb tjänsten manuellt genom att klistra in URL: en och API-nyckeln.
+
+ 
 
 2. Välj webb tjänsten genom att klicka på den – "Titanic efterlevandepension-förväntare (Excel-tillägg) [score]" i det här exemplet.
    

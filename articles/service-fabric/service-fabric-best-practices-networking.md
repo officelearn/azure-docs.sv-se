@@ -1,16 +1,16 @@
 ---
 title: Metod tips för Azure Service Fabric-nätverk
-description: Bästa praxis och design överväganden för att hantera nätverks anslutningar med hjälp av Azure Service Fabric.
-author: peterpogorski
+description: Regler och design överväganden för att hantera nätverks anslutningar med Azure Service Fabric.
+author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.author: pepogors
-ms.openlocfilehash: 853e53d32f87f81e5db587de2654f83037930da7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.author: chrpap
+ms.openlocfilehash: 0f25627c852befb03c2c32d741b8fe9b64cd4dc2
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261138"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948971"
 ---
 # <a name="networking"></a>Nätverk
 
@@ -19,7 +19,7 @@ När du skapar och hanterar Azure Service Fabric-kluster ger du nätverks anslut
 Granska Azure [Service Fabric nätverks mönster](./service-fabric-patterns-networking.md) för att lära dig hur du skapar kluster som använder följande funktioner: befintligt virtuellt nätverk eller undernät, statisk offentlig IP-adress, intern belastningsutjämnare eller intern och extern belastningsutjämnare.
 
 ## <a name="infrastructure-networking"></a>Infrastruktur nätverk
-Maximera prestandan för den virtuella datorn med accelererat nätverk, genom att deklarera enableAcceleratedNetworking-egenskapen i din Resource Manager-mall, är följande kodfragment av en NetworkInterfaceConfigurations för skalnings uppsättning för virtuella datorer som möjliggör accelererat nätverk:
+Maximera prestandan för den virtuella datorn med accelererat nätverk, genom att deklarera *enableAcceleratedNetworking* -egenskapen i din Resource Manager-mall, är följande kodfragment av en NetworkInterfaceConfigurations för skalnings uppsättning för virtuella datorer som möjliggör accelererat nätverk:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -39,7 +39,7 @@ Maximera prestandan för den virtuella datorn med accelererat nätverk, genom at
 ```
 Service Fabric kluster kan tillhandahållas i [Linux med accelererat nätverk](../virtual-network/create-vm-accelerated-networking-cli.md)och [Windows med accelererat nätverk](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-Accelererat nätverk stöds för Azure Virtual Machine serien SKU: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och MS/MMS. Accelererat nätverk har testats med Standard_DS8_v3 SKU på 1/23/2019 för ett Service Fabric Windows-kluster och med Standard_DS12_v2 på 01/29/2019 för ett Service Fabric Linux-kluster.
+Accelererat nätverk stöds för Azure Virtual Machine serien SKU: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och MS/MMS. Accelererat nätverk har testats med Standard_DS8_v3 SKU på 01/23/2019 för ett Service Fabric Windows-kluster och med Standard_DS12_v2 på 01/29/2019 för ett Service Fabric Linux-kluster.
 
 Om du vill aktivera accelererat nätverk på ett befintligt Service Fabric-kluster måste du först [skala ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer](./virtual-machine-scale-set-scale-node-type-scale-out.md)för att utföra följande:
 1. Etablera en NodeType med accelererat nätverk aktiverat
@@ -51,11 +51,69 @@ Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett b
 
 * Service Fabric kluster kan distribueras till ett befintligt virtuellt nätverk genom att följa stegen som beskrivs i [Service Fabric nätverks mönster](./service-fabric-patterns-networking.md).
 
-* Nätverks säkerhets grupper (NSG: er) rekommenderas för nodtyper som begränsar inkommande och utgående trafik till deras kluster. Se till att de nödvändiga portarna är öppna i NSG. Exempel: ![ Service Fabric NSG-regler][NSGSetup]
+* Nätverks säkerhets grupper (NSG: er) rekommenderas för nodtyper för att begränsa inkommande och utgående trafik till deras kluster. Se till att de nödvändiga portarna är öppna i NSG. 
 
 * Den primära nodtypen som innehåller Service Fabric system tjänsterna behöver inte exponeras via den externa belastningsutjämnaren och kan exponeras av en [intern belastningsutjämnare](./service-fabric-patterns-networking.md#internal-only-load-balancer)
 
 * Använd en [statisk offentlig IP-adress](./service-fabric-patterns-networking.md#static-public-ip-address-1) för klustret.
+
+## <a name="network-security-rules"></a>Nätverks säkerhets regler
+
+De grundläggande reglerna här är minst för en säkerhets låsning av ett Azure-hanterat Service Fabric-kluster. Det gick inte att öppna följande portar eller vit listning IP/URL-adressen förhindrar att klustret fungerar korrekt och kanske inte stöds. Med den här regeln är det absolut nödvändigt att använda [automatiska uppgraderingar av operativ Systems avbildningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md), annars måste ytterligare portar öppnas.
+
+### <a name="inbound"></a>Inbound (Inkommande) 
+|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Åtgärd   
+|---        |---                |---         |---       |---                |---               |---
+|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Tillåt
+|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Tillåt
+|3920       |Kluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
+|3930       |Tillfälliga          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
+|3940       |Program        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
+|3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Neka
+|3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Neka
+|3980       |Anpassad slut punkt    |80          |TCP       |Internet           |VirtualNetwork    |Tillåt
+|4100       |Blockera inkommande      |443         |Alla       |Alla                |Alla               |Tillåt
+
+Mer information om inkommande säkerhets regler:
+
+* **Azure**. Den här porten används av Service Fabric Explorer för att söka efter och hantera klustret, och det används också av Service Fabric Resource Provider för att fråga om information om klustret, för att kunna visa i Azure-Hanteringsportal. Om den här porten inte är tillgänglig från Service Fabric Resource Provider visas ett meddelande om att "noder som inte hittas" eller "UpgradeServiceNotReachable" i Azure Portal och att din nod och program lista är tomma. Det innebär att om du vill ha insyn i klustret i Azure-Hanteringsportal måste belastningsutjämnaren exponera en offentlig IP-adress och din NSG måste tillåta inkommande 19080-trafik.  
+
+* **Klienten**. Klient anslutnings slut punkten för API: er som REST/PowerShell/CLI. 
+
+* **Kluster**. Används för kommunikation mellan noder; ska aldrig blockeras.
+
+* **Tillfällig**. Service Fabric använder en del av dessa portar som program portar och återstående är tillgängliga för operativ systemet. Den mappar även det här intervallet till det befintliga intervallet som finns i operativ systemet, så i alla syfte kan du använda de intervall som anges i exemplet här. Se till att skillnaden mellan start-och slut portarna är minst 255. Du kan stöta på konflikter om skillnaden är för låg, eftersom intervallet delas med operativ systemet. Om du vill se det konfigurerade dynamiska port intervallet kör du *netsh int IPv4 show Dynamic port TCP*. Dessa portar behövs inte för Linux-kluster.
+
+* **Programmet**. Program ports intervallet bör vara tillräckligt stort för att kunna användas för att fastställa slut punkts kravet för dina program. Intervallet ska vara exklusiv från det dynamiska port intervallet på datorn, det vill säga ephemeralPorts-intervallet som angetts i konfigurationen. Service Fabric använder dessa portar när nya portar krävs och tar hand om att öppna brand väggen för dessa portar på noderna.
+
+* **SMB**. SMB-protokollet används av avbildnings Arkiv-tjänsten för två scenarier. Den här porten krävs för att ladda ned paketen från avbildnings Arkiv av noderna samt för att replikera dessa mellan replikerna. 
+
+* **RDP**. Valfritt, om RDP krävs från Internet eller VirtualNetwork för scenarier med hopp. 
+
+* **SSH**. Valfritt, om SSH krävs från Internet eller VirtualNetwork för scenarier med hopp.
+
+* **Anpassad slut punkt**. Ett exempel på ditt program för att aktivera en tillgänglig slut punkt för Internet.
+
+### <a name="outbound"></a>Outbound (Utgående)
+
+|Prioritet   |Namn               |Port        |Protokoll  |Källa             |Mål       |Åtgärd   
+|---        |---                |---         |---       |---                |---               |---
+|3900       |Nätverk            |Alla         |TCP       |VirtualNetwork     |VirtualNetwork    |Tillåt
+|3910       |Resurs leverantör  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Tillåt
+|3920       |Uppgradera            |443         |TCP       |VirtualNetwork     |Internet          |Tillåt
+|3950       |Blockera utgående     |Alla         |Alla       |Alla                |Alla               |Neka
+
+Mer information om utgående säkerhets regler:
+
+* **Nätverk**. Kommunikations kanal för undernät och till andra virtuella nätverk.
+
+* **Resurs leverantör**. Anslutning av UpgradeService för att köra alla ARM-distributioner av Service Fabric Resource Provider.
+
+* **Upgradering**. Uppgraderings tjänsten använder download.microsoft.com för att hämta bitarna, vilket krävs för installation, avbildning och körnings uppgraderingar. Tjänsten fungerar med dynamiska IP-adresser. I scenariot av en intern belastningsutjämnare måste ytterligare en extern belastningsutjämnare läggas till i mallen med en regel som tillåter utgående trafik för port 443. Om du vill kan den här porten blockeras efter en lyckad installation, men i det här fallet måste uppgraderings paketet distribueras till noderna eller så måste porten öppnas under kort tid, efteråt en manuell uppgradering krävs.
+
+Använd Azure-brandväggen med [NSG flödes logg](../network-watcher/network-watcher-nsg-flow-logging-overview.md) och [trafik analys](../network-watcher/traffic-analytics.md) för att spåra problem med låsning av säkerhet. ARM-mallen [Service Fabric med NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) är ett användbart exempel att starta. 
+
 
 ## <a name="application-networking"></a>Program nätverk
 

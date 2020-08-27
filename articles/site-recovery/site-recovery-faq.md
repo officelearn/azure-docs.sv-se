@@ -4,20 +4,20 @@ description: I den här artikeln beskrivs populära allmänna frågor om Azure S
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950501"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Allmänna frågor om Azure Site Recovery
 
 I den här artikeln sammanfattas vanliga frågor om Azure Site Recovery. Granska de här artiklarna för vissa scenarier
 
-- [Frågor om haveri beredskap för virtuella Azure-datorer till Azure](azure-to-azure-common-questions.md)
-- [Frågor om haveri beredskap för virtuella VMware-datorer till Azure](vmware-azure-common-questions.md)
-- [Frågor om haveri beredskap för virtuella Hyper-V-datorer till Azure](hyper-v-azure-common-questions.md)
+- [Frågor om haveriberedskap för virtuell Azure-dator till Azure](azure-to-azure-common-questions.md)
+- [Frågor om haveriberedskap för virtuell VMware-dator till Azure](vmware-azure-common-questions.md)
+- [Frågor om haveriberedskap för virtuell Hyper-V-dator till Azure](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>Allmänt
 
@@ -256,8 +256,6 @@ En replikeringsprincip definierar inställningarna för lagrings historiken för
 
 - 24 timmar för Retentions historiken för återställnings punkter.
 - 4 timmar för frekvensen av programkonsekventa ögonblicks bilder.
-
-[Läs mer om replikeringsinställningar](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Vad är en krasch-konsekvent återställnings punkt?
 

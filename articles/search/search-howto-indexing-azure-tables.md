@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519787"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929575"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Indexera tabeller från Azure Table Storage med Azure Kognitiv sökning
 
@@ -25,8 +25,8 @@ Den här artikeln visar hur du använder Azure Kognitiv sökning för att indexe
 Du kan konfigurera en Azure Table Storage-indexerare med hjälp av följande resurser:
 
 * [Azure-portalen](https://ms.portal.azure.com)
-* Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* Azure Kognitiv sökning [REST API](/rest/api/searchservice/Indexer-operations)
+* Azure Kognitiv sökning [.NET SDK](/dotnet/api/overview/azure/search)
 
 Här demonstrerar vi flödet med hjälp av REST API. 
 
@@ -62,7 +62,7 @@ Så här skapar du en data Källa:
     }   
 ```
 
-Mer information om API för att skapa data källor finns i [skapa data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Mer information om API för att skapa data källor finns i [skapa data källa](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Sätt att ange autentiseringsuppgifter ####
@@ -73,7 +73,7 @@ Du kan ange autentiseringsuppgifterna för tabellen på något av följande sät
 - **Anslutnings sträng för signatur för delad åtkomst till lagrings konto**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` signaturen för delad åtkomst ska ha listan och Läs behörigheter för behållare (tabeller i det här fallet) och objekt (tabell rader).
 -  **Signatur för delad**åtkomst för tabell: signaturen för `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` delad åtkomst ska ha Läs behörighet för den här tabellen.
 
-Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Mer information om signaturer för delad åtkomst för lagring finns i [använda signaturer för delad åtkomst](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Om du använder autentiseringsuppgifter för signaturen för delad åtkomst måste du uppdatera autentiseringsuppgifterna för data källan regelbundet med förnyade signaturer för att förhindra att deras förfallo datum går ut. Om autentiseringsuppgifter för signaturen för delad åtkomst upphör att gälla, Miss lyckas indexeraren med ett fel meddelande som liknar "autentiseringsuppgifterna i anslutnings strängen är ogiltiga eller har upphört att gälla".  
@@ -97,7 +97,7 @@ Så här skapar du ett index:
     }
 ```
 
-Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Mer information om hur du skapar index finns i [skapa index](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Steg 3: skapa en indexerare
 En indexerare ansluter en data källa med ett mål Sök index och ger ett schema för att automatisera data uppdateringen. 
@@ -119,7 +119,7 @@ När indexet och data källan har skapats är du redo att skapa indexeraren:
 
 Indexeraren körs var två: e timme. (Schema intervallet är inställt på "PT2H".) Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är fem minuter. Schemat är valfritt. om detta utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
-Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Här följer två olika metoder för att förbättra prestanda för tabell index
 
 - Om dina data är partitionerade efter tid (till exempel när du skapar en ny partition varje dag eller vecka), bör du tänka på följande: 
     - Använd en fråga i formatet: `(PartitionKey ge <TimeStamp>) and (other filters)` . 
-    - Övervaka indexerings förloppet med hjälp av API för att [Hämta indexerings status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)och uppdatera sedan regelbundet `<TimeStamp>` villkoret för frågan baserat på det senaste lyckade värdet med högt vatten märke. 
+    - Övervaka indexerings förloppet med hjälp av API för att [Hämta indexerings status](/rest/api/searchservice/get-indexer-status)och uppdatera sedan regelbundet `<TimeStamp>` villkoret för frågan baserat på det senaste lyckade värdet med högt vatten märke. 
     - Med den här metoden måste du, om du behöver aktivera en fullständig Omindexering, återställa data källans fråga, förutom att återställa indexeraren. 
 
 

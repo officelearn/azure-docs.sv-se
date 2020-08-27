@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024370"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948104"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Villkorlig åtkomst: inloggnings risk baserad villkorlig åtkomst
 
@@ -64,10 +64,10 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Användar risk-baserad villkorlig åtkomst](howto-conditional-access-policy-risk-user.md)
+[Risk- och villkorsbaserad åtkomst – användare](howto-conditional-access-policy-risk-user.md)
 
 [Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 
-[Vad är Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

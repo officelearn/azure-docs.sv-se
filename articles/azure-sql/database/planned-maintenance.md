@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869125"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948223"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Planera för Azures underhålls händelser i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869125"
 Lär dig hur du förbereder för planerade underhålls händelser på din databas i Azure SQL Database och Azure SQL-hanterad instans.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Vad är ett planerat underhålls evenemang?
+
+För att hålla Azure SQL Database och Azure SQL Managed instance Services säker, kompatibel, stabil och genomför, utförs uppdateringar via tjänst komponenterna nästan kontinuerligt. Tack vare den modern och robusta tjänst arkitekturen och de innovativa teknikerna, till exempel [snabb korrigering](https://aka.ms/azuresqlhotpatching), är majoriteten av uppdateringarna helt transparenta och inte påverkar tjänstens tillgänglighet. Det finns fortfarande några typer av uppdateringar som kan orsaka korta avbrott i tjänsten och kräva särskild behandling. 
 
 För varje databas upprätthåller Azure SQL Database och Azure SQL-hanterad instans ett kvorum med databas repliker där en replik är primär. Vid alla tillfällen måste en primär replik vara Onlineunderhåll och minst en sekundär replik måste vara felfri. Under planerat underhåll kommer medlemmar i databasobjektet att försättas i taget en i taget, med avsikt att det finns en svarande primär replik och minst en sekundär replik online för att säkerställa att inga klient avbrott uppstår. När den primära repliken måste försättas i offlineläge görs en omkonfigurations-/redundansväxling i vilken en sekundär replik blir den nya primära repliken.  
 

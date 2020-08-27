@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039831"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948869"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar
 
@@ -25,13 +25,13 @@ Innan du får åtkomst till vissa molnappar i din miljö kan du vilja få tillå
 - En enkel metod för att konfigurera ToU
 - Alternativet för att kräva att du accepterar användnings villkoren via en princip för villkorlig åtkomst  
 
-Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md) som kräver att en ToU godkänns för en vald molnbaserad app i din miljö.
+Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åtkomst i Azure AD](./overview.md) som kräver att en ToU godkänns för en vald molnbaserad app i din miljö.
 
 ![Skapa princip](./media/require-tou/5555.png)
 
-Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra scenariot i den här snabb starten behöver du:
 
@@ -93,7 +93,7 @@ I det här avsnittet visas hur du skapar den nödvändiga principen för villkor
 
 Ange följande i principen:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 | --- | --- |
 | Användare och grupper | Isabella Simonsen |
 | Molnappar | Microsoft Azure hantering |
@@ -105,7 +105,7 @@ Ange följande i principen:
 
 1. På sidan **nytt** i text rutan **namn** skriver du **Kräv tou för Isabella**.
 
-   ![Name](./media/require-tou/71.png)
+   ![Namn](./media/require-tou/71.png)
 
 1. I avsnittet **tilldelning** klickar du på **användare och grupper**.
 
@@ -209,4 +209,4 @@ Ta bort test användaren och principen för villkorlig åtkomst när de inte lä
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Kräv MFA för specifika appar](app-based-mfa.md)
+> [Kräv MFA för specifika appar](../authentication/tutorial-enable-azure-mfa.md)

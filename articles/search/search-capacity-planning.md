@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 270ff3c3e8e4cffbb1f4b1987ee497530d0c0982
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80546265"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927212"
 ---
 # <a name="adjust-capacity-in-azure-cognitive-search"></a>Justera kapaciteten i Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ Innan du [konfigurerar en Sök tjänst](search-create-service-portal.md) och lå
 
 Kapaciteten är en funktion för den [nivå du väljer](search-sku-tier.md) (nivåer bestämmer maskin varu egenskaper) och den kombination av replik och partition som krävs för projekt arbets belastningar. Beroende på nivån och storleken på justeringen kan tillägg eller minskning av kapaciteten ta var som helst från 15 minuter till flera timmar. 
 
-När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/services) alternativa lösningar.
+När du ändrar tilldelningen av repliker och partitioner rekommenderar vi att du använder Azure Portal. Portalen tillämpar gränser på tillåtna kombinationer som ligger under de maximala gränserna för en nivå. Men om du behöver en skript-eller kod baserad etablerings metod är [Azure PowerShell](search-manage-powershell.md) eller [hanterings REST API](/rest/api/searchmanagement/services) alternativa lösningar.
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 
@@ -86,9 +86,9 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Ej tillämpligt |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Ej tillämpligt |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Ej tillämpligt |
 | **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).

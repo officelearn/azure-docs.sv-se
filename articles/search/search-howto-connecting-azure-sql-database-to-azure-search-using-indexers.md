@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 725ee57a06d3d547142fdd39ef03e1c7e7c296a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923032"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ansluta till och indexera Azure SQL-innehåll med hjälp av Azure Kognitiv sökning-indexeraren
 
@@ -34,13 +34,13 @@ En **indexerare** är en resurs som ansluter en enskild data källa med ett mål
 * Uppdatera ett index med ändringar i data källan enligt ett schema.
 * Kör på begäran för att uppdatera ett index efter behov.
 
-En enskild indexerare kan bara använda en tabell eller vy, men du kan skapa flera indexerare om du vill fylla flera Sök index. Mer information om begrepp finns i [Indexer åtgärder: typiskt arbets flöde](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+En enskild indexerare kan bara använda en tabell eller vy, men du kan skapa flera indexerare om du vill fylla flera Sök index. Mer information om begrepp finns i [Indexer åtgärder: typiskt arbets flöde](/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 Du kan konfigurera och konfigurera en Azure SQL-indexerare med hjälp av:
 
 * Guiden Importera data i [Azure Portal](https://portal.azure.com)
-* Azure Kognitiv sökning [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)
+* Azure Kognitiv sökning [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Azure Kognitiv sökning [REST API](/rest/api/searchservice/indexer-operations)
 
 I den här artikeln använder vi REST API för att skapa **indexerare** och **data källor**.
 
@@ -51,7 +51,7 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
 |----------|---------|
 | Data härstammar från en enskild tabell eller vy | Om data är spridda över flera tabeller kan du skapa en enskild vy av data. Men om du använder en vy kan du inte använda SQL Server integrerad ändrings identifiering för att uppdatera ett index med stegvisa ändringar. Mer information finns i [fånga ändrade och borttagna rader](#CaptureChangedRows) nedan. |
 | Data typerna är kompatibla | De flesta, men inte alla SQL-typer, stöds i ett Azure Kognitiv sökning-index. En lista finns i [mappa data typer](#TypeMapping). |
-| Data synkronisering i real tid krävs inte | En indexerare kan indexera om din tabell högst var femte minut. Om data ändras ofta och ändringarna måste avspeglas i indexet inom några sekunder eller minuter rekommenderar vi att du använder [REST API](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) eller [.NET SDK](search-import-data-dotnet.md) för att skicka uppdaterade rader direkt. |
+| Data synkronisering i real tid krävs inte | En indexerare kan indexera om din tabell högst var femte minut. Om data ändras ofta och ändringarna måste avspeglas i indexet inom några sekunder eller minuter rekommenderar vi att du använder [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) eller [.NET SDK](./search-get-started-dotnet.md) för att skicka uppdaterade rader direkt. |
 | Stegvis indexering är möjlig | Om du har en stor data uppsättning och planerar att köra indexeraren enligt ett schema, måste Azure Kognitiv sökning effektivt kunna identifiera nya, ändrade eller borttagna rader. Icke-stegvis indexering är bara tillåtet om du indexerar på begäran (inte enligt schema) eller indexerar färre än 100 000 rader. Mer information finns i [fånga ändrade och borttagna rader](#CaptureChangedRows) nedan. |
 
 > [!NOTE] 
@@ -76,7 +76,7 @@ Beroende på flera faktorer som är relaterade till dina data kan användningen 
 
    Du kan hämta anslutnings strängen från [Azure Portal](https://portal.azure.com). Använd `ADO.NET connection string` alternativet.
 
-2. Skapa ett Azure Kognitiv sökning-index om du inte redan har en. Du kan skapa ett index med hjälp av [portalen](https://portal.azure.com) eller [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Se till att schemat för mål indexet är kompatibelt med schemat för käll tabellen – se [mappning mellan SQL-och Azure-funktionen Sök data typer](#TypeMapping).
+2. Skapa ett Azure Kognitiv sökning-index om du inte redan har en. Du kan skapa ett index med hjälp av [portalen](https://portal.azure.com) eller [skapa index-API](/rest/api/searchservice/Create-Index). Se till att schemat för mål indexet är kompatibelt med schemat för käll tabellen – se [mappning mellan SQL-och Azure-funktionen Sök data typer](#TypeMapping).
 
 3. Skapa indexeraren genom att ge den ett namn och referera till data källan och mål indexet:
 
@@ -99,9 +99,9 @@ En indexerare som skapats på det här sättet har inget schema. Den körs autom
     api-key: admin-key
 ```
 
-Du kan anpassa flera aspekter av indexerings beteende, till exempel batchstorleken och hur många dokument som kan hoppas över innan en indexerare-körning Miss lyckas. Mer information finns i [skapa indexerings-API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+Du kan anpassa flera aspekter av indexerings beteende, till exempel batchstorleken och hur många dokument som kan hoppas över innan en indexerare-körning Miss lyckas. Mer information finns i [skapa indexerings-API](/rest/api/searchservice/Create-Indexer).
 
-Du kan behöva tillåta Azure-tjänster att ansluta till din databas. Se [ansluta från Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) för instruktioner om hur du gör det.
+Du kan behöva tillåta Azure-tjänster att ansluta till din databas. Se [ansluta från Azure](../azure-sql/database/firewall-configure.md) för instruktioner om hur du gör det.
 
 Om du vill övervaka indexerings status och körnings historik (antal objekt som indexeras, Miss lyckas osv.) använder du en **indexerare status** förfrågan:
 
@@ -146,7 +146,7 @@ Svaret bör se ut ungefär så här:
 ```
 
 Körnings historiken innehåller upp till 50 av de senaste slutförda körningarna, som sorteras i omvänd kronologisk ordning (så att den senaste körningen kommer först i svaret).
-Ytterligare information om svaret finns i [Hämta index status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
+Ytterligare information om svaret finns i [Hämta index status](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Köra indexerare enligt ett schema
 Du kan också ordna indexeraren så att den körs regelbundet enligt ett schema. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar indexeraren. I exemplet nedan visas en skicka-begäran om att uppdatera indexeraren:
@@ -174,7 +174,7 @@ Mer information om hur du definierar indexerare scheman finns i [så här schema
 Azure Kognitiv sökning använder **stegvis indexering** för att undvika att behöva indexera om hela tabellen eller vyn varje gång en indexerare körs. Azure Kognitiv sökning innehåller två principer för ändrings identifiering som stöder stegvis indexering. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>SQL-integrerad Ändringsspårning princip
-Om SQL-databasen stöder [ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)rekommenderar vi att du använder **SQL-integrerad ändringsspårning princip**. Detta är den mest effektiva principen. Dessutom tillåter Azure Kognitiv sökning att identifiera borttagna rader utan att du behöver lägga till en explicit "mjuk borttagning"-kolumn i tabellen.
+Om SQL-databasen stöder [ändrings spårning](/sql/relational-databases/track-changes/about-change-tracking-sql-server)rekommenderar vi att du använder **SQL-integrerad ändringsspårning princip**. Detta är den mest effektiva principen. Dessutom tillåter Azure Kognitiv sökning att identifiera borttagna rader utan att du behöver lägga till en explicit "mjuk borttagning"-kolumn i tabellen.
 
 #### <a name="requirements"></a>Krav 
 
@@ -182,7 +182,7 @@ Om SQL-databasen stöder [ändrings spårning](https://docs.microsoft.com/sql/re
   * SQL Server 2012 SP3 och senare, om du använder SQL Server på virtuella Azure-datorer.
   * Azure SQL Database-eller SQL-hanterad instans.
 + Endast tabeller (inga vyer). 
-+ [Aktivera ändrings spårning](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) för tabellen på-databasen. 
++ [Aktivera ändrings spårning](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) för tabellen på-databasen. 
 + Ingen sammansatt primär nyckel (en primär nyckel som innehåller mer än en kolumn) i tabellen.  
 
 #### <a name="usage"></a>Användning
@@ -204,7 +204,7 @@ Om du vill använda den här principen skapar eller uppdaterar du din data käll
 När du använder en integrerad SQL-princip för ändrings spårning anger du inte en separat princip för identifiering av data borttagning – den här principen har inbyggt stöd för att identifiera borttagna rader. Men för att borttagningarna ska identifieras "automagic" måste dokument nyckeln i Sök indexet vara samma som den primära nyckeln i SQL-tabellen. 
 
 > [!NOTE]  
-> När du använder [truncate Table](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) för att ta bort ett stort antal rader från en SQL-tabell måste indexeraren [återställas](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) för att återställa ändrings spårnings statusen för att ta bort rader.
+> När du använder [truncate Table](/sql/t-sql/statements/truncate-table-transact-sql) för att ta bort ett stort antal rader från en SQL-tabell måste indexeraren [återställas](/rest/api/searchservice/reset-indexer) för att återställa ändrings spårnings statusen för att ta bort rader.
 
 <a name="HighWaterMarkPolicy"></a>
 
@@ -217,10 +217,10 @@ Den här princip för ändrings identifiering förlitar sig på en kolumn med "h
 * Alla infogningar anger ett värde för kolumnen.
 * Alla uppdateringar av ett objekt ändrar också värdet i kolumnen.
 * Värdet för den här kolumnen ökar med varje infogning eller uppdatering.
-* Frågor med följande satser och ORDER BY-satser kan köras effektivt:`WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
+* Frågor med följande satser och ORDER BY-satser kan köras effektivt: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> Vi rekommenderar starkt att du använder data typen [ROWVERSION](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) för kolumnen med hög vatten märke. Om någon annan datatyp används är ändrings spårning inte garanterat att samla in alla ändringar i närvaro av transaktioner som körs samtidigt med en indexerare-fråga. När du använder **ROWVERSION** i en konfiguration med skrivskyddade repliker måste du peka indexeraren på den primära repliken. Det går bara att använda en primär replik för data synkronisering.
+> Vi rekommenderar starkt att du använder data typen [ROWVERSION](/sql/t-sql/data-types/rowversion-transact-sql) för kolumnen med hög vatten märke. Om någon annan datatyp används är ändrings spårning inte garanterat att samla in alla ändringar i närvaro av transaktioner som körs samtidigt med en indexerare-fråga. När du använder **ROWVERSION** i en konfiguration med skrivskyddade repliker måste du peka indexeraren på den primära repliken. Det går bara att använda en primär replik för data synkronisering.
 
 #### <a name="usage"></a>Användning
 
@@ -248,7 +248,7 @@ Om du vill använda en hög vatten märkes princip skapar eller uppdaterar du di
 
 ##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
 
-Om du använder data typen [ROWVERSION](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) för den övre vatten märkes kolumnen, bör du överväga att använda `convertHighWaterMarkToRowVersion` konfigurations inställningen indexeraren. `convertHighWaterMarkToRowVersion`gör två saker:
+Om du använder data typen [ROWVERSION](/sql/t-sql/data-types/rowversion-transact-sql) för den övre vatten märkes kolumnen, bör du överväga att använda `convertHighWaterMarkToRowVersion` konfigurations inställningen indexeraren. `convertHighWaterMarkToRowVersion` gör två saker:
 
 * Använd data typen ROWVERSION för kolumnen hög vatten märke i SQL-frågan Indexer. Genom att använda rätt datatyp får du bättre prestanda för indexerings frågor.
 * Subtrahera 1 från ROWVERSION-värdet innan frågan körs i indexet. Vyer med 1 till många kopplingar kan ha rader med dubbla ROWVERSION-värden. Om man subtraherar 1 bevaras inte de här raderna i indexerings frågan.
@@ -314,14 +314,14 @@ När du använder metoden för att använda mjuk borttagning kan du ange princip
 <a name="TypeMapping"></a>
 
 ## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappning mellan SQL-och Azure Kognitiv sökning data typer
-| SQL-datatyp | Tillåtna fält typer för mål index | Kommentarer |
+| SQL-datatyp | Tillåtna fält typer för mål index | Anteckningar |
 | --- | --- | --- |
 | bit |EDM. Boolean, EDM. String | |
 | int, smallint, tinyint |EDM. Int32, EDM. Int64, EDM. String | |
 | bigint |EDM. Int64, EDM. String | |
 | verkligt, flyttal |EDM. Double, EDM. String | |
 | smallmoney, Money decimal tal |Edm.String |Azure Kognitiv sökning stöder inte konvertering av decimal typer till EDM. Double eftersom detta skulle förlora precisionen |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett samlings fält (EDM. String) om strängen representerar en JSON-matris med strängar:`["red", "white", "blue"]` |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |En SQL-sträng kan användas för att fylla i ett samlings fält (EDM. String) om strängen representerar en JSON-matris med strängar: `["red", "white", "blue"]` |
 | smalldatetime, DateTime, datetime2, date, DateTimeOffset |EDM. DateTimeOffset, EDM. String | |
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Endast geografi instanser av typ punkt med SRID 4326 (vilket är standard) stöds |
@@ -346,7 +346,7 @@ De här inställningarna används i `parameters.configuration` objektet i index 
     }
 ```
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 **F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs på virtuella IaaS-datorer i Azure?**
 
@@ -354,7 +354,7 @@ Ja. Du måste dock tillåta att din Sök tjänst ansluter till din databas. Mer 
 
 **F: kan jag använda Azure SQL-indexeraren med SQL-databaser som körs lokalt?**
 
-Inte direkt. Vi rekommenderar eller stöder inte direkt anslutning, eftersom det kräver att du öppnar dina databaser till Internet trafik. Kunder har slutfört det här scenariot med hjälp av bro teknik som Azure Data Factory. Mer information finns i [skicka data till ett Azure kognitiv sökning-index med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Inte direkt. Vi rekommenderar eller stöder inte direkt anslutning, eftersom det kräver att du öppnar dina databaser till Internet trafik. Kunder har slutfört det här scenariot med hjälp av bro teknik som Azure Data Factory. Mer information finns i [skicka data till ett Azure kognitiv sökning-index med hjälp av Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
 **F: kan jag använda Azure SQL-indexeraren med andra databaser än SQL Server som körs i IaaS i Azure?**
 
@@ -368,7 +368,7 @@ Ja. Endast en indexerare kan dock köras på en nod i taget. Överväg att skala
 
 Ja. Indexeraren körs på en av noderna i Sök tjänsten och den nodens resurser delas mellan indexeringen och betjänar frågans trafik och andra API-begäranden. Om du kör intensiv indexering och frågar efter arbets belastningar och får en hög grad av 503 fel eller ökar svars tiderna kan du överväga att [skala upp Sök tjänsten](search-capacity-planning.md).
 
-**F: kan jag använda en sekundär replik i ett [redundanskluster](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) som en data Källa?**
+**F: kan jag använda en sekundär replik i ett [redundanskluster](../azure-sql/database/auto-failover-group-overview.md) som en data Källa?**
 
 Det beror på. För fullständig indexering av en tabell eller vy kan du använda en sekundär replik. 
 
@@ -388,4 +388,4 @@ Det rekommenderas inte. Endast **ROWVERSION** tillåter tillförlitlig datasynkr
 
 + Du kan se till att när indexeraren körs finns det inga utestående transaktioner i tabellen som indexeras (till exempel, alla tabell uppdateringar utförs som en batch enligt ett schema och Azure Kognitiv sökning Indexer-schemat är inställt på att undvika överlappande med tabell uppdaterings schema).  
 
-+ Du gör regelbundet en fullständig omindexning för att hämta eventuella missade rader. 
++ Du gör regelbundet en fullständig omindexning för att hämta eventuella missade rader.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605576"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948071"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Villkorlig åtkomst: användar risk-baserad villkorlig åtkomst
 
@@ -29,7 +29,7 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 1. Välj **ny princip**.
-1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer. Mer information får du genom att [Ange namngivnings standarder för dina principer](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
+1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer. Mer information får du genom att [Ange namngivnings standarder för dina principer](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. Under **Tilldelningar** väljer du **Användare och grupper**.
    1. Under **Inkludera**väljer du **alla användare**.
    1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
@@ -66,4 +66,4 @@ Det finns två platser där denna policy kan tilldelas. Organisationer bör väl
 
 [Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
 
-[Vad är Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

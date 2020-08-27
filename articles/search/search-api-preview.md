@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935270"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950484"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Förhands gransknings funktioner i Azure Kognitiv sökning
 
@@ -35,7 +35,7 @@ Förhands gransknings funktioner som övergår till allmän tillgänglighet tas 
 |  [**Azure Data Lake Storage Gen2 indexerare**](search-howto-index-azure-data-lake-storage.md) | Indexerare data Källa | Indexera innehåll och metadata från Data Lake Storage Gen2.| [Registrering](https://aka.ms/azure-cognitive-search/indexer-preview) krävs för att stöd ska kunna aktive ras för din prenumeration på Server delen. Åtkomst till den här data källan med hjälp av [skapa data källa (rest)](/rest/api/searchservice/create-data-source) med API-version = 2020-06 -30-Preview eller API-version = 2019-05 -06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Söka i data | Söker efter dokument som är relevanta för ett enskilt dokument. Den här funktionen finns i tidigare för hands versioner. | Lägg till den här frågeparametern i [search Documents (rest)-](/rest/api/searchservice/search-documents) anrop med API-version = 2020-06 -30 – för hands version, 2019-05-06-för hands version, 2016-09-01-för hands version eller 2017-11-11-för hands version. |
 
-## <a name="calling-preview-rest-apis"></a>Anropar Preview REST API: er
+## <a name="how-to-call-a-preview-rest-api"></a>Så här anropar du en förhands granskning REST API
 
 Azure Kognitiv sökning alltid för hands versioner av experimentella funktioner via REST API först, sedan till hands versioner av .NET SDK.
 
@@ -47,12 +47,14 @@ Vissa för hands versions funktioner kan vara tillgängliga i portalen och .NET 
 
 + För hanterings åtgärder [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) är den aktuella för hands versionen.
 
-Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2019-05-06-Preview` eller `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview` , är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar. 
+Äldre förhands visningar fungerar fortfarande, men blir inaktuella över tid. Om dina kod anrop `api-version=2019-05-06-Preview` eller `api-version=2016-09-01-Preview` eller `api-version=2017-11-11-Preview` , är dessa anrop fortfarande giltiga. Men endast den nyaste för hands versionen har uppdaterats med förbättringar.
 
 Följande exempel på syntax illustrerar ett anrop till för hands versionen av API-versionen.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 Azure Kognitiv sökning-tjänsten är tillgänglig i flera versioner. Mer information finns i [API-versioner](search-api-versions.md).

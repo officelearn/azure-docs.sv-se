@@ -2,7 +2,7 @@
 title: Microsoft Identity Platform & SAML Bearer-försäkrat flöde | Azure
 description: Lär dig hur du hämtar data från Microsoft Graph utan att fråga användaren om autentiseringsuppgifter med hjälp av SAML Bearer Assertion-flödet.
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114701"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949362"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform och OAuth 2,0 SAML Bearer-försäkrat flöde
 Med det försäkrade flödet av OAuth 2,0 SAML-Bearer kan du begära en OAuth-åtkomsttoken med en SAML-kontroll när en klient behöver använda en befintlig förtroende relation. Signaturen som används för SAML Assertion ger autentisering av den auktoriserade appen. En SAML-kontroll är en XML-säkerhetstoken som utfärdas av en identitetsprovider och som används av en tjänst leverantör. Tjänste leverantören förlitar sig på sitt innehåll för att identifiera kontrollens ämne för säkerhetsrelaterade orsaker.

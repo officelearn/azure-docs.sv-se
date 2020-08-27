@@ -4,19 +4,22 @@ description: Lär dig mer om vCPU kvoter för Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292305"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949702"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>vCPU-kvoter för virtuella datorer
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Kontrol lera vCPU-kvoter med Azure CLI
 
 VCPU kvoter för virtuella datorer och skalnings uppsättningar för virtuella datorer ordnas på två nivåer för varje prenumeration i varje region. Den första nivån är den totala regionala virtuella processorer och den andra nivån är de olika virtuella datorerna i VM-serien, till exempel D-seriens virtuella processorer. När en ny virtuell dator distribueras får inte virtuella processorer för den virtuella datorn överskrida vCPU-kvoten för den virtuella datorns storleks familj eller den totala regionala vCPU-kvoten. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas. Det finns också en kvot för det totala antalet virtuella datorer i regionen. Informationen om var och en av dessa kvoter visas i avsnittet **användning och kvoter** på **prenumerations** sidan i [Azure Portal](https://portal.azure.com), eller så kan du fråga efter värden med hjälp av Azure CLI.
+
+> [!NOTE]
+> Kvoten beräknas baserat på det totala antalet kärnor i som används både allokerat och friallokerat. Om du behöver ytterligare kärnor begär du [en kvot ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md) eller tar bort virtuella datorer som inte längre behövs. 
 
 
 ## <a name="check-usage"></a>Kontrollera användning

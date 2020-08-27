@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232350"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949182"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory Identity Protection ord lista
 
@@ -89,13 +89,13 @@ Identifiering av avvikelser och utvärdering av risken för en händelse som inl
 ### <a name="remediated-risk-detection"></a>Åtgärdad (identifiering av risker)
 En status för identifiering av risker anges automatiskt av identitets skydd, vilket indikerar att risk identifieringen reparerades med hjälp av standard åtgärds åtgärden för den här typen av risk identifiering. Till exempel, när användar lösen ordet återställs, åtgärdas många risk identifieringar som indikerar att det tidigare lösen ordet komprometteras automatiskt.
 
-### <a name="remediation"></a>Åtgärder
+### <a name="remediation"></a>Reparation
 En åtgärd för att skydda en identitet eller en enhet som tidigare misstänkts eller var känd för att komprometteras. En reparations åtgärd återställer identiteten eller enheten till ett säkert tillstånd och löser tidigare risk identifieringar som är associerade med identiteten eller enheten.
 
 ### <a name="resolved-risk-detection"></a>Löst (identifiering av risker)
 En identifierings status för risker som anges manuellt av en identitets skydds användare, vilket indikerar att användaren vidtog en lämplig reparations åtgärd utanför identitets skyddet och att identifieringen av risker bör anses vara stängd.
 
-### <a name="risk-detection-status"></a>Status för identifiering av risk
+### <a name="risk-detection-status"></a>Riskidentifieringsstatus
 En egenskap för en risk identifiering som anger om händelsen är aktiv och om den stängs, orsaken till stängningen.
 
 ### <a name="risk-detection-type"></a>Typ av risk identifiering
@@ -137,19 +137,19 @@ En risk identifiering utlöses efter en lyckad inloggning från en IP-adress med
 ### <a name="sign-in-from-unfamiliar-location"></a>Logga in från en okänd plats
 En risk identifiering som utlöses när en användare har loggat in från en ny plats (IP, latitud/longitud och ASN).
 
-### <a name="sign-in-risk"></a>Inloggnings risk
+### <a name="sign-in-risk"></a>Inloggningsrisk
 Se risk nivå (inloggning)
 
-### <a name="sign-in-risk-policy"></a>Princip för inloggnings risk
+### <a name="sign-in-risk-policy"></a>Princip för inloggningsrisk
 En princip för villkorlig åtkomst som utvärderar risken för en särskilt inloggning och tillämpar åtgärder baserat på fördefinierade villkor och regler.
 
 ### <a name="user-compromise-risk"></a>Risk för användar kompromisser
 Se risk nivå (användar kompromisser)
 
-### <a name="user-risk"></a>Användar risk
+### <a name="user-risk"></a>Användarrisk
 Se risk nivå (användar kompromisser).
 
-### <a name="user-risk-policy"></a>Användar risk princip
+### <a name="user-risk-policy"></a>Princip för användarrisk
 En princip för villkorlig åtkomst som beaktar inloggningen och tillämpar åtgärder baserat på fördefinierade villkor och regler.
 
 ### <a name="users-flagged-for-risk"></a>Användare som har flaggats för risk
@@ -160,4 +160,4 @@ En konfiguration eller ett villkor i Azure Active Directory, vilket gör att kat
 
 ## <a name="see-also"></a>Se även
 
-- [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
+- [Identitetsskydd för Azure Active Directory](./overview-identity-protection.md)

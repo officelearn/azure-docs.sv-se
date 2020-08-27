@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994977"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948155"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurera en princip för villkorlig åtkomst i endast rapport läge
 
@@ -51,8 +51,8 @@ Så här visar du resultatet av en rapport princip för en viss inloggning:
 
 För att kunna visa den sammanlagda effekten av principer för villkorlig åtkomst med hjälp av den nya arbets boken för villkorlig åtkomst, måste du integrera Azure Monitor med Azure AD och exportera inloggnings loggarna. Det finns två steg för att konfigurera den här integrationen: 
 
-1. [Registrera dig för en Azure Monitor prenumeration och skapa en arbets yta](/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exportera inloggnings loggarna från Azure AD till Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Registrera dig för en Azure Monitor prenumeration och skapa en arbets yta](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Exportera inloggnings loggarna från Azure AD till Azure Monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 Mer information om Azure Monitor priser finns på [prissättnings sidan för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Resurser för att uppskatta kostnader, ange en daglig begränsning eller anpassa data lagrings perioden, finns i artikeln [Hantera användning och kostnader med Azure Monitor loggar](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

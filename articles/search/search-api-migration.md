@@ -7,28 +7,28 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927144"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949039"
 ---
-# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Uppgradera till den senaste versionen av Azure Kognitiv sökning service REST API
+# <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Uppgradera till den senaste REST API i Azure Kognitiv sökning
 
-Om du använder en tidigare version av [sök REST API](/rest/api/searchservice/)kan den här artikeln hjälpa dig att uppgradera ditt program till att använda den senaste allmänt tillgängliga API-versionen, 2020-06-30.
+Om du använder en tidigare version av [**sök REST API**](/rest/api/searchservice/)kan den här artikeln hjälpa dig att uppgradera programmet till den senaste allmänt tillgängliga API-versionen, **2020-06-30**.
 
-Version 2020-06-30 av REST API innehåller vissa ändringar från tidigare versioner. Dessa är huvudsakligen bakåtkompatibla, så att ändringar i din kod bara kräver minimal ansträngning, beroende på vilken version du använde tidigare. [Steg för att uppgradera](#UpgradeSteps) beskriver de kod ändringar som krävs för att använda nya funktioner.
+Version 2020-06-30 innehåller en viktig ny funktion ([kunskaps lager](knowledge-store-concept-intro.md)) och introducerar flera mindre beteende ändringar. Den här versionen är i huvudsak bakåtkompatibel så att kod ändringar ska vara minimala om du uppgraderar från den tidigare versionen (2019-05-06).
 
 > [!NOTE]
-> En Azure Kognitiv sökning-tjänstinstans stöder flera REST API versioner, inklusive tidigare. Du kan fortsätta att använda dessa API-versioner, men vi rekommenderar att du migrerar din kod till den senaste versionen så att du kan komma åt nya funktioner.
+> En Sök tjänst stöder flera REST API versioner, inklusive tidigare. Du kan fortsätta att använda dessa API-versioner, men vi rekommenderar att du migrerar din kod till den senaste versionen så att du kan komma åt nya funktioner. Med tiden kommer de mest inaktuella versionerna av REST API att bli föråldrade och [stöds inte längre](search-api-versions.md#unsupported-versions).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du
 
-När du uppgraderar till nya versioner behöver du förmodligen inte göra några ändringar i koden, förutom att ändra versions numret. De enda situationer där du kan behöva ändra kod är när:
+När du uppgraderar till en ny version behöver du förmodligen inte göra många ändringar i din kod, förutom att ändra versions numret. De enda situationer där du kan behöva ändra kod är när:
 
 * Koden fungerar inte när okända egenskaper returneras i ett API-svar. Som standard ska programmet ignorera egenskaper som det inte förstår.
 
@@ -36,7 +36,7 @@ När du uppgraderar till nya versioner behöver du förmodligen inte göra någr
 
 * Din kod refererar till en API-version som fördaterar 2019-05-06 och omfattas av en eller flera av de större ändringarna i den versionen. Avsnittet [Uppgradera till 2019-05-06](#upgrade-to-2019-05-06) innehåller mer information. 
 
-Om någon av dessa situationer gäller dig kan du behöva ändra koden. Annars bör inga ändringar vara nödvändiga om du inte vill börja använda funktioner som har lagts till i den nya versionen.
+Om någon av dessa situationer gäller dig kan du behöva ändra koden. Annars bör inga ändringar vara nödvändiga, men du kanske vill börja använda funktioner som har lagts till i den nya versionen.
 
 ## <a name="upgrade-to-2020-06-30"></a>Uppgradera till 2020-06-30
 
@@ -63,7 +63,7 @@ Version 2019-05-06 är den tidigare allmänt tillgängliga versionen av REST API
 
 ### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
-Befintlig kod som skrivs mot tidigare API-versioner kommer att brytas på API-version = 2019-05-06 om koden innehåller följande funktioner:
+Befintlig kod som skrivs mot tidigare API-versioner kommer att brytas på API-version = 2019-05-06 och senare om koden innehåller följande funktioner:
 
 #### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Indexerare för Azure Cosmos DB-DataSource är nu "typ": "cosmosdb"
 

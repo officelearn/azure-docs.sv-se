@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6475fc61502a82844605ba267db5f8da984c8de6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234711"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948886"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -100,6 +100,6 @@ Kunder med [Microsoft 365 Business Premium-licenser](/office365/servicedescripti
 
 - [Skapa en princip för villkorlig åtkomst i stycken](concept-conditional-access-policies.md)
 - [Planera distributionen av villkorsstyrd åtkomst](plan-conditional-access.md)
-- [Lär dig mer om identitets skydd](../identity-protection/overview-v2.md)
+- [Lär dig mer om identitets skydd](../identity-protection/overview-identity-protection.md)
 - [Läs mer om Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Läs mer om Microsoft Intune](/intune/index)

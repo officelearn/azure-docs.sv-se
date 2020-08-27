@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f1860f9645a50789803d509a6a1ea98bc0ea1a9e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856038"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950144"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>IoT Plug and Play för hands versions guide
 
@@ -57,7 +57,7 @@ Modell-ID-meddelandet har lagts till i nästa versioner av SDK: erna
 
 ## <a name="dps-payload"></a>DPS-nyttolast
 
-Enheter som använder [enhets etablerings tjänsten (DPS)](/iot-dps/) kan inkludera den `modelId` som ska användas under etablerings processen med hjälp av följande JSON-nyttolast.
+Enheter som använder [enhets etablerings tjänsten (DPS)](../iot-dps/about-iot-dps.md) kan inkludera den `modelId` som ska användas under etablerings processen med hjälp av följande JSON-nyttolast.
 
 ```json
 {

@@ -2,16 +2,17 @@
 title: Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler | Microsoft Docs
 description: En konceptuell översikt och stegvisa anvisningar om hur du använder Application Insights Profiler.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 author: cweining
 ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a21d48787a39c491a2ab1ace1bf42ff85bd34993
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 652d63cbf71f7a998462780a5057ce8269463da4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078095"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930391"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux-webbappar med Application Insights Profiler
 
@@ -168,7 +169,7 @@ Fler distributions alternativ finns i [App Service-dokumentationen](https://docs
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du använder anpassade behållare som finns i Azure App Service följer du anvisningarna i [aktivera Service profiler för ett behållar ASP.net Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) för att aktivera Application Insights profiler.
+Om du använder anpassade behållare som finns i Azure App Service följer du anvisningarna i [ aktivera Service profiler för ett behållar ASP.net Core program](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) för att aktivera Application Insights profiler.
 
 Rapportera eventuella problem eller förslag till Application Insights GitHub-databasen: [ApplicationInsights-profilerare-AspNetCore: problem](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/issues).
 

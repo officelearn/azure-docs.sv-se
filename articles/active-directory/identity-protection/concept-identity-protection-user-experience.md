@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72887005"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950212"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Användar upplevelser med Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Alla identitets skydds principer påverkar inloggnings upplevelsen för använda
 
 ## <a name="multi-factor-authentication-registration"></a>Multi-Factor Authentication-registrering
 
-Att aktivera identitets skydds principen som kräver Multi-Factor Authentication-registrering och rikta in dig på alla dina användare, ser till att de har möjlighet att använda Azure MFA för att själv åtgärda i framtiden. Genom att konfigurera den här principen får användarna en 14-dagars period där de kan välja att registrera sig och i slutet tvingas registrera sig. Användarens upplevelse beskrivs nedan. Mer information finns i dokumentationen för slutanvändaren i artikeln [Översikt över tvåstegsverifiering för två faktorer och ditt arbets-eller skol konto](../user-help/user-help-two-step-verification-overview.md).
+Att aktivera identitets skydds principen som kräver Multi-Factor Authentication-registrering och rikta in dig på alla dina användare, ser till att de har möjlighet att använda Azure MFA för att själv åtgärda i framtiden. Genom att konfigurera den här principen får användarna en 14-dagars period där de kan välja att registrera sig och i slutet tvingas registrera sig. Användarens upplevelse beskrivs nedan. Mer information finns i dokumentationen för slutanvändaren i artikeln [Översikt över tvåstegsverifiering för två faktorer och ditt arbets-eller skol konto](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Registrerings avbrott
 
@@ -67,7 +67,7 @@ När en användar risk princip har kon figurer ATS måste användare som uppfyll
 
 1. Användaren informeras om att deras konto säkerhet är utsatt för risk på grund av misstänkt aktivitet eller läcka autentiseringsuppgifter.
    
-    ![Åtgärder](./media/concept-identity-protection-user-experience/101.png)
+    ![Reparation](./media/concept-identity-protection-user-experience/101.png)
 
 1. Användaren måste bevisa sin identitet genom att slutföra Azure MFA med en av deras tidigare registrerade metoder. 
 1. Användaren måste slutligen ändra sitt lösen ord med hjälp av lösen ords återställning via självbetjäning eftersom någon annan kan ha haft åtkomst till sitt konto.
@@ -84,4 +84,4 @@ IT-personalen kan följa anvisningarna i avsnittet [avblockera användare](howto
 
 - [Åtgärda risker och avblockera användare](howto-identity-protection-remediate-unblock.md)
 
-- [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md) 
+- [Identitetsskydd för Azure Active Directory](./overview-identity-protection.md)

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339729"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948903"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analys av villkorlig åtkomst (CA) analyserar 
 
 Microsoft tillhandahåller standard villkors principer som kallas [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md) som garanterar en grundläggande säkerhets nivå. Din organisation kan dock behöva större flexibilitet än erbjudandet om säkerhets standard. Du kan använda villkorlig åtkomst för att anpassa säkerhets standardvärden med mer detaljerad information och konfigurera nya principer som uppfyller dina krav.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Innan du börjar ska du kontrol lera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda det.
 
@@ -52,7 +52,7 @@ Se [licens krav för villkorlig åtkomst](overview.md).
 
 Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -69,7 +69,7 @@ Följande resurser kan vara användbara när du lär dig mer om villkorlig åtko
 
 #### <a name="videos"></a>Videoklipp
 
-* [Vad är villkorlig åtkomst?](https://youtu.be/ffMAw2IVO7A)
+* [Vad är villkorsstyrd åtkomst?](https://youtu.be/ffMAw2IVO7A)
 * [Hur distribuerar jag villkorlig åtkomst?](https://youtu.be/c_izIRNJNuk)
 * [Hur gör jag för att distribuera CA-principer till slutanvändarna?](https://youtu.be/0_Fze7Zpyvc)
 * [Villkorsstyrd åtkomst med enhetskontroller](https://youtu.be/NcONUf-jeS4)
@@ -162,7 +162,7 @@ Dokumentera svaren på frågorna för varje princip innan du skapar den.
 
 #### <a name="common-questions-about-access-controls"></a>Vanliga frågor om åtkomst kontroller
 
-[Bevilja eller blockera](concept-conditional-access-grant.md) 
+[Bevilja eller blockera ](concept-conditional-access-grant.md) 
 
 Vill du bevilja åtkomst till resurser genom att kräva ett eller flera av följande?
 
@@ -313,7 +313,7 @@ Vanliga användnings fall för att kräva MFA-åtkomst:
 
 * [Av administratörer](howto-conditional-access-policy-admin-mfa.md)
 
-* [Till vissa appar](app-based-mfa.md)
+* [Till vissa appar](../authentication/tutorial-enable-azure-mfa.md)
 
 * [För alla användare](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -354,7 +354,7 @@ Andra vanliga scenarier där du kan blockera åtkomst för dina användare är:
 
 * [Blockera vissa nätverks platser](howto-conditional-access-policy-location.md) för att komma åt dina molnappar. Du kan använda den här principen för att blockera vissa länder där du vet att trafiken inte kommer från.
 
-* Azure AD stöder äldre autentisering. Äldre autentisering stöder dock inte MFA och många miljöer kräver det för att hantera identitets säkerhet. I det här fallet kan du [blockera appar med hjälp av äldre autentisering](block-legacy-authentication.md) från att komma åt dina klient resurser.
+* Azure AD stöder äldre autentisering. Äldre autentisering stöder dock inte MFA och många miljöer kräver det för att hantera identitets säkerhet. I det här fallet kan du [blockera appar med hjälp av äldre autentisering ](block-legacy-authentication.md) från att komma åt dina klient resurser.
 
 ## <a name="build-and-test-policies"></a>Bygga och testa principer
 
@@ -384,18 +384,18 @@ Test planen är viktig för att få en jämförelse mellan de förväntade resul
 | - | - | - |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen på en betrodd plats/ett arbete| Användaren uppmanas inte att MFA |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen men inte på en betrodd plats/arbete| Användaren uppmanas att MFA och kan logga in |
-| [Kräv MFA (för admin)](howto-baseline-protect-administrators.md)| Global administratör loggar in på appen| Administratör uppmanas att MFA |
-| [Riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| Användaren loggar in på appen med en webbläsare som inte har godkänts| Administratör uppmanas att MFA |
+| [Kräv MFA (för admin)](../fundamentals/concept-fundamentals-security-defaults.md)| Global administratör loggar in på appen| Administratör uppmanas att MFA |
+| [Riskfyllda inloggningar](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Användaren loggar in på appen med en webbläsare som inte har godkänts| Administratör uppmanas att MFA |
 | [Enhetshantering](require-managed-devices.md)| Behörig användare försöker logga in från en auktoriserad enhet| Åtkomst beviljad |
 | [Enhetshantering](require-managed-devices.md)| Behörig användare försöker logga in från en oauktoriserad enhet| Åtkomst blockerad |
-| [Lösen ords ändring för riskfyllda användare](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Behörig användare försöker logga in med komprometterade autentiseringsuppgifter (hög risk inloggning)| Användaren uppmanas att ändra lösen ordet eller åtkomsten blockeras baserat på principen |
+| [Lösen ords ändring för riskfyllda användare](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Behörig användare försöker logga in med komprometterade autentiseringsuppgifter (hög risk inloggning)| Användaren uppmanas att ändra lösen ordet eller åtkomsten blockeras baserat på principen |
 
 
 ### <a name="configure-the-test-policy"></a>Konfigurera test principen
 
 I [Azure Portal](https://portal.azure.com/)konfigurerar du ca-principer under Azure Active Directory > säkerhet > villkorlig åtkomst.
 
-Om du vill veta mer om hur du skapar CA-principer, se det här exemplet: [ca-princip för att begära MFA när en användare loggar in till Azure Portal](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Den här snabb starten hjälper dig att:
+Om du vill veta mer om hur du skapar CA-principer, se det här exemplet: [ca-princip för att begära MFA när en användare loggar in till Azure Portal](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Den här snabb starten hjälper dig att:
 
 * Bekanta dig med användar gränssnittet
 
@@ -442,7 +442,7 @@ Om du behöver återställa dina nyligen implementerade principer kan du använd
 > [!NOTE]
 >  Det här alternativet bör användas sparsamt, endast i situationer där användaren är betrodd. Användaren ska läggas till i principen eller gruppen igen så snart som möjligt.
 
-* **Ta bort principen.** Om principen inte längre behövs [tar du bort](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json) den.
+* **Ta bort principen.** Om principen inte längre behövs [tar du bort](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json) den.
 
 ## <a name="manage-access-to-cloud-apps"></a>Hantera åtkomst till molnappar
 
@@ -501,4 +501,4 @@ När du har samlat in informationen, se följande resurser:
 
 [Lär dig mer om identitets skydd](../identity-protection/overview-identity-protection.md)
 
-[Hantera CA-principer med Microsoft Graph-API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Hantera CA-principer med Microsoft Graph-API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

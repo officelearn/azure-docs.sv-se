@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130440"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950399"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection meddelanden
 
@@ -29,7 +29,7 @@ Den här artikeln ger en översikt över både e-postaviseringar.
 
 ## <a name="users-at-risk-detected-email"></a>Användare med skadligt upptäckt e-post
 
-Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](../reports-monitoring/concept-user-at-risk.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
+Som svar på ett identifierat konto vid risk genererar Azure AD Identity Protection en e-postavisering med **användare som riskerar att identifieras** som ämne. E-postmeddelandet innehåller en länk till de användare som har **[flaggats för risk](./overview-identity-protection.md)** rapporten. Som bästa praxis bör du omedelbart undersöka de användare som är utsatta för risk.
 
 Med konfigurationen för den här aviseringen kan du ange på vilken nivå för användar risk du vill att aviseringen ska genereras. E-postmeddelandet skapas när användarens risk nivå når det som du har angett. Om du till exempel ställer in principen för att avisera om medelhög användar risk och användarens användar risk Poäng flyttar till medelhög risk på grund av en inloggnings risk i real tid, får du användarna ett hot som upptäckts via e-post. Om användaren har efterföljande risk identifieringar som gör att beräkning av användar risk nivån är den angivna risk nivån (eller högre) får du ytterligare användare vid risk identifiering av e-postmeddelanden när risken för användar risker beräknas om. Om en användare till exempel flyttar till medelhög risk den 1 januari får du ett e-postmeddelande om dina inställningar är inställda på varning för medelhög risk. Om samma användare sedan har en annan risk identifiering den 5 januari som också är medels Tor risk, och användar risk poängen beräknas om och är i hög grad, kommer du att få ett annat e-postmeddelande. 
 
@@ -70,4 +70,4 @@ Konfigurera e-postmeddelandet om veckovis sammandrag i **Azure Portal** under **
 
 ## <a name="see-also"></a>Se även
 
-- [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
+- [Identitetsskydd för Azure Active Directory](./overview-identity-protection.md)

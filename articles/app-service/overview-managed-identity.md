@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f5255041a97a56e6577f33b571403ff454bb65b4
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86f501a145ea82f7a4499824dd0b21822c3f1cbd
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211886"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961592"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -52,7 +52,7 @@ Om du vill konfigurera en hanterad identitet med Azure CLI måste du använda `a
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure Portal.
 - Använd den inbäddade Azure Cloud Shell via knappen "testa", som finns i det övre högra hörnet av varje kodblock nedan.
-- [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda en lokal CLI-konsol. 
+- [Installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda en lokal CLI-konsol. 
 
 Följande steg vägleder dig genom att skapa en webbapp och tilldela den en identitet med hjälp av CLI:
 
@@ -109,7 +109,7 @@ Följande steg vägleder dig genom att skapa en app och tilldela den en identite
 
 1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
-2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [AZ. Functions Reference](/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -219,7 +219,7 @@ Följande steg vägleder dig genom att skapa en app och tilldela den en identite
 
 1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
-2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [referensen AZ. Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Skriptet nedan använder också det `New-AzUserAssignedIdentity` som måste installeras separat som per [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+2. Skapa en Function-app med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med Azure Functions finns i [referensen AZ. Functions](/powershell/module/az.functions/?view=azps-4.1.0#functions). Skriptet nedan använder också det `New-AzUserAssignedIdentity` som måste installeras separat som per [skapa, lista eller ta bort en användardefinierad hanterad identitet med hjälp av Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -347,7 +347,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 > | resource      | Resursen som åtkomsttoken begärdes för, som matchar `resource` frågesträngparametern för begäran.                                                                                                                               |
 > | token_type    | Anger värdet för token-typ. Den enda typ som stöds av Azure AD är FBearer. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 
-Svaret är detsamma som [svaret på Azure AD service-till-service-](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
+Svaret är detsamma som [svaret på Azure AD service-till-service-](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
 
 ### <a name="rest-protocol-examples"></a>Exempel på REST-protokoll
 

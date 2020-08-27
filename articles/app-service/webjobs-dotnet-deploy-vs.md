@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 14bb693ccaa1b1d16a1d07b7ee1cdeb4493960f5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212872"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959909"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Utveckla och distribuera WebJobs med Visual Studio
 
@@ -53,9 +53,9 @@ Distribuera ett projekt som ett webb jobb eller länka det till ett webb projekt
 
 ![Diagram över projekt för webb jobb som länkar till webb projekt](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
-Installera Visual Studio 2017 eller Visual Studio 2019 med [arbets belastningen Azure Development](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+Installera Visual Studio 2017 eller Visual Studio 2019 med [arbets belastningen Azure Development](/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a name="enable-webjobs-deployment-for-an-existing-console-app-project"></a><a id="convert"></a> Aktivera distribution av WebJobs för ett befintligt konsol program projekt
 

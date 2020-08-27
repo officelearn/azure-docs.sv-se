@@ -1,5 +1,5 @@
 ---
-title: Använd privata python-paket
+title: Använda privata Python-paket
 titleSuffix: Azure Machine Learning
 description: Få åtkomst till privata python-paket på ett säkert sätt från Azure Machine Learning miljöer.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 580525b2e8e408949ce1d8f2d1b8241c431fc755
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 314f6a45bf688125e79f0b8ce0099a8326b339dc
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209819"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958158"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Använd privata python-paket med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,12 +29,12 @@ Den rekommenderade metoden beror på om du har några paket för en enskild Azur
 
 Privata paket används via [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment) klass. I en miljö deklarerar du vilka python-paket som ska användas, inklusive privata. Mer information om miljön i Azure Machine Learning i allmänhet finns i [så här använder du miljöer](how-to-use-environments.md). 
 
-## <a name="prerequisites"></a>Förhandskrav
+## <a name="prerequisites"></a>Förutsättningar
 
  * [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
  * En [Azure Machine Learning arbets yta](how-to-manage-workspace.md)
 
-### <a name="use-small-number-of-packages-for-development-and-testing"></a>Använd ett litet antal paket för utveckling och testning
+## <a name="use-small-number-of-packages-for-development-and-testing"></a>Använd ett litet antal paket för utveckling och testning
 
 För ett litet antal privata paket för en enskild arbets yta använder du den statiska [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) metoden. Med den här metoden kan du snabbt lägga till ett privat paket i arbets ytan, och det passar utmärkt för utvecklings-och testnings ändamål.
 
@@ -50,7 +50,7 @@ myenv.python.conda_dependencies=conda_dep
 
 Internt ersätter Azure Machine Learning-tjänsten URL: en med säker SAS-URL, så att din Wheel-fil hålls privat och säker.
 
-### <a name="consume-a-repository-of-packages-from-azure-devops-feed"></a>Använda en lagrings plats för paket från Azure DevOps-feed
+## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Använd en lagrings plats för paket från Azure DevOps-feed
 
 Om du aktivt utvecklar python-paket för ditt Machine Learning-program kan du vara värd för dem i en Azure DevOps-lagringsplats som artefakter och publicera dem som en feed. Med den här metoden kan du integrera DevOps-arbetsflödet för att skapa paket med din Azure Machine Learning-arbetsyta. Läs [komma igång med python-paket i Azure-artefakter](https://docs.microsoft.com/azure/devops/artifacts/quickstarts/python-packages?view=azure-devops) för att lära dig hur du konfigurerar python-flöden med Azure DevOps
 
@@ -87,18 +87,22 @@ Den här metoden använder personlig åtkomsttoken för att autentisera mot lagr
 
 Miljön är nu redo att användas i utbildnings körningar eller distributioner av webb tjänst slut punkter. När du skapar miljön använder Azure Machine Learning tjänsten PAT för att autentisera mot feeden med matchande bas-URL.
 
-### <a name="consume-a-repository-of-packages-from-private-storage"></a>Använda en lagrings plats för paket från privat lagring
+## <a name="use-a-repository-of-packages-from-private-storage"></a>Använd en lagrings plats för paket från privat lagring
 
-Du kan använda paket från ett Azure Storage-konto i din organisations brand vägg. Ett sådant lagrings konto kan innehålla en granskad uppsättning paket för företags användning eller en intern spegling av offentligt tillgängliga paket.
+Du kan använda paket från ett Azure Storage-konto i din organisations brand vägg. Lagrings kontot kan innehålla en granskad uppsättning paket eller en intern spegling av offentligt tillgängliga paket.
 
 Så här konfigurerar du sådan privat lagring:
 
- 1. [Placera arbets ytan i ett virtuellt nätverk (VNet)](how-to-enable-virtual-network.md).
- 2. Skapa ett lagrings konto och [Tillåt inte offentlig åtkomst](https://docs.microsoft.com/azure/storage/common/storage-network-security).
- 2. Placera de python-paket som du vill använda i en behållare i lagrings kontot 
- 3. [Tillåt åtkomst till lagrings kontot från VNET-arbetsytan](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network) 
+1. [Placera arbets ytan i ett virtuellt nätverk (VNet)](how-to-enable-virtual-network.md).
+1. Skapa ett lagrings konto och [Tillåt inte offentlig åtkomst](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+1. Placera de python-paket som du vill använda i en behållare i lagrings kontot 
+1. [Tillåt åtkomst till lagrings kontot från VNet-arbetsytan](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
+1. [Placera Azure Container Registry (ACR) för arbets ytan bakom VNet](how-to-enable-virtual-network.md#azure-container-registry).
 
-Sedan kan du referera till paketen i Azure Machine Learning-miljödefinitionen med sin fullständiga URL i Azure Blob Storage.
+    > [!IMPORTANT]
+    > Du måste slutföra det här steget för att kunna träna eller distribuera modeller med hjälp av det privata paketets lagrings plats.
+
+När du har slutfört de här konfigurationerna kan du referera till paketen i Azure Machine Learning-miljödefinitionen med sin fullständiga URL i Azure Blob Storage.
 
 ## <a name="next-steps"></a>Nästa steg
 

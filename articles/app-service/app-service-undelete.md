@@ -5,16 +5,16 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 20c220bcb44a1a47e308f57d1466aee2773111a4
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 04e496806f2c388eb3a69df1b4cc3897b8132f6c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985690"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962918"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Återställa borttagen App Service-app med hjälp av PowerShell
 
-Om du har råkat ta bort din app av misstag i Azure App Service kan du återställa den med hjälp av kommandona från [PowerShell-modulen AZ](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+Om du har råkat ta bort din app av misstag i Azure App Service kan du återställa den med hjälp av kommandona från [PowerShell-modulen AZ](/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 > [!NOTE]
 > - Borttagna appar rensas från systemet 30 dagar efter den första borttagningen. När en app har rensats kan den inte återställas.
@@ -53,7 +53,7 @@ Den detaljerade informationen innehåller:
 ## <a name="restore-deleted-app"></a>Återställ borttagen app
 
 >[!NOTE]
-> `Restore-AzDeletedWebApp`stöds inte för Function-appar.
+> `Restore-AzDeletedWebApp` stöds inte för Function-appar.
 
 När den app du vill återställa har identifierats kan du återställa den med hjälp av `Restore-AzDeletedWebApp` .
 
@@ -61,7 +61,7 @@ När den app du vill återställa har identifierats kan du återställa den med 
 Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Distributions platser återställs inte som en del av din app. Om du behöver återställa en mellanlagringsplats använder du `-Slot <slot-name>` flaggan.
+> Distributions platser återställs inte som en del av din app. Om du behöver återställa en mellanlagringsplats använder du `-Slot <slot-name>`  flaggan.
 >
 
 Kommandot Inputs for är:
@@ -76,4 +76,4 @@ Som standard `Restore-AzDeletedWebApp` återställs både din app-konfiguration 
 > Om appen fanns på och sedan togs bort från en App Service-miljön, kan den bara återställas om motsvarande App Service-miljön fortfarande finns.
 >
 
-Du hittar den fullständiga kommandot-referensen här: [restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).
+Du hittar den fullständiga kommandot-referensen här: [restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp).

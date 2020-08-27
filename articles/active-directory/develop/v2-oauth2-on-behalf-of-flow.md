@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3abef3324bee61f2d7eb96c80750ad589b15f342
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987043"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958668"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow
 
@@ -153,7 +153,7 @@ I följande exempel visas ett lyckat svar på en begäran om en åtkomsttoken f�
 ```
 
 > [!NOTE]
-> Ovanstående åtkomsttoken är en v 1.0-formaterad token för Microosft Graph. Detta beror på att token-formatet baseras på den **resurs** som används och inte är relaterat till de slut punkter som används för att begära det. Microsoft Graph har kon figurer ATS för att acceptera v 1.0-token, så Microsoft Identity Platform skapar v 1.0-åtkomsttoken när en klient begär token för Microsoft Graph. Andra appar kan indikera att de vill ha v 2.0-format-token, v 1.0-formatera tokens eller till och med tillverkarspecifika eller krypterade token-format.  Både v 1.0-och v 2.0-slutpunkterna kan generera antingen format på token – på så sätt kan resursen alltid hämta rätt format för token, oavsett hur eller var token begärdes av klienten. 
+> Ovanstående åtkomsttoken är en v 1.0-formaterad token för Microsoft Graph. Detta beror på att token-formatet baseras på den **resurs** som används och inte är relaterat till de slut punkter som används för att begära det. Microsoft Graph har kon figurer ATS för att acceptera v 1.0-token, så Microsoft Identity Platform skapar v 1.0-åtkomsttoken när en klient begär token för Microsoft Graph. Andra appar kan indikera att de vill ha v 2.0-format-token, v 1.0-formatera tokens eller till och med tillverkarspecifika eller krypterade token-format.  Både v 1.0-och v 2.0-slutpunkterna kan generera antingen format på token – på så sätt kan resursen alltid hämta rätt format för token, oavsett hur eller var token begärdes av klienten. 
 >
 > Endast program bör titta på åtkomsttoken. Klienterna **får inte** inspektera dem. Om du inspekterar åtkomsttoken för andra appar i koden kommer din app att leda till oväntad borttagning när appen ändrar formatet för deras token eller börjar kryptera dem. 
 

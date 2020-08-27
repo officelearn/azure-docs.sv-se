@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811706"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962952"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Hantera ett App Service plan i Azure
 
@@ -82,7 +82,7 @@ Du hittar **klonings app** i avsnittet **utvecklingsverktyg** i menyn.
 
 Om du vill skala upp en App Service plans pris nivå går du till [skala upp en app i Azure](manage-scale-up.md).
 
-Information om hur du skalar ut antalet instanser för en app finns i [skala antalet instanser manuellt eller automatiskt](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Information om hur du skalar ut antalet instanser för en app finns i [skala antalet instanser manuellt eller automatiskt](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 

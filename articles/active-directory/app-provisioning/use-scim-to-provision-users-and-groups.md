@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690263"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959161"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -153,7 +153,7 @@ I [SCIM 2,0-protokoll specifikationen](http://www.simplecloud.info/#Specificatio
 * Har stöd för att skicka frågor till användare efter ID och chef, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Har stöd för att skicka frågor till grupper efter ID och per medlem, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Accepterar en enda Bearer-token för autentisering och auktorisering av Azure AD till ditt program.
-* Stöder mjuk borttagning av en användare `active=false` och återställning av användaren `active=true` .
+* Stöder mjuk borttagning av en användare `active=false` och återställning av användaren `active=true` (användarobjektet ska returneras i en begäran oavsett om användaren är aktiv) eller inte. Den enda gång som användaren inte ska returneras är när den är hårt borttagen från programmet. 
 
 Följ dessa allmänna rikt linjer när du implementerar en SCIM-slutpunkt för att säkerställa kompatibilitet med Azure AD:
 

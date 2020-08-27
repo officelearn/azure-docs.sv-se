@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170011"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962034"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här självstudien visar hur du etablerar och distribuerar ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
@@ -29,7 +29,7 @@ I självstudien distribuerar du ett program som innehåller:
 I den här självstudien ska du använda följande verktyg. Eftersom det inte är en omfattande diskussion om verktyg, ska jag gå till scenariot från slut punkt till slut punkt och bara ge dig en kort introduktion till var och en där du hittar mer information om den. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager mallar (JSON)
-Varje gång du skapar en app i Azure App Service kan Azure Resource Manager till exempel använda en JSON-mall för att skapa hela resurs gruppen med komponent resurserna. En komplex mall från [Azure Marketplace](/azure/marketplace) kan omfatta databasen, lagrings konton, App Service plan, själva appen, aviserings regler, appinställningar, inställningar för autoskalning med mera och alla dessa mallar är tillgängliga för dig via PowerShell. Mer information om Azure Resource Manager mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
+Varje gång du skapar en app i Azure App Service kan Azure Resource Manager till exempel använda en JSON-mall för att skapa hela resurs gruppen med komponent resurserna. En komplex mall från [Azure Marketplace](../marketplace/index.yml) kan omfatta databasen, lagrings konton, App Service plan, själva appen, aviserings regler, appinställningar, inställningar för autoskalning med mera och alla dessa mallar är tillgängliga för dig via PowerShell. Mer information om Azure Resource Manager mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2,6 för Visual Studio
 Det senaste SDK: n innehåller förbättringar av stödet för Resource Manager-mallar i JSON-redigeraren. Du kan använda det här för att snabbt skapa en mall för en resurs grupp från början eller öppna en befintlig JSON-mall (till exempel en Hämtad galleri mall) för ändring, fylla i parameter filen och till och med distribuera resurs gruppen direkt från en Azure Resource Group-lösning.
@@ -39,12 +39,12 @@ Mer information finns i [Azure SDK 2,6 för Visual Studio](https://azure.microso
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 eller senare
 Från och med version 0.8.0 inkluderar den Azure PowerShell installationen Azure Resource Manager modulen förutom Azure-modulen. Med den här nya modulen kan du skripta distributionen av resurs grupper.
 
-Mer information finns i [använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md)
+Mer information finns i [använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 Med det här för [hands versions verktyget](https://resources.azure.com) kan du utforska JSON-definitionerna för alla resurs grupper i din prenumeration och de enskilda resurserna. I verktyget kan du redigera JSON-definitionerna för en resurs, ta bort en hel hierarki med resurser och skapa nya resurser.  Den information som är tillgänglig i det här verktyget är mycket användbar för att skapa mallar, eftersom det visar vilka egenskaper du behöver ange för en viss typ av resurs, korrekta värden osv. Du kan även skapa en resurs grupp i [Azure Portal](https://portal.azure.com/)och sedan kontrol lera dess JSON-definitioner i Explorer-verktyget för att hjälpa dig att mallanpassa resurs gruppen.
 
-### <a name="deploy-to-azure-button"></a>Knappen Distribuera till Azure
+### <a name="deploy-to-azure-button"></a>Distribuera till Azure (knapp)
 Om du använder GitHub för käll kontroll kan du placera en [distribuera till Azure-knapp](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) i din README. MD, som möjliggör ett användar gränssnitt för en nyckel distribution till Azure. Även om du kan göra detta för alla enkla appar kan du utöka det så att du kan distribuera en hel resurs grupp genom att placera en azuredeploy.jspå filen i lagrings platsens rot. Den här JSON-filen, som innehåller resurs grupp mal len, kommer att användas av knappen distribuera till Azure för att skapa resurs gruppen. Ett exempel finns i [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) -exemplet som du kommer att använda i den här självstudien.
 
 ## <a name="get-the-sample-resource-group-template"></a>Hämta mall för exempel resurs grupp
@@ -87,10 +87,10 @@ Nu ska vi titta på hur GitHub-lagringsplatsen har kon figurer ATS. Du kommer at
 
 Jag kommer inte att beskriva varje detalj i JSON-formatet, men avsnittet [fler resurser](#resources) innehåller länkar för att lära sig om resurs gruppens språk. Här kommer jag bara att visa de intressanta funktionerna som kan hjälpa dig att komma igång med att skapa en egen anpassad mall för app-distribution.
 
-### <a name="parameters"></a>Parameters (Parametrar)
+### <a name="parameters"></a>Parametrar
 Ta en titt på avsnittet parametrar för att se att de flesta av dessa parametrar är vad som visas i knappen **distribuera till Azure** och du uppmanas att ange. Platsen bakom knappen **distribuera till Azure** fyller på indatamängds-gränssnittet med de parametrar som definierats i azuredeploy.jspå. Dessa parametrar används i alla resurs definitioner, t. ex. resurs namn, egenskaps värden osv.
 
-### <a name="resources"></a>Resources (Resurser)
+### <a name="resources"></a>Resurser
 I noden resurser kan du se att 4 toppnivå resurser definieras, inklusive en SQL Server instans, en App Service plan och två appar. 
 
 #### <a name="app-service-plan"></a>App Service-plan
@@ -137,8 +137,8 @@ Inställningarna för appen definieras också som en kapslad resurs.
 
 I `properties` -elementet för `config/appsettings` har du två app-inställningar i formatet `"<name>" : "<value>"` .
 
-* `PROJECT`är en [kudu-inställning](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) som talar om för Azure-distribution vilket projekt som ska användas i en Visual Studio-lösning med flera projekt. Jag kommer att visa dig senare hur käll kontroll konfigureras, men eftersom ToDoApp-koden finns i en Visual Studio-lösning med flera projekt behöver vi den här inställningen.
-* `clientUrl`är bara en app-inställning som program koden använder.
+* `PROJECT` är en [kudu-inställning](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) som talar om för Azure-distribution vilket projekt som ska användas i en Visual Studio-lösning med flera projekt. Jag kommer att visa dig senare hur käll kontroll konfigureras, men eftersom ToDoApp-koden finns i en Visual Studio-lösning med flera projekt behöver vi den här inställningen.
+* `clientUrl` är bara en app-inställning som program koden använder.
 
 ##### <a name="connection-strings"></a>Anslutningssträngar
 Anslutnings strängarna definieras också som en kapslad resurs.
@@ -157,7 +157,7 @@ Inställningarna för käll kontroll definieras också som en kapslad resurs. Az
 
 ![Visar hur käll kontroll inställningarna definieras som en kapslad resurs i JSON-koden.](./media/app-service-deploy-complex-application-predictably/examinejson-8-webappsourcecontrol.png)
 
-`RepoUrl`och `branch` bör vara ganska intuitivt och ska peka på git-lagringsplatsen och namnet på grenen att publicera från. Dessa definieras av indataparametrarna. 
+`RepoUrl` och `branch` bör vara ganska intuitivt och ska peka på git-lagringsplatsen och namnet på grenen att publicera från. Dessa definieras av indataparametrarna. 
 
 Observera att det `dependsOn` element som, utöver själva app-resursen, `sourcecontrols/web` också är beroende av `config/appsettings` och `config/connectionstrings` . Detta beror på att när `sourcecontrols/web` har kon figurer ATS försöker Azure-distributions processen automatiskt att distribuera, skapa och starta program koden. Det innebär att om du infogar det här beroendet ser du till att programmet har åtkomst till de nödvändiga appinställningar och anslutnings strängarna innan program koden körs. 
 
@@ -254,7 +254,7 @@ I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distributio
 * [Redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
 * [Funktioner för Azure Resource Manager mallar](../azure-resource-manager/templates/template-functions.md)
 * [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md)
-* [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Felsöka resurs grupps distributioner i Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Nästa steg

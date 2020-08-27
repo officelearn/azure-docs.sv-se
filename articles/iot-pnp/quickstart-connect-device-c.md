@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9011c56096d61e50ae3655a76a396ec3f2dd97c5
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352973"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959297"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Snabb start: ansluta ett exempel på IoT Plug and Play Preview-enhets program som körs på Linux eller Windows till IoT Hub (C)
 
@@ -22,7 +22,7 @@ Den här snabb starten visar hur du skapar ett exempel på IoT Plug and Play Dev
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan köra den här snabb starten på Linux eller Windows. Shell-kommandona i den här snabb starten följer Linux-konventionen för Sök vägs avgränsare ' `/` ', om du följer med i Windows måste du byta avgränsare för ' `\` '.
 
@@ -117,7 +117,10 @@ Du kan använda enhets-SDK: n för att bygga den inkluderade exempel koden:
 
 Köra exempel programmet i SDK som simulerar en IoT Plug and Play-enhet som skickar telemetri till din IoT-hubb:
 
-Skapa en miljö variabel med namnet **IOTHUB_DEVICE_CONNECTION_STRING** för att lagra enhets anslutnings strängen som du antecknade tidigare.
+Skapa två miljövariabler för att konfigurera exemplet för att använda en anslutnings sträng för att ansluta till din IoT-hubb:
+
+- **IOTHUB_DEVICE_SECURITY_TYPE** med värdet `"connectionString"`
+- **IOTHUB_DEVICE_CONNECTION_STRING** att lagra enhets anslutnings strängen som du antecknade tidigare.
 
 Från mappen _cmake_ navigerar du till mappen som innehåller den körbara filen och kör den:
 

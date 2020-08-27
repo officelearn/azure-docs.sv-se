@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170808"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958334"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Felsök HTTP-fel för "502 Felaktig gateway" och "503-tjänsten är inte tillgänglig" i Azure App Service
 "502 Felaktig gateway" och "503-tjänsten är inte tillgänglig" är vanliga fel i din app som finns [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här artikeln hjälper dig att felsöka de här felen.
@@ -42,7 +42,7 @@ Fel sökning kan delas upp i tre olika uppgifter i nummerordning:
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observera och övervaka programmets beteende
 #### <a name="track-service-health"></a>Spåra tjänstens hälsa
-Microsoft Azure publicizes varje gången det uppstår avbrott i tjänsten eller prestanda försämring. Du kan spåra hälso tillståndet för tjänsten på Azure- [portalen](https://portal.azure.com/). Mer information finns i [spåra tjänstens hälsa](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes varje gången det uppstår avbrott i tjänsten eller prestanda försämring. Du kan spåra hälso tillståndet för tjänsten på Azure- [portalen](https://portal.azure.com/). Mer information finns i [spåra tjänstens hälsa](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Övervaka din app
 Med det här alternativet kan du ta reda på om ditt program har problem. Klicka på panelen **förfrågningar och fel** i appens blad. På bladet **mått** visas alla mått som du kan lägga till.
@@ -60,7 +60,7 @@ Några av de mått som du kanske vill övervaka för din app är
 Mer information finns i:
 
 * [Övervaka appar i Azure App Service](web-sites-monitor.md)
-* [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Få varningsmeddelanden](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -108,5 +108,4 @@ Detta är ofta det enklaste sättet att återställa från engångs problem. I [
 
  ![Starta om appen för att lösa HTTP-fel på 502 Felaktig gateway och 503-tjänsten är inte tillgänglig](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-Du kan också hantera din app med hjälp av Azure PowerShell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
-
+Du kan också hantera din app med hjälp av Azure PowerShell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

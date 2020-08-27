@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962357"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -65,7 +65,7 @@ Så här ställer du in serverns tidszon för din webbapp:
     * Värde = *den tidszon du vill använda*
 3. Välj **Spara**.
 
-För de app Services som körs på Windows, se kolumnen **timezone** i artikeln [standard tids zoner](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) för godkända värden. För de app Services som körs på Linux anger du [namnet på TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) som tids zons värde. Här är ett exempel på ett TZ-databas namn: America/Adak.
+För de app Services som körs på Windows, se kolumnen **timezone** i artikeln [standard tids zoner](/windows-hardware/manufacture/desktop/default-time-zones) för godkända värden. För de app Services som körs på Linux anger du [namnet på TZ-databasen](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) som tids zons värde. Här är ett exempel på ett TZ-databas namn: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Varför kan mina kontinuerliga WebJobs ibland inte fungera?
 
@@ -147,7 +147,7 @@ Undantaget orsakades av ett problem med den Hybridanslutningshanteraren som har 
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Hur gör jag för att lägga till en regel för att skapa en URL?
 
-Om du vill lägga till en regel för en URL-omskrivning skapar du en web.config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: förstå URL-omskrivning](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Om du vill lägga till en regel för en URL-omskrivning skapar du en web.config-fil med relevanta konfigurations poster i mappen **wwwroot** . Mer information finns i [Azure App Services: förstå URL-omskrivning](/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Hur gör jag för att kontroll av inkommande trafik till App Service?
 
@@ -222,7 +222,7 @@ Lös detta genom att kontrol lera att inget av följande villkor är uppfyllda:
 * En felaktig nätverks säkerhets grupp förhindrar nätverks anslutnings kraven för en App Service-miljön.
 * Tvingad tunnel trafik är aktive rad.
 
-Mer information finns i [vanliga frågor när du distribuerar (skapar) en ny Azure App Service-miljön](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+Mer information finns i [vanliga frågor när du distribuerar (skapar) en ny Azure App Service-miljön](/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase).
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>Varför kan jag inte ta bort mina App Service plan?
 
@@ -286,7 +286,7 @@ När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelas *e
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hur gör jag för att ta reda på vilken version av .NET-versionen som är installerad i App Service?
 
-Det snabbaste sättet att hitta den version av Microsoft .NET som är installerad i App Service är att använda kudu-konsolen. Du kan komma åt kudu-konsolen från portalen eller genom att använda URL: en för din App Service-app. Detaljerade anvisningar finns i [bestämma den installerade .net-versionen i App Service](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+Det snabbaste sättet att hitta den version av Microsoft .NET som är installerad i App Service är att använda kudu-konsolen. Du kan komma åt kudu-konsolen från portalen eller genom att använda URL: en för din App Service-app. Detaljerade anvisningar finns i [bestämma den installerade .net-versionen i App Service](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services).
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Varför fungerar inte autoskalning som förväntat?
 

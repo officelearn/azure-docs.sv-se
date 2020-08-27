@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 68667908d25813b61b6a725fddce9ab438a248d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9f8e288f771b9d584a0fd3430115f5fa60f68e47
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833128"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961813"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>Anslut säkert till Server dels resurser från en App Service-miljö
 Eftersom en App Service-miljön alltid skapas **antingen** i ett Azure Resource Manager virtuellt nätverk **eller** i ett klassiskt [virtuellt nätverk][virtualnetwork]för distributions modellen, kan utgående anslutningar från en app service-miljön till andra server dels resurser flöda exklusivt över det virtuella nätverket. Från och med juni 2016 kan ASE också distribueras till virtuella nätverk som använder antingen offentliga adress intervall eller RFC1918 adress utrymmen (privata adresser).  
@@ -88,16 +88,16 @@ Mer information om hur du kontrollerar inkommande trafik till App Service-miljö
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [ControlInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md
-[SiteToSite]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site
+[SiteToSite]: ../../vpn-gateway/vpn-gateway-multi-site.md
 [ExpressRoute]: https://azure.microsoft.com/services/expressroute/
-[NetworkAccessControlLists]: https://azure.microsoft.com/documentation/articles/virtual-networks-acl/
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkAccessControlLists]: /previous-versions/azure/virtual-network/virtual-networks-acl
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [ControlInboundASE]:  app-service-app-service-environment-control-inbound-traffic.md
 
 <!-- IMAGES -->
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
-[DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png 
+[DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png

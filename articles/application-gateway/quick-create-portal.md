@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: direkt webb trafik med hjälp av portalen'
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du använder Azure Portal för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
+description: I den här snabb starten får du lära dig hur du använder Azure Portal för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/21/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a6415657d68e10b63e357f3c1353bb66fc9c8262
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779432"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961966"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -28,19 +28,19 @@ Du kan också slutföra den här snabb starten med [Azure PowerShell](quick-crea
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-an-application-gateway"></a>Skapa en programgateway
 
 Du skapar programgatewayen med hjälp av flikarna på sidan **skapa en Application Gateway** .
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
 
 2. Välj **nätverk** och välj sedan **Application Gateway** i listan **aktuella** .
 
@@ -145,7 +145,7 @@ Det gör du genom att:
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
 2. Välj **Windows Server 2016 Data Center** i listan **populär** . Sidan **Skapa en virtuell dator** visas.<br>Application Gateway kan dirigera trafik till vilken typ av virtuell dator som helst som används i dess backend-pool. I det här exemplet använder du ett Windows Server 2016 Data Center.
 3. Ange dessa värden på fliken **Grundläggande inställningar** för följande inställningar för virtuella datorer:
 

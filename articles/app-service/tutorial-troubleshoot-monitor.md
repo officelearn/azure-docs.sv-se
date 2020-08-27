@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084678"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959025"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Självstudie: Felsöka en App Service-app med Azure Monitor
 
@@ -18,9 +18,9 @@ ms.locfileid: "88084678"
 > Azure Monitor-integrering med App Service är i för [hands version](https://aka.ms/appsvcblog-azmon).
 >
 
-Den här självstudien visar hur du felsöker en [App Service](overview.md) -app med hjälp av [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview). Exempel appen innehåller kod som är avsedd för avgas minne och orsakar HTTP 500-fel, så att du kan diagnostisera och åtgärda problemet med hjälp av Azure Monitor. När du är klar har du ett exempel på en app som körs på App Service på Linux integrerat med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+Den här självstudien visar hur du felsöker en [App Service](overview.md) -app med hjälp av [Azure Monitor](../azure-monitor/overview.md). Exempel appen innehåller kod som är avsedd för avgas minne och orsakar HTTP 500-fel, så att du kan diagnostisera och åtgärda problemet med hjälp av Azure Monitor. När du är klar har du ett exempel på en app som körs på App Service på Linux integrerat med [Azure Monitor](../azure-monitor/overview.md).
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer.
+[Azure Monitor](../azure-monitor/overview.md) maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer.
 
 I den här guiden får du lära dig att:
 
@@ -38,7 +38,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 För att slutföra den här självstudien behöver du:
 
 - [Azure-prenumeration](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Skapa Azure-resurser
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Skapa en diagnostisk inställning
 
-Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av logg frågor. I den här självstudien aktiverar du webb servern och standard-utdata-/fel loggar. Se de [logg typer som stöds](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) för en fullständig lista över logg typer och beskrivningar.
+Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av logg frågor. I den här självstudien aktiverar du webb servern och standard-utdata-/fel loggar. Se de [logg typer som stöds](./troubleshoot-diagnostic-logs.md#supported-log-types) för en fullständig lista över logg typer och beskrivningar.
 
 Du kör följande kommandon för att skapa diagnostiska inställningar för AppServiceConsoleLogs (standardutdata/fel) och AppServiceHTTPLogs (webb server loggar). Ersätt _\<app-name>_ och _\<workspace-name>_ med dina värden. 
 
 > [!NOTE]
-> De två första kommandona `resourceID` och `workspaceID` , är variabler som ska användas i `az monitor diagnostic-settings create` kommandot. Mer information om det här kommandot finns i [skapa diagnostiska inställningar med hjälp av Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) .
+> De två första kommandona `resourceID` och `workspaceID` , är variabler som ska användas i `az monitor diagnostic-settings create` kommandot. Mer information om det här kommandot finns i [skapa diagnostiska inställningar med hjälp av Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) .
 >
 
 ```bash
@@ -129,7 +129,7 @@ I Azure Portal väljer du Log Analytics arbets ytan.
 
 ### <a name="log-queries"></a>Loggfrågor
 
-Med logg frågor kan du utnyttja värdet för de data som samlas in i Azure Monitor loggar. Du använder logg frågor för att identifiera loggarna i både AppServiceHTTPLogs och AppServiceConsoleLogs. Mer information om logg frågor finns i [Översikt över logg](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) frågor.
+Med logg frågor kan du utnyttja värdet för de data som samlas in i Azure Monitor loggar. Du använder logg frågor för att identifiera loggarna i både AppServiceHTTPLogs och AppServiceConsoleLogs. Mer information om logg frågor finns i [Översikt över logg](../azure-monitor/log-query/log-query-overview.md) frågor.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visa AppServiceHTTPLogs med logg fråga
 
@@ -186,7 +186,7 @@ Nu när du har identifierat både HTTP-500 och standard fel måste du kontrol le
 >
 > - Filtrerar HTTPLogs för 500-fel
 > - Frågor konsol loggar
-> - Kopplar tabellerna på`TimeGenerated`
+> - Kopplar tabellerna på `TimeGenerated`
 >
 
 Kör följande fråga:
@@ -268,7 +268,7 @@ Vad du lärt dig:
 > * Skickade loggar till Log Analytics
 > * Använda logg frågor för att identifiera och felsöka webb program fel
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a><a name="nextsteps"></a> Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Felsöka Azure App Service i Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analysera app-loggar i HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

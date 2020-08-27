@@ -5,12 +5,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b0c336d9d9c463a7ed7acf42eaf292ecce4f1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93e5123e5b61c9013177f7f3c908578b68da52d6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831156"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962935"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Säkerhets kontroller för Azure App Service
 
@@ -20,7 +20,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|
 | Stöd för tjänst slut punkt| Ja | Tillgängligt för App Service.| [Begränsningar för Azure App Service åtkomst](app-service-ip-restrictions.md)
 | Stöd för VNet-injektering| Ja | App Service miljöer är privata implementeringar av App Service dedikerade till en enskild kund som injiceras i ett kunds virtuella nätverk. | [Introduktion till Azure App Service-miljöer](environment/intro.md)
@@ -29,32 +29,32 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
-| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | App Service integreras med Application Insights för språk som stöder Application Insights (fullständig .NET Framework, .NET Core, Java och Node.JS).  Se [övervaka Azure App Service prestanda](../azure-monitor/app/azure-web-apps.md). App Service skickar även program statistik till Azure Monitor. | [Övervaka appar i Azure App Service](web-sites-monitor.md)
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Alla hanterings åtgärder som utförs på App Service objekt sker via [Azure Resource Manager](../azure-resource-manager/index.yml). Historiska loggar för dessa åtgärder är tillgängliga både i portalen och via CLI. | [Azure Resource Manager Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftweb), [AZ övervaka aktivitet – logg](/cli/azure/monitor/activity-log)
-| Loggning och granskning av data planet | No | Data planet för App Service är en fjärran sluten fil resurs som innehåller en kunds distribuerad webbplats innehåll.  Det finns ingen granskning av fjärran sluten fil resurs. |
+| Loggning och granskning av data planet | Nej | Data planet för App Service är en fjärran sluten fil resurs som innehåller en kunds distribuerad webbplats innehåll.  Det finns ingen granskning av fjärran sluten fil resurs. |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Obs! |  Dokumentation
+| Säkerhets kontroll | Ja/nej | Anteckningar |  Dokumentation
 |---|---|--|
 | Autentisering| Ja | Kunder kan bygga program på App Service som automatiskt integreras med [Azure Active Directory (Azure AD)](../active-directory/index.yml) samt andra OAuth-kompatibla identitets leverantörer för hanterings åtkomst till App Service till gångar, och all åtkomst kontrol leras av en kombination av Azure AD-autentiserade huvud konton och Azure RBAC. | [Autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
 | Auktorisering| Ja | För hanterings åtkomst till App Service till gångar styrs all åtkomst av en kombination av Azure AD-autentiserade huvud konton och Azure RBAC.  | [Autentisering och auktorisering i Azure App Service](overview-authentication-authorization.md)
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Innehållet på webbplats filen lagras i Azure Storage, vilket automatiskt krypterar innehållet i vila. <br><br>Kunder som har tillhandahållit hemligheter är krypterade i vila. Hemligheterna är krypterade i rest medan de lagras i App Service konfigurations databaser.<br><br>Lokalt anslutna diskar kan alternativt användas som temporär lagring av webbplatser (D:\Local och% TMP%). Lokalt anslutna diskar är inte krypterade i vila. | [Azure Storage-kryptering av vilande data](../storage/common/storage-service-encryption.md)
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kunder kan välja att lagra program hemligheter i Key Vault och hämta dem vid körning. | [Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)](app-service-key-vault-references.md)
-| Kryptering på kolumn nivå (Azure Data Services)| E.t. | |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik.  | Så [här gör du endast Azure App Service https](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (blogg inlägg)
+| Kryptering på kolumn nivå (Azure Data Services)| Ej tillämpligt | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Kunder kan konfigurera webbplatser för att kräva och använda HTTPS för inkommande trafik.  | Så [här gör du endast Azure App Service https](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (blogg inlägg)
 | Krypterade API-anrop| Ja | Hanterings anrop för att konfigurera App Service sker via [Azure Resource Manager](../azure-resource-manager/index.yml) -anrop via https. |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Obs! | Dokumentation
+| Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation
 |---|---|--|
 | Konfigurations hanterings stöd (konfigurations version osv.)| Ja | För hanterings åtgärder kan tillstånd för en App Service-konfiguration exporteras som en Azure Resource Manager mall och versions hantering över tid. För körnings åtgärder kan kunder underhålla flera olika Live-versioner av ett program med hjälp av funktionen för App Service distributions platser. | 
 

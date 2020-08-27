@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080940"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958941"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Application Gateway integrering med tjänst slut punkter
 Det finns tre varianter av App Service som kräver något annorlunda konfiguration av integreringen med Azure Application Gateway. Varianterna omfattar vanliga App Service, även kallade flera innehavare, interna Load Balancer (ILB) App Service-miljön (ASE) och externa ASE. Den här artikeln går igenom hur du konfigurerar den med App Service (flera innehavare) och diskuterar överväganden om ILB och externa ASE.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om App Service-miljön finns i [App Service-miljön dokumentation](https://docs.microsoft.com/azure/app-service/environment).
+Mer information om App Service-miljön finns i [App Service-miljön dokumentation](/azure/app-service/environment).
 
 Om du vill skydda din webbapp ytterligare kan du hitta information om brand vägg för webbaserade program på Application Gateway i [dokumentationen för Azure Web Application-brandväggen](../../web-application-firewall/ag/ag-overview.md).

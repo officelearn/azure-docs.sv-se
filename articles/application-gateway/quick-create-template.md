@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: direkt webb trafik med hjälp av en Resource Manager-mall'
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
+description: I den här snabb starten får du lära dig hur du använder en Resource Manager-mall för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ebcb51dc4de9283752d61831eb0cad801ec1ac4b
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705953"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961694"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Snabb start: direkt webb trafik med Azure Application Gateway-ARM-mall
 

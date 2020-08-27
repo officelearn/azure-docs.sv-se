@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 713f4228bc2ba968fc96668d4d5c568f33b7e786
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080291"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962578"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
@@ -26,17 +26,17 @@ Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sök
 
 För ett Azure App Service-arbetsflöde har filen tre delar:
 
-|Avsnitt  |Aktiviteter  |
+|Section  |Aktiviteter  |
 |---------|---------|
 |**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
-|**Skapa** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
+|**Konstruktion** | 1. Konfigurera miljön. <br /> 2. Bygg webb programmet. |
 |**Distribuera** | 1. distribuera webbappen. |
 
 ## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution
 
 # <a name="user-level-credentials"></a>[Autentiseringsuppgifter för användar nivå](#tab/userlevel)
 
-Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](https://docs.microsoft.com/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
+Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med hjälp av kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i [Azure CLI](/cli/azure/). Du kan köra det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor \
@@ -75,7 +75,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för användar nivå](#generate-deployment-credentials)klistrar du in hela JSON-utdata från Azure CLI-kommandot till fältet hemligt värde. Ge hemligheten namnet som `AZURE_CREDENTIALS` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Till exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `creds` från åtgärden för Azure-inloggning. Exempel:
 
 ```yaml
 - uses: azure/login@v1
@@ -89,7 +89,7 @@ I [GitHub](https://github.com/), bläddra i din lagrings plats, välj **inställ
 
 Om du vill använda [autentiseringsuppgifter för program nivå](#generate-deployment-credentials)klistrar du in innehållet i den hämtade publicerings profil filen i fältet hemligt värde. Ge hemligheten namnet som `azureWebAppPublishProfile` .
 
-När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `publish-profile` för åtgärden Distribuera Azure Web App. Till exempel:
+När du konfigurerar arbets flödes filen senare använder du hemligheten för indata `publish-profile` för åtgärden Distribuera Azure Web App. Exempel:
     
 ```yaml
 - uses: azure/webapps-deploy@v2

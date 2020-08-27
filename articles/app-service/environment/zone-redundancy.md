@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87100056"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961575"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Tillgänglighets zon stöd för App Service miljöer
 
@@ -77,7 +77,7 @@ I exempel ARM-kodfragmentet nedan visas egenskapen ny ***zon*** som anger att IL
     ]
 ```
 
-Om du vill göra din app-zon redundant måste du distribuera två zonindelade ILB-ASE. De två zonindelade ILB-ASE måste vara i olika tillgänglighets zoner. Du måste sedan distribuera dina appar till var och en av ILB-ASE. När dina appar har skapats måste du konfigurera en belastnings Utjämnings lösning. Den rekommenderade lösningen är att distribuera en [zon redundant Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) överordnade för zonindelade ILB-ASE. 
+Om du vill göra din app-zon redundant måste du distribuera två zonindelade ILB-ASE. De två zonindelade ILB-ASE måste vara i olika tillgänglighets zoner. Du måste sedan distribuera dina appar till var och en av ILB-ASE. När dina appar har skapats måste du konfigurera en belastnings Utjämnings lösning. Den rekommenderade lösningen är att distribuera en [zon redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) överordnade för zonindelade ILB-ASE. 
 
 ## <a name="in-region-data-residency"></a>I region data placering ##
 
@@ -90,5 +90,3 @@ Kunder kan verifiera att en App Service-miljön är korrekt konfigurerad för at
 1. Använd [Resursläsaren](https://resources.azure.com)och navigera till arm-resursen för App Service-miljön.  ASE visas under *providers/Microsoft. Web/hostingEnvironments*.
 2. Om det finns en *zon* egenskap i vyn av arm JSON-syntaxen och den innehåller en enda värdefull JSON-matris med värdet "1", "2" eller "3", är ASE zonally distribuerad och kund information finns kvar i samma region.
 2. Om det inte finns någon *zon* egenskap, eller om egenskapen inte har något giltigt zonnamn som tidigare har angetts, så är ASE inte zonally distribuerad och kund information lagras inte exklusivt i samma region.
-
-

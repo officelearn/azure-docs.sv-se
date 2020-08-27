@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236751"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962170"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
 
 6. Välj appens URL på platsens resurs sida. Distributions platsen har sitt eget värdnamn och är även en Live-app. Information om hur du begränsar offentlig åtkomst till distributions platsen finns i [Azure App Service IP-begränsningar](app-service-ip-restrictions.md).
 
-Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](app-service-deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats.
+Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](./deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ När du växlar två platser (vanligt vis från en mellanlagringsplats till prod
 
 1. Om [lokal cache](overview-local-cache.md) har Aktiver ATS utlöser du initiering av lokalt cacheminne genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen. Vänta tills varje instans returnerar HTTP-svar. Initiering av lokal cache orsakar en omstart av varje instans.
 
-1. Om [Automatisk växling](#Auto-Swap) har Aktiver ATS med [anpassad uppvärmning](#Warm-up), Utlös [program initiering](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen.
+1. Om [Automatisk växling](#Auto-Swap) har Aktiver ATS med [anpassad uppvärmning](#Warm-up), Utlös [program initiering](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) genom att göra en http-begäran till program roten ("/") på varje instans av käll platsen.
 
     Om `applicationInitialization` inte anges utlöses en HTTP-begäran till käll platsens program rot på varje instans. 
     
@@ -222,7 +222,7 @@ Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Övervaka en växling
 
-Om [växlings åtgärden](#AboutConfiguration) tar lång tid att slutföra kan du få information om växlings åtgärden i [aktivitets loggen](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Om [växlings åtgärden](#AboutConfiguration) tar lång tid att slutföra kan du få information om växlings åtgärden i [aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md).
 
 På appens resurs sida i portalen väljer du **aktivitets logg**i det vänstra fönstret.
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatisera med Resource Manager-mallar
 
-[Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med hjälp av Resource Manager-mallar anger du två egenskaper på resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
+[Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med hjälp av Resource Manager-mallar anger du två egenskaper på resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
 
 - `buildVersion`: det här är en sträng egenskap som representerar den aktuella versionen av appen som distribuerats på platsen. Exempel: "v1", "1.0.0.1" eller "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: det här är en sträng egenskap som anger vad `buildVersion` platsen ska ha. Om targetBuildVersion inte är samma som den aktuella `buildVersion` utlöser detta växlings åtgärden genom att söka efter den plats som har angivet `buildVersion` .

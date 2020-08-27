@@ -1,14 +1,14 @@
 ---
 title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544731"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958770"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -19,7 +19,7 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [Append](#append) (Lägg till)
 - [Audit](#audit) (Granska)
 - [AuditIfNotExists](#auditifnotexists)
-- [Neka](#deny)
+- [Deny](#deny) (Neka)
 - [DeployIfNotExists](#deployifnotexists)
 - [Disabled](#disabled) (Inaktiverat)
 - [Modify](#modify) (Ändra)
@@ -479,14 +479,33 @@ Exempel: Gatekeeper v2-åtkomstkontroll för att endast tillåta de angivna beh�
 
 ## <a name="modify"></a>Ändra
 
-Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` angetts till _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
+Ändra används för att lägga till, uppdatera eller ta bort egenskaper eller taggar på en resurs under skapandet eller uppdateringen.
+Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
+
+Följande åtgärder stöds av modifiera:
+
+- Lägg till, Ersätt eller ta bort resurs etiketter. För-Taggar ska en ändrings princip ha `mode` angetts till _indexerad_ om inte mål resursen är en resurs grupp.
+- Lägg till eller Ersätt värdet för den hanterade identitets typen ( `identity.type` ) för virtuella datorer och skalnings uppsättningar för virtuella datorer.
+- Lägg till eller ersätt värdena för vissa alias (för hands version).
+  - Använda `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`
+    i Azure PowerShell för att hämta en lista över alias som kan användas med modifiera.
 
 > [!IMPORTANT]
-> Ändra är för närvarande endast för användning med-taggar. Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet.
+> Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet eller ändra ännu inte har stöd för ett alias för resurs egenskapen.
 
 ### <a name="modify-evaluation"></a>Ändra utvärdering
 
-Ändra utvärderar innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Ändra taggar för tillägg eller uppdateringar på en resurs när **villkors** villkoret för princip regeln är uppfyllt.
+Ändra utvärderar innan begäran bearbetas av en resurs leverantör under skapandet eller uppdateringen av en resurs. Ändrings åtgärderna tillämpas på **innehållet i begäran när villkors** villkoret för princip regeln uppfylls. Varje ändrings åtgärd kan ange ett villkor som avgör när det tillämpas. Åtgärder med villkor som utvärderas till _false_ hoppas över.
+
+När ett alias anges utförs följande ytterligare kontroller för att säkerställa att ändrings åtgärden inte ändrar innehållet i begäran på ett sätt som gör att resurs leverantören avvisar den:
+
+- Den egenskap som aliaset mappar till har marker ATS som "ändrings bar" i begärans API-version.
+- Tokentypen i Modify-åtgärden matchar den förväntade tokentypen för egenskapen i begärans API-version.
+
+Om någon av dessa kontroller inte fungerar, kommer princip utvärderingen att gå tillbaka till den angivna **conflictEffect**.
+
+> [!IMPORTANT]
+> Det är rekommenderade att ändra definitioner som innehåller alias använder _gransknings_ **konflikten** för att undvika misslyckade begär Anden med API-versioner där den mappade egenskapen inte kan ändras. Om samma alias fungerar annorlunda mellan API-versioner kan villkorliga ändrings åtgärder användas för att avgöra vilken ändrings åtgärd som används för varje API-version.
 
 När en princip definition med hjälp av ändra-effekter körs som en del av en utvärderings cykel, gör den inte några ändringar i resurser som redan finns. I stället markeras alla resurser som uppfyller **IF** -villkoret som icke-kompatibel.
 
@@ -498,7 +517,7 @@ Egenskapen **information** för funktionen ändra har alla under egenskaper som 
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomst kontroll roll-ID som är tillgängligt för prenumerationen. Mer information finns i [reparation-Konfigurera princip definition](../how-to/remediate-resources.md#configure-policy-definition).
   - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
 - **conflictEffect** (valfritt)
-  - Fastställer vilken princip definition "WINS" i händelse av att mer än en princip definition ändrar samma egenskap.
+  - Fastställer vilken princip definition "WINS" i händelse av att mer än en princip definition ändrar samma egenskap eller när ändrings åtgärden inte fungerar med det angivna aliaset.
     - För nya eller uppdaterade resurser prioriteras princip definitionen med _neka_ . Princip definitioner med _granskning_ hoppa över alla **åtgärder**. Om mer än en princip definition har _neka_nekas begäran som en konflikt. Om alla princip definitioner har _granskning_bearbetas ingen av **åtgärderna** i de motstridiga princip definitionerna.
     - För befintliga resurser, om mer än en princip definition har _neka_, är kompatibilitetsstatus en _konflikt_. Om en eller färre princip definitioner har _neka_, returnerar varje tilldelning en kompatibilitetsstatus som _inte är kompatibel_.
   - Tillgängliga värden: _audit_, _Deny_, _Disabled_.
@@ -513,6 +532,9 @@ Egenskapen **information** för funktionen ändra har alla under egenskaper som 
     - **värde** (valfritt)
       - Värdet som taggen ska ställas in på.
       - Den här egenskapen krävs om **åtgärden** är _addOrReplace_ eller _Add_.
+    - **villkor** (valfritt)
+      - En sträng som innehåller ett Azure Policy språk uttryck med [princip funktioner](./definition-structure.md#policy-functions) som utvärderas till _True_ eller _false_.
+      - Stöder inte följande princip funktioner: `field()` , `resourceGroup()` , `subscription()` .
 
 ### <a name="modify-operations"></a>Ändra åtgärder
 
@@ -546,11 +568,11 @@ Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika s
 
 Egenskapen **operation** har följande alternativ:
 
-|Åtgärd |Description |
+|Åtgärd |Beskrivning |
 |-|-|
-|addOrReplace |Lägger till den definierade taggen och värdet i resursen, även om taggen redan finns med ett annat värde. |
-|Lägg till |Lägger till den definierade taggen och värdet i resursen. |
-|Ta bort |Tar bort den definierade taggen från resursen. |
+|addOrReplace |Lägger till den definierade egenskapen eller taggen och värdet i resursen, även om egenskapen eller taggen redan finns med ett annat värde. |
+|Lägg till |Lägger till den definierade egenskapen eller taggen och värdet i resursen. |
+|Ta bort |Tar bort den definierade egenskapen eller taggen från resursen. |
 
 ### <a name="modify-examples"></a>Ändra exempel
 
@@ -593,6 +615,28 @@ Exempel 2: ta bort `env` taggen och Lägg till `environment` taggen eller ersät
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Exempel 3: se till att ett lagrings konto inte tillåter offentlig BLOB-åtkomst, åtgärden ändra används endast när du utvärderar begär Anden med API-versionen större eller lika med 2019-04-01:
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

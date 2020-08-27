@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: b6984e16d1ddcee7d3f276ddcdf8c89609f14fe5
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271030"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962833"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -31,7 +31,7 @@ Säker autentisering och auktorisering kräver djupgående förståelse av säke
 > [!NOTE]
 > Om du aktiverar den här funktionen så kommer **alla** icke-säkra HTTP-förfrågningar till programmet att omdirigeras automatiskt till https, oavsett App Service konfigurations inställningen för att [tvinga https](configure-ssl-bindings.md#enforce-https). Om det behövs kan du inaktivera detta via `requireHttps` inställningen i [konfigurations filen för autentiseringsinställningarna](app-service-authentication-how-to.md#configuration-file-reference), men du måste sedan vara noga med att se till att inga säkerhetstoken någonsin överförs över osäkra http-anslutningar.
 
-Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
+Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -52,7 +52,7 @@ Modulen körs separat från din program kod och konfigureras med hjälp av app-i
 
 ### <a name="on-containers"></a>På behållare
 
-Modulen för autentisering och auktorisering körs i en separat behållare som är isolerad från program koden. Med hjälp av det som är känt som [ambassadör-mönstret](https://docs.microsoft.com/azure/architecture/patterns/ambassador)samverkar den inkommande trafiken för att utföra liknande funktioner som i Windows. Eftersom den inte körs i processen är det möjligt att ingen direkt integrering med specifika språk ramverk är möjlig. men relevant information som appen behöver skickas genom att använda begärandehuvuden enligt beskrivningen nedan.
+Modulen för autentisering och auktorisering körs i en separat behållare som är isolerad från program koden. Med hjälp av det som är känt som [ambassadör-mönstret](/azure/architecture/patterns/ambassador)samverkar den inkommande trafiken för att utföra liknande funktioner som i Windows. Eftersom den inte körs i processen är det möjligt att ingen direkt integrering med specifika språk ramverk är möjlig. men relevant information som appen behöver skickas genom att använda begärandehuvuden enligt beskrivningen nedan.
 
 ### <a name="userapplication-claims"></a>Användar-/program anspråk
 
@@ -150,7 +150,7 @@ Med det här alternativet behöver du inte skriva någon autentiseringsmetod i d
 ## <a name="more-resources"></a>Fler resurser
 
 [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
+[Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
 [Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md) 
  [.Net Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
  [Få Azure App Service autentisering arbeta med .net Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
@@ -171,8 +171,8 @@ Providerspecifika instruktions guider:
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
 
-[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+[custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
+[ADAL-Android]: /previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library#adal
+[ADAL-iOS]: /previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library#adal
+[ADAL-dotnet]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#adal

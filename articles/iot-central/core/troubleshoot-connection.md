@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816073"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958107"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Felsöka varför data från dina enheter inte visas i Azure IoT Central
 
@@ -95,8 +95,6 @@ version : 32
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
 
-### <a name="interpreting-terminal-output"></a>Tolka utdata från terminalen
-
 Om du ser data som visas i terminalen så gör data det så långt som IoT Central programmet.
 
 Om du inte ser några data efter några minuter kan du prova att trycka på `Enter` `return` tangenten eller på tangent bordet, om resultatet är fastnat.
@@ -133,7 +131,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Enhets etablerings status | Beskrivning | Möjlig minskning |
 | - | - | - |
-| Etablerats | Ingen direkt identifierbar fråga. | Saknas |
+| Etablerats | Ingen direkt identifierbar fråga. | Ej tillämpligt |
 | Registrerad | Enheten har ännu inte anslutits till IoT Central. | Kontrol lera dina enhets loggar för anslutnings problem. |
 | Blockerad | Enheten har blockerats från att ansluta till IoT Central. | Enheten blockeras från att ansluta till IoT Central-programmet. Avblockera enheten i IoT Central och försök igen. Mer information finns i [blockera enheter](concepts-get-connected.md#device-status-values). |
 | Ej godkända | Enheten är inte godkänd. | Enheten är inte godkänd för att ansluta till IoT Central-programmet. Godkänn enheten i IoT Central och försök igen. Läs mer i [Godkänn enheter](concepts-get-connected.md#connect-without-registering-devices) |
@@ -187,8 +185,6 @@ För att identifiera vilka kategorier ditt problem är i kör du det mest lämpl
     az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
-- Om du föredrar att använda ett grafiskt användar gränssnitt använder du vyn IoT Central **rå data** för att se om något inte har modeller ATS. Vyn **rå data** identifierar inte om enheten skickar felaktig JSON.
-
 Du kan uppmanas att installera `uamqp` biblioteket första gången du kör ett `validate` kommando.
 
 Följande utdata visar exempel fel och varnings meddelanden från kommandot validate:
@@ -205,9 +201,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Skärm bild av vyn rå data":::
+Om du föredrar att använda ett grafiskt användar gränssnitt använder du vyn IoT Central **rå data** för att se om något inte har modeller ATS. Vyn **rå data** identifierar inte om enheten skickar felaktig JSON.
 
-### <a name="interpreting-terminal-output"></a>Tolka utdata från terminalen
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Skärm bild av vyn rå data":::
 
 När du har identifierat problemet kan du behöva uppdatera enhetens inbyggda program vara eller skapa en ny enhets mall som modeller tidigare modellbaserade data.
 
@@ -215,9 +211,6 @@ Om du väljer att skapa en ny mall som modellerar data korrekt, migrerar du enhe
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte kan felsöka och åtgärda problemet med hjälp av den här guiden öppnar du ett support ärende. Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal:
-
-- [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Azure Portal för USA myndigheter](https://portal.azure.us/)
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/community/). Du kan också skriva ett [support ärende för Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Mer information finns i [Azure IoT-support och hjälp alternativ](../../iot-fundamentals/iot-support-help.md).

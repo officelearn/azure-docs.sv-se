@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811693"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962136"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Använd ett TLS/SSL-certifikat i koden i Azure App Service
 
@@ -20,11 +20,11 @@ Den här metoden för att använda certifikat i din kod använder TLS-funktionen
 
 När du låter App Service hantera TLS/SSL-certifikat kan du underhålla certifikaten och program koden separat och skydda känsliga data.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 
-- [Skapa en App Service-app](/azure/app-service/)
+- [Skapa en App Service-app](./index.yml)
 - [Lägg till ett certifikat i appen](configure-ssl-certificate.md)
 
 ## <a name="find-the-thumbprint"></a>Hitta tumavtrycket
@@ -164,4 +164,4 @@ Information om hur du läser in ett TLS/SSL-certifikat från en fil i Node.js, P
 * [Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service](configure-ssl-bindings.md)
 * [Använda HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Använda TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Vanliga frågor och svar: App Service certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Vanliga frågor och svar: App Service certifikat](./faq-configuration-and-management.md)

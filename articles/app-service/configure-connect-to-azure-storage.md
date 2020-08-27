@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 8ced35f30966a96061792ad2171afe19599ed22c
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 8ca3688ad11bc7a694327990be22b8eccd8f8161
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077262"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962867"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Åtkomst Azure Storage som en nätverks resurs från en behållare i App Service
 
@@ -77,7 +77,7 @@ Den här guiden visar hur du kopplar Azure Storage till en Linux-behållare App 
 
 När du har skapat ditt [Azure Storage-konto, fil resurs och katalog](#prerequisites)kan du nu konfigurera din app med Azure Storage.
 
-Om du vill montera en Azure Files resurs till en katalog i App Service-appen använder du [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) kommandot. Lagrings typen måste vara migreringsåtgärden.
+Om du vill montera en Azure Files resurs till en katalog i App Service-appen använder du [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) kommandot. Lagrings typen måste vara migreringsåtgärden.
 
 ```azurecli
 az webapp config storage-account add --resource-group <group-name> --name <app-name> --custom-id <custom-id> --storage-type AzureFiles --share-name <share-name> --account-name <storage-account-name> --access-key "<access-key>" --mount-path <mount-path-directory of form c:<directory name> >
@@ -91,7 +91,7 @@ Du bör göra detta för alla andra kataloger som ska länkas till en Azure File
 
 När du har skapat ditt [Azure Storage-konto, fil resurs och katalog](#prerequisites)kan du nu konfigurera din app med Azure Storage.
 
-Om du vill montera ett lagrings konto till en katalog i App Service-appen använder du [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) kommandot. Lagrings typen kan vara AzureBlob eller migreringsåtgärden. Migreringsåtgärden används i det här exemplet. Inställningen monterings Sök väg motsvarar den mapp som du vill montera från Azure Storage. Om den ställs in på "/" monteras hela Azure Storage.
+Om du vill montera ett lagrings konto till en katalog i App Service-appen använder du [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) kommandot. Lagrings typen kan vara AzureBlob eller migreringsåtgärden. Migreringsåtgärden används i det här exemplet. Inställningen monterings Sök väg motsvarar den mapp som du vill montera från Azure Storage. Om den ställs in på "/" monteras hela Azure Storage.
 
 
 > [!CAUTION]

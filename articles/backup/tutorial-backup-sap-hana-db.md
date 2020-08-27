@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera SAP HANA databaser i virtuella Azure-d
 description: I den här självstudien lär du dig att säkerhetskopiera SAP HANA databaser som körs på virtuella Azure-datorer till ett Azure Backup Recovery Services-valv.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 65f2a7ba51fcf811e36839d3998902ba37a90fc4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 063cd04ecfc67d5f0f761bb0159ab80dcff40030
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889999"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958821"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Självstudie: säkerhetskopiera SAP HANA databaser på en virtuell Azure-dator
 
@@ -36,7 +36,9 @@ Kontrol lera att du gör följande innan du konfigurerar säkerhets kopieringar:
   * Den måste finnas i standard **hdbuserstore**. Standardvärdet är det `<sid>adm` konto som SAP HANA är installerat under.
   * För MDC ska nyckeln peka mot SQL-porten för **namnserver**. Om det är SDC ska det peka på SQL-porten för **INDEXSERVER**
   * Den bör ha autentiseringsuppgifter för att lägga till och ta bort användare
+  * Observera att den här nyckeln kan tas bort när skriptet har körts
 * Kör konfigurations skriptet för SAP HANA säkerhets kopiering (för registrerings skriptet) på den virtuella datorn där HANA är installerat, som rot användare. [Det här skriptet](https://aka.ms/scriptforpermsonhana) hämtar Hana-systemet för säkerhets kopiering. Mer information om skriptet för för registrering finns i avsnittet [Vad skriptet gör för registrering](#what-the-pre-registration-script-does) .
+* Om din HANA-installation använder privata slut punkter kör du [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med parametern *-SN* eller *--Skip-Network-checkar* .
 
 >[!NOTE]
 >För registrerings skriptet installerar **unixODBC234** för SAP HANA arbets belastningar som körs på RHEL (7,4, 7,6 och 7,7) och **unixODBC** för RHEL 8,1. [Paketet finns i RHEL for SAP HANA (för RHEL 7-Server) uppdaterings tjänster för SAP-lösningar (RPMS) lagrings platsen](https://access.redhat.com/solutions/5094721).  För en Azure Marketplace RHEL-avbildning skulle lagrings platsen vara **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-E4S-RPMS**.
@@ -103,7 +105,7 @@ Att köra skriptet för för registrering utför följande funktioner:
 
 * Baserat på din Linux-distribution installerar eller uppdaterar skriptet alla nödvändiga paket som krävs av Azure Backup agenten.
 * Den utför utgående nätverks anslutnings kontroller med Azure Backup servrar och beroende tjänster som Azure Active Directory och Azure Storage.
-* Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och användar nyckeln kan tas bort när skriptet för för registrering har körts.
+* Den loggar in i HANA-systemet med hjälp av användar nyckeln som anges som en del av [förutsättningarna](#prerequisites). Användar nyckeln används för att skapa en säkerhets kopierings användare (AZUREWLBACKUPHANAUSER) i HANA-systemet och **användar nyckeln kan tas bort när skriptet för för registrering har körts**.
 * AZUREWLBACKUPHANAUSER har tilldelats följande obligatoriska roller och behörigheter:
   * DATABAS administratör (när det gäller MDC) och säkerhets kopierings administratör (när det gäller SDC): för att skapa nya databaser under återställningen.
   * Katalog läsning: för att läsa säkerhets kopierings katalogen.

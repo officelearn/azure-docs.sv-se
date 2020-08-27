@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d61b95c7136a4cbce11789a58d27cc1a164ae374
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1cefb5a7b554b9a477f6a51eab3b22b0e8f55378
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80668027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958447"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och TLS/SSL-certifikat i Azure App Service
 
@@ -131,7 +131,7 @@ Du kan inte lägga till ett nytt värdnamn i en app för att tilldela en under d
 #### <a name="solution"></a>Lösning
 
 - Kontakta prenumerations administratören för att kontrol lera att du har behörighet att lägga till ett värdnamn i appen.
-- Om du behöver fler under domäner rekommenderar vi att du ändrar domän värd till Azure Domain Name Service (DNS). Med hjälp av Azure DNS kan du lägga till 500-värdnamn i din app. Mer information finns i [lägga till en under domän](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Om du behöver fler under domäner rekommenderar vi att du ändrar domän värd till Azure Domain Name Service (DNS). Med hjälp av Azure DNS kan du lägga till 500-värdnamn i din app. Mer information finns i [lägga till en under domän](/archive/blogs/waws/mapping-a-custom-subdomain-to-an-azure-website).
 
 ### <a name="dns-cant-be-resolved"></a>DNS kan inte matchas
 
@@ -310,7 +310,7 @@ Ja. När du öppnar bladet anpassade domäner och TLS i Azure Portal visas de do
 
 **Kan jag överföra en domän från en prenumeration till en annan prenumeration?**
 
-Du kan flytta en domän till en annan prenumeration eller resurs grupp med hjälp av PowerShell-cmdleten [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) .
+Du kan flytta en domän till en annan prenumeration eller resurs grupp med hjälp av PowerShell-cmdleten [Move-AzResource](/powershell/module/az.Resources/Move-azResource) .
 
 **Hur kan jag hantera min anpassade domän om jag för närvarande inte har en Azure App Service-app?**
 

@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b917ef9234ef2e0d36526bc1688dfae2020d6b51
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075470"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961932"
 ---
 # <a name="back-up-your-app-in-azure"></a>Säkerhetskopiera din app i Azure
 Med säkerhets kopierings-och återställnings funktionen i [Azure App Service](overview.md) kan du enkelt skapa säkerhets kopior av appar manuellt eller enligt ett schema. Du kan konfigurera säkerhets kopiorna så att de behålls på obestämd tid. Du kan återställa appen till en ögonblicks bild av ett tidigare tillstånd genom att skriva över den befintliga appen eller återställa till en annan app.
@@ -42,7 +42,7 @@ Följande databas lösningar stöds med funktionen säkerhets kopiering:
 
 ## <a name="requirements-and-restrictions"></a>Krav och begränsningar
 * Funktionen säkerhets kopiering och återställning kräver att App Service plan finns på nivån **standard**, **Premium** eller **isolerad** . Mer information om hur du skalar App Service plan att använda en högre nivå finns i [skala upp en app i Azure](manage-scale-up.md). **Premium** -och **isolerade** nivåer tillåter ett större antal dagliga back versioner än **standard** nivån.
-* Du behöver ett Azure Storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure Storage-konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
+* Du behöver ett Azure Storage-konto och en behållare i samma prenumeration som den app som du vill säkerhetskopiera. Mer information om Azure Storage-konton finns i [Översikt över Azure Storage-konto](../storage/common/storage-account-overview.md).
 * Säkerhets kopieringar kan vara upp till 10 GB app-och databas innehåll. Om säkerhets kopierings storleken överskrider den här gränsen får du ett fel meddelande.
 * Säkerhets kopiering av TLS-aktiverade Azure Database for MySQL stöds inte. Om du har konfigurerat en säkerhets kopia får du inte säkerhets kopior.
 * Säkerhets kopiering av TLS-aktiverade Azure Database for PostgreSQL stöds inte. Om du har konfigurerat en säkerhets kopia får du inte säkerhets kopior.
@@ -169,4 +169,4 @@ Exempel finns i:
 <a name="nextsteps"></a>
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du återställer en app från en säkerhets kopia finns i [återställa en app i Azure](web-sites-restore.md). 
+Information om hur du återställer en app från en säkerhets kopia finns i [återställa en app i Azure](web-sites-restore.md).

@@ -4,12 +4,12 @@ description: Lär dig hur du anropar affärs processer från din App Service-app
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212842"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962204"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Självstudie: skicka e-post och anropa andra affärs processer från App Service
 
@@ -84,7 +84,7 @@ Distribuera en app med det språk ramverk som du väljer att App Service. Om du 
 1. Klicka på **nytt steg**längst ned i designern, Skriv **Gmail** i sökrutan åtgärder och Sök och välj **skicka e-post (v2)**.
     
     > [!TIP]
-    > Du kan söka efter andra typer av integreringar, till exempel SendGrid, MailChimp, Office 365 och SalesForce. Mer information finns i [Logic Apps-dokumentationen](https://docs.microsoft.com/azure/logic-apps/).
+    > Du kan söka efter andra typer av integreringar, till exempel SendGrid, MailChimp, Office 365 och SalesForce. Mer information finns i [Logic Apps-dokumentationen](../logic-apps/index.yml).
 1. I dialog rutan **Gmail** väljer du **Logga** in och loggar in på det Gmail-konto som du vill skicka e-postmeddelandet från.
 
     ![Skärm bild som visar dialog rutan Gmail som du använder för att logga in på det Gmail-konto som du vill skicka e-post från.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -152,7 +152,7 @@ Klicka på fliken föredraget språk/ramverk nedan om du vill se ett exempel.
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Till exempel:
+I ASP.NET kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.ne
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient) . Till exempel:
+I ASP.NET Core kan du skicka HTTP-inlägget med klassen [system .net. http. HttpClient](/dotnet/api/system.net.http.httpclient) . Exempel:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,13 +199,13 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Den här koden är avsedd för enkel demonstration. I praktiken ska du inte instansiera ett `HttpClient` objekt för varje begäran. Följ rikt linjerna i [använda IHttpClientFactory för att implementera elastiska HTTP-begäranden](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Den här koden är avsedd för enkel demonstration. I praktiken ska du inte instansiera ett `HttpClient` objekt för varje begäran. Följ rikt linjerna i [använda IHttpClientFactory för att implementera elastiska HTTP-begäranden](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Om du testar den här koden i exempel appen för [Självstudier: skapa en ASP.net Core-och SQL Database-app i Azure App Service](tutorial-dotnetcore-sqldb-app.md)kan du använda den för att skicka en bekräftelse via e-post i [åtgärden Skapa](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65)när `Todo` objektet har lagts till.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Till exempel:
+I Node.js kan du enkelt skicka HTTP-posten med ett NPM-paket som [Axios](https://www.npmjs.com/package/axios). Exempel:
 
 ```javascript
 // Requires npm install --save axios
@@ -232,7 +232,7 @@ Om du testar den här koden i exempel appen för [Självstudier: skapa en Node.j
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Till exempel:
+I PHP kan du enkelt skicka HTTP-posten med [guzzle](http://docs.guzzlephp.org/en/stable/index.html). Exempel:
 
 ```php
 // Requires composer require guzzlehttp/guzzle:~6.0
@@ -264,7 +264,7 @@ Om du testar den här koden i exempel appen för [Självstudier: bygga en php-oc
 
 ### <a name="python"></a>[Python](#tab/python)
 
-I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Till exempel:
+I python kan du enkelt skicka HTTP-posten med [begär Anden](https://pypi.org/project/requests/). Exempel:
 
 ```python
 # Requires pip install requests && pip freeze > requirements.txt
@@ -295,7 +295,7 @@ Om du testar den här koden i exempel appen för [Självstudier: köra en python
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Till exempel:
+I ruby kan du enkelt skicka HTTP-posten med [JSONClient](https://www.rubydoc.info/gems/httpclient/JSONClient). Exempel:
 
 ```ruby
 clnt = JSONClient.new

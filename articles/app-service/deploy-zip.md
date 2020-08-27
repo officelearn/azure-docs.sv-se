@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: f547f60bf6c67b757f2e12f06f1e39100c3e76cb
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: e2959403d2e5db38d03013e798fe299d56837227
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077160"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962119"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP-eller WAR-fil
 
@@ -33,7 +33,7 @@ WAR-fildistributionen distribuerar [War](https://wikipedia.org/wiki/WAR_(file_fo
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här artikeln [skapar du en app service app](/azure/app-service/)eller använder en app som du har skapat för en annan själv studie kurs.
+För att slutföra stegen i den här artikeln [skapar du en app service app](./index.yml)eller använder en app som du har skapat för en annan själv studie kurs.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -6,18 +6,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211981"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958719"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
-Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en app i [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [fel söknings läge](https://docs.microsoft.com/visualstudio/debugger/) via fjärr anslutning eller genom att visa program loggar och webb server loggar.
+Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en app i [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [fel söknings läge](/visualstudio/debugger/) via fjärr anslutning eller genom att visa program loggar och webb server loggar.
 
-Du får lära dig:
+Du får lära dig detta:
 
 * Vilka funktioner för hantering av appar är tillgängliga i Visual Studio.
 * Så här använder du Visual Studio-fjärrläge för att göra snabba ändringar i en fjärran sluten app.
@@ -28,7 +28,7 @@ Du får lära dig:
 
 Om du har Visual Studio Ultimate kan du också använda [IntelliTrace](/visualstudio/debugger/intellitrace) för fel sökning. IntelliTrace ingår inte i den här självstudien.
 
-## <a name="prerequisites"></a><a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a><a name="prerequisites"></a>Förutsättningar
 Den här självstudien fungerar med utvecklings miljön, webb projekt och App Service app som du konfigurerar i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md). För WebJobs-avsnitten behöver du det program som du skapar i [Kom igång med Azure WEBJOBS SDK][GetStartedWJ].
 
 Kod exemplen som visas i den här självstudien gäller för ett C# MVC-webbprogram, men fel söknings procedurerna är desamma för Visual Basic-och webb formulär program.
@@ -680,7 +680,7 @@ Mer information om hur du analyserar webb server loggar finns i följande resurs
   Ett verktyg för att visa data i webb server loggar (*. log* -filer).
 * [Felsöka prestanda problem eller program fel i IIS med LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till logg tolks verktyget som du kan använda för att analysera webb server loggar.
-* [Blogg inlägg från Robert Mcmurrays om att använda LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Blogg inlägg från Robert Mcmurrays om att använda LogParser](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [HTTP-statuskoden i IIS 7,0, IIS 7,5 och IIS 8,0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analysera loggar för spårning av misslyckade begär Anden

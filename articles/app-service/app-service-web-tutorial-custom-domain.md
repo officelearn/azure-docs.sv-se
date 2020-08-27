@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: bbf8eb507e534c938ab98eb6a354e1051592fd8e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4a2c65e2685dada6412adf8c8ad9c63f472b91e8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871062"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962289"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Självstudie: mappa ett befintligt anpassat DNS-namn till Azure App Service
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 För att slutföra den här kursen behöver du:
 
-* [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
+* [Skapa en App Service-app](./index.yml), eller använd en app som du har skapat för en annan kurs.
 * Köp ett domännamn och se till att du har åtkomst till DNS-registret för din domänleverantör (till exempel GoDaddy).
 
   För att till exempel lägga till DNS-poster för `contoso.com` och `www.contoso.com` måste du kunna konfigurera DNS-inställningarna för rotdomänen `contoso.com`.

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 67816544e173c19cbc85c5779ffeba92578e00b2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211873"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961711"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurera en ASP.NET-app för Azure App Service
 
@@ -83,7 +83,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt fel meddelande. Om du vill visa sidan detaljerad undantag i App Service öppnar du *Web.config* -filen och lägger till `<customErrors mode="Off"/>` elementet under `<system.web>` elementet. Till exempel:
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt fel meddelande. Om du vill visa sidan detaljerad undantag i App Service öppnar du *Web.config* -filen och lägger till `<customErrors mode="Off"/>` elementet under `<system.web>` elementet. Exempel:
 
 ```xml
 <system.web>
@@ -95,7 +95,7 @@ Distribuera om din app med den uppdaterade *Web.config*. Nu bör du se samma det
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-Du kan lägga till diagnostiska meddelanden i din program kod med hjälp av [system. Diagnostics. trace](https://docs.microsoft.com/dotnet/api/system.diagnostics.trace). Till exempel: 
+Du kan lägga till diagnostiska meddelanden i din program kod med hjälp av [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace). Exempel: 
 
 ```csharp
 Trace.TraceError("Record not found!"); // Error trace

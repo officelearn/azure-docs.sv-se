@@ -8,21 +8,21 @@ ms.date: 08/10/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 238cd5e79fe749052206cfdf25d576f88f1020e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 76591b9f397bd84e5afac19a56dd2c6467f4650f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065445"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962238"
 ---
 # <a name="create-two-web-apps-connected-securely-with-private-endpoint-and-vnet-integration"></a>Skapa två webbappar anslutna på ett säkert sätt med privat slut punkt och VNet-integrering
 
-Den här artikeln illustrerar ett exempel på användning av [privat slut punkt](https://docs.microsoft.com/azure/app-service/networking/private-endpoint) och regional [VNet-integrering](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) för att ansluta två webbappar (frontend och Server del) på ett säkert sätt i följande steg:
+Den här artikeln illustrerar ett exempel på användning av [privat slut punkt](../networking/private-endpoint.md) och regional [VNet-integrering](../web-sites-integrate-with-vnet.md) för att ansluta två webbappar (frontend och Server del) på ett säkert sätt i följande steg:
 - Distribuera ett VNet
 - Skapa det första under nätet för integreringen
 - Skapa det andra under nätet för den privata slut punkten. du måste ange en speciell parameter för att inaktivera nätverks principer
 - Distribuera en App Service plan av typen PremiumV2, minsta SKU som krävs för privat slut punkts funktion
-- Skapa frontend-webbappen med vissa appinställningar för att använda den privata DNS-zonen, [Mer information](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#azure-dns-private-zones)
+- Skapa frontend-webbappen med vissa appinställningar för att använda den privata DNS-zonen, [Mer information](../web-sites-integrate-with-vnet.md#azure-dns-private-zones)
 - Anslut frontend-webbappen till integrations under nätet
 - Skapa backend-webbappen
 - Skapa en privat DNS-zon med namnet på den privata länk zonen för Web App-privatelink.azurewebsites.net
@@ -31,7 +31,7 @@ Den här artikeln illustrerar ett exempel på användning av [privat slut punkt]
 
 ## <a name="how-to-use-terraform-in-azure"></a>Så här använder du terraform i Azure
 
-Gå till [Azure-dokumentationen](https://docs.microsoft.com/azure/developer/terraform/) och lär dig hur du använder terraform med Azure.
+Gå till [Azure-dokumentationen](/azure/developer/terraform/) och lär dig hur du använder terraform med Azure.
 
 ## <a name="the-complete-terraform-file"></a>Den fullständiga terraform-filen
 
@@ -149,4 +149,4 @@ resource "azurerm_private_endpoint" "privateendpoint" {
 ## <a name="next-steps"></a>Nästa steg
 
 
-> [Lär dig mer om hur du använder terraform i Azure](https://docs.microsoft.com/azure/developer/terraform/)
+> [Lär dig mer om hur du använder terraform i Azure](/azure/developer/terraform/)

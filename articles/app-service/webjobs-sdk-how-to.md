@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 25aaf49d32da29fe5fb082e6e4481cd9266f88e1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 4a3bff9854e8e316bf368b2222d2244ab9ee6346
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208636"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962017"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -815,7 +815,7 @@ Om du vill se till att endast en instans av en funktion körs även om det finns
 
 ## <a name="filters"></a>Filter
 
-Funktions filter (för hands version) ger dig ett sätt att anpassa WebJobs-körningens pipeline med din egen logik. Filter liknar [ASP.net Core filter](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). Du kan implementera dem som deklarativ attribut som tillämpas på dina funktioner eller klasser. Mer information finns i [funktions filter](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Funktions filter (för hands version) ger dig ett sätt att anpassa WebJobs-körningens pipeline med din egen logik. Filter liknar [ASP.net Core filter](/aspnet/core/mvc/controllers/filters). Du kan implementera dem som deklarativ attribut som tillämpas på dina funktioner eller klasser. Mer information finns i [funktions filter](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
@@ -833,7 +833,7 @@ Varje logg som skapats av en `ILogger` instans har en associerad `Category` och 
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Inget        | 6 |
+|Inga        | 6 |
 
 Du kan filtrera varje kategori separat till en viss [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) . Du kanske till exempel vill se alla loggar för bearbetning av BLOB-utlösare, men endast `Error` och högre för allt annat.
 

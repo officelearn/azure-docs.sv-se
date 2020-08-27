@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: d9d8694c8ac81352ab36f3d610f02f3751090b27
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 368a87d1054e4a5ad12fa1e8c78bcde39f76ee63
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120600"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959416"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Själv studie kurs: Distribuera en django-webbapp med PostgreSQL i Azure App Service
 
@@ -121,7 +121,7 @@ Dessa ändringar är specifika för att konfigurera django för att köras i all
 ## <a name="create-postgres-database-in-azure"></a>Skapa postgres-databas i Azure
 
 <!-- > [!NOTE]
-> Before you create an Azure Database for PostgreSQL server, check which [compute generation](/azure/postgresql/concepts-pricing-tiers#compute-generations-and-vcores) is available in your region. -->
+> Before you create an Azure Database for PostgreSQL server, check which [compute generation](../postgresql/concepts-pricing-tiers.md#compute-generations-and-vcores) is available in your region. -->
 
 Installera `db-up` tillägget för Azure CLI:
 
@@ -184,7 +184,7 @@ Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
 <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
 - Skapa [resurs gruppen](../azure-resource-manager/management/overview.md#terminology) om den inte redan finns. (I det här kommandot använder du samma resurs grupp där du skapade databasen tidigare.)
-- Skapa [App Service plan](overview-hosting-plans.md) *DjangoPostgres-självstudie – planera* i den grundläggande pris nivån (B1) om den inte finns. `--plan`och `--sku` är valfria.
+- Skapa [App Service plan](overview-hosting-plans.md) *DjangoPostgres-självstudie – planera* i den grundläggande pris nivån (B1) om den inte finns. `--plan` och `--sku` är valfria.
 - Skapa App Service-appen om den inte finns.
 - Aktivera standard loggning för appen om den inte redan är aktive rad.
 - Ladda upp lagrings platsen med hjälp av ZIP-distribution med build Automation aktiverat.
@@ -414,7 +414,7 @@ Om du vill stoppa logg strömningen när som helst, skriver du **CTRL** + **C**.
 > [!NOTE]
 > Du kan också granska loggfilerna från webbläsaren på `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 >
-> `az webapp up`aktiverar standard loggning för dig. Av prestanda skäl stänger den här loggningen av sig själv efter en stund, men inaktive ras varje gång du kör `az webapp up` igen. Kör följande kommando för att aktivera det manuellt:
+> `az webapp up` aktiverar standard loggning för dig. Av prestanda skäl stänger den här loggningen av sig själv efter en stund, men inaktive ras varje gång du kör `az webapp up` igen. Kör följande kommando för att aktivera det manuellt:
 >
 > ```azurecli
 > az webapp log config --docker-container-logging filesystem

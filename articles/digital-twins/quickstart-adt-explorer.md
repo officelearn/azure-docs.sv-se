@@ -1,5 +1,5 @@
 ---
-title: Utforska ett exempel scenario
+title: Utforska ett exempelscenario
 titleSuffix: Azure Digital Twins
 description: Använd ADT Explorer-exemplet för att visualisera och utforska ett i förväg skapat scenario.
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: b199a50443445b983011d755c3ffacaa71131faf
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: c3230294fd9d5761433b4507ff054bcaae7a11ad
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88894397"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959821"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Utforska ett exempel på Azure Digitals sammanflätade scenario med ADT Explorer
 
@@ -170,7 +170,7 @@ Tryck på ikonen *Importera diagram* i rutan *diagram visning* .
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="I rutan diagram visas en ikon. Den visar en pil som pekar på ett moln." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-I rutan fil väljare navigerar du igen till mappen *klient/exempel* och väljer kalkyl blads filen _**buildingScenario.xlsx**_ . Den här filen innehåller en beskrivning av exempel diagrammet. Tryck på OK.
+I rutan fil väljare navigerar du till mappen *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp* och väljer kalkyl blads filen _**buildingScenario.xlsx**_ . Den här filen innehåller en beskrivning av exempel diagrammet. Tryck på OK.
 
 Efter några sekunder öppnar ADT Explorer en *importerad* vy som visar en för hands version av grafen som ska läsas in.
 

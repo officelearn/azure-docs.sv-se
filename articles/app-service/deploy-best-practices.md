@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081059"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961881"
 ---
 # <a name="deployment-best-practices"></a>Metod tips för distribution
 
@@ -127,7 +127,7 @@ Logga in med i skriptet `az login --service-principal` och ange information om h
 
 ### <a name="java"></a>Java
 
-Använd kudu [-zipdeploy/](deploy-zip.md) API för att distribuera jar-program och [WARDEPLOY/](deploy-zip.md#deploy-war-file) för krigs appar. Om du använder Jenkins kan du använda dessa API: er direkt i distributions fasen. Mer information finns i [den här artikeln](../jenkins/execute-cli-jenkins-pipeline.md).
+Använd kudu [-zipdeploy/](deploy-zip.md) API för att distribuera jar-program och [WARDEPLOY/](deploy-zip.md#deploy-war-file) för krigs appar. Om du använder Jenkins kan du använda dessa API: er direkt i distributions fasen. Mer information finns i [den här artikeln](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Node
 
@@ -149,7 +149,7 @@ Använd alltid lokalt cacheminne tillsammans med [distributions platser](deploy-
 
 Om din App Services plan använder över 90% av tillgänglig processor eller minne kan den underliggande virtuella datorn ha problem med att bearbeta distributionen. När detta inträffar kan du tillfälligt skala upp antalet instanser för att utföra distributionen. När distributionen är färdig kan du returnera instans antalet till det tidigare värdet.
 
-Mer information om bästa praxis finns i [App Service Diagnostics](https://docs.microsoft.com/azure/app-service/overview-diagnostics) för att ta reda på vilka metod tips som är lämpliga för din resurs.
+Mer information om bästa praxis finns i [App Service Diagnostics](./overview-diagnostics.md) för att ta reda på vilka metod tips som är lämpliga för din resurs.
 
 - Navigera till din webbapp i [Azure Portal](https://portal.azure.com).
 - Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar App Service Diagnostics.

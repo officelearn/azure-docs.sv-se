@@ -4,16 +4,16 @@ description: Lär dig hur du hämtar resurs händelser via aktivitets loggar och
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649069"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962306"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Hämta resurs händelser i Azure App Service
 
-Azure App Service innehåller inbyggda verktyg för att övervaka resursernas status och hälsa. Resurs händelser hjälper dig att förstå eventuella ändringar som har gjorts i dina underliggande webb program resurser och vidta åtgärder vid behov. Exempel på händelser är: skalning av instanser, uppdateringar av program inställningar, omstart av webbappen och många fler. I den här artikeln får du lära dig hur du visar [Azures aktivitets loggar](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) och aktiverar [Event Grid](https://docs.microsoft.com/azure/event-grid/) för att övervaka resurs händelser som är relaterade till din app service webbapp.
+Azure App Service innehåller inbyggda verktyg för att övervaka resursernas status och hälsa. Resurs händelser hjälper dig att förstå eventuella ändringar som har gjorts i dina underliggande webb program resurser och vidta åtgärder vid behov. Exempel på händelser är: skalning av instanser, uppdateringar av program inställningar, omstart av webbappen och många fler. I den här artikeln får du lära dig hur du visar [Azures aktivitets loggar](../azure-monitor/platform/activity-log.md#view-the-activity-log) och aktiverar [Event Grid](../event-grid/index.yml) för att övervaka resurs händelser som är relaterade till din app service webbapp.
 
 > [!NOTE]
 > App Service-integrering med Event Grid är i för **hands version**. [Visa meddelandet för mer information.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,17 +33,17 @@ Azure aktivitets loggar för App Service information som:
 
 Azure aktivitets loggar kan frågas med hjälp av Azure Portal, PowerShell, REST API eller CLI. Du kan skicka loggarna till ett lagrings konto, Händelsehubben och Log Analytics. Du kan också analysera dem i Power BI eller skapa aviseringar för att hålla uppdaterad om resurs händelser.
 
-[Visa och hämta Azure aktivitets logg händelser.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+[Visa och hämta Azure aktivitets logg händelser.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Skicka aktivitets loggar till Event Grid
 
-Medan aktivitets loggarna är användarspecifika är det en ny [Event Grid](https://docs.microsoft.com/azure/event-grid/) -integration med App Service (för hands version) som loggar både användar åtgärder och automatiserade händelser. Med Event Grid kan du konfigurera en hanterare för att reagera på dessa händelser. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer.
+Medan aktivitets loggarna är användarspecifika är det en ny [Event Grid](../event-grid/index.yml) -integration med App Service (för hands version) som loggar både användar åtgärder och automatiserade händelser. Med Event Grid kan du konfigurera en hanterare för att reagera på dessa händelser. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer.
 
 Du kan även använda Event Grid med Logic Apps för att bearbeta data var som helst, utan att skriva någon kod. Event Grid kopplar samman datakällor och händelsehanterare. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer.
 
-[Visa egenskaper och schema för Azure App Service händelser.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
+[Visa egenskaper och schema för Azure App Service händelser.](../event-grid/event-schema-app-service.md)
 
-## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a><a name="nextsteps"></a> Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Övervaka Azure App Service](web-sites-monitor.md)
 * [Felsöka Azure App Service i Visual Studio](troubleshoot-dotnet-visual-studio.md)

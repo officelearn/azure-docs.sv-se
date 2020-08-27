@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327352"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961983"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
@@ -54,11 +54,11 @@ Utför följande steg för att visa användning och tillgänglighet för dina la
 
 ### <a name="overview-workbook"></a>Översikt över arbets bok
 
-I tabellen **Översikt** för den valda prenumerationen visar tabellen interaktiva lagrings mått och tjänst tillgänglighets tillstånd för upp till 10 lagrings konton grupperade i prenumerationen. Du kan filtrera resultaten baserat på de alternativ du väljer i följande List rutor:
+I tabellen **Översikt** för den valda prenumerationen visar tabellen interaktiva lagrings mått och tjänst tillgänglighets tillstånd för upp till 5 lagrings konton grupperade i prenumerationen. Du kan filtrera resultaten baserat på de alternativ du väljer i följande List rutor:
 
 * **Prenumerationer – endast** prenumerationer som har lagrings konton visas.  
 
-* **Lagrings konton** – som standard väljs 10 lagrings konton i förväg. Om du väljer alla eller flera lagrings konton i omfångs väljaren returneras upp till 200 lagrings konton. Om du till exempel har totalt 573 lagrings konton över tre prenumerationer som du har valt visas bara 200-konton. 
+* **Lagrings konton** – som standard väljs 5 lagrings konton i förväg. Om du väljer alla eller flera lagrings konton i omfångs väljaren returneras upp till 200 lagrings konton. Om du till exempel har totalt 573 lagrings konton över tre prenumerationer som du har valt visas bara 200-konton. 
 
 * **Tidsintervall** – som standard visar de senaste 4 timmarna med information baserat på motsvarande val som gjorts.
 

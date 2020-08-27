@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212200"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962850"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Den här artikeln förklarar hur du konfigurerar och arbetar med Microsoft Graph utlösare och bindningar i Azure Functions. Med dessa kan du använda Azure Functions för att arbeta med data, insikter och händelser från [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -38,6 +41,9 @@ Indata-bindningen för auth-token finns i paketet [Microsoft. Azure. WebJobs. Ex
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Konfigurera tilläggen
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Microsoft Graph bindningar är tillgängliga via _bindnings tillägg_. Bindnings tillägg är valfria komponenter till Azure Functions Runtime. I det här avsnittet visas hur du konfigurerar Microsoft Graph-och auth token-tillägg.
 
@@ -71,6 +77,9 @@ Om du använder Azure Portal visas en varning under prompten för att installera
 
 <a name="token-input"></a>
 ## <a name="auth-token"></a>Auth-token
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Indataporten för token för token hämtar en Azure AD-token för en specifik resurs och ger den till din kod som en sträng. Resursen kan vara valfri för vilken programmet har behörigheter. 
 
@@ -230,6 +239,9 @@ Token visas alltid för kod som en sträng.
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Excel-Indatatyp
 
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Excel-tabellens indataparameter läser innehållet i en Excel-tabell som är lagrad i OneDrive.
 
 Det här avsnittet innehåller följande underavsnitt:
@@ -349,7 +361,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> – Använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code> egenskapen.</li><li><code>userFromToken</code> – Använder den identitet som representeras av angiven token. Se <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> – Använder appens identitet.</li></ul>|
 |**userId**|**UserId**  |Krävs om och endast om _identitet_ har angetts till `userFromId` . Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs om och endast om _identitet_ har angetts till `userFromToken` . En giltig token för Function-appen. |
-|**path**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till Excel-arbetsboken.|
+|**sökväg**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Det kalkyl blad som tabellen finns i.|
 |**tableName**|**TableName**|Namnet på tabellen. Om inget anges används innehållet i kalkyl bladet.|
 
@@ -511,7 +523,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> – Använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code> egenskapen.</li><li><code>userFromToken</code> – Använder den identitet som representeras av angiven token. Se <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> – Använder appens identitet.</li></ul>|
 |**UserId** |**userId** |Krävs om och endast om _identitet_ har angetts till `userFromId` . Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs om och endast om _identitet_ har angetts till `userFromToken` . En giltig token för Function-appen. |
-|**path**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till Excel-arbetsboken.|
+|**sökväg**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till Excel-arbetsboken.|
 |**worksheetName**|**WorksheetName**|Det kalkyl blad som tabellen finns i.|
 |**tableName**|**TableName**|Namnet på tabellen. Om inget anges används innehållet i kalkyl bladet.|
 |**Uppdateringstyp**|**Uppdateringstyp**|Krävs – den typ av ändring som ska göras i tabellen. Kan vara något av följande värden:<ul><li><code>update</code> – Ersätter innehållet i tabellen i OneDrive.</li><li><code>append</code> – Lägger till nytto lasten i slutet av tabellen i OneDrive genom att skapa nya rader.</li></ul>|
@@ -537,6 +549,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>Fil indata
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Data bindningen i OneDrive läser innehållet i en fil som lagras i OneDrive.
 
@@ -657,7 +672,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> – Använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code> egenskapen.</li><li><code>userFromToken</code> – Använder den identitet som representeras av angiven token. Se <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> – Använder appens identitet.</li></ul>|
 |**userId**|**UserId**  |Krävs om och endast om _identitet_ har angetts till `userFromId` . Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs om och endast om _identitet_ har angetts till `userFromToken` . En giltig token för Function-appen. |
-|**path**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till filen.|
+|**sökväg**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till filen.|
 
 <a name="onedrive-input-code"></a>
 ### <a name="file-input---usage"></a>Fil indata-användning
@@ -681,6 +696,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>Fil utdata
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Bindnings bindningen för OneDrive-filer ändrar innehållet i en fil som lagras i OneDrive.
 
@@ -805,7 +823,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li><code>userFromRequest</code> – Endast giltigt med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code> – Använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code> egenskapen.</li><li><code>userFromToken</code> – Använder den identitet som representeras av angiven token. Se <code>userToken</code> egenskapen.</li><li><code>clientCredentials</code> – Använder appens identitet.</li></ul>|
 |**UserId** |**userId** |Krävs om och endast om _identitet_ har angetts till `userFromId` . Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs om och endast om _identitet_ har angetts till `userFromToken` . En giltig token för Function-appen. |
-|**path**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till filen.|
+|**sökväg**|**Sökväg**|Obligatoriskt – sökvägen i OneDrive till filen.|
 
 <a name="onedrive-output-code"></a>
 #### <a name="file-output---usage"></a>Fil utmatning – användning
@@ -828,6 +846,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Outlook-utdata
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Utgående bindning för Outlook-meddelanden skickar ett e-postmeddelande via Outlook.
 
@@ -979,6 +1000,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 ## <a name="webhooks"></a>Webhooks
 
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Med Webhooks kan du reagera på händelser i Microsoft Graph. För att stödja Webhooks behövs funktioner för att skapa, uppdatera och reagera på _webhook-prenumerationer_. En fullständig webhook-lösning kräver en kombination av följande bindningar:
 - Med en [Microsoft Graph webhook-utlösare](#webhook-trigger) kan du reagera på en inkommande webhook.
 - Med en [Microsoft Graph webhook-prenumeration med inbindning](#webhook-input) kan du Visa befintliga prenumerationer och eventuellt uppdatera dem.
@@ -993,6 +1017,9 @@ Mer information om Webhooks finns [i arbeta med Webhooks i Microsoft Graph].
 
 
 ## <a name="webhook-trigger"></a>Webhook-utlösare
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Med den Microsoft Graph webhook-utlösaren kan en funktion reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.
 
@@ -1112,6 +1139,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>Webhook-ingång
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Med Microsoft Graph webhook-databindningen kan du hämta listan över prenumerationer som hanteras av den här funktions appen. Bindningen läser från funktionen app Storage, så den återspeglar inte andra prenumerationer som skapats utanför appen.
 
@@ -1264,6 +1294,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 ## <a name="webhook-output"></a>Webhook-utdata
 
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Med utgångs bindningen webhook-prenumeration kan du skapa, ta bort och uppdatera webhook-prenumerationer i Microsoft Graph.
 
 Det här avsnittet innehåller följande underavsnitt:
@@ -1407,6 +1440,9 @@ Bindningen visar följande typer av .NET-funktioner:
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>Uppdatering av webhook-prenumeration
+
+> [!IMPORTANT]
+> Microsoft Graph för hands versions bindningar är nu föråldrade. Mer information om hur du använder Microsoft Graph med Azure Functions finns i självstudierna [Build Azure Functions med Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Det finns två metoder för att uppdatera prenumerationer:
 

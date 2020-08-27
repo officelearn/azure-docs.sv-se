@@ -5,21 +5,21 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610249"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962884"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurera ett anpassat domän namn i Azure App Service med Traffic Manager-integrering
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name.md).
+> Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-När du använder [Azure Traffic Manager](/azure/traffic-manager/) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med hjälp av ** \<traffic-manager-endpoint> . trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www \. contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
+När du använder [Azure Traffic Manager](../traffic-manager/index.yml) för att belastningsutjämna trafik till [Azure App Service](overview.md), kan App Service-appen nås med hjälp av ** \<traffic-manager-endpoint> . trafficmanager.net**. Du kan tilldela ett anpassat domän namn, till exempel www \. contoso.com, med din app service-app för att ge användarna ett mer igenkännbart domän namn.
 
 Den här artikeln visar hur du konfigurerar ett anpassat domän namn med en App Service-app som är integrerad med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
@@ -55,7 +55,7 @@ Klicka på **Använd**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Skapa Traffic Manager-slutpunkt
 
-Följ stegen i [Lägg till eller ta bort slut punkter](../traffic-manager/traffic-manager-endpoints.md), Lägg till din app service-app som en slut punkt i din Traffic Managers profil.
+Följ stegen i [Lägg till eller ta bort slut punkter](../traffic-manager/traffic-manager-manage-endpoints.md), Lägg till din app service-app som en slut punkt i din Traffic Managers profil.
 
 När App Service-appen har en pris nivå som stöds visas den i listan över tillgängliga App Service mål när du lägger till slut punkten. Om din app inte visas i listan [kontrollerar du pris nivån för din app](#prepare-the-app).
 

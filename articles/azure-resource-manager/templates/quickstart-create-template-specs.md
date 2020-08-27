@@ -2,15 +2,15 @@
 title: Skapa och distribuera mall-specifikation
 description: Lär dig hur du skapar en mall-specifikation från ARM-mallen. Distribuera sedan mallen till en resurs grupp i din prenumeration.
 author: tfitzmac
-ms.date: 08/26/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: aaceac9fccf21074732c4b6c4b3e72cc09552a65
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 84422862cfa73c2cbb27411bf0c1a7fb3fab9b35
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936392"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962663"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Snabb start: skapa och distribuera mall specifikation (för hands version)
 
@@ -257,7 +257,7 @@ Nu kan du distribuera mallen för mallen. distributionen av mallen är precis so
     ```
 
     > [!NOTE]
-    > Det finns ett känt problem med att hämta ID för mallens specifikation och tilldela det till en variabel i Windows PowerShell.
+    > Det finns ett känt problem med att hämta ett Specifikations-ID för mallen och tilldela det till en variabel i Windows PowerShell.
 
 1. Distribuera mallen specifikation.
 

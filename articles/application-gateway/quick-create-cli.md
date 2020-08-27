@@ -1,20 +1,20 @@
 ---
 title: 'Snabb start: direkt webb trafik med CLI'
 titleSuffix: Azure Application Gateway
-description: Lär dig hur du använder Azure CLI för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
+description: I den här snabb starten får du lära dig hur du använder Azure CLI för att skapa en Azure Application-Gateway som dirigerar webb trafik till virtuella datorer i en backend-pool.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/05/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: d79f51e32fa62527140ccf19cfc3573339d22fab
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499134"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961762"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI
 
@@ -24,12 +24,14 @@ Application Gateway dirigerar program webb trafik till specifika resurser i en b
 
 Du kan också slutföra den här snabb starten med [Azure PowerShell](quick-create-powershell.md) eller [Azure Portal](quick-create-portal.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure CLI version 2.0.4 eller senare](/cli/azure/install-azure-cli) (om du kör Azure CLI lokalt).
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 

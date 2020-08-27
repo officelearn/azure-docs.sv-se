@@ -3,14 +3,14 @@ title: Köra Azure Automation runbooks på en Hybrid Runbook Worker
 description: Den här artikeln beskriver hur du kör Runbooks på datorer i ditt lokala data Center eller en moln leverantör med Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186222"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959577"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Köra runbook-flöden på Hybrid Runbook Worker
 
@@ -43,7 +43,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Du kan också använda en [InlineScript](automation-powershell-workflow.md#use-inlinescript) -aktivitet. `InlineScript`gör att du kan köra kodblock på en annan dator med autentiseringsuppgifter.
+Du kan också använda en [InlineScript](automation-powershell-workflow.md#use-inlinescript) -aktivitet. `InlineScript` gör att du kan köra kodblock på en annan dator med autentiseringsuppgifter.
 
 ## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Använd Runbook-autentisering med hanterade identiteter
 
@@ -70,7 +70,7 @@ Följ nästa steg för att använda en hanterad identitet för Azure-resurser p�
     ```
 
     > [!NOTE]
-    > `Connect-AzAccount -Identity`fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enda användardefinierad identitet. Om du använder flera användare tilldelade identiteter på Hybrid Runbook Worker, måste din Runbook ange `AccountId` parametern för `Connect-AzAccount` att välja en användardefinierad identitet.
+    > `Connect-AzAccount -Identity` fungerar för en Hybrid Runbook Worker som använder en tilldelad identitet och en enda användardefinierad identitet. Om du använder flera användare tilldelade identiteter på Hybrid Runbook Worker, måste din Runbook ange `AccountId` parametern för `Connect-AzAccount` att välja en användardefinierad identitet.
 
 ## <a name="use-runbook-authentication-with-run-as-account"></a>Använd Runbook-autentisering med kör som-konto
 
@@ -304,6 +304,14 @@ När du startar en Runbook med PowerShell använder du `RunOn` parametern med cm
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## <a name="logging"></a>Loggning
+
+För att hjälpa till att felsöka problem med dina runbooks som körs på en hybrid Runbook Worker lagras loggar lokalt på följande plats:
+
+* I Windows i `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` för detaljerad loggning av jobb körnings processer. Status händelser för Runbook-jobb på hög nivå skrivs till händelse loggen **program-och tjänst Logs\Microsoft-Automation\Operations** .
+
+* I Linux finns användarnas hybrid Worker-loggar på `/home/nxautomation/run/worker.log` och system Runbook Worker-loggar finns på `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
 
 ## <a name="next-steps"></a>Nästa steg
 

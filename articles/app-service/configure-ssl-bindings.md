@@ -6,16 +6,16 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078639"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962646"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service
 
-Den här artikeln visar hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i din [App Service app](https://docs.microsoft.com/azure/app-service/) eller [Function-app](https://docs.microsoft.com/azure/azure-functions/) genom att skapa en certifikat bindning. När du är klar kan du komma åt din App Service-app vid `https://` slut punkten för ditt anpassade DNS-namn (t `https://www.contoso.com` . ex.). 
+Den här artikeln visar hur du skyddar den [anpassade domänen](app-service-web-tutorial-custom-domain.md) i din [App Service app](./index.yml) eller [Function-app](../azure-functions/index.yml) genom att skapa en certifikat bindning. När du är klar kan du komma åt din App Service-app vid `https://` slut punkten för ditt anpassade DNS-namn (t `https://www.contoso.com` . ex.). 
 
 ![Webbapp med anpassat TLS/SSL-certifikat](./media/configure-ssl-bindings/app-with-custom-ssl.png)
 
@@ -37,7 +37,7 @@ I den här guiden får du lära dig att:
 
 För att följa den här instruktions guiden:
 
-- [Skapa en App Service-app](/azure/app-service/)
+- [Skapa en App Service-app](./index.yml)
 - [Mappa ett domän namn till din app](app-service-web-tutorial-custom-domain.md) eller [köp och konfigurera det i Azure](manage-custom-dns-buy-domain.md)
 - [Lägg till ett privat certifikat i din app](configure-ssl-certificate.md)
 
@@ -133,7 +133,7 @@ Välj **SSL-inställningar** i den vänstra navigeringen på din appsida. I **En
 
 ![Använda HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 
-När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Till exempel:
+När åtgärden har slutförts går du till någon av de HTTP-webbadresser som pekar på din app. Exempel:
 
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
@@ -168,4 +168,4 @@ Språkspecifika konfigurations guider, till exempel [konfigurations](configure-l
 ## <a name="more-resources"></a>Fler resurser
 
 * [Använd ett TLS/SSL-certifikat i koden i Azure App Service](configure-ssl-certificate-in-code.md)
-* [Vanliga frågor och svar: App Service certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [Vanliga frågor och svar: App Service certifikat](./faq-configuration-and-management.md)

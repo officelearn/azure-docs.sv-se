@@ -7,17 +7,17 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: stefsch
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d629aca791794de6c3e065fdc9f4a9e7f6d8a5df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e40a42afc99d505dc48794d5ad919e4d682b7070
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85833189"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961847"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Konfigurera en brandvägg för webbaserade program (WAF) för en App Service-miljö
 ## <a name="overview"></a>Översikt
 
-Brandväggar för webbaserade program (WAF) skyddar dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod och program-DDoS och andra attacker. De kontrollerar även svar från backend-webbservrar för dataförlustskydd (DLP). I kombination med den isolering och ytterligare skalning som tillhandahålls av App Service-miljöerna är det här en perfekt miljö att ha affärskritiska webbprogram som måste klara av skadliga begäranden och hög trafik. Azure tillhandahåller en WAF-funktion med [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).  Du kan läsa om hur du integrerar din App Service-miljö med en Application Gateway i dokumentet [Integrera din ILB ASE med en Application Gateway](https://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway).
+Brandväggar för webbaserade program (WAF) skyddar dina webbprogram genom att kontrollera ingående webbtrafik för att blockera SQL-inmatningar, skriptkörning över flera webbplatser, överföring av skadlig kod och program-DDoS och andra attacker. De kontrollerar även svar från backend-webbservrar för dataförlustskydd (DLP). I kombination med den isolering och ytterligare skalning som tillhandahålls av App Service-miljöerna är det här en perfekt miljö att ha affärskritiska webbprogram som måste klara av skadliga begäranden och hög trafik. Azure tillhandahåller en WAF-funktion med [Application Gateway](../../application-gateway/overview.md).  Du kan läsa om hur du integrerar din App Service-miljö med en Application Gateway i dokumentet [Integrera din ILB ASE med en Application Gateway](./integrate-with-application-gateway.md).
 
 Det finns flera alternativ utöver Azure Application Gateway, till exempel [Barracuda WAF for Azure](https://www.barracuda.com/programs/azure), på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf?tab=PlansAndPrice). I resten av dokumentet fokuserar vi på hur du integrerar din App Service-miljö med en Barracuda WAF-enhet.
 
@@ -34,7 +34,7 @@ I det här dokumentet konfigurerar vi App Service-miljön bakom flera belastning
 > 
 
 ## <a name="configuring-your-app-service-environment"></a>Konfigurera App Service-miljön
-Information om hur du konfigurerar App Service-miljön finns i [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md). När du har skapat en App Service-miljö kan du skapa webbappar, API-appar och [mobilappar](../../app-service-mobile/app-service-mobile-value-prop.md) i den här miljön, så skyddas de bakom den brandvägg som vi konfigurerar i nästa avsnitt.
+Information om hur du konfigurerar App Service-miljön finns i [vår dokumentation](app-service-web-how-to-create-an-app-service-environment.md). När du har skapat en App Service-miljö kan du skapa webbappar, API-appar och [mobilappar](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) i den här miljön, så skyddas de bakom den brandvägg som vi konfigurerar i nästa avsnitt.
 
 ## <a name="configuring-your-barracuda-waf-cloud-service"></a>Konfigurera Barracuda WAF-molntjänsten
 Barracuda har en [detaljerad artikel](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) om hur du distribuerar WAF på en virtuell dator i Azure. Men eftersom vi vill ha redundans och inte införa en felkritisk systemdel distribuerar du minst två WAF VM-instanser i samma molntjänst när du följer dessa instruktioner.

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207538"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962187"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -46,12 +46,12 @@ Om du vill aktivera program loggning för Windows-appar i [Azure Portal](https:/
 
 Välj **antingen för** **program loggning (fil system)** eller **program loggning (BLOB)** eller båda. 
 
-Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg meddelandet ( `InstanceId` ), tråd-ID ( `Tid` ) och en mer detaljerad tidsstämpel ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
+Alternativet **fil system** är för tillfälliga fel söknings syfte och inaktive ras i 12 timmar. **BLOB** -alternativet är för långsiktig loggning och behöver en Blob Storage-behållare för att skriva loggar till.  **BLOB** -alternativet innehåller också ytterligare information i logg meddelandena, till exempel ID: t för den ursprungliga virtuella dator instansen av logg meddelandet ( `InstanceId` ), tråd-ID ( `Tid` ) och en mer detaljerad tidsstämpel ( [`EventTickCount`](/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
 > För närvarande kan endast .NET-program loggar skrivas till blob-lagringen. Java-, PHP-, Node.js-och python-programloggarna kan bara lagras i det App Service fil systemet (utan kod ändringar för att skriva loggar till extern lagring).
 >
-> Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-create-storage-account.md)måste du också återställa respektive loggnings konfiguration för att använda de uppdaterade åtkomst nycklarna. Gör så här:
+> Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-account-create.md)måste du också återställa respektive loggnings konfiguration för att använda de uppdaterade åtkomst nycklarna. Gör så här:
 >
 > 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av**. Spara inställningen.
 > 2. Aktivera loggning till lagrings kontots BLOB igen. Spara inställningen.
@@ -62,7 +62,7 @@ Välj **nivå**eller den informations nivå som ska loggas. Följande tabell vis
 
 | Nivå | Inkluderade kategorier |
 |-|-|
-|**Disabled** (Inaktiverat) | Inget |
+|**Disabled** (Inaktiverat) | Inga |
 |**Fel** | Fel, kritiskt |
 |**Varning** | Varning, fel, kritiskt|
 |**Information** | Information, varning, fel, kritiskt|
@@ -89,7 +89,7 @@ För **webb Server loggning**väljer du **lagring** för att lagra loggar på Bl
 I **kvarhållningsperiod (dagar)** anger du antalet dagar som loggarna ska behållas.
 
 > [!NOTE]
-> Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-create-storage-account.md)måste du återställa respektive loggnings konfiguration för att använda de uppdaterade nycklarna. Gör så här:
+> Om du [återskapar åtkomst nycklarna för lagrings kontot](../storage/common/storage-account-create.md)måste du återställa respektive loggnings konfiguration för att använda de uppdaterade nycklarna. Gör så här:
 >
 > 1. På fliken **Konfigurera** ställer du in respektive loggnings funktion på **av**. Spara inställningen.
 > 2. Aktivera loggning till lagrings kontots BLOB igen. Spara inställningen.
@@ -108,15 +108,15 @@ Båda typerna av loggar lagras i App Service fil system. Upp till 50 fel (filer/
 
 ## <a name="add-log-messages-in-code"></a>Lägg till logg meddelanden i kod
 
-I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Till exempel:
+I program koden använder du vanliga loggnings funktioner för att skicka logg meddelanden till program loggarna. Exempel:
 
-- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Till exempel:
+- ASP.NET-program kan använda klassen [system. Diagnostics. trace](/dotnet/api/system.diagnostics.trace) för att logga information i Application Diagnostics-loggen. Exempel:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Som standard använder ASP.NET Core loggnings leverantören [Microsoft. Extensions. logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Mer information finns i [ASP.net Core loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Som standard använder ASP.NET Core loggnings leverantören [Microsoft. Extensions. logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Mer information finns i [ASP.net Core loggning i Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Strömningsloggar
 
@@ -138,12 +138,12 @@ Om du vill strömma loggar Live i [Cloud Shell](../cloud-shell/overview.md)anvä
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Till exempel:
+Om du vill filtrera vissa händelser, till exempel fel, använder du parametern **--filter** . Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Till exempel:
+Använd parametern **--Path** för att filtrera vissa logg typer, till exempel http. Exempel:
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>I lokal Terminal
 
-Om du vill strömma loggar i den lokala konsolen [installerar du Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och [loggar in på ditt konto](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). När du har loggat in följer du [anvisningarna för Cloud Shell](#in-cloud-shell)
+Om du vill strömma loggar i den lokala konsolen [installerar du Azure CLI](/cli/azure/install-azure-cli) och [loggar in på ditt konto](/cli/azure/authenticate-azure-cli). När du har loggat in följer du [anvisningarna för Cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Åtkomst till loggfiler
 

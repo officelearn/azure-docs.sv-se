@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: df8f68e47776f46ae2d1331f85bd76d6cfe17b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962816"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Översikt över Azure App Service diagnostik
 
@@ -20,7 +20,7 @@ När du kör ett webb program måste du vara för beredd för eventuella problem
 
 Även om den här upplevelsen är mest användbar när du har problem med din app under de senaste 24 timmarna, är alla diagnostiska grafer alltid tillgängliga så att du kan analysera dem.
 
-App Service diagnostik fungerar bara för din app i Windows, utan även appar på [Linux/behållare](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service-miljön](https://docs.microsoft.com/azure/app-service/environment/intro)och [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service diagnostik fungerar bara för din app i Windows, utan även appar på [Linux/behållare](./overview.md#app-service-on-linux), [App Service-miljön](./environment/intro.md)och [Azure Functions](../azure-functions/functions-overview.md).
 
 ## <a name="open-app-service-diagnostics"></a>Öppna App Service diagnostik
 
@@ -71,7 +71,7 @@ Det finns fyra olika grafer i Health Checkup.
 
 ### <a name="investigate-application-code-issues-only-for-windows-app"></a>Undersök problem med program kod (endast för Windows-appar)
 
-Eftersom många app-problem är relaterade till problem i din program kod, integreras App Service Diagnostics med [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) för att markera undantag och beroende problem för att korrelera med den valda stillestånds tiden. Application Insights måste aktive ras separat.
+Eftersom många app-problem är relaterade till problem i din program kod, integreras App Service Diagnostics med [Application Insights](../azure-monitor/app/app-insights-overview.md) för att markera undantag och beroende problem för att korrelera med den valda stillestånds tiden. Application Insights måste aktive ras separat.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

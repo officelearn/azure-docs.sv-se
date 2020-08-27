@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3fd9a013eb3318abc48745e163d9ee0118b52b1d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3b4a9547a1bd62b7464b4a79fe68720572630f3d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077483"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961898"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Metod tips och fel söknings guide för Node-program i Azure App Service Windows
 
@@ -166,7 +166,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Gå till fel söknings konsolens webbplats`https://yoursite.scm.azurewebsites.net/DebugConsole`
+Gå till fel söknings konsolens webbplats `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Gå till platsen/wwwroot-katalogen. Du ser en kommando tolk som visas i följande exempel:
 
@@ -267,15 +267,15 @@ Aktivera FREB för ditt program för att se Win32-felkoden (se till att du bara 
 | 503 |1002 |Kontrol lera Win32-felkoden för faktisk orsak – det gick inte att skicka begäran till en node.exe. |
 | 503 |1003 |Namngiven pipe är för upptagen – kontrol lera om node.exe konsumerar överdriven CPU |
 
-NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES` . På Azure App Service är det här värdet inställt på 5000. Det innebär att node.exe kan acceptera 5000-begäranden i taget på den namngivna pipe. Det här värdet bör vara tillräckligt tillräckligt för de flesta Node-programmen som körs på Azure App Service. Du bör inte se 503,1003 på Azure App Service på grund av det höga värdet för`NODE_PENDING_PIPE_INSTANCES`
+NODE.exe har en inställning som kallas `NODE_PENDING_PIPE_INSTANCES` . På Azure App Service är det här värdet inställt på 5000. Det innebär att node.exe kan acceptera 5000-begäranden i taget på den namngivna pipe. Det här värdet bör vara tillräckligt tillräckligt för de flesta Node-programmen som körs på Azure App Service. Du bör inte se 503,1003 på Azure App Service på grund av det höga värdet för `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Fler resurser
 
 Följ dessa länkar om du vill veta mer om node.js program på Azure App Service.
 
 * [Kom igång med Node.js-webbappar i Azure App Service](quickstart-nodejs.md)
-* [Felsöka en Node.js-webbapp i Azure Apptjänst](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
+* [Felsöka en Node.js-webbapp i Azure Apptjänst](/archive/blogs/azureossds/debugging-node-js-apps-on-azure-app-services)
 * [Använda Node.js-moduler med Azure-program](../nodejs-use-node-modules-azure-apps.md)
-* [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Azure App Service Web Apps: Node.js](/archive/blogs/silverlining/windows-azure-websites-node-js)
 * [Node.js Developer Center](../nodejs-use-node-modules-azure-apps.md)
 * [Utforska superhemliga Kudu-felsökningskonsolen](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

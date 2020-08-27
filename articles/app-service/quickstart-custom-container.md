@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212527"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961371"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -25,7 +25,7 @@ Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avb
 > App Service i Windows-behållare är i för hands version.
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -103,7 +103,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
    ![Konfigurera du är Web App for Containers](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Om du har en anpassad avbildning någon annanstans för ditt webbprogram, till exempel i [Azure Container Registry](/azure/container-registry/) eller på en annan privat lagringsplats, kan du konfigurera den här.
+    Om du har en anpassad avbildning någon annanstans för ditt webbprogram, till exempel i [Azure Container Registry](../container-registry/index.yml) eller på en annan privat lagringsplats, kan du konfigurera den här.
 
 1. Välj **Granska och skapa** och **skapa** och vänta sedan på att Azure ska skapa de nödvändiga resurserna.
 
@@ -173,8 +173,8 @@ De strömmade loggarna ser ut så här:
 
 Du kan använda en annan anpassad Docker-avbildning för att köra din app. Du måste dock välja den högra [överordnade avbildningen (bas avbildningen)](https://docs.docker.com/develop/develop-images/baseimages/) för det ramverk som du vill använda:
 
-- Om du vill distribuera .NET Framework appar använder du en överordnad avbildning som baseras på Windows Server Core 2019 [långsiktig LTSC-version (långsiktig service Channel)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
-- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning som baseras på Windows Server nano 1809-versionen från [halvårs kanal (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
+- Om du vill distribuera .NET Framework appar använder du en överordnad avbildning som baseras på Windows Server Core 2019 [långsiktig LTSC-version (långsiktig service Channel)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . 
+- Om du vill distribuera .NET Core-appar använder du en överordnad avbildning som baseras på Windows Server nano 1809-versionen från [halvårs kanal (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) . 
 
 Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men du kan minska starttiden genom att använda någon av följande överordnade avbildningar som redan har cachelagrats i Azure App Service:
 
@@ -188,9 +188,9 @@ Det tar lite tid att ladda ned en överordnad avbildning när appen startas. Men
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-App Service på Linux ger fördefinierade program stackar i Linux med stöd för språk som .NET, PHP, Node.js och andra. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. Den här snabb starten visar hur du distribuerar en avbildning från en [Azure Container Registry](/azure/container-registry) (ACR) till App Service.
+App Service på Linux ger fördefinierade program stackar i Linux med stöd för språk som .NET, PHP, Node.js och andra. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. Den här snabb starten visar hur du distribuerar en avbildning från en [Azure Container Registry](../container-registry/index.yml) (ACR) till App Service.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [Azure-konto](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)
@@ -200,7 +200,7 @@ App Service på Linux ger fördefinierade program stackar i Linux med stöd för
 
 ## <a name="create-an-image"></a>Skapa en avbildning
 
-För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](/azure/container-registry). Följ anvisningarna i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](/azure/container-registry/container-registry-get-started-portal), men Använd `mcr.microsoft.com/azuredocs/go` avbildningen i stället för `hello-world` avbildningen. [Exempel-Dockerfile finns i Azure samples lagrings platsen](https://github.com/Azure-Samples/go-docs-hello-world).
+För att slutföra den här snabb starten behöver du en lämplig webb program avbildning som lagras i en [Azure Container Registry](../container-registry/index.yml). Följ anvisningarna i [snabb start: skapa ett privat behållar register med hjälp av Azure Portal](../container-registry/container-registry-get-started-portal.md), men Använd `mcr.microsoft.com/azuredocs/go` avbildningen i stället för `hello-world` avbildningen. [Exempel-Dockerfile finns i Azure samples lagrings platsen](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Se till att ange alternativet för **Administratörs användare** för att **Aktivera** när du skapar behållar registret. Du kan också ställa in den från avsnittet **åtkomst nycklar** på register sidan i Azure Portal. Den här inställningen krävs för att App Service åtkomst.
@@ -261,4 +261,4 @@ Kolla sedan in de andra Azure-tilläggen.
 
 Eller hämta dem genom att installera tilläggs paketet för [Azure tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) .
 
-::: zone-end  
+::: zone-end

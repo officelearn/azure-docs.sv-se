@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080617"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962527"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Skapa en webbapp i en App Service-miljön v1
 
@@ -57,7 +57,7 @@ I den här självstudien förutsätter vi att du har skapat en App Service-milj�
     Om din ASE använder en intern VIP-adress är URL: en för en app i den ASE: [*webbplats*namn]. [*under domän angavs vid skapande av ASE*]   
     När du har valt ASP när du har skapat ASE visas under domän uppdateringen nedan **namn**
 
-## <a name="create-an-app-service-plan"></a><a name="createplan"></a>Skapa en App Service plan
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Skapa en App Service plan
 När du skapar en App Service plan i en App Service-miljön skiljer sig dina arbets val åt eftersom det inte finns några delade arbetare i en ASE.  De anställda som du måste använda är de som har allokerats till ASE av administratören.  Det innebär att du måste ha fler medarbetare som har allokerats till din ASE-pool för att skapa en ny plan än det totala antalet instanser i alla planer som redan finns i arbets gruppen.  Om du inte har tillräckligt många arbetare i ASE Worker-poolen för att skapa din plan måste du arbeta med ASE-administratören för att få dem tillagda.
 
 En annan skillnad med App Service planer som är värd för en App Service-miljön är brist på pris urval.  När du har ett App Service-miljön du betala för beräknings resurser som används av systemet och inte har extra avgifter för planerna i den miljön.  Normalt när du skapar en App Service plan väljer du en pris plan som avgör din fakturering.  En App Service-miljön är i princip en privat plats där du kan skapa innehåll.  Du betalar för miljön och inte är värd för ditt innehåll.
@@ -105,4 +105,4 @@ När du har skapat din webbapp och App Service plan det är en bra idé att skal
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d6e85bad7705647164fb1010f6c782729e20596b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211924"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961677"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurera en ASP.NET Core app för Azure App Service
 
@@ -56,7 +56,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ::: zone pivot="platform-windows"  
 
-Ange mål ramverket i projekt filen för ditt ASP.NET Core-projekt. Mer information finns i [Välj den .net Core-version som ska användas](https://docs.microsoft.com/dotnet/core/versions/selection) i .net Core-dokumentationen.
+Ange mål ramverket i projekt filen för ditt ASP.NET Core-projekt. Mer information finns i [Välj den .net Core-version som ska användas](/dotnet/core/versions/selection) i .net Core-dokumentationen.
 
 ::: zone-end
 
@@ -128,7 +128,7 @@ namespace SomeNamespace
 Om du konfigurerar en app-inställning med samma namn i App Service och i *appsettings.jspå*, till exempel, har App Service värdet företräde framför *appsettings.js* svärdet. Med värdet Local *appsettings.json* kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
 
 > [!NOTE]
-> Observera att [hierarkiska konfigurations data](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) i *appsettings.jspå* nås med hjälp av den `:` avgränsare som är standard för .net Core. Om du vill åsidosätta en viss hierarkisk konfigurations inställning i App Service anger du namnet på appens inställning med samma avgränsat format i nyckeln. Du kan köra följande exempel i [Cloud Shell](https://shell.azure.com):
+> Observera att [hierarkiska konfigurations data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) i *appsettings.jspå* nås med hjälp av den `:` avgränsare som är standard för .net Core. Om du vill åsidosätta en viss hierarkisk konfigurations inställning i App Service anger du namnet på appens inställning med samma avgränsat format i nyckeln. Du kan köra följande exempel i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
@@ -144,7 +144,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-ASP.NET Core tillhandahåller en [inbyggd Logging-Provider för App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). I *program.cs* för ditt projekt lägger du till providern i programmet via `ConfigureLogging` tilläggs metoden, som du ser i följande exempel:
+ASP.NET Core tillhandahåller en [inbyggd Logging-Provider för App Service](/aspnet/core/fundamentals/logging/#azure-app-service). I *program.cs* för ditt projekt lägger du till providern i programmet via `ConfigureLogging` tilläggs metoden, som du ser i följande exempel:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -159,11 +159,11 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         });
 ```
 
-Du kan sedan konfigurera och generera loggar med [standard mönstret för .net Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+Du kan sedan konfigurera och generera loggar med [standard mönstret för .net Core](/aspnet/core/fundamentals/logging).
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-Mer information om hur du felsöker ASP.NET Core appar i App Service finns i [felsöka ASP.net Core på Azure App service och IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
+Mer information om hur du felsöker ASP.NET Core appar i App Service finns i [felsöka ASP.net Core på Azure App service och IIS](/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
@@ -177,9 +177,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs*:
 
-- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och- `X-Forwarded-Proto` rubrikerna i `Startup.ConfigureServices` .
+- Konfigurera mellanprogram med [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och- `X-Forwarded-Proto` rubrikerna i `Startup.ConfigureServices` .
 - Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.
-- Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra mellanprogram.
+- Anropa metoden [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra mellanprogram.
 
 Om du placerar alla tre element tillsammans ser koden ut som i följande exempel:
 
@@ -208,7 +208,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar och belastningsutjämnare](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar och belastningsutjämnare](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
 
@@ -231,4 +231,3 @@ Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar oc
 > [Vanliga frågor och svar om App Service Linux](faq-app-service-linux.md)
 
 ::: zone-end
-

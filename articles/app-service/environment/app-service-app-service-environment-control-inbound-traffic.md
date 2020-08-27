@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5efca8ab51c789a619e48b1ae96a53494ae411ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831173"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962068"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Så här styr du inkommande trafik till en App Service-miljön
 ## <a name="overview"></a>Översikt
@@ -31,8 +31,8 @@ Innan du låser inkommande nätverks trafik med en nätverks säkerhets grupp, k
 
 Följande lista innehåller de portar som används av en App Service-miljön. Alla portar är **TCP**, om inget annat anges:
 
-* 454: **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via TLS.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
-* 455: **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via TLS.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
+* 454:  **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via TLS.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
+* 455:  **obligatorisk port** som används av Azure-infrastrukturen för att hantera och underhålla App Service miljöer via TLS.  Blockera inte trafik till den här porten.  Den här porten är alltid kopplad till den offentliga VIP: en för en ASE.
 * 80: standard porten för inkommande HTTP-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
 * 443: standard porten för inkommande TLS-trafik till appar som körs i App Service planer i en App Service-miljön.  På en ILB-aktiverad ASE är den här porten kopplad till ILB-adressen för ASE.
 * 21: kontroll kanal för FTP.  Den här porten kan blockeras på ett säkert sätt om FTP inte används.  På en ILB-aktiverad ASE kan den här porten bindas till ILB-adressen för en ASE.
@@ -86,7 +86,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityR
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 ```
 
-(**Obs:** data kanalens port intervall kan ändras under för hands perioden.)
+(**Obs:**  data kanalens port intervall kan ändras under för hands perioden.)
 
 Om fjärrfelsökning med Visual Studio används visar följande regler hur du beviljar åtkomst.  Det finns en separat regel för varje version av Visual Studio som stöds eftersom varje version använder en annan port för fjärrfelsökning.  Precis som med FTP-åtkomst kanske fjärrfelsöknings trafik inte flödar korrekt via en traditionell WAF eller proxyserver.  *SourceAddressPrefix* kan i stället anges till IP-adressintervallet för de utvecklare som kör Visual Studio.
 
@@ -130,12 +130,11 @@ Mer information finns i [säker anslutning till Server dels resurser från en ap
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-

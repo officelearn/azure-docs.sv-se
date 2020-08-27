@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081595"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962697"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Snabb start: skapa en Azure SQL Database enskild databas
 
 I den här snabb starten använder du Azure Portal, ett PowerShell-skript eller ett Azure CLI-skript för att skapa en enda databas i Azure SQL Database. Sedan frågar du databasen med hjälp av **Frågeredigeraren** i Azure Portal.
 
-En [enkel databas](single-database-overview.md) är det snabbaste och enklaste alternativet för Azure SQL Database. Du hanterar en enskild databas på en [Server](logical-servers.md), som finns i en [Azure-resurs grupp](../../active-directory-b2c/overview.md) i en angiven Azure-region. I den här snabb starten skapar du en ny resurs grupp och server för den nya databasen.
+En [enkel databas](single-database-overview.md) är det snabbaste och enklaste alternativet för Azure SQL Database. Du hanterar en enskild databas på en [Server](logical-servers.md), som finns i en [Azure-resurs grupp](../../azure-resource-manager/management/manage-resource-groups-portal.md) i en angiven Azure-region. I den här snabb starten skapar du en ny resurs grupp och server för den nya databasen.
 
 Du kan skapa en enskild databas i den *etablerade* eller *Server* lös beräknings nivån. En etablerad databas är i förväg allokerad en fast mängd beräknings resurser, inklusive processor och minne, och använder en av två [inköps modeller](purchasing-models.md). Den här snabb starten skapar en etablerad databas med den [vCore-baserade](service-tiers-vcore.md) inköps modellen, men du kan också välja en [DTU-baserad](service-tiers-dtu.md) modell.
 

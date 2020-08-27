@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84170774"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958260"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Felsök problem med långsam program prestanda i Azure App Service
 Den här artikeln hjälper dig att felsöka problem med långsam program prestanda i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -43,7 +43,7 @@ Fel sökning kan delas upp i tre olika uppgifter i nummerordning:
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Observera och övervaka programmets beteende
 #### <a name="track-service-health"></a>Spåra tjänstens hälsa
-Microsoft Azure publicizes varje gången det uppstår avbrott i tjänsten eller prestanda försämring. Du kan spåra hälso tillståndet för tjänsten på [Azure Portal](https://portal.azure.com/). Mer information finns i [spåra tjänstens hälsa](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes varje gången det uppstår avbrott i tjänsten eller prestanda försämring. Du kan spåra hälso tillståndet för tjänsten på [Azure Portal](https://portal.azure.com/). Mer information finns i [spåra tjänstens hälsa](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Övervaka din app
 Med det här alternativet kan du ta reda på om ditt program har problem. Klicka på panelen **förfrågningar och fel** i appens blad. Bladet **mått** visar alla mått som du kan lägga till.
@@ -61,7 +61,7 @@ Några av de mått som du kanske vill övervaka för din app är
 Mer information finns i:
 
 * [Övervaka appar i Azure App Service](web-sites-monitor.md)
-* [Få varningsmeddelanden](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Få varningsmeddelanden](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Övervaka webb slut punkts status
 Om du kör din app på **standard** pris nivån kan App Service övervaka två slut punkter från tre geografiska platser.
@@ -161,4 +161,4 @@ Att starta om är ofta det enklaste sättet att återställa från engångs prob
 
  ![Starta om appen för att lösa prestanda problem](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-Du kan också hantera din app med hjälp av Azure PowerShell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Du kan också hantera din app med hjälp av Azure PowerShell. Mer information finns i [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).

@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831887"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962051"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certifikat och App Service-miljön 
 
-App Service-miljön (ASE) är en distribution av Azure App Service som körs i Azure-Virtual Network (VNet). Den kan distribueras med en tillgänglig program slut punkt för Internet eller en slut punkt för program som finns i ditt VNet. Om du distribuerar ASE med en tillgänglig slut punkt för Internet kallas distributionen en extern ASE. Om du distribuerar ASE med en slut punkt i ditt virtuella nätverk kallas den distributionen en ILB-ASE. Du kan lära dig mer om ILB-ASE från dokumentet [create och Use a ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) .
+App Service-miljön (ASE) är en distribution av Azure App Service som körs i Azure-Virtual Network (VNet). Den kan distribueras med en tillgänglig program slut punkt för Internet eller en slut punkt för program som finns i ditt VNet. Om du distribuerar ASE med en tillgänglig slut punkt för Internet kallas distributionen en extern ASE. Om du distribuerar ASE med en slut punkt i ditt virtuella nätverk kallas den distributionen en ILB-ASE. Du kan lära dig mer om ILB-ASE från dokumentet [create och Use a ILB ASE](./create-ilb-ase.md) .
 
 ASE är ett enda klient system. Eftersom det är en enda klient, finns det vissa funktioner som endast är tillgängliga med en ASE som inte är tillgänglig i App Service för flera innehavare. 
 

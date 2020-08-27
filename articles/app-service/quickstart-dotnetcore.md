@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212670"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961541"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Snabb start: skapa en ASP.NET Core webbapp i Azure
 
@@ -21,7 +21,7 @@ I den här snabb starten får du lära dig hur du skapar och distribuerar din f�
 
 När du är klar har du en Azure-resurs grupp som består av en App Service värd plan och en App Service med ett distribuerat webb program.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/dotnet/).
 - Den här snabb starten distribuerar en app till App Service i Windows. Information om hur du distribuerar till App Service på _Linux_finns [i skapa en .net Core-webbapp i App Service](./quickstart-dotnetcore.md).
@@ -59,8 +59,8 @@ Om du vill publicera din webbapp måste du först skapa och konfigurera en ny Ap
 
 Som en del av att konfigurera App Service skapar du:
 
-- En ny [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology) som innehåller alla Azure-resurser för tjänsten.
-- En ny [värd plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) som anger plats, storlek och funktioner för den webb Server grupp som är värd för din app.
+- En ny [resurs grupp](../azure-resource-manager/management/overview.md#terminology) som innehåller alla Azure-resurser för tjänsten.
+- En ny [värd plan](./overview-hosting-plans.md) som anger plats, storlek och funktioner för den webb Server grupp som är värd för din app.
 
 Följ de här stegen för att skapa din App Service och publicera din webbapp:
 
@@ -160,7 +160,7 @@ Gå vidare till nästa artikel om du vill lära dig hur du skapar en .NET Core-a
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-Med [App Service i Linux](overview.md#app-service-on-linux) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](https://docs.microsoft.com/aspnet/core/)-app med App Service på Linux. Du skapar appen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till appen.
+Med [App Service i Linux](overview.md#app-service-on-linux) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du skapar en [.NET Core](/aspnet/core/)-app med App Service på Linux. Du skapar appen med [Azure CLI](/cli/azure/get-started-with-azure-cli) och använder Git för att distribuera .NET Core-koden till appen.
 
 ![Exempelapp som körs i Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -168,7 +168,7 @@ Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -322,4 +322,4 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 > [!div class="nextstepaction"]
 > [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

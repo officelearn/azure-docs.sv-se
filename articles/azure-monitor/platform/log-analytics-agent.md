@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e1fa2fe11873d08fae5add1ee3206f6f887975eb
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121535"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960925"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md).
@@ -22,7 +22,7 @@ Den här artikeln innehåller en detaljerad översikt över agent-, system-och n
 > Du kan också se Log Analytics-agenten som kallas Microsoft Monitoring Agent (MMA) eller OMS Linux-agenten.
 
 > [!NOTE]
-> Azure-diagnostik tillägget är en av de agenter som är tillgängliga för att samla in övervaknings data från gäst operativ systemet för beräknings resurser. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en beskrivning av de olika agenterna och vägledningen för att välja lämpliga agenter för dina behov.
+> Azure-diagnostik tillägget är en av de agenter som är tillgängliga för att samla in övervaknings data från gäst operativ systemet för beräknings resurser. Se [Översikt över Azure Monitor agenter ](agents-overview.md) för en beskrivning av de olika agenterna och vägledningen för att välja lämpliga agenter för dina behov.
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Jämförelse med Azure Diagnostics-tillägget
 [Tillägget Azure Diagnostics](diagnostics-extension-overview.md) i Azure Monitor kan också användas för att samla in övervaknings data från gäst operativ systemet på virtuella Azure-datorer. Du kan välja att använda antingen eller båda beroende på dina behov. En detaljerad jämförelse av de Azure Monitor agenterna finns i [Översikt över Azure Monitors agenter](agents-overview.md) . 
@@ -118,9 +118,9 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
 ### <a name="python-2-requirement"></a>Python 2-krav
  Den Log Analytics agenten kräver python 2. Om den virtuella datorn använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.
 
- - Red Hat, CentOS, Oracle:`yum install -y python2`
- - Ubuntu, Debian:`apt-get install -y python2`
- - SUSE`zypper install -y python2`
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE `zypper install -y python2`
 
 Den körbara filen python2 måste ha ett alias till *python* med hjälp av följande procedur:
 
@@ -130,7 +130,7 @@ Den körbara filen python2 måste ha ett alias till *python* med hjälp av följ
     sudo update-alternatives ––display python
     ```
 
-2. Kör följande kommando. Ersätt *\<priority\>* med ett tal som är större än den befintliga länkens prioritet, eller 1 om det inte finns några länkar.
+2. Kör följande kommando: Ersätt *\<priority\>* med ett tal som är större än den befintliga länkens prioritet, eller 1 om det inte finns några länkar.
 
     ```
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
@@ -214,9 +214,6 @@ För Linux-agenten anges proxyservern under installationen eller [efter installa
 
 `[protocol://][user:password@]proxyhost[:port]`
 
-> [!NOTE]
-> Om proxyservern inte kräver att du autentiserar måste Linux-agenten fortfarande tillhandahålla en pseudo-användare/-lösen ord. Detta kan vara valfritt användar namn eller lösen ord.
-
 |Egenskap| Beskrivning |
 |--------|-------------|
 |Protokoll | https |
@@ -225,7 +222,7 @@ För Linux-agenten anges proxyservern under installationen eller [efter installa
 |proxyhost | Adress eller FQDN för proxyservern/Log Analytics Gateway |
 |port | Valfritt port nummer för proxyservern/Log Analytics Gateway |
 
-Exempel: `https://user01:password@proxy01.contoso.com:30443`
+Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Om du använder specialtecken som " \@ " i ditt lösen ord får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  

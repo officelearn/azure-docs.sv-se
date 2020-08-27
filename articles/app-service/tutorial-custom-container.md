@@ -7,22 +7,22 @@ ms.author: msangapu
 keywords: Azure App Service, webbapp, Linux, Windows, Docker, container
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212946"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958498"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrera anpassad program vara till Azure App Service med en anpassad behållare
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-miljön låser operativsystemet från administrativ åtkomst, programinstallationer, ändringar av den globala sammansättningscachen och så vidare (se [Operativsystemfunktioner i Azure App Service](operating-system-functionality.md)). Men med hjälp av en anpassad Windows-behållare i App Service (för hands version) kan du göra ändringar i operativ systemet som appen behöver, så det är enkelt att migrera en lokal app som kräver anpassad operativ system-och program varu konfiguration. Den här kursen beskriver hur du migrerar en ASP.NET-app till App Service som använder anpassade teckensnitt som installeras i Windows-teckensnittsbiblioteket. Du distribuerar en Windows-avbildning med en anpassad konfiguration från Visual Studio till [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) och kör den sedan i App Service.
+[Azure App Service](overview.md) har fördefinierade programstackar i Windows som ASP.NET eller Node.js, som körs i IIS. Den förkonfigurerade Windows-miljön låser operativsystemet från administrativ åtkomst, programinstallationer, ändringar av den globala sammansättningscachen och så vidare (se [Operativsystemfunktioner i Azure App Service](operating-system-functionality.md)). Men med hjälp av en anpassad Windows-behållare i App Service (för hands version) kan du göra ändringar i operativ systemet som appen behöver, så det är enkelt att migrera en lokal app som kräver anpassad operativ system-och program varu konfiguration. Den här kursen beskriver hur du migrerar en ASP.NET-app till App Service som använder anpassade teckensnitt som installeras i Windows-teckensnittsbiblioteket. Du distribuerar en Windows-avbildning med en anpassad konfiguration från Visual Studio till [Azure Container Registry](../container-registry/index.yml) och kör den sedan i App Service.
 
 ![Visar den webbapp som körs i en Windows-behållare.](media/tutorial-custom-container/app-running.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -92,7 +92,7 @@ Du hittar _InstallFont.ps1_ i projektet **CustomFontSample**. Det är ett enkelt
 
 ## <a name="publish-to-azure-container-registry"></a>Publicera till Azure Container Registry
 
-[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) kan lagra dina avbildningar för containerdistribution. Du kan konfigurera App Service att använda avbildningar i Azure Container Registry.
+[Azure Container Registry](../container-registry/index.yml) kan lagra dina avbildningar för containerdistribution. Du kan konfigurera App Service att använda avbildningar i Azure Container Registry.
 
 ### <a name="open-publish-wizard"></a>Öppna publiceringsguiden
 
@@ -120,7 +120,7 @@ Konfigurera det nya containerregistret baserat på de föreslagna värdena i tab
 | ----------------- | ------------ | ----|
 |**DNS-prefix**| Behåll det genererade registernamnet eller ändra det till ett annat unikt namn. |  |
 |**Resursgrupp**| Klicka på **Nytt**, skriv **myResourceGroup** och klicka på **OK**. |  |
-|**SKU**| Basic | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Grundläggande | [Prisnivåer](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registerplats**| Europa, västra | |
 
 ![Konfigurera Azure-containerregister](./media/tutorial-custom-container/configure-registry.png)
@@ -161,7 +161,7 @@ På fliken **Docker** konfigurerar du din anpassade Windows-behållare så som v
 | ----------------- | ------------ |
 |**Bildkälla**| Azure Container register |
 |**Register**| Välj [registret som du skapade tidigare](#publish-to-azure-container-registry). |
-|**Bild**| customfontsample |
+|**Avbildning**| customfontsample |
 |**Tag**| senaste |
 
 ### <a name="complete-app-creation"></a>Slutför appgenereringen
@@ -439,7 +439,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
     
     Mer information om den här miljövariabeln finns i [readme i exemplets GitHub-lagringsplats](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Aktivera [hanterad identitet](/azure/app-service/overview-managed-identity) för webbappen med hjälp av- [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) kommandot:
+1. Aktivera [hanterad identitet](./overview-managed-identity.md) för webbappen med hjälp av- [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) kommandot:
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Om du vill distribuera en behållare till Azure App Service skapar du först en 
     - `<registry-name>` med namnet på ditt behållar register
     - `<subscription-id>` med det prenumerations-ID som hämtats från `az account show` kommandot
 
-Mer information om dessa behörigheter finns i [Vad är rollbaserad åtkomst kontroll i Azure](/azure/role-based-access-control/overview) och 
+Mer information om dessa behörigheter finns i [Vad är rollbaserad åtkomst kontroll i Azure](../role-based-access-control/overview.md) och 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Distribuera avbildningen och testa appen
 

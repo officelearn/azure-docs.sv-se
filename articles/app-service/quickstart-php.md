@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/01/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 7dea761afb459363e9f469c808b2735ead9f25ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 152a000939f74b1852073742e501ac66246389a5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085320"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961464"
 ---
 # <a name="create-a-php-web-app-in-azure-app-service"></a>Skapa en PHP-webbapp i Azure App Service
 
@@ -22,7 +22,7 @@ ms.locfileid: "88085320"
 [Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service on Linux.
 ::: zone-end  
 
-Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
+Du skapar webbappen med [Azure CLI](/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/quickstart-php/hello-world-in-browser.png)
 

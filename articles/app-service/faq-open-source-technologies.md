@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 89c317e6623a868fd75b09274c726720e726e470
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 512776f2498a88f1fda9b5e7f0e2db0ddd32b955
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848646"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962336"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
 
@@ -33,7 +33,7 @@ Så här aktiverar du PHP-loggning:
 5. Välj **+** ikonen och välj sedan **ny fil**.
 6. Ange fil namnet till **.user.ini**.
 7. Välj Penn ikonen bredvid **.user.ini**.
-8. Lägg till den här koden i filen:`log_errors=on`
+8. Lägg till den här koden i filen: `log_errors=on`
 9. Välj **Spara**.
 10. Välj Penn ikonen bredvid **wp-config. php**.
 11. Ändra texten till följande kod:
@@ -43,7 +43,7 @@ Så här aktiverar du PHP-loggning:
     ```
 12. I Azure Portal, i menyn webbapp, startar du om din webbapp.
 
-Mer information finns i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Mer information finns i [Aktivera fel loggar för WordPress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>Hur gör jag för att logga python-programfel i appar som finns i App Service?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
@@ -72,7 +72,7 @@ Om du vill ändra versionen för Node.js programmet kan du använda något av f�
   Distributions processen för Azure käll kontroll omfattar följande steg:
   1. Flyttar innehåll till Azure-webbappen.
   2. Skapar ett standard skript för distribution, om det inte finns en (Deploy. cmd,. distributions-filer) i rotmappen för webbappar.
-  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node.js-versionen i package.jspå fil > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node.js-versionen i package.jspå fil > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. Filen iisnode. yml har följande kodrad:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -80,7 +80,7 @@ Om du vill ändra versionen för Node.js programmet kan du använda något av f�
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>Jag ser meddelandet "Det gick inte att upprätta en databas anslutning" i min WordPress-app som finns App Service. Hur gör jag för att felsöka detta?
 
-Om du ser det här felet i din Azure WordPress-app för att aktivera php_errors. log och debug. log, slutför du stegen som beskrivs i [Aktivera fel loggar för WordPress](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+Om du ser det här felet i din Azure WordPress-app för att aktivera php_errors. log och debug. log, slutför du stegen som beskrivs i [Aktivera fel loggar för WordPress](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 När loggarna är aktiverade kan du återskapa felet och sedan kontrol lera loggarna för att se om du har slut på anslutningar:
 ```
@@ -97,11 +97,11 @@ Om du ser det här felet i fel söknings. log-eller php_errors. log-filerna öve
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>Hur gör jag för att installera inbyggda python-moduler i en App Service webbapp eller API-app?
 
-Vissa paket kan inte installeras med hjälp av pip i Azure. Paketet är kanske inte tillgängligt i python-paketets index, eller så kan en kompilator krävas (en kompilator är inte tillgänglig på den dator som kör-webbappen i App Service). Information om hur du installerar inbyggda moduler i App Service Web Apps och API Apps finns [i installera Python-moduler i App Service](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/).
+Vissa paket kan inte installeras med hjälp av pip i Azure. Paketet är kanske inte tillgängligt i python-paketets index, eller så kan en kompilator krävas (en kompilator är inte tillgänglig på den dator som kör-webbappen i App Service). Information om hur du installerar inbyggda moduler i App Service Web Apps och API Apps finns [i installera Python-moduler i App Service](/archive/blogs/azureossds/install-native-python-modules-on-azure-web-apps-api-apps).
 
 ## <a name="how-do-i-deploy-a-django-app-to-app-service-by-using-git-and-the-new-version-of-python"></a>Hur gör jag för att du distribuera en django-app till App Service med hjälp av Git och den nya versionen av python?
 
-Information om hur du installerar django finns i [distribuera en django-app till App Service](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
+Information om hur du installerar django finns i [distribuera en django-app till App Service](/archive/blogs/azureossds/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python).
 
 ## <a name="where-are-the-tomcat-log-files-located"></a>Var finns Tomcat-loggfilerna?
 
@@ -183,7 +183,7 @@ Om du nyligen har migrerat till Azure kan WordPress omdirigera till den gamla do
 
 WordPress kompis + är ett Azure-webbplats tillägg som du kan använda för att uppdatera URL: en för omdirigering direkt i databasen. Mer information om hur du använder WordPress kompis + finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: omdirigera till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: omdirigera till fel URL](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur gör jag för att ändra inloggnings lösen ordet för ditt WordPress?
 
@@ -197,12 +197,12 @@ Om du upptäcker att du har låst av WordPress efter att du nyligen har installe
 
 Du har flera alternativ för att migrera MySQL-databasen som är ansluten till din WordPress-webbplats:
 
-* Utvecklare: använda [kommando tolken eller phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Utvecklare: använda [kommando tolken eller phpMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
 * Icke-utvecklare: Använd [WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur gör jag för att hjälp till att göra WordPress säkrare?
 
-Information om rekommenderade säkerhets metoder för WordPress finns i [metod tips för säkerhet för WordPress i Azure](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/).
+Information om rekommenderade säkerhets metoder för WordPress finns i [metod tips för säkerhet för WordPress i Azure](/archive/blogs/azureossds/best-practices-for-wordpress-security-on-azure).
 
 ## <a name="i-am-trying-to-use-phpmyadmin-and-i-see-the-message-access-denied-how-do-i-resolve-this"></a>Jag försöker använda PHPMyAdmin och jag ser meddelandet "åtkomst nekad". Hur gör jag för att lösa det?
 

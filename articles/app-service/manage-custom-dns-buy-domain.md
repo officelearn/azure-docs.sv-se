@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220728"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958736"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Köpa ett anpassat domännamn för Azure App Service
 
@@ -18,11 +18,11 @@ App Service domäner är toppnivå domäner som hanteras direkt i Azure. De gör
 
 Information om virtuella Azure-datorer eller Azure Storage finns i [tilldela App Service domän till Azure VM eller Azure Storage](https://azure.github.io/AppService/2017/07/31/Assign-App-Service-domain-to-Azure-VM-or-Azure-Storage). Mer Cloud Services finns i [Konfigurera ett anpassat domän namn för en Azure-moln tjänst](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
-* [Skapa en App Service-app](/azure/app-service/), eller använd en app som du har skapat för en annan kurs.
+* [Skapa en App Service-app](./index.yml), eller använd en app som du har skapat för en annan kurs.
 * [Ta bort utgifts gränsen för din prenumeration](../cost-management-billing/manage/spending-limit.md#remove). Du kan inte köpa App Service domäner med kostnads fria prenumerations krediter.
 
 ## <a name="prepare-the-app"></a>Förbereda appen
@@ -106,10 +106,10 @@ Det är viktigt att du fyller i alla obligatoriska fält med så mycket precisio
 
 Välj sedan önskade alternativ för din domän. I följande tabell finns förklaringar:
 
-| Inställningen | Föreslaget värde | Beskrivning |
+| Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |Sekretesskydd | Aktivera | Anmäl dig till "Sekretess skydd", som ingår i inköps priset _kostnads fritt_. Vissa domäner på den översta nivån hanteras av registratorer som inte har stöd för sekretess skydd och de visas på sidan för skydds **skydd** . |
-| Tilldela standard värdnamn | **www** och**\@** | Välj önskade bindningar för värdnamn, om så önskas. När du har slutfört åtgärden för domänen kan din app nås på de valda värd namnen. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)kan du inte se alternativet för att tilldela rot domänen (@), eftersom Traffic Manager inte stöder poster. Du kan ändra värdnamnnas tilldelningar när domänen har köpts. |
+| Tilldela standard värdnamn | **www** och **\@** | Välj önskade bindningar för värdnamn, om så önskas. När du har slutfört åtgärden för domänen kan din app nås på de valda värd namnen. Om appen är bakom [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)kan du inte se alternativet för att tilldela rot domänen (@), eftersom Traffic Manager inte stöder poster. Du kan ändra värdnamnnas tilldelningar när domänen har köpts. |
 
 ### <a name="accept-terms-and-purchase"></a>Godkänn villkor och Köp
 

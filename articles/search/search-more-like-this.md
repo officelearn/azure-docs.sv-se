@@ -9,19 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fb43a0d39beacf02a6949228eaa32a719164987
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd6b64f118460a115963ed0bf105641d80334348
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934998"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>moreLikeThis (för hands version) i Azure Kognitiv sökning
 
 > [!IMPORTANT] 
 > Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Den [REST API version 2020-06-30 – för hands version](search-api-preview.md) innehåller den här funktionen. Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
-`moreLikeThis=[key]`är en frågeparameter i [search Documents-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents) som hittar dokument som liknar det dokument som anges av dokument nyckeln. När en sökbegäran görs med `moreLikeThis` , genereras en fråga med Sök villkor som extraheras från det dokument som beskriver det dokumentet bäst. Den genererade frågan används sedan för att göra sökningen. Som standard beaktas innehållet i alla sökbara fält, minus eventuella begränsade fält som du har angett med `searchFields` parametern. `moreLikeThis`Parametern kan inte användas med Sök parametern, `search=[string]` .
+`moreLikeThis=[key]` är en frågeparameter i [search Documents-API: et](/rest/api/searchservice/search-documents) som hittar dokument som liknar det dokument som anges av dokument nyckeln. När en sökbegäran görs med `moreLikeThis` , genereras en fråga med Sök villkor som extraheras från det dokument som beskriver det dokumentet bäst. Den genererade frågan används sedan för att göra sökningen. Som standard beaktas innehållet i alla sökbara fält, minus eventuella begränsade fält som du har angett med `searchFields` parametern. `moreLikeThis`Parametern kan inte användas med Sök parametern, `search=[string]` .
 
 Som standard beaktas innehållet i alla sökbara fält på den översta nivån. Om du vill ange specifika fält i stället kan du använda- `searchFields` parametern. 
 
@@ -52,7 +52,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview
 
 ### <a name="apply-filters"></a>Använda filter
 
-`MoreLikeThis`kan kombineras med andra vanliga frågeparametrar som `$filter` . Till exempel kan frågan begränsas till endast hotell vars kategori är "budget" och där omdömet är högre än 3,5:
+`MoreLikeThis` kan kombineras med andra vanliga frågeparametrar som `$filter` . Till exempel kan frågan begränsas till endast hotell vars kategori är "budget" och där omdömet är högre än 3,5:
 
 ```
 GET /indexes/hotels-sample-index/docs?moreLikeThis=20&searchFields=Description&$filter=(Category eq 'Budget' and Rating gt 3.5)&api-version=2020-06-30-Preview

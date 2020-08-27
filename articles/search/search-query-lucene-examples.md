@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561778"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934981"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Använd den fullständiga Söksyntaxen för Lucene (avancerade frågor i Azure Kognitiv sökning)
 
@@ -147,7 +147,7 @@ Du kan definiera en fält Sök åtgärd med syntaxen **FieldName: searchExpressi
 
 Se till att placera flera strängar inom citat tecken om du vill att båda strängarna ska utvärderas som en enda entitet, som i det här fallet söker efter två olika platser i `state` fältet. Se också till att operatorn är kapitaliserad som du ser med inte och och.
 
-Fältet som anges i **FieldName: searchExpression** måste vara ett sökbart fält. Mer information om hur indexera attribut används i fält definitioner finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Fältet som anges i **FieldName: searchExpression** måste vara ett sökbart fält. Mer information om hur indexera attribut används i fält definitioner finns i [skapa index (Azure Kognitiv sökning REST API)](/rest/api/searchservice/create-index) .
 
 > [!NOTE]
 > I exemplet ovan behöver vi inte använda `searchFields` parametern eftersom varje del av frågan har ett angett fält namn explicit. Du kan dock fortfarande använda `searchFields` parametern om du vill köra en fråga där vissa delar är begränsade till ett visst fält och resten kan gälla för flera fält. Frågan skulle till exempel `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` matcha `senior NOT junior` enbart till `business_title` fältet, medan den matchar "extern" med `posting_type` fältet. Fält namnet som anges i **FieldName: searchExpression** har alltid företräde framför `searchFields` parametern, vilket är anledningen till att vi inte behöver inkludera `business_title` i `searchFields` parametern.
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Regex-fråga](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Regex-frågor [analyseras](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)inte. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
+> Regex-frågor [analyseras](./search-lucene-query-architecture.md#stage-2-lexical-analysis)inte. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
 >
 
 ## <a name="example-7-wildcard-search"></a>Exempel 7: sökning med jokertecken
@@ -278,18 +278,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Fråga med jokertecken](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Jokertecken har inte [analyser](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis)ATS. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
+> Jokertecken har inte [analyser](./search-lucene-query-architecture.md#stage-2-lexical-analysis)ATS. Den enda omvandlingen som utförs på ofullständiga sökord är lowercasing.
 >
 
 ## <a name="next-steps"></a>Nästa steg
 Försök att ange en Lucene-fråga i koden. Följande länkar förklarar hur du ställer in Sök frågor för både .NET och REST API. Länkarna använder den enkla standard syntaxen så att du måste använda det du har lärt dig i den här artikeln för att ange **frågetyp**.
 
-* [Fråga ditt index med .NET SDK](search-query-dotnet.md)
-* [Fråga ditt index med hjälp av REST API](search-create-index-rest-api.md)
+* [Fråga ditt index med .NET SDK](./search-get-started-dotnet.md)
+* [Fråga ditt index med hjälp av REST API](./search-get-started-powershell.md)
 
 Ytterligare syntax-referens, fråga arkitektur och exempel finns i följande länkar:
 
 + [Exempel på enkla syntax](search-query-simple-examples.md)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Fullständigt Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Fullständigt Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 7c2857de0613be400f83544e1dabe079b7497bbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212377"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934964"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Skalbarhet för prestanda på Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ Innan du försäkrar en större distributions ansträngning bör du se till att 
 
 1. Börja med ett lågt antal frågor per sekund (frågor per sekund) och öka sedan gradvis antalet som körs i testet tills svars tiden för frågan sjunker under det fördefinierade målet. Detta är ett viktigt mått för att hjälpa dig att planera för skalning när ditt program växer i användning.
 
-1. Återanvända HTTP-anslutningar närhelst det är möjligt. Om du använder Azure Kognitiv sökning .NET SDK innebär det att du bör återanvända en instans eller [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) -instans och om du använder REST API bör du återanvända en enda httpclient.
+1. Återanvända HTTP-anslutningar närhelst det är möjligt. Om du använder Azure Kognitiv sökning .NET SDK innebär det att du bör återanvända en instans eller [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) -instans och om du använder REST API bör du återanvända en enda httpclient.
 
 1. Variera ämnet för förfrågningar så att sökningen sker över olika delar av ditt index. Variationen är viktig eftersom om du kontinuerligt kör samma Sök begär Anden börjar cachelagring av data att öka prestandan bättre än den kan ha en mer detaljerad frågegrupp.
 
@@ -43,7 +43,7 @@ När du skapar de här test arbets belastningarna finns det vissa egenskaper fö
 + Azure Kognitiv sökning kör inte indexerings aktiviteter i bakgrunden. Om tjänsten hanterar fråge-och indexerings arbets belastningar samtidigt tar du hänsyn till detta genom att antingen introducera indexerings jobb i dina testtester eller genom att undersöka alternativen för att köra indexerings jobb under låg belastnings tid.
 
 > [!Tip]
-> Du kan simulera en realistisk läsar fråga med hjälp av belastnings test verktyg. Prova att [läsa in tester med Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) eller Använd något av dessa [alternativ](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Du kan simulera en realistisk läsar fråga med hjälp av belastnings test verktyg. Prova att [läsa in tester med Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) eller Använd något av dessa [alternativ](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Skala för hög fråga-volym
 
@@ -99,7 +99,7 @@ Målet för en geo-distribuerad uppsättning Sök tjänster är att två eller f
 
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Hålla data synkroniserade över flera tjänster
 
-Det finns två alternativ för att hålla dina distribuerade Sök tjänster synkroniserade, som består av antingen med hjälp av [azure kognitiv sökning-indexeraren](search-indexer-overview.md) eller push-API: et (kallas även [azure-kognitiv sökning REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
+Det finns två alternativ för att hålla dina distribuerade Sök tjänster synkroniserade, som består av antingen med hjälp av [azure kognitiv sökning-indexeraren](search-indexer-overview.md) eller push-API: et (kallas även [azure-kognitiv sökning REST API](/rest/api/searchservice/)).  
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Använd indexerare för att uppdatera innehåll på flera tjänster
 
@@ -111,7 +111,7 @@ Här är ett visuellt visuellt objekt av vad arkitekturen skulle se ut.
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Använd REST-API: er för att överföra innehålls uppdateringar på flera tjänster
 
-Om du använder Azure-Kognitiv sökning REST API för att [skicka innehåll i ditt Azure kognitiv sökning-index](https://docs.microsoft.com/rest/api/searchservice/update-index)kan du behålla dina olika Sök tjänster synkroniserade genom att skicka ändringar till alla Sök tjänster när en uppdatering krävs. I din kod ser du till att hantera fall där en uppdatering av en Sök tjänst Miss lyckas men fungerar för andra Sök tjänster.
+Om du använder Azure-Kognitiv sökning REST API för att [skicka innehåll i ditt Azure kognitiv sökning-index](/rest/api/searchservice/update-index)kan du behålla dina olika Sök tjänster synkroniserade genom att skicka ändringar till alla Sök tjänster när en uppdatering krävs. I din kod ser du till att hantera fall där en uppdatering av en Sök tjänst Miss lyckas men fungerar för andra Sök tjänster.
 
 ## <a name="leverage-azure-traffic-manager"></a>Utnyttja Azure Traffic Manager
 

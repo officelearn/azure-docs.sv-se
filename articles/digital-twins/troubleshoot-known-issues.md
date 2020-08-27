@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 0c008061d2d4fafa96eda934d5026c92839a0bdb
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661494"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921077"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -51,7 +51,9 @@ För användare som är inloggade med en personlig [Microsoft-konto (MSA)](https
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem med interaktiv webb läsar autentisering
 
-När du skriver authentication code i dina Azure Digital-program med den senaste versionen (version **1.2.0**) av ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden.
+När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden.
+
+Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2**.
 
 Den berörda metoden används i följande artiklar: 
 * [*Självstudie: koda en klient app*](tutorial-code.md)
@@ -62,10 +64,7 @@ Problemet innehåller ett felsvar för "Azure. Identity. AuthenticationFailedExc
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-För att lösa problemet ska program varan använda Azure. Identity version **1.1.1**. I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
-
->[!NOTE]
-> Det räcker inte att lägga till biblioteket utan att ange någon version, eftersom det fortfarande är standard för de senaste **1.2.0**. Du måste ange version **1.1.1** explicit.
+Du löser problemet genom att uppdatera dina program så att de använder Azure. Identity version **1.2.2**. I den här versionen av biblioteket bör webbläsaren läsa in och autentiseras som förväntat.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 

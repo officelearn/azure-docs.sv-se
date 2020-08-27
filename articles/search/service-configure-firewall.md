@@ -8,21 +8,21 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125610"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932805"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Konfigurera IP-brandvägg för Azure Kognitiv sökning
 
 Azure Kognitiv sökning stöder IP-regler för inkommande brand Väggs stöd. Den här modellen ger ett extra säkerhets lager för din Sök tjänst som liknar de IP-regler som du hittar i en virtuell Azure-nätverks säkerhets grupp. Med dessa IP-regler kan du konfigurera Sök tjänsten så att den bara kan nås från en godkänd uppsättning datorer och/eller moln tjänster. Åtkomst till data som lagras i Sök tjänsten från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande att anroparen visar en giltig autentiseringstoken.
 
 > [!Important]
-> IP-regler på din Azure Kognitiv sökning-tjänst kan konfigureras med hjälp av Azure Portal eller [hanterings REST API version 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> IP-regler på din Azure Kognitiv sökning-tjänst kan konfigureras med hjälp av Azure Portal eller [hanterings REST API version 2020-03-13](/rest/api/searchmanagement/).
 
-## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Konfigurera en IP-brandvägg med hjälp av Azure Portal
+## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Konfigurera en IP-brandvägg med hjälp av Azure Portal
 
 Om du vill ange princip för IP-åtkomstkontroll i Azure Portal går du till Azure Kognitiv sökning service-sidan och väljer **nätverk** på navigerings menyn. Slut punktens nätverks anslutning måste vara **offentlig**. Om din anslutning är inställd på **privat**kan du bara komma åt Sök tjänsten via en privat slut punkt.
 

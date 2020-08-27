@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964897"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922896"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL-hanterad instans
 
@@ -38,11 +38,11 @@ Kontrol lera att nätverks säkerhets gruppen har rätt **inkommande säkerhets 
 > Indexerare kräver fortfarande att SQL-hanterad instans konfigureras med en offentlig slut punkt för att läsa data.
 > Du kan dock välja att begränsa den inkommande åtkomsten till den offentliga slut punkten genom att ersätta den aktuella regeln ( `public_endpoint_inbound` ) med följande 2 regler:
 >
-> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [tjänst tag gen](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("källa" = `AzureCognitiveSearch` , "namn" = `cognitive_search_inbound` )
+> * Tillåter inkommande åtkomst från `AzureCognitiveSearch` [tjänst tag gen](../virtual-network/service-tags-overview.md#available-service-tags) ("källa" = `AzureCognitiveSearch` , "namn" = `cognitive_search_inbound` )
 >
 > * Tillåter inkommande åtkomst från IP-adressen för Sök tjänsten, som kan hämtas genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net` ). ("källa" = `IP address` , "namn" = `search_service_inbound` )
 >
-> För var och en av dessa 2 regler anger du "PORT" = `3342` , "protokoll" = `TCP` , "mål" = `Any` , "åtgärd" =`Allow`
+> För var och en av dessa 2 regler anger du "PORT" = `3342` , "protokoll" = `TCP` , "mål" = `Any` , "åtgärd" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Hämta anslutnings sträng för offentlig slut punkt
 Se till att du använder anslutnings strängen för den **offentliga slut punkten** (port 3342, inte port 1433).

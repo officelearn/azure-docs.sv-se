@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 47448a97c89b1feddfc43da300cb53fd65eaff05
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 2806ce18cc9febfdf15d48052d301da48b3c226f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056660"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934471"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -68,7 +69,7 @@ Det här är vad du behöver för att slutföra den här kursen:
 
 Klient programmet som du skapar i den här självstudien använder en fåtal av Azure-tjänster. Om du vill minska svars tiden för svar från din robot bör du se till att dessa tjänster finns i samma Azure-region. I det här avsnittet ska du skapa en resurs grupp i regionen **USA, västra** . Den här resurs gruppen används när du skapar enskilda resurser för bot Framework, direkt linje tal kanalen och tal tjänsten.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Skapa en resurs grupp<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Skapa en resurs grupp <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 1. Du uppmanas att ange viss information:
    * Ställ in **prenumeration** på **kostnads fri utvärderings version** (du kan också använda en befintlig prenumeration).
    * Ange ett namn för **resurs gruppen**. Vi rekommenderar **SpeechEchoBotTutorial-ResourceGroup**.
@@ -94,7 +95,7 @@ Nu när du har en resurs grupp i en region som stöds, är nästa steg att skapa
 
 Följ de här anvisningarna för att skapa en tal resurs:
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en tjänst resurs för tal<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en tjänst resurs för tal <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 4. Du uppmanas att ange viss information:
    * Ge din resurs ett **namn**. Vi rekommenderar **SpeechEchoBotTutorial-tal**
    * För **prenumeration**kontrollerar du att den **kostnads fria utvärderings versionen** har valts.
@@ -114,7 +115,7 @@ I det här läget kontrollerar du att resurs gruppen (**SpeechEchoBotTutorial-Re
 
 Nästa steg är att skapa en App Service-plan. En App Service-plan definierar en uppsättning beräkningsresurser som en webbapp ska köra.
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Skapa en Azure App Service plan<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.AppServicePlanCreate" target="_blank">Skapa en Azure App Service plan <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 4. Du uppmanas att ange viss information:
    * Ställ in **prenumeration** på **kostnads fri utvärderings version** (du kan också använda en befintlig prenumeration).
    * För **resurs grupp**väljer du **SpeechEchoBotTutorial-ResourceGroup**.
@@ -235,7 +236,7 @@ Du måste göra en liten konfigurations ändring så att din robot kan kommunice
 
 Nu när du har skapat en Azure App Service som värd för din robot, är nästa steg att skapa en **robot Channel-registrering**. Att skapa en kanal registrering är ett krav för att registrera din robot med bot Framework-kanaler, inklusive direkt linje tal kanal. Om du vill veta mer om hur robotar använder kanaler kan du läsa [Anslut en robot till kanaler](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
-1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Skapa en Azure bot Channel-registrering<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Skapa en Azure bot Channel-registrering <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. Du uppmanas att ange viss information:
    * För **bot-handtag**anger du **SpeechEchoBotTutorial-BotRegistration-# # # #** och ersätter **####** med du är ett valfritt antal. Observera att robot-referensen måste vara globalt unik. Om du anger ett robot handtag, men får ett fel meddelande om _att det begärda bot-ID: t inte är tillgängligt_, väljer du ett annat nummer. I exemplen nedan användes 8726
    * För **prenumeration**väljer du **kostnads fri utvärdering**.
@@ -329,14 +330,14 @@ Om du får ett fel meddelande i huvud fönstret i appen använder du den här ta
 |Fel (ConnectionFailure): anslutningen stängdes av den fjärranslutna värden. Felkod: 1002. Fel information: Servern returnerade status koden 503 när status koden 101 förväntades | Kontrol lera att du har [markerat kryss rutan "Aktivera direkt uppspelnings slut punkt"](#register-the-direct-line-speech-channel) och/eller [växlade **webb-Sockets** ](#enable-web-sockets) till på.<br>Kontrol lera att din Azure App Service körs. Om det är fallet kan du försöka starta om App Service.|
 |Fel (ConnectionFailure): anslutningen stängdes av den fjärranslutna värden. Felkod: 1011. Fel information: svars status koden indikerar inte lyckad: 500 (InternalServerError)| Din robot har angett en neurala röst i sitt [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) -fält för utdata-aktivitet, men den Azure-region som är associerad med din tal prenumerations nyckel stöder inte neurala-röster. Se [standard-och neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga frågor och svar](faq-voice-assistants.md). Om det fortfarande inte går att lösa problemet när du har använt alla steg i den här självstudien anger du ett nytt ärende på [GitHub-sidan för röst assistenten](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
+Om problemet inte har åtgärd ATS i tabellen, se [röst assistenter: vanliga frågor och svar](faq-voice-assistants.md). Om det fortfarande inte går att lösa problemet när du har använt alla steg i den här självstudien anger du ett nytt ärende på  [GitHub-sidan för röst assistenten](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
 #### <a name="a-note-on-connection-time-out"></a>En anteckning om anslutnings tids gränsen
 
 Om du är ansluten till en robot och ingen aktivitet har skett under de senaste 5 minuterna stängs WebSocket-anslutningen automatiskt med klienten och med bot. Det här är avsiktligt. Ett meddelande visas i det nedre fältet: *"tids gränsen nåddes för aktiv anslutning, men det är dags att återansluta på begäran"*. Du behöver inte trycka på knappen "Återanslut". Tryck bara på mikrofon knappen och börja prata, Skriv in ett textmeddelande eller säg nyckelordet (om ett sådant är aktiverat). Anslutningen kommer automatiskt att upprättas.  
 ### <a name="view-bot-activities"></a>Visa bot-aktiviteter
 
-Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i Windows Voice Assistant-klienten ser du de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp av- [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
+Varje robot skickar och tar emot **aktivitets** meddelanden. I **aktivitets logg** fönstret i Windows Voice Assistant-klienten ser du de tidsstämplade loggarna med varje aktivitet som klienten har tagit emot från bot. Du kan också se de aktiviteter som klienten har skickat till roboten med hjälp av- [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync)  metoden. När du väljer ett logg objekt visas information om den associerade aktiviteten som JSON.
 
 Här är ett exempel-JSON för en aktivitet som klienten tar emot:
 
@@ -379,8 +380,8 @@ Mer information om vad som returneras i JSON-utdata finns i [fält i aktiviteten
 ### <a name="view-client-source-code-for-calls-to-the-speech-sdk"></a>Visa klient käll koden för anrop till tal-SDK
 
 Windows Voice Assistant-klienten använder NuGet-paketet [Microsoft. CognitiveServices. Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)som innehåller talet SDK. En bra plats för att börja granska exempel koden är metoden InitSpeechConnector () i filen [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) , som skapar dessa två tal SDK-objekt:
-- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig)– För konfigurations inställningar (t. ex. tal prenumerations nyckel, nyckel region)
-- [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor)-För att hantera kanal anslutningen och klient prenumerations händelser för hantering av identifierade tal-och robot svar.
+- [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) – För konfigurations inställningar (t. ex. tal prenumerations nyckel, nyckel region)
+- [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) -För att hantera kanal anslutningen och klient prenumerations händelser för hantering av identifierade tal-och robot svar.
 
 ## <a name="add-custom-keyword-activation"></a>Lägg till anpassad nyckelords aktivering
 
@@ -411,8 +412,8 @@ Följ de här stegen för att skapa en nyckelords modell, konfigurera Windows Vo
 
 Ta en titt på de här filerna i klient käll koden för Windows röst assistenten och granska koden som används för att aktivera nyckelords identifiering:
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs)innehåller ett anrop till metoden Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) som används för att instansiera modellen från en lokal fil på disk.
-1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs)innehåller ett anrop till metoden Speech SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) som aktiverar kontinuerlig identifiering av nyckelord.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) innehåller ett anrop till metoden Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) som används för att instansiera modellen från en lokal fil på disk.
+1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) innehåller ett anrop till metoden Speech SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) som aktiverar kontinuerlig identifiering av nyckelord.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>Valfritt Ändra språk och bot-röst
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85566008"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924171"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Så här gör du för att forma och exportera omfattande
 
@@ -206,7 +206,7 @@ Att projicera till tabeller i Azure Storage är användbart för rapportering oc
 Nu ska vi bygga en instrument panel för att visualisera viktiga fraser som extraherats från dokument som ett Word-moln. Om du vill skapa en rätt data struktur lägger du till en formaren-färdighet till färdigheter för att skapa en anpassad form som innehåller dokument information och viktiga fraser. Den anpassade figuren kommer att anropas `pbiShape` på `document` rotnoden.
 
 > [!NOTE] 
-> Tabell projektioner är Azure Storage tabeller som styrs av de lagrings gränser som Azure Storage. Mer information finns i [tabell lagrings gränser](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). Det är praktiskt att veta att enhetens storlek inte kan överstiga 1 MB och att en enskild egenskap inte får vara större än 64 KB. Dessa begränsningar gör tabeller till en lämplig lösning för att lagra ett stort antal små entiteter.
+> Tabell projektioner är Azure Storage tabeller som styrs av de lagrings gränser som Azure Storage. Mer information finns i [tabell lagrings gränser](/rest/api/storageservices/understanding-the-table-service-data-model). Det är praktiskt att veta att enhetens storlek inte kan överstiga 1 MB och att en enskild egenskap inte får vara större än 64 KB. Dessa begränsningar gör tabeller till en lämplig lösning för att lagra ett stort antal små entiteter.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Använda en formaren-färdighet för att skapa en anpassad form
 
@@ -677,4 +677,3 @@ För en översikt över projektioner, lär dig mer om funktioner som grupper och
 
 > [!div class="nextstepaction"]
 > [Projektioner i ett kunskaps lager](knowledge-store-projection-overview.md)
-

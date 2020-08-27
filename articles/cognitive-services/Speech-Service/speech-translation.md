@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: f51288da6af3580ba7592950cde4f17d7adad529
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052623"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934505"
 ---
 # <a name="what-is-speech-translation"></a>Vad är talöversättning?
 
@@ -33,9 +34,9 @@ Här är de funktioner som är tillgängliga via API: er för tal-SDK och REST:
 
 | Användningsfall | SDK | REST |
 |----------|-----|------|
-| Översättning av tal till text med igenkännings resultat. | Ja | Nej |
-| Översättning av tal till tal. | Ja | Nej |
-| Resultat av löpande igenkänning och översättning. | Ja | Nej |
+| Översättning av tal till text med igenkännings resultat. | Ja | Inga |
+| Översättning av tal till tal. | Ja | Inga |
+| Resultat av löpande igenkänning och översättning. | Ja | Inga |
 
 ## <a name="get-started-with-speech-translation"></a>Kom igång med tal Översättning
 

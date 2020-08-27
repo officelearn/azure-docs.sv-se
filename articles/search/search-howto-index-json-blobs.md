@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: cdf71f939d6e5e1ada0ba141dce3bcba9d7d9b01
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6a5a3634f1d5ddc7af2af2e27c2b1d7c8ce9a2af
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529802"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918000"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
 
@@ -37,7 +37,7 @@ Vi rekommenderar att du använder samma region eller plats för både Azure Kogn
 
 ### <a name="1---prepare-source-data"></a>1 – Förbered källdata
 
-[Logga in på Azure Portal](https://portal.azure.com/) och [skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller dina data. Den offentliga åtkomst nivån kan anges till något av dess giltiga värden.
+[Logga in på Azure Portal](https://portal.azure.com/) och [skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md) som innehåller dina data. Den offentliga åtkomst nivån kan anges till något av dess giltiga värden.
 
 Du behöver lagrings kontots namn, behållar namn och en åtkomst nyckel för att hämta dina data i guiden **Importera data** .
 
@@ -77,7 +77,7 @@ På sidan **index** visas en lista med fält med data typen och en serie kryss r
 
 Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart och sökbart** för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
 
-Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för mer information. 
+Granska beskrivningen av [indexattribut](/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](/rest/api/searchservice/language-support) verktyg för mer information. 
 
 Ägna en stund åt att granska dina val. När du har kört guiden skapas fysiska data strukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
 
@@ -110,9 +110,9 @@ Du kan granska [resten exempel kod](#rest-example) i slutet av det här avsnitte
 
 För kodbaserade JSON-indexering använder du [Postman](search-get-started-postman.md) och REST API för att skapa dessa objekt:
 
-+ [Tabbindex](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [data Källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Tabbindex](/rest/api/searchservice/create-index)
++ [data Källa](/rest/api/searchservice/create-data-source)
++ [Indexer](/rest/api/searchservice/create-indexer)
 
 Ordningen på åtgärder kräver att du skapar och anropar objekt i den här ordningen. Till skillnad från Portal arbets flödet kräver en kod metod ett tillgängligt index för att acceptera JSON-dokumenten som skickas via begäran om att **skapa indexerare** .
 
@@ -120,9 +120,9 @@ JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument
 
 | JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
-| En per BLOB | `json` | Parsar JSON-blobbar som ett enda text segment. Varje JSON-BLOB blir ett enda Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per BLOB | `jsonArray` | Parsar en JSON-matris i blobben där varje element i matrisen blir ett separat Azure Kognitiv sökning-dokument.  | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per BLOB | `jsonLines` | Parsar en blob som innehåller flera JSON-entiteter (en "matris") som skiljs åt av en ny rad, där varje entitet blir ett separat Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| En per BLOB | `json` | Parsar JSON-blobbar som ett enda text segment. Varje JSON-BLOB blir ett enda Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](/rest/api/searchservice/indexer-operations) API och [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per BLOB | `jsonArray` | Parsar en JSON-matris i blobben där varje element i matrisen blir ett separat Azure Kognitiv sökning-dokument.  | Allmänt tillgänglig i både [rest](/rest/api/searchservice/indexer-operations) API och [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per BLOB | `jsonLines` | Parsar en blob som innehåller flera JSON-entiteter (en "matris") som skiljs åt av en ny rad, där varje entitet blir ett separat Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](/rest/api/searchservice/indexer-operations) API och [.net](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
 
@@ -168,7 +168,7 @@ Indexerare är kopplade till ett index schema. Om du använder API: et (i ställ
 
 Indexet lagrar sökbart innehåll i Azure Kognitiv sökning. Skapa ett index genom att ange ett schema som anger fälten i ett dokument, attribut och andra konstruktioner som formar Sök upplevelsen. Om du skapar ett index som har samma fält namn och data typer som källan kommer indexeraren att matcha käll-och mål fälten, vilket sparar arbetet för att explicit Mappa fälten.
 
-I följande exempel visas en begäran om att [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) . Indexet har ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
+I följande exempel visas en begäran om att [skapa index](/rest/api/searchservice/create-index) . Indexet har ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
 
 ```http
     POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
@@ -280,10 +280,10 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 .NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. DataSource](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [Microsoft. Azure. search. Models. datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. index](/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [Microsoft. Azure. search. Models. Indexer](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 

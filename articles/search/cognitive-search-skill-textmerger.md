@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982024"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924647"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Text sammanfogning av kognitiva kunskaper
 
@@ -35,7 +35,7 @@ Parametrar är skiftlägeskänsliga.
 | `insertPostTag`   | Sträng som ska tas med efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet på `""` .  |
 
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 Ett JSON-dokument som ger användbar indatamängd för den här kunskapen kan vara:
 
 ```json
@@ -54,7 +54,7 @@ Ett JSON-dokument som ger användbar indatamängd för den här kunskapen kan va
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 I det här exemplet visas resultatet av föregående indata, förutsatt att *insertPreTag* är inställt på `" "` , och *insertPostTag* är inställt på `""` . 
 
 ```json
@@ -75,7 +75,7 @@ I det här exemplet visas resultatet av föregående indata, förutsatt att *ins
 
 Ett vanligt scenario för att använda text sammanfogning är att slå samman text representationen av bilder (text från en OCR-kunskap eller bild text) i innehålls fältet i ett dokument. 
 
-I följande exempel färdigheter används OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas ett *merged_text* -fält som innehåller både original-och OCRed text från varje bild. Du kan lära dig mer om OCR-kunskaper [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+I följande exempel färdigheter används OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas ett *merged_text* -fält som innehåller både original-och OCRed text från varje bild. Du kan lära dig mer om OCR-kunskaper [här](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -148,4 +148,4 @@ Exemplet ovan förutsätter att det finns ett normaliserat avbildnings fält. F�
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Skapa indexerare (REST)](/rest/api/searchservice/create-indexer)

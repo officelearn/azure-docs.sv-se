@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7f2eb7cff5d8fe77a56117a0be57f0edb86889a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75932acb740eeff6f95180cf2eaa332ad0f5fb6a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562296"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923083"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filter i Azure Kognitiv sökning 
 
@@ -47,9 +47,9 @@ Exempel scenarier är följande:
 
 Om du vill ha en begränsad inverkan i dina Sök resultat kan du inte välja filter. De här alternativen kan vara en bättre anpassning, beroende på ditt mål:
 
- + `searchFields`pegs Sök i vissa fält. Om ditt index t. ex. innehåller separata fält för engelska och spanska beskrivningar, kan du använda searchFields för att ange vilka fält som ska användas för full texts ökning. 
+ + `searchFields` pegs Sök i vissa fält. Om ditt index t. ex. innehåller separata fält för engelska och spanska beskrivningar, kan du använda searchFields för att ange vilka fält som ska användas för full texts ökning. 
 
-+ `$select`parameter används för att ange vilka fält som ska ingå i en resultat uppsättning, vilket effektivt kan rensa svaret innan det skickas till det anropande programmet. Den här parametern kan inte förfina frågan eller minska dokument samlingen, men om ett mindre svar är ditt mål är den här parametern ett alternativ att tänka på. 
++ `$select` parameter används för att ange vilka fält som ska ingå i en resultat uppsättning, vilket effektivt kan rensa svaret innan det skickas till det anropande programmet. Den här parametern kan inte förfina frågan eller minska dokument samlingen, men om ett mindre svar är ditt mål är den här parametern ett alternativ att tänka på. 
 
 Mer information om någon av parametrarna finns i [Sök efter dokument > begäran > frågeparametrar](/rest/api/searchservice/search-documents#query-parameters).
 
@@ -61,7 +61,7 @@ Vid tidpunkten i frågan accepterar en filter tolkare villkor som inmatade, konv
 Filtrering sker i tandem med sökning och kvalificerar vilka dokument som ska inkluderas i underordnad bearbetning för dokument hämtning och relevans-poäng. När de kombineras med en Sök sträng minskar filtret åter kallelse uppsättningen för efterföljande Sök åtgärder. När den används enskilt (till exempel när frågesträngen är tom där `search=*` ) är filter villkoret den enda ingången. 
 
 ## <a name="defining-filters"></a>Definiera filter
-Filter är OData-uttryck, som har ledats med en [delmängd av OData v4-syntax som stöds i Azure kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Filter är OData-uttryck, som har ledats med en [delmängd av OData v4-syntax som stöds i Azure kognitiv sökning](/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Du kan ange ett filter för varje **Sök** åtgärd, men själva filtret kan innehålla flera fält, flera kriterier och om du använder en **ismatch** -funktion, flera full texts öknings uttryck. I ett filter uttryck med flera delar kan du ange predikat i valfri ordning (enligt reglerna för Operator prioritet). Det finns ingen märkbar vinst i prestanda om du försöker arrangera om predikat i en viss sekvens.
 
@@ -95,7 +95,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-usage-patterns"></a>Filtrera användnings mönster
 
-I följande exempel visas flera användnings mönster för filter scenarier. Fler idéer finns i [syntax för OData-uttryck > exempel](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+I följande exempel visas flera användnings mönster för filter scenarier. Fler idéer finns i [syntax för OData-uttryck > exempel](./search-query-odata-filter.md#examples).
 
 + Fristående **$filter**, utan en frågesträng, användbart när filter uttrycket fullständigt kvalificerar dokument av intresse. Utan en frågesträng finns det ingen lexikalisk eller språklig analys, ingen poäng och ingen rangordning. Observera att Sök strängen bara är en asterisk, vilket innebär "matcha alla dokument".
 
@@ -135,9 +135,9 @@ Följ upp med de här artiklarna för utförlig vägledning om speciella använd
 
 ## <a name="field-requirements-for-filtering"></a>Fält krav för filtrering
 
-I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+I REST API är filtrerings bara *aktiverat* som standard för enkla fält. Filter bara fält ökar index storleken. var noga med att ange `"filterable": false` för fält som du inte planerar att använda i ett filter. Mer information om inställningar för fält definitioner finns i [skapa index](/rest/api/searchservice/create-index).
 
-I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
+I .NET SDK är filtrerings funktionen *avstängd* som standard. Du kan göra ett fält filter bara genom att ange [egenskapen IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) för motsvarande [fält](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) objekt till `true` . Du kan också göra detta med hjälp av [attributet IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). I exemplet nedan anges attributet i `BaseRate` egenskapen för en modell klass som mappar till index definitionen.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -193,12 +193,12 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Mer information om hur du arbetar med fler exempel finns i [syntax för OData filter Expression > exempel](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples).
+Mer information om hur du arbetar med fler exempel finns i [syntax för OData filter Expression > exempel](./search-query-odata-filter.md#examples).
 
 ## <a name="see-also"></a>Se även
 
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-+ [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
-+ [Data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)
++ [REST API för dokumentsökning](/rest/api/searchservice/search-documents)
++ [Enkel frågesyntax](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Lucene-frågesyntax](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Datatyper som stöds](/rest/api/searchservice/supported-data-types)

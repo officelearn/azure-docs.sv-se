@@ -2,13 +2,14 @@
 title: Application Insights för Worker service-appar (icke-HTTP-appar)
 description: Övervaka .NET Core/. NET Framework-appar som inte är HTTP-appar med Azure Monitor Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/11/2020
-ms.openlocfilehash: d429a1e0515d24d1c9953af7815dadf2488be302
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6f31236e516e44df9f5115e3efeb48db46853e8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325414"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933281"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights för Worker service-program (icke-HTTP-program)
 
@@ -20,7 +21,7 @@ Den nya SDK: n utför inte någon telemetri-samling. I stället finns det på an
 
 [Application Insights SDK för Worker-tjänsten](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) passar bäst för icke-http-program oavsett var eller hur de körs. Om ditt program körs och har nätverks anslutning till Azure, kan telemetri samlas in. Application Insights övervakning stöds överallt där .NET Core stöds. Det här paketet kan användas i den nyligen introducerade [.net Core 3,0 Worker-tjänsten](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [bakgrunds aktiviteter i ASP.net Core 2.1/2.2](/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), konsol program (.net Core/.NET Framework) osv.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En giltig Application Insights Instrumentation-nyckel. Den här nyckeln krävs för att skicka telemetri till Application Insights. Om du behöver skapa en ny Application Insights resurs för att hämta en Instrumentation-nyckel, se [skapa en Application Insights resurs](./create-new-resource.md).
 
@@ -46,7 +47,7 @@ Specifika anvisningar för varje typ av program beskrivs i följande avsnitt.
 Det fullständiga exemplet delas [här](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
 1. Hämta och installera [.net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Skapa ett nytt Worker service-projekt med hjälp av Visual Studio New Project-mall eller kommando rad`dotnet new worker`
+2. Skapa ett nytt Worker service-projekt med hjälp av Visual Studio New Project-mall eller kommando rad `dotnet new worker`
 3. Installera [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) -paketet i programmet.
 
 4. Lägg till i- `services.AddApplicationInsightsTelemetryWorkerService();` `CreateHostBuilder()` metoden i `Program.cs` klassen, som i det här exemplet:
@@ -124,7 +125,7 @@ Alternativt kan du ange Instrumentation-nyckeln i någon av följande miljövari
 `APPINSIGHTS_INSTRUMENTATIONKEY` eller `ApplicationInsights:InstrumentationKey`
 
 Exempelvis: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
-ELLER`SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
+ELLER `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 Normalt `APPINSIGHTS_INSTRUMENTATIONKEY` anger Instrumentation-nyckeln för program som distribueras till Web Apps som webb jobb.
 
@@ -312,7 +313,7 @@ Beroende insamling är aktiverat som standard. [Den här](asp-net-dependencies.m
 
 ### <a name="eventcounter"></a>EventCounter
 
-`EventCounterCollectionModule`är aktiverat som standard och samlar in en standard uppsättning räknare från .NET Core 3,0-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
+`EventCounterCollectionModule` är aktiverat som standard och samlar in en standard uppsättning räknare från .NET Core 3,0-appar. Självstudien om [EventCounter](eventcounters.md) visar en lista över standard uppsättningen med insamlade räknare. Den innehåller också anvisningar om hur du anpassar listan.
 
 ### <a name="manually-tracking-additional-telemetry"></a>Manuellt spåra ytterligare telemetri
 
@@ -349,9 +350,9 @@ Du kan ändra några vanliga inställningar genom att skicka `ApplicationInsight
 
 Observera att `ApplicationInsightsServiceOptions` i det här SDK: n finns i namn området i `Microsoft.ApplicationInsights.WorkerService` stället för `Microsoft.ApplicationInsights.AspNetCore.Extensions` i ASP.net Core SDK.
 
-Inställningar som används ofta i`ApplicationInsightsServiceOptions`
+Inställningar som används ofta i `ApplicationInsightsServiceOptions`
 
-|Inställningen | Beskrivning | Standard
+|Inställning | Beskrivning | Standardvärde
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
@@ -425,7 +426,7 @@ Följande moduler för automatisk insamling är aktiverade som standard. Dessa m
 * `DependencyTrackingTelemetryModule`
 * `PerformanceCollectorModule`
 * `QuickPulseTelemetryModule`
-* `AppServicesHeartbeatTelemetryModule`– (Det finns för närvarande ett problem som involverar denna telemetri-modul. En tillfällig lösning finns i [GitHub problem 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
+* `AppServicesHeartbeatTelemetryModule` – (Det finns för närvarande ett problem som involverar denna telemetri-modul. En tillfällig lösning finns i [GitHub problem 1689](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1689
 ).)
 * `AzureInstanceMetadataTelemetryModule`
 

@@ -8,34 +8,34 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611619"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935066"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Samla in och analysera loggdata för Azure Kognitiv sökning
 
 Diagnostik-eller drift loggar ger inblick i de detaljerade åtgärderna i Azure Kognitiv sökning och är användbara för övervakning av tjänst-och arbets belastnings processer. Internt finns det en del system information på Server delen under en kort tids period, tillräckligt för undersökning och analys om du använder ett support ärende. Men om du vill använda självbetjäning för operativa data bör du konfigurera en diagnostisk inställning för att ange var loggnings information samlas in.
 
-Diagnostisk loggning aktive ras genom integrering med [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Diagnostisk loggning aktive ras genom integrering med [Azure Monitor](../azure-monitor/index.yml). 
 
 När du ställer in diagnostikloggning uppmanas du att ange en lagrings funktion. I följande tabell räknas alternativen för att samla in och bevara data.
 
 | Resurs | Används för |
 |----------|----------|
-| [Skicka till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Arkivera med Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Händelser och mått arkiveras i en BLOB-behållare och lagras i JSON-filer. Loggarna kan vara ganska detaljerade (per timme/minut) som är användbara för att söka efter en speciell incident men inte för en öppen undersökning. Använd en JSON-redigerare för att visa en rå logg fil eller Power BI för att sammanställa och visualisera loggdata.|
-| [Strömma till Händelsehubben](https://docs.microsoft.com/azure/event-hubs/) | Händelser och mät värden strömmas till en Azure Event Hubs-tjänst. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
+| [Skicka till Log Analytics-arbetsytan](../azure-monitor/learn/tutorial-resource-logs.md) | Händelser och mått skickas till en Log Analytics-arbetsyta, som kan frågas i portalen för att returnera detaljerad information. En introduktion finns i [Kom igång med Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md) |
+| [Arkivera med Blob Storage](../storage/blobs/storage-blobs-overview.md) | Händelser och mått arkiveras i en BLOB-behållare och lagras i JSON-filer. Loggarna kan vara ganska detaljerade (per timme/minut) som är användbara för att söka efter en speciell incident men inte för en öppen undersökning. Använd en JSON-redigerare för att visa en rå logg fil eller Power BI för att sammanställa och visualisera loggdata.|
+| [Strömma till Händelsehubben](../event-hubs/index.yml) | Händelser och mät värden strömmas till en Azure Event Hubs-tjänst. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Skapa resurser i förväg så att du kan välja en eller flera när du konfigurerar diagnostisk loggning.
 
 + [Skapa en Log Analytics-arbetsyta](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md)
++ [Skapa ett lagringskonto](../storage/common/storage-account-create.md)
 
 + [Skapa en Händelsehubben](../event-hubs/event-hubs-create.md)
 
@@ -122,9 +122,9 @@ Loggade händelser som registrerats av Azure Monitor inkluderar de som är relat
 
 | OperationName | Beskrivning |
 |---------------|-------------|
-| ServiceStats | Den här åtgärden är ett rutin anrop för att [Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), antingen kallat direkt eller implicit för att fylla i en portal översikts sida när den läses in eller uppdateras. |
+| ServiceStats | Den här åtgärden är ett rutin anrop för att [Hämta tjänst statistik](/rest/api/searchservice/get-service-statistics), antingen kallat direkt eller implicit för att fylla i en portal översikts sida när den läses in eller uppdateras. |
 | Fråga. search |  Fråga begär Anden mot ett index se [övervaka frågor](search-monitor-queries.md) för information om loggade frågor.|
-| Indexering. index  | Den här åtgärden är ett anrop för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexering. index  | Den här åtgärden är ett anrop för att [lägga till, uppdatera eller ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents). |
 | index. Prototyp | Det här är ett index som skapats av guiden Importera data. |
 | Indexerare. skapa | Skapa en indexerare explicit eller implicit via guiden Importera data. |
 | Indexerare. Hämta | Returnerar namnet på en indexerare när indexeraren körs. |
@@ -138,7 +138,7 @@ Om du skapar anpassade rapporter överensstämmer de data strukturer som innehå
 
 Följande tabell är en del av listan över fält som är vanliga för resurs loggning.
 
-| Name | Typ | Exempel | Obs! |
+| Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | timeGenerated |datetime |"2018-12-07T00:00:43.6872559 Z" |Tidsstämpel för åtgärden |
 | resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/> Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Din ResourceId |
@@ -154,7 +154,7 @@ Följande tabell är en del av listan över fält som är vanliga för resurs lo
 
 Egenskaperna nedan är bara för Azure-Kognitiv sökning.
 
-| Name | Typ | Exempel | Obs! |
+| Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | Description_s |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
 | Documents_d |int |42 |Antal bearbetade dokument |
@@ -165,7 +165,7 @@ Egenskaperna nedan är bara för Azure-Kognitiv sökning.
 
 Måtten fångas för fråge förfrågningar och mäts inom en minut. Varje mått visar de lägsta, högsta och genomsnittliga värdena per minut. Mer information finns i [övervaka fråge förfrågningar](search-monitor-queries.md).
 
-| Name | Typ | Exempel | Obs! |
+| Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
 | resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/>Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |resurs-ID |
 | metricName |sträng |Svars tid |namnet på måttet |

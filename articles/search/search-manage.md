@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835960"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935049"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Tjänst administration för Azure Kognitiv sökning i Azure Portal
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST-API](/rest/api/searchmanagement/)
+> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ Azure Kognitiv sökning är en fullständigt hanterad, molnbaserad Sök tjänst 
 * Hantera åtkomst med hjälp av sidan **nycklar** till vänster.
 * Justera kapaciteten med hjälp av **skalnings** sidan till vänster.
 
-Samma uppgifter som utförs i portalen kan också hanteras via programmering via [API: er för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) och [AZ. Sök PowerShell-modulen](search-manage-powershell.md). Administrativa uppgifter visas fullständigt i portalen och program mässiga gränssnitt. Det finns ingen speciell administrativ uppgift som bara är tillgänglig i en enda spärr.
+Samma uppgifter som utförs i portalen kan också hanteras via programmering via [API: er för hantering](/rest/api/searchmanagement/) och [AZ. Sök PowerShell-modulen](search-manage-powershell.md). Administrativa uppgifter visas fullständigt i portalen och program mässiga gränssnitt. Det finns ingen speciell administrativ uppgift som bara är tillgänglig i en enda spärr.
 
-Azure Kognitiv sökning utnyttjar andra Azure-tjänster för djupare övervakning och hantering. Av sig själva är de enda data som lagras med en Sök tjänst innehåll (index, indexerare och data käll definitioner och andra objekt). Mått som rapporteras ut till Portal sidor hämtas från interna loggar på en rullande 30-dagars cykel. För kvarhållning av användar kontrollerad logg och ytterligare händelser behöver du [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/). 
+Azure Kognitiv sökning utnyttjar andra Azure-tjänster för djupare övervakning och hantering. Av sig själva är de enda data som lagras med en Sök tjänst innehåll (index, indexerare och data käll definitioner och andra objekt). Mått som rapporteras ut till Portal sidor hämtas från interna loggar på en rullande 30-dagars cykel. För kvarhållning av användar kontrollerad logg och ytterligare händelser behöver du [Azure Monitor](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Egenskaper för fast tjänst
 
@@ -58,7 +58,7 @@ När det gäller åtkomst till slut punkten har alla som har åtkomst till tjän
 
 Rättigheter till tjänst etablerings apparaten beviljas genom roll tilldelningar. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) för etablering av Azure-resurser. 
 
-I Azure-Kognitiv sökning avgör Azure- [rollerna](search-security-rbac.md) vem som kan utföra uppgifter, oavsett om de använder [portalen](search-manage.md), [PowerShell](search-manage-powershell.md)eller [hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+I Azure-Kognitiv sökning avgör Azure- [rollerna](search-security-rbac.md) vem som kan utföra uppgifter, oavsett om de använder [portalen](search-manage.md), [PowerShell](search-manage-powershell.md)eller [hantering REST-API: er](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Skapa eller ta bort en tjänst
 * Skala tjänsten
@@ -73,12 +73,12 @@ I Azure-Kognitiv sökning avgör Azure- [rollerna](search-security-rbac.md) vem 
 
 På Basic-nivån och över, övervakar Microsoft alla Azure Kognitiv sökning Services för 99,9% tillgänglighet per service nivå avtal (SLA). Om tjänsten är långsam eller begär data flöde hamnar under SLA-tröskelvärden granskar support team de loggfiler som är tillgängliga för dem och löser problemet.
 
-Azure Kognitiv sökning utnyttjar [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) för att samla in och lagra indexerings-och fråga-aktiviteter. En Sök tjänst lagrar själva innehållet (index, Indexer definitioner, definitioner av data källor, färdigheter-definitioner, synonym Maps). Cachelagring och loggad information lagras ofta i ett Azure Storage konto. Mer information om att logga indexering och fråga arbets belastningar finns i [samla in och analysera loggdata](search-monitor-logs.md).
+Azure Kognitiv sökning utnyttjar [Azure Monitor](../azure-monitor/index.yml) för att samla in och lagra indexerings-och fråga-aktiviteter. En Sök tjänst lagrar själva innehållet (index, Indexer definitioner, definitioner av data källor, färdigheter-definitioner, synonym Maps). Cachelagring och loggad information lagras ofta i ett Azure Storage konto. Mer information om att logga indexering och fråga arbets belastningar finns i [samla in och analysera loggdata](search-monitor-logs.md).
 
 När det gäller allmän information om din tjänst, med enbart de funktioner som är inbyggda i Azure Kognitiv sökning, kan du hämta information på följande sätt:
 
 * På sidan tjänst **Översikt** , via aviseringar, egenskaper och status meddelanden.
-* Använd [PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/) för att [Hämta tjänst egenskaper](https://docs.microsoft.com/rest/api/searchmanagement/services). Det finns ingen ny information eller några åtgärder som tillhandahålls i programmerings lagret. Gränssnitten finns så att du kan skriva skript.
+* Använd [PowerShell](search-manage-powershell.md) eller [hanterings REST API](/rest/api/searchmanagement/) för att [Hämta tjänst egenskaper](/rest/api/searchmanagement/services). Det finns ingen ny information eller några åtgärder som tillhandahålls i programmerings lagret. Gränssnitten finns så att du kan skriva skript.
 
 ## <a name="monitor-resource-usage"></a>Övervaka resursanvändning
 
@@ -86,8 +86,8 @@ I instrument panelen är resurs övervakning begränsad till den information som
 
 Med hjälp av Sök tjänsten REST API kan du få ett antal dokument och index program mässigt: 
 
-* [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Räkna dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Hämta index statistik](/rest/api/searchservice/Get-Index-Statistics)
+* [Räkna dokument](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Haveri beredskap och drift avbrott
 
@@ -135,7 +135,7 @@ I motsats till att ta bort repliker, som inte kräver extra ansträngning på di
 
 Det finns ingen identifierings metod som anger vilka index-Shards som lagras på vissa partitioner. Varje partition ger cirka 25 GB lagring, så du måste minska lagrings utrymmet till en storlek som kan hanteras av antalet partitioner som du har. Om du vill återgå till en partition måste alla 12-Shards anpassas.
 
-Om du vill ha hjälp med framtida planeringen kanske du vill kontrol lera lagringen (med hjälp av [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) för att se hur mycket du faktiskt har använt. 
+Om du vill ha hjälp med framtida planeringen kanske du vill kontrol lera lagringen (med hjälp av [Hämta index statistik](/rest/api/searchservice/Get-Index-Statistics)) för att se hur mycket du faktiskt har använt. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084202"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923117"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Så här filtrerar du efter språk i Azure Kognitiv sökning 
 
@@ -37,11 +37,11 @@ I följande exempel är ett exempel på ett [fastighets-exempel](search-get-star
   ![Skärm bild som visar skärmen fält i exemplet på fast egendom. En grupp med fält markeras för att peka ut hur språk analys tilldelningarna motsvarar språken för de markerade fälten.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Kod exempel som visar fält definitioner med språk analys verktyg finns i [definiera ett index (.net)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) och [definiera ett index (rest)](search-create-index-rest-api.md).
+> Kod exempel som visar fält definitioner med språk analys verktyg finns i [definiera ett index (.net)](./search-get-started-dotnet.md) och [definiera ett index (rest)](./search-get-started-powershell.md).
 
 ## <a name="build-and-load-an-index"></a>Bygga och läsa in ett index
 
-Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](https://docs.microsoft.com/azure/search/search-create-index-dotnet) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
+Ett mellanliggande (och eventuellt uppenbart) steg är att du måste [bygga och fylla i indexet](./search-get-started-dotnet.md) innan du skapar en fråga. Vi nämner detta steg för att slutföra. Ett sätt att avgöra om indexet är tillgängligt är genom att kontrol lera listan index i [portalen](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Begränsa frågan och trimma resultatet
 
@@ -63,7 +63,6 @@ parameters =
 ## <a name="see-also"></a>Se även
 
 + [Filter i Azure Kognitiv sökning](search-filters.md)
-+ [Språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Språkanalysverktyg](/rest/api/searchservice/language-support)
 + [Så här fungerar fulltextsökning i Azure Cognitive Search](search-lucene-query-architecture.md)
-+ [REST API för dokumentsökning](https://docs.microsoft.com/rest/api/searchservice/search-documents)
-
++ [REST API för dokumentsökning](/rest/api/searchservice/search-documents)

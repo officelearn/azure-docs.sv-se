@@ -2,14 +2,15 @@
 title: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933315"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -347,9 +348,9 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 ### <a name="dependency-types"></a>Beroende typer
 
 Application Insights använder beroende typen för att anpassa GRÄNSSNITTs upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](./transaction-diagnostics.md):
-- `Azure queue`för Azure Storage köer
-- `Azure Event Hubs`för Azure Event Hubs
-- `Azure Service Bus`för Azure Service Bus
+- `Azure queue` för Azure Storage köer
+- `Azure Event Hubs` för Azure Event Hubs
+- `Azure Service Bus` för Azure Service Bus
 
 ### <a name="batch-processing"></a>Batchbearbetning
 Med vissa köer kan du ta bort flera meddelanden med en begäran i kö. Att bearbeta sådana meddelanden är förmodligen oberoende och tillhör olika logiska åtgärder. Det går inte att korrelera `Dequeue` åtgärden till ett visst meddelande som bearbetas.
@@ -388,7 +389,7 @@ async Task BackgroundTask()
 }
 ```
 
-I det här exemplet `telemetryClient.StartOperation` skapar `DependencyTelemetry` och fyller korrelations kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begär Anden som schemalagt åtgärden. Så länge som `BackgroundTask` startar i samma asynkrona kontroll flöde som en inkommande begäran korreleras det med den överordnade åtgärden. `BackgroundTask`och alla kapslade telemetri-objekt korreleras automatiskt med den begäran som orsakade det, även efter att begäran har slutförts.
+I det här exemplet `telemetryClient.StartOperation` skapar `DependencyTelemetry` och fyller korrelations kontexten. Anta att du har en överordnad åtgärd som har skapats av inkommande begär Anden som schemalagt åtgärden. Så länge som `BackgroundTask` startar i samma asynkrona kontroll flöde som en inkommande begäran korreleras det med den överordnade åtgärden. `BackgroundTask` och alla kapslade telemetri-objekt korreleras automatiskt med den begäran som orsakade det, även efter att begäran har slutförts.
 
 När aktiviteten startar från den bakgrunds tråd som inte har någon åtgärd ( `Activity` ) kopplad till den, `BackgroundTask` har inte någon överordnad. Det kan dock ha kapslade åtgärder. Alla telemetridata som har rapporter ATS från uppgiften korreleras till den `DependencyTelemetry` skapade i `BackgroundTask` .
 
@@ -429,7 +430,7 @@ public async Task RunMyTaskAsync()
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Bearbetning och spårning av parallella åtgärder
 
-`StopOperation`stoppar bara den åtgärd som startades. Om den aktuella aktiva åtgärden inte matchar den som du vill stoppa, `StopOperation` gör ingenting. Den här situationen kan inträffa om du startar flera åtgärder parallellt i samma körnings kontext:
+`StopOperation` stoppar bara den åtgärd som startades. Om den aktuella aktiva åtgärden inte matchar den som du vill stoppa, `StopOperation` gör ingenting. Den här situationen kan inträffa om du startar flera åtgärder parallellt i samma körnings kontext:
 
 ```csharp
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
@@ -469,11 +470,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights-åtgärder vs system. Diagnostics. Activity
-`System.Diagnostics.Activity`visar den distribuerade spårnings kontexten och används av ramverk och bibliotek för att skapa och sprida kontext inuti och utanför processen och korrelera telemetri-objekt. Aktiviteten fungerar tillsammans med `System.Diagnostics.DiagnosticSource` -meddelande mekanismen mellan ramverket/biblioteket för att meddela om intressanta händelser (inkommande eller utgående begär Anden, undantag osv.).
+`System.Diagnostics.Activity` visar den distribuerade spårnings kontexten och används av ramverk och bibliotek för att skapa och sprida kontext inuti och utanför processen och korrelera telemetri-objekt. Aktiviteten fungerar tillsammans med `System.Diagnostics.DiagnosticSource` -meddelande mekanismen mellan ramverket/biblioteket för att meddela om intressanta händelser (inkommande eller utgående begär Anden, undantag osv.).
 
 Aktiviteter är de första klasserna i Application Insights och automatiskt beroende och begär ande samling är mycket beroende av dem tillsammans med `DiagnosticSource` händelser. Om du skapar en aktivitet i ditt program innebär det inte att Application Insights telemetri skapas. Application Insights måste ta emot DiagnosticSource-händelser och känna till händelse namn och nytto laster för att översätta aktivitet till telemetri.
 
-Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activity` -när `StartOperation` anropas skapas aktiviteten under. `StartOperation`är det rekommenderade sättet att spåra begäran eller beroende telemetrivärden manuellt och se till att allt korreleras.
+Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activity` -när `StartOperation` anropas skapas aktiviteten under. `StartOperation` är det rekommenderade sättet att spåra begäran eller beroende telemetrivärden manuellt och se till att allt korreleras.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130814"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928844"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Frågetyper och sammansättning i Azure Kognitiv sökning
 
 I Azure Kognitiv sökning är en fråga en fullständig specifikation av en tur och retur-åtgärd. På begäran finns det parametrar som innehåller körnings instruktioner för motorn, samt parametrar som formar svaret som kommer tillbaka. Ospecificerad ( `search=*` ), utan matchnings villkor och använder null eller standard parametrar, en fråga körs mot alla sökbara fält som en fullständig texts ökning och returnerar en resultat uppsättning i valfri ordning.
 
-Följande exempel är en representativ fråga som konstruerats i [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). Det här exemplet riktar sig till [hotell demonstrations indexet](search-get-started-portal.md) och inkluderar vanliga parametrar så att du kan få en uppfattning om hur en fråga ser ut.
+Följande exempel är en representativ fråga som konstruerats i [REST API](/rest/api/searchservice/search-documents). Det här exemplet riktar sig till [hotell demonstrations indexet](search-get-started-portal.md) och inkluderar vanliga parametrar så att du kan få en uppfattning om hur en fråga ser ut.
 
 ```
 {
@@ -55,7 +55,7 @@ I Azure Kognitiv sökning sker frågekörningen alltid mot ett index, autentiser
 
 Innan du skriver någon kod kan du använda specialverktyg för att lära dig syntaxen och experimentera med olika parametrar. Den snabbaste metoden är det inbyggda Portal verktyget, [Sök Utforskaren](search-explorer.md).
 
-Om du har följt den här [snabb starten för att skapa hotell demonstrations indexet](search-get-started-portal.md)kan du klistra in frågesträngen i Explorers sökfält för att köra din första fråga:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Om du har följt den här [snabb starten för att skapa hotell demonstrations indexet](search-get-started-portal.md)kan du klistra in frågesträngen i Explorers sökfält för att köra din första fråga: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Hur Query-åtgärder aktive ras av indexet
 
@@ -65,7 +65,7 @@ Indexattribut i ett fält ange tillåtna åtgärder – om ett fält är *sökba
 
 ![Index definition för hotellet-exemplet](./media/search-query-overview/hotel-sample-index-definition.png "Index definition för hotellet-exemplet")
 
-Skärm bilden ovan är en ofullständig lista över indexattribut för Hotels-exemplet. Du kan visa hela index schemat i portalen. Mer information om indexattribut finns i [skapa index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Skärm bilden ovan är en ofullständig lista över indexattribut för Hotels-exemplet. Du kan visa hela index schemat i portalen. Mer information om indexattribut finns i [skapa index REST API](/rest/api/searchservice/create-index).
 
 > [!Note]
 > Vissa fråge funktioner har Aktiver ATS för index i stället för per fält. Dessa funktioner omfattar: [synonym Maps](search-synonyms.md), [anpassade analys](index-add-custom-analyzers.md)verktyg, [förslags konstruktioner (för Autoavsluta och föreslagna frågor)](index-add-suggesters.md), [bedömnings logik för ranknings resultat](index-add-scoring-profiles.md).
@@ -76,13 +76,13 @@ Frågor dirigeras alltid till ett enda index. Du kan inte ansluta index eller sk
 
 Nödvändiga element i en förfrågan innehåller följande komponenter:
 
-+ Samling av tjänst slut punkt och index dokument, uttryckt som en URL som innehåller fasta och användardefinierade komponenter:**`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`**(Endast REST) är nödvändigt eftersom mer än en version av API: n är tillgänglig hela tiden. 
++ Samling av tjänst slut punkt och index dokument, uttryckt som en URL som innehåller fasta och användardefinierade komponenter: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (Endast REST) är nödvändigt eftersom mer än en version av API: n är tillgänglig hela tiden. 
 + **`api-key`**, autentiseras begäran av en fråge-eller admin-API-nyckel.
 + **`queryType`**, antingen enkel eller fullständig, som kan utelämnas om du använder den inbyggda enkla standard syntaxen.
 + **`search`** eller **`filter`** ger matchnings villkor, som kan anges om du vill utföra en tom sökning. Båda typerna av frågor beskrivs i termer av den enkla parsern, men även avancerade frågor kräver Sök parametern för att skicka komplexa frågeuttryck.
 
-Alla andra Sök parametrar är valfria. En fullständig lista över attribut finns i [skapa index (rest)](https://docs.microsoft.com/rest/api/searchservice/create-index). En närmare titt på hur parametrar används under bearbetningen finns i [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md).
+Alla andra Sök parametrar är valfria. En fullständig lista över attribut finns i [skapa index (rest)](/rest/api/searchservice/create-index). En närmare titt på hur parametrar används under bearbetningen finns i [hur full texts ökning fungerar i Azure kognitiv sökning](search-lucene-query-architecture.md).
 
 ## <a name="choose-apis-and-tools"></a>Välj API: er och verktyg
 
@@ -92,8 +92,8 @@ I följande tabell visas de API: er och verktyg baserade metoder för att skicka
 |-------------|-------------|
 | [Sökutforskaren (portal)](search-explorer.md) | Innehåller ett sökfält och alternativ för val av index och API-version. Resultat returneras som JSON-dokument. Rekommenderas för undersökning, testning och validering. <br/>[Läs mer.](search-get-started-portal.md#query-index) | 
 | [Postman eller andra REST-verktyg](search-get-started-postman.md) | Webb test verktyg är ett utmärkt alternativ för att utforma REST-anrop. REST API stöder varje möjlig åtgärd i Azure Kognitiv sökning. I den här artikeln får du lära dig hur du ställer in en HTTP-begärans huvud och brödtext för att skicka förfrågningar till Azure Kognitiv sökning.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Sök dokument (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Klient som kan användas för att skicka frågor till ett Azure Kognitiv sökning-index.  <br/>[Läs mer.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Sök dokument (REST API)](/rest/api/searchservice/search-documents) | Hämta eller publicera metoder för ett index med hjälp av frågeparametrar för ytterligare indata.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Välj en parser: enkel | fullständig
 
@@ -123,7 +123,7 @@ Azure Kognitiv sökning stöder ett brett utbud av frågetyper.
 |------------|--------|-------------------------------|
 | Texts ökning med fritext | Sök parameter och antingen parser| Fullständig texts ökning söker efter en eller flera termer i alla *sökbara* fält i ditt index och fungerar på samma sätt som du förväntar dig att en sökmotor som Google eller Bing fungerar. Exemplet i introduktionen är full texts ökning.<br/><br/>Full texts ökning underbörjar lexikal analys med hjälp av standard Lucene Analyzer (som standard) för att sänka alla villkor, ta bort stoppord som "The". Du kan åsidosätta standardvärdet med [icke-engelska analyserare](index-add-language-analyzers.md#language-analyzer-list) eller [specialiserade oberoende-analyser](index-add-custom-analyzers.md#AnalyzerTable) som ändrar lexikalisk analys. Ett exempel är ett [nyckelord](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) som behandlar hela innehållet i ett fält som en enskild token. Detta är användbart för data som post nummer, ID: n och vissa produkt namn. | 
 | Filtrerad sökning | [OData filter-uttryck](query-odata-filter-orderby-syntax.md) och antingen parser | Filter frågor utvärderar ett booleskt uttryck över alla *filter* bara fält i ett index. Till skillnad från sökningen matchar en filter fråga det exakta innehållet i ett fält, inklusive Skift läges känslighet i sträng fält. En annan skillnad är att filter frågor uttrycks i OData-syntax. <br/>[Exempel på filter uttryck](search-query-simple-examples.md#example-3-filter-queries) |
-| Geo-sökning | [EDM. GeographyPoint-typ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) i fältet, filter uttrycket och antingen parsern | Koordinater som lagras i ett fält med en EDM. GeographyPoint används för "hitta nära mig" eller mappbaserade Sök kontroller. <br/>[Exempel på Geo-sökning](search-query-simple-examples.md#example-5-geo-search)|
+| Geo-sökning | [EDM. GeographyPoint-typ](/rest/api/searchservice/supported-data-types) i fältet, filter uttrycket och antingen parsern | Koordinater som lagras i ett fält med en EDM. GeographyPoint används för "hitta nära mig" eller mappbaserade Sök kontroller. <br/>[Exempel på Geo-sökning](search-query-simple-examples.md#example-5-geo-search)|
 | Intervalls ökning | filter uttryck och enkel parser | I Azure Kognitiv sökning skapas intervall frågor med hjälp av filter parametern. <br/>[Exempel på intervall filter](search-query-simple-examples.md#example-4-range-filters) | 
 | [Sökning efter fält](query-lucene-syntax.md#bkmk_fields) | Sök parameter och fullständig parser | Bygg ett sammansatt frågeuttryck riktade mot ett enskilt fält. <br/>[Exempel på fält som söks](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Fuzzy-sökning](query-lucene-syntax.md#bkmk_fuzzy) | Sök parameter och fullständig parser | Matchningar på villkor som har en liknande konstruktion eller stavning. <br/>[Exempel på fuzzy-sökning](search-query-lucene-examples.md#example-3-fuzzy-search) |
@@ -169,5 +169,5 @@ I Azure Kognitiv sökning är det enkelt att framhäva den EXAKTA delen av Sök 
 
 + [Hur full texts ökning fungerar i Azure Kognitiv sökning (arkitektur för frågekörning)](search-lucene-query-architecture.md)
 + [Sök Utforskaren](search-explorer.md)
-+ [Så här frågar du i .NET](search-query-dotnet.md)
-+ [Fråga i REST](search-create-index-rest-api.md)
++ [Så här frågar du i .NET](./search-get-started-dotnet.md)
++ [Fråga i REST](./search-get-started-powershell.md)

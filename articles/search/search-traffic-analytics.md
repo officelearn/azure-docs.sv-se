@@ -9,18 +9,18 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6ab32a2ccb4c7eb79309798c2b53d326723ad6ea
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2a65d31bd7cde0a1f456212a19c06f6b940ce602
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420081"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922743"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Samla in telemetridata för Sök trafik analys
 
 Sök trafik analys är ett mönster för insamling av telemetri om användar interaktioner med ditt Azure Kognitiv sökning-program, till exempel användare som initieras genom att klicka på händelser och tangent bords indata. Med hjälp av den här informationen kan du fastställa effektiviteten hos din Sök lösning, inklusive populära Sök villkor, klickningar på genomklickning och vilka frågor som indata ger noll resultat.
 
-Det här mönstret tar ett beroende på [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) (en funktion i [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)) för att samla in användar data. Det kräver att du lägger till instrumentering till din klient kod enligt beskrivningen i den här artikeln. Slutligen behöver du en rapporterings mekanism för att analysera data. Vi rekommenderar Power BI men du kan använda instrument panelen för programmet eller ett verktyg som ansluter till Application Insights.
+Det här mönstret tar ett beroende på [Application Insights](../azure-monitor/app/app-insights-overview.md) (en funktion i [Azure Monitor](../azure-monitor/index.yml)) för att samla in användar data. Det kräver att du lägger till instrumentering till din klient kod enligt beskrivningen i den här artikeln. Slutligen behöver du en rapporterings mekanism för att analysera data. Vi rekommenderar Power BI men du kan använda instrument panelen för programmet eller ett verktyg som ansluter till Application Insights.
 
 > [!NOTE]
 > Mönstret som beskrivs i den här artikeln är för avancerade scenarier och klick Ströms-data som genererats av kod som du lägger till i klienten. Tjänst loggar är däremot enkla att konfigurera, ange ett intervall med mått och kan göras i portalen utan att behöva kod. Aktivering av loggning rekommenderas för alla scenarier. Mer information finns i [samla in och analysera loggdata](search-monitor-logs.md).
@@ -43,9 +43,9 @@ På [Portal](https://portal.azure.com) sidan för din Azure kognitiv sökning-tj
 
 ## <a name="1---set-up-application-insights"></a>1 – konfigurera Application Insights
 
-Välj en befintlig Application Insights resurs eller [skapa en](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) om du inte redan har en. Om du använder sidan Sök Trafikanalys kan du kopiera Instrumentation-nyckeln som programmet behöver för att ansluta till Application Insights.
+Välj en befintlig Application Insights resurs eller [skapa en](../azure-monitor/app/create-new-resource.md) om du inte redan har en. Om du använder sidan Sök Trafikanalys kan du kopiera Instrumentation-nyckeln som programmet behöver för att ansluta till Application Insights.
 
-När du har en Application Insights resurs kan du följa [instruktionerna för språk och plattformar som stöds](https://docs.microsoft.com/azure/azure-monitor/app/platforms) för att registrera din app. Registreringen lägger helt enkelt till Instrumentation-nyckeln från Application Insights till din kod, som konfigurerar associationen. Du kan hitta nyckeln i portalen eller från sidan Sök Trafikanalys när du väljer en befintlig resurs.
+När du har en Application Insights resurs kan du följa [instruktionerna för språk och plattformar som stöds](../azure-monitor/app/platforms.md) för att registrera din app. Registreringen lägger helt enkelt till Instrumentation-nyckeln från Application Insights till din kod, som konfigurerar associationen. Du kan hitta nyckeln i portalen eller från sidan Sök Trafikanalys när du väljer en befintlig resurs.
 
 En genväg som fungerar för vissa projekt typer av Visual Studio avspeglas i följande steg. Den skapar en resurs och registrerar din app på bara några få klick.
 
@@ -55,7 +55,7 @@ En genväg som fungerar för vissa projekt typer av Visual Studio avspeglas i f�
 
 1. Registrera din app genom att tillhandahålla en Microsoft-konto, en Azure-prenumeration och en Application Insights resurs (en ny resurs är standard). Klicka på **Registrera**.
 
-I det här läget är ditt program konfigurerat för program övervakning, vilket innebär att alla sid inläsningar spåras med standard mått. Mer information om föregående steg finns i [aktivera Application Insights telemetri på Server sidan](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-application-insights-server-side-telemetry-visual-studio).
+I det här läget är ditt program konfigurerat för program övervakning, vilket innebär att alla sid inläsningar spåras med standard mått. Mer information om föregående steg finns i [aktivera Application Insights telemetri på Server sidan](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
 ## <a name="2---add-instrumentation"></a>2 – Lägg till instrumentering
 
@@ -63,11 +63,11 @@ I det här steget ska du skapa ett eget sökprogram med hjälp av Application In
 
 ### <a name="step-1-create-a-telemetry-client"></a>Steg 1: skapa en telemetri-klient
 
-Skapa ett objekt som skickar händelser till Application Insights. Du kan lägga till instrumentering på Server sidans program kod eller kod på klient sidan som körs i en webbläsare, uttryckt här som C#-och JavaScript-varianter (för andra språk, se den fullständiga listan över [plattformar och ramverk som stöds](https://docs.microsoft.com/azure/application-insights/app-insights-platforms). Välj den metod som ger dig det önskade informations djupet.
+Skapa ett objekt som skickar händelser till Application Insights. Du kan lägga till instrumentering på Server sidans program kod eller kod på klient sidan som körs i en webbläsare, uttryckt här som C#-och JavaScript-varianter (för andra språk, se den fullständiga listan över [plattformar och ramverk som stöds](../azure-monitor/app/platforms.md). Välj den metod som ger dig det önskade informations djupet.
 
 Telemetri på Server Sidan samlar in mått på applikations nivå, till exempel i program som körs som en webb tjänst i molnet eller som en lokal app i ett företags nätverk. Telemetri på Server Sidan samlar in Sök och klickar på händelser, placeringen av ett dokument i resultat och fråga efter information, men data insamlingen kommer att begränsas till den information som är tillgänglig på det lagret.
 
-På klienten kan du ha ytterligare kod som ändrar indata för frågor, lägger till navigering eller inkluderar kontext (till exempel frågor som initieras från en start sida respektive en produkt sida). Om detta beskriver din lösning kan du välja att använda instrumentering på klient sidan så att din telemetri visar ytterligare information. Hur den här ytterligare informationen samlas in utanför det här mönstrets omfång, men du kan granska [Application Insights för webb sidor](https://docs.microsoft.com/azure/azure-monitor/app/javascript#explore-browserclient-side-data) för mer riktning. 
+På klienten kan du ha ytterligare kod som ändrar indata för frågor, lägger till navigering eller inkluderar kontext (till exempel frågor som initieras från en start sida respektive en produkt sida). Om detta beskriver din lösning kan du välja att använda instrumentering på klient sidan så att din telemetri visar ytterligare information. Hur den här ytterligare informationen samlas in utanför det här mönstrets omfång, men du kan granska [Application Insights för webb sidor](../azure-monitor/app/javascript.md#explore-browserclient-side-data) för mer riktning. 
 
 **Använda C#**
 
@@ -238,6 +238,6 @@ Följande skärm bild visar hur en inbyggd rapport kan se ut om du har använt a
 
 Instrumentera ditt sökprogram för att få kraftfull och insiktad information om din Sök tjänst.
 
-Du hittar mer information om [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) och besöker sidan med [priser](https://azure.microsoft.com/pricing/details/application-insights/) för att lära dig mer om deras olika tjänst nivåer.
+Du hittar mer information om [Application Insights](../azure-monitor/app/app-insights-overview.md) och besöker sidan med [priser](https://azure.microsoft.com/pricing/details/application-insights/) för att lära dig mer om deras olika tjänst nivåer.
 
-Lär dig mer om att skapa fantastiska rapporter. Mer information finns i [komma igång med Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) .
+Lär dig mer om att skapa fantastiska rapporter. Mer information finns i [komma igång med Power BI Desktop](/power-bi/fundamentals/desktop-getting-started) .

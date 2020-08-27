@@ -3,13 +3,13 @@ title: Distribuera programpaket till Compute-noder
 description: Använd funktionen programpaket i Azure Batch för att enkelt hantera flera program och versioner för installation på batch Compute-noder.
 ms.topic: how-to
 ms.date: 04/26/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328b08acbc6d13dd03956bb501b4d4a51310c9c0
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: 8d0ab6227e232728818afbbc58ca6521d9a417df
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147219"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922012"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -180,7 +180,7 @@ När du klickar på **Uppdatera**visas **uppdaterings paketets** fönster. Det h
 
 När du klickar på **ta bort**uppmanas du att bekräfta borttagningen av paket versionen och batch tar bort paketet från Azure Storage. Om du tar bort standard versionen av ett program tas **standard versions** inställningen bort för programmet.
 
-![Ta bort program][12]
+![Ta bort program ][12]
 
 ## <a name="install-applications-on-compute-nodes"></a>Installera program på Compute-noder
 Nu när du har lärt dig hur du hanterar programpaket med Azure Portal kan vi diskutera hur du distribuerar dem för att beräkna noder och köra dem med batch-uppgifter.
@@ -248,14 +248,14 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Exempel:
+På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Ett exempel:
 
 ```
 Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`och `version` är värden som motsvarar den program-och paket version som du har angett för distribution. Om du till exempel har angett att version 2,7 av program *blandning* ska installeras på Windows-noder, använder dina aktivitets kommando rader denna miljö variabel för att komma åt dess filer:
+`APPLICATIONID` och `version` är värden som motsvarar den program-och paket version som du har angett för distribution. Om du till exempel har angett att version 2,7 av program *blandning* ska installeras på Windows-noder, använder dina aktivitets kommando rader denna miljö variabel för att komma åt dess filer:
 
 ```
 Windows:

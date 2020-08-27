@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd00c357a422a407a3367e45531e3443577f9bec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171949"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923253"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implementera fasettisk navigering i Azure Kognitiv sökning
 
@@ -50,7 +50,7 @@ Start punkten är en program sida som tillhandahåller fasett-navigering, vanlig
 1. En fråga som skickas till Azure Kognitiv sökning anger den fasettiska navigerings strukturen via en eller flera aspekt parametrar. Frågan kan till exempel innehålla `facet=Rating` , kanske med ett `:values` eller `:sort` alternativ för att ytterligare förfina presentationen.
 2. Presentations lagret återger en Sök sida som ger en fasett-navigering med hjälp av de fasetter som anges i begäran.
 3. Om du har en aspektad navigerings struktur som innehåller klassificering klickar du på "4" för att visa att endast produkter med en klassificering på 4 eller högre ska visas. 
-4. Som svar skickar programmet en fråga som innehåller`$filter=Rating ge 4` 
+4. Som svar skickar programmet en fråga som innehåller `$filter=Rating ge 4` 
 5. Presentations lagret uppdaterar sidan med en reducerad resultat uppsättning som innehåller bara de objekt som uppfyller de nya villkoren (i det här fallet produkter som klassats 4 och uppåt).
 
 En aspekt är en frågeparameter, men den kan inte förväxla den med frågans ingångar. Den används aldrig som urvals villkor i en fråga. Tänk i stället på fasett-frågeparametrar som indata till navigerings strukturen som kommer tillbaka i svaret. För varje aspekt-frågeparameter som du anger, utvärderar Azure Kognitiv sökning hur många dokument som finns i de partiella resultaten för varje fasett-värde.
@@ -63,7 +63,7 @@ I program kod är mönstret att använda fasett-frågeparametrar för att return
 
 ### <a name="query-basics"></a>Grundläggande frågor
 
-I Azure Kognitiv sökning anges en begäran via en eller flera frågeparametrar (se [Sökdokumenten](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrar krävs, men du måste ha minst en för att en fråga ska vara giltig.
+I Azure Kognitiv sökning anges en begäran via en eller flera frågeparametrar (se [Sökdokumenten](/rest/api/searchservice/Search-Documents) för en beskrivning av var och en). Ingen av frågeparametrar krävs, men du måste ha minst en för att en fråga ska vara giltig.
 
 Precision, som tolkas som möjligheten att filtrera bort irrelevanta träffar, uppnås genom ett eller båda dessa uttryck:
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-En aspekt fråga-parameter har angetts till ett fält och, beroende på datatyp, kan utföras ytterligare med en kommaavgränsad lista som innehåller `count:<integer>` , `sort:<>` , `interval:<integer>` och `values:<list>` . En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) för användnings information.
+En aspekt fråga-parameter har angetts till ett fält och, beroende på datatyp, kan utföras ytterligare med en kommaavgränsad lista som innehåller `count:<integer>` , `sort:<>` , `interval:<integer>` och `values:<list>` . En värde lista stöds för numeriska data vid inställning av intervall. Se [Sök i dokument (Azure KOGNITIV sökning API)](/rest/api/searchservice/Search-Documents) för användnings information.
 
 Tillsammans med FACET, bör begäran som formuleras av ditt program också skapa filter för att begränsa uppsättningen av kandidat dokument baserat på ett aspekt värdes val. För en cykel butik ger den fasettiska navigeringen LED trådar till frågor som *vilka färger, tillverkare och typer av cyklar är tillgängliga?*. Filtrera svar på frågor som *vilka exakta cyklar är röda, Mountain Bikes, i det här pris intervallet?*. När du klickar på "röd" för att ange att endast röda produkter ska visas, kommer nästa fråga som programmet skickar att innehålla `$filter=Color eq 'Red'` .
 
@@ -299,7 +299,7 @@ I allmänhet rekommenderar vi att du lägger till fler filter för att ge använ
 
 För varje fasettt fält i navigerings trädet finns det en standard gräns på 10 värden. Detta standardvärde är meningsfullt för navigerings strukturer eftersom den behåller värde listan till en hanterbar storlek. Du kan åsidosätta standardvärdet genom att tilldela ett värde till Count.
 
-* `&facet=city,count:5`anger att endast de fem första städerna som finns i de översta rankade resultaten returneras som ett fasett-resultat. Överväg en exempel fråga med Sök termen "flyg plats" och 32 matchningar. Om frågan anger `&facet=city,count:5` är det bara de första fem unika städerna med de flesta dokument i Sök resultaten som ingår i fasett-resultatet.
+* `&facet=city,count:5` anger att endast de fem första städerna som finns i de översta rankade resultaten returneras som ett fasett-resultat. Överväg en exempel fråga med Sök termen "flyg plats" och 32 matchningar. Om frågan anger `&facet=city,count:5` är det bara de första fem unika städerna med de flesta dokument i Sök resultaten som ingår i fasett-resultatet.
 
 Observera skillnaden mellan fasett-resultat och Sök resultat. Sök resultat är alla dokument som matchar frågan. Fasett-resultat är matchningarna för varje fasett-värde. I exemplet innehåller Sök resultaten Orts namn som inte finns i aspekt klassificerings listan (5 i vårt exempel). Resultat som filtreras ut genom den fasettiska navigeringen blir synliga när du tar bort FACET eller väljer andra ansikte förutom stad. 
 
@@ -319,7 +319,7 @@ När du lägger till ett filter i en fasett-fråga kanske du vill behålla faset
 
 **Se till att du får korrekta fasett-antal**
 
-Under vissa omständigheter kanske du upptäcker att antalet fasetter inte matchar resultat uppsättningarna (se [aspekten navigering i Azure kognitiv sökning (Microsoft Q&en fråge sida)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+Under vissa omständigheter kanske du upptäcker att antalet fasetter inte matchar resultat uppsättningarna (se [aspekten navigering i Azure kognitiv sökning (Microsoft Q&en fråge sida)](/answers/topics/azure-cognitive-search.html)).
 
 Fasett-antalet kan vara felaktigt på grund av horisontell partitionering-arkitekturen. Varje sökindex har flera Shards och varje Shard rapporterar de översta N fasetterna efter antal dokument, som sedan kombineras till ett enda resultat. Om vissa Shards har många matchande värden, medan andra har färre, kan det hända att vissa fasett-värden saknas eller under räkning i resultaten.
 
@@ -333,12 +333,12 @@ Etiketter definieras vanligt vis i HTML eller formulär ( `index.cshtml` i exemp
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrera baserat på ett intervall
-Fasettering över intervall med värden är ett vanligt Sök program krav. Intervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [Sök dokument (Azure KOGNITIV sökning API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Fasettering över intervall med värden är ett vanligt Sök program krav. Intervall stöds för numeriska data och DateTime-värden. Du kan läsa mer om varje metod i [Sök dokument (Azure KOGNITIV sökning API)](/rest/api/searchservice/Search-Documents).
 
 Azure Kognitiv sökning fören klar intervall konstruktion genom att tillhandahålla två metoder för att beräkna ett intervall. För båda metoderna skapar Azure Kognitiv sökning lämpliga intervall med de indata som du har angett. Om du till exempel anger intervall värden på 10 | 20 | 30 skapar det automatiskt intervall på 0-10, 10-20, 20-30. Programmet kan eventuellt ta bort alla intervall som är tomma. 
 
 **Metod 1: Använd parametern Interval**  
-Om du vill ange pris facets i $10-steg, anger du:`&facet=price,interval:10`
+Om du vill ange pris facets i $10-steg, anger du: `&facet=price,interval:10`
 
 **Metod 2: Använd en värde lista**  
 För numeriska data kan du använda en värde lista.  Ta hänsyn till aspekt intervallet för ett `listPrice` fält, återges på följande sätt:
@@ -404,4 +404,3 @@ För mer information om design principer för fasett-navigering rekommenderar vi
 
 * [Design mönster: Fasettisk navigering](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Klient dels problem vid implementering av fasett-sökning – del 1](https://articles.uie.com/faceted_search2/)
-

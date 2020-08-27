@@ -3,12 +3,12 @@ title: Nyheter i Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server ger dig förbättrade säkerhets kopierings funktioner för att skydda virtuella datorer, filer och mappar, arbets belastningar med mera.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: a88b2926141092a9a1aeca988646aa3b69330f90
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88648759"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88893195"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Vad är nytt i Microsoft Azure Backup Server (MABS)
 

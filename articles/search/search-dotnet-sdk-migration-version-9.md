@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562351"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923202"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uppgradera till Azure Search .NET SDK version 9
 
-Om du använder version 7,0 – för hands version eller äldre av [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 9.
+Om du använder version 7,0 – för hands version eller äldre av [Azure Search .NET SDK](/dotnet/api/overview/azure/search)hjälper den här artikeln dig att uppgradera ditt program till att använda version 9.
 
 > [!NOTE]
 > Om du vill använda version 8,0 – för hands version för att utvärdera funktioner som inte är allmänt tillgängliga än, kan du också följa anvisningarna i den här artikeln för att uppgradera till 8,0 – för hands version från tidigare versioner.
@@ -106,12 +106,12 @@ Parameter lös konstruktor `Field` har gjorts `internal` . Från och med nu `Fie
 
 I version 7,0 – för hands versionen och tidigare var de olika klasserna som inkapslade grupper av dokument strukturerade i parallella klass hierarkier:
 
-  -  `DocumentSearchResult`och `DocumentSearchResult<T>` ärvts från`DocumentSearchResultBase`
-  -  `DocumentSuggestResult`och `DocumentSuggestResult<T>` ärvts från`DocumentSuggestResultBase`
-  -  `IndexAction`och `IndexAction<T>` ärvts från`IndexActionBase`
-  -  `IndexBatch`och `IndexBatch<T>` ärvts från`IndexBatchBase`
-  -  `SearchResult`och `SearchResult<T>` ärvts från`SearchResultBase`
-  -  `SuggestResult`och `SuggestResult<T>` ärvts från`SuggestResultBase`
+  -  `DocumentSearchResult` och `DocumentSearchResult<T>` ärvts från `DocumentSearchResultBase`
+  -  `DocumentSuggestResult` och `DocumentSuggestResult<T>` ärvts från `DocumentSuggestResultBase`
+  -  `IndexAction` och `IndexAction<T>` ärvts från `IndexActionBase`
+  -  `IndexBatch` och `IndexBatch<T>` ärvts från `IndexBatchBase`
+  -  `SearchResult` och `SearchResult<T>` ärvts från `SearchResultBase`
+  -  `SuggestResult` och `SuggestResult<T>` ärvts från `SuggestResultBase`
 
 De härledda typerna utan en generisk typ parameter är avsedda att användas i scenarier med dynamiskt typ och förmodad användning av `Document` typen.
 

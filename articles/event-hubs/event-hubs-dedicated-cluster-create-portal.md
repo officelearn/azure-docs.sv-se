@@ -3,12 +3,12 @@ title: Skapa ett Event Hubs dedikerat kluster med hjälp av Azure Portal
 description: I den här snabb starten får du lära dig hur du skapar ett Azure Event Hubs-kluster med Azure Portal.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: cb657619e16f7be1d633bab61625026a40a378b8
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2759d1e25519b69311c369f3f58239cc0889a9a7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323095"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927773"
 ---
 # <a name="quickstart-create-a-dedicated-event-hubs-cluster-using-azure-portal"></a>Snabb start: skapa ett dedikerat Event Hubs-kluster med Azure Portal 
 Event Hubs kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande strömnings behoven. Det här erbjudandet har ett garanterat 99,99% SLA och är bara tillgängligt på vår dedikerade pris nivå. Ett [Event Hubs kluster](event-hubs-dedicated-overview.md) kan intränga miljon tals händelser per sekund med garanterad kapacitet och under sekund svars tid. Namn områden och händelse nav som skapats i ett kluster inkluderar alla funktioner i standard erbjudandet och mer, men utan några ingångs gränser. Det dedikerade erbjudandet omfattar även den populära [Event Hubs Capture](event-hubs-capture-overview.md) -funktionen utan extra kostnad, så att du automatiskt kan registrera och logga data strömmar till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Storage gen 1](../data-lake-store/data-lake-store-overview.md).
@@ -19,7 +19,7 @@ Dedikerade kluster tillhandahålls och faktureras efter **kapacitets enheter (CU
 > Den här självbetjänings upplevelsen är för närvarande tillgänglig i för hands versionen på [Azure Portal](https://aka.ms/eventhubsclusterquickstart). Om du har frågor om det dedikerade erbjudandet kan du kontakta [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att slutföra den här snabbstarten behöver du följande:
 
 - Ett Azure-konto. Om du inte har ett konto kan du [köpa ett konto](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) innan du börjar. Den här funktionen stöds inte med ett kostnads fritt Azure-konto. 
@@ -100,9 +100,9 @@ Om du vill ändra storleken på klustret efter att du har skapat eller om din ö
 I den här artikeln har du skapat ett Event Hubs-kluster. Stegvisa instruktioner för att skicka och ta emot händelser från en händelsehubben och att avbilda händelser till en Azure Storage eller Azure Data Lake Store finns i följande själv studie kurser:
 
 - Skicka och ta emot händelser 
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 - [Använd Azure Portal för att aktivera Event Hubs avbildning](event-hubs-capture-enable-through-portal.md)
 - [Använd Azure Event Hubs för Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)

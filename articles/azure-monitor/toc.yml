@@ -210,33 +210,13 @@
           href: platform/diagnostic-settings.md
     - name: Log Analytics
       items:
-        - name: Arbetsytor
-          items:
-            - name: Designa en arbetsyta för distribution
-              href: platform/design-logs-deployment.md
-            - name: Skapa en arbetsyta
-              items:
-                - name: Använda Azure-portalen
-                  href: learn/quick-create-workspace.md
-                - name: Använda Azure CLI
-                  href: learn/quick-create-workspace-cli.md
-                - name: Använd PowerShell
-                  href: platform/powershell-workspace-configuration.md
-                - name: Använda Resource Manager-mallar
-                  href: platform/template-workspace-configuration.md
-            - name: Ta bort och återställa en arbetsyta
-              href: platform/delete-workspace.md
-            - name: Flytta en arbetsyta
-              href: platform/move-workspace.md
-            - name: Design för tjänstleverantörer
-              href: platform/service-providers.md
-            - name: Hantera åtkomst
-              href: platform/manage-access.md
         - name: Översikt över loggfråga
           displayname: 'log query, log queries, query, queries'
           href: log-query/log-query-overview.md
         - name: Enkel loggupplevelse
           href: log-query/simple-logs.md
+        - name: Granskningsloggfrågor
+          href: log-query/query-audit.md
         - name: Självstudier
           items:
             - name: Log Analytics-självstudie
@@ -315,6 +295,26 @@
               href: log-query/query-optimization.md
             - name: Parsa textdata
               href: log-query/parse-text.md
+        - name: Arbetsytor
+          items:
+            - name: Designa en arbetsyta för distribution
+              href: platform/design-logs-deployment.md
+            - name: Skapa en arbetsyta
+              items:
+                - name: Använda Azure-portalen
+                  href: learn/quick-create-workspace.md
+                - name: Använda Azure CLI
+                  href: learn/quick-create-workspace-cli.md
+                - name: Använd PowerShell
+                  href: platform/powershell-workspace-configuration.md
+            - name: Ta bort och återställa en arbetsyta
+              href: platform/delete-workspace.md
+            - name: Flytta en arbetsyta
+              href: platform/move-workspace.md
+            - name: Design för tjänstleverantörer
+              href: platform/service-providers.md
+            - name: Hantera åtkomst
+              href: platform/manage-access.md
     - name: Måttutforskare
       items:
         - name: Komma igång med Metrics Explorer
@@ -1132,24 +1132,28 @@
           href: platform/workbooks-visualizations.md
         - name: Datakällor
           href: platform/workbooks-data-sources.md
-        - name: Distribuera med Azure Resource Manager
-          href: platform/workbooks-automate.md
+        - name: Parametrar
+          items:
+            - name: Parametersammanfattning
+              href: platform/workbooks-parameters.md
+            - name: Listruteparametrar
+              href: platform/workbooks-dropdowns.md
+            - name: Interaktiva parameter
+              href: platform/workbooks-interactive.md
+            - name: Tidsparametrar
+              href: platform/workbooks-time.md
+            - name: Textparametrar
+              href: platform/workbooks-text.md
         - name: Konfiguration
           items:
             - name: Åtkomstkontroll
               href: platform/workbooks-access-control.md
-            - name: Parametrar
-              items:
-                - name: Parametersammanfattning
-                  href: platform/workbooks-parameters.md
-                - name: Listruteparametrar
-                  href: platform/workbooks-dropdowns.md
-                - name: Interaktiva parameter
-                  href: platform/workbooks-interactive.md
-                - name: Tidsparametrar
-                  href: platform/workbooks-time.md
-                - name: Textparametrar
-                  href: platform/workbooks-text.md
+            - name: Distribuera med Azure Resource Manager
+              href: platform/workbooks-automate.md
+            - name: Flytta arbetsböcker till en annan region
+              href: platform/workbooks-move-region.md
+            - name: Flytta arbetsboksmallar till en annan region
+              href: platform/workbook-templates-move-region.md
         - name: Konvertera vyer till arbetsböcker
           items:
             - name: Översikt över konvertering

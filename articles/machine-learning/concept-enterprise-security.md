@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366935"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918595"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -91,7 +91,7 @@ Mer information om hanterade identiteter finns i [hanterade identiteter för Azu
 | Resurs | Behörigheter |
 | ----- | ----- |
 | Arbetsyta | Deltagare |
-| Lagringskonto | Storage BLOB data-deltagare |
+| Lagringskonto | Storage Blob Data-deltagare |
 | Nyckelvalv | Åtkomst till alla nycklar, hemligheter, certifikat |
 | Azure Container Registry | Deltagare |
 | Resurs grupp som innehåller arbets ytan | Deltagare |
@@ -119,19 +119,14 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 ### <a name="encryption-at-rest"></a>Kryptering i vila
 
 > [!IMPORTANT]
-> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. 
+> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
 
-`hbi_workspace`Flaggan styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer. Dessutom kan du använda följande åtgärder:
+`hbi_workspace`Flaggan styr mängden [data som Microsoft samlar in i diagnostiska syfte](#microsoft-collected-data) och möjliggör [ytterligare kryptering i Microsoft-hanterade miljöer](../security/fundamentals/encryption-atrest.md). Dessutom kan du använda följande åtgärder:
 
 * Startar kryptering av den lokala grunden-disken i Azure Machine Learning beräknings kluster förutsatt att du inte har skapat några tidigare kluster i den prenumerationen. Annars måste du skapa ett support ärende för att aktivera kryptering av den virtuella datorns arbets kluster 
 * Rensar den lokala disken för tillfällig lagring mellan körningar
 * Skickar autentiseringsuppgifter på ett säkert sätt för ditt lagrings konto, behållar registret och SSH-kontot från körnings skiktet till dina beräknings kluster med hjälp av nyckel valvet
 * Aktiverar IP-filtrering för att säkerställa att underliggande batch-pooler inte kan anropas av andra externa tjänster än AzureMachineLearningService
-
-> [!WARNING]
-> Det `hbi_workspace` går bara att ange flaggan när en arbets yta skapas. Den kan inte ändras för en befintlig arbets yta.
-
-Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 

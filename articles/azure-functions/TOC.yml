@@ -175,6 +175,7 @@
               href: functions-develop-vs.md
             - name: Utvecklingsverktyg
               href: functions-run-local.md
+              displayName: 'local, runtime'
         - name: Skapa funktioner
           items:
             - name: HTTP-utlösare

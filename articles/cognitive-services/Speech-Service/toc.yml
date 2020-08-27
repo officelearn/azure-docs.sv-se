@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: Översikt
-      items:
-        - name: Om Speech SDK
-          href: speech-sdk.md
-        - name: Scenariotillgänglighet
-          href: scenario-availability.md
-    - name: Snabbstart
-      items:
-        - name: Konfigurera Speech SDK
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Översikt över Speech SDK
+      href: speech-sdk.md
+    - name: Konfigurera Speech SDK
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Anvisningar
       items:
         - name: Aktivera loggning

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488213"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929796"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Snabb start: Använd Sök Utforskaren för att köra frågor i portalen
 
 **Sök Utforskaren** är ett inbyggt frågespråk som används för att köra frågor mot ett Sök index i Azure kognitiv sökning. Det här verktyget gör det enkelt att lära sig frågesyntaxen, testa ett fråge-eller filter uttryck eller bekräfta data uppdatering genom att kontrol lera om nytt innehåll finns i indexet.
 
-I den här snabb starten används ett befintligt index för att demonstrera Sök Utforskaren. Begär Anden formuleras med hjälp av [sök REST API](https://docs.microsoft.com/rest/api/searchservice/), med svar som returneras som JSON-dokument.
+I den här snabb starten används ett befintligt index för att demonstrera Sök Utforskaren. Begär Anden formuleras med hjälp av [sök REST API](/rest/api/searchservice/), med svar som returneras som JSON-dokument.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -133,7 +133,7 @@ Lägg till [**$OrderBy**](search-query-odata-orderby.md) för att sortera result
 
    ![OrderBy-uttryck](./media/search-explorer/search-explorer-example-ordery.png "Ändra sorteringsordning")
 
-Både **$filter** -och **$OrderBy** -uttryck är OData-konstruktioner. Mer information finns i [OData-filtersyntax](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Både **$filter** -och **$OrderBy** -uttryck är OData-konstruktioner. Mer information finns i [OData-filtersyntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -147,11 +147,11 @@ I den här snabb starten använde du **Sök Utforskaren** för att fråga ett in
 
 + Kostnads fria frågor, som liknar vad du kan ange i en kommersiell webbläsare, är användbara för att testa en slut användar upplevelse. Om du till exempel antar det inbyggda realestate exempel indexet, kan du ange "Seattle lägenheter Lake Washington" och sedan använda Ctrl-F för att hitta termer inom Sök resultaten. 
 
-+ Fråga-och filter uttryck visas i en syntax som stöds av Azure Kognitiv sökning. Standardvärdet är en [enkel syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filter uttryck](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
++ Fråga-och filter uttryck visas i en syntax som stöds av Azure Kognitiv sökning. Standardvärdet är en [enkel syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search), men du kan också använda [fullständig Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) för mer kraftfulla frågor. [Filter uttryck](/rest/api/searchservice/odata-expression-syntax-for-azure-search) är en OData-syntax.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -159,7 +159,7 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om frågeuttryck och syntax använder du Postman eller ett motsvarande verktyg för att skapa frågeuttryck som utnyttjar fler delar av API: et. [Sök REST API](https://docs.microsoft.com/rest/api/searchservice/) är särskilt användbart för utbildning och utforskning.
+Om du vill veta mer om frågeuttryck och syntax använder du Postman eller ett motsvarande verktyg för att skapa frågeuttryck som utnyttjar fler delar av API: et. [Sök REST API](/rest/api/searchservice/) är särskilt användbart för utbildning och utforskning.
 
 > [!div class="nextstepaction"]
 > [Skapa en grundläggande fråga i Postman](search-query-simple-examples.md)

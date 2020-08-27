@@ -4,41 +4,32 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 58c77dccd1e43ed497cd56b2831eb2ab914d8d5d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: e32c7433649cc6716a57a6aa2384c1e2d266e102
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85556931"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927180"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
 [Azure Migrate](migrate-services-overview.md) hjälper dig att identifiera, utvärdera och migrera lokala servrar, appar och data till Microsoft Azure molnet. I den här artikeln sammanfattas nya versioner och funktioner i Azure Migrate.
+
+## <a name="update-august-2020"></a>Uppdatering (augusti 2020)
+
+- Förbättrad onboarding-upplevelse där en Azure Migrate projekt nyckel genereras från portalen och används för att slutföra installationen av produkten.
+- Alternativ för att ladda ned antingen ägg/VHD-filer eller installations skript från portalen för att konfigurera VMware-och Hyper-V-enheter.
+- Uppdaterad installation av Configuration Manager med förbättrad användar upplevelse.
+- Stöd för flera autentiseringsuppgifter för identifiering av virtuella Hyper-V-datorer.
+- Förbättrade Sök-, sorterings-och filtrerings funktioner för tillagda autentiseringsuppgifter och identifierings källor.
+- Enstaka objekt indata, flera objekt indata och import CSV-alternativ för att användare ska kunna lägga till identifierings källor för Hyper-V-värdar/-kluster & fysiska servrar.
+- Förbättrad fel upplevelse med status uppdateringar för validerings-och identifierings åtgärder mot varje tillagd källa i tabellen. 
 
 ## <a name="update-june-2020"></a>Uppdatering (2020 juni)
 
 - Utvärderingar för att migrera lokala virtuella VMware-datorer till [Azure VMware-lösningen (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) stöds nu. [Läs mer](how-to-create-azure-vmware-solution-assessment.md)
 - Stöd för flera autentiseringsuppgifter på installations programmet för fysisk server identifiering.
 - Stöd för att tillåta Azure-inloggning från enheten för klient organisationer där klient begränsning har kon figurer ATS.
-- Nya Azure Migrate utrustnings versioner enligt listan nedan.
-
-### <a name="azure-public-cloud"></a>Offentligt Azure-moln
-
-**Scenario** | **Ladda ned** | **SHA256**
---- | --- | ---
-Hyper-V (8,93 GB) | [Senaste version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
-VMware (10,9 GB) | [Senaste version](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
-Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
-
-
-### <a name="azure-government"></a>Azure Government
-
-**Scenario** | **Ladda ned** | **SHA256**
---- | --- | ---
-Hyper-V (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
-VMware (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
-Fysisk (63,1 MB) | [Senaste version](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
-
 
 
 ## <a name="update-april-2020"></a>Uppdatering (april 2020)

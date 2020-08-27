@@ -49,3 +49,9 @@
       items:
         - name: Problem med agentanslutning
           href: troubleshoot-agent-onboard.md
+    - name: Referens
+      items:
+        - name: Regionstillgänglighet och datahemvist
+          href: data-residency.md
+        - name: REST
+          href: /rest/api/hybridcompute

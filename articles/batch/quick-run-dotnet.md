@@ -3,13 +3,13 @@ title: 'Snabb start – kör ditt första Azure Batch-jobb med .NET-API: et'
 description: I den här snabb starten kör du ett Azure Batch exempel jobb och uppgifter från ett C#-program med batch .NET-klient biblioteket.
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: mvc
-ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511039"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921655"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Snabbstart: Kör ditt första Azure Batch-jobb med .NET-API
 
@@ -19,7 +19,7 @@ När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppe
 
 ![Diagram som visar en översikt över arbets flödet för Azure Batch app.](./media/quick-run-dotnet/sampleapp.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 

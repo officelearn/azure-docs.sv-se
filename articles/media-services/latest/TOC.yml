@@ -56,6 +56,8 @@
           href: stream-files-dotnet-quickstart.md
         - name: Med Node.js
           href: stream-files-nodejs-quickstart.md
+    - name: Lagra AMS-händelser i Azure Log Analytics
+      href: tutorial-events-log-analytics.md
     - name: Koda uppladdade filer och strömma video
       displayName: 'encode, encoding, job, transform'
       href: stream-files-tutorial-with-api.md

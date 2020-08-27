@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: dacfeeff06d58a084d4313ca50b51f262cf61381
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553088"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917983"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Konfigurera en anslutning till ett Azure Storage konto med hjälp av en hanterad identitet (förhands granskning)
 
@@ -68,7 +68,7 @@ I det här steget ska du ge Azure Kognitiv sökning-tjänstens behörighet att l
 
 ### <a name="3---create-the-data-source"></a>3 – skapa data källan
 
-[REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från ett lagrings konto med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal och [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) stöder anslutnings strängen för hanterad identitet. Nedan visas ett exempel på hur du skapar en data källa för att indexera data från ett lagrings konto med hjälp av [REST API](/rest/api/searchservice/create-data-source) och en anslutnings sträng för hanterad identitet. Formatet för anslutnings strängen för hanterad identitet är detsamma för REST API, .NET SDK och Azure Portal.
 
 När du indexerar från ett lagrings konto måste data källan ha följande obligatoriska egenskaper:
 
@@ -83,7 +83,7 @@ När du indexerar från ett lagrings konto måste data källan ha följande obli
         * *ResourceId =/Subscriptions/**ditt prenumerations-ID**/resourceGroups/**resurs gruppens namn**/providers/Microsoft.Storage/storageAccounts/**ditt lagrings konto namn**/;*
 * **container** anger ett behållar-eller tabell namn i ditt lagrings konto. Som standard kan alla blobar i behållaren hämtas. Om du bara vill indexera blobbar i en viss virtuell katalog kan du ange den katalogen med hjälp av parametern valfri **fråga** .
 
-Exempel på hur du skapar ett BLOB-källdokument med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Exempel på hur du skapar ett BLOB-källdokument med hjälp av [REST API](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -118,7 +118,7 @@ Så här skapar du ett index med ett sökbart `content` fält för att lagra tex
     }
 ```
 
-Mer information om hur du skapar index finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Mer information om hur du skapar index finns i [skapa index](/rest/api/searchservice/create-index)
 
 ### <a name="5---create-the-indexer"></a>5 – skapa indexeraren
 
@@ -143,7 +143,7 @@ Exempel på indexerings definition för en BLOB-indexerare:
 
 Indexeraren körs varannan timme (schema intervall anges till "PT2H"). Om du vill köra en indexerare var 30: e minut anger du intervallet till "PT30M". Det kortaste intervall som stöds är 5 minuter. Schemat är valfritt – om det utelämnas körs en indexerare bara en gång när den skapas. Du kan dock köra en indexerare på begäran när du vill.   
 
-Mer information om API för att skapa index finns i [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Mer information om API för att skapa index finns i [skapa indexerare](/rest/api/searchservice/create-indexer).
 
 Mer information om hur du definierar indexerare scheman finns i [så här schemalägger du indexerare för Azure kognitiv sökning](search-howto-schedule-indexers.md).
 

@@ -8,20 +8,20 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: bac2f86f4134cc8d22e9f388b46bc76ab2d0e5ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 087989638193bb59001ed33c4ee253d61682d8bf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080794"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936001"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Kognitiv kompetens för språk identifiering
 
-**Språkidentifiering** -kunskapen identifierar språket för inmatad text och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språk koden är kopplad till en poäng som anger styrkan i analysen. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+**Språkidentifiering** -kunskapen identifierar språket för inmatad text och rapporterar en enda språkkod för varje dokument som skickas på begäran. Språk koden är kopplad till en poäng som anger styrkan i analysen. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](../cognitive-services/text-analytics/overview.md) i Cognitive Services.
 
 Den här funktionen är särskilt användbar när du behöver ange språket för texten som inskickad till andra kunskaper (till exempel [Attitydanalys kompetens](cognitive-search-skill-sentiment.md) eller [text delnings kunskaper](cognitive-search-skill-textsplit.md)).
 
-Språk identifieringen utnyttjar Bing: s naturliga språk bearbetnings bibliotek, vilket överskrider antalet [språk och regioner som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) för textanalys. Den exakta listan över språk publiceras inte, men innehåller alla talade språk, plus varianter, dialekter och vissa regionala och kulturella språk. Om du har innehåll som uttryckts på ett mindre vanligt språk kan du [prova språkidentifiering-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown` .
+Språk identifieringen utnyttjar Bing: s naturliga språk bearbetnings bibliotek, vilket överskrider antalet [språk och regioner som stöds](../cognitive-services/text-analytics/language-support.md) för textanalys. Den exakta listan över språk publiceras inte, men innehåller alla talade språk, plus varianter, dialekter och vissa regionala och kulturella språk. Om du har innehåll som uttryckts på ett mindre vanligt språk kan du [prova språkidentifiering-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown` .
 
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
@@ -33,7 +33,7 @@ Språk identifieringen utnyttjar Bing: s naturliga språk bearbetnings bibliotek
 Microsoft. färdigheter. text. LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till språk identifierings kunskapen kan du använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till språk identifierings kunskapen kan du använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
@@ -80,7 +80,7 @@ Parametrar är skiftlägeskänsliga.
   }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -103,7 +103,7 @@ Parametrar är skiftlägeskänsliga.
 ```
 
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 ```json
 {

@@ -3,12 +3,12 @@ title: Övervakning och loggning – Azure
 description: Den här artikeln innehåller en översikt över video analys på IoT Edge övervakning och loggning.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060449"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934301"
 ---
 # <a name="monitoring-and-logging"></a>Övervakning och loggning
 
@@ -100,13 +100,32 @@ Real tids analys på IoT Edge avger händelser eller telemetridata enligt följa
    ```
 De händelser som genereras av modulen skickas till [IoT Edge Hub](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)och därifrån kan de dirigeras till andra mål. 
 
+### <a name="timestamps-in-analytic-events"></a>Tidsstämplar i analys händelser
+Som anges ovan har händelser som genererats som en del av video analysen en tidsstämpel som är kopplad till dem. Om du har [spelat in direktsänd video](video-recording-concept.md) som en del av din graf-topologi, hjälper den här tidsstämpeln dig att hitta var i den inspelade videon att en viss händelse inträffade. Nedan följer rikt linjerna för hur du mappar tidsstämpeln i en analys händelse till tids linjen för videon som spelas in i en [Azure Media service-till gång](terminology.md#asset).
+
+Extrahera först `eventTime` värdet. Använd det här värdet i ett [tids intervall filter](playback-recordings-how-to.md#time-range-filters) för att hämta en lämplig del av inspelningen. Till exempel kanske du vill hämta video som börjar 30 sekunder innan `eventTime` och slutar 30 sekunder efteråt. Med ovanstående exempel, där `eventTime` är 2020-05-12T23:33:09.381 z, skulle en begäran om ett HLS-manifest för fönstret +/-30 s se ut så här:
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+URL: en ovan skulle returnera en så kallad [huvud-spelnings lista](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming)med URL: er för medie spelnings listor. Medie spelnings listan skulle innehålla poster som följande:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+I ovanstående rapport rapporterar posten att ett video fragment är tillgängligt som startar vid ett tidsstämpel-värde för `143039375031270` . `timestamp`Värdet i analys händelsen använder samma tids skala som medie spelnings listan och kan användas för att identifiera relevanta videofragment och söka efter rätt ram.
+
+För mer information, kan du läsa en av de många [artiklarna](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) i den ram som är korrekta i HLS.
+
 ## <a name="controlling-events"></a>Kontrollera händelser
 
 Du kan använda följande modul dubbla egenskaper, enligt beskrivningen i [modulens dubbla JSON-schema](module-twin-configuration-schema.md), för att styra de operativa och diagnostiska händelser som publiceras av video analysen i IoT Edge modul.
 
-`diagnosticsEventsOutputName`– inkludera och ange (valfritt) värde för den här egenskapen för att hämta diagnostiska händelser från modulen. Utelämna det eller lämna det tomt om du vill stoppa modulen från att publicera diagnostiska händelser.
+`diagnosticsEventsOutputName` – inkludera och ange (valfritt) värde för den här egenskapen för att hämta diagnostiska händelser från modulen. Utelämna det eller lämna det tomt om du vill stoppa modulen från att publicera diagnostiska händelser.
    
-`operationalEventsOutputName`– inkludera och ange (valfritt) värde för den här egenskapen för att hämta drift händelser från modulen. Utelämna det eller lämna det tomt om du vill stoppa modulen från att publicera drift händelser.
+`operationalEventsOutputName` – inkludera och ange (valfritt) värde för den här egenskapen för att hämta drift händelser från modulen. Utelämna det eller lämna det tomt om du vill stoppa modulen från att publicera drift händelser.
    
 Analytics-händelserna genereras av noder som rörelse identifierings processor, eller HTTP-tilläggsbegäranden, och IoT Hub-mottagaren används för att skicka dem till IoT Edge Hub. 
 
@@ -143,7 +162,7 @@ Varje händelse, vid observation via IoT Hub, har en uppsättning gemensamma ege
 |---|---|---|---|
 |meddelande-ID |säker |guid|  Unikt händelse-ID.|
 |ämne| applicationProperty |sträng|    Azure Resource Manager sökväg för Media Servicess kontot.|
-|Ämne|   applicationProperty |sträng|    Under Sök väg till den enhet som avger händelsen.|
+|motiv|   applicationProperty |sträng|    Under Sök väg till den enhet som avger händelsen.|
 |Händelsetid| applicationProperty|    sträng| Tiden då händelsen skapades.|
 |Händelsetyp| applicationProperty |sträng|    Händelse typ identifierare (se nedan).|
 |body|body  |objekt|    Specifika händelse data.|
@@ -161,7 +180,7 @@ Representerar Azure Media Service-kontot som är associerat med grafen.
 
 `/subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.Media/mediaServices/{accountName}`
 
-#### <a name="subject"></a>Ämne
+#### <a name="subject"></a>motiv
 
 Enhet som avger händelsen:
 
@@ -184,7 +203,7 @@ Händelse typer tilldelas en namnrymd enligt följande schema:
 |---|---|
 |Analytics  |Händelser som genereras som en del av innehålls analysen.|
 |Diagnostik    |Händelser som är till hjälp vid diagnostik av problem och prestanda.|
-|Verksamhetsrelaterade    |Händelser som genererats som en del av resurs åtgärden.|
+|Operativ    |Händelser som genererats som en del av resurs åtgärden.|
 
 Händelse typerna är speciella för varje händelse klass.
 
@@ -239,7 +258,7 @@ Ovan kan Edge-modulen skriva loggar till lagrings Sök vägen för (enhet) "/var
 
 Sedan skriver modulen fel söknings loggar i binärformat till lagrings Sök vägen (enhet)/var/Local/MediaServices/debuglogs/, som du kan dela med Azure-supporten.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
 [Vanliga frågor och svar](faq.md#monitoring-and-metrics)
 

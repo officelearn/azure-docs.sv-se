@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109628"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928929"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
@@ -33,11 +33,12 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Tabellen sammanfattar de uppgifter som du måste utföra i Azure. Anvisningarna följer tabellen.
 
-**Aktivitet** | **Information** | **Behörigheter**
+**Uppgift** | **Information** | **Behörigheter**
 --- | --- | ---
 **Skapa ett Azure Migrate-projekt** | Ett Azure Migrate projekt är en central plats för att dirigera och hantera utvärderingar och migreringar med Azure Migrate verktyg, Microsoft-verktyg och erbjudanden från tredje part. | Ditt Azure-konto behöver deltagar-eller ägar behörigheter i resurs gruppen där projektet finns.
 **Registrera apparat** | Azure Migrate använder en förenklad Azure Migrate-apparat för att identifiera och utvärdera virtuella Hyper-V-datorer. [Läs mer](migrate-appliance-architecture.md#appliance-registration). | För att registrera installationen behöver ditt Azure-konto deltagar-eller ägar behörigheter för Azure-prenumerationen.
 **Skapa Azure AD-app** | När du registrerar installationen skapar Azure Migrate en Azure Active Directory (Azure AD)-app som används för kommunikation mellan de agenter som körs på enheten och Azure Migrate. | Ditt Azure-konto måste ha behörighet att skapa Azure AD-appar.
+**Skapa en Key Vault-lösning** | Key Vault skapas som en del av installations registreringen och används för hantering av det certifikat som laddats ned på enheten under konfigurationen.| För att Azure Migrate ska kunna skapa Key Vault måste ditt Azure-konto ha deltagar behörighet för resurs gruppen där Azure Migrate-projektet finns.
 **Skapa en virtuell dator** | Du måste ha behörighet att skapa en virtuell dator i resurs gruppen och det virtuella nätverket och skriva till en Azure-hanterad disk. | Du måste ha rollen virtuell dator deltagare i Azure-kontot.
 
 
@@ -81,6 +82,7 @@ Klient organisationen/den globala administratören kan bevilja behörigheter enl
 #### <a name="assign-application-developer-role"></a>Tilldela rollen program utvecklare
 
 Klient organisationen/den globala administratören kan tilldela rollen programutvecklare till ett konto. [Läs mer](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+
 
 ### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
 

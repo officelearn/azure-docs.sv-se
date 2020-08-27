@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321389"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935219"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Guiden Importera data för Azure Kognitiv sökning
 
@@ -68,19 +68,19 @@ Du bör skapa den här enskilda tabellen eller vyn innan du kör guiden och den 
 | [**Azure SQL Database-eller SQL-hanterad instans**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Tjänstens namn, autentiseringsuppgifterna för en databasanvändare med läsbehörighet och ett databasnamn kan anges på sidan eller via en ADO.NET-anslutningssträng. Välj alternativet för anslutningssträngar till att visa eller anpassa egenskaperna. <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver.|
 | **SQL Server på virtuella Azure-datorer** |Ange ett fullständigt tjänst namn, användar-ID och lösen ord samt databas som anslutnings sträng. Om du vill använda den här datakällan måste du tidigare ha installerat ett certifikat i det lokala arkiv som krypterar anslutningen. Instruktioner finns i [SQL VM-anslutning till Azure kognitiv sökning](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Tabellen eller vyn som visar raduppsättningen måste anges på sidan. Det här alternativet visas när anslutningen lyckats, med en listruta där du kan välja det du behöver. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Kraven innefattar konto, databas och samling. Alla dokument i samlingen kommer att ingå i indexet. Du kan definiera en fråga för att förenkla eller filtrera rad uppsättningen eller lämna frågan tom. En fråga krävs inte i den här guiden.|
-| [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
+| [**Azure-Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Kraven innefattar lagringskonto och en container. Om blob-namnet följer en virtuell namngivningskonvention i grupperingssyfte, kan du också ange den virtuella katalogdelen av namnet som en mapp under containern. Se [Indexera Blob Storage](search-howto-indexing-azure-blob-storage.md) för mer information. |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Kraven innefattar lagringskontot och ett tabellnamn. Du kan också ange en fråga för att hämta en delmängd av tabellerna. Se [Indexera Table Storage](search-howto-indexing-azure-tables.md) för mer information. |
 
 ## <a name="wizard-output"></a>Guidens utdata
 
-Guiden skapar, konfigurerar och anropar följande objekt i bakgrunden. När guiden har körts kan du hitta dess utdata på Portal sidorna. Översikts sidan för din tjänst har listor över index, indexerare, data källor och färdighetsuppsättningar. Index definitioner kan visas i hela JSON i portalen. För andra definitioner kan du använda [REST API](https://docs.microsoft.com/rest/api/searchservice/) för att hämta vissa objekt.
+Guiden skapar, konfigurerar och anropar följande objekt i bakgrunden. När guiden har körts kan du hitta dess utdata på Portal sidorna. Översikts sidan för din tjänst har listor över index, indexerare, data källor och färdighetsuppsättningar. Index definitioner kan visas i hela JSON i portalen. För andra definitioner kan du använda [REST API](/rest/api/searchservice/) för att hämta vissa objekt.
 
 | Objekt | Beskrivning | 
 |--------|-------------|
-| [Data Källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Sparar anslutnings information för källdata, inklusive autentiseringsuppgifter. Ett data käll objekt används enbart med indexerare. | 
-| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Fysisk data struktur som används för full texts ökning och andra frågor. | 
-| [Färdigheter](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | En fullständig uppsättning instruktioner för att manipulera, transformera och forma innehåll, inklusive analys och extrahering av information från bildfiler. Förutom för mycket enkla och begränsade strukturer innehåller den en referens till en Cognitive Services-resurs som ger berikning. Alternativt kan det även innehålla en kunskaps lager definition.  | 
-| [Indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Ett konfigurations objekt som anger en data källa, ett mål index, ett valfritt färdigheter, valfritt schema och valfria konfigurations inställningar för fel hand och bas-64-kodning. |
+| [Datakälla](/rest/api/searchservice/create-data-source)  | Sparar anslutnings information för källdata, inklusive autentiseringsuppgifter. Ett data käll objekt används enbart med indexerare. | 
+| [Index](/rest/api/searchservice/create-index) | Fysisk data struktur som används för full texts ökning och andra frågor. | 
+| [Färdigheter](/rest/api/searchservice/create-skillset) | En fullständig uppsättning instruktioner för att manipulera, transformera och forma innehåll, inklusive analys och extrahering av information från bildfiler. Förutom för mycket enkla och begränsade strukturer innehåller den en referens till en Cognitive Services-resurs som ger berikning. Alternativt kan det även innehålla en kunskaps lager definition.  | 
+| [Indexerare](/rest/api/searchservice/create-indexer)  | Ett konfigurations objekt som anger en data källa, ett mål index, ett valfritt färdigheter, valfritt schema och valfria konfigurations inställningar för fel hand och bas-64-kodning. |
 
 
 ## <a name="how-to-start-the-wizard"></a>Starta guiden
@@ -103,7 +103,7 @@ Guiden genererar ett ofullständigt index som kommer att fyllas i med dokument s
 
 1. Är fält listan slutförd? Lägg till nya fält som samplingen missade och ta bort alla som inte lägger till värden i en Sök funktion eller som inte används i ett [filter uttryck](search-query-odata-filter.md) eller en [bedömnings profil](index-add-scoring-profiles.md).
 
-1. Är data typen lämplig för inkommande data? Azure Kognitiv sökning stöder [data typerna Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). För Azure SQL data finns [mappnings diagram](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) som innehåller motsvarande värden. Mer bakgrunds information finns i [fält mappningar och transformeringar](search-indexer-field-mappings.md).
+1. Är data typen lämplig för inkommande data? Azure Kognitiv sökning stöder [data typerna Entity Data Model (EDM)](/rest/api/searchservice/supported-data-types). För Azure SQL data finns [mappnings diagram](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) som innehåller motsvarande värden. Mer bakgrunds information finns i [fält mappningar och transformeringar](search-indexer-field-mappings.md).
 
 1. Har du ett fält som kan användas som *nyckel*? Det här fältet måste vara en EDM. String och måste identifiera ett dokument unikt. För Relations data kan den mappas till en primär nyckel. För blobbar kan det vara `metadata-storage-path` . Om fältvärdena innehåller blank steg eller tank streck, måste du ange alternativet **bas-64-kodning** i steget **skapa ett indexerare** , under **Avancerade alternativ**för att utelämna verifierings kontrollen för dessa tecken.
 
@@ -115,7 +115,7 @@ Guiden genererar ett ofullständigt index som kommer att fyllas i med dokument s
 
    + **Hämtnings** bar returnerar fältet i Sök resultatet. Alla fält som tillhandahåller innehåll till Sök resultat måste ha det här attributet. Att ställa in det här fältet påverkar inte index storleken märkbart.
 
-   + **Filterable** tillåter att fältet refereras till i filter uttryck. Alla fält som används i ett **$filter** -uttryck måste ha det här attributet. Filter uttryck är för exakta matchningar. Eftersom text strängar förblir intakta krävs ytterligare lagrings utrymme för att rymma orda Grant-innehållet.
+   + **Filterable** tillåter att fältet refereras till i filter uttryck. Alla fält som används i ett **$filter**  -uttryck måste ha det här attributet. Filter uttryck är för exakta matchningar. Eftersom text strängar förblir intakta krävs ytterligare lagrings utrymme för att rymma orda Grant-innehållet.
 
    + **Fasettable** aktiverar fältet för fasett-navigering. Endast fält som har marker ATS som **Filterable** kan markeras som **fasettable**.
 

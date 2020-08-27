@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/20/2020
-ms.openlocfilehash: 693a7006a9f5742341a11af23b64bcd8c501618f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b5b27e201242f87e15af780bc26328dbdc5eb7fc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705902"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935967"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. I den här C#-självstudien använder du OCR (optisk tecken läsning) på bilder och utför bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 
-I den här självstudien används C# och [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
+I den här självstudien används C# och [.NET SDK](/dotnet/api/overview/azure/search) för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Börja med programfiler och avbildningar i Azure Blob Storage.
@@ -127,7 +127,7 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-[Azure kognitiv sökning .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att du behöver hantera informationen om http och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
+[Azure kognitiv sökning .NET SDK](/dotnet/api/overview/azure/search) består av ett par klient bibliotek som gör att du kan hantera dina index, data källor, indexerare och färdighetsuppsättningar, samt överföra och hantera dokument och köra frågor, allt utan att du behöver hantera informationen om http och JSON. Dessa klient bibliotek är alla distribuerade som NuGet-paket.
 
 För det här projektet installerar du version 9 eller senare av `Microsoft.Azure.Search` NuGet-paketet.
 
@@ -680,7 +680,7 @@ Lägg till följande using-instruktion för att lösa disambiguate-referensen.
 using Index = Microsoft.Azure.Search.Models.Index;
 ```
 
-Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Steg 4: skapa och köra en indexerare
 
@@ -905,7 +905,7 @@ catch (Exception e)
 }
 ```
 
-Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och organisationer i den här övningen. Du kan returnera flera fält via [Select](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) -egenskapen med hjälp av en kommaavgränsad lista.
+Upprepa för ytterligare fält: innehåll, languageCode, diskussions fraser och organisationer i den här övningen. Du kan returnera flera fält via [Select](/dotnet/api/microsoft.azure.search.models.searchparameters.select?view=azure-dotnet) -egenskapen med hjälp av en kommaavgränsad lista.
 
 <a name="reset"></a>
 

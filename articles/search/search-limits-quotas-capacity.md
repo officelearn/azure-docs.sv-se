@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749477"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926872"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -37,15 +37,15 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Ingenting | Basic &nbsp; <sup>1</sup>  | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
+| Resurs | Kostnadsfri | Basic &nbsp; <sup>1</sup>  | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
 | Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximalt antal komplexa samlings fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
 | Maximalt antal element i alla komplexa samlingar per dokument &nbsp; <sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
-| Maximalt antal [förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
-| Maximala [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
+| Maximalt antal [förslag](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
+| Maximala [bedömnings profiler](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximalt antal funktioner per profil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
@@ -58,7 +58,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 Från och med oktober 2018 finns det inte längre några begränsningar för antalet dokument för nya tjänster som skapats på någon fakturerbar nivå (Basic, S1, S2, S3, S3 HD) i vilken region som helst. Äldre tjänster som skapats före oktober 2018 kan fortfarande omfattas av begränsningar för antalet dokument.
 
-För att avgöra om din tjänst har dokument gränser använder du [REST API Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Dokument gränser avspeglas i svaret, med `null` indikeringar utan gränser.
+För att avgöra om din tjänst har dokument gränser använder du [REST API Hämta tjänst statistik](/rest/api/searchservice/get-service-statistics). Dokument gränser avspeglas i svaret, med `null` indikeringar utan gränser.
 
 > [!NOTE]
 > Även om det inte finns några dokument gränser som tillhandahålls av tjänsten, finns det en Shard gräns på ungefär 24 000 000 000 dokument per index för Sök tjänsterna Basic, S1, S2 och S3. För S3 HD är Shard-gränsen 2 000 000 000 dokument per index. Varje element i en komplex samling räknas som ett separat dokument med avseende på Shard-gränser.
@@ -105,7 +105,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 Det maximala antalet synonym Maps varierar efter nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en motsvarande period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
 
-| Resurs | Ingenting | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
+| Resurs | Kostnadsfri | Grundläggande | S1 | S2 | S3 | S3 – HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Maximalt synonyma kartor |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximalt antal regler per karta |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -120,7 +120,7 @@ För lagrings optimerade nivåer (L1 och L2) bör du förvänta dig ett lägre f
 
 ## <a name="data-limits-ai-enrichment"></a>Data begränsningar (AI-anrikning)
 
-En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment-analys](cognitive-search-skill-sentiment.md), [språk identifiering](cognitive-search-skill-language-detection.md)och [identifiering av personlig information](cognitive-search-skill-pii-detection.md) omfattas av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment-analys](cognitive-search-skill-sentiment.md), [språk identifiering](cognitive-search-skill-language-detection.md)och [identifiering av personlig information](cognitive-search-skill-pii-detection.md) omfattas av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Begränsnings gränser
 
@@ -141,7 +141,7 @@ Begränsningar för statisk taxa för begäran för åtgärder relaterade till e
 * Maximalt 32 fält i $orderby-satsen
 * Maximal Sök villkors storlek är 32 766 byte (32 KB minus 2 byte) av UTF-8-kodad text
 
-<sup>1</sup> i Azure kognitiv sökning är bröd texten i en begäran underkastad en övre gräns på 16 MB, vilket medför en praktisk gräns för innehållet i enskilda fält eller samlingar som inte på annat sätt begränsas av teoretiska gränser (se [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för mer information om fält sammansättning och begränsningar).
+<sup>1</sup> i Azure kognitiv sökning är bröd texten i en begäran underkastad en övre gräns på 16 MB, vilket medför en praktisk gräns för innehållet i enskilda fält eller samlingar som inte på annat sätt begränsas av teoretiska gränser (se [data typer som stöds](/rest/api/searchservice/supported-data-types) för mer information om fält sammansättning och begränsningar).
 
 ## <a name="api-response-limits"></a>Svars gränser för API
 * Högst 1000 dokument som returneras per sida med Sök Resultat

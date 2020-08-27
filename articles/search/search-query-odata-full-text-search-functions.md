@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 837237be636e67f37f5c744cd4863f1eb159652a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 78f9e4d8fa80fdf74bdb5cd79f4489d12696fcc2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201392"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935797"
 ---
-# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData full texts öknings funktioner i Azure Kognitiv sökning – `search.ismatch` och`search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>OData full texts öknings funktioner i Azure Kognitiv sökning – `search.ismatch` och `search.ismatchscoring`
 
-Azure Kognitiv sökning stöder full texts ökning i samband med [OData filter-uttryck](query-odata-filter-orderby-syntax.md) via- `search.ismatch` och- `search.ismatchscoring` funktionerna. Med de här funktionerna kan du kombinera full texts ökning med strikt boolesk filtrering på sätt som inte är möjligt med hjälp av den översta `search` parametern i Sök- [API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Azure Kognitiv sökning stöder full texts ökning i samband med [OData filter-uttryck](query-odata-filter-orderby-syntax.md) via- `search.ismatch` och- `search.ismatchscoring` funktionerna. Med de här funktionerna kan du kombinera full texts ökning med strikt boolesk filtrering på sätt som inte är möjligt med hjälp av den översta `search` parametern i Sök- [API: et](/rest/api/searchservice/search-documents).
 
 > [!NOTE]
-> - `search.ismatch` Och- `search.ismatchscoring` funktionerna stöds bara i filter i [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents). De stöds inte i API: erna [föreslå](https://docs.microsoft.com/rest/api/searchservice/suggestions) eller [komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) .
+> - `search.ismatch` Och- `search.ismatchscoring` funktionerna stöds bara i filter i [Sök-API: et](/rest/api/searchservice/search-documents). De stöds inte i API: erna [föreslå](/rest/api/searchservice/suggestions) eller [komplettera automatiskt](/rest/api/searchservice/autocomplete) .
 
 ## <a name="syntax"></a>Syntax
 
@@ -73,10 +73,10 @@ Parametrarna definieras i följande tabell:
 | --- | --- | --- |
 | `search` | `Edm.String` | Sök frågan (i antingen [enkel](query-simple-syntax.md) eller [fullständig](query-lucene-syntax.md) Lucene-frågesyntax). |
 | `searchFields` | `Edm.String` | Kommaavgränsad lista över sökbara fält att söka i. Standardvärdet är alla sökbara fält i indexet. När du använder en [sökt sökning](query-lucene-syntax.md#bkmk_fields) i `search` parametern, åsidosätter fält specifikationen i en Lucene-fråga alla fält som anges i den här parametern. |
-| `queryType` | `Edm.String` | `'simple'`eller `'full'` ; standardvärdet är `'simple'` . Anger vilket frågespråk som användes i `search` parametern. |
-| `searchMode` | `Edm.String` | `'any'`eller `'all'` standardvärdet är `'any'` . Anger om en eller flera av Sök villkoren i `search` parametern måste matchas för att räkna dokumentet som en matchning. När du använder [booleska operatorer för Lucene](query-lucene-syntax.md#bkmk_boolean) i `search` parametern, kommer de att ha företräde framför den här parametern. |
+| `queryType` | `Edm.String` | `'simple'` eller `'full'` ; standardvärdet är `'simple'` . Anger vilket frågespråk som användes i `search` parametern. |
+| `searchMode` | `Edm.String` | `'any'` eller `'all'` standardvärdet är `'any'` . Anger om en eller flera av Sök villkoren i `search` parametern måste matchas för att räkna dokumentet som en matchning. När du använder [booleska operatorer för Lucene](query-lucene-syntax.md#bkmk_boolean) i `search` parametern, kommer de att ha företräde framför den här parametern. |
 
-Alla parametrarna ovan motsvarar motsvarande [Sök begär ande parametrar i Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Alla parametrarna ovan motsvarar motsvarande [Sök begär ande parametrar i Sök-API: et](/rest/api/searchservice/search-documents).
 
 `search.ismatch`Funktionen returnerar ett värde av typen `Edm.Boolean` , vilket gör att du kan skapa den med andra filter under uttryck med de booleska [logiska operatorerna](search-query-odata-logical-operators.md).
 
@@ -96,7 +96,7 @@ Både- `search.ismatch` och- `search.ismatchscoring` funktionerna kan användas 
 
 ## <a name="examples"></a>Exempel
 
-Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [search-begäran](https://docs.microsoft.com/rest/api/searchservice/search-documents) med `search=waterfront` .
+Hitta dokument med ordet "Waterfront". Den här filter frågan är identisk med en [search-begäran](/rest/api/searchservice/search-documents) med `search=waterfront` .
 
 ```odata-filter-expr
     search.ismatchscoring('waterfront')
@@ -133,4 +133,4 @@ Hitta dokument där villkoren "hotell" och "flyg plats" är inom 5 ord från var
 - [Filter i Azure Kognitiv sökning](search-filters.md)
 - [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
 - [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)

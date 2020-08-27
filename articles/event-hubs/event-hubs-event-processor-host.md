@@ -3,12 +3,12 @@ title: Ta emot händelser med hjälp av händelse processor värden – Azure Ev
 description: I den här artikeln beskrivs händelse bearbetnings värden i Azure Event Hubs, vilket fören klar hanteringen av kontroll punkter, leasing och läsning av händelser Jon parallellt.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002530"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936188"
 ---
 # <a name="event-processor-host"></a>Värd för händelsebearbetning
 > [!NOTE]
@@ -43,7 +43,7 @@ I stället för att skapa en egen lösning för detta ger Event Hubs den här fu
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor-gränssnitt
 
-Först implementerar program som använder [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) -gränssnittet, som har fyra metoder: [openAsync, CloseAsync, ProcessErrorAsync och ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Det här gränssnittet innehåller den faktiska koden för att förbruka de händelser som Event Hubs skickar. Följande kod visar en enkel implementering:
+Först implementerar program som använder  [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) -gränssnittet, som har fyra metoder: [openAsync, CloseAsync, ProcessErrorAsync och ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods). Det här gränssnittet innehåller den faktiska koden för att förbruka de händelser som Event Hubs skickar. Följande kod visar en enkel implementering:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -192,10 +192,10 @@ Vi rekommenderar inte program användning där du skapar en mottagare med epok o
 Nu när du är bekant med händelsens processor värd kan du läsa mer om Event Hubs i följande artiklar:
 
 - Kom igång med händelsehubbar
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-node-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [Programmerings guide för Event Hubs](event-hubs-programming-guide.md)
 * [Tillgänglighet och konsekvens i Event Hubs](event-hubs-availability-and-consistency.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

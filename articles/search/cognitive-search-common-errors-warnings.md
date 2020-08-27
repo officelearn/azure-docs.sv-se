@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221318"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935559"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -21,10 +21,10 @@ Den här artikeln innehåller information och lösningar på vanliga fel och var
 
 Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade dokument") bör du överväga att uppdatera `maxFailedItems` och `maxFailedItemsPerBatch` enligt beskrivningen [här](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade dokument") bör du överväga att uppdatera `maxFailedItems` och `maxFailedItemsPerBatch` enligt beskrivningen [här](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Varje misslyckat dokument tillsammans med dess dokument nyckel (när det är tillgängligt) visas som ett fel i körnings statusen för indexeraren. Du kan använda [index-API: et](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att ladda upp dokumenten manuellt vid ett senare tillfälle om du har ställt in indexeraren för att tolerera felen.
+> Varje misslyckat dokument tillsammans med dess dokument nyckel (när det är tillgängligt) visas som ett fel i körnings statusen för indexeraren. Du kan använda [index-API: et](/rest/api/searchservice/addupdate-or-delete-documents) för att ladda upp dokumenten manuellt vid ett senare tillfälle om du har ställt in indexeraren för att tolerera felen.
 
 Fel informationen i den här artikeln kan hjälpa dig att lösa fel som gör att indexeringen kan fortsätta.
 
@@ -46,10 +46,10 @@ Från och med API `2019-05-06` -versionen struktureras fel och varningar på obj
 
 Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa på grund av:
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Inkonsekventa fält typer i olika dokument | "Typen av värde har en matchnings fel med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i kolumnen författare.  Förväntad typ är JArray. "  "Det gick inte att konvertera data typen nvarchar till float."  "Konverteringen misslyckades vid konvertering av nvarchar-värdet 12 månader till data typen int."  "Aritmetiskt data spills fel vid konvertering av uttryck till data typen int." | Se till att typen för varje fält är samma för olika dokument. Om det första fältet till exempel `'startTime'` är ett datum/tid och i det andra dokumentet är det fel meddelandet. |
-| fel från data källans underliggande tjänst | (från Cosmos DB)`{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
+| fel från data källans underliggande tjänst | (från Cosmos DB) `{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
 | tillfälliga problem | Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
 <a name="could-not-extract-document-content"></a>
@@ -57,10 +57,10 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Fel: det gick inte att extrahera innehåll eller metadata från dokumentet
 Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata från dokumentet (till exempel en PDF-fil). Detta kan inträffa på grund av:
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider max storleken på `'134217728'` byte för dokument extrahering för din aktuella tjänst nivå. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds`'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds `'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | bloben är krypterad | Det gick inte att bearbeta dokumentet – det kan vara krypterat eller lösenordsskyddat. | Du kan hoppa över blobben med [BLOB-inställningar](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | tillfälliga problem | "Fel vid bearbetning av BLOB: begäran avbröts: begäran avbröts." "Tids gränsen nåddes för dokumentet under bearbetningen." | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
@@ -69,9 +69,9 @@ Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata
 ## <a name="error-could-not-parse-document"></a>Fel: det gick inte att parsa dokumentet
 Indexeraren läser dokumentet från data källan, men det uppstod ett problem med att konvertera dokument innehållet till det angivna fält mappnings schemat. Detta kan inträffa på grund av:
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar. Dokument nyckeln bestäms genom att ange Key-egenskapen som en del av [index definitionen](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Indexerare genererar det här felet när egenskapen som flaggats som "nyckel" inte finns i ett visst dokument. |
+| Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar. Dokument nyckeln bestäms genom att ange Key-egenskapen som en del av [index definitionen](/rest/api/searchservice/create-index#request-body). Indexerare genererar det här felet när egenskapen som flaggats som "nyckel" inte finns i ett visst dokument. |
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
 | Det gick inte att använda fält mappning i ett fält | Det gick inte att använda mappnings funktionen `'functionName'` till fältet `'fieldName'` . Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
 | Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för kolumnen `'fieldName'` vid indexet `'fieldIndex'` . Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |
@@ -86,7 +86,7 @@ Utmatnings mappningen kan ha misslyckats på grund av att utdata har fel format 
 ## <a name="error-could-not-execute-skill"></a>Fel: det gick inte att köra kompetensen
 Indexeraren kunde inte köra en färdighet i färdigheter.
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Problem med tillfälliga anslutningar | Ett tillfälligt fel har uppstått. Försök igen senare. | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 | Potentiell produkt fel | Det uppstod ett oväntat fel. | Detta indikerar en okänd fel klass och det kan betyda att det finns en produkt bugg. Använd ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp. |
@@ -147,7 +147,7 @@ Det maximala värdet som du kan ange för `timeout` parametern är 230 sekunder.
 
 Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
 | Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
@@ -155,7 +155,7 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 | Det går inte att ansluta till mål indexet (som kvarstår efter återförsök) eftersom tjänsten är under annan belastning, t. ex. frågor eller indexering. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är hårt belastad. | [Skala upp Sök tjänsten](search-capacity-planning.md)
 | Sök tjänsten korrigeras för tjänst uppdatering eller är i mitten av en omkonfiguration av topologin. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är för närvarande nere/Search-tjänsten genomgår en över gång. | Konfigurera tjänsten med minst tre repliker för 99,9% tillgänglighet per [SLA-dokumentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Haveri i den underliggande beräknings-/nätverks resursen (sällsynt) | Det gick inte att upprätta en anslutning till uppdaterings index. Ett okänt fel uppstod. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd.
-| En indexerings förfrågan som gjorts till mål indexet bekräftades inte inom en tids gräns på grund av nätverks problem. | Det gick inte att upprätta en anslutning till Sök indexet inom rimlig tid. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd. Dessutom kan du försöka med att sänka [batchstorleken](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) för indexeraren om detta fel tillstånd kvarstår.
+| En indexerings förfrågan som gjorts till mål indexet bekräftades inte inom en tids gräns på grund av nätverks problem. | Det gick inte att upprätta en anslutning till Sök indexet inom rimlig tid. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd. Dessutom kan du försöka med att sänka [batchstorleken](/rest/api/searchservice/create-indexer#parameters) för indexeraren om detta fel tillstånd kvarstår.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
@@ -163,7 +163,7 @@ Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i
 
 Dokumentet lästes och bearbetades av indexeraren, men på grund av ett matchnings fel i konfigurationen av index fälten och de data som extraherats och behandlats av indexeraren, gick det inte att lägga till i Sök indexet. Detta kan inträffa på grund av:
 
-| Anledning | Information/exempel
+| Orsak | Information/exempel
 | --- | ---
 | Data typen för det eller de fält som extraherats av indexeraren är inte kompatibelt med data modellen för motsvarande mål index fält. | Data fältets_data_i dokumentet med nyckeln 888 har ett ogiltigt värde av typen EDM. String. Den förväntade typen var ' Collection (EDM. String) '. |
 | Det gick inte att extrahera någon JSON-entitet från ett sträng värde. | Det gick inte att parsa värdet ' av typen ' EDM. String ' ' för fält_data_som ett JSON-objekt. Fel: efter parsning av ett värde påträffades ett oväntat Character:. Sökväg '_sökväg_', rad 1, position 3162. ' |
@@ -171,11 +171,11 @@ Dokumentet lästes och bearbetades av indexeraren, men på grund av ett matchnin
 | En okänd typ upptäcktes i käll dokumentet. | Okänd typ '_okänd_' kan inte indexeras |
 | En inkompatibel notation för geografi punkter användes i käll dokumentet. | Sträng litteraler för well punkt stöds inte. Använd ingångar av polyjson-punkter i stället |
 
-I alla dessa fall refererar du till [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
+I alla dessa fall refererar du till [data typer som stöds](/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Fel: den integrerade principen för ändrings spårning kan inte användas eftersom tabellen har en sammansatt primär nyckel
 
-Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
+Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -189,11 +189,11 @@ Det här felet uppstår när indexeraren inte kan slutföra bearbetningen av ett
 
 Felet uppstår när indexeraren försöker [projicera data till ett kunskaps lager](knowledge-store-projection-overview.md) och det uppstod ett fel i vårt försök att göra det.  Det här felet kan vara konsekvent och fixablet, eller så kan det vara ett tillfälligt fel med Utkorgen för projektion av utdata som du kan behöva vänta och försöka igen för att kunna lösa problemet.  Här är en uppsättning kända fellägen och möjliga lösningar.
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren`'containerName'` |Den angivna behållaren finns inte. | Indexeraren kontrollerar om den angivna behållaren har skapats tidigare och kommer att skapa den om det behövs, men den utför bara den här kontrollen en gång per indexerare körs. Det här felet innebär att något har tagits bort från behållaren efter det här steget.  Försök att lösa det här felet: lämna din lagrings konto information, vänta tills indexeraren har slutförts och kör sedan indexeraren igen. |
-| Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren`'containerName'` |Det gick inte att skriva data till transport anslutningen: en befintlig anslutning tvingades stänga av den fjärranslutna värden. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
-| Det gick inte att uppdatera raden `'projectionRow'` i tabellen`'tableName'` | Servern är upptagen. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
+| Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren `'containerName'` |Den angivna behållaren finns inte. | Indexeraren kontrollerar om den angivna behållaren har skapats tidigare och kommer att skapa den om det behövs, men den utför bara den här kontrollen en gång per indexerare körs. Det här felet innebär att något har tagits bort från behållaren efter det här steget.  Försök att lösa det här felet: lämna din lagrings konto information, vänta tills indexeraren har slutförts och kör sedan indexeraren igen. |
+| Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren `'containerName'` |Det gick inte att skriva data till transport anslutningen: en befintlig anslutning tvingades stänga av den fjärranslutna värden. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
+| Det gick inte att uppdatera raden `'projectionRow'` i tabellen `'tableName'` | Servern är upptagen. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -226,7 +226,7 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 }
 ```
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Kompetens ineffekten är av fel typ | "Nödvändig kompetens information var inte av den förväntade typen `String` . Namn: `text` , källa: `/document/merged_content` . "  "Krav på färdighets information var inte av det förväntade formatet. Namn: `text` , källa: `/document/merged_content` . "  "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Det går inte att välja `0` i icke-matrisen `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du kunskaps sammanhanget och att inmatade uppgifter har `*` rätt position. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
 | Kompetens ineffekt saknas | "Nödvändig kompetens information saknas. Namn: `text` , källa: `/document/merged_content` "" värde saknas `/document/normalized_images/0/imageTags` . "  "Det går inte att välja `0` i matrisen `/document/pages` med längden `0` ." | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen och kontrol lera att dokumenten från data källan innehåller de nödvändiga indatana. |
@@ -255,9 +255,9 @@ Om du vet att din data uppsättning innehåller flera språk och därför behöv
 ```
 
 Här följer några referenser för de språk som stöds för närvarande för var och en av de kunskaper som kan skapa det här fel meddelandet:
-* [Textanalys språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (för [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)och [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Språk som stöds av Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (för [texten TranslationSkill](cognitive-search-skill-text-translation.md))
-* [Text SplitSkill](cognitive-search-skill-textsplit.md) Språk som stöds:`da, de, en, es, fi, fr, it, ko, pt`
+* [Textanalys språk som stöds](../cognitive-services/text-analytics/language-support.md) (för [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)och [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Språk som stöds av Translator](../cognitive-services/translator/language-support.md) (för [texten TranslationSkill](cognitive-search-skill-text-translation.md))
+* [Text SplitSkill](cognitive-search-skill-textsplit.md) Språk som stöds: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
 
@@ -304,7 +304,7 @@ Mer information finns i [stegvisa framsteg och anpassade frågor](search-howto-i
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Varning: vissa data gick förlorade under projektionen. Raden "X" i tabellen "Y" har sträng egenskapen "Z", vilken var för lång.
 
-Den [Table Storage tjänsten](https://azure.microsoft.com/services/storage/tables) har gränser för hur stora [enhets egenskaper](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) kan vara. Strängar kan innehålla högst 32 000 tecken. Om en rad med en sträng egenskap som är längre än 32 000 tecken projiceras, bevaras bara de första 32 000 tecknen. Undvik det här problemet genom att undvika att projicera rader med sträng egenskaper som är längre än 32 000 tecken.
+Den [Table Storage tjänsten](https://azure.microsoft.com/services/storage/tables) har gränser för hur stora [enhets egenskaper](/rest/api/storageservices/understanding-the-table-service-data-model#property-types) kan vara. Strängar kan innehålla högst 32 000 tecken. Om en rad med en sträng egenskap som är längre än 32 000 tecken projiceras, bevaras bara de första 32 000 tecknen. Undvik det här problemet genom att undvika att projicera rader med sträng egenskaper som är längre än 32 000 tecken.
 
 <a name="truncated-extracted-text-to-x-characters"></a>
 
@@ -318,7 +318,7 @@ Mer information finns i [gränser för indexerare](search-limits-quotas-capacity
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Varning! det gick inte att mappa utmatnings fältet "X" till Sök indexet
 Mappningar av utdatakolumner som refererar till icke-existerande/null-data genererar varningar för varje dokument och resulterar i ett tomt index fält. Du kan lösa det här problemet genom att dubbelklicka på fältet utdata – mappa käll Sök vägar för möjliga skrivfel eller ange ett standardvärde med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Se [Mappning av utdatakolumner](cognitive-search-output-field-mapping.md) för mer information.
 
-| Anledning | Information/exempel | Lösning |
+| Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
 | Det går inte att iterera över icke-matriser | "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Felet uppstår när utdata inte är en matris. Om du tror att utdata ska vara en matris, kontrollerar du den angivna sökvägen till käll filen för utdata för fel. Du kan till exempel ha en saknad eller extra `*` i käll fält namnet. Det är också möjligt att indatamängden till den här kompetensen är null, vilket resulterar i en tom matris. Det finns ett ogiltigt avsnitt för att hitta liknande information i [kompetens indata](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .    |
 | Det går inte att välja `0` i icke-matriser | "Det går inte att välja `0` i icke-matrisen `/document/pages` ." | Detta kan inträffa om det inte skapas någon matris i kunskaps resultatet och fält namnet för utdatakällan har mat ris index eller `*` sökväg. Se till att du har angett de sökvägar som finns i fält namnen för utdata och värdet i fältet för det angivna fält namnet. Det finns ett ogiltigt avsnitt för att hitta liknande information i [kompetens indata](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .  |
@@ -326,13 +326,13 @@ Mappningar av utdatakolumner som refererar till icke-existerande/null-data gener
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Varning! principen för data ändrings identifiering har kon figurer ATS för att använda nyckel kolumnen "X"
-[Principer för data ändrings identifiering](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) har särskilda krav för de kolumner som de använder för att identifiera ändringar. Ett av dessa krav är att den här kolumnen uppdateras varje gång käll posten ändras. Ett annat krav är att det nya värdet för den här kolumnen är större än det tidigare värdet. Nyckel kolumnerna uppfyller inte det här kravet eftersom de inte ändras vid varje uppdatering. Undvik det här problemet genom att välja en annan kolumn för principen för ändrings identifiering.
+[Principer för data ändrings identifiering](/rest/api/searchservice/create-data-source#data-change-detection-policies) har särskilda krav för de kolumner som de använder för att identifiera ändringar. Ett av dessa krav är att den här kolumnen uppdateras varje gång käll posten ändras. Ett annat krav är att det nya värdet för den här kolumnen är större än det tidigare värdet. Nyckel kolumnerna uppfyller inte det här kravet eftersom de inte ändras vid varje uppdatering. Undvik det här problemet genom att välja en annan kolumn för principen för ändrings identifiering.
 
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Varning! dokument texten verkar vara UTF-16-kodad, men saknar en byte ordnings markering
 
-[Indexerings lägena för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) måste veta hur texten kodas innan den kan parsas. De två vanligaste sätten att koda text är UTF-16 och UTF-8. UTF-8 är en kodning med variabel längd där varje tecken är mellan 1 byte och 4 byte långt. UTF-16 är en kodning med fast längd där varje tecken är 2 byte långt. UTF-16 har två olika varianter, "big endian" och "little endian". Text kodningen bestäms av en "byte ordnings markering", en serie byte före texten.
+[Indexerings lägena för indexeraren](/rest/api/searchservice/create-indexer#blob-configuration-parameters) måste veta hur texten kodas innan den kan parsas. De två vanligaste sätten att koda text är UTF-16 och UTF-8. UTF-8 är en kodning med variabel längd där varje tecken är mellan 1 byte och 4 byte långt. UTF-16 är en kodning med fast längd där varje tecken är 2 byte långt. UTF-16 har två olika varianter, "big endian" och "little endian". Text kodningen bestäms av en "byte ordnings markering", en serie byte före texten.
 
 | Kodning | Markering av byte ordning |
 | --- | --- |
@@ -348,4 +348,4 @@ Du kan undvika den här varningen genom att ta reda på vad text kodningen för 
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Varning: Cosmos DB samlingen "X" har en Lazy-indexerings princip. Vissa data kan gå förlorade
 
-Samlingar med [Lazy](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.
+Samlingar med [Lazy](/azure/cosmos-db/index-policy#indexing-mode) indexerings principer kan inte frågas konsekvent, vilket leder till att indexeraren saknar data. Undvik den här varningen genom att ändra indexerings principen till konsekvent.

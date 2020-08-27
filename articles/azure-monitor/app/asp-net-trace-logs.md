@@ -2,13 +2,14 @@
 title: Utforska .NET-spårnings loggar i Application Insights
 description: Sök efter loggar som genereras av trace, NLog eller Log4Net.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 05/08/2019
-ms.openlocfilehash: c192ae8fad6cf463af892018fcac385b3bdcd345
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c17f1f4eb8d2fb680f31a42009247b25c74941c9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321334"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936460"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Utforska loggarna .NET/.NET Core och python i Application Insights
 
@@ -84,7 +85,7 @@ Om du föredrar log4net eller NLog använder du:
 ```
 
 ## <a name="use-eventsource-events"></a>Använda EventSource-händelser
-Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs](./configuration-with-applicationinsights-config.md) filen.
+Du kan konfigurera [system. Diagnostics. tracing. EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) -händelser som ska skickas till Application Insights som spår. Installera först NuGet- `Microsoft.ApplicationInsights.EventSourceListener` paketet. Redigera sedan `TelemetryModules` avsnittet i [ApplicationInsights.configs ](./configuration-with-applicationinsights-config.md) filen.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -135,7 +136,7 @@ För varje källa kan du ange följande parametrar:
 ## <a name="use-the-trace-api-directly"></a>Använda trace API direkt
 Du kan anropa API: et för Application Insights trace direkt. Loggnings korten använder detta API.
 
-Till exempel:
+Ett exempel:
 
 ```csharp
 var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
@@ -144,7 +145,7 @@ telemetry.TrackTrace("Slow response - database01");
 
 En fördel med TrackTrace är att du kan ställa in relativt långa data i meddelandet. Du kan till exempel koda POST-data där.
 
-Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Till exempel:
+Du kan också lägga till en allvarlighets grad i meddelandet. Liksom annan telemetri kan du lägga till egenskaps värden för att filtrera eller söka efter olika uppsättningar med spår. Ett exempel:
 
   ```csharp
   var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();

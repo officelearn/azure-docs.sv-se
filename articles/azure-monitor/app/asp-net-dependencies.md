@@ -2,13 +2,14 @@
 title: Beroende spårning i Azure Application Insights | Microsoft Docs
 description: Övervaka beroende anrop från din lokala eller Microsoft Azure webb program med Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/26/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321385"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936545"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -16,9 +17,9 @@ Ett *beroende* är en komponent som anropas av ditt program. Det är vanligtvis 
 
 ## <a name="automatically-tracked-dependencies"></a>Automatiskt spårade beroenden
 
-Application Insights SDK: er för .NET-och .NET Core-fartyg med `DependencyTrackingTelemetryModule` vilka är en telemetri-modul som automatiskt samlar in beroenden. Den här beroende samlingen aktive ras automatiskt för [ASP.net](./asp-net.md) och [ASP.net Core](./asp-net-core.md) program, när de konfigureras enligt de länkade officiella dokumenten. `DependencyTrackingTelemetryModule`levereras som [det här](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet-paketet och hämtas automatiskt när du använder något av NuGet-paketen `Microsoft.ApplicationInsights.Web` eller `Microsoft.ApplicationInsights.AspNetCore` .
+Application Insights SDK: er för .NET-och .NET Core levereras med `DependencyTrackingTelemetryModule` , som är en telemetri-modul som automatiskt samlar in beroenden. Den här beroende samlingen aktive ras automatiskt för [ASP.net](./asp-net.md) och [ASP.net Core](./asp-net-core.md) program, när de konfigureras enligt de länkade officiella dokumenten. `DependencyTrackingTelemetryModule` levereras som [det här](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet-paketet och hämtas automatiskt när du använder något av NuGet-paketen `Microsoft.ApplicationInsights.Web` eller `Microsoft.ApplicationInsights.AspNetCore` .
 
- `DependencyTrackingTelemetryModule`spårar för närvarande följande beroenden automatiskt:
+ `DependencyTrackingTelemetryModule` spårar för närvarande följande beroenden automatiskt:
 
 |Beroenden |Information|
 |---------------|-------|
@@ -122,7 +123,7 @@ I ovanstående fall är det korrekta sättet att verifiera instrument motorn kor
 * Klicka dig igenom från långsamma eller misslyckade förfrågningar för att kontrol lera deras beroende anrop.
 * [Analytics](#logs-analytics) kan användas för att fråga beroende data.
 
-## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a>Diagnostisera långsamma förfrågningar
+## <a name="diagnose-slow-requests"></a><a name="diagnosis"></a> Diagnostisera långsamma förfrågningar
 
 Varje begär ande händelse är associerad med beroende anrop, undantag och andra händelser som spåras medan din app bearbetar begäran. Så om vissa begär Anden blir allvarliga kan du ta reda på om det beror på långsamma svar från ett beroende.
 
@@ -154,7 +155,7 @@ Här kan du se antalet misslyckade beroenden. Om du vill ha mer information om e
 
 ## <a name="logs-analytics"></a>Loggar (analys)
 
-Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Nedan visas några exempel.
+Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Här är några exempel.
 
 * Hitta eventuella misslyckade beroende anrop:
 
@@ -195,7 +196,19 @@ Du kan spåra beroenden i [Kusto-frågespråket](/azure/kusto/query/). Nedan vis
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Hur Miss lyckas automatiskt beroende insamlaren anrop till beroenden?*
 
-* Misslyckade beroende anrop har fältet lyckades inställt på false. `DependencyTrackingTelemetryModule`rapporterar inte `ExceptionTelemetry` . Den fullständiga data modellen för beroende beskrivs [här](data-model-dependency-telemetry.md).
+* Misslyckade beroende anrop har fältet lyckades inställt på false. `DependencyTrackingTelemetryModule` rapporterar inte `ExceptionTelemetry` . Den fullständiga data modellen för beroende beskrivs [här](data-model-dependency-telemetry.md).
+
+### <a name="how-do-i-calculate-ingestion-latency-for-my-dependency-telemetry"></a>*Vill du Hur gör jag för att beräkna utmatnings svars tid för min beroende telemetri?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### <a name="how-do-i-determine-the-time-the-dependency-call-was-initiated"></a>*Hur gör jag för att avgöra hur lång tid ett beroende anrop initierades?*
+
+I den Log Analytics frågevyn `timestamp` representerar den tidpunkt då anropet TrackDependency () initierades, vilket inträffar omedelbart efter att anropet till beroende anrop har tagits emot. Om du vill beräkna tiden då beroende anropet började, skulle du ta `timestamp` och subtrahera det registrerade `duration` för beroende anropet.
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 Precis som varje Application Insights SDK är beroende samlings modul också öppen källkod. Läs och bidra till koden eller rapportera problem på [den officiella GitHub-lagrings platsen](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

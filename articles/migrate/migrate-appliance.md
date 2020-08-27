@@ -3,12 +3,12 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 99b29839028432a6b760265b641d35cdf33ee57f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122140"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927531"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -43,11 +43,11 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Krav** | **VMware** 
 --- | ---
 **Behörigheter** | Om du vill få åtkomst till en webbapp lokalt eller via fjärr anslutning måste du vara domän administratör eller lokal administratör på maskin varan.
-**Utrustnings komponenter** | Enheten har följande komponenter:<br/><br/> - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Bedömnings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).<br/>- **Dra-agent**: dirigerar VM-replikering och samordnar kommunikationen mellan replikerade datorer och Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.<br/>- **Gateway**: skickar replikerade data till Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.
+**Utrustnings komponenter** | Enheten har följande komponenter:<br/><br/> - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Insamlings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).<br/>- **Dra-agent**: dirigerar VM-replikering och samordnar kommunikationen mellan replikerade datorer och Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.<br/>- **Gateway**: skickar replikerade data till Azure. Används endast när du replikerar virtuella VMware-datorer till Azure med hjälp av en agent lös migrering.
 **Distribution som stöds** | Distribuera som virtuell VMware-dator med hjälp av en ägg mall.<br/><br/> Distribuera som en virtuell VMware-dator eller fysisk dator med hjälp av installations skriptet för PowerShell.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
-**Mall för ägg** | Ladda ned från portalen eller från https://aka.ms/migrate/appliance/vmware .<br/><br/> Hämtnings storleken är 10,9 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**Mall för ägg** | Ladda ned från portalen eller [härifrån](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Hämtnings storleken är 11,6 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 32 GB RAM, 8 virtuella processorer, runt 80 GB disk lagring och en extern virtuell växel.<br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en virtuell VMware-dator måste du ha tillräckligt med resurser på vCenter Server för att allokera en virtuell dator som uppfyller kraven.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.
 **Krav för VMware** | Om du distribuerar installationen som en virtuell VMware-dator måste den distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
@@ -63,11 +63,11 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 **Krav** | **Hyper-V** 
 --- | ---
 **Behörigheter** | Om du vill få åtkomst till en webbapp lokalt eller via fjärr anslutning måste du vara domän administratör eller lokal administratör på maskin varan.
-**Utrustnings komponenter** | Enheten har följande komponenter:<br/><br/>- **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Bedömnings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
+**Utrustnings komponenter** | Enheten har följande komponenter:<br/><br/>- **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Insamlings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
 **Distribution som stöds** | Distribuera som virtuell Hyper-V-dator med en VHD-mall.<br/><br/> Distribuera som en virtuell Hyper-V-dator eller fysisk dator med ett PowerShell-installations skript.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 5000 virtuella Hyper-V-datorer.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
-**VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller från https://aka.ms/migrate/appliance/hyperv .<br/><br/> Hämtnings storleken är 10 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**VHD-mall** | Zippad mapp inklusive VHD. Ladda ned från portalen eller [härifrån.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> Hämtnings storleken är 10,4 GB.<br/><br/> Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 **PowerShell-skript** | Läs mer i den här [artikeln](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Program vara/maskin vara***   |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen som en virtuell Hyper-V-dator behöver du tillräckligt med resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven. 
 **Krav för Hyper-V** | Om du distribuerar installationen med VHD-mallen, är den virtuella Azure Migrate datorns virtuella Hyper-V-dator version 5,0.<br/><br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare. 
@@ -77,14 +77,14 @@ I följande tabell sammanfattas kraven för Azure Migrate-installationen för VM
 
 ## <a name="appliance---physical"></a>Apparat-fysisk
 
-**Krav** | **Fysiska** 
+**Krav** | **Fysisk** 
 --- | ---
 **Behörigheter** | Om du vill få åtkomst till en webbapp lokalt eller via fjärr anslutning måste du vara domän administratör eller lokal administratör på maskin varan.
-**Utrustnings komponenter** | Enheten har följande komponenter: <br/><br/> - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Bedömnings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
+**Utrustnings komponenter** | Enheten har följande komponenter: <br/><br/> - **Hanterings app**: det här är en webbapp för användarindata under installationen av produkten. Används vid utvärdering av datorer för migrering till Azure.<br/> - **Identifierings agent**: agenten samlar in dator konfigurations data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Insamlings agent**: agenten samlar in prestanda data. Används vid utvärdering av datorer för migrering till Azure.<br/>- **Tjänsten automatisk uppdatering**: uppdaterar komponenter för komponenter (körs var 24: e timme).
 **Distribution som stöds** | Distribuera som dedikerad fysisk dator eller en virtuell dator med hjälp av ett PowerShell-installations skript. Skriptet är tillgängligt för hämtning från portalen.
 **Projekt support** |  En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifierings gränser** | En apparat kan identifiera upp till 1000 fysiska servrar.
-**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad mapp från portalen. [Läs mer](tutorial-assess-physical.md#set-up-the-appliance). Du kan också [Hämta direkt](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Hämtnings storleken är 63,1 MB.
+**PowerShell-skript** | Hämta skriptet (AzureMigrateInstaller.ps1) i en zippad [mapp från portalen eller härifrån.](https://go.microsoft.com/fwlink/?linkid=2140334) [Läs mer](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance).<br/><br/> Hämtnings storleken är 85 MB.
 **Program vara/maskin vara** |  Installationen ska köras på datorn med Windows Server 2016, 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/> Installationen behöver en statisk eller dynamisk IP-adress och kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/><br/> Om du kör-installationen på en fysisk dator kontrollerar du att den kör Windows Server 2016 och uppfyller maskin varu kraven.<br/> Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.
 **Hash-värde** | [Kontrol lera](deploy-appliance-script.md#verify-file-security) hash-värdena för PowerShell-skriptet.
 
@@ -98,9 +98,9 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 
 ### <a name="public-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | --- |
-*.portal.azure.com  | Navigera till Azure Portal.
+*.portal.azure.com  | Gå till Azure-portalen.
 *.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *. live.com | Logga in på din Azure-prenumeration.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate.
 management.azure.com | Skapa Azure AD-appar för att kunna kommunicera med tjänsten Azure Migrate.
@@ -115,9 +115,9 @@ download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
 
 ### <a name="government-cloud-urls"></a>Offentliga moln-URL: er
 
-**URL** | **Detaljer**  
+**URL** | **Information**  
 --- | --- |
-*. portal.azure.us  | Navigera till Azure Portal.
+*. portal.azure.us  | Gå till Azure-portalen.
 graph.windows.net | Logga in på din Azure-prenumeration.
 login.microsoftonline.us  | Skapa Azure Active Directory (AD) appar för att kunna kommunicera med Azure Migrate.
 management.usgovcloudapi.net | Skapa Azure AD-appar för att kunna kommunicera med tjänsten Azure Migrate.
@@ -180,7 +180,7 @@ IPv6-adresser | datorn. Guest.Net
 Läs data flöde (MB per sekund) | net. Received. Average
 Skriv data flöde (MB per sekund) | net. överföring. genomsnitt
 **Information om lager Sök väg** | 
-Name | fönster. GetType (). Namn
+Namn | fönster. GetType (). Namn
 Typ av underordnat objekt | fönster. ChildType
 Referens information | fönster. MoRef
 Överordnad information | Container. parent
@@ -227,7 +227,7 @@ Här är de funktions data som installationen samlar in från varje virtuell dat
 
 **Data**  | **PowerShell-cmdlet** | **Egenskap**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Namn  | Get-WindowsFeature  | Namn
 Funktions typ | Get-WindowsFeature  | FeatureType
 Överordnad  | Get-WindowsFeature  | Överordnad
 
@@ -237,7 +237,7 @@ Här är SQL Server-metadata som enheten samlar in från virtuella datorer som k
 
 **Data**  | **Registerplats**  | **Nyckel**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Namn  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Utgåva  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Utgåva 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
 Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
@@ -248,7 +248,7 @@ Här är de operativ Systems data som installations programmet samlar in varje v
 
 Data  | WMI-klass  | Egenskap för WMI-klass
 --- | --- | ---
-Name  | Win32_operatingsystem  | Caption
+Namn  | Win32_operatingsystem  | Caption
 Version  | Win32_operatingsystem  | Version
 Arkitektur  | Win32_operatingsystem  | OSArchitecture
 
@@ -258,7 +258,7 @@ Här är de installerade program data som installationen samlar in från varje v
 
 Data  | Kommando
 --- | --- 
-Name | RPM, dpkg-fråga, fäst
+Namn | RPM, dpkg-fråga, fäst
 Version | RPM, dpkg-fråga, fäst
 Leverantör | RPM, dpkg-fråga, fäst
 
@@ -266,9 +266,9 @@ Leverantör | RPM, dpkg-fråga, fäst
 
 Här är de operativ Systems data som installations programmet samlar in varje virtuell dator som är aktive rad för program identifiering. Dessa data skickas till Azure.
 
-**Data**  | **Kommandoprompt** 
+**Data**  | **Kommando** 
 --- | --- | ---
-Name <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Namn <br/> version | Samlas in från en eller flera av följande filer:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arkitektur | uname
 
 
@@ -284,7 +284,7 @@ Här är de anslutnings data som enheten samlar in från varje virtuell dator so
 --- | --- 
 Lokal port | Netstat
 Lokal IP-adress | Netstat
-Fjärrport | Netstat
+Fjärr-IP-adress | Netstat
 Fjärr-IP-adress | Netstat
 Status för TCP-anslutning | Netstat
 Process-ID | Netstat
@@ -307,7 +307,7 @@ Här är anslutnings-och process data som installations programmet samlar in fr�
 --- | ---
 Lokal port | Netstat 
 Lokal IP-adress | Netstat 
-Fjärrport | Netstat 
+Fjärr-IP-adress | Netstat 
 Fjärr-IP-adress | Netstat 
 Status för TCP-anslutning | Netstat 
 Antal aktiva anslutningar | Netstat
@@ -394,7 +394,7 @@ OS-arkitektur | Win32_OperatingSystem | OSArchitecture
 Antal diskar | Win32_DiskDrive | Modell, storlek, DeviceID, MediaType, namn
 Diskstorlek | Win32_DiskDrive | Storlek
 NIC-lista | Win32_NetworkAdapterConfiguration | Beskrivning, index
-IP-adress för nätverkskort | Win32_NetworkAdapterConfiguration | IP-adress
+IP-adress för nätverkskort | Win32_NetworkAdapterConfiguration | IPAddress
 MAC-adress för nätverkskort | Win32_NetworkAdapterConfiguration | MACAddress
 
 ### <a name="linux-metadata"></a>Linux-metadata
@@ -416,7 +416,7 @@ Start disk | DF/Boot \| -sed-n 2p \| awk ' {Print $1} '
 Diskstorlek | fdisk-l \| egrep ' disk. * byte ' \| egrep $disk: \| awk ' {Print $5} '
 NIC-lista | IP-o-4 addr show \| awk ' {print $2} '
 IP-adress för nätverkskort | IP-adress Visa $nic \| grep inet \| awk {Print $2} \| Klipp ut F1-d "/" 
-MAC-adress för nätverkskort | IP-adress Visa $nic \| grep eter \| awk {Print $2}
+MAC-adress för nätverkskort | IP-adress Visa $nic \| grep eter  \| awk {Print $2}
 
 ### <a name="windows-performance-data"></a>Prestanda data för Windows
 
@@ -424,8 +424,8 @@ Här är prestanda data för Windows Server som enheten samlar in och skickar ti
 
 **Data** | **WMI-klass** | **Egenskap för WMI-klass**
 --- | --- | ---
-Processoranvändning | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
-Minnes användning | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+CPU-användning | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Minnesanvändning | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Antal nätverkskort | Win32_PerfFormattedData_Tcpip_NetworkInterface | Hämta antalet nätverks enheter.
 Mottagna data per nätverkskort | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
 Överförda data per nätverkskort | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
@@ -438,8 +438,8 @@ Här är de prestanda data för Linux-servern som enheten samlar in och skickar 
 
 **Data** | **Linux** 
 --- | --- 
-Processoranvändning | katt/proc/stat/| grep ' CPU '-/proc/stat
-Minnes användning | gratis \| grep MEM- \| awk {Print $3/$ 2 * 100,0}
+CPU-användning | katt/proc/stat/| grep ' CPU '-/proc/stat
+Minnesanvändning | gratis \| grep MEM- \| awk {Print $3/$ 2 * 100,0}
 Antal nätverkskort | lshw-klass nätverk \| grep ETH [0-60] \| WC-l
 Mottagna data per nätverkskort | katt/sys/Class/net/ETH $ NIC/statistik/rx_bytes
 Överförda data per nätverkskort | katt/sys/Class/net/ETH $ NIC/statistik/tx_bytes
@@ -465,7 +465,7 @@ Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten 
 Du kan aktivera automatisk uppdatering med någon av följande metoder:
 
 - Genom att ta bort register nyckeln AutoUpdate från HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance.
-- När identifieringen är klar går du till installations Configuration Manager.
+- Klicka på **Visa apparat-tjänster** från de senaste uppdaterings kontrollerna på panelen **Konfigurera krav** för att aktivera automatisk uppdatering.
 
 Ta bort register nyckeln:
 
@@ -475,24 +475,24 @@ Ta bort register nyckeln:
 
 Om du vill aktivera från installations Configuration Manager efter att identifieringen har slutförts:
 
-1. Öppna installations programmet Configuration Manager på installations maskinen.
-2. I installations program **tjänster**  >  **Automatisk uppdatering av Azure Migrate-komponenter är inaktive rad**klickar du för att aktivera automatisk uppdatering.
+1. I Konfigurations hanteraren för installation går du till **Konfigurera krav** panelen
+2. I den senaste uppdaterings kontrollen klickar du på **Visa apparat tjänster** och klickar på länken för att aktivera automatisk uppdatering.
 
-    ![Aktivera automatiska uppdateringar](./media/migrate-appliance/turn-on.png)
+    ![Aktivera automatiska uppdateringar](./media/migrate-appliance/autoupdate-off.png)
 
 ### <a name="check-the-appliance-services-version"></a>Kontrol lera version för version
 
 Du kan kontrol lera versionen av versions tjänsterna med någon av följande metoder:
 
-- När identifieringen har slutförts i installationen av enheten Configuration Manager.
+- I Konfigurations hanteraren för utrustning går du till **Konfigurera krav** panelen.
 - I **Control Panel**  >  **program och funktioner**på kontroll panelen på datorn.
 
-Så här kontrollerar du installationen av enheten Configuration Manager:
+För att kontrol lera installations hanteraren för installationen:
 
-1. När identifieringen är klar öppnar du installations programmet Configuration Manager (i produktens webbapp).
-2. I **apparat service**kontrollerar du versionerna för versions hantering.
+1. I Konfigurations hanteraren för installation går du till **Konfigurera krav** panelen
+2. Klicka på **Visa apparat tjänster**i den senaste uppdaterings kontrollen.
 
-    ![Kontrol lera version](./media/migrate-appliance/version.png)
+    ![Kontrol lera version](./media/migrate-appliance/versions.png)
 
 Så här kontrollerar du i kontroll panelen:
 
@@ -514,7 +514,7 @@ Om du kör en äldre version för någon av komponenterna måste du avinstallera
 4.    Hämta den senaste versionen av en föråldrad tjänst med hjälp av länken Hämta i filen.
 5. När du har laddat ned kör du följande kommando i ett administratörs kommando fönster för att kontrol lera integriteten för den hämtade MSI-filen.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Exempel: C: \> certutil-HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Exempel: C: \> certutil-HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
 5. Kontrol lera att kommandots utdata matchar hash-värdens post för tjänsten i filen (till exempel MD5 hash-värdet ovan).
 6. Kör nu MSI för att installera tjänsten. Det är en tyst installation och installations fönstret stängs när det är färdigt.

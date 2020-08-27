@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 9008b30fd89e9d57923f6c612b7a454aa1ba528e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 14846761535a77f28adbd0147d244817cb799d86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084100"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935848"
 ---
 # <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Så här indexerar du CSV-blobar med delimitedText tolknings läge och blob-indexerare i Azure Kognitiv sökning
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du tolkar CSV-blobbar med en Azure Kog
 > Följ konfigurations rekommendationerna för indexeraren i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md) för att skriva ut flera Sök dokument från en Azure-blob.
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurera CSV-indexering
-Om du vill indexera CSV-blobbar skapar eller uppdaterar du en indexare-definition med `delimitedText` tolknings läget på en [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) -begäran:
+Om du vill indexera CSV-blobbar skapar eller uppdaterar du en indexare-definition med `delimitedText` tolknings läget på en [skapa indexerare](/rest/api/searchservice/create-indexer) -begäran:
 
 ```http
     {
@@ -42,14 +42,14 @@ Om du vill indexera CSV-blobbar skapar eller uppdaterar du en indexare-definitio
     }
 ```
 
-`firstLineContainsHeaders`anger att den första (icke-tomma) raden i varje BLOB innehåller rubriker.
+`firstLineContainsHeaders` anger att den första (icke-tomma) raden i varje BLOB innehåller rubriker.
 Om blobbar inte innehåller en inledande rubrik rad, ska rubrikerna anges i indexerings konfigurationen: 
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 ```
 
-Du kan anpassa avgränsnings tecken med hjälp av `delimitedTextDelimiter` konfigurations inställningen. Exempel:
+Du kan anpassa avgränsnings tecken med hjälp av `delimitedTextDelimiter` konfigurations inställningen. Ett exempel:
 
 ```http
 "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
@@ -98,4 +98,3 @@ Indexer
 
 ## <a name="help-us-make-azure-cognitive-search-better"></a>Hjälp oss att göra Azure Kognitiv sökning bättre
 Om du har funktions förfrågningar eller idéer om förbättringar kan du ange dina ininformation på [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

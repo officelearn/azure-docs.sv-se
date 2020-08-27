@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a1f8e30be2983c0df93ff5a7229460f8f39214
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080840"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936052"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Inlärnings kunskap för bild analys
 
-I **bild analysens** kunskap extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. 
+I **bild analysens** kunskap extraheras en omfattande uppsättning visuella funktioner baserat på avbildningens innehåll. Du kan till exempel generera en under text från en bild, generera taggar eller identifiera kändisar och landmärken. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [visuellt innehåll](../cognitive-services/computer-vision/home.md) i Cognitive Services. 
 
 > [!NOTE]
 > Små volymer (under 20 transaktioner) kan utföras kostnads fritt i Azure Kognitiv sökning, men större arbets belastningar kräver att du [kopplar en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
@@ -35,7 +35,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | `defaultLanguageCode` |  En sträng som anger det språk som ska returneras. Tjänsten returnerar igenkännings resultat på ett angivet språk. Om den här parametern inte anges är standardvärdet "en". <br/><br/>Språk som stöds: <br/>*en* – engelska (standard) <br/> *es* – spanska <br/> *Ja* – japanska <br/> *PT* -portugisiska <br/> *zh* – förenklad kinesiska|
-| `visualFeatures` |    En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li>*vuxen* – identifierar om bilden är pornografiskt (visar nakenhet eller en kön Act) eller är fullständig (visar extrema våld eller blod). Sexuellt innehåll (även kallat vågat-innehåll) identifieras också.</li><li>*varumärken* – identifierar olika varumärken inom en avbildning, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). </li><li>*Beskrivning* – beskriver bild innehållet med en hel mening i språk som stöds.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li>   *objekt* – identifierar olika objekt i en bild, inklusive den ungefärliga platsen. Den visuella *objekt* funktionen är endast tillgänglig på engelska.</li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li></ul> Namn på visuella funktioner är Skift läges känsliga. Observera att de visuella funktionerna *färg* och *imageType* har föråldrats, men den här funktionen kan fortfarande nås via en [anpassad färdighet](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
+| `visualFeatures` |    En sträng mat ris som anger vilka visuella funktions typer som ska returneras. Giltiga typer av visuella funktioner är:  <ul><li>*vuxen* – identifierar om bilden är pornografiskt (visar nakenhet eller en kön Act) eller är fullständig (visar extrema våld eller blod). Sexuellt innehåll (även kallat vågat-innehåll) identifieras också.</li><li>*varumärken* – identifierar olika varumärken inom en avbildning, inklusive den ungefärliga platsen. Den visuella funktionen *varumärken* är endast tillgänglig på engelska.</li><li> *Kategorier* – kategoriserar bild innehåll enligt en taxonomi som definierats i Cognitive Services [visuellt innehåll-dokumentationen](../cognitive-services/computer-vision/category-taxonomy.md). </li><li>*Beskrivning* – beskriver bild innehållet med en hel mening i språk som stöds.</li><li>*ansikten* – identifierar om det finns ansikten. Om det finns genererar koordinater, kön och ålder.</li><li>  *objekt* – identifierar olika objekt i en bild, inklusive den ungefärliga platsen. Den visuella *objekt* funktionen är endast tillgänglig på engelska.</li><li> *taggar* – Taggar avbildningen med en detaljerad lista över ord relaterade till bild innehållet.</li></ul> Namn på visuella funktioner är Skift läges känsliga. Observera att de visuella funktionerna *färg* och *imageType* har föråldrats, men den här funktionen kan fortfarande nås via en [anpassad färdighet](./cognitive-search-custom-skill-interface.md).|
 | `details` | En sträng mat ris som visar vilken datorspecifik information som ska returneras. Giltiga typer av visuella funktioner är: <ul><li>*kändisar* – identifierar kändisar om det identifierats i avbildningen.</li><li>*landmärken* – identifierar landmärken om de upptäcks i bilden. </li></ul> |
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -333,7 +333,7 @@ Du kan definiera mappningar för utdatakolumner till lågnivå egenskaper, till 
             "targetFieldName": "celebrities"
         }
 ```
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -357,7 +357,7 @@ Du kan definiera mappningar för utdatakolumner till lågnivå egenskaper, till 
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 ```json
 {
@@ -542,4 +542,4 @@ Om du får det fel som liknar `"One or more skills are invalid. Details: Error i
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Skapa indexerare (REST)](/rest/api/searchservice/create-indexer)

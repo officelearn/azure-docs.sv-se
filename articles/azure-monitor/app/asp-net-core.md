@@ -2,13 +2,14 @@
 title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518092"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936528"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
@@ -105,7 +106,7 @@ För Visual Studio för Mac använder du den [manuella vägledningen](#enable-ap
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Exempel:
+    Ett exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -471,5 +472,5 @@ De senaste uppdateringarna och fel korrigeringarna [finns i viktig information](
 * [Konfigurera en ögonblicks bild samling](./snapshot-debugger.md) för att se status för källkod och variabler vid det tillfälle då ett undantag genereras.
 * [Använd API: et](./api-custom-events-metrics.md) för att skicka egna händelser och mått för en detaljerad vy över appens prestanda och användning.
 * Använd [tillgänglighets test](./monitor-web-app-availability.md) för att kontrol lera att din app ständigt är i hela världen.
-* [Beroende inmatning i ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+* [Beroendeinmatning i ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ef840dc84c04875333958fa59ce399f2d16d07b5
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 58bb87d5af785d3cffd96f3bd02477f97ed967a9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214026"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935372"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
@@ -32,7 +32,7 @@ Exempel på mappningar av utdata-fält:
 * Du har inte någon färdigheter men indexerar en komplex typ från en Cosmos DB databas. Du vill komma till en nod på den komplexa typen och mappa den till ett fält i ditt index.
 
 > [!NOTE]
-> Vi har nyligen aktiverat funktionerna i mappnings funktioner för mappningar av utdatakolumner. Mer information om mappnings funktioner finns i [fält mappnings funktioner](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+> Vi har nyligen aktiverat funktionerna i mappnings funktioner för mappningar av utdatakolumner. Mer information om mappnings funktioner finns i [fält mappnings funktioner](./search-indexer-field-mappings.md#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
 

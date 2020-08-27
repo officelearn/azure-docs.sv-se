@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 7a1a2aa92549bcab35532120c4af5bd0b6904f58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e78f0d1e8d6d637dfebe1ff475ab8416ba49a263
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82891254"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935423"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Så här lägger du till en anpassad färdighet i en Azure Kognitiv sökning-rikare pipeline
 
@@ -168,5 +168,5 @@ I den här artikeln beskrivs de gränssnitts krav som krävs för att integrera 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Exempel: skapa en anpassad färdighet för AI-anrikning](cognitive-search-create-custom-skill-example.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Skapa färdigheter (REST)](/rest/api/searchservice/create-skillset)
 + [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

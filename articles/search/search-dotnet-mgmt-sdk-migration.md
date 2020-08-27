@@ -9,25 +9,25 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 5f6a198445f9c9bd8e02cd8b6df3405431263e0b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8648347eb48081389cf360fa949b31bbd0b8c71e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076416"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936715"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Uppgradera versioner av Azure Search .NET Management SDK
 
 Den här artikeln förklarar hur du migrerar till efterföljande versioner av Azure Search .NET Management SDK, som används för att etablera eller avetablera Sök tjänster, justera kapacitet och hantera API-nycklar.
 
-Hanterings-SDK: er är riktade till en angiven version av hanterings REST API. Mer information om begrepp och åtgärder finns i [Sök hantering (rest)](https://docs.microsoft.com/rest/api/searchmanagement/).
+Hanterings-SDK: er är riktade till en angiven version av hanterings REST API. Mer information om begrepp och åtgärder finns i [Sök hantering (rest)](/rest/api/searchmanagement/).
 
 ## <a name="versions"></a>Versioner
 
 | SDK-version | Motsvarande REST API version | Ändring av funktions tillägg eller beteende |
 |-------------|--------------------------------|-------------------------------------|
 | [3,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/3.0.0) | API-version = 2020-30-20 | Lägger till slut punkts säkerhet (IP-brandväggar och integrering med [Azures privata länk](../private-link/private-endpoint-overview.md)) |
-| [2,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-version = 2019-10-01 | Förbättrad användbarhet. Ändring av [list nyckel nycklar](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) (Get är upphör). |
+| [2,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/2.0.0) | API-version = 2019-10-01 | Förbättrad användbarhet. Ändring av [list nyckel nycklar](/rest/api/searchmanagement/querykeys/listbysearchservice) (Get är upphör). |
 | [1,0](https://www.nuget.org/packages/Microsoft.Azure.Management.Search/1.0.1) | API-version = 2015-08-19  | Första versionen |
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du
@@ -48,21 +48,21 @@ Version 3,0 lägger till privat slut punkts skydd genom att begränsa åtkomsten
 
 | API | Kategori| Information |
 |-----|--------|------------------|
-| [NetworkRuleSet](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP-brandvägg | Begränsa åtkomsten till en tjänst slut punkt till en lista över tillåtna IP-adresser. Se [Konfigurera IP-brandvägg](service-configure-firewall.md) för begrepp och Portal instruktioner. |
-| [Delad privat länk resurs](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Skapa en delad privat länk resurs som ska användas av en Sök tjänst.  |
-| [Anslutningar för privata slut punkter](https://docs.microsoft.com/rest/api/searchmanagement/privateendpointconnections) | Private Link | Upprätta och hantera anslutningar till en Sök tjänst via privat slut punkt. Se [skapa en privat slut punkt](service-create-private-endpoint.md) för begrepp och Portal instruktioner.|
-| [Privata länk resurser](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/) | Private Link | För en Sök tjänst som har en privat slut punkts anslutning hämtar du en lista över alla tjänster som används i samma virtuella nätverk. Om din Sök lösning innehåller indexerare som hämtar från Azure Data källor (Azure Storage, Cosmos DB, Azure SQL) eller använder Cognitive Services eller Key Vault, bör alla dessa resurser ha slut punkter i det virtuella nätverket och detta API ska returnera en lista. |
-| [PublicNetworkAccess](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Detta är en egenskap för att skapa eller uppdatera tjänst begär Anden. När den är inaktive rad är privat länk den enda åtkomsten. |
+| [NetworkRuleSet](/rest/api/searchmanagement/services/createorupdate#networkruleset) | IP-brandvägg | Begränsa åtkomsten till en tjänst slut punkt till en lista över tillåtna IP-adresser. Se [Konfigurera IP-brandvägg](service-configure-firewall.md) för begrepp och Portal instruktioner. |
+| [Delad privat länk resurs](/rest/api/searchmanagement/sharedprivatelinkresources) | Private Link | Skapa en delad privat länk resurs som ska användas av en Sök tjänst.  |
+| [Anslutningar för privata slut punkter](/rest/api/searchmanagement/privateendpointconnections) | Private Link | Upprätta och hantera anslutningar till en Sök tjänst via privat slut punkt. Se [skapa en privat slut punkt](service-create-private-endpoint.md) för begrepp och Portal instruktioner.|
+| [Privata länk resurser](/rest/api/searchmanagement/privatelinkresources/) | Private Link | För en Sök tjänst som har en privat slut punkts anslutning hämtar du en lista över alla tjänster som används i samma virtuella nätverk. Om din Sök lösning innehåller indexerare som hämtar från Azure Data källor (Azure Storage, Cosmos DB, Azure SQL) eller använder Cognitive Services eller Key Vault, bör alla dessa resurser ha slut punkter i det virtuella nätverket och detta API ska returnera en lista. |
+| [PublicNetworkAccess](/rest/api/searchmanagement/services/createorupdate#publicnetworkaccess)| Private Link | Detta är en egenskap för att skapa eller uppdatera tjänst begär Anden. När den är inaktive rad är privat länk den enda åtkomsten. |
 
 ### <a name="breaking-changes"></a>Icke-bakåtkompatibla ändringar
 
-Du kan inte längre använda Hämta i en [lista över](https://docs.microsoft.com/rest/api/searchmanagement/querykeys/listbysearchservice) förfrågningar om förfrågningar. I tidigare versioner kunde du använda antingen GET eller POST, i den här versionen och i alla versioner som flyttas framåt stöds endast POST. 
+Du kan inte längre använda Hämta i en [lista över](/rest/api/searchmanagement/querykeys/listbysearchservice) förfrågningar om förfrågningar. I tidigare versioner kunde du använda antingen GET eller POST, i den här versionen och i alla versioner som flyttas framåt stöds endast POST. 
 
 ## <a name="upgrade-to-20"></a>Uppgradera till 2,0
 
 Version 2 av Azure Search .NET Management SDK är en mindre uppgradering, så om du ändrar koden bör du bara kräva minimal ansträngning. Ändringarna i SDK är strikta ändringar på klient sidan för att förbättra användbarheten hos själva SDK: n. Dessa ändringar omfattar följande:
 
-* `Services.CreateOrUpdate`och dess asynkrona versioner avsöker nu automatiskt etableringen `SearchService` och returnerar inte förrän tjänst etableringen har slutförts. Detta gör att du slipper skriva en sådan avsöknings kod själv.
+* `Services.CreateOrUpdate` och dess asynkrona versioner avsöker nu automatiskt etableringen `SearchService` och returnerar inte förrän tjänst etableringen har slutförts. Detta gör att du slipper skriva en sådan avsöknings kod själv.
 
 * Om du fortfarande vill avsöka tjänst etableringen manuellt kan du använda den nya `Services.BeginCreateOrUpdate` metoden eller en av dess asynkrona versioner.
 

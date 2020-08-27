@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553172"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936596"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Konfigurera en indexerare-anslutning till en data källa med hjälp av en hanterad identitet (förhands granskning)
 
@@ -31,7 +31,7 @@ Dessa problem kan lösas genom att konfigurera anslutningen med hjälp av en han
 
 ## <a name="using-managed-identities"></a>Använda hanterade identiteter
 
-[Hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) är en funktion som tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här funktionen i Azure Kognitiv sökning för att skapa ett data käll objekt med en anslutnings sträng som inte innehåller några autentiseringsuppgifter. I stället beviljas din Sök tjänst åtkomst till data källan via rollbaserad åtkomst kontroll (RBAC).
+[Hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) är en funktion som tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här funktionen i Azure Kognitiv sökning för att skapa ett data käll objekt med en anslutnings sträng som inte innehåller några autentiseringsuppgifter. I stället beviljas din Sök tjänst åtkomst till data källan via rollbaserad åtkomst kontroll (RBAC).
 
 När du konfigurerar en data källa med hjälp av en hanterad identitet kan du ändra autentiseringsuppgifterna för data källan och indexerarna kommer fortfarande att kunna ansluta till data källan. Du kan också skapa data käll objekt i din kod utan att behöva inkludera en konto nyckel eller använda Key Vault för att hämta en konto nyckel.
 

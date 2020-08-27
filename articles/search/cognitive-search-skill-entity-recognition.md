@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 716951616a82dfd13d6bdcf127c4c4382576e792
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd35f297e88c37aec39938b0bfd60288e591a62c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080846"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936086"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
 
-Kunskapen om **enhets igenkänning** extraherar entiteter av olika typer från text. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+Kunskapen om **enhets igenkänning** extraherar entiteter av olika typer från text. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](../cognitive-services/text-analytics/overview.md) i Cognitive Services.
 
 > [!NOTE]
 > När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
@@ -29,7 +29,7 @@ Kunskapen om **enhets igenkänning** extraherar entiteter av olika typer från t
 Microsoft. färdigheter. text. EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -40,7 +40,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 | `categories`    | Matris med kategorier som ska extraheras.  Möjliga kategori typer:,,,,, `"Person"` `"Location"` `"Organization"` `"Quantity"` `"Datetime"` `"URL"` , `"Email"` . Om ingen kategori anges returneras alla typer.|
 | `defaultLanguageCode` |    Språk koden för inmatad text. Följande språk stöds: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans` . Alla enhets kategorier stöds inte för alla språk. se kommentaren nedan.|
 | `minimumPrecision` | Ett värde mellan 0 och 1. Om förtroende poängen (i `namedEntities` utdata) är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0. |
-| `includeTypelessEntities` | Ange till `true` om du vill känna igen välkända entiteter som inte passar de aktuella kategorierna. Identifierade entiteter returneras i `entities` fältet komplext utdata. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "produkter" inte är en kategori som stöds, skulle den här enheten inkluderas i fältet entiteter-utdata. Standard är`false` |
+| `includeTypelessEntities` | Ange till `true` om du vill känna igen välkända entiteter som inte passar de aktuella kategorierna. Identifierade entiteter returneras i `entities` fältet komplext utdata. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "produkter" inte är en kategori som stöds, skulle den här enheten inkluderas i fältet entiteter-utdata. Standard är `false` |
 
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -53,7 +53,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 ## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 > [!NOTE]
-> Alla enhets kategorier stöds inte för alla språk. `"Person"` `"Location"` Kategori typerna, och `"Organization"` för entiteter stöds för den fullständiga listan över språk ovan. Endast _de_, _en_, _es_, _fr_och _zh-hans_ stöder extrahering av `"Quantity"` , `"Datetime"` , `"URL"` , och `"Email"` typer. Mer information finns i [språk-och region stöd för API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Alla enhets kategorier stöds inte för alla språk. `"Person"` `"Location"` Kategori typerna, och `"Organization"` för entiteter stöds för den fullständiga listan över språk ovan. Endast _de_, _en_, _es_, _fr_och _zh-hans_ stöder extrahering av `"Quantity"` , `"Datetime"` , `"URL"` , och `"Email"` typer. Mer information finns i [språk-och region stöd för API för textanalys](../cognitive-services/text-analytics/language-support.md).  
 
 | Namn på utdata      | Beskrivning                   |
 |---------------|-------------------------------|
@@ -97,7 +97,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
     ]
   }
 ```
-##    <a name="sample-input"></a>Exempel på inmatade
+##    <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -114,7 +114,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
-##    <a name="sample-output"></a>Exempel på utdata
+##    <a name="sample-output"></a>Exempelutdata
 
 ```json
 {
@@ -187,7 +187,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
-Observera att förskjutningarna som returneras för entiteter i resultatet av den här kunskapen returneras direkt från [API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), vilket innebär att om du använder dem för att indexera till den ursprungliga strängen, bör du använda [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) -klassen i .net för att extrahera rätt innehåll.  [Mer information hittar du här.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
+Observera att förskjutningarna som returneras för entiteter i resultatet av den här kunskapen returneras direkt från [API för textanalys](../cognitive-services/text-analytics/overview.md), vilket innebär att om du använder dem för att indexera till den ursprungliga strängen, bör du använda [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) -klassen i .net för att extrahera rätt innehåll.  [Mer information hittar du här.](../cognitive-services/text-analytics/concepts/text-offsets.md)
 
 ## <a name="error-cases"></a>Fel fall
 Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 08/02/2020
-ms.openlocfilehash: 51422be944d514de398d4bfa424679e2f6d531b6
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1745a2bf83cb704c8cc73e9d3bf0eba8245329b3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534761"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924273"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>Skapa ett kunskaps lager med REST och Postman
 
@@ -23,7 +23,7 @@ I den här artikeln använder du REST API-gränssnittet för att mata in, indexe
 
 När du har skapat kunskaps lagret kan du lära dig mer om hur du kommer åt kunskaps lagret med hjälp av [Storage Explorer](knowledge-store-view-storage-explorer.md) eller [Power BI](knowledge-store-connect-power-bi.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!TIP]
 > Vi rekommenderar att du [skickar Desktop-appen](https://www.getpostman.com/) för den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) för den här artikeln innehåller en Postman-samling som innehåller alla begär Anden. 
@@ -36,7 +36,7 @@ Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden f
 
 1. [Ladda ned HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Dessa data är hotell gransknings data som sparats i en CSV-fil (härstammar från Kaggle.com) och innehåller 19 stycken kundfeedback om ett enda hotell. 
 
-1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under din aktuella prenumeration. Du använder Azure Storage för både det råa innehåll som ska importeras och kunskaps lagret som är slut resultatet.
 
    Välj konto typen **StorageV2 (General Purpose v2)** .
 
@@ -50,7 +50,7 @@ Eftersom arbets belastningen är så liten är Cognitive Services i bakgrunden f
 
     ![Skapa Azure Blob-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa Azure Blob-behållaren")
 
-1. Du är nästan klar med den här resursen, men innan du lämnar dessa sidor använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel:`DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+1. Du är nästan klar med den här resursen, men innan du lämnar dessa sidor använder du en länk i det vänstra navigerings fönstret för att öppna sidan **åtkomst nycklar** . Hämta en anslutnings sträng för att hämta data från Blob Storage. En anslutnings sträng ser ut ungefär som i följande exempel: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
 1. Växla till Azure Kognitiv sökning fortfarande i portalen. [Skapa en ny tjänst](search-create-service-portal.md) eller [Sök efter en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Du kan använda en kostnads fri tjänst för den här övningen.
 
@@ -172,7 +172,7 @@ Nästa steg är att ange färdigheter, som anger både de förbättringar som sk
 
 Det finns två stora objekt på översta nivån: `skills` och `knowledgeStore` . Varje objekt i `skills` objektet är en anriknings tjänst. Varje anriknings tjänst har `inputs` och `outputs` . `LanguageDetectionSkill`Har utdata `targetName` från `Language` . Värdet för den här noden används av de flesta andra färdigheter som inmatade. Källan är `document/Language` . Möjligheten att använda utdata från en nod som indata till en annan är ännu mer uppenbart i `ShaperSkill` , vilket anger hur data flödar till kunskaps lagrets tabeller.
 
-`knowledge_store`Objektet ansluter till lagrings kontot via `{{storage-connection-string}}` Postman-variabeln. `knowledge_store`innehåller en uppsättning mappningar mellan det förbättrade dokumentet och tabeller och kolumner i kunskaps lagret. 
+`knowledge_store`Objektet ansluter till lagrings kontot via `{{storage-connection-string}}` Postman-variabeln. `knowledge_store` innehåller en uppsättning mappningar mellan det förbättrade dokumentet och tabeller och kolumner i kunskaps lagret. 
 
 Om du vill generera färdigheter väljer du knappen **Skicka** i Postman för att placera begäran:
 
@@ -306,7 +306,7 @@ Om du vill generera färdigheter väljer du knappen **Skicka** i Postman för at
 
 Det sista steget är att skapa indexeraren. Indexeraren läser data och aktiverar färdigheter. I Postman väljer du begäran om att **skapa indexerare** och granskar sedan bröd texten. Definitionen av indexeraren avser flera andra resurser som du redan har skapat: data källan, indexet och färdigheter. 
 
-`parameters/configuration`Objektet styr hur indexeraren matar in data. I det här fallet är indata i ett enda dokument som har en rubrik rad och kommaavgränsade värden. Dokument nyckeln är en unik identifierare för dokumentet. Före kodningen är dokument nyckeln URL: en för käll dokumentet. Slutligen är färdigheter-utdataparametrar, som språk kod, sentiment och nyckel fraser mappade till deras platser i dokumentet. Även om det finns ett enda värde för `Language` , `Sentiment` används varje element i matrisen `pages` . `Keyphrases`är en matris som också används för varje element i `pages` matrisen.
+`parameters/configuration`Objektet styr hur indexeraren matar in data. I det här fallet är indata i ett enda dokument som har en rubrik rad och kommaavgränsade värden. Dokument nyckeln är en unik identifierare för dokumentet. Före kodningen är dokument nyckeln URL: en för käll dokumentet. Slutligen är färdigheter-utdataparametrar, som språk kod, sentiment och nyckel fraser mappade till deras platser i dokumentet. Även om det finns ett enda värde för `Language` , `Sentiment` används varje element i matrisen `pages` . `Keyphrases` är en matris som också används för varje element i `pages` matrisen.
 
 När du har angett `api-key` `Content-type` rubrikerna och bekräftat att bröd texten i begäran liknar följande käll kod väljer du **Skicka** i Postman. Postman skickar en skicka-begäran till `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}` . Azure Kognitiv sökning skapar och kör indexeraren. 
 

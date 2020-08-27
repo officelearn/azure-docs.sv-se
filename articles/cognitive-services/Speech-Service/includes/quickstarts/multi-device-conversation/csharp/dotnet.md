@@ -7,14 +7,15 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: ralphe
-ms.openlocfilehash: 11f80a000f386e661f3eb3f0ffb4969701704c90
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.custom: devx-track-csharp
+ms.openlocfilehash: dff5c7c7018945bb93ce492ee3205f3567dff1d7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226162"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925917"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar ska du se till att:
 
@@ -316,6 +317,6 @@ Innan du börjar ska du se till att:
 
 9. Gå tillbaka till webbläsaren och avsluta konversationen med hjälp av avslutnings knappen i det övre högra hörnet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [!INCLUDE [footer](./footer.md)]

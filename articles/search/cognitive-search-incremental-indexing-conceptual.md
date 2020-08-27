@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 3957884a8c559194c436487050f0dbc09acf0441
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5596a2db32a0fe5b6b5eddf3ae20501e6edb0b99
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232516"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935389"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
@@ -28,9 +28,9 @@ Ett arbets flöde som använder stegvis cachelagring innehåller följande steg:
 
 1. [Skapa eller identifiera ett Azure Storage-konto](../storage/common/storage-account-create.md) för lagring av cacheminnet.
 1. [Aktivera stegvis berikning](search-howto-incremental-index.md) i indexeraren.
-1. [Skapa en indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer) – plus en [färdigheter](https://docs.microsoft.com/rest/api/searchservice/create-skillset) -för att anropa pipelinen. Under bearbetningen sparas stadier av berikning för varje dokument i Blob Storage för framtida bruk.
-1. Testa koden och när du har gjort ändringarna använder du [Uppdatera färdigheter](https://docs.microsoft.com/rest/api/searchservice/update-skillset) för att ändra en definition.
-1. [Kör indexeraren](https://docs.microsoft.com/rest/api/searchservice/run-indexer) för att anropa pipelinen, Hämta cachelagrade utdata för snabbare och mer kostnads effektiv bearbetning.
+1. [Skapa en indexerare](/rest/api/searchservice/create-indexer) – plus en [färdigheter](/rest/api/searchservice/create-skillset) -för att anropa pipelinen. Under bearbetningen sparas stadier av berikning för varje dokument i Blob Storage för framtida bruk.
+1. Testa koden och när du har gjort ändringarna använder du [Uppdatera färdigheter](/rest/api/searchservice/update-skillset) för att ändra en definition.
+1. [Kör indexeraren](/rest/api/searchservice/run-indexer) för att anropa pipelinen, Hämta cachelagrade utdata för snabbare och mer kostnads effektiv bearbetning.
 
 Mer information om steg och överväganden när du arbetar med en befintlig indexerare finns i [Konfigurera stegvis berikning](search-howto-incremental-index.md).
 
@@ -109,9 +109,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 Syftet med cachen är att undvika onödig bearbetning, men vi antar att du gör en ändring i en färdighet som indexeraren inte identifierar (till exempel ändra något i extern kod, till exempel en anpassad färdighet).
 
-I det här fallet kan du använda [återställnings kunskaper](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
+I det här fallet kan du använda [återställnings kunskaper](/rest/api/searchservice/preview-api/reset-skills) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
 
-## <a name="change-detection"></a>Ändrings identifiering
+## <a name="change-detection"></a>Ändringsidentifiering
 
 När du aktiverar ett cacheminne utvärderar indexeraren ändringar i din pipeline-sammansättning för att avgöra vilket innehåll som kan återanvändas och vilka som behöver bearbetas igen. I det här avsnittet räknas ändringar som inte validerar cachen direkt, följt av ändringar som utlöser stegvis bearbetning. 
 
@@ -150,17 +150,17 @@ Stegvis bearbetning utvärderar din färdigheter-definition och avgör vilka kun
 
 ## <a name="api-reference"></a>API-referens
 
-REST API-versionen `2020-06-30-Preview` ger stegvis berikning genom ytterligare egenskaper för indexerare. Färdighetsuppsättningar och data källor kan använda den allmänt tillgängliga versionen. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
+REST API-versionen `2020-06-30-Preview` ger stegvis berikning genom ytterligare egenskaper för indexerare. Färdighetsuppsättningar och data källor kan använda den allmänt tillgängliga versionen. Utöver referens dokumentationen finns mer information om hur du anropar API: erna i  [Konfigurera cachelagring för stegvis berikning](search-howto-incremental-index.md) .
 
-+ [Skapa indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 
++ [Skapa indexerare (API-version = 2020-06 -30 – för hands version)](/rest/api/searchservice/create-indexer) 
 
-+ [Uppdatera indexerare (API-version = 2020-06 -30 – för hands version)](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 
++ [Uppdatera indexerare (API-version = 2020-06 -30 – för hands version)](/rest/api/searchservice/update-indexer) 
 
-+ [Uppdatera färdigheter (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (ny URI-parameter på begäran)
++ [Uppdatera färdigheter (API-version = 2020-06-30)](/rest/api/searchservice/update-skillset) (ny URI-parameter på begäran)
 
-+ [Återställa kunskaper (API-version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills)
++ [Återställa kunskaper (API-version = 2020-06-30)](/rest/api/searchservice/preview-api/reset-skills)
 
-+ Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas in på `true` när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
++ Databas indexerare (Azure SQL, Cosmos DB). Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](/rest/api/searchservice/update-data-source) en ny parameter på en begäran- **ignoreResetRequirement**, som ska ställas in på `true` när din uppdaterings åtgärd inte ska göra en ogiltig verifiering av cachen. 
 
   Använd **ignoreResetRequirement** sparsamt eftersom det kan leda till oavsiktlig inkonsekvens i dina data som inte kommer att identifieras enkelt.
 

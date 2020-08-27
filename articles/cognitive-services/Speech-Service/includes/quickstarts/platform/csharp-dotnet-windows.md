@@ -10,18 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
-ms.openlocfilehash: a09b969ee3e11aeb04f338cf035b21b5da9bd952
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: b47fd90a3fc92234d95ddc9d9f4f14b5af67d757
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925605"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926715"
 ---
 Den här guiden visar hur du installerar [tal-SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för .NET Framework (Windows). Om du bara vill att paket namnet ska komma igång med ditt eget kör `Install-Package Microsoft.CognitiveServices.Speech` du i NuGet-konsolen.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -41,7 +42,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 1. I fönstret **Konfigurera ditt nya projekt** anger du *HelloWorld* i **projekt namn**, väljer eller skapar sökvägen till katalogen på **platsen**och väljer sedan **skapa**.
 
-1. I meny raden i Visual Studio väljer du **verktyg** > **Hämta verktyg och funktioner**, som öppnar Visual Studio Installer och visar dialog rutan **ändra** .
+1. I meny raden i Visual Studio väljer du **verktyg**  >  **Hämta verktyg och funktioner**, som öppnar Visual Studio Installer och visar dialog rutan **ändra** .
 
 1. Kontrol lera om arbets belastningen **.net Desktop Development** är tillgänglig. Om arbets belastningen inte har installerats markerar du kryss rutan bredvid den och väljer sedan **ändra** för att starta installationen. Det kan ta några minuter att ladda ned och installera.
 
@@ -75,7 +76,7 @@ Du måste installera [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget)
 
 Skapa och kör konsol programmet genom att skapa en plattforms konfiguration som matchar datorns arkitektur.
 
-1. Välj **build** > **Configuration Manager**på Meny raden. Dialog rutan **Configuration Manager** visas.
+1. Välj **build**  >  **Configuration Manager**på Meny raden. Dialog rutan **Configuration Manager** visas.
 
    ![Configuration Manager dialog ruta](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
 

@@ -3,12 +3,13 @@ title: Använda Personanpassaren i chatt robot – Personanpassare
 description: Anpassa en C# .NET chatt-robot med en anpassad-slinga för att ge rätt innehåll till en användare baserat på åtgärder (med funktioner) och kontext funktioner.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131675"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935661"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Självstudie: använda Personanpassaren i .NET Chat-robot
 
@@ -191,8 +192,8 @@ Håll webbplatsen igång eftersom självstudien förklarar vad roboten gör, så
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Använd bot-roboten i bot-emulatorn
 
 1. Be att se menyn genom att ange `I would like to see the menu` . Chat-roboten visar objekten.
-1. Låt roboten föreslå ett objekt genom att skriva in `Please suggest a drink for me.` emulatorn som visar ranknings förfrågan och svaret i Chat-fönstret, så att du kan se hela JSON. Och roboten gör ett förslag, något som liknar`How about Latte?`
-1. Svar som du vill att du godkänner det bästa valet av Personanpassare, `I like it.` visar emulatorn belönings förfrågan med belönings poängen 1 och svaret i Chat-fönstret, så att du kan se hela JSON. Och bot-roboten svarar med `That’s great! I’ll keep learning your preferences over time.` och`Would you like to get a new suggestion or reset the simulated context to a new day?`
+1. Låt roboten föreslå ett objekt genom att skriva in `Please suggest a drink for me.` emulatorn som visar ranknings förfrågan och svaret i Chat-fönstret, så att du kan se hela JSON. Och roboten gör ett förslag, något som liknar `How about Latte?`
+1. Svar som du vill att du godkänner det bästa valet av Personanpassare, `I like it.` visar emulatorn belönings förfrågan med belönings poängen 1 och svaret i Chat-fönstret, så att du kan se hela JSON. Och bot-roboten svarar med `That’s great! I’ll keep learning your preferences over time.` och `Would you like to get a new suggestion or reset the simulated context to a new day?`
 
     Om du svarar `no` på valet skickas belönings poängen 0 till personanpassaren.
 
@@ -201,9 +202,9 @@ Håll webbplatsen igång eftersom självstudien förklarar vad roboten gör, så
 
 .NET-lösningen är en vanlig bot-chatt i bot-ramverket. Koden som är relaterad till Personanpassare finns i följande mappar:
 * `/samples/ChatbotExample/Bots`
-    * `PersonalizerChatbot.cs`fil för interaktionen mellan bot och personanpassa
-* `/samples/ChatbotExample/ReinforcementLearning`-hanterar åtgärder och funktioner för personanpassa modeller
-* `/samples/ChatbotExample/Model`– filer för de personliga åtgärderna och funktionerna och för LUIS-avsikter
+    * `PersonalizerChatbot.cs` fil för interaktionen mellan bot och personanpassa
+* `/samples/ChatbotExample/ReinforcementLearning` -hanterar åtgärder och funktioner för personanpassa modeller
+* `/samples/ChatbotExample/Model` – filer för de personliga åtgärderna och funktionerna och för LUIS-avsikter
 
 ### <a name="personalizerchatbotcs---working-with-personalizer"></a>PersonalizerChatbot.cs – arbeta med Personanpassare
 

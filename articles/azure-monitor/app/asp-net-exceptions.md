@@ -2,13 +2,14 @@
 title: Diagnostisera fel och undantag med Azure Application insikter
 description: Fånga undantag från ASP.NET-appar tillsammans med telemetri för begäran.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 07/11/2019
-ms.openlocfilehash: c91ab4bcf8a0d2172c89fa04bd7a3b4999b2217e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 36e916eabfca8e997fc3d46ff10f6201203457cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321368"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936511"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostisera undantag i dina webbappar med Application Insights
 Undantag i din Live-webbapp rapporteras av [Application Insights](./app-insights-overview.md). Du kan korrelera misslyckade förfrågningar med undantag och andra händelser på både klienten och servern, så att du snabbt kan diagnostisera orsakerna.
@@ -77,7 +78,7 @@ I det syftet har du flera alternativ:
 
 Om du vill se de här händelserna öppnar du [Sök](./diagnostic-search.md) på menyn till vänster, väljer **händelse typerna**för List rutan och väljer sedan anpassad händelse, spårning eller undantag.
 
-![Visa detaljerad information](./media/asp-net-exceptions/customevents.png)
+![Visning av detaljerad information](./media/asp-net-exceptions/customevents.png)
 
 > [!NOTE]
 > Om din app genererar mycket telemetri minskar den anpassningsbara insamlingsmodulen automatiskt den mängd som skickas till portalen genom att bara skicka en representativ del av händelserna. Händelser som är en del av samma åtgärd markeras eller avmarkeras som en grupp, så att du kan navigera mellan relaterade händelser. [Lär dig mer om sampling.](./sampling.md)
@@ -91,7 +92,7 @@ Information om begäran innehåller inte de data som skickas till din app i ett 
 * Infoga kod i programmet för att anropa [Microsoft. ApplicationInsights. TrackTrace ()](./api-custom-events-metrics.md#tracktrace). Skicka POST-data i meddelande parametern. Det finns en gräns för tillåten storlek, så du bör försöka skicka enbart viktiga data.
 * När du undersöker en misslyckad begäran hittar du de associerade spårningarna.
 
-## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a>Fånga undantag och relaterade diagnostikdata
+## <a name="capturing-exceptions-and-related-diagnostic-data"></a><a name="exceptions"></a> Fånga undantag och relaterade diagnostikdata
 Först visas inte i portalen alla undantag som orsakar fel i din app. Du ser eventuella webb läsar undantag (om du använder [JavaScript SDK](./javascript.md) på dina webb sidor). Men de flesta Server undantagen fångas av IIS och du måste skriva kod för att se dem.
 
 Du kan:
@@ -199,7 +200,7 @@ Men om du har aktiva omdirigeringar lägger du till följande rader i Applicatio
 ## <a name="mvc"></a>MVC
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare), samlar Application Insights ut ohanterade undantag som har utlösts i metoderna MVC 5 + controllers automatiskt. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Till exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
 
 * Undantag som utlöses från styrenhetskonstruktörer.
 * Undantag som utlöses av meddelandehanterare.
@@ -291,7 +292,7 @@ Registrera AiHandleErrorAttribute som ett globalt filter i FilterConfig.cs:
 ## <a name="web-api"></a>Webb-API
 Från och med Application Insights Web SDK version 2,6 (beta3 och senare) samlar Application Insights ut ohanterade undantag som har utlösts i styrenhets metoderna automatiskt för WebAPI 2 +. Om du tidigare har lagt till en anpassad hanterare för att spåra sådana undantag (enligt beskrivningen i följande exempel) kan du ta bort den för att förhindra dubbel spårning av undantag.
 
-Det finns ett antal fall som undantags filtren inte kan hantera. Till exempel:
+Det finns ett antal fall som undantags filtren inte kan hantera. Ett exempel:
 
 * Undantag som utlöses från styrenhetskonstruktörer.
 * Undantag som utlöses av meddelandehanterare.

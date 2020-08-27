@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dee6b0b1635880fb50b8d35f1f91ad2bce569cff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74158174"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928487"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabb start: skapa ett chattrum med ASP.NET och SignalR-tjänsten
 
@@ -24,7 +25,7 @@ I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och 
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
@@ -32,7 +33,7 @@ I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -62,7 +63,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-1. Ange nu anslutnings strängen i filen Web. config.
+1. Ange nu anslutnings strängen i web.configs filen.
 
     ```xml
     <configuration>
@@ -73,7 +74,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     </configuration>
     ```
 
-1. I *startup.cs*, i stället för `MapSignalR()`att anropa, måste du `MapAzureSignalR({your_applicationName})` anropa och skicka anslutnings strängen för att programmet ska kunna ansluta till tjänsten i stället för att vara värd för SignalR. Ersätt `{YourApplicationName}` till namnet på ditt program. Det här namnet är ett unikt namn som särskiljer det här programmet från andra program. Du kan använda `this.GetType().FullName` som värde.
+1. I *startup.cs*, i stället för `MapSignalR()` att anropa, måste du anropa `MapAzureSignalR({your_applicationName})` och skicka anslutnings strängen för att programmet ska kunna ansluta till tjänsten i stället för att vara värd för SignalR. Ersätt `{YourApplicationName}` till namnet på ditt program. Det här namnet är ett unikt namn som särskiljer det här programmet från andra program. Du kan använda `this.GetType().FullName` som värde.
 
     ```cs
     public void Configuration(IAppBuilder app)
@@ -92,7 +93,7 @@ Medan tjänsten distribueras tar vi och arbetar med koden. Klona [exempelappen f
     Förutom dessa ändringar är allt annat detsamma, men du kan fortfarande använda hubb gränssnittet som du redan är bekant med för att skriva affärs logik.
 
     > [!NOTE]
-    > I implementeringen visas en `/signalr/negotiate` slut punkt för förhandling av Azure SignalR service SDK. Det returnerar ett särskilt förhandlings svar när klienter försöker ansluta och omdirigera klienter till tjänstens slut punkt som definierats i anslutnings strängen.
+    > I implementeringen visas en slut punkt `/signalr/negotiate` för förhandling av Azure SignalR service SDK. Det returnerar ett särskilt förhandlings svar när klienter försöker ansluta och omdirigera klienter till tjänstens slut punkt som definierats i anslutnings strängen.
 
 1. Tryck på **F5** för att köra projektet i fel söknings läge. Du kan se att programmet körs lokalt. I stället för att vara värd för en signal körning av själva programmet ansluter den nu till Azure SignalR-tjänsten.
 

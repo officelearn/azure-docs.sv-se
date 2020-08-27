@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214068"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935457"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Så här skapar du en färdigheter i en pipeline för AI-anrikning i Azure Kognitiv sökning 
 
@@ -42,21 +42,21 @@ Anta att du är intresse rad av att bearbeta en uppsättning ekonomiska analytik
 
 | post-text | tillverkare | sentiment | företags beskrivningar |
 |--------|-----|-----|-----|
-|exempel post| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
+|exempel post| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation är ett amerikanskt multinationellt teknik företag...", "LinkedIn är ett verksamhets-och arbetsorienteradt socialt nätverk..."]
 
 Följande diagram illustrerar en hypotetisk anriknings pipeline:
 
 ![En hypotetisk anriknings pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "En hypotetisk anriknings pipeline")
 
 
-När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Kognitiv sökning. Mer information om hur du överför indexeraren finns i [dokumentationen för indexeraren](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+När du har en god uppfattning om vad du vill ha i pipelinen kan du uttrycka färdigheter som innehåller de här stegen. Funktionen färdigheter uttrycks när du laddar upp din index-definition till Azure Kognitiv sökning. Mer information om hur du överför indexeraren finns i [dokumentationen för indexeraren](/rest/api/searchservice/create-indexer).
 
 
 I diagrammet sker steget för att *knäcka dokument* automatiskt. Azure Kognitiv sökning vet i princip hur man öppnar välkända filer och skapar ett *innehålls* fält som innehåller den text som extraheras från varje dokument. De vita rutorna är inbyggda och de prickade Entitetssökning i Bings rutan representerar en anpassad berikare som du skapar. Som illustreras innehåller färdigheter tre kunskaper.
 
 ## <a name="skillset-definition-in-rest"></a>Färdigheter-definition i REST
 
-En färdigheter definieras som en matris med kunskaper. Varje kunskap definierar källan till sina indata och namnet på de utdata som produceras. Med hjälp av [create färdigheter REST API](https://docs.microsoft.com/rest/api/searchservice/create-skillset)kan du definiera en färdigheter som motsvarar föregående diagram: 
+En färdigheter definieras som en matris med kunskaper. Varje kunskap definierar källan till sina indata och namnet på de utdata som produceras. Med hjälp av [create färdigheter REST API](/rest/api/searchservice/create-skillset)kan du definiera en färdigheter som motsvarar föregående diagram: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -175,7 +175,7 @@ Nu ska vi titta på den första kunskapen, som är den inbyggda [kunskapen om en
 
 * Kunskapen har en utmatning som kallas ```"organizations"``` . Utdata finns bara under bearbetning. Om du vill kedja dessa utdata till en efterföljande färdighets indata refererar du till utdata som ```"/document/organizations"``` .
 
-* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Till exempel:
+* För ett visst dokument är värdet för ```"/document/organizations"``` en matris med organisationer som extraheras från texten. Ett exempel:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -281,4 +281,4 @@ Du kan välja att spara de berikade dokumenten som tabeller med hierarkiska rela
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du är bekant med pipelinen och färdighetsuppsättningar kan du fortsätta med [hur du refererar till kommentarer i en färdigheter](cognitive-search-concept-annotations-syntax.md) eller [hur du mappar utdata till fält i ett index](cognitive-search-output-field-mapping.md). 
+Nu när du är bekant med pipelinen och färdighetsuppsättningar kan du fortsätta med [hur du refererar till kommentarer i en färdigheter](cognitive-search-concept-annotations-syntax.md) eller [hur du mappar utdata till fält i ett index](cognitive-search-output-field-mapping.md).

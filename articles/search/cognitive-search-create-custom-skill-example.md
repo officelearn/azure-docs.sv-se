@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46170a0eede92584b8ac4cc77ad61ca673cae65c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113812"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935491"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
 
 I det här exemplet lär du dig hur du skapar en anpassad webb-API-färdighet. Den här kunskapen tar emot platser, offentliga uppgifter och organisationer och returnerar beskrivningar för dem. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) för att omsluta [API för entitetsökning i Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) så att den implementerar det anpassade kunskaps gränssnittet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs om det [anpassade kunskaps gränssnitts](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>Svar
+### <a name="response"></a>Svarsåtgärder
 Du bör se ett svar som liknar följande exempel:
 
 ```json
@@ -481,5 +481,5 @@ Grattis! Du har skapat din första anpassade färdighet. Nu kan du följa samma 
 + [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Skapa färdigheter (REST)](/rest/api/searchservice/create-skillset)
 + [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

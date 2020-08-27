@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7d7227a0eeaa496dd774eb962946a4ee85e22009
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dc18af933a4570112beb025c1fb9163abafffff
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080015"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935950"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Kognitiv kompetens för entitets igenkänning
 
@@ -32,7 +32,7 @@ Den **namngivna Recognition** -kompetensen extraherar namngivna entiteter från 
 Microsoft. färdigheter. text. NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kunskaps parametrar
 
@@ -41,7 +41,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"` , `"Location"` , `"Organization"` . Om ingen kategori anges returneras alla typer.|
-|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds:`de, en, es, fr, it`|
+|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds: `de, en, es, fr, it`|
 | minimumPrecision  | Ett tal mellan 0 och 1. Om precisionen är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0.|
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
@@ -81,7 +81,7 @@ Parametrar är skiftlägeskänsliga.
     ]
   }
 ```
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelindata
 
 ```json
 {
@@ -98,7 +98,7 @@ Parametrar är skiftlägeskänsliga.
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##  <a name="sample-output"></a>Exempelutdata
 
 ```json
 {

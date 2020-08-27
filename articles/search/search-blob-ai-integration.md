@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce5eafe0b36f07d8de366b6d4adb92e894fcb67e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73496440"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936749"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Använd AI för att förstå Blob Storage-data
 
@@ -112,7 +112,7 @@ Ett berikat dokument i slutet av pipelinen skiljer sig från den ursprungliga in
 
 Det finns mycket mer du kan göra med AI-anrikning för att få ut mesta möjliga av dina data i Azure Storage, inklusive att kombinera Cognitive Services på olika sätt och redigera anpassade kunskaper för fall där det inte finns någon befintlig kognitiv tjänst för scenariot. Du kan lära dig mer genom att följa länkarna nedan.
 
-+ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](../storage/blobs/storage-quickstart-blobs-portal.md)
 + [Konfigurera en BLOB-indexerare (Azure Kognitiv sökning)](search-howto-indexing-azure-blob-storage.md) 
 + [Översikt över AI-anrikning (Azure Kognitiv sökning)](cognitive-search-concept-intro.md) 
 + [Skapa en färdigheter (Azure Kognitiv sökning)](cognitive-search-defining-skillset.md)

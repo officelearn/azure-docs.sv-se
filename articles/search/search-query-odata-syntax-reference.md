@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793238"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928861"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Syntax-referens för OData-uttryck för Azure Kognitiv sökning
 
@@ -217,6 +217,6 @@ För att visuellt utforska OData-språkgrammen som stöds av Azure Kognitiv sök
 ## <a name="see-also"></a>Se även  
 
 - [Filter i Azure Kognitiv sökning](search-filters.md)
-- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Sök efter dokument &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/Search-Documents)
 - [Lucene-frågesyntax](query-lucene-syntax.md)
 - [Enkel frågesyntax i Azure Kognitiv sökning](query-simple-syntax.md)

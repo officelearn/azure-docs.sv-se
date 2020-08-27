@@ -1,21 +1,21 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: storage
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 08/26/2020
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 55e5290630185466ea0801b06ece71069fc94d89
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 897e5b58aed9c47e0b94ee47d1883e2b7a28bacb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87545083"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930815"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2 tilldela åtkomst behörigheter till en identitet
+## <a name="assign-access-permissions-to-an-identity"></a>Tilldela åtkomst behörigheter till en identitet
 
 För att få åtkomst till Azure Files resurser med identitets baserad autentisering måste en identitet (användare, grupp eller tjänstens huvud namn) ha nödvändig behörighet på delnings nivå. Den här processen liknar att ange behörigheter för Windows-resurs, där du anger vilken typ av åtkomst som en viss användare har till en fil resurs. Rikt linjerna i det här avsnittet visar hur du tilldelar behörigheterna läsa, skriva eller ta bort för en fil resurs till en identitet. 
 
@@ -35,7 +35,9 @@ Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de in
 
 Den allmänna rekommendationen är att använda behörighet på resurs nivå för åtkomst hantering på hög nivå till en AD-grupp som representerar en grupp användare och identiteter, och sedan utnyttja NTFS-behörigheter för detaljerad åtkomst kontroll på katalog-/filnivå. 
 
-#### <a name="azure-portal"></a>Azure-portalen
+### <a name="assign-an-azure-role-to-an-ad-identity"></a>Tilldela en Azure-roll till en AD-identitet
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
 
 1. I Azure Portal går du till fil resursen eller [skapar en fil resurs](../articles/storage/files/storage-how-to-create-file-share.md).
@@ -44,7 +46,7 @@ Följ dessa steg om du vill tilldela en Azure-roll till en Azure AD-identitet me
 4. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Lämna inställningen **tilldela till gång till** standardinställningen: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress.
 5. Klicka på **Spara** för att slutföra roll tilldelnings åtgärden.
 
-#### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Följande PowerShell-exempel visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med PowerShell finns i [Hantera åtkomst med RBAC och Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
@@ -59,7 +61,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
   
 Följande CLI 2,0-kommando visar hur du tilldelar en Azure-roll till en Azure AD-identitet baserat på inloggnings namn. Mer information om hur du tilldelar Azure-roller med Azure CLI finns i [Hantera åtkomst med RBAC och Azure CLI](../articles/role-based-access-control/role-assignments-cli.md). 
 
@@ -69,8 +71,10 @@ Innan du kör följande exempel skript måste du komma ihåg att ersätta plats 
 #Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
+---
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3 Konfigurera NTFS-behörigheter över SMB 
+## <a name="configure-ntfs-permissions-over-smb"></a>Konfigurera NTFS-behörigheter över SMB
+
 När du har tilldelat behörigheter på resurs nivå med RBAC måste du tilldela rätt NTFS-behörighet på rot-, katalog-eller filnivå. Tänk på behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå.
 
 Azure Files stöder en fullständig uppsättning NTFS Basic-och Advanced-behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
@@ -108,6 +112,7 @@ Om du får problem med att ansluta till Azure Files kan du läsa [fel söknings 
 
 
 ### <a name="configure-ntfs-permissions-with-windows-file-explorer"></a>Konfigurera NTFS-behörigheter med Windows Utforskaren
+
 Använd Utforskaren i Windows för att ge fullständig behörighet till alla kataloger och filer under fil resursen, inklusive rot katalogen.
 
 1. Öppna Utforskaren i Windows och högerklicka på filen/katalogen och välj **Egenskaper**.
@@ -117,9 +122,10 @@ Använd Utforskaren i Windows för att ge fullständig behörighet till alla kat
 5. I fönstret prompt för att lägga till nya användare anger du det mål användar namn som du vill ge behörighet i rutan **Ange de objekt namn som ska väljas** och väljer **kontrol lera namn** för att hitta det fullständiga UPN-namnet för mål användaren.
 7.    Välj **OK**.
 8.    På fliken **säkerhet** väljer du alla behörigheter som du vill ge den nya användaren.
-9.    Välj **Använd**.
+9.    Välj **Tillämpa**.
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Konfigurera NTFS-behörigheter med icacls
+
 Använd följande Windows-kommando för att ge fullständig behörighet till alla kataloger och filer under fil resursen, inklusive rot katalogen. Kom ihåg att ersätta plats hållarnas värden i exemplet med dina egna värden.
 
 ```
@@ -128,7 +134,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Mer information om hur du använder icacls för att ange NTFS-behörigheter och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montera en fil resurs från en domänansluten virtuell dator
+## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Montera en fil resurs från en domänansluten virtuell dator
 
 Följande process kontrollerar att fil resursen och åtkomst behörigheterna har ställts in korrekt och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Tänk på att tilldelningen av Azure-rollen på resurs nivå kan ta lite tid. 
 

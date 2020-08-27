@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387157"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928572"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure Functions-utveckling och -konfiguration med Azure SignalR Service
 
@@ -109,20 +109,20 @@ Alla funktioner som vill använda klassbaserade modeller måste vara metoden fö
 
 ### <a name="define-hub-method"></a>Definiera Hubbs metod
 
-Alla nav metoder **måste** ha ett `[SignalRTrigger]` attribut och **måste** använda parameter lös konstruktor. Sedan behandlas **metod namnet** som parameter **händelse**.
+Alla nav metoder **måste**  ha ett `[SignalRTrigger]` attribut och **måste** använda parameter lös konstruktor. Sedan behandlas **metod namnet** som parameter **händelse**.
 
 Som standard, `category=messages` förutom metod namnet är något av följande namn:
 
-* **OnConnected**: behandlas som`category=connections, event=connected`
-* **OnDisconnected**: behandlas som`category=connections, event=disconnected`
+* **OnConnected**: behandlas som `category=connections, event=connected`
+* **OnDisconnected**: behandlas som `category=connections, event=disconnected`
 
 ### <a name="parameter-binding-experience"></a>Parameter bindnings upplevelse
 
 I klassbaserade modeller `[SignalRParameter]` är det onödigt att alla argument är markerade som `[SignalRParameter]` standard, förutom att det är en av följande situationer:
 
 * Argumentet är dekorerat av ett binding-attribut.
-* Argumentets typ är `ILogger` eller`CancellationToken`
-* Argumentet är dekorerat med attribut`[SignalRIgnore]`
+* Argumentets typ är `ILogger` eller `CancellationToken`
+* Argumentet är dekorerat med attribut `[SignalRIgnore]`
 
 ### <a name="negotiate-experience-in-class-based-model"></a>Förhandla fram erfarenhet i klassbaserade modeller
 
@@ -218,8 +218,8 @@ JavaScript/TypeScript-klienten gör HTTP-förfrågningar till Negotiate-funktion
 
 När du kör Function-appen på den lokala datorn kan du lägga till ett `Host` avsnitt som *local.settings.jspå* för att aktivera CORS. I `Host` avsnittet lägger du till två egenskaper:
 
-* `CORS`-Ange bas-URL: en som är det ursprungliga klient programmet
-* `CORSCredentials`– Ställ in den på `true` för att tillåta "withCredentials"-begär Anden
+* `CORS` -Ange bas-URL: en som är det ursprungliga klient programmet
+* `CORSCredentials` – Ställ in den på `true` för att tillåta "withCredentials"-begär Anden
 
 Exempel:
 

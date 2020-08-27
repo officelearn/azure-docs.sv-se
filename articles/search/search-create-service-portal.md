@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554030"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927127"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
@@ -96,7 +96,7 @@ Azure Kognitiv sökning är tillgängligt i de flesta regioner. Du hittar en lis
 
  Om du använder AI-anrikning skapar du din Sök tjänst i samma region som Cognitive Services. *Samplacering av Azure kognitiv sökning och Cognitive Services i samma region är ett krav för AI-berikning*.
 
- Kunder med krav på affärs kontinuitet och haveri beredskap (BCDR) bör skapa sina tjänster i [regionala par](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Om du till exempel arbetar i Nordamerika kan du välja östra USA och västra USA, norra centrala USA och södra Central oss, för varje tjänst.
+ Kunder med krav på affärs kontinuitet och haveri beredskap (BCDR) bör skapa sina tjänster i [regionala par](../best-practices-availability-paired-regions.md#azure-regional-pairs). Om du till exempel arbetar i Nordamerika kan du välja östra USA och västra USA, norra centrala USA och södra Central oss, för varje tjänst.
 
 ### <a name="recommendations"></a>Rekommendationer
 
@@ -160,7 +160,7 @@ De flesta kunder använder bara en tjänst som etablerats på en nivå som har [
 
 Även om de flesta kunder bara använder en tjänst kan det vara nödvändigt med tjänstredundans om de operativa kraven omfattar följande:
 
-+ [Verksamhets kontinuitet och haveri beredskap (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Azure Kognitiv sökning ger inte omedelbar redundans vid ett avbrott.
++ [Verksamhets kontinuitet och haveri beredskap (BCDR)](../best-practices-availability-paired-regions.md). Azure Kognitiv sökning ger inte omedelbar redundans vid ett avbrott.
 
 + [Arkitekturer för flera innehavare](search-modeling-multitenant-saas-applications.md) anropar ibland för två eller flera tjänster.
 

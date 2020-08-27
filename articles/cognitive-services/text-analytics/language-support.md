@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: b3cec783b43d0169a3d0d56ca040e1397701102e
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986176"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932975"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
 
@@ -27,7 +27,7 @@ ms.locfileid: "87986176"
 
 | Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Anteckningar |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh`även godkänd |
+| Kinesiska – Förenklad    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` även godkänd |
 | Kinesiska (traditionell)   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Danska               |     `da`      |     ✓      |            |                            |                    |
 | Nederländska                 |     `nl`      |     ✓      |            |                            |                    |
@@ -39,13 +39,13 @@ ms.locfileid: "87986176"
 | Italienska               |     `it`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Japanska              |     `ja`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Koreanska                |     `ko`      |            |     ✓      |         2019-10-01         |                    |
-| Norska (bokmål)   |     `no`      |     ✓      |            |                            |                    |
+| Norska (bokmål)   |     `no`      |     ✓      |     ✓       |        2020-07-01         |                    |
 | Polska                |     `pl`      |     ✓      |            |                            |                    |
-| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt`även godkänd |
+| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |     ✓      |         2019-10-01         | `pt` även godkänd |
 | Ryska               |     `ru`      |     ✓      |            |                            |                    |
 | Spanska               |     `es`      |     ✓      |     ✓      |         2019-10-01         |                    |
 | Svenska               |     `sv`      |     ✓      |            |                            |                    |
-| Turkiska               |     `tr`      |     ✓      |            |                            |                    |
+| Turkiska               |     `tr`      |     ✓      |     ✓       |         2020-07-01        |                    |
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
@@ -64,7 +64,7 @@ ms.locfileid: "87986176"
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
-| Kinesiska – Förenklad     |   `zh-hans`   |     ✓      |            |                                 | `zh`även godkänd |
+| Kinesiska – Förenklad     |   `zh-hans`   |     ✓      |            |                                 | `zh` även godkänd |
 | Kinesiska (traditionell)   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Danska                |     `da`      |     ✓      |            |                                 |                    |
 | Nederländska                 |     `nl`      |     ✓      |            |                                 |                    |
@@ -77,9 +77,9 @@ ms.locfileid: "87986176"
 | Italienska               |     `it`      |     ✓      |            |                                 |                    |
 | Japanska              |     `ja`      |     ✓      |            |                                 |                    |
 | Koreanska                |     `ko`      |     ✓      |            |                                 |                    |
-| Norska (bokmål)   |     `no`      |     ✓      |            |                                 | `nb`även godkänd |
+| Norska (bokmål)   |     `no`      |     ✓      |            |                                 | `nb` även godkänd |
 | Polska                |     `pl`      |     ✓      |            |                                 |                    |
-| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt`även godkänd |
+| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |            |                                 | `pt` även godkänd |
 | Portugisiska (Brasilien)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Ryska              |     `ru`      |     ✓      |            |                                 |                    |
 | Spanska               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
@@ -98,9 +98,9 @@ ms.locfileid: "87986176"
 | Italienska               |     `it`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Japanska              |     `ja`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Koreanska                |     `ko`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Norska (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb`även godkänd |
+| Norska (bokmål)   |     `no`      |     ✓      |     ✓      |                2019-10-01                 | `nb` även godkänd |
 | Polska                |     `pl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
-| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt`även godkänd |
+| Portugisiska (Portugal) |    `pt-PT`    |     ✓      |     ✓      |                2019-10-01                 | `pt` även godkänd |
 | Portugisiska (Brasilien)   |    `pt-BR`    |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Ryska               |     `ru`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Spanska               |     `es`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -115,7 +115,7 @@ ms.locfileid: "87986176"
 
 #### <a name="language-detection"></a>[Språkidentifiering](#tab/language-detection)
 
-API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk.  Språkidentifiering returnerar "skript" för ett språk. För frasen "Jag har en hund" kommer den att returneras `en` i stället för `en-US` . Det enda särskilda fallet är kinesiska, där språk identifierings funktionen kommer att returnera `zh_CHS` eller `zh_CHT` om den kan fastställa ett skript som har fått den angivna texten. I situationer där det inte går att identifiera ett särskilt skript för ett kinesiskt dokument kommer det bara att returnera `zh` .
+API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk.  Språkidentifiering returnerar "skript" för ett språk. För frasen "Jag har en hund" kommer den att returneras  `en` i stället för  `en-US` . Det enda särskilda fallet är kinesiska, där språk identifierings funktionen kommer att returnera `zh_CHS` eller `zh_CHT` om den kan fastställa ett skript som har fått den angivna texten. I situationer där det inte går att identifiera ett särskilt skript för ett kinesiskt dokument kommer det bara att returnera `zh` .
 
 Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk. 
 

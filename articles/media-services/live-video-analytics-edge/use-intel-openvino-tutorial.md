@@ -4,12 +4,12 @@ description: I den här självstudien använder du en AI-modell server som tillh
 ms.topic: tutorial
 ms.date: 07/24/2020
 titleSuffix: Azure
-ms.openlocfilehash: 2268300f711a939ed808d1f39bbde1653e8832c8
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6271eab35be22d04f8ac1c6413f4f965c6800290
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214315"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931173"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Självstudie: analysera direktsänd video med hjälp av poly™ Model Server – AI-tillägg från Intel 
 
@@ -17,7 +17,7 @@ I den här självstudien får du lära dig hur du använder det Open™ modell S
 
 Den här självstudien använder en virtuell Azure-dator som en IoT Edge enhet och använder en simulerad direktuppspelad video ström. Den baseras på exempel kod som skrivits i C# och bygger på snabb starten för att [identifiera rörelse och generera händelser](detect-motion-emit-events-quickstart.md) . 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto som innehåller en aktiv prenumeration. [Skapa ett konto utan kostnad](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) om du inte redan har ett.
 * [Visual Studio Code](https://code.visualstudio.com/)med följande tillägg:
@@ -53,7 +53,7 @@ I de här självstudierna får du:
 ## <a name="about-openvino-model-server--ai-extension-from-intel"></a>Om Open™ modell Server – AI-tillägg från Intel
 Intel®-fördelningen av poly- [™ Toolkit](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (öppen visuell härledning och neurala nätverks optimering) är ett kostnads fritt program varu paket som hjälper utvecklare och data forskare att påskynda arbetet med arbets belastningar, effektivisera djup inlärning och distributioner och möjliggör enkel, heterogen körning av Intel®-plattformar från gränsen till molnet. Den innehåller Intel® djup inlärnings distributions verktyg med modell optimering och drift sättnings motor och den [öppna modellen Zoo](https://github.com/openvinotoolkit/open_model_zoo) -lagringsplatsen som innehåller mer än 40 optimerade förtränade modeller.
 
-För att kunna bygga komplexa video analys lösningar med höga prestanda bör live video analys på IoT Edge modul kombineras med en kraftfull härlednings motor som kan dra nytta av skalan i kanten. I den här självstudien skickas en härlednings förfrågan till [open™ modell Server – AI-tillägget från Intel](https://aka.ms/lva-intel-ovms), en Edge-modul som har utformats för att fungera med real tids analys på IoT Edge. Den här härlednings Server modulen innehåller™ modell Server (OVMS) för, en utgångs punkt som drivs av poly-™ Toolkit, som är mycket optimerad för arbets belastningar för dator vision och som har utvecklats för Intel-arkitekturer. Ett tillägg har lagts till i OVMS för enkel uppspelning av video ramar och utöknings resultat mellan härlednings servern och video analys i IoT Edge modul, vilket ger dig möjlighet att köra valfri modell för att köra en godtycklig modell som stöds (du kan anpassa modulen för härlednings Server genom att ändra koden [här](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Du kan välja fler än en mängd olika accelerations funktioner som tillhandahålls av Intel-maskinvaran. Detta inkluderar CPU: er (Atom, Core, Xeon), FPGAs, VPUs.
+För att kunna bygga komplexa video analys lösningar med höga prestanda bör live video analys på IoT Edge modul kombineras med en kraftfull härlednings motor som kan dra nytta av skalan i kanten. I den här självstudien skickas en härlednings förfrågan till [open™ modell Server – AI-tillägget från Intel](https://aka.ms/lva-intel-ovms), en Edge-modul som har utformats för att fungera med real tids analys på IoT Edge. Den här modulen för den här härlednings servern innehåller™ modell Server (OVMS) för, en utgångs punkt som drivs av poly-™ Toolkit, som är mycket optimerad för arbets belastningar för dator vision och som utvecklats för Intel®-arkitekturer. Ett tillägg har lagts till i OVMS för enkel uppspelning av video ramar och utöknings resultat mellan härlednings servern och live video analys i IoT Edge modul, vilket ger dig möjlighet att köra valfri modell för openprodukts-™ Toolkit som stöds (du kan anpassa modulen för härlednings Server genom att ändra koden [här](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_wrapper)). Du kan välja fler än en mängd olika accelerations funktioner som tillhandahålls av Intel®-maskinvara. Detta inkluderar CPU: er (Atom, Core, Xeon), FPGAs, VPUs.
 
 I den första versionen av den här härlednings servern har du åtkomst till följande [modeller](https://github.com/openvinotoolkit/model_server/tree/master/extras/ams_models):
 

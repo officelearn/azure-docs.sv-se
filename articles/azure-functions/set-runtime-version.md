@@ -3,12 +3,12 @@ title: Så här riktar du Azure Functions runtime-versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig hur du anger körnings versionen av en Function-app som finns i Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830877"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926583"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här riktar du Azure Functions runtime-versioner
 
@@ -27,7 +27,7 @@ När en ny version är offentligt tillgänglig ger en prompt i portalen dig chan
 
 I följande tabell visas `FUNCTIONS_EXTENSION_VERSION` värdena för varje huvud version för att aktivera automatiska uppdateringar:
 
-| Högre version | `FUNCTIONS_EXTENSION_VERSION`värde |
+| Högre version | `FUNCTIONS_EXTENSION_VERSION` värde |
 | ------------- | ----------------------------------- |
 | 3.x  | `~3` |
 | 2x  | `~2` |
@@ -42,19 +42,16 @@ Du kan ändra den körnings version som används av din Function-app. På grund 
 > [!IMPORTANT]
 > Även om körnings versionen bestäms av `FUNCTIONS_EXTENSION_VERSION` inställningen bör du göra den här ändringen i Azure Portal och inte genom att ändra inställningen direkt. Detta beror på att portalen validerar dina ändringar och gör andra relaterade ändringar efter behov.
 
-### <a name="from-the-azure-portal"></a>Från Azure-portalen
+# <a name="portal"></a>[Portal](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
 > Med hjälp av Azure Portal kan du inte ändra körnings versionen för en Function-app som redan innehåller funktioner.
 
-### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Från Azure CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
-Du kan också visa och ställa in `FUNCTIONS_EXTENSION_VERSION` från Azure CLI.
-
->[!NOTE]
->Eftersom andra inställningar kan påverkas av körnings versionen bör du ändra versionen i portalen. Portalen gör de andra nödvändiga uppdateringarna automatiskt, till exempel Node.js version och körnings stacken, när du ändrar körnings versioner.  
+Du kan också visa och ställa in `FUNCTIONS_EXTENSION_VERSION` från Azure CLI.  
 
 Använd Azure CLI för att visa den aktuella körnings versionen med kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) .
 
@@ -93,16 +90,36 @@ Du ser `FUNCTIONS_EXTENSION_VERSION` i följande utdata, som har trunkerats för
 Du kan uppdatera `FUNCTIONS_EXTENSION_VERSION` inställningen i Function-appen med kommandot [AZ functionapp config appSettings set](/cli/azure/functionapp/config/appsettings) .
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=<version>
+az functionapp config appsettings set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Ersätt `<function_app>` med namnet på din Function-app. Ersätt också `<my_resource_group>` med namnet på resurs gruppen för din Function-app. Ersätt också `<version>` med en giltig version av 1. x-körningsmiljön eller `~2` för version 2. x.
+Ersätt `<FUNCTION_APP>` med namnet på din Function-app. Ersätt också `<RESOURCE_GROUP>` med namnet på resurs gruppen för din Function-app. Ersätt också `<VERSION>` med antingen en enskild version eller `~3` , `~2` , eller `~1` .
 
 Du kan köra det här kommandot från [Azure Cloud Shell](../cloud-shell/overview.md) genom att välja **prova** i föregående kod exempel. Du kan också använda [Azure CLI lokalt](/cli/azure/install-azure-cli) för att köra det här kommandot när du har kört [AZ-inloggning](/cli/azure/reference-index#az-login) för att logga in.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+Använd följande cmdlet för att kontrol lera Azure Functions Runtime: 
+
+```powershell
+Get-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>"
+```
+
+Ersätt `<FUNCTION_APP>` med namnet på din Function-app och `<RESOURCE_GROUP>` . Det aktuella värdet för `FUNCTIONS_EXTENSION_VERSION` inställningen returneras i hash-tabellen.
+
+Använd följande skript för att ändra funktions körningen:
+
+```powershell
+Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
+```
+
+Som tidigare ersätter du `<FUNCTION_APP>` med namnet på din Function-app och `<RESOURCE_GROUP>` med namnet på resurs gruppen. Ersätt även `<VERSION>` med den aktuella versionen eller huvud versionen, till exempel `~2` eller `~3` . Du kan kontrol lera det uppdaterade värdet för `FUNCTIONS_EXTENSION_VERSION` inställningen i den returnerade hash-tabellen. 
+
+---
+
+Function-appen startas om när ändringen har gjorts till program inställningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

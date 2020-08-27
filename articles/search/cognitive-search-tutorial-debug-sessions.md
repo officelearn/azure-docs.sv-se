@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290674"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935984"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Självstudie: diagnostisera, reparera och genomför ändringar i din färdigheter
 
@@ -39,7 +39,7 @@ I den här självstudien används Azure Kognitiv sökning-och Azure Storage-tjä
 
 * [Hämta exempel data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) som består av 19 filer.
 
-* [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Välj samma region som Azure Kognitiv sökning för att undvika avgifter för bandbredd.
    
@@ -249,7 +249,7 @@ När indexeraren har slutförts bör det vara en grön bock och ordet lyckades b
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -258,5 +258,5 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om färdighetsuppsättningar](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets) 
->  [Läs mer om stegvis anrikning och cachelagring](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Läs mer om färdighetsuppsättningar](./cognitive-search-working-with-skillsets.md) 
+>  [Läs mer om stegvis anrikning och cachelagring](./cognitive-search-incremental-indexing-conceptual.md)

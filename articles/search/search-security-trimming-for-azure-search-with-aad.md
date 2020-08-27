@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080492"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928589"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Säkerhets filter för att trimma Azure-Kognitiv sökning resultat med hjälp av Active Directory identiteter
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver följande uppgifter:
 > [!NOTE]
 > Exempel kod avsnitt i den här artikeln är skrivna i C#. Du hittar den fullständiga källkoden [på GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ditt index i Azure Kognitiv sökning måste ha ett [säkerhets fält](search-security-trimming-for-azure-search.md) för att lagra listan över grupp identiteter som har Läs behörighet till dokumentet. Det här användnings fallet förutsätter en en-till-en-korrespondens mellan ett skydds Bart objekt (till exempel en enskild persons skolprogram) och ett säkerhets fält som anger vem som har åtkomst till det objektet (anställnings personal).
 
@@ -40,7 +40,7 @@ Ditt program måste också vara registrerat i AAD, enligt beskrivningen i följa
 
 ### <a name="register-your-application-with-aad"></a>Registrera ditt program med AAD
 
-I det här steget integreras ditt program med AAD i syfte att godkänna inloggningar av användar-och grupp konton. Om du inte är AAD-administratör i din organisation kan du behöva [skapa en ny klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) för att utföra följande steg.
+I det här steget integreras ditt program med AAD i syfte att godkänna inloggningar av användar-och grupp konton. Om du inte är AAD-administratör i din organisation kan du behöva [skapa en ny klient](../active-directory/develop/quickstart-create-new-tenant.md) för att utföra följande steg.
 
 1. Gå till [**program registrerings portalen**](https://apps.dev.microsoft.com)  >   **konvergerad app**  >  **Lägg till en app**.
 2. Ange ett namn för ditt program och klicka sedan på **skapa**. 
@@ -63,7 +63,7 @@ Men om du inte har befintliga användare kan du använda Microsoft Graph-API: er
 
 Användar-och grupp medlemskap kan vara mycket flytande, särskilt i stora organisationer. Kod som skapar användar-och grupp identiteter bör köras tillräckligt ofta för att hämta ändringar i organisationens medlemskap. På samma sätt kräver ditt Azure Kognitiv sökning-index ett liknande uppdaterings schema för att återspegla den aktuella statusen för tillåtna användare och resurser.
 
-### <a name="step-1-create-aad-group"></a>Steg 1: skapa [AAD-grupp](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Steg 1: skapa [AAD-grupp](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-user"></a>Steg 2: skapa [AAD-användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Steg 2: skapa [AAD-användare](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -98,9 +98,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Steg 4: cachelagra grupp-ID: n
-Om du vill minska nätverks fördröjningen kan du cachelagra användar grupps kopplingarna så att när en sökbegäran utfärdas, returneras grupper från cachen och sparar en tur och retur till AAD. Du kan använda [AAD batch API](https://developer.microsoft.com/graph/docs/concepts/json_batching) för att skicka en enda http-begäran med flera användare och bygga cacheminnet.
+Om du vill minska nätverks fördröjningen kan du cachelagra användar grupps kopplingarna så att när en sökbegäran utfärdas, returneras grupper från cachen och sparar en tur och retur till AAD. Du kan använda [AAD batch API](/graph/json-batching) för att skicka en enda http-begäran med flera användare och bygga cacheminnet.
 
-Microsoft Graph har utformats för att hantera en stor mängd begär Anden. Om det uppstår ett överbelastat antal begär Anden, Miss lyckas begäran med HTTP-statuskod 429 i Microsoft Graph. Mer information finns i [Microsoft Graph begränsning](https://developer.microsoft.com/graph/docs/concepts/throttling).
+Microsoft Graph har utformats för att hantera en stor mängd begär Anden. Om det uppstår ett överbelastat antal begär Anden, Miss lyckas begäran med HTTP-statuskod 429 i Microsoft Graph. Mer information finns i [Microsoft Graph begränsning](/graph/throttling).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Indexera dokument med deras tillåtna grupper
 
@@ -138,7 +138,7 @@ Granska följande steg för att filtrera dokument som returneras i Sök resultat
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Steg 1: Hämta användarens grupp identifierare
 
-Om användarens grupper inte redan har cachelagrats, eller om cachen har upphört att gälla, utfärdar du [grupp](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) förfrågan
+Om användarens grupper inte redan har cachelagrats, eller om cachen har upphört att gälla, utfärdar du [grupp](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0) förfrågan
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aa2357e31bf2fba97ae8547948cacdffc70cc741
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: e4141bc4887a166876d1fc4590b73f382abd0b95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705018"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936681"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i python med Jupyter-anteckningsböcker
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)](./search-get-started-powershell.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Portal](search-get-started-portal.md)
 > 
 
-Skapa en Jupyter-anteckningsbok som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med python och [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice/). Den här artikeln förklarar hur du skapar en antecknings bok steg för steg. Du kan också [Hämta och köra en färdig Jupyter python-anteckningsbok](https://github.com/Azure-Samples/azure-search-python-samples).
+Skapa en Jupyter-anteckningsbok som skapar, läser in och skickar frågor till ett Azure Kognitiv sökning-index med python och [Azure KOGNITIV sökning REST-API: er](/rest/api/searchservice/). Den här artikeln förklarar hur du skapar en antecknings bok steg för steg. Du kan också [Hämta och köra en färdig Jupyter python-anteckningsbok](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -93,7 +93,7 @@ I den här uppgiften startar du en Jupyter-anteckningsbok och kontrollerar att d
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. I det här steget används [create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) för att skicka ett index schema till tjänsten.
+Om du inte använder portalen måste det finnas ett index för tjänsten innan du kan läsa in data. I det här steget används [create Index REST API](/rest/api/searchservice/create-index) för att skicka ett index schema till tjänsten.
 
 Obligatoriska element i ett index inkluderar ett namn, en fält samling och en nyckel. Fält samlingen definierar strukturen för ett *dokument*. Varje fält har ett namn, typ och attribut som avgör hur fältet används (till exempel om det är full text sökbar, filtrerings bar eller hämtnings bar i Sök resultaten). I ett index måste ett av fälten av typen anges `Edm.String` som *nyckel* för dokument identitet.
 
@@ -149,7 +149,7 @@ Det här indexet heter "Hotels-snabb start" och innehåller fält definitionerna
 
 ## <a name="2---load-documents"></a>2 Läs in dokument
 
-Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Dokumenten kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
+Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-slutpunkt. REST API [lägga till, uppdatera eller ta bort dokument](/rest/api/searchservice/addupdate-or-delete-documents). Dokumenten kommer från [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) på GitHub.
 
 1. I en ny cell, ange fyra dokument som stämmer överens med index schemat. Ange en uppladdnings åtgärd för varje dokument.
 
@@ -251,7 +251,7 @@ Om du vill skicka dokument använder du en HTTP POST-begäran till indexets URL-
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Det här steget visar hur du frågar ett index med hjälp av [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Det här steget visar hur du frågar ett index med hjälp av [Sök dokument REST API](/rest/api/searchservice/search-documents).
 
 1. I en cell anger du ett frågeuttryck som kör en tom sökning (search = *) och returnerar en lista med en lista med en lista (Sök poäng = 1,0) av godtyckliga dokument. Som standard returnerar Azure Kognitiv sökning 50 matchningar åt gången. Som strukturerad returnerar den här frågan en hel dokument struktur och-värden. Lägg till $count = sant för att få ett antal dokument i resultaten.
 

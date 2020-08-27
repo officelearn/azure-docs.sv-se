@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 402fd8da8e29e8f3fec6747be5d9480ca176fc55
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8a9f8b02d8821c76b2a7766f35244834934db1d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511406"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935916"
 ---
 # <a name="add-custom-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Lägga till anpassade analys verktyg i sträng fält i ett Azure Kognitiv sökning-index
 
@@ -53,7 +53,7 @@ En *anpassad analys* är en viss typ av [text analys](search-analyzers.md) som b
 
  `tokenizer_name`Är namnet på en tokenizer, `token_filter_name_1` och `token_filter_name_2` är namnen på token-filter, och `char_filter_name_1` `char_filter_name_2` namnet på char-filter (se tabellerna [Tokenizers](#Tokenizers), [token filter](#TokenFilters) och Char filter) för giltiga värden.
 
-Analys definitionen är en del av det större indexet. Se [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-index) för information om resten av indexet.
+Analys definitionen är en del av det större indexet. Se [skapa index-API](/rest/api/searchservice/create-index) för information om resten av indexet.
 
 ```
 "analyzers":(optional)[
@@ -133,9 +133,9 @@ Definitioner för char filter, tokenizers och token filter läggs bara till i in
 
 ## <a name="test-custom-analyzers"></a>Testa anpassade analys verktyg
 
-Du kan använda **test analys åtgärden** i [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) för att se hur en analys delar en text i tokens.
+Du kan använda **test analys åtgärden** i [REST API](/rest/api/searchservice/test-analyzer) för att se hur en analys delar en text i tokens.
 
-**Begäran**
+**Förfrågan**
 ```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
@@ -202,7 +202,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 | Typ | Beskrivning |
 | ---- | ----------- |  
-|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |Typ|Analys typ i listan över analyser som stöds. Se kolumnen **analyzer_type** i tabellen [analyserare](#AnalyzerTable) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en fördefinierad analys som anges i [analys](#AnalyzerTable) tabellen nedan.|  
 
@@ -210,7 +210,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 | Typ | Beskrivning |
 | ---- | ----------- |  
-|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |Typ|Måste vara "#Microsoft. Azure. search. CustomAnalyzer".|  
 |CharFilters|Ange antingen ett av de fördefinierade char-filtren i tabellen [char filter](#char-filters-reference) eller ett anpassat char-filter som anges i index definitionen.|  
 |Tokenizer|Krävs. Ange antingen en av de fördefinierade tokenizers som anges i tabellen [tokenizers](#Tokenizers) nedan eller en anpassad tokenizer som anges i index definitionen.|  
@@ -227,7 +227,7 @@ Indexera attribut varierar beroende på om du använder fördefinierade eller an
 
 | Typ | Beskrivning |
 | ---- | ----------- | 
-|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |Typ|Tecken filter typ från listan med tecken filter som stöds. Se **char_filter_type** kolumn i tabellen [char filters](#char-filters-reference) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en specifik typ av [char filter](#char-filters-reference) .|  
 
@@ -240,7 +240,7 @@ En anpassad analys kan använda en fördefinierad tokenizer med antingen standar
 
 | Typ | Beskrivning |
 | ---- | ----------- | 
-|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |Typ|Tokenizer-namn i listan över tokenizers som stöds. Se **tokenizer_type** kolumn i tabellen [Tokenizers](#Tokenizers) nedan.|  
 |Alternativ|Måste vara giltiga alternativ för en angiven tokenizer-typ som anges i tabellen [Tokenizers](#Tokenizers) nedan.|  
 
@@ -251,7 +251,7 @@ Du kan ha flera token-filter i en anpassad analys. Token-filter körs i den ordn
 
 | Typ | Beskrivning |
 | ---- | ----------- |  
-|Name|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
+|Namn|Det får bara innehålla bokstäver, siffror, blank steg, bindestreck eller under streck, får bara börja och sluta med alfanumeriska tecken och är begränsat till 128 tecken.|  
 |Typ|Token filter-namn från listan över token-filter som stöds. Se **token_filter_type** kolumn i tabellen med [token filter](#TokenFilters) nedan.|  
 |Alternativ|Måste vara [token filter](#TokenFilters) för en specifik token filter-typ.|  
 
@@ -357,7 +357,7 @@ I tabellen nedan är de token-filter som implementeras med Apache Lucene länkad
 |[scandinavian_folding](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/ScandinavianFoldingFilter.html)|(typen gäller endast när alternativen är tillgängliga)  |Vik Scandinavian tecken åÅäæÄÆ->a-och öÖøØ->o. Den kan också skilja sig mot användningen av dubbla vokaler AA, AE, Ao, OE och säkerhets, och bara lämna det första. |  
 |[shingle](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/shingle/ShingleFilter.html)|ShingleTokenFilter|Skapar kombinationer av tokens som en enda token.<br /><br /> **Alternativ**<br /><br /> maxShingleSize (typ: int) – standardvärdet är 2.<br /><br /> minShingleSize (typ: int) – standardvärdet är 2.<br /><br /> outputUnigrams (typ: bool) – om värdet är true, innehåller utdataström för indata (unigrams) och shingles. Standardvärdet är true.<br /><br /> outputUnigramsIfNoShingles (typ: bool) – om det här värdet är sant åsidosätts beteendet för outputUnigrams = = false för de tider då inga shingles är tillgängliga. Standardvärdet är false.<br /><br /> tokenSeparator (typ: sträng) – strängen som ska användas vid koppling av intilliggande token för att skapa en Shingle. Standardvärdet är "".<br /><br /> filterToken (typ: sträng) – strängen som ska infogas för varje position där det inte finns någon token. Standardvärdet är "_".|  
 |[snowball](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/snowball/SnowballFilter.html)|SnowballTokenFilter|Snowball token-filter.<br /><br /> **Alternativ**<br /><br /> språk (typ: sträng) – tillåtna värden är: "armeniska", "baskiska", "katalanska", "danska", "holländska", "engelska", "finska", "franska", "tyska", "german2", "ungerska", "italienska", "KP", "Lovins", "norska", "Porter", "portugisiska", "rumänska", "ryska", "spanska", "svenska", "turkiska"|  
-|[sorani_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normaliserar Unicode-representationen av sorani-text.<br /><br /> **Alternativ**<br /><br /> Inget.|  
+|[sorani_normalization](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniNormalizationFilter.html)|SoraniNormalizationTokenFilter|Normaliserar Unicode-representationen av sorani-text.<br /><br /> **Alternativ**<br /><br /> Inga.|  
 |verbböjning|StemmerTokenFilter|Språkspecifikt filter för igenkänning av språk.<br /><br /> **Alternativ**<br /><br /> språk (typ: sträng) – tillåtna värden är: <br /> -   [Arabisk](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ar/ArabicStemmer.html)<br />-   [armeniska](https://snowballstem.org/algorithms/armenian/stemmer.html)<br />-   [baskiska](https://snowballstem.org/algorithms/basque/stemmer.html)<br />-   [brasilianska](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/br/BrazilianStemmer.html)<br />– "bulgariska"<br />-   [katalanska](https://snowballstem.org/algorithms/catalan/stemmer.html)<br />-   [Tjeckiska](https://portal.acm.org/citation.cfm?id=1598600)<br />-   [snurrevadar](https://snowballstem.org/algorithms/danish/stemmer.html)<br />-   [nederländska](https://snowballstem.org/algorithms/dutch/stemmer.html)<br />-   ["dutchKp"](https://snowballstem.org/algorithms/kraaij_pohlmann/stemmer.html)<br />-   [amerikanska](https://snowballstem.org/algorithms/porter/stemmer.html)<br />-   ["lightEnglish"](https://ciir.cs.umass.edu/pubfiles/ir-35.pdf)<br />-   ["minimalEnglish"](https://www.researchgate.net/publication/220433848_How_effective_is_suffixing)<br />-   ["possessiveEnglish"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/en/EnglishPossessiveFilter.html)<br />-   ["porter2"](https://snowballstem.org/algorithms/english/stemmer.html)<br />-   ["lovins"](https://snowballstem.org/algorithms/lovins/stemmer.html)<br />-   [finska](https://snowballstem.org/algorithms/finnish/stemmer.html)<br />- "lightFinnish"<br />-   [franska](https://snowballstem.org/algorithms/french/stemmer.html)<br />-   ["lightFrench"](https://dl.acm.org/citation.cfm?id=1141523)<br />-   ["minimalFrench"](https://dl.acm.org/citation.cfm?id=318984)<br />-"Galiciska"<br />- "minimalGalician"<br />-   [italienska](https://snowballstem.org/algorithms/german/stemmer.html)<br />-   ["german2"](https://snowballstem.org/algorithms/german2/stemmer.html)<br />-   ["lightGerman"](https://dl.acm.org/citation.cfm?id=1141523)<br />- "minimalGerman"<br />-   [gemen](https://sais.se/mthprize/2007/ntais2007.pdf)<br />-"hindi"<br />-   [skrift](https://snowballstem.org/algorithms/hungarian/stemmer.html)<br />-   ["lightHungarian"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   [indonesiska](https://www.illc.uva.nl/Publications/ResearchReports/MoL-2003-02.text.pdf)<br />-   [irländsk](https://snowballstem.org/otherapps/oregan/)<br />-   [italienska](https://snowballstem.org/algorithms/italian/stemmer.html)<br />-   ["lightItalian"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   ["sorani"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ckb/SoraniStemmer.html)<br />-   [lettisk](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/lv/LatvianStemmer.html)<br />-   [norsk](https://snowballstem.org/algorithms/norwegian/stemmer.html)<br />-   ["lightNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNorwegian"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   ["lightNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianLightStemmer.html)<br />-   ["minimalNynorsk"](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/no/NorwegianMinimalStemmer.html)<br />-   [portugisiska](https://snowballstem.org/algorithms/portuguese/stemmer.html)<br />-   ["lightPortuguese"](https://dl.acm.org/citation.cfm?id=1141523&dl=ACM&coll=DL&CFID=179095584&CFTOKEN=80067181)<br />-   ["minimalPortuguese"](https://www.inf.ufrgs.br/~buriol/papers/Orengo_CLEF07.pdf)<br />-   ["portugueseRslp"](https://www.inf.ufrgs.br//~viviane/rslp/index.htm)<br />-   [rumänsk](https://snowballstem.org/otherapps/romanian/)<br />-   [ryska](https://snowballstem.org/algorithms/russian/stemmer.html)<br />-   ["lightRussian"](https://doc.rero.ch/lm.php?url=1000%2C43%2C4%2C20091209094227-CA%2FDolamic_Ljiljana_-_Indexing_and_Searching_Strategies_for_the_Russian_20091209.pdf)<br />-   [Svenska](https://snowballstem.org/algorithms/spanish/stemmer.html)<br />-   ["lightSpanish"](https://www.ercim.eu/publication/ws-proceedings/CLEF2/savoy.pdf)<br />-   [Svenska](https://snowballstem.org/algorithms/swedish/stemmer.html)<br />- "lightSwedish"<br />-   [turkiska](https://snowballstem.org/algorithms/turkish/stemmer.html)|  
 |[stemmer_override](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/miscellaneous/StemmerOverrideFilter.html)|StemmerOverrideTokenFilter|Eventuella ord listor som omfattas – har marker ATS som nyckelord, vilket förhindrar att kedjan visas. Måste placeras före eventuella filterande filter.<br /><br /> **Alternativ**<br /><br /> regler (typ: sträng mat ris) – stötande regler i följande format "Word => stock", till exempel "körning => kör". Standardvärdet är en tom lista.  Krävs.|  
 |[stopwords](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/StopFilter.html)|StopwordsTokenFilter|Tar bort stoppord från en token-dataström. Som standard använder filtret en fördefinierad stopp ord lista för engelska.<br /><br /> **Alternativ**<br /><br /> stoppord (typ: sträng mat ris) – en lista över stoppord. Kan inte anges om en stopwordsList har angetts.<br /><br /> stopwordsList (typ: sträng) – en fördefinierad lista över stoppord. Kan inte anges om stoppord har angetts. Tillåtna värden är: "arabiska", "armeniska", "baskiska", "brasiliansk", "bulgariska", "katalanska", "Tjeckien", "danska", "nederländska", "svenska", "finska", "svenska", "Galiciska", "tyska", "grekiska", "hindi", "ungerska", "indonesiska", "irländska", "italienska", "lettiska", "norska", "persiska", "portugisiska", "rumänska", "ryska", "sorani", "spanska", "svenska", "thailändska", "turkisk", standard: "engelska". Kan inte anges om stoppord har angetts. <br /><br /> ignoreCase (typ: bool) – om värdet är True är alla ord lägre bokstäver först. Standardvärdet är false.<br /><br /> removeTrailing (typ: bool) – om värdet är true, ignorera den senaste Sök termen om det är ett stopp ord. Standardvärdet är true.
@@ -372,6 +372,6 @@ I tabellen nedan är de token-filter som implementeras med Apache Lucene länkad
 
 
 ## <a name="see-also"></a>Se även  
- [REST-API: er för Azure Kognitiv sökning](https://docs.microsoft.com/rest/api/searchservice/)   
+ [REST-API: er för Azure Kognitiv sökning](/rest/api/searchservice/)   
  [Analys verktyg i Azure Kognitiv sökning >-exempel](search-analyzers.md#examples)    
- [Skapa index &#40;Azure Kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
+ [Skapa index &#40;Azure Kognitiv sökning REST API&#41;](/rest/api/searchservice/create-index)

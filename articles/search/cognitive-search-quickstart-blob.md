@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 9bbe06cbdc5ad349995d93d01cc325ed8d7951a0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488961"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935406"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
@@ -29,7 +29,7 @@ Innan du börjar måste du ha följande:
 
 + En Azure Kognitiv sökning-tjänst. [Skapa en tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
 
-+ Ett Azure Storage konto med [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/).
++ Ett Azure Storage konto med [Blob Storage](../storage/blobs/index.yml).
 
 > [!NOTE]
 > I den här snabb starten används även [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) för AI. Eftersom arbets belastningen är så liten, överCognitive Servicess i bakgrunden för kostnads fri bearbetning för upp till 20 transaktioner. Det innebär att du kan slutföra den här övningen utan att behöva skapa ytterligare Cognitive Services-resurser.
@@ -40,7 +40,7 @@ I följande steg konfigurerar du en BLOB-behållare i Azure Storage att lagra he
 
 1. [Ladda ned exempeldata](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) som består av en liten filuppsättning med olika typer av data. Zippa upp filerna.
 
-1. [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-portal) eller [hitta ett befintligt konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Välj samma region som Azure Kognitiv sökning för att undvika avgifter för bandbredd. 
 
@@ -56,7 +56,7 @@ Nu kan du gå vidare till guiden Importera data.
 
 ## <a name="run-the-import-data-wizard"></a>Kör guiden Importera data
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
 
 1. [Leta reda på Sök tjänsten](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) och klicka på **Importera data** i kommando fältet för att ställa in kognitiv berikning i fyra steg på sidan Översikt.
 
@@ -169,11 +169,11 @@ Ett annat viktigt begrepp är att kunskaper fungerar över innehålls typer och 
 
 Utdata dirigeras till ett sökindex och det finns en mappning mellan namn-värdepar som skapas vid indexering och enskilda fält i indexet. Internt konfigurerar portalen [anteckningar](cognitive-search-concept-annotations-syntax.md) och definierar en [kunskapsuppsättning](cognitive-search-defining-skillset.md), som definierar ordningen på åtgärder och det allmänna flödet. Dessa steg är dolda på portalen, men när du börjar skriva kod blir dessa begrepp viktiga.
 
-Slutligen har du lärt dig att kunna verifiera innehållet genom att fråga indexet. I slutet av den här artikeln är Azure Kognitiv sökning ett sökbart index, som du kan fråga med antingen den [enkla](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) eller [helt utökade frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Ett index som innehåller berikade fält är precis som andra fält. Om du vill lägga till standard-eller [Anpassade analyser](search-analyzers.md), kan du göra det genom att använda [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonymer](search-synonyms.md), [fasettiska filter](search-filters-facets.md), geo-sökning eller någon annan Azure kognitiv sökning-funktion.
+Slutligen har du lärt dig att kunna verifiera innehållet genom att fråga indexet. I slutet av den här artikeln är Azure Kognitiv sökning ett sökbart index, som du kan fråga med antingen den [enkla](/rest/api/searchservice/simple-query-syntax-in-azure-search) eller [helt utökade frågesyntaxen](/rest/api/searchservice/lucene-query-syntax-in-azure-search). Ett index som innehåller berikade fält är precis som andra fält. Om du vill lägga till standard-eller [Anpassade analyser](search-analyzers.md), kan du göra det genom att använda [bedömnings profiler](/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [synonymer](search-synonyms.md), [fasettiska filter](search-filters-facets.md), geo-sökning eller någon annan Azure kognitiv sökning-funktion.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -184,7 +184,7 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 Du kan skapa färdighetsuppsättningar med hjälp av portalen, .NET SDK eller REST API. Om du vill veta mer om din kunskap kan du prova REST API med Postman och fler exempel data.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Extrahera text och struktur från JSON-blobbar med hjälp av REST API: er](cognitive-search-tutorial-blob.md)
+> [Självstudie: Extrahera text och struktur från JSON-blobbar med hjälp av REST API: er ](cognitive-search-tutorial-blob.md)
 
 > [!Tip]
 > Ta bort indexeraren i portalen om du vill upprepa den här övningen eller testa en annan AI-anrikning. Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren tillbaka till noll för Cognitive Services bearbetning.

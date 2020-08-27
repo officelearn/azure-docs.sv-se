@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544649"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935593"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilera din modell för att fastställa resursutnyttjande
 
@@ -36,6 +36,9 @@ För att du ska kunna profilera din modell behöver du:
 
 > [!IMPORTANT]
 > Nu stöder vi bara profilering av tjänster som förväntar sig att deras begär ande data ska vara en sträng, till exempel: sträng serialiserad JSON, text, sträng serialiserad bild osv. Innehållet för varje rad i data uppsättningen (sträng) placeras i bröd texten i HTTP-begäran och skickas till tjänsten som kapslar in modellen för poängsättning.
+
+> [!IMPORTANT]
+> Vi stöder bara profilering av upp till 2 processorer i ChinaEast2 och USGovArizona region.
 
 Nedan visas ett exempel på hur du kan skapa en data uppsättning för indata för att profilera en tjänst som förväntar sig att inkommande begär ande data ska innehålla serialiserad JSON. I det här fallet skapade vi en data uppsättning baserade 100 instanser av samma data innehåll för begäran. I verkliga scenarier rekommenderar vi att du använder större data uppsättningar som innehåller olika indata, särskilt om din resursanvändning/beteende för modellen är indata beroende.
 
@@ -127,9 +130,9 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Felsöka en misslyckad distribution](how-to-troubleshoot-deployment.md)
 * [Distribuera till Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Skapa klient program för att använda webb tjänster](how-to-consume-web-service.md)
-* [Uppdatera webb tjänst](how-to-deploy-update-web-service.md)
+* [Uppdatera webbtjänst](how-to-deploy-update-web-service.md)
 * [Så här distribuerar du en modell med en anpassad Docker-avbildning](how-to-deploy-custom-docker-image.md)
-* [Använd TLS för att skydda en webb tjänst via Azure Machine Learning](how-to-secure-web-service.md)
+* [Använda TLS för att skydda en webbtjänst via Azure Machine Learning](how-to-secure-web-service.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Skapa händelse aviseringar och utlösare för modell distributioner](how-to-use-event-grid.md)

@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: a90b37b197e25a8db79a87761d94dfded53acf50
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3278a1522fe3967dd1de5551e90732e63b7666f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85323221"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931564"
 ---
 # <a name="specify-a-face-detection-model"></a>Ange en ansiktsavkänningsmodell
 
@@ -27,7 +28,7 @@ Läs vidare om du vill lära dig att ange ansikts igenkännings modellen i vissa
 
 Om du inte är säker på om du ska använda den senaste modellen kan du gå till avsnittet [utvärdera olika modeller](#evaluate-different-models) för att utvärdera den nya modellen och jämföra resultat med din aktuella data uppsättning.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du bör känna till begreppet AI ansikts igenkänning. Om du inte gör det, se rikt linjer för ansikts igenkänning eller instruktions guide:
 

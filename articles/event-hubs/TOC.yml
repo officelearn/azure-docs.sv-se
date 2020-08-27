@@ -27,13 +27,13 @@
     - name: Skicka och ta emot händelser
       items:
         - name: .NET (Azure.Messaging.EventHubs)
-          href: get-started-dotnet-standard-send-v2.md
+          href: event-hubs-dotnet-standard-getstarted-send.md
         - name: Java (azure-messaging-eventhubs)
-          href: get-started-java-send-v2.md
+          href: event-hubs-java-get-started-send.md
         - name: Python (azure-eventhub version 5)
-          href: get-started-python-send-v2.md
+          href: event-hubs-python-get-started-send.md
         - name: JavaScript (azure/event-hubs version 5)
-          href: get-started-node-send-v2.md
+          href: event-hubs-node-get-started-send.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (skickar endast)
@@ -43,13 +43,9 @@
     - name: Skicka och ta emot händelser (äldre versioner/paket)
       items:
         - name: .NET (Microsoft.Azure.EventHubs)
-          href: event-hubs-dotnet-standard-getstarted-send.md
+          href: event-hubs-dotnet-standard-get-started-send-legacy.md
         - name: Java (azure-eventhubs)
-          href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub version 1)
-          href: event-hubs-python-get-started-send.md
-        - name: JavaScript (azure/event-hubs version 2)
-          href: event-hubs-node-get-started-send.md
+          href: event-hubs-java-get-started-send-legacy.md
         - name: .NET Framework (Microsoft.ServiceBus)
           href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Samla in händelser
@@ -58,9 +54,7 @@
           href: event-hubs-capture-enable-through-portal.md
         - name: Använda en Resource Manager-mall för att aktivera Event Hubs Capture
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Läs insamlade data med hjälp av Python (azure-eventhub version 5)
-          href: get-started-capture-python-v2.md
-        - name: Läs insamlade data med hjälp av Python (azure-eventhub version 1)
+        - name: Läsa insamlade data med Python
           href: event-hubs-capture-python.md
     - name: Strömma till Event Hubs för Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md

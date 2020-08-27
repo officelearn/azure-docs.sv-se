@@ -6,6 +6,10 @@
       href: overview.md
     - name: Skillnader jämfört med den tidigare versionen
       href: overview-differences.md
+- name: Snabbstart
+  items:
+    - name: Utforska ett exempelscenario
+      href: quickstart-adt-explorer.md
 - name: Självstudier
   items:
     - name: Koda en klientapp
@@ -76,6 +80,8 @@
       items:
         - name: Mata in telemetri från IoT Hub
           href: how-to-ingest-iot-hub-data.md
+        - name: Integrera med Logic Apps
+          href: how-to-integrate-logic-apps.md
     - name: Anslut utdata
       items:
         - name: Hantera slutpunkter och vägar
@@ -88,8 +94,6 @@
           href: how-to-integrate-maps.md
         - name: Integrera med Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
-        - name: Integrera med Logic Apps
-          href: how-to-integrate-logic-apps.md
     - name: Felsöka
       items:
         - name: Visa mått i Azure Monitor

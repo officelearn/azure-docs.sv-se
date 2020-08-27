@@ -8,5 +8,5 @@
   href: configure-model-conversion.md
 - name: Åsidosätta material under modellkonverteringen
   href: override-materials.md
-- name: Få information om en konverterad modell
+- name: Hämta information om konverteringar
   href: get-information.md

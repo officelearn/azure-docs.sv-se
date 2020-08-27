@@ -73,12 +73,34 @@
         - name: Översikt över utdata
           href: stream-analytics-define-outputs.md
           displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
-        - name: Utdata till Cosmos DB
-          href: stream-analytics-documentdb-output.md
-        - name: Utdata till Azure SQL DB
+        - name: Azure Data Lake Storage Gen 1
+          href: azure-data-lake-storage-gen1-output.md
+        - name: Azure SQL Database
+          href: sql-database-output.md
+        - name: SQL Database-prestanda
           href: stream-analytics-sql-output-perf.md
+        - name: Azure Synapse Analytics
+          href: azure-synapse-analytics-output.md
+        - name: Blob Storage och Azure Data Lake Gen 2
+          href: blob-storage-azure-data-lake-gen2-output.md
         - name: Anpassade sökvägsmönster för blobar
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+        - name: Event Hubs
+          href: event-hubs-output.md
+        - name: Power BI
+          href: power-bi-output.md
+        - name: Table Storage
+          href: table-storage-output.md
+        - name: Service Bus-köer
+          href: service-bus-queues-output.md
+        - name: Service Bus-avsnitt
+          href: service-bus-topics-output.md
+        - name: Azure Cosmos DB
+          href: azure-cosmos-db-output.md
+        - name: Cosmos DB-optimering
+          href: stream-analytics-documentdb-output.md
+        - name: Azure Functions
+          href: azure-functions-output.md
     - name: Utöka frågor med funktioner
       items:
         - name: Översikt av funktioner

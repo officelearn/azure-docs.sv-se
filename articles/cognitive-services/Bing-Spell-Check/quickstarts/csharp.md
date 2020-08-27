@@ -10,12 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 104edff35ec4b8cad53242e5f2d5ce4449123409
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df77ea73338f37925c0b59a8838c31617ff22ad8
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996014"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919411"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och C #
 
@@ -26,13 +27,13 @@ Använd den här snabbstarten för att göra ditt första anrop till REST API f�
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
-* Newtonsoft. JSON NuGet-paketet. 
+* Newtonsoft.JsNuGet-paketet. 
      
    Installera det här paketet i Visual Studio:
 
      1. I **Solution Explorer**högerklickar du på lösnings filen.
      1. Välj **Hantera NuGet-paket för lösningen**.
-     1. Sök efter *Newtonsoft. JSON* och installera paketet.
+     1. Sök efter *Newtonsoft.Jspå* och installera paketet.
 
 * Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 

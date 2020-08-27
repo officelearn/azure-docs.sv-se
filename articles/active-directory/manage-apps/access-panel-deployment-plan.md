@@ -1,32 +1,27 @@
 ---
-title: Planera en Azure Active Directory åtkomst panels distribution
-description: Vägledning om hur du distribuerar Azure Active Directory åtkomst panelen
+title: Planera distribution av en Azure Active Directory Mina appar
+description: Vägledning om hur du distribuerar Azure Active Directory Mina appar
 services: active-directory
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.reviewer: mimart
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b8a74c85b63e3a532e49136ba3b33437d907694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555307"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930544"
 ---
-# <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
+# <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
-Åtkomst panelen Azure Active Directory (Azure AD) är en webbaserad portal som hjälper till att sänka support kostnaderna, öka produktiviteten och säkerheten och minska användningen av användare. Systemet innehåller detaljerad rapportering som spårar när du kommer åt systemet och meddelar administratörer om missbruk eller missbruk.
+Azure Active Directory (Azure AD) Mina appar är en webbaserad portal som hjälper till att sänka support kostnaderna, öka produktiviteten och säkerheten och minska användarnas besvär. Systemet innehåller detaljerad rapportering som spårar när du kommer åt systemet och meddelar administratörer om missbruk eller missbruk.
 
-Med hjälp av Azure AD-åtkomst panelen kan du:
+Genom att använda Azure AD Mina appar kan du:
 
 * Identifiera och få åtkomst till alla företagets Azure AD-anslutna resurser, till exempel program
 * Begär åtkomst till nya appar och grupper
@@ -41,23 +36,23 @@ Administratörer kan också hantera:
 * Åtkomstgranskningar
 
 
-## <a name="benefits-of-azure-ad-access-panel-integration"></a>Fördelar med Azure AD Access panel-integrering
+## <a name="benefits-of-azure-ad-my-apps-integration"></a>Fördelar med Azure AD My Apps-integrering
 
-Azure AD Access-panelen fördelar företag på följande sätt:
+Azure AD Mina appar fördelar företag på följande sätt:
 
-**Ger intuitiv användar upplevelse**: åtkomst panelen ger dig en enda plattform för alla dina Azure Single Sign-on-Connected-program. Du har en enhetlig Portal för att hitta befintliga inställningar och nya funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, när de läggs till. Den intuitiva upplevelsen gör det möjligt för användarna att återgå till att arbeta snabbare och bli mer produktiva, samtidigt som de minskar sin syn.
+**Ger intuitiv användar upplevelse**: Mina appar ger dig en enda plattform för alla dina Azure-anslutna program för enkel inloggning (SSO). Du har en enhetlig Portal för att hitta befintliga inställningar och nya funktioner, t. ex. grupp hantering och lösen ords återställning via självbetjäning, när de läggs till. Den intuitiva upplevelsen gör det möjligt för användarna att återgå till att arbeta snabbare och bli mer produktiva, samtidigt som de minskar sin syn.
 
-**Ökar produktiviteten**: alla användar program på åtkomst panelen har SSO aktive rad. Att aktivera SSO över företags program och Office 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Åtkomst panelen använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Det gör det genom att se till att rätt personer hanterar åtkomst till programmen. Åtkomst panelen fungerar som en enhetlig landnings sida där du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
+**Ökar produktiviteten**: alla användar program i Mina appar har SSO aktive rad. Att aktivera SSO över företags program och Microsoft 365 skapar en överlägsen inloggning genom att minska eller eliminera ytterligare prompter för inloggning. Mina appar använder självbetjäning och dynamiskt medlemskap och förbättrar den övergripande säkerheten för ditt identitets system. Det gör det genom att se till att rätt personer hanterar åtkomst till programmen. Mina appar fungerar som en enhetlig landnings sida så att du snabbt kan hitta resurser och fortsätta arbeta aktiviteter.
 
-**Hanterar kostnad**: att aktivera åtkomst panelen med Azure AD kan hjälpa dig med divestment av lokala infrastrukturer. Det minskar support kostnaderna genom att tillhandahålla en konsekvent Portal för att hitta alla dina appar, begära åtkomst till resurser och hantera konton.
+**Hanterar kostnad**: att aktivera Mina appar med Azure AD kan hjälpa dig med divestment av lokala infrastrukturer. Det minskar support kostnaderna genom att tillhandahålla en konsekvent Portal för att hitta alla dina appar, begära åtkomst till resurser och hantera konton.
 
-**Ökar flexibiliteten och säkerheten**: åtkomst panelen ger dig till gång till den säkerhet och flexibilitet som en moln plattform erbjuder. Administratörer kan enkelt ändra inställningar till program och resurser och kan hantera nya säkerhets krav utan att påverka användarna.
+**Ökar flexibiliteten och säkerheten**: Mina appar ger dig till gång till den säkerhet och flexibilitet som en moln plattform erbjuder. Administratörer kan enkelt ändra inställningar till program och resurser och kan hantera nya säkerhets krav utan att påverka användarna.
 
 **Möjliggör robust gransknings-och användnings spårning**: gransknings-och användnings spårning för alla användar funktioner gör att du vet när användarna använder sina resurser och ser till att du kan utvärdera säkerheten.
 
 ### <a name="licensing-considerations"></a>Licens överväganden
 
-Åtkomst panelen är kostnads fri och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
+Mina appar är kostnads fria och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
@@ -69,7 +64,7 @@ Azure AD Access-panelen fördelar företag på följande sätt:
 
 Se den [fullständiga licens guiden för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Krav för att distribuera Azure AD åtkomst panel
+### <a name="prerequisites-for-deploying-azure-ad-my-apps"></a>Krav för att distribuera Azure AD Mina appar
 
 Slutför följande krav innan du påbörjar det här projektet:
 
@@ -77,32 +72,32 @@ Slutför följande krav innan du påbörjar det här projektet:
 
 * [Hantera Azure AD-användare och-grupp-infrastruktur](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
-## <a name="plan-the-azure-ad-access-panel-deployment"></a>Planera distribution av Azure AD-åtkomst panel
+## <a name="plan-azure-ad-my-apps-deployment"></a>Planera distributionen av Azure AD Mina appar
 
-I följande tabell beskrivs de viktigaste användnings fallen för en åtkomst panels distribution:
+I följande tabell beskrivs de viktigaste användnings fallen för distribution av mina appar:
 
 | Område| Beskrivning |
 | - | - |
-| Access| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
-|Access | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
+| Access| Min Apps-Portal kan nås från företagets och personliga enheter inom företags nätverket. |
+|Access | Min Apps-Portal är tillgänglig från företags enheter utanför företags nätverket. |
 | Granskning| Användnings data hämtas till företags system minst var 29: e dag. |
 | Styrning| Livs cykeln för användar tilldelningarna till Azure AD-anslutna program och grupper definieras och övervakas. |
 | Säkerhet| Åtkomst till resurser styrs via användar-och grupp tilldelningar. Endast auktoriserade användare kan hantera resurs åtkomst. |
 | Prestanda| Tids linjer för distribution av åtkomst tilldelningar dokumenteras och övervakas. |
-| Användarupplevelse| Användarna är medvetna om funktionerna i åtkomst panelen och hur de används.|
+| Användarupplevelse| Användarna är medvetna om mina apps-funktioner och hur de används.|
 | Användarupplevelse| Användare kan hantera sina åtkomst till program och grupper.|
 | Användarupplevelse| Användare kan hantera sina konton. |
 | Användarupplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
-| Support| Användare kan hitta support för problem med åtkomst panelen. |
+| Support| Användare kan hitta support för mina apps-problem. |
 
-### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Metod tips för att distribuera Azure AD-åtkomst panel
+### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Metod tips för att distribuera Azure AD Mina appar
 
-Funktionerna i åtkomst panelen kan aktive ras gradvis. Vi rekommenderar följande distributions ordning:
+Funktionerna i Mina appar kan aktive ras gradvis. Vi rekommenderar följande distributions ordning:
 
 1. Mina appar
    * Starta App
    * Hantering av självbetjänings program
-   * Microsoft Office 365-integrering
+   * Microsoft 365-integrering
 
 1. Identifiering av självbetjänings program
    * Återställning av lösenord för självbetjäning
@@ -118,9 +113,9 @@ Funktionerna i åtkomst panelen kan aktive ras gradvis. Vi rekommenderar följan
 
 Från och med mina appar introducerar användarna till portalen som en gemensam plats för att få åtkomst till resurser. Tillägget av självbetjänings-och program identifiering bygger på mina apps-upplevelser. Mina grupper och åtkomst granskningar bygger på självbetjänings funktionerna.
 
-### <a name="plan-configurations-for-the-azure-ad-access-panel"></a>Planera konfigurationer för Azure AD-åtkomst panel
+### <a name="plan-configurations-for-azure-my-apps"></a>Planera konfigurationer för Azure mina appar
 
-I följande tabell visas flera viktiga konfigurationer för åtkomst panelen och de typiska värden som du kan använda:
+I följande tabell visas flera viktiga konfigurationer för Mina appar och de typiska värden som du kan använda:
 
 | Konfiguration| Typiska värden |
 | - | - |
@@ -129,7 +124,7 @@ I följande tabell visas flera viktiga konfigurationer för åtkomst panelen och
 | Tillåt användare att använda SSO för vissa typer av program| Federerad SSO, OAuth, lösen ords inloggning, App-proxy |
 | Tillåt användare att använda självbetjäning för återställning av lösen ord | Ja |
 | Tillåt användare att använda Multi-Factor Authentication| Ja |
-| Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Office 365-grupper |
+| Tillåt användare att använda självbetjänings grupp hantering för vissa typer av grupper| Säkerhets grupper, Microsoft 365 grupper |
 | Tillåt användare att använda självbetjänings program hantering| Ja |
 | Tillåt användare att använda åtkomst granskningar| Ja |
 
@@ -153,35 +148,20 @@ När teknik projekt inte fungerar, gör de vanligt vis på grund av felmatchade 
 
 Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Informera användarna om hur och när deras upplevelse kommer att ändras och hur de får support om det behövs.
 
-Även om åtkomst panelen inte brukar skapa användar problem är det viktigt att du förbereder. Skapa guider och en lista över alla resurser för support personalen innan du startar.
+Även om Mina appar vanligt vis inte skapar användar problem är det viktigt att du förbereder. Skapa guider och en lista över alla resurser för support personalen innan du startar.
 
 #### <a name="communications-templates"></a>Kommunikations mallar
 
-Microsoft tillhandahåller [anpassningsbara mallar för e-post och annan kommunikation](https://aka.ms/APTemplates) för åtkomst panelen. Du kan anpassa dessa till gångar för användning i andra kommunikations kanaler efter behov för din företags kultur.
+Microsoft tillhandahåller [anpassningsbara mallar för e-post och annan kommunikation](https://aka.ms/APTemplates) för Mina appar. Du kan anpassa dessa till gångar för användning i andra kommunikations kanaler efter behov för din företags kultur.
 
 ## <a name="plan-your-sso-configuration"></a>Planera SSO-konfigurationen
 
 När en användare loggar in till ett program, går de igenom en autentiseringsprocess och de måste bevisa vem de är. Utan SSO lagras ett lösen ord i programmet och användaren måste känna till det här lösen ordet. Med SSO skickas användarnas autentiseringsuppgifter till programmet, så de behöver inte ange lösen orden för varje program igen.
 
-SSO måste vara aktiverat för att du ska kunna starta program i Mina appar.
+SSO måste vara aktiverat för att du ska kunna starta program i Mina appar. Azure AD stöder flera SSO-alternativ. Mer information finns i [alternativ för enkel inloggning i Azure AD](sso-options.md).
 
-Azure AD har stöd för tre olika sätt att aktivera [enkel inloggning i program](what-is-single-sign-on.md):
-
-* **Federerad enkel inloggning** 
-    * Gör det möjligt för ett program att omdirigera till Azure AD för användarautentisering, i stället för att uppmanas att ange ett lösen ord. 
-    * Stöds för program som använder protokoll, till exempel SAML 2,0, WS-Federation eller OpenID Connect, och är det mest avancerade läget för enkel inloggning.
-
-* **Lösenordsbaserad enkel inloggning** 
-    * Möjliggör säker lagring av lösen ord för program och uppspelning med hjälp av ett webb läsar tillägg eller en mobilapp. 
-    * Drar nytta av den befintliga inloggnings processen som tillhandahålls av programmet men gör det möjligt för en administratör att hantera lösen orden. Användaren behöver inte känna till lösen ordet.
-
-* **Befintlig enkel inloggning** 
-    * Gör att Azure AD kan dra nytta av befintlig enkel inloggning som har kon figurer ATS för programmet.
-    * Gör att dessa program kan länkas till Office 365-eller Azure AD Access panel-portalerna. 
-    * Aktiverar ytterligare rapportering i Azure AD när programmen startas där. 
-    * Inkluderar användning av Azure Application Proxy och länkat läge för enkel inloggning.
-
-Lär dig hur du konfigurerar ett programs SSO-läge här: [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+> [!NOTE]
+> Mer information om hur du använder Azure AD som identitets leverantör för en app finns i [snabb starts serien för program hantering](view-applications-portal.md).
 
 För bästa möjliga upplevelse med sidan Mina appar börjar du med integrering av moln program som är tillgängliga för federerad SSO. Federerad SSO gör det möjligt för användare att ha en enhetlig upplevelse med ett klick i appen och är mer robust i konfigurations kontrollen.
 
@@ -191,7 +171,7 @@ Mer information om hur du distribuerar och konfigurerar dina SaaS-program finns 
 
 #### <a name="plan-to-deploy-the-my-apps-browser-extension"></a>Planera för att distribuera webb läsar tillägget Mina appar
 
-När användarna loggar in på lösenordsbaserade SSO-program måste de installera och använda säkra inloggnings tillägg för Mina appar. Tillägget kör ett skript som skickar lösen ordet till programmets inloggnings formulär. Användarna uppmanas att installera tillägget när de först startar det lösenordsbaserade SSO-programmet. Mer information om tillägget finns i den här dokumentationen om [hur du installerar åtkomst panelens webb läsar tillägg](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+När användarna loggar in på lösenordsbaserade SSO-program måste de installera och använda säkra inloggnings tillägg för Mina appar. Tillägget kör ett skript som skickar lösen ordet till programmets inloggnings formulär. Användarna uppmanas att installera tillägget när de först startar det lösenordsbaserade SSO-programmet. Mer information om tillägget finns i den här dokumentationen om [installation av webb läsar tillägget Mina appar](access-panel-extension-problem-installing.md).
 
 Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekanism för att distribuera tillägget i skala med webbläsare som [stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
 
@@ -201,13 +181,7 @@ Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekan
 
 * [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-Läs mer: [så här konfigurerar du enkel inloggning för lösen ord](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
-
 Användare som inte använder lösenordsbaserade SSO-program drar också nytta av tillägget. De här fördelarna är möjligheten att starta alla appar från Sök fältet, hitta åtkomst till nyligen använda program och att ha en länk till sidan Mina appar.
-
-Så här ser användaren när ett lösenordsbaserade SSO-program startas för första gången:
-
-![Skärm bild av installations skärmen för webb läsar tillägg för Mina appar ](media/access-panel-deployment-plan/ap-dp-sign-in.png)
 
 #### <a name="plan-for-mobile-access"></a>Planera för mobil åtkomst
 
@@ -215,11 +189,10 @@ En webbläsare som skyddas med Intune-principer (Microsoft Edge eller Intune Man
 
 ## <a name="plan-your-my-apps-deployment"></a>Planera distributionen av mina appar
 
-Grunden för åtkomst panelen är programmet som används för att starta Mina appar, som användare kommer åt på [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Sidorna Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
+Grunden för Mina appar är programmets start Portal, som användarna kommer åt på [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Sidan Mina appar ger användare en enda plats för att starta sitt arbete och få de program som behövs. Här hittar användarna en lista över alla program som de har enkel inloggning till. 
 
-![En skärm bild av panelen appar](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
-
-Samma program kommer att visas i Office 365-appen starta när användarna använder Office 365-portalen.
+> [!NOTE]
+> Samma program visas i Microsoft 365 App-startaren.
 
 Planera i vilken ordning du ska lägga till program i Start programmet för Mina appar och bestäm om du ska lägga ut dem gradvis eller samtidigt. Om du vill göra det skapar du en program inventering som visar typen av autentisering och eventuella befintliga SSO-integrationer för varje program.
 
@@ -229,7 +202,7 @@ Alla Azure AD SSO-aktiverade program kan läggas till i Start programmet för Mi
 
 #### <a name="use-my-apps-collections"></a>Använda Mina appar-samlingar
 
-Som standard visas alla program på en enda sida. Men du kan använda samlingar för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda samlingar för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här anpassar du användar åtkomst paneler med mina appar-samlingar](access-panel-collections.md). 
+Som standard visas alla program på en enda sida. Men du kan använda samlingar för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda samlingar för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i [så här använder du Mina appar-samlingar](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planera om du ska använda Mina appar eller en befintlig Portal
 
@@ -253,13 +226,13 @@ Godkännande arbets flöden är tillgängliga för explicit godkännande för å
 
 ## <a name="plan-self-service-group-membership"></a>Plan för självbetjänings grupp medlemskap 
 
-Du kan göra det möjligt för användare att skapa och hantera egna säkerhets grupper eller Office 365-grupper i Azure AD. Ägare av gruppen kan godkänna eller neka medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Funktioner för grupp hantering via självbetjäning är inte tillgängliga för e-postaktiverade säkerhets grupper eller distributions listor.
+Du kan göra det möjligt för användare att skapa och hantera egna säkerhets grupper eller Microsoft 365 grupper i Azure AD. Ägare av gruppen kan godkänna eller neka medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Funktioner för grupp hantering via självbetjäning är inte tillgängliga för e-postaktiverade säkerhets grupper eller distributions listor.
 
-Om du vill planera för grupp medlemskap i självbetjäning kontrollerar du om du ska tillåta alla användare i din organisation att skapa och hantera grupper eller endast en delmängd av användarna. Om du tillåter en delmängd av användarna måste du konfigurera en grupp som dessa personer läggs till i. Mer information om hur du aktiverar de här scenarierna finns i Konfigurera självbetjänings [grupp hantering i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) .
+Om du vill planera för grupp medlemskap i självbetjäning kontrollerar du om du ska tillåta alla användare i din organisation att skapa och hantera grupper eller endast en delmängd av användarna. Om du tillåter en delmängd av användarna måste du konfigurera en grupp som dessa personer läggs till i. Mer information om hur du aktiverar de här scenarierna finns i Konfigurera självbetjänings [grupp hantering i Azure Active Directory](../users-groups-roles/groups-self-service-management.md) .
 
 ## <a name="plan-reporting-and-auditing"></a>Planera rapportering och granskning
 
-Azure AD tillhandahåller [rapporter som ger teknisk och affärs insikter](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Samar beta med dina affärs-och teknik program ägare för att ta över ägandet av dessa rapporter och använda dem regelbundet. Följande tabell innehåller några exempel på typiska rapporterings scenarier.
+Azure AD tillhandahåller [rapporter som ger teknisk och affärs insikter](../reports-monitoring/overview-reports.md). Samar beta med dina affärs-och teknik program ägare för att ta över ägandet av dessa rapporter och använda dem regelbundet. Följande tabell innehåller några exempel på typiska rapporterings scenarier.
 
 | Exempel | Hantera risk| Öka produktiviteten| Styrning och efterlevnad |
 |  - |- | - | - |
@@ -276,19 +249,17 @@ För säkerhets kopiering, rapportering och haveri beredskap, dokumentera den n�
 
 ## <a name="deploy-applications-to-users-my-apps-panel"></a>Distribuera program till användarnas panel för Mina appar
 
-När ett program har kon figurer ATS för SSO tilldelas grupper åtkomst. Användare i de tilldelade grupperna kommer att ha åtkomst och de kommer att se programmet i sina appar och Office 365-program start.
+När ett program har kon figurer ATS för SSO tilldelas grupper åtkomst. Användare i de tilldelade grupperna har åtkomst, och de kommer att se programmet i sina appar och i den Microsoft 365 App-starta.
 
 Se [tilldela användare och grupper till ett program i Active Directory](methods-for-assigning-users-and-groups.md).
 
-Om du under testning eller distribution vill lägga till grupperna, men ännu inte tillåta att programmen visas i Mina appar, se [Dölj ett program från användarens upplevelse i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
+Om du under testning eller distribution vill lägga till grupperna, men ännu inte tillåta att programmen visas i Mina appar, se [Dölj ett program från användarens upplevelse i Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-office-365-applications-to-my-apps"></a>Distribuera Microsoft Office 365-program till Mina appar
+### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Distribuera Microsoft Microsoft 365-program till Mina appar
 
-För Office 365-program får användarna en kopia av Office baserat på licenser som tilldelats dem. En förutsättning för att få åtkomst till Office-program är att användarna ska tilldelas rätt licenser knutna till Office-programmen. När du tilldelar en licens för en användare ser de automatiskt de program som är associerade med licensen på sidan Mina appar och i Start programmet för Office 365.
+För Microsoft 365 program får användarna en kopia av Office baserat på licenser som tilldelats dem. En förutsättning för att få åtkomst till Office-program är att användarna ska tilldelas rätt licenser knutna till Office-programmen. När du tilldelar en licens för en användare ser de automatiskt de program som är associerade med licensen på sidan Mina appar och i Microsoft 365 App Launcher.
 
-Om du vill dölja en uppsättning Office-program från användare finns det ett alternativ för att dölja appar från portalen Mina appar, samtidigt som du tillåter åtkomst från Office 365-portalen. Sök efter de här inställningarna i användar inställnings delen av programmet. Läs mer: [Dölj ett program från användarens upplevelse i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
-
-![En skärm bild av hur du konfigurerar hur du döljer program](media/access-panel-deployment-plan/ap-dp-o365-portal.png)
+Om du vill dölja en uppsättning Office-program från användare finns det ett alternativ för att dölja appar från portalen Mina appar, samtidigt som åtkomsten till den Microsoft 365 portalen tillåts. Läs mer: [Dölj ett program från användarens upplevelse i Azure Active Directory](hide-application-from-user-portal.md).
 
 ### <a name="deploy-application-self-service-capabilities"></a>Distribuera självbetjänings funktioner för program
 
@@ -296,13 +267,11 @@ Med program åtkomst via självbetjäning kan användare själv identifiera och 
 
 Du kan delegera godkännande av program åtkomst förfrågningar till affärs god kännare. Affärs god kännaren kan ställa in appens åtkomst lösen ord på sidan Mina appar i affärs god kännaren.
 
-Läs mer: [så här använder du självbetjäning för program åtkomst](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
-
-![En skärm bild av konfigurering av hantering av självbetjänings program](media/access-panel-deployment-plan/ap-dp-salesforce.png)
+Läs mer: [så här använder du självbetjäning för program åtkomst](access-panel-manage-self-service-access.md).
 
 ## <a name="validate-your-deployment"></a>Verifiera distributionen
 
-Se till att distributionen av åtkomst panelen är grundligt testade och att en återställnings plan är på plats.
+Se till att distributionen av mina appar är grundligt testade och att det finns en återställnings plan på plats.
 
 Följande tester bör utföras med både företagsägda enheter och personliga enheter. Dessa test fall bör även avspegla affärs användnings fall. Följande är några fall baserat på exempel affärs kraven i det här dokumentet och på vanliga tekniska scenarier. Lägg till andra som är speciella för dina behov.
 
@@ -315,7 +284,7 @@ Följande tester bör utföras med både företagsägda enheter och personliga e
 | Användaren startar ett externt SSO-program| Användaren loggas in automatiskt till programmet |
 | Användaren startar ett SSO-program för första gången| Användaren måste installera tillägget Mina appar |
 | Användaren startar ett SSO-program en gång efter| Användaren loggas in automatiskt till programmet |
-| Användaren startar en app från Office 365-portalen| Användaren loggas in automatiskt till programmet |
+| Användaren startar en app från Microsoft 365 portal| Användaren loggas in automatiskt till programmet |
 | Användaren startar en app från Managed Browser| Användaren loggas in automatiskt till programmet |
 
 
@@ -329,38 +298,38 @@ Följande tester bör utföras med både företagsägda enheter och personliga e
 
 ### <a name="rollback-steps"></a>Återställnings steg
 
-Det är viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du [felsöker SSO-problem](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) och minskar påverkan på användarna. I extrema fall kan du behöva [återställa SSO](../manage-apps/plan-sso-deployment.md).
+Det är viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du [felsöker SSO-problem](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) och minskar påverkan på användarna. I extrema fall kan du behöva [återställa SSO](../manage-apps/plan-sso-deployment.md#rollback-process).
 
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 
-Du bör använda den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
+Du bör använda den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](../users-groups-roles/directory-assign-admin-roles.md) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Ingen |
+| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
+| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Ingen |
+| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 
-Du kan använda [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
+Du kan använda [Privileged Identity Management](../privileged-identity-management/pim-configure.md) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
-### <a name="troubleshoot-access-panel-issues"></a>Felsöka problem med åtkomst panelen
+### <a name="troubleshoot-my-apps-issues"></a>Felsök problem med mina appar
 
 Skapa fel söknings guider för support organisationen med vanliga scenarier, som pekar på Microsofts dokumentation i sina resolutioner. Du kanske vill skapa guider som bryter supporten till de nivåer som används av din organisation.
 
 Se följande fel söknings guider för referens:
 
-[Program som inte visas](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
+[Program som inte visas](access-panel-troubleshoot-application-not-appearing.md)
 
-[Oväntade program visas](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
+[Oväntade program visas](access-panel-troubleshoot-unexpected-application.md)
 
-[Användaren kan inte logga in på åtkomst panelen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
+[Användaren kan inte logga in till Mina appar](access-panel-troubleshoot-web-sign-in-problem.md)
 
-[Problem med självbetjäning för program åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
+[Problem med självbetjäning för program åtkomst](access-panel-troubleshoot-self-service-access.md)
 
-[Problem med webb läsar tillägget](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
+[Problem med webb läsar tillägget](manage-access-panel-browser-extension.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

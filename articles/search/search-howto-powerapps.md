@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751058"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918051"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
@@ -250,7 +250,7 @@ I det här steget skapar du en Power app med en sökruta, en Sök knapp och ett 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser separat, eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 
@@ -261,5 +261,4 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 Med Power Apps kan du snabbt utveckla anpassade appar. Nu när du vet hur du ansluter till ett sökindex kan du läsa mer om hur du skapar en omfattande visualiserings upplevelse i en anpassad Power app.
 
 > [!div class="nextstepaction"]
-> [Utbildnings katalog för Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Utbildnings katalog för Power Apps](/powerapps/learning-catalog/get-started)

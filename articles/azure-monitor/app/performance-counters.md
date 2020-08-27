@@ -3,12 +3,13 @@ title: Prestanda räknare i Application Insights | Microsoft Docs
 description: Övervaka system-och anpassade .NET-prestanda räknare i Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4da8aef69b6a83c17fa8a20a80b2c485378e0aef
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322524"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918527"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
@@ -59,11 +60,11 @@ Om den prestanda räknare som du vill använda inte finns med i listan över må
 > [!NOTE]
 > ASP.NET Core program har inte `ApplicationInsights.config` , och därför är metoden ovan inte giltig för ASP.net Core program.
 
-Du kan avbilda både standard räknare och de som du har implementerat själv. `\Objects\Processes`är ett exempel på en standard räknare som är tillgänglig på alla Windows-system. `\Sales(photo)\# Items Sold`är ett exempel på en anpassad räknare som kan implementeras i en webb tjänst.
+Du kan avbilda både standard räknare och de som du har implementerat själv. `\Objects\Processes` är ett exempel på en standard räknare som är tillgänglig på alla Windows-system. `\Sales(photo)\# Items Sold` är ett exempel på en anpassad räknare som kan implementeras i en webb tjänst.
 
 Formatet är `\Category(instance)\Counter"` , eller för kategorier som inte har instanser, bara `\Category\Counter` .
 
-`ReportAs`krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
+`ReportAs` krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
 
 Om du anger en instans kommer den att samlas in som en dimension "CounterInstanceName" av det rapporterade måttet.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 5be50453dff9acaf4a9876eec1d95b56abebf745
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bf3e4262f4342788f343ab287fd3db53d12736c7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029849"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918119"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -38,8 +38,8 @@ Skapa och hantera innehåll i en Sök tjänst.
 
 | 2.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Problem med bakåtkompatibilitet |
 |-------------------------|--------|------------------------------|
-| [Search 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/index)| Stable | Den senaste stabila versionen av Sök REST-API: er, med framsteg i relevans-Poäng och allmänt tillgängliga för kunskaps lager.|
-| [Search 2020-06-30-förhandsversion](https://docs.microsoft.com/rest/api/searchservice/index-preview)| Förhandsgranskning | För hands version som är associerad med stabil version. Innehåller flera för [hands versions funktioner](search-api-preview.md). |
+| [Search 2020-06-30](/rest/api/searchservice/index)| Stable | Den senaste stabila versionen av Sök REST-API: er, med framsteg i relevans-Poäng och allmänt tillgängliga för kunskaps lager.|
+| [Search 2020-06-30-förhandsversion](/rest/api/searchservice/index-preview)| Förhandsgranskning | För hands version som är associerad med stabil version. Innehåller flera för [hands versions funktioner](search-api-preview.md). |
 | Sökning 2019-05-06 | Stable | Lägger till [komplexa typer](search-howto-complex-data-types.md). |
 | Search 2019-05-06-Preview | Förhandsgranskning | För hands version som är associerad med stabil version. |
 | Sök 2017-11-11 | Stable  | Lägger till färdighetsuppsättningar och [AI-anrikning](cognitive-search-concept-intro.md). |
@@ -57,8 +57,8 @@ Skapa och konfigurera en Sök tjänst och hantera API-nycklar.
 
 | 2.0.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Status | Problem med bakåtkompatibilitet |
 |-------------------------|--------|------------------------------|
-| [Hantering 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) | Stable | Den senaste stabila versionen av hanterings REST-API: er, med framsteg i Endpoint Protection. Lägger till [privat slut punkt](service-create-private-endpoint.md) via privat länk och [nätverks-IP-regler](service-configure-firewall.md) för nya tjänster. |
-| [Hantering 2019-10-01-förhandsversion](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) | Förhandsgranskning  | Trots dess versions nummer är det fortfarande den aktuella för hands versionen av REST-API: erna för hantering. Det finns för närvarande inga för hands versions funktioner. Alla för hands versions funktioner har nyligen övergått till allmän tillgänglighet. |
+| [Hantering 2020-03-13](/rest/api/searchmanagement/) | Stable | Den senaste stabila versionen av hanterings REST-API: er, med framsteg i Endpoint Protection. Lägger till [privat slut punkt](service-create-private-endpoint.md) via privat länk och [nätverks-IP-regler](service-configure-firewall.md) för nya tjänster. |
+| [Hantering 2019-10-01-förhandsversion](/rest/api/searchmanagement/index-2019-10-01-preview) | Förhandsgranskning  | Trots dess versions nummer är det fortfarande den aktuella för hands versionen av REST-API: erna för hantering. Det finns för närvarande inga för hands versions funktioner. Alla för hands versions funktioner har nyligen övergått till allmän tillgänglighet. |
 | Hantering 2015-08-19  | Stable | Den första allmänt tillgängliga versionen av hanterings REST-API: erna. Tillhandahåller tjänst etablering, skalning och hantering av API-nycklar. |
 | Hantering 2015-08-19 – för hands version | Förhandsgranskning | Den första för hands versionen av hanterings REST-API: erna. |
 
@@ -69,17 +69,17 @@ Paket versions historik finns på NuGet.org. Den här tabellen innehåller länk
 
 | SDK-version | Status | Beskrivning |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Rikta in the search REST API-version = 2020-06-30 REST API men ännu inte stöder, geo-filter eller [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
+| [Azure.Search.Documents 11,0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Rikta in the search REST API-version = 2020-06-30 REST API men ännu inte stöder, geo-filter eller [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
 | [Microsoft. Azure. search 10,0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Stable | Lanserad maj 2019. Mål för search REST API-version = 2019-05-06.|
 | [Microsoft. Azure. search 8,0 – för hands version](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Förhandsgranskning | lanserad 2019 april. Riktar in the search REST API-version = 2019-05 -06 – Preview.|
-| [Microsoft. Azure. Management. search 3.0.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Rikta in the Management REST API-version = 2015-08-19.  |
+| [Microsoft. Azure. Management. search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Stable | Rikta in the Management REST API-version = 2015-08-19.  |
 
 ## <a name="azure-sdk-for-java"></a>Azure SDK för Java
 
 | SDK-version | Status | Beskrivning  |
 |-------------|--------|------------------------------|
 | [Java Azure-Search-dokument 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents/11.0.0/index.html) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
-| [1.35.0 för Java-hanterings klient](https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | Rikta in the Management REST API-version = 2015-08-19. |
+| [1.35.0 för Java-hanterings klient](/java/api/overview/azure/search/management?view=azure-java-stable) | Stable | Rikta in the Management REST API-version = 2015-08-19. |
 
 ## <a name="azure-sdk-for-javascript"></a>Azure SDK för Java Script
 
@@ -93,4 +93,4 @@ Paket versions historik finns på NuGet.org. Den här tabellen innehåller länk
 | SDK-version | Status | Beskrivning  |
 |-------------|--------|------------------------------|
 | [Python Azure-Search-dokument 11,0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Stable | Nytt klient bibliotek från Azure .NET SDK, lanserat juli 2020. Mål för search REST API-version = 2019-05-06. |
-| [Python Azure-MGMT-search 1,0](https://docs.microsoft.com/python/api/overview/azure/search?view=azure-python) | Stable | Rikta in the Management REST API-version = 2015-08-19. |
+| [Python Azure-MGMT-search 1,0](/python/api/overview/azure/search?view=azure-python) | Stable | Rikta in the Management REST API-version = 2015-08-19. |

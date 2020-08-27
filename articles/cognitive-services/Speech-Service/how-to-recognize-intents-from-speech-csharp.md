@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
-ms.openlocfilehash: 41ebcb7b44ea88af06a30a611960fd8bb0ceddee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402228"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918799"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Identifiera avsikter från tal med hjälp av tal-SDK för C #
 
@@ -35,7 +36,7 @@ I den här hand boken använder du talet SDK för att utveckla ett C#-konsol pro
 > - Identifiera tal från en fil
 > - Använd asynkron, händelsedriven kontinuerlig igenkänning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att du har följande saker innan du börjar den här guiden:
 
@@ -102,7 +103,7 @@ Sedan lägger du till kod i projektet.
    }
    ```
 
-1. Skapa en tom asynkron metod `RecognizeIntentAsync()`som visas här:
+1. Skapa en tom asynkron metod `RecognizeIntentAsync()` som visas här:
 
    ```csharp
    static async Task RecognizeIntentAsync()
@@ -128,7 +129,7 @@ Följande avsnitt innehåller en beskrivning av koden.
 
 ## <a name="create-an-intent-recognizer"></a>Skapa en avsiktsigenkännare
 
-Först måste du skapa en tal konfiguration från LUIS slut punkts nyckel och region. Du kan använda tal konfigurationer för att skapa igenkänningar för de olika funktionerna i tal-SDK: n. Tal konfigurationen har flera olika sätt att ange den prenumeration som du vill använda. här använder `FromSubscription`vi, som tar prenumerations nyckeln och regionen.
+Först måste du skapa en tal konfiguration från LUIS slut punkts nyckel och region. Du kan använda tal konfigurationer för att skapa igenkänningar för de olika funktionerna i tal-SDK: n. Tal konfigurationen har flera olika sätt att ange den prenumeration som du vill använda. här använder vi `FromSubscription` , som tar prenumerations nyckeln och regionen.
 
 > [!NOTE]
 > Använd nyckel och region för din LUIS-prenumeration, inte en röst tjänst prenumeration.
@@ -139,7 +140,7 @@ Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecogn
 
 Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingModel.FromAppId()` och lägger till de LUIS-avsikter som du vill känna igen igenkännarens `AddIntent()`-metod. De här två stegen förbättrar taligenkänningens noggrannhet genom att ange ord som det är troligt att användaren använder i sina begäranden. Du behöver inte lägga till alla appens avsikter om du inte behöver känna igen dem i ditt program.
 
-Om du vill lägga till avsikter måste du ange tre argument: LUIS-modellen (som har skapats och är namngiven `model`), namnet på avsikten och ett AVSIKTS-ID. Skillnaden mellan ID och namnet är som följer.
+Om du vill lägga till avsikter måste du ange tre argument: LUIS-modellen (som har skapats och är namngiven `model` ), namnet på avsikten och ett avsikts-ID. Skillnaden mellan ID och namnet är som följer.
 
 | `AddIntent()`&nbsp;påstående | Syfte |
 | --------------------------- | ------- |
@@ -162,7 +163,7 @@ När igenkännaren har skapats och avsikterna lagts till kan igenkänningen bör
 | Igenkänningsläge | Metoder att anropa | Resultat |
 | ---------------- | --------------- | ------ |
 | Engångsigenkänning | `RecognizeOnceAsync()` | Returnerar den igenkända avsikten, om sådan finns, efter ett yttrande. |
-| Kontinuerlig igenkänning | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när resultatet är tillgängligt. |
+| Kontinuerlig igenkänning | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived` ) när resultatet är tillgängligt. |
 
 Programmet använder ett enda bilds läge och anropar `RecognizeOnceAsync()` för att börja känna igen. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. Du extraherar LUIS JSON-svaret med hjälp av följande uttryck:
 
@@ -176,15 +177,15 @@ Programmet kan inte parsa JSON-resultatet. Den visar bara JSON-texten i konsol f
 
 ## <a name="specify-recognition-language"></a>Ange igenkänningsspråk
 
-Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Du kan till exempel `config.SpeechRecognitionLanguage = "de-de";` lägga till i vårt program innan du skapar tolken för att identifiera avsikter på tyska. Mer information finns i [språk stöd för Luis](../LUIS/luis-language-support.md#languages-supported).
+Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Du kan till exempel lägga till `config.SpeechRecognitionLanguage = "de-de";` i vårt program innan du skapar tolken för att identifiera avsikter på tyska. Mer information finns i [språk stöd för Luis](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 
-Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du igenkännings `StartContinuousRecognitionAsync()` metoden för att starta igenkänning i stället för `RecognizeOnceAsync()`.
+Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du igenkännings `StartContinuousRecognitionAsync()` metoden för att starta igenkänning i stället för `RecognizeOnceAsync()` .
 
 Den andra funktionen är att läsa det ljud som innehåller det tal som ska bearbetas från en WAV-fil. Implementeringen innebär att skapa en ljud konfiguration som kan användas när du skapar typen av avsikts igenkänning. Filen måste vara enkanalig (mono) med en samplingsfrekvens på 16 kHz.
 
-Om du vill testa dessa funktioner tar du bort eller kommenterar bröd texten `RecognizeIntentAsync()` i metoden och lägger till följande kod i dess ställe.
+Om du vill testa dessa funktioner tar du bort eller kommenterar bröd texten i `RecognizeIntentAsync()` metoden och lägger till följande kod i dess ställe.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

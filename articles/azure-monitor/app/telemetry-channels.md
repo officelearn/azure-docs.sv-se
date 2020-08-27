@@ -3,13 +3,14 @@ title: Telemetri kanaler i Azure Application Insights | Microsoft Docs
 description: 'Så här anpassar du telemetri kanaler i Azure Application Insights SDK: er för .NET och .NET Core.'
 ms.topic: conceptual
 ms.date: 05/14/2019
+ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: b5ae1ee1e4bf9f64eb4587f0ceb76972a4571b2e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318937"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918408"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Telemetri kanaler i Application Insights
 
@@ -19,7 +20,7 @@ Telemetri kanaler är en integrerad del av [Azure Application Insights SDK](./ap
 
 Telemetri kanaler är ansvariga för att buffra telemetri-objekt och skicka dem till den Application Insights tjänsten där de lagras för frågor och analyser. En telemetri kanal är en klass som implementerar [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) gränssnittet.
 
-`Send(ITelemetry item)`Metoden för en telemetri-kanal anropas efter att alla telemetri-och telemetri-processorer har anropats. Det innebär att alla objekt som släppts av en telemetri-processor inte når kanalen. `Send()`skickar vanligt vis inte objekten till Server delen direkt. Normalt buffrar den dem i minnet och skickar dem i batchar för effektiv överföring.
+`Send(ITelemetry item)`Metoden för en telemetri-kanal anropas efter att alla telemetri-och telemetri-processorer har anropats. Det innebär att alla objekt som släppts av en telemetri-processor inte når kanalen. `Send()` skickar vanligt vis inte objekten till Server delen direkt. Normalt buffrar den dem i minnet och skickar dem i batchar för effektiv överföring.
 
 [Live Metrics Stream](live-stream.md) har också en anpassad kanal som kan utnyttja Direktsänd strömning av telemetri. Den här kanalen är oberoende av den ordinarie telemetri-kanalen och det här dokumentet gäller inte för det.
 
@@ -39,7 +40,7 @@ Application Insights .NET-och .NET Core SDK: er levereras med två inbyggda kana
 
 Du konfigurerar en telemetri-kanal genom att ställa in den på den aktiva telemetri-konfigurationen. För ASP.NET-program innebär konfigurationen att ställa in telemetri kanal instansen till `TelemetryConfiguration.Active` eller genom att ändra `ApplicationInsights.config` . För ASP.NET Core-program innebär konfigurationen att lägga till kanalen i behållaren för beroende inmatning.
 
-I följande avsnitt visas exempel på hur du konfigurerar `StorageFolder` inställningen för kanalen i olika program typer. `StorageFolder`är bara en av de konfigurerbara inställningarna. En fullständig lista över konfigurations inställningar finns i [avsnittet Inställningar](#configurable-settings-in-channels) längre fram i den här artikeln.
+I följande avsnitt visas exempel på hur du konfigurerar `StorageFolder` inställningen för kanalen i olika program typer. `StorageFolder` är bara en av de konfigurerbara inställningarna. En fullständig lista över konfigurations inställningar finns i [avsnittet Inställningar](#configurable-settings-in-channels) längre fram i den här artikeln.
 
 ### <a name="configuration-by-using-applicationinsightsconfig-for-aspnet-applications"></a>Konfiguration med hjälp av ApplicationInsights.config för ASP.NET-program
 
@@ -108,9 +109,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 ## <a name="operational-details-of-servertelemetrychannel"></a>Drift information om ServerTelemetryChannel
 
-`ServerTelemetryChannel`lagrar inkommande objekt i en minnes intern buffert. Objekten serialiseras, komprimeras och lagras i en `Transmission` instans var 30: e sekund, eller när 500-objekt har buffrats. En enskild `Transmission` instans innehåller upp till 500 objekt och representerar en batch med telemetri som skickas via ett enda https-anrop till Application Insights tjänsten.
+`ServerTelemetryChannel` lagrar inkommande objekt i en minnes intern buffert. Objekten serialiseras, komprimeras och lagras i en `Transmission` instans var 30: e sekund, eller när 500-objekt har buffrats. En enskild `Transmission` instans innehåller upp till 500 objekt och representerar en batch med telemetri som skickas via ett enda https-anrop till Application Insights tjänsten.
 
-Som standard kan högst 10 `Transmission` instanser skickas parallellt. Om telemetri kommer till snabbare priser, eller om nätverket eller Application Insights Server delen är långsamt, `Transmission` lagras instanser i minnet. Standard kapaciteten för den här InMemory- `Transmission` bufferten är 5 MB. När minnes kapaciteten har överskridits `Transmission` lagras instanser på den lokala disken upp till en gräns på 50 MB. `Transmission`instanser lagras även på den lokala disken när det finns nätverks problem. Endast de objekt som lagras på en lokal disk överleva en program krasch. De skickas när programmet startar igen.
+Som standard kan högst 10 `Transmission` instanser skickas parallellt. Om telemetri kommer till snabbare priser, eller om nätverket eller Application Insights Server delen är långsamt, `Transmission` lagras instanser i minnet. Standard kapaciteten för den här InMemory- `Transmission` bufferten är 5 MB. När minnes kapaciteten har överskridits `Transmission` lagras instanser på den lokala disken upp till en gräns på 50 MB. `Transmission` instanser lagras även på den lokala disken när det finns nätverks problem. Endast de objekt som lagras på en lokal disk överleva en program krasch. De skickas när programmet startar igen.
 
 ## <a name="configurable-settings-in-channels"></a>Konfigurerbara inställningar i kanaler
 
@@ -130,7 +131,7 @@ Här följer de vanligaste inställningarna för `ServerTelemetryChannel` :
 
 ## <a name="which-channel-should-i-use"></a>Vilken kanal ska jag använda?
 
-`ServerTelemetryChannel`rekommenderas för de flesta produktions scenarier som omfattar tids krävande program. `Flush()`Metoden som implementeras av `ServerTelemetryChannel` är inte synkron och garanterar inte heller att skicka alla väntande objekt från minnet eller disken. Om du använder den här kanalen i scenarier där programmet ska stängas av rekommenderar vi att du introducerar en fördröjning efter att ha anropat `Flush()` . Den exakta fördröjning som du kanske behöver är förutsägbar. Det beror på faktorer som hur många objekt eller `Transmission` instanser som finns i minnet, hur många som finns på disk, hur många som skickas till Server delen och om kanalen är i mitten av exponentiella scenarier.
+`ServerTelemetryChannel` rekommenderas för de flesta produktions scenarier som omfattar tids krävande program. `Flush()`Metoden som implementeras av `ServerTelemetryChannel` är inte synkron och garanterar inte heller att skicka alla väntande objekt från minnet eller disken. Om du använder den här kanalen i scenarier där programmet ska stängas av rekommenderar vi att du introducerar en fördröjning efter att ha anropat `Flush()` . Den exakta fördröjning som du kanske behöver är förutsägbar. Det beror på faktorer som hur många objekt eller `Transmission` instanser som finns i minnet, hur många som finns på disk, hur många som skickas till Server delen och om kanalen är i mitten av exponentiella scenarier.
 
 Om du behöver göra en synkron tömning rekommenderar vi att du använder `InMemoryChannel` .
 
@@ -138,7 +139,7 @@ Om du behöver göra en synkron tömning rekommenderar vi att du använder `InMe
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Garanterar Application Insights-kanalen för telemetri? I så fall, vilka scenarier kan telemetri gå förlorade?
 
-Det korta svaret är att ingen av de inbyggda kanalerna ger en garanti för att en transaktions typ garanterar telemetri till Server delen. `ServerTelemetryChannel`är mer avancerad jämfört med `InMemoryChannel` för tillförlitlig leverans, men det gör också bara ett bästa försök att skicka telemetri. Telemetri kan fortfarande gå förlorat i flera situationer, inklusive dessa vanliga scenarier:
+Det korta svaret är att ingen av de inbyggda kanalerna ger en garanti för att en transaktions typ garanterar telemetri till Server delen. `ServerTelemetryChannel` är mer avancerad jämfört med `InMemoryChannel` för tillförlitlig leverans, men det gör också bara ett bästa försök att skicka telemetri. Telemetri kan fortfarande gå förlorat i flera situationer, inklusive dessa vanliga scenarier:
 
 1. Objekt i minnet går förlorade när programmet kraschar.
 

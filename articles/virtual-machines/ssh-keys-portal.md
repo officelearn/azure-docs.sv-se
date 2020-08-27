@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041756"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929454"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Skapa och lagra SSH-nycklar i Azure Portal
 
@@ -28,7 +28,7 @@ Mer detaljerad information om hur du skapar och använder SSH-nycklar med virtue
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 
-1. Skriv *SSH* att söka efter längst upp på sidan. Under **Marketplace*väljer du **SSH-nycklar**.
+1. Skriv *SSH* att söka efter längst upp på sidan. Under **Marketplace**väljer du **SSH-nycklar**.
 
 1. På sidan **SSH-nyckel** väljer du **skapa**.
 
@@ -61,7 +61,7 @@ Mer detaljerad information om hur du skapar och använder SSH-nycklar med virtue
 ssh -i <path to the .pem file> username@<ipaddress of the VM>
 ```
 
-Skriv till exempel:`ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
+Skriv till exempel: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 
 
 ## <a name="upload-an-ssh-key"></a>Ladda upp en SSH-nyckel
@@ -89,6 +89,20 @@ Du kan också ladda upp en offentlig SSH-nyckel för att lagra i Azure. Informat
 1. När verifieringen är klar väljer du **skapa**. 
 
 När nyckeln har laddats upp kan du välja att använda den när du skapar en virtuell dator.
+
+## <a name="list-keys"></a>Lista nycklar
+
+SSH-nycklar som skapas i portalen lagras som resurser, så du kan filtrera vyn resurser för att se alla.
+
+1. I portalen väljer du **alla resurs**.
+1. I filtren väljer du **typ**, avmarkerar alternativet **Välj alla** för att rensa listan.
+1. Skriv **SSH** i filtret och välj **SSH-nyckel**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Skärm bild av hur du filtrerar listan för att se alla dina SSH-nycklar.":::
+
+## <a name="get-the-public-key"></a>Hämta den offentliga nyckeln
+
+Om du behöver din offentliga nyckel kan du enkelt kopiera den från Portal sidan för nyckeln. Visa bara dina nycklar (med processen i det sista avsnittet) och välj sedan en nyckel i listan. Sidan för din nyckel öppnas och du kan klicka på ikonen **Kopiera till Urklipp** bredvid nyckeln för att kopiera den.
 
 ## <a name="next-steps"></a>Nästa steg
 

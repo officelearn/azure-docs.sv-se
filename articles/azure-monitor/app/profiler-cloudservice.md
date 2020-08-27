@@ -2,16 +2,17 @@
 title: Profilera Live Azure-Cloud Services med Application Insights | Microsoft Docs
 description: Aktivera Application Insights Profiler för Azure Cloud Services.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8119477a69771c67db1f1e59c082d5d0d611214b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 69a9ba316a1fda14a2e85d4d981321d4b2f9f289
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87305864"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930323"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profilera Live Azure-Cloud Services med Application Insights
 
@@ -63,7 +64,7 @@ Application Insights Profiler installeras med Azure-diagnostik-tillägget. Du be
     > * Nyckeln som används av ApplicationInsights-mottagaren. 
     > * Nyckeln som används av ApplicationInsightsProfiler-mottagaren. 
     >
-    > Du kan hitta det faktiska Instrumentation-nyckelvärdet som används av `ApplicationInsights` mottagaren i *ServiceConfiguration. \* . cscfg* -filer. 
+    > Du kan hitta det faktiska Instrumentation-nyckelvärdet som används av `ApplicationInsights` mottagaren i     *ServiceConfiguration. \* . cscfg* -filer. 
     > Efter versionen av Visual Studio 15,5 Azure SDK måste bara de Instrumentation-nycklar som används av programmet och ApplicationInsightsProfiler-mottagare matcha varandra.
 
 1. Distribuera tjänsten med den nya konfigurationen av diagnostik och Application Insights Profiler konfigureras för att köras på din tjänst.

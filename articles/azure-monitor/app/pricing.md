@@ -2,16 +2,17 @@
 title: Hantera användning och kostnader för Azure Application Insights | Microsoft Docs
 description: Hantera telemetri volymer och övervaka kostnader i Application Insights.
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3914764035d65482bcf224f8d0eda9c6579e03a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87309689"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930493"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -79,7 +80,7 @@ Om du vill veta mer om dina data volymer väljer du **mått** för din Applicati
 
 ### <a name="queries-to-understand-data-volume-details"></a>Frågor för att förstå data volym information
 
-Det finns två metoder för att undersöka data volymer för Application Insights. Det första använder aggregerad information i `systemEvents` tabellen och den andra använder `_BilledSize` egenskapen som är tillgänglig för varje inmatad händelse. `systemEvents`kommer inte att ha information om data storlek för [arbets ytans baserade-Application-Insights](#data-volume-for-workspace-based-application-insights-resources).
+Det finns två metoder för att undersöka data volymer för Application Insights. Det första använder aggregerad information i `systemEvents` tabellen och den andra använder `_BilledSize` egenskapen som är tillgänglig för varje inmatad händelse. `systemEvents` kommer inte att ha information om data storlek för [arbets ytans baserade-Application-Insights](#data-volume-for-workspace-based-application-insights-resources).
 
 #### <a name="using-aggregated-data-volume-information"></a>Använda information om sammanställd data volym
 
@@ -215,7 +216,7 @@ Granska Application Insights användning och beräknade kostnader för att förs
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
-Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera** i Application Insights resurs, på sidan **användning och uppskattade kostnader** och väljer **dagligt tak**.
+Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera** i Application Insights resurs, på sidan **användning och uppskattade kostnader** och väljer  **dagligt tak**.
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
@@ -239,7 +240,7 @@ Det finns flera former av sampling.
 * [Adaptiv sampling](./sampling.md) är standard för ASP.NET SDK. Anpassningsbara samplingar justerar automatiskt till den telemetri som appen skickar. Den fungerar automatiskt i SDK: n i din webbapp så att telemetri i nätverket minskas. 
 * Inmatnings *sampling* är ett alternativ som fungerar på den plats där telemetri från din app går in i Application Insights tjänsten. Provtagnings sampling påverkar inte mängden telemetri som skickas från din app, men den minskar volymen som behålls av tjänsten. Du kan använda samplings sampling för att minska den kvot som används av telemetri från webbläsare och andra SDK: er.
 
-Om du vill ange insamlings sampling går du till fönstret **priser** :
+Om du vill ange insamlings sampling går du till fönstret  **priser** :
 
 ![I fönstret kvot och priser väljer du panelen exempel och väljer sedan en samplings fraktion](./media/pricing/pricing-004.png)
 

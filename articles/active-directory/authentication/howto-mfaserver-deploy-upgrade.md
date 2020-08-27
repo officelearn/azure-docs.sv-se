@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe40cd68074d4857b9869f29173ec3e6f78379d
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 455df5d2bf6003dd06a11f93d3e0d70ab9e11ee2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054008"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919530"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Uppgradera till den senaste versionen av Azure Multi-Factor Authentication Server
 
@@ -25,7 +25,11 @@ Den här artikeln vägleder dig genom processen för att uppgradera Azure Multi-
 Om du uppgraderar från v6. x eller äldre till v7. x eller senare ändras alla komponenter från .NET 2,0 till .NET 4,5. Alla komponenter kräver också Microsoft Visual C++ 2015 Redistributable Update 1 eller senare. MFA Server Installer installerar både x86-och x64-versionerna av dessa komponenter om de inte redan är installerade. Om användar portalen och webb tjänsten Mobile App körs på separata servrar måste du installera dessa paket innan du uppgraderar dessa komponenter. Du kan söka efter den senaste uppdateringen för Microsoft Visual C++ 2015 Redistributable på [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från den 1 juli 2019 erbjuder Microsoft inte längre MFA-Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication (MFA) vid inloggnings händelser bör använda molnbaserad Azure-Multi-Factor Authentication.
+>
+> Information om hur du kommer igång med molnbaserad MFA finns i [Självstudier: skydda användar inloggnings händelser med Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Befintliga kunder som aktiverade MFA server före den 1 juli 2019 kan ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
 Att snabbt uppgradera steg:
 

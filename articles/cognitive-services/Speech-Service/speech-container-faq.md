@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 10a75d19b7fb134b8e7498c422742e00f6475da5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: b13a6944290f58f5ede239dee60610d67fff8b1c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690212"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918476"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om tjänsten för tal tjänst behållare
 
@@ -97,7 +98,7 @@ De underhålls kostnader som betalas ut till Microsoft beror på tjänst nivå o
 
 **Svar:** `speech_recognition_language=<YOUR_LANGUAGE>` Ska konfigureras explicit i begäran om de använder en kol-klient.
 
-Exempel:
+Ett exempel:
 
 ```python
 if not recognize_once(
@@ -292,7 +293,7 @@ Kan du fylla i följande test mått, inklusive vilka funktioner som ska testas o
 | Slutpunkt                                                | Funktionellt test                                                   | SDK | REST-API |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
 | `/speech/synthesize/cognitiveservices/v1`               | Syntetisera text (text till tal)                                  |     | Ja      |
-| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services lokal Diktering v1 WebSocket-slutpunkt        | Ja | Nej       |
+| `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services lokal Diktering v1 WebSocket-slutpunkt        | Ja | Inga       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | Den Cognitive Services lokal interaktiva v1 WebSocket-slutpunkten  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | Kognitiva tjänster på lokal-konversation v1 WebSocket-slutpunkt |     |          |
 

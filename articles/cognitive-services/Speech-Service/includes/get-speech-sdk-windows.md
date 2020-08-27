@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399871"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944349"
 ---
 :::row:::
     :::column span="3":::
@@ -27,9 +28,9 @@ ms.locfileid: "81399871"
 
 Talet SDK i Windows kräver <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable för Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i systemet.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installera för x86<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installera för x64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installera för ARMx64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installera för x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installera för x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installera för ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ### <a name="c"></a>C#
 
@@ -39,16 +40,16 @@ För inmatade mikrofoner måste Media Foundation-bibliotek installeras. Dessa bi
 
 De nödvändiga SDK-filerna för tal kan distribueras i samma katalog som ditt program. På så sätt kan ditt program komma åt biblioteken direkt. Kontrol lera att du väljer rätt version (x86/x64) som matchar ditt program.
 
-| Name                                            | Funktion                                             |
+| Namn                                            | Funktion                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | Core SDK, krävs för intern och hanterad distribution |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Krävs för hanterad distribution                      |
 
 > [!NOTE]
-> Från och med versionen av 1.3.0 behövs `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` inte längre filen (levererades i tidigare versioner). Funktionerna är nu integrerade i Core SDK.
+> Från och med versionen av 1.3.0 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` behövs inte längre filen (levererades i tidigare versioner). Funktionerna är nu integrerade i Core SDK.
 
 > [!IMPORTANT]
-> Se till att biblioteken ingår i projektets distributions inställningar för Windows Forms app (.NET Framework) C#-projekt. Du kan kontrol lera detta `Properties -> Publish Section`under. Klicka på `Application Files` knappen och hitta motsvarande bibliotek i listan rulla nedåt. Kontrol lera att värdet är inställt på `Included`. Visual Studio kommer att inkludera filen när projektet publiceras/distribueras.
+> Se till att biblioteken ingår i projektets distributions inställningar för Windows Forms app (.NET Framework) C#-projekt. Du kan kontrol lera detta under `Properties -> Publish Section` . Klicka på `Application Files` knappen och hitta motsvarande bibliotek i listan rulla nedåt. Kontrol lera att värdet är inställt på `Included` . Visual Studio kommer att inkludera filen när projektet publiceras/distribueras.
 
 ### <a name="c"></a>C++
 

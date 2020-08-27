@@ -1,5 +1,5 @@
 ---
-title: Testa din app med anpassade kommandon
+title: Testa din app för anpassade kommandon
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln får du lära dig olika metoder för att testa ett program för anpassade kommandon.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: a7992a2a27822f87cc8667ff86f642d1d47d09aa
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ec8e40c0908855cd06d647bdd9121106e3553c11
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307948"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918918"
 ---
 # <a name="test-your-custom-commands-application"></a>Testa dina anpassade kommandon-program
 

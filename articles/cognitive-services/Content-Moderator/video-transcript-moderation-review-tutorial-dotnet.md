@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 3e83781a5ac8270cef37346b5850edd95a102f6a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1f5a68bcf0069663d8ef1101407bea7ee26e9e8b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834413"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919299"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudie: Moderering av video och avskrift
 
@@ -236,7 +237,7 @@ Modereringsprocessen returnerar en lista med nyckelbildrutor från videon, tills
 > [!NOTE]
 > Konsolprogrammet använder [FFmpeg](https://ffmpeg.org/)-biblioteket till att generera miniatyrer. De här miniatyrerna (bilder) motsvarar bildrutans tidsstämplar i videoändringens utdata.
 
-|Aktivitet|Metoder|Fil|
+|Uppgift|Metoder|Fil|
 |-|-|-|
 |Extraherar nyckelbildrutorna från videon och skapar miniatyrbilder av dem|`CreateVideoFrames()`<br>`GenerateFrameImages()`|`FrameGeneratorServices.cs`|
 |Genomsöker textavskriften, om det finns någon, för att hitta vuxet eller olämpligt ljud|`GenerateTextScreenProfanity()`| `VideoReviewAPI.cs`|
@@ -252,7 +253,7 @@ Fram tills nu har koden som visas i den här självstudien fokuserat på visuell
 
 Programmet utför följande uppgifter:
 
-|Aktivitet|Metoder|Fil|
+|Uppgift|Metoder|Fil|
 |-|-|-|
 |Bestämmer om textavskrifter ska genereras|`Main()`<br>`GetUserInputs()`|`Program.cs`|
 |I dessa fall skickas ett avskriftsjobb som en del av modereringen|`ConfigureTranscriptTask()`|`VideoModerator.cs`|

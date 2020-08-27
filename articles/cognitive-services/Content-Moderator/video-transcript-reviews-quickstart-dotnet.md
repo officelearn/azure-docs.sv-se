@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f2d0ddae8a9bd8054c740402b8beb3bb0bccfa9f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73744387"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919224"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Skapa video avskrifts granskningar med hjälp av .NET
 
@@ -25,7 +26,7 @@ Den här artikeln innehåller information och kod exempel som hjälper dig att s
 - Lägg till en kontrollerad avskrift i granskningen
 - Publicera granskningen
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Logga in eller skapa ett konto på webbplatsen för Content Moderator [Granska verktyg](https://contentmoderator.cognitive.microsoft.com/) om du inte redan har gjort det.
 - Den här artikeln förutsätter att du har förstorat [videon](video-moderation-api.md) och [skapat video granskningen](video-reviews-quickstart-dotnet.md) i gransknings verktyget för mänsklig besluts fattande. Nu vill du lägga till kontrollerade video avskrifter i gransknings verktyget.
@@ -80,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>Lägga till privata egenskaper
 
-Lägg till följande privata egenskaper i namn området **VideoTranscriptReviews**, klass **program**. Uppdatera fälten `AzureEndpoint` och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
+Lägg till följande privata egenskaper i namn området **VideoTranscriptReviews**, klass **program**. Uppdatera `AzureEndpoint` fälten och `CMSubscriptionKey` med värdena för slut punkts-URL: en och prenumerations nyckeln. Du hittar dessa på fliken **snabb start** i resursen i Azure Portal.
 
 ```csharp
 namespace VideoReviews
@@ -144,7 +145,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **ilist\<CreateVideoReviewsBodyItem->** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **ilist \<CreateVideoReviewsBodyItem> ** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -152,7 +153,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 - **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en ilist\<-sträng>. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
+> **CreateVideoReviews** returnerar en ilist \<string> . Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** .
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -234,15 +235,15 @@ Förutom att lägga till en avskrift till en video granskning lägger du också 
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. En IList\<TranscriptModerationBodyItem->. En **TranscriptModerationBodyItem** har följande egenskaper:
-1. **Villkor**. En IList\<TranscriptModerationBodyItemTermsItem->. En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
+1. En IList \<TranscriptModerationBodyItem> . En **TranscriptModerationBodyItem** har följande egenskaper:
+1. **Villkor**. En IList \<TranscriptModerationBodyItemTermsItem> . En **TranscriptModerationBodyItemTermsItem** har följande egenskaper:
 1. **Index**. Det nollbaserade indexet för termen.
 1. **Term**. En sträng som innehåller termen.
 1. **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i avskriften där villkoren påträffades.
 
 Avskriften måste vara i WebVTT-formatet. Mer information finns i [webvtt: webb videons text spår format](https://www.w3.org/TR/webvtt1/).
 
-Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList\<-TranscriptModerationBodyItem> och skickas till **AddVideoTranscriptModerationResult**.
+Lägg till följande metod definition i namn området VideoTranscriptReviews, klass program. Den här metoden skickar en avskrift till metoden **ContentModeratorClient. TextModeration. ScreenText** . Det översätter också resultatet till en IList \<TranscriptModerationBodyItem> och skickas till **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -366,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navigera till din video avskrifts granskning
 
-Gå till granskningen av video avskriften i Content moderator gransknings verktyget på skärmen **Granska**>**video**>**avskrift** .
+Gå till granskningen av video avskriften i Content moderator gransknings verktyget på skärmen **Granska** > **video** > **avskrift** .
 
 Följande funktioner visas:
 - De två avskrifts raderna som du har lagt till

@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för Hyper-V
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella Hyper-V-datorer.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 56b034709309a3afe9d18df7af9ababc74a24cee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109713"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929961"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Konfigurera en installation för virtuella Hyper-V-datorer
 
@@ -27,19 +27,28 @@ När du har skapat enheten kontrollerar du att den kan ansluta till Azure Migrat
 
 Så här konfigurerar du installationen med en VHD-mall:
 
+- Ange ett namn på apparaten och generera en Azure Migrate projekt nyckel i portalen.
 - Ladda ned en komprimerad virtuell Hyper-V-hårddisk från Azure Portal.
 - Skapa installationen och kontrol lera att den kan ansluta till Azure Migrate Server utvärdering.
-- Konfigurera enheten för första gången och registrera den med Azure Migrate-projektet.
+- Konfigurera enheten för första gången och registrera den med det Azure Migrate projektet med hjälp av Azure Migrate projekt nyckeln.
 
-## <a name="download-the-vhd"></a>Ladda ned den virtuella hård disken
+### <a name="generate-the-azure-migrate-project-key"></a>Generera Azure Migrate projekt nyckel
 
-Hämta den zippade VHD-mallen för enheten.
+1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**väljer du **identifiera**.
+2. I **identifiera datorer**  >  **är dina datorer virtualiserade?** väljer du **Ja, med Hyper-V**.
+3. I **1: generera Azure Migrate projekt nyckel**anger du ett namn för Azure Migrate-installationen som ska konfigureras för identifiering av virtuella Hyper-V-datorer. namnet måste vara alfanumeriskt med 14 tecken eller färre.
+1. Klicka på **generera nyckel** för att starta skapandet av de nödvändiga Azure-resurserna. Stäng inte sidan identifiera datorer när du skapar resurser.
+1. När Azure-resurserna har skapats skapas en **Azure Migrate projekt nyckel** .
+1. Kopiera nyckeln på samma sätt som du behöver den för att slutföra registreringen av enheten under konfigurationen.
 
-1. I **mål**  >  **servrar**för migrering  >  **Azure Migrate: Server utvärdering**, klicka på **identifiera**.
-2. I **identifiera datorer**  >  **är dina datorer virtualiserade?**, klicka på **Ja, med Hyper-V**.
-3. Klicka på **Ladda ned** för att ladda ned VHD-filen.
+### <a name="download-the-vhd"></a>Ladda ned den virtuella hård disken
 
-    ![Hämta virtuell dator](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+I **2: Ladda ned Azure Migrate-enheten**väljer du. VHD-fil och klicka på **Hämta**. 
+
+   ![Val för identifiering av datorer](./media/tutorial-assess-hyper-v/servers-discover.png)
+
+
+   ![Val för generera nyckel](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
 
 ### <a name="verify-security"></a>Verifiera säkerhet
@@ -79,34 +88,39 @@ Importera den hämtade filen och skapa den virtuella datorn.
 
 Se till att den virtuella datorns virtuella datorer kan ansluta till Azure-URL: er för [offentliga](migrate-appliance.md#public-cloud-urls) och [offentliga](migrate-appliance.md#government-cloud-urls) moln.
 
-## <a name="configure-the-appliance"></a>Konfigurera installationen
+### <a name="configure-the-appliance"></a>Konfigurera installationen
 
-Konfigurera enheten för första gången. Om du distribuerar installationen med hjälp av ett skript i stället för en virtuell hård disk är de två första stegen i proceduren inte tillämpliga.
+Konfigurera enheten för första gången.
+
+> [!NOTE]
+> Om du ställer in installationen med hjälp av ett [PowerShell-skript](deploy-appliance-script.md) i stället för den hämtade virtuella hård disken är de två första stegen i den här proceduren inte relevanta.
 
 1. I Hyper-V Manager > **Virtual Machines**högerklickar du på den virtuella datorn > **Anslut**.
 2. Ange språk, tidszon och lösen ord för enheten.
 3. Öppna en webbläsare på vilken dator som helst som kan ansluta till den virtuella datorn och öppna URL: en för installations programmets webbapp: **https://-enhetens*namn eller IP-adress*: 44368**.
 
    Alternativt kan du öppna appen från apparatens skriv bord genom att klicka på genvägen till appen.
+1. Godkänn **licens villkoren**och Läs informationen från tredje part.
 1. I webbappen > **Konfigurera krav**gör du följande:
-    - **Licens**: Godkänn licens villkoren och Läs informationen från tredje part.
     - **Anslutning**: appen kontrollerar att den virtuella datorn har Internet åtkomst. Om den virtuella datorn använder en proxyserver:
-        - Klicka på **proxyinställningar**och ange proxyadress och lyssnings port i formuläret http://ProxyIPAddress eller http://ProxyFQDN .
-        - Ange autentiseringsuppgifter om proxyn kräver autentisering.
-        - Endast HTTP-proxy stöds.
+      - Klicka på **Konfigurera proxy** till och ange proxyadress (i formuläret http://ProxyIPAddress eller http://ProxyFQDN) lyssnande port.
+      - Ange autentiseringsuppgifter om proxyn kräver autentisering.
+      - Endast HTTP-proxy stöds.
+      - Om du har lagt till proxyinformation eller inaktiverat proxyn och/eller autentiseringen, klickar du på **Spara** för att utlösa anslutnings kontrollen igen.
     - **Tidssynkronisering**: tiden har verifierats. Tiden för installationen bör vara synkroniserad med Internet-tid för att VM-identifieringen ska fungera korrekt.
-    - **Installera uppdateringar**: Azure Migrate Server Assessment kontrollerar att installations programmet har de senaste uppdateringarna installerade.
+    - **Installera uppdateringar**: Azure Migrate Server Assessment kontrollerar att installations programmet har de senaste uppdateringarna installerade. När kontrollen är klar kan du klicka på **Visa apparat-tjänster** för att se status och versioner för komponenterna som körs på produkten.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrera enheten med Azure Migrate
 
-1. Klicka på **Logga**in. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
-2. På fliken nytt loggar du in med dina Azure-autentiseringsuppgifter.
-    - Logga in med ditt användar namn och lösen ord.
-    - Inloggning med en PIN-kod stöds inte.
-3. När du har loggat in går du tillbaka till webbappen.
-4. Välj den prenumeration där Azure Migrate projektet skapades. Välj sedan projektet.
-5. Ange ett namn för enheten. Namnet måste vara alfanumeriskt med 14 tecken eller mindre.
-6. Klicka på **Registrera**.
+1. Klistra in **Azure Migrate projekt nyckeln** som har kopierats från portalen. Om du inte har nyckeln går du till **Server utvärdering> identifiera> hantera befintliga apparater**, väljer det installations namn som du angav vid tidpunkten för att generera nyckeln och kopierar motsvarande nyckel.
+1. Klicka på **Logga**in. En Azure-inloggning visas i en ny flik i webbläsaren. Om den inte visas kontrollerar du att du har inaktiverat blockering av popup-fönster i webbläsaren.
+1. På fliken nytt loggar du in med ditt användar namn och lösen ord för Azure.
+   
+   Inloggning med en PIN-kod stöds inte.
+3. När du har loggat in går du tillbaka till webbappen. 
+4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](tutorial-prepare-hyper-v.md#prepare-azure) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
+1. När installationen av enheten har registrerats kan du se registrerings informationen genom att klicka på **Visa information**.
+
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegera autentiseringsuppgifter för SMB-VHD: er
@@ -123,22 +137,33 @@ Om du kör virtuella hård diskar på SMB: er måste du aktivera delegering av a
     - I dator konfiguration för **lokal dator princip**  >  **Computer Configuration**klickar du på **administrativa mallar**  >  **System**  >  **delegering av systemautentiseringsuppgifter**.
     - Dubbelklicka på **Tillåt att delegera nya autentiseringsuppgifter**och välj **aktive rad**.
     - I **alternativ**klickar du på **Visa**och lägger till varje Hyper-V-värd som du vill identifiera i listan med **WSMan/** som prefix.
-    - I **delegering av autentiseringsuppgifter**dubbelklickar du på **Tillåt att delegera nya AUTENTISERINGSUPPGIFTER med endast NTLM-** serverautentisering. Lägg återigen till varje Hyper-V-värd som du vill identifiera i listan, med **WSMan/** som prefix.
+    - I  **delegering av autentiseringsuppgifter**dubbelklickar du på **Tillåt att delegera nya AUTENTISERINGSUPPGIFTER med endast NTLM-** serverautentisering. Lägg återigen till varje Hyper-V-värd som du vill identifiera i listan, med **WSMan/** som prefix.
 
 ## <a name="start-continuous-discovery"></a>Starta kontinuerlig identifiering
 
 Anslut från enheten till Hyper-V-värdar eller-kluster och starta VM-identifiering.
 
-1. I **användar namn** och **lösen ord**anger du de kontoautentiseringsuppgifter som installationen ska använda för att identifiera virtuella datorer. Ange ett eget namn för autentiseringsuppgifterna och klicka på **Spara information**.
-2. Klicka på **Lägg till värd**och ange information om Hyper-V-värd/kluster.
-3. Klicka på **Validate** (Validera). Efter verifieringen visas antalet virtuella datorer som kan identifieras på varje värd/kluster.
-    - Om verifieringen Miss lyckas för en värd granskar du felet genom att hovra över ikonen i kolumnen **status** . Åtgärda problem och verifiera igen.
-    - Om du vill ta bort värdar eller kluster väljer du > **ta bort**.
+1. I **steg 1: ange autentiseringsuppgifter för Hyper-v-värden**, klickar du på **Lägg till autentiseringsuppgifter** för att ange ett eget namn för autentiseringsuppgifter, lägga till **användar namn** och **lösen ord** för en Hyper-v-värd/-kluster som installationen ska använda för att identifiera virtuella datorer. Klicka på **Spara**.
+1. Om du vill lägga till flera autentiseringsuppgifter samtidigt klickar du på **Lägg till fler** för att spara och lägga till fler autentiseringsuppgifter. Flera autentiseringsuppgifter stöds för identifiering av virtuella Hyper-V-datorer.
+1. I **steg 2: Ange information om Hyper-v-värdar/-kluster**klickar du på **Lägg till identifierings källa** för att ange **IP-adress/FQDN** för Hyper-v-värd/kluster och det egna namnet för autentiseringsuppgifter för att ansluta till värden/klustret.
+1. Du kan antingen **lägga till ett enskilt objekt** i taget eller **lägga till flera objekt** i taget. Det finns också ett alternativ för att tillhandahålla information om Hyper-V-värdar/-kluster via **import-CSV**.
+
+    ![Val för att lägga till identifierings källa](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+
+    - Om du väljer **Lägg till enstaka objekt**måste du ange ett eget namn för autentiseringsuppgifter och Hyper-V-värd/kluster **-IP-adress/FQDN** och klicka på **Spara**.
+    - Om du väljer **Lägg till flera objekt** _(markerat som standard)_ kan du lägga till flera poster samtidigt genom att ange **IP-adress/FQDN** för Hyper-V-värd/-kluster med det egna namnet för autentiseringsuppgifter i text rutan. **Verifiera** de tillagda posterna och klicka på **Spara**.
+    - Om du väljer **importera CSV**kan du ladda ned en CSV-mallfil, fylla i filen med Hyper-V-värd-/kluster **-IP-adress/FQDN** och eget namn för autentiseringsuppgifter. Sedan kan du importera filen till enheten, **Verifiera** posterna i filen och klicka på **Spara**.
+
+1. När du klickar på Spara kommer installations programmet att försöka verifiera anslutningen till Hyper-V-värdarna/-klustren som lagts till och visa **verifierings status** i tabellen mot varje värd/kluster.
+    - För verifierade värdar/kluster kan du Visa mer information genom att klicka på deras IP-adress/FQDN.
+    - Om verifieringen Miss lyckas för en värd granskar du felet genom att klicka på **verifiering misslyckades** i kolumnen Status i tabellen. Åtgärda problemet och verifiera igen.
+    - Klicka på **ta bort**om du vill ta bort värdar eller kluster.
     - Du kan inte ta bort en speciell värd från ett kluster. Du kan bara ta bort hela klustret.
     - Du kan lägga till ett kluster även om det finns problem med specifika värdar i klustret.
-4. Efter verifieringen klickar du på **Spara och starta identifiering** för att starta identifierings processen.
+1. Du kan **Verifiera** anslutningen till värdarna/klustren varje gång innan du påbörjar identifieringen.
+1. Klicka på **Starta identifiering**för att starta identifiering av virtuell dator från verifierade värdar/kluster. När identifieringen har startats kan du kontrol lera identifierings statusen mot varje värd/kluster i tabellen.
 
-Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för identifierade virtuella datorer som visas i Azure Portal.
+Detta startar identifieringen. Det tar ungefär 2 minuter per värd för metadata för identifierade servrar som visas i Azure Portal.
 
 ## <a name="verify-vms-in-the-portal"></a>Verifiera virtuella datorer i portalen
 

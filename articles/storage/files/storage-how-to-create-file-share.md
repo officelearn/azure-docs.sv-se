@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525657"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930680"
 ---
 # <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 Om du vill skapa en Azure-filresurs måste du svara på tre frågor om hur du ska använda den:
@@ -37,7 +37,7 @@ Mer information om dessa tre alternativ finns i [Planera för en Azure Files dis
 - Om du tänker använda Azure PowerShell [installerar du den senaste versionen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - Om du tänker använda Azure CLI [installerar du den senaste versionen](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
+## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 Azure-filresurser distribueras till *lagrings konton*som är toppnivå objekt som representerar en delad lagringspool. Den här lagringspoolen kan användas för att distribuera flera fil resurser. 
 
 Azure har stöd för flera typer av lagrings konton för olika lagrings scenarier. kunder kan ha, men det finns två huvud typer av lagrings konton för Azure Files. Vilken typ av lagrings konto du behöver skapa beror på om du vill skapa en standard fil resurs eller en Premium fil resurs: 
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> Möjligheten att ange och ändra nivåer via PowerShell finns i modulen för för hands versionen AZ. Storage PowerShell. Dessa cmdletar eller deras utdata kan ändras innan de släpps i den allmänt tillgängliga AZ. Storage PowerShell-modulen, så skapa skript med detta i åtanke.
+
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Funktionen för att skapa eller flytta en fil resurs till en speciell nivå är tillgänglig i den senaste uppdateringen av Azure CLI. Uppdatering av Azure CLI är bara för operativ system/Linux-distributioner som används. Anvisningar om hur du uppdaterar Azure CLI i systemet finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> Möjligheten att ange en nivå med parametern anges `--access-tier` som en för hands version i det senaste Azure CLI-paketet. Det här kommandot eller dess utdata kan ändras innan de markeras som allmänt tillgängliga, så skapa skript med detta i åtanke.
+
 ---
 
 ## <a name="next-steps"></a>Nästa steg

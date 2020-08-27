@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 49a38c06e3a6105ad12133268b83ea73bcea2fc4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bbcc60070a05155a6143d3f1ff4689d44de7b3c7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399919"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944394"
 ---
 :::row:::
     :::column span="3":::
-        .NET Speech SDK är tillgängligt som ett NuGet-paket och implementerar .NET standard 2,0. mer information finns i <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        .NET Speech SDK är tillgängligt som ett NuGet-paket och implementerar .NET standard 2,0. mer information finns i <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -39,4 +40,4 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 #### <a name="additional-resources"></a>Ytterligare resurser
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">Käll kod för .NET Core, .NET Framework, Unity, UWP och Xamarin snabb start C#<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">Käll kod för .NET Core, .NET Framework, Unity, UWP och Xamarin snabb start C# <span class="docon docon-navigate-external x-hidden-focus"></span></a>
